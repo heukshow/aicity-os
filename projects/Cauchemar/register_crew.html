@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Cauchemar Crew | Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+        }
+
+        .neon-purple {
+            color: #bf5af2;
+            text-shadow: 0 0 10px rgba(191, 90, 242, 0.5);
+        }
+
+        .bg-glass {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="antialiased flex items-center justify-center min-h-screen py-20">
+
+    <div class="w-full max-w-md p-8 bg-glass rounded-[40px] border border-white/5 space-y-10">
+        <div class="text-center">
+            <h1 class="text-4xl font-black tracking-tighter uppercase">CAUCHEMAR CREW <span
+                    class="neon-purple">JOIN</span>
+            </h1>
+        </div>
+
+        <form onsubmit="handleRegister(event)" class="space-y-6">
+            <div class="space-y-3">
+                <label
+                    class="text-sm font-bold text-gray-400 uppercase tracking-widest flex justify-between items-center">
+                    Login ID (ZEPETO ID)
+                    <span class="text-[10px] lowercase tracking-normal text-gray-400 font-normal">(로그인 및 제페토 아이디)</span>
+                </label>
+                <input type="text" id="zepeto_id"
+                    class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-xl focus:border-purple-500 focus:outline-none transition"
+                    placeholder="예: oskyoo12" autocomplete="off" required>
+            </div>
+            <div class="space-y-3">
+                <label
+                    class="text-sm font-bold text-gray-400 uppercase tracking-widest flex justify-between items-center">
+                    ZEPETO Profile URL
+                    <span class="text-[10px] lowercase tracking-normal text-gray-400 font-normal">(아이디 입력 시 자동
+                        생성)</span>
+                </label>
+                <input type="text" id="zepeto_url"
+                    class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-base focus:border-purple-500 focus:outline-none transition"
+                    placeholder="https://web.zepeto.me/..." autocomplete="off" required>
+                <p class="text-[10px] text-purple-400/60 pl-2">※ 아이디를 입력하면 프로필 링크가 자동으로 생성됩니다.</p>
+            </div>
+
+            <!-- Revenue Settlement Agreement -->
+            <div class="space-y-3 pt-4 border-t border-white/10">
+                <label class="text-sm font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
+                    Revenue Settlement Agreement
+                    <span class="text-[10px] text-purple-500 bg-purple-500/10 px-2 py-0.5 rounded-full">Required</span>
+                </label>
+                <div
+                    class="w-full h-32 bg-white/5 border border-white/10 rounded-2xl p-4 overflow-y-auto text-[11px] text-gray-400 leading-relaxed scrollbar-thin scrollbar-thumb-white/20">
+                    <p class="font-bold text-white mb-2">[수익 분배 및 정산 동의서]</p>
+                    <p>1. <strong class="text-white">수익 배분:</strong> 크리에이터(귀하)가 제작한 아이템 및 콘텐츠로 발생한 순수익의 <strong>80%는
+                            귀하에게, 20%는 Cauchemar Agency에게</strong> 귀속됩니다.</p>
+                    <p class="mt-2">2. <strong class="text-white">정산 일정:</strong> 정산은 <strong>매월 15일</strong>에 진행됩니다. 단,
+                        제페토 본사의 정책이나 에이전시 법인 계좌의 이체 한도 제한이 발생할 경우, <strong>한도가 해제되는 당일 또는 익일</strong>에 즉시 지급됩니다.</p>
+                    <p class="mt-2">3. <strong class="text-white">권리 및 의무:</strong> 귀하는 본 동의에 서명하지 않을 경우, Cauchemar
+                        Crew의 일원으로서 아이템 업로드 및 포트폴리오 등록 활동을 할 수 없습니다.</p>
+                    <p class="mt-2">4. <strong class="text-white">세금:</strong> 관련 법령에 따라 3.3%의 사업소득세가 원천징수될 수 있습니다.</p>
+                </div>
+                <div class="flex items-center gap-3 pt-2">
+                    <input type="checkbox" id="agree_terms" class="w-5 h-5 accent-purple-500 cursor-pointer rounded">
+                    <label for="agree_terms" class="text-xs text-gray-300 select-none cursor-pointer">위 정산 내용에 동의하며, 이를
+                        준수하겠습니다.</label>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <label class="text-sm font-bold text-gray-400 uppercase tracking-widest">Creator Type (크리에이터 유형)</label>
+                <select id="creator_type"
+                    class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-lg focus:border-purple-500 focus:outline-none transition [&>option]:bg-black text-white"
+                    required>
+                    <option value="" disabled selected>선택해주세요 / Select your specialty</option>
+                    <option value="Item Creator">👕 Item Creator (아이템 제작)</option>
+                    <option value="Video Creator">🎬 Video Creator (영상 제작)</option>
+                    <option value="Image Creator">🖼️ Image Creator (이미지 제작)</option>
+                    <option value="Live Streamer">🎙️ Live Streamer (라이브 방송)</option>
+                    <option value="World Builder">🌍 World Builder (월드 제작)</option>
+                    <option value="Multi-Talented Creator">✨ Multi-Talented Creator (다재다능)</option>
+                </select>
+            </div>
+
+            <div class="space-y-3">
+                <label class="text-sm font-bold text-gray-400 uppercase tracking-widest">Password</label>
+                <input type="password" id="password"
+                    class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-xl focus:border-purple-500 focus:outline-none transition"
+                    required>
+            </div>
+            <div class="space-y-3">
+                <label class="text-sm font-bold text-gray-400 uppercase tracking-widest">Confirm Password</label>
+                <input type="password" id="password_confirm"
+                    class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-xl focus:border-purple-500 focus:outline-none transition"
+                    required>
+            </div>
+            <button type="submit"
+                class="w-full bg-white text-black font-black py-5 rounded-2xl text-xl hover:bg-purple-400 hover:text-white transition shadow-lg uppercase tracking-tighter">
+                Create Account
+            </button>
+        </form>
+
+        <p class="text-center text-sm text-gray-500">
+            Already have an account? <a href="login.html" class="text-purple-400 hover:underline">Log in</a>
+        </p>
+    </div>
+
+    <script>
+        // Auto-fill URL when ID is typed
+        document.getElementById('zepeto_id').addEventListener('input', (e) => {
+            const id = e.target.value.trim();
+            if (id) {
+                // Use the user's preferred "share" format for auto-generation
+                document.getElementById('zepeto_url').value = `https://web.zepeto.me/share/user/profile/${id}`;
+            } else {
+                document.getElementById('zepeto_url').value = '';
+            }
+        });
+
+        // Also allow manual URL extraction if they paste a URL directly into the URL field
+        function extractZepetoId(url) {
+            try {
+                if (!url) return '';
+                // Robust extraction: remove query strings first, then take the last path segment
+                const cleanUrl = url.trim().split('?')[0];
+                const parts = cleanUrl.split('/');
+                const id = parts[parts.length - 1];
+                return id && id.length > 2 ? id : '';
+            } catch (e) {
+                return '';
+            }
+        }
+
+        document.getElementById('zepeto_url').addEventListener('input', (e) => {
+            const val = e.target.value.trim();
+            if (val.includes('zepeto.me')) {
+                const id = extractZepetoId(val);
+                if (id) {
+                    document.getElementById('zepeto_id').value = id;
+                }
+            }
+        });
+
+        async function handleRegister(e) {
+            e.preventDefault();
+            const login_id = document.getElementById('zepeto_id').value.trim();
+            const zepeto_url = document.getElementById('zepeto_url').value.trim();
+            const password = document.getElementById('password').value;
+            const passwordConfirm = document.getElementById('password_confirm').value;
+
+            const agreeTerms = document.getElementById('agree_terms').checked;
+            const creatorType = document.getElementById('creator_type').value;
+
+            if (!agreeTerms) {
+                alert('수익 분배 및 정산 동의서에 동의해야 가입할 수 있습니다.');
+                return;
+            }
+
+            if (!login_id || !zepeto_url || !password || !creatorType) {
+                alert('모든 필드를 채워주세요.');
+                return;
+            }
+
+            if (password !== passwordConfirm) {
+                alert('비밀번호가 일치하지 않습니다.');
+                return;
+            }
+
+            const zepeto_id = extractZepetoId(zepeto_url) || login_id;
+
+            try {
+                const res = await fetch('/api/crew/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        id: login_id,
+                        name: login_id,
+                        password,
+                        role: creatorType,  // Send selected creator type as role
+                        zepeto_id: zepeto_id,
+                        zepeto_url: zepeto_url, // Send the full URL for server-side scraping
+                        agree_terms: agreeTerms // Send agreement status
+                    })
+                });
+
+                const result = await res.json();
+                if (res.ok) {
+                    alert('✅ 가입 성공! 이제 로그인해주세요.');
+                    window.location.href = 'login.html';
+                } else {
+                    alert('가입 실패: ' + result.message);
+                }
+            } catch (err) {
+                alert('서버 연결 오류');
+            }
+        }
+    </script>
+</body>
+
+</html>

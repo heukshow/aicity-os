@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오 - Cauchemar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .portfolio-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .portfolio-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/cauchemar.html"
+                    class="text-2xl font-black bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+                    Cauchemar
+                </a>
+                <div class="flex gap-6 items-center">
+                    <a href="/cauchemar.html" class="text-gray-300 hover:text-white transition font-bold">홈</a>
+                    <a href="/crew.html" class="text-gray-300 hover:text-white transition font-bold">크루</a>
+                    <a href="/portfolio.html" class="text-purple-400 font-bold">포트폴리오</a>
+                    <a href="/services.html" class="text-gray-300 hover:text-white transition font-bold">서비스</a>
+                    <!-- Member Login -->
+                    <div class="hidden sm:flex items-center gap-2 border-l border-white/10 pl-4">
+                        <span class="text-xs text-purple-400 font-bold">MEMBER</span>
+                        <a href="/login_user.html" class="text-xs text-gray-400 hover:text-white transition">LOGIN</a>
+                    </div>
+                    
+                    <!-- Crew Login -->
+                    <div class="hidden sm:flex items-center gap-2 border-l border-white/10 pl-4">
+                        <span class="text-xs text-purple-400 font-bold">CREW</span>
+                        <a href="/login.html" class="text-xs text-gray-400 hover:text-white transition">LOGIN</a>
+                    </div>
+                    
+                    <a href="/inquiry.html"
+                        class="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-2 rounded-full font-bold hover:shadow-lg hover:shadow-purple-500/50 transition">
+                        문의하기
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="pt-20">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <div class="text-center mb-12">
+                <h1
+                    class="text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+                    포트폴리오
+                </h1>
+                <p class="text-gray-400 text-lg">Cauchemar 크루의 작품들을 만나보세요</p>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="flex gap-3 mb-12 overflow-x-auto pb-4">
+                <button onclick="filterCategory('all')"
+                    class="filter-btn active px-6 py-3 rounded-full font-bold bg-white/5 border border-white/10 hover:bg-white/10 transition whitespace-nowrap">
+                    전체보기
+                </button>
+                <button onclick="filterCategory('헤어')"
+                    class="filter-btn px-6 py-3 rounded-full font-bold bg-white/5 border border-white/10 hover:bg-white/10 transition whitespace-nowrap">
+                    헤어
+                </button>
+                <button onclick="filterCategory('상의')"
+                    class="filter-btn px-6 py-3 rounded-full font-bold bg-white/5 border border-white/10 hover:bg-white/10 transition whitespace-nowrap">
+                    상의
+                </button>
+                <button onclick="filterCategory('하의')"
+                    class="filter-btn px-6 py-3 rounded-full font-bold bg-white/5 border border-white/10 hover:bg-white/10 transition whitespace-nowrap">
+                    하의
+                </button>
+                <button onclick="filterCategory('신발')"
+                    class="filter-btn px-6 py-3 rounded-full font-bold bg-white/5 border border-white/10 hover:bg-white/10 transition whitespace-nowrap">
+                    신발
+                </button>
+                <button onclick="filterCategory('액세서리')"
+                    class="filter-btn px-6 py-3 rounded-full font-bold bg-white/5 border border-white/10 hover:bg-white/10 transition whitespace-nowrap">
+                    액세서리
+                </button>
+                <button onclick="filterCategory('영상제작')"
+                    class="filter-btn px-6 py-3 rounded-full font-bold bg-white/5 border border-white/10 hover:bg-white/10 transition whitespace-nowrap">
+                    영상제작
+                </button>
+                <button onclick="filterCategory('SNS홍보')"
+                    class="filter-btn px-6 py-3 rounded-full font-bold bg-white/5 border border-white/10 hover:bg-white/10 transition whitespace-nowrap">
+                    SNS홍보
+                </button>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-black text-purple-400" id="total-count">0</div>
+                    <div class="text-sm text-gray-400 mt-1">전체 작품</div>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-black text-pink-400" id="category-count">0</div>
+                    <div class="text-sm text-gray-400 mt-1">선택된 카테고리</div>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-black text-blue-400">₩50K ~</div>
+                    <div class="text-sm text-gray-400 mt-1">시작 가격</div>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-black text-green-400">3-7일</div>
+                    <div class="text-sm text-gray-400 mt-1">평균 제작기간</div>
+                </div>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div id="portfolio-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Portfolio items will be loaded here -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="hidden text-center py-20">
+                <div class="text-6xl mb-4">🎨</div>
+                <p class="text-gray-400 text-lg">해당 카테고리의 포트폴리오가 곧 업데이트됩니다!</p>
+            </div>
+        </div>
+
+        <!-- Detail Modal -->
+        <div id="detail-modal"
+            class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-6">
+            <div class="bg-[#0a0a0a] border border-white/10 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 id="modal-title" class="text-3xl font-black mb-2"></h3>
+                            <p id="modal-creator" class="text-purple-400 font-bold"></p>
+                        </div>
+                        <button onclick="closeModal()" class="text-gray-400 hover:text-white text-2xl">✕</button>
+                    </div>
+
+                    <div id="modal-image" class="mb-6 rounded-2xl overflow-hidden bg-white/5">
+                        <!-- Image will be inserted here -->
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-white/5 rounded-xl p-4">
+                            <div class="text-sm text-gray-400 mb-1">가격</div>
+                            <div id="modal-price" class="text-2xl font-black text-purple-400"></div>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-4">
+                            <div class="text-sm text-gray-400 mb-1">제작기간</div>
+                            <div id="modal-duration" class="text-2xl font-black text-pink-400"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="text-sm text-gray-400 mb-2">설명</div>
+                        <p id="modal-description" class="text-gray-300"></p>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="text-sm text-gray-400 mb-2">태그</div>
+                        <div id="modal-tags" class="flex gap-2 flex-wrap"></div>
+                    </div>
+
+                    <a id="modal-inquiry-btn" href="#"
+                        class="block text-center bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 rounded-full font-bold hover:shadow-2xl hover:shadow-purple-500/50 transition">
+                        이 크리에이터에게 문의하기
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="fixed bottom-8 right-8 flex flex-col gap-3">
+            <a href="/services.html"
+                class="block bg-pink-600 hover:bg-pink-700 w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl transition">
+                📱
+            </a>
+            <a href="/cauchemar.html"
+                class="block bg-purple-600 hover:bg-purple-700 w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl transition">
+                🏠
+            </a>
+        </div>
+
+        <script>
+            // Sample portfolio data - this will be loaded from API later
+            const portfolioData = [
+                {
+                    id: 1,
+                    title: "Cyber Punk Hair",
+                    creator: "흑쇼",
+                    creator_id: "oskyoo12",
+                    category: "헤어",
+                    price: 150000,
+                    duration: 5,
+                    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23667eea' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'%3ECyber Hair%3C/text%3E%3C/svg%3E",
+                    description: "사이버펑크 스타일의 미래적 헤어 아이템",
+                    tags: ["헤어", "사이버펑크", "미래"]
+                },
+                {
+                    id: 2,
+                    title: "Streetwear Top",
+                    creator: "솜som",
+                    creator_id: "som",
+                    category: "상의",
+                    price: 200000,
+                    duration: 7,
+                    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23764ba2' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'%3EStreetwear%3C/text%3E%3C/svg%3E",
+                    description: "트렌디한 스트리트 패션 상의",
+                    tags: ["상의", "스트리트", "패션"]
+                },
+                {
+                    id: 3,
+                    title: "Promo Video",
+                    creator: "아른AREUN",
+                    creator_id: "areun",
+                    category: "영상제작",
+                    price: 300000,
+                    duration: 10,
+                    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23f093fb' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'%3EPromo Video%3C/text%3E%3C/svg%3E",
+                    description: "제페토 월드 프로모션 영상 제작",
+                    tags: ["영상", "프로모션", "광고"]
+                },
+                // Add more sample items...
+            ];
+
+            let currentFilter = 'all';
+
+            function renderPortfolio() {
+                const grid = document.getElementById('portfolio-grid');
+                const emptyState = document.getElementById('empty-state');
+
+                const filtered = currentFilter === 'all'
+                    ? portfolioData
+                    : portfolioData.filter(item => item.category === currentFilter);
+
+                if (filtered.length === 0) {
+                    grid.classList.add('hidden');
+                    emptyState.classList.remove('hidden');
+                } else {
+                    grid.classList.remove('hidden');
+                    emptyState.classList.add('hidden');
+
+                    grid.innerHTML = filtered.map(item => `
+                    <div class="portfolio-card bg-white/5 border border-white/10 rounded-2xl overflow-hidden cursor-pointer" onclick='openModal(${JSON.stringify(item)})'>
+                        <div class="relative aspect-[4/3] bg-gradient-to-br from-purple-900/20 to-pink-900/20">
+                            <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover">
+                            <div class="overlay absolute inset-0 bg-black/60 flex items-center justify-center">
+                                <div class="text-center">
+                                    <div class="text-white text-lg font-bold mb-2">자세히 보기</div>
+                                    <div class="text-purple-400">→</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-start justify-between mb-2">
+                                <h3 class="font-bold text-lg">${item.title}</h3>
+                                <span class="px-2 py-1 bg-purple-600/20 text-purple-400 rounded-full text-xs font-bold">
+                                    ${item.category}
+                                </span>
+                            </div>
+                            <p class="text-sm text-gray-400 mb-3">${item.creator}</p>
+                            <div class="flex items-center justify-between">
+                                <div class="font-black text-purple-400">₩${item.price.toLocaleString()}</div>
+                                <div class="text-sm text-gray-400">${item.duration}일</div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+                }
+
+                // Update stats
+                document.getElementById('total-count').textContent = portfolioData.length;
+                document.getElementById('category-count').textContent = filtered.length;
+            }
+
+            function filterCategory(category) {
+                currentFilter = category;
+
+                // Update button states
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                event.target.classList.add('active');
+
+                renderPortfolio();
+            }
+
+            function openModal(item) {
+                document.getElementById('modal-title').textContent = item.title;
+                document.getElementById('modal-creator').textContent = `by ${item.creator}`;
+                document.getElementById('modal-price').textContent = `₩${item.price.toLocaleString()}`;
+                document.getElementById('modal-duration').textContent = `${item.duration}일`;
+                document.getElementById('modal-description').textContent = item.description;
+                document.getElementById('modal-image').innerHTML = `<img src="${item.image}" alt="${item.title}" class="w-full">`;
+                document.getElementById('modal-tags').innerHTML = item.tags.map(tag =>
+                    `<span class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm">${tag}</span>`
+                ).join('');
+                document.getElementById('modal-inquiry-btn').href = `/inquiry.html?creator=${item.creator_id}&item=${item.title}`;
+
+                document.getElementById('detail-modal').classList.remove('hidden');
+            }
+
+            function closeModal() {
+                document.getElementById('detail-modal').classList.add('hidden');
+            }
+
+            // Close modal on ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal();
+            });
+
+            // Initial render
+            renderPortfolio();
+        </script>
+
+    <!-- Language System -->
+    <script src="js/translations.js"></script>
+    <script src="js/languageDetector.js"></script>
+    <script src="js/i18n.js"></script>
+    <script>
+        // Initialize i18n
+        const i18n = new I18n(translations);
+        i18n.init();
+        
+        // Language selector toggle
+        const langBtn = document.getElementById('lang-btn');
+        const langMenu = document.getElementById('lang-menu');
+        
+        if (langBtn && langMenu) {
+            langBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                langMenu.classList.toggle('hidden');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', () => {
+                langMenu.classList.add('hidden');
+            });
+            
+            // Language selection
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const lang = btn.getAttribute('data-lang');
+                    i18n.setLanguage(lang);
+                    languageDetector.saveLanguage(lang);
+                    
+                    // Update button text
+                    const flags = { ko: '🇰🇷 KO', en: '🇺🇸 EN', ja: '🇯🇵 JA', zh: '🇨🇳 ZH', es: '🇪🇸 ES', fr: '🇫🇷 FR' };
+                    document.getElementById('current-lang').textContent = flags[lang];
+                    langMenu.classList.add('hidden');
+                });
+            });
+        }
+    </script>
+
+</body>
+
+</html>

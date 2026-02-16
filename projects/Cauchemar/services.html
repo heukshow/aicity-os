@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마케팅 서비스 - Cauchemar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+            transform: translateY(-8px);
+        }
+
+        .badge-popular {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/cauchemar.html"
+                    class="text-2xl font-black bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+                    Cauchemar
+                </a>
+                <div class="flex gap-6 items-center">
+                    <a href="/cauchemar.html" class="text-gray-300 hover:text-white transition font-bold">홈</a>
+                    <a href="/crew.html" class="text-gray-300 hover:text-white transition font-bold">크루</a>
+                    <a href="/portfolio.html" class="text-gray-300 hover:text-white transition font-bold">포트폴리오</a>
+                    <a href="/services.html" class="text-purple-400 font-bold">서비스</a>
+                    <!-- Member Login -->
+                    <div class="hidden sm:flex items-center gap-2 border-l border-white/10 pl-4">
+                        <span class="text-xs text-purple-400 font-bold">MEMBER</span>
+                        <a href="/login_user.html" class="text-xs text-gray-400 hover:text-white transition">LOGIN</a>
+                    </div>
+                    
+                    <!-- Crew Login -->
+                    <div class="hidden sm:flex items-center gap-2 border-l border-white/10 pl-4">
+                        <span class="text-xs text-purple-400 font-bold">CREW</span>
+                        <a href="/login.html" class="text-xs text-gray-400 hover:text-white transition">LOGIN</a>
+                    </div>
+                    
+                    <a href="/inquiry.html"
+                        class="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-2 rounded-full font-bold hover:shadow-lg hover:shadow-purple-500/50 transition">
+                        문의하기
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="pt-20">
+        <div class="relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-pink-900/20"></div>
+            <div class="relative max-w-7xl mx-auto px-6 py-20 text-center">
+                <div class="mb-6">
+                    <span
+                        class="inline-block px-4 py-2 bg-purple-600/20 border border-purple-500/50 rounded-full text-sm font-bold text-purple-400">
+                        ZEPETO MARKETING
+                    </span>
+                </div>
+                <h1
+                    class="text-5xl md:text-7xl font-black mb-6 bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600 bg-clip-text text-transparent">
+                    마케팅 서비스
+                </h1>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
+                    제페토 크리에이터를 위한 전문 마케팅 솔루션<br>
+                    SNS 홍보부터 브랜드 협업까지, 모든 것을 한 곳에서
+                </p>
+                    <!-- Member Login -->
+                    <div class="hidden sm:flex items-center gap-2 border-l border-white/10 pl-4">
+                        <span class="text-xs text-purple-400 font-bold">MEMBER</span>
+                        <a href="/login_user.html" class="text-xs text-gray-400 hover:text-white transition">LOGIN</a>
+                    </div>
+                    
+                    <!-- Crew Login -->
+                    <div class="hidden sm:flex items-center gap-2 border-l border-white/10 pl-4">
+                        <span class="text-xs text-purple-400 font-bold">CREW</span>
+                        <a href="/login.html" class="text-xs text-gray-400 hover:text-white transition">LOGIN</a>
+                    </div>
+                    
+                <a href="/inquiry.html"
+                    class="inline-block bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition">
+                    무료 상담 받기 →
+                </a>
+            </div>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Service 1: SNS Marketing -->
+                <div class="service-card rounded-3xl p-8 border border-white/10 relative">
+                    <div
+                        class="badge-popular absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold text-white">
+                        🔥 인기
+                    </div>
+                    <div class="text-5xl mb-4">📱</div>
+                    <h3 class="text-2xl font-black mb-3">SNS 마케팅 패키지</h3>
+                    <p class="text-gray-400 mb-6 text-sm">
+                        Instagram, 틱톡, YouTube에서 당신의 작품을 알리세요
+                    </p>
+
+                    <div class="mb-6">
+                        <div class="text-3xl font-black text-purple-400 mb-1">₩50,000 ~</div>
+                        <div class="text-sm text-gray-500">패키지당</div>
+                    </div>
+
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            Instagram 피드 + 스토리
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            틱톡 쇼츠 제작
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            YouTube 커뮤니티 포스팅
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            해시태그 최적화
+                        </li>
+                    </ul>
+
+                    <a href="/inquiry.html?service=sns_marketing"
+                        class="block text-center bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-xl font-bold transition">
+                        문의하기
+                    </a>
+                </div>
+
+                <!-- Service 2: Video Production -->
+                <div class="service-card rounded-3xl p-8 border border-white/10">
+                    <div class="text-5xl mb-4">🎬</div>
+                    <h3 class="text-2xl font-black mb-3">영상 제작 서비스</h3>
+                    <p class="text-gray-400 mb-6 text-sm">
+                        전문가급 프로모션 영상으로 눈길을 사로잡으세요
+                    </p>
+
+                    <div class="mb-6">
+                        <div class="text-3xl font-black text-purple-400 mb-1">₩100,000 ~</div>
+                        <div class="text-sm text-gray-500">영상당</div>
+                    </div>
+
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            제페토 월드 프로모션 영상
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            아이템 소개 영상
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            YouTube 쇼츠/틱톡
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            자막 + BGM 포함
+                        </li>
+                    </ul>
+
+                    <a href="/inquiry.html?service=video"
+                        class="block text-center bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-xl font-bold transition">
+                        문의하기
+                    </a>
+                </div>
+
+                <!-- Service 3: Influencer Collaboration -->
+                <div class="service-card rounded-3xl p-8 border border-white/10 relative">
+                    <div
+                        class="badge-popular absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold text-white">
+                        ⭐ 프리미엄
+                    </div>
+                    <div class="text-5xl mb-4">👥</div>
+                    <h3 class="text-2xl font-black mb-3">인플루언서 협업</h3>
+                    <p class="text-gray-400 mb-6 text-sm">
+                        유명 크리에이터와의 컬래버레이션 매칭
+                    </p>
+
+                    <div class="mb-6">
+                        <div class="text-3xl font-black text-purple-400 mb-1">₩300,000 ~</div>
+                        <div class="text-sm text-gray-500">프로젝트당</div>
+                    </div>
+
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            크리에이터 섭외
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            컨텐츠 기획
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            제작 지원
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            성과 분석 리포트
+                        </li>
+                    </ul>
+
+                    <a href="/inquiry.html?service=influencer"
+                        class="block text-center bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-xl font-bold transition">
+                        문의하기
+                    </a>
+                </div>
+
+                <!-- Service 4: Design Services -->
+                <div class="service-card rounded-3xl p-8 border border-white/10">
+                    <div class="text-5xl mb-4">🎨</div>
+                    <h3 class="text-2xl font-black mb-3">디자인 서비스</h3>
+                    <p class="text-gray-400 mb-6 text-sm">
+                        눈에 띄는 썸네일과 배너로 클릭률 상승
+                    </p>
+
+                    <div class="mb-6">
+                        <div class="text-3xl font-black text-purple-400 mb-1">₩30,000 ~</div>
+                        <div class="text-sm text-gray-500">디자인당</div>
+                    </div>
+
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            YouTube 썸네일
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            Instagram 피드 이미지
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            제페토 월드 배너
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            무제한 수정
+                        </li>
+                    </ul>
+
+                    <a href="/inquiry.html?service=design"
+                        class="block text-center bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-xl font-bold transition">
+                        문의하기
+                    </a>
+                </div>
+
+                <!-- Service 5: Event Planning -->
+                <div class="service-card rounded-3xl p-8 border border-white/10">
+                    <div class="text-5xl mb-4">🎉</div>
+                    <h3 class="text-2xl font-black mb-3">이벤트 기획</h3>
+                    <p class="text-gray-400 mb-6 text-sm">
+                        월드 오픈부터 기념일까지, 성공적인 이벤트 운영
+                    </p>
+
+                    <div class="mb-6">
+                        <div class="text-3xl font-black text-purple-400 mb-1">₩200,000 ~</div>
+                        <div class="text-sm text-gray-500">이벤트당</div>
+                    </div>
+
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            이벤트 기획
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            경품 운영 지원
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            SNS 홍보
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            참여자 관리
+                        </li>
+                    </ul>
+
+                    <a href="/inquiry.html?service=event"
+                        class="block text-center bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-xl font-bold transition">
+                        문의하기
+                    </a>
+                </div>
+
+                <!-- Service 6: Brand Partnership -->
+                <div class="service-card rounded-3xl p-8 border border-white/10">
+                    <div class="text-5xl mb-4">🤝</div>
+                    <h3 class="text-2xl font-black mb-3">브랜드 협업 지원</h3>
+                    <p class="text-gray-400 mb-6 text-sm">
+                        제페토 공식 브랜드와의 파트너십 연결
+                    </p>
+
+                    <div class="mb-6">
+                        <div class="text-3xl font-black text-purple-400 mb-1">상담 후 결정</div>
+                        <div class="text-sm text-gray-500">프로젝트 규모에 따라</div>
+                    </div>
+
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            브랜드 매칭
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            협업 제안서 작성
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            계약 지원
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-400">✓</span>
+                            프로젝트 매니징
+                        </li>
+                    </ul>
+
+                    <a href="/inquiry.html?service=brand"
+                        class="block text-center bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-xl font-bold transition">
+                        문의하기
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+            <h2 class="text-4xl font-black mb-6">맞춤 패키지가 필요하신가요?</h2>
+            <p class="text-gray-400 mb-8 text-lg">
+                여러 서비스를 조합한 커스텀 패키지도 제공합니다.<br>
+                무료 상담을 통해 최적의 솔루션을 찾아드립니다.
+            </p>
+            <div class="flex gap-4 justify-center flex-wrap">
+                    <!-- Member Login -->
+                    <div class="hidden sm:flex items-center gap-2 border-l border-white/10 pl-4">
+                        <span class="text-xs text-purple-400 font-bold">MEMBER</span>
+                        <a href="/login_user.html" class="text-xs text-gray-400 hover:text-white transition">LOGIN</a>
+                    </div>
+                    
+                    <!-- Crew Login -->
+                    <div class="hidden sm:flex items-center gap-2 border-l border-white/10 pl-4">
+                        <span class="text-xs text-purple-400 font-bold">CREW</span>
+                        <a href="/login.html" class="text-xs text-gray-400 hover:text-white transition">LOGIN</a>
+                    </div>
+                    
+                <a href="/inquiry.html"
+                    class="bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 rounded-full font-bold hover:shadow-2xl hover:shadow-purple-500/50 transition">
+                    무료 상담 신청
+                </a>
+                <a href="/portfolio.html"
+                    class="bg-white/5 border border-white/10 px-8 py-4 rounded-full font-bold hover:bg-white/10 transition">
+                    포트폴리오 보기
+                </a>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="fixed bottom-8 right-8">
+            <a href="/cauchemar.html"
+                class="block bg-purple-600 hover:bg-purple-700 w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl transition">
+                🏠
+            </a>
+        </div>
+
+    <!-- Language System -->
+    <script src="js/translations.js"></script>
+    <script src="js/languageDetector.js"></script>
+    <script src="js/i18n.js"></script>
+    <script>
+        // Initialize i18n
+        const i18n = new I18n(translations);
+        i18n.init();
+        
+        // Language selector toggle
+        const langBtn = document.getElementById('lang-btn');
+        const langMenu = document.getElementById('lang-menu');
+        
+        if (langBtn && langMenu) {
+            langBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                langMenu.classList.toggle('hidden');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', () => {
+                langMenu.classList.add('hidden');
+            });
+            
+            // Language selection
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const lang = btn.getAttribute('data-lang');
+                    i18n.setLanguage(lang);
+                    languageDetector.saveLanguage(lang);
+                    
+                    // Update button text
+                    const flags = { ko: '🇰🇷 KO', en: '🇺🇸 EN', ja: '🇯🇵 JA', zh: '🇨🇳 ZH', es: '🇪🇸 ES', fr: '🇫🇷 FR' };
+                    document.getElementById('current-lang').textContent = flags[lang];
+                    langMenu.classList.add('hidden');
+                });
+            });
+        }
+    </script>
+
+</body>
+
+</html>

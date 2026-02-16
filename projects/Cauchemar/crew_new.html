@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cauchemar Crew | Elite Meta-Creators</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .neon-purple {
+            color: #bf5af2;
+            text-shadow: 0 0 10px rgba(191, 90, 242, 0.5);
+        }
+
+        .bg-glass {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .official-badge {
+            background: linear-gradient(135deg, #bf5af2 0%, #5e5ce6 100%);
+        }
+    </style>
+</head>
+
+<body class="antialiased pb-20">
+    <!-- Navigation -->
+    <nav
+        class="fixed top-0 w-full z-50 py-4 px-8 flex justify-between items-center bg-black/50 backdrop-blur-lg border-b border-white/5">
+        <a href="cauchemar.html" class="text-2xl font-black tracking-tighter">CAUCHEMAR CREW</a>
+        <div class="hidden lg:flex gap-8 text-sm font-semibold text-gray-400">
+            <a href="crew.html" class="text-white">WHO WE ARE (CREW)</a>
+            <a href="cauchemar.html#services" class="hover:text-white transition">SERVICES</a>
+            <a href="cauchemar.html#contact" class="hover:text-white transition">PARTNERSHIP</a>
+        </div>
+        <div class="flex items-center gap-6">
+            <div id="crew-portal" class="hidden sm:flex items-center gap-4">
+                <p class="text-sm uppercase tracking-[0.2em] text-purple-400 font-black">Crew</p>
+                <div class="flex gap-5 text-sm font-bold">
+                    <a href="login.html" class="text-gray-400 hover:text-white transition">LOGIN</a>
+                    <a href="register_crew.html" class="text-gray-400 hover:text-white transition">JOIN</a>
+                </div>
+            </div>
+            <a href="cauchemar.html#contact"
+                class="bg-white text-black px-6 py-2 rounded-full text-sm font-black hover:bg-purple-500 hover:text-white transition">INQUIRY</a>
+        </div>
+    </nav>
+
+    <!-- Header Content -->
+    <section class="pt-48 pb-20 px-8">
+        <div class="max-w-6xl mx-auto text-center space-y-4">
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter uppercase italic">The <span
+                    class="neon-purple">Elite</span> Force</h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg">제페토 월드 최정상 크리에이터들이 모였습니다. 전문가들이 선사하는 고품격 메타버스 비즈니스 솔루션을
+                경험하세요.</p>
+        </div>
+    </section>
+
+    <!-- Crew Grid -->
+    <section class="px-8 pb-32">
+        <div id="crew-grid"
+            class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Cards injected by JS -->
+        </div>
+    </section>
+
+    <script>
+        async function loadCrew() {
+            try {
+                const res = await fetch('/projects/Cauchemar/data/crew.json');
+                const crew = await res.json();
+                const grid = document.getElementById('crew-grid');
+                const loggedInUser = JSON.parse(sessionStorage.getItem('crew_user'));
+
+                if (loggedInUser) {
+                    const portal = document.getElementById('crew-portal');
+                    if (portal) {
+                        portal.innerHTML = `
+                            <p class="text-sm uppercase tracking-[0.2em] text-purple-400 font-black">Creator</p>
+                            <div class="flex gap-5 text-sm font-bold">
+                                <a href="dashboard.html" class="text-white hover:text-purple-400 transition underline underline-offset-4 decoration-purple-500">DASHBOARD (관리)</a>
+                            </div>
+                        `;
+                    }
+                }
+
+                grid.innerHTML = crew.map(member => {
+                    const profileImg = member.zepeto_id
+                        ? `https://render-api.zepeto.io/v2/graphics/zepeto/character/${member.zepeto_id}/image/2D?width=512`
+                        : (member.portfolio[0] ? `uploads/${member.portfolio[0]}` : 'https://via.placeholder.com/500x700/111111/444444?text=CREW');
+                    const isSelf = loggedInUser && loggedInUser.id === member.id;
+                    const isRegistered = (member.official || (member.password && member.password !== 'cauchemar123'));
+
+                    return `
+                    <div class="group relative bg-[#111] rounded-[32px] overflow-hidden border ${isSelf ? 'border-purple-500 shadow-lg' : 'border-white/5'} hover:border-purple-500 transition-all duration-500 hover:-translate-y-2">
+                        <!-- Top Identity (White ID ONLY, no nickname here) -->
+                        <div class="absolute top-5 left-7 z-25 flex items-center gap-1.5">
+                            ${isRegistered ? '<div class="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-white border-b-[6px] border-b-transparent"></div><span class="text-[11px] font-black tracking-widest text-white uppercase italic">' + member.id + '</span>' : ''}
+                        </div>
+                        <div class="aspect-[3/4] overflow-hidden bg-gradient-to-b from-transparent to-black/80">
+                            <img src="${profileImg}" alt="${member.name}" class="w-full h-full object-cover ${isSelf ? '' : 'grayscale'} group-hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <div class="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black via-transparent to-transparent">
+                            <div class="space-y-1">
+                                <div class="flex items-center gap-2">
+                                    <h3 class="text-xl font-black tracking-tight">${member.name}</h3>
+                                    ${member.official ? '<span class="text-[8px] bg-purple-500 text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-widest">Official</span>' : ''}
+                                    ${isSelf ? '<span class="text-[8px] bg-white/20 text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-widest">YOU</span>' : ''}
+                                </div>
+                                <p class="text-xs font-bold text-purple-400 uppercase tracking-widest">${member.role}</p>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 text-left">
+                                <p class="text-[10px] text-gray-400 line-clamp-2 mb-4 leading-relaxed">${member.description}</p>
+                                <div class="flex gap-2">
+                                    <a href="member.html?id=${member.id}" class="flex-1 bg-white text-black text-center text-[10px] font-black py-2 rounded-lg hover:bg-purple-500 hover:text-white transition">PORTFOLIO</a>
+                                    ${member.zepeto_id ? '<a href="https://web.zepeto.me/en/user/' + member.zepeto_id + '" target="_blank" class="px-3 bg-white/10 rounded-lg flex items-center hover:bg-white/20 transition text-[10px] font-bold">ZEPETO</a>' : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                }).join('');
+            } catch (err) { console.error("Crew load error:", err); }
+        }
+        loadCrew();
+    </script>
+</body>
+
+</html>

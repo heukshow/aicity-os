@@ -1,0 +1,20 @@
+{
+  "active_ghosts": [
+    {
+      "project": "Global_YouTube_Factory",
+      "alias": "Agent_A8B685E8",
+      "official_title": "Coshuma Project Liaison",
+      "email_alias": "liaison.A8B685E8@coshuma.ai",
+      "verification_code": "3MJPI6AhcZrZZVuOCYscXg",
+      "created_at": "just_now"
+    },
+    {
+      "project": "Coshuma_B2B_Agency",
+      "alias": "Agent_4A9C24C3",
+      "official_title": "Coshuma Project Liaison",
+      "email_alias": "liaison.4A9C24C3@coshuma.ai",
+      "verification_code": "uQg0u7McJPfk8ciioP2TJQ",
+      "created_at": "1771103963.1342711"
+    }
+  ]
+}

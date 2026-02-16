@@ -1,0 +1,9 @@
+edge-tts
+pygame
+psutil
+requests
+beautifulsoup4
+python-dotenv
+google-api-python-client
+google-auth-oauthlib
+google-auth-httplib2

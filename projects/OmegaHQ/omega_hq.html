@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omega Team HQ - Autonomous Engine</title>
+    <style>
+        body {
+            font-family: 'LINESeedKR-Bd', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .header {
+            background: #2c3e50;
+            /* Darker professional theme */
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .auto-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .auto-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .toggle-switch {
+            width: 40px;
+            height: 20px;
+            background: #ccc;
+            border-radius: 10px;
+            position: relative;
+            transition: background 0.3s;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s;
+        }
+
+        .auto-toggle.active .toggle-switch {
+            background: #4cd964;
+        }
+
+        .auto-toggle.active .toggle-switch::after {
+            transform: translateX(20px);
+        }
+
+        .chat-area {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: #e5ddd5;
+            /* WhatsApp style background */
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .message-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeIn 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            border: 2px solid white;
+            flex-shrink: 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .avatar.Sebastian {
+            background: #10a37f;
+        }
+
+        .avatar.Emma {
+            background: #4285f4;
+        }
+
+        .avatar.Youngja {
+            background: #ea4335;
+        }
+
+        .avatar.Kodari {
+            background: #333;
+        }
+
+        .avatar.Rose {
+            background: #ff69b4;
+        }
+
+        .avatar.User {
+            background: #ffd700;
+            border-color: #333;
+        }
+
+        .message-content {
+            max-width: 70%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name {
+            font-size: 0.8rem;
+            color: #555;
+            margin-bottom: 4px;
+            margin-left: 2px;
+            font-weight: bold;
+        }
+
+        .bubble {
+            background: white;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border-top-left-radius: 2px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            white-space: pre-wrap;
+        }
+
+        /* User Messages (Right Side) */
+        .message-row.user-side {
+            flex-direction: row-reverse;
+        }
+
+        .message-row.user-side .message-content {
+            align-items: flex-end;
+        }
+
+        .message-row.user-side .name {
+            text-align: right;
+            margin-right: 2px;
+        }
+
+        .message-row.user-side .bubble {
+            background: #dcf8c6;
+            /* WhatsApp outgoing */
+            border-radius: 12px;
+            border-top-right-radius: 2px;
+            border-top-left-radius: 12px;
+        }
+
+        .input-area {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #ddd;
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+
+        textarea {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            resize: none;
+            height: 24px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        textarea:focus {
+            border-color: #2c3e50;
+        }
+
+        button {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+            height: 50px;
+        }
+
+        button:hover {
+            background: #34495e;
+        }
+
+        /* Smooth scrolling for chat area */
+        .chat-area {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="header">
+            <h1>🏢 Omega HQ <span style="font-size:0.6em; opacity:0.7; font-weight:normal;">Autonomous Engine</span>
+            </h1>
+
+            <div class="auto-toggle" id="autoToggleBtn" onclick="toggleAutoMode()">
+                <div class="toggle-switch"></div>
+                <span id="autoStatusText" style="font-size: 0.9rem; font-weight: bold;">Manual</span>
+            </div>
+        </div>
+
+        <div class="chat-area" id="chatArea">
+            <!-- Messages go here -->
+        </div>
+
+        <div class="input-area">
+            <textarea id="messageInput" placeholder="Type instructions or 'Start'..."
+                onkeydown="if(event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); sendMessage(); }"></textarea>
+            <button onclick="sendMessage()" id="sendBtn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        let isAutoMode = false;
+        const chatArea = document.getElementById('chatArea');
+        let msgCount = 0;
+
+        async function toggleAutoMode() {
+            isAutoMode = !isAutoMode;
+            updateToggleUI();
+
+            try {
+                await fetch('/api/toggle_auto', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ enabled: isAutoMode })
+                });
+            } catch (e) { console.error(e); }
+        }
+
+        function updateToggleUI() {
+            const btn = document.getElementById('autoToggleBtn');
+            const txt = document.getElementById('autoStatusText');
+            if (isAutoMode) {
+                btn.classList.add('active');
+                txt.innerText = "Auto-Pilot ON";
+                txt.style.color = "#4cd964";
+            } else {
+                btn.classList.remove('active');
+                txt.innerText = "Manual";
+                txt.style.color = "white";
+            }
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            input.value = '';
+            input.style.height = '24px';
+
+            addMessage({ sender: 'User', role: 'CEO', text: text });
+
+            try {
+                await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text, target: 'All' })
+                });
+            } catch (e) { console.error(e); }
+        }
+
+        function addMessage(msg) {
+            const isUser = msg.sender === 'User';
+            const row = document.createElement('div');
+            row.className = `message-row ${isUser ? 'user-side' : ''}`;
+
+            const avatar = document.createElement('div');
+            avatar.className = `avatar ${msg.sender}`;
+            avatar.innerText = getEmoji(msg.sender);
+
+            const content = document.createElement('div');
+            content.className = 'message-content';
+
+            const name = document.createElement('div');
+            name.className = 'name';
+            name.innerText = `${msg.sender} (${msg.role})`;
+
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.innerText = msg.text;
+
+            content.appendChild(name);
+            content.appendChild(bubble);
+
+            if (isUser) {
+                row.appendChild(content);
+                row.appendChild(avatar);
+            } else {
+                row.appendChild(avatar);
+                row.appendChild(content);
+            }
+
+            chatArea.appendChild(row);
+            chatArea.scrollTop = chatArea.scrollHeight;
+        }
+
+        function getEmoji(name) {
+            switch (name) {
+                case 'Sebastian': return '🧠';
+                case 'Emma': return '🎨';
+                case 'Youngja': return '🛠️';
+                case 'Kodari': return '💻';
+                case 'Rose': return '👩‍💼';
+                case 'User': return '😎';
+                default: return '🤖';
+            }
+        }
+
+        // Poll for updates
+        setInterval(async () => {
+            try {
+                const res = await fetch('/api/updates?since=' + msgCount);
+                if (res.ok) {
+                    const data = await res.json();
+
+                    // Sync backend auto-mode state occasionally
+                    if (data.auto_mode !== undefined && data.auto_mode !== isAutoMode) {
+                        isAutoMode = data.auto_mode;
+                        updateToggleUI();
+                    }
+
+                    if (data.messages && data.messages.length > 0) {
+                        data.messages.forEach(addMessage);
+                        msgCount += data.messages.length;
+                    }
+                }
+            } catch (e) { }
+        }, 1000);
+    </script>
+</body>
+
+</html>

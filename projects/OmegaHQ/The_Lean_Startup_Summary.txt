@@ -1,0 +1,1365 @@
+
+Acclaim for 
+THE LEAN STARTUP
+Acclaim for 
+THE LEAN STARTUP
+“
+The Lean Startup
+ isn’t just about how to create a more successful
+entrepreneurial business; it’s about what we can learn from those
+businesses to improve virtually everything we do. I imagine Lean
+Startup principles applied to government programs, to health care,
+and to solving the world’s great problems. It’s ultimately an answer
+to the question How can we learn more quickly what works and
+discard what doesn’t?”
+—Tim O’Reilly, CEO, O’Reilly Media
+“Eric Ries unravels the mysteries of entrepreneurship and reveals
+that magic and genius are not the necessary ingredients for success
+but instead proposes a scienti0c process that can be learned and
+replicated. Whether you are a startup entrepreneur or corporate
+entrepreneur, there are important lessons here for you on your
+quest toward the new and unknown.”
+—Tim Brown, CEO, IDEO
+“The road map for innovation for the twenty-first century. The ideas
+in 
+The Lean Startup
+ will help create the next industrial revolution.”
+—Steve Blank, lecturer, Stanford University,
+UC Berkeley Hass Business School
+“Every founding team should stop for forty-eight hours and read
+The Lean Startup
+. Seriously, stop and read this book now.”
+—Scott Case, CEO, Startup America Partnership
+“The key lesson of this book is that startups happen in the present
+—that messy place between the past and the future where nothing
+happens according to PowerPoint. Ries’s ‘read and react’ approach
+to this sport, his relentless focus on validated learning, the never-
+ending anxiety of hovering between ‘persevere’ and ‘pivot,’ all bear
+witness to his appreciation for the dynamics of entrepreneurship.”
+witness to his appreciation for the dynamics of entrepreneurship.”
+—Geoffrey Moore, author
+, 
+Crossing the Chasm
+“If you are an entrepreneur, read this book. If you are thinking
+about becoming an entrepreneur, read this book. If you are just
+curious about entrepreneurship, read this book. Starting Lean is
+today’s best practice for innovators. Do yourself a favor and read
+this book.”
+—Randy Komisar, founding director of TiVo and author of the
+bestselling
+ 
+The Monk and the Riddle
+“How do you apply the 0fty-year-old ideas of Lean to the fast-
+paced, high-uncertainty world of startups? This book provides a
+brilliant, well-documented, and practical answer. It is sure to
+become a management classic.”
+—Don Reinertsen, author
+, 
+The Principles of Product Development
+Flow
+“What would happen if businesses were built from the ground up
+to learn what their customers really wanted? 
+The Lean Startup
+ is
+the foundation for reimagining almost everything about how work
+works. Don’t let the word startup in the title confuse you. This is a
+cookbook for entrepreneurs in organizations of all sizes.”
+—Roy Bahat, president, IGN Entertainment
+“
+The Lean Startup
+ is a foundational must-read for founders,
+enabling them to reduce product failures by bringing structure and
+science to what is usually informal and an art. It provides
+actionable ways to avoid product-learning mistakes, rigorously
+evaluate early signals from the market through validated learning,
+and decide whether to persevere or to pivot, all challenges that
+heighten the chance of entrepreneurial failure.”
+—Noam Wasserman, professor, Harvard Business School
+“One of the best and most insightful new books on
+entrepreneurship and management I’ve ever read. Should be
+entrepreneurship and management I’ve ever read. Should be
+required reading not only for the entrepreneurs that I work with,
+but for my friends and colleagues in various industries who have
+inevitably grappled with many of the challenges that 
+The Lean
+Startup
+ addresses.”
+—Eugene J. Huang, partner, True North Venture Partner
+“In business, a ‘lean’ enterprise is sustainable e=ciency in action.
+Eric Ries’s revolutionary Lean Startup method will help bring your
+new business idea to an end result that is successful 
+and
+ sustainable.
+You’ll 0nd innovative steps and strategies for creating and
+managing your own startup while learning from the real-life
+successes and collapses of others. This book is a must-read for
+entrepreneurs who are truly ready to start something great!”
+—Ken Blanchard, coauthor of 
+The One Minute Manager
+®
+and
+ 
+The One Minute Entrepreneur
+
+Copyright © 2011 by Eric Ries
+All rights reserved.
+Published in the United States by Crown Business, an imprint of the Crown Publishing
+Group, a division of Random House, Inc., New York. 
+www.crownpublishing.com
+CROWN BUSINESS is a trademark and CROWN and the Rising Sun colophon are
+registered trademarks of Random House, Inc.
+Library of Congress Cataloging-in-Publication Data
+Ries, Eric, 1978–
+   The lean startup / Eric Ries. — 1st ed.
+      p. cm.
+   1. New business enterprises. 2. Consumers’ preferences. 3. Organizational
+effectiveness. I. Title.
+   HD62.5.R545 2011
+   658.1′1—dc22      2011012100
+eISBN: 978-0-307-88791-7
+Book design by Lauren Dong
+Illustrations by Fred Haynes
+Jacket design by Marcus Gosling
+v3.1
+For Tara
+Contents
+Cover
+Title Page
+Copyright
+Dedication
+Introduction
+Part One VISION
+  1. Start
+  2. Define
+  3. Learn
+  4. Experiment
+Part Two STEER
+  5. Leap
+  6. Test
+  7. Measure
+  8. Pivot (or Persevere)
+Part Three ACCELERATE
+  9. Batch
+10. Grow
+11. Adapt
+12. Innovate
+13. Epilogue: Waste Not
+14. Join the Movement
+Endnotes
+Disclosures
+Disclosures
+Acknowledgments
+About the Author
+S
+Introduction
+top me if you’ve heard
+ this one before. Brilliant college kids
+sitting in a dorm are inventing the future. Heedless of boundaries,
+possessed of new technology and youthful enthusiasm, they build
+a new company from scratch. Their early success allows them to
+raise money and bring an amazing new product to market. They
+hire their friends, assemble a superstar team, and dare the world to
+stop them.
+Ten years and several startups ago, that was me, building my !rst
+company. I particularly remember a moment from back then: the
+moment I realized my company was going to fail. My cofounder
+and I were at our wits’ end. The dot-com bubble had burst, and we
+had spent all our money. We tried desperately to raise more
+capital, and we could not. It was like a breakup scene from a
+Hollywood movie: it was raining, and we were arguing in the
+street. We couldn’t even agree on where to walk next, and so we
+parted in anger, heading in opposite directions. As a metaphor for
+our company’s failure, this image of the two of us, lost in the rain
+and drifting apart, is perfect.
+It remains a painful memory. The company limped along for
+months afterward, but our situation was hopeless. At the time, it
+had seemed we were doing everything right: we had a great
+product, a brilliant team, amazing technology, and the right idea at
+the right time. And we really were on to something. We 
+were
+building a way for college kids to create online pro!les for the
+purpose of sharing … with employers. Oops. But despite a
+promising idea, we were nonetheless doomed from day one,
+because we did not know the process we would need to use to turn
+because we did not know the process we would need to use to turn
+our product insights into a great company.
+If you’ve never experienced a failure like this, it is hard to
+describe the feeling. It’s as if the world were falling out from under
+you. You realize you’ve been duped. The stories in the magazines
+are lies: hard work and perseverance don’t lead to success. Even
+worse, the many, many, many promises you’ve made to employees,
+friends, and family are not going to come true. Everyone who
+thought you were foolish for stepping out on your own will be
+proven right.
+It wasn’t supposed to turn out that way. In magazines and
+newspapers, in blockbuster movies, and on countless blogs, we hear
+the mantra of the successful entrepreneurs: through determination,
+brilliance, great timing, and—above all—a great product, you too
+can achieve fame and fortune.
+There is a mythmaking industry hard at work to sell us that story,
+but I have come to believe that the story is false, the product of
+selection bias and after-the-fact rationalization. In fact, having
+worked with hundreds of entrepreneurs, I have seen !rsthand how
+often a promising start leads to failure. The grim reality is that most
+startups fail. Most new products are not successful. Most new
+ventures do not live up to their potential.
+Yet the story of perseverance, creative genius, and hard work
+persists. Why is it so popular? I think there is something deeply
+appealing about this modern-day rags-to-riches story. It makes
+success seem inevitable if you just have the right stu/. It means that
+the mundane details, the boring stu/, the small individual choices
+don’t matter. If we build it, they will come. When we fail, as so
+many of us do, we have a ready-made excuse: we didn’t 
+have the
+right stu/. We weren’t visionary enough or weren’t in the right
+place at the right time.
+After more than ten years as an entrepreneur, I came to reject
+that line of thinking. I have learned from both my own successes
+and failures and those of many others that it’s the boring stu/ that
+matters the most. Startup success is not a consequence of good
+genes or being in the right place at the right time. Startup success
+can be engineered by following the right process, which means it
+can be engineered by following the right process, which means it
+can be learned, which means it can be taught.
+Entrepreneurship is a kind of management. No, you didn’t read
+that wrong. We have wildly divergent associations with these two
+words, 
+entrepreneurship
+ and 
+management
+. Lately, it seems that one
+is cool, innovative, and exciting and the other is dull, serious, and
+bland. It is time to look past these preconceptions.
+Let me tell you a second startup story. It’s 2004, and a group of
+founders have just started a new company. Their previous company
+had failed very publicly. Their credibility is at an all-time low. They
+have a huge vision: to change the way people communicate by
+using a new technology called avatars (remember, this was before
+James Cameron’s blockbuster movie). They are following a
+visionary named Will Harvey, who paints a compelling picture:
+people connecting with their friends, hanging out online, using
+avatars to give them a combination of intimate connection and safe
+anonymity. Even better, instead of having to build all the clothing,
+furniture, and accessories these avatars would need to accessorize
+their digital lives, the customers would be enlisted to build those
+things and sell them to one another.
+The engineering challenge before them is immense: creating
+virtual worlds, user-generated content, an online commerce engine,
+micropayments, and—last but not least—the three-dimensional
+avatar technology that can run on anyone’s PC.
+I’m in this second story, too. I’m a cofounder and chief technology
+o; cer of this company, which is called IMVU. At this point in our
+careers, my cofounders and I are determined to make new mistakes.
+We do everything wrong: instead of spending years perfecting our
+technology, we build a minimum viable product, an early product
+that is terrible, full of bugs and crash-your-computer-yes-really
+stability problems. Then we ship it to customers way before it’s
+ready. And we charge money for it. After securing initial customers,
+we change the product constantly—much too fast by traditional
+standards—shipping new versions of our product dozens of times
+every single day.
+We really did have customers in those early days—true visionary
+early adopters—and we often talked to them and asked for their
+early adopters—and we often talked to them and asked for their
+feedback. But we emphatically did 
+not
+ do what they said. We
+viewed their input as only one source of information about our
+product and overall vision. In fact, we were much more likely to
+run experiments on our customers than we were to cater to their
+whims.
+Traditional business thinking says that this approach shouldn’t
+work, but it does, and you don’t have to take my word for it. As
+you’ll see throughout this book, the approach we pioneered at
+IMVU has become the basis for a new movement of entrepreneurs
+around the world. It builds on many previous management and
+product development ideas, including lean manufacturing, design
+thinking, customer development, and agile development. It
+represents a new approach to creating continuous innovation. It’s
+called the Lean Startup.
+Despite the volumes written on business strategy, the key
+attributes of business leaders, and ways to identify the next big
+thing, innovators still struggle to bring their ideas to life. This was
+the frustration that led us to try a radical new approach at IMVU,
+one characterized by an extremely fast cycle time, a 
+focus on what
+customers want (without asking them), and a scienti!c approach to
+making decisions.
+ORIGINS OF THE LEAN STARTUP
+I am one of those people who grew up programming computers,
+and so my journey to thinking about entrepreneurship and
+management has taken a circuitous path. I have always worked on
+the product development side of my industry; my partners and
+bosses were managers or marketers, and my peers worked in
+engineering and operations. Throughout my career, I kept having
+the experience of working incredibly hard on products that
+ultimately failed in the marketplace.
+At !rst, largely because of my background, I viewed these as
+technical problems that required technical solutions: better
+architecture, a better engineering process, better discipline, focus, or
+architecture, a better engineering process, better discipline, focus, or
+product vision. These supposed !xes led to still more failure. So I
+read everything I could get my hands on and was blessed to have
+had some of the top minds in Silicon Valley as my mentors. By the
+time I became a cofounder of IMVU, I was hungry for new ideas
+about how to build a company.
+I was fortunate to have cofounders who were willing to
+experiment with new approaches. They were fed up—as I was—by
+the failure of traditional thinking. Also, we were lucky to have
+Steve Blank as an investor and adviser. Back in 2004, Steve had just
+begun preaching a new idea: the business and marketing functions
+of a startup should be considered as important as engineering and
+product development and therefore deserve an equally rigorous
+methodology to guide them. He called that methodology Customer
+Development, and it o/ered insight and guidance to my daily work
+as an entrepreneur.
+Meanwhile, I was building IMVU’s product development team,
+using some of the unorthodox methods I mentioned earlier.
+Measured against the traditional theories of product development I
+had been trained on in my career, these methods did not make
+sense, yet I could see !rsthand that they were working. I struggled
+to explain the practices to new employees, investors, and the
+founders of other companies. We lacked a common language for
+describing them and concrete principles for understanding them.
+I began to search outside entrepreneurship for ideas that could
+help me make sense of my experience. I began to study other
+industries, especially manufacturing, from which most modern
+theories of management derive. I studied lean manufacturing, a
+process that originated in Japan with the Toyota Production
+System, a completely new way of thinking about the manufacturing
+of physical goods. I found that by applying ideas from lean
+manufacturing to my own entrepreneurial challenges—with a few
+tweaks and changes—I had the beginnings of a framework for
+making sense of them.
+This line of thought evolved into the Lean Startup: the
+application of lean thinking to the process of innovation.
+IMVU became a tremendous success. IMVU customers have
+IMVU became a tremendous success. IMVU customers have
+created more than 60 million avatars. It is a pro!table company
+with annual revenues of more than $50 million in 2011, employing
+more than a hundred people in our current o; ces in Mountain
+View, California. IMVU’s virtual goods catalog—which seemed so
+risky years ago—now has more than 6 million items in it; more
+than 7,000 are added every day, almost all created by customers.
+As a result of IMVU’s success, I began to be asked for advice by
+other startups and venture capitalists. When I would describe my
+experiences at IMVU, I was often met with blank stares or extreme
+skepticism. The most common reply was “That could 
+never work!”
+My experience so Kew in the face of conventional thinking that
+most people, even in the innovation hub of Silicon Valley, could
+not wrap their minds around it.
+Then I started to write, !rst on a blog called 
+Startup Lessons
+Learned
+, and speak—at conferences and to companies, startups, and
+venture capitalists—to anyone who would listen. In the process of
+being called on to defend and explain my insights and with the
+collaboration of other writers, thinkers, and entrepreneurs, I had a
+chance to re!ne and develop the theory of the Lean Startup beyond
+its rudimentary beginnings. My hope all along was to !nd ways to
+eliminate the tremendous waste I saw all around me: startups that
+built products nobody wanted, new products pulled from the
+shelves, countless dreams unrealized.
+Eventually, the Lean Startup idea blossomed into a global
+movement. Entrepreneurs began forming local in-person groups to
+discuss and apply Lean Startup ideas. There are now organized
+communities of practice in more than a hundred cities around the
+world.
+1
+ My travels have taken me across countries and continents.
+Everywhere I have seen the signs of a new entrepreneurial
+renaissance. The Lean Startup movement is making
+entrepreneurship accessible to a whole new generation of founders
+who are hungry for new ideas about how to build successful
+companies.
+Although my background is in high-tech software
+entrepreneurship, the movement has grown way beyond those
+entrepreneurship, the movement has grown way beyond those
+roots. Thousands of entrepreneurs are putting Lean Startup
+principles to work in every conceivable industry. I’ve had the
+chance to work with entrepreneurs in companies of all sizes, in
+di/erent industries, and even in government. This journey has taken
+me to places I never imagined I’d see, from the world’s most elite
+venture capitalists, to Fortune 500 boardrooms, to the Pentagon.
+The most nervous I have ever been in a meeting was when 
+I was
+attempting to explain Lean Startup principles to the chief
+information o; cer of the U.S. Army, who is a three-star general
+(for the record, he was extremely open to new ideas, even from a
+civilian like me).
+Pretty soon I realized that it was time to focus on the Lean
+Startup movement full time. My mission: to improve the success
+rate of new innovative products worldwide. The result is the book
+you are reading.
+THE LEAN STARTUP METHOD
+This is a book for entrepreneurs and the people who hold them
+accountable. The !ve principles of the Lean Startup, which inform
+all three parts of this book, are as follows:
+1. Entrepreneurs are everywhere
+. You don’t have to work in a
+garage to be in a startup. The concept of entrepreneurship includes
+anyone who works within my de!nition of a startup: a human
+institution designed to create new products and services under
+conditions of extreme uncertainty. That means entrepreneurs are
+everywhere and the Lean Startup approach can work in any size
+company, even a very large enterprise, in any sector or industry.
+2. Entrepreneurship is management
+. A startup is an institution,
+not just a product, and so it requires a new kind of management
+speci!cally geared to its context of extreme uncertainty. In fact, as I
+will argue later, I believe “entrepreneur” should be considered a
+will argue later, I believe “entrepreneur” should be considered a
+job title in all modern companies that depend on innovation for
+their future growth.
+3. Validated learning
+. Startups exist not just to make stu/, make
+money, or even serve customers. They exist to 
+learn
+ how 
+to build a
+sustainable business. This learning can be validated scienti!cally by
+running frequent experiments that allow entrepreneurs to test each
+element of their vision.
+4. Build-Measure-Learn
+. The fundamental activity of a startup is
+to turn ideas into products, measure how customers respond, and
+then learn whether to pivot or persevere. All successful startup
+processes should be geared to accelerate that feedback loop.
+5. Innovation accounting
+. To improve entrepreneurial outcomes
+and hold innovators accountable, we need to focus on the boring
+stu/: how to measure progress, how to set up milestones, and how
+to prioritize work. This requires a new kind of accounting designed
+for startups—and the people who hold them accountable.
+Why Startups Fail
+Why are startups failing so badly everywhere we look?
+The !rst problem is the allure of a good plan, a solid strategy,
+and thorough market research. In earlier eras, these things were
+indicators of likely success. The overwhelming temptation is to
+apply them to startups too, but this doesn’t work, because startups
+operate with too much uncertainty. Startups do not yet know who
+their customer is or what their product should be. As the world
+becomes more uncertain, it gets harder and harder to predict the
+future. The old management methods are not up to the task.
+Planning and forecasting are only accurate when based on a long,
+stable operating history and a relatively static environment. Startups
+stable operating history and a relatively static environment. Startups
+have neither.
+The second problem is that after seeing traditional management
+fail to solve this problem, some entrepreneurs and 
+investors have
+thrown up their hands and adopted the “Just Do It” school of
+startups. This school believes that if management is the problem,
+chaos is the answer. Unfortunately, as I can attest !rsthand, this
+doesn’t work either.
+It may seem counterintuitive to think that something as
+disruptive, innovative, and chaotic as a startup can be managed or,
+to be accurate, 
+must
+ be managed. Most people think of process and
+management as boring and dull, whereas startups are dynamic and
+exciting. But what is actually exciting is to see startups succeed and
+change the world. The passion, energy, and vision that people bring
+to these new ventures are resources too precious to waste. We can—
+and must—do better. This book is about how.
+and must—do better. This book is about how.
+HOW THIS BOOK IS ORGANIZED
+This book is divided into three parts: “Vision,” “Steer,” and
+“Accelerate.”
+“Vision” makes the case for a new discipline of entrepreneurial
+management. I identify who is an entrepreneur, de!ne a startup,
+and articulate a new way for startups to gauge if they are making
+progress, called validated learning. To achieve that learning, we’ll
+see that startups—in a garage or inside an enterprise—can use
+scienti!c experimentation to discover how to build a sustainable
+business.
+“Steer” dives into the Lean Startup method in detail, showing one
+major turn through the core Build-Measure-Learn feedback loop.
+Beginning with leap-of-faith assumptions that cry out for rigorous
+testing, you’ll learn how to build a minimum viable product to test
+those assumptions, a new accounting system for evaluating whether
+you’re making progress, and a method for 
+deciding whether to
+pivot (changing course with one foot anchored to the ground) or
+persevere.
+In “Accelerate,” we’ll explore techniques that enable Lean
+Startups to speed through the Build-Measure-Learn feedback loop
+as quickly as possible, even as they scale. We’ll explore lean
+manufacturing concepts that are applicable to startups, too, such as
+the power of small batches. We’ll also discuss organizational design,
+how products grow, and how to apply Lean Startup principles
+beyond the proverbial garage, even inside the world’s largest
+companies.
+MANAGEMENT’S SECOND CENTURY
+As a society, we have a proven set of techniques for managing big
+companies and we know the best practices for building physical
+products. But when it comes to startups and innovation, we are still
+shooting in the dark. We are relying on vision, chasing the “great
+shooting in the dark. We are relying on vision, chasing the “great
+men” who can make magic happen, or trying to analyze our new
+products to death. These are new problems, born of the success of
+management in the twentieth century.
+This book attempts to put entrepreneurship and innovation on a
+rigorous footing. We are at the dawn of management’s second
+century. It is our challenge to do something great with the
+opportunity we have been given. The Lean Startup movement seeks
+to ensure that those of us who long to build the next big thing will
+have the tools we need to change the world.
+Part One
+Part One
+VISION
+B
+1
+START
+ENTREPRENEURIAL MANAGEMENT
+uilding a startup is an
+ exercise in institution building; thus, it
+necessarily involves management. This often comes as a surprise
+to aspiring entrepreneurs, because their associations with these
+two words are so diametrically opposed. Entrepreneurs are rightly
+wary of implementing traditional management practices early on in
+a startup, afraid that they will invite bureaucracy or stifle creativity.
+Entrepreneurs have been trying to )t the square peg of their
+unique problems into the round hole of general management for
+decades. As a result, many entrepreneurs take a “just do it” attitude,
+avoiding all forms of management, process, and discipline.
+Unfortunately, this approach leads to chaos more often than it does
+to success. I should know: my )rst startup failures were all of this
+kind.
+The tremendous success of general management over the last
+century has provided unprecedented material abundance, but those
+management principles are ill suited to handle the chaos and
+uncertainty that startups must face.
+I believe that entrepreneurship requires a managerial discipline to
+harness the entrepreneurial opportunity we have been given.
+There are more entrepreneurs operating today than at any
+previous time in history. This has been made possible by dramatic
+previous time in history. This has been made possible by dramatic
+changes in the global economy. To cite but one example, one often
+hears commentators lament the loss of manufacturing jobs in the
+United States over the previous two decades, but one rarely hears
+about a corresponding loss of manufacturing capability. That’s
+because total manufacturing output in the United States is
+increasing
+ (by 15 percent in the last decade) even as jobs continue
+to be lost (see the charts below). In e4ect, the huge productivity
+increases made possible by modern management and technology
+have created more productive capacity than )rms know what to do
+with.
+1
+We are living through an unprecedented worldwide
+entrepreneurial renaissance, but this opportunity is laced with peril.
+Because we lack a coherent management paradigm for new
+innovative ventures, we’re throwing our excess capacity around
+with wild abandon. Despite this lack of rigor, we are )nding some
+ways to make money, but for every success there are far too many
+failures: products pulled from shelves mere weeks after being
+launched, high-pro)le startups lauded in the press and forgotten a
+few months later, and new products that wind up being used by
+nobody. What makes these failures particularly painful is not just
+the economic damage done to individual employees, companies,
+and investors; they are also a colossal waste of our civilization’s
+most precious resource: the time, passion, and skill of its people.
+The Lean Startup movement is dedicated to preventing these
+failures.
+
+
+THE ROOTS OF THE LEAN STARTUP
+The Lean Startup takes its name from the lean manufacturing
+revolution that Taiichi Ohno and Shigeo Shingo are credited with
+developing at Toyota. Lean thinking is radically altering the way
+supply chains and production systems are run. Among its tenets are
+drawing on the knowledge and creativity of individual workers, the
+shrinking of batch sizes, just-in-time production and inventory
+control, and an acceleration of cycle times. It taught the world the
+di4erence between value-creating activities and waste and showed
+how to build quality into products from the inside out.
+The Lean Startup adapts these ideas to the context of
+entrepreneurship, proposing that entrepreneurs judge their progress
+di4erently from the way other kinds of ventures do. Progress in
+di4erently from the way other kinds of ventures do. Progress in
+manufacturing is measured by the production of high-quality
+physical goods. As we’ll see in 
+Chapter 3
+, the Lean Startup uses a
+di4erent unit of progress, called validated learning. With 
+scientific
+learning as our yardstick, we can discover and eliminate the sources
+of waste that are plaguing entrepreneurship.
+A comprehensive theory of entrepreneurship should address all
+the functions of an early-stage venture: vision and concept, product
+development, marketing and sales, scaling up, partnerships and
+distribution, and structure and organizational design. It has to
+provide a method for measuring progress in the context of extreme
+uncertainty. It can give entrepreneurs clear guidance on how to
+make the many trade-o4 decisions they face: whether and when to
+invest in process; formulating, planning, and creating infrastructure;
+when to go it alone and when to partner; when to respond to
+feedback and when to stick with vision; and how and when to
+invest in scaling the business. Most of all, it must allow
+entrepreneurs to make testable predictions.
+For example, consider the recommendation that you build cross-
+functional teams and hold them accountable to what we call
+learning milestones
+ instead of organizing your company into strict
+functional departments (marketing, sales, information technology,
+human resources, etc.) that hold people accountable for performing
+well in their specialized areas (see 
+Chapter 7
+). Perhaps you agree
+with this recommendation, or perhaps you are skeptical. Either
+way, if you decide to implement it, I predict that you pretty quickly
+will get feedback from your teams that the new process is reducing
+their productivity. They will ask to go back to the old way of
+working, in which they had the opportunity to “stay e?cient” by
+working in larger batches and passing work between departments.
+It’s safe to predict this result, and not just because I have seen it
+many times in the companies I work with. It is a straightforward
+prediction of the Lean Startup theory itself. When people are used
+to evaluating their productivity locally, they feel that a good day is
+one in which they did their job well all day. When I 
+worked as a
+programmer, that meant eight straight hours of programming
+without interruption. That was a good day. In contrast, if I was
+without interruption. That was a good day. In contrast, if I was
+interrupted with questions, process, or—heaven forbid—meetings, I
+felt bad. What did I really accomplish that day? Code and product
+features were tangible to me; I could see them, understand them,
+and show them off. Learning, by contrast, is frustratingly intangible.
+The Lean Startup asks people to start measuring their
+productivity di4erently. Because startups often accidentally build
+something nobody wants, it doesn’t matter much if they do it on
+time and on budget. The goal of a startup is to )gure out the right
+thing to build—the thing customers want and will pay for—as
+quickly as possible. In other words, the Lean Startup is a new way
+of looking at the development of innovative new products that
+emphasizes fast iteration and customer insight, a huge vision, and
+great ambition, all at the same time.
+Henry Ford is one of the most successful and celebrated
+entrepreneurs of all time. Since the idea of management has been
+bound up with the history of the automobile since its )rst days, I
+believe it is )tting to use the automobile as a metaphor for a
+startup.
+An internal combustion automobile is powered by two important
+and very di4erent feedback loops. The )rst feedback loop is deep
+inside the engine. Before Henry Ford was a famous CEO, he was an
+engineer. He spent his days and nights tinkering in his garage with
+the precise mechanics of getting the engine cylinders to move. Each
+tiny explosion within the cylinder provides the motive force to turn
+the wheels but also drives the ignition of the next explosion. Unless
+the timing of this feedback loop is managed precisely, the engine
+will sputter and break down.
+Startups have a similar engine that I call the 
+engine of growth
+.
+The markets and customers for startups are diverse: a toy 
+company,
+a consulting )rm, and a manufacturing plant may not seem like
+they have much in common, but, as we’ll see, they operate with the
+same engine of growth.
+Every new version of a product, every new feature, and every
+Every new version of a product, every new feature, and every
+new marketing program is an attempt to improve this engine of
+growth. Like Henry Ford’s tinkering in his garage, not all of these
+changes turn out to be improvements. New product development
+happens in )ts and starts. Much of the time in a startup’s life is
+spent tuning the engine by making improvements in product,
+marketing, or operations.
+The second important feedback loop in an automobile is
+between the driver and the steering wheel. This feedback is so
+immediate and automatic that we often don’t think about it, but it
+is steering that di4erentiates driving from most other forms of
+transportation. If you have a daily commute, you probably know
+the route so well that your hands seem to steer you there on their
+own accord. We can practically drive the route in our sleep. Yet if I
+asked you to close your eyes and write down exactly how to get to
+your o?ce—not the street directions but every action you need to
+take, every push of hand on wheel and foot on pedals—you’d )nd
+it impossible. The choreography of driving is incredibly complex
+when one slows down to think about it.
+By contrast, a rocket ship requires just this kind of in-advance
+calibration. It must be launched with the most precise instructions
+on what to do: every thrust, every )ring of a booster, and every
+change in direction. The tiniest error at the point of launch could
+yield catastrophic results thousands of miles later.
+Unfortunately, too many startup business plans look more like
+they are planning to launch a rocket ship than drive a car. They
+prescribe the steps to take and the results to expect in excruciating
+detail, and as in planning to launch a rocket, they are set up in such
+a way that even tiny errors in assumptions can lead to catastrophic
+outcomes.
+One company I worked with had the misfortune of forecasting
+signi)cant customer adoption—in the millions—for one of its new
+products. Powered by a splashy launch, the company successfully
+executed its plan. Unfortunately, customers did not Cock to the
+product in great numbers. Even worse, the company had invested in
+massive infrastructure, hiring, and support to handle the inCux of
+customers it expected. When the customers failed to materialize, the
+customers it expected. When the customers failed to materialize, the
+company had committed itself so completely that they could not
+adapt in time. They had “achieved failure”—successfully, faithfully,
+and rigorously executing a plan that turned out to have been utterly
+flawed.
+The Lean Startup method, in contrast, is designed to teach you
+how to drive a startup. Instead of making complex plans that are
+based on a lot of assumptions, you can make constant adjustments
+with a steering wheel called the 
+Build-Measure-Learn
+ feedback
+loop. Through this process of steering, we can learn when and if it’s
+time to make a sharp turn called a 
+pivot
+ or whether we should
+persevere
+ along our current path. Once we have an engine that’s
+revved up, the Lean Startup o4ers methods to scale and grow the
+business with maximum acceleration.
+Throughout the process of driving, you always have a clear idea
+of where you’re going. If you’re commuting to work, you don’t give
+up because there’s a detour in the road or you made a wrong turn.
+You remain thoroughly focused on getting to your destination.
+Startups also have a true north, a destination in mind: creating a
+thriving and world-changing business. I call that a startup’s 
+vision
+.
+To achieve that vision, startups employ a 
+strategy
+, which includes a
+business model, a product road map, a point of view about partners
+and competitors, and ideas about who the customer will be. The
+product
+ is the end result of this strategy (see the chart on 
+this page
+).
+Products change constantly through the process of optimization,
+what I call 
+tuning the engine
+. Less frequently, the strategy may have
+to change (called a pivot). However, the overarching vision rarely
+changes. Entrepreneurs are committed to seeing the startup through
+to that destination. Every setback is an opportunity for learning
+how to get where they want to go (see the chart below).
+
+In real life, a startup is a portfolio of activities. A lot is happening
+simultaneously: the engine is running, acquiring new customers and
+serving existing ones; we are tuning, trying to improve our product,
+marketing, and operations; and we are steering, deciding if and
+when to pivot. The challenge of entrepreneurship is to balance all
+these activities. Even the smallest startup faces the challenge of
+supporting existing customers while trying to innovate. Even the
+most established company faces the imperative to invest in
+innovation lest it become obsolete. As companies grow, what
+changes is the mix of these activities in the company’s portfolio of
+work.
+Entrepreneurship is management. And yet, imagine a modern
+manager who is tasked with building a new product in the context
+of an established company. Imagine that she goes back to her
+company’s chief )nancial o?cer (CFO) a year later and says, “We
+have failed to meet the growth targets we predicted. In fact, we
+have almost no new customers and no new revenue. However, we
+have learned an incredible amount and are on the cusp of a
+breakthrough new line of business. All we need is another year.”
+Most of the time, this would be the last report this intrapreneur
+would give her employer. The reason is that in general
+management, a failure to deliver results is due to either a failure to
+plan adequately or a failure to execute properly. Both are
+signi)cant lapses, yet new product development in our modern
+economy routinely requires exactly this kind of failure on the way
+to greatness. In the Lean Startup movement, we have come to
+realize that these internal innovators are actually entrepreneurs, too,
+and that entrepreneurial management can help them succeed; this is
+the subject of the next chapter.
+A
+2
+DEFINE
+WHO, EXACTLY, IS AN ENTREPRENEUR?
+s I travel the world
+ talking about the Lean Startup, I’m
+consistently surprised that I meet people in the audience who
+seem out of place. In addition to the more traditional startup
+entrepreneurs I meet, these people are general managers, mostly
+working in very large companies, who are tasked with creating new
+ventures or product innovations. They are adept at organizational
+politics: they know how to form autonomous divisions with
+separate pro1t and loss statements (P&Ls) and can shield
+controversial teams from corporate meddling. The biggest surprise
+is that they are visionaries. Like the startup founders I have worked
+with for years, they can see the future of their industries and are
+prepared to take bold risks to seek out new and innovative
+solutions to the problems their companies face.
+Mark, for example, is a manager for an extremely large company
+who came to one of my lectures. He is the leader of a division that
+recently had been chartered to bring his company into the twenty-
+1rst century by building a new suite of products designed to take
+advantage of the Internet. When he came to talk to me afterward, I
+started to give him the standard advice about how to create
+innovation teams inside big companies, and 
+he stopped me in
+midstream: “Yeah, I’ve read 
+The Innovator’s Dilemma
+.
+1
+ I’ve got that
+all taken care of.” He was a long-term employee of the company
+and a successful manager to boot, so managing internal politics was
+and a successful manager to boot, so managing internal politics was
+the least of his problems. I should have known; his success was a
+testament to his ability to navigate the company’s corporate
+policies, personnel, and processes to get things done.
+Next, I tried to give him some advice about the future, about cool
+new highly leveraged product development technologies. He
+interrupted me again: “Right. I know all about the Internet, and I
+have a vision for how our company needs to adapt to it or die.”
+Mark has all the entrepreneurial 
+prerequisites
+ nailed—proper
+team structure, good personnel, a strong vision for the future, and
+an appetite for risk taking—and so it 1nally occurred to me to ask
+why he was coming to me for advice. He said, “It’s as if we have all
+of the raw materials: kindling, wood, paper, >int, even some
+sparks. But where’s the 1re?” The theories of management that
+Mark had studied treat innovation like a “black box” by focusing on
+the structures companies need to put in place to form internal
+startup teams. But Mark found himself working 
+inside the black
+box
+—and in need of guidance.
+What Mark was missing was a process for converting the raw
+materials of innovation into real-world breakthrough successes.
+Once a team is set up, what should it do? What process should it
+use? How should it be held accountable to performance
+milestones? These are questions the Lean Startup methodology is
+designed to answer.
+My point? Mark is an entrepreneur just like a Silicon Valley high-
+tech founder with a garage startup. He needs the principles of the
+Lean Startup just as much as the folks I thought of as classic
+entrepreneurs do.
+Entrepreneurs who operate inside an established organization
+sometimes are called “intrapreneurs” because of the special
+circumstances that attend building a startup within a larger
+company. As I have applied Lean Startup ideas in an ever-widening
+variety of companies and industries, I have come to believe that
+intrapreneurs have much more in common with the rest of the
+community of entrepreneurs than most people believe. Thus, when
+I use the term 
+entrepreneur
+, I am referring to the whole startup
+ecosystem regardless of company size, sector, or stage of
+ecosystem regardless of company size, sector, or stage of
+development.
+This book is for entrepreneurs of all stripes: from young
+visionaries with little backing but great ideas to seasoned
+visionaries within larger companies such as Mark—and the people
+who hold them accountable.
+IF I’M AN ENTREPRENEUR, WHAT’S A STARTUP?
+The Lean Startup is a set of practices for helping entrepreneurs
+increase their odds of building a successful startup. To set the record
+straight, it’s important to define what a startup is:
+A startup is a human institution designed to create a new
+product or service under conditions of extreme uncertainty.
+I’ve come to realize that the most important part of this
+de1nition is what it omits. It says nothing about size of the
+company, the industry, or the sector of the economy. Anyone who is
+creating a new product or business under conditions of extreme
+uncertainty is an entrepreneur whether he or she knows it or not
+and whether working in a government agency, a venture-backed
+company, a nonpro1t, or a decidedly for-pro1t company with
+financial investors.
+Let’s take a look at each of the pieces. The word 
+institution
+connotes bureaucracy, process, even lethargy. How can that be part
+of a startup? Yet successful startups are full of activities associated
+with building an institution: hiring creative employees, coordinating
+their activities, and creating a company culture that delivers results.
+We often lose sight of the fact that a startup is not just about a
+product, a technological breakthrough, or even a brilliant idea. A
+startup is greater than the sum of its parts; it is an acutely human
+enterprise.
+The fact that a startup’s product or service is a new innovation is
+also an essential part of the de1nition and a tricky part too. I prefer
+to use the broadest de1nition of 
+product
+, one that encompasses any
+to use the broadest de1nition of 
+product
+, one that encompasses any
+source of value for the people who become customers. Anything
+those customers experience from their interaction with a company
+should be considered part of that company’s product. This is true of
+a grocery store, an e-commerce website, a consulting service, and a
+nonpro1t social service agency. In every case, the organization is
+dedicated to uncovering a new source of value for customers and
+cares about the impact of its product on those customers.
+It’s also important that the word 
+innovation
+ be understood
+broadly. Startups use many kinds of innovation: novel scienti1c
+discoveries, repurposing an existing technology for a new use,
+devising a new business model that unlocks value that was hidden,
+or simply bringing a product or service to a new location or a
+previously underserved set of customers. In all these cases,
+innovation is at the heart of the company’s success.
+There is one more important part of this definition: the context in
+which the innovation happens. Most businesses—large and small
+alike—are excluded from this context. Startups are designed to
+confront situations of extreme uncertainty. To open up a new
+business that is an exact clone of an existing business all 
+the way
+down to the business model, pricing, target customer, and product
+may be an attractive economic investment, but it is not a startup
+because its success depends only on execution—so much so that this
+success can be modeled with high accuracy. (This is why so many
+small businesses can be 1nanced with simple bank loans; the level
+of risk and uncertainty is understood well enough that a loan oBcer
+can assess its prospects.)
+Most tools from general management are not designed to >ourish
+in the harsh soil of extreme uncertainty in which startups thrive.
+The future is unpredictable, customers face a growing array of
+alternatives, and the pace of change is ever increasing. Yet most
+startups—in garages and enterprises alike—still are managed by
+using standard forecasts, product milestones, and detailed business
+plans.
+THE SNAPTAX STORY
+In 2009, a startup decided to try something really audacious. They
+wanted to liberate taxpayers from expensive tax stores by
+automating the process of collecting information typically found on
+W-2 forms (the end-of-year statement that most employees receive
+from their employer that summarizes their taxable wages for the
+year). The startup quickly ran into diBculties. Even though many
+consumers had access to a printer/scanner in their home or oBce,
+few knew how to use those devices. After numerous conversations
+with potential customers, the team lit upon the idea of having
+customers take photographs of the forms directly from their cell
+phone. In the process of testing this concept, customers asked
+something unexpected: would it be possible to 1nish 
+the whole tax
+return
+ right on the phone itself?
+That was not an easy task. Traditional tax preparation requires
+consumers to wade through hundreds of questions, many 
+forms, and
+a lot of paperwork. This startup tried something novel by deciding
+to ship an early version of its product that could do much less than
+a complete tax package. The initial version worked only for
+consumers with a very simple return to 1le, and it worked only in
+California.
+Instead of having consumers 1ll out a complex form, they
+allowed the customers to use the phone’s camera to take a picture
+of their W-2 forms. From that single picture, the company
+developed the technology to compile and 1le most of the 1040 EZ
+tax return. Compared with the drudgery of traditional tax 1ling, the
+new product—called SnapTax—provides a magical experience.
+From its modest beginning, SnapTax grew into a signi1cant startup
+success story. Its nationwide launch in 2011 showed that customers
+loved it, to the tune of more than 350,000 downloads in the 1rst
+three weeks.
+This is the kind of amazing innovation you’d expect from a new
+startup.
+However, the name of this company may surprise you. SnapTax
+was developed by Intuit, America’s largest producer of 1nance, tax,
+and accounting tools for individuals and small businesses. With
+and accounting tools for individuals and small businesses. With
+more than 7,700 employees and annual revenues in the billions,
+Intuit is not a typical startup.
+2
+The team that built SnapTax doesn’t look much like the
+archetypal image of entrepreneurs either. They don’t work in a
+garage or eat ramen noodles. Their company doesn’t lack for
+resources. They are paid a full salary and benefits. They come into a
+regular office every day. Yet they are entrepreneurs.
+Stories like this one are not nearly as common inside large
+corporations as they should be. After all, SnapTax competes directly
+with one of Intuit’s >agship products: the fully featured TurboTax
+desktop software. Usually, companies like Intuit fall into the trap
+described in Clayton Christensten’s 
+The Innovator’s Dilemma:
+ they
+are very good at creating incremental 
+improvements to existing
+products and serving existing customers, which Christensen called
+sustaining innovation
+, but struggle to create breakthrough new
+products
+—disruptive innovation—
+that can create new sustainable
+sources of growth.
+One remarkable part of the SnapTax story is what the team
+leaders said when I asked them to account for their unlikely success.
+Did they hire superstar entrepreneurs from outside the company?
+No, they assembled a team from within Intuit. Did they face
+constant meddling from senior management, which is the bane of
+innovation teams in many companies? No, their executive sponsors
+created an “island of freedom” where they could experiment as
+necessary. Did they have a huge team, a large budget, and lots of
+marketing dollars? Nope, they started with a team of five.
+What allowed the SnapTax team to innovate was not their genes,
+destiny, or astrological signs but a process deliberately facilitated by
+Intuit’s senior management. Innovation is a bottoms-up,
+decentralized, and unpredictable thing, but that doesn’t mean it
+cannot be managed. It can, but to do so requires a new
+management discipline, one that needs to be mastered not just by
+practicing entrepreneurs seeking to build the next big thing but also
+by the people who support them, nurture them, and hold them
+accountable. In other words, cultivating entrepreneurship is the
+accountable. In other words, cultivating entrepreneurship is the
+responsibility of senior management. Today, a cutting-edge
+company such as Intuit can point to success stories like SnapTax
+because it has recognized the need for a new management
+paradigm. This is a realization that was years in the making.
+3
+A SEVEN-THOUSAND-PERSON LEAN STARTUP
+In 1983, Intuit’s founder, the legendary entrepreneur Scott Cook,
+had the radical notion (with cofounder Tom Proulx) 
+that personal
+accounting should happen by computer. Their success was far from
+inevitable; they faced numerous competitors, an uncertain future,
+and an initially tiny market. A decade later, the company went
+public and subsequently fended oL well-publicized attacks from
+larger incumbents, including the software behemoth Microsoft.
+Partly with the help of famed venture capitalist John Doerr, Intuit
+became a fully diversi1ed enterprise, a member of the Fortune
+1000 that now provides dozens of market-leading products across
+its major divisions.
+This is the kind of entrepreneurial success we’re used to hearing
+about: a ragtag team of underdogs who eventually achieve fame,
+acclaim, and significant riches.
+Flash-forward to 2002. Cook was frustrated. He had just tabulated
+ten years of data on all of Intuit’s new product introductions and
+had concluded that the company was getting a measly return on its
+massive investments. Simply put, too many of its new products
+were failing. By traditional standards, Intuit is an extremely well-
+managed company, but as Scott dug into the root causes of those
+failures, he came to a diBcult conclusion: the prevailing
+management paradigm he and his company had been practicing
+was inadequate to the problem of continuous innovation in the
+modern economy.
+By fall 2009, Cook had been working to change Intuit’s
+management culture for several years. He came across my early
+work on the Lean Startup and asked me to give a talk at Intuit. In
+Silicon Valley this is not the kind of invitation you turn down. I
+Silicon Valley this is not the kind of invitation you turn down. I
+admit I was curious. I was still at the beginning of my Lean Startup
+journey and didn’t have much appreciation for the challenges faced
+by a Fortune 1000 company like his.
+My conversations with Cook and Intuit chief executive oBcer
+(CEO) Brad Smith were my initiation into the thinking of modern
+general managers, who struggle with entrepreneurship 
+every bit as
+much as do venture capitalists and founders in a garage. To combat
+these challenges, Scott and Brad are going back to Intuit’s roots.
+They are working to build entrepreneurship and risk taking into all
+their divisions.
+For example, consider one of Intuit’s >agship products. Because
+TurboTax does most of its sales around tax season in the United
+States, it used to have an extremely conservative culture. Over the
+course of the year, the marketing and product teams would
+conceive one major initiative that would be rolled out just in time
+for tax season. Now they test over 1ve hundred diLerent changes in
+a two-and-a-half-month tax season. They’re running up to seventy
+diLerent tests per week. The team can make a change live on its
+website on Thursday, run it over the weekend, read the results on
+Monday, and come to conclusions starting Tuesday; then they
+rebuild new tests on Thursday and launch the next set on Thursday
+night.
+As Scott put it, “Boy, the amount of learning they get is just
+immense now. And what it does is develop entrepreneurs, because
+when you have only one test, you don’t have entrepreneurs, you
+have politicians, because you have to sell. Out of a hundred good
+ideas, you’ve got to sell your idea. So you build up a society of
+politicians and salespeople. When you have 1ve hundred tests
+you’re running, then everybody’s ideas can run. And then you create
+entrepreneurs who run and learn and can retest and relearn as
+opposed to a society of politicians. So we’re trying to drive that
+throughout our organization, using examples which have nothing to
+do with high tech, like the website example. Every business today
+has a website. You don’t have to be high tech to use fast-cycle
+testing.”
+This kind of change is hard. After all, the company has a
+This kind of change is hard. After all, the company has a
+signi1cant number of existing customers who continue to demand
+exceptional service and investors who expect steady, growing
+returns.
+Scott says,
+It goes against the grain of what people have been taught in
+business and what leaders have been taught. The problem
+isn’t with the teams or the entrepreneurs. They love the
+chance to quickly get their baby out into the market. They
+love the chance to have the customer vote instead of the
+suits voting. The real issue is with the leaders and the
+middle managers. There are many business leaders who
+have been successful because of analysis. They think they’re
+analysts, and their job is to do great planning and analyzing
+and have a plan.
+The amount of time a company can count on holding on to
+market leadership to exploit its earlier innovations is shrinking, and
+this creates an imperative for even the most entrenched companies
+to invest in innovation. In fact, I believe a company’s only
+sustainable path to long-term economic growth is to build an
+“innovation factory” that uses Lean Startup techniques to create
+disruptive innovations on a continuous basis. In other words,
+established companies need to 1gure out how to accomplish what
+Scott Cook did in 1983, but on an industrial scale and with an
+established cohort of managers steeped in traditional management
+culture.
+Ever the maverick, Cook asked me to put these ideas to the test,
+and so I gave a talk that was simulcast to all seven thousand–plus
+Intuit employees during which I explained the theory of the Lean
+Startup, repeating my de1nition: an organization designed to create
+new products and services under conditions of extreme uncertainty.
+What happened next is etched in my memory. CEO Brad Smith
+had been sitting next to me as I spoke. When I was done, he got up
+and said before all of Intuit’s employees, “Folks, listen 
+up. You
+and said before all of Intuit’s employees, “Folks, listen 
+up. You
+heard Eric’s definition of a startup. It has three parts, and we here at
+Intuit match 
+all three parts
+ of that definition.”
+Scott and Brad are leaders who realize that something new is
+needed in management thinking. Intuit is proof that this kind of
+thinking can work in established companies. Brad explained to me
+how they hold themselves accountable for their new innovation
+eLorts by measuring two things: the number of customers using
+products that didn’t exist three years ago and the percentage of
+revenue coming from offerings that did not exist three years ago.
+Under the old model, it took an average of 5.5 years for a
+successful new product to start generating $50 million in revenue.
+Brad explained to me, “We’ve generated $50 million in oLerings
+that did not exist twelve months ago in the last year. Now it’s not
+one particular oLering. It’s a combination of a whole bunch of
+innovation happening, but that’s the kind of stuL that’s creating
+some energy for us, that we think we can truly short-circuit the
+ramp by killing things that don’t make sense fast and doubling
+down on the ones that do.” For a company as large as Intuit, these
+are modest results and early days. They have decades of legacy
+systems and legacy thinking to overcome. However, their leadership
+in adopting entrepreneurial management is starting to pay off.
+Leadership requires creating conditions that enable employees to
+do the kinds of experimentation that entrepreneurship requires. For
+example, changes in TurboTax enabled the Intuit team to develop
+1ve hundred experiments per tax season. Before that, marketers
+with great ideas couldn’t have done those tests even if they’d
+wanted to, because they didn’t have a system in place through
+which to change the website rapidly. Intuit invested in systems that
+increased the speed at which tests could be built, deployed, and
+analyzed.
+As Cook says, “Developing these experimentation systems is 
+the
+responsibility of senior management; they have to be put in by the
+leadership. It’s moving leaders from playing Caesar with their
+thumbs up and down on every idea to—instead—putting in the
+culture and the systems so that teams can move and innovate at the
+speed of the experimentation system.”
+A
+3
+LEARN
+s an entrepreneur, nothing plagued
+ me more than the question
+of whether my company was making progress toward creating a
+successful business. As an engineer and later as a manager, I was
+accustomed to measuring progress by making sure our work
+proceeded according to plan, was high quality, and cost about what
+we had projected.
+After many years as an entrepreneur, I started to worry about
+measuring progress in this way. What if we found ourselves
+building something that nobody wanted? In that case what did it
+matter if we did it on time and on budget? When I went home at
+the end of a day’s work, the only things I knew for sure were that I
+had kept people busy and spent money that day. I hoped that my
+team’s e&orts took us closer to our goal. If we wound up taking a
+wrong turn, I’d have to take comfort in the fact that at least we’d
+learned something important.
+Unfortunately, “learning” is the oldest excuse in the book for a
+failure of execution. It’s what managers fall back on when they fail
+to achieve the results we promised. Entrepreneurs, under pressure
+to succeed, are wildly creative when it comes to demonstrating
+what we have learned. We can all tell a good story when our job,
+career, or reputation depends on it.
+However, learning is cold comfort to employees who are
+following an entrepreneur into the unknown. It is cold comfort to
+the investors who allocate precious money, time, and energy to
+entrepreneurial teams. It is cold comfort to the organizations—large
+entrepreneurial teams. It is cold comfort to the organizations—large
+and small—that depend on entrepreneurial innovation to survive.
+You can’t take learning to the bank; you can’t spend it or invest it.
+You cannot give it to customers and cannot return it to limited
+partners. Is it any wonder that learning has a bad name in
+entrepreneurial and managerial circles?
+Yet if the fundamental goal of entrepreneurship is to engage in
+organization building under conditions of extreme uncertainty, its
+most vital function is learning. We must learn the truth about which
+elements of our strategy are working to realize our vision and
+which are just crazy. We must learn what customers really want, not
+what they say they want or what we think they should want. We
+must discover whether we are on a path that will lead to growing a
+sustainable business.
+In the Lean Startup model, we are rehabilitating learning with a
+concept I call 
+validated learning
+. Validated learning is not after-the-
+fact rationalization or a good story designed to hide failure. It is a
+rigorous method for demonstrating progress when one is embedded
+in the soil of extreme uncertainty in which startups grow. Validated
+learning is the process of demonstrating empirically that a team has
+discovered valuable truths about a startup’s present and future
+business prospects. It is more concrete, more accurate, and faster
+than market forecasting or classical business planning. It is the
+principal antidote to the lethal problem of achieving failure:
+successfully executing a plan that leads nowhere.
+VALIDATED LEARNING AT IMVU
+Let me illustrate this with an example from my career. Many
+audiences have heard me recount the story of IMVU’s founding 
+and
+the many mistakes we made in developing our 8rst product. I’ll
+now elaborate on one of those mistakes to illustrate validated
+learning clearly.
+Those of us involved in the founding of IMVU aspired to be
+serious strategic thinkers. Each of us had participated in previous
+ventures that had failed, and we were loath to repeat that
+ventures that had failed, and we were loath to repeat that
+experience. Our main concerns in the early days dealt with the
+following questions: What should we build and for whom? What
+market could we enter and dominate? How could we build durable
+value that would not be subject to erosion by competition?
+1
+Brilliant Strategy
+We decided to enter the instant messaging (IM) market. In 2004,
+that market had hundreds of millions of consumers actively
+participating worldwide. However, the majority of the customers
+who were using IM products were not paying for the privilege.
+Instead, large media and portal companies such as AOL, Microsoft,
+and Yahoo! operated their IM networks as a loss leader for other
+services while making modest amounts of money through
+advertising.
+IM is an example of a market that involves strong 
+network
+effects
+. Like most communication networks, IM is thought to follow
+Metcalfe’s law: the value of a network as a whole is proportional to
+the square of the number of participants. In other words, the more
+people in the network, the more valuable the network. This makes
+intuitive sense: the value to each participant is driven primarily by
+how many other people he or she can communicate with. Imagine
+a world in which you own the only telephone; it would have no
+value. Only when other people also have a telephone does it
+become valuable.
+In 2004, the IM market was locked up by a handful of
+incumbents. The top three networks controlled more than 80
+percent of the overall usage and were in the process of
+consolidating their gains in market share at the expense of a
+number of smaller players.
+2
+ The common wisdom was that it was
+more or less impossible to bring a new IM network to market
+without spending an extraordinary amount of money on marketing.
+The reason for that wisdom is simple. Because of the power of
+network e&ects, IM products have high switching costs. To switch
+from one network to another, customers would have to convince
+from one network to another, customers would have to convince
+their friends and colleagues to switch with them. This extra work
+for customers creates a barrier to entry in the IM market: with all
+consumers locked in to an incumbent’s product, there are no
+customers left with whom to establish a beachhead.
+At IMVU we settled on a strategy of building a product that
+would combine the large mass appeal of traditional IM with the
+high revenue per customer of three-dimensional (3D) video games
+and virtual worlds. Because of the near impossibility of bringing a
+new IM network to market, we decided to build an IM add-on
+product that would interoperate with the existing networks. Thus,
+customers would be able to adopt the IMVU virtual goods and
+avatar communication technology without having to switch IM
+providers, learn a new user interface, and—most important—bring
+their friends with them.
+In fact, we thought this last point was essential. For the add-on
+product to be useful, customers would 
+have
+ to use it with their
+existing friends. Every communication would come embedded with
+an invitation to join IMVU. Our product would be inherently viral,
+spreading throughout the existing IM networks like an epidemic. To
+achieve that viral growth, it was important that our add-on product
+support as many of the existing IM networks as possible and work
+on all kinds of computers.
+Six Months to Launch
+With this strategy in place, my cofounders and I began a period of
+intense work. As the chief technology oDcer, it was my
+responsibility, among other things, to write the software that would
+support IM interoperability across networks. My cofounders and I
+worked for months, putting in crazy hours struggling to get our 8rst
+product released. We gave ourselves a hard deadline of six months
+—180 days—to launch the product and attract our 8rst paying
+customers. It was a grueling schedule, but we were determined to
+launch on time.
+The add-on product was so large and complex and had so many
+The add-on product was so large and complex and had so many
+moving parts that we had to cut a lot of corners to get it done on
+time. I won’t mince words: the 8rst version was terrible. We spent
+endless hours arguing about which bugs to 8x and which we could
+live with, which features to cut and which to try to cram in. It was a
+wonderful and terrifying time: we were full of hope about the
+possibilities for success and full of fear about the consequences of
+shipping a bad product.
+Personally, I was worried that the low quality of the product
+would tarnish my reputation as an engineer. People would think I
+didn’t know how to build a quality product. All of us feared
+tarnishing the IMVU brand; after all, we were charging people
+money for a product that didn’t work very well. We all envisioned
+the damning newspaper headlines: “Inept Entrepreneurs Build
+Dreadful Product.”
+As launch day approached, our fears escalated. In our situation,
+many entrepreneurial teams give in to fear and postpone the launch
+date. Although I understand this impulse, I am glad we persevered,
+since delay prevents many startups from getting the feedback they
+need. Our previous failures made us more afraid of another, even
+worse, outcome than shipping a bad 
+product: building something
+that nobody wants. And so, teeth clenched and apologies at the
+ready, we released our product to the public.
+Launch
+And then—nothing happened! It turned out that our fears were
+unfounded, because nobody even tried our product. At 8rst I was
+relieved because at least nobody was 8nding out how bad the
+product was, but soon that gave way to serious frustration. After all
+the hours we had spent arguing about which features to include and
+which bugs to 8x, our value proposition was so far o& that
+customers weren’t getting far enough into the experience to 8nd out
+how bad our design choices were. Customers wouldn’t even
+download our product.
+Over the ensuing weeks and months, we labored to make the
+Over the ensuing weeks and months, we labored to make the
+product better. We brought in a steady Gow of customers through
+our online registration and download process. We treated each
+day’s customers as a brand-new report card to let us know how we
+were doing. We eventually learned how to change the product’s
+positioning so that customers at least would download it. We were
+making improvements to the underlying product continuously,
+shipping bug 8xes and new changes daily. However, despite our
+best e&orts, we were able to persuade only a pathetically small
+number of people to buy the product.
+In retrospect, one good decision we made was to set clear
+revenue targets for those early days. In the 8rst month we intended
+to make $300 in total revenue, and we did—barely. Many friends
+and family members were asked (okay, begged). Each month our
+small revenue targets increased, 8rst to $350 and then to $400. As
+they rose, our struggles increased. We soon ran out of friends and
+family; our frustration escalated. We were 
+making the product
+better every day, yet our customers’ behavior remained unchanged:
+they still wouldn’t use it.
+Our failure to move the numbers prodded us to accelerate our
+e&orts to bring customers into our oDce for in-person interviews
+and usability tests. The quantitative targets created the motivation
+to engage in qualitative inquiry and guided us in the questions we
+asked; this is a pattern we’ll see throughout this book.
+I wish I could say that I was the one to realize our mistake and
+suggest the solution, but in truth, I was the last to admit the
+problem. In short, our entire strategic analysis of the market was
+utterly wrong. We 8gured this out empirically, through
+experimentation, rather than through focus groups or market
+research. Customers could not tell us what they wanted; most, after
+all, had never heard of 3D avatars. Instead, they revealed the truth
+through their action or inaction as we struggled to make the
+product better.
+Talking to Customers

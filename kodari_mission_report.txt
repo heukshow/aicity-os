@@ -1,0 +1,2 @@
+MISSION_RESULT: JOY_BLOG_ID=future_tech_neo
+STATUS: SENT_TO_NEO

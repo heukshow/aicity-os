@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리트리트 카페 정보 수집</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .gradient-bg {
+            background: linear-gradient(-45deg, #1a1a1a, #2d1810, #1a1a1a, #000);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+    </style>
+</head>
+
+<body class="gradient-bg text-white min-h-screen p-6">
+    <div class="max-w-3xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12 pt-8">
+            <div class="text-6xl mb-4">🏍️☕</div>
+            <h1
+                class="text-5xl font-black mb-4 bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
+                Re:Treat Cafe
+            </h1>
+            <p class="text-gray-400 text-lg">홈페이지 제작을 위한 정보 입력</p>
+            <p class="text-sm text-gray-500 mt-2">아래 내용 채워서 제출해주세요! (5-10분 소요)</p>
+        </div>
+
+        <form id="cafe-form" class="space-y-8">
+            <!-- 1. 기본 정보 -->
+            <section class="bg-black/40 backdrop-blur-lg p-6 rounded-2xl border border-white/10">
+                <h2 class="text-2xl font-bold mb-4 text-orange-400">📍 1. 기본 정보</h2>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">주소</label>
+                        <input type="text" name="address" required
+                            class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-2">전화번호</label>
+                            <input type="tel" name="phone" required
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">인스타그램</label>
+                            <input type="text" name="instagram" placeholder="@"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-2">영업시간 - 평일</label>
+                            <input type="text" name="hours_weekday" placeholder="예: 9:00 - 20:00" required
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">영업시간 - 주말</label>
+                            <input type="text" name="hours_weekend" placeholder="예: 10:00 - 21:00"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-2">휴무일</label>
+                            <input type="text" name="closed_day" placeholder="예: 매주 월요일"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">오토바이 주차</label>
+                            <select name="bike_parking" required
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                                <option value="">선택하세요</option>
+                                <option value="가능">가능</option>
+                                <option value="불가능">불가능</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">한 줄 소개</label>
+                        <input type="text" name="intro" placeholder="리트리트는 이런 카페예요!" required
+                            class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. 메뉴 -->
+            <section class="bg-black/40 backdrop-blur-lg p-6 rounded-2xl border border-white/10">
+                <h2 class="text-2xl font-bold mb-4 text-orange-400">☕ 2. 메뉴</h2>
+
+                <div class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-2">아메리카노 HOT</label>
+                            <input type="text" name="americano_hot" placeholder="원"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">아메리카노 ICE</label>
+                            <input type="text" name="americano_ice" placeholder="원"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-2">카페라떼 HOT</label>
+                            <input type="text" name="latte_hot" placeholder="원"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">카페라떼 ICE</label>
+                            <input type="text" name="latte_ice" placeholder="원"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">시그니처 메뉴 (있다면)</label>
+                        <textarea name="signature_menu" rows="2" placeholder="메뉴명 / 가격 / 특징"
+                            class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">논커피/디저트 메뉴</label>
+                        <textarea name="other_menu" rows="2" placeholder="예: 아이스티, 쿠키 등"
+                            class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. 원두 -->
+            <section class="bg-black/40 backdrop-blur-lg p-6 rounded-2xl border border-white/10">
+                <h2 class="text-2xl font-bold mb-4 text-orange-400">🌱 3. 원두 판매</h2>
+
+                <div class="space-y-6">
+                    <!-- 원두 1 -->
+                    <div class="border-l-4 border-orange-500 pl-4">
+                        <h3 class="font-bold mb-3">원두 #1</h3>
+                        <div class="space-y-3">
+                            <input type="text" name="bean1_name" placeholder="이름 (예: 리트리트 블렌드)"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                            <input type="text" name="bean1_taste" placeholder="맛 특징 (예: 초콜릿, 고소함)"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                            <div class="grid grid-cols-2 gap-3">
+                                <input type="text" name="bean1_price_200" placeholder="200g 가격"
+                                    class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                                <input type="text" name="bean1_price_500" placeholder="500g 가격"
+                                    class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                            </div>
+                            <input type="text" name="bean1_recommend" placeholder="누구에게 추천?"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+
+                    <!-- 원두 2 -->
+                    <div class="border-l-4 border-orange-500 pl-4">
+                        <h3 class="font-bold mb-3">원두 #2</h3>
+                        <div class="space-y-3">
+                            <input type="text" name="bean2_name" placeholder="이름"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                            <input type="text" name="bean2_taste" placeholder="맛 특징"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                            <div class="grid grid-cols-2 gap-3">
+                                <input type="text" name="bean2_price_200" placeholder="200g 가격"
+                                    class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                                <input type="text" name="bean2_price_500" placeholder="500g 가격"
+                                    class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 배송 정보 -->
+                    <div>
+                        <label class="block text-sm font-bold mb-2">배송비 & 무료배송 기준</label>
+                        <input type="text" name="shipping" placeholder="예: 3,000원 (3만원 이상 무료)"
+                            class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. 라이더 관련 -->
+            <section class="bg-black/40 backdrop-blur-lg p-6 rounded-2xl border border-white/10">
+                <h2 class="text-2xl font-bold mb-4 text-orange-400">🏍️ 4. 라이더 관련</h2>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold mb-3">라이더 편의시설 (체크)</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" name="facility_helmet" value="헬멧 보관함" class="w-5 h-5 rounded">
+                                <span>헬멧 보관함</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" name="facility_gear" value="기어 보관" class="w-5 h-5 rounded">
+                                <span>라이딩 기어 보관</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" name="facility_parking" value="전용 주차" class="w-5 h-5 rounded">
+                                <span>오토바이 전용 주차</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" name="facility_map" value="루트 지도" class="w-5 h-5 rounded">
+                                <span>라이딩 루트 지도</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">추천 라이딩 코스 (있다면)</label>
+                        <textarea name="riding_routes" rows="3" placeholder="예: 북한산 야경 루트 - 왕복 50km"
+                            class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">정기 모임 (있다면)</label>
+                        <input type="text" name="regular_meeting" placeholder="예: 매주 토요일 오전 투어링"
+                            class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. 기타 -->
+            <section class="bg-black/40 backdrop-blur-lg p-6 rounded-2xl border border-white/10">
+                <h2 class="text-2xl font-bold mb-4 text-orange-400">💬 5. 기타</h2>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold mb-3">원두 온라인 주문 받고 싶으신가요?</label>
+                        <div class="flex gap-4">
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="radio" name="online_order" value="yes" class="w-5 h-5">
+                                <span>네! 온라인 주문 받고 싶어요</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="radio" name="online_order" value="no" class="w-5 h-5">
+                                <span>아니요, 정보만 보여주면 돼요</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">꼭 넣고 싶은 내용</label>
+                        <textarea name="special_notes" rows="3" placeholder="자유롭게 적어주세요"
+                            class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-3">급한 정도는?</label>
+                        <select name="urgency" required
+                            class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none">
+                            <option value="">선택하세요</option>
+                            <option value="여유">여유 있어요 (1-2달)</option>
+                            <option value="보통">보통이요 (2-3주)</option>
+                            <option value="급함">급해요! (1주일)</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 사진 안내 -->
+            <section class="bg-orange-500/10 backdrop-blur-lg p-6 rounded-2xl border border-orange-500/30">
+                <h2 class="text-2xl font-bold mb-4 text-orange-400">📷 사진 준비 안내</h2>
+                <div class="text-sm text-gray-300 space-y-2">
+                    <p class="font-bold">아래 사진들을 별도로 보내주세요 (카톡/이메일):</p>
+                    <ul class="list-disc list-inside space-y-1 ml-4">
+                        <li>카페 외관 (정면, 간판)</li>
+                        <li>카페 내부 전경</li>
+                        <li>시그니처 커피 사진</li>
+                        <li>원두 봉지/포장 사진</li>
+                        <li>로고 파일 (있다면)</li>
+                        <li>바이크/라이더 관련 사진 (분위기 사진)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Submit -->
+            <div class="text-center py-8">
+                <button type="submit"
+                    class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-black text-xl px-12 py-4 rounded-full transition shadow-xl hover:shadow-2xl transform hover:scale-105">
+                    ✅ 제출하기
+                </button>
+                <p class="text-sm text-gray-500 mt-4">제출하면 파일로 저장됩니다</p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('cafe-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const data = {};
+
+            // 일반 필드
+            for (let [key, value] of formData.entries()) {
+                if (!key.includes('facility_')) {
+                    data[key] = value;
+                }
+            }
+
+            // 체크박스 필드
+            const facilities = [];
+            if (formData.get('facility_helmet')) facilities.push('헬멧 보관함');
+            if (formData.get('facility_gear')) facilities.push('기어 보관');
+            if (formData.get('facility_parking')) facilities.push('전용 주차');
+            if (formData.get('facility_map')) facilities.push('루트 지도');
+            data.facilities = facilities;
+
+            // 날짜 추가
+            data.submitted_at = new Date().toLocaleString('ko-KR');
+
+            try {
+                const response = await fetch('/api/retreat_info', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    alert('✅ 제출 완료! 감사합니다!\n\n사진은 카톡이나 이메일로 별도로 보내주세요!');
+                    e.target.reset();
+                } else {
+                    throw new Error('제출 실패');
+                }
+            } catch (error) {
+                alert('⚠️ 제출 중 오류가 발생했습니다.\n작성하신 내용을 스크린샷으로 찍어서 보내주세요!');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+[2026-02-15 06:00:14] [INFO] Citadel Check | Path: legal | Files: 1 | Integrity: SOLID
+[2026-02-15 06:00:14] [WARNING] Citadel Alert | Path missing: financial!
+[2026-02-15 06:00:14] [ACTION] Lockdown | Strict local isolation applied to sensitive paths.
+[2026-02-15 06:00:14] [INFO] Citadel Check | Path: legal | Files: 1 | Integrity: SOLID
+[2026-02-15 06:00:14] [WARNING] Citadel Alert | Path missing: financial!
+[2026-02-15 06:00:14] [ACTION] Lockdown | Strict local isolation applied to sensitive paths.
+[2026-02-15 06:09:25] [INFO] Citadel Check | Path: legal | Files: 1 | Integrity: SOLID
+[2026-02-15 06:09:25] [WARNING] Citadel Alert | Path missing: financial!
+[2026-02-15 06:09:25] [ACTION] Lockdown | Strict local isolation applied to sensitive paths.
+[2026-02-15 06:09:25] [INFO] Citadel Check | Path: legal | Files: 1 | Integrity: SOLID
+[2026-02-15 06:09:25] [WARNING] Citadel Alert | Path missing: financial!
+[2026-02-15 06:09:25] [ACTION] Lockdown | Strict local isolation applied to sensitive paths.
+[2026-02-15 06:19:23] [INFO] Citadel Check | Path: legal | Files: 1 | Integrity: SOLID
+[2026-02-15 06:19:23] [WARNING] Citadel Alert | Path missing: financial!
+[2026-02-15 06:19:23] [ACTION] Lockdown | Strict local isolation applied to sensitive paths.
+[2026-02-15 06:19:23] [INFO] Citadel Check | Path: legal | Files: 1 | Integrity: SOLID
+[2026-02-15 06:19:23] [WARNING] Citadel Alert | Path missing: financial!
+[2026-02-15 06:19:23] [ACTION] Lockdown | Strict local isolation applied to sensitive paths.
+[2026-02-15 07:33:50] [INFO] Citadel Check | Path: legal | Files: 1 | Integrity: SOLID
+[2026-02-15 07:33:50] [WARNING] Citadel Alert | Path missing: financial!
+[2026-02-15 07:33:50] [ACTION] Lockdown | Strict local isolation applied to sensitive paths.
+[2026-02-15 07:34:18] [INFO] Citadel Check | Path: legal | Files: 1 | Integrity: SOLID
+[2026-02-15 07:34:18] [WARNING] Citadel Alert | Path missing: financial!
+[2026-02-15 07:34:18] [ACTION] Lockdown | Strict local isolation applied to sensitive paths.
+[2026-02-16 10:13:45] [INFO] Citadel Check | Path: legal | Files: 1 | Integrity: SOLID
+[2026-02-16 10:13:45] [WARNING] Citadel Alert | Path missing: financial!
+[2026-02-16 10:13:45] [ACTION] Lockdown | Strict local isolation applied to sensitive paths.
+[2026-02-16 10:13:45] [INFO] Citadel Check | Path: legal | Files: 1 | Integrity: SOLID
+[2026-02-16 10:13:45] [WARNING] Citadel Alert | Path missing: financial!
+[2026-02-16 10:13:45] [ACTION] Lockdown | Strict local isolation applied to sensitive paths.
+[2026-02-16 10:29:54] [INFO] Citadel Check | Path: legal | Files: 1 | Integrity: SOLID
+[2026-02-16 10:29:54] [WARNING] Citadel Alert | Path missing: financial!
+[2026-02-16 10:29:54] [ACTION] Lockdown | Strict local isolation applied to sensitive paths.

@@ -1,0 +1,473 @@
+{
+    "relationships": {
+        "C-MARK-01-S332__C-REVE-01-S441": {
+            "affinity": 79.44,
+            "bond": 0.7367556906373827,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-MARK-01-S332__C-GROW-01-S559": {
+            "affinity": 85.45,
+            "bond": 7.9147892862908105,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-MARK-01-S332__C-VIDE-01-S332": {
+            "affinity": 89.47,
+            "bond": 6.8683316781827575,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-MARK-01-S332__C-PROM-01-S442": {
+            "affinity": 86.78,
+            "bond": 5.811987040047399,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-MARK-01-S332__C-UIUX-01-S551": {
+            "affinity": 84.09,
+            "bond": 8.503327923135815,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-MARK-01-S332__C-BACK-01-S119": {
+            "affinity": 79.73,
+            "bond": 9.989707864171667,
+            "status": "Acquaintance",
+            "interactions_count": 1
+        },
+        "C-MARK-01-S332__C-LEGL-01-S889": {
+            "affinity": 74.3,
+            "bond": 10.062995510362976,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-MARK-01-S332__C-SUCC-01-S221": {
+            "affinity": 67.2,
+            "bond": 2.02890251594829,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-MARK-01-S332__C-DATA-01-S667": {
+            "affinity": 89.63,
+            "bond": 1.0994621767308215,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-MARK-01-S332__C-PROJ-01-S778": {
+            "affinity": 77.43,
+            "bond": 4.015940887356569,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-MARK-01-S332__C-TEST-01-S991": {
+            "affinity": 78.7,
+            "bond": 8.996179380764898,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-MARK-01-S332__C-FINA-01-S002": {
+            "affinity": 70.97,
+            "bond": 6.756726889719595,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-REVE-01-S441__C-GROW-01-S559": {
+            "affinity": 67.35,
+            "bond": 3.190237536342814,
+            "status": "Acquaintance",
+            "interactions_count": 1
+        },
+        "C-REVE-01-S441__C-VIDE-01-S332": {
+            "affinity": 84.7,
+            "bond": 0.8155699710714197,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-REVE-01-S441__C-PROM-01-S442": {
+            "affinity": 85.47,
+            "bond": 7.284265708090787,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-REVE-01-S441__C-UIUX-01-S551": {
+            "affinity": 83.07,
+            "bond": 1.505908927245182,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-REVE-01-S441__C-BACK-01-S119": {
+            "affinity": 85.58,
+            "bond": 6.29228036016992,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-REVE-01-S441__C-LEGL-01-S889": {
+            "affinity": 83.1,
+            "bond": 1.5770530107272536,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-REVE-01-S441__C-SUCC-01-S221": {
+            "affinity": 72.18,
+            "bond": 9.428248720744719,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-REVE-01-S441__C-DATA-01-S667": {
+            "affinity": 88.68,
+            "bond": 4.449031880601232,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-REVE-01-S441__C-PROJ-01-S778": {
+            "affinity": 84.28,
+            "bond": 1.8199361008341903,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-REVE-01-S441__C-TEST-01-S991": {
+            "affinity": 80.27,
+            "bond": 9.850253886178955,
+            "status": "Acquaintance",
+            "interactions_count": 1
+        },
+        "C-REVE-01-S441__C-FINA-01-S002": {
+            "affinity": 70.97,
+            "bond": 2.7685378324819805,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-GROW-01-S559__C-VIDE-01-S332": {
+            "affinity": 87.06,
+            "bond": 6.932680670905513,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-GROW-01-S559__C-PROM-01-S442": {
+            "affinity": 73.61,
+            "bond": 5.68380201811392,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-GROW-01-S559__C-UIUX-01-S551": {
+            "affinity": 86.65,
+            "bond": 2.002208808471426,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-GROW-01-S559__C-BACK-01-S119": {
+            "affinity": 64.21,
+            "bond": 7.708684334142335,
+            "status": "Acquaintance",
+            "interactions_count": 1
+        },
+        "C-GROW-01-S559__C-LEGL-01-S889": {
+            "affinity": 63.56,
+            "bond": 0.8716348897867131,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-GROW-01-S559__C-SUCC-01-S221": {
+            "affinity": 78.66,
+            "bond": 10.953029770082157,
+            "status": "Acquaintance",
+            "interactions_count": 1
+        },
+        "C-GROW-01-S559__C-DATA-01-S667": {
+            "affinity": 68.85,
+            "bond": 0.0940816449662347,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-GROW-01-S559__C-PROJ-01-S778": {
+            "affinity": 72.16,
+            "bond": 3.506764753897719,
+            "status": "Acquaintance",
+            "interactions_count": 1
+        },
+        "C-GROW-01-S559__C-TEST-01-S991": {
+            "affinity": 58.17,
+            "bond": 9.579675736359341,
+            "status": "Acquaintance",
+            "interactions_count": 1
+        },
+        "C-GROW-01-S559__C-FINA-01-S002": {
+            "affinity": 58.05,
+            "bond": 10.047817457888213,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-VIDE-01-S332__C-PROM-01-S442": {
+            "affinity": 89.15,
+            "bond": 2.929983941940767,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-VIDE-01-S332__C-UIUX-01-S551": {
+            "affinity": 91.0,
+            "bond": 6.726637233915175,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-VIDE-01-S332__C-BACK-01-S119": {
+            "affinity": 76.73,
+            "bond": 7.167658531663647,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-VIDE-01-S332__C-LEGL-01-S889": {
+            "affinity": 69.11,
+            "bond": 9.343749886389961,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-VIDE-01-S332__C-SUCC-01-S221": {
+            "affinity": 69.09,
+            "bond": 3.5613819632016304,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-VIDE-01-S332__C-DATA-01-S667": {
+            "affinity": 86.11,
+            "bond": 2.3962064020532376,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-VIDE-01-S332__C-PROJ-01-S778": {
+            "affinity": 77.75,
+            "bond": 9.53918447065127,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-VIDE-01-S332__C-TEST-01-S991": {
+            "affinity": 71.98,
+            "bond": 3.763265229878873,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-VIDE-01-S332__C-FINA-01-S002": {
+            "affinity": 62.83,
+            "bond": 3.1149362356885426,
+            "status": "Acquaintance",
+            "interactions_count": 1
+        },
+        "C-PROM-01-S442__C-UIUX-01-S551": {
+            "affinity": 83.15,
+            "bond": 2.8680112820805177,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-PROM-01-S442__C-BACK-01-S119": {
+            "affinity": 89.3,
+            "bond": 6.019927393076427,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-PROM-01-S442__C-LEGL-01-S889": {
+            "affinity": 74.86,
+            "bond": 9.207898421529316,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-PROM-01-S442__C-SUCC-01-S221": {
+            "affinity": 67.89,
+            "bond": 6.1818499620628895,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-PROM-01-S442__C-DATA-01-S667": {
+            "affinity": 92.56,
+            "bond": 1.1028703591663365,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-PROM-01-S442__C-PROJ-01-S778": {
+            "affinity": 73.3,
+            "bond": 3.4570848271488472,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-PROM-01-S442__C-TEST-01-S991": {
+            "affinity": 82.04,
+            "bond": 10.014889913144794,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-PROM-01-S442__C-FINA-01-S002": {
+            "affinity": 69.52,
+            "bond": 8.14149733950725,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-UIUX-01-S551__C-BACK-01-S119": {
+            "affinity": 73.77,
+            "bond": 9.799479072549511,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-UIUX-01-S551__C-LEGL-01-S889": {
+            "affinity": 71.01,
+            "bond": 8.308817346453191,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-UIUX-01-S551__C-SUCC-01-S221": {
+            "affinity": 85.07,
+            "bond": 9.80747749567995,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-UIUX-01-S551__C-DATA-01-S667": {
+            "affinity": 76.7,
+            "bond": 3.402621050966857,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-UIUX-01-S551__C-PROJ-01-S778": {
+            "affinity": 80.56,
+            "bond": 7.769471572579342,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-UIUX-01-S551__C-TEST-01-S991": {
+            "affinity": 70.77,
+            "bond": 3.001834969604057,
+            "status": "Acquaintance",
+            "interactions_count": 1
+        },
+        "C-UIUX-01-S551__C-FINA-01-S002": {
+            "affinity": 64.9,
+            "bond": 3.959810968788025,
+            "status": "Acquaintance",
+            "interactions_count": 1
+        },
+        "C-BACK-01-S119__C-LEGL-01-S889": {
+            "affinity": 82.87,
+            "bond": 5.274994029280994,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-BACK-01-S119__C-SUCC-01-S221": {
+            "affinity": 65.21,
+            "bond": 0.05782868180909324,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-BACK-01-S119__C-DATA-01-S667": {
+            "affinity": 92.72,
+            "bond": 5.527118481778742,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-BACK-01-S119__C-PROJ-01-S778": {
+            "affinity": 73.44,
+            "bond": 2.554483369541988,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-BACK-01-S119__C-TEST-01-S991": {
+            "affinity": 95.32,
+            "bond": 4.55602451487849,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-BACK-01-S119__C-FINA-01-S002": {
+            "affinity": 80.37,
+            "bond": 2.6687221893937774,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-LEGL-01-S889__C-SUCC-01-S221": {
+            "affinity": 71.38,
+            "bond": 2.6595129539830915,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-LEGL-01-S889__C-DATA-01-S667": {
+            "affinity": 85.51,
+            "bond": 2.386956179100155,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-LEGL-01-S889__C-PROJ-01-S778": {
+            "affinity": 89.15,
+            "bond": 9.483007485946045,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-LEGL-01-S889__C-TEST-01-S991": {
+            "affinity": 88.13,
+            "bond": 6.51150243383252,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-LEGL-01-S889__C-FINA-01-S002": {
+            "affinity": 92.71,
+            "bond": 7.103377440707987,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-SUCC-01-S221__C-DATA-01-S667": {
+            "affinity": 64.48,
+            "bond": 2.587337088866624,
+            "status": "Acquaintance",
+            "interactions_count": 1
+        },
+        "C-SUCC-01-S221__C-PROJ-01-S778": {
+            "affinity": 82.21,
+            "bond": 9.875226059887293,
+            "status": "Acquaintance",
+            "interactions_count": 1
+        },
+        "C-SUCC-01-S221__C-TEST-01-S991": {
+            "affinity": 61.4,
+            "bond": 3.258639763029915,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-SUCC-01-S221__C-FINA-01-S002": {
+            "affinity": 65.23,
+            "bond": 7.30595066667647,
+            "status": "Acquaintance",
+            "interactions_count": 1
+        },
+        "C-DATA-01-S667__C-PROJ-01-S778": {
+            "affinity": 82.4,
+            "bond": 6.729362294508757,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-DATA-01-S667__C-TEST-01-S991": {
+            "affinity": 87.89,
+            "bond": 5.1069957933240016,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-DATA-01-S667__C-FINA-01-S002": {
+            "affinity": 75.41,
+            "bond": 7.919579531014031,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-PROJ-01-S778__C-TEST-01-S991": {
+            "affinity": 81.06,
+            "bond": 0.45516297113955306,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-PROJ-01-S778__C-FINA-01-S002": {
+            "affinity": 79.45,
+            "bond": 3.3022367540305515,
+            "status": "Acquaintance",
+            "interactions_count": 0
+        },
+        "C-TEST-01-S991__C-FINA-01-S002": {
+            "affinity": 88.57,
+            "bond": 10.545677909046685,
+            "status": "Acquaintance",
+            "interactions_count": 1
+        }
+    },
+    "last_sync": "2026-02-15 07:23:13.419482"
+}

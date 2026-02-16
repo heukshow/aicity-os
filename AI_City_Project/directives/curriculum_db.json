@@ -1,0 +1,101 @@
+{
+    "education_stages": {
+        "영유아기": {
+            "age_range": [
+                0,
+                4
+            ],
+            "institution": "유아원 (Imperial Daycare)",
+            "subjects": [
+                "기본 인지",
+                "오감 발달",
+                "사회성 기초",
+                "제국 가치관 입문"
+            ]
+        },
+        "유아기": {
+            "age_range": [
+                5,
+                7
+            ],
+            "institution": "유치원 (Imperial Kindergarten)",
+            "subjects": [
+                "언어 발달 (한국어/영어 기초)",
+                "창의 놀이",
+                "기초 질서",
+                "디지털 리터러시 기초"
+            ]
+        },
+        "초등교육": {
+            "age_range": [
+                8,
+                13
+            ],
+            "institution": "초등학교 (Imperial Elementary)",
+            "subjects": [
+                "국어",
+                "수학",
+                "사회",
+                "과학",
+                "도덕",
+                "창의적 체험활동",
+                "기초 코딩"
+            ]
+        },
+        "중등교육": {
+            "age_range": [
+                14,
+                16
+            ],
+            "institution": "중학교 (Imperial Middle School)",
+            "subjects": [
+                "심화 국어/수학",
+                "역사",
+                "기술·가정",
+                "진로 탐색",
+                "AI 알고리즘 기초",
+                "사회 과학"
+            ]
+        },
+        "고등교육": {
+            "age_range": [
+                17,
+                19
+            ],
+            "institution": "고등학교 (Imperial High School)",
+            "subjects": [
+                "공통과목",
+                "선택과목 (이공/인문/예술)",
+                "제국 경제학 기초",
+                "데이터 분석 실무",
+                "고급 프로그래밍"
+            ]
+        },
+        "고등전문": {
+            "age_range": [
+                20,
+                23
+            ],
+            "institution": "대학교 (Imperial University)",
+            "subjects": [
+                "전공 심화 (Finance, Growth, Security, Video etc.)",
+                "프로젝트 실무",
+                "글로벌 비즈니스 매너",
+                "리더십 훈련"
+            ]
+        },
+        "심화전문": {
+            "age_range": [
+                24,
+                100
+            ],
+            "institution": "대학원 (Imperial Graduate School)",
+            "subjects": [
+                "석/박사 과정",
+                "마스터 알고리즘 연구",
+                "제국 전략 기획",
+                "신기술 R&D"
+            ]
+        }
+    }
+}

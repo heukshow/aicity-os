@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Cauchemar Crew</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+        }
+
+        .neon-purple {
+            color: #bf5af2;
+            text-shadow: 0 0 10px rgba(191, 90, 242, 0.5);
+        }
+
+        .bg-glass {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .official-badge {
+            background: linear-gradient(135deg, #bf5af2 0%, #5e5ce6 100%);
+        }
+    </style>
+</head>
+
+<body class="antialiased min-h-screen">
+
+    <div id="loading" class="fixed inset-0 bg-black flex items-center justify-center z-50">
+        <p class="text-sm font-bold tracking-widest">LOADING PROFILE...</p>
+    </div>
+
+    <!-- Content -->
+    <div id="member-content" class="hidden">
+        <header class="py-10 border-b border-white/5 bg-black/50 backdrop-blur-lg">
+            <div class="container mx-auto px-4 flex justify-between items-center">
+                <a href="crew.html" class="text-sm font-bold text-gray-500 hover:text-white transition">← ALL CREW</a>
+                <div class="text-xl font-black tracking-tighter">CAUCHEMAR CREW</div>
+                <div id="user-nav" class="hidden flex items-center gap-4">
+                    <a href="dashboard.html"
+                        class="text-sm font-bold text-purple-400 hover:text-white transition">DASHBOARD</a>
+                    <button onclick="logout()"
+                        class="text-sm font-bold text-red-400 hover:text-red-300 transition">LOGOUT</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 py-16">
+            <div class="grid lg:grid-cols-3 gap-16">
+                <!-- Profile Sidebar -->
+                <div class="space-y-8">
+                    <div
+                        class="w-full aspect-square bg-gray-800 rounded-[40px] overflow-hidden border border-white/10 relative">
+                        <img id="member-img" src="" alt="" class="w-full h-full object-cover">
+                        <div id="member-badge"
+                            class="absolute top-6 right-6 official-badge px-4 py-1 rounded-full text-[10px] font-black uppercase hidden">
+                            Official Creator</div>
+                    </div>
+                    <div>
+                        <h1 id="member-name" class="text-5xl font-black mb-2 uppercase tracking-tighter"></h1>
+                        <div class="flex items-center gap-3">
+                            <p id="member-role" class="text-purple-400 font-bold uppercase tracking-widest text-sm"></p>
+                            <div id="member-followers"
+                                class="hidden flex items-center gap-1.5 bg-white/10 px-3 py-1 rounded-full border border-white/10">
+                                <span class="text-[10px]">👥</span>
+                                <span class="text-[10px] font-bold text-gray-300 tracking-wider"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <p id="member-desc" class="text-gray-400 leading-relaxed"></p>
+
+                    <div id="pricing-section" class="pt-8 border-t border-white/5 space-y-4 hidden">
+                        <h3 class="text-xs font-bold text-gray-500 uppercase tracking-widest">Pricing</h3>
+                        <div id="price-list" class="space-y-2">
+                            <!-- Prices will be injected here -->
+                        </div>
+                    </div>
+
+                    <div class="pt-8 border-t border-white/5">
+                        <a href="cauchemar.html#contact"
+                            class="block text-center w-full py-4 bg-white text-black font-bold rounded-2xl hover:bg-gray-200 transition">협업
+                            의뢰하기</a>
+                    </div>
+                </div>
+
+                <!-- Portfolio Gallery -->
+                <div class="lg:col-span-2">
+                    <h2 class="text-2xl font-bold mb-10 uppercase tracking-tighter">Portfolio Works</h2>
+                    <div id="portfolio-grid" class="grid md:grid-cols-2 gap-8">
+                        <!-- Portfolios Here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        async function loadMember() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const memberId = urlParams.get('id');
+
+            if (!memberId) {
+                window.location.href = 'crew.html';
+                return;
+            }
+
+            try {
+                // Cache busting
+                const res = await fetch('/projects/Cauchemar/data/crew.json?v=' + Date.now());
+                const crew = await res.json();
+                const member = crew.find(m => m.id === memberId);
+
+                if (!member) {
+                    alert('멤버를 찾을 수 없습니다.');
+                    window.location.href = 'crew.html';
+                    return;
+                }
+
+                // Populate Content
+                document.getElementById('member-name').innerText = member.name;
+                document.getElementById('member-role').innerText = member.role;
+                document.getElementById('member-desc').innerText = member.description;
+
+                // Follower Count
+                if (member.followers) {
+                    const followerBadge = document.getElementById('member-followers');
+                    followerBadge.classList.remove('hidden');
+                    followerBadge.querySelector('span:last-child').innerText = member.followers;
+                }
+
+                // Zepeto Rendering Logic
+                if (member.zepeto_id) {
+                    const img = document.getElementById('member-img');
+
+                    if (member.zepeto_id.startsWith('http')) {
+                        img.src = member.zepeto_id;
+                    } else {
+                        img.src = `https://render-api.zepeto.io/v2/graphics/zepeto/character/${member.zepeto_id}/image/2D?width=1024`;
+                    }
+
+                    img.onerror = () => {
+                        img.src = 'https://via.placeholder.com/1024?text=CHARACTER+NOT+FOUND';
+                    };
+
+                    // Add Zepeto Button if not exists
+                    const btnContainer = document.querySelector('.pt-8.border-t.border-white\\/5');
+                    if (btnContainer && !document.getElementById('zepeto-btn')) {
+                        const zepetoBtn = document.createElement('a');
+                        zepetoBtn.id = "zepeto-btn";
+                        // Use ID (handle) for profile link if zepeto_id is a URL, otherwise use zepeto_id
+                        const linkId = member.zepeto_id.startsWith('http') ? member.id : member.zepeto_id;
+                        zepetoBtn.href = `https://web.zepeto.me/share/user/profile/${linkId}`;
+                        zepetoBtn.target = "_blank";
+                        zepetoBtn.className = "block text-center w-full py-4 bg-purple-500/20 text-purple-400 font-bold rounded-2xl border border-purple-500/30 mb-4 hover:bg-purple-500/30 transition";
+                        zepetoBtn.innerHTML = "ZEPETO 프로필 보기";
+                        btnContainer.prepend(zepetoBtn);
+                    }
+                } else {
+                    const img = document.getElementById('member-img');
+                    img.src = (member.portfolio && member.portfolio[0]) ? `uploads/${member.portfolio[0]}` : 'https://via.placeholder.com/1024?text=CAUCHEMAR+CREW';
+                }
+
+                if (member.official) {
+                    document.getElementById('member-badge').classList.remove('hidden');
+                }
+
+                // Populate Prices (Grouped by Category with 20% Markup)
+                if (member.prices && Object.keys(member.prices).length > 0) {
+                    const priceSection = document.getElementById('pricing-section');
+                    const priceList = document.getElementById('price-list');
+                    priceSection.classList.remove('hidden');
+
+                    const grouped = {};
+                    Object.entries(member.prices).forEach(([key, priceStr]) => {
+                        const [main, sub] = key.includes(' > ') ? key.split(' > ') : [key, ''];
+                        if (!grouped[main]) grouped[main] = [];
+
+                        const basePrice = parseInt(priceStr.replace(/,/g, '')) || 0;
+                        const formattedPrice = Math.floor(basePrice * 1.2).toLocaleString();
+                        grouped[main].push({ sub, price: formattedPrice });
+                    });
+
+                    priceList.innerHTML = Object.entries(grouped).map(([main, items]) => `
+                        <div class="space-y-3 mb-6">
+                            <h4 class="text-[10px] font-black text-purple-500/50 uppercase tracking-[0.2em]">${main}</h4>
+                            <div class="grid gap-2">
+                                ${items.map(item => `
+                                    <div class="flex justify-between items-center bg-white/5 px-4 py-3 rounded-xl border border-white/5">
+                                        <span class="text-sm font-semibold text-gray-300">${item.sub || '기본'}</span>
+                                        <span class="text-white font-black text-sm">₩${item.price}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `).join('');
+                }
+
+                const portGrid = document.getElementById('portfolio-grid');
+                portGrid.innerHTML = member.portfolio.map(item => `
+                    <div class="aspect-video bg-gray-900 rounded-2xl border border-white/5 overflow-hidden group">
+                        <img src="https://via.placeholder.com/600x400?text=${item}" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
+                    </div>
+                `).join('');
+
+                // Show Content
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('member-content').classList.remove('hidden');
+
+            } catch (err) {
+                console.error(err);
+                alert('데이터를 불러오는데 실패했습니다.');
+            }
+        }
+
+        // Check if user is logged in
+        const loggedInUser = JSON.parse(sessionStorage.getItem('crew_user'));
+        if (loggedInUser) {
+            const userNav = document.getElementById('user-nav');
+            if (userNav) {
+                userNav.classList.remove('hidden');
+            }
+        }
+
+        function logout() {
+            sessionStorage.clear();
+            alert('로그아웃되었습니다.');
+            window.location.href = 'crew.html';
+        }
+
+
+        loadMember();
+    </script>
+</body>
+
+</html>

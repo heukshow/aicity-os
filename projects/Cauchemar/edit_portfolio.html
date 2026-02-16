@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Portfolio | Cauchemar Crew</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+        }
+
+        .neon-purple {
+            color: #bf5af2;
+            text-shadow: 0 0 10px rgba(191, 90, 242, 0.5);
+        }
+
+        .bg-glass {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        select option {
+            background-color: #1a1a1a;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="antialiased min-h-screen pb-20">
+
+    <!-- Auth Guard -->
+    <script>
+        const user = JSON.parse(sessionStorage.getItem('crew_user'));
+        if (!user) window.location.href = 'login.html';
+    </script>
+
+    <header class="py-6 border-b border-white/5 bg-black/50 backdrop-blur-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-xl font-black tracking-tighter uppercase">CAUCHEMAR CREW <span
+                    class="neon-purple">PORTFOLIO</span></h1>
+            <div class="flex items-center gap-4">
+                <a href="dashboard.html"
+                    class="text-xs font-bold text-gray-400 hover:text-white transition uppercase border border-white/10 px-3 py-1 rounded-full hover:bg-white/5">Dashboard</a>
+                <a href="#" id="my-portfolio-link" target="_blank"
+                    class="text-xs font-bold text-purple-400 hover:text-white transition uppercase border border-purple-500/30 px-3 py-1 rounded-full hover:bg-purple-500/20">View
+                    Portfolio</a>
+                <span id="header-name" class="text-sm font-bold text-gray-400"></span>
+                <button onclick="logout()"
+                    class="text-xs text-gray-500 hover:text-white transition uppercase font-bold pl-4 border-l border-white/10">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 max-w-6xl">
+        <form onsubmit="handleSave(event)" class="space-y-12">
+
+            <!-- Price Management -->
+            <section class="space-y-6">
+                <div class="flex justify-between items-end">
+                    <h2 class="text-2xl font-bold uppercase tracking-tighter">Production Pricing (가격표)</h2>
+                    <button type="button" id="add-price-btn" onclick="addPriceRow()"
+                        class="text-xs font-bold text-purple-400 hover:text-purple-300 transition">+ ADD
+                        CATEGORY</button>
+                    <!-- Agreement Banner (Hidden by default) -->
+                    <div id="agreement-banner"
+                        class="hidden ml-4 bg-purple-500/10 border border-purple-500/30 rounded-lg px-3 py-1 flex items-center gap-2">
+                        <span class="text-[10px] text-purple-200">⚠ 정산 동의가 필요합니다.</span>
+                        <button type="button" onclick="openAgreementModal()"
+                            class="text-[10px] font-bold text-purple-400 underline hover:text-white">동의하러 가기</button>
+                    </div>
+                </div>
+                <div id="price-container" class="space-y-4">
+                    <!-- Price Rows Here -->
+                </div>
+            </section>
+
+            <!-- Portfolio Images (Coming Soon) -->
+            <section class="space-y-6">
+                <h2 class="text-2xl font-bold uppercase tracking-tighter">Portfolio Images (작품 갤러리)</h2>
+                <div
+                    class="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-2xl p-10 text-center">
+                    <p class="text-sm text-gray-400">
+                        🎨 <strong>포트폴리오 이미지 업로드 기능은 곧 추가될 예정입니다!</strong><br>
+                        현재는 가격표만 관리할 수 있습니다.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Save Action -->
+            <div class="pt-12 border-t border-white/5">
+                <button type="submit"
+                    class="w-full bg-white text-black font-bold py-5 rounded-2xl text-lg hover:bg-gray-200 transition">
+                    SAVE CHANGES
+                </button>
+            </div>
+
+        </form>
+    </main>
+
+    <script>
+        const categories = {
+            "아이템 제작": ["헤어", "상의", "한벌의상", "신발", "헤드웨어", "가방", "기타"],
+            "월드 제작": ["점프맵", "구경맵", "드라마/상황극", "기타"],
+            "이미지 제작": [],
+            "영상 제작": [],
+            "홍보": ["SNS 포스팅"]
+        };
+
+        document.getElementById('header-name').innerText = user.id;
+        document.getElementById('my-portfolio-link').href = `member.html?id=${user.id}`;
+
+        // Load existing prices
+        if (user.prices && Object.keys(user.prices).length > 0) {
+            Object.entries(user.prices).forEach(([key, value]) => {
+                const [mainCat, subCat] = key.split(' > ');
+                addPriceRow(mainCat, subCat || '', value);
+            });
+        } else {
+            // Show agreement banner if no prices set
+            if (!user.agreed_to_terms) {
+                document.getElementById('agreement-banner').classList.remove('hidden');
+            }
+        }
+
+        function addPriceRow(mainCat = '아이템 제작', subCat = '', value = '') {
+            const container = document.getElementById('price-container');
+            const div = document.createElement('div');
+            div.className = 'grid grid-cols-6 gap-4 items-center bg-white/5 p-4 rounded-2xl border border-white/5';
+
+            const calcMarkup = (v) => {
+                const num = parseInt(v.toString().replace(/,/g, '')) || 0;
+                return Math.floor(num * 1.2).toLocaleString();
+            };
+
+            const mainOptions = Object.keys(categories).map(k => `<option value="${k}" ${mainCat === k ? 'selected' : ''}>${k}</option>`).join('');
+
+            div.innerHTML = `
+                <div class="col-span-2 space-y-1">
+                    <label class="text-[10px] text-gray-500 font-bold uppercase">Category</label>
+                    <select onchange="updateSubCats(this)" class="main-cat w-full bg-white/10 border border-white/10 rounded-lg px-3 py-2 text-sm">
+                        ${mainOptions}
+                    </select>
+                </div>
+                <div class="col-span-1 space-y-1 sub-cat-container ${categories[mainCat].length === 0 ? 'hidden' : ''}">
+                    <label class="text-[10px] text-gray-500 font-bold uppercase">Sub-Category</label>
+                    <select class="sub-cat w-full bg-white/10 border border-white/10 rounded-lg px-3 py-2 text-sm">
+                        ${categories[mainCat].map(s => `<option value="${s}" ${subCat === s ? 'selected' : ''}>${s}</option>`).join('')}
+                    </select>
+                </div>
+                <div class="col-span-1 space-y-1">
+                    <label class="text-[10px] text-gray-500 font-bold uppercase">Your Price (₩)</label>
+                    <input type="text" placeholder="50,000" oninput="updatePreview(this)" class="w-full bg-white/10 border border-white/10 rounded-lg px-3 py-2 text-sm" value="${value}">
+                </div>
+                <div class="col-span-1 space-y-1">
+                    <label class="text-[10px] text-gray-500 font-bold uppercase">Client Pays (20% 마크업)</label>
+                    <div class="price-preview text-sm font-bold text-purple-400 bg-purple-500/10 border border-purple-500/20 rounded-lg px-3 py-2">${calcMarkup(value)} ₩</div>
+                </div>
+                <div class="col-span-1 flex items-end justify-end">
+                    <button type="button" onclick="this.parentElement.parentElement.remove()" class="text-xs text-red-400 hover:text-red-300">✕ Delete</button>
+                </div>
+            `;
+
+            container.appendChild(div);
+        }
+
+        function updateSubCats(selectEl) {
+            const container = selectEl.closest('.grid');
+            const subCatContainer = container.querySelector('.sub-cat-container');
+            const subCatSelect = container.querySelector('.sub-cat');
+            const mainCat = selectEl.value;
+
+            if (categories[mainCat].length === 0) {
+                subCatContainer.classList.add('hidden');
+            } else {
+                subCatContainer.classList.remove('hidden');
+                subCatSelect.innerHTML = categories[mainCat].map(s => `<option value="${s}">${s}</option>`).join('');
+            }
+        }
+
+        function updatePreview(input) {
+            const value = input.value.replace(/,/g, '');
+            const num = parseInt(value) || 0;
+            const markup = Math.floor(num * 1.2).toLocaleString();
+            const preview = input.closest('.grid').querySelector('.price-preview');
+            preview.innerText = markup + ' ₩';
+        }
+
+        function openAgreementModal() {
+            const agreed = confirm(`[수익 분배 및 정산 동의서]\n\n본인은 Cauchemar Crew를 통해 수주한 제작물에 대해 다음의 조건에 동의합니다:\n\n1. 수익 배분: 본인 80% / Cauchemar 20%\n2. 정산 주기: 매월 1일 (전월 수익 기준)\n3. 정산 방법: 등록된 계좌로 자동 입금\n4. 수수료: Cauchemar 운영비 20%\n\n동의하시겠습니까?`);
+
+            if (agreed) {
+                alert('✅ 동의가 완료되었습니다. 이제 가격표를 추가할 수 있습니다!');
+                document.getElementById('agreement-banner').classList.add('hidden');
+                user.agreed_to_terms = true;
+            }
+        }
+
+        async function handleSave(e) {
+            e.preventDefault();
+
+            const priceRows = [...document.querySelectorAll('#price-container > div')];
+            const prices = {};
+
+            priceRows.forEach(row => {
+                const mainCat = row.querySelector('.main-cat').value;
+                const subCatEl = row.querySelector('.sub-cat');
+                const subCat = subCatEl && !subCatEl.closest('.sub-cat-container').classList.contains('hidden') ? subCatEl.value : '';
+                const price = row.querySelector('input[type="text"]').value;
+
+                const key = subCat ? `${mainCat} > ${subCat}` : mainCat;
+                prices[key] = price;
+            });
+
+            try {
+                const res = await fetch('/api/crew/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${sessionStorage.getItem('crew_token')}`
+                    },
+                    body: JSON.stringify({
+                        id: user.id,
+                        prices: prices,
+                        agreed_to_terms: user.agreed_to_terms
+                    })
+                });
+
+                const result = await res.json();
+                if (result.status === 'ok') {
+                    alert('✅ 저장 완료!');
+                    user.prices = prices;
+                    sessionStorage.setItem('crew_user', JSON.stringify(user));
+                } else {
+                    alert('❌ 저장 실패: ' + result.message);
+                }
+            } catch (err) {
+                alert('❌ 오류 발생');
+            }
+        }
+
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = 'login.html';
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+{
+    "mcpServers": {
+        "stitch": {
+            "serverUrl": "https://stitch.googleapis.com/mcp",
+            "headers": {
+                "X-Goog-Api-Key": "AIzaSyCxm5UtwK-mIUUVs0tV5w-sizbDa3ZLOJQ"
+            }
+        },
+        "notebooklm": {
+            "command": "uv",
+            "args": [
+                "tool",
+                "run",
+                "notebooklm-mcp"
+            ],
+            "env": {
+                "NOTEBOOKLM_SESSION_ID": "g.a0005wiDf_YSTQjoWB_4WwAElATMTe7ltC4Tg4S4NYo6P9LKvhhbxVsHkwzk_O8XnxePuLOs_QACgYKAQISARQSFQHGX2Miw6dr8vCTKxiX3rYuZqvYjhoVAUF8yKr6GtdQumJ3Phcr9sXKm8t-0076"
+            }
+        }
+    }
+}

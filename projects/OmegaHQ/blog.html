@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omega Blog | AI 수익화 인사이트</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .neon-text {
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.3);
+        }
+    </style>
+</head>
+
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header
+        class="py-6 px-8 border-b border-slate-800 flex justify-between items-center bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
+        <a href="index.html" class="text-2xl font-bold text-white tracking-tighter">
+            OMEGA <span class="text-blue-500">TEAM</span>
+        </a>
+        <nav class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+            <a href="index.html" class="hover:text-white transition">Home</a>
+            <a href="#" class="text-white">Blog</a>
+        </nav>
+        <a href="index.html#pricing"
+            class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-bold transition">
+            뉴스레터 구독하기
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-16">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">AI 수익화</span>의 모든
+                것
+            </h1>
+            <p class="text-slate-400 text-lg">
+                Omega Team의 AI 엔진이 분석한 최신 트렌드와 노하우를 공개합니다.
+            </p>
+        </div>
+
+        <!-- Blog Grid -->
+        <div id="blog-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Loading State -->
+            <div class="col-span-full text-center py-20 text-slate-500 animate-pulse">
+                AI가 작성한 글을 불러오는 중입니다...
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 text-center text-slate-600 text-sm border-t border-slate-800 mt-auto">
+        <p>&copy; 2026 Omega Team Venture. All rights reserved.</p>
+    </footer>
+
+    <script>
+        async function loadPosts() {
+            try {
+                const res = await fetch('/api/blog');
+                const data = await res.json();
+                const grid = document.getElementById('blog-grid');
+
+                if (!data.posts || data.posts.length === 0) {
+                    grid.innerHTML = '<div class="col-span-full text-center py-10 text-slate-500">아직 작성된 글이 없습니다. (AI가 열심히 쓰는 중!)</div>';
+                    return;
+                }
+
+                grid.innerHTML = data.posts.map(filename => {
+                    const title = filename.replace('.html', '').replace(/^\d+_/, '').replace(/-/g, ' ');
+                    const date = filename.substring(0, 8);
+                    const formattedDate = `${date.substring(0, 4)}.${date.substring(4, 6)}.${date.substring(6, 8)}`;
+
+                    return `
+                        <a href="/posts/${filename}" class="glass-card rounded-2xl p-6 group block h-full flex flex-col">
+                            <div class="text-xs text-blue-400 font-mono mb-4 border border-blue-500/20 inline-block px-2 py-1 rounded bg-blue-500/10">
+                                AI Generated
+                            </div>
+                            <h2 class="text-xl font-bold text-white mb-3 group-hover:text-blue-300 transition line-clamp-2">
+                                ${title.toUpperCase()}
+                            </h2>
+                            <p class="text-slate-400 text-sm mb-6 flex-grow">
+                                이 글은 AI(Gemini Pro)가 SEO 최적화를 위해 자동으로 작성했습니다. 클릭해서 내용을 확인하세요.
+                            </p>
+                            <div class="flex justify-between items-center text-xs text-slate-500 pt-4 border-t border-slate-700">
+                                <span>${formattedDate}</span>
+                                <span class="group-hover:translate-x-1 transition text-blue-400">Read More →</span>
+                            </div>
+                        </a>
+                    `;
+                }).join('');
+
+            } catch (err) {
+                console.error(err);
+                document.getElementById('blog-grid').innerHTML = '<div class="col-span-full text-center text-red-400">글을 불러오는데 실패했습니다. 서버가 켜져있는지 확인해주세요.</div>';
+            }
+        }
+
+        loadPosts();
+    </script>
+</body>
+
+</html>

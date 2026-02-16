@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Cauchemar Crew | Member Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+        }
+
+        .neon-purple {
+            color: #bf5af2;
+            text-shadow: 0 0 10px rgba(191, 90, 242, 0.5);
+        }
+
+        .bg-glass {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="antialiased flex items-center justify-center min-h-screen py-20">
+
+    <div class="w-full max-w-md p-8 bg-glass rounded-[40px] border border-white/5 space-y-10">
+        <div class="text-center">
+            <h1 class="text-4xl font-black tracking-tighter uppercase">CAUCHEMAR CREW <span
+                    class="neon-purple">JOIN</span>
+            </h1>
+            <p class="text-gray-400 mt-4 text-lg">일반 회원 가입 (고객 전용)</p>
+        </div>
+
+        <form onsubmit="handleRegister(event)" class="space-y-8">
+            <div class="space-y-3">
+                <label class="text-sm font-bold text-gray-400 uppercase tracking-widest">Email / ID</label>
+                <input type="email" id="user_email"
+                    class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-xl focus:border-purple-500 focus:outline-none transition"
+                    placeholder="example@email.com" required>
+            </div>
+            <div class="space-y-3">
+                <label class="text-sm font-bold text-gray-400 uppercase tracking-widest">Your Name</label>
+                <input type="text" id="name"
+                    class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-xl focus:border-purple-500 focus:outline-none transition"
+                    placeholder="홍길동" required>
+            </div>
+            <div class="space-y-3">
+                <label class="text-sm font-bold text-gray-400 uppercase tracking-widest">Password</label>
+                <input type="password" id="password"
+                    class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-xl focus:border-purple-500 focus:outline-none transition"
+                    required>
+            </div>
+            <div class="space-y-3">
+                <label class="text-sm font-bold text-gray-400 uppercase tracking-widest">Confirm Password</label>
+                <input type="password" id="password_confirm"
+                    class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-xl focus:border-purple-500 focus:outline-none transition"
+                    required>
+            </div>
+            <button type="submit"
+                class="w-full bg-white text-black font-black py-5 rounded-2xl text-xl hover:bg-purple-500 hover:text-white transition shadow-lg uppercase tracking-tighter">
+                Join Now
+            </button>
+        </form>
+
+        <p class="text-center text-sm text-gray-500">
+            Already a member? <a href="login_user.html" class="text-purple-400 hover:underline">Log in</a>
+        </p>
+    </div>
+
+    <script>
+        async function handleRegister(e) {
+            e.preventDefault();
+            const email = document.getElementById('user_email').value;
+            const name = document.getElementById('name').value;
+            const password = document.getElementById('password').value;
+            const passwordConfirm = document.getElementById('password_confirm').value;
+
+            if (password !== passwordConfirm) {
+                alert('비밀번호가 일치하지 않습니다.');
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/user/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, name, password })
+                });
+
+                if (res.ok) {
+                    alert('✅ 가입 성공! 이제 로그인해주세요.');
+                    window.location.href = 'login_user.html';
+                } else {
+                    const result = await res.json();
+                    alert('가입 실패: ' + result.message);
+                }
+            } catch (err) {
+                alert('서버 연결 오류');
+            }
+        }
+    </script>
+</body>
+
+</html>

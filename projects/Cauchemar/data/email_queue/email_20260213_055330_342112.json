@@ -1,0 +1,13 @@
+{
+  "id": "email_20260213_055330_342112",
+  "timestamp": "2026-02-13T05:53:30.342112",
+  "to": "client@test.com",
+  "subject": "[Cauchemar] 문의 접수 완료",
+  "body_html": "\n<!DOCTYPE html>\n<html>\n<head><meta charset=\"UTF-8\"></head>\n<body style=\"font-family: Arial, sans-serif\">\n    <div style=\"max-width: 600px; margin: 0 auto; padding: 20px\">\n        <h2 style=\"color: #667eea\">✅ 문의가 접수되었습니다</h2>\n        <p>안녕하세요!</p>\n        <p>프로젝트 문의를 받았습니다. AI가 분석 중이며, 곧 적합한 크리에이터를 매칭하여 연락드리겠습니다.</p>\n        <p><strong>Reference ID:</strong> <code>TEST_INQUIRY_001</code></p>\n        <p><strong>예상 응답:</strong> 24시간 이내</p>\n        <p>감사합니다!<br><strong>Cauchemar Crew</strong></p>\n    </div>\n</body>\n</html>\n        ",
+  "body_text": "",
+  "metadata": {
+    "from": "qmfforfhem@gmail.com",
+    "from_name": "Cauchemar Crew"
+  },
+  "status": "queued"
+}

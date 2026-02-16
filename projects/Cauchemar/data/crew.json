@@ -1,0 +1,207 @@
+[
+  {
+    "id": "som",
+    "password": "cauchemar123",
+    "name": "솜som",
+    "role": "Crew Leader / Creative Director",
+    "official": true,
+    "description": "Cauchemar 크루를 이끄는 리더이자 총괄 디렉터입니다. 브랜드 협업 및 대규모 프로젝트 기획을 담당합니다.",
+    "zepeto_id": "",
+    "prices": {
+      "아이템 제작 > 기타": "100,000",
+      "홍보 > SNS 포스팅": "50,000"
+    },
+    "portfolio": []
+  },
+  {
+    "id": "areun",
+    "password": "cauchemar123",
+    "name": "아른AREUN",
+    "role": "Elite Creator",
+    "official": true,
+    "description": "Cauchemar 크루의 정예 멤버입니다.",
+    "zepeto_id": "",
+    "prices": {
+      "아이템 제작 > 헤어": "50,000"
+    },
+    "portfolio": []
+  },
+  {
+    "id": "chaeni",
+    "password": "cauchemar123",
+    "name": "chaeni 채니",
+    "role": "Elite Creator",
+    "official": true,
+    "description": "Cauchemar 크루의 정예 멤버입니다.",
+    "zepeto_id": "",
+    "prices": {
+      "아이템 제작 > 상의": "40,000"
+    },
+    "portfolio": []
+  },
+  {
+    "id": "bada",
+    "password": "cauchemar123",
+    "name": "바다",
+    "role": "Elite Creator",
+    "official": true,
+    "description": "Cauchemar 크루의 정예 멤버입니다.",
+    "zepeto_id": "",
+    "prices": {
+      "아이템 제작 > 한벌의상": "80,000"
+    },
+    "portfolio": []
+  },
+  {
+    "id": "bibi",
+    "password": "cauchemar123",
+    "name": "BIBI비비",
+    "role": "Elite Creator",
+    "official": true,
+    "description": "Cauchemar 크루의 정예 멤버입니다.",
+    "zepeto_id": "",
+    "prices": {
+      "영상 제작": "150,000"
+    },
+    "portfolio": []
+  },
+  {
+    "id": "yuko",
+    "password": "cauchemar123",
+    "name": "YUKO유코",
+    "role": "Elite Creator",
+    "official": true,
+    "description": "Cauchemar 크루의 정예 멤버입니다.",
+    "zepeto_id": "",
+    "prices": {
+      "아이템 제작 > 헤어": "50,000"
+    },
+    "portfolio": []
+  },
+  {
+    "id": "joy",
+    "password": "cauchemar123",
+    "name": "JOY",
+    "role": "Elite Creator",
+    "official": true,
+    "description": "Cauchemar 크루의 정예 멤버입니다.",
+    "zepeto_id": "",
+    "prices": {
+      "홍보 > 라이브 PPL": "100,000"
+    },
+    "portfolio": []
+  },
+  {
+    "id": "iu",
+    "password": "cauchemar123",
+    "name": "이우",
+    "role": "Elite Creator",
+    "official": true,
+    "description": "Cauchemar 크루의 정예 멤버입니다.",
+    "zepeto_id": "",
+    "prices": {
+      "아이템 제작 > 신발": "30,000"
+    },
+    "portfolio": []
+  },
+  {
+    "id": "seongyeon",
+    "password": "cauchemar123",
+    "name": "성연",
+    "role": "Elite Creator",
+    "official": true,
+    "description": "Cauchemar 크루의 정예 멤버입니다.",
+    "zepeto_id": "",
+    "prices": {
+      "영상 제작": "120,000"
+    },
+    "portfolio": []
+  },
+  {
+    "id": "fashionyzee",
+    "password": "cauchemar123",
+    "name": "FashionyZee",
+    "role": "Elite Creator",
+    "official": true,
+    "description": "Cauchemar 크루의 정예 멤버입니다.",
+    "zepeto_id": "",
+    "prices": {
+      "아이템 제작 > 상의": "45,000"
+    },
+    "portfolio": []
+  },
+  {
+    "id": "root",
+    "password": "cauchemar123",
+    "name": "루트ROOT",
+    "role": "Elite Creator",
+    "official": true,
+    "description": "Cauchemar 크루의 정예 멤버입니다.",
+    "zepeto_id": "",
+    "prices": {
+      "아이템 제작 > 헤드웨어": "30,000"
+    },
+    "portfolio": []
+  },
+  {
+    "id": "bone",
+    "password": "cauchemar123",
+    "name": "뼈 bone",
+    "role": "Elite Creator",
+    "official": false,
+    "description": "Cauchemar 크루의 정예 멤버입니다.",
+    "zepeto_id": "",
+    "prices": {
+      "아이템 제작 > 기타": "60,000"
+    },
+    "portfolio": []
+  },
+  {
+    "id": "double",
+    "password": "cauchemar123",
+    "name": "Double",
+    "role": "Elite Creator",
+    "official": false,
+    "description": "Cauchemar 크루의 정예 멤버입니다.",
+    "zepeto_id": "",
+    "prices": {
+      "이미지 제작": "50,000"
+    },
+    "portfolio": []
+  },
+  {
+    "id": "un",
+    "password": "cauchemar123",
+    "name": "Un ㅇㅓㄴ",
+    "role": "Elite Creator",
+    "official": false,
+    "description": "Cauchemar 크루의 정예 멤버입니다.",
+    "zepeto_id": "",
+    "prices": {
+      "아이템 제작 > 기타": "40,000"
+    },
+    "portfolio": []
+  },
+  {
+    "id": "oskyoo12",
+    "password": "5d30035648fc4033e9781763e3aab839$538b7999859f29adbc886f6c93404a952b415be74c246ccedbe809c807271b55",
+    "name": "흑쇼",
+    "role": "Elite Creator",
+    "type": "creator",
+    "official": true,
+    "description": "Cauchemar 크루의 정예 멤버입니다.",
+    "zepeto_id": "https://static-zepeto.pstatic.net/users/62353bdd734c772cd00e9d5a/profile/62353c0e341c01e490c63b28.png?modified=1770499435000",
+    "agreed_to_terms": true,
+    "prices": {
+      "아이템 제작 > 기타": "50,000"
+    },
+    "portfolio": [],
+    "followers": "85.7K",
+    "email": "oskyoo12@test.com",
+    "skills": [
+      "헤어",
+      "상의",
+      "기타"
+    ]
+  }
+]

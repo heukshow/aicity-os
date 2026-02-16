@@ -1,0 +1,110 @@
+[
+    {
+        "name": "SMB_Owner_Alpha",
+        "channel": "LinkedIn",
+        "intent": "High",
+        "needs": "Auto-Video Production"
+    },
+    {
+        "name": "Content_Creator_Beta",
+        "channel": "Twitter/X",
+        "intent": "High",
+        "needs": "AI Workflow Setup"
+    },
+    {
+        "name": "Ecom_Store_Gamma",
+        "channel": "Instagram",
+        "intent": "Medium",
+        "needs": "Marketing Copy Automation"
+    },
+    {
+        "name": "SMB_Owner_Alpha",
+        "channel": "LinkedIn",
+        "intent": "High",
+        "needs": "Auto-Video Production"
+    },
+    {
+        "name": "Content_Creator_Beta",
+        "channel": "Twitter/X",
+        "intent": "High",
+        "needs": "AI Workflow Setup"
+    },
+    {
+        "name": "Ecom_Store_Gamma",
+        "channel": "Instagram",
+        "intent": "Medium",
+        "needs": "Marketing Copy Automation"
+    },
+    {
+        "name": "SMB_Owner_Alpha",
+        "channel": "LinkedIn",
+        "intent": "High",
+        "needs": "Auto-Video Production"
+    },
+    {
+        "name": "Content_Creator_Beta",
+        "channel": "Twitter/X",
+        "intent": "High",
+        "needs": "AI Workflow Setup"
+    },
+    {
+        "name": "Ecom_Store_Gamma",
+        "channel": "Instagram",
+        "intent": "Medium",
+        "needs": "Marketing Copy Automation"
+    },
+    {
+        "name": "SMB_Owner_Alpha",
+        "channel": "LinkedIn",
+        "intent": "High",
+        "needs": "Auto-Video Production"
+    },
+    {
+        "name": "Content_Creator_Beta",
+        "channel": "Twitter/X",
+        "intent": "High",
+        "needs": "AI Workflow Setup"
+    },
+    {
+        "name": "Ecom_Store_Gamma",
+        "channel": "Instagram",
+        "intent": "Medium",
+        "needs": "Marketing Copy Automation"
+    },
+    {
+        "name": "SMB_Owner_Alpha",
+        "channel": "LinkedIn",
+        "intent": "High",
+        "needs": "Auto-Video Production"
+    },
+    {
+        "name": "Content_Creator_Beta",
+        "channel": "Twitter/X",
+        "intent": "High",
+        "needs": "AI Workflow Setup"
+    },
+    {
+        "name": "Ecom_Store_Gamma",
+        "channel": "Instagram",
+        "intent": "Medium",
+        "needs": "Marketing Copy Automation"
+    },
+    {
+        "name": "SMB_Owner_Alpha",
+        "channel": "LinkedIn",
+        "intent": "High",
+        "needs": "Auto-Video Production"
+    },
+    {
+        "name": "Content_Creator_Beta",
+        "channel": "Twitter/X",
+        "intent": "High",
+        "needs": "AI Workflow Setup"
+    },
+    {
+        "name": "Ecom_Store_Gamma",
+        "channel": "Instagram",
+        "intent": "Medium",
+        "needs": "Marketing Copy Automation"
+    }
+]

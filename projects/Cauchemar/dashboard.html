@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Cauchemar Crew</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+        }
+
+        .neon-purple {
+            color: #bf5af2;
+            text-shadow: 0 0 10px rgba(191, 90, 242, 0.5);
+        }
+
+        .bg-glass {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        select option {
+            background-color: #1a1a1a;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="antialiased min-h-screen pb-20">
+
+    <!-- Auth Guard -->
+    <script>
+        const user = JSON.parse(sessionStorage.getItem('crew_user'));
+        if (!user) window.location.href = 'login.html';
+    </script>
+
+    <header class="py-6 border-b border-white/5 bg-black/50 backdrop-blur-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-xl font-black tracking-tighter uppercase">CAUCHEMAR CREW <span
+                    class="neon-purple">DASHBOARD</span></h1>
+            <div class="flex items-center gap-4">
+                <a href="#" id="my-portfolio-link" target="_blank"
+                    class="text-xs font-bold text-purple-400 hover:text-white transition uppercase border border-purple-500/30 px-3 py-1 rounded-full hover:bg-purple-500/20">View
+                    Portfolio</a>
+                <a href="edit_portfolio.html"
+                    class="text-xs font-bold text-green-400 hover:text-white transition uppercase border border-green-500/30 px-3 py-1 rounded-full hover:bg-green-500/20">Edit
+                    Portfolio</a>
+                <span id="header-name" class="text-sm font-bold text-gray-400"></span>
+                <button onclick="logout()"
+                    class="text-xs text-gray-500 hover:text-white transition uppercase font-bold pl-4 border-l border-white/10">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 max-w-4xl">
+        <form onsubmit="handleSave(event)" class="space-y-12">
+
+            <!-- Basic Profile -->
+            <section class="space-y-6">
+                <div class="flex flex-col md:flex-row gap-10 items-start">
+                    <!-- Profile Preview -->
+                    <div
+                        class="w-48 h-64 bg-white/5 rounded-3xl border border-white/10 overflow-hidden flex-shrink-0 relative group">
+                        <img id="profile-preview" src="https://via.placeholder.com/512x1024?text=PREVIEW"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                            onerror="this.src='https://via.placeholder.com/512x1024?text=ERROR'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div
+                            class="absolute bottom-4 w-full text-center text-[10px] font-black uppercase tracking-widest text-white/40">
+                            Avatar Preview</div>
+                    </div>
+
+                    <div class="flex-1 grid md:grid-cols-2 gap-6 w-full">
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-gray-500 uppercase">Nickname (닉네임)</label>
+                            <input type="text" id="name"
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-purple-500 focus:outline-none transition">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-gray-500 uppercase">Role / Specialty (직함/전공)</label>
+                            <input type="text" id="role"
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-purple-500 focus:outline-none transition">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-gray-500 uppercase flex justify-between items-center">
+                                ZEPETO ID
+                                <div class="flex gap-2">
+                                    <button type="button" onclick="refreshZepetoStats(event)"
+                                        class="text-[10px] text-green-400 hover:underline font-bold">팔로워 갱신</button>
+                                    <button type="button" onclick="showZepetoHelp()"
+                                        class="text-[10px] text-purple-400 hover:underline">ID 찾는 법?</button>
+                                </div>
+                            </label>
+                            <input type="text" id="zepeto_id" placeholder="예: oskyoo12"
+                                oninput="updateProfilePreview(this.value)"
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-purple-500 focus:outline-none transition">
+                            <div id="zepeto-status" class="text-[10px] mt-1 pl-1"></div>
+                        </div>
+                        <div class="md:col-span-2 space-y-2">
+                            <label class="text-xs font-bold text-gray-500 uppercase">Description</label>
+                            <textarea id="description" rows="3"
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-purple-500 focus:outline-none transition"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Info -->
+            <section
+                class="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-2xl p-6">
+                <p class="text-sm text-gray-300 leading-relaxed">
+                    💡 <strong>포트폴리오 및 가격 관리</strong>는 "Edit Portfolio" 버튼을 눌러 별도 페이지에서 편집할 수 있습니다.
+                </p>
+            </section>
+
+            <!-- Save Action -->
+            <div class="pt-12 border-t border-white/5">
+                <button type="submit"
+                    class="w-full bg-white text-black font-bold py-5 rounded-2xl text-lg hover:bg-gray-200 transition">
+                    SAVE CHANGES
+                </button>
+            </div>
+
+        </form>
+    </main>
+
+    <script>
+        const categories = {
+            "아이템 제작": ["헤어", "상의", "한벌의상", "신발", "헤드웨어", "가방", "기타"],
+            "월드 제작": ["점프맵", "구경맵", "드라마/상황극", "기타"],
+            "이미지 제작": [],
+            "영상 제작": [],
+            "홍보": []
+        };
+
+        document.getElementById('header-name').innerText = user.id; // Show ZEPETO ID in header
+        document.getElementById('my-portfolio-link').href = `member.html?id=${user.id}`;
+        document.getElementById('name').value = user.name;
+        document.getElementById('role').value = user.role;
+        document.getElementById('zepeto_id').value = user.zepeto_id || '';
+        document.getElementById('description').value = user.description;
+
+        function updateProfilePreview(val) {
+            const preview = document.getElementById('profile-preview');
+            const status = document.getElementById('zepeto-status');
+            if (val) {
+                let url = val;
+                if (!val.startsWith('http')) {
+                    url = `https://render-api.zepeto.io/v2/graphics/zepeto/character/${val}/image/2D?width=512`;
+                }
+                preview.src = url;
+                status.innerHTML = `<a href="${url}" target="_blank" class="text-purple-400/60 hover:text-purple-400 transition">↗ 직접 링크로 확인하기 (캐릭터가 안 나온다면 클릭)</a>`;
+            } else {
+                preview.src = 'https://via.placeholder.com/512x1024?text=EMPTY';
+                status.innerHTML = '<span class="text-gray-600">아이디를 입력해주세요.</span>';
+            }
+        }
+        updateProfilePreview(user.zepeto_id);
+
+        function showZepetoHelp() {
+            alert(`[캐릭터 이미지가 나오게 하는 방법]
+
+현재 입력하신 'oskyoo12'는 검색용 '핸들(아이디)'입니다. 
+렌더링 시스템은 보안상 '내 코드'가 필요할 수 있습니다.
+
+1. 제페토 앱 접속 > 내 프로필 > [프로필 편집] 클릭
+2. 닉네임 아래에 있는 [내 코드] (예: ABC123) 확인
+3. 해당 '6자리 코드'를 ZEPETO ID 칸에 입력해 보세요.
+
+※ 코드를 입력하면 프리뷰에 대표님의 캐릭터가 바로 나타납니다!`);
+        }
+
+        async function refreshZepetoStats(event) {
+            const zepetoId = document.getElementById('zepeto_id').value;
+            if (!zepetoId) {
+                alert('제페토 ID를 입력해주세요.');
+                return;
+            }
+
+            const btn = event.target;
+            const originalText = btn.innerText;
+            btn.innerText = '갱신 중...';
+            btn.disabled = true;
+
+            try {
+                const response = await fetch('/api/crew/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('crew_token')}`
+                    },
+                    body: JSON.stringify({
+                        id: user.id,
+                        zepeto_id: zepetoId,
+                        refresh_zepeto: true
+                    })
+                });
+
+                const result = await response.json();
+                if (result.status === 'ok') {
+                    alert('제페토 정보(팔로워 포함)가 성공적으로 갱신되었습니다.');
+                    location.reload();
+                } else {
+                    alert('갱신 실패: ' + (result.message || '알 수 없는 오류'));
+                }
+            } catch (error) {
+                console.error('Error refreshing Zepeto stats:', error);
+                alert('오류가 발생했습니다.');
+            } finally {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        function addPriceRow(mainCat = '아이템 제작', subCat = '', value = '') {
+            const container = document.getElementById('price-container');
+            const div = document.createElement('div');
+            div.className = 'grid grid-cols-6 gap-4 items-center bg-white/5 p-4 rounded-2xl border border-white/5';
+
+            const calcMarkup = (v) => {
+                const num = parseInt(v.toString().replace(/,/g, '')) || 0;
+                return Math.floor(num * 1.2).toLocaleString();
+            };
+
+            const mainOptions = Object.keys(categories).map(k => `<option value="${k}" ${mainCat === k ? 'selected' : ''}>${k}</option>`).join('');
+
+            div.innerHTML = `
+                <div class="col-span-2 space-y-1">
+                    <label class="text-[10px] text-gray-500 font-bold uppercase">Category</label>
+                    <select onchange="updateSubCats(this)" class="main-cat w-full bg-white/10 border border-white/10 rounded-lg px-3 py-2 text-sm">
+                        ${mainOptions}
+                    </select>
+                </div>
+                <div class="col-span-1 space-y-1 sub-cat-container ${categories[mainCat].length === 0 ? 'hidden' : ''}">
+                    <label class="text-[10px] text-gray-500 font-bold uppercase">Sub-Category</label>
+                    <select class="sub-cat w-full bg-white/10 border border-white/10 rounded-lg px-3 py-2 text-sm">
+                        ${categories[mainCat].map(s => `<option value="${s}" ${subCat === s ? 'selected' : ''}>${s}</option>`).join('')}
+                    </select>
+                </div>
+                <div class="col-span-1 space-y-1">
+                    <label class="text-[10px] text-gray-500 font-bold uppercase">Your Price (₩)</label>
+                    <input type="text" placeholder="50,000" oninput="updatePreview(this)" class="w-full bg-white/10 border border-white/10 rounded-lg px-3 py-2 text-sm" value="${value}">
+                </div>
+                <div class="col-span-1 space-y-1">
+                    <label class="text-[10px] text-purple-500 font-bold uppercase">Selling (+20%)</label>
+                    <div class="preview-price text-purple-400 font-bold text-sm py-2">₩${calcMarkup(value)}</div>
+                </div>
+                <button type="button" onclick="this.parentElement.remove()" class="text-gray-500 hover:text-red-500 transition">✖</button>
+            `;
+            container.appendChild(div);
+        }
+
+        function updateSubCats(select) {
+            const mainCat = select.value;
+            const subContainer = select.parentElement.parentElement.querySelector('.sub-cat-container');
+            const subSelect = subContainer.querySelector('.sub-cat');
+
+            const subs = categories[mainCat];
+            if (subs.length > 0) {
+                subContainer.classList.remove('hidden');
+                subSelect.innerHTML = subs.map(s => `<option value="${s}">${s}</option>`).join('');
+            } else {
+                subContainer.classList.add('hidden');
+                subSelect.innerHTML = '';
+            }
+        }
+
+        function updatePreview(input) {
+            const preview = input.parentElement.parentElement.querySelector('.preview-price');
+            const num = parseInt(input.value.replace(/,/g, '')) || 0;
+            preview.innerText = '₩' + Math.floor(num * 1.2).toLocaleString();
+        }
+
+        // Initialize prices from legacy format or new format
+        Object.entries(user.prices || {}).forEach(([k, v]) => {
+            if (k.includes(' > ')) {
+                const [main, sub] = k.split(' > ');
+                addPriceRow(main, sub, v);
+            } else {
+                addPriceRow('아이템 제작', '', v); // Fallback
+            }
+        });
+
+        async function handleSave(e) {
+            e.preventDefault();
+
+            const prices = {};
+            const rows = document.getElementById('price-container').children;
+            for (let row of rows) {
+                const main = row.querySelector('.main-cat').value;
+                const subSelect = row.querySelector('.sub-cat');
+                const sub = subSelect.value;
+                const value = row.querySelector('input[type="text"]').value;
+
+                const key = sub ? `${main} > ${sub}` : main;
+                if (value) prices[key] = value;
+            }
+
+            const data = {
+                id: user.id,
+                name: document.getElementById('name').value,
+                role: document.getElementById('role').value,
+                zepeto_id: document.getElementById('zepeto_id').value,
+                description: document.getElementById('description').value,
+                prices: prices
+            };
+
+            try {
+                const res = await fetch('/api/crew/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + sessionStorage.getItem('crew_token')
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (res.ok) {
+                    // Update session storage with new values so they persist if user comes back
+                    user.name = data.name;
+                    user.role = data.role;
+                    user.zepeto_id = data.zepeto_id;
+                    user.description = data.description;
+                    user.prices = data.prices;
+                    sessionStorage.setItem('crew_user', JSON.stringify(user));
+
+                    alert('✅ 성공적으로 업데이트되었습니다! 메인 페이지로 이동합니다.');
+                    window.location.href = 'cauchemar.html';
+                } else {
+                    alert('업데이트 실패');
+                }
+            } catch (err) {
+                alert('서버 오류');
+            }
+        }
+
+        function logout() {
+            sessionStorage.removeItem('crew_user');
+            window.location.href = 'login.html';
+        }
+    </script>
+    <!-- Agreement Modal -->
+    <div id="agreement-modal"
+        class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/80 backdrop-blur-sm">
+        <div
+            class="bg-[#1a1a1a] border border-white/10 rounded-2xl w-full max-w-lg p-6 shadow-2xl transform transition-all scale-100">
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <span class="text-purple-500">📜</span> 수익 분배 및 정산 동의서
+            </h3>
+            <div
+                class="bg-black/30 rounded-xl p-4 h-64 overflow-y-auto text-xs text-gray-300 leading-relaxed space-y-3 mb-6 border border-white/5">
+                <p><strong class="text-white">1. 수익 배분:</strong> 크리에이터(귀하)가 제작한 아이템 및 콘텐츠로 발생한 순수익의 <strong>80%는 귀하에게,
+                        20%는 Cauchemar Agency에게</strong> 귀속됩니다.</p>
+                <p><strong class="text-white">2. 정산 일정:</strong> 정산은 <strong>매월 15일</strong>에 진행됩니다. 단, 제페토 본사의 정책이나
+                    에이전시 법인 계좌의 이체 한도 제한이 발생할 경우, <strong>한도가 해제되는 당일 또는 익일</strong>에 즉시 지급됩니다.</p>
+                <p><strong class="text-white">3. 권리 및 의무:</strong> 귀하는 본 동의에 서명하지 않을 경우, Cauchemar Crew의 일원으로서 아이템 업로드 및
+                    포트폴리오 등록 활동을 할 수 없습니다.</p>
+                <p><strong class="text-white">4. 세금:</strong> 관련 법령에 따라 3.3%의 사업소득세가 원천징수될 수 있습니다.</p>
+                <p><strong class="text-white">5. 유효 기간:</strong> 본 동의는 크루 탈퇴 시까지 유효합니다.</p>
+            </div>
+            <div class="flex items-center gap-3 mb-6 bg-purple-500/5 p-3 rounded-lg border border-purple-500/10">
+                <input type="checkbox" id="modal-agree-chk" class="w-5 h-5 accent-purple-500 cursor-pointer rounded">
+                <label for="modal-agree-chk" class="text-xs text-gray-200 select-none cursor-pointer">위 정산 내용에 동의하며, 이를
+                    준수하겠습니다.</label>
+            </div>
+            <div class="flex gap-3">
+                <button type="button" onclick="closeAgreementModal()"
+                    class="flex-1 py-3 rounded-xl text-gray-400 hover:bg-white/5 transition font-bold text-sm">닫기</button>
+                <button type="button" onclick="confirmAgreement()"
+                    class="flex-1 py-3 rounded-xl bg-white text-black hover:bg-purple-100 transition font-black text-sm uppercase tracking-tighter">동의
+                    및 서명하기</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check Agreement Status
+        if (!user.agreed_to_terms) {
+            // Disable Pricing Section
+            const priceSection = document.getElementById('price-container');
+            priceSection.classList.add('opacity-30', 'pointer-events-none', 'grayscale');
+
+            // Hide Add Button & Show Banner
+            document.getElementById('add-price-btn').classList.add('hidden');
+            document.getElementById('agreement-banner').classList.remove('hidden');
+        }
+
+        function openAgreementModal() {
+            document.getElementById('agreement-modal').classList.remove('hidden');
+        }
+
+        function closeAgreementModal() {
+            document.getElementById('agreement-modal').classList.add('hidden');
+        }
+
+        async function confirmAgreement() {
+            const chk = document.getElementById('modal-agree-chk');
+            if (!chk.checked) {
+                alert('동의 항목에 체크해주세요.');
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/crew/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + sessionStorage.getItem('crew_token')
+                    },
+                    body: JSON.stringify({
+                        id: user.id,
+                        agreed_to_terms: true
+                    })
+                });
+
+                if (res.ok) {
+                    alert('✅ 정산 동의가 완료되었습니다! 이제 모든 기능을 사용할 수 있습니다.');
+                    user.agreed_to_terms = true;
+                    sessionStorage.setItem('crew_user', JSON.stringify(user));
+                    window.location.reload();
+                } else {
+                    alert('오류가 발생했습니다.');
+                }
+            } catch (err) {
+                alert('서버 연결 오류');
+            }
+        }
+    </script>
+</body>
+
+</html>

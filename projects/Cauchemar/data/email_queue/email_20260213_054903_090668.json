@@ -1,0 +1,13 @@
+{
+  "id": "email_20260213_054903_090668",
+  "timestamp": "2026-02-13T05:49:03.090668",
+  "to": "qmfforfhem@gmail.com",
+  "subject": "Test Email",
+  "body_html": "<h1>Hello!</h1><p>Email queue is working!</p>",
+  "body_text": "",
+  "metadata": {
+    "from": "qmfforfhem@gmail.com",
+    "from_name": "Cauchemar Crew"
+  },
+  "status": "queued"
+}

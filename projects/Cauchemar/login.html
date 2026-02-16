@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Login | Cauchemar Crew</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+        }
+
+        .neon-purple {
+            color: #bf5af2;
+            text-shadow: 0 0 10px rgba(191, 90, 242, 0.5);
+        }
+
+        .bg-glass {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="antialiased flex items-center justify-center min-h-screen">
+
+    <div class="w-full max-w-md p-8 bg-glass rounded-[40px] border border-white/5 space-y-8">
+        <div class="text-center">
+            <h1 class="text-4xl font-black tracking-tighter uppercase">CAUCHEMAR <span class="neon-purple">CREW</span>
+            </h1>
+            <p class="text-gray-400 mt-4 text-lg">크루 전용 대시보드 로그인</p>
+        </div>
+
+        <form onsubmit="handleLogin(event)" class="space-y-6">
+            <div class="space-y-3">
+                <label class="text-sm font-bold text-gray-400 uppercase tracking-widest">ZEPETO ID</label>
+                <input type="text" id="crew_id"
+                    class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-xl focus:border-purple-500 focus:outline-none transition"
+                    placeholder="e.g. zepeto_id" required>
+            </div>
+            <div class="space-y-3">
+                <label class="text-sm font-bold text-gray-400 uppercase tracking-widest">Password</label>
+                <input type="password" id="password"
+                    class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-xl focus:border-purple-500 focus:outline-none transition"
+                    required>
+            </div>
+            <button type="submit"
+                class="w-full bg-[#bf5af2] text-white font-black py-5 rounded-2xl text-xl hover:bg-purple-500 transition shadow-lg shadow-purple-500/20 uppercase tracking-tighter">
+                Enter Dashboard
+            </button>
+        </form>
+
+        <p class="text-center text-xs text-gray-500">
+            Don't have an account? <a href="register_crew.html" class="text-purple-400 hover:underline">Apply to
+                Crew</a>
+        </p>
+    </div>
+
+    <script>
+        async function handleLogin(e) {
+            e.preventDefault();
+            const id = document.getElementById('crew_id').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const res = await fetch('/api/crew/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id, password })
+                });
+
+                const result = await res.json();
+                if (res.ok) {
+                    // Success: Store user info and token
+                    sessionStorage.setItem('crew_token', result.token);
+                    sessionStorage.setItem('crew_user', JSON.stringify(result.member));
+                    window.location.href = 'dashboard.html';
+                } else {
+                    alert('로그인 실패 (' + res.status + '): ' + result.message);
+                }
+            } catch (err) {
+                alert('서버 연결 오류');
+            }
+        }
+    </script>
+</body>
+
+</html>

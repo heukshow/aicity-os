@@ -1,0 +1,50 @@
+version: '3'
+
+vars:
+  EXEC_DIR: "AI_City_Project/execution"
+  PYTHON: ".venv/Scripts/python"
+
+tasks:
+  setup:
+    desc: "Initialize the Imperial environment (Venv & Deps)"
+    cmds:
+      - python -m venv .venv
+      - .venv/Scripts/pip install -r requirements.txt
+    status:
+      - test -d .venv
+
+  run:
+    desc: "Activate the Imperial OS Central Command"
+    cmds:
+      - "{{.PYTHON}} {{.EXEC_DIR}}/central_cmd.py"
+
+  night:
+    desc: "Trigger the autonomous Nocturnal Shift (Salvation Loop)"
+    cmds:
+      - "{{.PYTHON}} {{.EXEC_DIR}}/nocturnal_ops.py"
+
+  db-check:
+    desc: "Verify Imperial Database integrity"
+    cmds:
+      - "{{.PYTHON}} {{.EXEC_DIR}}/verify_db_ops.py"
+
+  social:
+    desc: "Simulate social interactions and evolution"
+    cmds:
+      - "{{.PYTHON}} {{.EXEC_DIR}}/verify_social.py"
+
+  life:
+    desc: "Simulate aging and educational life-cycles"
+    cmds:
+      - "{{.PYTHON}} {{.EXEC_DIR}}/verify_life.py"
+
+  clean:
+    desc: "Purge temporary logs and outputs"
+    cmds:
+      - powershell -Command "Remove-Item -Path AI_City_Project/outputs/* -Force -ErrorAction SilentlyContinue"
+      - powershell -Command "Remove-Item -Path AI_City_Project/logs/*.log -Force -ErrorAction SilentlyContinue"
+
+  status:
+    desc: "Check Imperial OS System Health"
+    cmds:
+      - "{{.PYTHON}} -c \"import psutil; print(f'CPU: {psutil.cpu_percent()}% | RAM: {psutil.virtual_memory().percent}%')\""

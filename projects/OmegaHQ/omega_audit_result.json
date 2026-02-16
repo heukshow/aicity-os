@@ -1,0 +1,46 @@
+{
+    "Sebastian (ChatGPT)": {
+        "port": 9222,
+        "error": "Message: session not created: cannot connect to chrome at 127.0.0.1:9222\nfrom chrome not reachable; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception\nStacktrace:\nSymbols not available. Dumping unresolved backtrace:\n\t0x7ff600daf3d5\n\t0x7ff600daf430\n\t0x7ff600b50ea6\n\t0x7ff600b41744\n\t0x7ff600b97f1b\n\t0x7ff600b8c6ae\n\t0x7ff600be4091\n\t0x7ff600be38f6\n\t0x7ff600b9cb0c\n\t0x7ff600b9da53\n\t0x7ff60108b470\n\t0x7ff60108586d\n\t0x7ff6010a621a\n\t0x7ff600dcb235\n\t0x7ff600dd3a5c\n\t0x7ff600db8844\n\t0x7ff600db89f6\n\t0x7ff600d9eb87\n\t0x7ffd1876e8d7\n\t0x7ffd1956c53c\n"
+    },
+    "Emma (Gemini)": {
+        "port": 9223,
+        "url": "https://gemini.google.com/",
+        "title": "Google Gemini"
+    },
+    "Joy (Naver)": {
+        "port": 9224,
+        "url": "https://nid.naver.com/user2/help/idSafetyRelease?m=viewIdSafetyInfo&token_help=IMTSb3JTiFmg3jT3",
+        "title": "네이버 : 로그인"
+    },
+    "Neo (Naver)": {
+        "port": 9225,
+        "url": "https://nid.naver.com/nidlogin.login",
+        "title": "NAVER"
+    },
+    "Roy (Naver)": {
+        "port": 9226,
+        "url": "https://nid.naver.com/nidlogin.login",
+        "title": "네이버 : 로그인"
+    },
+    "Oliver (X/Grok)": {
+        "port": 9227,
+        "url": "https://x.com/i/grok",
+        "title": ""
+    },
+    "Luna (Claude)": {
+        "port": 9228,
+        "url": "https://claude.ai/login",
+        "title": "Claude"
+    },
+    "Leo (DeepSeek)": {
+        "port": 9229,
+        "url": "https://chat.deepseek.com/",
+        "title": "DeepSeek - 미지의 세계로"
+    },
+    "Copilot (Microsoft)": {
+        "port": 9230,
+        "url": "https://copilot.microsoft.com/",
+        "title": "Microsoft Copilot: AI 컴패니언"
+    }
+}

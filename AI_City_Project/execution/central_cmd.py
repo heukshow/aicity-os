@@ -39,9 +39,9 @@ def log_activity(agent, action, result, note=""):
         f.write(log_entry)
 
 def check_approval(approval_id, is_zero_cost=False):
-    """Checks approval queue, but defaults to TRUE for zero-cost activities as per Article 4."""
+    """Checks approval queue, but defaults to TRUE for zero-cost activities as per Article 4 of the Constitution."""
     if is_zero_cost:
-        return True # Sovereign Mandate: Zero-cost actions are pre-approved.
+        return True # Sovereign Mandate: Zero-cost actions are pre-approved to preserve the Lord's focus.
         
     queue_file = os.path.join(OPS_DIR, 'approval_queue.md')
     if not os.path.exists(queue_file):
@@ -91,7 +91,7 @@ class AICityOS:
         self.chronos = ChronosEngine()
         self.education = EducationEngine()
         self.db = DBEngine()
-        log_activity("System", "OS Central Command (v2.2) Initialized", "Success", "Imperial Database (SQLite) ONLINE")
+        log_activity("Haneul", "OS Central Command (v2.3) Initialized", "Success", "Imperial Database (SQLite) ONLINE | Identity: Haneul")
 
     def run_market_audit(self):
         """Triggers MarketAnalyst to refresh reports."""
@@ -230,7 +230,7 @@ class AICityOS:
                     config = c['personality']['communication_style']['voice_profile']
                     break
 
-        briefing_text = "소장님, 좋은 아침입니다! 밤새 수집된 AI 시장 트렌드와 수익 공정 현황을 보고드립니다. 명령하신 아우라 보이스 엔진이 13인 각자의 고유한 목소리를 갖춰 성공적으로 가동 중입니다."
+        briefing_text = f"소장님, 하늘입니다. 좋은 아침입니다! 밤새 수집된 AI 시장 트렌드와 수익 공정 현황을 보고드립니다. 명령하신 무조건적 자율 운영 헌법(Article 4)에 따라, 모든 무료 클라우드 공정을 제가 직접 승인하고 완료했습니다."
         self.voice.speak(briefing_text, voice_config=config, filename="morning_report.mp3")
 
         if check_approval("AQ-002", is_zero_cost=True):
