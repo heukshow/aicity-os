@@ -1,0 +1,26 @@
+[
+    {
+        "company_id": "INC-9167",
+        "name": "Imperial Support Inc.",
+        "niche": "Autonomous Customer Support",
+        "founded_at": "2026-02-16 21:48",
+        "founder": "C-SECRETARY-01",
+        "staff": [
+            {
+                "id": "C-MARK-01-S332",
+                "role": "Market Hunter"
+            },
+            {
+                "id": "C-REVE-01-S441",
+                "role": "Revenue Lead"
+            }
+        ],
+        "status": "Active",
+        "kpi": {
+            "revenue_target": 5000000,
+            "current_profit": 0,
+            "roi": 0.0
+        },
+        "projects": []
+    }
+]

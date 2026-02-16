@@ -60,7 +60,8 @@
                 "institution": "대학원 (Imperial Graduate School)",
                 "enrollment_date": "2026-02-15 07:28:22.182478",
                 "gpa": 4.5
-            }
+            },
+            "corporate_affiliation": "None"
         }
     },
     {
@@ -124,7 +125,8 @@
                 "institution": "대학원 (Imperial Graduate School)",
                 "enrollment_date": "2026-02-15 07:28:22.182478",
                 "gpa": 4.5
-            }
+            },
+            "corporate_affiliation": "None"
         }
     },
     {
@@ -188,7 +190,8 @@
                 "institution": "대학원 (Imperial Graduate School)",
                 "enrollment_date": "2026-02-15 07:28:22.182478",
                 "gpa": 4.5
-            }
+            },
+            "corporate_affiliation": "None"
         }
     },
     {
@@ -252,7 +255,8 @@
                 "institution": "대학원 (Imperial Graduate School)",
                 "enrollment_date": "2026-02-15 07:28:22.183480",
                 "gpa": 4.5
-            }
+            },
+            "corporate_affiliation": "None"
         }
     },
     {
@@ -316,7 +320,8 @@
                 "institution": "대학원 (Imperial Graduate School)",
                 "enrollment_date": "2026-02-15 07:28:22.183480",
                 "gpa": 4.5
-            }
+            },
+            "corporate_affiliation": "None"
         }
     },
     {
@@ -380,7 +385,8 @@
                 "institution": "대학원 (Imperial Graduate School)",
                 "enrollment_date": "2026-02-15 07:28:22.183480",
                 "gpa": 4.5
-            }
+            },
+            "corporate_affiliation": "None"
         }
     },
     {
@@ -444,7 +450,8 @@
                 "institution": "대학원 (Imperial Graduate School)",
                 "enrollment_date": "2026-02-15 07:28:22.183480",
                 "gpa": 4.5
-            }
+            },
+            "corporate_affiliation": "None"
         }
     },
     {
@@ -508,7 +515,8 @@
                 "institution": "대학원 (Imperial Graduate School)",
                 "enrollment_date": "2026-02-15 07:28:22.183480",
                 "gpa": 4.5
-            }
+            },
+            "corporate_affiliation": "None"
         }
     },
     {
@@ -572,7 +580,8 @@
                 "institution": "대학원 (Imperial Graduate School)",
                 "enrollment_date": "2026-02-15 07:28:22.183480",
                 "gpa": 4.5
-            }
+            },
+            "corporate_affiliation": "None"
         }
     },
     {
@@ -636,7 +645,8 @@
                 "institution": "대학원 (Imperial Graduate School)",
                 "enrollment_date": "2026-02-15 07:28:22.183480",
                 "gpa": 4.5
-            }
+            },
+            "corporate_affiliation": "None"
         }
     },
     {
@@ -700,7 +710,8 @@
                 "institution": "대학원 (Imperial Graduate School)",
                 "enrollment_date": "2026-02-15 07:28:22.183480",
                 "gpa": 4.5
-            }
+            },
+            "corporate_affiliation": "None"
         }
     },
     {
@@ -764,7 +775,8 @@
                 "institution": "대학원 (Imperial Graduate School)",
                 "enrollment_date": "2026-02-15 07:28:22.183480",
                 "gpa": 4.5
-            }
+            },
+            "corporate_affiliation": "None"
         }
     },
     {
@@ -829,7 +841,8 @@
                 "enrollment_date": "2026-02-15 07:28:22.183480",
                 "gpa": 4.5
             },
-            "died_at": "2026-02-15 07:28:22.252406"
+            "died_at": "2026-02-15 07:28:22.252406",
+            "corporate_affiliation": "None"
         }
     },
     {
@@ -864,7 +877,8 @@
                     "강한수",
                     "이지우"
                 ]
-            }
+            },
+            "corporate_affiliation": "None"
         }
     },
     {
@@ -928,7 +942,8 @@
                 "institution": "Imperial OS Core",
                 "enrollment_date": "2026-02-16 14:05:00.000000",
                 "gpa": 5.0
-            }
+            },
+            "corporate_affiliation": "None"
         }
     }
 ]

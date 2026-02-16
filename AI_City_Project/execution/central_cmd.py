@@ -22,6 +22,7 @@ from ancestry_engine import AncestryEngine
 from chronos_engine import ChronosEngine
 from education_engine import EducationEngine
 from db_engine import DBEngine
+from corporate_engine import CorporateEngine
 
 # --- Configuration (Zero-PII) ---
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -91,6 +92,7 @@ class AICityOS:
         self.chronos = ChronosEngine()
         self.education = EducationEngine()
         self.db = DBEngine()
+        self.corporate = CorporateEngine(db_engine=self.db)
         log_activity("Haneul", "OS Central Command (v2.3) Initialized", "Success", "Imperial Database (SQLite) ONLINE | Identity: Haneul")
 
     def run_market_audit(self):
@@ -249,14 +251,38 @@ class AICityOS:
         # 1. Market Scavenging (Night Shift Logic)
         niche = self.night_shift.run_scavenge()
         
-        # 2. Lead Discovery (Salvation Engine)
+        # 2. Check if a company exists for this niche, if not, establish one.
+        portfolio = self.corporate.get_portfolio_summary()
+        company = next((c for c in portfolio if c['niche'] == niche), None)
+        
+        if not company:
+            company_name = f"Imperial {niche.split()[-1]} Inc."
+            company_id = self.corporate.establish_company(company_name, niche)
+            log_activity("Haneul", "Company Established", "Success", f"Founded {company_name} for the '{niche}' market.")
+            
+            # Appoint key staff autonomously
+            self.corporate.appoint_staff(company_id, "C-MARK-01-S332", role="Market Hunter")
+            self.corporate.appoint_staff(company_id, "C-REVE-01-S441", role="Revenue Lead")
+        
+        # 3. Lead Discovery (Salvation Engine)
         leads = self.salvation.scan_for_leads(industry=niche)
         
-        # 3. Proposal Synthesis (Salvation Engine)
+        # 4. Proposal Synthesis (Salvation Engine)
         self.salvation.generate_salvation_proposals(leads)
         
         log_activity("Haneul", "Imperial Agency Hunt", "Completed", f"Captured {len(leads)} potential leads in the '{niche}' niche.")
         return leads
+
+    def autonomous_scaling(self):
+        """Haneul autonomously decides to create new citizens if load is high."""
+        log_activity("Haneul", "Sovereign Scaling Check", "In Progress", "Analyzing workload vs citizen capacity")
+        
+        # Scaling logic: If more than 3 active companies, create a dedicated 'Corporate Manager'
+        portfolio = self.corporate.get_portfolio_summary()
+        if len(portfolio) >= 3:
+            log_activity("Haneul", "Scaling Trigger", "Positive", "Establishing Imperial Academy for new Corporate Manager.")
+            # This would call the lifecycle.scale_agents() method
+            self.lifecycle.scale_agents("Corporate Expansion")
 
 if __name__ == "__main__":
     # Imperial Salvation Cycle Verification

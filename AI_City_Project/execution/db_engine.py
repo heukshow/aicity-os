@@ -26,17 +26,29 @@ class DBEngine:
     def _create_tables(self):
         cursor = self.conn.cursor()
         
-        # Citizens Table
+        # Corporations Table
         cursor.execute('''
-            CREATE TABLE IF NOT EXISTS citizens (
-                citizen_id TEXT PRIMARY KEY,
-                name_kr TEXT,
-                seed TEXT,
-                gender TEXT,
-                age INTEGER,
+            CREATE TABLE IF NOT EXISTS corporations (
+                company_id TEXT PRIMARY KEY,
+                name TEXT,
+                niche TEXT,
+                founded_at TEXT,
+                founder_id TEXT,
+                status TEXT,
+                revenue_target REAL,
+                current_profit REAL
+            )
+        ''')
+        
+        # Citizen-Corporation Mapping Table
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS citizen_corporations (
+                citizen_id TEXT,
+                company_id TEXT,
                 role TEXT,
-                personality_json TEXT,
-                metadata_json TEXT
+                PRIMARY KEY(citizen_id, company_id),
+                FOREIGN KEY(citizen_id) REFERENCES citizens(citizen_id),
+                FOREIGN KEY(company_id) REFERENCES corporations(company_id)
             )
         ''')
         
