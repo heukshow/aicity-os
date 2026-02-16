@@ -1,0 +1,16 @@
+# AI City OS: Imperial Cloud Blueprint
+services:
+  - type: web
+    name: aicity-os
+    env: python
+    buildCommand: pip install -r AI_City_Project/requirements.txt
+    startCommand: python AI_City_Project/execution/api_bridge.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.6
+      - key: PYTHONPATH
+        value: /opt/render/project/src/AI_City_Project/execution
+    disk:
+      name: imperial-data
+      mountPath: /opt/render/project/src/AI_City_Project/ops
+      sizeGB: 1
