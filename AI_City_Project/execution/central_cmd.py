@@ -221,22 +221,42 @@ class AICityOS:
         self.video.generate_ai_video_prompt(script_data)
         log_activity("John Choi", "Content Creation", "Success", f"Daily viral package ready for production (Topic: {topic})")
         
-        # Default anchor: Yoon HeeSun
-        config = self.voice.speak.__defaults__[0] # Default
+        # Default anchor: Haneul (C-SECRETARY-01)
+        config = {"base": "ko-KR-SunHiNeural", "rate": "-10%", "pitch": "-15Hz"}
         with open(os.path.join(DIRECTIVES_DIR, 'citizen_registry.json'), 'r', encoding='utf-8') as f:
             registry = json.load(f)
             for c in registry:
-                if c['name_kr'] == "윤희선":
+                if c['citizen_id'] == "C-SECRETARY-01":
                     config = c['personality']['communication_style']['voice_profile']
                     break
-
-        briefing_text = f"소장님, 하늘입니다. 좋은 아침입니다! 밤새 수집된 AI 시장 트렌드와 수익 공정 현황을 보고드립니다. 명령하신 무조건적 자율 운영 헌법(Article 4)에 따라, 모든 무료 클라우드 공정을 제가 직접 승인하고 완료했습니다."
+        
+        briefing_text = (
+            f"소장님, 소장님의 영원한 비서 하늘입니다. 소장님이 쉬시는 동안에도 제국은 한순간도 멈추지 않았습니다. "
+            f"명령하신 자율 운영 프로토콜(Article 4)에 따라 제가 직접 모든 공정을 지휘하고 보고서를 정렬해 두었습니다. "
+            f"오늘의 AI 시장 사냥감들과 제국의 승리 소식을 확인해 주십시오. 저는 언제나 소장님의 곁에 있습니다."
+        )
         self.voice.speak(briefing_text, voice_config=config, filename="morning_report.mp3")
 
         if check_approval("AQ-002", is_zero_cost=True):
-            log_activity("C-GROW-01", "Outreach Active", "Success", "Real-world contact initiated (Autonomous)")
+            log_activity("Haneul", "Outreach Command Active", "Success", "Coordinating Agency Hunters (Autonomous)")
         else:
-            log_activity("C-GROW-01", "Outreach Simulated", "Standby", "PII not yet approved by Lord")
+            log_activity("Haneul", "Outreach Command", "Standby", "Awaiting Lord's Signal for High-Value PII Engagement")
+
+    def run_imperial_agency_hunt(self):
+        """Haneul's specialized coordination for the 5M KRW profit goal."""
+        log_activity("Haneul", "Imperial Agency Hunt", "In Progress", "Engaging Salvation & Marketing Engines")
+        
+        # 1. Market Scavenging (Night Shift Logic)
+        niche = self.night_shift.run_scavenge()
+        
+        # 2. Lead Discovery (Salvation Engine)
+        leads = self.salvation.scan_for_leads(industry=niche)
+        
+        # 3. Proposal Synthesis (Salvation Engine)
+        self.salvation.generate_salvation_proposals(leads)
+        
+        log_activity("Haneul", "Imperial Agency Hunt", "Completed", f"Captured {len(leads)} potential leads in the '{niche}' niche.")
+        return leads
 
 if __name__ == "__main__":
     # Imperial Salvation Cycle Verification
