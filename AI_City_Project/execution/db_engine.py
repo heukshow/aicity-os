@@ -9,9 +9,19 @@ DB_PATH = os.path.join(OPS_DIR, 'imperial_city.db')
 
 class DBEngine:
     def __init__(self):
-        self.conn = sqlite3.connect(DB_PATH)
-        self.conn.row_factory = sqlite3.Row
-        self._create_tables()
+        # Ensure the directory exists
+        if not os.path.exists(OPS_DIR):
+            os.makedirs(OPS_DIR, exist_ok=True)
+            print(f"Imperial Cloud: Created directory {OPS_DIR}")
+        
+        print(f"Imperial Cloud: Connecting to DB at {DB_PATH}")
+        try:
+            self.conn = sqlite3.connect(DB_PATH)
+            self.conn.row_factory = sqlite3.Row
+            self._create_tables()
+        except sqlite3.OperationalError as e:
+            print(f"Imperial Cloud ERROR: Could not open database at {DB_PATH}. {e}")
+            raise
 
     def _create_tables(self):
         cursor = self.conn.cursor()
