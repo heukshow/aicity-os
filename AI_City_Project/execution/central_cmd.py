@@ -23,6 +23,7 @@ from chronos_engine import ChronosEngine
 from education_engine import EducationEngine
 from db_engine import DBEngine
 from corporate_engine import CorporateEngine
+from grok_bridge import GrokBridge
 
 # --- Configuration (Zero-PII) ---
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -111,7 +112,8 @@ class AICityOS:
         self.education = EducationEngine()
         self.db = DBEngine()
         self.corporate = CorporateEngine(db_engine=self.db)
-        log_activity("Haneul", "OS Central Command (v2.3) Initialized", "Success", "Imperial Database (SQLite) ONLINE | Identity: Haneul")
+        self.grok = GrokBridge()
+        log_activity("Haneul", "OS Central Command (v2.3) Initialized", "Success", "Grok Intelligence Layer ONLINE")
 
     def run_market_audit(self):
         """Triggers MarketAnalyst to refresh reports."""
@@ -301,6 +303,30 @@ class AICityOS:
             log_activity("Haneul", "Scaling Trigger", "Positive", "Establishing Imperial Academy for new Corporate Manager.")
             # This would call the lifecycle.scale_agents() method
             self.lifecycle.scale_agents("Corporate Expansion")
+
+    def run_tactical_security(self, simulated_threat=None):
+        """Haneul's tactical response using the Imperial Glock."""
+        log_activity("Haneul", "Tactical Security Check", "In Progress", "Engaging Imperial Glock-19 Protocol")
+        
+        if simulated_threat:
+            print("🔫 [Haneul] Tactical Threat Detected. Engaging Glock-19...")
+            self.neutralizer.tactical_glock_strike(simulated_threat)
+            log_activity("Haneul", "Glock-19 격발", "Success", f"Target {simulated_threat} 무력화 완료.")
+        else:
+            print("🛡️ [Haneul] 제국은 평온합니다. 글록의 안전장치는 풀려있습니다.")
+            log_activity("Haneul", "Tactical Guard", "Passive", "No threats detected. Glock Ready.")
+
+    def run_grok_reconnaissance(self, topic="AI Side-Hustles"):
+        """Haneul's heavy intelligence sweep using Grok."""
+        log_activity("Haneul", "Grok Reconnaissance", "In Progress", f"Pulsing real-time X data for {topic}")
+        
+        analysis = self.grok.analyze_realtime_trends(topic)
+        savage_note = analysis['savage_comment']
+        
+        print(f"👁️ [Haneul] Grok Insight: {savage_note}")
+        log_activity("Haneul", "Grok Insight", "Success", savage_note)
+        
+        return analysis
 
 if __name__ == "__main__":
     # Imperial Salvation Cycle Verification
