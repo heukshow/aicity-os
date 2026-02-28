@@ -1364,12 +1364,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('/api/fortune/tool', {
                 method: 'POST', credentials: 'include',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name, birthDate: fullBirthInfo, calendar, gender,
-                    tool_id: toolId, oracle: window.currentOracle,
-                    language: window.currentLanguage || 'en',
-                    drawn_cards: drawnCardsParam
-                })
+                body: JSON.stringify((() => {
+                    const payload = {
+                        name, birthDate: fullBirthInfo, calendar, gender,
+                        tool_id: toolId, oracle: window.currentOracle,
+                        language: window.currentLanguage || 'en',
+                        drawn_cards: drawnCardsParam
+                    };
+                    if (window._pendingCustomQ) {
+                        payload.intention = window._pendingCustomQ;
+                        window._pendingCustomQ = null;
+                    }
+                    return payload;
+                })())
             });
             const data = await response.json();
             loader.style.display = 'none';
