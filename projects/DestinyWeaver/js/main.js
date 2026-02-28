@@ -878,7 +878,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                     q = userQ;
                                 }
                                 document.getElementById('premium-modal').style.display = 'none';
-                                executePremiumAnalysis(toolId, toolName, q);
+                                window._pendingCustomQ = q;
+                                runToolAnalysis(toolId);
                                 return;
                             }
 
@@ -1007,12 +1008,13 @@ document.addEventListener('DOMContentLoaded', () => {
                                 q = userQ;
                             }
                             document.getElementById('premium-modal').style.display = 'none';
-                            executePremiumAnalysis(toolId, toolName, q);
+                            window._pendingCustomQ = q;
+                            runToolAnalysis(toolId);
                             return;
                         }
 
-                        // Extract price as integer
-                        const priceStr = tool.price.replace(/[^0-9]/g, '');
+                        // Extract price as integer safely from the DOM since 'tool' object isn't in scope
+                        const priceStr = card.querySelector('div[style*="font-size:1.1rem"]').innerText.replace(/[^0-9]/g, '');
                         window.currentPaymentPriceKRW = parseInt(priceStr, 10);
                         window.currentPaymentToolId = toolId;
                         window.currentPaymentToolName = toolName;
