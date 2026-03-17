@@ -1,0 +1,50 @@
+[
+  {
+    "id": "chatgpt",
+    "name": "ChatGPT",
+    "category": "Conversational AI",
+    "description": "Global #1 AI assistant. Versatile and powerful for everything from coding to creative writing.",
+    "korean_desc": "세계 1위 AI 어시스턴트. 코딩부터 작문까지 모든 비즈니스 영역에서 가장 강력한 성능을 자랑합니다.",
+    "rating": 4.9,
+    "url": "https://chatgpt.com",
+    "affiliate_url": "",
+    "tags": ["Bestseller", "Global", "Free Tier"],
+    "featured": true
+  },
+  {
+    "id": "claude",
+    "name": "Claude",
+    "category": "Conversational AI",
+    "description": "Advanced AI for long-context reading and natural human-like writing. Highly recommended for business docs.",
+    "korean_desc": "긴 문서 분석과 자연스러운 한국어 작문에 최적화된 AI. 비즈니스 보고서 작성에 강력 추천합니다.",
+    "rating": 4.8,
+    "url": "https://claude.ai",
+    "affiliate_url": "",
+    "tags": ["Long Context", "Premium"],
+    "featured": true
+  },
+  {
+    "id": "clova-x",
+    "name": "Clova X",
+    "category": "Conversational AI",
+    "description": "Naver's own AI, deeply specialized in Korean culture, laws, and search data.",
+    "korean_desc": "네이버의 한국형 AI. 한국의 문화, 법률, 검색 데이터에 가장 정통한 지능형 비서입니다.",
+    "rating": 4.5,
+    "url": "https://clova-x.naver.com",
+    "affiliate_url": "",
+    "tags": ["K-Specialized", "Naver"],
+    "featured": true
+  },
+  {
+    "id": "midjourney",
+    "name": "Midjourney",
+    "category": "Image Generation",
+    "description": "The highest quality AI art generator. Perfect for marketing assets and professional prototyping.",
+    "korean_desc": "현존 최고의 AI 이미지 생성기. 마케팅 소스 및 전문가용 시안 제작에 필수적인 도구입니다.",
+    "rating": 4.9,
+    "url": "https://midjourney.com",
+    "affiliate_url": "",
+    "tags": ["Art", "Pro"],
+    "featured": false
+  }
+]
