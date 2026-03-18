@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "COSUMA Market | The Smartest AI Tools Selection",
+  title: "COSHUMA Market | The Smartest AI Tools Selection",
   description: "Curated AI toolbox for modern businesses. Discover, compare, and implement the best AI tools from globally.",
 };
 
@@ -16,7 +16,7 @@ export default function RootLayout({
       <body className="antialiased">
         <header className="fixed top-0 w-full z-50 glass">
           <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 className="text-2xl font-black gradient-text">COSUMA</h1>
+            <h1 className="text-2xl font-black gradient-text tracking-tighter">COSHUMA</h1>
             <nav>
               <ul className="flex space-x-8 text-sm font-medium">
                 <li><a href="#" className="hover:text-brand transition">Home</a></li>
