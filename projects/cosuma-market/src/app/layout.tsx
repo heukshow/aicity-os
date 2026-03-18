@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "COSHUMA Market | The Smartest AI Tools Selection",
-  description: "Curated AI toolbox for modern businesses. Discover, compare, and implement the best AI tools from globally.",
+  title: "COSUMA | B2B AI Efficiency Suite",
+  description: "Enterprise-grade AI tool curation by COSHUMA. Discover, compare, and implement the best AI tools for your business.",
 };
 
 export default function RootLayout({
@@ -16,7 +16,10 @@ export default function RootLayout({
       <body className="antialiased">
         <header className="fixed top-0 w-full z-50 glass">
           <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 className="text-2xl font-black gradient-text tracking-tighter">COSHUMA</h1>
+            <div className="flex flex-col">
+              <h1 className="text-2xl font-black gradient-text tracking-tighter leading-none">COSUMA</h1>
+              <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest pl-1">by COSHUMA</span>
+            </div>
             <nav>
               <ul className="flex space-x-8 text-sm font-medium">
                 <li><a href="#" className="hover:text-brand transition">Home</a></li>
