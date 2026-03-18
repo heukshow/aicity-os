@@ -18,7 +18,7 @@ export default function RootLayout({
           <div className="container mx-auto px-6 py-4 flex justify-between items-center">
             <div className="flex flex-col">
               <h1 className="text-2xl font-black gradient-text tracking-tighter leading-none">COSUMA</h1>
-              <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest pl-1">by COSHUMA</span>
+              <span className="text-[10px] font-bold text-black/40 uppercase tracking-widest pl-1">by COSHUMA</span>
             </div>
             <nav>
               <ul className="flex space-x-8 text-sm font-medium">
