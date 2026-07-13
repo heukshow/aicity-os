@@ -1,0 +1,1208 @@
+[
+  {
+    "id": "gohighlevel",
+    "name": "GoHighLevel",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "An all-in-one sales, marketing, and CRM platform designed specifically for agencies and businesses to automate client acquisition and retention.",
+    "affiliate_url": "https://www.gohighlevel.com/",
+    "pricing": "Starting at $97/mo",
+    "key_features": [
+      "CRM & Pipeline",
+      "Automated SMS/Email",
+      "Sales Funnels",
+      "AI Chatbots"
+    ],
+    "rating": 4.9,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "40% Recurring"
+  },
+  {
+    "id": "notion-ai",
+    "name": "Notion AI",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "An integrated AI assistant within Notion that helps you write, summarize, brainstorm, and automate document formatting directly inside your workspace.",
+    "affiliate_url": "https://www.notion.so/",
+    "pricing": "Starting at $10/month",
+    "key_features": [
+      "Inline Writing Help",
+      "Meeting Summaries",
+      "Database Automation",
+      "Custom Prompts"
+    ],
+    "rating": 4.7,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "50% Recurring for 12 months"
+  },
+  {
+    "id": "make-com",
+    "name": "Make.com",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "A visual automation platform that lets you design, build, and automate anything—from simple tasks to complex workflows—in minutes without coding.",
+    "affiliate_url": "https://www.make.com/",
+    "pricing": "Free plan / $9/mo",
+    "key_features": [
+      "Visual Drag & Drop",
+      "3000+ Integrations",
+      "Advanced Branching",
+      "JSON Parsing"
+    ],
+    "rating": 4.8,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "20% Recurring (Lifetime)"
+  },
+  {
+    "id": "elevenlabs",
+    "name": "ElevenLabs",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "The leading generative voice AI software that creates lifelike speech, voice clones, and sound effects in any language and voice style.",
+    "affiliate_url": "https://elevenlabs.io/",
+    "pricing": "Starting at $5/mo",
+    "key_features": [
+      "AI Voice Cloning",
+      "Text-to-Speech",
+      "Sound Effects Generator",
+      "Multi-lingual Support"
+    ],
+    "rating": 4.9,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "copy-ai",
+    "name": "Copy.ai",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "An AI-powered copywriting platform and marketing operating system designed to automate content writing, translation, and social media posting.",
+    "affiliate_url": "https://www.copy.ai/",
+    "pricing": "Free plan / $36/mo",
+    "key_features": [
+      "Marketing Workflows",
+      "SEO Content Writer",
+      "Brand Voice Settings",
+      "Bulk Content Gen"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "45% Recurring"
+  },
+  {
+    "id": "zenrows",
+    "name": "ZenRows",
+    "category": "developer",
+    "category_display": "Developer APIs",
+    "description": "An all-in-one web scraping API that handles proxies, anti-bot bypasses (Cloudflare, CAPTCHAs), and headless browsers with a single API call.",
+    "affiliate_url": "https://www.zenrows.com/",
+    "pricing": "Starting at $49/mo",
+    "key_features": [
+      "Anti-Bot Bypass",
+      "Residential Proxies",
+      "Javascript Rendering",
+      "Simple API Request"
+    ],
+    "rating": 4.7,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring (Lifetime)"
+  },
+  {
+    "id": "tubebuddy",
+    "name": "TubeBuddy",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "An essential browser extension and mobile app for YouTube creators, TubeBuddy helps optimize and grow YouTube channels through advanced analytics, SEO tools, and productivity features.",
+    "affiliate_url": "https://www.tubebuddy.com/",
+    "pricing": "Starting at $7.20/mo",
+    "key_features": [
+      "Video SEO optimization",
+      "Keyword research tools",
+      "Bulk processing features",
+      "Channel health reports"
+    ],
+    "rating": 4.7,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Up to 50% Recurring"
+  },
+  {
+    "id": "outlierkit",
+    "name": "OutlierKit",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "An AI-powered platform designed for content creators, OutlierKit helps identify trending topics and viral video ideas, specifically for YouTube-focused audiences, to maximize engagement and growth.",
+    "affiliate_url": "https://outlierkit.com/",
+    "pricing": "Starting at $29/mo",
+    "key_features": [
+      "AI-powered trend analysis",
+      "Viral video idea generation",
+      "YouTube audience insights",
+      "Content strategy assistance"
+    ],
+    "rating": 4.8,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring (for 12 months)"
+  },
+  {
+    "id": "jasper-ai",
+    "name": "Jasper AI",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "A leading AI writing assistant, Jasper helps content creators, marketers, and businesses generate high-quality copy for blogs, social media, ads, and more, significantly speeding up content production.",
+    "affiliate_url": "https://www.jasper.ai/",
+    "pricing": "Starting at $39/mo",
+    "key_features": [
+      "Generate blog posts & articles",
+      "Create social media captions",
+      "Write ad copy variants",
+      "Enhance existing content"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "pictory",
+    "name": "Pictory",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "An AI-powered video creation tool that automatically transforms text into engaging videos, making it easy for marketers and content creators to produce compelling video content quickly.",
+    "affiliate_url": "https://pictory.ai/",
+    "pricing": "Starting at $19/mo",
+    "key_features": [
+      "Text-to-video conversion",
+      "Automatic subtitling & captions",
+      "Stock media library access",
+      "Short video highlight reels"
+    ],
+    "rating": 4.5,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "inkfluence-ai",
+    "name": "Inkfluence AI",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "An AI-powered writing assistant tailored for indie publishers, helping them generate high-quality content quickly and efficiently for their audience.",
+    "affiliate_url": "https://www.inkfluenceai.com",
+    "pricing": "Subscription plans available, contact for details",
+    "key_features": [
+      "AI-powered content generation",
+      "Tailored for indie publishers",
+      "Boost writing productivity",
+      "SEO-optimized content suggestions"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring (for 12 Months)"
+  },
+  {
+    "id": "jasper",
+    "name": "Jasper",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "A leading AI writing platform recognized for generating high-quality content for a broad range of business audiences, from marketing blogs to agencies.",
+    "affiliate_url": "https://www.jasper.ai",
+    "pricing": "Pricing details on website",
+    "key_features": [
+      "Versatile AI content generation",
+      "Supports 25+ languages",
+      "Brand voice customization",
+      "SEO-friendly content optimization"
+    ],
+    "rating": 4.8,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring"
+  },
+  {
+    "id": "writesonic",
+    "name": "Writesonic",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "An advanced AI writing assistant that helps businesses and individuals create a wide array of content, from blog posts to ad copy, with speed and efficiency.",
+    "affiliate_url": "https://writesonic.com",
+    "pricing": "Starting at $19/mo",
+    "key_features": [
+      "AI article & blog writer",
+      "Paraphrasing tool",
+      "Content rephraser",
+      "AI image generation"
+    ],
+    "rating": 4.7,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring (up to 40% at top tiers)"
+  },
+  {
+    "id": "sudowrite",
+    "name": "Sudowrite",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "An innovative AI writing tool specifically designed to assist fiction writers in brainstorming, drafting, and refining their stories and novels.",
+    "affiliate_url": "https://www.sudowrite.com",
+    "pricing": "Starting at $10/mo",
+    "key_features": [
+      "AI story generation",
+      "Brainstorming tools",
+      "Character development",
+      "Rewrite & expand text"
+    ],
+    "rating": 4.5,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "25% Recurring (for 12 Months)"
+  },
+  {
+    "id": "convertkit",
+    "name": "ConvertKit",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "A powerful email marketing platform built for creators, offering robust tools for audience growth, email automation, and engagement, now with AI-powered writing features.",
+    "affiliate_url": "https://convertkit.com",
+    "pricing": "Free plan for new creators, paid for larger audiences.",
+    "key_features": [
+      "Email marketing automation",
+      "Landing page builder",
+      "Audience segmentation",
+      "AI subject line generation"
+    ],
+    "rating": 4.9,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "50% Recurring"
+  },
+  {
+    "id": "quillbot",
+    "name": "QuillBot",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "QuillBot is an AI-powered paraphrasing tool designed to rewrite text, simplify sentences, and enhance writing style. It improves grammar, adjusts writing tone, and helps avoid plagiarism, automating many editing and proofreading tasks.",
+    "affiliate_url": "https://quillbot.com",
+    "pricing": "Starting at $9.99/mo",
+    "key_features": [
+      "AI-powered paraphrasing",
+      "Grammar error correction",
+      "Writing tone improvement",
+      "Plagiarism avoidance"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Up to 20% recurring"
+  },
+  {
+    "id": "text-cortex",
+    "name": "Text Cortex",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "Text Cortex is an AI-powered writing assistant that elevates your content through rewriting, summarizing, question answering, plagiarism checks, and generating diverse creative text formats. It's available across multiple platforms, including browser, desktop, and mobile.",
+    "affiliate_url": "https://textcortex.com",
+    "pricing": "Starting at $14.99/mo",
+    "key_features": [
+      "AI-powered writing assistant",
+      "Content rewriting & summarizing",
+      "Plagiarism checking",
+      "Creative text generation"
+    ],
+    "rating": 4.7,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% recurring"
+  },
+  {
+    "id": "vidiq",
+    "name": "VidIQ",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "VidIQ is an essential AI-powered toolkit for YouTube creators, providing robust features for keyword research, video analytics, optimization, and competitor analysis. It leverages AI for generating titles, content ideas, video scripts, and descriptions to boost channel growth.",
+    "affiliate_url": "https://vidiq.com",
+    "pricing": "Starting at $10.00/mo",
+    "key_features": [
+      "YouTube keyword research",
+      "AI video optimization",
+      "Competitor analysis",
+      "AI content generation (titles, scripts)"
+    ],
+    "rating": 4.8,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Up to 30% recurring"
+  },
+  {
+    "id": "bolddesk",
+    "name": "BoldDesk",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "A comprehensive help desk solution designed for startups, offering a free plan to manage customer inquiries efficiently and streamline support operations.",
+    "affiliate_url": "https://www.bolddesk.com/",
+    "pricing": "Free plan available, with paid tiers for advanced features.",
+    "key_features": [
+      "Ticket Management System",
+      "Self-Service Portal (Knowledge Base)",
+      "Automated Workflow Rules",
+      "Reporting & Analytics"
+    ],
+    "rating": 4.5,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "brand24",
+    "name": "Brand24",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "An essential social media monitoring tool that helps businesses track mentions, analyze sentiment, and understand their online presence.",
+    "affiliate_url": "https://brand24.com/",
+    "pricing": "Competitive monthly plans available.",
+    "key_features": [
+      "Real-time Brand Monitoring",
+      "Sentiment Analysis",
+      "Influencer Discovery",
+      "Alerts & Notifications"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "20%–30% Recurring"
+  },
+  {
+    "id": "socialchamp-io",
+    "name": "SocialChamp.io",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "A robust social media management platform designed to simplify content scheduling, publishing, and engagement across multiple channels.",
+    "affiliate_url": "https://socialchamp.io/",
+    "pricing": "Flexible plans for individuals and teams.",
+    "key_features": [
+      "Multi-Platform Scheduling",
+      "Content Calendar & Planner",
+      "Team Collaboration Features",
+      "Performance Analytics"
+    ],
+    "rating": 4.4,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Up to 30% Recurring"
+  },
+  {
+    "id": "triple-whale",
+    "name": "Triple Whale",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "An all-in-one operating system for e-commerce, providing comprehensive analytics and attribution to help brands optimize their marketing spend.",
+    "affiliate_url": "https://triplewhale.com/",
+    "pricing": "Tailored plans for e-commerce brands.",
+    "key_features": [
+      "Centralized E-commerce Analytics",
+      "Attribution Modeling",
+      "Real-time Performance Dashboards",
+      "Profit & Loss Reporting"
+    ],
+    "rating": 4.5,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "10%–20% Recurring"
+  },
+  {
+    "id": "boldsign",
+    "name": "BoldSign",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "A secure and efficient e-signature solution that streamlines document signing workflows, making legal agreements faster and more convenient.",
+    "affiliate_url": "https://www.boldsign.com/",
+    "pricing": "Cost-effective plans for digital signatures.",
+    "key_features": [
+      "Legally Binding E-signatures",
+      "Secure Document Handling",
+      "Audit Trails & History",
+      "Integration Capabilities"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "privy",
+    "name": "Privy",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "A powerful email marketing and conversion platform specifically designed for e-commerce businesses to grow their email lists and boost sales.",
+    "affiliate_url": "https://www.privy.com/",
+    "pricing": "Scalable pricing based on email contacts.",
+    "key_features": [
+      "Pop-up & Exit-Intent Campaigns",
+      "Email Marketing Automation",
+      "Customizable Landing Pages",
+      "Integrations with E-commerce Platforms"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "15% Recurring"
+  },
+  {
+    "id": "aweber",
+    "name": "AWeber",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "A long-standing and reliable email marketing service, perfect for small businesses and creators looking to build their audience and automate communication.",
+    "affiliate_url": "https://www.aweber.com/",
+    "pricing": "Free plan available, with competitive paid options.",
+    "key_features": [
+      "Email Campaign Creation",
+      "Automated Email Sequences",
+      "Landing Page Builder",
+      "Subscriber Management & Segmentation"
+    ],
+    "rating": 4.2,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30%–50% Recurring"
+  },
+  {
+    "id": "unbounce",
+    "name": "Unbounce",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "A leading landing page builder that empowers marketers to create high-converting landing pages and pop-ups without any coding required.",
+    "affiliate_url": "https://unbounce.com/",
+    "pricing": "Subscription plans based on traffic and features.",
+    "key_features": [
+      "Drag-and-Drop Page Builder",
+      "A/B Testing & Optimization",
+      "AI-Powered Copy Generation",
+      "Conversion Rate Smart Features"
+    ],
+    "rating": 4.3,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "25%–35% Recurring"
+  },
+  {
+    "id": "moosend",
+    "name": "Moosend",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "A powerful and user-friendly email marketing and marketing automation platform, perfect for businesses aiming to engage their audience effectively.",
+    "affiliate_url": "https://moosend.com/",
+    "pricing": "Affordable plans with advanced automation features.",
+    "key_features": [
+      "Email Campaign Designer",
+      "Marketing Automation Workflows",
+      "Landing Pages & Subscription Forms",
+      "Detailed Analytics & Reporting"
+    ],
+    "rating": 4.7,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% up to 40% Recurring"
+  },
+  {
+    "id": "reply-io",
+    "name": "Reply.io",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "A comprehensive AI-powered sales engagement platform designed to automate and scale multi-channel outreach, boosting sales team productivity.",
+    "affiliate_url": "https://reply.io/",
+    "pricing": "Tiered pricing for sales teams.",
+    "key_features": [
+      "Multi-Channel Sales Sequences",
+      "AI Email Assistant",
+      "CRM Integrations",
+      "Performance Tracking & Reporting"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "omnisend",
+    "name": "Omnisend",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "An advanced e-commerce marketing automation platform, integrating email, SMS, and push notifications to drive sales and customer retention.",
+    "affiliate_url": "https://www.omnisend.com/",
+    "pricing": "Free plan available, scalable for growing stores.",
+    "key_features": [
+      "Email & SMS Campaigns",
+      "Automated Workflows (abandoned cart, welcome)",
+      "Pop-ups & Forms for Lead Capture",
+      "Advanced Segmentation"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "20% Recurring"
+  },
+  {
+    "id": "time2book",
+    "name": "Time2book",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "A specialized SaaS platform for fitness studios, personal trainers, and yoga teachers, streamlining booking and payment processes.",
+    "affiliate_url": "https://www.time2book.me/",
+    "pricing": "Starting at $49/mo",
+    "key_features": [
+      "Integrated Booking System",
+      "Secure Payment Processing",
+      "Client Management Tools",
+      "Niche for Fitness Businesses"
+    ],
+    "rating": 4.7,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "semrush",
+    "name": "Semrush",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "A leading all-in-one platform providing comprehensive SEO and marketing tools for bloggers, agencies, and B2B content creators.",
+    "affiliate_url": "https://www.semrush.com/",
+    "pricing": "Starting at $119.95/mo",
+    "key_features": [
+      "Keyword Research Tools",
+      "Competitor Analysis",
+      "SEO Site Auditing",
+      "Content Marketing Toolkit"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "hubspot",
+    "name": "HubSpot",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "A powerful CRM platform offering integrated tools for marketing, sales, customer service, and content management to grow businesses.",
+    "affiliate_url": "https://www.hubspot.com/",
+    "pricing": "Starting at $20/mo",
+    "key_features": [
+      "Comprehensive CRM Database",
+      "Marketing Automation",
+      "Sales Pipeline Management",
+      "Customer Service & Support Tools"
+    ],
+    "rating": 4.8,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "kinsta",
+    "name": "Kinsta",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "Premium managed WordPress hosting designed for speed, security, and scalability, ideal for agencies and businesses with high-traffic websites.",
+    "affiliate_url": "https://kinsta.com/",
+    "pricing": "Starting at $35/mo",
+    "key_features": [
+      "High-Performance Hosting",
+      "Daily Automatic Backups",
+      "Staging Environment",
+      "Advanced Security Features"
+    ],
+    "rating": 4.9,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "shopify",
+    "name": "Shopify",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "A leading e-commerce platform that enables businesses to build, run, and grow online stores with robust sales and management tools.",
+    "affiliate_url": "https://www.shopify.com/",
+    "pricing": "Starting at $29/mo",
+    "key_features": [
+      "Intuitive Store Builder",
+      "Integrated Payment Gateway",
+      "Inventory Management",
+      "Marketing and Analytics Tools"
+    ],
+    "rating": 4.5,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "systeme-io",
+    "name": "Systeme.io",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "Systeme.io is an all-in-one marketing platform designed for entrepreneurs and small businesses, offering tools for sales funnels, email marketing, websites, and online courses. Simplify your online business with its comprehensive and user-friendly features.",
+    "affiliate_url": "https://systeme.io/",
+    "pricing": "Starting at $27/mo",
+    "key_features": [
+      "Sales Funnel Builder",
+      "Email Marketing Automation",
+      "Website & Blog Creation",
+      "Online Course Hosting"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "60% Recurring (Lifetime)"
+  },
+  {
+    "id": "jotform",
+    "name": "Jotform",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "Jotform is a powerful online form builder that helps businesses create custom forms for data collection, payments, and workflow automation without any coding. Design surveys, applications, and order forms with ease.",
+    "affiliate_url": "https://www.jotform.com/partner/affiliate",
+    "pricing": "Starting at $34/mo",
+    "key_features": [
+      "Drag-and-Drop Form Builder",
+      "Payment Integrations",
+      "Workflow Automation",
+      "E-Signature Capabilities"
+    ],
+    "rating": 4.5,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "webflow",
+    "name": "Webflow",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "Webflow is a visual web development platform that allows users to design, build, and launch responsive websites without writing code. It combines design tools, CMS, and hosting into a single, powerful platform for creative professionals.",
+    "affiliate_url": "https://webflow.com/affiliates",
+    "pricing": "Starting at $16/mo",
+    "key_features": [
+      "Visual Website Builder",
+      "Integrated CMS & Hosting",
+      "Responsive Design Tools",
+      "Advanced Interactions & Animations"
+    ],
+    "rating": 4.8,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Up to 50% of first-year revenue"
+  },
+  {
+    "id": "reactin",
+    "name": "ReactIn",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "ReactIn is an intent-based LinkedIn growth platform designed for B2B professionals, offering powerful tools for lead generation and competitor monitoring.",
+    "affiliate_url": "https://www.reactin.io",
+    "pricing": "Starting at $69/mo",
+    "key_features": [
+      "Intent Data & Signals",
+      "Competitor Monitoring",
+      "LinkedIn Lookalike Audiences",
+      "B2B Lead Generation"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring (Lifetime)"
+  },
+  {
+    "id": "synthesia",
+    "name": "Synthesia",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "Transform text into AI videos with realistic avatars, ideal for training, e-learning, and professional video production, simplifying content creation.",
+    "affiliate_url": "https://www.synthesia.io/affiliates",
+    "pricing": "Pricing details on website",
+    "key_features": [
+      "AI video generation",
+      "Training and e-learning solutions",
+      "Realistic AI avatars",
+      "Professional video production"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring"
+  },
+  {
+    "id": "custom-gpt-ai",
+    "name": "CustomGPT.ai",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "Empower B2B marketers with custom AI agents, grounded in proprietary content, delivering accurate, role-specific responses and seamless integrations.",
+    "affiliate_url": "https://customgpt.ai",
+    "pricing": "Pricing details on website",
+    "key_features": [
+      "Custom AI agents",
+      "Responses grounded in approved files",
+      "Role-specific agent behavior",
+      "Hands-on implementation support"
+    ],
+    "rating": 4.8,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring (up to two years)"
+  },
+  {
+    "id": "octo-browser",
+    "name": "Octo Browser",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "Octo Browser is an advanced antidetect browser designed for secure multi-accounting and digital fingerprint management across various online platforms.",
+    "affiliate_url": "https://octobrowser.net/affiliates",
+    "pricing": "Varies by plan",
+    "key_features": [
+      "Secure multi-accounting capabilities",
+      "Advanced digital fingerprint management",
+      "Antidetect browser technology",
+      "Supports multiple online platforms"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring Commission"
+  },
+  {
+    "id": "carv",
+    "name": "Carv",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "Carv provides AI-powered recruitment agents that streamline high-volume hiring by automating administrative tasks, candidate screening, and scheduling processes.",
+    "affiliate_url": "https://carv.ai/affiliates",
+    "pricing": "Varies by plan",
+    "key_features": [
+      "AI-powered recruitment agents",
+      "Automates admin tasks in hiring",
+      "Efficient candidate screening",
+      "Automated scheduling for interviews"
+    ],
+    "rating": 4.5,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring Commission"
+  },
+  {
+    "id": "burstyai",
+    "name": "BurstyAI",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "BurstyAI offers AI-powered customer service agents and automation workflows designed to enhance lead generation and accelerate business growth.",
+    "affiliate_url": "https://bursty.ai/affiliates",
+    "pricing": "Varies by plan",
+    "key_features": [
+      "AI-powered customer service agents",
+      "Automated lead generation workflows",
+      "Boosts business growth strategies",
+      "Streamlines customer interactions"
+    ],
+    "rating": 4.7,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring Commission"
+  },
+  {
+    "id": "jobhire",
+    "name": "JobHire",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "JobHire is an AI-powered career assistant that automates the job search process, including resume tailoring and high-volume application submission.",
+    "affiliate_url": "https://jobhire.ai/affiliates",
+    "pricing": "Varies by plan",
+    "key_features": [
+      "AI-powered career assistance",
+      "Automates job searching process",
+      "Resume tailoring capabilities",
+      "High-volume application submission"
+    ],
+    "rating": 4.4,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring Commission"
+  },
+  {
+    "id": "aitable-ai",
+    "name": "AITable.ai",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "AITable.ai provides a visual AI database to organize data, automate workflows, and build custom AI agents for enhanced productivity.",
+    "affiliate_url": "https://aitable.ai/affiliates",
+    "pricing": "Varies by plan",
+    "key_features": [
+      "Visual AI database for data organization",
+      "Automates complex workflows",
+      "Ability to build custom AI agents",
+      "Enhances team productivity"
+    ],
+    "rating": 4.8,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring Commission"
+  },
+  {
+    "id": "liftmycv",
+    "name": "LiftmyCV",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "LiftmyCV leverages AI and ChatGPT to automate job applications across multiple platforms, acting as an intelligent job search agent.",
+    "affiliate_url": "https://liftmycv.com/affiliates",
+    "pricing": "Varies by plan",
+    "key_features": [
+      "AI-powered job search agent",
+      "Automates job applications",
+      "Utilizes ChatGPT technology",
+      "Applies across multiple platforms"
+    ],
+    "rating": 4.3,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring Commission"
+  },
+  {
+    "id": "blaze",
+    "name": "Blaze",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "Blaze is an AI-powered marketing automation platform that creates, schedules, and optimizes brand-specific content across diverse channels.",
+    "affiliate_url": "https://blaze.ai/affiliates",
+    "pricing": "Varies by plan",
+    "key_features": [
+      "AI-powered marketing automation",
+      "Creates brand-specific content",
+      "Schedules content for multiple channels",
+      "Optimizes content performance"
+    ],
+    "rating": 4.7,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring Commission"
+  },
+  {
+    "id": "aiassistworks",
+    "name": "AiAssistWorks",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "AiAssistWorks integrates over 100 AI models directly into Google Sheets, Docs, and Slides, enabling automated workflows within your favorite productivity suite.",
+    "affiliate_url": "https://aiassistworks.com/affiliates",
+    "pricing": "Varies by plan",
+    "key_features": [
+      "Integrates 100+ AI models",
+      "Google Sheets automation",
+      "Google Docs automation",
+      "Google Slides automation"
+    ],
+    "rating": 4.9,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring Commission"
+  },
+  {
+    "id": "vista-social",
+    "name": "Vista Social",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "Vista Social is an AI-powered platform for comprehensive social media management, offering tools for publishing, engagement, analytics, and team collaboration.",
+    "affiliate_url": "https://vistasocial.com/affiliates",
+    "pricing": "Varies by plan",
+    "key_features": [
+      "AI-powered social media management",
+      "Content publishing and scheduling",
+      "Engagement tracking and analytics",
+      "Team collaboration workflows"
+    ],
+    "rating": 4.5,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring Commission"
+  },
+  {
+    "id": "gravity-forms",
+    "name": "Gravity Forms",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "Gravity Forms is a powerful WordPress plugin that enables users to build custom forms, manage online payments, and automate various data workflows directly on their website.",
+    "affiliate_url": "https://gravityforms.com/affiliates",
+    "pricing": "Varies by plan",
+    "key_features": [
+      "Powerful WordPress plugin",
+      "Builds custom forms easily",
+      "Manages online payments securely",
+      "Automates data workflows"
+    ],
+    "rating": 4.8,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring Commission"
+  },
+  {
+    "id": "sendcloud",
+    "name": "Sendcloud",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "Sendcloud is an all-in-one shipping automation platform that optimizes checkout, shipping, tracking, and returns for e-commerce businesses.",
+    "affiliate_url": "https://sendcloud.com/affiliates",
+    "pricing": "Varies by plan",
+    "key_features": [
+      "All-in-one shipping automation",
+      "Optimizes e-commerce checkout",
+      "Streamlined shipping and tracking",
+      "Efficient returns management"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring Commission"
+  },
+  {
+    "id": "alidropship",
+    "name": "AliDropship",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "AliDropship offers WordPress and WooCommerce solutions to automate AliExpress dropshipping store management and product fulfillment with ease.",
+    "affiliate_url": "https://alidropship.com/affiliates",
+    "pricing": "Varies by plan",
+    "key_features": [
+      "WordPress dropshipping solution",
+      "WooCommerce integration",
+      "Automates AliExpress product import",
+      "Streamlines store management & fulfillment"
+    ],
+    "rating": 4.5,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring Commission"
+  },
+  {
+    "id": "postclaw",
+    "name": "PostClaw",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "PostClaw is an AI-powered social media manager that helps plan, write, and publish content across 13 major platforms efficiently.",
+    "affiliate_url": "https://postclaw.com/affiliates",
+    "pricing": "Varies by plan",
+    "key_features": [
+      "AI-powered social media manager",
+      "Plans and writes content automatically",
+      "Publishes across 13 major platforms",
+      "Optimizes content delivery"
+    ],
+    "rating": 4.4,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring Commission"
+  },
+  {
+    "id": "nudgera",
+    "name": "Nudgera",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "Nudgera is an AI-powered revenue operating system that automates invoice chasing and uses sentiment-aware negotiation to optimize payment collection.",
+    "affiliate_url": "https://nudgera.com/affiliates",
+    "pricing": "Varies by plan",
+    "key_features": [
+      "AI-powered revenue operating system",
+      "Automates invoice chasing",
+      "Sentiment-aware payment negotiation",
+      "Optimizes cash flow management"
+    ],
+    "rating": 4.7,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring Commission"
+  },
+  {
+    "id": "gobii",
+    "name": "Gobii",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "Gobii allows you to create 24/7 digital workers that automate repetitive web and research tasks, boosting efficiency.",
+    "affiliate_url": "https://gobii.com/affiliates",
+    "pricing": "Varies by plan",
+    "key_features": [
+      "Creates 24/7 digital workers",
+      "Automates repetitive web tasks",
+      "Streamlines research processes",
+      "Enhances operational efficiency"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring Commission"
+  },
+  {
+    "id": "questmate",
+    "name": "Questmate",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "Questmate streamlines operations by automating tasks and workflows through smart routines and customizable checklists.",
+    "affiliate_url": "https://questmate.com/affiliates",
+    "pricing": "Varies by plan",
+    "key_features": [
+      "Automates tasks and workflows",
+      "Features smart routines",
+      "Customizable checklists for processes",
+      "Streamlines operational efficiency"
+    ],
+    "rating": 4.2,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Recurring Commission"
+  },
+  {
+    "id": "merlin",
+    "name": "Merlin",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "Merlin is an AI productivity tool designed to supercharge your daily tasks, offering powerful summarization, content generation, and seamless workflow automation features. Boost your efficiency and creativity with intelligent AI assistance across various applications.",
+    "affiliate_url": "https://getmerlin.ai",
+    "pricing": "Starting at $19/mo",
+    "key_features": [
+      "AI-powered summarization",
+      "Intelligent content generation",
+      "Workflow automation capabilities",
+      "Cross-platform integration"
+    ],
+    "rating": 4.6,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "decktopus",
+    "name": "Decktopus",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "Decktopus is an AI-powered presentation tool that automatically crafts stunning decks, empowering users to create professional presentations in minutes. Leverage customizable templates and integrated forms for effective lead generation and impactful visual storytelling.",
+    "affiliate_url": "https://decktopus.com",
+    "pricing": "Starting at $9.99/mo",
+    "key_features": [
+      "AI auto-created presentations",
+      "Customizable design templates",
+      "Integrated lead generation forms",
+      "Slide content suggestions"
+    ],
+    "rating": 4.5,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "dorik",
+    "name": "Dorik",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "Dorik is a no-code AI website builder that enables quick creation of professional websites without any coding knowledge. Build stunning, responsive sites effortlessly, perfect for businesses, portfolios, and personal brands.",
+    "affiliate_url": "https://dorik.com",
+    "pricing": "Starting at $14/mo",
+    "key_features": [
+      "No-code website building",
+      "AI-assisted design",
+      "Professional templates",
+      "Fast website deployment"
+    ],
+    "rating": 4.7,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "rytr",
+    "name": "Rytr",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "Rytr is an AI-powered writing assistant that helps you generate high-quality content for various needs in just seconds. From blog posts to emails, create compelling copy quickly and efficiently with intelligent AI suggestions.",
+    "affiliate_url": "https://rytr.me",
+    "pricing": "Starting at $9/mo",
+    "key_features": [
+      "AI content generation",
+      "Supports 30+ languages",
+      "50+ use cases & templates",
+      "Plagiarism checker"
+    ],
+    "rating": 4.8,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "frase",
+    "name": "Frase",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "Frase is an AI-powered content optimization platform designed to help you create SEO-driven content that ranks higher and converts better. Research, write, and optimize all in one place for maximum search engine visibility.",
+    "affiliate_url": "https://www.frase.io",
+    "pricing": "Starting at $14.99/mo",
+    "key_features": [
+      "AI content research",
+      "SEO content optimization",
+      "Content brief generation",
+      "Answer engine capabilities"
+    ],
+    "rating": 4.7,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "heygen",
+    "name": "HeyGen",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "HeyGen is an innovative AI-powered video creation platform, allowing you to produce professional videos with realistic avatars and voice cloning technology. Generate engaging content quickly, even with multilingual support, to reach global audiences.",
+    "affiliate_url": "https://www.heygen.com",
+    "pricing": "Starting at $24/mo",
+    "key_features": [
+      "AI-powered video generation",
+      "Realistic avatar creation",
+      "Voice cloning technology",
+      "Multilingual support"
+    ],
+    "rating": 4.9,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "ai-agent-store",
+    "name": "AI Agent Store",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "The AI Agent Store is a comprehensive marketplace connecting businesses with specialized AI agents tailored for various industries and specific use cases. Discover and deploy intelligent agents to automate tasks and enhance operations across your organization.",
+    "affiliate_url": "https://aiagentstore.com",
+    "pricing": "Contact for pricing",
+    "key_features": [
+      "Specialized AI agents",
+      "Industry-specific solutions",
+      "Task automation",
+      "Diverse use cases"
+    ],
+    "rating": 4.4,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "veed",
+    "name": "VEED",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "VEED is an intuitive online video editing platform packed with AI-powered tools designed for creators and businesses alike. Easily edit, subtitle, and enhance your videos directly in your browser, streamlining your content production workflow.",
+    "affiliate_url": "https://www.veed.io",
+    "pricing": "Starting at $18/mo",
+    "key_features": [
+      "Online video editor",
+      "AI-powered editing tools",
+      "Automatic subtitles",
+      "Brand kit customization"
+    ],
+    "rating": 4.7,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "reclaim-ai",
+    "name": "Reclaim AI",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "Reclaim AI intelligently optimizes your calendar to protect your time and boost productivity, automatically scheduling smart habits and meetings. Let AI manage your schedule so you can focus on what truly matters.",
+    "affiliate_url": "https://reclaim.ai",
+    "pricing": "Contact for pricing",
+    "key_features": [
+      "AI calendar optimization",
+      "Smart scheduling habits",
+      "Flexible meeting management",
+      "Time blocking for focus"
+    ],
+    "rating": 4.8,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "40% Recurring for 12 months (workplace signups), 25% Recurring (personal signups)"
+  },
+  {
+    "id": "descript",
+    "name": "Descript",
+    "category": "creator",
+    "category_display": "Creator & Productivity",
+    "description": "Descript is an all-in-one AI-powered tool for transcription, audio/video editing, and podcast production, allowing you to edit media like a document. Streamline your content creation workflow with powerful, intuitive features for creators.",
+    "affiliate_url": "https://www.descript.com",
+    "pricing": "Starting at $15/mo",
+    "key_features": [
+      "AI transcription",
+      "Text-based video editing",
+      "Podcast production tools",
+      "Screen recording functionality"
+    ],
+    "rating": 4.7,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "30% Recurring"
+  },
+  {
+    "id": "synder",
+    "name": "Synder",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "AI-driven accounting automation software tailored for retail, eCommerce, and SaaS businesses, simplifying financial operations by automatically categorizing transactions and syncing data.",
+    "affiliate_url": "https://synder.com",
+    "pricing": "Contact for pricing",
+    "key_features": [
+      "AI-driven accounting automation",
+      "Tailored for retail businesses",
+      "Tailored for eCommerce businesses",
+      "Tailored for SaaS businesses"
+    ],
+    "rating": 4.5,
+    "logo_url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60",
+    "commission": "Tiered recurring: 10% (tier one), 15% (tier two), 20% (tier three)"
+  }
+]
