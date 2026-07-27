@@ -49,6 +49,10 @@ jobs:
           python projects/GlobalSaaSHub/scripts/recategorize_tools.py
 
 
+      - name: Generate Programmatic SEO Pages & Sitemap
+        run: |
+          python projects/GlobalSaaSHub/scripts/generate_seo_pages.py
+
       - name: Run Strict System Validation Audit
         run: |
           python projects/GlobalSaaSHub/scripts/validate_system.py
@@ -64,9 +68,6 @@ jobs:
             git push origin HEAD:main
           fi
 
-      - name: Generate Programmatic SEO Pages & Sitemap
-        run: |
-          python projects/GlobalSaaSHub/scripts/generate_seo_pages.py
 
 
 

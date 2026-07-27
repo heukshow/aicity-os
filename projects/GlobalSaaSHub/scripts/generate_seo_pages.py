@@ -299,7 +299,8 @@ compare_template = """<!doctype html>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{toolA_name} vs {toolB_name} Comparison, Pricing & Winner (2026) | GlobalSaaSHub</title>
-    <meta name="description" content="In-depth side-by-side comparison of {toolA_name} vs {toolB_name}. Compare pricing, features, ratings ({toolA_rating} vs {toolB_rating}), and find out which AI tool is best for your workflow." />
+    <meta name="description" content="In-depth side-by-side comparison of {toolA_name} vs {toolB_name}. Compare pricing, features, ratings ({toolA_rating_badge} vs {toolB_rating_badge}), and find out which AI tool is best for your workflow." />
+
     <link rel="canonical" href="https://coshuma.com/compare/{slug_a}-vs-{slug_b}.html" />
     
     <script src="https://cdn.tailwindcss.com"></script>
