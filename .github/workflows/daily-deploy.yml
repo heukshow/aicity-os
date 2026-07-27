@@ -37,9 +37,17 @@ jobs:
           cd projects/GlobalSaaSHub
           npm ci
 
+      - name: Execute Autonomous Tavily & Gemini AI Tool Discovery
+        env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python projects/GlobalSaaSHub/scripts/auto_aggregator.py
+
       - name: Execute Autonomous Recategorization
         run: |
           python projects/GlobalSaaSHub/scripts/recategorize_tools.py
+
 
       - name: Generate Programmatic SEO Pages & Sitemap
         run: |

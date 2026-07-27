@@ -281,20 +281,8 @@ def main():
                 json.dump(existing_tools, f, indent=2, ensure_ascii=False)
             print(f"Database successfully updated. Added {new_tools_added} new tools. Total count: {len(existing_tools)}.")
 
-            # Export Private Admin Commission CSV
-            admin_csv = os.path.join(project_root, "admin_commission_rates.csv")
-            import csv
-            with open(admin_csv, 'w', newline='', encoding='utf-8-sig') as f:
-                writer = csv.DictWriter(f, fieldnames=['Tool Name', 'Category', 'Pricing', 'Affiliate URL'])
-                writer.writeheader()
-                for tool in existing_tools:
-                    writer.writerow({
-                        'Tool Name': tool.get('name', ''),
-                        'Category': tool.get('category_display', ''),
-                        'Pricing': tool.get('pricing', ''),
-                        'Affiliate URL': tool.get('affiliate_url', '')
-                    })
-            print(f"관리자 전용 수수료/수익 리포트 파일({admin_csv}) 자동 업데이트 완료!")
+            print("Database update step completed.")
+
         except Exception as e:
             print(f"Error writing to database: {e}")
             sys.exit(1)
