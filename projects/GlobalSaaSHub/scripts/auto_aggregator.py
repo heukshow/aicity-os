@@ -189,14 +189,12 @@ def main():
 
     print(f"Harvested {tavily_total_results} search snippets. Tavily: {tavily_api_success} API ok, {tavily_api_fail} API fail.")
 
-    # Guard: if ALL queries returned 0 results (API ok but empty), something is wrong
-    if tavily_api_fail == 0 and tavily_total_results == 0:
-        print("FATAL: All Tavily API calls succeeded but returned 0 results. Aborting pipeline.")
-        sys.exit(1)
-
-    # Guard: if ALL API calls failed
-    if tavily_api_success == 0:
-        print(f"FATAL: All {tavily_api_fail} Tavily API calls failed. Aborting pipeline.")
+    # Guard: total results 0 regardless of API success/fail combination
+    if tavily_total_results == 0:
+        print(
+            f"FATAL: Tavily produced 0 total results. "
+            f"API success={tavily_api_success}, API fail={tavily_api_fail}. Aborting pipeline."
+        )
         sys.exit(1)
 
     # 5. Process with Gemini

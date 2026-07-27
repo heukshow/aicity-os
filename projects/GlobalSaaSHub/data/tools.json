@@ -154,25 +154,6 @@
     "comparison_group": "ai_avatar_video"
   },
   {
-    "id": "jasper-ai",
-    "name": "Jasper AI",
-    "category": "copywriting",
-    "category_display": "AI Copywriting",
-    "description": "A leading AI writing assistant, Jasper helps content creators, marketers, and businesses generate high-quality copy for blogs, social media, ads, and more, significantly speeding up content production.",
-    "affiliate_url": "https://www.jasper.ai/",
-    "pricing": "Starting at $49/mo",
-    "key_features": [
-      "Generate blog posts & articles",
-      "Create social media captions",
-      "Write ad copy variants",
-      "Enhance existing content"
-    ],
-    "rating": 4.6,
-    "logo_url": "https://www.google.com/s2/favicons?domain=jasper.ai&sz=128",
-    "primary_category": "copywriting",
-    "comparison_group": "copywriting"
-  },
-  {
     "id": "pictory",
     "name": "Pictory",
     "category": "video_gen",
@@ -1494,25 +1475,6 @@
     "is_direct_competitor": true
   },
   {
-    "id": "make",
-    "name": "Make",
-    "category": "dev_coding",
-    "category_display": "Coding & Dev Tools",
-    "description": "Make is a powerful visual no-code automation platform that effortlessly connects apps, APIs, and AI workflows, allowing users to build complex integrations with ease.",
-    "affiliate_url": "https://www.make.com",
-    "pricing": "Starting at $9/month",
-    "key_features": [
-      "Visual no-code builder",
-      "Connects apps and APIs",
-      "Automates AI workflows",
-      "Extensive integration library"
-    ],
-    "rating": 4.6,
-    "logo_url": "https://www.google.com/s2/favicons?domain=make.com&sz=128",
-    "primary_category": "dev_coding",
-    "comparison_group": "dev_coding"
-  },
-  {
     "id": "n8n",
     "name": "n8n",
     "category": "dev_coding",
@@ -2558,24 +2520,5 @@
     "logo_url": "https://www.google.com/s2/favicons?domain=chatbase.com&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm"
-  },
-  {
-    "id": "synthflow",
-    "name": "Synthflow",
-    "category": "voice_cloning",
-    "category_display": "Voice & Speech AI",
-    "description": "Create sophisticated AI voice agents to automate conversations, enhance customer interactions, and scale your operational efficiency.",
-    "affiliate_url": "https://www.synthflow.ai/",
-    "pricing": "Varies",
-    "key_features": [
-      "Develop AI voice agents",
-      "Automate phone conversations",
-      "Realistic voice synthesis",
-      "Customizable interaction flows"
-    ],
-    "rating": 4.5,
-    "logo_url": "https://www.google.com/s2/favicons?domain=synthflow.ai&sz=128",
-    "primary_category": "voice_cloning",
-    "comparison_group": "voice_generation"
   }
 ]

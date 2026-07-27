@@ -48,7 +48,7 @@ jobs:
           npm ci
 
       # Record current remote main SHA BEFORE any file generation.
-      # Production push will compare against this to detect concurrent changes.
+      # Production push will compare against this to detect concurrent main changes.
       - name: Record Remote main SHA Baseline
         run: |
           git fetch origin main
@@ -56,28 +56,54 @@ jobs:
           echo "BASE_MAIN_SHA=$BASE_MAIN_SHA" >> "$GITHUB_ENV"
           echo "Recorded BASE_MAIN_SHA: $BASE_MAIN_SHA"
 
-      # failure_test=true: skip external APIs, use existing tools.json as candidate base
-      - name: "[failure_test] Prepare Candidate from Existing tools.json (Skip API)"
+      # =========================================================
+      # FAILURE TEST MODE: Skip external APIs entirely.
+      # 1. Copy existing (clean) tools.json as candidate base.
+      # 2. Run BASELINE validation -> must PASS (proves clean data).
+      # 3. Inject a duplicate ID into the candidate.
+      # 4. Run second validation -> must FAIL (proves validator blocks).
+      # =========================================================
+      - name: "[failure_test] Step 1 - Prepare Clean Candidate from tools.json"
         if: ${{ inputs.failure_test == true }}
         run: |
           cp projects/GlobalSaaSHub/data/tools.json \
              projects/GlobalSaaSHub/data/tools.next.json
-          echo "Copied tools.json -> tools.next.json as failure_test candidate base."
+          echo "Copied tools.json -> tools.next.json as baseline candidate."
+
+      - name: "[failure_test] Step 2 - Baseline Validation (must PASS)"
+        id: baseline_validate
+        if: ${{ inputs.failure_test == true }}
+        run: |
+          python projects/GlobalSaaSHub/scripts/validate_data.py \
+            2>&1 | tee projects/GlobalSaaSHub/data/baseline_validation.log
+          echo "Baseline validation exit code: $?"
+          # Fail the step if baseline does NOT pass (data is already dirty)
+          if grep -q "VALIDATION RESULT: FAIL" projects/GlobalSaaSHub/data/baseline_validation.log; then
+            echo "FATAL: Baseline tools.json failed validation BEFORE injection. Data must be clean first."
+            exit 1
+          fi
+          echo "Baseline PASSED. Proceeding to inject bad data."
+
+      - name: "[failure_test] Step 3 - Inject Duplicate ID into Candidate"
+        if: ${{ inputs.failure_test == true && steps.baseline_validate.outcome == 'success' }}
+        run: |
           python -c "
           import json
           path = 'projects/GlobalSaaSHub/data/tools.next.json'
           with open(path) as f:
               data = json.load(f)
-          # Inject duplicate ID to force validation failure
           dup = dict(data[0])
+          INJECTED_ID = data[0]['id']
           dup['name'] = 'INJECTED DUPLICATE - MUST FAIL VALIDATION'
           data.append(dup)
           with open(path, 'w') as f:
               json.dump(data, f)
-          print(f'Injected duplicate ID: {dup[\"id\"]}. validate_data.py must now FAIL.')
+          print(f'Injected duplicate ID: {INJECTED_ID}')
           "
 
-      # Normal mode: real Tavily + Gemini discovery
+      # =========================================================
+      # NORMAL MODE: Real Tavily + Gemini discovery
+      # =========================================================
       - name: Execute Autonomous Tavily & Gemini AI Tool Discovery
         if: ${{ inputs.failure_test != true }}
         env:
@@ -91,35 +117,53 @@ jobs:
         run: |
           python projects/GlobalSaaSHub/scripts/recategorize_tools.py
 
-      # Validate candidate data. In failure_test mode, this MUST fail (exit code != 0).
-      # We use continue-on-error so the next assertion step can check the outcome.
+      # =========================================================
+      # MAIN VALIDATION (both normal and failure_test modes)
+      # continue-on-error=true so the assertion step can check outcome.
+      # =========================================================
       - name: Run Strict Candidate Dataset Validation Audit (validate_data.py)
         id: validate_data
         continue-on-error: true
         run: |
-          python projects/GlobalSaaSHub/scripts/validate_data.py
+          python projects/GlobalSaaSHub/scripts/validate_data.py \
+            2>&1 | tee projects/GlobalSaaSHub/data/normal_validation.log
 
-      # In failure_test mode: assert that validate_data actually failed (pipeline block confirmed).
-      # In normal mode: assert that validate_data succeeded (data is clean).
+      # Assert the correct outcome and verify specific error message in failure_test
       - name: Assert Validation Outcome Matches Expected Result
         run: |
           OUTCOME="${{ steps.validate_data.outcome }}"
           FAILURE_TEST="${{ inputs.failure_test }}"
           echo "validate_data outcome: $OUTCOME | failure_test: $FAILURE_TEST"
+
           if [ "$FAILURE_TEST" = "true" ]; then
-            if [ "$OUTCOME" = "failure" ]; then
-              echo "PASS: validate_data correctly blocked invalid candidate data. Pipeline block confirmed."
+            if [ "$OUTCOME" != "failure" ]; then
+              echo "FAIL: failure_test=true but validate_data did NOT fail. Validator is NOT blocking bad data!"
+              exit 1
+            fi
+            # Verify the specific injected duplicate ID error is present in the log
+            INJECTED_ID=$(python -c "
+          import json
+          with open('projects/GlobalSaaSHub/data/tools.next.json') as f:
+              data = json.load(f)
+          # The last entry is our injected duplicate
+          print(data[-1]['id'])
+          ")
+            echo "Checking for injected ID error: $INJECTED_ID"
+            if grep -q "Duplicate Tool ID found: '$INJECTED_ID'" projects/GlobalSaaSHub/data/normal_validation.log || \
+               grep -q "$INJECTED_ID" projects/GlobalSaaSHub/data/normal_validation.log; then
+              echo "PASS: validate_data correctly identified the injected duplicate ID '$INJECTED_ID'. Pipeline block confirmed."
             else
-              echo "FAIL: failure_test=true but validate_data did NOT fail. The validator is not blocking bad data!"
+              echo "FAIL: failure_test=true and validate_data failed, BUT the injected ID '$INJECTED_ID' was NOT found in the error log. Validator may be failing for a different reason."
+              cat projects/GlobalSaaSHub/data/normal_validation.log
               exit 1
             fi
           else
-            if [ "$OUTCOME" = "success" ]; then
-              echo "PASS: validate_data passed. Candidate data is clean."
-            else
-              echo "FAIL: validate_data failed on clean candidate data. Aborting pipeline."
+            if [ "$OUTCOME" != "success" ]; then
+              echo "FAIL: validate_data failed on candidate data. Aborting pipeline."
+              cat projects/GlobalSaaSHub/data/normal_validation.log
               exit 1
             fi
+            echo "PASS: validate_data passed. Candidate data is clean."
           fi
 
       - name: Generate Programmatic SEO Pages & Sitemap from Candidate
@@ -132,14 +176,14 @@ jobs:
         run: |
           python projects/GlobalSaaSHub/scripts/validate_system.py
 
-      # Copy tools.next.json -> tools.json in the WORKSPACE ONLY (not committed).
-      # This lets Vite build against the actual candidate data even in dry_run mode.
+      # Copy tools.next.json -> tools.json in WORKSPACE ONLY (not committed in dry_run).
+      # This ensures Vite builds against actual candidate data, not stale tools.json.
       - name: Promote Candidate to tools.json in Workspace (for Vite build)
         if: ${{ steps.validate_data.outcome == 'success' && inputs.failure_test != true }}
         run: |
           cp projects/GlobalSaaSHub/data/tools.next.json \
              projects/GlobalSaaSHub/data/tools.json
-          echo "Workspace tools.json updated from candidate (not committed in dry_run)."
+          echo "Workspace tools.json updated from candidate (not committed in dry_run mode)."
 
       - name: Build Vite Production Assets
         if: ${{ steps.validate_data.outcome == 'success' && inputs.failure_test != true }}
@@ -147,7 +191,7 @@ jobs:
           cd projects/GlobalSaaSHub
           npm run build
 
-      - name: Upload Dry-Run Artifacts
+      - name: Upload Pipeline Artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -157,6 +201,8 @@ jobs:
             projects/GlobalSaaSHub/data/run_summary.json
             projects/GlobalSaaSHub/data/new_tools_discovered.json
             projects/GlobalSaaSHub/data/price_updated_tools.json
+            projects/GlobalSaaSHub/data/baseline_validation.log
+            projects/GlobalSaaSHub/data/normal_validation.log
             projects/GlobalSaaSHub/public/sitemap.xml
             projects/GlobalSaaSHub/public/tool/
             projects/GlobalSaaSHub/public/compare/
@@ -164,7 +210,7 @@ jobs:
           retention-days: 7
 
       # Production only: commit tools.json and push.
-      # Verify remote main SHA has not changed since baseline to prevent non-fast-forward.
+      # Verify remote main SHA has not changed since baseline to prevent conflict.
       # NO git pull --rebase after any file generation.
       - name: Atomic Swap & Commit tools.json to Main (Production Only)
         if: ${{ inputs.dry_run != true && inputs.failure_test != true && steps.validate_data.outcome == 'success' }}
@@ -185,7 +231,7 @@ jobs:
           fi
           git commit -m "chore(data): auto-update tools.json database from daily AI discovery [skip ci]"
 
-          # Verify remote main has not advanced since baseline (no pull/rebase after generation)
+          # Verify remote main has not advanced since baseline
           git fetch origin main
           CURRENT_REMOTE_SHA=$(git rev-parse origin/main)
           if [ "$CURRENT_REMOTE_SHA" != "$BASE_MAIN_SHA" ]; then
@@ -194,8 +240,7 @@ jobs:
           fi
 
           git push origin HEAD:main
-          PUSH_EXIT=$?
-          if [ $PUSH_EXIT -ne 0 ]; then
+          if [ $? -ne 0 ]; then
             echo "FATAL: git push rejected (non-fast-forward or auth error). Aborting deployment."
             exit 1
           fi
