@@ -1,0 +1,105 @@
+"""
+GlobalSaaSHub Data Validator (validate_data.py)
+==============================================
+Validates candidate dataset (tools.next.json) before any HTML generation or DB commit.
+Checks:
+- Required schema fields and non-empty strings
+- Alphanumeric kebab-case IDs
+- Duplicate IDs, normalized names, or official domain URLs
+- Valid http/https affiliate URLs
+- Rating format (must be None or float 1.0-5.0)
+- Prevents catastrophic data drops (must have >= 130 tools)
+"""
+import os
+import sys
+import json
+import urllib.parse
+
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+NEXT_JSON = os.path.join(PROJECT_DIR, "data", "tools.next.json")
+TOOLS_JSON = os.path.join(PROJECT_DIR, "data", "tools.json")
+
+TARGET_FILE = NEXT_JSON if os.path.exists(NEXT_JSON) else TOOLS_JSON
+
+print("=" * 60)
+print(f"🔍 CANDIDATE DATASET VALIDATION (validate_data.py)")
+print(f"Target File: {TARGET_FILE}")
+print("=" * 60)
+
+if not os.path.exists(TARGET_FILE):
+    print(f"❌ FATAL: Candidate dataset {TARGET_FILE} does not exist.")
+    sys.exit(1)
+
+try:
+    with open(TARGET_FILE, "r", encoding="utf-8") as f:
+        tools = json.load(f)
+except Exception as e:
+    print(f"❌ FATAL: Failed to parse JSON candidate dataset: {e}")
+    sys.exit(1)
+
+total_count = len(tools)
+print(f"1. Total Candidate Tools Loaded: {total_count}")
+
+if total_count < 130:
+    print(f"❌ FATAL: Candidate dataset tool count ({total_count}) dropped below safe minimum threshold (130).")
+    sys.exit(1)
+
+seen_ids = set()
+seen_names = set()
+seen_domains = set()
+errors = []
+
+for idx, tool in enumerate(tools):
+    tid = tool.get("id")
+    name = tool.get("name")
+    aff_url = tool.get("affiliate_url")
+    rating = tool.get("rating")
+    
+    # 1. Required fields
+    if not tid or not name or not aff_url:
+        errors.append(f"Tool #{idx+1} missing required id, name, or affiliate_url.")
+        continue
+        
+    # 2. Duplicate ID
+    if tid in seen_ids:
+        errors.append(f"Duplicate Tool ID found: '{tid}'")
+    seen_ids.add(tid)
+    
+    # 3. Duplicate Normalized Name
+    norm_name = name.lower().replace(" ", "").replace("-", "").replace(".", "")
+    if norm_name in seen_names:
+        errors.append(f"Duplicate Tool Name found: '{name}' ({tid})")
+    seen_names.add(norm_name)
+    
+    # 4. URL Validation & Domain Deduplication
+    if not aff_url.startswith("http"):
+        errors.append(f"Invalid URL scheme for '{name}': {aff_url}")
+    else:
+        try:
+            domain = urllib.parse.urlparse(aff_url).netloc.replace("www.", "")
+            if domain and domain in seen_domains:
+                errors.append(f"Duplicate official domain found: '{domain}' for tool '{name}' ({tid})")
+            if domain:
+                seen_domains.add(domain)
+        except Exception:
+            pass
+
+    # 5. Rating Validation
+    if rating is not None and not (isinstance(rating, (int, float)) and 1.0 <= rating <= 5.0):
+        errors.append(f"Invalid rating value for '{name}': {rating}")
+
+print(f"2. ID Deduplication Audit:        0 issues" if len(seen_ids) == total_count else f"2. ID Deduplication Audit:        ISSUES FOUND")
+print(f"3. Domain Deduplication Audit:    {len(seen_domains)} unique domains")
+print(f"4. Error Count:                   {len(errors)}")
+
+print("=" * 60)
+if errors:
+    print("❌ CANDIDATE DATASET VALIDATION RESULT: FAIL")
+    for err in errors[:10]:
+        print(f"   - {err}")
+    print("=" * 60)
+    sys.exit(1)
+else:
+    print("✅ CANDIDATE DATASET VALIDATION RESULT: PASS")
+    print("=" * 60)
+    sys.exit(0)

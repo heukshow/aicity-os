@@ -8,7 +8,11 @@ import json
 import xml.etree.ElementTree as ET
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TOOLS_JSON_PATH = os.path.join(PROJECT_DIR, "data", "tools.json")
+NEXT_JSON = os.path.join(PROJECT_DIR, "data", "tools.next.json")
+TOOLS_JSON_PATH = NEXT_JSON if os.path.exists(NEXT_JSON) else os.path.join(PROJECT_DIR, "data", "tools.json")
+
+print(f"validate_system.py auditing dataset from: {TOOLS_JSON_PATH}")
+
 PUBLIC_DIR = os.path.join(PROJECT_DIR, "public")
 TOOL_PAGES_DIR = os.path.join(PUBLIC_DIR, "tool")
 COMPARE_PAGES_DIR = os.path.join(PUBLIC_DIR, "compare")
@@ -16,6 +20,7 @@ SITEMAP_PATH = os.path.join(PUBLIC_DIR, "sitemap.xml")
 
 with open(TOOLS_JSON_PATH, "r", encoding="utf-8") as f:
     tools = json.load(f)
+
 
 tool_ids = {t["id"]: t for t in tools}
 tool_count = len(tools)

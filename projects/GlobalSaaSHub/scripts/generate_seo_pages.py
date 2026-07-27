@@ -10,11 +10,16 @@ import re
 from datetime import datetime
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TOOLS_JSON_PATH = os.path.join(PROJECT_DIR, "data", "tools.json")
+NEXT_JSON = os.path.join(PROJECT_DIR, "data", "tools.next.json")
+TOOLS_JSON_PATH = NEXT_JSON if os.path.exists(NEXT_JSON) else os.path.join(PROJECT_DIR, "data", "tools.json")
+
+print(f"generate_seo_pages.py reading dataset from: {TOOLS_JSON_PATH}")
+
 PUBLIC_DIR = os.path.join(PROJECT_DIR, "public")
 TOOL_PAGES_DIR = os.path.join(PUBLIC_DIR, "tool")
 
 last_updated_date = datetime.utcnow().strftime("%B %d, %Y") # e.g. July 27, 2026
+
 
 
 if os.path.exists(TOOL_PAGES_DIR):

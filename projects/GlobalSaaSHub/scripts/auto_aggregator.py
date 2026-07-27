@@ -138,9 +138,12 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.abspath(os.path.join(script_dir, ".."))
     data_file_path = os.path.join(project_root, "data", "tools.json")
+    next_data_file_path = os.path.join(project_root, "data", "tools.next.json")
     
     print(f"Project root: {project_root}")
-    print(f"Data file: {data_file_path}")
+    print(f"Operational Data file: {data_file_path}")
+    print(f"Next Target Data file: {next_data_file_path}")
+
     
     # 3. Load Existing Tools
     existing_tools = []
@@ -282,12 +285,15 @@ def main():
                     break
 
                     
-    # 7. Write Back to File
-    if new_tools_added > 0 or updated_tools_count > 0:
-        try:
-            with open(data_file_path, 'w', encoding='utf-8') as f:
-                json.dump(existing_tools, f, indent=2, ensure_ascii=False)
-            print(f"Database successfully updated. Added {new_tools_added} new tools, updated {updated_tools_count} existing tools. Total count: {len(existing_tools)}.")
+    # 7. Write Back to Sandbox Next File
+    try:
+        with open(next_data_file_path, 'w', encoding='utf-8') as f:
+            json.dump(existing_tools, f, indent=2, ensure_ascii=False)
+        print(f"Sandbox tools.next.json successfully generated. Added {new_tools_added} new tools, updated {updated_tools_count} existing tools. Sandbox total count: {len(existing_tools)}.")
+    except Exception as e:
+        print(f"Error writing sandbox tools.next.json: {e}")
+        sys.exit(1)
+
 
 
             print("Database update step completed.")

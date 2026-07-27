@@ -5,10 +5,14 @@ import os
 import json
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TOOLS_JSON_PATH = os.path.join(PROJECT_DIR, "data", "tools.json")
+NEXT_JSON = os.path.join(PROJECT_DIR, "data", "tools.next.json")
+TOOLS_JSON_PATH = NEXT_JSON if os.path.exists(NEXT_JSON) else os.path.join(PROJECT_DIR, "data", "tools.json")
+
+print(f"recategorize_tools.py targeting data file: {TOOLS_JSON_PATH}")
 
 with open(TOOLS_JSON_PATH, "r", encoding="utf-8") as f:
     tools = json.load(f)
+
 
 for tool in tools:
     tid = tool.get("id", "")

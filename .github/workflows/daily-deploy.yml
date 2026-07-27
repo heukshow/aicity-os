@@ -44,21 +44,28 @@ jobs:
         run: |
           python projects/GlobalSaaSHub/scripts/auto_aggregator.py
 
-      - name: Execute Autonomous Recategorization
+      - name: Execute Autonomous Recategorization on Sandbox Candidate
         run: |
           python projects/GlobalSaaSHub/scripts/recategorize_tools.py
 
+      - name: Run Strict Candidate Dataset Validation Audit (validate_data.py)
+        run: |
+          python projects/GlobalSaaSHub/scripts/validate_data.py
 
-      - name: Generate Programmatic SEO Pages & Sitemap
+      - name: Generate Programmatic SEO Pages & Sitemap from Candidate
         run: |
           python projects/GlobalSaaSHub/scripts/generate_seo_pages.py
 
-      - name: Run Strict System Validation Audit
+      - name: Run Full-Corpus System Validation Audit (validate_system.py)
         run: |
           python projects/GlobalSaaSHub/scripts/validate_system.py
 
-      - name: Auto-commit Updated tools.json Back to Main Branch
+      - name: Atomic Swap tools.next.json to tools.json & Auto-commit to Main
         run: |
+          if [ -f projects/GlobalSaaSHub/data/tools.next.json ]; then
+            mv projects/GlobalSaaSHub/data/tools.next.json projects/GlobalSaaSHub/data/tools.json
+            echo "✅ Atomic dataset swap completed: tools.next.json -> tools.json"
+          fi
           git config user.name "GlobalSaaSHub-Bot"
           git config user.email "bot@coshuma.com"
           git add projects/GlobalSaaSHub/data/tools.json
@@ -67,6 +74,7 @@ jobs:
             git pull --rebase origin main
             git push origin HEAD:main
           fi
+
 
 
 
