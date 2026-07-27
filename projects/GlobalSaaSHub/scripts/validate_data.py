@@ -85,13 +85,25 @@ for idx, tool in enumerate(tools):
     seen_names.add(norm_name)
     
     # 4. URL Validation & Domain Deduplication
+    # Explicit allowlist: tool IDs known to legitimately share a parent domain as a sub-product
+    DOMAIN_ALLOWLIST = {
+        # domain: [allowed_tool_ids, reason]
+        "jasper.ai": {"ids": ["jasper", "copy-ai"], "reason": "jasper.ai acquired copy.ai sub-product"},
+        "make.com": {"ids": ["make", "make-com"], "reason": "make.com has two ID variants for same service"},
+        "synthflow.ai": {"ids": ["synthflow", "synthflow-ai"], "reason": "synthflow.ai has two ID variants for same service"},
+    }
     if not aff_url.startswith("http"):
         errors.append(f"Invalid URL scheme for '{name}': {aff_url}")
     else:
         try:
             domain = urllib.parse.urlparse(aff_url).netloc.replace("www.", "")
             if domain and domain in seen_domains:
-                print(f"⚠️ Notice: Shared domain detected for alias/sub-product '{name}' ({tid}): {domain}")
+                # Check allowlist
+                allowlist_entry = DOMAIN_ALLOWLIST.get(domain)
+                if allowlist_entry and tid in allowlist_entry["ids"]:
+                    print(f"ℹ️ Allowlisted shared domain '{domain}' for '{name}' ({tid}): {allowlist_entry['reason']}")
+                else:
+                    errors.append(f"Duplicate domain FAIL: '{domain}' already registered. Tool '{name}' ({tid}) not in allowlist.")
             if domain:
                 seen_domains.add(domain)
         except Exception:

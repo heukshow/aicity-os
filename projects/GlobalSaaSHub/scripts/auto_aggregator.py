@@ -166,18 +166,25 @@ def main():
     ]
     
     raw_search_results = []
+    tavily_success_count = 0
+    tavily_fail_count = 0
     for q in queries:
         print(f"Searching Tavily for: '{q}'...")
         results = query_tavily(tavily_key, q)
         if results and 'results' in results:
+            tavily_success_count += 1
             for item in results['results']:
                 raw_search_results.append({
                     "title": item.get("title"),
                     "content": item.get("content"),
                     "url": item.get("url")
                 })
+        else:
+            tavily_fail_count += 1
+            print(f"Tavily query failed or empty: '{q}'")
                 
-    print(f"Harvested {len(raw_search_results)} search snippets.")
+    print(f"Harvested {len(raw_search_results)} search snippets. Tavily: {tavily_success_count} success, {tavily_fail_count} fail.")
+
     
     # 5. Process with Gemini
     system_prompt = """
@@ -218,6 +225,8 @@ def main():
     
     extracted_tools = []
     print("Invoking Gemini for extraction and filtering on individual search snippets...")
+    gemini_success_count = 0
+    gemini_fail_count = 0
     sys.stdout.flush()
     for idx, snippet in enumerate(raw_search_results):
         print(f"[{idx+1}/{len(raw_search_results)}] Processing snippet: '{snippet.get('title')}'...")
@@ -225,13 +234,17 @@ def main():
         user_content = json.dumps(snippet, indent=2)
         result = query_gemini(gemini_key, system_prompt, user_content)
         if result and isinstance(result, list):
+            gemini_success_count += 1
             print(f"   Success! Extracted {len(result)} tools.")
             sys.stdout.flush()
             extracted_tools.extend(result)
         else:
+            gemini_fail_count += 1
             print("   No tools extracted or API call failed.")
             sys.stdout.flush()
         time.sleep(1.5)
+
+    print(f"Gemini extraction: {gemini_success_count} success, {gemini_fail_count} fail out of {len(raw_search_results)} snippets.")
 
 
     if not extracted_tools:
@@ -244,6 +257,9 @@ def main():
     # 6. Merge & Deduplicate
     new_tools_added = 0
     updated_tools_count = 0
+    new_tools_list = []
+    updated_tools_list = []
+
     for new_tool in extracted_tools:
         # Validate schema keys
         required_keys = ['id', 'name', 'category', 'category_display', 'description', 'affiliate_url', 'pricing', 'key_features', 'rating', 'logo_url']
@@ -274,15 +290,16 @@ def main():
             existing_tools.append(new_tool)
             existing_ids.add(tool_id)
             new_tools_added += 1
+            new_tools_list.append(new_tool)
             print(f"New tool added: {new_tool['name']}")
         else:
             for tool in existing_tools:
                 if tool['id'] == tool_id and tool.get('pricing') != new_tool['pricing']:
+                    updated_tools_list.append({"id": tool_id, "old_pricing": tool.get('pricing'), "new_pricing": new_tool['pricing']})
                     tool['pricing'] = new_tool['pricing']
                     updated_tools_count += 1
                     break
 
-                    
     # 7. Write Back to Sandbox Next File
     try:
         with open(next_data_file_path, 'w', encoding='utf-8') as f:
@@ -292,9 +309,34 @@ def main():
         print(f"Error writing sandbox tools.next.json: {e}")
         sys.exit(1)
 
+    # 8. Write Artifact Summary JSONs for CI validation
+    data_dir = os.path.dirname(next_data_file_path)
+    summary = {
+        "tavily_success": tavily_success_count,
+        "tavily_fail": tavily_fail_count,
+        "gemini_success": gemini_success_count,
+        "gemini_fail": gemini_fail_count,
+        "new_tools_added": new_tools_added,
+        "updated_tools_count": updated_tools_count,
+        "sandbox_total": len(existing_tools)
+    }
+    with open(os.path.join(data_dir, "run_summary.json"), 'w', encoding='utf-8') as f:
+        json.dump(summary, f, indent=2, ensure_ascii=False)
+    with open(os.path.join(data_dir, "new_tools_discovered.json"), 'w', encoding='utf-8') as f:
+        json.dump(new_tools_list, f, indent=2, ensure_ascii=False)
+    with open(os.path.join(data_dir, "price_updated_tools.json"), 'w', encoding='utf-8') as f:
+        json.dump(updated_tools_list, f, indent=2, ensure_ascii=False)
+    print(f"Artifact summary files written to {data_dir}")
+
+    # 9. API failure guard: fail if ALL tavily or ALL gemini calls failed
+    if tavily_success_count == 0 and tavily_fail_count > 0:
+        print(f"FATAL: All {tavily_fail_count} Tavily queries failed. Aborting pipeline.")
+        sys.exit(1)
+    if gemini_success_count == 0 and gemini_fail_count > 0:
+        print(f"FATAL: All {gemini_fail_count} Gemini API calls failed. Aborting pipeline.")
+        sys.exit(1)
+
     print("Auto Aggregator Script completed successfully.")
-
-
 
 
 if __name__ == "__main__":
