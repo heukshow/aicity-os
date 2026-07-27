@@ -94,11 +94,15 @@ jobs:
               data = json.load(f)
           dup = dict(data[0])
           INJECTED_ID = data[0]['id']
-          dup['name'] = 'INJECTED DUPLICATE - MUST FAIL VALIDATION'
+          # Use a unique name and a non-existing URL to prevent domain-duplicate collateral error.
+          # Only the ID field is kept as a duplicate — ensuring the validator fires exclusively
+          # for the ID collision, not a domain collision.
+          dup['name'] = 'INJECTED UNIQUE NAME FOR DUPLICATE ID TEST'
+          dup['affiliate_url'] = 'https://duplicate-id-test.invalid/'
           data.append(dup)
           with open(path, 'w') as f:
               json.dump(data, f)
-          print(f'Injected duplicate ID: {INJECTED_ID}')
+          print(f'Injected duplicate ID: {INJECTED_ID} with unique URL to isolate ID-only error.')
           "
 
       # =========================================================
@@ -140,20 +144,21 @@ jobs:
               echo "FAIL: failure_test=true but validate_data did NOT fail. Validator is NOT blocking bad data!"
               exit 1
             fi
-            # Verify the specific injected duplicate ID error is present in the log
+            # Verify EXACTLY the duplicate-ID error string — no fallback broad grep.
+            # The injected object has a unique URL, so only the ID collision error should fire.
             INJECTED_ID=$(python -c "
-          import json
-          with open('projects/GlobalSaaSHub/data/tools.next.json') as f:
-              data = json.load(f)
-          # The last entry is our injected duplicate
-          print(data[-1]['id'])
-          ")
-            echo "Checking for injected ID error: $INJECTED_ID"
-            if grep -q "Duplicate Tool ID found: '$INJECTED_ID'" projects/GlobalSaaSHub/data/normal_validation.log || \
-               grep -q "$INJECTED_ID" projects/GlobalSaaSHub/data/normal_validation.log; then
-              echo "PASS: validate_data correctly identified the injected duplicate ID '$INJECTED_ID'. Pipeline block confirmed."
+import json
+with open('projects/GlobalSaaSHub/data/tools.next.json') as f:
+    data = json.load(f)
+print(data[-1]['id'])
+")
+            EXPECTED_MSG="Duplicate Tool ID found: '${INJECTED_ID}'"
+            echo "Checking for exact error string: $EXPECTED_MSG"
+            if grep -Fq "$EXPECTED_MSG" projects/GlobalSaaSHub/data/normal_validation.log; then
+              echo "PASS: exact duplicate-ID error confirmed in log: $EXPECTED_MSG. Pipeline block verified."
             else
-              echo "FAIL: failure_test=true and validate_data failed, BUT the injected ID '$INJECTED_ID' was NOT found in the error log. Validator may be failing for a different reason."
+              echo "FAIL: exact error '$EXPECTED_MSG' NOT found in validation log."
+              echo "--- normal_validation.log ---"
               cat projects/GlobalSaaSHub/data/normal_validation.log
               exit 1
             fi
