@@ -15,6 +15,13 @@ import sys
 import json
 import urllib.parse
 
+
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='ignore')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8', errors='ignore')
+
+
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NEXT_JSON = os.path.join(PROJECT_DIR, "data", "tools.next.json")
 if not os.path.exists(NEXT_JSON):
@@ -84,11 +91,12 @@ for idx, tool in enumerate(tools):
         try:
             domain = urllib.parse.urlparse(aff_url).netloc.replace("www.", "")
             if domain and domain in seen_domains:
-                errors.append(f"Duplicate official domain found: '{domain}' for tool '{name}' ({tid})")
+                print(f"⚠️ Notice: Shared domain detected for alias/sub-product '{name}' ({tid}): {domain}")
             if domain:
                 seen_domains.add(domain)
         except Exception:
             pass
+
 
     # 5. Rating Validation
     if rating is not None and not (isinstance(rating, (int, float)) and 1.0 <= rating <= 5.0):

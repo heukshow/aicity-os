@@ -4,10 +4,17 @@ GlobalSaaSHub - Programmatic SEO Generator Script
 Generates individual SEO HTML pages for each AI tool in tools.json
 and generates an updated sitemap.xml with all individual tool URLs.
 """
+import sys
 import os
 import json
 import re
 from datetime import datetime
+
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='ignore')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8', errors='ignore')
+
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NEXT_JSON = os.path.join(PROJECT_DIR, "data", "tools.next.json")

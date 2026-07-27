@@ -3,9 +3,16 @@ GlobalSaaSHub Full-Corpus Validation Script
 ===========================================
 Performs strict validation across all 136 tools, generated HTML pages, comparison groups, and sitemap.
 """
+import sys
 import os
 import json
 import xml.etree.ElementTree as ET
+
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='ignore')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8', errors='ignore')
+
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NEXT_JSON = os.path.join(PROJECT_DIR, "data", "tools.next.json")
