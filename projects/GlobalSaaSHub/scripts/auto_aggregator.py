@@ -3,6 +3,14 @@ import json
 import urllib.request
 import urllib.parse
 import sys
+import time
+
+
+# Force stdout and stderr to use UTF-8 to prevent encoding crashes on Windows Task Scheduler
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='ignore')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8', errors='ignore')
 
 def load_env():
     """Loads environment variables from the root .env file."""
@@ -62,8 +70,7 @@ def query_tavily(api_key, query):
         return None
 
 def query_gemini(api_key, system_prompt, user_content):
-    """Calls Gemini API using native HTTP request with JSON output configuration."""
-    # Using gemini-2.5-flash as it supports JSON schema and is highly efficient
+    """Calls Gemini API using native HTTP request with JSON output configuration and 429 rate-limit backoff."""
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
     headers = {"Content-Type": "application/json"}
     
@@ -80,26 +87,37 @@ def query_gemini(api_key, system_prompt, user_content):
         }
     }
     
-    req = urllib.request.Request(
-        url, 
-        data=json.dumps(data).encode('utf-8'), 
-        headers=headers, 
-        method='POST'
-    )
-    
-    print("-> Sending request to Gemini API (gemini-2.5-flash)...")
-    sys.stdout.flush()
-    try:
-        with urllib.request.urlopen(req, timeout=90) as res:
-            print("<- Received response from Gemini.")
-            sys.stdout.flush()
-            response_data = json.loads(res.read().decode('utf-8'))
-            text_response = response_data['candidates'][0]['content']['parts'][0]['text']
-            return json.loads(text_response)
-    except Exception as e:
-        print(f"Error calling Gemini: {e}")
+    for attempt in range(1, 4):
+        print(f"-> Sending request to Gemini API (gemini-2.5-flash) [Attempt {attempt}/3]...")
         sys.stdout.flush()
-        return None
+        req = urllib.request.Request(
+            url, 
+            data=json.dumps(data).encode('utf-8'), 
+            headers=headers, 
+            method='POST'
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=90) as res:
+                print("<- Received response from Gemini.")
+                sys.stdout.flush()
+                response_data = json.loads(res.read().decode('utf-8'))
+                text_response = response_data['candidates'][0]['content']['parts'][0]['text']
+                return json.loads(text_response)
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                print("⚠️ Gemini API Rate Limit (429) - Waiting 6 seconds before retry...")
+                sys.stdout.flush()
+                time.sleep(6)
+            else:
+                print(f"Error calling Gemini (HTTP {e.code}): {e}")
+                sys.stdout.flush()
+                return None
+        except Exception as e:
+            print(f"Error calling Gemini: {e}")
+            sys.stdout.flush()
+            return None
+    return None
+
 
 def main():
     print("Starting GlobalSaaSHub Auto Aggregator Script...")
@@ -165,8 +183,10 @@ def main():
     - category_display must match: "Workflow Automation" (for automation), "Creator & Productivity" (for creator), "Developer APIs" (for developer)
     - id must be lowercase, alphanumeric, separated by dashes (e.g., "gohighlevel", "notion-ai").
     - logo_url must be a premium high-quality placeholder image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60" (or similar technology placeholder from unsplash).
+    - affiliate_url MUST be the real, working official URL of the SaaS product. NEVER use example.com, localhost, or fake/dummy URLs.
     - key_features must be an array of exactly 4 specific string highlights (e.g., ["Feature A", "Feature B"]).
     - commission must state the commission rate (e.g., "30% Recurring", "40% Recurring (Lifetime)").
+
     
     JSON Schema:
     [
@@ -203,10 +223,12 @@ def main():
         else:
             print("   No tools extracted or API call failed.")
             sys.stdout.flush()
+        time.sleep(1.5)
+
 
     if not extracted_tools:
-        print("Error: No tools were extracted from any search snippets.")
-        sys.exit(1)
+        print("No new tools extracted from search snippets during this run. Database remains up to date.")
+
         
     print(f"Successfully compiled {len(extracted_tools)} total tools from all snippets.")
     sys.stdout.flush()
@@ -215,24 +237,42 @@ def main():
     new_tools_added = 0
     for new_tool in extracted_tools:
         # Validate schema keys
-        required_keys = ['id', 'name', 'category', 'category_display', 'description', 'affiliate_url', 'pricing', 'key_features', 'rating', 'logo_url', 'commission']
+        required_keys = ['id', 'name', 'category', 'category_display', 'description', 'affiliate_url', 'pricing', 'key_features', 'rating', 'logo_url']
         if not all(k in new_tool for k in required_keys):
             print(f"Skipping tool due to missing keys: {new_tool.get('name')}")
             continue
             
+        aff_url = new_tool.get('affiliate_url', '')
+        if not aff_url.startswith('http'):
+            print(f"Skipping tool due to invalid URL format: {new_tool.get('name')} ({aff_url})")
+            continue
+
+        # Auto resolve domain favicon logo
+        if aff_url:
+            try:
+                domain = urllib.parse.urlparse(aff_url).netloc.replace('www.', '')
+                if domain:
+                    new_tool['logo_url'] = f"https://www.google.com/s2/favicons?domain={domain}&sz=128"
+            except Exception:
+                pass
+
+        # Ensure commission key is removed
+        if 'commission' in new_tool:
+            del new_tool['commission']
+
         tool_id = new_tool['id']
         if tool_id not in existing_ids:
             existing_tools.append(new_tool)
             existing_ids.add(tool_id)
             new_tools_added += 1
-            print(f"New tool added: {new_tool['name']} ({new_tool['commission']})")
+            print(f"New tool added: {new_tool['name']}")
         else:
-            # Optionally update pricing or commission if changed
             for tool in existing_tools:
                 if tool['id'] == tool_id:
                     tool['pricing'] = new_tool['pricing']
-                    tool['commission'] = new_tool['commission']
                     break
+
+
                     
     # 7. Write Back to File
     if new_tools_added > 0:
@@ -240,13 +280,35 @@ def main():
             with open(data_file_path, 'w', encoding='utf-8') as f:
                 json.dump(existing_tools, f, indent=2, ensure_ascii=False)
             print(f"Database successfully updated. Added {new_tools_added} new tools. Total count: {len(existing_tools)}.")
+
+            # Export Private Admin Commission CSV
+            admin_csv = os.path.join(project_root, "admin_commission_rates.csv")
+            import csv
+            with open(admin_csv, 'w', newline='', encoding='utf-8-sig') as f:
+                writer = csv.DictWriter(f, fieldnames=['Tool Name', 'Category', 'Pricing', 'Affiliate URL'])
+                writer.writeheader()
+                for tool in existing_tools:
+                    writer.writerow({
+                        'Tool Name': tool.get('name', ''),
+                        'Category': tool.get('category_display', ''),
+                        'Pricing': tool.get('pricing', ''),
+                        'Affiliate URL': tool.get('affiliate_url', '')
+                    })
+            print(f"관리자 전용 수수료/수익 리포트 파일({admin_csv}) 자동 업데이트 완료!")
         except Exception as e:
             print(f"Error writing to database: {e}")
             sys.exit(1)
-    else:
-        print("No new unique tools found during this cycle. Database is up to date.")
-        
+
+    # Run Programmatic SEO Generator
+    try:
+        seo_script = os.path.join(os.path.dirname(__file__), "generate_seo_pages.py")
+        subprocess.run([sys.executable, seo_script], check=True)
+        print("Programmatic SEO pages & sitemap.xml updated successfully!")
+    except Exception as e:
+        print(f"Error generating SEO pages: {e}")
+
     print("Auto Aggregator Script completed successfully.")
 
 if __name__ == "__main__":
     main()
+

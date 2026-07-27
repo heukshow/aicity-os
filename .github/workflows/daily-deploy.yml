@@ -1,0 +1,63 @@
+name: Daily Automated Build & Deploy (GlobalSaaSHub)
+
+on:
+  schedule:
+    # Runs daily at 00:07 UTC (09:07 KST Asia/Seoul)
+    - cron: '7 0 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: daily-build-deploy
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: 'projects/GlobalSaaSHub/package-lock.json'
+
+      - name: Install Node Dependencies
+        run: |
+          cd projects/GlobalSaaSHub
+          npm ci
+
+      - name: Execute Autonomous Recategorization
+        run: |
+          python projects/GlobalSaaSHub/scripts/recategorize_tools.py
+
+      - name: Generate Programmatic SEO Pages & Sitemap
+        run: |
+          python projects/GlobalSaaSHub/scripts/generate_seo_pages.py
+
+      - name: Run Strict System Validation Audit
+        run: |
+          python projects/GlobalSaaSHub/scripts/validate_system.py
+
+      - name: Build Vite Production Assets
+        run: |
+          cd projects/GlobalSaaSHub
+          npm run build
+
+      - name: Deploy to GitHub Pages (gh-pages)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./projects/GlobalSaaSHub/dist
+          publish_branch: gh-pages
+          force_orphan: true
+          user_name: 'GlobalSaaSHub-Bot'
+          user_email: 'bot@coshuma.com'
+          commit_message: 'auto-deploy [GitHub Actions 09:07 KST Daily Build]'
