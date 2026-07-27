@@ -155,12 +155,10 @@ def main():
         except Exception as e:
             print(f"Fatal database read error: {e}")
             sys.exit(1)
-    else:
-        print("Fatal error: data/tools.json file does not exist.")
-        sys.exit(1)
+    existing_ids = {tool['id'] for tool in existing_tools}
 
-    
     # 4. Search Queries
+
     queries = [
         "top new AI tool affiliate programs recurring commission 2026",
         "highest paying B2B SaaS recurring affiliate programs 2026",
@@ -294,15 +292,8 @@ def main():
         print(f"Error writing sandbox tools.next.json: {e}")
         sys.exit(1)
 
-
-
-            print("Database update step completed.")
-
-        except Exception as e:
-            print(f"Error writing to database: {e}")
-            sys.exit(1)
-
     print("Auto Aggregator Script completed successfully.")
+
 
 
 

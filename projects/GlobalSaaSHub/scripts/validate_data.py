@@ -17,20 +17,19 @@ import urllib.parse
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NEXT_JSON = os.path.join(PROJECT_DIR, "data", "tools.next.json")
-TOOLS_JSON = os.path.join(PROJECT_DIR, "data", "tools.json")
+if not os.path.exists(NEXT_JSON):
+    print("❌ FATAL: Candidate dataset tools.next.json is strictly required but missing.")
+    sys.exit(1)
 
-TARGET_FILE = NEXT_JSON if os.path.exists(NEXT_JSON) else TOOLS_JSON
+TARGET_FILE = NEXT_JSON
 
 print("=" * 60)
 print(f"🔍 CANDIDATE DATASET VALIDATION (validate_data.py)")
 print(f"Target File: {TARGET_FILE}")
 print("=" * 60)
 
-if not os.path.exists(TARGET_FILE):
-    print(f"❌ FATAL: Candidate dataset {TARGET_FILE} does not exist.")
-    sys.exit(1)
-
 try:
+
     with open(TARGET_FILE, "r", encoding="utf-8") as f:
         tools = json.load(f)
 except Exception as e:

@@ -62,10 +62,13 @@ jobs:
 
       - name: Atomic Swap tools.next.json to tools.json & Auto-commit to Main
         run: |
-          if [ -f projects/GlobalSaaSHub/data/tools.next.json ]; then
-            mv projects/GlobalSaaSHub/data/tools.next.json projects/GlobalSaaSHub/data/tools.json
-            echo "✅ Atomic dataset swap completed: tools.next.json -> tools.json"
+          if [ ! -f projects/GlobalSaaSHub/data/tools.next.json ]; then
+            echo "❌ FATAL: Mandatory candidate dataset projects/GlobalSaaSHub/data/tools.next.json is missing!"
+            exit 1
           fi
+          mv projects/GlobalSaaSHub/data/tools.next.json projects/GlobalSaaSHub/data/tools.json
+          echo "✅ Atomic dataset swap completed: tools.next.json -> tools.json"
+
           git config user.name "GlobalSaaSHub-Bot"
           git config user.email "bot@coshuma.com"
           git add projects/GlobalSaaSHub/data/tools.json
