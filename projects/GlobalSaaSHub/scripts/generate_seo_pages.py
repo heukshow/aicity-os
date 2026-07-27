@@ -35,7 +35,7 @@ html_template = """<!doctype html>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{name} Pricing, Features & Review (2026) | GlobalSaaSHub</title>
-    <meta name="description" content="{description_short} Discover features, pricing ({pricing}), rating ({rating}/5.0), and official links for {name} on GlobalSaaSHub." />
+    <meta name="description" content="{description_short} Discover features, pricing ({pricing}), {rating_meta}and official links for {name} on GlobalSaaSHub." />
     <link rel="canonical" href="https://coshuma.com/tool/{slug}.html" />
     
     <!-- Open Graph SEO Tags -->
@@ -96,7 +96,7 @@ html_template = """<!doctype html>
           </div>
 
           <div class="flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 text-amber-400 px-4 py-2 rounded-xl text-sm font-bold">
-            <span>⭐ {rating} / 5.0 Rating</span>
+            <span>{rating}</span>
           </div>
         </div>
 
@@ -119,11 +119,12 @@ html_template = """<!doctype html>
           <div class="p-5 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-2">
             <h3 class="text-sm font-bold text-emerald-400 flex items-center gap-2">👍 Key Advantages (Pros)</h3>
             <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li>High user satisfaction rating ({rating}/5.0)</li>
+              {rating_pro}
               <li>Flexible pricing structure ({pricing})</li>
               <li>Seamless workflow integration & API support</li>
             </ul>
           </div>
+
           <div class="p-5 rounded-2xl bg-rose-500/5 border border-rose-500/20 space-y-2">
             <h3 class="text-sm font-bold text-rose-400 flex items-center gap-2">⚠️ Considerations (Cons)</h3>
             <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
@@ -243,7 +244,14 @@ for tool in tools_data:
 
 
     r_val = tool.get("rating")
-    rating_display = f"{r_val}" if r_val is not None else "Not rated"
+    if r_val is not None:
+        rating_badge = f'⭐ {r_val} / 5.0 Rating'
+        rating_meta = f'rating ({r_val}/5.0), '
+        rating_pro = f'<li>Editorial rating ({r_val}/5.0)</li>'
+    else:
+        rating_badge = 'Not yet editorially rated'
+        rating_meta = ''
+        rating_pro = '<li>Editorial review in progress</li>'
 
     file_content = html_template.format(
         name=tool.get("name", "AI Tool"),
@@ -253,12 +261,15 @@ for tool in tools_data:
         description_short=desc_short,
         description_escaped=desc_escaped,
         pricing=tool.get("pricing", "Pricing on site"),
-        rating=rating_display,
+        rating=rating_badge,
+        rating_meta=rating_meta,
+        rating_pro=rating_pro,
         logo_url=tool.get("logo_url", ""),
         affiliate_url=tool.get("affiliate_url", "#"),
         features_html=features_html,
         alternatives_html=alternatives_html
     )
+
 
 
     file_path = os.path.join(TOOL_PAGES_DIR, f"{slug}.html")
@@ -338,7 +349,7 @@ compare_template = """<!doctype html>
           <div class="p-4 rounded-2xl bg-[#181a29] border border-purple-500/20 space-y-2">
             <div class="font-bold text-purple-300">Choose {toolA_name} if:</div>
             <p class="text-slate-300 leading-relaxed">
-              You prioritize high overall rating ({toolA_rating}/5.0 Editorial Rating), specialized feature set, and reliable industry workflow integration.
+              You prioritize {toolA_rating_badge}, specialized feature set, and reliable industry workflow integration.
             </p>
             <div class="text-[10px] text-slate-400 font-mono pt-1 border-t border-[#222538]">
               Source: Official Documentation & Public Pricing Specs ({last_updated_date})
@@ -347,7 +358,7 @@ compare_template = """<!doctype html>
           <div class="p-4 rounded-2xl bg-[#181a29] border border-blue-500/20 space-y-2">
             <div class="font-bold text-blue-300">Choose {toolB_name} if:</div>
             <p class="text-slate-300 leading-relaxed">
-              You want an alternative approach with {toolB_pricing} pricing structure and {toolB_rating}/5.0 Editorial Rating.
+              You want an alternative approach with {toolB_pricing} pricing structure and {toolB_rating_badge}.
             </p>
             <div class="text-[10px] text-slate-400 font-mono pt-1 border-t border-[#222538]">
               Source: Official Vendor Specifications & Benchmark Data ({last_updated_date})
@@ -374,13 +385,14 @@ compare_template = """<!doctype html>
         <div class="grid grid-cols-2 gap-4 p-4 rounded-2xl bg-[#181a29]/60 border border-[#222538] text-center">
           <div>
             <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">GlobalSaaSHub Editorial Rating</div>
-            <div class="text-lg font-black text-amber-400">⭐ {toolA_rating} / 5.0</div>
+            <div class="text-lg font-black text-amber-400">{toolA_rating_badge}</div>
           </div>
           <div>
             <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">GlobalSaaSHub Editorial Rating</div>
-            <div class="text-lg font-black text-amber-400">⭐ {toolB_rating} / 5.0</div>
+            <div class="text-lg font-black text-amber-400">{toolB_rating_badge}</div>
           </div>
         </div>
+
 
 
         <div class="grid grid-cols-2 gap-4 p-4 rounded-2xl bg-[#181a29]/60 border border-[#222538] text-center">
@@ -454,8 +466,8 @@ for tool_a in tools_data:
         
         r_a = tool_a.get("rating")
         r_b = tool_b.get("rating")
-        rating_a_disp = f"{r_a}" if r_a is not None else "N/A"
-        rating_b_disp = f"{r_b}" if r_b is not None else "N/A"
+        rating_a_disp = f"⭐ {r_a} / 5.0" if r_a is not None else "Not rated"
+        rating_b_disp = f"⭐ {r_b} / 5.0" if r_b is not None else "Not rated"
 
         comp_content = compare_template.format(
             toolA_name=tool_a.get("name"),
@@ -463,8 +475,9 @@ for tool_a in tools_data:
             slug_a=slug_a,
             slug_b=slug_b,
             category_display=tool_a.get("category_display", "AI & SaaS"),
-            toolA_rating=rating_a_disp,
-            toolB_rating=rating_b_disp,
+            toolA_rating_badge=rating_a_disp,
+            toolB_rating_badge=rating_b_disp,
+
 
             toolA_pricing=tool_a.get("pricing", "Free Trial / Paid"),
             toolB_pricing=tool_b.get("pricing", "Free Trial / Paid"),
