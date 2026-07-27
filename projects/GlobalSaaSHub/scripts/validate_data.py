@@ -48,6 +48,8 @@ seen_names = set()
 seen_domains = set()
 errors = []
 
+import re
+
 for idx, tool in enumerate(tools):
     tid = tool.get("id")
     name = tool.get("name")
@@ -58,6 +60,11 @@ for idx, tool in enumerate(tools):
     if not tid or not name or not aff_url:
         errors.append(f"Tool #{idx+1} missing required id, name, or affiliate_url.")
         continue
+
+    # 1b. Kebab-case Alphanumeric ID format check
+    if not re.match(r'^[a-z0-9]+(-[a-z0-9]+)*$', str(tid)):
+        errors.append(f"Tool #{idx+1} ID '{tid}' is not valid lowercase kebab-case.")
+
         
     # 2. Duplicate ID
     if tid in seen_ids:
@@ -87,9 +94,11 @@ for idx, tool in enumerate(tools):
     if rating is not None and not (isinstance(rating, (int, float)) and 1.0 <= rating <= 5.0):
         errors.append(f"Invalid rating value for '{name}': {rating}")
 
-print(f"2. ID Deduplication Audit:        0 issues" if len(seen_ids) == total_count else f"2. ID Deduplication Audit:        ISSUES FOUND")
+print(f"2. ID & Kebab-case Audit:       0 issues" if len(seen_ids) == total_count else f"2. ID & Kebab-case Audit:       ISSUES FOUND")
 print(f"3. Domain Deduplication Audit:    {len(seen_domains)} unique domains")
-print(f"4. Error Count:                   {len(errors)}")
+print(f"4. URL Scheme & Domain Check:     Format check only (No live HTTP ping)")
+print(f"5. Total Validation Errors:       {len(errors)}")
+
 
 print("=" * 60)
 if errors:

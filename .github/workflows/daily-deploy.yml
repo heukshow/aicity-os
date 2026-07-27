@@ -4,7 +4,12 @@ on:
   # schedule:
   #   - cron: '7 0 * * *'
   workflow_dispatch:
-
+    inputs:
+      dry_run:
+        description: 'Dry Run Mode (True = Skip DB commit & gh-pages deployment)'
+        required: true
+        type: boolean
+        default: true
 
 concurrency:
   group: daily-build-deploy
@@ -61,6 +66,7 @@ jobs:
           python projects/GlobalSaaSHub/scripts/validate_system.py
 
       - name: Atomic Swap tools.next.json to tools.json & Auto-commit to Main
+        if: ${{ inputs.dry_run != true }}
         run: |
           if [ ! -f projects/GlobalSaaSHub/data/tools.next.json ]; then
             echo "❌ FATAL: Mandatory candidate dataset projects/GlobalSaaSHub/data/tools.next.json is missing!"
@@ -78,18 +84,13 @@ jobs:
             git push origin HEAD:main
           fi
 
-
-
-
-
-
       - name: Build Vite Production Assets
         run: |
           cd projects/GlobalSaaSHub
           npm run build
 
-
       - name: Deploy to GitHub Pages (gh-pages)
+        if: ${{ inputs.dry_run != true }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -99,3 +100,4 @@ jobs:
           user_name: 'GlobalSaaSHub-Bot'
           user_email: 'bot@coshuma.com'
           commit_message: 'auto-deploy [GitHub Actions 09:07 KST Daily Build]'
+
