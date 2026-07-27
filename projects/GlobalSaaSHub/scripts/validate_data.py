@@ -85,12 +85,12 @@ for idx, tool in enumerate(tools):
     seen_names.add(norm_name)
     
     # 4. URL Validation & Domain Deduplication
-    # Explicit allowlist: tool IDs known to legitimately share a parent domain as a sub-product
+    # Explicit allowlist: only verified cases where two DISTINCT products legitimately share a domain.
+    # - Same-service ID variants (e.g., "make" vs "make-com") must be MERGED in tools.json, not allowlisted.
+    # - Only add entries here with evidence of a real acquisition or genuinely separate products.
+    # Format: { "domain": {"ids": ["tool-id-1", "tool-id-2"], "reason": "source / evidence"} }
     DOMAIN_ALLOWLIST = {
-        # domain: [allowed_tool_ids, reason]
-        "jasper.ai": {"ids": ["jasper", "copy-ai"], "reason": "jasper.ai acquired copy.ai sub-product"},
-        "make.com": {"ids": ["make", "make-com"], "reason": "make.com has two ID variants for same service"},
-        "synthflow.ai": {"ids": ["synthflow", "synthflow-ai"], "reason": "synthflow.ai has two ID variants for same service"},
+        # No verified entries yet. Add only with explicit evidence.
     }
     if not aff_url.startswith("http"):
         errors.append(f"Invalid URL scheme for '{name}': {aff_url}")
@@ -103,7 +103,7 @@ for idx, tool in enumerate(tools):
                 if allowlist_entry and tid in allowlist_entry["ids"]:
                     print(f"ℹ️ Allowlisted shared domain '{domain}' for '{name}' ({tid}): {allowlist_entry['reason']}")
                 else:
-                    errors.append(f"Duplicate domain FAIL: '{domain}' already registered. Tool '{name}' ({tid}) not in allowlist.")
+                    errors.append(f"Duplicate domain FAIL: '{domain}' already registered. Tool '{name}' ({tid}) must be merged or added to verified allowlist.")
             if domain:
                 seen_domains.add(domain)
         except Exception:

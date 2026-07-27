@@ -166,26 +166,39 @@ def main():
     ]
     
     raw_search_results = []
-    tavily_success_count = 0
-    tavily_fail_count = 0
+    tavily_api_success = 0   # HTTP call succeeded (even if results empty)
+    tavily_api_fail = 0      # HTTP call failed / exception
+    tavily_total_results = 0 # total search snippets harvested
     for q in queries:
         print(f"Searching Tavily for: '{q}'...")
         results = query_tavily(tavily_key, q)
         if results and 'results' in results:
-            tavily_success_count += 1
+            tavily_api_success += 1
+            count = len(results['results'])
+            tavily_total_results += count
             for item in results['results']:
                 raw_search_results.append({
                     "title": item.get("title"),
                     "content": item.get("content"),
                     "url": item.get("url")
                 })
+            print(f"  -> {count} snippets returned.")
         else:
-            tavily_fail_count += 1
-            print(f"Tavily query failed or empty: '{q}'")
-                
-    print(f"Harvested {len(raw_search_results)} search snippets. Tavily: {tavily_success_count} success, {tavily_fail_count} fail.")
+            tavily_api_fail += 1
+            print(f"  -> Tavily API call failed for: '{q}'")
 
-    
+    print(f"Harvested {tavily_total_results} search snippets. Tavily: {tavily_api_success} API ok, {tavily_api_fail} API fail.")
+
+    # Guard: if ALL queries returned 0 results (API ok but empty), something is wrong
+    if tavily_api_fail == 0 and tavily_total_results == 0:
+        print("FATAL: All Tavily API calls succeeded but returned 0 results. Aborting pipeline.")
+        sys.exit(1)
+
+    # Guard: if ALL API calls failed
+    if tavily_api_success == 0:
+        print(f"FATAL: All {tavily_api_fail} Tavily API calls failed. Aborting pipeline.")
+        sys.exit(1)
+
     # 5. Process with Gemini
     system_prompt = """
     You are a B2B SaaS and AI affiliate marketing database architect. 
@@ -225,26 +238,43 @@ def main():
     
     extracted_tools = []
     print("Invoking Gemini for extraction and filtering on individual search snippets...")
-    gemini_success_count = 0
-    gemini_fail_count = 0
+    gemini_api_success = 0   # Gemini HTTP call + JSON parse succeeded
+    gemini_api_fail = 0      # Gemini HTTP call failed or JSON parse error
+    gemini_tools_extracted = 0  # actual tools returned across all snippets
+    gemini_empty_responses = 0  # API ok but returned empty array (normal for irrelevant snippets)
     sys.stdout.flush()
     for idx, snippet in enumerate(raw_search_results):
         print(f"[{idx+1}/{len(raw_search_results)}] Processing snippet: '{snippet.get('title')}'...")
         sys.stdout.flush()
         user_content = json.dumps(snippet, indent=2)
         result = query_gemini(gemini_key, system_prompt, user_content)
-        if result and isinstance(result, list):
-            gemini_success_count += 1
-            print(f"   Success! Extracted {len(result)} tools.")
+        if result is None:
+            # API call failed or JSON parse error
+            gemini_api_fail += 1
+            print("   Gemini API call failed or response unparseable.")
             sys.stdout.flush()
-            extracted_tools.extend(result)
+        elif isinstance(result, list):
+            gemini_api_success += 1
+            if len(result) == 0:
+                gemini_empty_responses += 1
+                print("   Gemini returned empty array (no qualifying tools in snippet).")
+            else:
+                gemini_tools_extracted += len(result)
+                print(f"   Success! Extracted {len(result)} tools.")
+                extracted_tools.extend(result)
+            sys.stdout.flush()
         else:
-            gemini_fail_count += 1
-            print("   No tools extracted or API call failed.")
+            gemini_api_fail += 1
+            print("   Gemini returned unexpected format.")
             sys.stdout.flush()
         time.sleep(1.5)
 
-    print(f"Gemini extraction: {gemini_success_count} success, {gemini_fail_count} fail out of {len(raw_search_results)} snippets.")
+    print(f"Gemini: {gemini_api_success} API ok (of which {gemini_empty_responses} empty), {gemini_api_fail} API fail. Total tools extracted: {gemini_tools_extracted}.")
+
+    # Guard: if ALL Gemini calls failed (API/parse errors)
+    if gemini_api_fail > 0 and gemini_api_success == 0:
+        print(f"FATAL: All {gemini_api_fail} Gemini API calls failed. Aborting pipeline.")
+        sys.exit(1)
 
 
     if not extracted_tools:
@@ -312,14 +342,18 @@ def main():
     # 8. Write Artifact Summary JSONs for CI validation
     data_dir = os.path.dirname(next_data_file_path)
     summary = {
-        "tavily_success": tavily_success_count,
-        "tavily_fail": tavily_fail_count,
-        "gemini_success": gemini_success_count,
-        "gemini_fail": gemini_fail_count,
+        "tavily_api_success": tavily_api_success,
+        "tavily_api_fail": tavily_api_fail,
+        "tavily_total_results": tavily_total_results,
+        "gemini_api_success": gemini_api_success,
+        "gemini_api_fail": gemini_api_fail,
+        "gemini_empty_responses": gemini_empty_responses,
+        "gemini_tools_extracted": gemini_tools_extracted,
         "new_tools_added": new_tools_added,
         "updated_tools_count": updated_tools_count,
         "sandbox_total": len(existing_tools)
     }
+
     with open(os.path.join(data_dir, "run_summary.json"), 'w', encoding='utf-8') as f:
         json.dump(summary, f, indent=2, ensure_ascii=False)
     with open(os.path.join(data_dir, "new_tools_discovered.json"), 'w', encoding='utf-8') as f:
@@ -328,15 +362,8 @@ def main():
         json.dump(updated_tools_list, f, indent=2, ensure_ascii=False)
     print(f"Artifact summary files written to {data_dir}")
 
-    # 9. API failure guard: fail if ALL tavily or ALL gemini calls failed
-    if tavily_success_count == 0 and tavily_fail_count > 0:
-        print(f"FATAL: All {tavily_fail_count} Tavily queries failed. Aborting pipeline.")
-        sys.exit(1)
-    if gemini_success_count == 0 and gemini_fail_count > 0:
-        print(f"FATAL: All {gemini_fail_count} Gemini API calls failed. Aborting pipeline.")
-        sys.exit(1)
-
     print("Auto Aggregator Script completed successfully.")
+
 
 
 if __name__ == "__main__":

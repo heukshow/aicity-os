@@ -11,7 +11,7 @@ on:
         type: boolean
         default: true
       failure_test:
-        description: 'Failure Test Mode (true = inject bad data to verify validate_data.py blocks pipeline)'
+        description: 'Failure Test Mode (true = skip API, inject bad data, verify validate_data.py blocks pipeline)'
         required: false
         type: boolean
         default: false
@@ -47,97 +47,162 @@ jobs:
           cd projects/GlobalSaaSHub
           npm ci
 
+      # Record current remote main SHA BEFORE any file generation.
+      # Production push will compare against this to detect concurrent changes.
+      - name: Record Remote main SHA Baseline
+        run: |
+          git fetch origin main
+          BASE_MAIN_SHA=$(git rev-parse origin/main)
+          echo "BASE_MAIN_SHA=$BASE_MAIN_SHA" >> "$GITHUB_ENV"
+          echo "Recorded BASE_MAIN_SHA: $BASE_MAIN_SHA"
+
+      # failure_test=true: skip external APIs, use existing tools.json as candidate base
+      - name: "[failure_test] Prepare Candidate from Existing tools.json (Skip API)"
+        if: ${{ inputs.failure_test == true }}
+        run: |
+          cp projects/GlobalSaaSHub/data/tools.json \
+             projects/GlobalSaaSHub/data/tools.next.json
+          echo "Copied tools.json -> tools.next.json as failure_test candidate base."
+          python -c "
+          import json
+          path = 'projects/GlobalSaaSHub/data/tools.next.json'
+          with open(path) as f:
+              data = json.load(f)
+          # Inject duplicate ID to force validation failure
+          dup = dict(data[0])
+          dup['name'] = 'INJECTED DUPLICATE - MUST FAIL VALIDATION'
+          data.append(dup)
+          with open(path, 'w') as f:
+              json.dump(data, f)
+          print(f'Injected duplicate ID: {dup[\"id\"]}. validate_data.py must now FAIL.')
+          "
+
+      # Normal mode: real Tavily + Gemini discovery
       - name: Execute Autonomous Tavily & Gemini AI Tool Discovery
+        if: ${{ inputs.failure_test != true }}
         env:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           python projects/GlobalSaaSHub/scripts/auto_aggregator.py
 
-      - name: "[failure_test] Inject Invalid Candidate Data to Test Pipeline Block"
-        if: ${{ inputs.failure_test == true }}
-        run: |
-          python -c "
-          import json, os
-          path = 'projects/GlobalSaaSHub/data/tools.next.json'
-          if not os.path.exists(path):
-            print('tools.next.json not found - creating minimal invalid dataset')
-            data = []
-          else:
-            with open(path) as f:
-              data = json.load(f)
-          # Inject duplicate ID to force validation failure
-          dup = data[0].copy() if data else {'id': 'dup-test', 'name': 'DUP TEST', 'affiliate_url': 'http://dup.com', 'rating': None}
-          dup['id'] = data[0]['id'] if data else 'gohighlevel'
-          dup['name'] = 'INJECTED DUPLICATE - SHOULD FAIL'
-          data.append(dup)
-          with open(path, 'w') as f:
-            json.dump(data, f)
-          print(f'Injected duplicate ID: {dup[\"id\"]}. validate_data.py should now FAIL.')
-          "
-
       - name: Execute Autonomous Recategorization on Sandbox Candidate
+        if: ${{ inputs.failure_test != true }}
         run: |
           python projects/GlobalSaaSHub/scripts/recategorize_tools.py
 
+      # Validate candidate data. In failure_test mode, this MUST fail (exit code != 0).
+      # We use continue-on-error so the next assertion step can check the outcome.
       - name: Run Strict Candidate Dataset Validation Audit (validate_data.py)
+        id: validate_data
+        continue-on-error: true
         run: |
           python projects/GlobalSaaSHub/scripts/validate_data.py
 
+      # In failure_test mode: assert that validate_data actually failed (pipeline block confirmed).
+      # In normal mode: assert that validate_data succeeded (data is clean).
+      - name: Assert Validation Outcome Matches Expected Result
+        run: |
+          OUTCOME="${{ steps.validate_data.outcome }}"
+          FAILURE_TEST="${{ inputs.failure_test }}"
+          echo "validate_data outcome: $OUTCOME | failure_test: $FAILURE_TEST"
+          if [ "$FAILURE_TEST" = "true" ]; then
+            if [ "$OUTCOME" = "failure" ]; then
+              echo "PASS: validate_data correctly blocked invalid candidate data. Pipeline block confirmed."
+            else
+              echo "FAIL: failure_test=true but validate_data did NOT fail. The validator is not blocking bad data!"
+              exit 1
+            fi
+          else
+            if [ "$OUTCOME" = "success" ]; then
+              echo "PASS: validate_data passed. Candidate data is clean."
+            else
+              echo "FAIL: validate_data failed on clean candidate data. Aborting pipeline."
+              exit 1
+            fi
+          fi
+
       - name: Generate Programmatic SEO Pages & Sitemap from Candidate
+        if: ${{ steps.validate_data.outcome == 'success' }}
         run: |
           python projects/GlobalSaaSHub/scripts/generate_seo_pages.py
 
       - name: Run Full-Corpus System Validation Audit (validate_system.py)
+        if: ${{ steps.validate_data.outcome == 'success' }}
         run: |
           python projects/GlobalSaaSHub/scripts/validate_system.py
 
-      - name: Upload Dry-Run Artifacts (tools.next.json, summary, new tools, sitemap)
+      # Copy tools.next.json -> tools.json in the WORKSPACE ONLY (not committed).
+      # This lets Vite build against the actual candidate data even in dry_run mode.
+      - name: Promote Candidate to tools.json in Workspace (for Vite build)
+        if: ${{ steps.validate_data.outcome == 'success' && inputs.failure_test != true }}
+        run: |
+          cp projects/GlobalSaaSHub/data/tools.next.json \
+             projects/GlobalSaaSHub/data/tools.json
+          echo "Workspace tools.json updated from candidate (not committed in dry_run)."
+
+      - name: Build Vite Production Assets
+        if: ${{ steps.validate_data.outcome == 'success' && inputs.failure_test != true }}
+        run: |
+          cd projects/GlobalSaaSHub
+          npm run build
+
+      - name: Upload Dry-Run Artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: dry-run-artifacts-${{ github.run_id }}
+          name: pipeline-artifacts-${{ github.run_id }}
           path: |
             projects/GlobalSaaSHub/data/tools.next.json
             projects/GlobalSaaSHub/data/run_summary.json
             projects/GlobalSaaSHub/data/new_tools_discovered.json
             projects/GlobalSaaSHub/data/price_updated_tools.json
             projects/GlobalSaaSHub/public/sitemap.xml
+            projects/GlobalSaaSHub/public/tool/
+            projects/GlobalSaaSHub/public/compare/
           if-no-files-found: warn
           retention-days: 7
 
-      - name: Atomic Swap tools.next.json to tools.json & Auto-commit to Main
-        if: ${{ inputs.dry_run != true && inputs.failure_test != true }}
+      # Production only: commit tools.json and push.
+      # Verify remote main SHA has not changed since baseline to prevent non-fast-forward.
+      # NO git pull --rebase after any file generation.
+      - name: Atomic Swap & Commit tools.json to Main (Production Only)
+        if: ${{ inputs.dry_run != true && inputs.failure_test != true && steps.validate_data.outcome == 'success' }}
         run: |
           if [ ! -f projects/GlobalSaaSHub/data/tools.next.json ]; then
-            echo "FATAL: Mandatory candidate dataset projects/GlobalSaaSHub/data/tools.next.json is missing!"
+            echo "FATAL: tools.next.json missing. Aborting production commit."
             exit 1
           fi
-          mv projects/GlobalSaaSHub/data/tools.next.json projects/GlobalSaaSHub/data/tools.json
-          echo "Atomic dataset swap completed: tools.next.json -> tools.json"
+          cp projects/GlobalSaaSHub/data/tools.next.json \
+             projects/GlobalSaaSHub/data/tools.json
 
           git config user.name "GlobalSaaSHub-Bot"
           git config user.email "bot@coshuma.com"
           git add projects/GlobalSaaSHub/data/tools.json
-          if ! git diff --staged --quiet; then
-            git commit -m "chore(data): auto-update tools.json database from daily AI discovery [skip ci]"
-            # Pull rebase BEFORE any file generation to avoid dirty working tree conflict
-            git pull --rebase origin main
-            git push origin HEAD:main
-            if [ $? -ne 0 ]; then
-              echo "FATAL: git push rejected (non-fast-forward). Aborting deployment."
-              exit 1
-            fi
+          if git diff --staged --quiet; then
+            echo "No changes to tools.json. Skipping commit."
+            exit 0
+          fi
+          git commit -m "chore(data): auto-update tools.json database from daily AI discovery [skip ci]"
+
+          # Verify remote main has not advanced since baseline (no pull/rebase after generation)
+          git fetch origin main
+          CURRENT_REMOTE_SHA=$(git rev-parse origin/main)
+          if [ "$CURRENT_REMOTE_SHA" != "$BASE_MAIN_SHA" ]; then
+            echo "FATAL: main advanced from $BASE_MAIN_SHA to $CURRENT_REMOTE_SHA during workflow. Aborting to prevent conflict."
+            exit 1
           fi
 
-      - name: Build Vite Production Assets
-        if: ${{ inputs.failure_test != true }}
-        run: |
-          cd projects/GlobalSaaSHub
-          npm run build
+          git push origin HEAD:main
+          PUSH_EXIT=$?
+          if [ $PUSH_EXIT -ne 0 ]; then
+            echo "FATAL: git push rejected (non-fast-forward or auth error). Aborting deployment."
+            exit 1
+          fi
+          echo "tools.json committed and pushed to main successfully."
 
       - name: Deploy to GitHub Pages (gh-pages)
-        if: ${{ inputs.dry_run != true && inputs.failure_test != true }}
+        if: ${{ inputs.dry_run != true && inputs.failure_test != true && steps.validate_data.outcome == 'success' }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
