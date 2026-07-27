@@ -150,9 +150,12 @@ def main():
                 existing_tools = json.load(f)
             print(f"Loaded {len(existing_tools)} existing tools from database.")
         except Exception as e:
-            print(f"Warning: Could not read existing tools, starting fresh. Error: {e}")
-            
-    existing_ids = {tool['id'] for tool in existing_tools}
+            print(f"Fatal database read error: {e}")
+            sys.exit(1)
+    else:
+        print("Fatal error: data/tools.json file does not exist.")
+        sys.exit(1)
+
     
     # 4. Search Queries
     queries = [
@@ -202,9 +205,10 @@ def main():
         "affiliate_url": "string (main product website or official affiliate register link)",
         "pricing": "string (pricing description e.g., 'Starting at $19/mo')",
         "key_features": ["string", "string", "string", "string"],
-        "rating": float (between 4.2 and 5.0),
+        "rating": null,
         "logo_url": "string",
         "commission": "string"
+
       }
     ]
     
@@ -299,8 +303,10 @@ def main():
         print("Programmatic SEO pages & sitemap.xml updated successfully!")
     except Exception as e:
         print(f"Error generating SEO pages: {e}")
+        sys.exit(1)
 
     print("Auto Aggregator Script completed successfully.")
+
 
 if __name__ == "__main__":
     main()
