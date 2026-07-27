@@ -2,8 +2,11 @@ import os
 import json
 import urllib.request
 import urllib.parse
+import urllib.error
+import subprocess
 import sys
 import time
+
 
 
 # Force stdout and stderr to use UTF-8 to prevent encoding crashes on Windows Task Scheduler
@@ -235,6 +238,7 @@ def main():
     
     # 6. Merge & Deduplicate
     new_tools_added = 0
+    updated_tools_count = 0
     for new_tool in extracted_tools:
         # Validate schema keys
         required_keys = ['id', 'name', 'category', 'category_display', 'description', 'affiliate_url', 'pricing', 'key_features', 'rating', 'logo_url']
@@ -268,18 +272,19 @@ def main():
             print(f"New tool added: {new_tool['name']}")
         else:
             for tool in existing_tools:
-                if tool['id'] == tool_id:
+                if tool['id'] == tool_id and tool.get('pricing') != new_tool['pricing']:
                     tool['pricing'] = new_tool['pricing']
+                    updated_tools_count += 1
                     break
-
 
                     
     # 7. Write Back to File
-    if new_tools_added > 0:
+    if new_tools_added > 0 or updated_tools_count > 0:
         try:
             with open(data_file_path, 'w', encoding='utf-8') as f:
                 json.dump(existing_tools, f, indent=2, ensure_ascii=False)
-            print(f"Database successfully updated. Added {new_tools_added} new tools. Total count: {len(existing_tools)}.")
+            print(f"Database successfully updated. Added {new_tools_added} new tools, updated {updated_tools_count} existing tools. Total count: {len(existing_tools)}.")
+
 
             print("Database update step completed.")
 

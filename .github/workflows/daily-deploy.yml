@@ -57,10 +57,19 @@ jobs:
         run: |
           python projects/GlobalSaaSHub/scripts/validate_system.py
 
+      - name: Auto-commit Updated tools.json Back to Main Branch
+        run: |
+          git config user.name "GlobalSaaSHub-Bot"
+          git config user.email "bot@coshuma.com"
+          git add projects/GlobalSaaSHub/data/tools.json
+          git diff --staged --quiet || git commit -m "chore(data): auto-update tools.json database from daily AI discovery [skip ci]"
+          git push origin main || true
+
       - name: Build Vite Production Assets
         run: |
           cd projects/GlobalSaaSHub
           npm run build
+
 
       - name: Deploy to GitHub Pages (gh-pages)
         uses: peaceiris/actions-gh-pages@v3
