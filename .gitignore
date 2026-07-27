@@ -14,5 +14,6 @@ __pycache__/
 *.ps1
 *.png
 *.jpg
-!AI_City_Project/frontend/assets/*.png
-!AI_City_Project/frontend/assets/*.jpg
+admin_commission_rates.*
+projects/GlobalSaaSHub/admin_commission_rates.*
+

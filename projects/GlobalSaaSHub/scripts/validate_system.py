@@ -63,8 +63,14 @@ print(f"6. Broken Internal Links:           0")
 print(f"7. Duplicate Compare Pairs:         {duplicate_pairs}")
 print("=" * 60)
 
+import sys
+
 if len(tool_html_files) == tool_count and mismatches == 0 and duplicate_pairs == 0:
     print("✅ VALIDATION RESULT: PASS")
+    print("=" * 60)
+    sys.exit(0)
 else:
     print("❌ VALIDATION RESULT: FAIL")
-print("=" * 60)
+    print("=" * 60)
+    sys.exit(1)
+
