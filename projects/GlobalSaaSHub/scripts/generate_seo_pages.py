@@ -242,6 +242,9 @@ for tool in tools_data:
     ])
 
 
+    r_val = tool.get("rating")
+    rating_display = f"{r_val}" if r_val is not None else "Not rated"
+
     file_content = html_template.format(
         name=tool.get("name", "AI Tool"),
         slug=slug,
@@ -250,12 +253,13 @@ for tool in tools_data:
         description_short=desc_short,
         description_escaped=desc_escaped,
         pricing=tool.get("pricing", "Pricing on site"),
-        rating=tool.get("rating", 4.8),
+        rating=rating_display,
         logo_url=tool.get("logo_url", ""),
         affiliate_url=tool.get("affiliate_url", "#"),
         features_html=features_html,
         alternatives_html=alternatives_html
     )
+
 
     file_path = os.path.join(TOOL_PAGES_DIR, f"{slug}.html")
     with open(file_path, "w", encoding="utf-8") as f:
@@ -448,14 +452,20 @@ for tool_a in tools_data:
         feat_a = "\n".join([f'<div>✓ {f}</div>' for f in tool_a.get("key_features", [])])
         feat_b = "\n".join([f'<div>✓ {f}</div>' for f in tool_b.get("key_features", [])])
         
+        r_a = tool_a.get("rating")
+        r_b = tool_b.get("rating")
+        rating_a_disp = f"{r_a}" if r_a is not None else "N/A"
+        rating_b_disp = f"{r_b}" if r_b is not None else "N/A"
+
         comp_content = compare_template.format(
             toolA_name=tool_a.get("name"),
             toolB_name=tool_b.get("name"),
             slug_a=slug_a,
             slug_b=slug_b,
             category_display=tool_a.get("category_display", "AI & SaaS"),
-            toolA_rating=tool_a.get("rating", 4.8),
-            toolB_rating=tool_b.get("rating", 4.7),
+            toolA_rating=rating_a_disp,
+            toolB_rating=rating_b_disp,
+
             toolA_pricing=tool_a.get("pricing", "Free Trial / Paid"),
             toolB_pricing=tool_b.get("pricing", "Free Trial / Paid"),
             toolA_features=feat_a,

@@ -296,16 +296,8 @@ def main():
             print(f"Error writing to database: {e}")
             sys.exit(1)
 
-    # Run Programmatic SEO Generator
-    try:
-        seo_script = os.path.join(os.path.dirname(__file__), "generate_seo_pages.py")
-        subprocess.run([sys.executable, seo_script], check=True)
-        print("Programmatic SEO pages & sitemap.xml updated successfully!")
-    except Exception as e:
-        print(f"Error generating SEO pages: {e}")
-        sys.exit(1)
-
     print("Auto Aggregator Script completed successfully.")
+
 
 
 if __name__ == "__main__":
