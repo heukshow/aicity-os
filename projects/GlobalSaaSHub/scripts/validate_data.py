@@ -94,10 +94,12 @@ for idx, tool in enumerate(tools):
     if rating is not None and not (isinstance(rating, (int, float)) and 1.0 <= rating <= 5.0):
         errors.append(f"Invalid rating value for '{name}': {rating}")
 
-print(f"2. ID & Kebab-case Audit:       0 issues" if len(seen_ids) == total_count else f"2. ID & Kebab-case Audit:       ISSUES FOUND")
+id_kebab_errors = [e for e in errors if "ID" in e]
+print(f"2. ID & Kebab-case Audit:       0 issues" if len(id_kebab_errors) == 0 else f"2. ID & Kebab-case Audit:       {len(id_kebab_errors)} ISSUES FOUND")
 print(f"3. Domain Deduplication Audit:    {len(seen_domains)} unique domains")
 print(f"4. URL Scheme & Domain Check:     Format check only (No live HTTP ping)")
 print(f"5. Total Validation Errors:       {len(errors)}")
+
 
 
 print("=" * 60)
