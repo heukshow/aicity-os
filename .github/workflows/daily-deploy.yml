@@ -109,6 +109,11 @@ jobs:
       # =========================================================
       # NORMAL MODE: Real Tavily + Gemini discovery
       # =========================================================
+      - name: Execute Manual Candidate Pricing Verification (SSL & Evidence Check)
+        if: ${{ inputs.failure_test != true }}
+        run: |
+          python projects/GlobalSaaSHub/scripts/verify_manual_candidates.py
+
       - name: Execute Autonomous Tavily & Gemini AI Tool Discovery
         if: ${{ inputs.failure_test != true }}
         env:

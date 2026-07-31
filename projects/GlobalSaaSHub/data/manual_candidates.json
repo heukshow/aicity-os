@@ -14,13 +14,12 @@
     "comparison_group": "multi_tool_ai_suite",
     "official_url": "https://krater.ai/",
     "pricing_source_url": "https://krater.ai/pricing",
-    "pricing_verified_at": "2026-07-31T00:00:00Z",
+    "pricing_evidence_markers": ["$200", "year"],
     "pricing_verified": true,
     "currency": "USD",
     "billing_period": "annual",
     "evidence_source_type": "official_pricing_page",
-    "is_manual_override": true,
-    "http_verification_status": "verified_http_200"
+    "is_manual_override": true
   },
   {
     "id": "expandi",
@@ -37,13 +36,12 @@
     "comparison_group": "linkedin_outreach",
     "official_url": "https://expandi.io/",
     "pricing_source_url": null,
-    "pricing_verified_at": null,
+    "pricing_evidence_markers": null,
     "pricing_verified": false,
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": true,
-    "http_verification_status": "verified_http_200"
+    "is_manual_override": true
   },
   {
     "id": "reditus",
@@ -60,13 +58,12 @@
     "comparison_group": "affiliate_management",
     "official_url": "https://getreditus.com/",
     "pricing_source_url": "https://getreditus.com/help/reditus-pricing",
-    "pricing_verified_at": "2026-07-31T00:00:00Z",
+    "pricing_evidence_markers": ["$99", "month"],
     "pricing_verified": true,
     "currency": "USD",
     "billing_period": "annual/monthly",
     "evidence_source_type": "official_help_page",
-    "is_manual_override": true,
-    "http_verification_status": "verified_http_200"
+    "is_manual_override": true
   },
   {
     "id": "joiin",
@@ -83,13 +80,12 @@
     "comparison_group": "financial_reporting",
     "official_url": "https://www.joiin.co/",
     "pricing_source_url": "https://www.joiin.co/pricing/",
-    "pricing_verified_at": "2026-07-31T00:00:00Z",
+    "pricing_evidence_markers": ["$23", "month"],
     "pricing_verified": true,
     "currency": "USD",
     "billing_period": "annual",
     "evidence_source_type": "official_pricing_page",
-    "is_manual_override": true,
-    "http_verification_status": "verified_http_200"
+    "is_manual_override": true
   },
   {
     "id": "agentworks",
@@ -106,13 +102,12 @@
     "comparison_group": "ai_agent_platform",
     "official_url": "https://agentworks.ai/",
     "pricing_source_url": null,
-    "pricing_verified_at": null,
+    "pricing_evidence_markers": null,
     "pricing_verified": false,
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": true,
-    "http_verification_status": "verified_http_200"
+    "is_manual_override": true
   },
   {
     "id": "airia",
@@ -129,13 +124,12 @@
     "comparison_group": "enterprise_ai_governance",
     "official_url": "https://airia.ai/",
     "pricing_source_url": null,
-    "pricing_verified_at": null,
+    "pricing_evidence_markers": null,
     "pricing_verified": false,
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": true,
-    "http_verification_status": "verified_http_200"
+    "is_manual_override": true
   },
   {
     "id": "omi-ai",
@@ -152,13 +146,12 @@
     "comparison_group": "ai_wearable",
     "official_url": "https://www.omi.me/",
     "pricing_source_url": null,
-    "pricing_verified_at": null,
+    "pricing_evidence_markers": null,
     "pricing_verified": false,
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": true,
-    "http_verification_status": "verified_http_200"
+    "is_manual_override": true
   },
   {
     "id": "fireflies-ai",
@@ -175,13 +168,12 @@
     "comparison_group": "meeting_assistant",
     "official_url": "https://fireflies.ai/",
     "pricing_source_url": null,
-    "pricing_verified_at": null,
+    "pricing_evidence_markers": null,
     "pricing_verified": false,
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": true,
-    "http_verification_status": "verified_http_200"
+    "is_manual_override": true
   },
   {
     "id": "gamma",
@@ -198,13 +190,12 @@
     "comparison_group": "ai_presentation",
     "official_url": "https://gamma.app/",
     "pricing_source_url": null,
-    "pricing_verified_at": null,
+    "pricing_evidence_markers": null,
     "pricing_verified": false,
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": true,
-    "http_verification_status": "bot_blocked"
+    "is_manual_override": true
   },
   {
     "id": "gobii",
@@ -221,12 +212,11 @@
     "comparison_group": "ai_workforce_platform",
     "official_url": "https://gobii.ai/",
     "pricing_source_url": null,
-    "pricing_verified_at": null,
+    "pricing_evidence_markers": null,
     "pricing_verified": false,
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": true,
-    "http_verification_status": "verified_http_200"
+    "is_manual_override": true
   }
 ]

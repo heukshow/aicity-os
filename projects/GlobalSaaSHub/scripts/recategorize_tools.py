@@ -15,6 +15,17 @@ with open(TOOLS_JSON_PATH, "r", encoding="utf-8") as f:
 
 
 for tool in tools:
+    is_locked_manual_group = (
+        tool.get("is_manual_override") is True
+        and isinstance(tool.get("comparison_group"), str)
+        and bool(tool.get("comparison_group").strip())
+    )
+
+    if is_locked_manual_group:
+        tool["comparison_group"] = tool["comparison_group"].strip()
+        tool["primary_category"] = tool.get("primary_category") or tool.get("category") or "productivity"
+        continue
+
     tid = tool.get("id", "")
     name_desc = (tool.get("name", "") + " " + tool.get("description", "") + " " + " ".join(tool.get("key_features", []))).lower()
     

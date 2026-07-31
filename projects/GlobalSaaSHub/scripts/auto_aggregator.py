@@ -180,13 +180,19 @@ def main():
         if norm_n:
             existing_names[norm_n] = tool
 
-    # Merge isolated manual_candidates.json if present
-    manual_candidates_file = os.path.join(base_dir, 'data', 'manual_candidates.json')
-    if os.path.exists(manual_candidates_file):
+    # Merge isolated manual_candidates_verified.json (or fallback to manual_candidates.json) with fail-closed behavior
+    manual_verified_file = os.path.join(base_dir, 'data', 'manual_candidates_verified.json')
+    manual_file = os.path.join(base_dir, 'data', 'manual_candidates.json')
+    target_manual = manual_verified_file if os.path.exists(manual_verified_file) else manual_file
+
+    if os.path.exists(target_manual):
         try:
-            with open(manual_candidates_file, 'r', encoding='utf-8') as f:
+            with open(target_manual, 'r', encoding='utf-8') as f:
                 manual_tools = json.load(f)
-            print(f"Loaded {len(manual_tools)} manual candidate tools from {manual_candidates_file}.")
+            if not isinstance(manual_tools, list):
+                print(f"❌ FATAL: Manual candidates file {target_manual} must be a JSON array.")
+                sys.exit(1)
+            print(f"Loaded {len(manual_tools)} manual candidate tools from {target_manual}.")
             manual_added = 0
             for m_tool in manual_tools:
                 m_id = m_tool.get('id')
@@ -205,7 +211,8 @@ def main():
                     manual_added += 1
             print(f"Successfully merged {manual_added} unique manual candidates into dataset.")
         except Exception as e:
-            print(f"Warning: Failed to load manual_candidates.json: {e}")
+            print(f"❌ FATAL: Failed to read or parse manual candidates file {target_manual}: {e}")
+            sys.exit(1)
 
     # 4. Search Queries
 

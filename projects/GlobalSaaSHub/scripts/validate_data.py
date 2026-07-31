@@ -131,6 +131,12 @@ for idx, tool in enumerate(tools):
             errors.append(f"Tool '{tid}' pricing_verified is False but currency is not null.")
         if billing_period is not None:
             errors.append(f"Tool '{tid}' pricing_verified is False but billing_period is not null.")
+        if tool.get("pricing_source_http_status") is not None:
+            errors.append(f"Tool '{tid}' pricing_verified is False but pricing_source_http_status is not null.")
+        if tool.get("pricing_source_final_url") is not None:
+            errors.append(f"Tool '{tid}' pricing_verified is False but pricing_source_final_url is not null.")
+        if tool.get("pricing_evidence_markers") is not None:
+            errors.append(f"Tool '{tid}' pricing_verified is False but pricing_evidence_markers is not null.")
     else:
         if not ps_url:
             errors.append(f"Tool '{tid}' pricing_verified is True but pricing_source_url is missing or null.")
@@ -142,6 +148,19 @@ for idx, tool in enumerate(tools):
             errors.append(f"Tool '{tid}' pricing_verified is True but billing_period is missing or null.")
         if not evidence_type:
             errors.append(f"Tool '{tid}' pricing_verified is True but evidence_source_type is missing or null.")
+        
+        # Require runtime pricing verification status fields when pricing_verified is True
+        ps_status = tool.get("pricing_source_http_status")
+        ps_final = tool.get("pricing_source_final_url")
+        ps_markers = tool.get("pricing_evidence_markers")
+
+        if ps_status != 200:
+            errors.append(f"Tool '{tid}' pricing_verified is True but pricing_source_http_status is '{ps_status}' (expected 200).")
+        if not ps_final or not (ps_final.startswith("http://") or ps_final.startswith("https://")):
+            errors.append(f"Tool '{tid}' pricing_verified is True but pricing_source_final_url '{ps_final}' is missing or invalid.")
+        if not ps_markers or not isinstance(ps_markers, list) or len(ps_markers) == 0:
+            errors.append(f"Tool '{tid}' pricing_verified is True but pricing_evidence_markers is empty or missing.")
+
         # Pricing source domain check: must match official domain
         if ps_url and off_url:
             ps_domain = urllib.parse.urlparse(ps_url).netloc.replace("www.", "")
