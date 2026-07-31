@@ -74,6 +74,7 @@ jobs:
         id: baseline_validate
         if: ${{ inputs.failure_test == true }}
         run: |
+          set -o pipefail
           python projects/GlobalSaaSHub/scripts/validate_data.py \
             2>&1 | tee projects/GlobalSaaSHub/data/baseline_validation.log
           echo "Baseline validation exit code: $?"
@@ -129,6 +130,7 @@ jobs:
         id: validate_data
         continue-on-error: true
         run: |
+          set -o pipefail
           python projects/GlobalSaaSHub/scripts/validate_data.py \
             2>&1 | tee projects/GlobalSaaSHub/data/normal_validation.log
 
