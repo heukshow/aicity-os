@@ -180,27 +180,31 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
 
           {/* Row 4: CTAs */}
           <div className={`grid ${selectedToolC ? 'grid-cols-3' : 'grid-cols-2'} gap-3 pt-2`}>
-            <a
-              href={toolA.affiliate_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="py-3 px-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-purple-950/40 hover:brightness-110 transition-all"
-            >
-              <span>Get {toolA.name}</span>
-              <ExternalLink className="h-3 w-3" />
-            </a>
-            <a
-              href={selectedToolB.affiliate_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="py-3 px-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-blue-950/40 hover:brightness-110 transition-all"
-            >
-              <span>Get {selectedToolB.name}</span>
-              <ExternalLink className="h-3 w-3" />
-            </a>
-            {selectedToolC && (
+            {(toolA.affiliate_url || toolA.official_url) && (
               <a
-                href={selectedToolC.affiliate_url}
+                href={toolA.affiliate_url || toolA.official_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-3 px-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-purple-950/40 hover:brightness-110 transition-all"
+              >
+                <span>Get {toolA.name}</span>
+                <ExternalLink className="h-3 w-3" />
+              </a>
+            )}
+            {(selectedToolB.affiliate_url || selectedToolB.official_url) && (
+              <a
+                href={selectedToolB.affiliate_url || selectedToolB.official_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-3 px-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-blue-950/40 hover:brightness-110 transition-all"
+              >
+                <span>Get {selectedToolB.name}</span>
+                <ExternalLink className="h-3 w-3" />
+              </a>
+            )}
+            {selectedToolC && (selectedToolC.affiliate_url || selectedToolC.official_url) && (
+              <a
+                href={selectedToolC.affiliate_url || selectedToolC.official_url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="py-3 px-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-emerald-950/40 hover:brightness-110 transition-all"

@@ -306,37 +306,32 @@ def main():
     updated_tools_list = []
 
     for new_tool in extracted_tools:
-        # Validate schema keys
-        required_keys = ['id', 'name', 'category', 'category_display', 'description', 'affiliate_url', 'pricing', 'key_features', 'rating', 'logo_url']
+        # Validate schema keys (affiliate_url is OPTIONAL now)
+        required_keys = ['id', 'name', 'category', 'category_display', 'description', 'official_url', 'pricing', 'key_features', 'rating', 'logo_url']
         if not all(k in new_tool for k in required_keys):
-            print(f"Skipping tool due to missing keys: {new_tool.get('name')}")
+            print(f"Skipping tool due to missing required keys: {new_tool.get('name')}")
             continue
             
+        off_url = new_tool.get('official_url', '')
         aff_url = new_tool.get('affiliate_url', '')
-        if not aff_url.startswith('http'):
-            print(f"Skipping tool due to invalid URL format: {new_tool.get('name')} ({aff_url})")
+        if not off_url.startswith('http'):
+            print(f"Skipping tool due to invalid official_url format: {new_tool.get('name')} ({off_url})")
             continue
 
-        # Auto resolve domain favicon logo
-        if aff_url:
-            try:
-                domain = urllib.parse.urlparse(aff_url).netloc.replace('www.', '')
-                if domain:
-                    new_tool['logo_url'] = f"https://www.google.com/s2/favicons?domain={domain}&sz=128"
-            except Exception:
-                pass
+        # Auto resolve domain favicon logo from official_url
+        tool_domain = ""
+        try:
+            tool_domain = urllib.parse.urlparse(off_url).netloc.replace('www.', '')
+            if tool_domain:
+                new_tool['logo_url'] = f"https://www.google.com/s2/favicons?domain={tool_domain}&sz=128"
+        except Exception:
+            pass
 
         # Ensure commission key is removed
         if 'commission' in new_tool:
             del new_tool['commission']
 
         tool_id = new_tool['id']
-        tool_domain = ""
-        if aff_url.startswith("http"):
-            try:
-                tool_domain = urllib.parse.urlparse(aff_url).netloc.replace("www.", "")
-            except Exception:
-                pass
         tool_norm_name = new_tool.get('name', '').lower().strip().replace(' ', '').replace('-', '').replace('_', '')
 
         # Check for existing match by ID, domain, or normalized name

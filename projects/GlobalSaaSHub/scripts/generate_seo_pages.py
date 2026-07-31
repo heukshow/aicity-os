@@ -490,6 +490,11 @@ for tool_a in tools_data:
         rating_a_disp = f"⭐ {r_a} / 5.0" if r_a is not None else "Not rated"
         rating_b_disp = f"⭐ {r_b} / 5.0" if r_b is not None else "Not rated"
 
+        target_a_url = tool_a.get("affiliate_url") or tool_a.get("official_url") or "#"
+        target_b_url = tool_b.get("affiliate_url") or tool_b.get("official_url") or "#"
+        if target_a_url in (None, "None", "null", ""): target_a_url = "#"
+        if target_b_url in (None, "None", "null", ""): target_b_url = "#"
+
         comp_content = compare_template.format(
             toolA_name=tool_a.get("name"),
             toolB_name=tool_b.get("name"),
@@ -498,16 +503,17 @@ for tool_a in tools_data:
             category_display=tool_a.get("category_display", "AI & SaaS"),
             toolA_rating_badge=rating_a_disp,
             toolB_rating_badge=rating_b_disp,
-
-
             toolA_pricing=tool_a.get("pricing", "Free Trial / Paid"),
             toolB_pricing=tool_b.get("pricing", "Free Trial / Paid"),
             toolA_features=feat_a,
             toolB_features=feat_b,
-            toolA_url=tool_a.get("affiliate_url", "#"),
-            toolB_url=tool_b.get("affiliate_url", "#"),
+            toolA_url=target_a_url,
+            toolB_url=target_b_url,
             last_updated_date=last_updated_date
         )
+
+        if 'href="None"' in comp_content or 'href="null"' in comp_content or 'href=""' in comp_content:
+            raise ValueError(f"Generated compare HTML for '{slug_a}-vs-{slug_b}' contains invalid href string!")
 
         
         comp_file_path = os.path.join(COMPARE_PAGES_DIR, f"{slug_a}-vs-{slug_b}.html")
