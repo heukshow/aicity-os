@@ -16,4 +16,5 @@ __pycache__/
 *.jpg
 admin_commission_rates.*
 projects/GlobalSaaSHub/admin_commission_rates.*
+projects/GlobalSaaSHub/data/manual_candidates_verified.json
 

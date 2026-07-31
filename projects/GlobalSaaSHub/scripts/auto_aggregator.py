@@ -15,6 +15,30 @@ if hasattr(sys.stdout, 'reconfigure'):
 if hasattr(sys.stderr, 'reconfigure'):
     sys.stderr.reconfigure(encoding='utf-8', errors='ignore')
 
+def normalize_unverified_candidate(new_tool, official_url, affiliate_url):
+    """Normalizes any new search candidate item to ensure strict schema compliance and unverified state."""
+    normalized = dict(new_tool)
+
+    normalized["official_url"] = official_url
+    normalized["affiliate_url"] = affiliate_url
+
+    # Search snippets are not official pricing verification.
+    normalized["pricing"] = "See official pricing"
+    normalized["pricing_verified"] = False
+    normalized["pricing_source_url"] = None
+    normalized["pricing_verified_at"] = None
+    normalized["pricing_source_http_status"] = None
+    normalized["pricing_source_final_url"] = None
+    normalized["pricing_evidence_markers"] = None
+    normalized["currency"] = None
+    normalized["billing_period"] = None
+    normalized["evidence_source_type"] = None
+
+    normalized["is_manual_override"] = False
+    normalized["http_verification_status"] = None
+
+    return normalized
+
 def load_env():
     """Loads environment variables from the root .env file."""
     # Look for .env in the current directory, parent, or grandparent
@@ -180,39 +204,40 @@ def main():
         if norm_n:
             existing_names[norm_n] = tool
 
-    # Merge isolated manual_candidates_verified.json (or fallback to manual_candidates.json) with fail-closed behavior
+    # Merge isolated runtime manual_candidates_verified.json with strict fail-closed behavior
     manual_verified_file = os.path.join(base_dir, 'data', 'manual_candidates_verified.json')
-    manual_file = os.path.join(base_dir, 'data', 'manual_candidates.json')
-    target_manual = manual_verified_file if os.path.exists(manual_verified_file) else manual_file
 
-    if os.path.exists(target_manual):
-        try:
-            with open(target_manual, 'r', encoding='utf-8') as f:
-                manual_tools = json.load(f)
-            if not isinstance(manual_tools, list):
-                print(f"❌ FATAL: Manual candidates file {target_manual} must be a JSON array.")
-                sys.exit(1)
-            print(f"Loaded {len(manual_tools)} manual candidate tools from {target_manual}.")
-            manual_added = 0
-            for m_tool in manual_tools:
-                m_id = m_tool.get('id')
-                m_dom = extract_domain(m_tool.get('official_url'))
-                m_norm = m_tool.get('name', '').lower().strip().replace(' ', '').replace('-', '').replace('_', '')
-                
-                if m_id in existing_ids or (m_dom and m_dom in existing_domains) or (m_norm and m_norm in existing_names):
-                    print(f"Manual candidate '{m_tool.get('name')}' already exists in database. Skipping.")
-                else:
-                    existing_tools.append(m_tool)
-                    existing_ids[m_id] = m_tool
-                    if m_dom:
-                        existing_domains[m_dom] = m_tool
-                    if m_norm:
-                        existing_names[m_norm] = m_tool
-                    manual_added += 1
-            print(f"Successfully merged {manual_added} unique manual candidates into dataset.")
-        except Exception as e:
-            print(f"❌ FATAL: Failed to read or parse manual candidates file {target_manual}: {e}")
+    if not os.path.exists(manual_verified_file):
+        print(f"❌ FATAL: manual_candidates_verified.json is missing at {manual_verified_file}. Run verify_manual_candidates.py first.")
+        sys.exit(1)
+
+    try:
+        with open(manual_verified_file, 'r', encoding='utf-8') as f:
+            manual_tools = json.load(f)
+        if not isinstance(manual_tools, list):
+            print(f"❌ FATAL: Manual candidates file {manual_verified_file} must be a JSON array.")
             sys.exit(1)
+        print(f"Loaded {len(manual_tools)} manual candidate tools from {manual_verified_file}.")
+        manual_added = 0
+        for m_tool in manual_tools:
+            m_id = m_tool.get('id')
+            m_dom = extract_domain(m_tool.get('official_url'))
+            m_norm = m_tool.get('name', '').lower().strip().replace(' ', '').replace('-', '').replace('_', '')
+            
+            if m_id in existing_ids or (m_dom and m_dom in existing_domains) or (m_norm and m_norm in existing_names):
+                print(f"Manual candidate '{m_tool.get('name')}' already exists in database. Skipping.")
+            else:
+                existing_tools.append(m_tool)
+                existing_ids[m_id] = m_tool
+                if m_dom:
+                    existing_domains[m_dom] = m_tool
+                if m_norm:
+                    existing_names[m_norm] = m_tool
+                manual_added += 1
+        print(f"Successfully merged {manual_added} unique manual candidates into dataset.")
+    except Exception as e:
+        print(f"❌ FATAL: Failed to read or parse manual candidates file {manual_verified_file}: {e}")
+        sys.exit(1)
 
     # 4. Search Queries
 
@@ -388,27 +413,24 @@ def main():
             print("Skipping 'automa' as per policy until official domain is confirmed.")
             continue
 
-        # Ensure strict schema defaults for unverified search candidate items
-        new_tool['official_url'] = off_url if (isinstance(off_url, str) and off_url.strip().startswith(('http://', 'https://'))) else f"https://{tool_domain}/"
-        new_tool['affiliate_url'] = aff_url if (isinstance(aff_url, str) and aff_url.strip().startswith(('http://', 'https://')) and aff_url != new_tool['official_url']) else None
-        new_tool['pricing_source_url'] = None  # Do NOT default to homepage
-        new_tool['pricing_verified_at'] = None  # Do NOT hardcode date
-        new_tool['pricing_verified'] = False
-        new_tool['currency'] = None
-        new_tool['billing_period'] = None
-        new_tool['evidence_source_type'] = None
+        # Compute valid URLs
+        valid_off_url = off_url if (isinstance(off_url, str) and off_url.strip().startswith(('http://', 'https://'))) else f"https://{tool_domain}/"
+        valid_aff_url = aff_url if (isinstance(aff_url, str) and aff_url.strip().startswith(('http://', 'https://')) and aff_url != valid_off_url) else None
+
+        # Normalize new_tool using strict helper function
+        normalized_new_tool = normalize_unverified_candidate(new_tool, valid_off_url, valid_aff_url)
 
         if matched_existing_tool is None:
             # Truly new tool! Add to database
-            existing_tools.append(new_tool)
-            existing_ids[tool_id] = new_tool
+            existing_tools.append(normalized_new_tool)
+            existing_ids[tool_id] = normalized_new_tool
             if tool_domain:
-                existing_domains[tool_domain] = new_tool
+                existing_domains[tool_domain] = normalized_new_tool
             if tool_norm_name:
-                existing_names[tool_norm_name] = new_tool
+                existing_names[tool_norm_name] = normalized_new_tool
             new_tools_added += 1
-            new_tools_list.append(new_tool)
-            print(f"New unique tool added: {new_tool['name']} ({tool_id})")
+            new_tools_list.append(normalized_new_tool)
+            print(f"New unique tool added: {normalized_new_tool['name']} ({tool_id})")
         else:
             # Existing tool matched!
             target_id = matched_existing_tool['id']
