@@ -3,6 +3,7 @@ import toolsData from '../data/tools.json';
 import AdminDashboard from './components/AdminDashboard';
 import PaymentModal from './components/PaymentModal';
 import CompareModal from './components/CompareModal';
+import { getValidExternalUrl } from './utils/url';
 import { 
   Search, 
   Sparkles, 
@@ -482,22 +483,25 @@ export default function App() {
                   </div>
 
 
-                  {(tool.affiliate_url || tool.official_url) ? (
-                    <a
-                      href={tool.affiliate_url || tool.official_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => trackToolClick(tool.id, tool.name)}
-                      className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-purple-950/30 group-hover:shadow-purple-900/20"
-                    >
-                      <span>Visit & Access Tool</span>
-                      <ArrowUpRight className="h-4 w-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-                    </a>
-                  ) : (
-                    <div class="w-full py-3 px-4 rounded-xl bg-slate-800 text-slate-500 font-bold text-xs text-center border border-slate-700/50">
-                      Official Link Unavailable
-                    </div>
-                  )}
+                  {(() => {
+                    const validUrl = getValidExternalUrl(tool);
+                    return validUrl ? (
+                      <a
+                        href={validUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackToolClick(tool.id, tool.name)}
+                        className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-purple-950/30 group-hover:shadow-purple-900/20"
+                      >
+                        <span>Visit & Access Tool</span>
+                        <ArrowUpRight className="h-4 w-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                      </a>
+                    ) : (
+                      <div className="w-full py-3 px-4 rounded-xl bg-slate-800 text-slate-500 font-bold text-xs text-center border border-slate-700/50">
+                        Official Link Unavailable
+                      </div>
+                    );
+                  })()}
                 </div>
 
 

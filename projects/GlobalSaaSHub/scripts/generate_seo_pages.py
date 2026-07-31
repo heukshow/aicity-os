@@ -163,10 +163,7 @@ html_template = """<!doctype html>
             <div class="text-xs uppercase font-bold text-slate-400 tracking-wider">Pricing Plan</div>
             <div class="text-xl font-extrabold text-emerald-400 mt-0.5">{pricing}</div>
           </div>
-          <a href="{affiliate_url}" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center shadow-lg shadow-purple-950/50 hover:brightness-110 transition-all flex items-center justify-center gap-2">
-            <span>Visit Official {name} Site</span>
-            <span>→</span>
-          </a>
+          {cta_button_html}
         </div>
 
         <!-- Claim Profile & Official Founder Badge Section -->
@@ -265,9 +262,23 @@ for tool in tools_data:
         rating_meta = ''
         rating_pro = '<li>Editorial review in progress</li>'
 
-    target_product_url = tool.get("affiliate_url") or tool.get("official_url") or "#"
-    if target_product_url in (None, "None", "null", ""):
-        target_product_url = "#"
+    # Helper to validate and clean HTTP/HTTPS URLs
+    def clean_url(url_val):
+        if not url_val or not isinstance(url_val, str):
+            return None
+        u = url_val.strip()
+        if not u or u.lower() in ("null", "undefined", "none", "n/a", "#"):
+            return None
+        if u.startswith("http://") or u.startswith("https://"):
+            return u
+        return None
+
+    target_product_url = clean_url(tool.get("affiliate_url")) or clean_url(tool.get("official_url"))
+
+    if target_product_url:
+        cta_button_html = f'<a href="{target_product_url}" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center shadow-lg shadow-purple-950/50 hover:brightness-110 transition-all flex items-center justify-center gap-2"><span>Visit Official {tool.get("name", "AI Tool")} Site</span><span>→</span></a>'
+    else:
+        cta_button_html = '<div class="px-6 py-3.5 rounded-xl font-bold text-xs bg-slate-800 text-slate-500 border border-slate-700/50 text-center">Official Link Unavailable</div>'
 
     file_content = html_template.format(
         name=tool.get("name", "AI Tool"),
@@ -281,14 +292,15 @@ for tool in tools_data:
         rating_meta=rating_meta,
         rating_pro=rating_pro,
         logo_url=tool.get("logo_url", ""),
-        affiliate_url=target_product_url,
+        cta_button_html=cta_button_html,
         features_html=features_html,
         alternatives_html=alternatives_html
     )
 
-    # Sanity check: Ensure generated HTML contains no href="None" or href="null"
-    if 'href="None"' in file_content or 'href="null"' in file_content or 'href=""' in file_content:
-        raise ValueError(f"Generated HTML for '{slug}' contains invalid href string!")
+    # Sanity check: Ensure generated HTML contains NO invalid hrefs
+    invalid_href_matches = re.findall(r'href=["\'](None|null|undefined|#|javascript:|[^\s"\']*javascript:[^\s"\']*)["\']', file_content)
+    if invalid_href_matches:
+        raise ValueError(f"Generated HTML for '{slug}' contains invalid href string: {invalid_href_matches}")
 
 
 
@@ -443,12 +455,8 @@ compare_template = """<!doctype html>
         </div>
 
         <div class="grid grid-cols-2 gap-4 pt-2">
-          <a href="{toolA_url}" target="_blank" rel="noopener noreferrer" class="py-3.5 px-4 rounded-xl bg-purple-600 hover:bg-purple-500 font-extrabold text-xs text-white text-center shadow-lg transition-all">
-            Get {toolA_name} →
-          </a>
-          <a href="{toolB_url}" target="_blank" rel="noopener noreferrer" class="py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 font-extrabold text-xs text-white text-center shadow-lg transition-all">
-            Get {toolB_name} →
-          </a>
+          {toolA_cta_html}
+          {toolB_cta_html}
         </div>
       </div>
     </main>
@@ -490,10 +498,18 @@ for tool_a in tools_data:
         rating_a_disp = f"⭐ {r_a} / 5.0" if r_a is not None else "Not rated"
         rating_b_disp = f"⭐ {r_b} / 5.0" if r_b is not None else "Not rated"
 
-        target_a_url = tool_a.get("affiliate_url") or tool_a.get("official_url") or "#"
-        target_b_url = tool_b.get("affiliate_url") or tool_b.get("official_url") or "#"
-        if target_a_url in (None, "None", "null", ""): target_a_url = "#"
-        if target_b_url in (None, "None", "null", ""): target_b_url = "#"
+        target_a_url = clean_url(tool_a.get("affiliate_url")) or clean_url(tool_a.get("official_url"))
+        target_b_url = clean_url(tool_b.get("affiliate_url")) or clean_url(tool_b.get("official_url"))
+
+        if target_a_url:
+            cta_a_html = f'<a href="{target_a_url}" target="_blank" rel="noopener noreferrer" class="py-3.5 px-4 rounded-xl bg-purple-600 hover:bg-purple-500 font-extrabold text-xs text-white text-center shadow-lg transition-all">Get {tool_a.get("name")} →</a>'
+        else:
+            cta_a_html = '<div class="py-3.5 px-4 rounded-xl bg-slate-800 text-slate-500 font-bold text-xs text-center border border-slate-700/50">Link Unavailable</div>'
+
+        if target_b_url:
+            cta_b_html = f'<a href="{target_b_url}" target="_blank" rel="noopener noreferrer" class="py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 font-extrabold text-xs text-white text-center shadow-lg transition-all">Get {tool_b.get("name")} →</a>'
+        else:
+            cta_b_html = '<div class="py-3.5 px-4 rounded-xl bg-slate-800 text-slate-500 font-bold text-xs text-center border border-slate-700/50">Link Unavailable</div>'
 
         comp_content = compare_template.format(
             toolA_name=tool_a.get("name"),
@@ -507,13 +523,15 @@ for tool_a in tools_data:
             toolB_pricing=tool_b.get("pricing", "Free Trial / Paid"),
             toolA_features=feat_a,
             toolB_features=feat_b,
-            toolA_url=target_a_url,
-            toolB_url=target_b_url,
+            toolA_cta_html=cta_a_html,
+            toolB_cta_html=cta_b_html,
             last_updated_date=last_updated_date
         )
 
-        if 'href="None"' in comp_content or 'href="null"' in comp_content or 'href=""' in comp_content:
-            raise ValueError(f"Generated compare HTML for '{slug_a}-vs-{slug_b}' contains invalid href string!")
+        # Sanity check: Ensure generated compare HTML contains NO invalid hrefs
+        invalid_compare_matches = re.findall(r'href=["\'](None|null|undefined|#|javascript:|[^\s"\']*javascript:[^\s"\']*)["\']', comp_content)
+        if invalid_compare_matches:
+            raise ValueError(f"Generated compare HTML for '{slug_a}-vs-{slug_b}' contains invalid href string: {invalid_compare_matches}")
 
         
         comp_file_path = os.path.join(COMPARE_PAGES_DIR, f"{slug_a}-vs-{slug_b}.html")
