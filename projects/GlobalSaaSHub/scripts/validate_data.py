@@ -97,7 +97,7 @@ for idx, tool in enumerate(tools):
         errors.append(f"Tool '{tid}' pricing_verified must be boolean (got {type(pv_flag).__name__}).")
 
     is_override = tool.get("is_manual_override")
-    if is_override is not None and not isinstance(is_override, bool):
+    if not isinstance(is_override, bool):
         errors.append(f"Tool '{tid}' is_manual_override must be boolean (got {type(is_override).__name__}).")
 
     http_status_enum = tool.get("http_verification_status")
@@ -140,8 +140,9 @@ for idx, tool in enumerate(tools):
     else:
         if not ps_url:
             errors.append(f"Tool '{tid}' pricing_verified is True but pricing_source_url is missing or null.")
-        if not pv_at or not re.match(r'^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}:\d{2}(Z|[+-]\d{2}:\d{2}))?$', str(pv_at)):
-            errors.append(f"Tool '{tid}' pricing_verified is True but pricing_verified_at '{pv_at}' is not a valid YYYY-MM-DD or ISO-8601 UTC timestamp.")
+        ISO_UTC_PATTERN = r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$"
+        if not isinstance(pv_at, str) or not re.fullmatch(ISO_UTC_PATTERN, str(pv_at)):
+            errors.append(f"Tool '{tid}' pricing_verified is True but pricing_verified_at '{pv_at}' must use YYYY-MM-DDTHH:MM:SSZ format.")
         if not currency:
             errors.append(f"Tool '{tid}' pricing_verified is True but currency is missing or null.")
         if not billing_period:
@@ -160,6 +161,14 @@ for idx, tool in enumerate(tools):
             errors.append(f"Tool '{tid}' pricing_verified is True but pricing_source_final_url '{ps_final}' is missing or invalid.")
         if not ps_markers or not isinstance(ps_markers, list) or len(ps_markers) == 0:
             errors.append(f"Tool '{tid}' pricing_verified is True but pricing_evidence_markers is empty or missing.")
+        else:
+            # Enforce that evidence_markers contains both price/currency marker AND billing period marker
+            has_price_marker = any(re.search(r'[\$\€\£\¥]\d+|\d+\s*(usd|eur|gbp)', str(m), re.I) for m in ps_markers)
+            has_period_marker = any(re.search(r'month|monthly|year|annual|user', str(m), re.I) for m in ps_markers)
+            if not has_price_marker:
+                errors.append(f"Tool '{tid}' pricing_evidence_markers {ps_markers} missing price/currency marker (e.g. '$200', '$99').")
+            if not has_period_marker:
+                errors.append(f"Tool '{tid}' pricing_evidence_markers {ps_markers} missing billing period marker (e.g. 'year', 'month').")
 
         # Pricing source domain check: must match official domain
         if ps_url and off_url:

@@ -83,18 +83,42 @@ for idx, tool in enumerate(manual_candidates):
             res_ps = urllib.request.urlopen(req_ps, context=ssl_context, timeout=10)
             status_code = res_ps.getcode()
             final_url = res_ps.geturl()
-            html_body = res_ps.read().decode("utf-8", errors="ignore")
+            raw_html_body = res_ps.read().decode("utf-8", errors="ignore")
 
-            markers_found = [m for m in evidence_markers if m.lower() in html_body.lower()]
+            import html
+            import re
 
-            if status_code == 200 and (len(evidence_markers) == 0 or len(markers_found) > 0):
+            normalized_body = html.unescape(raw_html_body)
+            normalized_body = re.sub(r"\s+", " ", normalized_body).casefold()
+
+            valid_markers = (
+                isinstance(evidence_markers, list)
+                and len(evidence_markers) > 0
+                and all(isinstance(marker, str) and bool(marker.strip()) for marker in evidence_markers)
+            )
+
+            missing_markers = []
+            if valid_markers:
+                for marker in evidence_markers:
+                    normalized_marker = re.sub(r"\s+", " ", html.unescape(marker).strip()).casefold()
+                    if normalized_marker not in normalized_body:
+                        missing_markers.append(marker)
+
+            verification_passed = (
+                status_code == 200
+                and valid_markers
+                and not missing_markers
+            )
+
+            if verification_passed:
                 tool["pricing_verified"] = True
                 tool["pricing_verified_at"] = now_iso_utc
                 tool["pricing_source_http_status"] = 200
                 tool["pricing_source_final_url"] = final_url
-                print(f"✅ Verified Pricing for '{name}' ({tid}): HTTP 200 | Markers: {markers_found}")
+                print(f"✅ Verified Pricing for '{name}' ({tid}): HTTP 200 | All Markers Verified: {evidence_markers}")
             else:
-                print(f"⚠️ Pricing Evidence Failed for '{name}' ({tid}): Status={status_code}, Found={markers_found}")
+                print(f"⚠️ Pricing Evidence Failed for '{name}' ({tid}): Status={status_code}, Missing Markers={missing_markers}")
+                tool["pricing"] = "See official pricing"
                 tool["pricing_verified"] = False
                 tool["pricing_source_url"] = None
                 tool["pricing_verified_at"] = None
@@ -106,6 +130,7 @@ for idx, tool in enumerate(manual_candidates):
                 tool["evidence_source_type"] = None
         except Exception as e:
             print(f"⚠️ Pricing HTTP Request Failed for '{name}' ({tid}): {e}")
+            tool["pricing"] = "See official pricing"
             tool["pricing_verified"] = False
             tool["pricing_source_url"] = None
             tool["pricing_verified_at"] = None
