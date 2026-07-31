@@ -1,12 +1,25 @@
 import React, { useState } from 'react';
-import { X, ExternalLink, Zap } from 'lucide-react';
+import { X, ExternalLink, Plus, Check, ShieldCheck, Zap, Star } from 'lucide-react';
 import { getValidExternalUrl } from '../utils/url';
 
 export default function CompareModal({ toolA, toolB, allTools, onClose }) {
-  const [selectedToolB, setSelectedToolB] = useState(toolB);
+  // Safe initial toolB selection if not provided by App.jsx
+  const sameCategoryTools = allTools ? allTools.filter(
+    t => t.id !== toolA?.id && (t.category === toolA?.category || t.category_display === toolA?.category_display)
+  ) : [];
+
+  const initialB = toolB || sameCategoryTools[0] || (allTools ? allTools.find(t => t.id !== toolA?.id) : null);
+
+  const [selectedToolB, setSelectedToolB] = useState(initialB);
   const [selectedToolC, setSelectedToolC] = useState(null);
 
-  const availableTools = allTools.filter(t => t.id !== toolA.id && t.id !== selectedToolB.id && (!selectedToolC || t.id !== selectedToolC.id));
+  if (!toolA || !selectedToolB) {
+    return null;
+  }
+
+  const availableTools = allTools ? allTools.filter(
+    t => t.id !== toolA.id && t.id !== selectedToolB.id && (!selectedToolC || t.id !== selectedToolC.id)
+  ) : [];
 
   const urlA = getValidExternalUrl(toolA);
   const urlB = getValidExternalUrl(selectedToolB);
@@ -43,15 +56,33 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-[#181a29] border border-blue-500/30 flex items-center gap-3">
-              <img src={selectedToolB.logo_url} alt={selectedToolB.name} className="h-8 w-8 rounded-lg bg-slate-900 object-contain p-1 border border-[#222538]" onError={(e) => e.target.style.display = 'none'} />
-              <div>
-                <div className="font-extrabold text-white text-base">{selectedToolB.name}</div>
-                <div className="text-[10px] text-blue-400 font-bold">{selectedToolB.category_display}</div>
+            <div className="p-4 rounded-2xl bg-[#181a29] border border-blue-500/30 flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <img src={selectedToolB.logo_url} alt={selectedToolB.name} className="h-8 w-8 rounded-lg bg-slate-900 object-contain p-1 border border-[#222538]" onError={(e) => e.target.style.display = 'none'} />
+                <div>
+                  <div className="font-extrabold text-white text-base">{selectedToolB.name}</div>
+                  <div className="text-[10px] text-blue-400 font-bold">{selectedToolB.category_display}</div>
+                </div>
               </div>
+
+              {availableTools.length > 0 && (
+                <select
+                  value={selectedToolB.id}
+                  onChange={(e) => {
+                    const found = allTools.find(t => t.id === e.target.value);
+                    if (found) setSelectedToolB(found);
+                  }}
+                  className="bg-[#131520] text-xs text-slate-300 border border-[#222538] rounded-lg px-2 py-1 focus:outline-none focus:border-blue-500"
+                >
+                  <option value={selectedToolB.id}>Change B...</option>
+                  {availableTools.map(t => (
+                    <option key={t.id} value={t.id}>{t.name}</option>
+                  ))}
+                </select>
+              )}
             </div>
 
-            {selectedToolC && (
+            {selectedToolC ? (
               <div className="p-4 rounded-2xl bg-[#181a29] border border-emerald-500/30 flex items-center justify-between gap-3 relative">
                 <div className="flex items-center gap-3">
                   <img src={selectedToolC.logo_url} alt={selectedToolC.name} className="h-8 w-8 rounded-lg bg-slate-900 object-contain p-1 border border-[#222538]" onError={(e) => e.target.style.display = 'none'} />
@@ -68,6 +99,23 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
                   <X className="h-4 w-4" />
                 </button>
               </div>
+            ) : (
+              availableTools.length > 0 && (
+                <div className="p-4 rounded-2xl bg-[#181a29]/40 border border-dashed border-[#222538] flex items-center justify-center">
+                  <select
+                    onChange={(e) => {
+                      const found = allTools.find(t => t.id === e.target.value);
+                      if (found) setSelectedToolC(found);
+                    }}
+                    className="bg-[#131520] text-xs text-purple-300 border border-[#222538] rounded-lg px-3 py-2 focus:outline-none focus:border-purple-500 font-bold cursor-pointer"
+                  >
+                    <option value="">+ Add 3rd Tool to Compare</option>
+                    {availableTools.map(t => (
+                      <option key={t.id} value={t.id}>{t.name}</option>
+                    ))}
+                  </select>
+                </div>
+              )
             )}
           </div>
 
