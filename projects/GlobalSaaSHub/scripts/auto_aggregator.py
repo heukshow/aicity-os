@@ -398,20 +398,6 @@ def main():
         new_tool['billing_period'] = None
         new_tool['evidence_source_type'] = None
 
-        # Verified Candidate Overrides for known verified new tools
-        CANDIDATE_VERIFIED_OVERRIDES = {
-            "joiin": {"pricing": "Starting at $23/month (billed annually, 1 company)", "pricing_source_url": "https://www.joiin.co/pricing/", "pricing_verified": True, "currency": "USD", "billing_period": "annual", "evidence_source_type": "official_pricing_page"},
-            "reditus": {"pricing": "14-day free trial; Startup plan at $99/month (billed annually) or $149 monthly", "pricing_source_url": "https://getreditus.com/help/reditus-pricing", "pricing_verified": True, "currency": "USD", "billing_period": "annual/monthly", "evidence_source_type": "official_help_page"},
-            "taskade": {"pricing": "Free plan available; Pro starting at $10/month (billed annually)", "pricing_source_url": "https://www.taskade.com/pricing", "pricing_verified": True, "currency": "USD", "billing_period": "annual", "evidence_source_type": "official_pricing_page"},
-            "krater": {"pricing": "Pro plan starting at $200/year (billed annually)", "pricing_source_url": "https://krater.ai/pricing", "pricing_verified": True, "currency": "USD", "billing_period": "annual", "evidence_source_type": "official_pricing_page"}
-        }
-
-        if tool_id in CANDIDATE_VERIFIED_OVERRIDES:
-            ov = CANDIDATE_VERIFIED_OVERRIDES[tool_id]
-            new_tool.update(ov)
-            import datetime
-            new_tool["pricing_verified_at"] = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
-
         if matched_existing_tool is None:
             # Truly new tool! Add to database
             existing_tools.append(new_tool)
