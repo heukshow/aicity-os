@@ -155,7 +155,21 @@ def main():
         except Exception as e:
             print(f"Fatal database read error: {e}")
             sys.exit(1)
-    existing_ids = {tool['id'] for tool in existing_tools}
+    existing_ids = {tool['id']: tool for tool in existing_tools}
+    existing_domains = {}
+    existing_names = {}
+    for tool in existing_tools:
+        url = tool.get('affiliate_url', '')
+        if url.startswith('http'):
+            try:
+                dom = urllib.parse.urlparse(url).netloc.replace('www.', '')
+                if dom:
+                    existing_domains[dom] = tool
+            except Exception:
+                pass
+        norm_n = tool.get('name', '').lower().strip().replace(' ', '').replace('-', '').replace('_', '')
+        if norm_n:
+            existing_names[norm_n] = tool
 
     # 4. Search Queries
 
@@ -314,19 +328,48 @@ def main():
             del new_tool['commission']
 
         tool_id = new_tool['id']
-        if tool_id not in existing_ids:
+        tool_domain = ""
+        if aff_url.startswith("http"):
+            try:
+                tool_domain = urllib.parse.urlparse(aff_url).netloc.replace("www.", "")
+            except Exception:
+                pass
+        tool_norm_name = new_tool.get('name', '').lower().strip().replace(' ', '').replace('-', '').replace('_', '')
+
+        # Check for existing match by ID, domain, or normalized name
+        matched_existing_tool = None
+        if tool_id in existing_ids:
+            matched_existing_tool = existing_ids[tool_id]
+        elif tool_domain and tool_domain in existing_domains:
+            matched_existing_tool = existing_domains[tool_domain]
+            print(f"Domain match found for '{new_tool['name']}' -> Existing tool '{matched_existing_tool['name']}' ({matched_existing_tool['id']})")
+        elif tool_norm_name and tool_norm_name in existing_names:
+            matched_existing_tool = existing_names[tool_norm_name]
+            print(f"Name match found for '{new_tool['name']}' -> Existing tool '{matched_existing_tool['name']}' ({matched_existing_tool['id']})")
+
+        if matched_existing_tool is None:
+            # Truly new tool! Add to database
             existing_tools.append(new_tool)
-            existing_ids.add(tool_id)
+            existing_ids[tool_id] = new_tool
+            if tool_domain:
+                existing_domains[tool_domain] = new_tool
+            if tool_norm_name:
+                existing_names[tool_norm_name] = new_tool
             new_tools_added += 1
             new_tools_list.append(new_tool)
-            print(f"New tool added: {new_tool['name']}")
+            print(f"New unique tool added: {new_tool['name']} ({tool_id})")
         else:
-            for tool in existing_tools:
-                if tool['id'] == tool_id and tool.get('pricing') != new_tool['pricing']:
-                    updated_tools_list.append({"id": tool_id, "old_pricing": tool.get('pricing'), "new_pricing": new_tool['pricing']})
-                    tool['pricing'] = new_tool['pricing']
-                    updated_tools_count += 1
-                    break
+            # Existing tool matched! Update pricing if changed
+            target_id = matched_existing_tool['id']
+            if matched_existing_tool.get('pricing') != new_tool.get('pricing'):
+                updated_tools_list.append({
+                    "id": target_id,
+                    "old_pricing": matched_existing_tool.get('pricing'),
+                    "new_pricing": new_tool.get('pricing')
+                })
+                matched_existing_tool['pricing'] = new_tool.get('pricing')
+                updated_tools_count += 1
+                print(f"Updated pricing for existing tool '{matched_existing_tool['name']}' ({target_id})")
 
     # 7. Write Back to Sandbox Next File
     try:
