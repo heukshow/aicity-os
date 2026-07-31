@@ -122,6 +122,21 @@ def query_gemini(api_key, system_prompt, user_content):
     return None
 
 
+def extract_domain(url):
+    if not isinstance(url, str):
+        return ""
+    value = url.strip()
+    if not value.startswith(("http://", "https://")):
+        return ""
+    try:
+        dom = urllib.parse.urlparse(value).netloc.lower()
+        if dom.startswith("www."):
+            dom = dom[4:]
+        return dom
+    except Exception:
+        return ""
+
+
 def main():
     print("Starting GlobalSaaSHub Auto Aggregator Script...")
     
@@ -135,13 +150,11 @@ def main():
         sys.exit(1)
         
     # 2. Paths
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    project_root = os.path.abspath(os.path.join(script_dir, ".."))
-    data_file_path = os.path.join(project_root, "data", "tools.json")
-    next_data_file_path = os.path.join(project_root, "data", "tools.next.json")
-    
-    print(f"Project root: {project_root}")
-    print(f"Operational Data file: {data_file_path}")
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    data_file_path = os.path.join(base_dir, 'data', 'tools.json')
+    next_data_file_path = os.path.join(base_dir, 'data', 'tools.next.json')
+
+    print(f"Base Data file: {data_file_path}")
     print(f"Next Target Data file: {next_data_file_path}")
 
     
@@ -159,14 +172,10 @@ def main():
     existing_domains = {}
     existing_names = {}
     for tool in existing_tools:
-        url = tool.get('affiliate_url', '')
-        if url.startswith('http'):
-            try:
-                dom = urllib.parse.urlparse(url).netloc.replace('www.', '')
-                if dom:
-                    existing_domains[dom] = tool
-            except Exception:
-                pass
+        source_url = tool.get("official_url") or tool.get("affiliate_url") or ""
+        dom = extract_domain(source_url)
+        if dom:
+            existing_domains[dom] = tool
         norm_n = tool.get('name', '').lower().strip().replace(' ', '').replace('-', '').replace('_', '')
         if norm_n:
             existing_names[norm_n] = tool
@@ -318,14 +327,9 @@ def main():
             print(f"Skipping tool due to invalid official_url format: {new_tool.get('name')} ({off_url})")
             continue
 
-        # Auto resolve domain favicon logo from official_url
-        tool_domain = ""
-        try:
-            tool_domain = urllib.parse.urlparse(off_url).netloc.replace('www.', '')
-            if tool_domain:
-                new_tool['logo_url'] = f"https://www.google.com/s2/favicons?domain={tool_domain}&sz=128"
-        except Exception:
-            pass
+        tool_domain = extract_domain(off_url)
+        if tool_domain:
+            new_tool['logo_url'] = f"https://www.google.com/s2/favicons?domain={tool_domain}&sz=128"
 
         # Ensure commission key is removed
         if 'commission' in new_tool:
