@@ -146,12 +146,7 @@ jobs:
             fi
             # Verify EXACTLY the duplicate-ID error string — no fallback broad grep.
             # The injected object has a unique URL, so only the ID collision error should fire.
-            INJECTED_ID=$(python -c "
-import json
-with open('projects/GlobalSaaSHub/data/tools.next.json') as f:
-    data = json.load(f)
-print(data[-1]['id'])
-")
+            INJECTED_ID=$(python -c "import json; data=json.load(open('projects/GlobalSaaSHub/data/tools.next.json')); print(data[-1]['id'])")
             EXPECTED_MSG="Duplicate Tool ID found: '${INJECTED_ID}'"
             echo "Checking for exact error string: $EXPECTED_MSG"
             if grep -Fq "$EXPECTED_MSG" projects/GlobalSaaSHub/data/normal_validation.log; then
