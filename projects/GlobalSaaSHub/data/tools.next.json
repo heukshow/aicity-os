@@ -3591,10 +3591,10 @@
       "AI Image Generator",
       "Code Assistant"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=krater.ai&sz=128",
     "primary_category": "creator",
-    "comparison_group": "creator",
+    "comparison_group": "multi_tool_ai_suite",
     "official_url": "https://krater.ai/",
     "pricing_source_url": "https://krater.ai/pricing",
     "pricing_verified_at": "2026-07-31",
@@ -3602,7 +3602,8 @@
     "currency": "USD",
     "billing_period": "annual",
     "evidence_source_type": "official_pricing_page",
-    "is_manual_override": false
+    "is_manual_override": true,
+    "http_verification_status": "verified_http_200"
   },
   {
     "id": "expandi",
@@ -3611,17 +3612,17 @@
     "category_display": "Workflow Automation",
     "description": "Safe and automated LinkedIn outreach and email sequence platform for B2B lead generation.",
     "affiliate_url": null,
-    "pricing": "Starting at $99/mo per seat",
+    "pricing": "See official pricing",
     "key_features": [
       "LinkedIn Automation",
       "Smart Sequences",
       "Cloud Desktop IP",
       "A/B Testing"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=expandi.io&sz=128",
     "primary_category": "automation",
-    "comparison_group": "workflow_auto",
+    "comparison_group": "linkedin_outreach",
     "official_url": "https://expandi.io/",
     "pricing_source_url": null,
     "pricing_verified_at": null,
@@ -3629,7 +3630,8 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": true,
+    "http_verification_status": "verified_http_200"
   },
   {
     "id": "reditus",
@@ -3645,10 +3647,10 @@
       "Recurring Payout Tracking",
       "Custom Referral Links"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=getreditus.com&sz=128",
     "primary_category": "automation",
-    "comparison_group": "workflow_auto",
+    "comparison_group": "affiliate_management",
     "official_url": "https://getreditus.com/",
     "pricing_source_url": "https://getreditus.com/help/reditus-pricing",
     "pricing_verified_at": "2026-07-31",
@@ -3656,7 +3658,8 @@
     "currency": "USD",
     "billing_period": "annual/monthly",
     "evidence_source_type": "official_help_page",
-    "is_manual_override": false
+    "is_manual_override": true,
+    "http_verification_status": "verified_http_200"
   },
   {
     "id": "joiin",
@@ -3672,10 +3675,10 @@
       "Custom Executive Reports",
       "Multi-Currency Conversion"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=joiin.co&sz=128",
     "primary_category": "automation",
-    "comparison_group": "workflow_auto",
+    "comparison_group": "financial_reporting",
     "official_url": "https://www.joiin.co/",
     "pricing_source_url": "https://www.joiin.co/pricing/",
     "pricing_verified_at": "2026-07-31",
@@ -3683,7 +3686,8 @@
     "currency": "USD",
     "billing_period": "annual",
     "evidence_source_type": "official_pricing_page",
-    "is_manual_override": false
+    "is_manual_override": true,
+    "http_verification_status": "verified_http_200"
   },
   {
     "id": "agentworks",
@@ -3692,17 +3696,17 @@
     "category_display": "Coding & Dev Tools",
     "description": "Enterprise AI agent deployment and orchestration workspace for automated enterprise workflows.",
     "affiliate_url": null,
-    "pricing": "Enterprise / Contact for pricing",
+    "pricing": "See official pricing",
     "key_features": [
       "Enterprise Agentic Framework",
       "Multi-Agent Orchestration",
       "SOC2 Compliance",
       "Role-Based Access Control"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=agentworks.ai&sz=128",
     "primary_category": "developer",
-    "comparison_group": "dev_coding",
+    "comparison_group": "ai_agent_platform",
     "official_url": "https://agentworks.ai/",
     "pricing_source_url": null,
     "pricing_verified_at": null,
@@ -3710,7 +3714,8 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": true,
+    "http_verification_status": "verified_http_200"
   },
   {
     "id": "airia",
@@ -3719,17 +3724,17 @@
     "category_display": "Coding & Dev Tools",
     "description": "Enterprise AI governance, security, and orchestration platform for managing agentic AI models.",
     "affiliate_url": null,
-    "pricing": "Enterprise / Contact for pricing",
+    "pricing": "See official pricing",
     "key_features": [
       "AI Security Governance",
       "Model Orchestration",
       "Prompt Injection Shield",
       "Audit Logging"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=airia.ai&sz=128",
     "primary_category": "developer",
-    "comparison_group": "dev_coding",
+    "comparison_group": "enterprise_ai_governance",
     "official_url": "https://airia.ai/",
     "pricing_source_url": null,
     "pricing_verified_at": null,
@@ -3737,7 +3742,8 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": true,
+    "http_verification_status": "verified_http_200"
   },
   {
     "id": "omi-ai",
@@ -3746,17 +3752,17 @@
     "category_display": "Coding & Dev Tools",
     "description": "Open-source AI wearable necklace and conversation assistant capturing real-time voice memories.",
     "affiliate_url": null,
-    "pricing": "$89 Hardware / Open Source",
+    "pricing": "See official pricing",
     "key_features": [
       "Wearable Voice Hardware",
       "Real-Time Speech Transcription",
       "Memory Recall API",
       "Open Source Architecture"
     ],
-    "rating": 4.4,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=omi.me&sz=128",
     "primary_category": "developer",
-    "comparison_group": "dev_coding",
+    "comparison_group": "ai_wearable",
     "official_url": "https://www.omi.me/",
     "pricing_source_url": null,
     "pricing_verified_at": null,
@@ -3764,7 +3770,8 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": true,
+    "http_verification_status": "verified_http_200"
   },
   {
     "id": "fireflies-ai",
@@ -3773,17 +3780,17 @@
     "category_display": "Workflow Automation",
     "description": "AI voice assistant and meeting note-taker that transcribes, summarizes, and analyzes conversations.",
     "affiliate_url": null,
-    "pricing": "Free plan available / Pro starting at $10/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Automated Meeting Transcription",
       "AI Conversation Intelligence",
       "CRM Integrations",
       "Custom Topic Tracker"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=fireflies.ai&sz=128",
     "primary_category": "automation",
-    "comparison_group": "workflow_auto",
+    "comparison_group": "meeting_assistant",
     "official_url": "https://fireflies.ai/",
     "pricing_source_url": null,
     "pricing_verified_at": null,
@@ -3791,26 +3798,55 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": true,
+    "http_verification_status": "verified_http_200"
+  },
+  {
+    "id": "gamma",
+    "name": "Gamma",
+    "category": "creator",
+    "category_display": "Creator Tools",
+    "description": "AI-powered presentation and document generator creating interactive web slides and pages.",
+    "affiliate_url": null,
+    "pricing": "See official pricing",
+    "key_features": [
+      "AI Presentation Generator",
+      "Interactive Web Cards",
+      "One-Click Styling",
+      "Export to PDF & PPTX"
+    ],
+    "rating": null,
+    "logo_url": "https://www.google.com/s2/favicons?domain=gamma.app&sz=128",
+    "primary_category": "creator",
+    "comparison_group": "ai_presentation",
+    "official_url": "https://gamma.app/",
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": true,
+    "http_verification_status": "bot_blocked"
   },
   {
     "id": "gobii",
     "name": "Gobii",
     "category": "developer",
     "category_display": "Coding & Dev Tools",
-    "description": "AI agent data infrastructure and real-time context retrieval layer for LLM applications.",
+    "description": "AI workforce and automated teammate platform building AI employees for teams with complex operational tasks.",
     "affiliate_url": null,
-    "pricing": "Developer Preview / Contact for pricing",
+    "pricing": "See official pricing",
     "key_features": [
-      "Real-Time Context Retrieval",
-      "LLM Vector Indexing",
-      "Agent Memory Storage",
-      "Developer REST API"
+      "Autonomous AI Employees",
+      "Operational Workflow Execution",
+      "Team Collaboration API",
+      "Task Memory Storage"
     ],
-    "rating": 4.3,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=gobii.ai&sz=128",
     "primary_category": "developer",
-    "comparison_group": "dev_coding",
+    "comparison_group": "ai_workforce_platform",
     "official_url": "https://gobii.ai/",
     "pricing_source_url": null,
     "pricing_verified_at": null,
@@ -3818,6 +3854,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": true,
+    "http_verification_status": "verified_http_200"
   }
 ]
