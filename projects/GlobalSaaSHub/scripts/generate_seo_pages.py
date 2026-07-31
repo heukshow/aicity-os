@@ -265,6 +265,10 @@ for tool in tools_data:
         rating_meta = ''
         rating_pro = '<li>Editorial review in progress</li>'
 
+    target_product_url = tool.get("affiliate_url") or tool.get("official_url") or "#"
+    if target_product_url in (None, "None", "null", ""):
+        target_product_url = "#"
+
     file_content = html_template.format(
         name=tool.get("name", "AI Tool"),
         slug=slug,
@@ -277,10 +281,14 @@ for tool in tools_data:
         rating_meta=rating_meta,
         rating_pro=rating_pro,
         logo_url=tool.get("logo_url", ""),
-        affiliate_url=tool.get("affiliate_url", "#"),
+        affiliate_url=target_product_url,
         features_html=features_html,
         alternatives_html=alternatives_html
     )
+
+    # Sanity check: Ensure generated HTML contains no href="None" or href="null"
+    if 'href="None"' in file_content or 'href="null"' in file_content or 'href=""' in file_content:
+        raise ValueError(f"Generated HTML for '{slug}' contains invalid href string!")
 
 
 

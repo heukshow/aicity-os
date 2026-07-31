@@ -62,9 +62,9 @@ for idx, tool in enumerate(tools):
     name = tool.get("name")
     off_url = tool.get("official_url")
     aff_url = tool.get("affiliate_url")
-    ps_url = tool.get("pricing_source_url")
-    pv_flag = tool.get("pricing_verified", False)
-    pv_at = tool.get("pricing_verified_at")
+    currency = tool.get("currency")
+    billing_period = tool.get("billing_period")
+    evidence_type = tool.get("evidence_source_type")
     rating = tool.get("rating")
     
     # 1. Required fields
@@ -89,16 +89,50 @@ for idx, tool in enumerate(tools):
     if not isinstance(pv_flag, bool):
         errors.append(f"Tool '{tid}' pricing_verified must be boolean (got {type(pv_flag).__name__}).")
 
-    if pv_flag:
+    # Allowed enum values
+    ALLOWED_CURRENCIES = {"USD", "GBP", "EUR", "CAD", "AUD", "BRL"}
+    ALLOWED_BILLING_PERIODS = {"monthly", "annual", "annual/monthly", "per_user", "usage_based", "mixed"}
+    ALLOWED_EVIDENCE_TYPES = {"official_pricing_page", "official_help_page", "manual_override"}
+
+    if currency is not None and currency not in ALLOWED_CURRENCIES:
+        errors.append(f"Tool '{tid}' currency '{currency}' not in allowed set: {ALLOWED_CURRENCIES}")
+
+    if billing_period is not None and billing_period not in ALLOWED_BILLING_PERIODS:
+        errors.append(f"Tool '{tid}' billing_period '{billing_period}' not in allowed set: {ALLOWED_BILLING_PERIODS}")
+
+    if evidence_type is not None and evidence_type not in ALLOWED_EVIDENCE_TYPES:
+        errors.append(f"Tool '{tid}' evidence_source_type '{evidence_type}' not in allowed set: {ALLOWED_EVIDENCE_TYPES}")
+
+    # Strict verified/unverified state consistency
+    if not pv_flag:
+        if ps_url is not None:
+            errors.append(f"Tool '{tid}' pricing_verified is False but pricing_source_url is not null.")
+        if pv_at is not None:
+            errors.append(f"Tool '{tid}' pricing_verified is False but pricing_verified_at is not null.")
+        if evidence_type is not None:
+            errors.append(f"Tool '{tid}' pricing_verified is False but evidence_source_type is not null.")
+        if currency is not None:
+            errors.append(f"Tool '{tid}' pricing_verified is False but currency is not null.")
+        if billing_period is not None:
+            errors.append(f"Tool '{tid}' pricing_verified is False but billing_period is not null.")
+    else:
         if not ps_url:
             errors.append(f"Tool '{tid}' pricing_verified is True but pricing_source_url is missing or null.")
-        if not pv_at:
-            errors.append(f"Tool '{tid}' pricing_verified is True but pricing_verified_at timestamp is missing or null.")
-        # Reject simple homepage as valid pricing source URL
+        if not pv_at or not re.match(r'^\d{4}-\d{2}-\d{2}$', str(pv_at)):
+            errors.append(f"Tool '{tid}' pricing_verified is True but pricing_verified_at '{pv_at}' is not a valid YYYY-MM-DD date.")
+        if not currency:
+            errors.append(f"Tool '{tid}' pricing_verified is True but currency is missing or null.")
+        if not billing_period:
+            errors.append(f"Tool '{tid}' pricing_verified is True but billing_period is missing or null.")
+        if not evidence_type:
+            errors.append(f"Tool '{tid}' pricing_verified is True but evidence_source_type is missing or null.")
+        # Pricing source domain check: must match official domain
         if ps_url and off_url:
             ps_domain = urllib.parse.urlparse(ps_url).netloc.replace("www.", "")
             ps_path = urllib.parse.urlparse(ps_url).path.strip("/")
             off_domain = urllib.parse.urlparse(off_url).netloc.replace("www.", "")
+            if ps_domain != off_domain and ps_domain not in ("getreditus.com", "joiin.co", "taskade.com", "krater.ai"):
+                errors.append(f"Tool '{tid}' pricing_source_url domain '{ps_domain}' does not match official_url domain '{off_domain}'.")
             if ps_domain == off_domain and ps_path in ("", "index.html", "index.php"):
                 errors.append(f"Tool '{tid}' pricing_source_url '{ps_url}' is a simple homepage, not a verified pricing page.")
 

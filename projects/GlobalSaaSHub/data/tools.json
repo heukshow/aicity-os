@@ -21,9 +21,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "notion-ai",
@@ -47,9 +48,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "make-com",
@@ -73,9 +75,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "elevenlabs",
@@ -100,9 +103,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "copy-ai",
@@ -127,9 +131,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "zenrows",
@@ -153,9 +158,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "tubebuddy",
@@ -179,9 +185,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "outlierkit",
@@ -205,9 +212,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "pictory",
@@ -232,9 +240,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "inkfluence-ai",
@@ -258,9 +267,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "jasper",
@@ -285,9 +295,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "writesonic",
@@ -312,9 +323,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "sudowrite",
@@ -339,9 +351,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "convertkit",
@@ -365,9 +378,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "quillbot",
@@ -391,9 +405,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "text-cortex",
@@ -417,9 +432,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "vidiq",
@@ -443,9 +459,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "bolddesk",
@@ -469,9 +486,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "brand24",
@@ -495,9 +513,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "socialchamp-io",
@@ -521,9 +540,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "triple-whale",
@@ -547,9 +567,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "boldsign",
@@ -573,9 +594,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "privy",
@@ -599,9 +621,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "aweber",
@@ -625,9 +648,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "unbounce",
@@ -651,9 +675,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "moosend",
@@ -677,9 +702,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "reply-io",
@@ -703,9 +729,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "omnisend",
@@ -729,9 +756,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "time2book",
@@ -755,9 +783,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "semrush",
@@ -781,9 +810,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "hubspot",
@@ -807,9 +837,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "kinsta",
@@ -833,9 +864,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "shopify",
@@ -859,9 +891,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "systeme-io",
@@ -885,9 +918,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "jotform",
@@ -911,9 +945,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "webflow",
@@ -937,9 +972,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "reactin",
@@ -963,9 +999,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "synthesia",
@@ -990,9 +1027,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "octo-browser",
@@ -1016,9 +1054,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "carv",
@@ -1042,9 +1081,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "jobhire",
@@ -1068,9 +1108,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "aitable-ai",
@@ -1094,9 +1135,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "liftmycv",
@@ -1120,9 +1162,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "blaze",
@@ -1146,9 +1189,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "aiassistworks",
@@ -1172,9 +1216,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "vista-social",
@@ -1198,9 +1243,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "gravity-forms",
@@ -1224,9 +1270,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "sendcloud",
@@ -1250,9 +1297,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "alidropship",
@@ -1276,9 +1324,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "nudgera",
@@ -1303,9 +1352,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "questmate",
@@ -1329,9 +1379,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "merlin",
@@ -1355,9 +1406,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "decktopus",
@@ -1381,9 +1433,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "dorik",
@@ -1407,9 +1460,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "rytr",
@@ -1433,9 +1487,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "frase",
@@ -1459,9 +1514,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "heygen",
@@ -1486,9 +1542,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "veed",
@@ -1513,9 +1570,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "reclaim-ai",
@@ -1539,9 +1597,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "descript",
@@ -1565,9 +1624,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "synder",
@@ -1591,9 +1651,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "gallabox",
@@ -1617,9 +1678,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "panda-video",
@@ -1643,9 +1705,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "surfer-seo",
@@ -1669,9 +1732,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "murf-ai",
@@ -1696,9 +1760,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "scalenut",
@@ -1722,9 +1787,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "castmagic",
@@ -1748,9 +1814,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "loopcv",
@@ -1774,9 +1841,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "clickfunnels",
@@ -1800,9 +1868,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "tapfiliate",
@@ -1826,9 +1895,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "getresponse",
@@ -1852,9 +1922,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "kit",
@@ -1878,9 +1949,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "teachable",
@@ -1904,9 +1976,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "livechat",
@@ -1930,9 +2003,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "kittl",
@@ -1956,9 +2030,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "koala-ai",
@@ -1982,9 +2057,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "lovo",
@@ -2009,9 +2085,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "n8n",
@@ -2035,9 +2112,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "novita-ai",
@@ -2061,9 +2139,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "followr",
@@ -2087,9 +2166,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "10web",
@@ -2113,9 +2193,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "supademo",
@@ -2139,9 +2220,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "colossyan",
@@ -2166,9 +2248,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "beefree",
@@ -2192,9 +2275,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "apollo",
@@ -2218,9 +2302,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "getgenie",
@@ -2244,9 +2329,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "activecampaign",
@@ -2270,9 +2356,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "sanebox",
@@ -2296,9 +2383,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "pipedrive",
@@ -2322,9 +2410,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "framer",
@@ -2348,9 +2437,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "monday-com",
@@ -2374,9 +2464,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "cartstack",
@@ -2400,9 +2491,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "cloudways",
@@ -2426,9 +2518,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "featureshark",
@@ -2452,9 +2545,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "clickup",
@@ -2478,9 +2572,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "getgabs",
@@ -2504,9 +2599,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "eprofessor",
@@ -2530,9 +2626,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "docsbot",
@@ -2556,9 +2653,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "surfeo",
@@ -2582,9 +2680,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "dub",
@@ -2608,9 +2707,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "helpdesk",
@@ -2634,9 +2734,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "happyscribe",
@@ -2660,9 +2761,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "pickaxe",
@@ -2686,9 +2788,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "ai-video-cut",
@@ -2712,9 +2815,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "tagshop-ai",
@@ -2738,9 +2842,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "text",
@@ -2764,9 +2869,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "typedesk",
@@ -2790,9 +2896,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "chatbot",
@@ -2816,9 +2923,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "gojiberry",
@@ -2842,9 +2950,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "bidx",
@@ -2868,9 +2977,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "tidio",
@@ -2894,9 +3004,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "catalister",
@@ -2920,9 +3031,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "bookyourdata",
@@ -2946,9 +3058,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "mindstudio",
@@ -2972,9 +3085,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "manychat",
@@ -2998,9 +3112,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "synthflow-ai",
@@ -3024,9 +3139,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "customgpt-ai",
@@ -3050,9 +3166,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "databox",
@@ -3076,9 +3193,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "fathom",
@@ -3102,9 +3220,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "taskip",
@@ -3128,9 +3247,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "gumloop",
@@ -3154,9 +3274,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "teknikforce",
@@ -3180,9 +3301,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "hide-me",
@@ -3206,9 +3328,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "snov-io",
@@ -3232,9 +3355,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "claap",
@@ -3258,9 +3382,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "cloudtalk",
@@ -3284,9 +3409,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "seamless",
@@ -3310,9 +3436,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "flowgent-ai",
@@ -3336,9 +3463,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "activepieces",
@@ -3362,9 +3490,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "marketingblocks",
@@ -3389,9 +3518,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "google-workspace",
@@ -3415,9 +3545,10 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   },
   {
     "id": "chatbase",
@@ -3441,8 +3572,9 @@
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": null
+    "currency": null,
+    "billing_period": null,
+    "evidence_source_type": null,
+    "is_manual_override": false
   }
 ]
