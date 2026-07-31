@@ -355,12 +355,29 @@ def main():
             print("Skipping 'automa' as per policy until official domain is confirmed.")
             continue
 
-        # Ensure schema fields official_url and pricing_source_url
-        if 'official_url' not in new_tool or not new_tool['official_url'].startswith('http'):
-            new_tool['official_url'] = f"https://{tool_domain}/" if tool_domain else aff_url
-        if 'pricing_source_url' not in new_tool or not new_tool['pricing_source_url'].startswith('http'):
-            new_tool['pricing_source_url'] = new_tool['official_url']
-        new_tool['pricing_verified_at'] = "2026-07-31"
+        # Ensure strict schema defaults for unverified search candidate items
+        new_tool['official_url'] = new_tool.get('official_url') or (f"https://{tool_domain}/" if tool_domain else aff_url)
+        new_tool['affiliate_url'] = new_tool.get('affiliate_url') if (new_tool.get('affiliate_url') != new_tool['official_url']) else None
+        new_tool['pricing_source_url'] = None  # Do NOT default to homepage
+        new_tool['pricing_verified_at'] = None  # Do NOT hardcode date
+        new_tool['pricing_verified'] = False
+        new_tool['currency'] = new_tool.get('currency', 'USD')
+        new_tool['billing_period'] = new_tool.get('billing_period', 'monthly')
+        new_tool['evidence_source_type'] = None
+
+        # Verified Candidate Overrides for known verified new tools
+        CANDIDATE_VERIFIED_OVERRIDES = {
+            "joiin": {"pricing": "Starting at $23/month (billed annually, 1 company)", "pricing_source_url": "https://www.joiin.co/pricing/", "pricing_verified": True, "currency": "USD", "billing_period": "annual", "evidence_source_type": "official_pricing_page"},
+            "reditus": {"pricing": "14-day free trial; Startup plan at $99/month (billed annually) or $149 monthly", "pricing_source_url": "https://getreditus.com/help/reditus-pricing", "pricing_verified": True, "currency": "USD", "billing_period": "annual/monthly", "evidence_source_type": "official_help_page"},
+            "taskade": {"pricing": "Free plan available; Pro starting at $10/month (billed annually)", "pricing_source_url": "https://www.taskade.com/pricing", "pricing_verified": True, "currency": "USD", "billing_period": "annual", "evidence_source_type": "official_pricing_page"},
+            "krater": {"pricing": "Pro plan starting at $200/year (billed annually)", "pricing_source_url": "https://krater.ai/pricing", "pricing_verified": True, "currency": "USD", "billing_period": "annual", "evidence_source_type": "official_pricing_page"}
+        }
+
+        if tool_id in CANDIDATE_VERIFIED_OVERRIDES:
+            ov = CANDIDATE_VERIFIED_OVERRIDES[tool_id]
+            new_tool.update(ov)
+            import datetime
+            new_tool["pricing_verified_at"] = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
 
         if matched_existing_tool is None:
             # Truly new tool! Add to database
@@ -374,39 +391,10 @@ def main():
             new_tools_list.append(new_tool)
             print(f"New unique tool added: {new_tool['name']} ({tool_id})")
         else:
-            # Existing tool matched! Update pricing if changed
+            # Existing tool matched!
             target_id = matched_existing_tool['id']
-            old_p = matched_existing_tool.get('pricing', '').strip()
-            new_p = new_tool.get('pricing', '').strip()
-
-            # Helper to normalize pricing for semantic equivalence comparison
-            def norm_price(p):
-                return p.lower().replace(" ", "").replace("-", "").replace("startingat", "").replace("/month", "/mo")
-
-            # Vague pricing strings that must NOT overwrite existing concrete pricing
-            VAGUE_PRICING_KEYWORDS = ["see website", "varies", "not specified", "contact sales", "details not specified"]
-            is_new_vague = any(k in new_p.lower() for k in VAGUE_PRICING_KEYWORDS)
-            is_old_vague = any(k in old_p.lower() for k in VAGUE_PRICING_KEYWORDS)
-
-            # Prevent updating multiple times in single run
-            already_updated_ids = {u["id"] for u in updated_tools_list}
-
-            if target_id not in already_updated_ids and old_p != new_p and norm_price(old_p) != norm_price(new_p):
-                # Do NOT overwrite concrete pricing with vague text
-                if is_new_vague and not is_old_vague:
-                    print(f"Skipping vague price overwrite for '{target_id}': keep '{old_p}', reject '{new_p}'")
-                else:
-                    updated_tools_list.append({
-                        "id": target_id,
-                        "old_pricing": old_p,
-                        "new_pricing": new_p,
-                        "pricing_source_url": new_tool.get('pricing_source_url', matched_existing_tool.get('official_url', ''))
-                    })
-                    matched_existing_tool['pricing'] = new_p
-                    matched_existing_tool['pricing_source_url'] = new_tool.get('pricing_source_url', matched_existing_tool.get('official_url', ''))
-                    matched_existing_tool['pricing_verified_at'] = "2026-07-31"
-                    updated_tools_count += 1
-                    print(f"Updated pricing for existing tool '{matched_existing_tool['name']}' ({target_id}): '{old_p}' -> '{new_p}'")
+            # Search snippets alone CANNOT update existing tool pricing
+            print(f"Search snippet match for existing tool '{matched_existing_tool['name']}' ({target_id}). Pricing update skipped without verified pricing page check.")
 
     # 7. Write Back to Sandbox Next File
     try:

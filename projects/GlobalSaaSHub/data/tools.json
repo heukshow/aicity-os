@@ -5,7 +5,7 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "An all-in-one sales, marketing, and CRM platform designed specifically for agencies and businesses to automate client acquisition and retention.",
-    "affiliate_url": "https://www.gohighlevel.com/",
+    "affiliate_url": null,
     "pricing": "Starting at $97/mo",
     "key_features": [
       "CRM & Pipeline",
@@ -18,8 +18,12 @@
     "primary_category": "chatbots_support",
     "comparison_group": "chatbots_support",
     "official_url": "https://www.gohighlevel.com/",
-    "pricing_source_url": "https://www.gohighlevel.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "notion-ai",
@@ -27,7 +31,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "An integrated AI assistant within Notion that helps you write, summarize, brainstorm, and automate document formatting directly inside your workspace.",
-    "affiliate_url": "https://www.notion.so/",
+    "affiliate_url": null,
     "pricing": "Starting at $10/month",
     "key_features": [
       "Inline Writing Help",
@@ -40,8 +44,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://www.notion.so/",
-    "pricing_source_url": "https://www.notion.so/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "make-com",
@@ -49,7 +57,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "A visual automation platform that lets you design, build, and automate anything—from simple tasks to complex workflows—in minutes without coding.",
-    "affiliate_url": "https://www.make.com/",
+    "affiliate_url": null,
     "pricing": "Free plan / $9/mo",
     "key_features": [
       "Visual Drag & Drop",
@@ -62,8 +70,12 @@
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
     "official_url": "https://www.make.com/",
-    "pricing_source_url": "https://www.make.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "elevenlabs",
@@ -71,7 +83,7 @@
     "category": "voice_cloning",
     "category_display": "Voice & Speech AI",
     "description": "The leading generative voice AI software that creates lifelike speech, voice clones, and sound effects in any language and voice style.",
-    "affiliate_url": "https://elevenlabs.io/",
+    "affiliate_url": null,
     "pricing": "Varies",
     "key_features": [
       "AI Voice Cloning",
@@ -85,8 +97,12 @@
     "comparison_group": "voice_generation",
     "is_direct_competitor": true,
     "official_url": "https://elevenlabs.io/",
-    "pricing_source_url": "https://elevenlabs.io/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "copy-ai",
@@ -94,7 +110,7 @@
     "category": "copywriting",
     "category_display": "AI Copywriting",
     "description": "An AI-powered copywriting platform and marketing operating system designed to automate content writing, translation, and social media posting.",
-    "affiliate_url": "https://www.copy.ai/",
+    "affiliate_url": null,
     "pricing": "Starting at $36/mo",
     "key_features": [
       "Marketing Workflows",
@@ -108,8 +124,12 @@
     "comparison_group": "ai_writing_assistant",
     "is_direct_competitor": true,
     "official_url": "https://www.copy.ai/",
-    "pricing_source_url": "https://www.copy.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "zenrows",
@@ -117,7 +137,7 @@
     "category": "scraping_data",
     "category_display": "Data & Scraping APIs",
     "description": "An all-in-one web scraping API that handles proxies, anti-bot bypasses (Cloudflare, CAPTCHAs), and headless browsers with a single API call.",
-    "affiliate_url": "https://www.zenrows.com/",
+    "affiliate_url": null,
     "pricing": "Starting at $49/mo",
     "key_features": [
       "Anti-Bot Bypass",
@@ -130,8 +150,12 @@
     "primary_category": "scraping_data",
     "comparison_group": "scraping_data",
     "official_url": "https://www.zenrows.com/",
-    "pricing_source_url": "https://www.zenrows.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "tubebuddy",
@@ -139,7 +163,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "An essential browser extension and mobile app for YouTube creators, TubeBuddy helps optimize and grow YouTube channels through advanced analytics, SEO tools, and productivity features.",
-    "affiliate_url": "https://www.tubebuddy.com/",
+    "affiliate_url": null,
     "pricing": "Starting at $9/mo for Pro",
     "key_features": [
       "Video SEO optimization",
@@ -152,8 +176,12 @@
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
     "official_url": "https://www.tubebuddy.com/",
-    "pricing_source_url": "https://www.tubebuddy.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "outlierkit",
@@ -161,7 +189,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "An AI-powered platform designed for content creators, OutlierKit helps identify trending topics and viral video ideas, specifically for YouTube-focused audiences, to maximize engagement and growth.",
-    "affiliate_url": "https://outlierkit.com/",
+    "affiliate_url": null,
     "pricing": "Starting at $29/mo",
     "key_features": [
       "AI-powered trend analysis",
@@ -174,8 +202,12 @@
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
     "official_url": "https://outlierkit.com/",
-    "pricing_source_url": "https://outlierkit.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "pictory",
@@ -183,7 +215,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "An AI-powered video creation tool that automatically transforms text into engaging videos, making it easy for marketers and content creators to produce compelling video content quickly.",
-    "affiliate_url": "https://pictory.ai/",
+    "affiliate_url": null,
     "pricing": "Starting at $19/mo",
     "key_features": [
       "Text-to-video conversion",
@@ -197,8 +229,12 @@
     "comparison_group": "ai_avatar_video",
     "is_direct_competitor": true,
     "official_url": "https://pictory.ai/",
-    "pricing_source_url": "https://pictory.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "inkfluence-ai",
@@ -219,8 +255,12 @@
     "primary_category": "seo_tools",
     "comparison_group": "seo_tools",
     "official_url": "https://www.inkfluenceai.com/",
-    "pricing_source_url": "https://www.inkfluenceai.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "jasper",
@@ -242,8 +282,12 @@
     "comparison_group": "ai_writing_assistant",
     "is_direct_competitor": true,
     "official_url": "https://www.jasper.ai/",
-    "pricing_source_url": "https://www.jasper.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "writesonic",
@@ -265,8 +309,12 @@
     "comparison_group": "ai_writing_assistant",
     "is_direct_competitor": true,
     "official_url": "https://writesonic.com/",
-    "pricing_source_url": "https://writesonic.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "sudowrite",
@@ -288,8 +336,12 @@
     "comparison_group": "ai_writing_assistant",
     "is_direct_competitor": true,
     "official_url": "https://www.sudowrite.com/",
-    "pricing_source_url": "https://www.sudowrite.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "convertkit",
@@ -310,8 +362,12 @@
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
     "official_url": "https://convertkit.com/",
-    "pricing_source_url": "https://convertkit.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "quillbot",
@@ -332,8 +388,12 @@
     "primary_category": "design_art",
     "comparison_group": "design_art",
     "official_url": "https://quillbot.com/",
-    "pricing_source_url": "https://quillbot.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "text-cortex",
@@ -354,8 +414,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://textcortex.com/",
-    "pricing_source_url": "https://textcortex.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "vidiq",
@@ -376,8 +440,12 @@
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
     "official_url": "https://vidiq.com/",
-    "pricing_source_url": "https://vidiq.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "bolddesk",
@@ -385,7 +453,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "A comprehensive help desk solution designed for startups, offering a free plan to manage customer inquiries efficiently and streamline support operations.",
-    "affiliate_url": "https://www.bolddesk.com/",
+    "affiliate_url": null,
     "pricing": "Free plan / $12/mo",
     "key_features": [
       "Ticket Management System",
@@ -398,8 +466,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://www.bolddesk.com/",
-    "pricing_source_url": "https://www.bolddesk.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "brand24",
@@ -407,7 +479,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "An essential social media monitoring tool that helps businesses track mentions, analyze sentiment, and understand their online presence.",
-    "affiliate_url": "https://brand24.com/",
+    "affiliate_url": null,
     "pricing": "Starting at $79/mo",
     "key_features": [
       "Real-time Brand Monitoring",
@@ -420,8 +492,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://brand24.com/",
-    "pricing_source_url": "https://brand24.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "socialchamp-io",
@@ -429,7 +505,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "A robust social media management platform designed to simplify content scheduling, publishing, and engagement across multiple channels.",
-    "affiliate_url": "https://socialchamp.io/",
+    "affiliate_url": null,
     "pricing": "Starting at $29/mo",
     "key_features": [
       "Multi-Platform Scheduling",
@@ -442,8 +518,12 @@
     "primary_category": "design_art",
     "comparison_group": "design_art",
     "official_url": "https://socialchamp.io/",
-    "pricing_source_url": "https://socialchamp.io/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "triple-whale",
@@ -451,7 +531,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "An all-in-one operating system for e-commerce, providing comprehensive analytics and attribution to help brands optimize their marketing spend.",
-    "affiliate_url": "https://triplewhale.com/",
+    "affiliate_url": null,
     "pricing": "Starting at $129/mo",
     "key_features": [
       "Centralized E-commerce Analytics",
@@ -464,8 +544,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://triplewhale.com/",
-    "pricing_source_url": "https://triplewhale.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "boldsign",
@@ -473,7 +557,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "A secure and efficient e-signature solution that streamlines document signing workflows, making legal agreements faster and more convenient.",
-    "affiliate_url": "https://www.boldsign.com/",
+    "affiliate_url": null,
     "pricing": "Starting at $10/mo",
     "key_features": [
       "Legally Binding E-signatures",
@@ -486,8 +570,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://www.boldsign.com/",
-    "pricing_source_url": "https://www.boldsign.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "privy",
@@ -495,7 +583,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "A powerful email marketing and conversion platform specifically designed for e-commerce businesses to grow their email lists and boost sales.",
-    "affiliate_url": "https://www.privy.com/",
+    "affiliate_url": null,
     "pricing": "Starting at $30/mo",
     "key_features": [
       "Pop-up & Exit-Intent Campaigns",
@@ -508,8 +596,12 @@
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
     "official_url": "https://www.privy.com/",
-    "pricing_source_url": "https://www.privy.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "aweber",
@@ -517,7 +609,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "A long-standing and reliable email marketing service, perfect for small businesses and creators looking to build their audience and automate communication.",
-    "affiliate_url": "https://www.aweber.com/",
+    "affiliate_url": null,
     "pricing": "Free plan / $12.50/mo",
     "key_features": [
       "Email Campaign Creation",
@@ -530,8 +622,12 @@
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
     "official_url": "https://www.aweber.com/",
-    "pricing_source_url": "https://www.aweber.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "unbounce",
@@ -539,7 +635,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "A leading landing page builder that empowers marketers to create high-converting landing pages and pop-ups without any coding required.",
-    "affiliate_url": "https://unbounce.com/",
+    "affiliate_url": null,
     "pricing": "Starting at $99/mo",
     "key_features": [
       "Drag-and-Drop Page Builder",
@@ -552,8 +648,12 @@
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
     "official_url": "https://unbounce.com/",
-    "pricing_source_url": "https://unbounce.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "moosend",
@@ -561,7 +661,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "A powerful and user-friendly email marketing and marketing automation platform, perfect for businesses aiming to engage their audience effectively.",
-    "affiliate_url": "https://moosend.com/",
+    "affiliate_url": null,
     "pricing": "Starting at $9/mo",
     "key_features": [
       "Email Campaign Designer",
@@ -574,8 +674,12 @@
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
     "official_url": "https://moosend.com/",
-    "pricing_source_url": "https://moosend.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "reply-io",
@@ -583,7 +687,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "A comprehensive AI-powered sales engagement platform designed to automate and scale multi-channel outreach, boosting sales team productivity.",
-    "affiliate_url": "https://reply.io/",
+    "affiliate_url": null,
     "pricing": "Starting at $60/mo",
     "key_features": [
       "Multi-Channel Sales Sequences",
@@ -596,8 +700,12 @@
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
     "official_url": "https://reply.io/",
-    "pricing_source_url": "https://reply.io/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "omnisend",
@@ -605,7 +713,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "An advanced e-commerce marketing automation platform, integrating email, SMS, and push notifications to drive sales and customer retention.",
-    "affiliate_url": "https://www.omnisend.com/",
+    "affiliate_url": null,
     "pricing": "Free plan / $16/mo",
     "key_features": [
       "Email & SMS Campaigns",
@@ -618,8 +726,12 @@
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
     "official_url": "https://www.omnisend.com/",
-    "pricing_source_url": "https://www.omnisend.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "time2book",
@@ -627,7 +739,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "A specialized SaaS platform for fitness studios, personal trainers, and yoga teachers, streamlining booking and payment processes.",
-    "affiliate_url": "https://www.time2book.me/",
+    "affiliate_url": null,
     "pricing": "Contact for pricing.",
     "key_features": [
       "Integrated Booking System",
@@ -640,8 +752,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://www.time2book.me/",
-    "pricing_source_url": "https://www.time2book.me/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "semrush",
@@ -649,7 +765,7 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "A leading all-in-one platform providing comprehensive SEO and marketing tools for bloggers, agencies, and B2B content creators.",
-    "affiliate_url": "https://www.semrush.com/",
+    "affiliate_url": null,
     "pricing": "Varies by plan, starting from $119.95/month.",
     "key_features": [
       "Keyword Research Tools",
@@ -662,8 +778,12 @@
     "primary_category": "seo_tools",
     "comparison_group": "seo_tools",
     "official_url": "https://www.semrush.com/",
-    "pricing_source_url": "https://www.semrush.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "hubspot",
@@ -671,7 +791,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "A powerful CRM platform offering integrated tools for marketing, sales, customer service, and content management to grow businesses.",
-    "affiliate_url": "https://www.hubspot.com/",
+    "affiliate_url": null,
     "pricing": "Starting at $50/mo (Free tools available)",
     "key_features": [
       "Comprehensive CRM Database",
@@ -684,8 +804,12 @@
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
     "official_url": "https://www.hubspot.com/",
-    "pricing_source_url": "https://www.hubspot.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "kinsta",
@@ -693,7 +817,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "Premium managed WordPress hosting designed for speed, security, and scalability, ideal for agencies and businesses with high-traffic websites.",
-    "affiliate_url": "https://kinsta.com/",
+    "affiliate_url": null,
     "pricing": "Pricing details on website",
     "key_features": [
       "High-Performance Hosting",
@@ -706,8 +830,12 @@
     "primary_category": "design_art",
     "comparison_group": "design_art",
     "official_url": "https://kinsta.com/",
-    "pricing_source_url": "https://kinsta.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "shopify",
@@ -715,7 +843,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "A leading e-commerce platform that enables businesses to build, run, and grow online stores with robust sales and management tools.",
-    "affiliate_url": "https://www.shopify.com/",
+    "affiliate_url": null,
     "pricing": "Pricing details on website",
     "key_features": [
       "Intuitive Store Builder",
@@ -728,8 +856,12 @@
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
     "official_url": "https://www.shopify.com/",
-    "pricing_source_url": "https://www.shopify.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "systeme-io",
@@ -737,7 +869,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Systeme.io is an all-in-one marketing platform designed for entrepreneurs and small businesses, offering tools for sales funnels, email marketing, websites, and online courses. Simplify your online business with its comprehensive and user-friendly features.",
-    "affiliate_url": "https://systeme.io/",
+    "affiliate_url": null,
     "pricing": "Free plan available, paid plans starting at $27/mo",
     "key_features": [
       "Sales Funnel Builder",
@@ -750,8 +882,12 @@
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
     "official_url": "https://systeme.io/",
-    "pricing_source_url": "https://systeme.io/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "jotform",
@@ -772,8 +908,12 @@
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
     "official_url": "https://www.jotform.com/",
-    "pricing_source_url": "https://www.jotform.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "webflow",
@@ -794,8 +934,12 @@
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
     "official_url": "https://webflow.com/",
-    "pricing_source_url": "https://webflow.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "reactin",
@@ -816,8 +960,12 @@
     "primary_category": "design_art",
     "comparison_group": "design_art",
     "official_url": "https://www.reactin.io/",
-    "pricing_source_url": "https://www.reactin.io/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "synthesia",
@@ -839,8 +987,12 @@
     "comparison_group": "ai_avatar_video",
     "is_direct_competitor": true,
     "official_url": "https://www.synthesia.io/",
-    "pricing_source_url": "https://www.synthesia.io/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "octo-browser",
@@ -861,8 +1013,12 @@
     "primary_category": "design_art",
     "comparison_group": "design_art",
     "official_url": "https://octobrowser.net/",
-    "pricing_source_url": "https://octobrowser.net/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "carv",
@@ -883,8 +1039,12 @@
     "primary_category": "ai_agents",
     "comparison_group": "ai_agents",
     "official_url": "https://carv.ai/",
-    "pricing_source_url": "https://carv.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "jobhire",
@@ -905,8 +1065,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://jobhire.ai/",
-    "pricing_source_url": "https://jobhire.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "aitable-ai",
@@ -927,8 +1091,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://aitable.ai/",
-    "pricing_source_url": "https://aitable.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "liftmycv",
@@ -949,8 +1117,12 @@
     "primary_category": "ai_agents",
     "comparison_group": "ai_agents",
     "official_url": "https://liftmycv.com/",
-    "pricing_source_url": "https://liftmycv.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "blaze",
@@ -971,8 +1143,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://blaze.ai/",
-    "pricing_source_url": "https://blaze.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "aiassistworks",
@@ -993,8 +1169,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://aiassistworks.com/",
-    "pricing_source_url": "https://aiassistworks.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "vista-social",
@@ -1015,8 +1195,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://vistasocial.com/",
-    "pricing_source_url": "https://vistasocial.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "gravity-forms",
@@ -1037,8 +1221,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://www.gravityforms.com/",
-    "pricing_source_url": "https://www.gravityforms.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "sendcloud",
@@ -1059,8 +1247,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://sendcloud.com/",
-    "pricing_source_url": "https://sendcloud.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "alidropship",
@@ -1081,8 +1273,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://alidropship.com/",
-    "pricing_source_url": "https://alidropship.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "nudgera",
@@ -1104,8 +1300,12 @@
     "comparison_group": "finance_collection",
     "is_direct_competitor": true,
     "official_url": "https://nudgera.com/",
-    "pricing_source_url": "https://nudgera.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "questmate",
@@ -1126,8 +1326,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://questmate.com/",
-    "pricing_source_url": "https://questmate.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "merlin",
@@ -1148,8 +1352,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://www.getmerlin.in/",
-    "pricing_source_url": "https://www.getmerlin.in/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "decktopus",
@@ -1170,8 +1378,12 @@
     "primary_category": "design_art",
     "comparison_group": "design_art",
     "official_url": "https://decktopus.com/",
-    "pricing_source_url": "https://decktopus.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "dorik",
@@ -1192,8 +1404,12 @@
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
     "official_url": "https://dorik.com/",
-    "pricing_source_url": "https://dorik.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "rytr",
@@ -1214,8 +1430,12 @@
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
     "official_url": "https://rytr.me/",
-    "pricing_source_url": "https://rytr.me/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "frase",
@@ -1236,8 +1456,12 @@
     "primary_category": "seo_tools",
     "comparison_group": "seo_tools",
     "official_url": "https://www.frase.io/",
-    "pricing_source_url": "https://www.frase.io/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "heygen",
@@ -1259,8 +1483,12 @@
     "comparison_group": "ai_avatar_video",
     "is_direct_competitor": true,
     "official_url": "https://www.heygen.com/",
-    "pricing_source_url": "https://www.heygen.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "veed",
@@ -1282,8 +1510,12 @@
     "comparison_group": "ai_avatar_video",
     "is_direct_competitor": true,
     "official_url": "https://www.veed.io/",
-    "pricing_source_url": "https://www.veed.io/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "reclaim-ai",
@@ -1304,8 +1536,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://reclaim.ai/",
-    "pricing_source_url": "https://reclaim.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "descript",
@@ -1326,8 +1562,12 @@
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
     "official_url": "https://www.descript.com/",
-    "pricing_source_url": "https://www.descript.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "synder",
@@ -1348,8 +1588,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://synder.com/",
-    "pricing_source_url": "https://synder.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "gallabox",
@@ -1370,8 +1614,12 @@
     "primary_category": "chatbots_support",
     "comparison_group": "chatbots_support",
     "official_url": "https://www.gallabox.com/",
-    "pricing_source_url": "https://www.gallabox.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "panda-video",
@@ -1392,8 +1640,12 @@
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
     "official_url": "https://pandavideo.com/",
-    "pricing_source_url": "https://pandavideo.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "surfer-seo",
@@ -1414,8 +1666,12 @@
     "primary_category": "seo_tools",
     "comparison_group": "seo_tools",
     "official_url": "https://surferseo.com/",
-    "pricing_source_url": "https://surferseo.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "murf-ai",
@@ -1437,8 +1693,12 @@
     "comparison_group": "voice_generation",
     "is_direct_competitor": true,
     "official_url": "https://murf.ai/",
-    "pricing_source_url": "https://murf.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "scalenut",
@@ -1459,8 +1719,12 @@
     "primary_category": "seo_tools",
     "comparison_group": "seo_tools",
     "official_url": "https://www.scalenut.com/",
-    "pricing_source_url": "https://www.scalenut.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "castmagic",
@@ -1468,7 +1732,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Castmagic is an AI-powered content workflow tool that transforms audio and video files into various scalable content formats. It helps professionals and creators automate the repurposing of their media into blog posts, social content, and more.",
-    "affiliate_url": "https://www.castmagic.io/",
+    "affiliate_url": null,
     "pricing": "See website for details",
     "key_features": [
       "AI-powered content repurposing",
@@ -1481,8 +1745,12 @@
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
     "official_url": "https://www.castmagic.io/",
-    "pricing_source_url": "https://www.castmagic.io/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "loopcv",
@@ -1503,8 +1771,12 @@
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
     "official_url": "https://loopcv.pro/",
-    "pricing_source_url": "https://loopcv.pro/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "clickfunnels",
@@ -1525,8 +1797,12 @@
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
     "official_url": "https://www.clickfunnels.com/",
-    "pricing_source_url": "https://www.clickfunnels.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "tapfiliate",
@@ -1547,8 +1823,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://tapfiliate.com/",
-    "pricing_source_url": "https://tapfiliate.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "getresponse",
@@ -1569,8 +1849,12 @@
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
     "official_url": "https://www.getresponse.com/",
-    "pricing_source_url": "https://www.getresponse.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "kit",
@@ -1591,8 +1875,12 @@
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
     "official_url": "https://www.kit.co/",
-    "pricing_source_url": "https://www.kit.co/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "teachable",
@@ -1613,8 +1901,12 @@
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
     "official_url": "https://teachable.com/",
-    "pricing_source_url": "https://teachable.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "livechat",
@@ -1635,8 +1927,12 @@
     "primary_category": "chatbots_support",
     "comparison_group": "chatbots_support",
     "official_url": "https://www.livechat.com/",
-    "pricing_source_url": "https://www.livechat.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "kittl",
@@ -1657,8 +1953,12 @@
     "primary_category": "design_art",
     "comparison_group": "design_art",
     "official_url": "https://www.kittl.com/",
-    "pricing_source_url": "https://www.kittl.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "koala-ai",
@@ -1679,8 +1979,12 @@
     "primary_category": "seo_tools",
     "comparison_group": "seo_tools",
     "official_url": "https://koala.sh/",
-    "pricing_source_url": "https://koala.sh/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "lovo",
@@ -1702,8 +2006,12 @@
     "comparison_group": "voice_generation",
     "is_direct_competitor": true,
     "official_url": "https://lovo.ai/",
-    "pricing_source_url": "https://lovo.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "n8n",
@@ -1724,8 +2032,12 @@
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
     "official_url": "https://n8n.io/",
-    "pricing_source_url": "https://n8n.io/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "novita-ai",
@@ -1746,8 +2058,12 @@
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
     "official_url": "https://novita.com/",
-    "pricing_source_url": "https://novita.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "followr",
@@ -1768,8 +2084,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://followr.com/",
-    "pricing_source_url": "https://followr.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "10web",
@@ -1790,8 +2110,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://10web.io/",
-    "pricing_source_url": "https://10web.io/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "supademo",
@@ -1812,8 +2136,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://supademo.com/",
-    "pricing_source_url": "https://supademo.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "colossyan",
@@ -1835,8 +2163,12 @@
     "comparison_group": "ai_avatar_video",
     "is_direct_competitor": true,
     "official_url": "https://colossyan.com/",
-    "pricing_source_url": "https://colossyan.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "beefree",
@@ -1857,8 +2189,12 @@
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
     "official_url": "https://beefree.io/",
-    "pricing_source_url": "https://beefree.io/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "apollo",
@@ -1879,8 +2215,12 @@
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
     "official_url": "https://apollo.io/",
-    "pricing_source_url": "https://apollo.io/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "getgenie",
@@ -1901,8 +2241,12 @@
     "primary_category": "seo_tools",
     "comparison_group": "seo_tools",
     "official_url": "https://getgenie.ai/",
-    "pricing_source_url": "https://getgenie.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "activecampaign",
@@ -1923,8 +2267,12 @@
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
     "official_url": "https://activecampaign.com/",
-    "pricing_source_url": "https://activecampaign.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "sanebox",
@@ -1945,8 +2293,12 @@
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
     "official_url": "https://sanebox.com/",
-    "pricing_source_url": "https://sanebox.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "pipedrive",
@@ -1967,8 +2319,12 @@
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
     "official_url": "https://pipedrive.com/",
-    "pricing_source_url": "https://pipedrive.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "framer",
@@ -1989,8 +2345,12 @@
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
     "official_url": "https://framer.com/",
-    "pricing_source_url": "https://framer.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "monday-com",
@@ -2011,8 +2371,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://monday.com/",
-    "pricing_source_url": "https://monday.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "cartstack",
@@ -2020,7 +2384,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "CartStack is the ultimate customer recovery tool, deploying targeted remarketing emails, SMS texts, and push notifications to help retailers re-engage and recover abandoned carts and much more.",
-    "affiliate_url": "https://www.cartstack.com/",
+    "affiliate_url": null,
     "pricing": "Contact for pricing",
     "key_features": [
       "Targeted Remarketing Emails",
@@ -2033,8 +2397,12 @@
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
     "official_url": "https://www.cartstack.com/",
-    "pricing_source_url": "https://www.cartstack.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "cloudways",
@@ -2042,7 +2410,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Cloudways is a managed cloud hosting platform designed to simplify the deployment and management of web applications for businesses and developers.",
-    "affiliate_url": "https://www.cloudways.com/",
+    "affiliate_url": null,
     "pricing": "Starting at $14/mo",
     "key_features": [
       "Managed cloud hosting platform",
@@ -2055,8 +2423,12 @@
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
     "official_url": "https://www.cloudways.com/",
-    "pricing_source_url": "https://www.cloudways.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "featureshark",
@@ -2064,7 +2436,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "FeatureShark helps product teams efficiently gather customer feedback and streamline their product management and roadmap planning processes.",
-    "affiliate_url": "https://featureshark.com/",
+    "affiliate_url": null,
     "pricing": "Check website for pricing details",
     "key_features": [
       "Customer feedback collection",
@@ -2077,8 +2449,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://featureshark.com/",
-    "pricing_source_url": "https://featureshark.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "clickup",
@@ -2086,7 +2462,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "ClickUp is an all-in-one productivity platform offering highly customizable project management solutions for teams seeking to streamline workflows.",
-    "affiliate_url": "https://clickup.com/",
+    "affiliate_url": null,
     "pricing": "Starting at $5/user/month",
     "key_features": [
       "Customizable project management",
@@ -2099,8 +2475,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://clickup.com/",
-    "pricing_source_url": "https://clickup.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "getgabs",
@@ -2108,7 +2488,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Getgabs is a WhatsApp marketing platform empowering businesses to automate customer communication and engage audiences effectively through chat.",
-    "affiliate_url": "https://getgabs.com/",
+    "affiliate_url": null,
     "pricing": "Check website for pricing details",
     "key_features": [
       "Automated WhatsApp campaigns",
@@ -2121,8 +2501,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://getgabs.com/",
-    "pricing_source_url": "https://getgabs.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "eprofessor",
@@ -2143,8 +2527,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://eprofessor.com/",
-    "pricing_source_url": "https://eprofessor.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "docsbot",
@@ -2165,8 +2553,12 @@
     "primary_category": "ai_agents",
     "comparison_group": "ai_agents",
     "official_url": "https://docsbot.ai/",
-    "pricing_source_url": "https://docsbot.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "surfeo",
@@ -2187,8 +2579,12 @@
     "primary_category": "design_art",
     "comparison_group": "design_art",
     "official_url": "https://surfeo.ai/",
-    "pricing_source_url": "https://surfeo.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "dub",
@@ -2209,8 +2605,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://dub.co/",
-    "pricing_source_url": "https://dub.co/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "helpdesk",
@@ -2231,8 +2631,12 @@
     "primary_category": "chatbots_support",
     "comparison_group": "chatbots_support",
     "official_url": "https://helpdesk.com/",
-    "pricing_source_url": "https://helpdesk.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "happyscribe",
@@ -2253,8 +2657,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://happyscribe.com/",
-    "pricing_source_url": "https://happyscribe.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "pickaxe",
@@ -2275,8 +2683,12 @@
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
     "official_url": "https://pickaxe.ai/",
-    "pricing_source_url": "https://pickaxe.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "ai-video-cut",
@@ -2297,8 +2709,12 @@
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
     "official_url": "https://aivideocut.com/",
-    "pricing_source_url": "https://aivideocut.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "tagshop-ai",
@@ -2319,8 +2735,12 @@
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
     "official_url": "https://tagshop.ai/",
-    "pricing_source_url": "https://tagshop.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "text",
@@ -2341,8 +2761,12 @@
     "primary_category": "chatbots_support",
     "comparison_group": "chatbots_support",
     "official_url": "https://text.com/",
-    "pricing_source_url": "https://text.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "typedesk",
@@ -2363,8 +2787,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://typedesk.com/",
-    "pricing_source_url": "https://typedesk.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "chatbot",
@@ -2385,8 +2813,12 @@
     "primary_category": "chatbots_support",
     "comparison_group": "chatbots_support",
     "official_url": "https://chatbot.com/",
-    "pricing_source_url": "https://chatbot.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "gojiberry",
@@ -2407,8 +2839,12 @@
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
     "official_url": "https://gojiberry.ai/",
-    "pricing_source_url": "https://gojiberry.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "bidx",
@@ -2429,8 +2865,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://bidx.com/",
-    "pricing_source_url": "https://bidx.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "tidio",
@@ -2438,7 +2878,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "An AI-powered customer service platform offering Lyro AI Agent, live chat, ticketing, and automations to streamline customer interactions for over 300K businesses.",
-    "affiliate_url": "https://www.tidio.com/",
+    "affiliate_url": null,
     "pricing": "Offers a free plan, paid plans vary",
     "key_features": [
       "AI Agent (Lyro)",
@@ -2451,8 +2891,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://www.tidio.com/",
-    "pricing_source_url": "https://www.tidio.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "catalister",
@@ -2460,7 +2904,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "An AI-powered listing tool designed specifically for Shopify dropshippers, simplifying product listings and enhancing efficiency for e-commerce creators.",
-    "affiliate_url": "https://catalister.com/",
+    "affiliate_url": null,
     "pricing": "Varies by membership",
     "key_features": [
       "AI-powered product listing generation",
@@ -2473,8 +2917,12 @@
     "primary_category": "design_art",
     "comparison_group": "design_art",
     "official_url": "https://catalister.com/",
-    "pricing_source_url": "https://catalister.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "bookyourdata",
@@ -2482,7 +2930,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "A B2B contact data platform providing real-time, high-quality leads on a pay-as-you-go model, trusted by thousands for effective lead generation.",
-    "affiliate_url": "https://bookyourdata.com/",
+    "affiliate_url": null,
     "pricing": "Pay-as-you-go model",
     "key_features": [
       "Real-time B2B contact data",
@@ -2495,8 +2943,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://bookyourdata.com/",
-    "pricing_source_url": "https://bookyourdata.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "mindstudio",
@@ -2504,7 +2956,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "A flexible and secure no-code platform that empowers users to rapidly build and deploy powerful AI agents without needing programming expertise.",
-    "affiliate_url": "https://www.mindstudio.ai/",
+    "affiliate_url": null,
     "pricing": "Varies by workspace subscription",
     "key_features": [
       "Rapid AI agent building",
@@ -2517,8 +2969,12 @@
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
     "official_url": "https://www.mindstudio.ai/",
-    "pricing_source_url": "https://www.mindstudio.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "manychat",
@@ -2526,7 +2982,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "The leading chat marketing platform enabling creators and businesses to automate conversations on platforms like Instagram, driving engagement and fostering meaningful connections.",
-    "affiliate_url": "https://manychat.com/",
+    "affiliate_url": null,
     "pricing": "Varies by plan",
     "key_features": [
       "Instagram chat marketing",
@@ -2539,8 +2995,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://manychat.com/",
-    "pricing_source_url": "https://manychat.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "synthflow-ai",
@@ -2548,7 +3008,7 @@
     "category": "voice_cloning",
     "category_display": "Voice & Speech AI",
     "description": "A no-code platform for building voice AI agents that automate customer interactions, streamlining processes like appointment scheduling, lead qualification, and customer support.",
-    "affiliate_url": "https://synthflow.ai/",
+    "affiliate_url": null,
     "pricing": "Varies by paid referral plan",
     "key_features": [
       "No-code voice AI agent builder",
@@ -2561,8 +3021,12 @@
     "primary_category": "voice_cloning",
     "comparison_group": "voice_generation",
     "official_url": "https://synthflow.ai/",
-    "pricing_source_url": "https://synthflow.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "customgpt-ai",
@@ -2583,8 +3047,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://customgpt.ai/",
-    "pricing_source_url": "https://customgpt.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "databox",
@@ -2605,8 +3073,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://databox.com/",
-    "pricing_source_url": "https://databox.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "fathom",
@@ -2627,8 +3099,12 @@
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
     "official_url": "https://fathom.video/",
-    "pricing_source_url": "https://fathom.video/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "taskip",
@@ -2649,8 +3125,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://taskip.net/",
-    "pricing_source_url": "https://taskip.net/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "gumloop",
@@ -2671,8 +3151,12 @@
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
     "official_url": "https://gumloop.com/",
-    "pricing_source_url": "https://gumloop.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "teknikforce",
@@ -2693,8 +3177,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://www.teknikforce.com/",
-    "pricing_source_url": "https://www.teknikforce.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "hide-me",
@@ -2702,7 +3190,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "hide.me offers an advanced VPN service ensuring online privacy, anonymity, and secure encrypted internet connections for users worldwide. Protect your digital footprint with robust security features.",
-    "affiliate_url": "https://hide.me/",
+    "affiliate_url": null,
     "pricing": "Starting at $9.95/mo",
     "key_features": [
       "Advanced online privacy",
@@ -2715,8 +3203,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://hide.me/",
-    "pricing_source_url": "https://hide.me/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "snov-io",
@@ -2737,8 +3229,12 @@
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
     "official_url": "https://snov.io/",
-    "pricing_source_url": "https://snov.io/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "claap",
@@ -2759,8 +3255,12 @@
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
     "official_url": "https://www.claap.ai/",
-    "pricing_source_url": "https://www.claap.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "cloudtalk",
@@ -2781,8 +3281,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://www.cloudtalk.io/",
-    "pricing_source_url": "https://www.cloudtalk.io/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "seamless",
@@ -2790,7 +3294,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Seamless is a sales intelligence platform that empowers B2B teams to find, verify, and connect with ideal prospects by providing accurate contact information and sales tools.",
-    "affiliate_url": "https://www.seamless.ai/",
+    "affiliate_url": null,
     "pricing": "Custom pricing (B2B)",
     "key_features": [
       "B2B sales intelligence platform",
@@ -2803,8 +3307,12 @@
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
     "official_url": "https://www.seamless.ai/",
-    "pricing_source_url": "https://www.seamless.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "flowgent-ai",
@@ -2825,8 +3333,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://flowgent.ai/",
-    "pricing_source_url": "https://flowgent.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "activepieces",
@@ -2847,8 +3359,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://www.activepieces.com/",
-    "pricing_source_url": "https://www.activepieces.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "marketingblocks",
@@ -2870,8 +3386,12 @@
     "comparison_group": "ai_writing_assistant",
     "is_direct_competitor": true,
     "official_url": "https://marketingblocks.ai/",
-    "pricing_source_url": "https://marketingblocks.ai/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "google-workspace",
@@ -2879,7 +3399,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Google Workspace offers a powerful suite of cloud-based productivity and collaboration tools, including Gmail, Drive, Calendar, Docs, and Meet, empowering businesses to work efficiently from anywhere. It's ideal for enhancing team communication and content creation.",
-    "affiliate_url": "https://workspace.google.com/",
+    "affiliate_url": null,
     "pricing": "Per-user pricing, starting at $6/month.",
     "key_features": [
       "Professional Email (Gmail)",
@@ -2892,8 +3412,12 @@
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
     "official_url": "https://workspace.google.com/",
-    "pricing_source_url": "https://workspace.google.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   },
   {
     "id": "chatbase",
@@ -2901,7 +3425,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Empower your business to build no-code AI agents for customer support, sales, and workflow automation, enhancing customer engagement across multiple channels.",
-    "affiliate_url": "https://www.chatbase.com/",
+    "affiliate_url": null,
     "pricing": "Varies",
     "key_features": [
       "Build AI agents without code",
@@ -2914,7 +3438,11 @@
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
     "official_url": "https://www.chatbase.com/",
-    "pricing_source_url": "https://www.chatbase.com/",
-    "pricing_verified_at": "2026-07-31"
+    "pricing_source_url": null,
+    "pricing_verified_at": null,
+    "pricing_verified": false,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": null
   }
 ]

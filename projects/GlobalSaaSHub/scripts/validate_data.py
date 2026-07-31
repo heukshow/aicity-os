@@ -60,17 +60,47 @@ import re
 for idx, tool in enumerate(tools):
     tid = tool.get("id")
     name = tool.get("name")
+    off_url = tool.get("official_url")
     aff_url = tool.get("affiliate_url")
+    ps_url = tool.get("pricing_source_url")
+    pv_flag = tool.get("pricing_verified", False)
+    pv_at = tool.get("pricing_verified_at")
     rating = tool.get("rating")
     
     # 1. Required fields
-    if not tid or not name or not aff_url:
-        errors.append(f"Tool #{idx+1} missing required id, name, or affiliate_url.")
+    if not tid or not name or not off_url:
+        errors.append(f"Tool #{idx+1} missing required id, name, or official_url.")
         continue
 
     # 1b. Kebab-case Alphanumeric ID format check
     if not re.match(r'^[a-z0-9]+(-[a-z0-9]+)*$', str(tid)):
         errors.append(f"Tool #{idx+1} ID '{tid}' is not valid lowercase kebab-case.")
+
+    # 1c. Strict Field Type & URL format checks
+    if not off_url.startswith("https://") and not off_url.startswith("http://"):
+        errors.append(f"Tool '{tid}' official_url is not a valid HTTP/HTTPS URL: '{off_url}'")
+
+    if aff_url is not None and not aff_url.startswith("https://") and not aff_url.startswith("http://"):
+        errors.append(f"Tool '{tid}' affiliate_url is not a valid HTTP/HTTPS URL: '{aff_url}'")
+
+    if ps_url is not None and not ps_url.startswith("https://") and not ps_url.startswith("http://"):
+        errors.append(f"Tool '{tid}' pricing_source_url is not a valid HTTP/HTTPS URL: '{ps_url}'")
+
+    if not isinstance(pv_flag, bool):
+        errors.append(f"Tool '{tid}' pricing_verified must be boolean (got {type(pv_flag).__name__}).")
+
+    if pv_flag:
+        if not ps_url:
+            errors.append(f"Tool '{tid}' pricing_verified is True but pricing_source_url is missing or null.")
+        if not pv_at:
+            errors.append(f"Tool '{tid}' pricing_verified is True but pricing_verified_at timestamp is missing or null.")
+        # Reject simple homepage as valid pricing source URL
+        if ps_url and off_url:
+            ps_domain = urllib.parse.urlparse(ps_url).netloc.replace("www.", "")
+            ps_path = urllib.parse.urlparse(ps_url).path.strip("/")
+            off_domain = urllib.parse.urlparse(off_url).netloc.replace("www.", "")
+            if ps_domain == off_domain and ps_path in ("", "index.html", "index.php"):
+                errors.append(f"Tool '{tid}' pricing_source_url '{ps_url}' is a simple homepage, not a verified pricing page.")
 
         
     # 2. Duplicate ID
@@ -85,18 +115,11 @@ for idx, tool in enumerate(tools):
     seen_names.add(norm_name)
     
     # 4. URL Validation & Domain Deduplication
-    # Explicit allowlist: only verified cases where two DISTINCT products legitimately share a domain.
-    # - Same-service ID variants (e.g., "make" vs "make-com") must be MERGED in tools.json, not allowlisted.
-    # - Only add entries here with evidence of a real acquisition or genuinely separate products.
-    # Format: { "domain": {"ids": ["tool-id-1", "tool-id-2"], "reason": "source / evidence"} }
-    DOMAIN_ALLOWLIST = {
-        # No verified entries yet. Add only with explicit evidence.
-    }
-    if not aff_url.startswith("http"):
-        errors.append(f"Invalid URL scheme for '{name}': {aff_url}")
-    else:
+    DOMAIN_ALLOWLIST = {}
+    target_url_for_domain = off_url or aff_url or ""
+    if target_url_for_domain.startswith("http"):
         try:
-            domain = urllib.parse.urlparse(aff_url).netloc.replace("www.", "")
+            domain = urllib.parse.urlparse(target_url_for_domain).netloc.replace("www.", "")
             if domain and domain in seen_domains:
                 # Check allowlist
                 allowlist_entry = DOMAIN_ALLOWLIST.get(domain)
