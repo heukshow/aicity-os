@@ -54,8 +54,13 @@ for tool in tools:
         tool["primary_category"] = "video_gen"
         tool["comparison_group"] = "ai_avatar_video"
     else:
-        tool["primary_category"] = tool.get("category", "productivity")
-        tool["comparison_group"] = tool.get("category", "productivity")
+        existing_group = tool.get("comparison_group")
+        if existing_group and isinstance(existing_group, str) and existing_group.strip():
+            tool["comparison_group"] = existing_group.strip()
+            tool["primary_category"] = tool.get("primary_category") or tool.get("category", "productivity")
+        else:
+            tool["primary_category"] = tool.get("category", "productivity")
+            tool["comparison_group"] = tool.get("category", "productivity")
 
 
 

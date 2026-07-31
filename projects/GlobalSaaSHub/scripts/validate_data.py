@@ -96,6 +96,15 @@ for idx, tool in enumerate(tools):
     if not isinstance(pv_flag, bool):
         errors.append(f"Tool '{tid}' pricing_verified must be boolean (got {type(pv_flag).__name__}).")
 
+    is_override = tool.get("is_manual_override")
+    if is_override is not None and not isinstance(is_override, bool):
+        errors.append(f"Tool '{tid}' is_manual_override must be boolean (got {type(is_override).__name__}).")
+
+    http_status_enum = tool.get("http_verification_status")
+    ALLOWED_HTTP_STATUSES = {"verified_http_200", "bot_blocked", "redirect_verified", None}
+    if http_status_enum not in ALLOWED_HTTP_STATUSES:
+        errors.append(f"Tool '{tid}' http_verification_status '{http_status_enum}' not in allowed set: {ALLOWED_HTTP_STATUSES}")
+
     # Allowed enum values
     ALLOWED_CURRENCIES = {"USD", "GBP", "EUR", "CAD", "AUD", "BRL"}
     ALLOWED_BILLING_PERIODS = {"monthly", "annual", "annual/monthly", "per_user", "usage_based", "mixed"}
@@ -125,8 +134,8 @@ for idx, tool in enumerate(tools):
     else:
         if not ps_url:
             errors.append(f"Tool '{tid}' pricing_verified is True but pricing_source_url is missing or null.")
-        if not pv_at or not re.match(r'^\d{4}-\d{2}-\d{2}$', str(pv_at)):
-            errors.append(f"Tool '{tid}' pricing_verified is True but pricing_verified_at '{pv_at}' is not a valid YYYY-MM-DD date.")
+        if not pv_at or not re.match(r'^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}:\d{2}(Z|[+-]\d{2}:\d{2}))?$', str(pv_at)):
+            errors.append(f"Tool '{tid}' pricing_verified is True but pricing_verified_at '{pv_at}' is not a valid YYYY-MM-DD or ISO-8601 UTC timestamp.")
         if not currency:
             errors.append(f"Tool '{tid}' pricing_verified is True but currency is missing or null.")
         if not billing_period:

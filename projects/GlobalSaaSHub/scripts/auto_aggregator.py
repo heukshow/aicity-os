@@ -180,6 +180,33 @@ def main():
         if norm_n:
             existing_names[norm_n] = tool
 
+    # Merge isolated manual_candidates.json if present
+    manual_candidates_file = os.path.join(base_dir, 'data', 'manual_candidates.json')
+    if os.path.exists(manual_candidates_file):
+        try:
+            with open(manual_candidates_file, 'r', encoding='utf-8') as f:
+                manual_tools = json.load(f)
+            print(f"Loaded {len(manual_tools)} manual candidate tools from {manual_candidates_file}.")
+            manual_added = 0
+            for m_tool in manual_tools:
+                m_id = m_tool.get('id')
+                m_dom = extract_domain(m_tool.get('official_url'))
+                m_norm = m_tool.get('name', '').lower().strip().replace(' ', '').replace('-', '').replace('_', '')
+                
+                if m_id in existing_ids or (m_dom and m_dom in existing_domains) or (m_norm and m_norm in existing_names):
+                    print(f"Manual candidate '{m_tool.get('name')}' already exists in database. Skipping.")
+                else:
+                    existing_tools.append(m_tool)
+                    existing_ids[m_id] = m_tool
+                    if m_dom:
+                        existing_domains[m_dom] = m_tool
+                    if m_norm:
+                        existing_names[m_norm] = m_tool
+                    manual_added += 1
+            print(f"Successfully merged {manual_added} unique manual candidates into dataset.")
+        except Exception as e:
+            print(f"Warning: Failed to load manual_candidates.json: {e}")
+
     # 4. Search Queries
 
     queries = [
