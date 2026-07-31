@@ -321,15 +321,15 @@ def main():
             print(f"Skipping tool due to missing required keys: {new_tool.get('name')}")
             continue
             
-        off_url = new_tool.get('official_url', '')
-        aff_url = new_tool.get('affiliate_url', '')
-        if not off_url.startswith('http'):
-            print(f"Skipping tool due to invalid official_url format: {new_tool.get('name')} ({off_url})")
+        off_url = new_tool.get('official_url')
+        aff_url = new_tool.get('affiliate_url')
+        tool_domain = extract_domain(off_url)
+
+        if not tool_domain:
+            print(f"Skipping tool due to invalid official_url: {new_tool.get('name')} ({off_url!r})")
             continue
 
-        tool_domain = extract_domain(off_url)
-        if tool_domain:
-            new_tool['logo_url'] = f"https://www.google.com/s2/favicons?domain={tool_domain}&sz=128"
+        new_tool['logo_url'] = f"https://www.google.com/s2/favicons?domain={tool_domain}&sz=128"
 
         # Ensure commission key is removed
         if 'commission' in new_tool:
@@ -355,13 +355,13 @@ def main():
             continue
 
         # Ensure strict schema defaults for unverified search candidate items
-        new_tool['official_url'] = new_tool.get('official_url') or (f"https://{tool_domain}/" if tool_domain else aff_url)
-        new_tool['affiliate_url'] = new_tool.get('affiliate_url') if (new_tool.get('affiliate_url') != new_tool['official_url']) else None
+        new_tool['official_url'] = off_url if (isinstance(off_url, str) and off_url.strip().startswith(('http://', 'https://'))) else f"https://{tool_domain}/"
+        new_tool['affiliate_url'] = aff_url if (isinstance(aff_url, str) and aff_url.strip().startswith(('http://', 'https://')) and aff_url != new_tool['official_url']) else None
         new_tool['pricing_source_url'] = None  # Do NOT default to homepage
         new_tool['pricing_verified_at'] = None  # Do NOT hardcode date
         new_tool['pricing_verified'] = False
-        new_tool['currency'] = new_tool.get('currency', 'USD')
-        new_tool['billing_period'] = new_tool.get('billing_period', 'monthly')
+        new_tool['currency'] = None
+        new_tool['billing_period'] = None
         new_tool['evidence_source_type'] = None
 
         # Verified Candidate Overrides for known verified new tools

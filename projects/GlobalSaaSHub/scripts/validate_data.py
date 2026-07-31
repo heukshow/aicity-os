@@ -24,11 +24,15 @@ if hasattr(sys.stderr, 'reconfigure'):
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NEXT_JSON = os.path.join(PROJECT_DIR, "data", "tools.next.json")
-if not os.path.exists(NEXT_JSON):
-    print("❌ FATAL: Candidate dataset tools.next.json is strictly required but missing.")
-    sys.exit(1)
 
-TARGET_FILE = NEXT_JSON
+if len(sys.argv) > 1 and sys.argv[1].endswith(".json"):
+    TARGET_FILE = sys.argv[1]
+else:
+    TARGET_FILE = NEXT_JSON
+
+if not os.path.exists(TARGET_FILE):
+    print(f"❌ FATAL: Target dataset {TARGET_FILE} is strictly required but missing.")
+    sys.exit(1)
 
 print("=" * 60)
 print(f"🔍 CANDIDATE DATASET VALIDATION (validate_data.py)")
@@ -62,6 +66,9 @@ for idx, tool in enumerate(tools):
     name = tool.get("name")
     off_url = tool.get("official_url")
     aff_url = tool.get("affiliate_url")
+    ps_url = tool.get("pricing_source_url")
+    pv_at = tool.get("pricing_verified_at")
+    pv_flag = tool.get("pricing_verified")
     currency = tool.get("currency")
     billing_period = tool.get("billing_period")
     evidence_type = tool.get("evidence_source_type")
