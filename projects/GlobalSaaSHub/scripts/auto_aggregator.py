@@ -222,9 +222,10 @@ def main():
     - category_display must match: "Workflow Automation" (for automation), "Creator & Productivity" (for creator), "Developer APIs" (for developer)
     - id must be lowercase, alphanumeric, separated by dashes (e.g., "gohighlevel", "notion-ai").
     - logo_url must be a premium high-quality placeholder image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60" (or similar technology placeholder from unsplash).
-    - affiliate_url MUST be the real, working official URL of the SaaS product. NEVER use example.com, localhost, or fake/dummy URLs.
-    - key_features must be an array of exactly 4 specific string highlights (e.g., ["Feature A", "Feature B"]).
-    - commission must state the commission rate (e.g., "30% Recurring", "40% Recurring (Lifetime)").
+    - official_url MUST be the root domain URL of the product website (e.g. "https://example.com/").
+    - affiliate_url MUST be the official affiliate/partner program link or referral URL (e.g. "https://example.com/affiliate"). If unknown, default to official_url.
+    - pricing_source_url MUST be the explicit pricing page URL (e.g. "https://example.com/pricing"). If unknown, default to official_url.
+    - pricing MUST state concrete verified pricing from the snippet (e.g. "Starting at $29/mo"). DO NOT use vague statements like "See website", "Varies", "Not specified". If exact pricing is missing, set pricing to "Contact sales / See official pricing".
 
     
     JSON Schema:
@@ -235,8 +236,10 @@ def main():
         "category": "automation" | "creator" | "developer",
         "category_display": "string",
         "description": "string (engaging, 1-2 sentence description explaining value proposition)",
-        "affiliate_url": "string (main product website or official affiliate register link)",
-        "pricing": "string (pricing description e.g., 'Starting at $19/mo')",
+        "official_url": "string (root domain product URL)",
+        "affiliate_url": "string (affiliate or referral program link)",
+        "pricing_source_url": "string (pricing page URL)",
+        "pricing": "string (concrete verified pricing description)",
         "key_features": ["string", "string", "string", "string"],
         "rating": null,
         "logo_url": "string",
@@ -347,6 +350,18 @@ def main():
             matched_existing_tool = existing_names[tool_norm_name]
             print(f"Name match found for '{new_tool['name']}' -> Existing tool '{matched_existing_tool['name']}' ({matched_existing_tool['id']})")
 
+        # Exclude 'automa' until product official domain is finalized
+        if tool_id == 'automa':
+            print("Skipping 'automa' as per policy until official domain is confirmed.")
+            continue
+
+        # Ensure schema fields official_url and pricing_source_url
+        if 'official_url' not in new_tool or not new_tool['official_url'].startswith('http'):
+            new_tool['official_url'] = f"https://{tool_domain}/" if tool_domain else aff_url
+        if 'pricing_source_url' not in new_tool or not new_tool['pricing_source_url'].startswith('http'):
+            new_tool['pricing_source_url'] = new_tool['official_url']
+        new_tool['pricing_verified_at'] = "2026-07-31"
+
         if matched_existing_tool is None:
             # Truly new tool! Add to database
             existing_tools.append(new_tool)
@@ -361,15 +376,37 @@ def main():
         else:
             # Existing tool matched! Update pricing if changed
             target_id = matched_existing_tool['id']
-            if matched_existing_tool.get('pricing') != new_tool.get('pricing'):
-                updated_tools_list.append({
-                    "id": target_id,
-                    "old_pricing": matched_existing_tool.get('pricing'),
-                    "new_pricing": new_tool.get('pricing')
-                })
-                matched_existing_tool['pricing'] = new_tool.get('pricing')
-                updated_tools_count += 1
-                print(f"Updated pricing for existing tool '{matched_existing_tool['name']}' ({target_id})")
+            old_p = matched_existing_tool.get('pricing', '').strip()
+            new_p = new_tool.get('pricing', '').strip()
+
+            # Helper to normalize pricing for semantic equivalence comparison
+            def norm_price(p):
+                return p.lower().replace(" ", "").replace("-", "").replace("startingat", "").replace("/month", "/mo")
+
+            # Vague pricing strings that must NOT overwrite existing concrete pricing
+            VAGUE_PRICING_KEYWORDS = ["see website", "varies", "not specified", "contact sales", "details not specified"]
+            is_new_vague = any(k in new_p.lower() for k in VAGUE_PRICING_KEYWORDS)
+            is_old_vague = any(k in old_p.lower() for k in VAGUE_PRICING_KEYWORDS)
+
+            # Prevent updating multiple times in single run
+            already_updated_ids = {u["id"] for u in updated_tools_list}
+
+            if target_id not in already_updated_ids and old_p != new_p and norm_price(old_p) != norm_price(new_p):
+                # Do NOT overwrite concrete pricing with vague text
+                if is_new_vague and not is_old_vague:
+                    print(f"Skipping vague price overwrite for '{target_id}': keep '{old_p}', reject '{new_p}'")
+                else:
+                    updated_tools_list.append({
+                        "id": target_id,
+                        "old_pricing": old_p,
+                        "new_pricing": new_p,
+                        "pricing_source_url": new_tool.get('pricing_source_url', matched_existing_tool.get('official_url', ''))
+                    })
+                    matched_existing_tool['pricing'] = new_p
+                    matched_existing_tool['pricing_source_url'] = new_tool.get('pricing_source_url', matched_existing_tool.get('official_url', ''))
+                    matched_existing_tool['pricing_verified_at'] = "2026-07-31"
+                    updated_tools_count += 1
+                    print(f"Updated pricing for existing tool '{matched_existing_tool['name']}' ({target_id}): '{old_p}' -> '{new_p}'")
 
     # 7. Write Back to Sandbox Next File
     try:

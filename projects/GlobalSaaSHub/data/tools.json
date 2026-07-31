@@ -16,7 +16,10 @@
     "rating": 4.9,
     "logo_url": "https://www.google.com/s2/favicons?domain=gohighlevel.com&sz=128",
     "primary_category": "chatbots_support",
-    "comparison_group": "chatbots_support"
+    "comparison_group": "chatbots_support",
+    "official_url": "https://www.gohighlevel.com/",
+    "pricing_source_url": "https://www.gohighlevel.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "notion-ai",
@@ -35,7 +38,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=notion.so&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://www.notion.so/",
+    "pricing_source_url": "https://www.notion.so/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "make-com",
@@ -54,7 +60,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=make.com&sz=128",
     "primary_category": "dev_coding",
-    "comparison_group": "dev_coding"
+    "comparison_group": "dev_coding",
+    "official_url": "https://www.make.com/",
+    "pricing_source_url": "https://www.make.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "elevenlabs",
@@ -74,7 +83,10 @@
     "logo_url": "https://www.google.com/s2/favicons?domain=elevenlabs.io&sz=128",
     "primary_category": "voice_cloning",
     "comparison_group": "voice_generation",
-    "is_direct_competitor": true
+    "is_direct_competitor": true,
+    "official_url": "https://elevenlabs.io/",
+    "pricing_source_url": "https://elevenlabs.io/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "copy-ai",
@@ -94,7 +106,10 @@
     "logo_url": "https://www.google.com/s2/favicons?domain=copy.ai&sz=128",
     "primary_category": "copywriting",
     "comparison_group": "ai_writing_assistant",
-    "is_direct_competitor": true
+    "is_direct_competitor": true,
+    "official_url": "https://www.copy.ai/",
+    "pricing_source_url": "https://www.copy.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "zenrows",
@@ -113,7 +128,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=zenrows.com&sz=128",
     "primary_category": "scraping_data",
-    "comparison_group": "scraping_data"
+    "comparison_group": "scraping_data",
+    "official_url": "https://www.zenrows.com/",
+    "pricing_source_url": "https://www.zenrows.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "tubebuddy",
@@ -132,7 +150,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=tubebuddy.com&sz=128",
     "primary_category": "video_gen",
-    "comparison_group": "ai_avatar_video"
+    "comparison_group": "ai_avatar_video",
+    "official_url": "https://www.tubebuddy.com/",
+    "pricing_source_url": "https://www.tubebuddy.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "outlierkit",
@@ -151,7 +172,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=outlierkit.com&sz=128",
     "primary_category": "video_gen",
-    "comparison_group": "ai_avatar_video"
+    "comparison_group": "ai_avatar_video",
+    "official_url": "https://outlierkit.com/",
+    "pricing_source_url": "https://outlierkit.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "pictory",
@@ -171,7 +195,10 @@
     "logo_url": "https://www.google.com/s2/favicons?domain=pictory.ai&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
-    "is_direct_competitor": true
+    "is_direct_competitor": true,
+    "official_url": "https://pictory.ai/",
+    "pricing_source_url": "https://pictory.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "inkfluence-ai",
@@ -190,7 +217,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=inkfluenceai.com&sz=128",
     "primary_category": "seo_tools",
-    "comparison_group": "seo_tools"
+    "comparison_group": "seo_tools",
+    "official_url": "https://www.inkfluenceai.com/",
+    "pricing_source_url": "https://www.inkfluenceai.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "jasper",
@@ -210,7 +240,10 @@
     "logo_url": "https://www.google.com/s2/favicons?domain=jasper.ai&sz=128",
     "primary_category": "copywriting",
     "comparison_group": "ai_writing_assistant",
-    "is_direct_competitor": true
+    "is_direct_competitor": true,
+    "official_url": "https://www.jasper.ai/",
+    "pricing_source_url": "https://www.jasper.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "writesonic",
@@ -230,7 +263,10 @@
     "logo_url": "https://www.google.com/s2/favicons?domain=writesonic.com&sz=128",
     "primary_category": "copywriting",
     "comparison_group": "ai_writing_assistant",
-    "is_direct_competitor": true
+    "is_direct_competitor": true,
+    "official_url": "https://writesonic.com/",
+    "pricing_source_url": "https://writesonic.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "sudowrite",
@@ -250,7 +286,10 @@
     "logo_url": "https://www.google.com/s2/favicons?domain=sudowrite.com&sz=128",
     "primary_category": "copywriting",
     "comparison_group": "ai_writing_assistant",
-    "is_direct_competitor": true
+    "is_direct_competitor": true,
+    "official_url": "https://www.sudowrite.com/",
+    "pricing_source_url": "https://www.sudowrite.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "convertkit",
@@ -269,7 +308,10 @@
     "rating": 4.9,
     "logo_url": "https://www.google.com/s2/favicons?domain=convertkit.com&sz=128",
     "primary_category": "email_outreach",
-    "comparison_group": "email_outreach"
+    "comparison_group": "email_outreach",
+    "official_url": "https://convertkit.com/",
+    "pricing_source_url": "https://convertkit.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "quillbot",
@@ -288,7 +330,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=quillbot.com&sz=128",
     "primary_category": "design_art",
-    "comparison_group": "design_art"
+    "comparison_group": "design_art",
+    "official_url": "https://quillbot.com/",
+    "pricing_source_url": "https://quillbot.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "text-cortex",
@@ -307,7 +352,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=textcortex.com&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://textcortex.com/",
+    "pricing_source_url": "https://textcortex.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "vidiq",
@@ -326,7 +374,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=vidiq.com&sz=128",
     "primary_category": "video_gen",
-    "comparison_group": "ai_avatar_video"
+    "comparison_group": "ai_avatar_video",
+    "official_url": "https://vidiq.com/",
+    "pricing_source_url": "https://vidiq.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "bolddesk",
@@ -345,7 +396,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=bolddesk.com&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://www.bolddesk.com/",
+    "pricing_source_url": "https://www.bolddesk.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "brand24",
@@ -364,7 +418,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=brand24.com&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://brand24.com/",
+    "pricing_source_url": "https://brand24.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "socialchamp-io",
@@ -383,7 +440,10 @@
     "rating": 4.4,
     "logo_url": "https://www.google.com/s2/favicons?domain=socialchamp.io&sz=128",
     "primary_category": "design_art",
-    "comparison_group": "design_art"
+    "comparison_group": "design_art",
+    "official_url": "https://socialchamp.io/",
+    "pricing_source_url": "https://socialchamp.io/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "triple-whale",
@@ -402,7 +462,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=triplewhale.com&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://triplewhale.com/",
+    "pricing_source_url": "https://triplewhale.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "boldsign",
@@ -421,7 +484,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=boldsign.com&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://www.boldsign.com/",
+    "pricing_source_url": "https://www.boldsign.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "privy",
@@ -440,7 +506,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=privy.com&sz=128",
     "primary_category": "sales_crm",
-    "comparison_group": "sales_crm"
+    "comparison_group": "sales_crm",
+    "official_url": "https://www.privy.com/",
+    "pricing_source_url": "https://www.privy.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "aweber",
@@ -459,7 +528,10 @@
     "rating": 4.2,
     "logo_url": "https://www.google.com/s2/favicons?domain=aweber.com&sz=128",
     "primary_category": "email_outreach",
-    "comparison_group": "email_outreach"
+    "comparison_group": "email_outreach",
+    "official_url": "https://www.aweber.com/",
+    "pricing_source_url": "https://www.aweber.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "unbounce",
@@ -478,7 +550,10 @@
     "rating": 4.3,
     "logo_url": "https://www.google.com/s2/favicons?domain=unbounce.com&sz=128",
     "primary_category": "dev_coding",
-    "comparison_group": "dev_coding"
+    "comparison_group": "dev_coding",
+    "official_url": "https://unbounce.com/",
+    "pricing_source_url": "https://unbounce.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "moosend",
@@ -497,7 +572,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=moosend.com&sz=128",
     "primary_category": "email_outreach",
-    "comparison_group": "email_outreach"
+    "comparison_group": "email_outreach",
+    "official_url": "https://moosend.com/",
+    "pricing_source_url": "https://moosend.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "reply-io",
@@ -516,7 +594,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=reply.io&sz=128",
     "primary_category": "sales_crm",
-    "comparison_group": "sales_crm"
+    "comparison_group": "sales_crm",
+    "official_url": "https://reply.io/",
+    "pricing_source_url": "https://reply.io/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "omnisend",
@@ -535,7 +616,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=omnisend.com&sz=128",
     "primary_category": "sales_crm",
-    "comparison_group": "sales_crm"
+    "comparison_group": "sales_crm",
+    "official_url": "https://www.omnisend.com/",
+    "pricing_source_url": "https://www.omnisend.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "time2book",
@@ -554,7 +638,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=time2book.me&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://www.time2book.me/",
+    "pricing_source_url": "https://www.time2book.me/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "semrush",
@@ -573,7 +660,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=semrush.com&sz=128",
     "primary_category": "seo_tools",
-    "comparison_group": "seo_tools"
+    "comparison_group": "seo_tools",
+    "official_url": "https://www.semrush.com/",
+    "pricing_source_url": "https://www.semrush.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "hubspot",
@@ -592,7 +682,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=hubspot.com&sz=128",
     "primary_category": "sales_crm",
-    "comparison_group": "sales_crm"
+    "comparison_group": "sales_crm",
+    "official_url": "https://www.hubspot.com/",
+    "pricing_source_url": "https://www.hubspot.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "kinsta",
@@ -611,7 +704,10 @@
     "rating": 4.9,
     "logo_url": "https://www.google.com/s2/favicons?domain=kinsta.com&sz=128",
     "primary_category": "design_art",
-    "comparison_group": "design_art"
+    "comparison_group": "design_art",
+    "official_url": "https://kinsta.com/",
+    "pricing_source_url": "https://kinsta.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "shopify",
@@ -630,7 +726,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=shopify.com&sz=128",
     "primary_category": "sales_crm",
-    "comparison_group": "sales_crm"
+    "comparison_group": "sales_crm",
+    "official_url": "https://www.shopify.com/",
+    "pricing_source_url": "https://www.shopify.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "systeme-io",
@@ -649,7 +748,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=systeme.io&sz=128",
     "primary_category": "sales_crm",
-    "comparison_group": "sales_crm"
+    "comparison_group": "sales_crm",
+    "official_url": "https://systeme.io/",
+    "pricing_source_url": "https://systeme.io/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "jotform",
@@ -668,7 +770,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=jotform.com&sz=128",
     "primary_category": "dev_coding",
-    "comparison_group": "dev_coding"
+    "comparison_group": "dev_coding",
+    "official_url": "https://www.jotform.com/",
+    "pricing_source_url": "https://www.jotform.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "webflow",
@@ -687,7 +792,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=webflow.com&sz=128",
     "primary_category": "dev_coding",
-    "comparison_group": "dev_coding"
+    "comparison_group": "dev_coding",
+    "official_url": "https://webflow.com/",
+    "pricing_source_url": "https://webflow.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "reactin",
@@ -706,7 +814,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=reactin.io&sz=128",
     "primary_category": "design_art",
-    "comparison_group": "design_art"
+    "comparison_group": "design_art",
+    "official_url": "https://www.reactin.io/",
+    "pricing_source_url": "https://www.reactin.io/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "synthesia",
@@ -726,7 +837,10 @@
     "logo_url": "https://www.google.com/s2/favicons?domain=synthesia.io&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
-    "is_direct_competitor": true
+    "is_direct_competitor": true,
+    "official_url": "https://www.synthesia.io/",
+    "pricing_source_url": "https://www.synthesia.io/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "octo-browser",
@@ -745,7 +859,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=octobrowser.net&sz=128",
     "primary_category": "design_art",
-    "comparison_group": "design_art"
+    "comparison_group": "design_art",
+    "official_url": "https://octobrowser.net/",
+    "pricing_source_url": "https://octobrowser.net/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "carv",
@@ -764,7 +881,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=carv.ai&sz=128",
     "primary_category": "ai_agents",
-    "comparison_group": "ai_agents"
+    "comparison_group": "ai_agents",
+    "official_url": "https://carv.ai/",
+    "pricing_source_url": "https://carv.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "jobhire",
@@ -783,7 +903,10 @@
     "rating": 4.4,
     "logo_url": "https://www.google.com/s2/favicons?domain=jobhire.ai&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://jobhire.ai/",
+    "pricing_source_url": "https://jobhire.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "aitable-ai",
@@ -802,7 +925,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=aitable.ai&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://aitable.ai/",
+    "pricing_source_url": "https://aitable.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "liftmycv",
@@ -821,7 +947,10 @@
     "rating": 4.3,
     "logo_url": "https://www.google.com/s2/favicons?domain=liftmycv.com&sz=128",
     "primary_category": "ai_agents",
-    "comparison_group": "ai_agents"
+    "comparison_group": "ai_agents",
+    "official_url": "https://liftmycv.com/",
+    "pricing_source_url": "https://liftmycv.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "blaze",
@@ -840,7 +969,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=blaze.ai&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://blaze.ai/",
+    "pricing_source_url": "https://blaze.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "aiassistworks",
@@ -859,7 +991,10 @@
     "rating": 4.9,
     "logo_url": "https://www.google.com/s2/favicons?domain=aiassistworks.com&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://aiassistworks.com/",
+    "pricing_source_url": "https://aiassistworks.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "vista-social",
@@ -878,7 +1013,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=vistasocial.com&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://vistasocial.com/",
+    "pricing_source_url": "https://vistasocial.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "gravity-forms",
@@ -897,7 +1035,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=gravityforms.com&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://www.gravityforms.com/",
+    "pricing_source_url": "https://www.gravityforms.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "sendcloud",
@@ -916,7 +1057,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=sendcloud.com&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://sendcloud.com/",
+    "pricing_source_url": "https://sendcloud.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "alidropship",
@@ -935,7 +1079,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=alidropship.com&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://alidropship.com/",
+    "pricing_source_url": "https://alidropship.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "nudgera",
@@ -955,7 +1102,10 @@
     "logo_url": "https://www.google.com/s2/favicons?domain=nudgera.com&sz=128",
     "primary_category": "finance_billing",
     "comparison_group": "finance_collection",
-    "is_direct_competitor": true
+    "is_direct_competitor": true,
+    "official_url": "https://nudgera.com/",
+    "pricing_source_url": "https://nudgera.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "questmate",
@@ -974,7 +1124,10 @@
     "rating": 4.2,
     "logo_url": "https://www.google.com/s2/favicons?domain=questmate.com&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://questmate.com/",
+    "pricing_source_url": "https://questmate.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "merlin",
@@ -993,7 +1146,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=getmerlin.in&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://www.getmerlin.in/",
+    "pricing_source_url": "https://www.getmerlin.in/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "decktopus",
@@ -1012,7 +1168,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=decktopus.com&sz=128",
     "primary_category": "design_art",
-    "comparison_group": "design_art"
+    "comparison_group": "design_art",
+    "official_url": "https://decktopus.com/",
+    "pricing_source_url": "https://decktopus.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "dorik",
@@ -1031,7 +1190,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=dorik.com&sz=128",
     "primary_category": "dev_coding",
-    "comparison_group": "dev_coding"
+    "comparison_group": "dev_coding",
+    "official_url": "https://dorik.com/",
+    "pricing_source_url": "https://dorik.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "rytr",
@@ -1050,7 +1212,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=rytr.me&sz=128",
     "primary_category": "email_outreach",
-    "comparison_group": "email_outreach"
+    "comparison_group": "email_outreach",
+    "official_url": "https://rytr.me/",
+    "pricing_source_url": "https://rytr.me/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "frase",
@@ -1069,7 +1234,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=frase.io&sz=128",
     "primary_category": "seo_tools",
-    "comparison_group": "seo_tools"
+    "comparison_group": "seo_tools",
+    "official_url": "https://www.frase.io/",
+    "pricing_source_url": "https://www.frase.io/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "heygen",
@@ -1089,7 +1257,10 @@
     "logo_url": "https://www.google.com/s2/favicons?domain=heygen.com&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
-    "is_direct_competitor": true
+    "is_direct_competitor": true,
+    "official_url": "https://www.heygen.com/",
+    "pricing_source_url": "https://www.heygen.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "veed",
@@ -1109,7 +1280,10 @@
     "logo_url": "https://www.google.com/s2/favicons?domain=veed.io&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
-    "is_direct_competitor": true
+    "is_direct_competitor": true,
+    "official_url": "https://www.veed.io/",
+    "pricing_source_url": "https://www.veed.io/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "reclaim-ai",
@@ -1128,7 +1302,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=reclaim.ai&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://reclaim.ai/",
+    "pricing_source_url": "https://reclaim.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "descript",
@@ -1147,7 +1324,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=descript.com&sz=128",
     "primary_category": "video_gen",
-    "comparison_group": "ai_avatar_video"
+    "comparison_group": "ai_avatar_video",
+    "official_url": "https://www.descript.com/",
+    "pricing_source_url": "https://www.descript.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "synder",
@@ -1166,7 +1346,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=synder.com&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://synder.com/",
+    "pricing_source_url": "https://synder.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "gallabox",
@@ -1185,7 +1368,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=gallabox.com&sz=128",
     "primary_category": "chatbots_support",
-    "comparison_group": "chatbots_support"
+    "comparison_group": "chatbots_support",
+    "official_url": "https://www.gallabox.com/",
+    "pricing_source_url": "https://www.gallabox.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "panda-video",
@@ -1204,7 +1390,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=pandavideo.com&sz=128",
     "primary_category": "video_gen",
-    "comparison_group": "ai_avatar_video"
+    "comparison_group": "ai_avatar_video",
+    "official_url": "https://pandavideo.com/",
+    "pricing_source_url": "https://pandavideo.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "surfer-seo",
@@ -1223,7 +1412,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=surferseo.com&sz=128",
     "primary_category": "seo_tools",
-    "comparison_group": "seo_tools"
+    "comparison_group": "seo_tools",
+    "official_url": "https://surferseo.com/",
+    "pricing_source_url": "https://surferseo.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "murf-ai",
@@ -1243,7 +1435,10 @@
     "logo_url": "https://www.google.com/s2/favicons?domain=murf.ai&sz=128",
     "primary_category": "voice_cloning",
     "comparison_group": "voice_generation",
-    "is_direct_competitor": true
+    "is_direct_competitor": true,
+    "official_url": "https://murf.ai/",
+    "pricing_source_url": "https://murf.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "scalenut",
@@ -1262,7 +1457,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=scalenut.com&sz=128",
     "primary_category": "seo_tools",
-    "comparison_group": "seo_tools"
+    "comparison_group": "seo_tools",
+    "official_url": "https://www.scalenut.com/",
+    "pricing_source_url": "https://www.scalenut.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "castmagic",
@@ -1281,7 +1479,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=castmagic.io&sz=128",
     "primary_category": "video_gen",
-    "comparison_group": "ai_avatar_video"
+    "comparison_group": "ai_avatar_video",
+    "official_url": "https://www.castmagic.io/",
+    "pricing_source_url": "https://www.castmagic.io/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "loopcv",
@@ -1300,7 +1501,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=loopcv.pro&sz=128",
     "primary_category": "email_outreach",
-    "comparison_group": "email_outreach"
+    "comparison_group": "email_outreach",
+    "official_url": "https://loopcv.pro/",
+    "pricing_source_url": "https://loopcv.pro/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "clickfunnels",
@@ -1319,7 +1523,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=clickfunnels.com&sz=128",
     "primary_category": "sales_crm",
-    "comparison_group": "sales_crm"
+    "comparison_group": "sales_crm",
+    "official_url": "https://www.clickfunnels.com/",
+    "pricing_source_url": "https://www.clickfunnels.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "tapfiliate",
@@ -1338,7 +1545,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=tapfiliate.com&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://tapfiliate.com/",
+    "pricing_source_url": "https://tapfiliate.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "getresponse",
@@ -1357,7 +1567,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=getresponse.com&sz=128",
     "primary_category": "email_outreach",
-    "comparison_group": "email_outreach"
+    "comparison_group": "email_outreach",
+    "official_url": "https://www.getresponse.com/",
+    "pricing_source_url": "https://www.getresponse.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "kit",
@@ -1376,7 +1589,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=kit.co&sz=128",
     "primary_category": "email_outreach",
-    "comparison_group": "email_outreach"
+    "comparison_group": "email_outreach",
+    "official_url": "https://www.kit.co/",
+    "pricing_source_url": "https://www.kit.co/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "teachable",
@@ -1395,7 +1611,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=teachable.com&sz=128",
     "primary_category": "sales_crm",
-    "comparison_group": "sales_crm"
+    "comparison_group": "sales_crm",
+    "official_url": "https://teachable.com/",
+    "pricing_source_url": "https://teachable.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "livechat",
@@ -1414,7 +1633,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=livechat.com&sz=128",
     "primary_category": "chatbots_support",
-    "comparison_group": "chatbots_support"
+    "comparison_group": "chatbots_support",
+    "official_url": "https://www.livechat.com/",
+    "pricing_source_url": "https://www.livechat.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "kittl",
@@ -1433,7 +1655,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=kittl.com&sz=128",
     "primary_category": "design_art",
-    "comparison_group": "design_art"
+    "comparison_group": "design_art",
+    "official_url": "https://www.kittl.com/",
+    "pricing_source_url": "https://www.kittl.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "koala-ai",
@@ -1452,7 +1677,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=koala.sh&sz=128",
     "primary_category": "seo_tools",
-    "comparison_group": "seo_tools"
+    "comparison_group": "seo_tools",
+    "official_url": "https://koala.sh/",
+    "pricing_source_url": "https://koala.sh/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "lovo",
@@ -1472,7 +1700,10 @@
     "logo_url": "https://www.google.com/s2/favicons?domain=lovo.ai&sz=128",
     "primary_category": "voice_cloning",
     "comparison_group": "voice_generation",
-    "is_direct_competitor": true
+    "is_direct_competitor": true,
+    "official_url": "https://lovo.ai/",
+    "pricing_source_url": "https://lovo.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "n8n",
@@ -1491,7 +1722,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=n8n.io&sz=128",
     "primary_category": "dev_coding",
-    "comparison_group": "dev_coding"
+    "comparison_group": "dev_coding",
+    "official_url": "https://n8n.io/",
+    "pricing_source_url": "https://n8n.io/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "novita-ai",
@@ -1510,7 +1744,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=novita.com&sz=128",
     "primary_category": "dev_coding",
-    "comparison_group": "dev_coding"
+    "comparison_group": "dev_coding",
+    "official_url": "https://novita.com/",
+    "pricing_source_url": "https://novita.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "followr",
@@ -1529,7 +1766,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=followr.com&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://followr.com/",
+    "pricing_source_url": "https://followr.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "10web",
@@ -1548,7 +1788,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=10web.io&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://10web.io/",
+    "pricing_source_url": "https://10web.io/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "supademo",
@@ -1567,7 +1810,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=supademo.com&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://supademo.com/",
+    "pricing_source_url": "https://supademo.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "colossyan",
@@ -1587,7 +1833,10 @@
     "logo_url": "https://www.google.com/s2/favicons?domain=colossyan.com&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
-    "is_direct_competitor": true
+    "is_direct_competitor": true,
+    "official_url": "https://colossyan.com/",
+    "pricing_source_url": "https://colossyan.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "beefree",
@@ -1606,7 +1855,10 @@
     "rating": 4.3,
     "logo_url": "https://www.google.com/s2/favicons?domain=beefree.io&sz=128",
     "primary_category": "email_outreach",
-    "comparison_group": "email_outreach"
+    "comparison_group": "email_outreach",
+    "official_url": "https://beefree.io/",
+    "pricing_source_url": "https://beefree.io/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "apollo",
@@ -1625,7 +1877,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=apollo.io&sz=128",
     "primary_category": "sales_crm",
-    "comparison_group": "sales_crm"
+    "comparison_group": "sales_crm",
+    "official_url": "https://apollo.io/",
+    "pricing_source_url": "https://apollo.io/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "getgenie",
@@ -1644,7 +1899,10 @@
     "rating": 4.4,
     "logo_url": "https://www.google.com/s2/favicons?domain=getgenie.ai&sz=128",
     "primary_category": "seo_tools",
-    "comparison_group": "seo_tools"
+    "comparison_group": "seo_tools",
+    "official_url": "https://getgenie.ai/",
+    "pricing_source_url": "https://getgenie.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "activecampaign",
@@ -1663,7 +1921,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=activecampaign.com&sz=128",
     "primary_category": "sales_crm",
-    "comparison_group": "sales_crm"
+    "comparison_group": "sales_crm",
+    "official_url": "https://activecampaign.com/",
+    "pricing_source_url": "https://activecampaign.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "sanebox",
@@ -1682,7 +1943,10 @@
     "rating": 4.3,
     "logo_url": "https://www.google.com/s2/favicons?domain=sanebox.com&sz=128",
     "primary_category": "email_outreach",
-    "comparison_group": "email_outreach"
+    "comparison_group": "email_outreach",
+    "official_url": "https://sanebox.com/",
+    "pricing_source_url": "https://sanebox.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "pipedrive",
@@ -1701,7 +1965,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=pipedrive.com&sz=128",
     "primary_category": "sales_crm",
-    "comparison_group": "sales_crm"
+    "comparison_group": "sales_crm",
+    "official_url": "https://pipedrive.com/",
+    "pricing_source_url": "https://pipedrive.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "framer",
@@ -1720,7 +1987,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=framer.com&sz=128",
     "primary_category": "dev_coding",
-    "comparison_group": "dev_coding"
+    "comparison_group": "dev_coding",
+    "official_url": "https://framer.com/",
+    "pricing_source_url": "https://framer.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "monday-com",
@@ -1739,7 +2009,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=monday.com&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://monday.com/",
+    "pricing_source_url": "https://monday.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "cartstack",
@@ -1758,7 +2031,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=cartstack.com&sz=128",
     "primary_category": "email_outreach",
-    "comparison_group": "email_outreach"
+    "comparison_group": "email_outreach",
+    "official_url": "https://www.cartstack.com/",
+    "pricing_source_url": "https://www.cartstack.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "cloudways",
@@ -1777,7 +2053,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=cloudways.com&sz=128",
     "primary_category": "dev_coding",
-    "comparison_group": "dev_coding"
+    "comparison_group": "dev_coding",
+    "official_url": "https://www.cloudways.com/",
+    "pricing_source_url": "https://www.cloudways.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "featureshark",
@@ -1796,7 +2075,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=featureshark.com&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://featureshark.com/",
+    "pricing_source_url": "https://featureshark.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "clickup",
@@ -1815,7 +2097,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=clickup.com&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://clickup.com/",
+    "pricing_source_url": "https://clickup.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "getgabs",
@@ -1834,7 +2119,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=getgabs.com&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://getgabs.com/",
+    "pricing_source_url": "https://getgabs.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "eprofessor",
@@ -1853,7 +2141,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=eprofessor.com&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://eprofessor.com/",
+    "pricing_source_url": "https://eprofessor.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "docsbot",
@@ -1872,7 +2163,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=docsbot.ai&sz=128",
     "primary_category": "ai_agents",
-    "comparison_group": "ai_agents"
+    "comparison_group": "ai_agents",
+    "official_url": "https://docsbot.ai/",
+    "pricing_source_url": "https://docsbot.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "surfeo",
@@ -1891,7 +2185,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=surfeo.ai&sz=128",
     "primary_category": "design_art",
-    "comparison_group": "design_art"
+    "comparison_group": "design_art",
+    "official_url": "https://surfeo.ai/",
+    "pricing_source_url": "https://surfeo.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "dub",
@@ -1910,7 +2207,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=dub.co&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://dub.co/",
+    "pricing_source_url": "https://dub.co/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "helpdesk",
@@ -1929,7 +2229,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=helpdesk.com&sz=128",
     "primary_category": "chatbots_support",
-    "comparison_group": "chatbots_support"
+    "comparison_group": "chatbots_support",
+    "official_url": "https://helpdesk.com/",
+    "pricing_source_url": "https://helpdesk.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "happyscribe",
@@ -1948,7 +2251,10 @@
     "rating": 4.9,
     "logo_url": "https://www.google.com/s2/favicons?domain=happyscribe.com&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://happyscribe.com/",
+    "pricing_source_url": "https://happyscribe.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "pickaxe",
@@ -1967,7 +2273,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=pickaxe.ai&sz=128",
     "primary_category": "dev_coding",
-    "comparison_group": "dev_coding"
+    "comparison_group": "dev_coding",
+    "official_url": "https://pickaxe.ai/",
+    "pricing_source_url": "https://pickaxe.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "ai-video-cut",
@@ -1986,7 +2295,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=aivideocut.com&sz=128",
     "primary_category": "video_gen",
-    "comparison_group": "ai_avatar_video"
+    "comparison_group": "ai_avatar_video",
+    "official_url": "https://aivideocut.com/",
+    "pricing_source_url": "https://aivideocut.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "tagshop-ai",
@@ -2005,7 +2317,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=tagshop.ai&sz=128",
     "primary_category": "video_gen",
-    "comparison_group": "ai_avatar_video"
+    "comparison_group": "ai_avatar_video",
+    "official_url": "https://tagshop.ai/",
+    "pricing_source_url": "https://tagshop.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "text",
@@ -2024,7 +2339,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=text.com&sz=128",
     "primary_category": "chatbots_support",
-    "comparison_group": "chatbots_support"
+    "comparison_group": "chatbots_support",
+    "official_url": "https://text.com/",
+    "pricing_source_url": "https://text.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "typedesk",
@@ -2043,7 +2361,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=typedesk.com&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://typedesk.com/",
+    "pricing_source_url": "https://typedesk.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "chatbot",
@@ -2062,7 +2383,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=chatbot.com&sz=128",
     "primary_category": "chatbots_support",
-    "comparison_group": "chatbots_support"
+    "comparison_group": "chatbots_support",
+    "official_url": "https://chatbot.com/",
+    "pricing_source_url": "https://chatbot.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "gojiberry",
@@ -2081,7 +2405,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=gojiberry.ai&sz=128",
     "primary_category": "sales_crm",
-    "comparison_group": "sales_crm"
+    "comparison_group": "sales_crm",
+    "official_url": "https://gojiberry.ai/",
+    "pricing_source_url": "https://gojiberry.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "bidx",
@@ -2100,7 +2427,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=bidx.com&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://bidx.com/",
+    "pricing_source_url": "https://bidx.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "tidio",
@@ -2119,7 +2449,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=tidio.com&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://www.tidio.com/",
+    "pricing_source_url": "https://www.tidio.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "catalister",
@@ -2138,7 +2471,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=catalister.com&sz=128",
     "primary_category": "design_art",
-    "comparison_group": "design_art"
+    "comparison_group": "design_art",
+    "official_url": "https://catalister.com/",
+    "pricing_source_url": "https://catalister.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "bookyourdata",
@@ -2157,7 +2493,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=bookyourdata.com&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://bookyourdata.com/",
+    "pricing_source_url": "https://bookyourdata.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "mindstudio",
@@ -2176,7 +2515,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=mindstudio.ai&sz=128",
     "primary_category": "dev_coding",
-    "comparison_group": "dev_coding"
+    "comparison_group": "dev_coding",
+    "official_url": "https://www.mindstudio.ai/",
+    "pricing_source_url": "https://www.mindstudio.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "manychat",
@@ -2195,7 +2537,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=manychat.com&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://manychat.com/",
+    "pricing_source_url": "https://manychat.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "synthflow-ai",
@@ -2214,7 +2559,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=synthflow.ai&sz=128",
     "primary_category": "voice_cloning",
-    "comparison_group": "voice_generation"
+    "comparison_group": "voice_generation",
+    "official_url": "https://synthflow.ai/",
+    "pricing_source_url": "https://synthflow.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "customgpt-ai",
@@ -2233,7 +2581,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=customgpt.ai&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://customgpt.ai/",
+    "pricing_source_url": "https://customgpt.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "databox",
@@ -2252,7 +2603,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=databox.com&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://databox.com/",
+    "pricing_source_url": "https://databox.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "fathom",
@@ -2271,7 +2625,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=fathom.video&sz=128",
     "primary_category": "sales_crm",
-    "comparison_group": "sales_crm"
+    "comparison_group": "sales_crm",
+    "official_url": "https://fathom.video/",
+    "pricing_source_url": "https://fathom.video/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "taskip",
@@ -2290,7 +2647,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=taskip.net&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://taskip.net/",
+    "pricing_source_url": "https://taskip.net/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "gumloop",
@@ -2309,7 +2669,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=gumloop.com&sz=128",
     "primary_category": "dev_coding",
-    "comparison_group": "dev_coding"
+    "comparison_group": "dev_coding",
+    "official_url": "https://gumloop.com/",
+    "pricing_source_url": "https://gumloop.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "teknikforce",
@@ -2328,7 +2691,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=teknikforce.com&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://www.teknikforce.com/",
+    "pricing_source_url": "https://www.teknikforce.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "hide-me",
@@ -2347,7 +2713,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=hide.me&sz=128",
     "primary_category": "productivity",
-    "comparison_group": "productivity"
+    "comparison_group": "productivity",
+    "official_url": "https://hide.me/",
+    "pricing_source_url": "https://hide.me/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "snov-io",
@@ -2366,7 +2735,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=snov.io&sz=128",
     "primary_category": "sales_crm",
-    "comparison_group": "sales_crm"
+    "comparison_group": "sales_crm",
+    "official_url": "https://snov.io/",
+    "pricing_source_url": "https://snov.io/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "claap",
@@ -2385,7 +2757,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=claap.ai&sz=128",
     "primary_category": "video_gen",
-    "comparison_group": "ai_avatar_video"
+    "comparison_group": "ai_avatar_video",
+    "official_url": "https://www.claap.ai/",
+    "pricing_source_url": "https://www.claap.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "cloudtalk",
@@ -2404,7 +2779,10 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=cloudtalk.io&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://www.cloudtalk.io/",
+    "pricing_source_url": "https://www.cloudtalk.io/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "seamless",
@@ -2423,7 +2801,10 @@
     "rating": 4.8,
     "logo_url": "https://www.google.com/s2/favicons?domain=seamless.ai&sz=128",
     "primary_category": "sales_crm",
-    "comparison_group": "sales_crm"
+    "comparison_group": "sales_crm",
+    "official_url": "https://www.seamless.ai/",
+    "pricing_source_url": "https://www.seamless.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "flowgent-ai",
@@ -2442,7 +2823,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=flowgent.ai&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://flowgent.ai/",
+    "pricing_source_url": "https://flowgent.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "activepieces",
@@ -2461,7 +2845,10 @@
     "rating": 4.6,
     "logo_url": "https://www.google.com/s2/favicons?domain=activepieces.com&sz=128",
     "primary_category": "workflow_auto",
-    "comparison_group": "workflow_auto"
+    "comparison_group": "workflow_auto",
+    "official_url": "https://www.activepieces.com/",
+    "pricing_source_url": "https://www.activepieces.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "marketingblocks",
@@ -2481,7 +2868,10 @@
     "logo_url": "https://www.google.com/s2/favicons?domain=marketingblocks.ai&sz=128",
     "primary_category": "copywriting",
     "comparison_group": "ai_writing_assistant",
-    "is_direct_competitor": true
+    "is_direct_competitor": true,
+    "official_url": "https://marketingblocks.ai/",
+    "pricing_source_url": "https://marketingblocks.ai/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "google-workspace",
@@ -2500,7 +2890,10 @@
     "rating": 4.5,
     "logo_url": "https://www.google.com/s2/favicons?domain=workspace.google.com&sz=128",
     "primary_category": "email_outreach",
-    "comparison_group": "email_outreach"
+    "comparison_group": "email_outreach",
+    "official_url": "https://workspace.google.com/",
+    "pricing_source_url": "https://workspace.google.com/",
+    "pricing_verified_at": "2026-07-31"
   },
   {
     "id": "chatbase",
@@ -2519,6 +2912,9 @@
     "rating": 4.7,
     "logo_url": "https://www.google.com/s2/favicons?domain=chatbase.com&sz=128",
     "primary_category": "sales_crm",
-    "comparison_group": "sales_crm"
+    "comparison_group": "sales_crm",
+    "official_url": "https://www.chatbase.com/",
+    "pricing_source_url": "https://www.chatbase.com/",
+    "pricing_verified_at": "2026-07-31"
   }
 ]
