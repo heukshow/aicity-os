@@ -63,14 +63,20 @@ for idx, tool in enumerate(manual_candidates):
     )
     try:
         res_off = urllib.request.urlopen(req_off, context=ssl_context, timeout=10)
-        tool["http_verification_status"] = "verified_http_200"
-    except urllib.error.HTTPError as e:
-        if e.code == 403:
-            tool["http_verification_status"] = "bot_blocked"
+        final_off_url = res_off.geturl()
+        if final_off_url != off_url and any(final_off_url.startswith(p) for p in ["http://", "https://"]):
+            tool["http_verification_status"] = "redirect_verified"
         else:
-            tool["http_verification_status"] = f"http_{e.code}"
+            tool["http_verification_status"] = "verified_http_200"
+    except urllib.error.HTTPError as e:
+        if e.code in (401, 403):
+            tool["http_verification_status"] = "bot_blocked"
+        elif e.code == 429:
+            tool["http_verification_status"] = "rate_limited"
+        else:
+            tool["http_verification_status"] = "http_error"
     except Exception:
-        tool["http_verification_status"] = "failed"
+        tool["http_verification_status"] = "network_error"
 
     # 2. Verify Pricing Source URL & Evidence Markers if pricing_verified=true
     if pv_flag is True and ps_url:

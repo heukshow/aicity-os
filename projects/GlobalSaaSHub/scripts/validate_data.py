@@ -101,7 +101,15 @@ for idx, tool in enumerate(tools):
         errors.append(f"Tool '{tid}' is_manual_override must be boolean (got {type(is_override).__name__}).")
 
     http_status_enum = tool.get("http_verification_status")
-    ALLOWED_HTTP_STATUSES = {"verified_http_200", "bot_blocked", "redirect_verified", None}
+    ALLOWED_HTTP_STATUSES = {
+        "verified_http_200",
+        "redirect_verified",
+        "bot_blocked",
+        "rate_limited",
+        "http_error",
+        "network_error",
+        None,
+    }
     if http_status_enum not in ALLOWED_HTTP_STATUSES:
         errors.append(f"Tool '{tid}' http_verification_status '{http_status_enum}' not in allowed set: {ALLOWED_HTTP_STATUSES}")
 
