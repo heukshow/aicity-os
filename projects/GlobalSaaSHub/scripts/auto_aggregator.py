@@ -6,7 +6,8 @@ import urllib.error
 import subprocess
 import sys
 import time
-from affiliate_url_verifier import safe_affiliate_url
+from affiliate_url_verifier import safe_affiliate_result
+
 
 
 # Force stdout and stderr to use UTF-8 to prevent encoding crashes on Windows Task Scheduler
@@ -416,14 +417,14 @@ def main():
         # Compute valid official URL
         valid_off_url = off_url if (isinstance(off_url, str) and off_url.strip().startswith(('http://', 'https://'))) else f"https://{tool_domain}/"
 
-        # Validate affiliate_url: HTTP 200 alone is NOT sufficient.
-        # Page must contain affiliate evidence markers (affiliate/referral/commission/payout/...).
-        # Generic partner/contact/reseller pages are rejected and set to None.
-        valid_aff_url = safe_affiliate_url(aff_url, tool_name=new_tool.get('name', ''))
-
+        # Validate affiliate_url: SSL ON, page fetched, strong compound evidence required.
+        # Returns full metadata dict; all fields are stored in the normalized tool record.
+        aff_meta = safe_affiliate_result(aff_url, tool_name=new_tool.get('name', ''))
 
         # Normalize new_tool using strict helper function
-        normalized_new_tool = normalize_unverified_candidate(new_tool, valid_off_url, valid_aff_url)
+        normalized_new_tool = normalize_unverified_candidate(new_tool, valid_off_url, aff_meta["affiliate_url"])
+        # Merge affiliate verification metadata into the record
+        normalized_new_tool.update(aff_meta)
 
         if matched_existing_tool is None:
             # Truly new tool! Add to database

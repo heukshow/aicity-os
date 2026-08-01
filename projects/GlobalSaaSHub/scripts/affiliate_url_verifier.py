@@ -1,42 +1,60 @@
 ﻿"""
-affiliate_url_verifier.py - Affiliate URL Evidence Verifier
-============================================================
+affiliate_url_verifier.py - Affiliate URL Evidence Verifier (v2)
+================================================================
 Single source of truth for affiliate URL verification logic.
-Used by:
-  - auto_aggregator.py  (validates Gemini-discovered affiliate URLs)
-  - verify_manual_candidates.py (can be used for manual candidate validation)
 
-Safety rule:
-  HTTP 200 alone is NOT sufficient to accept an affiliate_url.
-  The page must contain at least one affiliate evidence marker.
-  Generic partner/contact/reseller pages are rejected.
+Safety rules:
+  1. SSL certificate validation is ALWAYS ON. Certificate errors = verification failure.
+  2. Path-based pre-blocking is REMOVED. Pages are always fetched before judgment.
+  3. Evidence requires STRONG signals, not just a single word anywhere on the page.
+  4. Returns a full metadata dict (not just a URL string).
 
-Evidence markers required (at least 1 must appear in page HTML):
-  affiliate, referral, commission, payout, refer-a-friend, earn money,
-  partner program revenue, revenue share
+Strong evidence: at least 1 of these compound patterns must be found in the
+page title, h1, or first 50KB of body text (case-insensitive):
+  - "affiliate program" or "affiliate application" or "join affiliate"
+  - "referral program" or "join referral"
+  - "partner program" + ("commission" or "payout" or "earn")
+  - "commission rate" or "commission percentage" or "payout terms"
+  - "cookie duration" or "referral tracking"
+  - "affiliate dashboard" or "affiliate application form"
+  - "refer a friend" + ("earn" or "reward" or "commission")
 
-Blocked page patterns (overrides evidence markers):
-  If the URL path matches /partners$, /contact, /reseller, /enterprise
-  without any affiliate evidence, it is rejected.
+Weak signals (NOT sufficient alone):
+  - Single occurrence of "affiliate" in footer, privacy policy, or blog link
+  - Generic "partners" or "contact" text
 """
 
 import ssl
 import urllib.request
 import urllib.error
+import re
+from datetime import datetime, timezone
 
-# Minimum evidence: at least one of these must appear in the page HTML (case-insensitive)
-AFFILIATE_EVIDENCE_MARKERS = [
-    "affiliate",
-    "referral",
-    "commission",
-    "payout",
-    "refer-a-friend",
-    "earn money",
-    "revenue share",
+
+# Strong compound evidence patterns (regex, case-insensitive)
+# At least ONE must match for the URL to be accepted.
+STRONG_EVIDENCE_PATTERNS = [
+    r"affiliate\s+program",
+    r"affiliate\s+application",
+    r"join\s+(our\s+)?affiliate",
+    r"become\s+an?\s+affiliate",
+    r"referral\s+program",
+    r"join\s+(our\s+)?referral",
+    r"partner\s+program.{0,80}(commission|payout|earn)",
+    r"commission\s+rate",
+    r"commission\s+percentage",
+    r"payout\s+terms",
+    r"cookie\s+duration",
+    r"referral\s+tracking",
+    r"affiliate\s+dashboard",
+    r"affiliate\s+application\s+form",
+    r"refer\s+a\s+friend.{0,80}(earn|reward|commission)",
 ]
 
-# URL path suffixes that indicate a generic (non-affiliate) partner page
-GENERIC_PARTNER_PATH_SUFFIXES = [
+_COMPILED_PATTERNS = [re.compile(p, re.IGNORECASE | re.DOTALL) for p in STRONG_EVIDENCE_PATTERNS]
+
+# Path risk signals (used only as informational metadata, NOT as pre-blockers)
+GENERIC_PARTNER_PATH_SIGNALS = [
     "/partners",
     "/contact",
     "/resellers",
@@ -44,65 +62,67 @@ GENERIC_PARTNER_PATH_SUFFIXES = [
     "/business",
 ]
 
-# Fields to record in tool data for affiliate verification
-AFFILIATE_VERIFIED_FIELDS = [
-    "affiliate_url",
-    "affiliate_verified",           # bool
-    "affiliate_source_url",         # URL actually fetched
-    "affiliate_final_url",          # URL after redirects
-    "affiliate_http_status",        # int or None
-    "affiliate_evidence_markers",   # list of found markers
-    "affiliate_verified_at",        # ISO-8601 UTC string or None
-]
+# Maximum HTML body to read (50KB is enough for above-fold + main content)
+MAX_HTML_BYTES = 51_200
 
 
 def _make_ssl_context():
-    ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
-    return ctx
+    """Returns a default SSL context with full certificate validation (no bypass)."""
+    return ssl.create_default_context()
 
 
-def _is_generic_partner_path(url: str) -> bool:
-    """Returns True if the URL path looks like a generic partner page (not affiliate)."""
+def _has_path_risk_signal(url: str) -> bool:
+    """Informational: True if the URL path contains a generic partner-page pattern."""
     try:
         lower = url.lower().split("?")[0].rstrip("/")
-        for suffix in GENERIC_PARTNER_PATH_SUFFIXES:
-            if lower.endswith(suffix):
-                return True
+        return any(lower.endswith(sig) for sig in GENERIC_PARTNER_PATH_SIGNALS)
     except Exception:
-        pass
-    return False
+        return False
+
+
+def _find_strong_evidence(html: str) -> list:
+    """Returns list of matched strong evidence pattern strings."""
+    found = []
+    for pat, src in zip(_COMPILED_PATTERNS, STRONG_EVIDENCE_PATTERNS):
+        if pat.search(html):
+            found.append(src)
+    return found
 
 
 def verify_affiliate_url(url: str, timeout: int = 10) -> dict:
     """
     Verify that a URL is a genuine affiliate/referral program page.
 
-    Returns a dict with:
-        accepted (bool)         - True if URL passes all checks
-        http_status (int|None)  - HTTP response code
-        final_url (str|None)    - URL after redirects
-        markers_found (list)    - Evidence markers found in page HTML
-        rejection_reason (str)  - Non-empty string if rejected
+    SSL validation is ALWAYS enforced. SSL errors = rejection.
+    The page is ALWAYS fetched before any content judgment.
+    A single word match is NOT sufficient; compound patterns are required.
+
+    Returns dict with keys:
+        accepted (bool)
+        http_status (int|None)
+        final_url (str|None)
+        evidence_patterns (list)      - strong patterns matched
+        path_risk_signal (bool)       - informational only
+        rejection_reason (str)        - non-empty if rejected
+        verified_at (str|None)        - ISO-8601 UTC if accepted
     """
     result = {
         "accepted": False,
         "http_status": None,
         "final_url": None,
-        "markers_found": [],
+        "evidence_patterns": [],
+        "path_risk_signal": False,
         "rejection_reason": "",
+        "verified_at": None,
     }
 
     if not url or not isinstance(url, str) or not url.strip().startswith(("http://", "https://")):
         result["rejection_reason"] = "Invalid or missing URL"
         return result
 
-    # Reject generic partner paths before HTTP call
-    if _is_generic_partner_path(url):
-        result["rejection_reason"] = f"URL path matches generic partner pattern (not affiliate): {url}"
-        return result
+    result["path_risk_signal"] = _has_path_risk_signal(url)
 
+    # Always use full SSL validation
     ssl_ctx = _make_ssl_context()
     req = urllib.request.Request(
         url,
@@ -112,41 +132,83 @@ def verify_affiliate_url(url: str, timeout: int = 10) -> dict:
     try:
         resp = urllib.request.urlopen(req, context=ssl_ctx, timeout=timeout)
         result["http_status"] = resp.status
-        result["final_url"] = resp.geturl()
-        html = resp.read(200_000).decode("utf-8", errors="replace").lower()
+        final_url = resp.geturl()
+        result["final_url"] = final_url
 
-        # Check affiliate evidence markers
-        found = [m for m in AFFILIATE_EVIDENCE_MARKERS if m in html]
-        result["markers_found"] = found
+        if not final_url or not final_url.startswith(("http://", "https://")):
+            result["rejection_reason"] = "Final URL after redirect is invalid"
+            return result
 
-        if not found:
+        html = resp.read(MAX_HTML_BYTES).decode("utf-8", errors="replace")
+        evidence = _find_strong_evidence(html)
+        result["evidence_patterns"] = evidence
+
+        if not evidence:
             result["rejection_reason"] = (
-                f"HTTP {resp.status} but no affiliate evidence markers found in page. "
-                f"Required at least one of: {AFFILIATE_EVIDENCE_MARKERS}"
+                "HTTP 200 but no strong affiliate evidence found. "
+                "Required at least one compound pattern (e.g. 'affiliate program', "
+                "'commission rate', 'cookie duration'). "
+                "Single-word matches in footer/privacy/blog are not accepted."
             )
         else:
             result["accepted"] = True
+            result["verified_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
+    except ssl.SSLError as e:
+        result["http_status"] = None
+        result["rejection_reason"] = f"SSL certificate error: {e}"
     except urllib.error.HTTPError as e:
         result["http_status"] = e.code
         result["rejection_reason"] = f"HTTP error {e.code}"
+    except urllib.error.URLError as e:
+        result["rejection_reason"] = f"URL error: {e.reason}"
     except Exception as e:
         result["rejection_reason"] = f"Network error: {type(e).__name__}: {e}"
 
     return result
 
 
-def safe_affiliate_url(url: str, tool_name: str = "") -> str | None:
+def safe_affiliate_result(url: str, tool_name: str = "") -> dict:
     """
-    Convenience wrapper: returns url if it passes verification, else None.
-    Prints result for pipeline logging.
+    Verify affiliate URL and return a full metadata dict suitable for
+    direct merge into a tool's data record.
+
+    Keys returned:
+        affiliate_url               - verified URL or None
+        affiliate_verified          - bool
+        affiliate_source_url        - original URL attempted
+        affiliate_final_url         - URL after redirects (or None)
+        affiliate_http_status       - int or None
+        affiliate_evidence_markers  - list of matched strong patterns
+        affiliate_verified_at       - ISO-8601 UTC string or None
+        affiliate_rejection_reason  - non-empty string if rejected
     """
-    if not url:
-        return None
     verdict = verify_affiliate_url(url)
+
     if verdict["accepted"]:
-        print(f"   affiliate_url OK [{tool_name}]: {url} (markers: {verdict['markers_found']})")
-        return url
+        print(
+            f"   affiliate_url OK [{tool_name}]: {url} "
+            f"(patterns: {len(verdict['evidence_patterns'])})"
+        )
+        return {
+            "affiliate_url": url,
+            "affiliate_verified": True,
+            "affiliate_source_url": url,
+            "affiliate_final_url": verdict["final_url"],
+            "affiliate_http_status": verdict["http_status"],
+            "affiliate_evidence_markers": verdict["evidence_patterns"],
+            "affiliate_verified_at": verdict["verified_at"],
+            "affiliate_rejection_reason": "",
+        }
     else:
         print(f"   affiliate_url REJECTED [{tool_name}]: {verdict['rejection_reason']}")
-        return None
+        return {
+            "affiliate_url": None,
+            "affiliate_verified": False,
+            "affiliate_source_url": url,
+            "affiliate_final_url": verdict["final_url"],
+            "affiliate_http_status": verdict["http_status"],
+            "affiliate_evidence_markers": [],
+            "affiliate_verified_at": None,
+            "affiliate_rejection_reason": verdict["rejection_reason"],
+        }
