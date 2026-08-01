@@ -12,6 +12,16 @@ import json
 import ssl
 import urllib.request
 from datetime import datetime, timezone
+from http_verification_status import (
+    HTTP_VERIFIED_200,
+    HTTP_REDIRECT_VERIFIED,
+    HTTP_BOT_BLOCKED,
+    HTTP_RATE_LIMITED,
+    HTTP_ERROR,
+    HTTP_NETWORK_ERROR,
+    http_code_to_status,
+)
+
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MANUAL_FILE = os.path.join(PROJECT_DIR, "data", "manual_candidates.json")
@@ -64,19 +74,13 @@ for idx, tool in enumerate(manual_candidates):
     try:
         res_off = urllib.request.urlopen(req_off, context=ssl_context, timeout=10)
         final_off_url = res_off.geturl()
-        if final_off_url != off_url and any(final_off_url.startswith(p) for p in ["http://", "https://"]):
-            tool["http_verification_status"] = "redirect_verified"
-        else:
-            tool["http_verification_status"] = "verified_http_200"
+        is_redirect = (final_off_url != off_url)
+        tool["http_verification_status"] = http_code_to_status(200, is_redirect=is_redirect)
     except urllib.error.HTTPError as e:
-        if e.code in (401, 403):
-            tool["http_verification_status"] = "bot_blocked"
-        elif e.code == 429:
-            tool["http_verification_status"] = "rate_limited"
-        else:
-            tool["http_verification_status"] = "http_error"
+        tool["http_verification_status"] = http_code_to_status(e.code)
     except Exception:
-        tool["http_verification_status"] = "network_error"
+        tool["http_verification_status"] = HTTP_NETWORK_ERROR
+
 
     # 2. Verify Pricing Source URL & Evidence Markers if pricing_verified=true
     if pv_flag is True and ps_url:
