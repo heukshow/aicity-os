@@ -285,10 +285,10 @@
     "category_display": "Workflow Automation",
     "description": "AI-powered productivity and workflow automation workspace with task management, mind maps, and AI agents.",
     "official_url": "https://www.taskade.com/",
-    "pricing": "Free plan available; Pro starting at /user/month",
+    "pricing": "Free plan available; Pro starting at $8/user/month (billed annually)",
     "pricing_source_url": "https://www.taskade.com/pricing",
     "pricing_evidence_markers": [
-      "",
+      "$8",
       "month"
     ],
     "pricing_verified": true,
@@ -314,7 +314,7 @@
     "affiliate_evidence_markers": [
       "affiliate\\s+program"
     ],
-    "affiliate_verified_at": "2026-08-03T17:35:22Z",
+    "affiliate_verified_at": "2026-08-03T17:39:24Z",
     "affiliate_rejection_reason": ""
   },
   {
@@ -324,10 +324,10 @@
     "category_display": "Coding & Dev Tools",
     "description": "B2B workforce platform to build, train, and deploy autonomous AI agents and automated workflows.",
     "official_url": "https://relevanceai.com/",
-    "pricing": "Free plan available; credit-based usage starting at /month",
+    "pricing": "Free plan available; credit-based usage starting at $234/month",
     "pricing_source_url": "https://relevanceai.com/docs/get-started/pricing",
     "pricing_evidence_markers": [
-      "",
+      "$234",
       "month"
     ],
     "pricing_verified": true,

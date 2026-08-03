@@ -158,11 +158,15 @@ for idx, tool in enumerate(tools):
 
         if ps_status != 200:
             errors.append(f"Tool '{tid}' pricing_verified is True but pricing_source_http_status is '{ps_status}' (expected 200).")
-        if not ps_final or not (ps_final.startswith("http://") or ps_final.startswith("https://")):
-            errors.append(f"Tool '{tid}' pricing_verified is True but pricing_source_final_url '{ps_final}' is missing or invalid.")
-        if not ps_markers or not isinstance(ps_markers, list) or len(ps_markers) == 0:
-            errors.append(f"Tool '{tid}' pricing_verified is True but pricing_evidence_markers is empty or missing.")
+        if not ps_final or not isinstance(ps_final, str) or not ps_final.startswith(("http://", "https://")):
+            errors.append(f"Tool '{tid}' pricing_verified is True but pricing_source_final_url '{ps_final}' is invalid.")
+
+        # --- STRICT PRICING INTEGRITY CONTRACT ---
+        if not isinstance(ps_markers, list) or len(ps_markers) == 0:
+            errors.append(f"Tool '{tid}' pricing_verified is True but pricing_evidence_markers is empty or not a list.")
         else:
+            if any(not isinstance(m, str) or m.strip() == "" for m in ps_markers):
+                errors.append(f"Tool '{tid}' pricing_verified is True but pricing_evidence_markers contains empty or invalid strings: {ps_markers!r}.")
             # Enforce that evidence_markers contains both price/currency marker AND billing period marker
             has_price_marker = any(re.search(r'[\$\€\£\¥]\d+|\d+\s*(usd|eur|gbp)', str(m), re.I) for m in ps_markers)
             has_period_marker = any(re.search(r'month|monthly|year|annual|user', str(m), re.I) for m in ps_markers)
@@ -170,6 +174,10 @@ for idx, tool in enumerate(tools):
                 errors.append(f"Tool '{tid}' pricing_evidence_markers {ps_markers} missing price/currency marker (e.g. '$200', '$99').")
             if not has_period_marker:
                 errors.append(f"Tool '{tid}' pricing_evidence_markers {ps_markers} missing billing period marker (e.g. 'year', 'month').")
+
+        pricing_str = tool.get("pricing")
+        if not isinstance(pricing_str, str) or not re.search(r"\d+", pricing_str):
+            errors.append(f"Tool '{tid}' pricing_verified is True but pricing string '{pricing_str}' contains no digits.")
 
         # Pricing source domain check: must match official domain
         if ps_url and off_url:

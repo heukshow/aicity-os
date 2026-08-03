@@ -1,4 +1,4 @@
-﻿name: Daily Automated Build & Deploy (GlobalSaaSHub)
+name: Daily Automated Build & Deploy (GlobalSaaSHub)
 
 on:
   # schedule:
@@ -74,6 +74,8 @@ jobs:
           python projects/GlobalSaaSHub/scripts/tests/test_affiliate_redirect.py
           python projects/GlobalSaaSHub/scripts/tests/test_affiliate_integration.py
           python projects/GlobalSaaSHub/scripts/tests/test_promote_approved_artifact.py
+          python projects/GlobalSaaSHub/scripts/tests/test_pricing_integrity.py
+          python projects/GlobalSaaSHub/scripts/tests/test_domain_dedup.py
 
       # =========================================================
       # PRODUCTION SAFETY GATE
