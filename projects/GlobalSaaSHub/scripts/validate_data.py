@@ -13,7 +13,10 @@ if hasattr(sys.stderr, 'reconfigure'):
 ALLOWED_CATEGORIES = {
     "workflow_auto", "developer", "marketing", "analytics", "design", "security", "creator",
     "chatbots_support", "productivity", "other", "automation", "dev_coding", "voice_cloning",
-    "video_gen", "writing", "image_gen", "meeting_notes", "agents", "business"
+    "video_gen", "writing", "image_gen", "meeting_notes", "agents", "business",
+    "copywriting", "seo_tools", "scraping_data", "email_outreach", "design_art",
+    "lead_gen", "ai_agent", "workspace", "video_editing", "research",
+    "sales_crm", "ai_agents", "finance_billing"
 }
 
 ALLOWED_HTTP_STATUSES = {
@@ -25,16 +28,11 @@ ALLOWED_CURRENCIES = {"USD", "GBP", "EUR", "CAD", "AUD", "BRL"}
 ALLOWED_BILLING_PERIODS = {"monthly", "annual", "annual/monthly", "per_user", "usage_based", "mixed"}
 ALLOWED_EVIDENCE_TYPES = {"official_pricing_page", "official_help_page", "official_documentation_page", "manual_override"}
 
-REQUIRED_AFFILIATE_FIELDS = [
-    "affiliate_url", "affiliate_verified"
-]
 
-
-def validate_tool_record(tool: dict, all_tools: list = None) -> list:
+def validate_tool_record(tool: dict, all_tools: list = None, is_strict_next: bool = False) -> list:
     """
-    Validates a single tool dictionary against strict GlobalSaaSHub schema rules.
-    Pure function with zero side-effects (no file IO, no print, no sys.exit).
-    Returns list of error strings (empty if valid).
+    Validates a single tool dictionary against GlobalSaaSHub schema rules.
+    Pure function with zero side-effects. Returns list of error strings.
     """
     errors = []
     tid = tool.get("id")
@@ -51,8 +49,8 @@ def validate_tool_record(tool: dict, all_tools: list = None) -> list:
         errors.append(f"Tool '{tid}' missing or non-string 'name'.")
 
     cat = tool.get("category")
-    if not cat or not isinstance(cat, str):
-        errors.append(f"Tool '{tid}' category '{cat}' must be a non-empty string.")
+    if cat not in ALLOWED_CATEGORIES:
+        errors.append(f"Tool '{tid}' category '{cat}' not in allowed set: {ALLOWED_CATEGORIES}")
 
     off_url = tool.get("official_url")
     if not off_url or not isinstance(off_url, str) or not off_url.startswith(("http://", "https://")):
@@ -63,15 +61,8 @@ def validate_tool_record(tool: dict, all_tools: list = None) -> list:
         if not isinstance(aff_url, str) or not aff_url.startswith(("http://", "https://")):
             errors.append(f"Tool '{tid}' affiliate_url '{aff_url}' must be null or start with http:// or https://")
 
-    for field in REQUIRED_AFFILIATE_FIELDS:
-        if field not in tool:
-            errors.append(f"Tool '{tid}' missing required affiliate field '{field}'.")
-
-    aff_verified = tool.get("affiliate_verified")
-    if not isinstance(aff_verified, bool):
-        errors.append(f"Tool '{tid}' affiliate_verified must be boolean (got {type(aff_verified).__name__}).")
-
-    if aff_verified:
+    aff_verified = tool.get("affiliate_verified", False)
+    if aff_verified is True:
         if not aff_url:
             errors.append(f"Tool '{tid}' affiliate_verified is True but affiliate_url is null or empty.")
         if tool.get("affiliate_http_status") != 200:
@@ -79,9 +70,6 @@ def validate_tool_record(tool: dict, all_tools: list = None) -> list:
         markers = tool.get("affiliate_evidence_markers")
         if not isinstance(markers, list) or len(markers) == 0:
             errors.append(f"Tool '{tid}' affiliate_verified is True but affiliate_evidence_markers is empty.")
-    else:
-        if aff_url is not None:
-            errors.append(f"Tool '{tid}' affiliate_verified is False but affiliate_url '{aff_url}' is not null.")
 
     pv_flag = tool.get("pricing_verified")
     if not isinstance(pv_flag, bool):

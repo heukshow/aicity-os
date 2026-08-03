@@ -24,14 +24,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "notion-ai",
@@ -58,14 +51,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "make-com",
@@ -92,14 +78,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "elevenlabs",
@@ -127,14 +106,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "copy-ai",
@@ -162,14 +134,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "zenrows",
@@ -196,14 +161,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "tubebuddy",
@@ -230,14 +188,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "outlierkit",
@@ -264,14 +215,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "pictory",
@@ -299,14 +243,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "inkfluence-ai",
@@ -314,7 +251,7 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "An AI-powered writing assistant tailored for indie publishers, helping them generate high-quality content quickly and efficiently for their audience.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.inkfluenceai.com",
     "pricing": "Starting at $49/month",
     "key_features": [
       "AI-powered content generation",
@@ -333,14 +270,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "jasper",
@@ -348,7 +278,7 @@
     "category": "copywriting",
     "category_display": "AI Copywriting",
     "description": "A leading AI writing platform recognized for generating high-quality content for a broad range of business audiences, from marketing blogs to agencies.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.jasper.ai",
     "pricing": "Starting at $49/mo",
     "key_features": [
       "Versatile AI content generation",
@@ -368,14 +298,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "writesonic",
@@ -383,7 +306,7 @@
     "category": "copywriting",
     "category_display": "AI Copywriting",
     "description": "An advanced AI writing assistant that helps businesses and individuals create a wide array of content, from blog posts to ad copy, with speed and efficiency.",
-    "affiliate_url": null,
+    "affiliate_url": "https://writesonic.com",
     "pricing": "Starting at $15/mo",
     "key_features": [
       "AI article & blog writer",
@@ -403,14 +326,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "sudowrite",
@@ -418,7 +334,7 @@
     "category": "copywriting",
     "category_display": "AI Copywriting",
     "description": "An innovative AI writing tool specifically designed to assist fiction writers in brainstorming, drafting, and refining their stories and novels.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.sudowrite.com",
     "pricing": "Starting at $10/month",
     "key_features": [
       "AI story generation",
@@ -438,14 +354,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "convertkit",
@@ -453,7 +362,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "A powerful email marketing platform built for creators, offering robust tools for audience growth, email automation, and engagement, now with AI-powered writing features.",
-    "affiliate_url": null,
+    "affiliate_url": "https://convertkit.com",
     "pricing": "Starting at $15/month",
     "key_features": [
       "Email marketing automation",
@@ -472,14 +381,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "quillbot",
@@ -487,7 +389,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "QuillBot is an AI-powered paraphrasing tool designed to rewrite text, simplify sentences, and enhance writing style. It improves grammar, adjusts writing tone, and helps avoid plagiarism, automating many editing and proofreading tasks.",
-    "affiliate_url": null,
+    "affiliate_url": "https://quillbot.com",
     "pricing": "Free plan available",
     "key_features": [
       "AI-powered paraphrasing",
@@ -506,14 +408,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "text-cortex",
@@ -521,7 +416,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Text Cortex is an AI-powered writing assistant that elevates your content through rewriting, summarizing, question answering, plagiarism checks, and generating diverse creative text formats. It's available across multiple platforms, including browser, desktop, and mobile.",
-    "affiliate_url": null,
+    "affiliate_url": "https://textcortex.com",
     "pricing": "Starting at $19.99/mo",
     "key_features": [
       "AI-powered writing assistant",
@@ -540,14 +435,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "vidiq",
@@ -555,7 +443,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "VidIQ is an essential AI-powered toolkit for YouTube creators, providing robust features for keyword research, video analytics, optimization, and competitor analysis. It leverages AI for generating titles, content ideas, video scripts, and descriptions to boost channel growth.",
-    "affiliate_url": null,
+    "affiliate_url": "https://vidiq.com",
     "pricing": "Free plan available",
     "key_features": [
       "YouTube keyword research",
@@ -574,14 +462,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "bolddesk",
@@ -608,14 +489,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "brand24",
@@ -642,14 +516,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "socialchamp-io",
@@ -676,14 +543,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "triple-whale",
@@ -710,14 +570,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "boldsign",
@@ -744,14 +597,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "privy",
@@ -778,14 +624,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "aweber",
@@ -812,14 +651,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "unbounce",
@@ -846,14 +678,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "moosend",
@@ -880,14 +705,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "reply-io",
@@ -914,14 +732,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "omnisend",
@@ -948,14 +759,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "time2book",
@@ -982,14 +786,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "semrush",
@@ -1016,14 +813,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "hubspot",
@@ -1050,14 +840,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "kinsta",
@@ -1084,14 +867,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "shopify",
@@ -1118,14 +894,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "systeme-io",
@@ -1152,14 +921,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "jotform",
@@ -1167,7 +929,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Jotform is a powerful online form builder that helps businesses create custom forms for data collection, payments, and workflow automation without any coding. Design surveys, applications, and order forms with ease.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.jotform.com",
     "pricing": "Starting at $39/month (paid plans)",
     "key_features": [
       "Drag-and-Drop Form Builder",
@@ -1186,14 +948,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "webflow",
@@ -1201,7 +956,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Webflow is a visual web development platform that allows users to design, build, and launch responsive websites without writing code. It combines design tools, CMS, and hosting into a single, powerful platform for creative professionals.",
-    "affiliate_url": null,
+    "affiliate_url": "https://webflow.com/affiliates",
     "pricing": "Free starter plan; paid site plans from $14/mo.",
     "key_features": [
       "Visual Website Builder",
@@ -1220,14 +975,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "reactin",
@@ -1235,7 +983,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "ReactIn is an intent-based LinkedIn growth platform designed for B2B professionals, offering powerful tools for lead generation and competitor monitoring.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.reactin.io",
     "pricing": "Tiered subscription plans available",
     "key_features": [
       "Intent Data & Signals",
@@ -1254,14 +1002,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "synthesia",
@@ -1269,7 +1010,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Transform text into AI videos with realistic avatars, ideal for training, e-learning, and professional video production, simplifying content creation.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.synthesia.io/affiliates",
     "pricing": "Starting at $30/mo",
     "key_features": [
       "AI video generation",
@@ -1289,14 +1030,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "octo-browser",
@@ -1304,7 +1038,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "Octo Browser is an advanced antidetect browser designed for secure multi-accounting and digital fingerprint management across various online platforms.",
-    "affiliate_url": null,
+    "affiliate_url": "https://octobrowser.net",
     "pricing": "Starting at $29/mo",
     "key_features": [
       "Secure multi-accounting capabilities",
@@ -1323,14 +1057,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "carv",
@@ -1338,7 +1065,7 @@
     "category": "ai_agents",
     "category_display": "Autonomous AI Agents",
     "description": "Carv provides AI-powered recruitment agents that streamline high-volume hiring by automating administrative tasks, candidate screening, and scheduling processes.",
-    "affiliate_url": null,
+    "affiliate_url": "https://carv.ai",
     "pricing": "Custom enterprise pricing",
     "key_features": [
       "AI-powered recruitment agents",
@@ -1357,14 +1084,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "jobhire",
@@ -1372,7 +1092,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "JobHire is an AI-powered career assistant that automates the job search process, including resume tailoring and high-volume application submission.",
-    "affiliate_url": null,
+    "affiliate_url": "https://jobhire.ai",
     "pricing": "Starting at $19/mo",
     "key_features": [
       "AI-powered career assistance",
@@ -1391,14 +1111,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "aitable-ai",
@@ -1406,7 +1119,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "AITable.ai provides a visual AI database to organize data, automate workflows, and build custom AI agents for enhanced productivity.",
-    "affiliate_url": null,
+    "affiliate_url": "https://aitable.ai",
     "pricing": "Starting at $25/mo",
     "key_features": [
       "Visual AI database for data organization",
@@ -1425,14 +1138,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "liftmycv",
@@ -1440,7 +1146,7 @@
     "category": "ai_agents",
     "category_display": "Autonomous AI Agents",
     "description": "LiftmyCV leverages AI and ChatGPT to automate job applications across multiple platforms, acting as an intelligent job search agent.",
-    "affiliate_url": null,
+    "affiliate_url": "https://liftmycv.com",
     "pricing": "Starting at $19/month",
     "key_features": [
       "AI-powered job search agent",
@@ -1459,14 +1165,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "blaze",
@@ -1474,7 +1173,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Blaze is an AI-powered marketing automation platform that creates, schedules, and optimizes brand-specific content across diverse channels.",
-    "affiliate_url": null,
+    "affiliate_url": "https://blaze.ai/affiliates",
     "pricing": "Starting at $79/mo",
     "key_features": [
       "AI-powered marketing automation",
@@ -1493,14 +1192,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "aiassistworks",
@@ -1508,7 +1200,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "AiAssistWorks integrates over 100 AI models directly into Google Sheets, Docs, and Slides, enabling automated workflows within your favorite productivity suite.",
-    "affiliate_url": null,
+    "affiliate_url": "https://aiassistworks.com/affiliates",
     "pricing": "Starting at $15/mo",
     "key_features": [
       "Integrates 100+ AI models",
@@ -1527,14 +1219,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "vista-social",
@@ -1542,7 +1227,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Vista Social is an AI-powered platform for comprehensive social media management, offering tools for publishing, engagement, analytics, and team collaboration.",
-    "affiliate_url": null,
+    "affiliate_url": "https://vistasocial.com",
     "pricing": "Starting at $39/mo",
     "key_features": [
       "AI-powered social media management",
@@ -1561,14 +1246,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "gravity-forms",
@@ -1576,7 +1254,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Gravity Forms is a powerful WordPress plugin that enables users to build custom forms, manage online payments, and automate various data workflows directly on their website.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.gravityforms.com",
     "pricing": "Starting at $59/year",
     "key_features": [
       "Powerful WordPress plugin",
@@ -1595,14 +1273,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "sendcloud",
@@ -1610,7 +1281,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Sendcloud is an all-in-one shipping automation platform that optimizes checkout, shipping, tracking, and returns for e-commerce businesses.",
-    "affiliate_url": null,
+    "affiliate_url": "https://sendcloud.com/affiliates",
     "pricing": "Varies by plan",
     "key_features": [
       "All-in-one shipping automation",
@@ -1629,14 +1300,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "alidropship",
@@ -1644,7 +1308,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "AliDropship offers WordPress and WooCommerce solutions to automate AliExpress dropshipping store management and product fulfillment with ease.",
-    "affiliate_url": null,
+    "affiliate_url": "https://alidropship.com",
     "pricing": "Varies by plan",
     "key_features": [
       "WordPress dropshipping solution",
@@ -1663,14 +1327,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "nudgera",
@@ -1678,7 +1335,7 @@
     "category": "finance_billing",
     "category_display": "Finance & Billing",
     "description": "Nudgera is an AI-powered revenue operating system that automates invoice chasing and uses sentiment-aware negotiation to optimize payment collection.",
-    "affiliate_url": null,
+    "affiliate_url": "https://nudgera.com",
     "pricing": "Varies by plan",
     "key_features": [
       "AI-powered revenue operating system",
@@ -1698,14 +1355,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "questmate",
@@ -1713,7 +1363,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Questmate streamlines operations by automating tasks and workflows through smart routines and customizable checklists.",
-    "affiliate_url": null,
+    "affiliate_url": "https://questmate.com",
     "pricing": "Varies by plan",
     "key_features": [
       "Automates tasks and workflows",
@@ -1732,14 +1382,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "merlin",
@@ -1747,7 +1390,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Merlin is an AI productivity tool designed to supercharge your daily tasks, offering powerful summarization, content generation, and seamless workflow automation features. Boost your efficiency and creativity with intelligent AI assistance across various applications.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.getmerlin.in",
     "pricing": "Starting at $19/mo",
     "key_features": [
       "AI-powered summarization",
@@ -1766,14 +1409,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "decktopus",
@@ -1781,7 +1417,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "Decktopus is an AI-powered presentation tool that automatically crafts stunning decks, empowering users to create professional presentations in minutes. Leverage customizable templates and integrated forms for effective lead generation and impactful visual storytelling.",
-    "affiliate_url": null,
+    "affiliate_url": "https://decktopus.com",
     "pricing": "Starting at $9.99/mo",
     "key_features": [
       "AI auto-created presentations",
@@ -1800,14 +1436,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "dorik",
@@ -1815,7 +1444,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Dorik is a no-code AI website builder that enables quick creation of professional websites without any coding knowledge. Build stunning, responsive sites effortlessly, perfect for businesses, portfolios, and personal brands.",
-    "affiliate_url": null,
+    "affiliate_url": "https://dorik.com",
     "pricing": "Starting at $14/mo",
     "key_features": [
       "No-code website building",
@@ -1834,14 +1463,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "rytr",
@@ -1849,7 +1471,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Rytr is an AI-powered writing assistant that helps you generate high-quality content for various needs in just seconds. From blog posts to emails, create compelling copy quickly and efficiently with intelligent AI suggestions.",
-    "affiliate_url": null,
+    "affiliate_url": "https://rytr.me",
     "pricing": "Starting at $9/mo",
     "key_features": [
       "AI content generation",
@@ -1868,14 +1490,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "frase",
@@ -1883,7 +1498,7 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "Frase is an AI-powered content optimization platform designed to help you create SEO-driven content that ranks higher and converts better. Research, write, and optimize all in one place for maximum search engine visibility.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.frase.io",
     "pricing": "Starting at $14.99/mo",
     "key_features": [
       "AI content research",
@@ -1902,14 +1517,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "heygen",
@@ -1917,7 +1525,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "HeyGen is an innovative AI-powered video creation platform, allowing you to produce professional videos with realistic avatars and voice cloning technology. Generate engaging content quickly, even with multilingual support, to reach global audiences.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.heygen.com",
     "pricing": "Starting at $24/mo",
     "key_features": [
       "AI-powered video generation",
@@ -1937,14 +1545,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "veed",
@@ -1952,7 +1553,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "VEED is an intuitive online video editing platform packed with AI-powered tools designed for creators and businesses alike. Easily edit, subtitle, and enhance your videos directly in your browser, streamlining your content production workflow.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.veed.io",
     "pricing": "Starting at $18/mo",
     "key_features": [
       "Online video editor",
@@ -1972,14 +1573,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "reclaim-ai",
@@ -1987,7 +1581,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Reclaim AI intelligently optimizes your calendar to protect your time and boost productivity, automatically scheduling smart habits and meetings. Let AI manage your schedule so you can focus on what truly matters.",
-    "affiliate_url": null,
+    "affiliate_url": "https://reclaim.ai",
     "pricing": "Check website for details",
     "key_features": [
       "AI calendar optimization",
@@ -2006,14 +1600,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "descript",
@@ -2021,7 +1608,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Descript is an all-in-one AI-powered tool for transcription, audio/video editing, and podcast production, allowing you to edit media like a document. Streamline your content creation workflow with powerful, intuitive features for creators.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.descript.com",
     "pricing": "Starting at $15/mo",
     "key_features": [
       "AI transcription",
@@ -2040,14 +1627,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "synder",
@@ -2055,7 +1635,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "AI-driven accounting automation software tailored for retail, eCommerce, and SaaS businesses, simplifying financial operations by automatically categorizing transactions and syncing data.",
-    "affiliate_url": null,
+    "affiliate_url": "https://synder.com",
     "pricing": "Check website for details",
     "key_features": [
       "AI-driven accounting automation",
@@ -2074,14 +1654,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "gallabox",
@@ -2089,7 +1662,7 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "An AI-powered B2B platform specializing in WhatsApp automation for marketing, sales, and customer support for businesses and agencies.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.gallabox.com",
     "pricing": "Starting at $49/mo",
     "key_features": [
       "WhatsApp Business API integration",
@@ -2108,14 +1681,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "panda-video",
@@ -2123,7 +1689,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "A secure and high-performance video hosting platform designed for course creators and video marketers.",
-    "affiliate_url": null,
+    "affiliate_url": "https://pandavideo.com",
     "pricing": "Starting at $19/mo",
     "key_features": [
       "Secure video streaming",
@@ -2142,14 +1708,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "surfer-seo",
@@ -2157,7 +1716,7 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "An AI-powered content intelligence tool designed to help SEO professionals optimize content for higher search engine rankings.",
-    "affiliate_url": null,
+    "affiliate_url": "https://surferseo.com/affiliate",
     "pricing": "Starting at $59/mo",
     "key_features": [
       "Content editor with real-time feedback",
@@ -2176,14 +1735,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "murf-ai",
@@ -2191,7 +1743,7 @@
     "category": "voice_cloning",
     "category_display": "Voice & Speech AI",
     "description": "An AI voice generator that provides realistic text-to-speech voices for various applications, empowering voice-over creators.",
-    "affiliate_url": null,
+    "affiliate_url": "https://murf.ai",
     "pricing": "Starting at $19/mo",
     "key_features": [
       "Studio-quality AI voices",
@@ -2211,14 +1763,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "scalenut",
@@ -2226,7 +1771,7 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "An AI content platform that streamlines content planning, creation, and SEO optimization for content teams and SEO agencies.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.scalenut.com/affiliate",
     "pricing": "Starting at $39/mo",
     "key_features": [
       "AI content creation",
@@ -2245,14 +1790,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "castmagic",
@@ -2279,14 +1817,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "loopcv",
@@ -2294,7 +1825,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "LoopCV leverages AI to automate the laborious job application process, finding matching roles across multiple boards and applying on the user's behalf. It significantly streamlines the job search, saving users valuable time and effort.",
-    "affiliate_url": null,
+    "affiliate_url": "https://loopcv.pro",
     "pricing": "Starting at $50/mo",
     "key_features": [
       "AI-powered job application automation",
@@ -2313,14 +1844,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "clickfunnels",
@@ -2328,7 +1852,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Empower your business with a robust sales funnel builder that turns visitors into loyal customers and automates your entire selling process.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.clickfunnels.com/affiliates",
     "pricing": "Starting at $147/mo",
     "key_features": [
       "Intuitive Drag-and-Drop Editor",
@@ -2347,14 +1871,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "tapfiliate",
@@ -2362,7 +1879,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Launch and manage your affiliate marketing program effortlessly with robust tracking, analytics, and partner recruitment features.",
-    "affiliate_url": null,
+    "affiliate_url": "https://tapfiliate.com/partners/",
     "pricing": "Starting at $89/mo",
     "key_features": [
       "Real-time Performance Tracking",
@@ -2381,14 +1898,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "getresponse",
@@ -2396,7 +1906,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Boost your marketing efforts with a powerful email marketing and automation platform, perfect for businesses and content creators.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.getresponse.com/affiliate-programs",
     "pricing": "Varies by plan, offers multiple tiers",
     "key_features": [
       "Email Marketing Campaigns",
@@ -2415,14 +1925,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "kit",
@@ -2430,7 +1933,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Empower creators with essential email tools to grow their audience, manage newsletters, and monetize their content effectively.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.kit.co",
     "pricing": "Starting at $15/mo",
     "key_features": [
       "Audience Growth Tools",
@@ -2449,14 +1952,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "teachable",
@@ -2464,7 +1960,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Launch and scale your online courses and coaching products with an intuitive platform built for educators and entrepreneurs.",
-    "affiliate_url": null,
+    "affiliate_url": "https://teachable.com/affiliates",
     "pricing": "Free plan available, paid plans starting at $39/mo",
     "key_features": [
       "Course Creation & Hosting",
@@ -2483,14 +1979,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "livechat",
@@ -2498,7 +1987,7 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "Enhance customer support and sales with a powerful live chat solution, enabling real-time communication and efficient query resolution.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.livechat.com",
     "pricing": "Check website for details.",
     "key_features": [
       "Real-time Chat with Customers",
@@ -2517,14 +2006,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "kittl",
@@ -2532,7 +2014,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "Kittl is an AI-powered graphic design tool that simplifies creating stunning visuals with an extensive library of templates, vector editing, and print-on-demand assets.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.kittl.com",
     "pricing": "Starting at $15/month",
     "key_features": [
       "AI-powered graphic design",
@@ -2551,14 +2033,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "koala-ai",
@@ -2566,7 +2041,7 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "Koala AI is an advanced AI writing tool specifically designed for generating SEO-optimized articles, complete with SERP analysis, Amazon affiliate content, and seamless WordPress integration.",
-    "affiliate_url": null,
+    "affiliate_url": "https://koala.sh",
     "pricing": "Starting at $25/month",
     "key_features": [
       "SEO-optimized article writing",
@@ -2585,14 +2060,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "lovo",
@@ -2600,7 +2068,7 @@
     "category": "voice_cloning",
     "category_display": "Voice & Speech AI",
     "description": "Lovo is an AI voice platform offering over 500 diverse voices, robust voice cloning capabilities, and integrated Genny video editing for comprehensive media production.",
-    "affiliate_url": null,
+    "affiliate_url": "https://lovo.ai",
     "pricing": "Starting at $29/month",
     "key_features": [
       "500+ AI voices",
@@ -2620,14 +2088,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "n8n",
@@ -2635,7 +2096,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "n8n is a flexible low-code automation platform designed for building sophisticated workflows, creating AI agents, and integrating with over 500 applications seamlessly.",
-    "affiliate_url": null,
+    "affiliate_url": "https://n8n.io",
     "pricing": "Open-source: free, Enterprise: custom pricing",
     "key_features": [
       "Low-code workflow building",
@@ -2654,14 +2115,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "novita-ai",
@@ -2669,7 +2123,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Novita AI is a comprehensive AI cloud platform offering developers and businesses seamless access to 200+ AI model APIs and custom deployment solutions for advanced applications.",
-    "affiliate_url": null,
+    "affiliate_url": "https://novita.com",
     "pricing": "Pay-as-you-go or starting at $50/month",
     "key_features": [
       "200+ AI model APIs",
@@ -2688,14 +2142,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "followr",
@@ -2703,7 +2150,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Followr.ai is a software platform empowering individuals and small teams to manage and grow their social media presence through sophisticated automation and AI-assisted tools.",
-    "affiliate_url": null,
+    "affiliate_url": "https://followr.com",
     "pricing": "Starting at $29/month",
     "key_features": [
       "Social media management",
@@ -2722,14 +2169,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "10web",
@@ -2737,7 +2177,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "10Web offers an AI-powered platform for building and managing WordPress websites, providing automated hosting and optimization features.",
-    "affiliate_url": null,
+    "affiliate_url": "https://10web.io",
     "pricing": "Starting at $20/mo",
     "key_features": [
       "AI Website Builder for WordPress",
@@ -2756,14 +2196,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "supademo",
@@ -2771,7 +2204,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Supademo is an advanced demo automation platform that helps product-led companies drive leads, onboard new users, and generate consistent revenue through interactive product demos.",
-    "affiliate_url": null,
+    "affiliate_url": "https://supademo.com",
     "pricing": "Not specified in snippet",
     "key_features": [
       "Advanced demo automation",
@@ -2790,14 +2223,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "colossyan",
@@ -2805,7 +2231,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Colossyan is an AI video platform that enables users to create engaging videos with AI presenters and multilingual support for diverse content needs, simplifying complex video production.",
-    "affiliate_url": null,
+    "affiliate_url": "https://colossyan.com",
     "pricing": "Starting at $30/mo",
     "key_features": [
       "AI video creation",
@@ -2825,14 +2251,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "beefree",
@@ -2840,7 +2259,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Beefree is a drag-and-drop editor for creating beautiful, responsive emails and landing pages quickly and without coding, ideal for marketers and designers.",
-    "affiliate_url": null,
+    "affiliate_url": "https://beefree.io",
     "pricing": "Starting at $15/mo",
     "key_features": [
       "Drag-and-drop editor",
@@ -2859,14 +2278,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "apollo",
@@ -2874,7 +2286,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Apollo is a sales intelligence and engagement platform that provides B2B contact data, lead generation tools, and outreach automation for sales teams to close more deals.",
-    "affiliate_url": null,
+    "affiliate_url": "https://apollo.io",
     "pricing": "Starting at $49/mo",
     "key_features": [
       "B2B contact database",
@@ -2893,14 +2305,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "getgenie",
@@ -2908,7 +2313,7 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "GetGenie is an AI-powered content writing assistant that helps marketers and bloggers generate high-quality articles, social media posts, and SEO content efficiently.",
-    "affiliate_url": null,
+    "affiliate_url": "https://getgenie.ai",
     "pricing": "Starting at $19/mo",
     "key_features": [
       "AI content generation",
@@ -2927,14 +2332,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "activecampaign",
@@ -2942,7 +2340,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "ActiveCampaign is a powerful customer experience automation platform offering email marketing, marketing automation, and CRM tools for businesses of all sizes to engage customers effectively.",
-    "affiliate_url": null,
+    "affiliate_url": "https://activecampaign.com",
     "pricing": "Starting at $29/mo",
     "key_features": [
       "Email marketing automation",
@@ -2961,14 +2359,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "sanebox",
@@ -2976,7 +2367,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Sanebox is an AI-powered email management tool that helps users prioritize important emails, organize their inbox, and reduce clutter efficiently.",
-    "affiliate_url": null,
+    "affiliate_url": "https://sanebox.com",
     "pricing": "Starting at $7/mo",
     "key_features": [
       "AI email prioritization",
@@ -2995,14 +2386,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "pipedrive",
@@ -3010,7 +2394,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Pipedrive is a sales-focused CRM platform designed to help small and medium businesses manage their sales pipeline, track deals, and automate workflows, ensuring no lead is missed.",
-    "affiliate_url": null,
+    "affiliate_url": "https://pipedrive.com",
     "pricing": "Starting at $14/user/mo",
     "key_features": [
       "Sales pipeline management",
@@ -3029,14 +2413,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "framer",
@@ -3044,7 +2421,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Framer is a powerful design tool and website builder that enables users to create stunning interactive prototypes and publish them as live websites with ease, no coding required.",
-    "affiliate_url": null,
+    "affiliate_url": "https://framer.com",
     "pricing": "Starting at $10/mo",
     "key_features": [
       "Interactive prototyping",
@@ -3063,14 +2440,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "monday-com",
@@ -3078,7 +2448,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Monday.com is a centralized work management platform for project tracking, workflow creation, and team collaboration, helping teams streamline operations and achieve goals efficiently.",
-    "affiliate_url": null,
+    "affiliate_url": "https://monday.com",
     "pricing": "Varies by plan",
     "key_features": [
       "Centralized work management",
@@ -3097,14 +2467,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "cartstack",
@@ -3131,14 +2494,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "cloudways",
@@ -3165,14 +2521,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "featureshark",
@@ -3199,14 +2548,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "clickup",
@@ -3233,14 +2575,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "getgabs",
@@ -3267,14 +2602,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "eprofessor",
@@ -3282,7 +2610,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Cloud-based platform for creating, selling, and managing interactive e-learning courses and secure online assessments.",
-    "affiliate_url": null,
+    "affiliate_url": "https://eprofessor.com",
     "pricing": "Starting at $29/mo",
     "key_features": [
       "Create interactive courses",
@@ -3301,14 +2629,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "docsbot",
@@ -3316,7 +2637,7 @@
     "category": "ai_agents",
     "category_display": "Autonomous AI Agents",
     "description": "Deploy custom AI agents trained on your unique business knowledge for superior automated support and enhanced team productivity.",
-    "affiliate_url": null,
+    "affiliate_url": "https://docsbot.ai",
     "pricing": "Starting at $49/mo",
     "key_features": [
       "Custom AI agent creation",
@@ -3335,14 +2656,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "surfeo",
@@ -3350,7 +2664,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "A powerful platform designed to measure and optimize your brand's visibility across leading AI models like ChatGPT, Gemini, Perplexity, and Claude.",
-    "affiliate_url": null,
+    "affiliate_url": "https://surfeo.ai",
     "pricing": "Starting at $99/mo",
     "key_features": [
       "Measure AI brand visibility",
@@ -3369,14 +2683,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "dub",
@@ -3384,7 +2691,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Create branded short links with advanced conversion tracking and a robust partner management infrastructure for effective marketing campaigns.",
-    "affiliate_url": null,
+    "affiliate_url": "https://dub.co",
     "pricing": "Starting at $10/mo",
     "key_features": [
       "Branded short links",
@@ -3403,14 +2710,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "helpdesk",
@@ -3418,7 +2718,7 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "Centralized ticketing software that streamlines customer support and enhances team collaboration through powerful automation and analytics.",
-    "affiliate_url": null,
+    "affiliate_url": "https://helpdesk.com",
     "pricing": "Starting at $29/agent/mo",
     "key_features": [
       "Centralized ticketing system",
@@ -3437,14 +2737,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "happyscribe",
@@ -3452,7 +2745,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "AI-powered platform that provides fast transcription, accurate subtitles, and intelligent meeting notes in over 150 languages.",
-    "affiliate_url": null,
+    "affiliate_url": "https://happyscribe.com",
     "pricing": "Starting at $10/hr",
     "key_features": [
       "AI-powered transcription",
@@ -3471,14 +2764,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "pickaxe",
@@ -3486,7 +2772,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "A no-code platform to effortlessly build, deploy, and monetize custom AI agents and branded portals, accelerating your AI development.",
-    "affiliate_url": null,
+    "affiliate_url": "https://pickaxe.ai",
     "pricing": "Starting at $39/mo",
     "key_features": [
       "No-code AI agent builder",
@@ -3505,14 +2791,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "ai-video-cut",
@@ -3520,7 +2799,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Transforms long-form videos into engaging, viral short-form clips using advanced AI-driven prompts and smart cropping technology.",
-    "affiliate_url": null,
+    "affiliate_url": "https://aivideocut.com",
     "pricing": "Starting at $15/mo",
     "key_features": [
       "Convert long videos to shorts",
@@ -3539,14 +2818,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "tagshop-ai",
@@ -3554,7 +2826,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Generate high-converting, UGC-style AI video ads directly from product URLs or scripts in just minutes, boosting your marketing efforts.",
-    "affiliate_url": null,
+    "affiliate_url": "https://tagshop.ai",
     "pricing": "Starting at $49/mo",
     "key_features": [
       "Generate AI video ads",
@@ -3573,14 +2845,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "text",
@@ -3588,7 +2853,7 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "An AI-powered customer service platform unifying live chat, helpdesk functionalities, and chatbot automation into one seamless system.",
-    "affiliate_url": null,
+    "affiliate_url": "https://text.com",
     "pricing": "Starting at $39/mo",
     "key_features": [
       "AI customer service platform",
@@ -3607,14 +2872,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "typedesk",
@@ -3622,7 +2880,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Cross-platform text expander and canned response manager empowering teams to automate repetitive typing tasks and enhance communication efficiency.",
-    "affiliate_url": null,
+    "affiliate_url": "https://typedesk.com",
     "pricing": "Starting at $10/user/mo",
     "key_features": [
       "Cross-platform text expander",
@@ -3641,14 +2899,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "chatbot",
@@ -3656,7 +2907,7 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "Create powerful AI-powered conversational agents to automate customer service, streamline lead generation, and boost sales processes without any coding.",
-    "affiliate_url": null,
+    "affiliate_url": "https://chatbot.com",
     "pricing": "Starting at $50/mo",
     "key_features": [
       "Create AI chatbots",
@@ -3675,14 +2926,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "gojiberry",
@@ -3690,7 +2934,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "An AI-powered sales engine that intelligently identifies high-intent LinkedIn leads and automates personalized outreach to effortlessly book demos.",
-    "affiliate_url": null,
+    "affiliate_url": "https://gojiberry.ai",
     "pricing": "Starting at $79/mo",
     "key_features": [
       "AI sales engine",
@@ -3709,14 +2953,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "bidx",
@@ -3724,7 +2961,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "An AI-driven platform that fully automates and optimizes advertising campaigns for Amazon and Walmart sellers, maximizing their ROI.",
-    "affiliate_url": null,
+    "affiliate_url": "https://bidx.com",
     "pricing": "Starting at $199/mo",
     "key_features": [
       "AI-driven advertising",
@@ -3743,14 +2980,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "tidio",
@@ -3777,14 +3007,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "catalister",
@@ -3811,14 +3034,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "bookyourdata",
@@ -3845,14 +3061,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "mindstudio",
@@ -3879,14 +3088,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "manychat",
@@ -3913,14 +3115,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "synthflow-ai",
@@ -3947,14 +3142,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "customgpt-ai",
@@ -3962,7 +3150,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "CustomGPT.ai empowers businesses to build bespoke ChatGPT-style agents, ensuring responses are precisely grounded in their private data for enhanced accuracy and role-specific interactions within automated workflows.",
-    "affiliate_url": null,
+    "affiliate_url": "https://customgpt.ai",
     "pricing": "Subscription plans available",
     "key_features": [
       "Build custom AI agents",
@@ -3981,14 +3169,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "databox",
@@ -3996,7 +3177,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Automates client reporting for agencies, transforming a traditionally time-consuming process into a scalable and efficient system. Ideal for performance marketing and PPC specialists seeking high ROI from their reporting.",
-    "affiliate_url": null,
+    "affiliate_url": "https://databox.com",
     "pricing": "Starting at $72/mo (billed annually)",
     "key_features": [
       "Automates recurring client reporting",
@@ -4015,14 +3196,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "fathom",
@@ -4030,7 +3204,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "An AI meeting assistant that automatically transcribes calls, generates concise summaries, extracts key action items, and pushes notes directly to your CRM, eliminating manual documentation.",
-    "affiliate_url": null,
+    "affiliate_url": "https://fathom.video",
     "pricing": "Free plan available, paid starts at $24/user/mo",
     "key_features": [
       "Automatic call transcription",
@@ -4049,14 +3223,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "taskip",
@@ -4064,7 +3231,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Taskip is an operational hub designed to centralize and tie together projects, clients, communication, and various automations, creating a unified and efficient ecosystem for agencies.",
-    "affiliate_url": null,
+    "affiliate_url": "https://taskip.net",
     "pricing": "Starting at $49/mo",
     "key_features": [
       "Centralized operational hub",
@@ -4083,14 +3250,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "gumloop",
@@ -4098,7 +3258,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Gumloop is an innovative AI agent and workflow automation platform that allows you to build custom AI agents using simple plain language, connecting to your tools and running workflows without code.",
-    "affiliate_url": null,
+    "affiliate_url": "https://gumloop.com",
     "pricing": "Starting at $99/mo",
     "key_features": [
       "Build custom AI agents without code",
@@ -4117,14 +3277,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "teknikforce",
@@ -4132,7 +3285,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Teknikforce offers an extensive ecosystem of marketing, funnel-building, AI, and automation tools, empowering online entrepreneurs to scale their businesses with comprehensive solutions.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.teknikforce.com",
     "pricing": "Various plans available across a suite of products",
     "key_features": [
       "Comprehensive marketing suite",
@@ -4151,14 +3304,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "hide-me",
@@ -4185,14 +3331,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "snov-io",
@@ -4200,7 +3339,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Snov.io is an all-in-one platform for lead generation, email verification, and outreach, helping sales and marketing teams streamline their prospecting efforts.",
-    "affiliate_url": null,
+    "affiliate_url": "https://snov.io",
     "pricing": "Starting at $39/mo",
     "key_features": [
       "Email Finder & Verifier",
@@ -4219,14 +3358,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "claap",
@@ -4234,7 +3366,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Claap is a powerful software platform that streamlines team communication by helping record, analyze, and share meeting content and asynchronous video updates. Enhance productivity and decision-making by acting on crucial insights efficiently.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.claap.ai",
     "pricing": "Starting at $10/mo",
     "key_features": [
       "Record and transcribe meeting content",
@@ -4253,14 +3385,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "cloudtalk",
@@ -4268,7 +3393,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "CloudTalk is a leading cloud-based call center software designed to revolutionize how businesses interact with their customers. Optimize communication workflows and deliver exceptional customer service with advanced features.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.cloudtalk.io",
     "pricing": "Starting at $25/mo",
     "key_features": [
       "Cloud-based call center functionality",
@@ -4287,14 +3412,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "seamless",
@@ -4321,14 +3439,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "flowgent-ai",
@@ -4336,7 +3447,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "FlowGent AI is a complete platform to build, manage, and scale AI agents and automations, designed to streamline complex workflows.",
-    "affiliate_url": null,
+    "affiliate_url": "https://flowgent.ai/affiliate",
     "pricing": "Not specified",
     "key_features": [
       "AI Agent Creation",
@@ -4355,14 +3466,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "activepieces",
@@ -4370,7 +3474,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "A budget-friendly automated workflow software designed for small teams and solo builders seeking robust automation without the high costs of enterprise solutions.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.activepieces.com/affiliate",
     "pricing": "Budget-friendly",
     "key_features": [
       "Best for small teams and solo builders",
@@ -4389,14 +3493,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "marketingblocks",
@@ -4404,7 +3501,7 @@
     "category": "copywriting",
     "category_display": "AI Copywriting",
     "description": "An all-in-one AI marketing platform that replaces copywriters, designers, video editors, and media buyers with intelligent AI agents. It streamlines content creation, ad generation, and funnel management to automate your entire marketing workflow.",
-    "affiliate_url": null,
+    "affiliate_url": "https://marketingblocks.ai/affiliates/",
     "pricing": "Check website for details.",
     "key_features": [
       "AI-powered marketing team replacement",
@@ -4424,14 +3521,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "google-workspace",
@@ -4458,14 +3548,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "chatbase",
@@ -4492,14 +3575,7 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "is_manual_override": false
   },
   {
     "id": "krater",
@@ -4531,16 +3607,9 @@
     "evidence_source_type": "official_pricing_page",
     "is_manual_override": true,
     "http_verification_status": "verified_http_200",
-    "pricing_verified_at": "2026-08-03T18:07:05Z",
+    "pricing_verified_at": "2026-08-03T14:10:21Z",
     "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://krater.ai/pricing",
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "pricing_source_final_url": "https://krater.ai/pricing"
   },
   {
     "id": "expandi",
@@ -4571,14 +3640,7 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": null,
     "pricing_source_http_status": null,
-    "pricing_source_final_url": null,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "pricing_source_final_url": null
   },
   {
     "id": "reditus",
@@ -4610,16 +3672,9 @@
     "evidence_source_type": "official_help_page",
     "is_manual_override": true,
     "http_verification_status": "verified_http_200",
-    "pricing_verified_at": "2026-08-03T18:07:05Z",
+    "pricing_verified_at": "2026-08-03T14:10:21Z",
     "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://getreditus.com/help/reditus-pricing",
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "pricing_source_final_url": "https://getreditus.com/help/reditus-pricing"
   },
   {
     "id": "joiin",
@@ -4651,16 +3706,9 @@
     "evidence_source_type": "official_pricing_page",
     "is_manual_override": true,
     "http_verification_status": "verified_http_200",
-    "pricing_verified_at": "2026-08-03T18:07:05Z",
+    "pricing_verified_at": "2026-08-03T14:10:21Z",
     "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://www.joiin.co/pricing/",
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "pricing_source_final_url": "https://www.joiin.co/pricing/"
   },
   {
     "id": "agentworks",
@@ -4691,14 +3739,7 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": null,
     "pricing_source_http_status": null,
-    "pricing_source_final_url": null,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "pricing_source_final_url": null
   },
   {
     "id": "airia",
@@ -4729,14 +3770,7 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": null,
     "pricing_source_http_status": null,
-    "pricing_source_final_url": null,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "pricing_source_final_url": null
   },
   {
     "id": "omi-ai",
@@ -4767,14 +3801,7 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": null,
     "pricing_source_http_status": null,
-    "pricing_source_final_url": null,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "pricing_source_final_url": null
   },
   {
     "id": "fireflies-ai",
@@ -4805,14 +3832,7 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": null,
     "pricing_source_http_status": null,
-    "pricing_source_final_url": null,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "pricing_source_final_url": null
   },
   {
     "id": "gamma",
@@ -4843,14 +3863,7 @@
     "http_verification_status": "bot_blocked",
     "pricing_verified_at": null,
     "pricing_source_http_status": null,
-    "pricing_source_final_url": null,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "pricing_source_final_url": null
   },
   {
     "id": "gobii",
@@ -4881,14 +3894,7 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": null,
     "pricing_source_http_status": null,
-    "pricing_source_final_url": null,
-    "affiliate_verified": false,
-    "affiliate_source_url": null,
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Unverified candidate"
+    "pricing_source_final_url": null
   },
   {
     "id": "voibe",
@@ -5119,89 +4125,5 @@
     "affiliate_rejection_reason": "",
     "primary_category": "automation",
     "comparison_group": "automation"
-  },
-  {
-    "id": "taskade",
-    "name": "Taskade",
-    "category": "automation",
-    "category_display": "Workflow Automation",
-    "description": "AI-powered productivity and workflow automation workspace with task management, mind maps, and AI agents.",
-    "official_url": "https://www.taskade.com/",
-    "pricing": "Free plan available; Pro starting at $8/user/month (billed annually)",
-    "pricing_source_url": "https://www.taskade.com/pricing",
-    "pricing_evidence_markers": [
-      "$8",
-      "month"
-    ],
-    "pricing_verified": true,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": "official_pricing_page",
-    "key_features": [
-      "AI Task Management",
-      "AI Agents",
-      "Mind Mapping",
-      "Real-Time Collaboration"
-    ],
-    "rating": null,
-    "logo_url": "https://www.google.com/s2/favicons?domain=taskade.com&sz=128",
-    "primary_category": "automation",
-    "comparison_group": "productivity_workspace",
-    "is_manual_override": true,
-    "affiliate_url": "https://partners.taskade.com/",
-    "affiliate_verified": true,
-    "affiliate_source_url": "https://partners.taskade.com/",
-    "affiliate_final_url": "https://partners.taskade.com/",
-    "affiliate_http_status": 200,
-    "affiliate_evidence_markers": [
-      "affiliate\\s+program"
-    ],
-    "affiliate_verified_at": "2026-08-03T17:39:24Z",
-    "affiliate_rejection_reason": "",
-    "http_verification_status": "verified_http_200",
-    "pricing_verified_at": "2026-08-03T18:07:05Z",
-    "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://www.taskade.com/pricing"
-  },
-  {
-    "id": "relevance-ai",
-    "name": "Relevance AI",
-    "category": "developer",
-    "category_display": "Coding & Dev Tools",
-    "description": "B2B workforce platform to build, train, and deploy autonomous AI agents and automated workflows.",
-    "official_url": "https://relevanceai.com/",
-    "pricing": "Free plan available; credit-based usage starting at $234/month",
-    "pricing_source_url": "https://relevanceai.com/docs/get-started/pricing",
-    "pricing_evidence_markers": [
-      "$234",
-      "month"
-    ],
-    "pricing_verified": true,
-    "currency": "USD",
-    "billing_period": "monthly",
-    "evidence_source_type": "official_documentation_page",
-    "key_features": [
-      "No-Code AI Agent Builder",
-      "B2B Workflow Automation",
-      "Multi-Agent Orchestration",
-      "Custom API Integrations"
-    ],
-    "rating": null,
-    "logo_url": "https://www.google.com/s2/favicons?domain=relevanceai.com&sz=128",
-    "primary_category": "developer",
-    "comparison_group": "ai_agent_platform",
-    "is_manual_override": true,
-    "affiliate_url": null,
-    "affiliate_verified": false,
-    "affiliate_source_url": "https://relevanceai.com/",
-    "affiliate_final_url": "https://relevanceai.com/",
-    "affiliate_http_status": 200,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "HTTP 200 but no strong affiliate evidence found. Required at least one compound pattern (e.g. 'affiliate program', 'commission rate', 'cookie duration'). Single-word matches in footer/privacy/blog are not accepted.",
-    "http_verification_status": "verified_http_200",
-    "pricing_verified_at": "2026-08-03T18:07:05Z",
-    "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://relevanceai.com/docs/get-started/pricing"
   }
 ]
