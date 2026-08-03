@@ -76,12 +76,15 @@ jobs:
           python projects/GlobalSaaSHub/scripts/tests/test_affiliate_integration.py
           python projects/GlobalSaaSHub/scripts/tests/test_promote_approved_artifact.py
           python projects/GlobalSaaSHub/scripts/tests/test_validate_data_import_safety.py
+          python projects/GlobalSaaSHub/scripts/tests/test_validate_data_input_selection.py
           python projects/GlobalSaaSHub/scripts/tests/test_pricing_integrity.py
           python projects/GlobalSaaSHub/scripts/tests/test_domain_dedup.py
           python projects/GlobalSaaSHub/scripts/tests/test_manual_candidates_merge.py
           python projects/GlobalSaaSHub/scripts/tests/test_auto_aggregator_batch_retry.py
           python projects/GlobalSaaSHub/scripts/tests/test_auto_aggregator_ast_structure.py
           python projects/GlobalSaaSHub/scripts/tests/test_auto_aggregator_main_flow.py
+          python projects/GlobalSaaSHub/scripts/tests/test_link_integrity.py --source auto
+          python projects/GlobalSaaSHub/scripts/tests/test_html_integrity.py
 
       # =========================================================
       # PRODUCTION SAFETY GATE
@@ -170,6 +173,7 @@ jobs:
         run: |
           set -o pipefail
           python projects/GlobalSaaSHub/scripts/validate_data.py \
+            --input projects/GlobalSaaSHub/data/tools.next.json \
             2>&1 | tee projects/GlobalSaaSHub/data/baseline_validation.log
           echo "Baseline validation exit code: $?"
           if grep -q "VALIDATION RESULT: FAIL" projects/GlobalSaaSHub/data/baseline_validation.log; then
@@ -228,6 +232,7 @@ jobs:
         run: |
           set -o pipefail
           python projects/GlobalSaaSHub/scripts/validate_data.py \
+            --input projects/GlobalSaaSHub/data/tools.next.json \
             2>&1 | tee projects/GlobalSaaSHub/data/normal_validation.log
 
       - name: Assert Validation Outcome Matches Expected Result
@@ -268,7 +273,8 @@ jobs:
       - name: Run Full-Corpus System Validation Audit (validate_system.py)
         if: ${{ steps.validate_data.outcome == 'success' }}
         run: |
-          python projects/GlobalSaaSHub/scripts/validate_system.py
+          python projects/GlobalSaaSHub/scripts/validate_system.py \
+            --input projects/GlobalSaaSHub/data/tools.next.json
 
       - name: Promote Candidate to tools.json in Workspace (for Vite build)
         if: ${{ steps.validate_data.outcome == 'success' && inputs.failure_test != true }}

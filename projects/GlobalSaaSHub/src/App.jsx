@@ -412,7 +412,7 @@ export default function App() {
 
                       <div>
                         <a 
-                          href={`/tool/${tool.name.toLowerCase().replace(/[^a-z0-9\-]/g, '').replace(/\s+/g, '-').replace(/\./g, '-')}.html`}
+                          href={`/tool/${tool.id}.html`}
                           className="font-bold text-lg text-white hover:text-purple-400 transition-colors duration-200 block"
                         >
                           {tool.name}

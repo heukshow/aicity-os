@@ -1,3 +1,4 @@
+import argparse
 import os
 import json
 import re
@@ -142,7 +143,10 @@ def validate_tool_record(tool: dict, all_tools: list = None, is_strict_next: boo
         else:
             if any(not isinstance(m, str) or m.strip() == "" for m in ps_markers):
                 errors.append(f"Tool '{tid}' pricing_verified is True but pricing_evidence_markers contains empty or invalid strings: {ps_markers!r}.")
-            has_price_marker = any(re.search(r'[\$\€\£\¥]\d+|\d+\s*(usd|eur|gbp)', str(m), re.I) for m in ps_markers)
+            has_price_marker = any(
+                re.search(r"(?:[$€£¥]\s*\d+|\d+(?:[.,]\d+)?\s*(?:usd|eur|gbp|jpy|krw))", str(m), re.I)
+                for m in ps_markers
+            )
             has_period_marker = any(re.search(r'month|monthly|year|annual|user', str(m), re.I) for m in ps_markers)
             if not has_price_marker:
                 errors.append(f"Tool '{tid}' pricing_evidence_markers {ps_markers} missing price/currency marker (e.g. '$200', '$99').")
@@ -220,11 +224,29 @@ def validate_dataset(tools: list) -> list:
     return all_errors
 
 
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.realpath(os.path.join(PROJECT_DIR, "data"))
+DEFAULT_INPUT = os.path.join(DATA_DIR, "tools.json")
+
+
+def resolve_input_path(file_path: str = None) -> str:
+    """Resolve an input path and require it to remain inside the project data directory."""
+    requested = file_path or DEFAULT_INPUT
+    if not os.path.isabs(requested):
+        requested = os.path.join(PROJECT_DIR, requested)
+    resolved = os.path.realpath(requested)
+    try:
+        inside_data_dir = os.path.commonpath((DATA_DIR, resolved)) == DATA_DIR
+    except ValueError:
+        inside_data_dir = False
+    if not inside_data_dir:
+        raise ValueError(f"Input dataset must be inside the project data directory: {DATA_DIR}")
+    return resolved
+
+
 def load_target_dataset(file_path: str = None) -> tuple:
-    """Loads target dataset from disk. Returns (data, path)."""
-    if not file_path:
-        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        file_path = os.path.join(base_dir, 'data', 'tools.next.json')
+    """Loads the explicit target dataset, defaulting to Production tools.json."""
+    file_path = resolve_input_path(file_path)
 
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Target dataset file not found: {file_path}")
@@ -235,9 +257,19 @@ def load_target_dataset(file_path: str = None) -> tuple:
     return data, file_path
 
 
+def parse_args(argv=None):
+    parser = argparse.ArgumentParser(description="Validate a GlobalSaaSHub dataset")
+    parser.add_argument(
+        "--input",
+        default="data/tools.json",
+        help="Dataset under projects/GlobalSaaSHub/data (default: data/tools.json)",
+    )
+    return parser.parse_args(argv)
+
+
 def main(file_path: str = None):
     print("=" * 60)
-    print("🔍 CANDIDATE DATASET VALIDATION (validate_data.py)")
+    print("?逾?CANDIDATE DATASET VALIDATION (validate_data.py)")
     
     try:
         tools, path = load_target_dataset(file_path)
@@ -245,9 +277,9 @@ def main(file_path: str = None):
         print("=" * 60)
         print(f"1. Total Candidate Tools Loaded: {len(tools)}")
     except Exception as e:
-        print(f"❌ FATAL ERROR loading dataset: {e}")
+        print(f"??FATAL ERROR loading dataset: {e}")
         print("=" * 60)
-        print("❌ CANDIDATE DATASET VALIDATION RESULT: FAIL")
+        print("??CANDIDATE DATASET VALIDATION RESULT: FAIL")
         sys.exit(1)
 
     errors = validate_dataset(tools)
@@ -260,16 +292,16 @@ def main(file_path: str = None):
 
     print("=" * 60)
     if errors:
-        print("❌ CANDIDATE DATASET VALIDATION RESULT: FAIL")
+        print("??CANDIDATE DATASET VALIDATION RESULT: FAIL")
         for err in errors[:10]:
             print(f"   - {err}")
         print("=" * 60)
         sys.exit(1)
     else:
-        print("✅ CANDIDATE DATASET VALIDATION RESULT: PASS")
+        print("??CANDIDATE DATASET VALIDATION RESULT: PASS")
         print("=" * 60)
         sys.exit(0)
 
 
 if __name__ == "__main__":
-    main()
+    main(parse_args().input)

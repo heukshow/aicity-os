@@ -1,18 +1,19 @@
 """
 tests/test_manual_candidates_merge.py
 ======================================
-Integration & Immutability tests using the ACTUAL repository tools.json (148 baseline tools).
+Integration & immutability tests using an isolated copy of repository tools.json.
 100% Self-contained: ZERO dependency on runtime-generated manual_candidates_verified.json.
 
 Tests:
- 1. Baseline dataset count check: exactly 148 tools in repo tools.json
- 2. Merge verified manual candidates into actual 148 tools.json:
-    - Exactly Taskade and Relevance AI added as new tools (148 -> 150)
+ 1. The repository dataset is loaded dynamically and never modified.
+ 2. Merge verified manual candidates into the current repository dataset:
+    - Candidates already present are not duplicated and the total is unchanged
     - Exactly 1 taskade.com domain record exists (domain deduplicated)
     - Allowed metadata updates ONLY on krater, reditus, joiin (pricing fields)
     - Existing core identity fields (id, name, official_url, description, category, key_features) mutated: 0
     - Existing affiliate_url fields deleted / changed to null: 0
- 3. Unverified candidate does NOT mutate existing verified data
+ 3. An isolated baseline without Taskade/Relevance AI still adds both candidates.
+ 4. Unverified candidate does NOT mutate existing verified data.
 """
 
 import sys, os, json, copy, unittest
@@ -159,15 +160,17 @@ def _load_repo_tools():
         return json.load(f)
 
 
-def test_baseline_tools_json_count():
-    """Verify repository baseline tools.json contains exactly 148 tools."""
+def test_baseline_tools_json_is_valid_and_unique():
+    """Use the current repository dataset as the baseline without a stale count."""
     tools = _load_repo_tools()
-    assert len(tools) == 148, f"Repository tools.json must contain 148 tools, got {len(tools)}"
+    ids = [tool["id"] for tool in tools]
+    assert tools, "Repository tools.json must not be empty"
+    assert len(ids) == len(set(ids)), "Repository tools.json must have unique tool IDs"
 
 
 def test_actual_repo_tools_merge_immutability_contract():
     """
-    Executes merge_verified_manual_candidates against the ACTUAL 148 repo tools.json dataset.
+    Executes merge_verified_manual_candidates against the current repo dataset.
     100% self-contained using deterministic inline fixture.
     """
     orig_tools = _load_repo_tools()
@@ -181,19 +184,19 @@ def test_actual_repo_tools_merge_immutability_contract():
     merged, updated_cnt, added_cnt = merge_verified_manual_candidates(existing_tools_copy, manual_candidates)
 
     # 1. Count checks
-    assert len(merged) == 150, f"Expected exactly 150 tools after manual candidates merge, got {len(merged)}"
-    assert added_cnt == 2, f"Expected 2 added tools (Taskade & Relevance AI), got {added_cnt}"
+    assert len(merged) == len(orig_tools), "Existing manual candidates must not change the total"
+    assert added_cnt == 0, f"Expected 0 duplicate additions, got {added_cnt}"
 
-    # 2. Check added tools
+    # 2. Check existing candidates remain present
     merged_map = {t["id"]: t for t in merged}
-    assert "taskade" in merged_map, "Taskade must be added as new tool 'taskade'"
-    assert "relevance-ai" in merged_map, "Relevance AI must be added as new tool 'relevance-ai'"
+    assert "taskade" in merged_map, "Taskade must remain present as 'taskade'"
+    assert "relevance-ai" in merged_map, "Relevance AI must remain present as 'relevance-ai'"
 
     # 3. Check Taskade domain deduplication
     taskade_domain_records = [t for t in merged if t.get("id") == "taskade" or "taskade.com" in (t.get("official_url") or "")]
     assert len(taskade_domain_records) == 1, f"Expected exactly 1 taskade.com record, got {len(taskade_domain_records)}"
 
-    # 4. Check core identity mutations on existing 148 tools == 0
+    # 4. Check core identity mutations on existing tools == 0
     mutated_core_fields = 0
     for tid, orig_t in orig_tool_map.items():
         merged_t = merged_map[tid]
@@ -216,6 +219,23 @@ def test_actual_repo_tools_merge_immutability_contract():
         for f_name in PRICING_7_METADATA_FIELDS:
             assert t.get(f_name) is not None, f"Tool '{tid}' missing migrated metadata field '{f_name}'!"
 
+
+def test_isolated_baseline_adds_missing_manual_candidates():
+    """Exercise the historical 148 + 2 path without touching repository data."""
+    repo_tools = _load_repo_tools()
+    baseline = copy.deepcopy(
+        [tool for tool in repo_tools if tool["id"] not in {"taskade", "relevance-ai"}]
+    )
+    assert len(baseline) == len(repo_tools) - 2
+
+    merged, _, added_cnt = merge_verified_manual_candidates(
+        baseline, _make_deterministic_verified_manual_fixtures()
+    )
+    merged_map = {tool["id"]: tool for tool in merged}
+
+    assert added_cnt == 2, f"Expected 2 missing candidates to be added, got {added_cnt}"
+    assert len(merged) == len(repo_tools), "Adding two missing candidates must restore total"
+    assert {"taskade", "relevance-ai"}.issubset(merged_map)
 
 def test_unverified_candidate_immutability():
     """Verify that an unverified manual candidate cannot overwrite existing verified data."""
@@ -242,12 +262,13 @@ def test_unverified_candidate_immutability():
 
 if __name__ == "__main__":
     tests = [
-        test_baseline_tools_json_count,
+        test_baseline_tools_json_is_valid_and_unique,
         test_actual_repo_tools_merge_immutability_contract,
+        test_isolated_baseline_adds_missing_manual_candidates,
         test_unverified_candidate_immutability,
     ]
     print("=" * 60)
-    print("Actual Repo tools.json Merge & Immutability Tests (3 tests)")
+    print(f"Actual Repo tools.json Merge & Immutability Tests ({len(tests)} tests)")
     print("=" * 60)
     passed = failed = 0
     for t in tests:

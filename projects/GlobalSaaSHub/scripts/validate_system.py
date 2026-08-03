@@ -3,6 +3,7 @@ GlobalSaaSHub Full-Corpus Validation Script
 ===========================================
 Performs strict validation across all 136 tools, generated HTML pages, comparison groups, and sitemap.
 """
+import argparse
 import sys
 import os
 import json
@@ -15,8 +16,26 @@ if hasattr(sys.stderr, 'reconfigure'):
 
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-NEXT_JSON = os.path.join(PROJECT_DIR, "data", "tools.next.json")
-TOOLS_JSON_PATH = NEXT_JSON if os.path.exists(NEXT_JSON) else os.path.join(PROJECT_DIR, "data", "tools.json")
+DATA_DIR = os.path.realpath(os.path.join(PROJECT_DIR, "data"))
+DEFAULT_INPUT = os.path.join(DATA_DIR, "tools.json")
+
+
+def resolve_input_path(input_path=None):
+    candidate = input_path or DEFAULT_INPUT
+    if not os.path.isabs(candidate):
+        candidate = os.path.join(PROJECT_DIR, candidate)
+    resolved = os.path.realpath(candidate)
+    if os.path.commonpath([DATA_DIR, resolved]) != DATA_DIR:
+        raise ValueError("Input dataset must be inside the project data directory.")
+    if not os.path.isfile(resolved):
+        raise FileNotFoundError(f"Target dataset file not found: {resolved}")
+    return resolved
+
+
+parser = argparse.ArgumentParser(description="Validate the generated GlobalSaaSHub corpus")
+parser.add_argument("--input", help="Dataset under projects/GlobalSaaSHub/data (default: data/tools.json)")
+args = parser.parse_args()
+TOOLS_JSON_PATH = resolve_input_path(args.input)
 
 print(f"validate_system.py auditing dataset from: {TOOLS_JSON_PATH}")
 

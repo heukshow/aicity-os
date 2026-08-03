@@ -8,6 +8,7 @@ import sys
 import os
 import json
 import re
+import argparse
 from datetime import datetime
 
 if hasattr(sys.stdout, 'reconfigure'):
@@ -18,7 +19,22 @@ if hasattr(sys.stderr, 'reconfigure'):
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NEXT_JSON = os.path.join(PROJECT_DIR, "data", "tools.next.json")
-TOOLS_JSON_PATH = NEXT_JSON if os.path.exists(NEXT_JSON) else os.path.join(PROJECT_DIR, "data", "tools.json")
+TOOLS_JSON = os.path.join(PROJECT_DIR, "data", "tools.json")
+
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    "--source",
+    choices=("auto", "tools.json", "tools.next.json"),
+    default="auto",
+    help="Dataset to generate from; auto preserves the pipeline's candidate-first behavior.",
+)
+args = parser.parse_args()
+if args.source == "tools.json":
+    TOOLS_JSON_PATH = TOOLS_JSON
+elif args.source == "tools.next.json":
+    TOOLS_JSON_PATH = NEXT_JSON
+else:
+    TOOLS_JSON_PATH = NEXT_JSON if os.path.exists(NEXT_JSON) else TOOLS_JSON
 
 print(f"generate_seo_pages.py reading dataset from: {TOOLS_JSON_PATH}")
 
@@ -38,8 +54,25 @@ os.makedirs(TOOL_PAGES_DIR, exist_ok=True)
 with open(TOOLS_JSON_PATH, "r", encoding="utf-8") as f:
     tools_data = json.load(f)
 
-def sanitize_slug(text):
-    return re.sub(r'[^a-z0-9\-]', '', text.lower().replace(' ', '-').replace('.', '-'))
+def canonical_slug(tool):
+    """The immutable tools.json id is the sole canonical tool-page slug."""
+    slug = tool.get("id")
+    if not isinstance(slug, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug):
+        raise ValueError(f"Invalid canonical tool id: {slug!r}")
+    return slug
+
+def remove_stale_tool_pages(public_dir, canonical_ids):
+    """Remove generated detail pages that no longer map to a dataset ID."""
+    tool_dir = os.path.join(public_dir, "tool")
+    os.makedirs(tool_dir, exist_ok=True)
+    canonical_files = {f"{tool_id}.html" for tool_id in canonical_ids}
+    removed = []
+    for filename in os.listdir(tool_dir):
+        path = os.path.join(tool_dir, filename)
+        if os.path.isfile(path) and filename.endswith(".html") and filename not in canonical_files:
+            os.remove(path)
+            removed.append(filename)
+    return sorted(removed)
 
 html_template = """<!doctype html>
 <html lang="en">
@@ -217,10 +250,15 @@ sitemap_urls = [
 
 generated_count = 0
 
+canonical_ids = [canonical_slug(tool) for tool in tools_data]
+if len(canonical_ids) != len(set(canonical_ids)):
+    raise ValueError("Duplicate canonical tool ids in selected dataset")
+removed_stale_pages = remove_stale_tool_pages(PUBLIC_DIR, canonical_ids)
+if removed_stale_pages:
+    print(f"Removed {len(removed_stale_pages)} stale tool pages: {', '.join(removed_stale_pages)}")
+
 for tool in tools_data:
-    slug = sanitize_slug(tool["name"])
-    if not slug:
-        slug = tool["id"]
+    slug = canonical_slug(tool)
     
     features_list = tool.get("key_features", [])
     features_html = "\n".join([
@@ -241,7 +279,7 @@ for tool in tools_data:
     comp_tools = same_group_comp[:3]
 
     alternatives_html = "\n".join([
-        f'<a href="/tool/{sanitize_slug(c.get("name"))}.html" class="p-3.5 rounded-xl bg-[#181a29] border border-[#222538] hover:border-purple-500/40 transition-all flex items-center justify-between group">'
+        f'<a href="/tool/{canonical_slug(c)}.html" class="p-3.5 rounded-xl bg-[#181a29] border border-[#222538] hover:border-purple-500/40 transition-all flex items-center justify-between group">'
         f'<div class="flex items-center gap-2.5">'
         f'<img src="{c.get("logo_url")}" class="h-6 w-6 rounded object-contain p-0.5 bg-slate-900 border border-[#222538]" onError="this.style.display=\'none\'"/>'
         f'<span class="text-xs font-bold text-slate-200 group-hover:text-purple-300">{c.get("name")}</span>'
@@ -273,12 +311,17 @@ for tool in tools_data:
             return u
         return None
 
-    target_product_url = clean_url(tool.get("affiliate_url")) or clean_url(tool.get("official_url"))
-
-    if target_product_url:
-        cta_button_html = f'<a href="{target_product_url}" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center shadow-lg shadow-purple-950/50 hover:brightness-110 transition-all flex items-center justify-center gap-2"><span>Visit Official {tool.get("name", "AI Tool")} Site</span><span>→</span></a>'
+    tool_name = tool.get("name", "AI Tool")
+    official_url = clean_url(tool.get("official_url"))
+    affiliate_url = clean_url(tool.get("affiliate_url")) if tool.get("affiliate_verified") is True else None
+    cta_parts = []
+    if official_url:
+        cta_parts.append(f'<a data-cta="official" href="{official_url}" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-slate-800 text-white text-center border border-slate-600 hover:bg-slate-700 transition-all flex items-center justify-center gap-2"><span>Visit Official {tool_name} Site</span><span>→</span></a>')
     else:
-        cta_button_html = '<div class="px-6 py-3.5 rounded-xl font-bold text-xs bg-slate-800 text-slate-500 border border-slate-700/50 text-center">Official Link Unavailable</div>'
+        cta_parts.append('<div class="px-6 py-3.5 rounded-xl font-bold text-xs bg-slate-800 text-slate-500 border border-slate-700/50 text-center">Official Link Unavailable</div>')
+    if affiliate_url:
+        cta_parts.append(f'<a data-cta="affiliate" href="{affiliate_url}" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center shadow-lg shadow-purple-950/50 hover:brightness-110 transition-all flex items-center justify-center gap-2"><span>Visit {tool_name} via Verified Affiliate Link</span><span>→</span></a>')
+    cta_button_html = "\n".join(cta_parts)
 
     file_content = html_template.format(
         name=tool.get("name", "AI Tool"),
@@ -473,14 +516,15 @@ compare_template = """<!doctype html>
 # Generate static /compare/ pages for same comparison_group competitors (Unordered Pair Deduplicated)
 compare_generated_count = 0
 generated_compare_pairs = set()
+generated_compare_files = set()
 
 for tool_a in tools_data:
-    slug_a = sanitize_slug(tool_a["name"]) or tool_a["id"]
+    slug_a = canonical_slug(tool_a)
     group_a = tool_a.get("comparison_group") or tool_a.get("category")
     same_group = [t for t in tools_data if t.get("id") != tool_a.get("id") and t.get("comparison_group") == group_a]
     
     for tool_b in same_group[:2]: # Top 2 direct competitors
-        slug_b = sanitize_slug(tool_b["name"]) or tool_b["id"]
+        slug_b = canonical_slug(tool_b)
         
         pair_key = tuple(sorted([slug_a, slug_b]))
         if pair_key in generated_compare_pairs:
@@ -534,7 +578,9 @@ for tool_a in tools_data:
             raise ValueError(f"Generated compare HTML for '{slug_a}-vs-{slug_b}' contains invalid href string: {invalid_compare_matches}")
 
         
-        comp_file_path = os.path.join(COMPARE_PAGES_DIR, f"{slug_a}-vs-{slug_b}.html")
+        comp_filename = f"{slug_a}-vs-{slug_b}.html"
+        generated_compare_files.add(comp_filename)
+        comp_file_path = os.path.join(COMPARE_PAGES_DIR, comp_filename)
         with open(comp_file_path, "w", encoding="utf-8") as f:
             f.write(comp_content)
         
@@ -545,6 +591,15 @@ for tool_a in tools_data:
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>""")
+
+stale_compare_pages = []
+for filename in os.listdir(COMPARE_PAGES_DIR):
+    path = os.path.join(COMPARE_PAGES_DIR, filename)
+    if os.path.isfile(path) and filename.endswith(".html") and filename not in generated_compare_files:
+        os.remove(path)
+        stale_compare_pages.append(filename)
+if stale_compare_pages:
+    print(f"Removed {len(stale_compare_pages)} stale compare pages: {', '.join(sorted(stale_compare_pages))}")
 
 # Write updated sitemap.xml
 sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(sitemap_urls) + '\n</urlset>\n'
