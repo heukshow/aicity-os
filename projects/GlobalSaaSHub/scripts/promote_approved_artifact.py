@@ -100,30 +100,58 @@ def get_artifact_metadata(repo: str, artifact_id: str, token: str) -> dict:
     )
     try:
         with urllib.request.urlopen(req, timeout=20) as resp:
-            return json.loads(resp.read())
+            data = json.loads(resp.read())
+            if not isinstance(data, dict):
+                fatal(f"Artifact metadata API response must be a JSON object (dict), got {type(data).__name__}")
+            return data
     except Exception as e:
         fatal(f"Could not fetch artifact metadata: {e}")
 
 
-def verify_head_sha(metadata: dict, approved_head_sha: str):
-    """Verify the artifact was generated from the approved head commit."""
-    workflow_run = metadata.get("workflow_run", {})
+def verify_head_sha(metadata: dict, approved_head_sha: str, expected_run_id: str = None):
+    """Verify the artifact metadata fields, expected run ID, expired status, and approved head commit."""
+    if not isinstance(metadata, dict):
+        fatal(f"Artifact metadata must be a dict, got {type(metadata).__name__}")
+
+    # Verify expired is exactly False
+    expired = metadata.get("expired")
+    if expired is not False:
+        fatal(f"Artifact 'expired' field must be boolean False, got {expired!r}")
+
+    # Verify workflow_run object
+    workflow_run = metadata.get("workflow_run")
+    if not isinstance(workflow_run, dict):
+        fatal(f"Artifact metadata 'workflow_run' must be a JSON object (dict), got {type(workflow_run).__name__}")
+
+    if expected_run_id:
+        expected_name = f"pipeline-artifacts-{expected_run_id}"
+        art_name = metadata.get("name")
+        if art_name != expected_name:
+            fatal(f"Artifact name '{art_name}' does not match expected name '{expected_name}'.")
+
+        wf_run_id = str(workflow_run.get("id", ""))
+        if wf_run_id != str(expected_run_id):
+            fatal(f"Artifact workflow_run.id '{wf_run_id}' does not match expected run ID '{expected_run_id}'.")
+
     artifact_head_sha = workflow_run.get("head_sha", "")
-    artifact_repo = workflow_run.get("repository_id", "")
     log(f"Artifact head_sha from metadata: {artifact_head_sha}")
     log(f"Approved head_sha:               {approved_head_sha}")
-    if artifact_head_sha.lower() != approved_head_sha.lower():
+
+    if not approved_head_sha or not isinstance(approved_head_sha, str) or len(approved_head_sha.strip()) == 0:
+        fatal("Approved head_sha cannot be null or empty.")
+
+    if artifact_head_sha.lower() != approved_head_sha.strip().lower():
         fatal(
             f"HEAD SHA MISMATCH. Artifact was built from {artifact_head_sha!r}, "
             f"but approved head SHA is {approved_head_sha!r}."
         )
-    log("head_sha verified OK.")
+    log("head_sha and artifact metadata contract verified OK.")
 
 
 def extract_and_validate_zip(zip_bytes: bytes, output_dir: str, approved_head_sha: str, metadata: dict = None) -> dict:
     """
-    Extract ZIP, verify required files exist, parse tools.next.json,
-    validate run_summary.json internal security contracts,
+    Extract ZIP, verify required files exist uniquely (basename count == 1),
+    parse tools.next.json, validate run_summary.json internal security contracts,
     and write tools.next.json to output_dir.
     Returns the parsed tools and summary data.
     """
@@ -135,11 +163,13 @@ def extract_and_validate_zip(zip_bytes: bytes, output_dir: str, approved_head_sh
     names = zf.namelist()
     log(f"ZIP contains: {names}")
 
-    # Verify required files
+    # Strict basename uniqueness check: exactly 1 for tools.next.json and 1 for run_summary.json
     for required in REQUIRED_ARTIFACT_FILES:
         matches = [n for n in names if os.path.basename(n) == required]
-        if not matches:
+        if len(matches) == 0:
             fatal(f"Required file '{required}' not found in artifact ZIP. Contents: {names}")
+        elif len(matches) > 1:
+            fatal(f"Ambiguous ZIP structure! Found {len(matches)} files matching basename '{required}': {matches}")
 
     # Extract tools.next.json
     tools_matches = [n for n in names if os.path.basename(n) == "tools.next.json"]

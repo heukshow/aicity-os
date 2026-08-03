@@ -81,13 +81,13 @@ jobs:
 
       # =========================================================
       # PRODUCTION SAFETY GATE
-      # dry_run=false requires all three approval inputs.
+      # dry_run=false requires all three approval inputs AND approved_head_sha == github.sha.
       # Tavily/Gemini/auto_aggregator are NEVER called in Production.
       # =========================================================
-      - name: "[Production] Verify Required Approval Inputs"
+      - name: "[Production] Verify Required Approval Inputs & Commit SHA Match"
         if: ${{ inputs.dry_run != true && inputs.failure_test != true }}
         run: |
-          echo "=== Production mode: verifying approval inputs ==="
+          echo "=== Production mode: verifying approval inputs and commit SHA match ==="
           if [ -z "${{ inputs.approved_artifact_id }}" ]; then
             echo "FATAL: approved_artifact_id is required for Production (dry_run=false)."
             exit 1
@@ -100,7 +100,19 @@ jobs:
             echo "FATAL: approved_head_sha is required for Production (dry_run=false)."
             exit 1
           fi
-          echo "All approval inputs present. Proceeding to artifact download."
+
+          APPROVED_SHA_LOWER=$(echo "${{ inputs.approved_head_sha }}" | tr '[:upper:]' '[:lower:]')
+          CURRENT_SHA_LOWER=$(echo "${{ github.sha }}" | tr '[:upper:]' '[:lower:]')
+
+          echo "Approved Head SHA: $APPROVED_SHA_LOWER"
+          echo "Current Github SHA:  $CURRENT_SHA_LOWER"
+
+          if [ "$APPROVED_SHA_LOWER" != "$CURRENT_SHA_LOWER" ]; then
+            echo "FATAL: approved_head_sha ($APPROVED_SHA_LOWER) does not match current github.sha ($CURRENT_SHA_LOWER). Main branch has moved!"
+            exit 1
+          fi
+
+          echo "All approval inputs present and HEAD SHA matched OK. Proceeding to artifact promotion."
 
       # Record current remote main SHA BEFORE any file generation.
       - name: Record Remote main SHA Baseline
