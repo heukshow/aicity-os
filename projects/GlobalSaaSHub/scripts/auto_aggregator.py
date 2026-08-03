@@ -309,7 +309,7 @@ def build_gemini_url(api_key: str) -> str:
 
 def query_gemini_batch(api_key, system_prompt, snippets_batch):
     """
-    Calls Gemini API with a batch JSON array of search snippets using JSON output configuration.
+    Calls Gemini API once with a batch JSON array of search snippets using JSON output configuration.
     Uses exponential backoff (15s, 30s) or Retry-After header on HTTP 429.
     Returns tuple: (extracted_tools_list, status_code_or_reason)
       - status_code_or_reason: 'OK', 'RATE_LIMITED', 'AUTH_ERROR', 'PARSING_ERROR', 'HTTP_ERROR', 'NETWORK_ERROR'
@@ -332,7 +332,7 @@ def query_gemini_batch(api_key, system_prompt, snippets_batch):
     }
 
     payload_bytes = json.dumps(data).encode('utf-8')
-    backoff_delays = [15, 30]  # Delays after attempt 1 and attempt 2
+    backoff_delays = [15, 30]
 
     for attempt in range(1, 4):
         print(f"-> Sending request to Gemini API (gemini-2.5-flash:generateContent) [Batch size: {len(snippets_batch)}, Attempt {attempt}/3]...")
@@ -378,202 +378,9 @@ def query_gemini_batch(api_key, system_prompt, snippets_batch):
                             wait_sec = max(int(retry_after_hdr), wait_sec)
                             print(f"⚠️ Gemini API 429 [{reason_tag}] - Retry-After header: {retry_after_hdr}s. Waiting {wait_sec}s...")
                         except ValueError:
-                            print(f"⚠️ Gemini API 429 [{reason_tag}] - Waiting {wait_sec}s before retry (attempt {attempt}/3)...")
+                            print(f"⚠️ Gemini API 429 [{reason_tag}] - Waiting {wait_sec}s (attempt {attempt}/3)...")
                     else:
-                        print(f"⚠️ Gemini API 429 [{reason_tag}] - Exponential backoff waiting {wait_sec}s before retry (attempt {attempt}/3)...")
-
-                    sys.stdout.flush()
-                    time.sleep(wait_sec)
-                else:
-                    print(f"⚠️ Gemini API 429 [{reason_tag}] - Final attempt 3 failed. Returning RATE_LIMITED immediately without sleep.")
-                    sys.stdout.flush()
-
-            elif e.code in (401, 403):
-                print(f"❌ FATAL: Gemini API Auth error (HTTP {e.code}). Aborting pipeline.")
-                sys.stdout.flush()
-                return None, 'AUTH_ERROR'
-            else:
-                print(f"❌ Gemini API HTTP Error {e.code}: {err_body[:200]}")
-                sys.stdout.flush()
-                return None, 'HTTP_ERROR'
-
-        except json.JSONDecodeError as e:
-            print(f"❌ Gemini response JSON parse error: {e}")
-            sys.stdout.flush()
-            return None, 'PARSING_ERROR'
-        except Exception as e:
-            print(f"❌ Network error calling Gemini: {type(e).__name__}: {e}")
-            sys.stdout.flush()
-            return None, 'NETWORK_ERROR'
-
-    print("⚠️ Gemini API 429 Rate Limit exhausted all 3 batch retry attempts.")
-    return None, 'RATE_LIMITED'
-
-
-def extract_domain(url):
-    if not isinstance(url, str):
-        return ""
-    value = url.strip()
-    if not value.startswith(("http://", "https://")):
-        return ""
-    try:
-        dom = urllib.parse.urlparse(value).netloc.lower()
-        if dom.startswith("www."):
-            dom = dom[4:]
-        return dom
-    except Exception:
-        return ""
-
-
-def main():
-    print("Starting GlobalSaaSHub Auto Aggregator Script...")
-    
-    # 1. Load Keys
-    load_env()
-    tavily_key = os.environ.get("TAVILY_API_KEY")
-    gemini_key = os.environ.get("GEMINI_API_KEY")
-    
-    if not tavily_key or not gemini_key:
-        print("Error: Missing TAVILY_API_KEY or GEMINI_API_KEY in environment variables.")
-        sys.exit(1)
-        
-    # 2. Paths
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    data_file_path = os.path.join(base_dir, 'data', 'tools.json')
-    next_data_file_path = os.path.join(base_dir, 'data', 'tools.next.json')
-
-    print(f"Base Data file: {data_file_path}")
-    print(f"Next Target Data file: {next_data_file_path}")
-
-    
-    # 3. Load Existing Tools
-    existing_tools = []
-    if os.path.exists(data_file_path):
-        try:
-            with open(data_file_path, 'r', encoding='utf-8') as f:
-                existing_tools = json.load(f)
-            print(f"Loaded {len(existing_tools)} existing tools from database.")
-        except Exception as e:
-            print(f"Fatal database read error: {e}")
-            sys.exit(1)
-    existing_ids = {tool['id']: tool for tool in existing_tools}
-    existing_domains = {}
-    existing_names = {}
-    for tool in existing_tools:
-        source_url = tool.get("official_url") or tool.get("affiliate_url") or ""
-        dom = extract_domain(source_url)
-        if dom:
-            existing_domains[dom] = tool
-        norm_n = tool.get('name', '').lower().strip().replace(' ', '').replace('-', '').replace('_', '')
-        if norm_n:
-            existing_names[norm_n] = tool
-
-    # Merge isolated runtime manual_candidates_verified.json with strict fail-closed behavior
-    manual_verified_file = os.path.join(base_dir, 'data', 'manual_candidates_verified.json')
-
-    if not os.path.exists(manual_verified_file):
-        print(f"❌ FATAL: manual_candidates_verified.json is missing at {manual_verified_file}. Run verify_manual_candidates.py first.")
-        sys.exit(1)
-
-    try:
-        with open(manual_verified_file, 'r', encoding='utf-8') as f:
-            manual_tools = json.load(f)
-        if not isinstance(manual_tools, list):
-            print(f"❌ FATAL: Manual candidates file {manual_verified_file} must be a JSON array.")
-            sys.exit(1)
-        print(f"Loaded {len(manual_tools)} manual candidate tools from {manual_verified_file}.")
-        existing_tools, manual_updated, manual_added = merge_verified_manual_candidates(existing_tools, manual_tools)
-        print(f"Successfully merged manual candidates into dataset (updated: {manual_updated}, added: {manual_added}).")
-    except Exception as e:
-        print(f"❌ FATAL: Failed to read or parse manual candidates file {manual_verified_file}: {e}")
-        sys.exit(1)
-
-    # 4. Search Queries
-
-    queries = [
-        "top new AI tool affiliate programs recurring commission 2026",
-        "highest paying B2B SaaS recurring affiliate programs 2026",
-        "trending AI agent workflow automation software recurring affiliate"
-    ]
-    
-    raw_search_results = []
-    tavily_api_success = 0   # HTTP call succeeded (even if results empty)
-    tavily_api_fail = 0      # HTTP call failed / exception
-    tavily_total_results = 0 # total search snippets harvested
-def query_gemini_batch(api_key, system_prompt, snippets_batch):
-    """
-    Calls Gemini API with a batch JSON array of search snippets using JSON output configuration.
-    Uses exponential backoff (15s, 30s) or Retry-After header on HTTP 429.
-    Returns tuple: (extracted_tools_list, status_code_or_reason)
-      - status_code_or_reason: 'OK', 'RATE_LIMITED', 'AUTH_ERROR', 'PARSING_ERROR', 'HTTP_ERROR', 'NETWORK_ERROR'
-    """
-    endpoint_url = build_gemini_url(api_key)
-    headers = {"Content-Type": "application/json"}
-
-    user_content = json.dumps(snippets_batch, indent=2)
-    prompt = f"{system_prompt}\n\nInput Search Snippets Batch ({len(snippets_batch)} items):\n{user_content}"
-
-    data = {
-        "contents": [{
-            "parts": [{
-                "text": prompt
-            }]
-        }],
-        "generationConfig": {
-            "responseMimeType": "application/json"
-        }
-    }
-
-    payload_bytes = json.dumps(data).encode('utf-8')
-    backoff_delays = [15, 30]  # Delays after attempt 1 and attempt 2
-
-    for attempt in range(1, 4):
-        print(f"-> Sending request to Gemini API (gemini-2.5-flash:generateContent) [Batch size: {len(snippets_batch)}, Attempt {attempt}/3]...")
-        sys.stdout.flush()
-
-        req = urllib.request.Request(
-            endpoint_url,
-            data=payload_bytes,
-            headers=headers,
-            method='POST'
-        )
-
-        try:
-            with urllib.request.urlopen(req, timeout=90) as res:
-                print("<- Received response from Gemini.")
-                sys.stdout.flush()
-                response_data = json.loads(res.read().decode('utf-8'))
-                text_response = response_data['candidates'][0]['content']['parts'][0]['text']
-                parsed_tools = json.loads(text_response)
-                if isinstance(parsed_tools, list):
-                    return parsed_tools, 'OK'
-                else:
-                    print(f"❌ Gemini output is not a JSON array: {type(parsed_tools).__name__}")
-                    return None, 'PARSING_ERROR'
-
-        except urllib.error.HTTPError as e:
-            err_body = e.read().decode('utf-8', errors='replace') if hasattr(e, 'read') else str(e)
-
-            if e.code == 429:
-                # Classify 429 message subtype safely
-                reason_tag = "RESOURCE_EXHAUSTED / Rate Limit"
-                for marker in ["quota exceeded", "requests per minute", "free tier unavailable", "daily quota exhausted"]:
-                    if marker in err_body.lower():
-                        reason_tag = f"Rate Limit ({marker})"
-                        break
-
-                if attempt < 3:
-                    retry_after_hdr = e.headers.get("Retry-After") if hasattr(e, "headers") else None
-                    wait_sec = backoff_delays[attempt - 1]
-
-                    if retry_after_hdr:
-                        try:
-                            wait_sec = max(int(retry_after_hdr), wait_sec)
-                            print(f"⚠️ Gemini API 429 [{reason_tag}] - Retry-After header: {retry_after_hdr}s. Waiting {wait_sec}s...")
-                        except ValueError:
-                            print(f"⚠️ Gemini API 429 [{reason_tag}] - Waiting {wait_sec}s before retry (attempt {attempt}/3)...")
-                    else:
-                        print(f"⚠️ Gemini API 429 [{reason_tag}] - Exponential backoff waiting {wait_sec}s before retry (attempt {attempt}/3)...")
+                        print(f"⚠️ Gemini API 429 [{reason_tag}] - Exponential backoff waiting {wait_sec}s (attempt {attempt}/3)...")
 
                     sys.stdout.flush()
                     time.sleep(wait_sec)
@@ -726,9 +533,41 @@ def main():
     You are a B2B SaaS and AI affiliate marketing database architect. 
     Analyze the provided web search snippets and extract high-quality SaaS or AI tools that offer recurring/recurring-lifetime affiliate commissions.
     
-    Output MUST be a JSON array of objects.
-    """
+    Output MUST be a JSON array of objects with the exact schema below.
+    Schema Rules:
+    - category must be strictly one of: "automation", "creator", "developer"
+    - category_display must match: "Workflow Automation" (for automation), "Creator & Productivity" (for creator), "Developer APIs" (for developer)
+    - id must be lowercase, alphanumeric, separated by dashes (e.g., "gohighlevel", "notion-ai").
+    - logo_url must be a premium high-quality placeholder image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60" (or similar technology placeholder from unsplash).
+    - official_url MUST be the root domain URL of the product website (e.g. "https://example.com/").
+    - affiliate_url MUST be the official affiliate/partner program link or referral URL (e.g. "https://example.com/affiliate"). If unknown, default to official_url.
+    - pricing_source_url MUST be the explicit pricing page URL (e.g. "https://example.com/pricing"). If unknown, default to official_url.
+    - pricing MUST state concrete verified pricing from the snippet (e.g. "Starting at $29/mo"). DO NOT use vague statements like "See website", "Varies", "Not specified". If exact pricing is missing, set pricing to "Contact sales / See official pricing".
 
+    
+    JSON Schema:
+    [
+      {
+        "id": "string (lowercase kebab-case)",
+        "name": "string",
+        "category": "automation" | "creator" | "developer",
+        "category_display": "string",
+        "description": "string (engaging, 1-2 sentence description explaining value proposition)",
+        "official_url": "string (root domain product URL)",
+        "affiliate_url": "string (affiliate or referral program link)",
+        "pricing_source_url": "string (pricing page URL)",
+        "pricing": "string (concrete verified pricing description)",
+        "key_features": ["string", "string", "string", "string"],
+        "rating": null,
+        "logo_url": "string",
+        "commission": "string"
+
+      }
+    ]
+    
+    Only extract valid SaaS tools. If the snippet does not contain enough detail for a tool, omit it.
+    """
+    
     extracted_tools = []
     print(f"Invoking Gemini for extraction in chunks of max {MAX_GEMINI_BATCH_SIZE} snippets...")
     gemini_api_success = 0
@@ -781,11 +620,11 @@ def main():
     if not extracted_tools and not degraded_mode:
         print("No valid tools were extracted from Tavily search snippets.")
     elif degraded_mode:
-        print("Degraded mode active: preserving merged candidate tools.")
-
+        print("Degraded mode active: skipping discovery merge, retaining 150 merged candidate tools.")
+        
     print(f"Successfully compiled {len(extracted_tools)} total tools from discovery.")
     sys.stdout.flush()
-
+    
     # 6. Merge & Deduplicate using central merge_discovered_candidates function
     existing_tools, new_tools_list, updated_tools_list = merge_discovered_candidates(existing_tools, extracted_tools)
     new_tools_added = len(new_tools_list)
@@ -832,6 +671,7 @@ def main():
     print(f"Artifact summary files written to {data_dir}")
 
     print("Auto Aggregator Script completed successfully.")
+
 
 
 if __name__ == "__main__":
