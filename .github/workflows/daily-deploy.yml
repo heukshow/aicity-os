@@ -109,6 +109,10 @@ jobs:
       # =========================================================
       # NORMAL MODE: Real Tavily + Gemini discovery
       # =========================================================
+      - name: Run Affiliate Integration Tests (Gate)
+        run: |
+          python projects/GlobalSaaSHub/scripts/tests/test_affiliate_integration.py
+
       - name: Execute Manual Candidate Pricing Verification (SSL & Evidence Check)
         if: ${{ inputs.failure_test != true }}
         run: |
