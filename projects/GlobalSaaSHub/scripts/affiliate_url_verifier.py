@@ -1,4 +1,4 @@
-﻿"""
+"""
 affiliate_url_verifier.py - Affiliate URL Evidence Verifier (v2)
 ================================================================
 Single source of truth for affiliate URL verification logic.
@@ -29,6 +29,24 @@ import urllib.request
 import urllib.error
 import re
 from datetime import datetime, timezone
+
+
+MAX_REDIRECTS = 10  # Safety limit to prevent redirect loops
+
+
+class _Redirect308Handler(urllib.request.HTTPRedirectHandler):
+    """
+    Extends the default redirect handler to also follow
+    HTTP 307 (Temporary Redirect) and 308 (Permanent Redirect)
+    with the same method as 301/302.
+    Python's built-in handler misses 308 in older versions.
+    SSL validation is NOT relaxed by this handler.
+    """
+    def http_error_307(self, req, fp, code, msg, headers):
+        return self.http_error_302(req, fp, code, msg, headers)
+
+    def http_error_308(self, req, fp, code, msg, headers):
+        return self.http_error_301(req, fp, code, msg, headers)
 
 
 # Strong compound evidence patterns (regex, case-insensitive)
@@ -69,6 +87,26 @@ MAX_HTML_BYTES = 51_200
 def _make_ssl_context():
     """Returns a default SSL context with full certificate validation (no bypass)."""
     return ssl.create_default_context()
+
+
+def _build_opener(ssl_ctx):
+    """
+    Build a urllib opener with:
+      - Full SSL validation (via HTTPSHandler with custom context)
+      - 307/308 redirect support (_Redirect308Handler)
+      - Max redirect limit enforced
+    """
+    https_handler = urllib.request.HTTPSHandler(context=ssl_ctx)
+    redirect_handler = _Redirect308Handler()
+    redirect_handler.max_redirections = MAX_REDIRECTS
+    opener = urllib.request.OpenerDirector()
+    opener.addheaders = []  # We set headers per-request
+    opener.add_handler(urllib.request.UnknownHandler())
+    opener.add_handler(urllib.request.HTTPHandler())
+    opener.add_handler(https_handler)
+    opener.add_handler(redirect_handler)
+    opener.add_handler(urllib.request.HTTPErrorProcessor())
+    return opener
 
 
 def _has_path_risk_signal(url: str) -> bool:
@@ -122,15 +160,15 @@ def verify_affiliate_url(url: str, timeout: int = 10) -> dict:
 
     result["path_risk_signal"] = _has_path_risk_signal(url)
 
-    # Always use full SSL validation
     ssl_ctx = _make_ssl_context()
+    opener = _build_opener(ssl_ctx)
     req = urllib.request.Request(
         url,
         headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"},
     )
 
     try:
-        resp = urllib.request.urlopen(req, context=ssl_ctx, timeout=timeout)
+        resp = opener.open(req, timeout=timeout)
         result["http_status"] = resp.status
         final_url = resp.geturl()
         result["final_url"] = final_url

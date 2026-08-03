@@ -1,4 +1,4 @@
-name: Daily Automated Build & Deploy (GlobalSaaSHub)
+﻿name: Daily Automated Build & Deploy (GlobalSaaSHub)
 
 on:
   # schedule:
@@ -6,12 +6,27 @@ on:
   workflow_dispatch:
     inputs:
       dry_run:
-        description: 'Dry Run Mode (true = Skip DB commit & gh-pages deployment)'
+        description: 'Dry Run Mode (true = discovery + validation + Artifact only, no deploy)'
         required: true
         type: boolean
         default: true
+      approved_artifact_id:
+        description: '[Production only] Artifact ID from approved dry-run (required when dry_run=false)'
+        required: false
+        type: string
+        default: ''
+      approved_artifact_sha256:
+        description: '[Production only] SHA256 hex of approved Artifact ZIP (required when dry_run=false)'
+        required: false
+        type: string
+        default: ''
+      approved_head_sha:
+        description: '[Production only] Git HEAD SHA of the approved dry-run commit (required when dry_run=false)'
+        required: false
+        type: string
+        default: ''
       failure_test:
-        description: 'Failure Test Mode (true = skip API, inject bad data, verify validate_data.py blocks pipeline)'
+        description: 'Failure Test Mode (true = inject bad data, verify validate_data.py blocks pipeline)'
         required: false
         type: boolean
         default: false
@@ -47,8 +62,30 @@ jobs:
           cd projects/GlobalSaaSHub
           npm ci
 
+      # =========================================================
+      # PRODUCTION SAFETY GATE
+      # dry_run=false requires all three approval inputs.
+      # Tavily/Gemini/auto_aggregator are NEVER called in Production.
+      # =========================================================
+      - name: "[Production] Verify Required Approval Inputs"
+        if: ${{ inputs.dry_run != true && inputs.failure_test != true }}
+        run: |
+          echo "=== Production mode: verifying approval inputs ==="
+          if [ -z "${{ inputs.approved_artifact_id }}" ]; then
+            echo "FATAL: approved_artifact_id is required for Production (dry_run=false)."
+            exit 1
+          fi
+          if [ -z "${{ inputs.approved_artifact_sha256 }}" ]; then
+            echo "FATAL: approved_artifact_sha256 is required for Production (dry_run=false)."
+            exit 1
+          fi
+          if [ -z "${{ inputs.approved_head_sha }}" ]; then
+            echo "FATAL: approved_head_sha is required for Production (dry_run=false)."
+            exit 1
+          fi
+          echo "All approval inputs present. Proceeding to artifact download."
+
       # Record current remote main SHA BEFORE any file generation.
-      # Production push will compare against this to detect concurrent main changes.
       - name: Record Remote main SHA Baseline
         run: |
           git fetch origin main
@@ -57,11 +94,23 @@ jobs:
           echo "Recorded BASE_MAIN_SHA: $BASE_MAIN_SHA"
 
       # =========================================================
+      # PRODUCTION PATH: Download & verify approved Artifact only.
+      # NO Tavily. NO Gemini. NO auto_aggregator. NO new data.
+      # =========================================================
+      - name: "[Production] Download & Validate Approved Artifact"
+        if: ${{ inputs.dry_run != true && inputs.failure_test != true }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python projects/GlobalSaaSHub/scripts/promote_approved_artifact.py \
+            --artifact-id "${{ inputs.approved_artifact_id }}" \
+            --artifact-sha256 "${{ inputs.approved_artifact_sha256 }}" \
+            --approved-head-sha "${{ inputs.approved_head_sha }}" \
+            --repo "${{ github.repository }}" \
+            --output-dir projects/GlobalSaaSHub/data
+
+      # =========================================================
       # FAILURE TEST MODE: Skip external APIs entirely.
-      # 1. Copy existing (clean) tools.json as candidate base.
-      # 2. Run BASELINE validation -> must PASS (proves clean data).
-      # 3. Inject a duplicate ID into the candidate.
-      # 4. Run second validation -> must FAIL (proves validator blocks).
       # =========================================================
       - name: "[failure_test] Step 1 - Prepare Clean Candidate from tools.json"
         if: ${{ inputs.failure_test == true }}
@@ -78,7 +127,6 @@ jobs:
           python projects/GlobalSaaSHub/scripts/validate_data.py \
             2>&1 | tee projects/GlobalSaaSHub/data/baseline_validation.log
           echo "Baseline validation exit code: $?"
-          # Fail the step if baseline does NOT pass (data is already dirty)
           if grep -q "VALIDATION RESULT: FAIL" projects/GlobalSaaSHub/data/baseline_validation.log; then
             echo "FATAL: Baseline tools.json failed validation BEFORE injection. Data must be clean first."
             exit 1
@@ -95,9 +143,6 @@ jobs:
               data = json.load(f)
           dup = dict(data[0])
           INJECTED_ID = data[0]['id']
-          # Use a unique name and a non-existing URL to prevent domain-duplicate collateral error.
-          # Only the ID field is kept as a duplicate — ensuring the validator fires exclusively
-          # for the ID collision, not a domain collision.
           dup['name'] = 'INJECTED UNIQUE NAME FOR DUPLICATE ID TEST'
           dup['affiliate_url'] = 'https://duplicate-id-test.invalid/'
           data.append(dup)
@@ -107,19 +152,21 @@ jobs:
           "
 
       # =========================================================
-      # NORMAL MODE: Real Tavily + Gemini discovery
+      # DRY-RUN PATH: Real Tavily + Gemini discovery.
+      # These steps are SKIPPED in Production (dry_run=false).
       # =========================================================
       - name: Run Affiliate Integration Tests (Gate)
+        if: ${{ inputs.dry_run == true && inputs.failure_test != true }}
         run: |
           python projects/GlobalSaaSHub/scripts/tests/test_affiliate_integration.py
 
       - name: Execute Manual Candidate Pricing Verification (SSL & Evidence Check)
-        if: ${{ inputs.failure_test != true }}
+        if: ${{ inputs.dry_run == true && inputs.failure_test != true }}
         run: |
           python projects/GlobalSaaSHub/scripts/verify_manual_candidates.py
 
       - name: Execute Autonomous Tavily & Gemini AI Tool Discovery
-        if: ${{ inputs.failure_test != true }}
+        if: ${{ inputs.dry_run == true && inputs.failure_test != true }}
         env:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -127,13 +174,12 @@ jobs:
           python projects/GlobalSaaSHub/scripts/auto_aggregator.py
 
       - name: Execute Autonomous Recategorization on Sandbox Candidate
-        if: ${{ inputs.failure_test != true }}
+        if: ${{ inputs.dry_run == true && inputs.failure_test != true }}
         run: |
           python projects/GlobalSaaSHub/scripts/recategorize_tools.py
 
       # =========================================================
-      # MAIN VALIDATION (both normal and failure_test modes)
-      # continue-on-error=true so the assertion step can check outcome.
+      # MAIN VALIDATION (all modes)
       # =========================================================
       - name: Run Strict Candidate Dataset Validation Audit (validate_data.py)
         id: validate_data
@@ -143,7 +189,6 @@ jobs:
           python projects/GlobalSaaSHub/scripts/validate_data.py \
             2>&1 | tee projects/GlobalSaaSHub/data/normal_validation.log
 
-      # Assert the correct outcome and verify specific error message in failure_test
       - name: Assert Validation Outcome Matches Expected Result
         run: |
           OUTCOME="${{ steps.validate_data.outcome }}"
@@ -155,8 +200,6 @@ jobs:
               echo "FAIL: failure_test=true but validate_data did NOT fail. Validator is NOT blocking bad data!"
               exit 1
             fi
-            # Verify EXACTLY the duplicate-ID error string — no fallback broad grep.
-            # The injected object has a unique URL, so only the ID collision error should fire.
             INJECTED_ID=$(python -c "import json; data=json.load(open('projects/GlobalSaaSHub/data/tools.next.json')); print(data[-1]['id'])")
             EXPECTED_MSG="Duplicate Tool ID found: '${INJECTED_ID}'"
             echo "Checking for exact error string: $EXPECTED_MSG"
@@ -164,7 +207,6 @@ jobs:
               echo "PASS: exact duplicate-ID error confirmed in log: $EXPECTED_MSG. Pipeline block verified."
             else
               echo "FAIL: exact error '$EXPECTED_MSG' NOT found in validation log."
-              echo "--- normal_validation.log ---"
               cat projects/GlobalSaaSHub/data/normal_validation.log
               exit 1
             fi
@@ -187,14 +229,12 @@ jobs:
         run: |
           python projects/GlobalSaaSHub/scripts/validate_system.py
 
-      # Copy tools.next.json -> tools.json in WORKSPACE ONLY (not committed in dry_run).
-      # This ensures Vite builds against actual candidate data, not stale tools.json.
       - name: Promote Candidate to tools.json in Workspace (for Vite build)
         if: ${{ steps.validate_data.outcome == 'success' && inputs.failure_test != true }}
         run: |
           cp projects/GlobalSaaSHub/data/tools.next.json \
              projects/GlobalSaaSHub/data/tools.json
-          echo "Workspace tools.json updated from candidate (not committed in dry_run mode)."
+          echo "Workspace tools.json updated from candidate."
 
       - name: Build Vite Production Assets
         if: ${{ steps.validate_data.outcome == 'success' && inputs.failure_test != true }}
@@ -221,8 +261,6 @@ jobs:
           retention-days: 7
 
       # Production only: commit tools.json and push.
-      # Verify remote main SHA has not changed since baseline to prevent conflict.
-      # NO git pull --rebase after any file generation.
       - name: Atomic Swap & Commit tools.json to Main (Production Only)
         if: ${{ inputs.dry_run != true && inputs.failure_test != true && steps.validate_data.outcome == 'success' }}
         run: |
@@ -240,19 +278,18 @@ jobs:
             echo "No changes to tools.json. Skipping commit."
             exit 0
           fi
-          git commit -m "chore(data): auto-update tools.json database from daily AI discovery [skip ci]"
+          git commit -m "chore(data): promote approved artifact to tools.json [skip ci]"
 
-          # Verify remote main has not advanced since baseline
           git fetch origin main
           CURRENT_REMOTE_SHA=$(git rev-parse origin/main)
           if [ "$CURRENT_REMOTE_SHA" != "$BASE_MAIN_SHA" ]; then
-            echo "FATAL: main advanced from $BASE_MAIN_SHA to $CURRENT_REMOTE_SHA during workflow. Aborting to prevent conflict."
+            echo "FATAL: main advanced from $BASE_MAIN_SHA to $CURRENT_REMOTE_SHA during workflow. Aborting."
             exit 1
           fi
 
           git push origin HEAD:main
           if [ $? -ne 0 ]; then
-            echo "FATAL: git push rejected (non-fast-forward or auth error). Aborting deployment."
+            echo "FATAL: git push rejected. Aborting deployment."
             exit 1
           fi
           echo "tools.json committed and pushed to main successfully."
@@ -267,4 +304,4 @@ jobs:
           force_orphan: true
           user_name: 'GlobalSaaSHub-Bot'
           user_email: 'bot@coshuma.com'
-          commit_message: 'auto-deploy [GitHub Actions 09:07 KST Daily Build]'
+          commit_message: 'auto-deploy from approved artifact [GitHub Actions]'
