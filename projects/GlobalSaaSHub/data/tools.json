@@ -3607,7 +3607,7 @@
     "evidence_source_type": "official_pricing_page",
     "is_manual_override": true,
     "http_verification_status": "verified_http_200",
-    "pricing_verified_at": "2026-08-03T14:10:21Z",
+    "pricing_verified_at": "2026-08-03T19:52:56Z",
     "pricing_source_http_status": 200,
     "pricing_source_final_url": "https://krater.ai/pricing"
   },
@@ -3672,7 +3672,7 @@
     "evidence_source_type": "official_help_page",
     "is_manual_override": true,
     "http_verification_status": "verified_http_200",
-    "pricing_verified_at": "2026-08-03T14:10:21Z",
+    "pricing_verified_at": "2026-08-03T19:52:56Z",
     "pricing_source_http_status": 200,
     "pricing_source_final_url": "https://getreditus.com/help/reditus-pricing"
   },
@@ -3706,7 +3706,7 @@
     "evidence_source_type": "official_pricing_page",
     "is_manual_override": true,
     "http_verification_status": "verified_http_200",
-    "pricing_verified_at": "2026-08-03T14:10:21Z",
+    "pricing_verified_at": "2026-08-03T19:52:56Z",
     "pricing_source_http_status": 200,
     "pricing_source_final_url": "https://www.joiin.co/pricing/"
   },
@@ -4125,5 +4125,89 @@
     "affiliate_rejection_reason": "",
     "primary_category": "automation",
     "comparison_group": "automation"
+  },
+  {
+    "id": "taskade",
+    "name": "Taskade",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "AI-powered productivity and workflow automation workspace with task management, mind maps, and AI agents.",
+    "official_url": "https://www.taskade.com/",
+    "pricing": "Free plan available; Pro starting at $8/user/month (billed annually)",
+    "pricing_source_url": "https://www.taskade.com/pricing",
+    "pricing_evidence_markers": [
+      "$8",
+      "month"
+    ],
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": "official_pricing_page",
+    "key_features": [
+      "AI Task Management",
+      "AI Agents",
+      "Mind Mapping",
+      "Real-Time Collaboration"
+    ],
+    "rating": null,
+    "logo_url": "https://www.google.com/s2/favicons?domain=taskade.com&sz=128",
+    "primary_category": "automation",
+    "comparison_group": "productivity_workspace",
+    "is_manual_override": true,
+    "affiliate_url": "https://partners.taskade.com/",
+    "affiliate_verified": true,
+    "affiliate_source_url": "https://partners.taskade.com/",
+    "affiliate_final_url": "https://partners.taskade.com/",
+    "affiliate_http_status": 200,
+    "affiliate_evidence_markers": [
+      "affiliate\\s+program"
+    ],
+    "affiliate_verified_at": "2026-08-03T17:39:24Z",
+    "affiliate_rejection_reason": "",
+    "http_verification_status": "verified_http_200",
+    "pricing_verified_at": "2026-08-03T19:52:56Z",
+    "pricing_source_http_status": 200,
+    "pricing_source_final_url": "https://www.taskade.com/pricing"
+  },
+  {
+    "id": "relevance-ai",
+    "name": "Relevance AI",
+    "category": "developer",
+    "category_display": "Coding & Dev Tools",
+    "description": "B2B workforce platform to build, train, and deploy autonomous AI agents and automated workflows.",
+    "official_url": "https://relevanceai.com/",
+    "pricing": "Free plan available; credit-based usage starting at $234/month",
+    "pricing_source_url": "https://relevanceai.com/docs/get-started/pricing",
+    "pricing_evidence_markers": [
+      "$234",
+      "month"
+    ],
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": "official_documentation_page",
+    "key_features": [
+      "No-Code AI Agent Builder",
+      "B2B Workflow Automation",
+      "Multi-Agent Orchestration",
+      "Custom API Integrations"
+    ],
+    "rating": null,
+    "logo_url": "https://www.google.com/s2/favicons?domain=relevanceai.com&sz=128",
+    "primary_category": "developer",
+    "comparison_group": "ai_agent_platform",
+    "is_manual_override": true,
+    "affiliate_url": null,
+    "affiliate_verified": false,
+    "affiliate_source_url": "https://relevanceai.com/",
+    "affiliate_final_url": "https://relevanceai.com/",
+    "affiliate_http_status": 200,
+    "affiliate_evidence_markers": [],
+    "affiliate_verified_at": null,
+    "affiliate_rejection_reason": "HTTP 200 but no strong affiliate evidence found. Required at least one compound pattern (e.g. 'affiliate program', 'commission rate', 'cookie duration'). Single-word matches in footer/privacy/blog are not accepted.",
+    "http_verification_status": "verified_http_200",
+    "pricing_verified_at": "2026-08-03T19:52:56Z",
+    "pricing_source_http_status": 200,
+    "pricing_source_final_url": "https://relevanceai.com/docs/get-started/pricing"
   }
 ]
