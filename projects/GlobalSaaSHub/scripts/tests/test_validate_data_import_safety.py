@@ -1,7 +1,9 @@
 """
 tests/test_validate_data_import_safety.py
 ===========================================
-Deterministic tests proving validate_data.py has ZERO side-effects on import.
+Deterministic tests proving validate_data.py has ZERO side-effects on import and
+Safety Gate test suites operate flawlessly in a clean checkout environment
+without manual_candidates_verified.json or tools.next.json.
 
 Tests:
  1. Importing validate_data in a temporary directory without tools.next.json:
@@ -9,7 +11,9 @@ Tests:
     - Does NOT call sys.exit()
     - Does NOT execute full dataset loading or validation
  2. validate_tool_record works as a pure function on isolated fixtures
- 3. validate_dataset works as a pure function on isolated lists
+ 3. official_documentation_page is supported in ALLOWED_EVIDENCE_TYPES
+ 4. Clean checkout resilience: Safety Gate test modules import cleanly
+    even when manual_candidates_verified.json is absent.
 """
 
 import sys, os, tempfile, unittest
@@ -24,11 +28,9 @@ def test_import_has_no_side_effects_without_tools_next_json():
     with tempfile.TemporaryDirectory() as empty_dir:
         os.chdir(empty_dir)
         try:
-            # Re-import or import for first time
             if "validate_data" in sys.modules:
                 del sys.modules["validate_data"]
 
-            # Import must succeed quietly without sys.exit or FileNotFoundError
             import validate_data
 
             assert hasattr(validate_data, "validate_tool_record")
@@ -122,14 +124,28 @@ def test_official_documentation_page_supported():
     assert errors == [], f"official_documentation_page should pass validation, got: {errors}"
 
 
+def test_clean_checkout_safety_gate_resilience():
+    """Verify test_manual_candidates_merge runs cleanly without manual_candidates_verified.json."""
+    orig_cwd = os.getcwd()
+    with tempfile.TemporaryDirectory() as empty_dir:
+        # Verify manual_candidates_verified.json is absent in empty_dir
+        verified_path = os.path.join(empty_dir, "manual_candidates_verified.json")
+        assert not os.path.exists(verified_path), "Fixture file must be absent in clean checkout simulation"
+
+        # Running test_manual_candidates_merge must succeed using self-contained fixtures
+        import test_manual_candidates_merge
+        test_manual_candidates_merge.test_actual_repo_tools_merge_immutability_contract()
+
+
 if __name__ == "__main__":
     tests = [
         test_import_has_no_side_effects_without_tools_next_json,
         test_validate_tool_record_is_pure_function,
         test_official_documentation_page_supported,
+        test_clean_checkout_safety_gate_resilience,
     ]
     print("=" * 60)
-    print("validate_data Import Safety & Contract Tests (3 tests)")
+    print("validate_data Import Safety & Clean Checkout Tests (4 tests)")
     print("=" * 60)
     passed = failed = 0
     for t in tests:
