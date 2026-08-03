@@ -1,4 +1,4 @@
-﻿"""
+"""
 promote_approved_artifact.py
 ============================
 Downloads and validates an approved dry-run Artifact before Production promotion.
@@ -120,11 +120,12 @@ def verify_head_sha(metadata: dict, approved_head_sha: str):
     log("head_sha verified OK.")
 
 
-def extract_and_validate_zip(zip_bytes: bytes, output_dir: str, approved_head_sha: str) -> dict:
+def extract_and_validate_zip(zip_bytes: bytes, output_dir: str, approved_head_sha: str, metadata: dict = None) -> dict:
     """
     Extract ZIP, verify required files exist, parse tools.next.json,
-    and write to output_dir.
-    Returns the parsed tools data.
+    validate run_summary.json internal security contracts,
+    and write tools.next.json to output_dir.
+    Returns the parsed tools and summary data.
     """
     try:
         zf = zipfile.ZipFile(io.BytesIO(zip_bytes))
@@ -136,7 +137,6 @@ def extract_and_validate_zip(zip_bytes: bytes, output_dir: str, approved_head_sh
 
     # Verify required files
     for required in REQUIRED_ARTIFACT_FILES:
-        # Artifact may have nested paths; search by basename
         matches = [n for n in names if os.path.basename(n) == required]
         if not matches:
             fatal(f"Required file '{required}' not found in artifact ZIP. Contents: {names}")
@@ -145,7 +145,6 @@ def extract_and_validate_zip(zip_bytes: bytes, output_dir: str, approved_head_sh
     tools_matches = [n for n in names if os.path.basename(n) == "tools.next.json"]
     tools_raw = zf.read(tools_matches[0])
 
-    # Validate JSON parseable
     try:
         tools_data = json.loads(tools_raw.decode("utf-8"))
     except json.JSONDecodeError as e:
@@ -159,14 +158,52 @@ def extract_and_validate_zip(zip_bytes: bytes, output_dir: str, approved_head_sh
 
     log(f"tools.next.json: {len(tools_data)} tools. JSON valid.")
 
-    # Extract run_summary.json
+    # Extract run_summary.json and validate internal security contract
     summary_matches = [n for n in names if os.path.basename(n) == "run_summary.json"]
     summary_raw = zf.read(summary_matches[0])
     try:
         summary_data = json.loads(summary_raw.decode("utf-8"))
-        log(f"run_summary.json parsed OK. Keys: {list(summary_data.keys())[:6]}")
+        log(f"run_summary.json parsed OK. Keys: {list(summary_data.keys())[:10]}")
     except json.JSONDecodeError as e:
         fatal(f"run_summary.json in artifact is not valid JSON: {e}")
+
+    # --- RUN_SUMMARY CONTRACT VALIDATION ---
+    # 1. artifact_schema_version
+    schema_ver = summary_data.get("artifact_schema_version")
+    if not schema_ver or str(schema_ver) != "1.0":
+        fatal(f"run_summary.json artifact_schema_version mismatch or missing. Expected '1.0', got {schema_ver!r}")
+
+    # 2. source_head_sha vs approved_head_sha
+    summary_head_sha = summary_data.get("source_head_sha", "")
+    if summary_head_sha != "local-dev" and summary_head_sha.lower() != approved_head_sha.lower():
+        fatal(
+            f"run_summary.json source_head_sha MISMATCH.\n"
+            f"  run_summary.json: {summary_head_sha!r}\n"
+            f"  approved_head:    {approved_head_sha!r}"
+        )
+
+    # 3. dry_run must be True
+    dry_run_val = summary_data.get("dry_run")
+    if dry_run_val is not True and str(dry_run_val).lower() != "true":
+        fatal(f"run_summary.json dry_run must be True for an approved artifact, got {dry_run_val!r}")
+
+    # 4. failure_test must be False
+    fail_test_val = summary_data.get("failure_test")
+    if fail_test_val is not False and str(fail_test_val).lower() != "false":
+        fatal(f"run_summary.json failure_test must be False for an approved artifact, got {fail_test_val!r}")
+
+    # 5. source_run_id vs workflow_run.id (if metadata provided)
+    if metadata and "workflow_run" in metadata:
+        expected_run_id = str(metadata["workflow_run"].get("id", ""))
+        summary_run_id = str(summary_data.get("source_run_id", ""))
+        if summary_run_id != "local-run" and expected_run_id and summary_run_id != expected_run_id:
+            fatal(
+                f"run_summary.json source_run_id MISMATCH.\n"
+                f"  run_summary.json: {summary_run_id!r}\n"
+                f"  metadata run id:  {expected_run_id!r}"
+            )
+
+    log("run_summary.json internal security contract verified OK.")
 
     # Write tools.next.json to output_dir
     os.makedirs(output_dir, exist_ok=True)
@@ -214,7 +251,7 @@ def main():
     verify_artifact_sha256(zip_bytes, args.artifact_sha256)
 
     # 4. Extract, validate, and write
-    result = extract_and_validate_zip(zip_bytes, args.output_dir, args.approved_head_sha)
+    result = extract_and_validate_zip(zip_bytes, args.output_dir, args.approved_head_sha, metadata)
 
     log(f"=== Artifact Promotion Validation PASSED ===")
     log(f"tools.next.json ready at {args.output_dir}/tools.next.json")

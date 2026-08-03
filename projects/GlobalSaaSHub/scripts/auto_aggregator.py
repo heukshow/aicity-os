@@ -455,6 +455,11 @@ def main():
     # 8. Write Artifact Summary JSONs for CI validation
     data_dir = os.path.dirname(next_data_file_path)
     summary = {
+        "artifact_schema_version": "1.0",
+        "source_head_sha": os.environ.get("GITHUB_SHA", "local-dev"),
+        "source_run_id": str(os.environ.get("GITHUB_RUN_ID", "local-run")),
+        "dry_run": os.environ.get("DRY_RUN", "true").lower() == "true",
+        "failure_test": os.environ.get("FAILURE_TEST", "false").lower() == "true",
         "tavily_api_success": tavily_api_success,
         "tavily_api_fail": tavily_api_fail,
         "tavily_total_results": tavily_total_results,
