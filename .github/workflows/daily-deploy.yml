@@ -281,7 +281,7 @@ jobs:
           npm run build
 
       - name: Upload Pipeline Artifacts
-        if: always()
+        if: ${{ inputs.dry_run == true && inputs.failure_test != true && steps.validate_data.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: pipeline-artifacts-${{ github.run_id }}

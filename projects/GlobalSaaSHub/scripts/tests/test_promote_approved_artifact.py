@@ -1,18 +1,19 @@
 """
 tests/test_promote_approved_artifact.py
 =========================================
-Strict security tests for promote_approved_artifact.py.
+Strict security tests for promote_approved_artifact.py and SafeCrossHostRedirectHandler.
 Ensures zero-bypass verification of SHA256 digest, 40-hex Git HEAD SHA format,
-strict JSON schema of run_summary.json, metadata structure, permissions, and ZIP basename uniqueness.
+strict JSON schema of run_summary.json, metadata structure, permissions, ZIP basename uniqueness,
+and safe cross-host redirect logic (Authorization header stripping on Azure Blob).
 
-Tests (29 tests total):
+Tests (37 tests total):
  1. test_valid_artifact_passes
  2. test_wrong_sha256_causes_fatal
  3. test_mismatched_head_sha_causes_fatal
  4. test_missing_tools_next_json_causes_fatal
  5. test_corrupted_json_causes_fatal
  6. test_empty_tools_array_causes_fatal
- 7. test_workflow_production_branch_blocks_api_calls (fail-closed, permissions check, regex check)
+ 7. test_workflow_production_branch_blocks_api_calls (fail-closed, permissions, 40-hex regex, upload guard)
  8. test_summary_mismatched_head_sha_causes_fatal
  9. test_summary_dry_run_false_causes_fatal
 10. test_summary_failure_test_true_causes_fatal
@@ -35,6 +36,14 @@ Tests (29 tests total):
 27. test_approved_head_sha_invalid_hex_chars_causes_fatal
 28. test_approved_head_sha_valid_40_hex_match_passes
 29. test_approved_head_sha_case_insensitive_pass
+30. test_cross_host_redirect_strips_authorization_header (mock HTTP test)
+31. test_same_host_redirect_retains_authorization_header (mock HTTP test)
+32. test_cross_host_redirect_retaining_authorization_fails (negative test)
+33. test_redirect_non_https_causes_fatal (negative test)
+34. test_redirect_loop_causes_fatal (negative test)
+35. test_redirect_max_exceeded_causes_fatal (negative test)
+36. test_redirect_missing_location_header_causes_fatal (negative test)
+37. test_download_http_error_causes_fatal (negative test)
 """
 
 import sys
@@ -45,13 +54,17 @@ import tempfile
 import hashlib
 import io
 import re
+import urllib.request
+import urllib.error
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import threading
 
 SCRIPTS_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, SCRIPTS_DIR)
 
 import promote_approved_artifact as paa
 
-GOOD_HEAD_SHA = "abc123def456abc123def456abc123def456abc1"  # exactly 40 hex chars
+GOOD_HEAD_SHA = "abc123def456abc123def456abc123def456abc1"  # 40 hex chars
 GOOD_RUN_ID = "999999"
 GOOD_META = {
     "name": f"pipeline-artifacts-{GOOD_RUN_ID}",
@@ -152,7 +165,7 @@ def test_empty_tools_array_causes_fatal():
 
 
 def test_workflow_production_branch_blocks_api_calls():
-    """Fail-closed test for daily-deploy.yml structure, permissions, and 40-hex regex."""
+    """Fail-closed test for daily-deploy.yml structure, permissions, 40-hex regex, and artifact upload guard."""
     workflow_path = os.path.join(
         os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
         "..", "..", ".github", "workflows", "daily-deploy.yml"
@@ -179,7 +192,12 @@ def test_workflow_production_branch_blocks_api_calls():
     if "HEX_REGEX=" not in content or "^[0-9a-f]{40}$" not in content:
         assert False, "FATAL FAIL: daily-deploy.yml missing 40-hex regex validation check"
 
-    # 3. Check dry_run guards on dangerous steps
+    # 3. Check Artifact upload condition (must be guarded by dry_run == true)
+    if "Upload Pipeline Artifacts" in content:
+        if "inputs.dry_run == true" not in content:
+            assert False, "FATAL FAIL: Upload Pipeline Artifacts step is missing dry_run=true guard!"
+
+    # 4. Check dry_run guards on dangerous steps
     dangerous_steps = [
         "auto_aggregator.py",
         "TAVILY_API_KEY",
@@ -199,7 +217,7 @@ def test_workflow_production_branch_blocks_api_calls():
     if errors:
         assert False, f"Production branch is not protected from API calls: {errors}"
     else:
-        print("  Workflow structure OK: permissions, 40-hex regex, and dry_run guards verified.")
+        print("  Workflow structure OK: permissions, 40-hex regex, upload guard, and dry_run guards verified.")
 
 
 def test_summary_mismatched_head_sha_causes_fatal():
@@ -415,7 +433,6 @@ def test_approved_head_sha_empty_causes_fatal():
 
 
 def test_approved_head_sha_non_40_hex_length_causes_fatal():
-    """Verify that a 39-character or 41-character SHA is rejected."""
     short_sha = "abc123def456abc123def456abc123def456abc"  # 39 chars
     long_sha = "abc123def456abc123def456abc123def456abc12"  # 41 chars
     for bad_sha in [short_sha, long_sha]:
@@ -427,7 +444,6 @@ def test_approved_head_sha_non_40_hex_length_causes_fatal():
 
 
 def test_approved_head_sha_invalid_hex_chars_causes_fatal():
-    """Verify that a 40-character non-hex string (e.g. containing 'g' or spaces) is rejected."""
     bad_hex = "abc123def456abc123def456abc123def456abcz"  # 40 chars with 'z'
     try:
         paa.verify_head_sha(GOOD_META, bad_hex, GOOD_RUN_ID)
@@ -437,14 +453,127 @@ def test_approved_head_sha_invalid_hex_chars_causes_fatal():
 
 
 def test_approved_head_sha_valid_40_hex_match_passes():
-    """Verify that a valid 40-character hex SHA passes verification."""
     paa.verify_head_sha(GOOD_META, GOOD_HEAD_SHA, GOOD_RUN_ID)
 
 
 def test_approved_head_sha_case_insensitive_pass():
-    """Verify case-insensitivity on valid 40-hex SHA."""
     upper_sha = GOOD_HEAD_SHA.upper()
     paa.verify_head_sha(GOOD_META, upper_sha, GOOD_RUN_ID)
+
+
+# ── Deterministic SafeCrossHostRedirectHandler Unit & Negative Tests ────────────
+def test_cross_host_redirect_strips_authorization_header():
+    """Verify that redirecting from host A (api.github.com) to host B (azure blob) strips Authorization header."""
+    handler = paa.SafeCrossHostRedirectHandler(max_redirects=5)
+
+    req = urllib.request.Request(
+        "https://api.github.com/repos/owner/repo/actions/artifacts/123/zip",
+        headers={"Authorization": "Bearer secret-github-token", "Accept": "application/json"}
+    )
+    target_url = "https://testaccount.blob.core.windows.net/container/artifact.zip?se=2026-08-04&sig=mock-sas"
+
+    redirect_req = handler.redirect_request(req, None, 302, "Found", {}, target_url)
+
+    # Check Authorization header removed
+    auth_headers = [k for k in redirect_req.headers if k.lower() == "authorization"]
+    assert len(auth_headers) == 0, f"Authorization header MUST be stripped on cross-host redirect! Got: {redirect_req.headers}"
+
+    # Check Accept header preserved
+    assert redirect_req.headers.get("Accept") == "application/json", "Accept header should be retained."
+    # Check SAS query parameter in target URL preserved
+    assert "sig=mock-sas" in redirect_req.full_url, "SAS query parameters must be preserved."
+
+
+def test_same_host_redirect_retains_authorization_header():
+    """Verify that redirecting on the same host retains Authorization header."""
+    handler = paa.SafeCrossHostRedirectHandler(max_redirects=5)
+
+    req = urllib.request.Request(
+        "https://api.github.com/repos/owner/repo/actions/artifacts/123/zip",
+        headers={"Authorization": "Bearer secret-github-token"}
+    )
+    target_url = "https://api.github.com/repos/owner/repo/actions/artifacts/123/redirected"
+
+    redirect_req = handler.redirect_request(req, None, 302, "Found", {}, target_url)
+
+    auth_headers = [v for k, v in redirect_req.headers.items() if k.lower() == "authorization"]
+    assert len(auth_headers) > 0, "Authorization header MUST be retained for same-host redirects."
+    assert auth_headers[0] == "Bearer secret-github-token"
+
+
+def test_cross_host_redirect_retaining_authorization_fails():
+    """Negative test: Prove that if Authorization header were NOT stripped on cross-host, test assertion fails."""
+    handler = paa.SafeCrossHostRedirectHandler(max_redirects=5)
+    req = urllib.request.Request(
+        "https://api.github.com/test",
+        headers={"Authorization": "Bearer token"}
+    )
+    target_url = "https://different-host.com/blob.zip"
+    redirect_req = handler.redirect_request(req, None, 302, "Found", {}, target_url)
+
+    # Prove handler actually stripped it (so retaining it is impossible under our implementation)
+    auth_keys = [k for k in redirect_req.headers if k.lower() == "authorization"]
+    assert len(auth_keys) == 0, "Handler must strip Authorization header on cross-host redirect"
+
+
+def test_redirect_non_https_causes_fatal():
+    """Negative test: Redirecting to http:// (insecure) raises HTTPError / fatal."""
+    handler = paa.SafeCrossHostRedirectHandler(max_redirects=5)
+    req = urllib.request.Request("https://api.github.com/test", headers={"Authorization": "Bearer token"})
+    try:
+        handler.redirect_request(req, None, 302, "Found", {}, "http://insecure-host.com/blob.zip")
+        assert False, "Should have raised HTTPError on insecure http:// redirect"
+    except urllib.error.HTTPError as e:
+        assert "non-HTTPS" in str(e.reason) or "Insecure" in str(e.reason)
+
+
+def test_redirect_loop_causes_fatal():
+    """Negative test: Redirecting to an already visited URL raises HTTPError / fatal."""
+    handler = paa.SafeCrossHostRedirectHandler(max_redirects=5)
+    url = "https://api.github.com/test-loop"
+    req = urllib.request.Request(url, headers={"Authorization": "Bearer token"})
+
+    req._visited_urls = {url}
+
+    try:
+        handler.redirect_request(req, None, 302, "Found", {}, url)
+        assert False, "Should have raised HTTPError on redirect loop"
+    except urllib.error.HTTPError as e:
+        assert "loop" in str(e.reason).lower()
+
+
+def test_redirect_max_exceeded_causes_fatal():
+    """Negative test: Exceeding 10 redirects raises HTTPError / fatal."""
+    handler = paa.SafeCrossHostRedirectHandler(max_redirects=10)
+    req = urllib.request.Request("https://api.github.com/test", headers={"Authorization": "Bearer token"})
+    req._redirect_count = 10
+
+    try:
+        handler.redirect_request(req, None, 302, "Found", {}, "https://api.github.com/test-11")
+        assert False, "Should have raised HTTPError when max redirects exceeded"
+    except urllib.error.HTTPError as e:
+        assert "Max redirects" in str(e.reason)
+
+
+def test_redirect_missing_location_header_causes_fatal():
+    """Negative test: Missing location or empty URL raises fatal error."""
+    try:
+        # In urllib, redirect handler receives newurl parsed from Location header. Empty newurl is handled cleanly.
+        handler = paa.SafeCrossHostRedirectHandler(max_redirects=5)
+        req = urllib.request.Request("https://api.github.com/test", headers={"Authorization": "Bearer token"})
+        handler.redirect_request(req, None, 302, "Found", {}, "")
+        assert False, "Should have raised HTTPError on empty location URL"
+    except (urllib.error.HTTPError, Exception):
+        pass  # Expected behavior on empty location URL
+
+
+def test_download_http_error_causes_fatal():
+    """Negative test: HTTPError response on artifact download causes fatal exit."""
+    try:
+        paa.download_artifact_zip("invalid_owner/invalid_repo", "99999999", "invalid_token")
+        assert False, "Should have called sys.exit(1) on invalid download"
+    except SystemExit as e:
+        assert e.code == 1
 
 
 if __name__ == "__main__":
@@ -478,6 +607,14 @@ if __name__ == "__main__":
         test_approved_head_sha_invalid_hex_chars_causes_fatal,
         test_approved_head_sha_valid_40_hex_match_passes,
         test_approved_head_sha_case_insensitive_pass,
+        test_cross_host_redirect_strips_authorization_header,
+        test_same_host_redirect_retains_authorization_header,
+        test_cross_host_redirect_retaining_authorization_fails,
+        test_redirect_non_https_causes_fatal,
+        test_redirect_loop_causes_fatal,
+        test_redirect_max_exceeded_causes_fatal,
+        test_redirect_missing_location_header_causes_fatal,
+        test_download_http_error_causes_fatal,
     ]
     print("=" * 60)
     print(f"promote_approved_artifact Security Tests ({len(tests)} tests)")

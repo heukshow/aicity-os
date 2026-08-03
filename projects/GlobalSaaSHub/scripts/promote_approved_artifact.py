@@ -52,25 +52,98 @@ def get_github_token() -> str:
     return token
 
 
+class SafeCrossHostRedirectHandler(urllib.request.HTTPRedirectHandler):
+    """
+    Custom HTTP Redirect Handler that strictly strips Authorization headers
+    when redirecting across different hosts (e.g. api.github.com -> *.blob.core.windows.net),
+    enforces HTTPS, blocks redirect loops, and limits max redirects to 10.
+    """
+    def __init__(self, max_redirects=10):
+        super().__init__()
+        self.max_redirects = max_redirects
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        # Count redirects stored on request object
+        redirect_count = getattr(req, "_redirect_count", 0) + 1
+        if redirect_count > self.max_redirects:
+            raise urllib.error.HTTPError(
+                newurl, code, f"FATAL: Max redirects ({self.max_redirects}) exceeded when downloading artifact ZIP.", headers, fp
+            )
+
+        parsed_new = urllib.parse.urlparse(newurl)
+
+        # Enforce HTTPS scheme
+        if parsed_new.scheme != "https":
+            raise urllib.error.HTTPError(
+                newurl, code, f"FATAL: Insecure redirect to non-HTTPS URL blocked: {newurl!r}", headers, fp
+            )
+
+        # Loop detection
+        visited = getattr(req, "_visited_urls", set())
+        if req.full_url in visited:
+            visited.add(req.full_url)
+        else:
+            visited = set(visited)
+            visited.add(req.full_url)
+
+        if newurl in visited:
+            raise urllib.error.HTTPError(
+                newurl, code, f"FATAL: Redirect loop detected on URL: {newurl!r}", headers, fp
+            )
+
+        parsed_orig = urllib.parse.urlparse(req.full_url)
+        orig_host = parsed_orig.netloc.lower()
+        new_host = parsed_new.netloc.lower()
+
+        # Create new Request object for redirected target
+        new_req = urllib.request.Request(
+            newurl,
+            headers=dict(req.headers),
+            origin_req_host=req.origin_req_host,
+            unverifiable=req.unverifiable
+        )
+        new_req._redirect_count = redirect_count
+        new_req._visited_urls = visited
+
+        # If cross-host redirect (e.g., api.github.com -> azure blob storage), STRIP Authorization header!
+        if orig_host != new_host:
+            # Case-insensitive removal of Authorization header
+            headers_to_remove = [h for h in new_req.headers if h.lower() == "authorization"]
+            for h in headers_to_remove:
+                del new_req.headers[h]
+                if hasattr(new_req, "unredirected_hdrs"):
+                    unred_remove = [u for u in new_req.unredirected_hdrs if u.lower() == "authorization"]
+                    for u in unred_remove:
+                        del new_req.unredirected_hdrs[u]
+
+        return new_req
+
+
 def download_artifact_zip(repo: str, artifact_id: str, token: str) -> bytes:
-    """Download Artifact ZIP via GitHub API (returns raw bytes)."""
+    """
+    Download Artifact ZIP via GitHub API using SafeCrossHostRedirectHandler (returns raw bytes).
+    Guarantees Authorization header is stripped when redirected to Azure Blob / S3 storage.
+    """
     url = f"https://api.github.com/repos/{repo}/actions/artifacts/{artifact_id}/zip"
     log(f"Downloading artifact {artifact_id} from {repo}...")
+    
     req = urllib.request.Request(
         url,
         headers={
             "Authorization": f"Bearer {token}",
             "Accept": "application/vnd.github+json",
+            "User-Agent": "GlobalSaaSHub-ArtifactPromoter/1.0",
         },
     )
+
+    opener = urllib.request.build_opener(SafeCrossHostRedirectHandler(max_redirects=10))
     try:
-        # GitHub API redirects to S3; urlopen follows redirects automatically.
-        with urllib.request.urlopen(req, timeout=60) as resp:
+        with opener.open(req, timeout=60) as resp:
             data = resp.read()
         log(f"Downloaded {len(data):,} bytes.")
         return data
     except urllib.error.HTTPError as e:
-        fatal(f"GitHub API HTTP {e.code} when downloading artifact {artifact_id}: {e.read().decode('utf-8', errors='replace')[:300]}")
+        fatal(f"HTTP error {e.code} when downloading artifact {artifact_id}: {e.reason or e.read().decode('utf-8', errors='replace')[:300]}")
     except Exception as e:
         fatal(f"Network error downloading artifact: {type(e).__name__}: {e}")
 
