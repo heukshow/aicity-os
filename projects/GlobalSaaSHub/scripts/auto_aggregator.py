@@ -299,13 +299,21 @@ def query_tavily(api_key, query):
         sys.stdout.flush()
         return None
 
-def query_gemini(api_key, system_prompt, user_content):
-    """Calls Gemini API using native HTTP request with JSON output configuration and 429 rate-limit backoff."""
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
+def query_gemini_batch(api_key, system_prompt, snippets_batch):
+    """
+    Calls Gemini API once with a batch JSON array of search snippets using JSON output configuration.
+    Uses exponential backoff (15s, 30s, 60s) or Retry-After header on HTTP 429.
+    Returns tuple: (extracted_tools_list, status_code_or_reason)
+      - status_code_or_reason: 'OK', 'RATE_LIMITED', 'AUTH_ERROR', 'PARSING_ERROR', 'NETWORK_ERROR'
+    """
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:key={api_key}"
+    # Mask API key for URL logging
+    log_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:key=***MASKED***"
     headers = {"Content-Type": "application/json"}
-    
-    prompt = f"{system_prompt}\n\nInput Data:\n{user_content}"
-    
+
+    user_content = json.dumps(snippets_batch, indent=2)
+    prompt = f"{system_prompt}\n\nInput Search Snippets Batch ({len(snippets_batch)} items):\n{user_content}"
+
     data = {
         "contents": [{
             "parts": [{
@@ -316,37 +324,80 @@ def query_gemini(api_key, system_prompt, user_content):
             "responseMimeType": "application/json"
         }
     }
-    
+
+    payload_bytes = json.dumps(data).encode('utf-8')
+    backoff_delays = [15, 30, 60]
+
     for attempt in range(1, 4):
-        print(f"-> Sending request to Gemini API (gemini-2.5-flash) [Attempt {attempt}/3]...")
+        print(f"-> Sending request to Gemini API (gemini-2.5-flash) [Batch size: {len(snippets_batch)}, Attempt {attempt}/3]...")
         sys.stdout.flush()
+
         req = urllib.request.Request(
-            url, 
-            data=json.dumps(data).encode('utf-8'), 
-            headers=headers, 
+            f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash?key={api_key}",
+            data=payload_bytes,
+            headers=headers,
             method='POST'
         )
+
         try:
             with urllib.request.urlopen(req, timeout=90) as res:
                 print("<- Received response from Gemini.")
                 sys.stdout.flush()
                 response_data = json.loads(res.read().decode('utf-8'))
                 text_response = response_data['candidates'][0]['content']['parts'][0]['text']
-                return json.loads(text_response)
+                parsed_tools = json.loads(text_response)
+                if isinstance(parsed_tools, list):
+                    return parsed_tools, 'OK'
+                else:
+                    print(f"❌ Gemini output is not a JSON array: {type(parsed_tools).__name__}")
+                    return None, 'PARSING_ERROR'
+
         except urllib.error.HTTPError as e:
+            err_body = e.read().decode('utf-8', errors='replace') if hasattr(e, 'read') else str(e)
+            
             if e.code == 429:
-                print("⚠️ Gemini API Rate Limit (429) - Waiting 6 seconds before retry...")
+                # Classify 429 message subtype safely
+                reason_tag = "RESOURCE_EXHAUSTED / Rate Limit"
+                for marker in ["quota exceeded", "requests per minute", "free tier unavailable", "daily quota exhausted"]:
+                    if marker in err_body.lower():
+                        reason_tag = f"Rate Limit ({marker})"
+                        break
+
+                retry_after_hdr = e.headers.get("Retry-After") if hasattr(e, "headers") else None
+                wait_sec = backoff_delays[attempt - 1]
+
+                if retry_after_hdr:
+                    try:
+                        wait_sec = max(int(retry_after_hdr), wait_sec)
+                        print(f"⚠️ Gemini API 429 [{reason_tag}] - Retry-After header: {retry_after_hdr}s. Waiting {wait_sec}s...")
+                    except ValueError:
+                        print(f"⚠️ Gemini API 429 [{reason_tag}] - Waiting {wait_sec}s (attempt {attempt}/3)...")
+                else:
+                    print(f"⚠️ Gemini API 429 [{reason_tag}] - Exponential backoff waiting {wait_sec}s (attempt {attempt}/3)...")
+
                 sys.stdout.flush()
-                time.sleep(6)
+                time.sleep(wait_sec)
+
+            elif e.code in (401, 403):
+                print(f"❌ FATAL: Gemini API Auth error (HTTP {e.code}). Aborting pipeline.")
+                sys.stdout.flush()
+                return None, 'AUTH_ERROR'
             else:
-                print(f"Error calling Gemini (HTTP {e.code}): {e}")
+                print(f"❌ Gemini API HTTP Error {e.code}: {err_body[:200]}")
                 sys.stdout.flush()
-                return None
-        except Exception as e:
-            print(f"Error calling Gemini: {e}")
+                return None, 'HTTP_ERROR'
+
+        except json.JSONDecodeError as e:
+            print(f"❌ Gemini response JSON parse error: {e}")
             sys.stdout.flush()
-            return None
-    return None
+            return None, 'PARSING_ERROR'
+        except Exception as e:
+            print(f"❌ Network error calling Gemini: {type(e).__name__}: {e}")
+            sys.stdout.flush()
+            return None, 'NETWORK_ERROR'
+
+    print("⚠️ Gemini API 429 Rate Limit exhausted all 3 batch retry attempts.")
+    return None, 'RATE_LIMITED'
 
 
 def extract_domain(url):
@@ -508,51 +559,45 @@ def main():
     """
     
     extracted_tools = []
-    print("Invoking Gemini for extraction and filtering on individual search snippets...")
+    print("Invoking Gemini for extraction and filtering on single search snippets batch...")
     gemini_api_success = 0   # Gemini HTTP call + JSON parse succeeded
     gemini_api_fail = 0      # Gemini HTTP call failed or JSON parse error
-    gemini_tools_extracted = 0  # actual tools returned across all snippets
-    gemini_empty_responses = 0  # API ok but returned empty array (normal for irrelevant snippets)
+    gemini_tools_extracted = 0  # actual tools returned across batch
+    gemini_status_reason = "OK"
+    degraded_mode = False
+
     sys.stdout.flush()
-    for idx, snippet in enumerate(raw_search_results):
-        print(f"[{idx+1}/{len(raw_search_results)}] Processing snippet: '{snippet.get('title')}'...")
-        sys.stdout.flush()
-        user_content = json.dumps(snippet, indent=2)
-        result = query_gemini(gemini_key, system_prompt, user_content)
-        if result is None:
-            # API call failed or JSON parse error
-            gemini_api_fail += 1
-            print("   Gemini API call failed or response unparseable.")
-            sys.stdout.flush()
-        elif isinstance(result, list):
-            gemini_api_success += 1
-            if len(result) == 0:
-                gemini_empty_responses += 1
-                print("   Gemini returned empty array (no qualifying tools in snippet).")
-            else:
-                gemini_tools_extracted += len(result)
-                print(f"   Success! Extracted {len(result)} tools.")
-                extracted_tools.extend(result)
-            sys.stdout.flush()
-        else:
-            gemini_api_fail += 1
-            print("   Gemini returned unexpected format.")
-            sys.stdout.flush()
-        time.sleep(1.5)
 
-    print(f"Gemini: {gemini_api_success} API ok (of which {gemini_empty_responses} empty), {gemini_api_fail} API fail. Total tools extracted: {gemini_tools_extracted}.")
+    # Pass all raw_search_results as a single batch
+    batch_result, status_reason = query_gemini_batch(gemini_key, system_prompt, raw_search_results)
+    gemini_status_reason = status_reason
 
-    # Guard: if ALL Gemini calls failed (API/parse errors)
-    if gemini_api_fail > 0 and gemini_api_success == 0:
-        print(f"FATAL: All {gemini_api_fail} Gemini API calls failed. Aborting pipeline.")
+    if status_reason == 'OK' and isinstance(batch_result, list):
+        gemini_api_success += 1
+        gemini_tools_extracted = len(batch_result)
+        extracted_tools.extend(batch_result)
+        print(f"Gemini Batch Extraction OK! Extracted {len(batch_result)} tools.")
+    elif status_reason == 'RATE_LIMITED':
+        gemini_api_fail += 1
+        degraded_mode = True
+        print(f"⚠️ Gemini API 429 Rate Limit encountered. Enabling DEGRADED MODE (preserving 150 merged candidate tools).")
+    elif status_reason == 'AUTH_ERROR':
+        gemini_api_fail += 1
+        print(f"❌ FATAL: Gemini Auth Error (HTTP 401/403). Aborting pipeline.")
+        sys.exit(1)
+    else:
+        gemini_api_fail += 1
+        print(f"❌ FATAL: Gemini API failed with status '{status_reason}'. Aborting pipeline.")
         sys.exit(1)
 
+    print(f"Gemini Summary: success={gemini_api_success}, fail={gemini_api_fail}, status={gemini_status_reason}, extracted={gemini_tools_extracted}")
 
-    if not extracted_tools:
-        print("No new tools extracted from search snippets during this run. Database remains up to date.")
-
+    if not extracted_tools and not degraded_mode:
+        print("No valid tools were extracted from Tavily search snippets.")
+    elif degraded_mode:
+        print("Degraded mode active: skipping discovery merge, retaining 150 merged candidate tools.")
         
-    print(f"Successfully compiled {len(extracted_tools)} total tools from all snippets.")
+    print(f"Successfully compiled {len(extracted_tools)} total tools from discovery.")
     sys.stdout.flush()
     
     # 6. Merge & Deduplicate using central merge_discovered_candidates function
@@ -582,8 +627,11 @@ def main():
         "tavily_total_results": tavily_total_results,
         "gemini_api_success": gemini_api_success,
         "gemini_api_fail": gemini_api_fail,
-        "gemini_empty_responses": gemini_empty_responses,
+        "gemini_status": gemini_status_reason.lower(),
+        "gemini_api_ok": gemini_api_success,
         "gemini_tools_extracted": gemini_tools_extracted,
+        "automated_discovery_added": new_tools_added,
+        "degraded_mode": degraded_mode,
         "new_tools_added": new_tools_added,
         "updated_tools_count": updated_tools_count,
         "sandbox_total": len(existing_tools)
@@ -603,4 +651,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

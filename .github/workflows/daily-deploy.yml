@@ -79,6 +79,7 @@ jobs:
           python projects/GlobalSaaSHub/scripts/tests/test_pricing_integrity.py
           python projects/GlobalSaaSHub/scripts/tests/test_domain_dedup.py
           python projects/GlobalSaaSHub/scripts/tests/test_manual_candidates_merge.py
+          python projects/GlobalSaaSHub/scripts/tests/test_auto_aggregator_batch_retry.py
 
       # =========================================================
       # PRODUCTION SAFETY GATE
