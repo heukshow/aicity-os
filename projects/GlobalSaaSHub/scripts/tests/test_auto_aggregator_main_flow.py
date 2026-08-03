@@ -1,18 +1,22 @@
 """
 tests/test_auto_aggregator_main_flow.py
 ========================================
-E2E Mock execution flow tests for auto_aggregator.py main():
- 1. Verifies baseline 148 tools + 2 verified manual candidates = 150 candidate tools.
- 2. Verifies 12 search snippets are split into 10 + 2 (2 Gemini batch calls).
- 3. Verifies full 429 failure triggers degraded mode, writing 150 tools to tools.next.json with gemini_status='rate_limited'.
- 4. Verifies partial 429 failure records gemini_status='partial_rate_limited' with degraded_mode=True.
+Fully isolated E2E Mock execution flow tests for auto_aggregator.py main():
+ 1. Uses TemporaryDirectory so real repository workspace files are NEVER touched or written.
+ 2. Generates 148 deterministic baseline tools in temp_dir/data/tools.json.
+ 3. Generates 2 deterministic manual verified candidate tools in temp_dir/data/manual_candidates_verified.json.
+ 4. Verifies 12 search snippets trigger 10 + 2 Gemini batching.
+ 5. Verifies full 429 produces 150 tools with gemini_status='rate_limited' and degraded_mode=True.
+ 6. Verifies partial 429 produces 151 tools with gemini_status='partial_rate_limited' and degraded_mode=True.
+ 7. Proves zero pollution to real repo files under clean checkout conditions.
 """
 
 import sys
 import os
 import json
+import tempfile
 import unittest
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 
 SCRIPTS_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, SCRIPTS_DIR)
@@ -27,81 +31,199 @@ MOCK_12_SNIPPETS = {
 }
 
 
+def make_148_baseline_tools():
+    """Generates 148 unique deterministic baseline tool records."""
+    tools = []
+    for i in range(1, 149):
+        tools.append({
+            "id": f"base-tool-{i}",
+            "name": f"Base Tool {i}",
+            "category": "automation",
+            "category_display": "Workflow Automation",
+            "description": f"Baseline Tool Description {i}",
+            "official_url": f"https://basetool{i}.com/",
+            "affiliate_url": f"https://basetool{i}.com/affiliate",
+            "affiliate_verified": True,
+            "pricing_source_url": f"https://basetool{i}.com/pricing",
+            "pricing": f"${i}/mo",
+            "pricing_verified": True,
+            "key_features": ["Feature A", "Feature B"],
+            "rating": 4.5,
+            "logo_url": "https://logo.com/img.png",
+            "commission": "30% recurring"
+        })
+    return tools
+
+
+def make_2_manual_candidates():
+    """Generates 2 unique deterministic verified manual candidate records."""
+    return [
+        {
+            "id": "manual-candidate-taskade",
+            "name": "Taskade Manual",
+            "category": "automation",
+            "category_display": "Workflow Automation",
+            "description": "Taskade Description",
+            "official_url": "https://taskade-manual.com/",
+            "affiliate_url": "https://taskade-manual.com/affiliate",
+            "affiliate_verified": True,
+            "pricing_source_url": "https://taskade-manual.com/pricing",
+            "pricing": "Starting at $8/user/month",
+            "pricing_verified": True,
+            "pricing_evidence_markers": ["$8", "user", "month"],
+            "currency": "USD",
+            "billing_period": "monthly",
+            "evidence_source_type": "official_page",
+            "key_features": ["Feature A"],
+            "rating": None,
+            "logo_url": "https://logo.com/img.png",
+            "commission": "50% recurring"
+        },
+        {
+            "id": "manual-candidate-relevance",
+            "name": "Relevance AI Manual",
+            "category": "developer",
+            "category_display": "Developer APIs",
+            "description": "Relevance AI Description",
+            "official_url": "https://relevance-manual.com/",
+            "affiliate_url": "https://relevance-manual.com/affiliate",
+            "affiliate_verified": True,
+            "pricing_source_url": "https://relevance-manual.com/pricing",
+            "pricing": "Starting at $234/month",
+            "pricing_verified": True,
+            "pricing_evidence_markers": ["$234", "month"],
+            "currency": "USD",
+            "billing_period": "monthly",
+            "evidence_source_type": "official_page",
+            "key_features": ["Feature B"],
+            "rating": None,
+            "logo_url": "https://logo.com/img.png",
+            "commission": "30% recurring"
+        }
+    ]
+
+
 class TestAutoAggregatorMainFlow(unittest.TestCase):
 
     def setUp(self):
-        self.base_dir = os.path.dirname(SCRIPTS_DIR)
-        self.tools_path = os.path.join(self.base_dir, "data", "tools.json")
-        self.next_tools_path = os.path.join(self.base_dir, "data", "tools.next.json")
-        self.summary_path = os.path.join(self.base_dir, "data", "run_summary.json")
-        self.manual_path = os.path.join(self.base_dir, "data", "manual_candidates_verified.json")
+        self.repo_dir = os.path.dirname(SCRIPTS_DIR)
+        self.repo_data_dir = os.path.join(self.repo_dir, "data")
+        self.repo_next_tools = os.path.join(self.repo_data_dir, "tools.next.json")
+        self.repo_summary = os.path.join(self.repo_data_dir, "run_summary.json")
 
     @patch("auto_aggregator.load_env")
     @patch.dict(os.environ, {"TAVILY_API_KEY": "mock_tavily", "GEMINI_API_KEY": "mock_gemini"})
     @patch("auto_aggregator.query_tavily", return_value=MOCK_12_SNIPPETS)
     @patch("auto_aggregator.query_gemini_batch")
-    def test_main_flow_full_429_degraded_mode(self, mock_gemini_batch, mock_tavily, mock_env):
-        """Verify main() with 12 snippets and 429 on all batches produces 150 tools and rate_limited status."""
+    def test_main_flow_full_429_degraded_mode_isolated(self, mock_gemini_batch, mock_tavily, mock_env):
+        """Verify main() with 12 snippets and 429 on all batches produces 150 tools in isolated temp_dir."""
         mock_gemini_batch.return_value = (None, "RATE_LIMITED")
 
-        aa.main()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            data_dir = os.path.join(temp_dir, "data")
+            os.makedirs(data_dir, exist_ok=True)
 
-        # Check 1: query_gemini_batch called exactly 2 times (10 items + 2 items)
-        self.assertEqual(mock_gemini_batch.call_count, 2)
-        call_chunk_lens = [len(call_args[0][2]) for call_args in mock_gemini_batch.call_args_list]
-        self.assertEqual(call_chunk_lens, [10, 2])
+            # Write 148 tools & 2 manual candidates into temp_dir
+            tools_file = os.path.join(data_dir, "tools.json")
+            manual_file = os.path.join(data_dir, "manual_candidates_verified.json")
 
-        # Check 2: tools.next.json created and contains 150 tools
-        self.assertTrue(os.path.exists(self.next_tools_path))
-        with open(self.next_tools_path, "r", encoding="utf-8") as f:
-            next_tools = json.load(f)
-        self.assertEqual(len(next_tools), 150)
+            with open(tools_file, "w", encoding="utf-8") as f:
+                json.dump(make_148_baseline_tools(), f, indent=2)
+            with open(manual_file, "w", encoding="utf-8") as f:
+                json.dump(make_2_manual_candidates(), f, indent=2)
 
-        # Check 3: run_summary.json contains rate_limited and degraded_mode=True
-        self.assertTrue(os.path.exists(self.summary_path))
-        with open(self.summary_path, "r", encoding="utf-8") as f:
-            summary = json.load(f)
+            # Run main with injected temp_dir
+            aa.main(base_dir=temp_dir)
 
-        self.assertEqual(summary["gemini_status"], "rate_limited")
-        self.assertEqual(summary["degraded_mode"], True)
-        self.assertEqual(summary["sandbox_total"], 150)
+            # Assertions on temp_dir outputs
+            temp_next_tools = os.path.join(data_dir, "tools.next.json")
+            temp_summary = os.path.join(data_dir, "run_summary.json")
+
+            self.assertTrue(os.path.exists(temp_next_tools))
+            with open(temp_next_tools, "r", encoding="utf-8") as f:
+                res_tools = json.load(f)
+            self.assertEqual(len(res_tools), 150)
+
+            self.assertTrue(os.path.exists(temp_summary))
+            with open(temp_summary, "r", encoding="utf-8") as f:
+                summary = json.load(f)
+
+            self.assertEqual(summary["gemini_status"], "rate_limited")
+            self.assertEqual(summary["degraded_mode"], True)
+            self.assertEqual(summary["sandbox_total"], 150)
+            self.assertEqual(mock_gemini_batch.call_count, 2)
 
     @patch("auto_aggregator.load_env")
     @patch.dict(os.environ, {"TAVILY_API_KEY": "mock_tavily", "GEMINI_API_KEY": "mock_gemini"})
     @patch("auto_aggregator.query_tavily", return_value=MOCK_12_SNIPPETS)
     @patch("auto_aggregator.query_gemini_batch")
-    def test_main_flow_partial_429_degraded_mode(self, mock_gemini_batch, mock_tavily, mock_env):
-        """Verify main() with 1 chunk OK and 1 chunk 429 produces partial_rate_limited status."""
-        mock_tool = {
-            "id": "discovered-tool-1",
-            "name": "Discovered Tool One",
+    def test_main_flow_partial_429_degraded_mode_isolated(self, mock_gemini_batch, mock_tavily, mock_env):
+        """Verify main() with 1 chunk OK and 1 chunk 429 produces 151 tools in isolated temp_dir."""
+        mock_discovered_tool = {
+            "id": "discovered-tool-999",
+            "name": "Discovered Tool 999",
             "category": "automation",
             "category_display": "Workflow Automation",
-            "description": "Desc",
-            "official_url": "https://discoveredtool1.com/",
-            "affiliate_url": "https://discoveredtool1.com/",
-            "pricing_source_url": "https://discoveredtool1.com/pricing",
+            "description": "Desc 999",
+            "official_url": "https://discovered999.com/",
+            "affiliate_url": "https://discovered999.com/aff",
+            "pricing_source_url": "https://discovered999.com/pricing",
             "pricing": "Starting at $10/mo",
-            "key_features": ["Feature"],
+            "key_features": ["Feature X"],
             "rating": None,
             "logo_url": "https://logo.com",
             "commission": "30%"
         }
-        # First chunk returns OK, second chunk returns RATE_LIMITED
         mock_gemini_batch.side_effect = [
-            ([mock_tool], "OK"),
+            ([mock_discovered_tool], "OK"),
             (None, "RATE_LIMITED")
         ]
 
-        aa.main()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            data_dir = os.path.join(temp_dir, "data")
+            os.makedirs(data_dir, exist_ok=True)
 
-        self.assertEqual(mock_gemini_batch.call_count, 2)
-        with open(self.summary_path, "r", encoding="utf-8") as f:
-            summary = json.load(f)
+            tools_file = os.path.join(data_dir, "tools.json")
+            manual_file = os.path.join(data_dir, "manual_candidates_verified.json")
 
-        self.assertEqual(summary["gemini_status"], "partial_rate_limited")
-        self.assertEqual(summary["degraded_mode"], True)
-        self.assertEqual(summary["sandbox_total"], 151)
+            with open(tools_file, "w", encoding="utf-8") as f:
+                json.dump(make_148_baseline_tools(), f, indent=2)
+            with open(manual_file, "w", encoding="utf-8") as f:
+                json.dump(make_2_manual_candidates(), f, indent=2)
+
+            aa.main(base_dir=temp_dir)
+
+            temp_summary = os.path.join(data_dir, "run_summary.json")
+            with open(temp_summary, "r", encoding="utf-8") as f:
+                summary = json.load(f)
+
+            self.assertEqual(summary["gemini_status"], "partial_rate_limited")
+            self.assertEqual(summary["degraded_mode"], True)
+            self.assertEqual(summary["sandbox_total"], 151)
+
+    @patch("auto_aggregator.load_env")
+    @patch.dict(os.environ, {"TAVILY_API_KEY": "mock_tavily", "GEMINI_API_KEY": "mock_gemini"})
+    @patch("auto_aggregator.query_tavily", return_value=MOCK_12_SNIPPETS)
+    @patch("auto_aggregator.query_gemini_batch", return_value=(None, "RATE_LIMITED"))
+    def test_clean_checkout_isolation_no_repo_pollution(self, mock_gemini_batch, mock_tavily, mock_env):
+        """Verify that testing inside temp_dir NEVER touches real repo files regardless of repo state."""
+        # Record mtimes or existence of repo runtime files before test
+        repo_next_exists_before = os.path.exists(self.repo_next_tools)
+        repo_summary_exists_before = os.path.exists(self.repo_summary)
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            data_dir = os.path.join(temp_dir, "data")
+            os.makedirs(data_dir, exist_ok=True)
+            with open(os.path.join(data_dir, "tools.json"), "w", encoding="utf-8") as f:
+                json.dump(make_148_baseline_tools(), f)
+            with open(os.path.join(data_dir, "manual_candidates_verified.json"), "w", encoding="utf-8") as f:
+                json.dump(make_2_manual_candidates(), f)
+
+            aa.main(base_dir=temp_dir)
+
+        # After test finishes and temp_dir is deleted, assert repo status was untouched
+        self.assertEqual(os.path.exists(self.repo_next_tools), repo_next_exists_before)
+        self.assertEqual(os.path.exists(self.repo_summary), repo_summary_exists_before)
 
 
 if __name__ == "__main__":

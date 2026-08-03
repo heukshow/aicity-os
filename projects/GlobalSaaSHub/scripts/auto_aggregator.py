@@ -425,7 +425,7 @@ def extract_domain(url):
         return ""
 
 
-def main():
+def main(base_dir=None):
     print("Starting GlobalSaaSHub Auto Aggregator Script...")
     
     # 1. Load Keys
@@ -438,7 +438,8 @@ def main():
         sys.exit(1)
         
     # 2. Paths
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    if base_dir is None:
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     data_file_path = os.path.join(base_dir, 'data', 'tools.json')
     next_data_file_path = os.path.join(base_dir, 'data', 'tools.next.json')
 
