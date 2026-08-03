@@ -95,18 +95,12 @@ def _build_opener(ssl_ctx):
       - Full SSL validation (via HTTPSHandler with custom context)
       - 307/308 redirect support (_Redirect308Handler)
       - Max redirect limit enforced
+    Uses urllib.request.build_opener for standard handler chain integration.
     """
     https_handler = urllib.request.HTTPSHandler(context=ssl_ctx)
     redirect_handler = _Redirect308Handler()
     redirect_handler.max_redirections = MAX_REDIRECTS
-    opener = urllib.request.OpenerDirector()
-    opener.addheaders = []  # We set headers per-request
-    opener.add_handler(urllib.request.UnknownHandler())
-    opener.add_handler(urllib.request.HTTPHandler())
-    opener.add_handler(https_handler)
-    opener.add_handler(redirect_handler)
-    opener.add_handler(urllib.request.HTTPErrorProcessor())
-    return opener
+    return urllib.request.build_opener(https_handler, redirect_handler)
 
 
 def _has_path_risk_signal(url: str) -> bool:
@@ -169,6 +163,10 @@ def verify_affiliate_url(url: str, timeout: int = 10) -> dict:
 
     try:
         resp = opener.open(req, timeout=timeout)
+        if resp is None:
+            result["rejection_reason"] = "Response object is None"
+            return result
+
         result["http_status"] = resp.status
         final_url = resp.geturl()
         result["final_url"] = final_url
@@ -198,6 +196,10 @@ def verify_affiliate_url(url: str, timeout: int = 10) -> dict:
     except urllib.error.HTTPError as e:
         result["http_status"] = e.code
         result["rejection_reason"] = f"HTTP error {e.code}"
+        # Extract final_url from HTTPError if available
+        final = getattr(e, "filename", None) or getattr(e, "url", None)
+        if final and isinstance(final, str) and final.startswith(("http://", "https://")):
+            result["final_url"] = final
     except urllib.error.URLError as e:
         result["rejection_reason"] = f"URL error: {e.reason}"
     except Exception as e:

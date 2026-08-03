@@ -1,7 +1,7 @@
 ﻿"""
 tests/test_affiliate_redirect.py
 =================================
-Tests for HTTP 307/308 redirect handling in affiliate_url_verifier.py v3.
+Tests for HTTP 307/308 redirect handling and HTTP error resilience in affiliate_url_verifier.py v3.
 All tests use mock responses - no external HTTP calls.
 
 Tests:
@@ -12,10 +12,18 @@ Tests:
  5. HTTP 308 + no Location header -> rejected (HTTPError propagates)
  6. SSL validation still enforced after redirect (SSL error -> rejected)
  7. redirect_verified final_url is stored in safe_affiliate_result metadata
+ 8. MAX_REDIRECTS constant is bounded
+ 9. _Redirect308Handler handles 308
+10. opener.open() returns None -> safely rejected, no AttributeError
+11. HTTP 404 -> http_status=404, rejection_reason="HTTP error 404"
+12. HTTP 500 -> http_status=500, rejection_reason="HTTP error 500"
+13. HTTPError with URL -> stores final_url
+14. 308 redirect followed by 404 -> stores final HTTP 404 and final_url
 """
 
 import sys, os, ssl, io, unittest
-from unittest.mock import patch, MagicMock, call
+import urllib.error
+from unittest.mock import patch, MagicMock
 
 SCRIPTS_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, SCRIPTS_DIR)
@@ -51,7 +59,6 @@ def _mock_resp(html=HTML_STRONG, status=200, url="https://final.example.com/affi
 
 # ── Test 1: HTTP 308 -> follow -> ACCEPTED ────────────────────────────────────
 def test_308_redirect_followed_and_accepted():
-    """308 redirect should be followed; if final page has strong evidence -> ACCEPTED."""
     final_resp = _mock_resp(HTML_STRONG, url="https://final.example.com/affiliate-program")
     mock_opener = MagicMock()
     mock_opener.open.return_value = final_resp
@@ -84,9 +91,7 @@ def test_308_redirect_metadata_stored_in_safe_result():
     mock_opener.open.return_value = final_resp
 
     with patch("affiliate_url_verifier._build_opener", return_value=mock_opener):
-        meta = safe_affiliate_result(
-            "https://example.com/old-path", tool_name="RedirectTool"
-        )
+        meta = safe_affiliate_result("https://example.com/old-path", tool_name="RedirectTool")
 
     assert meta["affiliate_verified"] is True
     assert meta["affiliate_final_url"] == final_url
@@ -97,8 +102,6 @@ def test_308_redirect_metadata_stored_in_safe_result():
 
 # ── Test 4: Redirect loop -> safely rejected ──────────────────────────────────
 def test_redirect_loop_safely_rejected():
-    """Simulates too many redirects (HTTPError 310 or urllib.error.URLError)."""
-    import urllib.error
     mock_opener = MagicMock()
     mock_opener.open.side_effect = urllib.error.URLError("too many redirects")
 
@@ -136,15 +139,95 @@ def test_ssl_error_after_redirect_rejected():
 
 # ── Test 7: MAX_REDIRECTS constant is set to a safe limit ────────────────────
 def test_max_redirects_is_bounded():
-    assert isinstance(MAX_REDIRECTS, int), "MAX_REDIRECTS must be an integer"
-    assert 3 <= MAX_REDIRECTS <= 20, f"MAX_REDIRECTS={MAX_REDIRECTS} is outside safe range [3,20]"
+    assert isinstance(MAX_REDIRECTS, int)
+    assert 3 <= MAX_REDIRECTS <= 20
 
 
 # ── Test 8: _Redirect308Handler handles 308 ───────────────────────────────────
 def test_redirect308handler_has_308_method():
     handler = _Redirect308Handler()
-    assert hasattr(handler, "http_error_308"), "_Redirect308Handler must have http_error_308"
-    assert hasattr(handler, "http_error_307"), "_Redirect308Handler must have http_error_307"
+    assert hasattr(handler, "http_error_308")
+    assert hasattr(handler, "http_error_307")
+
+
+# ── Test 9: opener.open() returns None -> safely rejected, no AttributeError ─
+def test_opener_returns_none_safely_rejected():
+    mock_opener = MagicMock()
+    mock_opener.open.return_value = None  # None response
+
+    with patch("affiliate_url_verifier._build_opener", return_value=mock_opener):
+        try:
+            r = verify_affiliate_url("https://example.com/none-resp")
+            assert not r["accepted"]
+            assert "None" in r["rejection_reason"]
+        except AttributeError as e:
+            assert False, f"AttributeError raised when opener returns None: {e}"
+
+
+# ── Test 10: HTTP 404 -> http_status=404, rejection_reason="HTTP error 404" ────
+def test_http_404_error_code_and_reason_stored():
+    err = urllib.error.HTTPError(
+        url="https://example.com/affiliate-404", code=404, msg="Not Found", hdrs={}, fp=None
+    )
+    mock_opener = MagicMock()
+    mock_opener.open.side_effect = err
+
+    with patch("affiliate_url_verifier._build_opener", return_value=mock_opener):
+        r = verify_affiliate_url("https://example.com/affiliate-404")
+
+    assert not r["accepted"]
+    assert r["http_status"] == 404
+    assert r["rejection_reason"] == "HTTP error 404"
+
+
+# ── Test 11: HTTP 500 -> http_status=500, rejection_reason="HTTP error 500" ────
+def test_http_500_error_code_and_reason_stored():
+    err = urllib.error.HTTPError(
+        url="https://example.com/affiliate-500", code=500, msg="Server Error", hdrs={}, fp=None
+    )
+    mock_opener = MagicMock()
+    mock_opener.open.side_effect = err
+
+    with patch("affiliate_url_verifier._build_opener", return_value=mock_opener):
+        r = verify_affiliate_url("https://example.com/affiliate-500")
+
+    assert not r["accepted"]
+    assert r["http_status"] == 500
+    assert r["rejection_reason"] == "HTTP error 500"
+
+
+# ── Test 12: HTTPError with URL -> stores final_url ───────────────────────────
+def test_http_error_final_url_stored():
+    target_url = "https://example.com/final-404-page"
+    err = urllib.error.HTTPError(
+        url=target_url, code=404, msg="Not Found", hdrs={}, fp=None
+    )
+    mock_opener = MagicMock()
+    mock_opener.open.side_effect = err
+
+    with patch("affiliate_url_verifier._build_opener", return_value=mock_opener):
+        r = verify_affiliate_url("https://example.com/initial-page")
+
+    assert r["final_url"] == target_url
+    assert r["http_status"] == 404
+
+
+# ── Test 13: 308 redirect followed by 404 -> stores final HTTP 404 ─────────────
+def test_308_redirect_then_404_stores_final_404():
+    final_404_url = "https://final.example.com/affiliate-not-found"
+    err = urllib.error.HTTPError(
+        url=final_404_url, code=404, msg="Not Found", hdrs={}, fp=None
+    )
+    mock_opener = MagicMock()
+    mock_opener.open.side_effect = err
+
+    with patch("affiliate_url_verifier._build_opener", return_value=mock_opener):
+        meta = safe_affiliate_result("https://example.com/redirect-to-404", tool_name="Test404")
+
+    assert meta["affiliate_verified"] is False
+    assert meta["affiliate_http_status"] == 404
+    assert meta["affiliate_rejection_reason"] == "HTTP error 404"
+    assert meta["affiliate_final_url"] == final_404_url
 
 
 # ── Runner ─────────────────────────────────────────────────────────────────────
@@ -158,9 +241,14 @@ if __name__ == "__main__":
         test_ssl_error_after_redirect_rejected,
         test_max_redirects_is_bounded,
         test_redirect308handler_has_308_method,
+        test_opener_returns_none_safely_rejected,
+        test_http_404_error_code_and_reason_stored,
+        test_http_500_error_code_and_reason_stored,
+        test_http_error_final_url_stored,
+        test_308_redirect_then_404_stores_final_404,
     ]
     print("=" * 60)
-    print("HTTP 307/308 Redirect Tests (Mock-based)")
+    print("HTTP 307/308 Redirect & Error Tests (13 tests)")
     print("=" * 60)
     passed = failed = 0
     for t in tests:
@@ -176,9 +264,4 @@ if __name__ == "__main__":
             failed += 1
     print("=" * 60)
     print("Result: " + str(passed) + "/" + str(passed + failed) + " passed")
-    if failed:
-        print("SOME TESTS FAILED")
-        sys.exit(1)
-    else:
-        print("ALL TESTS PASSED")
-        sys.exit(0)
+    sys.exit(1 if failed else 0)

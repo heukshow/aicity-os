@@ -26,7 +26,12 @@ def normalize_unverified_candidate(new_tool, official_url, affiliate_url):
     # Search snippets are not official pricing verification.
     normalized["pricing"] = "See official pricing"
     normalized["pricing_verified"] = False
-    normalized["pricing_source_url"] = None
+    # Preserve explicit pricing_source_url if provided and valid (e.g. from candidate fixture)
+    raw_p_src = new_tool.get("pricing_source_url")
+    if raw_p_src and isinstance(raw_p_src, str) and raw_p_src.strip().startswith(("http://", "https://")):
+        normalized["pricing_source_url"] = raw_p_src.strip()
+    else:
+        normalized["pricing_source_url"] = None
     normalized["pricing_verified_at"] = None
     normalized["pricing_source_http_status"] = None
     normalized["pricing_source_final_url"] = None

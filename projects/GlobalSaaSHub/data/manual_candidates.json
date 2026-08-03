@@ -7,14 +7,22 @@
     "description": "All-in-one AI content creation suite featuring text, voiceover, image, and code generation for creators.",
     "affiliate_url": null,
     "pricing": "Pro plan starting at $200/year (billed annually)",
-    "key_features": ["AI Text Generation", "Voiceover Synthesis", "AI Image Generator", "Code Assistant"],
+    "key_features": [
+      "AI Text Generation",
+      "Voiceover Synthesis",
+      "AI Image Generator",
+      "Code Assistant"
+    ],
     "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=krater.ai&sz=128",
     "primary_category": "creator",
     "comparison_group": "multi_tool_ai_suite",
     "official_url": "https://krater.ai/",
     "pricing_source_url": "https://krater.ai/pricing",
-    "pricing_evidence_markers": ["$200", "year"],
+    "pricing_evidence_markers": [
+      "$200",
+      "year"
+    ],
     "pricing_verified": true,
     "currency": "USD",
     "billing_period": "annual",
@@ -29,7 +37,12 @@
     "description": "Safe and automated LinkedIn outreach and email sequence platform for B2B lead generation.",
     "affiliate_url": null,
     "pricing": "See official pricing",
-    "key_features": ["LinkedIn Automation", "Smart Sequences", "Cloud Desktop IP", "A/B Testing"],
+    "key_features": [
+      "LinkedIn Automation",
+      "Smart Sequences",
+      "Cloud Desktop IP",
+      "A/B Testing"
+    ],
     "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=expandi.io&sz=128",
     "primary_category": "automation",
@@ -51,14 +64,22 @@
     "description": "B2B SaaS affiliate management software designed to grow recurring revenue through partner networks.",
     "affiliate_url": null,
     "pricing": "14-day free trial; Startup plan at $99/month (billed annually) or $149 monthly",
-    "key_features": ["B2B Partner Marketplace", "Stripe Integration", "Recurring Payout Tracking", "Custom Referral Links"],
+    "key_features": [
+      "B2B Partner Marketplace",
+      "Stripe Integration",
+      "Recurring Payout Tracking",
+      "Custom Referral Links"
+    ],
     "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=getreditus.com&sz=128",
     "primary_category": "automation",
     "comparison_group": "affiliate_management",
     "official_url": "https://getreditus.com/",
     "pricing_source_url": "https://getreditus.com/help/reditus-pricing",
-    "pricing_evidence_markers": ["$99", "month"],
+    "pricing_evidence_markers": [
+      "$99",
+      "month"
+    ],
     "pricing_verified": true,
     "currency": "USD",
     "billing_period": "annual/monthly",
@@ -73,14 +94,22 @@
     "description": "Consolidated financial reporting software integrating QuickBooks, Xero, and Sage multi-entity data.",
     "affiliate_url": null,
     "pricing": "Starting at $23/month (billed annually, 1 company)",
-    "key_features": ["Multi-Entity Consolidation", "QuickBooks & Xero Sync", "Custom Executive Reports", "Multi-Currency Conversion"],
+    "key_features": [
+      "Multi-Entity Consolidation",
+      "QuickBooks & Xero Sync",
+      "Custom Executive Reports",
+      "Multi-Currency Conversion"
+    ],
     "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=joiin.co&sz=128",
     "primary_category": "automation",
     "comparison_group": "financial_reporting",
     "official_url": "https://www.joiin.co/",
     "pricing_source_url": "https://www.joiin.co/pricing/",
-    "pricing_evidence_markers": ["$23", "month"],
+    "pricing_evidence_markers": [
+      "$23",
+      "month"
+    ],
     "pricing_verified": true,
     "currency": "USD",
     "billing_period": "annual",
@@ -95,7 +124,12 @@
     "description": "Enterprise AI agent deployment and orchestration workspace for automated enterprise workflows.",
     "affiliate_url": null,
     "pricing": "See official pricing",
-    "key_features": ["Enterprise Agentic Framework", "Multi-Agent Orchestration", "SOC2 Compliance", "Role-Based Access Control"],
+    "key_features": [
+      "Enterprise Agentic Framework",
+      "Multi-Agent Orchestration",
+      "SOC2 Compliance",
+      "Role-Based Access Control"
+    ],
     "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=agentworks.ai&sz=128",
     "primary_category": "developer",
@@ -117,7 +151,12 @@
     "description": "Enterprise AI governance, security, and orchestration platform for managing agentic AI models.",
     "affiliate_url": null,
     "pricing": "See official pricing",
-    "key_features": ["AI Security Governance", "Model Orchestration", "Prompt Injection Shield", "Audit Logging"],
+    "key_features": [
+      "AI Security Governance",
+      "Model Orchestration",
+      "Prompt Injection Shield",
+      "Audit Logging"
+    ],
     "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=airia.ai&sz=128",
     "primary_category": "developer",
@@ -139,7 +178,12 @@
     "description": "Open-source AI wearable necklace and conversation assistant capturing real-time voice memories.",
     "affiliate_url": null,
     "pricing": "See official pricing",
-    "key_features": ["Wearable Voice Hardware", "Real-Time Speech Transcription", "Memory Recall API", "Open Source Architecture"],
+    "key_features": [
+      "Wearable Voice Hardware",
+      "Real-Time Speech Transcription",
+      "Memory Recall API",
+      "Open Source Architecture"
+    ],
     "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=omi.me&sz=128",
     "primary_category": "developer",
@@ -161,7 +205,12 @@
     "description": "AI voice assistant and meeting note-taker that transcribes, summarizes, and analyzes conversations.",
     "affiliate_url": null,
     "pricing": "See official pricing",
-    "key_features": ["Automated Meeting Transcription", "AI Conversation Intelligence", "CRM Integrations", "Custom Topic Tracker"],
+    "key_features": [
+      "Automated Meeting Transcription",
+      "AI Conversation Intelligence",
+      "CRM Integrations",
+      "Custom Topic Tracker"
+    ],
     "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=fireflies.ai&sz=128",
     "primary_category": "automation",
@@ -183,7 +232,12 @@
     "description": "AI-powered presentation and document generator creating interactive web slides and pages.",
     "affiliate_url": null,
     "pricing": "See official pricing",
-    "key_features": ["AI Presentation Generator", "Interactive Web Cards", "One-Click Styling", "Export to PDF & PPTX"],
+    "key_features": [
+      "AI Presentation Generator",
+      "Interactive Web Cards",
+      "One-Click Styling",
+      "Export to PDF & PPTX"
+    ],
     "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=gamma.app&sz=128",
     "primary_category": "creator",
@@ -205,7 +259,12 @@
     "description": "AI workforce and automated teammate platform building AI employees for teams with complex operational tasks.",
     "affiliate_url": null,
     "pricing": "See official pricing",
-    "key_features": ["Autonomous AI Employees", "Operational Workflow Execution", "Team Collaboration API", "Task Memory Storage"],
+    "key_features": [
+      "Autonomous AI Employees",
+      "Operational Workflow Execution",
+      "Team Collaboration API",
+      "Task Memory Storage"
+    ],
     "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=gobii.ai&sz=128",
     "primary_category": "developer",
@@ -218,5 +277,81 @@
     "billing_period": null,
     "evidence_source_type": null,
     "is_manual_override": true
+  },
+  {
+    "id": "taskade",
+    "name": "Taskade",
+    "category": "automation",
+    "category_display": "Workflow Automation",
+    "description": "AI-powered productivity and workflow automation workspace with task management, mind maps, and AI agents.",
+    "official_url": "https://www.taskade.com/",
+    "pricing": "Free plan available; Pro starting at /user/month",
+    "pricing_source_url": "https://www.taskade.com/pricing",
+    "pricing_evidence_markers": [
+      "",
+      "month"
+    ],
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": "official_pricing_page",
+    "key_features": [
+      "AI Task Management",
+      "AI Agents",
+      "Mind Mapping",
+      "Real-Time Collaboration"
+    ],
+    "rating": null,
+    "logo_url": "https://www.google.com/s2/favicons?domain=taskade.com&sz=128",
+    "primary_category": "automation",
+    "comparison_group": "productivity_workspace",
+    "is_manual_override": true,
+    "affiliate_url": "https://partners.taskade.com/",
+    "affiliate_verified": true,
+    "affiliate_source_url": "https://partners.taskade.com/",
+    "affiliate_final_url": "https://partners.taskade.com/",
+    "affiliate_http_status": 200,
+    "affiliate_evidence_markers": [
+      "affiliate\\s+program"
+    ],
+    "affiliate_verified_at": "2026-08-03T17:35:22Z",
+    "affiliate_rejection_reason": ""
+  },
+  {
+    "id": "relevance-ai",
+    "name": "Relevance AI",
+    "category": "developer",
+    "category_display": "Coding & Dev Tools",
+    "description": "B2B workforce platform to build, train, and deploy autonomous AI agents and automated workflows.",
+    "official_url": "https://relevanceai.com/",
+    "pricing": "Free plan available; credit-based usage starting at /month",
+    "pricing_source_url": "https://relevanceai.com/docs/get-started/pricing",
+    "pricing_evidence_markers": [
+      "",
+      "month"
+    ],
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": "official_documentation_page",
+    "key_features": [
+      "No-Code AI Agent Builder",
+      "B2B Workflow Automation",
+      "Multi-Agent Orchestration",
+      "Custom API Integrations"
+    ],
+    "rating": null,
+    "logo_url": "https://www.google.com/s2/favicons?domain=relevanceai.com&sz=128",
+    "primary_category": "developer",
+    "comparison_group": "ai_agent_platform",
+    "is_manual_override": true,
+    "affiliate_url": null,
+    "affiliate_verified": false,
+    "affiliate_source_url": "https://relevanceai.com/",
+    "affiliate_final_url": "https://relevanceai.com/",
+    "affiliate_http_status": 200,
+    "affiliate_evidence_markers": [],
+    "affiliate_verified_at": null,
+    "affiliate_rejection_reason": "HTTP 200 but no strong affiliate evidence found. Required at least one compound pattern (e.g. 'affiliate program', 'commission rate', 'cookie duration'). Single-word matches in footer/privacy/blog are not accepted."
   }
 ]
