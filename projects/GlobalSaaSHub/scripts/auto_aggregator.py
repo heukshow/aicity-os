@@ -45,6 +45,112 @@ def normalize_unverified_candidate(new_tool, official_url, affiliate_url):
 
     return normalized
 
+
+def merge_discovered_candidates(existing_tools, discovered_candidates):
+    """
+    Core Production/Dry-run candidate merger logic.
+
+    Rules:
+      1. Deduplicates by ID, canonical official domain (extract_domain), or normalized name.
+      2. If domain matches an existing tool (e.g. taskade.com), NO new tool is created
+         even if candidate has a different ID (e.g. 'taskade-ai-agents').
+      3. Immutability Contract:
+         - If existing tool has affiliate_verified=True, candidate CANNOT overwrite any affiliate_* fields.
+         - If existing tool has pricing_verified=True, candidate CANNOT overwrite any pricing_* fields.
+      4. Only truly new candidates (unmatched domain/ID/name) are normalized and added.
+
+    Returns:
+      (merged_tools, new_tools_list, updated_tools_list)
+    """
+    merged_tools = [dict(t) for t in existing_tools]
+    existing_ids = {t["id"]: t for t in merged_tools}
+    existing_domains = {}
+    existing_names = {}
+
+    for tool in merged_tools:
+        source_url = tool.get("official_url") or tool.get("affiliate_url") or ""
+        dom = extract_domain(source_url)
+        if dom:
+            existing_domains[dom] = tool
+        norm_n = tool.get("name", "").lower().strip().replace(" ", "").replace("-", "").replace("_", "")
+        if norm_n:
+            existing_names[norm_n] = tool
+
+    new_tools_list = []
+    updated_tools_list = []
+
+    AFFILIATE_KEYS = [
+        "affiliate_url", "affiliate_verified", "affiliate_source_url",
+        "affiliate_final_url", "affiliate_http_status", "affiliate_evidence_markers",
+        "affiliate_verified_at", "affiliate_rejection_reason"
+    ]
+    PRICING_KEYS = [
+        "pricing", "pricing_verified", "pricing_source_url", "pricing_verified_at",
+        "pricing_source_http_status", "pricing_source_final_url",
+        "pricing_evidence_markers", "currency", "billing_period", "evidence_source_type"
+    ]
+
+    for new_tool in discovered_candidates:
+        required_keys = ['id', 'name', 'category', 'category_display', 'description', 'official_url', 'pricing', 'key_features', 'rating', 'logo_url']
+        if not all(k in new_tool for k in required_keys):
+            print(f"Skipping tool due to missing required keys: {new_tool.get('name')}")
+            continue
+
+        off_url = new_tool.get("official_url")
+        aff_url = new_tool.get("affiliate_url")
+        tool_domain = extract_domain(off_url)
+
+        if not tool_domain:
+            print(f"Skipping tool due to invalid official_url: {new_tool.get('name')} ({off_url!r})")
+            continue
+
+        tool_id = new_tool["id"]
+        tool_norm_name = new_tool.get("name", "").lower().strip().replace(" ", "").replace("-", "").replace("_", "")
+
+        # Exclude 'automa' until official domain is confirmed
+        if tool_id == "automa":
+            print("Skipping 'automa' as per policy until official domain is confirmed.")
+            continue
+
+        # Check for existing match by ID, domain, or normalized name
+        matched = None
+        if tool_id in existing_ids:
+            matched = existing_ids[tool_id]
+        elif tool_domain and tool_domain in existing_domains:
+            matched = existing_domains[tool_domain]
+            print(f"Domain match found for '{new_tool['name']}' ({tool_domain}) -> Existing tool '{matched['name']}' ({matched['id']})")
+        elif tool_norm_name and tool_norm_name in existing_names:
+            matched = existing_names[tool_norm_name]
+            print(f"Name match found for '{new_tool['name']}' -> Existing tool '{matched['name']}' ({matched['id']})")
+
+        if matched is None:
+            # Truly new tool! Verify affiliate and normalize
+            valid_off_url = off_url if (isinstance(off_url, str) and off_url.strip().startswith(('http://', 'https://'))) else f"https://{tool_domain}/"
+            aff_meta = safe_affiliate_result(aff_url, tool_name=new_tool.get('name', ''))
+            normalized_new_tool = normalize_unverified_candidate(new_tool, valid_off_url, aff_meta["affiliate_url"])
+            normalized_new_tool.update(aff_meta)
+            normalized_new_tool['logo_url'] = f"https://www.google.com/s2/favicons?domain={tool_domain}&sz=128"
+            if 'commission' in normalized_new_tool:
+                del normalized_new_tool['commission']
+
+            merged_tools.append(normalized_new_tool)
+            existing_ids[tool_id] = normalized_new_tool
+            if tool_domain:
+                existing_domains[tool_domain] = normalized_new_tool
+            if tool_norm_name:
+                existing_names[tool_norm_name] = normalized_new_tool
+            new_tools_list.append(normalized_new_tool)
+            print(f"New unique tool added: {normalized_new_tool['name']} ({tool_id})")
+        else:
+            # Existing tool matched! Preserve verified affiliate and pricing fields
+            target_id = matched["id"]
+            print(f"Match for existing tool '{matched['name']}' ({target_id}). Preserving verified contract fields.")
+
+            # Immutability check: if verified, DO NOT overwrite with candidate unverified values
+            # (No-op on verified fields ensures existing verified contracts are preserved 100%)
+
+    return merged_tools, new_tools_list, updated_tools_list
+
 def load_env():
     """Loads environment variables from the root .env file."""
     # Look for .env in the current directory, parent, or grandparent
@@ -373,80 +479,10 @@ def main():
     print(f"Successfully compiled {len(extracted_tools)} total tools from all snippets.")
     sys.stdout.flush()
     
-    # 6. Merge & Deduplicate
-    new_tools_added = 0
-    updated_tools_count = 0
-    new_tools_list = []
-    updated_tools_list = []
-
-    for new_tool in extracted_tools:
-        # Validate schema keys (affiliate_url is OPTIONAL now)
-        required_keys = ['id', 'name', 'category', 'category_display', 'description', 'official_url', 'pricing', 'key_features', 'rating', 'logo_url']
-        if not all(k in new_tool for k in required_keys):
-            print(f"Skipping tool due to missing required keys: {new_tool.get('name')}")
-            continue
-            
-        off_url = new_tool.get('official_url')
-        aff_url = new_tool.get('affiliate_url')
-        tool_domain = extract_domain(off_url)
-
-        if not tool_domain:
-            print(f"Skipping tool due to invalid official_url: {new_tool.get('name')} ({off_url!r})")
-            continue
-
-        new_tool['logo_url'] = f"https://www.google.com/s2/favicons?domain={tool_domain}&sz=128"
-
-        # Ensure commission key is removed
-        if 'commission' in new_tool:
-            del new_tool['commission']
-
-        tool_id = new_tool['id']
-        tool_norm_name = new_tool.get('name', '').lower().strip().replace(' ', '').replace('-', '').replace('_', '')
-
-        # Check for existing match by ID, domain, or normalized name
-        matched_existing_tool = None
-        if tool_id in existing_ids:
-            matched_existing_tool = existing_ids[tool_id]
-        elif tool_domain and tool_domain in existing_domains:
-            matched_existing_tool = existing_domains[tool_domain]
-            print(f"Domain match found for '{new_tool['name']}' -> Existing tool '{matched_existing_tool['name']}' ({matched_existing_tool['id']})")
-        elif tool_norm_name and tool_norm_name in existing_names:
-            matched_existing_tool = existing_names[tool_norm_name]
-            print(f"Name match found for '{new_tool['name']}' -> Existing tool '{matched_existing_tool['name']}' ({matched_existing_tool['id']})")
-
-        # Exclude 'automa' until product official domain is finalized
-        if tool_id == 'automa':
-            print("Skipping 'automa' as per policy until official domain is confirmed.")
-            continue
-
-        # Compute valid official URL
-        valid_off_url = off_url if (isinstance(off_url, str) and off_url.strip().startswith(('http://', 'https://'))) else f"https://{tool_domain}/"
-
-        # Validate affiliate_url: SSL ON, page fetched, strong compound evidence required.
-        # Returns full metadata dict; all fields are stored in the normalized tool record.
-        aff_meta = safe_affiliate_result(aff_url, tool_name=new_tool.get('name', ''))
-
-        # Normalize new_tool using strict helper function
-        normalized_new_tool = normalize_unverified_candidate(new_tool, valid_off_url, aff_meta["affiliate_url"])
-        # Merge affiliate verification metadata into the record
-        normalized_new_tool.update(aff_meta)
-
-        if matched_existing_tool is None:
-            # Truly new tool! Add to database
-            existing_tools.append(normalized_new_tool)
-            existing_ids[tool_id] = normalized_new_tool
-            if tool_domain:
-                existing_domains[tool_domain] = normalized_new_tool
-            if tool_norm_name:
-                existing_names[tool_norm_name] = normalized_new_tool
-            new_tools_added += 1
-            new_tools_list.append(normalized_new_tool)
-            print(f"New unique tool added: {normalized_new_tool['name']} ({tool_id})")
-        else:
-            # Existing tool matched!
-            target_id = matched_existing_tool['id']
-            # Search snippets alone CANNOT update existing tool pricing
-            print(f"Search snippet match for existing tool '{matched_existing_tool['name']}' ({target_id}). Pricing update skipped without verified pricing page check.")
+    # 6. Merge & Deduplicate using central merge_discovered_candidates function
+    existing_tools, new_tools_list, updated_tools_list = merge_discovered_candidates(existing_tools, extracted_tools)
+    new_tools_added = len(new_tools_list)
+    updated_tools_count = len(updated_tools_list)
 
     # 7. Write Back to Sandbox Next File
     try:
