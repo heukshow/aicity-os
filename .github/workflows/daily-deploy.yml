@@ -74,8 +74,10 @@ jobs:
           python projects/GlobalSaaSHub/scripts/tests/test_affiliate_redirect.py
           python projects/GlobalSaaSHub/scripts/tests/test_affiliate_integration.py
           python projects/GlobalSaaSHub/scripts/tests/test_promote_approved_artifact.py
+          python projects/GlobalSaaSHub/scripts/tests/test_validate_data_import_safety.py
           python projects/GlobalSaaSHub/scripts/tests/test_pricing_integrity.py
           python projects/GlobalSaaSHub/scripts/tests/test_domain_dedup.py
+          python projects/GlobalSaaSHub/scripts/tests/test_manual_candidates_merge.py
 
       # =========================================================
       # PRODUCTION SAFETY GATE

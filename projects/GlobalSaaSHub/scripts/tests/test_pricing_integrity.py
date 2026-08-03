@@ -45,6 +45,13 @@ def _make_base_verified_tool():
         "comparison_group": "test_group",
         "is_manual_override": True,
         "http_verification_status": "verified_http_200",
+        "affiliate_verified": False,
+        "affiliate_source_url": None,
+        "affiliate_final_url": None,
+        "affiliate_http_status": None,
+        "affiliate_evidence_markers": [],
+        "affiliate_verified_at": None,
+        "affiliate_rejection_reason": "No affiliate URL",
     }
 
 

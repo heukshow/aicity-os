@@ -151,6 +151,97 @@ def merge_discovered_candidates(existing_tools, discovered_candidates):
 
     return merged_tools, new_tools_list, updated_tools_list
 
+
+def merge_verified_manual_candidates(existing_tools, verified_manual_candidates):
+    """
+    Merges verified manual candidates into existing_tools dataset.
+
+    Rules:
+      1. Matches by ID, canonical domain (extract_domain), or normalized name.
+      2. If matched:
+         - Existing ID and identity preserved.
+         - If candidate has pricing_verified=True, update all pricing verification metadata
+           (pricing, pricing_source_url, pricing_verified, pricing_verified_at,
+            pricing_source_http_status, pricing_source_final_url, pricing_evidence_markers,
+            currency, billing_period, evidence_source_type) into existing tool record.
+         - If candidate has affiliate_verified=True, update verified affiliate metadata.
+         - Unverified candidate fields NEVER overwrite existing verified data.
+      3. If unmatched (e.g. Taskade, Relevance AI):
+         - Added as new tool.
+
+    Returns:
+      (merged_tools, updated_count, added_count)
+    """
+    merged_tools = [dict(t) for t in existing_tools]
+    existing_ids = {t["id"]: t for t in merged_tools}
+    existing_domains = {}
+    existing_names = {}
+
+    for tool in merged_tools:
+        source_url = tool.get("official_url") or tool.get("affiliate_url") or ""
+        dom = extract_domain(source_url)
+        if dom:
+            existing_domains[dom] = tool
+        norm_n = tool.get("name", "").lower().strip().replace(" ", "").replace("-", "").replace("_", "")
+        if norm_n:
+            existing_names[norm_n] = tool
+
+    updated_count = 0
+    added_count = 0
+
+    PRICING_UPDATE_KEYS = [
+        "pricing", "pricing_verified", "pricing_source_url", "pricing_verified_at",
+        "pricing_source_http_status", "pricing_source_final_url",
+        "pricing_evidence_markers", "currency", "billing_period", "evidence_source_type"
+    ]
+    AFFILIATE_UPDATE_KEYS = [
+        "affiliate_url", "affiliate_verified", "affiliate_source_url",
+        "affiliate_final_url", "affiliate_http_status", "affiliate_evidence_markers",
+        "affiliate_verified_at", "affiliate_rejection_reason"
+    ]
+
+    for m_tool in verified_manual_candidates:
+        m_id = m_tool.get("id")
+        m_url = m_tool.get("official_url") or m_tool.get("affiliate_url") or ""
+        m_dom = extract_domain(m_url)
+        m_norm = m_tool.get("name", "").lower().strip().replace(" ", "").replace("-", "").replace("_", "")
+
+        matched = None
+        if m_id in existing_ids:
+            matched = existing_ids[m_id]
+        elif m_dom and m_dom in existing_domains:
+            matched = existing_domains[m_dom]
+        elif m_norm and m_norm in existing_names:
+            matched = existing_names[m_norm]
+
+        if matched is None:
+            # Truly new manual candidate (e.g. Taskade, Relevance AI)
+            new_record = dict(m_tool)
+            merged_tools.append(new_record)
+            existing_ids[m_id] = new_record
+            if m_dom:
+                existing_domains[m_dom] = new_record
+            if m_norm:
+                existing_names[m_norm] = new_record
+            added_count += 1
+            print(f"Added new manual candidate tool: '{new_record['name']}' ({m_id})")
+        else:
+            # Existing tool matched! Update verified metadata
+            print(f"Existing tool match for manual candidate '{m_tool.get('name')}' -> '{matched['name']}' ({matched['id']}).")
+            if m_tool.get("pricing_verified") is True:
+                for k in PRICING_UPDATE_KEYS:
+                    if k in m_tool:
+                        matched[k] = m_tool[k]
+                print(f"  -> Updated verified pricing metadata on '{matched['id']}'.")
+            if m_tool.get("affiliate_verified") is True:
+                for k in AFFILIATE_UPDATE_KEYS:
+                    if k in m_tool:
+                        matched[k] = m_tool[k]
+                print(f"  -> Updated verified affiliate metadata on '{matched['id']}'.")
+            updated_count += 1
+
+    return merged_tools, updated_count, added_count
+
 def load_env():
     """Loads environment variables from the root .env file."""
     # Look for .env in the current directory, parent, or grandparent
@@ -330,23 +421,8 @@ def main():
             print(f"❌ FATAL: Manual candidates file {manual_verified_file} must be a JSON array.")
             sys.exit(1)
         print(f"Loaded {len(manual_tools)} manual candidate tools from {manual_verified_file}.")
-        manual_added = 0
-        for m_tool in manual_tools:
-            m_id = m_tool.get('id')
-            m_dom = extract_domain(m_tool.get('official_url'))
-            m_norm = m_tool.get('name', '').lower().strip().replace(' ', '').replace('-', '').replace('_', '')
-            
-            if m_id in existing_ids or (m_dom and m_dom in existing_domains) or (m_norm and m_norm in existing_names):
-                print(f"Manual candidate '{m_tool.get('name')}' already exists in database. Skipping.")
-            else:
-                existing_tools.append(m_tool)
-                existing_ids[m_id] = m_tool
-                if m_dom:
-                    existing_domains[m_dom] = m_tool
-                if m_norm:
-                    existing_names[m_norm] = m_tool
-                manual_added += 1
-        print(f"Successfully merged {manual_added} unique manual candidates into dataset.")
+        existing_tools, manual_updated, manual_added = merge_verified_manual_candidates(existing_tools, manual_tools)
+        print(f"Successfully merged manual candidates into dataset (updated: {manual_updated}, added: {manual_added}).")
     except Exception as e:
         print(f"❌ FATAL: Failed to read or parse manual candidates file {manual_verified_file}: {e}")
         sys.exit(1)
