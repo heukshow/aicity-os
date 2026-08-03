@@ -163,47 +163,53 @@ def extract_and_validate_zip(zip_bytes: bytes, output_dir: str, approved_head_sh
     summary_raw = zf.read(summary_matches[0])
     try:
         summary_data = json.loads(summary_raw.decode("utf-8"))
-        log(f"run_summary.json parsed OK. Keys: {list(summary_data.keys())[:10]}")
     except json.JSONDecodeError as e:
         fatal(f"run_summary.json in artifact is not valid JSON: {e}")
 
-    # --- RUN_SUMMARY CONTRACT VALIDATION ---
-    # 1. artifact_schema_version
-    schema_ver = summary_data.get("artifact_schema_version")
-    if not schema_ver or str(schema_ver) != "1.0":
-        fatal(f"run_summary.json artifact_schema_version mismatch or missing. Expected '1.0', got {schema_ver!r}")
+    if not isinstance(summary_data, dict):
+        fatal(f"run_summary.json must be a JSON object (dict), got {type(summary_data).__name__}")
 
-    # 2. source_head_sha vs approved_head_sha
-    summary_head_sha = summary_data.get("source_head_sha", "")
-    if summary_head_sha != "local-dev" and summary_head_sha.lower() != approved_head_sha.lower():
+    log(f"run_summary.json parsed OK. Keys: {list(summary_data.keys())[:10]}")
+
+    # --- STRICT RUN_SUMMARY CONTRACT VALIDATION (NO BYPASSES) ---
+    # 1. artifact_schema_version: exact string "1.0"
+    schema_ver = summary_data.get("artifact_schema_version")
+    if schema_ver != "1.0":
+        fatal(f"run_summary.json artifact_schema_version must be exactly string '1.0', got {schema_ver!r}")
+
+    # 2. source_head_sha vs approved_head_sha (no local-dev bypass)
+    summary_head_sha = summary_data.get("source_head_sha")
+    if not summary_head_sha or not isinstance(summary_head_sha, str) or summary_head_sha.lower() != approved_head_sha.lower():
         fatal(
-            f"run_summary.json source_head_sha MISMATCH.\n"
+            f"run_summary.json source_head_sha MISMATCH or invalid.\n"
             f"  run_summary.json: {summary_head_sha!r}\n"
             f"  approved_head:    {approved_head_sha!r}"
         )
 
-    # 3. dry_run must be True
+    # 3. workflow_run.id and source_run_id strict match (no local-run bypass)
+    if not metadata or "workflow_run" not in metadata or metadata["workflow_run"].get("id") is None:
+        fatal("Artifact metadata is missing 'workflow_run.id'. Cannot verify artifact source.")
+
+    expected_run_id = str(metadata["workflow_run"]["id"])
+    summary_run_id = summary_data.get("source_run_id")
+    if summary_run_id is None or str(summary_run_id).strip() == "" or str(summary_run_id) != expected_run_id:
+        fatal(
+            f"run_summary.json source_run_id MISMATCH or missing.\n"
+            f"  run_summary.json: {summary_run_id!r}\n"
+            f"  expected run_id:  {expected_run_id!r}"
+        )
+
+    # 4. dry_run must be JSON boolean True (string "true" rejected)
     dry_run_val = summary_data.get("dry_run")
-    if dry_run_val is not True and str(dry_run_val).lower() != "true":
-        fatal(f"run_summary.json dry_run must be True for an approved artifact, got {dry_run_val!r}")
+    if dry_run_val is not True:
+        fatal(f"run_summary.json dry_run must be JSON boolean True, got {dry_run_val!r} ({type(dry_run_val).__name__})")
 
-    # 4. failure_test must be False
+    # 5. failure_test must be JSON boolean False (string "false" rejected)
     fail_test_val = summary_data.get("failure_test")
-    if fail_test_val is not False and str(fail_test_val).lower() != "false":
-        fatal(f"run_summary.json failure_test must be False for an approved artifact, got {fail_test_val!r}")
+    if fail_test_val is not False:
+        fatal(f"run_summary.json failure_test must be JSON boolean False, got {fail_test_val!r} ({type(fail_test_val).__name__})")
 
-    # 5. source_run_id vs workflow_run.id (if metadata provided)
-    if metadata and "workflow_run" in metadata:
-        expected_run_id = str(metadata["workflow_run"].get("id", ""))
-        summary_run_id = str(summary_data.get("source_run_id", ""))
-        if summary_run_id != "local-run" and expected_run_id and summary_run_id != expected_run_id:
-            fatal(
-                f"run_summary.json source_run_id MISMATCH.\n"
-                f"  run_summary.json: {summary_run_id!r}\n"
-                f"  metadata run id:  {expected_run_id!r}"
-            )
-
-    log("run_summary.json internal security contract verified OK.")
+    log("run_summary.json strict security contract verified OK.")
 
     # Write tools.next.json to output_dir
     os.makedirs(output_dir, exist_ok=True)
