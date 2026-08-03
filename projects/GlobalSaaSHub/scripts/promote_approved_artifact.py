@@ -27,6 +27,7 @@ import urllib.request
 import urllib.error
 import zipfile
 import io
+import re
 
 REQUIRED_ARTIFACT_FILES = ["tools.next.json", "run_summary.json"]
 
@@ -140,7 +141,11 @@ def verify_head_sha(metadata: dict, approved_head_sha: str, expected_run_id: str
     if not approved_head_sha or not isinstance(approved_head_sha, str) or len(approved_head_sha.strip()) == 0:
         fatal("Approved head_sha cannot be null or empty.")
 
-    if artifact_head_sha.lower() != approved_head_sha.strip().lower():
+    clean_sha = approved_head_sha.strip()
+    if not re.fullmatch(r"^[0-9a-fA-F]{40}$", clean_sha):
+        fatal(f"Approved head_sha '{approved_head_sha}' is not a valid 40-character hex SHA string.")
+
+    if artifact_head_sha.lower() != clean_sha.lower():
         fatal(
             f"HEAD SHA MISMATCH. Artifact was built from {artifact_head_sha!r}, "
             f"but approved head SHA is {approved_head_sha!r}."

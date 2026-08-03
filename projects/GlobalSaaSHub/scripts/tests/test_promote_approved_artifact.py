@@ -2,39 +2,39 @@
 tests/test_promote_approved_artifact.py
 =========================================
 Strict security tests for promote_approved_artifact.py.
-Ensures zero-bypass verification of SHA256 digest, Git HEAD SHA,
-strict JSON schema of run_summary.json, metadata structure, and ZIP basename uniqueness.
+Ensures zero-bypass verification of SHA256 digest, 40-hex Git HEAD SHA format,
+strict JSON schema of run_summary.json, metadata structure, permissions, and ZIP basename uniqueness.
 
 Tests (29 tests total):
- 1. Valid artifact passes all checks
- 2. Mismatched SHA256 -> fatal error
- 3. Mismatched HEAD SHA -> fatal error
- 4. Missing tools.next.json -> fatal error
- 5. Corrupted JSON -> fatal error
- 6. Empty tools array -> fatal error
- 7. Workflow structure - FAIL-CLOSED if missing/unreadable, all API steps guarded
- 8. run_summary source_head_sha mismatch -> fatal error
- 9. run_summary dry_run=False -> fatal error
-10. run_summary failure_test=True -> fatal error
-11. run_summary source_run_id mismatch -> fatal error
-12. run_summary artifact_schema_version != '1.0' -> fatal error
-13. run_summary source_head_sha = 'local-dev' bypass attempt -> fatal error
-14. run_summary source_run_id = 'local-run' bypass attempt -> fatal error
-15. run_summary source_head_sha missing/null -> fatal error
-16. run_summary source_run_id missing/null -> fatal error
-17. metadata missing workflow_run.id -> fatal error
-18. run_summary dry_run string "true" -> fatal error
-19. run_summary failure_test string "false" -> fatal error
-20. run_summary non-dict -> fatal error
-21. Duplicate tools.next.json in ZIP (basename count > 1) -> fatal error
-22. Duplicate run_summary.json in ZIP (basename count > 1) -> fatal error
-23. Metadata expired is True -> fatal error
-24. Metadata not dict -> fatal error
-25. Metadata workflow_run not dict -> fatal error
-26. Metadata name mismatch (not pipeline-artifacts-{run_id}) -> fatal error
-27. Metadata workflow_run.id mismatch -> fatal error
-28. Approved head SHA empty/null -> fatal error
-29. Approved head SHA case-insensitive match -> PASS
+ 1. test_valid_artifact_passes
+ 2. test_wrong_sha256_causes_fatal
+ 3. test_mismatched_head_sha_causes_fatal
+ 4. test_missing_tools_next_json_causes_fatal
+ 5. test_corrupted_json_causes_fatal
+ 6. test_empty_tools_array_causes_fatal
+ 7. test_workflow_production_branch_blocks_api_calls (fail-closed, permissions check, regex check)
+ 8. test_summary_mismatched_head_sha_causes_fatal
+ 9. test_summary_dry_run_false_causes_fatal
+10. test_summary_failure_test_true_causes_fatal
+11. test_summary_mismatched_run_id_causes_fatal
+12. test_summary_schema_version_invalid_causes_fatal
+13. test_summary_local_dev_bypass_attempt_causes_fatal
+14. test_summary_local_run_bypass_attempt_causes_fatal
+15. test_summary_missing_head_sha_causes_fatal
+16. test_summary_missing_run_id_causes_fatal
+17. test_metadata_missing_workflow_run_id_causes_fatal
+18. test_summary_string_dry_run_causes_fatal
+19. test_summary_string_failure_test_causes_fatal
+20. test_summary_non_dict_causes_fatal
+21. test_duplicate_tools_next_json_in_zip_causes_fatal
+22. test_duplicate_run_summary_json_in_zip_causes_fatal
+23. test_metadata_expired_true_causes_fatal
+24. test_metadata_name_mismatch_causes_fatal
+25. test_approved_head_sha_empty_causes_fatal
+26. test_approved_head_sha_non_40_hex_length_causes_fatal
+27. test_approved_head_sha_invalid_hex_chars_causes_fatal
+28. test_approved_head_sha_valid_40_hex_match_passes
+29. test_approved_head_sha_case_insensitive_pass
 """
 
 import sys
@@ -44,13 +44,14 @@ import zipfile
 import tempfile
 import hashlib
 import io
+import re
 
 SCRIPTS_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, SCRIPTS_DIR)
 
 import promote_approved_artifact as paa
 
-GOOD_HEAD_SHA = "abc123def456abc123def456abc123def456abc123"
+GOOD_HEAD_SHA = "abc123def456abc123def456abc123def456abc1"  # exactly 40 hex chars
 GOOD_RUN_ID = "999999"
 GOOD_META = {
     "name": f"pipeline-artifacts-{GOOD_RUN_ID}",
@@ -109,7 +110,7 @@ def test_wrong_sha256_causes_fatal():
 
 def test_mismatched_head_sha_causes_fatal():
     wrong_meta = dict(GOOD_META)
-    wrong_meta["workflow_run"] = {"id": int(GOOD_RUN_ID), "head_sha": "different_sha_not_matching"}
+    wrong_meta["workflow_run"] = {"id": int(GOOD_RUN_ID), "head_sha": "1111112222223333334444445555556666667777"}
     try:
         paa.verify_head_sha(wrong_meta, GOOD_HEAD_SHA, GOOD_RUN_ID)
         assert False, "Should have called sys.exit(1)"
@@ -151,7 +152,7 @@ def test_empty_tools_array_causes_fatal():
 
 
 def test_workflow_production_branch_blocks_api_calls():
-    """Fail-closed test for daily-deploy.yml structure."""
+    """Fail-closed test for daily-deploy.yml structure, permissions, and 40-hex regex."""
     workflow_path = os.path.join(
         os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
         "..", "..", ".github", "workflows", "daily-deploy.yml"
@@ -167,6 +168,18 @@ def test_workflow_production_branch_blocks_api_calls():
     except Exception as e:
         assert False, f"FATAL FAIL: could not read workflow file: {e}"
 
+    # 1. Check permissions block
+    if "contents: write" not in content:
+        assert False, "FATAL FAIL: daily-deploy.yml missing 'contents: write' permission"
+
+    if "actions: read" not in content:
+        assert False, "FATAL FAIL: daily-deploy.yml missing 'actions: read' permission"
+
+    # 2. Check 40-hex regex validation
+    if "HEX_REGEX=" not in content or "^[0-9a-f]{40}$" not in content:
+        assert False, "FATAL FAIL: daily-deploy.yml missing 40-hex regex validation check"
+
+    # 3. Check dry_run guards on dangerous steps
     dangerous_steps = [
         "auto_aggregator.py",
         "TAVILY_API_KEY",
@@ -186,12 +199,12 @@ def test_workflow_production_branch_blocks_api_calls():
     if errors:
         assert False, f"Production branch is not protected from API calls: {errors}"
     else:
-        print("  Workflow structure OK: all API steps have dry_run guards.")
+        print("  Workflow structure OK: permissions, 40-hex regex, and dry_run guards verified.")
 
 
 def test_summary_mismatched_head_sha_causes_fatal():
     d = dict(VALID_SUMMARY_DICT)
-    d["source_head_sha"] = "wrong_sha_value_123456"
+    d["source_head_sha"] = "wrong_sha_value_123456789012345678901234567890"
     zip_bytes = _good_zip(custom_summary=json.dumps(d).encode("utf-8"))
     with tempfile.TemporaryDirectory() as tmp:
         try:
@@ -344,7 +357,6 @@ def test_summary_non_dict_causes_fatal():
 
 
 def test_duplicate_tools_next_json_in_zip_causes_fatal():
-    """Verify that multiple files matching basename tools.next.json cause fatal rejection."""
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w") as zf:
         zf.writestr("tools.next.json", VALID_TOOLS_JSON)
@@ -354,13 +366,12 @@ def test_duplicate_tools_next_json_in_zip_causes_fatal():
     with tempfile.TemporaryDirectory() as tmp:
         try:
             paa.extract_and_validate_zip(zip_bytes, tmp, GOOD_HEAD_SHA, GOOD_META)
-            assert False, "Should have called sys.exit(1) on duplicate tools.next.json"
+            assert False, "Should have called sys.exit(1)"
         except SystemExit as e:
             assert e.code == 1
 
 
 def test_duplicate_run_summary_json_in_zip_causes_fatal():
-    """Verify that multiple files matching basename run_summary.json cause fatal rejection."""
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w") as zf:
         zf.writestr("tools.next.json", VALID_TOOLS_JSON)
@@ -370,7 +381,7 @@ def test_duplicate_run_summary_json_in_zip_causes_fatal():
     with tempfile.TemporaryDirectory() as tmp:
         try:
             paa.extract_and_validate_zip(zip_bytes, tmp, GOOD_HEAD_SHA, GOOD_META)
-            assert False, "Should have called sys.exit(1) on duplicate run_summary.json"
+            assert False, "Should have called sys.exit(1)"
         except SystemExit as e:
             assert e.code == 1
 
@@ -380,7 +391,7 @@ def test_metadata_expired_true_causes_fatal():
     bad_meta["expired"] = True
     try:
         paa.verify_head_sha(bad_meta, GOOD_HEAD_SHA, GOOD_RUN_ID)
-        assert False, "Should have called sys.exit(1) on expired artifact"
+        assert False, "Should have called sys.exit(1)"
     except SystemExit as e:
         assert e.code == 1
 
@@ -390,7 +401,7 @@ def test_metadata_name_mismatch_causes_fatal():
     bad_meta["name"] = "pipeline-artifacts-000000"
     try:
         paa.verify_head_sha(bad_meta, GOOD_HEAD_SHA, GOOD_RUN_ID)
-        assert False, "Should have called sys.exit(1) on name mismatch"
+        assert False, "Should have called sys.exit(1)"
     except SystemExit as e:
         assert e.code == 1
 
@@ -398,12 +409,40 @@ def test_metadata_name_mismatch_causes_fatal():
 def test_approved_head_sha_empty_causes_fatal():
     try:
         paa.verify_head_sha(GOOD_META, "", GOOD_RUN_ID)
-        assert False, "Should have called sys.exit(1) on empty approved_head_sha"
+        assert False, "Should have called sys.exit(1)"
     except SystemExit as e:
         assert e.code == 1
 
 
+def test_approved_head_sha_non_40_hex_length_causes_fatal():
+    """Verify that a 39-character or 41-character SHA is rejected."""
+    short_sha = "abc123def456abc123def456abc123def456abc"  # 39 chars
+    long_sha = "abc123def456abc123def456abc123def456abc12"  # 41 chars
+    for bad_sha in [short_sha, long_sha]:
+        try:
+            paa.verify_head_sha(GOOD_META, bad_sha, GOOD_RUN_ID)
+            assert False, f"Should have called sys.exit(1) on invalid length SHA '{bad_sha}'"
+        except SystemExit as e:
+            assert e.code == 1
+
+
+def test_approved_head_sha_invalid_hex_chars_causes_fatal():
+    """Verify that a 40-character non-hex string (e.g. containing 'g' or spaces) is rejected."""
+    bad_hex = "abc123def456abc123def456abc123def456abcz"  # 40 chars with 'z'
+    try:
+        paa.verify_head_sha(GOOD_META, bad_hex, GOOD_RUN_ID)
+        assert False, f"Should have called sys.exit(1) on non-hex SHA '{bad_hex}'"
+    except SystemExit as e:
+        assert e.code == 1
+
+
+def test_approved_head_sha_valid_40_hex_match_passes():
+    """Verify that a valid 40-character hex SHA passes verification."""
+    paa.verify_head_sha(GOOD_META, GOOD_HEAD_SHA, GOOD_RUN_ID)
+
+
 def test_approved_head_sha_case_insensitive_pass():
+    """Verify case-insensitivity on valid 40-hex SHA."""
     upper_sha = GOOD_HEAD_SHA.upper()
     paa.verify_head_sha(GOOD_META, upper_sha, GOOD_RUN_ID)
 
@@ -435,6 +474,9 @@ if __name__ == "__main__":
         test_metadata_expired_true_causes_fatal,
         test_metadata_name_mismatch_causes_fatal,
         test_approved_head_sha_empty_causes_fatal,
+        test_approved_head_sha_non_40_hex_length_causes_fatal,
+        test_approved_head_sha_invalid_hex_chars_causes_fatal,
+        test_approved_head_sha_valid_40_hex_match_passes,
         test_approved_head_sha_case_insensitive_pass,
     ]
     print("=" * 60)

@@ -40,6 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: read
     steps:
 
       - name: Checkout Source Repository
@@ -107,12 +108,24 @@ jobs:
           echo "Approved Head SHA: $APPROVED_SHA_LOWER"
           echo "Current Github SHA:  $CURRENT_SHA_LOWER"
 
+          HEX_REGEX="^[0-9a-f]{40}$"
+
+          if [[ ! "$APPROVED_SHA_LOWER" =~ $HEX_REGEX ]]; then
+            echo "FATAL: approved_head_sha '$APPROVED_SHA_LOWER' is not a valid 40-character hex string!"
+            exit 1
+          fi
+
+          if [[ ! "$CURRENT_SHA_LOWER" =~ $HEX_REGEX ]]; then
+            echo "FATAL: github.sha '$CURRENT_SHA_LOWER' is not a valid 40-character hex string!"
+            exit 1
+          fi
+
           if [ "$APPROVED_SHA_LOWER" != "$CURRENT_SHA_LOWER" ]; then
             echo "FATAL: approved_head_sha ($APPROVED_SHA_LOWER) does not match current github.sha ($CURRENT_SHA_LOWER). Main branch has moved!"
             exit 1
           fi
 
-          echo "All approval inputs present and HEAD SHA matched OK. Proceeding to artifact promotion."
+          echo "All approval inputs present and 40-hex HEAD SHA matched OK. Proceeding to artifact promotion."
 
       # Record current remote main SHA BEFORE any file generation.
       - name: Record Remote main SHA Baseline
