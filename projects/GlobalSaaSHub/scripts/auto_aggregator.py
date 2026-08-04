@@ -5,6 +5,7 @@ import urllib.parse
 import urllib.error
 import email.utils
 import random
+import re
 import subprocess
 import sys
 import time
@@ -277,6 +278,17 @@ BASE_BACKOFF_SECONDS = 5.0
 MAX_BACKOFF_SECONDS = 60.0
 JITTER_RATIO = 0.20
 
+GEMINI_CANDIDATE_REQUIRED_KEYS = frozenset({
+    "id", "name", "category", "category_display", "description",
+    "official_url", "affiliate_url", "pricing_source_url", "pricing",
+    "key_features", "rating", "logo_url", "commission"
+})
+GEMINI_CATEGORY_DISPLAY = {
+    "automation": "Workflow Automation",
+    "creator": "Creator & Productivity",
+    "developer": "Developer APIs",
+}
+
 
 def _retry_after_seconds(headers, now_fn=time.time):
     """Parse Retry-After seconds or HTTP-date without logging header contents."""
@@ -312,6 +324,33 @@ def _http_status_reason(code):
     if code in RETRYABLE_HTTP_STATUS:
         return "RETRY_EXHAUSTED"
     return "HTTP_ERROR"
+
+
+def filter_valid_gemini_candidates(candidates):
+    """Drop malformed candidate items without retaining partial item data."""
+    valid = []
+    for index, candidate in enumerate(candidates, start=1):
+        category = candidate.get("category") if isinstance(candidate, dict) else None
+        candidate_id = candidate.get("id") if isinstance(candidate, dict) else None
+        official_url = candidate.get("official_url") if isinstance(candidate, dict) else None
+        key_features = candidate.get("key_features") if isinstance(candidate, dict) else None
+        is_valid = (
+            isinstance(candidate, dict)
+            and GEMINI_CANDIDATE_REQUIRED_KEYS.issubset(candidate)
+            and isinstance(candidate_id, str)
+            and re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", candidate_id) is not None
+            and category in GEMINI_CATEGORY_DISPLAY
+            and candidate.get("category_display") == GEMINI_CATEGORY_DISPLAY.get(category)
+            and isinstance(official_url, str)
+            and official_url.startswith(("http://", "https://"))
+            and isinstance(key_features, list)
+            and all(isinstance(feature, str) for feature in key_features)
+        )
+        if is_valid:
+            valid.append(candidate)
+        else:
+            print(f"Gemini candidate [{index}] failed schema validation and was discarded.")
+    return valid
 
 
 def query_tavily(api_key, query, sleep_fn=time.sleep, random_fn=random.random):
@@ -602,6 +641,7 @@ def main(base_dir=None):
         print(f"Processing Gemini snippet chunk [{batch_number}/{len(snippet_chunks)}] ({len(chunk)} items)...")
         batch_result, status_reason = query_gemini_batch(gemini_key, system_prompt, chunk)
         if status_reason == 'OK' and isinstance(batch_result, list):
+            batch_result = filter_valid_gemini_candidates(batch_result)
             gemini_api_success += 1
             gemini_tools_extracted += len(batch_result)
             extracted_tools.extend(batch_result)
@@ -611,8 +651,8 @@ def main(base_dir=None):
             gemini_api_fail += 1
             discovery_batches.append({"provider": "gemini", "batch": batch_number, "status": "skipped_with_reason", "reason": status_reason, "result_count": 0})
             print(f"  Chunk [{batch_number}] skipped_with_reason={status_reason}.")
-            if status_reason in ('AUTH_ERROR', 'BAD_REQUEST', 'HTTP_ERROR'):
-                print("FATAL: non-transient Gemini HTTP failure; stopping without modifying production data.")
+            if status_reason in ('AUTH_ERROR', 'BAD_REQUEST', 'HTTP_ERROR', 'PARSING_ERROR'):
+                print("FATAL: non-transient Gemini request or response-schema failure; stopping without modifying production data.")
                 sys.exit(1)
 
     degraded_mode = tavily_api_fail > 0 or gemini_api_fail > 0 or not raw_search_results

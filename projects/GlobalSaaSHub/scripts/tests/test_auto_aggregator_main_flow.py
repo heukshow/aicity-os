@@ -225,6 +225,23 @@ class TestAutoAggregatorMainFlow(unittest.TestCase):
         self.assertEqual(os.path.exists(self.repo_next_tools), repo_next_exists_before)
         self.assertEqual(os.path.exists(self.repo_summary), repo_summary_exists_before)
 
+    @patch("auto_aggregator.load_env")
+    @patch.dict(os.environ, {"TAVILY_API_KEY": "mock_tavily", "GEMINI_API_KEY": "mock_gemini"})
+    @patch("auto_aggregator.query_tavily", return_value=MOCK_12_SNIPPETS)
+    @patch("auto_aggregator.query_gemini_batch", return_value=(None, "PARSING_ERROR"))
+    def test_response_schema_error_fails_immediately(self, mock_gemini_batch, mock_tavily, mock_env):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            data_dir = os.path.join(temp_dir, "data")
+            os.makedirs(data_dir, exist_ok=True)
+            with open(os.path.join(data_dir, "tools.json"), "w", encoding="utf-8") as f:
+                json.dump(make_148_baseline_tools(), f)
+            with open(os.path.join(data_dir, "manual_candidates_verified.json"), "w", encoding="utf-8") as f:
+                json.dump(make_2_manual_candidates(), f)
+            with self.assertRaises(SystemExit):
+                aa.main(base_dir=temp_dir)
+            self.assertEqual(mock_gemini_batch.call_count, 1)
+            self.assertFalse(os.path.exists(os.path.join(data_dir, "tools.next.json")))
+
 
 if __name__ == "__main__":
     unittest.main()

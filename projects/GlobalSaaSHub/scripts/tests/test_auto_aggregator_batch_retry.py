@@ -91,6 +91,34 @@ class RetryPolicyTests(unittest.TestCase):
         self.assertNotIn("private-request-body", log)
         self.assertNotIn("redacted", log)
 
+    def test_malformed_candidate_is_discarded(self):
+        valid = {
+            "id": "valid-tool", "name": "Valid Tool", "category": "automation",
+            "category_display": "Workflow Automation", "description": "Valid",
+            "official_url": "https://valid.example/", "affiliate_url": "https://valid.example/affiliate",
+            "pricing_source_url": "https://valid.example/pricing", "pricing": "$10/mo",
+            "key_features": ["Feature"], "rating": None, "logo_url": "https://valid.example/logo.png",
+            "commission": "30%"
+        }
+        self.assertEqual(aa.filter_valid_gemini_candidates(["partial", {"id": "missing-fields"}, valid]), [valid])
+
+    def test_zero_new_candidates_is_a_normal_result(self):
+        self.assertEqual(aa.filter_valid_gemini_candidates([]), [])
+        self.assertEqual(aa.discovery_merge_input([], False), [])
+
+    def test_same_batch_duplicate_is_idempotent(self):
+        candidate = {
+            "id": "unique-tool", "name": "Unique Tool", "category": "automation",
+            "category_display": "Workflow Automation", "description": "Valid",
+            "official_url": "https://unique.example/", "affiliate_url": "https://unique.example/affiliate",
+            "pricing_source_url": "https://unique.example/pricing", "pricing": "$10/mo",
+            "key_features": ["Feature"], "rating": None, "logo_url": "https://unique.example/logo.png",
+            "commission": "30%"
+        }
+        with patch("auto_aggregator.safe_affiliate_result", return_value={"affiliate_url": None, "affiliate_verified": False}):
+            merged, added, _ = aa.merge_discovered_candidates([], [candidate, dict(candidate)])
+        self.assertEqual((len(merged), len(added)), (1, 1))
+
 
 class TavilyRetryTests(unittest.TestCase):
     def test_tavily_503_then_success(self):
