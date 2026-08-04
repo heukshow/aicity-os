@@ -64,10 +64,15 @@ class InputSelectionTests(unittest.TestCase):
     def test_workflow_passes_candidate_input_explicitly(self):
         workflow = WORKFLOW_PATH.read_text(encoding="utf-8")
         validator_calls = workflow.count("python projects/GlobalSaaSHub/scripts/validate_data.py")
-        explicit_inputs = workflow.count("--input projects/GlobalSaaSHub/data/tools.next.json")
+        project_relative_inputs = workflow.count("--input data/tools.next.json")
         self.assertEqual(validator_calls, 2)
-        self.assertEqual(explicit_inputs, validator_calls + 1)
-        self.assertIn("python projects/GlobalSaaSHub/scripts/validate_system.py", workflow)
+        self.assertEqual(project_relative_inputs, validator_calls + 1)
+        self.assertNotIn("--input projects/GlobalSaaSHub/data/tools.next.json", workflow)
+        self.assertRegex(
+            workflow,
+            r"python projects/GlobalSaaSHub/scripts/validate_system\.py \\\s*"
+            r"--input data/tools\.next\.json",
+        )
 
 
 if __name__ == "__main__":

@@ -173,7 +173,7 @@ jobs:
         run: |
           set -o pipefail
           python projects/GlobalSaaSHub/scripts/validate_data.py \
-            --input projects/GlobalSaaSHub/data/tools.next.json \
+            --input data/tools.next.json \
             2>&1 | tee projects/GlobalSaaSHub/data/baseline_validation.log
           echo "Baseline validation exit code: $?"
           if grep -q "VALIDATION RESULT: FAIL" projects/GlobalSaaSHub/data/baseline_validation.log; then
@@ -232,7 +232,7 @@ jobs:
         run: |
           set -o pipefail
           python projects/GlobalSaaSHub/scripts/validate_data.py \
-            --input projects/GlobalSaaSHub/data/tools.next.json \
+            --input data/tools.next.json \
             2>&1 | tee projects/GlobalSaaSHub/data/normal_validation.log
 
       - name: Assert Validation Outcome Matches Expected Result
@@ -274,7 +274,7 @@ jobs:
         if: ${{ steps.validate_data.outcome == 'success' }}
         run: |
           python projects/GlobalSaaSHub/scripts/validate_system.py \
-            --input projects/GlobalSaaSHub/data/tools.next.json
+            --input data/tools.next.json
 
       - name: Promote Candidate to tools.json in Workspace (for Vite build)
         if: ${{ steps.validate_data.outcome == 'success' && inputs.failure_test != true }}
