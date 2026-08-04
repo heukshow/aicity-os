@@ -3,6 +3,8 @@ import json
 import urllib.request
 import urllib.parse
 import urllib.error
+import email.utils
+import random
 import subprocess
 import sys
 import time
@@ -268,7 +270,51 @@ def load_env():
     for k, v in env_vars.items():
         os.environ[k] = v
 
-def query_tavily(api_key, query):
+RETRYABLE_HTTP_STATUS = frozenset({429, 500, 502, 503, 504})
+AUTH_HTTP_STATUS = frozenset({401, 403})
+MAX_API_ATTEMPTS = 4
+BASE_BACKOFF_SECONDS = 5.0
+MAX_BACKOFF_SECONDS = 60.0
+JITTER_RATIO = 0.20
+
+
+def _retry_after_seconds(headers, now_fn=time.time):
+    """Parse Retry-After seconds or HTTP-date without logging header contents."""
+    if not headers:
+        return None
+    value = headers.get("Retry-After")
+    if not value:
+        return None
+    try:
+        return max(0.0, float(value.strip()))
+    except (TypeError, ValueError):
+        try:
+            parsed = email.utils.parsedate_to_datetime(value)
+            return max(0.0, parsed.timestamp() - now_fn())
+        except (TypeError, ValueError, OverflowError):
+            return None
+
+
+def _retry_delay(attempt, headers=None, random_fn=random.random):
+    """Return bounded exponential delay with positive jitter; Retry-After wins."""
+    retry_after = _retry_after_seconds(headers)
+    if retry_after is not None:
+        return min(retry_after, MAX_BACKOFF_SECONDS)
+    base = min(BASE_BACKOFF_SECONDS * (2 ** (attempt - 1)), MAX_BACKOFF_SECONDS)
+    return min(base * (1.0 + JITTER_RATIO * random_fn()), MAX_BACKOFF_SECONDS)
+
+
+def _http_status_reason(code):
+    if code in AUTH_HTTP_STATUS:
+        return "AUTH_ERROR"
+    if code == 400:
+        return "BAD_REQUEST"
+    if code in RETRYABLE_HTTP_STATUS:
+        return "RETRY_EXHAUSTED"
+    return "HTTP_ERROR"
+
+
+def query_tavily(api_key, query, sleep_fn=time.sleep, random_fn=random.random):
     """Performs an advanced web search using Tavily API."""
     url = "https://api.tavily.com/search"
     headers = {"Content-Type": "application/json"}
@@ -286,18 +332,33 @@ def query_tavily(api_key, query):
         method='POST'
     )
     
-    print(f"-> Sending request to Tavily for query: '{query}'...")
-    sys.stdout.flush()
-    try:
-        with urllib.request.urlopen(req, timeout=30) as res:
-            print("<- Received response from Tavily.")
-            sys.stdout.flush()
-            response_data = json.loads(res.read().decode('utf-8'))
-            return response_data
-    except Exception as e:
-        print(f"Error querying Tavily: {e}")
+    for attempt in range(1, MAX_API_ATTEMPTS + 1):
+        print(f"-> Tavily request [Attempt {attempt}/{MAX_API_ATTEMPTS}].")
         sys.stdout.flush()
-        return None
+        try:
+            with urllib.request.urlopen(req, timeout=30) as res:
+                response_data = json.loads(res.read().decode('utf-8'))
+                if not isinstance(response_data, dict) or not isinstance(response_data.get("results"), list):
+                    print("Tavily returned a malformed response; not retrying.")
+                    return None, "PARSING_ERROR"
+                return response_data, "OK"
+        except urllib.error.HTTPError as exc:
+            if exc.code in RETRYABLE_HTTP_STATUS and attempt < MAX_API_ATTEMPTS:
+                delay = _retry_delay(attempt, exc.headers, random_fn)
+                print(f"Tavily HTTP {exc.code}; retrying in {delay:.2f}s.")
+                sleep_fn(delay)
+                continue
+            reason = _http_status_reason(exc.code)
+            print(f"Tavily HTTP {exc.code}; status={reason}; no further retry.")
+            return None, reason
+        except json.JSONDecodeError:
+            print("Tavily returned invalid JSON; not retrying.")
+            return None, "PARSING_ERROR"
+        except Exception as exc:
+            print(f"Tavily network failure ({type(exc).__name__}); not retrying.")
+            return None, "NETWORK_ERROR"
+
+    return None, "RETRY_EXHAUSTED"
 
 MAX_GEMINI_BATCH_SIZE = 10
 
@@ -307,107 +368,54 @@ def build_gemini_url(api_key: str) -> str:
     return f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
 
 
-def query_gemini_batch(api_key, system_prompt, snippets_batch):
-    """
-    Calls Gemini API once with a batch JSON array of search snippets using JSON output configuration.
-    Uses exponential backoff (15s, 30s) or Retry-After header on HTTP 429.
-    Returns tuple: (extracted_tools_list, status_code_or_reason)
-      - status_code_or_reason: 'OK', 'RATE_LIMITED', 'AUTH_ERROR', 'PARSING_ERROR', 'HTTP_ERROR', 'NETWORK_ERROR'
-    """
+def query_gemini_batch(api_key, system_prompt, snippets_batch, sleep_fn=time.sleep, random_fn=random.random):
+    """Call Gemini with bounded retries and return (tools, auditable status)."""
     endpoint_url = build_gemini_url(api_key)
     headers = {"Content-Type": "application/json"}
-
     user_content = json.dumps(snippets_batch, indent=2)
     prompt = f"{system_prompt}\n\nInput Search Snippets Batch ({len(snippets_batch)} items):\n{user_content}"
-
     data = {
-        "contents": [{
-            "parts": [{
-                "text": prompt
-            }]
-        }],
-        "generationConfig": {
-            "responseMimeType": "application/json"
-        }
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {"responseMimeType": "application/json"}
     }
-
     payload_bytes = json.dumps(data).encode('utf-8')
-    backoff_delays = [15, 30]
 
-    for attempt in range(1, 4):
-        print(f"-> Sending request to Gemini API (gemini-2.5-flash:generateContent) [Batch size: {len(snippets_batch)}, Attempt {attempt}/3]...")
+    for attempt in range(1, MAX_API_ATTEMPTS + 1):
+        print(f"-> Gemini request [Batch size: {len(snippets_batch)}, Attempt {attempt}/{MAX_API_ATTEMPTS}].")
         sys.stdout.flush()
-
-        req = urllib.request.Request(
-            endpoint_url,
-            data=payload_bytes,
-            headers=headers,
-            method='POST'
-        )
-
+        req = urllib.request.Request(endpoint_url, data=payload_bytes, headers=headers, method='POST')
         try:
             with urllib.request.urlopen(req, timeout=90) as res:
-                print("<- Received response from Gemini.")
-                sys.stdout.flush()
                 response_data = json.loads(res.read().decode('utf-8'))
                 text_response = response_data['candidates'][0]['content']['parts'][0]['text']
                 parsed_tools = json.loads(text_response)
-                if isinstance(parsed_tools, list):
-                    return parsed_tools, 'OK'
-                else:
-                    print(f"❌ Gemini output is not a JSON array: {type(parsed_tools).__name__}")
+                if not isinstance(parsed_tools, list):
+                    print("Gemini output is not a JSON array; not retrying.")
                     return None, 'PARSING_ERROR'
-
-        except urllib.error.HTTPError as e:
-            err_body = e.read().decode('utf-8', errors='replace') if hasattr(e, 'read') else str(e)
-
-            if e.code == 429:
-                # Classify 429 message subtype safely
-                reason_tag = "RESOURCE_EXHAUSTED / Rate Limit"
-                for marker in ["quota exceeded", "requests per minute", "free tier unavailable", "daily quota exhausted"]:
-                    if marker in err_body.lower():
-                        reason_tag = f"Rate Limit ({marker})"
-                        break
-
-                if attempt < 3:
-                    retry_after_hdr = e.headers.get("Retry-After") if hasattr(e, "headers") else None
-                    wait_sec = backoff_delays[attempt - 1]
-
-                    if retry_after_hdr:
-                        try:
-                            wait_sec = max(int(retry_after_hdr), wait_sec)
-                            print(f"⚠️ Gemini API 429 [{reason_tag}] - Retry-After header: {retry_after_hdr}s. Waiting {wait_sec}s...")
-                        except ValueError:
-                            print(f"⚠️ Gemini API 429 [{reason_tag}] - Waiting {wait_sec}s (attempt {attempt}/3)...")
-                    else:
-                        print(f"⚠️ Gemini API 429 [{reason_tag}] - Exponential backoff waiting {wait_sec}s (attempt {attempt}/3)...")
-
-                    sys.stdout.flush()
-                    time.sleep(wait_sec)
-                else:
-                    print(f"⚠️ Gemini API 429 [{reason_tag}] - Final attempt 3 failed. Returning RATE_LIMITED immediately without sleep.")
-                    sys.stdout.flush()
-
-            elif e.code in (401, 403):
-                print(f"❌ FATAL: Gemini API Auth error (HTTP {e.code}). Aborting pipeline.")
+                return parsed_tools, 'OK'
+        except urllib.error.HTTPError as exc:
+            if exc.code in RETRYABLE_HTTP_STATUS and attempt < MAX_API_ATTEMPTS:
+                delay = _retry_delay(attempt, exc.headers, random_fn)
+                print(f"Gemini HTTP {exc.code}; retrying in {delay:.2f}s.")
                 sys.stdout.flush()
-                return None, 'AUTH_ERROR'
-            else:
-                print(f"❌ Gemini API HTTP Error {e.code}: {err_body[:200]}")
-                sys.stdout.flush()
-                return None, 'HTTP_ERROR'
-
-        except json.JSONDecodeError as e:
-            print(f"❌ Gemini response JSON parse error: {e}")
-            sys.stdout.flush()
+                sleep_fn(delay)
+                continue
+            reason = _http_status_reason(exc.code)
+            print(f"Gemini HTTP {exc.code}; status={reason}; no further retry.")
+            return None, reason
+        except (json.JSONDecodeError, KeyError, IndexError, TypeError):
+            print("Gemini response schema/JSON parse error; not retrying.")
             return None, 'PARSING_ERROR'
-        except Exception as e:
-            print(f"❌ Network error calling Gemini: {type(e).__name__}: {e}")
-            sys.stdout.flush()
+        except Exception as exc:
+            print(f"Gemini network failure ({type(exc).__name__}); not retrying.")
             return None, 'NETWORK_ERROR'
 
-    print("⚠️ Gemini API 429 Rate Limit exhausted all 3 batch retry attempts.")
-    return None, 'RATE_LIMITED'
+    return None, 'RETRY_EXHAUSTED'
+
+
+def discovery_merge_input(extracted_tools, degraded_mode):
+    """Discard partial run-local discovery whenever any batch was skipped."""
+    return [] if degraded_mode else list(extracted_tools)
 
 
 def extract_domain(url):
@@ -498,36 +506,40 @@ def main(base_dir=None):
     ]
     
     raw_search_results = []
-    tavily_api_success = 0   # HTTP call succeeded (even if results empty)
-    tavily_api_fail = 0      # HTTP call failed / exception
-    tavily_total_results = 0 # total search snippets harvested
-    for q in queries:
-        print(f"Searching Tavily for: '{q}'...")
-        results = query_tavily(tavily_key, q)
-        if results and 'results' in results:
+    tavily_api_success = 0
+    tavily_api_fail = 0
+    tavily_total_results = 0
+    discovery_batches = []
+    for query_index, query in enumerate(queries, start=1):
+        print(f"Searching Tavily query [{query_index}/{len(queries)}].")
+        tavily_response = query_tavily(tavily_key, query)
+        if isinstance(tavily_response, tuple) and len(tavily_response) == 2:
+            results, tavily_status = tavily_response
+        else:  # Backward-compatible dependency injection for deterministic tests.
+            results, tavily_status = tavily_response, "OK"
+        if results is not None:
             tavily_api_success += 1
-            count = len(results['results'])
+            count = len(results["results"])
             tavily_total_results += count
-            for item in results['results']:
+            for item in results["results"]:
                 raw_search_results.append({
                     "title": item.get("title"),
                     "content": item.get("content"),
                     "url": item.get("url")
                 })
+            discovery_batches.append({"provider": "tavily", "batch": query_index, "status": "completed", "reason": "ok", "result_count": count})
             print(f"  -> {count} snippets returned.")
         else:
             tavily_api_fail += 1
-            print(f"  -> Tavily API call failed for: '{q}'")
+            discovery_batches.append({"provider": "tavily", "batch": query_index, "status": "skipped_with_reason", "reason": tavily_status, "result_count": 0})
+            print(f"  -> Tavily query skipped_with_reason={tavily_status}.")
+            if tavily_status in ("AUTH_ERROR", "BAD_REQUEST", "HTTP_ERROR"):
+                print("FATAL: non-transient Tavily HTTP failure; stopping without modifying production data.")
+                sys.exit(1)
 
     print(f"Harvested {tavily_total_results} search snippets. Tavily: {tavily_api_success} API ok, {tavily_api_fail} API fail.")
-
-    # Guard: total results 0 regardless of API success/fail combination
     if tavily_total_results == 0:
-        print(
-            f"FATAL: Tavily produced 0 total results. "
-            f"API success={tavily_api_success}, API fail={tavily_api_fail}. Aborting pipeline."
-        )
-        sys.exit(1)
+        print("DEGRADED: Tavily produced 0 results; continuing with the preserved candidate corpus.")
 
     # 5. Process with Gemini
     system_prompt = """
@@ -586,48 +598,45 @@ def main(base_dir=None):
     ]
 
     for b_idx, chunk in enumerate(snippet_chunks):
-        print(f"Processing Gemini snippet chunk [{b_idx + 1}/{len(snippet_chunks)}] ({len(chunk)} items)...")
+        batch_number = b_idx + 1
+        print(f"Processing Gemini snippet chunk [{batch_number}/{len(snippet_chunks)}] ({len(chunk)} items)...")
         batch_result, status_reason = query_gemini_batch(gemini_key, system_prompt, chunk)
-
         if status_reason == 'OK' and isinstance(batch_result, list):
             gemini_api_success += 1
             gemini_tools_extracted += len(batch_result)
             extracted_tools.extend(batch_result)
-            print(f"  Chunk [{b_idx + 1}] OK! Extracted {len(batch_result)} tools.")
-        elif status_reason == 'RATE_LIMITED':
-            gemini_api_fail += 1
-            print(f"  ⚠️ Chunk [{b_idx + 1}] 429 Rate Limit encountered.")
-        elif status_reason == 'AUTH_ERROR':
-            gemini_api_fail += 1
-            print(f"❌ FATAL: Gemini Auth Error (HTTP 401/403). Aborting pipeline.")
-            sys.exit(1)
+            discovery_batches.append({"provider": "gemini", "batch": batch_number, "status": "completed", "reason": "ok", "result_count": len(batch_result)})
+            print(f"  Chunk [{batch_number}] OK; extracted {len(batch_result)} tools.")
         else:
             gemini_api_fail += 1
-            print(f"❌ FATAL: Gemini API failed with status '{status_reason}'. Aborting pipeline.")
-            sys.exit(1)
+            discovery_batches.append({"provider": "gemini", "batch": batch_number, "status": "skipped_with_reason", "reason": status_reason, "result_count": 0})
+            print(f"  Chunk [{batch_number}] skipped_with_reason={status_reason}.")
+            if status_reason in ('AUTH_ERROR', 'BAD_REQUEST', 'HTTP_ERROR'):
+                print("FATAL: non-transient Gemini HTTP failure; stopping without modifying production data.")
+                sys.exit(1)
 
-    # Classify overall Gemini status
-    if gemini_api_success == len(snippet_chunks):
+    degraded_mode = tavily_api_fail > 0 or gemini_api_fail > 0 or not raw_search_results
+    if not snippet_chunks:
+        gemini_status_reason = "skipped_no_tavily_results"
+    elif gemini_api_success == len(snippet_chunks):
         gemini_status_reason = "ok"
-    elif gemini_api_success > 0 and gemini_api_fail > 0:
-        gemini_status_reason = "partial_rate_limited"
-        degraded_mode = True
-    elif gemini_api_fail == len(snippet_chunks):
-        gemini_status_reason = "rate_limited"
-        degraded_mode = True
+    elif gemini_api_success > 0:
+        gemini_status_reason = "partial_skipped"
+    else:
+        gemini_status_reason = "all_batches_skipped"
 
     print(f"Gemini Summary: success={gemini_api_success}, fail={gemini_api_fail}, status={gemini_status_reason}, extracted={gemini_tools_extracted}, degraded_mode={degraded_mode}")
+    if degraded_mode:
+        print("DEGRADED: discovery is incomplete; discarding all run-local discoveries and preserving the candidate corpus.")
+    elif not extracted_tools:
+        print("Discovery completed with zero valid new tools; continuing validation/build.")
 
-    if not extracted_tools and not degraded_mode:
-        print("No valid tools were extracted from Tavily search snippets.")
-    elif degraded_mode:
-        print("Degraded mode active: skipping discovery merge, retaining 150 merged candidate tools.")
-        
     print(f"Successfully compiled {len(extracted_tools)} total tools from discovery.")
     sys.stdout.flush()
-    
-    # 6. Merge & Deduplicate using central merge_discovered_candidates function
-    existing_tools, new_tools_list, updated_tools_list = merge_discovered_candidates(existing_tools, extracted_tools)
+
+    # Any incomplete discovery is all-or-nothing: never merge partial run-local results.
+    merge_input = discovery_merge_input(extracted_tools, degraded_mode)
+    existing_tools, new_tools_list, updated_tools_list = merge_discovered_candidates(existing_tools, merge_input)
     new_tools_added = len(new_tools_list)
     updated_tools_count = len(updated_tools_list)
 
@@ -658,6 +667,8 @@ def main(base_dir=None):
         "gemini_tools_extracted": gemini_tools_extracted,
         "automated_discovery_added": new_tools_added,
         "degraded_mode": degraded_mode,
+        "discovery_complete": not degraded_mode,
+        "discovery_batches": discovery_batches,
         "new_tools_added": new_tools_added,
         "updated_tools_count": updated_tools_count,
         "sandbox_total": len(existing_tools)

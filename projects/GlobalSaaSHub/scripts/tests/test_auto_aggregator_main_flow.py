@@ -7,7 +7,7 @@ Fully isolated E2E Mock execution flow tests for auto_aggregator.py main():
  3. Generates 2 deterministic manual verified candidate tools in temp_dir/data/manual_candidates_verified.json.
  4. Verifies 12 search snippets trigger 10 + 2 Gemini batching.
  5. Verifies full 429 produces 150 tools with gemini_status='rate_limited' and degraded_mode=True.
- 6. Verifies partial 429 produces 151 tools with gemini_status='partial_rate_limited' and degraded_mode=True.
+ 6. Verifies partial 429 preserves 150 tools with gemini_status='partial_rate_limited' and degraded_mode=True.
  7. Proves zero pollution to real repo files under clean checkout conditions.
 """
 
@@ -117,7 +117,7 @@ class TestAutoAggregatorMainFlow(unittest.TestCase):
     @patch("auto_aggregator.query_gemini_batch")
     def test_main_flow_full_429_degraded_mode_isolated(self, mock_gemini_batch, mock_tavily, mock_env):
         """Verify main() with 12 snippets and 429 on all batches produces 150 tools in isolated temp_dir."""
-        mock_gemini_batch.return_value = (None, "RATE_LIMITED")
+        mock_gemini_batch.return_value = (None, "RETRY_EXHAUSTED")
 
         with tempfile.TemporaryDirectory() as temp_dir:
             data_dir = os.path.join(temp_dir, "data")
@@ -148,7 +148,7 @@ class TestAutoAggregatorMainFlow(unittest.TestCase):
             with open(temp_summary, "r", encoding="utf-8") as f:
                 summary = json.load(f)
 
-            self.assertEqual(summary["gemini_status"], "rate_limited")
+            self.assertEqual(summary["gemini_status"], "all_batches_skipped")
             self.assertEqual(summary["degraded_mode"], True)
             self.assertEqual(summary["sandbox_total"], 150)
             self.assertEqual(mock_gemini_batch.call_count, 2)
@@ -158,7 +158,7 @@ class TestAutoAggregatorMainFlow(unittest.TestCase):
     @patch("auto_aggregator.query_tavily", return_value=MOCK_12_SNIPPETS)
     @patch("auto_aggregator.query_gemini_batch")
     def test_main_flow_partial_429_degraded_mode_isolated(self, mock_gemini_batch, mock_tavily, mock_env):
-        """Verify main() with 1 chunk OK and 1 chunk 429 produces 151 tools in isolated temp_dir."""
+        """Verify main() with 1 chunk OK and 1 chunk 429 preserves 150 tools in isolated temp_dir."""
         mock_discovered_tool = {
             "id": "discovered-tool-999",
             "name": "Discovered Tool 999",
@@ -176,7 +176,7 @@ class TestAutoAggregatorMainFlow(unittest.TestCase):
         }
         mock_gemini_batch.side_effect = [
             ([mock_discovered_tool], "OK"),
-            (None, "RATE_LIMITED")
+            (None, "RETRY_EXHAUSTED")
         ]
 
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -197,14 +197,14 @@ class TestAutoAggregatorMainFlow(unittest.TestCase):
             with open(temp_summary, "r", encoding="utf-8") as f:
                 summary = json.load(f)
 
-            self.assertEqual(summary["gemini_status"], "partial_rate_limited")
+            self.assertEqual(summary["gemini_status"], "partial_skipped")
             self.assertEqual(summary["degraded_mode"], True)
-            self.assertEqual(summary["sandbox_total"], 151)
+            self.assertEqual(summary["sandbox_total"], 150)
 
     @patch("auto_aggregator.load_env")
     @patch.dict(os.environ, {"TAVILY_API_KEY": "mock_tavily", "GEMINI_API_KEY": "mock_gemini"})
     @patch("auto_aggregator.query_tavily", return_value=MOCK_12_SNIPPETS)
-    @patch("auto_aggregator.query_gemini_batch", return_value=(None, "RATE_LIMITED"))
+    @patch("auto_aggregator.query_gemini_batch", return_value=(None, "RETRY_EXHAUSTED"))
     def test_clean_checkout_isolation_no_repo_pollution(self, mock_gemini_batch, mock_tavily, mock_env):
         """Verify that testing inside temp_dir NEVER touches real repo files regardless of repo state."""
         # Record mtimes or existence of repo runtime files before test

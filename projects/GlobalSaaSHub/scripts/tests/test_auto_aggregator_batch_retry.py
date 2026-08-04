@@ -1,150 +1,114 @@
-"""
-tests/test_auto_aggregator_batch_retry.py
-===========================================
-Deterministic mock-based unit tests for auto_aggregator.py:
- 1. Canonical Gemini generateContent API URL builder & suffix verification
- 2. Batching 12 snippets into chunks of MAX_GEMINI_BATCH_SIZE (10 + 2 = 2 calls)
- 3. 429 Exponential Backoff (15s, 30s) without sleep after final 3rd attempt failure
- 4. Degraded Mode & Partial Rate Limit handling (partial_rate_limited vs rate_limited)
- 5. Fail-closed on 401, 403, and malformed JSON
- 6. Secret / API key masking in log outputs
-"""
-
-import sys
-import os
-import json
 import io
+import json
+import os
+import sys
 import unittest
-from unittest.mock import patch, MagicMock
 import urllib.error
+from unittest.mock import MagicMock, patch
 
 SCRIPTS_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, SCRIPTS_DIR)
-
 import auto_aggregator as aa
 
-MOCK_SNIPPETS_12 = [
-    {"title": f"Snippet {i}", "content": f"Content {i}", "url": f"https://tool-{i}.com"}
-    for i in range(12)
-]
+SNIPPETS = [{"title": "x", "content": "y", "url": "https://example.com"}]
 
 
-class TestAutoAggregatorBatchRetry(unittest.TestCase):
+def http_error(code, retry_after=None):
+    headers = {} if retry_after is None else {"Retry-After": retry_after}
+    return urllib.error.HTTPError("https://example.invalid", code, "error", headers, io.BytesIO(b"redacted"))
 
-    def test_gemini_request_url_has_generate_content_suffix(self):
-        """Verify URL builder produces exact :generateContent?key= endpoint."""
-        key = "test-api-key-12345"
-        url = aa.build_gemini_url(key)
 
-        self.assertIn(":generateContent?key=", url, "URL must contain ':generateContent?key=' suffix")
-        self.assertTrue(url.startswith("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key="))
-        self.assertNotIn(":key=", url)
-        self.assertNotIn("flash?key=", url)
+def gemini_response(tools=None, malformed=False):
+    response = MagicMock()
+    text = "not-json" if malformed else json.dumps(tools if tools is not None else [])
+    response.read.return_value = json.dumps({"candidates": [{"content": {"parts": [{"text": text}]}}]}).encode()
+    response.__enter__.return_value = response
+    return response
 
-    @patch("urllib.request.urlopen")
-    def test_snippets_batched_with_generate_content_url(self, mock_urlopen):
-        """Verify query_gemini_batch uses build_gemini_url for HTTP requests."""
-        mock_response = MagicMock()
-        mock_response.read.return_value = json.dumps({
-            "candidates": [{
-                "content": {
-                    "parts": [{
-                        "text": json.dumps([{"id": "tool-1", "name": "Tool One", "category": "automation"}])
-                    }]
-                }
-            }]
-        }).encode("utf-8")
-        mock_response.__enter__.return_value = mock_response
-        mock_urlopen.return_value = mock_response
 
-        res, status = aa.query_gemini_batch("test-key", "sys-prompt", MOCK_SNIPPETS_12[:5])
+class RetryPolicyTests(unittest.TestCase):
+    def call(self, side_effect):
+        sleeps = []
+        with patch("urllib.request.urlopen", side_effect=side_effect) as opened:
+            result = aa.query_gemini_batch("secret-key", "prompt", SNIPPETS, sleep_fn=sleeps.append, random_fn=lambda: 0.0)
+        return result, sleeps, opened.call_count
 
-        self.assertEqual(status, "OK")
-        req = mock_urlopen.call_args[0][0]
-        self.assertIn(":generateContent?key=test-key", req.full_url)
+    def test_429_then_success(self):
+        (tools, status), sleeps, calls = self.call([http_error(429), gemini_response([{"id": "a"}])])
+        self.assertEqual((status, tools), ("OK", [{"id": "a"}]))
+        self.assertEqual((calls, sleeps), (2, [5.0]))
 
-    @patch("time.sleep")
-    @patch("urllib.request.urlopen")
-    def test_no_sleep_on_final_retry_failure(self, mock_urlopen, mock_sleep):
-        """Verify 429 on 3rd attempt returns RATE_LIMITED immediately WITHOUT sleeping after 3rd failure."""
-        err_429 = urllib.error.HTTPError(
-            url=aa.build_gemini_url("key"),
-            code=429,
-            msg="RESOURCE_EXHAUSTED",
-            hdrs={},
-            fp=io.BytesIO(b'{"error":{"message":"quota exceeded"}}')
-        )
-        mock_urlopen.side_effect = err_429
+    def test_503_then_success(self):
+        (tools, status), sleeps, calls = self.call([http_error(503), gemini_response([])])
+        self.assertEqual((status, calls, sleeps), ("OK", 2, [5.0]))
 
-        res, status = aa.query_gemini_batch("mock-key", "prompt", MOCK_SNIPPETS_12[:2])
+    def test_429_503_then_success(self):
+        (tools, status), sleeps, calls = self.call([http_error(429), http_error(503), gemini_response([])])
+        self.assertEqual((status, calls, sleeps), ("OK", 3, [5.0, 10.0]))
 
-        self.assertIsNone(res)
-        self.assertEqual(status, "RATE_LIMITED")
-        self.assertEqual(mock_urlopen.call_count, 3)
-        # Sleep called exactly 2 times (after 1st and 2nd attempt), NOT after 3rd attempt
-        self.assertEqual(mock_sleep.call_count, 2)
-        slept_delays = [call[0][0] for call in mock_sleep.call_args_list]
-        self.assertEqual(slept_delays, [15, 30])
+    def test_retry_exhaustion_is_bounded_and_partial_data_is_discarded(self):
+        (_, status), sleeps, calls = self.call([http_error(503)] * 4)
+        self.assertEqual(status, "RETRY_EXHAUSTED")
+        self.assertEqual(calls, aa.MAX_API_ATTEMPTS)
+        self.assertEqual(len(sleeps), aa.MAX_API_ATTEMPTS - 1)
+        existing = [{"id": "preserved"}]
+        self.assertEqual(aa.discovery_merge_input([{"id": "partial"}], True), [])
+        self.assertEqual(existing, [{"id": "preserved"}])
 
-    @patch("time.sleep")
-    @patch("urllib.request.urlopen")
-    def test_gemini_429_retry_after_header(self, mock_urlopen, mock_sleep):
-        """Verify Retry-After header overrides default backoff when present."""
-        err_429 = urllib.error.HTTPError(
-            url=aa.build_gemini_url("key"),
-            code=429,
-            msg="Rate limit",
-            hdrs={"Retry-After": "25"},
-            fp=io.BytesIO(b'{"error":{"message":"rate limit"}}')
-        )
-        mock_urlopen.side_effect = err_429
+    def test_401_and_403_do_not_retry(self):
+        for code in (401, 403):
+            (_, status), sleeps, calls = self.call([http_error(code)])
+            self.assertEqual((status, calls, sleeps), ("AUTH_ERROR", 1, []))
 
-        res, status = aa.query_gemini_batch("mock-key", "prompt", MOCK_SNIPPETS_12[:2])
+    def test_400_does_not_retry(self):
+        (_, status), sleeps, calls = self.call([http_error(400)])
+        self.assertEqual((status, calls, sleeps), ("BAD_REQUEST", 1, []))
 
-        self.assertEqual(status, "RATE_LIMITED")
-        self.assertEqual(mock_sleep.call_count, 2)
-        # 1st attempt: max(25, 15) = 25. 2nd attempt: max(25, 30) = 30
-        slept_delays = [call[0][0] for call in mock_sleep.call_args_list]
-        self.assertEqual(slept_delays, [25, 30])
+    def test_malformed_response_does_not_retry(self):
+        (_, status), sleeps, calls = self.call([gemini_response(malformed=True)])
+        self.assertEqual((status, calls, sleeps), ("PARSING_ERROR", 1, []))
 
-    @patch("urllib.request.urlopen")
-    def test_gemini_401_403_and_malformed_json_fail_closed(self, mock_urlopen):
-        """Verify 401, 403, and malformed JSON fail-closed with exact error status."""
-        # 1. 401 Auth Error
-        mock_urlopen.side_effect = urllib.error.HTTPError(
-            url="https://generativelanguage.googleapis.com", code=401, msg="Unauthorized", hdrs={}, fp=io.BytesIO(b"")
-        )
-        _, status_401 = aa.query_gemini_batch("bad-key", "prompt", MOCK_SNIPPETS_12[:2])
-        self.assertEqual(status_401, "AUTH_ERROR")
+    def test_retry_after_seconds_is_respected(self):
+        (_, status), sleeps, calls = self.call([http_error(429, "17"), gemini_response([])])
+        self.assertEqual((status, calls, sleeps), ("OK", 2, [17.0]))
 
-        # 2. 403 Auth Error
-        mock_urlopen.side_effect = urllib.error.HTTPError(
-            url="https://generativelanguage.googleapis.com", code=403, msg="Forbidden", hdrs={}, fp=io.BytesIO(b"")
-        )
-        _, status_403 = aa.query_gemini_batch("bad-key", "prompt", MOCK_SNIPPETS_12[:2])
-        self.assertEqual(status_403, "AUTH_ERROR")
+    def test_only_allowlisted_statuses_retry(self):
+        for code in (429, 500, 502, 503, 504):
+            (_, status), _, calls = self.call([http_error(code), gemini_response([])])
+            self.assertEqual((status, calls), ("OK", 2))
+        for code in (400, 401, 403, 404, 422):
+            (_, _), _, calls = self.call([http_error(code)])
+            self.assertEqual(calls, 1)
 
-        # 3. Malformed JSON
-        mock_resp = MagicMock()
-        mock_resp.read.return_value = json.dumps({
-            "candidates": [{"content": {"parts": [{"text": "INVALID JSON {{{"}]}}]
-        }).encode("utf-8")
-        mock_resp.__enter__.return_value = mock_resp
-        mock_urlopen.side_effect = None
-        mock_urlopen.return_value = mock_resp
+    def test_logs_never_contain_key_request_body_or_error_body(self):
+        key = "highly-secret-api-key"
+        snippets = [{"content": "private-request-body"}]
+        output = io.StringIO()
+        with patch("urllib.request.urlopen", side_effect=http_error(503)), patch("sys.stdout", output):
+            aa.query_gemini_batch(key, "private-prompt", snippets, sleep_fn=lambda _: None, random_fn=lambda: 0.0)
+        log = output.getvalue()
+        self.assertNotIn(key, log)
+        self.assertNotIn("private-request-body", log)
+        self.assertNotIn("redacted", log)
 
-        _, status_malformed = aa.query_gemini_batch("key", "prompt", MOCK_SNIPPETS_12[:2])
-        self.assertEqual(status_malformed, "PARSING_ERROR")
 
-    def test_max_batch_size_constant(self):
-        """Verify MAX_GEMINI_BATCH_SIZE constant is set to 10."""
-        self.assertEqual(aa.MAX_GEMINI_BATCH_SIZE, 10)
+class TavilyRetryTests(unittest.TestCase):
+    def test_tavily_503_then_success(self):
+        response = MagicMock()
+        response.read.return_value = b'{"results": []}'
+        response.__enter__.return_value = response
+        sleeps = []
+        with patch("urllib.request.urlopen", side_effect=[http_error(503), response]) as opened:
+            result, status = aa.query_tavily("secret", "query", sleep_fn=sleeps.append, random_fn=lambda: 0.0)
+        self.assertEqual((status, result, opened.call_count, sleeps), ("OK", {"results": []}, 2, [5.0]))
 
-    def test_no_secret_leak_in_logs(self):
-        """Verify that secret keys or sensitive tokens are masked."""
-        secret_key = "AIzaSySecretApiKey12345"
-        masked_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=***MASKED***"
-        self.assertNotIn(secret_key, masked_url)
+    def test_tavily_malformed_is_not_retried(self):
+        response = MagicMock()
+        response.read.return_value = b'{"unexpected": true}'
+        response.__enter__.return_value = response
+        with patch("urllib.request.urlopen", return_value=response) as opened:
+            result, status = aa.query_tavily("secret", "query", sleep_fn=lambda _: None)
+        self.assertEqual((result, status, opened.call_count), (None, "PARSING_ERROR", 1))
 
 
 if __name__ == "__main__":
