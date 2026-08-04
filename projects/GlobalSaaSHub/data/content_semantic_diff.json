@@ -1,0 +1,426 @@
+{
+  "generated_at": "2026-08-04T00:00:00Z",
+  "before_sha256": "d0adaec7325c5b2622e9a574d99f8f707c69150befd6733ea202d5f09db52ef0",
+  "before_count": 150,
+  "after_count": 150,
+  "added": 0,
+  "deleted": 0,
+  "modified": 8,
+  "changes": [
+    {
+      "id": "notion-ai",
+      "change": "modified",
+      "fields": {
+        "pricing": {
+          "before": "Starting at $10/month",
+          "after": "Free trial; Business plan with Notion AI at $20/user/month"
+        },
+        "logo_url": {
+          "before": "https://www.google.com/s2/favicons?domain=notion.so&sz=128",
+          "after": "https://www.google.com/s2/favicons?domain=notion.com&sz=128"
+        },
+        "official_url": {
+          "before": "https://www.notion.so/",
+          "after": "https://www.notion.com/"
+        },
+        "pricing_source_url": {
+          "before": null,
+          "after": "https://www.notion.com/pricing"
+        },
+        "pricing_verified_at": {
+          "before": null,
+          "after": "2026-08-04T00:00:00Z"
+        },
+        "pricing_verified": {
+          "before": false,
+          "after": true
+        },
+        "currency": {
+          "before": null,
+          "after": "USD"
+        },
+        "billing_period": {
+          "before": null,
+          "after": "monthly"
+        },
+        "evidence_source_type": {
+          "before": null,
+          "after": "official_pricing_page"
+        },
+        "is_manual_override": {
+          "before": false,
+          "after": true
+        },
+        "pricing_evidence_markers": {
+          "before": null,
+          "after": [
+            "$20",
+            "month"
+          ]
+        },
+        "http_verification_status": {
+          "before": null,
+          "after": "verified_http_200"
+        },
+        "pricing_source_http_status": {
+          "before": null,
+          "after": 200
+        },
+        "pricing_source_final_url": {
+          "before": null,
+          "after": "https://www.notion.com/pricing"
+        }
+      }
+    },
+    {
+      "id": "convertkit",
+      "change": "modified",
+      "fields": {
+        "name": {
+          "before": "ConvertKit",
+          "after": "Kit (formerly ConvertKit)"
+        },
+        "affiliate_url": {
+          "before": "https://convertkit.com",
+          "after": null
+        },
+        "pricing": {
+          "before": "Starting at $15/month",
+          "after": "Free plan; Creator plan from $33/month for 1,000 subscribers"
+        },
+        "logo_url": {
+          "before": "https://www.google.com/s2/favicons?domain=convertkit.com&sz=128",
+          "after": "https://www.google.com/s2/favicons?domain=kit.com&sz=128"
+        },
+        "official_url": {
+          "before": "https://convertkit.com/",
+          "after": "https://kit.com/"
+        },
+        "pricing_source_url": {
+          "before": null,
+          "after": "https://kit.com/pricing"
+        },
+        "pricing_verified_at": {
+          "before": null,
+          "after": "2026-08-04T00:00:00Z"
+        },
+        "pricing_verified": {
+          "before": false,
+          "after": true
+        },
+        "currency": {
+          "before": null,
+          "after": "USD"
+        },
+        "billing_period": {
+          "before": null,
+          "after": "monthly"
+        },
+        "evidence_source_type": {
+          "before": null,
+          "after": "official_pricing_page"
+        },
+        "is_manual_override": {
+          "before": false,
+          "after": true
+        },
+        "pricing_evidence_markers": {
+          "before": null,
+          "after": [
+            "$33",
+            "month"
+          ]
+        },
+        "http_verification_status": {
+          "before": null,
+          "after": "verified_http_200"
+        },
+        "pricing_source_http_status": {
+          "before": null,
+          "after": 200
+        },
+        "pricing_source_final_url": {
+          "before": null,
+          "after": "https://kit.com/pricing"
+        }
+      }
+    },
+    {
+      "id": "socialchamp-io",
+      "change": "modified",
+      "fields": {
+        "name": {
+          "before": "SocialChamp.io",
+          "after": "Social Champ"
+        },
+        "category": {
+          "before": "design_art",
+          "after": "workflow_auto"
+        },
+        "category_display": {
+          "before": "Design & Graphics",
+          "after": "Workflow Automation"
+        },
+        "pricing": {
+          "before": "Starting at $29/mo",
+          "after": "Free plan; paid plans from $4/month billed annually"
+        },
+        "logo_url": {
+          "before": "https://www.google.com/s2/favicons?domain=socialchamp.io&sz=128",
+          "after": "https://www.google.com/s2/favicons?domain=socialchamp.com&sz=128"
+        },
+        "primary_category": {
+          "before": "design_art",
+          "after": "workflow_auto"
+        },
+        "comparison_group": {
+          "before": "design_art",
+          "after": "workflow_auto"
+        },
+        "official_url": {
+          "before": "https://socialchamp.io/",
+          "after": "https://www.socialchamp.com/"
+        },
+        "pricing_source_url": {
+          "before": null,
+          "after": "https://www.socialchamp.com/pricing/"
+        },
+        "pricing_verified_at": {
+          "before": null,
+          "after": "2026-08-04T00:00:00Z"
+        },
+        "pricing_verified": {
+          "before": false,
+          "after": true
+        },
+        "currency": {
+          "before": null,
+          "after": "USD"
+        },
+        "billing_period": {
+          "before": null,
+          "after": "annual"
+        },
+        "evidence_source_type": {
+          "before": null,
+          "after": "official_pricing_page"
+        },
+        "is_manual_override": {
+          "before": false,
+          "after": true
+        },
+        "pricing_evidence_markers": {
+          "before": null,
+          "after": [
+            "$4",
+            "month"
+          ]
+        },
+        "http_verification_status": {
+          "before": null,
+          "after": "verified_http_200"
+        },
+        "pricing_source_http_status": {
+          "before": null,
+          "after": 200
+        },
+        "pricing_source_final_url": {
+          "before": null,
+          "after": "https://www.socialchamp.com/pricing/"
+        }
+      }
+    },
+    {
+      "id": "carv",
+      "change": "modified",
+      "fields": {
+        "affiliate_url": {
+          "before": "https://carv.ai",
+          "after": null
+        },
+        "logo_url": {
+          "before": "https://www.google.com/s2/favicons?domain=carv.ai&sz=128",
+          "after": "https://www.google.com/s2/favicons?domain=carv.com&sz=128"
+        },
+        "official_url": {
+          "before": "https://carv.ai/",
+          "after": "https://www.carv.com/"
+        }
+      }
+    },
+    {
+      "id": "followr",
+      "change": "modified",
+      "fields": {
+        "affiliate_url": {
+          "before": "https://followr.com",
+          "after": null
+        },
+        "pricing": {
+          "before": "Starting at $29/month",
+          "after": "Pricing varies by plan"
+        },
+        "logo_url": {
+          "before": "https://www.google.com/s2/favicons?domain=followr.com&sz=128",
+          "after": "https://www.google.com/s2/favicons?domain=followr.ai&sz=128"
+        },
+        "official_url": {
+          "before": "https://followr.com/",
+          "after": "https://followr.ai/"
+        }
+      }
+    },
+    {
+      "id": "bidx",
+      "change": "modified",
+      "fields": {
+        "affiliate_url": {
+          "before": "https://bidx.com",
+          "after": null
+        },
+        "pricing": {
+          "before": "Starting at $199/mo",
+          "after": "From €495/month plus a percentage of ad spend"
+        },
+        "logo_url": {
+          "before": "https://www.google.com/s2/favicons?domain=bidx.com&sz=128",
+          "after": "https://www.google.com/s2/favicons?domain=bidx.io&sz=128"
+        },
+        "official_url": {
+          "before": "https://bidx.com/",
+          "after": "https://www.bidx.io/"
+        },
+        "pricing_source_url": {
+          "before": null,
+          "after": "https://www.bidx.io/pricing"
+        },
+        "pricing_verified_at": {
+          "before": null,
+          "after": "2026-08-04T00:00:00Z"
+        },
+        "pricing_verified": {
+          "before": false,
+          "after": true
+        },
+        "currency": {
+          "before": null,
+          "after": "EUR"
+        },
+        "billing_period": {
+          "before": null,
+          "after": "monthly"
+        },
+        "evidence_source_type": {
+          "before": null,
+          "after": "official_help_page"
+        },
+        "is_manual_override": {
+          "before": false,
+          "after": true
+        },
+        "pricing_evidence_markers": {
+          "before": null,
+          "after": [
+            "€495",
+            "month"
+          ]
+        },
+        "http_verification_status": {
+          "before": null,
+          "after": "verified_http_200"
+        },
+        "pricing_source_http_status": {
+          "before": null,
+          "after": 200
+        },
+        "pricing_source_final_url": {
+          "before": null,
+          "after": "https://www.bidx.io/pricing"
+        }
+      }
+    },
+    {
+      "id": "fathom",
+      "change": "modified",
+      "fields": {
+        "affiliate_url": {
+          "before": "https://fathom.video",
+          "after": null
+        },
+        "pricing": {
+          "before": "Free plan available, paid starts at $24/user/mo",
+          "after": "Free plan; paid plans from $16/user/month"
+        },
+        "logo_url": {
+          "before": "https://www.google.com/s2/favicons?domain=fathom.video&sz=128",
+          "after": "https://www.google.com/s2/favicons?domain=fathom.ai&sz=128"
+        },
+        "official_url": {
+          "before": "https://fathom.video/",
+          "after": "https://www.fathom.ai/"
+        },
+        "pricing_source_url": {
+          "before": null,
+          "after": "https://www.fathom.ai/pricing"
+        },
+        "pricing_verified_at": {
+          "before": null,
+          "after": "2026-08-04T00:00:00Z"
+        },
+        "pricing_verified": {
+          "before": false,
+          "after": true
+        },
+        "currency": {
+          "before": null,
+          "after": "USD"
+        },
+        "billing_period": {
+          "before": null,
+          "after": "annual"
+        },
+        "evidence_source_type": {
+          "before": null,
+          "after": "official_pricing_page"
+        },
+        "is_manual_override": {
+          "before": false,
+          "after": true
+        },
+        "pricing_evidence_markers": {
+          "before": null,
+          "after": [
+            "$16",
+            "month"
+          ]
+        },
+        "http_verification_status": {
+          "before": null,
+          "after": "verified_http_200"
+        },
+        "pricing_source_http_status": {
+          "before": null,
+          "after": 200
+        },
+        "pricing_source_final_url": {
+          "before": null,
+          "after": "https://www.fathom.ai/pricing"
+        }
+      }
+    },
+    {
+      "id": "chatbase",
+      "change": "modified",
+      "fields": {
+        "logo_url": {
+          "before": "https://www.google.com/s2/favicons?domain=chatbase.com&sz=128",
+          "after": "https://www.google.com/s2/favicons?domain=chatbase.co&sz=128"
+        },
+        "official_url": {
+          "before": "https://www.chatbase.com/",
+          "after": "https://www.chatbase.co/"
+        }
+      }
+    }
+  ]
+}
