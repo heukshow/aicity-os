@@ -438,10 +438,12 @@ export default function App() {
                         <Heart className={`h-4 w-4 ${bookmarkedIds.includes(tool.id) ? 'fill-rose-500' : ''}`} />
                       </button>
 
-                      <div className="flex items-center gap-1 text-amber-500 bg-amber-500/5 px-2 py-1 rounded-lg text-xs font-bold border border-amber-500/10">
-                        <Star className="h-3 w-3 fill-amber-500" />
-                        {tool.rating}
-                      </div>
+                      {tool.rating != null && tool.rating_source_url && (
+                        <div className="flex items-center gap-1 text-amber-500 bg-amber-500/5 px-2 py-1 rounded-lg text-xs font-bold border border-amber-500/10">
+                          <Star className="h-3 w-3 fill-amber-500" />
+                          {tool.rating}
+                        </div>
+                      )}
                     </div>
                   </div>
 

@@ -6,14 +6,14 @@
     "category_display": "Chatbots & Support",
     "description": "An all-in-one sales, marketing, and CRM platform designed specifically for agencies and businesses to automate client acquisition and retention.",
     "affiliate_url": null,
-    "pricing": "Starting at $97/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "CRM & Pipeline",
       "Automated SMS/Email",
       "Sales Funnels",
       "AI Chatbots"
     ],
-    "rating": 4.9,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=gohighlevel.com&sz=128",
     "primary_category": "chatbots_support",
     "comparison_group": "chatbots_support",
@@ -24,7 +24,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.gohighlevel.com/"
   },
   {
     "id": "notion-ai",
@@ -40,7 +43,7 @@
       "Database Automation",
       "Custom Prompts"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=notion.com&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -58,7 +61,10 @@
     ],
     "http_verification_status": "verified_http_200",
     "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://www.notion.com/pricing"
+    "pricing_source_final_url": "https://www.notion.com/pricing",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.notion.com/"
   },
   {
     "id": "make-com",
@@ -67,14 +73,14 @@
     "category_display": "Coding & Dev Tools",
     "description": "A visual automation platform that lets you design, build, and automate anything—from simple tasks to complex workflows—in minutes without coding.",
     "affiliate_url": null,
-    "pricing": "Free plan / $9/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Visual Drag & Drop",
       "3000+ Integrations",
       "Advanced Branching",
       "JSON Parsing"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=make.com&sz=128",
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
@@ -85,7 +91,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-09T00:00:00Z",
+    "official_evidence_url": "https://www.make.com/"
   },
   {
     "id": "elevenlabs",
@@ -101,7 +110,7 @@
       "Sound Effects Generator",
       "Multi-lingual Support"
     ],
-    "rating": 4.9,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=elevenlabs.io&sz=128",
     "primary_category": "voice_cloning",
     "comparison_group": "voice_generation",
@@ -113,7 +122,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://elevenlabs.io/"
   },
   {
     "id": "copy-ai",
@@ -122,14 +134,14 @@
     "category_display": "AI Copywriting",
     "description": "An AI-powered copywriting platform and marketing operating system designed to automate content writing, translation, and social media posting.",
     "affiliate_url": null,
-    "pricing": "Starting at $36/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Marketing Workflows",
       "SEO Content Writer",
       "Brand Voice Settings",
       "Bulk Content Gen"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=copy.ai&sz=128",
     "primary_category": "copywriting",
     "comparison_group": "ai_writing_assistant",
@@ -141,7 +153,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-09T00:00:00Z",
+    "official_evidence_url": "https://www.copy.ai/"
   },
   {
     "id": "zenrows",
@@ -150,14 +165,14 @@
     "category_display": "Data & Scraping APIs",
     "description": "An all-in-one web scraping API that handles proxies, anti-bot bypasses (Cloudflare, CAPTCHAs), and headless browsers with a single API call.",
     "affiliate_url": null,
-    "pricing": "Starting at $49/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Anti-Bot Bypass",
       "Residential Proxies",
       "Javascript Rendering",
       "Simple API Request"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=zenrows.com&sz=128",
     "primary_category": "scraping_data",
     "comparison_group": "scraping_data",
@@ -168,7 +183,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-09T00:00:00Z",
+    "official_evidence_url": "https://www.zenrows.com/"
   },
   {
     "id": "tubebuddy",
@@ -177,14 +195,14 @@
     "category_display": "Video & Shorts Gen",
     "description": "An essential browser extension and mobile app for YouTube creators, TubeBuddy helps optimize and grow YouTube channels through advanced analytics, SEO tools, and productivity features.",
     "affiliate_url": null,
-    "pricing": "Starting at $9/mo for Pro",
+    "pricing": "See official pricing",
     "key_features": [
       "Video SEO optimization",
       "Keyword research tools",
       "Bulk processing features",
       "Channel health reports"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=tubebuddy.com&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
@@ -195,7 +213,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.tubebuddy.com/"
   },
   {
     "id": "outlierkit",
@@ -204,14 +225,14 @@
     "category_display": "Video & Shorts Gen",
     "description": "An AI-powered platform designed for content creators, OutlierKit helps identify trending topics and viral video ideas, specifically for YouTube-focused audiences, to maximize engagement and growth.",
     "affiliate_url": null,
-    "pricing": "Starting at $29/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI-powered trend analysis",
       "Viral video idea generation",
       "YouTube audience insights",
       "Content strategy assistance"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=outlierkit.com&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
@@ -222,7 +243,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://outlierkit.com/"
   },
   {
     "id": "pictory",
@@ -231,14 +255,14 @@
     "category_display": "Video & Shorts Gen",
     "description": "An AI-powered video creation tool that automatically transforms text into engaging videos, making it easy for marketers and content creators to produce compelling video content quickly.",
     "affiliate_url": null,
-    "pricing": "Starting at $19/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Text-to-video conversion",
       "Automatic subtitling & captions",
       "Stock media library access",
       "Short video highlight reels"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=pictory.ai&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
@@ -250,7 +274,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://pictory.ai/"
   },
   {
     "id": "inkfluence-ai",
@@ -259,14 +286,14 @@
     "category_display": "SEO & Optimization",
     "description": "An AI-powered writing assistant tailored for indie publishers, helping them generate high-quality content quickly and efficiently for their audience.",
     "affiliate_url": "https://www.inkfluenceai.com",
-    "pricing": "Starting at $49/month",
+    "pricing": "See official pricing",
     "key_features": [
       "AI-powered content generation",
       "Tailored for indie publishers",
       "Boost writing productivity",
       "SEO-optimized content suggestions"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=inkfluenceai.com&sz=128",
     "primary_category": "seo_tools",
     "comparison_group": "seo_tools",
@@ -277,7 +304,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.inkfluenceai.com/"
   },
   {
     "id": "jasper",
@@ -286,14 +316,14 @@
     "category_display": "AI Copywriting",
     "description": "A leading AI writing platform recognized for generating high-quality content for a broad range of business audiences, from marketing blogs to agencies.",
     "affiliate_url": "https://www.jasper.ai",
-    "pricing": "Starting at $49/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Versatile AI content generation",
       "Supports 25+ languages",
       "Brand voice customization",
       "SEO-friendly content optimization"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=jasper.ai&sz=128",
     "primary_category": "copywriting",
     "comparison_group": "ai_writing_assistant",
@@ -305,7 +335,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.jasper.ai/"
   },
   {
     "id": "writesonic",
@@ -314,14 +347,14 @@
     "category_display": "AI Copywriting",
     "description": "An advanced AI writing assistant that helps businesses and individuals create a wide array of content, from blog posts to ad copy, with speed and efficiency.",
     "affiliate_url": "https://writesonic.com",
-    "pricing": "Starting at $15/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI article & blog writer",
       "Paraphrasing tool",
       "Content rephraser",
       "AI image generation"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=writesonic.com&sz=128",
     "primary_category": "copywriting",
     "comparison_group": "ai_writing_assistant",
@@ -333,7 +366,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://writesonic.com/"
   },
   {
     "id": "sudowrite",
@@ -342,14 +378,14 @@
     "category_display": "AI Copywriting",
     "description": "An innovative AI writing tool specifically designed to assist fiction writers in brainstorming, drafting, and refining their stories and novels.",
     "affiliate_url": "https://www.sudowrite.com",
-    "pricing": "Starting at $10/month",
+    "pricing": "See official pricing",
     "key_features": [
       "AI story generation",
       "Brainstorming tools",
       "Character development",
       "Rewrite & expand text"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=sudowrite.com&sz=128",
     "primary_category": "copywriting",
     "comparison_group": "ai_writing_assistant",
@@ -361,7 +397,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.sudowrite.com/"
   },
   {
     "id": "convertkit",
@@ -377,7 +416,7 @@
       "Audience segmentation",
       "AI subject line generation"
     ],
-    "rating": 4.9,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=kit.com&sz=128",
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
@@ -395,7 +434,10 @@
     ],
     "http_verification_status": "verified_http_200",
     "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://kit.com/pricing"
+    "pricing_source_final_url": "https://kit.com/pricing",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://kit.com/"
   },
   {
     "id": "quillbot",
@@ -411,7 +453,7 @@
       "Writing tone improvement",
       "Plagiarism avoidance"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=quillbot.com&sz=128",
     "primary_category": "design_art",
     "comparison_group": "design_art",
@@ -422,7 +464,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://quillbot.com/"
   },
   {
     "id": "text-cortex",
@@ -431,14 +476,14 @@
     "category_display": "Productivity & SaaS",
     "description": "Text Cortex is an AI-powered writing assistant that elevates your content through rewriting, summarizing, question answering, plagiarism checks, and generating diverse creative text formats. It's available across multiple platforms, including browser, desktop, and mobile.",
     "affiliate_url": "https://textcortex.com",
-    "pricing": "Starting at $19.99/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI-powered writing assistant",
       "Content rewriting & summarizing",
       "Plagiarism checking",
       "Creative text generation"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=textcortex.com&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -449,7 +494,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://textcortex.com/"
   },
   {
     "id": "vidiq",
@@ -465,7 +513,7 @@
       "Competitor analysis",
       "AI content generation (titles, scripts)"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=vidiq.com&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
@@ -476,7 +524,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://vidiq.com/"
   },
   {
     "id": "bolddesk",
@@ -485,14 +536,14 @@
     "category_display": "Workflow Automation",
     "description": "A comprehensive help desk solution designed for startups, offering a free plan to manage customer inquiries efficiently and streamline support operations.",
     "affiliate_url": null,
-    "pricing": "Free plan / $12/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Ticket Management System",
       "Self-Service Portal (Knowledge Base)",
       "Automated Workflow Rules",
       "Reporting & Analytics"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=bolddesk.com&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -503,7 +554,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.bolddesk.com/"
   },
   {
     "id": "brand24",
@@ -512,14 +566,14 @@
     "category_display": "Productivity & SaaS",
     "description": "An essential social media monitoring tool that helps businesses track mentions, analyze sentiment, and understand their online presence.",
     "affiliate_url": null,
-    "pricing": "Starting at $79/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Real-time Brand Monitoring",
       "Sentiment Analysis",
       "Influencer Discovery",
       "Alerts & Notifications"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=brand24.com&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -530,7 +584,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://brand24.com/"
   },
   {
     "id": "socialchamp-io",
@@ -546,7 +603,7 @@
       "Team Collaboration Features",
       "Performance Analytics"
     ],
-    "rating": 4.4,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=socialchamp.com&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -564,7 +621,10 @@
     ],
     "http_verification_status": "verified_http_200",
     "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://www.socialchamp.com/pricing/"
+    "pricing_source_final_url": "https://www.socialchamp.com/pricing/",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.socialchamp.com/"
   },
   {
     "id": "triple-whale",
@@ -573,14 +633,14 @@
     "category_display": "Productivity & SaaS",
     "description": "An all-in-one operating system for e-commerce, providing comprehensive analytics and attribution to help brands optimize their marketing spend.",
     "affiliate_url": null,
-    "pricing": "Starting at $129/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Centralized E-commerce Analytics",
       "Attribution Modeling",
       "Real-time Performance Dashboards",
       "Profit & Loss Reporting"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=triplewhale.com&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -591,7 +651,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://triplewhale.com/"
   },
   {
     "id": "boldsign",
@@ -600,14 +663,14 @@
     "category_display": "Workflow Automation",
     "description": "A secure and efficient e-signature solution that streamlines document signing workflows, making legal agreements faster and more convenient.",
     "affiliate_url": null,
-    "pricing": "Starting at $10/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Legally Binding E-signatures",
       "Secure Document Handling",
       "Audit Trails & History",
       "Integration Capabilities"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=boldsign.com&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -618,7 +681,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.boldsign.com/"
   },
   {
     "id": "privy",
@@ -627,14 +693,14 @@
     "category_display": "Sales & CRM",
     "description": "A powerful email marketing and conversion platform specifically designed for e-commerce businesses to grow their email lists and boost sales.",
     "affiliate_url": null,
-    "pricing": "Starting at $30/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Pop-up & Exit-Intent Campaigns",
       "Email Marketing Automation",
       "Customizable Landing Pages",
       "Integrations with E-commerce Platforms"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=privy.com&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
@@ -645,7 +711,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.privy.com/"
   },
   {
     "id": "aweber",
@@ -654,14 +723,14 @@
     "category_display": "Email & Outreach",
     "description": "A long-standing and reliable email marketing service, perfect for small businesses and creators looking to build their audience and automate communication.",
     "affiliate_url": null,
-    "pricing": "Free plan / $12.50/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Email Campaign Creation",
       "Automated Email Sequences",
       "Landing Page Builder",
       "Subscriber Management & Segmentation"
     ],
-    "rating": 4.2,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=aweber.com&sz=128",
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
@@ -672,7 +741,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.aweber.com/"
   },
   {
     "id": "unbounce",
@@ -681,14 +753,14 @@
     "category_display": "Coding & Dev Tools",
     "description": "A leading landing page builder that empowers marketers to create high-converting landing pages and pop-ups without any coding required.",
     "affiliate_url": null,
-    "pricing": "Starting at $99/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Drag-and-Drop Page Builder",
       "A/B Testing & Optimization",
       "AI-Powered Copy Generation",
       "Conversion Rate Smart Features"
     ],
-    "rating": 4.3,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=unbounce.com&sz=128",
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
@@ -699,7 +771,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://unbounce.com/"
   },
   {
     "id": "moosend",
@@ -708,14 +783,14 @@
     "category_display": "Email & Outreach",
     "description": "A powerful and user-friendly email marketing and marketing automation platform, perfect for businesses aiming to engage their audience effectively.",
     "affiliate_url": null,
-    "pricing": "Starting at $9/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Email Campaign Designer",
       "Marketing Automation Workflows",
       "Landing Pages & Subscription Forms",
       "Detailed Analytics & Reporting"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=moosend.com&sz=128",
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
@@ -726,7 +801,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://moosend.com/"
   },
   {
     "id": "reply-io",
@@ -735,14 +813,14 @@
     "category_display": "Sales & CRM",
     "description": "A comprehensive AI-powered sales engagement platform designed to automate and scale multi-channel outreach, boosting sales team productivity.",
     "affiliate_url": null,
-    "pricing": "Starting at $60/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Multi-Channel Sales Sequences",
       "AI Email Assistant",
       "CRM Integrations",
       "Performance Tracking & Reporting"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=reply.io&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
@@ -753,7 +831,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://reply.io/"
   },
   {
     "id": "omnisend",
@@ -762,14 +843,14 @@
     "category_display": "Sales & CRM",
     "description": "An advanced e-commerce marketing automation platform, integrating email, SMS, and push notifications to drive sales and customer retention.",
     "affiliate_url": null,
-    "pricing": "Free plan / $16/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Email & SMS Campaigns",
       "Automated Workflows (abandoned cart, welcome)",
       "Pop-ups & Forms for Lead Capture",
       "Advanced Segmentation"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=omnisend.com&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
@@ -780,7 +861,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-09T00:00:00Z",
+    "official_evidence_url": "https://www.omnisend.com/"
   },
   {
     "id": "time2book",
@@ -796,7 +880,7 @@
       "Client Management Tools",
       "Niche for Fitness Businesses"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=time2book.me&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -807,7 +891,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.time2book.me/"
   },
   {
     "id": "semrush",
@@ -816,14 +903,14 @@
     "category_display": "SEO & Optimization",
     "description": "A leading all-in-one platform providing comprehensive SEO and marketing tools for bloggers, agencies, and B2B content creators.",
     "affiliate_url": null,
-    "pricing": "Varies by plan, starting from $119.95/month.",
+    "pricing": "See official pricing",
     "key_features": [
       "Keyword Research Tools",
       "Competitor Analysis",
       "SEO Site Auditing",
       "Content Marketing Toolkit"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=semrush.com&sz=128",
     "primary_category": "seo_tools",
     "comparison_group": "seo_tools",
@@ -834,7 +921,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.semrush.com/"
   },
   {
     "id": "hubspot",
@@ -843,14 +933,14 @@
     "category_display": "Sales & CRM",
     "description": "A powerful CRM platform offering integrated tools for marketing, sales, customer service, and content management to grow businesses.",
     "affiliate_url": null,
-    "pricing": "Starting at $50/mo (Free tools available)",
+    "pricing": "See official pricing",
     "key_features": [
       "Comprehensive CRM Database",
       "Marketing Automation",
       "Sales Pipeline Management",
       "Customer Service & Support Tools"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=hubspot.com&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
@@ -861,7 +951,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.hubspot.com/"
   },
   {
     "id": "kinsta",
@@ -877,7 +970,7 @@
       "Staging Environment",
       "Advanced Security Features"
     ],
-    "rating": 4.9,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=kinsta.com&sz=128",
     "primary_category": "design_art",
     "comparison_group": "design_art",
@@ -888,7 +981,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://kinsta.com/"
   },
   {
     "id": "shopify",
@@ -904,7 +1000,7 @@
       "Inventory Management",
       "Marketing and Analytics Tools"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=shopify.com&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
@@ -915,7 +1011,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.shopify.com/"
   },
   {
     "id": "systeme-io",
@@ -924,14 +1023,14 @@
     "category_display": "Sales & CRM",
     "description": "Systeme.io is an all-in-one marketing platform designed for entrepreneurs and small businesses, offering tools for sales funnels, email marketing, websites, and online courses. Simplify your online business with its comprehensive and user-friendly features.",
     "affiliate_url": null,
-    "pricing": "Free plan available, paid plans starting at $27/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Sales Funnel Builder",
       "Email Marketing Automation",
       "Website & Blog Creation",
       "Online Course Hosting"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=systeme.io&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
@@ -942,7 +1041,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://systeme.io/"
   },
   {
     "id": "jotform",
@@ -951,14 +1053,14 @@
     "category_display": "Coding & Dev Tools",
     "description": "Jotform is a powerful online form builder that helps businesses create custom forms for data collection, payments, and workflow automation without any coding. Design surveys, applications, and order forms with ease.",
     "affiliate_url": "https://www.jotform.com",
-    "pricing": "Starting at $39/month (paid plans)",
+    "pricing": "See official pricing",
     "key_features": [
       "Drag-and-Drop Form Builder",
       "Payment Integrations",
       "Workflow Automation",
       "E-Signature Capabilities"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=jotform.com&sz=128",
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
@@ -969,7 +1071,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.jotform.com/"
   },
   {
     "id": "webflow",
@@ -978,14 +1083,14 @@
     "category_display": "Coding & Dev Tools",
     "description": "Webflow is a visual web development platform that allows users to design, build, and launch responsive websites without writing code. It combines design tools, CMS, and hosting into a single, powerful platform for creative professionals.",
     "affiliate_url": "https://webflow.com/affiliates",
-    "pricing": "Free starter plan; paid site plans from $14/mo.",
+    "pricing": "See official pricing",
     "key_features": [
       "Visual Website Builder",
       "Integrated CMS & Hosting",
       "Responsive Design Tools",
       "Advanced Interactions & Animations"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=webflow.com&sz=128",
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
@@ -996,7 +1101,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://webflow.com/"
   },
   {
     "id": "reactin",
@@ -1012,7 +1120,7 @@
       "LinkedIn Lookalike Audiences",
       "B2B Lead Generation"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=reactin.io&sz=128",
     "primary_category": "design_art",
     "comparison_group": "design_art",
@@ -1023,7 +1131,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.reactin.io/"
   },
   {
     "id": "synthesia",
@@ -1032,14 +1143,14 @@
     "category_display": "Video & Shorts Gen",
     "description": "Transform text into AI videos with realistic avatars, ideal for training, e-learning, and professional video production, simplifying content creation.",
     "affiliate_url": "https://www.synthesia.io/affiliates",
-    "pricing": "Starting at $30/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI video generation",
       "Training and e-learning solutions",
       "Realistic AI avatars",
       "Professional video production"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=synthesia.io&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
@@ -1051,7 +1162,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.synthesia.io/"
   },
   {
     "id": "octo-browser",
@@ -1060,14 +1174,14 @@
     "category_display": "Design & Graphics",
     "description": "Octo Browser is an advanced antidetect browser designed for secure multi-accounting and digital fingerprint management across various online platforms.",
     "affiliate_url": "https://octobrowser.net",
-    "pricing": "Starting at $29/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Secure multi-accounting capabilities",
       "Advanced digital fingerprint management",
       "Antidetect browser technology",
       "Supports multiple online platforms"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=octobrowser.net&sz=128",
     "primary_category": "design_art",
     "comparison_group": "design_art",
@@ -1078,7 +1192,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://octobrowser.net/"
   },
   {
     "id": "carv",
@@ -1094,7 +1211,7 @@
       "Efficient candidate screening",
       "Automated scheduling for interviews"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=carv.com&sz=128",
     "primary_category": "ai_agents",
     "comparison_group": "ai_agents",
@@ -1105,7 +1222,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.carv.com/"
   },
   {
     "id": "jobhire",
@@ -1114,14 +1234,14 @@
     "category_display": "Productivity & SaaS",
     "description": "JobHire is an AI-powered career assistant that automates the job search process, including resume tailoring and high-volume application submission.",
     "affiliate_url": "https://jobhire.ai",
-    "pricing": "Starting at $19/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI-powered career assistance",
       "Automates job searching process",
       "Resume tailoring capabilities",
       "High-volume application submission"
     ],
-    "rating": 4.4,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=jobhire.ai&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -1132,7 +1252,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://jobhire.ai/"
   },
   {
     "id": "aitable-ai",
@@ -1141,14 +1264,14 @@
     "category_display": "Workflow Automation",
     "description": "AITable.ai provides a visual AI database to organize data, automate workflows, and build custom AI agents for enhanced productivity.",
     "affiliate_url": "https://aitable.ai",
-    "pricing": "Starting at $25/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Visual AI database for data organization",
       "Automates complex workflows",
       "Ability to build custom AI agents",
       "Enhances team productivity"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=aitable.ai&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -1159,7 +1282,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://aitable.ai/"
   },
   {
     "id": "liftmycv",
@@ -1168,14 +1294,14 @@
     "category_display": "Autonomous AI Agents",
     "description": "LiftmyCV leverages AI and ChatGPT to automate job applications across multiple platforms, acting as an intelligent job search agent.",
     "affiliate_url": "https://liftmycv.com",
-    "pricing": "Starting at $19/month",
+    "pricing": "See official pricing",
     "key_features": [
       "AI-powered job search agent",
       "Automates job applications",
       "Utilizes ChatGPT technology",
       "Applies across multiple platforms"
     ],
-    "rating": 4.3,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=liftmycv.com&sz=128",
     "primary_category": "ai_agents",
     "comparison_group": "ai_agents",
@@ -1186,7 +1312,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://liftmycv.com/"
   },
   {
     "id": "blaze",
@@ -1195,14 +1324,14 @@
     "category_display": "Workflow Automation",
     "description": "Blaze is an AI-powered marketing automation platform that creates, schedules, and optimizes brand-specific content across diverse channels.",
     "affiliate_url": "https://blaze.ai/affiliates",
-    "pricing": "Starting at $79/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI-powered marketing automation",
       "Creates brand-specific content",
       "Schedules content for multiple channels",
       "Optimizes content performance"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=blaze.ai&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -1213,7 +1342,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://blaze.ai/"
   },
   {
     "id": "aiassistworks",
@@ -1222,14 +1354,14 @@
     "category_display": "Workflow Automation",
     "description": "AiAssistWorks integrates over 100 AI models directly into Google Sheets, Docs, and Slides, enabling automated workflows within your favorite productivity suite.",
     "affiliate_url": "https://aiassistworks.com/affiliates",
-    "pricing": "Starting at $15/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Integrates 100+ AI models",
       "Google Sheets automation",
       "Google Docs automation",
       "Google Slides automation"
     ],
-    "rating": 4.9,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=aiassistworks.com&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -1240,7 +1372,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://aiassistworks.com/"
   },
   {
     "id": "vista-social",
@@ -1249,14 +1384,14 @@
     "category_display": "Workflow Automation",
     "description": "Vista Social is an AI-powered platform for comprehensive social media management, offering tools for publishing, engagement, analytics, and team collaboration.",
     "affiliate_url": "https://vistasocial.com",
-    "pricing": "Starting at $39/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI-powered social media management",
       "Content publishing and scheduling",
       "Engagement tracking and analytics",
       "Team collaboration workflows"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=vistasocial.com&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -1267,7 +1402,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://vistasocial.com/"
   },
   {
     "id": "gravity-forms",
@@ -1276,14 +1414,14 @@
     "category_display": "Workflow Automation",
     "description": "Gravity Forms is a powerful WordPress plugin that enables users to build custom forms, manage online payments, and automate various data workflows directly on their website.",
     "affiliate_url": "https://www.gravityforms.com",
-    "pricing": "Starting at $59/year",
+    "pricing": "See official pricing",
     "key_features": [
       "Powerful WordPress plugin",
       "Builds custom forms easily",
       "Manages online payments securely",
       "Automates data workflows"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=gravityforms.com&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -1294,7 +1432,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.gravityforms.com/"
   },
   {
     "id": "sendcloud",
@@ -1310,7 +1451,7 @@
       "Streamlined shipping and tracking",
       "Efficient returns management"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=sendcloud.com&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -1321,7 +1462,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://sendcloud.com/"
   },
   {
     "id": "alidropship",
@@ -1337,7 +1481,7 @@
       "Automates AliExpress product import",
       "Streamlines store management & fulfillment"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=alidropship.com&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -1348,7 +1492,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://alidropship.com/"
   },
   {
     "id": "nudgera",
@@ -1364,7 +1511,7 @@
       "Sentiment-aware payment negotiation",
       "Optimizes cash flow management"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=nudgera.com&sz=128",
     "primary_category": "finance_billing",
     "comparison_group": "finance_collection",
@@ -1376,7 +1523,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://nudgera.com/"
   },
   {
     "id": "questmate",
@@ -1392,7 +1542,7 @@
       "Customizable checklists for processes",
       "Streamlines operational efficiency"
     ],
-    "rating": 4.2,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=questmate.com&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -1403,7 +1553,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://questmate.com/"
   },
   {
     "id": "merlin",
@@ -1412,14 +1565,14 @@
     "category_display": "Workflow Automation",
     "description": "Merlin is an AI productivity tool designed to supercharge your daily tasks, offering powerful summarization, content generation, and seamless workflow automation features. Boost your efficiency and creativity with intelligent AI assistance across various applications.",
     "affiliate_url": "https://www.getmerlin.in",
-    "pricing": "Starting at $19/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI-powered summarization",
       "Intelligent content generation",
       "Workflow automation capabilities",
       "Cross-platform integration"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=getmerlin.in&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -1430,7 +1583,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.getmerlin.in/"
   },
   {
     "id": "decktopus",
@@ -1439,14 +1595,14 @@
     "category_display": "Design & Graphics",
     "description": "Decktopus is an AI-powered presentation tool that automatically crafts stunning decks, empowering users to create professional presentations in minutes. Leverage customizable templates and integrated forms for effective lead generation and impactful visual storytelling.",
     "affiliate_url": "https://decktopus.com",
-    "pricing": "Starting at $9.99/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI auto-created presentations",
       "Customizable design templates",
       "Integrated lead generation forms",
       "Slide content suggestions"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=decktopus.com&sz=128",
     "primary_category": "design_art",
     "comparison_group": "design_art",
@@ -1457,7 +1613,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://decktopus.com/"
   },
   {
     "id": "dorik",
@@ -1466,14 +1625,14 @@
     "category_display": "Coding & Dev Tools",
     "description": "Dorik is a no-code AI website builder that enables quick creation of professional websites without any coding knowledge. Build stunning, responsive sites effortlessly, perfect for businesses, portfolios, and personal brands.",
     "affiliate_url": "https://dorik.com",
-    "pricing": "Starting at $14/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "No-code website building",
       "AI-assisted design",
       "Professional templates",
       "Fast website deployment"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=dorik.com&sz=128",
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
@@ -1484,7 +1643,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://dorik.com/"
   },
   {
     "id": "rytr",
@@ -1493,14 +1655,14 @@
     "category_display": "Email & Outreach",
     "description": "Rytr is an AI-powered writing assistant that helps you generate high-quality content for various needs in just seconds. From blog posts to emails, create compelling copy quickly and efficiently with intelligent AI suggestions.",
     "affiliate_url": "https://rytr.me",
-    "pricing": "Starting at $9/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI content generation",
       "Supports 30+ languages",
       "50+ use cases & templates",
       "Plagiarism checker"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=rytr.me&sz=128",
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
@@ -1511,7 +1673,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://rytr.me/"
   },
   {
     "id": "frase",
@@ -1520,14 +1685,14 @@
     "category_display": "SEO & Optimization",
     "description": "Frase is an AI-powered content optimization platform designed to help you create SEO-driven content that ranks higher and converts better. Research, write, and optimize all in one place for maximum search engine visibility.",
     "affiliate_url": "https://www.frase.io",
-    "pricing": "Starting at $14.99/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI content research",
       "SEO content optimization",
       "Content brief generation",
       "Answer engine capabilities"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=frase.io&sz=128",
     "primary_category": "seo_tools",
     "comparison_group": "seo_tools",
@@ -1538,7 +1703,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.frase.io/"
   },
   {
     "id": "heygen",
@@ -1547,14 +1715,14 @@
     "category_display": "Video & Shorts Gen",
     "description": "HeyGen is an innovative AI-powered video creation platform, allowing you to produce professional videos with realistic avatars and voice cloning technology. Generate engaging content quickly, even with multilingual support, to reach global audiences.",
     "affiliate_url": "https://www.heygen.com",
-    "pricing": "Starting at $24/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI-powered video generation",
       "Realistic avatar creation",
       "Voice cloning technology",
       "Multilingual support"
     ],
-    "rating": 4.9,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=heygen.com&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
@@ -1566,7 +1734,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.heygen.com/"
   },
   {
     "id": "veed",
@@ -1575,14 +1746,14 @@
     "category_display": "Video & Shorts Gen",
     "description": "VEED is an intuitive online video editing platform packed with AI-powered tools designed for creators and businesses alike. Easily edit, subtitle, and enhance your videos directly in your browser, streamlining your content production workflow.",
     "affiliate_url": "https://www.veed.io",
-    "pricing": "Starting at $18/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Online video editor",
       "AI-powered editing tools",
       "Automatic subtitles",
       "Brand kit customization"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=veed.io&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
@@ -1594,7 +1765,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.veed.io/"
   },
   {
     "id": "reclaim-ai",
@@ -1610,7 +1784,7 @@
       "Flexible meeting management",
       "Time blocking for focus"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=reclaim.ai&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -1621,7 +1795,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://reclaim.ai/"
   },
   {
     "id": "descript",
@@ -1630,14 +1807,14 @@
     "category_display": "Video & Shorts Gen",
     "description": "Descript is an all-in-one AI-powered tool for transcription, audio/video editing, and podcast production, allowing you to edit media like a document. Streamline your content creation workflow with powerful, intuitive features for creators.",
     "affiliate_url": "https://www.descript.com",
-    "pricing": "Starting at $15/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI transcription",
       "Text-based video editing",
       "Podcast production tools",
       "Screen recording functionality"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=descript.com&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
@@ -1648,7 +1825,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.descript.com/"
   },
   {
     "id": "synder",
@@ -1664,7 +1844,7 @@
       "Tailored for eCommerce businesses",
       "Tailored for SaaS businesses"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=synder.com&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -1675,7 +1855,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://synder.com/"
   },
   {
     "id": "gallabox",
@@ -1684,14 +1867,14 @@
     "category_display": "Chatbots & Support",
     "description": "An AI-powered B2B platform specializing in WhatsApp automation for marketing, sales, and customer support for businesses and agencies.",
     "affiliate_url": "https://www.gallabox.com",
-    "pricing": "Starting at $49/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "WhatsApp Business API integration",
       "Automated marketing campaigns",
       "Lead generation and qualification",
       "Customer support chatbots"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=gallabox.com&sz=128",
     "primary_category": "chatbots_support",
     "comparison_group": "chatbots_support",
@@ -1702,7 +1885,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.gallabox.com/"
   },
   {
     "id": "panda-video",
@@ -1711,14 +1897,14 @@
     "category_display": "Video & Shorts Gen",
     "description": "A secure and high-performance video hosting platform designed for course creators and video marketers.",
     "affiliate_url": "https://pandavideo.com",
-    "pricing": "Starting at $19/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Secure video streaming",
       "Customizable video player",
       "Analytics and insights",
       "DRM protection"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=pandavideo.com&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
@@ -1729,7 +1915,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://pandavideo.com/"
   },
   {
     "id": "surfer-seo",
@@ -1738,14 +1927,14 @@
     "category_display": "SEO & Optimization",
     "description": "An AI-powered content intelligence tool designed to help SEO professionals optimize content for higher search engine rankings.",
     "affiliate_url": "https://surferseo.com/affiliate",
-    "pricing": "Starting at $59/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Content editor with real-time feedback",
       "Keyword research and analysis",
       "SERP analyzer",
       "Content planner"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=surferseo.com&sz=128",
     "primary_category": "seo_tools",
     "comparison_group": "seo_tools",
@@ -1756,7 +1945,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://surferseo.com/"
   },
   {
     "id": "murf-ai",
@@ -1765,14 +1957,14 @@
     "category_display": "Voice & Speech AI",
     "description": "An AI voice generator that provides realistic text-to-speech voices for various applications, empowering voice-over creators.",
     "affiliate_url": "https://murf.ai",
-    "pricing": "Starting at $19/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Studio-quality AI voices",
       "Custom voice cloning",
       "Speech-to-text editor",
       "Background music and sound"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=murf.ai&sz=128",
     "primary_category": "voice_cloning",
     "comparison_group": "voice_generation",
@@ -1784,7 +1976,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://murf.ai/"
   },
   {
     "id": "scalenut",
@@ -1793,14 +1988,14 @@
     "category_display": "SEO & Optimization",
     "description": "An AI content platform that streamlines content planning, creation, and SEO optimization for content teams and SEO agencies.",
     "affiliate_url": "https://www.scalenut.com/affiliate",
-    "pricing": "Starting at $39/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI content creation",
       "Cruise Mode for guided writing",
       "SEO content optimization",
       "Topic cluster discovery"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=scalenut.com&sz=128",
     "primary_category": "seo_tools",
     "comparison_group": "seo_tools",
@@ -1811,7 +2006,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.scalenut.com/"
   },
   {
     "id": "castmagic",
@@ -1827,7 +2025,7 @@
       "Generates blog posts & social content",
       "Automates content workflows"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=castmagic.io&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
@@ -1838,7 +2036,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.castmagic.io/"
   },
   {
     "id": "loopcv",
@@ -1847,14 +2048,14 @@
     "category_display": "Email & Outreach",
     "description": "LoopCV leverages AI to automate the laborious job application process, finding matching roles across multiple boards and applying on the user's behalf. It significantly streamlines the job search, saving users valuable time and effort.",
     "affiliate_url": "https://loopcv.pro",
-    "pricing": "Starting at $50/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI-powered job application automation",
       "Finds matching roles across 30+ job boards",
       "Applies to jobs on user's behalf",
       "Automated email communication with recruiters"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=loopcv.pro&sz=128",
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
@@ -1865,7 +2066,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://loopcv.pro/"
   },
   {
     "id": "clickfunnels",
@@ -1874,14 +2078,14 @@
     "category_display": "Sales & CRM",
     "description": "Empower your business with a robust sales funnel builder that turns visitors into loyal customers and automates your entire selling process.",
     "affiliate_url": "https://www.clickfunnels.com/affiliates",
-    "pricing": "Starting at $147/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Intuitive Drag-and-Drop Editor",
       "Integrated Email Automation",
       "Sales Funnel Templates",
       "A/B Testing Capabilities"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=clickfunnels.com&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
@@ -1892,7 +2096,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.clickfunnels.com/"
   },
   {
     "id": "tapfiliate",
@@ -1901,14 +2108,14 @@
     "category_display": "Productivity & SaaS",
     "description": "Launch and manage your affiliate marketing program effortlessly with robust tracking, analytics, and partner recruitment features.",
     "affiliate_url": "https://tapfiliate.com/partners/",
-    "pricing": "Starting at $89/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Real-time Performance Tracking",
       "Customizable Affiliate Dashboards",
       "Automated Payout Payments",
       "Integrations with E-commerce Platforms"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=tapfiliate.com&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -1919,7 +2126,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://tapfiliate.com/"
   },
   {
     "id": "getresponse",
@@ -1935,7 +2145,7 @@
       "Landing Page Builder",
       "Webinar Hosting"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=getresponse.com&sz=128",
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
@@ -1946,7 +2156,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.getresponse.com/"
   },
   {
     "id": "kit",
@@ -1955,14 +2168,14 @@
     "category_display": "Email & Outreach",
     "description": "Empower creators with essential email tools to grow their audience, manage newsletters, and monetize their content effectively.",
     "affiliate_url": "https://www.kit.co",
-    "pricing": "Starting at $15/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Audience Growth Tools",
       "Newsletter Management",
       "Content Monetization Features",
       "Analytics & Insights"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=kit.co&sz=128",
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
@@ -1973,7 +2186,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.kit.co/"
   },
   {
     "id": "teachable",
@@ -1982,14 +2198,14 @@
     "category_display": "Sales & CRM",
     "description": "Launch and scale your online courses and coaching products with an intuitive platform built for educators and entrepreneurs.",
     "affiliate_url": "https://teachable.com/affiliates",
-    "pricing": "Free plan available, paid plans starting at $39/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Course Creation & Hosting",
       "Student Management",
       "Payment Processing",
       "Customizable Sales Pages"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=teachable.com&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
@@ -2000,7 +2216,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://teachable.com/"
   },
   {
     "id": "livechat",
@@ -2016,7 +2235,7 @@
       "AI Chatbot Integration",
       "Sales & Analytics Reports"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=livechat.com&sz=128",
     "primary_category": "chatbots_support",
     "comparison_group": "chatbots_support",
@@ -2027,7 +2246,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.livechat.com/"
   },
   {
     "id": "kittl",
@@ -2036,14 +2258,14 @@
     "category_display": "Design & Graphics",
     "description": "Kittl is an AI-powered graphic design tool that simplifies creating stunning visuals with an extensive library of templates, vector editing, and print-on-demand assets.",
     "affiliate_url": "https://www.kittl.com",
-    "pricing": "Starting at $15/month",
+    "pricing": "See official pricing",
     "key_features": [
       "AI-powered graphic design",
       "Extensive template library",
       "Advanced vector editing",
       "Print-on-demand assets"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=kittl.com&sz=128",
     "primary_category": "design_art",
     "comparison_group": "design_art",
@@ -2054,7 +2276,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.kittl.com/"
   },
   {
     "id": "koala-ai",
@@ -2063,14 +2288,14 @@
     "category_display": "SEO & Optimization",
     "description": "Koala AI is an advanced AI writing tool specifically designed for generating SEO-optimized articles, complete with SERP analysis, Amazon affiliate content, and seamless WordPress integration.",
     "affiliate_url": "https://koala.sh",
-    "pricing": "Starting at $25/month",
+    "pricing": "See official pricing",
     "key_features": [
       "SEO-optimized article writing",
       "SERP analysis integration",
       "Amazon affiliate content generation",
       "Direct WordPress publishing"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=koala.sh&sz=128",
     "primary_category": "seo_tools",
     "comparison_group": "seo_tools",
@@ -2081,7 +2306,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://koala.sh/"
   },
   {
     "id": "lovo",
@@ -2090,14 +2318,14 @@
     "category_display": "Voice & Speech AI",
     "description": "Lovo is an AI voice platform offering over 500 diverse voices, robust voice cloning capabilities, and integrated Genny video editing for comprehensive media production.",
     "affiliate_url": "https://lovo.ai",
-    "pricing": "Starting at $29/month",
+    "pricing": "See official pricing",
     "key_features": [
       "500+ AI voices",
       "Advanced voice cloning",
       "Integrated Genny video editor",
       "High-quality text-to-speech"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=lovo.ai&sz=128",
     "primary_category": "voice_cloning",
     "comparison_group": "voice_generation",
@@ -2125,7 +2353,7 @@
       "500+ app integrations",
       "Customizable automation logic"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=n8n.io&sz=128",
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
@@ -2136,7 +2364,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://n8n.io/"
   },
   {
     "id": "novita-ai",
@@ -2145,14 +2376,14 @@
     "category_display": "Coding & Dev Tools",
     "description": "Novita AI is a comprehensive AI cloud platform offering developers and businesses seamless access to 200+ AI model APIs and custom deployment solutions for advanced applications.",
     "affiliate_url": "https://novita.com",
-    "pricing": "Pay-as-you-go or starting at $50/month",
+    "pricing": "See official pricing",
     "key_features": [
       "200+ AI model APIs",
       "Custom deployment solutions",
       "Scalable AI cloud infrastructure",
       "Developer-friendly integrations"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=novita.com&sz=128",
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
@@ -2163,7 +2394,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://novita.com/"
   },
   {
     "id": "followr",
@@ -2179,7 +2413,7 @@
       "Automated content scheduling",
       "Performance analytics"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=followr.ai&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -2190,7 +2424,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://followr.ai/"
   },
   {
     "id": "10web",
@@ -2199,14 +2436,14 @@
     "category_display": "Productivity & SaaS",
     "description": "10Web offers an AI-powered platform for building and managing WordPress websites, providing automated hosting and optimization features.",
     "affiliate_url": "https://10web.io",
-    "pricing": "Starting at $20/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI Website Builder for WordPress",
       "Automated WordPress Hosting",
       "PageSpeed Booster",
       "Real-time backup and security"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=10web.io&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -2217,7 +2454,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://10web.io/"
   },
   {
     "id": "supademo",
@@ -2233,7 +2473,7 @@
       "Streamline user onboarding",
       "Generate consistent revenue"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=supademo.com&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -2244,7 +2484,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://supademo.com/"
   },
   {
     "id": "colossyan",
@@ -2253,14 +2496,14 @@
     "category_display": "Video & Shorts Gen",
     "description": "Colossyan is an AI video platform that enables users to create engaging videos with AI presenters and multilingual support for diverse content needs, simplifying complex video production.",
     "affiliate_url": "https://colossyan.com",
-    "pricing": "Starting at $30/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI video creation",
       "Lifelike AI presenters",
       "Automatic subtitle generation",
       "Multilingual video support"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=colossyan.com&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
@@ -2272,7 +2515,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://colossyan.com/"
   },
   {
     "id": "beefree",
@@ -2281,14 +2527,14 @@
     "category_display": "Email & Outreach",
     "description": "Beefree is a drag-and-drop editor for creating beautiful, responsive emails and landing pages quickly and without coding, ideal for marketers and designers.",
     "affiliate_url": "https://beefree.io",
-    "pricing": "Starting at $15/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Drag-and-drop editor",
       "Responsive email design",
       "Landing page creation",
       "No coding required"
     ],
-    "rating": 4.3,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=beefree.io&sz=128",
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
@@ -2299,7 +2545,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://beefree.io/"
   },
   {
     "id": "apollo",
@@ -2308,14 +2557,14 @@
     "category_display": "Sales & CRM",
     "description": "Apollo is a sales intelligence and engagement platform that provides B2B contact data, lead generation tools, and outreach automation for sales teams to close more deals.",
     "affiliate_url": "https://apollo.io",
-    "pricing": "Starting at $49/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "B2B contact database",
       "Lead generation tools",
       "Sales outreach automation",
       "CRM integration"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=apollo.io&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
@@ -2326,7 +2575,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://apollo.io/"
   },
   {
     "id": "getgenie",
@@ -2335,14 +2587,14 @@
     "category_display": "SEO & Optimization",
     "description": "GetGenie is an AI-powered content writing assistant that helps marketers and bloggers generate high-quality articles, social media posts, and SEO content efficiently.",
     "affiliate_url": "https://getgenie.ai",
-    "pricing": "Starting at $19/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI content generation",
       "SEO optimization features",
       "Blog post wizard",
       "Social media content creation"
     ],
-    "rating": 4.4,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=getgenie.ai&sz=128",
     "primary_category": "seo_tools",
     "comparison_group": "seo_tools",
@@ -2353,7 +2605,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://getgenie.ai/"
   },
   {
     "id": "activecampaign",
@@ -2362,14 +2617,14 @@
     "category_display": "Sales & CRM",
     "description": "ActiveCampaign is a powerful customer experience automation platform offering email marketing, marketing automation, and CRM tools for businesses of all sizes to engage customers effectively.",
     "affiliate_url": "https://activecampaign.com",
-    "pricing": "Starting at $29/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Email marketing automation",
       "CRM functionality",
       "Sales automation",
       "Customizable workflows"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=activecampaign.com&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
@@ -2380,7 +2635,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://activecampaign.com/"
   },
   {
     "id": "sanebox",
@@ -2389,14 +2647,14 @@
     "category_display": "Email & Outreach",
     "description": "Sanebox is an AI-powered email management tool that helps users prioritize important emails, organize their inbox, and reduce clutter efficiently.",
     "affiliate_url": "https://sanebox.com",
-    "pricing": "Starting at $7/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI email prioritization",
       "Automated inbox organization",
       "Spam and clutter reduction",
       "Do Not Disturb feature"
     ],
-    "rating": 4.3,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=sanebox.com&sz=128",
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
@@ -2407,7 +2665,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://sanebox.com/"
   },
   {
     "id": "pipedrive",
@@ -2416,14 +2677,14 @@
     "category_display": "Sales & CRM",
     "description": "Pipedrive is a sales-focused CRM platform designed to help small and medium businesses manage their sales pipeline, track deals, and automate workflows, ensuring no lead is missed.",
     "affiliate_url": "https://pipedrive.com",
-    "pricing": "Starting at $14/user/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Sales pipeline management",
       "Activity scheduling",
       "Lead management",
       "Sales reporting"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=pipedrive.com&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
@@ -2434,7 +2695,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://pipedrive.com/"
   },
   {
     "id": "framer",
@@ -2443,14 +2707,14 @@
     "category_display": "Coding & Dev Tools",
     "description": "Framer is a powerful design tool and website builder that enables users to create stunning interactive prototypes and publish them as live websites with ease, no coding required.",
     "affiliate_url": "https://framer.com",
-    "pricing": "Starting at $10/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Interactive prototyping",
       "Visual website builder",
       "CMS functionality",
       "Responsive design capabilities"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=framer.com&sz=128",
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
@@ -2461,7 +2725,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://framer.com/"
   },
   {
     "id": "monday-com",
@@ -2477,7 +2744,7 @@
       "Customizable workflows",
       "Team collaboration tools"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=monday.com&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -2488,7 +2755,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://monday.com/"
   },
   {
     "id": "cartstack",
@@ -2504,7 +2774,7 @@
       "Browser Push Notifications",
       "Abandoned Cart Recovery for Retailers"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=cartstack.com&sz=128",
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
@@ -2515,7 +2785,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.cartstack.com/"
   },
   {
     "id": "cloudways",
@@ -2524,14 +2797,14 @@
     "category_display": "Coding & Dev Tools",
     "description": "Cloudways is a managed cloud hosting platform designed to simplify the deployment and management of web applications for businesses and developers.",
     "affiliate_url": null,
-    "pricing": "Starting at $14/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Managed cloud hosting platform",
       "Simplified application deployment",
       "Scalable infrastructure solutions",
       "24/7 expert support and monitoring"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=cloudways.com&sz=128",
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
@@ -2542,7 +2815,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.cloudways.com/"
   },
   {
     "id": "featureshark",
@@ -2558,7 +2834,7 @@
       "Idea prioritization tools",
       "Enhanced team collaboration"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=featureshark.com&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -2569,7 +2845,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://featureshark.com/"
   },
   {
     "id": "clickup",
@@ -2578,14 +2857,14 @@
     "category_display": "Workflow Automation",
     "description": "ClickUp is an all-in-one productivity platform offering highly customizable project management solutions for teams seeking to streamline workflows.",
     "affiliate_url": null,
-    "pricing": "Starting at $5/user/month",
+    "pricing": "See official pricing",
     "key_features": [
       "Customizable project management",
       "Comprehensive task and goal tracking",
       "Collaborative workspaces and docs",
       "Integrations with essential tools"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=clickup.com&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -2596,7 +2875,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://clickup.com/"
   },
   {
     "id": "getgabs",
@@ -2612,7 +2894,7 @@
       "Personalized customer engagement",
       "Marketing analytics and reports"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=getgabs.com&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -2623,7 +2905,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://getgabs.com/"
   },
   {
     "id": "eprofessor",
@@ -2632,14 +2917,14 @@
     "category_display": "Productivity & SaaS",
     "description": "Cloud-based platform for creating, selling, and managing interactive e-learning courses and secure online assessments.",
     "affiliate_url": "https://eprofessor.com",
-    "pricing": "Starting at $29/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Create interactive courses",
       "Sell e-learning content",
       "Manage course enrollments",
       "Secure online assessments"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=eprofessor.com&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -2650,7 +2935,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://eprofessor.com/"
   },
   {
     "id": "docsbot",
@@ -2659,14 +2947,14 @@
     "category_display": "Autonomous AI Agents",
     "description": "Deploy custom AI agents trained on your unique business knowledge for superior automated support and enhanced team productivity.",
     "affiliate_url": "https://docsbot.ai",
-    "pricing": "Starting at $49/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Custom AI agent creation",
       "Train on business knowledge",
       "Automated customer support",
       "Boost team productivity"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=docsbot.ai&sz=128",
     "primary_category": "ai_agents",
     "comparison_group": "ai_agents",
@@ -2677,7 +2965,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://docsbot.ai/"
   },
   {
     "id": "surfeo",
@@ -2686,14 +2977,14 @@
     "category_display": "Design & Graphics",
     "description": "A powerful platform designed to measure and optimize your brand's visibility across leading AI models like ChatGPT, Gemini, Perplexity, and Claude.",
     "affiliate_url": "https://surfeo.ai",
-    "pricing": "Starting at $99/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Measure AI brand visibility",
       "Optimize AI model presence",
       "ChatGPT and Gemini support",
       "Perplexity and Claude analysis"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=surfeo.ai&sz=128",
     "primary_category": "design_art",
     "comparison_group": "design_art",
@@ -2704,7 +2995,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://surfeo.ai/"
   },
   {
     "id": "dub",
@@ -2713,14 +3007,14 @@
     "category_display": "Productivity & SaaS",
     "description": "Create branded short links with advanced conversion tracking and a robust partner management infrastructure for effective marketing campaigns.",
     "affiliate_url": "https://dub.co",
-    "pricing": "Starting at $10/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Branded short links",
       "Advanced conversion tracking",
       "Partner management tools",
       "Custom link redirects"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=dub.co&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -2731,7 +3025,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://dub.co/"
   },
   {
     "id": "helpdesk",
@@ -2740,14 +3037,14 @@
     "category_display": "Chatbots & Support",
     "description": "Centralized ticketing software that streamlines customer support and enhances team collaboration through powerful automation and analytics.",
     "affiliate_url": "https://helpdesk.com",
-    "pricing": "Starting at $29/agent/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Centralized ticketing system",
       "Streamlined customer support",
       "Team collaboration features",
       "Automation and analytics"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=helpdesk.com&sz=128",
     "primary_category": "chatbots_support",
     "comparison_group": "chatbots_support",
@@ -2758,7 +3055,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://helpdesk.com/"
   },
   {
     "id": "happyscribe",
@@ -2767,14 +3067,14 @@
     "category_display": "Productivity & SaaS",
     "description": "AI-powered platform that provides fast transcription, accurate subtitles, and intelligent meeting notes in over 150 languages.",
     "affiliate_url": "https://happyscribe.com",
-    "pricing": "Starting at $10/hr",
+    "pricing": "See official pricing",
     "key_features": [
       "AI-powered transcription",
       "Automatic subtitle generation",
       "Meeting notes summarization",
       "Supports 150+ languages"
     ],
-    "rating": 4.9,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=happyscribe.com&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -2785,7 +3085,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://happyscribe.com/"
   },
   {
     "id": "pickaxe",
@@ -2794,14 +3097,14 @@
     "category_display": "Coding & Dev Tools",
     "description": "A no-code platform to effortlessly build, deploy, and monetize custom AI agents and branded portals, accelerating your AI development.",
     "affiliate_url": "https://pickaxe.ai",
-    "pricing": "Starting at $39/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "No-code AI agent builder",
       "Deploy custom AI agents",
       "Monetize AI solutions",
       "Create branded portals"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=pickaxe.ai&sz=128",
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
@@ -2812,7 +3115,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://pickaxe.ai/"
   },
   {
     "id": "ai-video-cut",
@@ -2821,14 +3127,14 @@
     "category_display": "Video & Shorts Gen",
     "description": "Transforms long-form videos into engaging, viral short-form clips using advanced AI-driven prompts and smart cropping technology.",
     "affiliate_url": "https://aivideocut.com",
-    "pricing": "Starting at $15/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Convert long videos to shorts",
       "Generate viral clips",
       "AI-driven prompt suggestions",
       "Smart cropping technology"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=aivideocut.com&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
@@ -2839,7 +3145,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://aivideocut.com/"
   },
   {
     "id": "tagshop-ai",
@@ -2848,14 +3157,14 @@
     "category_display": "Video & Shorts Gen",
     "description": "Generate high-converting, UGC-style AI video ads directly from product URLs or scripts in just minutes, boosting your marketing efforts.",
     "affiliate_url": "https://tagshop.ai",
-    "pricing": "Starting at $49/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Generate AI video ads",
       "High-converting UGC style",
       "From product URLs",
       "From scripts in minutes"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=tagshop.ai&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
@@ -2866,7 +3175,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://tagshop.ai/"
   },
   {
     "id": "text",
@@ -2875,14 +3187,14 @@
     "category_display": "Chatbots & Support",
     "description": "An AI-powered customer service platform unifying live chat, helpdesk functionalities, and chatbot automation into one seamless system.",
     "affiliate_url": "https://text.com",
-    "pricing": "Starting at $39/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI customer service platform",
       "Unify live chat",
       "Integrated helpdesk",
       "Chatbot automation"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=text.com&sz=128",
     "primary_category": "chatbots_support",
     "comparison_group": "chatbots_support",
@@ -2893,7 +3205,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://text.com/"
   },
   {
     "id": "typedesk",
@@ -2902,14 +3217,14 @@
     "category_display": "Productivity & SaaS",
     "description": "Cross-platform text expander and canned response manager empowering teams to automate repetitive typing tasks and enhance communication efficiency.",
     "affiliate_url": "https://typedesk.com",
-    "pricing": "Starting at $10/user/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Cross-platform text expander",
       "Canned response manager",
       "Automate repetitive typing",
       "Team collaboration"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=typedesk.com&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -2920,7 +3235,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://typedesk.com/"
   },
   {
     "id": "chatbot",
@@ -2929,14 +3247,14 @@
     "category_display": "Chatbots & Support",
     "description": "Create powerful AI-powered conversational agents to automate customer service, streamline lead generation, and boost sales processes without any coding.",
     "affiliate_url": "https://chatbot.com",
-    "pricing": "Starting at $50/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Create AI chatbots",
       "Automate customer service",
       "Lead generation automation",
       "No-code builder"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=chatbot.com&sz=128",
     "primary_category": "chatbots_support",
     "comparison_group": "chatbots_support",
@@ -2947,7 +3265,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://chatbot.com/"
   },
   {
     "id": "gojiberry",
@@ -2956,14 +3277,14 @@
     "category_display": "Sales & CRM",
     "description": "An AI-powered sales engine that intelligently identifies high-intent LinkedIn leads and automates personalized outreach to effortlessly book demos.",
     "affiliate_url": "https://gojiberry.ai",
-    "pricing": "Starting at $79/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "AI sales engine",
       "High-intent LinkedIn leads",
       "Automate personalized outreach",
       "Streamline demo bookings"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=gojiberry.ai&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
@@ -2974,7 +3295,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://gojiberry.ai/"
   },
   {
     "id": "bidx",
@@ -2990,7 +3314,7 @@
       "Optimize ad performance",
       "Amazon & Walmart seller support"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=bidx.io&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -3008,7 +3332,10 @@
     ],
     "http_verification_status": "verified_http_200",
     "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://www.bidx.io/pricing"
+    "pricing_source_final_url": "https://www.bidx.io/pricing",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.bidx.io/"
   },
   {
     "id": "tidio",
@@ -3024,7 +3351,7 @@
       "Customer Ticketing System",
       "Workflow Automations"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=tidio.com&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -3035,7 +3362,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.tidio.com/"
   },
   {
     "id": "catalister",
@@ -3051,7 +3381,7 @@
       "Streamlined dropshipping operations",
       "Built for e-commerce creators"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=catalister.com&sz=128",
     "primary_category": "design_art",
     "comparison_group": "design_art",
@@ -3062,7 +3392,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://catalister.com/"
   },
   {
     "id": "bookyourdata",
@@ -3078,7 +3411,7 @@
       "Flexible pay-as-you-go",
       "Instant data downloads"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=bookyourdata.com&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -3089,7 +3422,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-09T00:00:00Z",
+    "official_evidence_url": "https://bookyourdata.com/"
   },
   {
     "id": "mindstudio",
@@ -3105,7 +3441,7 @@
       "Flexible and secure environment",
       "Custom AI automation"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=mindstudio.ai&sz=128",
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
@@ -3116,7 +3452,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.mindstudio.ai/"
   },
   {
     "id": "manychat",
@@ -3132,7 +3471,7 @@
       "Audience engagement tools",
       "Growth for creators & businesses"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=manychat.com&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -3143,7 +3482,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-09T00:00:00Z",
+    "official_evidence_url": "https://manychat.com/"
   },
   {
     "id": "synthflow-ai",
@@ -3159,7 +3501,7 @@
       "Appointment scheduling automation",
       "Lead qualification & support"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=synthflow.ai&sz=128",
     "primary_category": "voice_cloning",
     "comparison_group": "voice_generation",
@@ -3170,7 +3512,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://synthflow.ai/"
   },
   {
     "id": "customgpt-ai",
@@ -3186,7 +3531,7 @@
       "Implement role-specific agent behavior",
       "Receive hands-on integration support"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=customgpt.ai&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -3197,7 +3542,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://customgpt.ai/"
   },
   {
     "id": "databox",
@@ -3206,14 +3554,14 @@
     "category_display": "Productivity & SaaS",
     "description": "Automates client reporting for agencies, transforming a traditionally time-consuming process into a scalable and efficient system. Ideal for performance marketing and PPC specialists seeking high ROI from their reporting.",
     "affiliate_url": "https://databox.com",
-    "pricing": "Starting at $72/mo (billed annually)",
+    "pricing": "See official pricing",
     "key_features": [
       "Automates recurring client reporting",
       "Transforms reporting into a scalable system",
       "High ROI for agencies",
       "Saves hours of manual work weekly"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=databox.com&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -3224,7 +3572,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://databox.com/"
   },
   {
     "id": "fathom",
@@ -3240,7 +3591,7 @@
       "Extracts key action items effortlessly",
       "Seamless CRM integration for notes"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=fathom.ai&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
@@ -3258,7 +3609,10 @@
     ],
     "http_verification_status": "verified_http_200",
     "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://www.fathom.ai/pricing"
+    "pricing_source_final_url": "https://www.fathom.ai/pricing",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.fathom.ai/"
   },
   {
     "id": "taskip",
@@ -3267,14 +3621,14 @@
     "category_display": "Workflow Automation",
     "description": "Taskip is an operational hub designed to centralize and tie together projects, clients, communication, and various automations, creating a unified and efficient ecosystem for agencies.",
     "affiliate_url": "https://taskip.net",
-    "pricing": "Starting at $49/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Centralized operational hub",
       "Unified project and client management",
       "Streamlines internal communication",
       "Integrates diverse automations seamlessly"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=taskip.net&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -3285,7 +3639,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://taskip.net/"
   },
   {
     "id": "gumloop",
@@ -3294,14 +3651,14 @@
     "category_display": "Coding & Dev Tools",
     "description": "Gumloop is an innovative AI agent and workflow automation platform that allows you to build custom AI agents using simple plain language, connecting to your tools and running workflows without code.",
     "affiliate_url": "https://gumloop.com",
-    "pricing": "Starting at $99/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Build custom AI agents without code",
       "Define agents using plain language",
       "Automatically connects to your tools",
       "Executes complex workflows autonomously"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=gumloop.com&sz=128",
     "primary_category": "dev_coding",
     "comparison_group": "dev_coding",
@@ -3312,7 +3669,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://gumloop.com/"
   },
   {
     "id": "teknikforce",
@@ -3328,7 +3688,7 @@
       "Integrated AI tools for various tasks",
       "Robust workflow automation features"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=teknikforce.com&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -3339,7 +3699,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.teknikforce.com/"
   },
   {
     "id": "hide-me",
@@ -3348,14 +3711,14 @@
     "category_display": "Productivity & SaaS",
     "description": "hide.me offers an advanced VPN service ensuring online privacy, anonymity, and secure encrypted internet connections for users worldwide. Protect your digital footprint with robust security features.",
     "affiliate_url": null,
-    "pricing": "Starting at $9.95/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Advanced online privacy",
       "Anonymous browsing",
       "Secure encrypted connections",
       "Worldwide server network"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=hide.me&sz=128",
     "primary_category": "productivity",
     "comparison_group": "productivity",
@@ -3366,7 +3729,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://hide.me/"
   },
   {
     "id": "snov-io",
@@ -3375,14 +3741,14 @@
     "category_display": "Sales & CRM",
     "description": "Snov.io is an all-in-one platform for lead generation, email verification, and outreach, helping sales and marketing teams streamline their prospecting efforts.",
     "affiliate_url": "https://snov.io",
-    "pricing": "Starting at $39/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Email Finder & Verifier",
       "Drip Email Campaigns",
       "Lead CRM",
       "API for Integrations"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=snov.io&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
@@ -3393,7 +3759,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://snov.io/"
   },
   {
     "id": "claap",
@@ -3402,14 +3771,14 @@
     "category_display": "Video & Shorts Gen",
     "description": "Claap is a powerful software platform that streamlines team communication by helping record, analyze, and share meeting content and asynchronous video updates. Enhance productivity and decision-making by acting on crucial insights efficiently.",
     "affiliate_url": "https://www.claap.ai",
-    "pricing": "Starting at $10/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Record and transcribe meeting content",
       "Analyze asynchronous video updates",
       "Share insights across teams",
       "Actionable follow-ups and tasks"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=claap.ai&sz=128",
     "primary_category": "video_gen",
     "comparison_group": "ai_avatar_video",
@@ -3420,7 +3789,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.claap.ai/"
   },
   {
     "id": "cloudtalk",
@@ -3429,14 +3801,14 @@
     "category_display": "Workflow Automation",
     "description": "CloudTalk is a leading cloud-based call center software designed to revolutionize how businesses interact with their customers. Optimize communication workflows and deliver exceptional customer service with advanced features.",
     "affiliate_url": "https://www.cloudtalk.io",
-    "pricing": "Starting at $25/mo",
+    "pricing": "See official pricing",
     "key_features": [
       "Cloud-based call center functionality",
       "Advanced customer communication tools",
       "Call recording and analytics",
       "Team collaboration features"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=cloudtalk.io&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -3447,7 +3819,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.cloudtalk.io/"
   },
   {
     "id": "seamless",
@@ -3463,7 +3838,7 @@
       "Real-time & bulk search tools",
       "Integrations with existing apps"
     ],
-    "rating": 4.8,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=seamless.ai&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
@@ -3490,7 +3865,7 @@
       "Scalable AI Operations",
       "Advanced Workflow Automation"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=flowgent.ai&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -3501,7 +3876,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://flowgent.ai/"
   },
   {
     "id": "activepieces",
@@ -3517,7 +3895,7 @@
       "Offers solid automation capabilities",
       "Connects cloud applications via APIs"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=activepieces.com&sz=128",
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
@@ -3528,7 +3906,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.activepieces.com/"
   },
   {
     "id": "marketingblocks",
@@ -3544,7 +3925,7 @@
       "Centralized content, ads, and funnel management",
       "Automated marketing campaigns"
     ],
-    "rating": 4.6,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=marketingblocks.ai&sz=128",
     "primary_category": "copywriting",
     "comparison_group": "ai_writing_assistant",
@@ -3565,14 +3946,14 @@
     "category_display": "Email & Outreach",
     "description": "Google Workspace offers a powerful suite of cloud-based productivity and collaboration tools, including Gmail, Drive, Calendar, Docs, and Meet, empowering businesses to work efficiently from anywhere. It's ideal for enhancing team communication and content creation.",
     "affiliate_url": null,
-    "pricing": "Per-user pricing, starting at $6/month.",
+    "pricing": "See official pricing",
     "key_features": [
       "Professional Email (Gmail)",
       "Cloud Storage (Drive)",
       "Shared Calendars",
       "Collaborative Document Editing"
     ],
-    "rating": 4.5,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=workspace.google.com&sz=128",
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
@@ -3583,7 +3964,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://workspace.google.com/"
   },
   {
     "id": "chatbase",
@@ -3599,7 +3983,7 @@
       "Streamline sales processes",
       "Integrate with e-commerce platforms"
     ],
-    "rating": 4.7,
+    "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=chatbase.co&sz=128",
     "primary_category": "sales_crm",
     "comparison_group": "sales_crm",
@@ -3610,7 +3994,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.chatbase.co/"
   },
   {
     "id": "krater",
@@ -3644,7 +4031,10 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": "2026-08-04T03:25:05Z",
     "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://krater.ai/pricing"
+    "pricing_source_final_url": "https://krater.ai/pricing",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://krater.ai/"
   },
   {
     "id": "expandi",
@@ -3675,7 +4065,10 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": null,
     "pricing_source_http_status": null,
-    "pricing_source_final_url": null
+    "pricing_source_final_url": null,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://expandi.io/"
   },
   {
     "id": "reditus",
@@ -3709,7 +4102,10 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": "2026-08-04T03:25:05Z",
     "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://getreditus.com/help/reditus-pricing"
+    "pricing_source_final_url": "https://getreditus.com/help/reditus-pricing",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://getreditus.com/"
   },
   {
     "id": "joiin",
@@ -3743,7 +4139,10 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": "2026-08-04T03:25:05Z",
     "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://www.joiin.co/pricing/"
+    "pricing_source_final_url": "https://www.joiin.co/pricing/",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.joiin.co/"
   },
   {
     "id": "agentworks",
@@ -3763,7 +4162,7 @@
     "logo_url": "https://www.google.com/s2/favicons?domain=agentworks.ai&sz=128",
     "primary_category": "developer",
     "comparison_group": "ai_agent_platform",
-    "official_url": "https://agentworks.ai/",
+    "official_url": "https://agent-works.ai/",
     "pricing_source_url": null,
     "pricing_evidence_markers": null,
     "pricing_verified": false,
@@ -3774,7 +4173,10 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": null,
     "pricing_source_http_status": null,
-    "pricing_source_final_url": null
+    "pricing_source_final_url": null,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-09T00:00:00Z",
+    "official_evidence_url": "https://agent-works.ai/"
   },
   {
     "id": "airia",
@@ -3836,7 +4238,10 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": null,
     "pricing_source_http_status": null,
-    "pricing_source_final_url": null
+    "pricing_source_final_url": null,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.omi.me/"
   },
   {
     "id": "fireflies-ai",
@@ -3867,7 +4272,10 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": null,
     "pricing_source_http_status": null,
-    "pricing_source_final_url": null
+    "pricing_source_final_url": null,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://fireflies.ai/"
   },
   {
     "id": "gamma",
@@ -3898,7 +4306,10 @@
     "http_verification_status": "bot_blocked",
     "pricing_verified_at": null,
     "pricing_source_http_status": null,
-    "pricing_source_final_url": null
+    "pricing_source_final_url": null,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-09T00:00:00Z",
+    "official_evidence_url": "https://gamma.app/"
   },
   {
     "id": "gobii",
@@ -3929,7 +4340,10 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": null,
     "pricing_source_http_status": null,
-    "pricing_source_final_url": null
+    "pricing_source_final_url": null,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://gobii.ai/"
   },
   {
     "id": "voibe",
@@ -3967,7 +4381,10 @@
     "affiliate_verified_at": null,
     "affiliate_rejection_reason": "HTTP 200 but no strong affiliate evidence found. Required at least one compound pattern (e.g. 'affiliate program', 'commission rate', 'cookie duration'). Single-word matches in footer/privacy/blog are not accepted.",
     "primary_category": "voice_cloning",
-    "comparison_group": "voice_generation"
+    "comparison_group": "voice_generation",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.getvoibe.com/"
   },
   {
     "id": "merlin-ai",
@@ -4043,7 +4460,10 @@
     "affiliate_verified_at": null,
     "affiliate_rejection_reason": "HTTP error 308",
     "primary_category": "voice_cloning",
-    "comparison_group": "voice_generation"
+    "comparison_group": "voice_generation",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://speechify.com/"
   },
   {
     "id": "babylovegrowth-ai",
@@ -4081,7 +4501,10 @@
     "affiliate_verified_at": null,
     "affiliate_rejection_reason": "HTTP error 308",
     "primary_category": "creator",
-    "comparison_group": "creator"
+    "comparison_group": "creator",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://babylovegrowth.ai"
   },
   {
     "id": "ai-agent-store",
@@ -4089,7 +4512,7 @@
     "category": "automation",
     "category_display": "Workflow Automation",
     "description": "Discover and deploy a diverse array of AI agents, access agency listings, and leverage hosted AI solutions with premium subscriptions designed for businesses seeking advanced automation.",
-    "official_url": "https://aiagentstore.com/",
+    "official_url": "https://aiagentstore.ai/",
     "affiliate_url": null,
     "pricing_source_url": null,
     "pricing": "See official pricing",
@@ -4119,7 +4542,10 @@
     "affiliate_verified_at": null,
     "affiliate_rejection_reason": "URL error: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1017)",
     "primary_category": "automation",
-    "comparison_group": "automation"
+    "comparison_group": "automation",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-09T00:00:00Z",
+    "official_evidence_url": "https://aiagentstore.ai/"
   },
   {
     "id": "marblism",
@@ -4159,7 +4585,10 @@
     "affiliate_verified_at": "2026-08-03T14:15:30Z",
     "affiliate_rejection_reason": "",
     "primary_category": "automation",
-    "comparison_group": "automation"
+    "comparison_group": "automation",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://marblism.com/"
   },
   {
     "id": "taskade",
@@ -4202,7 +4631,10 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": "2026-08-04T03:25:05Z",
     "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://www.taskade.com/pricing"
+    "pricing_source_final_url": "https://www.taskade.com/pricing",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.taskade.com/"
   },
   {
     "id": "relevance-ai",
@@ -4243,6 +4675,9 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": "2026-08-04T03:25:05Z",
     "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://relevanceai.com/docs/get-started/pricing"
+    "pricing_source_final_url": "https://relevanceai.com/docs/get-started/pricing",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://relevanceai.com/"
   }
 ]

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ExternalLink, Plus, Check, ShieldCheck, Zap, Star } from 'lucide-react';
+import { X, ExternalLink, Plus, Check, ShieldCheck, Zap } from 'lucide-react';
 import { getValidExternalUrl } from '../utils/url';
 
 export default function CompareModal({ toolA, toolB, allTools, onClose }) {
@@ -124,18 +124,18 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
             <div>
               <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Pricing Plan</div>
               <div className="text-sm font-black text-emerald-400 mt-0.5">{toolA.pricing}</div>
-              <div className="text-[10px] text-amber-400 font-extrabold mt-1">⭐ {toolA.rating || 'N/A'} / 5.0</div>
+              <div className="text-[10px] text-slate-500 font-extrabold mt-1">No sourced rating</div>
             </div>
             <div>
               <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Pricing Plan</div>
               <div className="text-sm font-black text-emerald-400 mt-0.5">{selectedToolB.pricing}</div>
-              <div className="text-[10px] text-amber-400 font-extrabold mt-1">⭐ {selectedToolB.rating || 'N/A'} / 5.0</div>
+              <div className="text-[10px] text-slate-500 font-extrabold mt-1">No sourced rating</div>
             </div>
             {selectedToolC && (
               <div>
                 <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Pricing Plan</div>
                 <div className="text-sm font-black text-emerald-400 mt-0.5">{selectedToolC.pricing}</div>
-                <div className="text-[10px] text-amber-400 font-extrabold mt-1">⭐ {selectedToolC.rating || 'N/A'} / 5.0</div>
+                <div className="text-[10px] text-slate-500 font-extrabold mt-1">No sourced rating</div>
               </div>
             )}
           </div>

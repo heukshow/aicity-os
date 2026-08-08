@@ -291,7 +291,7 @@ for tool in tools_data:
 
 
     r_val = tool.get("rating")
-    if r_val is not None:
+    if r_val is not None and tool.get("rating_source_url"):
         rating_badge = f'⭐ {r_val} / 5.0 Rating'
         rating_meta = f'rating ({r_val}/5.0), '
         rating_pro = f'<li>Editorial rating ({r_val}/5.0)</li>'
@@ -537,8 +537,8 @@ for tool_a in tools_data:
         feat_a = "\n".join([f'<div>✓ {f}</div>' for f in tool_a.get("key_features", [])])
         feat_b = "\n".join([f'<div>✓ {f}</div>' for f in tool_b.get("key_features", [])])
         
-        r_a = tool_a.get("rating")
-        r_b = tool_b.get("rating")
+        r_a = tool_a.get("rating") if tool_a.get("rating_source_url") else None
+        r_b = tool_b.get("rating") if tool_b.get("rating_source_url") else None
         rating_a_disp = f"⭐ {r_a} / 5.0" if r_a is not None else "Not rated"
         rating_b_disp = f"⭐ {r_b} / 5.0" if r_b is not None else "Not rated"
 
