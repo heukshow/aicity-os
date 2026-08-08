@@ -1,6 +1,6 @@
 # GlobalSaaSHub Content Audit Report
 
-Generated: 2026-08-08T21:43:07.707457+00:00
+Generated: 2026-08-08T22:04:43.972865+00:00
 
 Scope: 150 tools, 150 detail pages, 231 comparison pages, 150 sitemap tool URLs.
 

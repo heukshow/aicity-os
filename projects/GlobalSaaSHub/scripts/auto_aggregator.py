@@ -26,15 +26,12 @@ def normalize_unverified_candidate(new_tool, official_url, affiliate_url):
     normalized["official_url"] = official_url
     normalized["affiliate_url"] = affiliate_url
 
-    # Search snippets are not official pricing verification.
+    # Search snippets are not official pricing verification. Fail closed: an
+    # unverified discovery may not retain a claimed price or any evidence
+    # metadata, even when the extraction model supplied plausible values.
     normalized["pricing"] = "See official pricing"
     normalized["pricing_verified"] = False
-    # Preserve explicit pricing_source_url if provided and valid (e.g. from candidate fixture)
-    raw_p_src = new_tool.get("pricing_source_url")
-    if raw_p_src and isinstance(raw_p_src, str) and raw_p_src.strip().startswith(("http://", "https://")):
-        normalized["pricing_source_url"] = raw_p_src.strip()
-    else:
-        normalized["pricing_source_url"] = None
+    normalized["pricing_source_url"] = None
     normalized["pricing_verified_at"] = None
     normalized["pricing_source_http_status"] = None
     normalized["pricing_source_final_url"] = None
@@ -593,8 +590,8 @@ def main(base_dir=None):
     - logo_url must be a premium high-quality placeholder image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60" (or similar technology placeholder from unsplash).
     - official_url MUST be the root domain URL of the product website (e.g. "https://example.com/").
     - affiliate_url MUST be the official affiliate/partner program link or referral URL (e.g. "https://example.com/affiliate"). If unknown, default to official_url.
-    - pricing_source_url MUST be the explicit pricing page URL (e.g. "https://example.com/pricing"). If unknown, default to official_url.
-    - pricing MUST state concrete verified pricing from the snippet (e.g. "Starting at $29/mo"). DO NOT use vague statements like "See website", "Varies", "Not specified". If exact pricing is missing, set pricing to "Contact sales / See official pricing".
+    - Discovery output is UNVERIFIED. pricing_source_url MUST be null; a later official-page verification step is the only path that may set it.
+    - pricing MUST be "See official pricing". Never infer or copy a numeric price from a search snippet.
 
     
     JSON Schema:
@@ -607,8 +604,8 @@ def main(base_dir=None):
         "description": "string (engaging, 1-2 sentence description explaining value proposition)",
         "official_url": "string (root domain product URL)",
         "affiliate_url": "string (affiliate or referral program link)",
-        "pricing_source_url": "string (pricing page URL)",
-        "pricing": "string (concrete verified pricing description)",
+        "pricing_source_url": null,
+        "pricing": "See official pricing",
         "key_features": ["string", "string", "string", "string"],
         "rating": null,
         "logo_url": "string",
