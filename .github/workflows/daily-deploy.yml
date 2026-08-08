@@ -87,6 +87,7 @@ jobs:
           python projects/GlobalSaaSHub/scripts/tests/test_auto_aggregator_main_flow.py
           python projects/GlobalSaaSHub/scripts/tests/test_semantic_tools_audit.py
           python projects/GlobalSaaSHub/scripts/tests/test_content_audit.py
+          python projects/GlobalSaaSHub/scripts/tests/test_homepage_claims.py
           python projects/GlobalSaaSHub/scripts/tests/test_link_integrity.py --source auto
           python projects/GlobalSaaSHub/scripts/tests/test_html_integrity.py
 

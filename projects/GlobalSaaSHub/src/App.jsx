@@ -253,11 +253,11 @@ export default function App() {
         <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto p-4 rounded-2xl bg-[#131520] border border-[#222538]">
           <div className="text-center">
             <div className="text-2xl sm:text-3xl font-extrabold text-white">{stats.total}</div>
-            <div className="text-[10px] sm:text-xs text-slate-400 uppercase tracking-wider mt-1">Verified Tools</div>
+            <div className="text-[10px] sm:text-xs text-slate-400 uppercase tracking-wider mt-1">Curated SaaS Profiles</div>
           </div>
           <div className="text-center border-x border-[#222538]">
-            <div className="text-2xl sm:text-3xl font-extrabold text-purple-400">4.8 / 5.0</div>
-            <div className="text-[10px] sm:text-xs text-slate-400 uppercase tracking-wider mt-1">Avg Rating</div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-purple-400">Source-led</div>
+            <div className="text-[10px] sm:text-xs text-slate-400 uppercase tracking-wider mt-1">Pricing Details</div>
           </div>
           <div className="text-center">
             <div className="text-2xl sm:text-3xl font-extrabold text-blue-400">{stats.categoriesCount}</div>
