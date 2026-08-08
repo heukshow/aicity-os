@@ -64,17 +64,18 @@ def test_meshy_typewise_evolve_are_normalized_fail_closed():
     }
 
     with patch("auto_aggregator.safe_affiliate_result", return_value=affiliate_result):
-        merged, added, updated = merge_discovered_candidates([], copy.deepcopy(fixtures))
+        merged, staged, updated = merge_discovered_candidates([], copy.deepcopy(fixtures))
 
-    assert len(merged) == len(added) == 3
+    assert merged == []
+    assert len(staged) == 3
     assert updated == []
-    for tool in added:
+    for tool in staged:
         assert tool["pricing"] == "See official pricing"
         assert tool["pricing_verified"] is False
         for field in PRICING_EVIDENCE_FIELDS:
             assert tool[field] is None, f"{tool['id']} retained {field}"
 
-    errors = validate_dataset(merged)
+    errors = validate_dataset(staged)
     assert errors == [], "\n".join(errors)
 
 

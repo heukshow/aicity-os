@@ -117,7 +117,7 @@ class RetryPolicyTests(unittest.TestCase):
         }
         with patch("auto_aggregator.safe_affiliate_result", return_value={"affiliate_url": None, "affiliate_verified": False}):
             merged, added, _ = aa.merge_discovered_candidates([], [candidate, dict(candidate)])
-        self.assertEqual((len(merged), len(added)), (1, 1))
+            self.assertEqual((len(merged), len(added)), (0, 1))
 
 
 class TavilyRetryTests(unittest.TestCase):

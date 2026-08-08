@@ -152,7 +152,7 @@ def test_canonical_domain_normalization():
     assert d1 == d2 == d3, "All Taskade URLs must resolve to the same canonical domain"
 
 
-def test_truly_new_domain_added():
+def test_truly_new_domain_staged_without_candidate_mutation():
     existing = [_make_existing_taskade()]
     new_cand = {
         "id": "novel-tool",
@@ -176,11 +176,11 @@ def test_truly_new_domain_added():
         "affiliate_verified_at": None, "affiliate_rejection_reason": "No affiliate URL",
     }
     with patch("auto_aggregator.safe_affiliate_result", return_value=dummy_aff_meta):
-        merged, new_tools, _ = merge_discovered_candidates(existing, [new_cand])
+        merged, staged_tools, _ = merge_discovered_candidates(existing, [new_cand])
 
-    assert len(new_tools) == 1, f"New candidate with unique domain should be added! Got {len(new_tools)}"
-    assert len(merged) == 2
-    assert new_tools[0]["id"] == "novel-tool"
+    assert len(staged_tools) == 1, f"New candidate with unique domain should be staged! Got {len(staged_tools)}"
+    assert merged == existing
+    assert staged_tools[0]["id"] == "novel-tool"
 
 
 if __name__ == "__main__":
@@ -189,7 +189,7 @@ if __name__ == "__main__":
         test_verified_affiliate_fields_immutability,
         test_verified_pricing_fields_immutability,
         test_canonical_domain_normalization,
-        test_truly_new_domain_added,
+        test_truly_new_domain_staged_without_candidate_mutation,
     ]
     print("=" * 60)
     print("Domain Deduplication & Immutability Integration Tests (5 tests)")

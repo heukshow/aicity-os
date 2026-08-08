@@ -57,10 +57,11 @@ def merge_discovered_candidates(existing_tools, discovered_candidates):
       3. Immutability Contract:
          - If existing tool has affiliate_verified=True, candidate CANNOT overwrite any affiliate_* fields.
          - If existing tool has pricing_verified=True, candidate CANNOT overwrite any pricing_* fields.
-      4. Only truly new candidates (unmatched domain/ID/name) are normalized and added.
+      4. Truly new candidates (unmatched domain/ID/name) are normalized but staged
+         separately. They are never added to the production candidate corpus.
 
     Returns:
-      (merged_tools, new_tools_list, updated_tools_list)
+      (merged_tools, staged_candidates, updated_tools_list)
     """
     merged_tools = [dict(t) for t in existing_tools]
     existing_ids = {t["id"]: t for t in merged_tools}
@@ -133,14 +134,15 @@ def merge_discovered_candidates(existing_tools, discovered_candidates):
             if 'commission' in normalized_new_tool:
                 del normalized_new_tool['commission']
 
-            merged_tools.append(normalized_new_tool)
+            new_tools_list.append(normalized_new_tool)
+            # Index the staged record so duplicate discoveries in the same run
+            # collapse deterministically without entering merged_tools.
             existing_ids[tool_id] = normalized_new_tool
             if tool_domain:
                 existing_domains[tool_domain] = normalized_new_tool
             if tool_norm_name:
                 existing_names[tool_norm_name] = normalized_new_tool
-            new_tools_list.append(normalized_new_tool)
-            print(f"New unique tool added: {normalized_new_tool['name']} ({tool_id})")
+            print(f"New unique tool staged for approval: {normalized_new_tool['name']} ({tool_id})")
         else:
             # Existing tool matched! Preserve verified affiliate and pricing fields
             target_id = matched["id"]
@@ -673,15 +675,16 @@ def main(base_dir=None):
 
     # Any incomplete discovery is all-or-nothing: never merge partial run-local results.
     merge_input = discovery_merge_input(extracted_tools, degraded_mode)
-    existing_tools, new_tools_list, updated_tools_list = merge_discovered_candidates(existing_tools, merge_input)
-    new_tools_added = len(new_tools_list)
+    existing_tools, staged_candidates, updated_tools_list = merge_discovered_candidates(existing_tools, merge_input)
+    new_tools_added = 0
+    staged_candidates_count = len(staged_candidates)
     updated_tools_count = len(updated_tools_list)
 
     # 7. Write Back to Sandbox Next File
     try:
         with open(next_data_file_path, 'w', encoding='utf-8') as f:
             json.dump(existing_tools, f, indent=2, ensure_ascii=False)
-        print(f"Sandbox tools.next.json successfully generated. Added {new_tools_added} new tools, updated {updated_tools_count} existing tools. Sandbox total count: {len(existing_tools)}.")
+        print(f"Sandbox tools.next.json successfully generated. Added {new_tools_added} new tools, staged {staged_candidates_count} new candidates, updated {updated_tools_count} existing tools. Sandbox total count: {len(existing_tools)}.")
     except Exception as e:
         print(f"Error writing sandbox tools.next.json: {e}")
         sys.exit(1)
@@ -703,6 +706,7 @@ def main(base_dir=None):
         "gemini_api_ok": gemini_api_success,
         "gemini_tools_extracted": gemini_tools_extracted,
         "automated_discovery_added": new_tools_added,
+        "automated_discovery_staged": staged_candidates_count,
         "degraded_mode": degraded_mode,
         "discovery_complete": not degraded_mode,
         "discovery_batches": discovery_batches,
@@ -714,7 +718,7 @@ def main(base_dir=None):
     with open(os.path.join(data_dir, "run_summary.json"), 'w', encoding='utf-8') as f:
         json.dump(summary, f, indent=2, ensure_ascii=False)
     with open(os.path.join(data_dir, "new_tools_discovered.json"), 'w', encoding='utf-8') as f:
-        json.dump(new_tools_list, f, indent=2, ensure_ascii=False)
+        json.dump(staged_candidates, f, indent=2, ensure_ascii=False)
     with open(os.path.join(data_dir, "price_updated_tools.json"), 'w', encoding='utf-8') as f:
         json.dump(updated_tools_list, f, indent=2, ensure_ascii=False)
     print(f"Artifact summary files written to {data_dir}")
