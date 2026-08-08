@@ -63,6 +63,9 @@ jobs:
           cd projects/GlobalSaaSHub
           npm ci
 
+      - name: Install Python Test Dependencies
+        run: python -m pip install pytest
+
       # =========================================================
       # COMMON SAFETY GATE: Run all 4 deterministic test suites.
       # Runs in both dry_run and Production modes BEFORE any data processing.
