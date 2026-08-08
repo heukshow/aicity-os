@@ -1,11 +1,13 @@
 /**
  * Validates and extracts a clean HTTP/HTTPS external URL from a tool object.
- * Checks affiliate_url first, then falls back to official_url.
+ * Uses affiliate_url only after explicit verification, then falls back to official_url.
  * Returns null if no valid URL is found (rejects null, undefined, none, #, empty strings).
  */
 export const getValidExternalUrl = (tool) => {
   if (!tool) return null;
-  const candidates = [tool.affiliate_url, tool.official_url];
+  const candidates = tool.affiliate_verified === true
+    ? [tool.affiliate_url, tool.official_url]
+    : [tool.official_url];
 
   for (const value of candidates) {
     if (typeof value !== "string") continue;

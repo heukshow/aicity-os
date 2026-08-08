@@ -84,34 +84,6 @@ export function trackToolClick(toolId, toolName) {
   }
 }
 
-// Track a Sponsorship Payment Order Event
-export function trackSponsorshipOrder(toolName, amount = 49, email = '') {
-  try {
-    const events = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-    const countryInfo = detectVisitorCountry();
-
-    const newEvent = {
-      type: 'sponsorship_order',
-      id: Date.now() + '_' + Math.random().toString(36).substr(2, 5),
-      timestamp: new Date().toISOString(),
-      toolName: toolName,
-      amount: amount,
-      email: email,
-      country: countryInfo.country,
-      flag: countryInfo.flag,
-      code: countryInfo.code
-    };
-
-    events.push(newEvent);
-    if (events.length > 2000) events.shift();
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
-  } catch (e) {
-    console.warn('Sponsorship tracking error:', e);
-  }
-}
-
-
-
 // Get Processed Analytics Stats for Admin Dashboard
 export function getRealAnalyticsStats() {
   try {

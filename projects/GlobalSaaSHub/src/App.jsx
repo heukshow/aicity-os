@@ -1,7 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import toolsData from '../data/tools.json';
-import AdminDashboard from './components/AdminDashboard';
-import PaymentModal from './components/PaymentModal';
 import CompareModal from './components/CompareModal';
 import { getValidExternalUrl } from './utils/url';
 import { 
@@ -13,12 +11,10 @@ import {
   Star, 
   DollarSign, 
   ArrowUpRight, 
-  ChevronRight, 
   HelpCircle,
   TrendingUp,
   Award,
   BarChart3,
-  ShieldCheck,
   Heart,
   Scale,
   Video,
@@ -66,7 +62,6 @@ function ToolLogo({ tool }) {
 export default function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [compareToolA, setCompareToolA] = useState(null);
   const [showBookmarksOnly, setShowBookmarksOnly] = useState(false);
   const [bookmarkedIds, setBookmarkedIds] = useState(() => {
@@ -85,36 +80,9 @@ export default function App() {
     });
   };
 
-  const [isAdminView, setIsAdminView] = useState(() => {
-    const hash = window.location.hash;
-    const search = window.location.search;
-    return hash === '#admin' || hash === '#master-console-x92' || search.includes('admin');
-  });
-
-
-
   useEffect(() => {
     trackPageView(selectedCategory);
-
-    const handleHash = () => {
-      const hash = window.location.hash;
-      const search = window.location.search;
-      if (hash === '#admin' || hash === '#master-console-x92' || search.includes('admin')) {
-        setIsAdminView(true);
-      }
-    };
-    window.addEventListener('hashchange', handleHash);
-    return () => window.removeEventListener('hashchange', handleHash);
   }, [selectedCategory]);
-
-
-
-  if (isAdminView) {
-    return <AdminDashboard onSwitchToPublic={() => {
-      window.location.hash = '';
-      setIsAdminView(false);
-    }} />;
-  }
 
 
 
@@ -221,11 +189,13 @@ export default function App() {
             </span>
           </div>
           <div className="flex items-center gap-4">
-            <button 
-              onClick={() => setIsPaymentModalOpen(true)}
-              className="text-xs sm:text-sm font-medium px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 hover:bg-purple-500/20 transition-all duration-200"
+            <button
+              type="button"
+              disabled
+              title="Sponsorship submissions temporarily unavailable while secure checkout is being configured"
+              className="text-xs sm:text-sm font-medium px-4 py-2 rounded-full border border-slate-700 bg-slate-800/60 text-slate-500 cursor-not-allowed"
             >
-              Submit a Tool ($49)
+              Sponsorship submissions temporarily unavailable
             </button>
           </div>
 
@@ -532,12 +502,12 @@ export default function App() {
               Are you a founder? Get listed in front of thousands of digital creators, automators, and developers. Custom sponsorship positions available.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button 
-                onClick={() => setIsPaymentModalOpen(true)}
-                className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-300 inline-flex items-center gap-2 shadow-lg shadow-purple-950/50"
+              <button
+                type="button"
+                disabled
+                className="bg-slate-800 text-slate-500 font-bold py-3.5 px-6 rounded-xl inline-flex items-center gap-2 border border-slate-700 cursor-not-allowed"
               >
-                <span>Sponsor & Submit Product ($49/one-time)</span>
-                <ChevronRight className="h-4 w-4" />
+                <span>Sponsorship submissions temporarily unavailable while secure checkout is being configured</span>
               </button>
             </div>
           </div>
@@ -558,16 +528,6 @@ export default function App() {
             <div className="flex items-center gap-6 text-xs">
               <a href="/privacy.html" className="text-slate-400 hover:text-white transition-colors">Privacy Policy</a>
               <a href="/terms.html" className="text-slate-400 hover:text-white transition-colors">Terms of Service</a>
-              <button 
-                onClick={() => {
-                  window.location.hash = 'master-console-x92';
-                  setIsAdminView(true);
-                }}
-                className="text-slate-600 hover:text-purple-400 transition-colors p-1"
-                title="Owner Security Console"
-              >
-                <ShieldCheck className="h-3.5 w-3.5" />
-              </button>
             </div>
 
 
@@ -584,12 +544,6 @@ export default function App() {
           </div>
         </div>
       </footer>
-
-      {/* High-Trust Modern Payment Modal */}
-      <PaymentModal 
-        isOpen={isPaymentModalOpen} 
-        onClose={() => setIsPaymentModalOpen(false)} 
-      />
 
       {/* Side-by-Side 1:1 Tool Compare Modal */}
       {compareToolA && (
