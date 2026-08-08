@@ -528,6 +528,8 @@ export default function App() {
             <div className="flex items-center gap-6 text-xs">
               <a href="/privacy.html" className="text-slate-400 hover:text-white transition-colors">Privacy Policy</a>
               <a href="/terms.html" className="text-slate-400 hover:text-white transition-colors">Terms of Service</a>
+              <a href="/sponsorship.html" className="text-slate-400 hover:text-white transition-colors">Sponsorship</a>
+              <a href="/refund.html" className="text-slate-400 hover:text-white transition-colors">Refunds</a>
             </div>
 
 

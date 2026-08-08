@@ -90,6 +90,8 @@ jobs:
           python projects/GlobalSaaSHub/scripts/tests/test_homepage_claims.py
           python projects/GlobalSaaSHub/scripts/tests/test_link_integrity.py --source auto
           python projects/GlobalSaaSHub/scripts/tests/test_html_integrity.py
+          python -m pytest projects/GlobalSaaSHub/scripts/tests/test_public_security_hotfix.py -q
+          python -m pytest projects/GlobalSaaSHub/scripts/tests/test_payment_security.py -q
 
       # =========================================================
       # PRODUCTION SAFETY GATE

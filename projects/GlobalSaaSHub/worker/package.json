@@ -1,0 +1,12 @@
+{
+  "name": "globalsaashub-payment-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "deploy:check": "wrangler deploy --dry-run"
+  },
+  "devDependencies": {
+    "wrangler": "^4.30.0"
+  }
+}

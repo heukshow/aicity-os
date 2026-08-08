@@ -1,0 +1,17 @@
+name = "globalsaashub-payments"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+workers_dev = true
+
+[vars]
+PAYPAL_ENVIRONMENT = "sandbox"
+ALLOWED_ORIGIN = "https://coshuma.com"
+
+# Create the D1 database before deployment, then add its non-secret database_id here.
+[[d1_databases]]
+binding = "ORDERS"
+database_name = "globalsaashub-orders"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+# Store PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET and PAYPAL_WEBHOOK_ID with
+# `wrangler secret put`. Never commit their values.
