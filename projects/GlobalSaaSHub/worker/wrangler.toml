@@ -11,7 +11,7 @@ ALLOWED_ORIGIN = "https://coshuma.com"
 [[d1_databases]]
 binding = "ORDERS"
 database_name = "globalsaashub-orders"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "d791d3d4-1ade-462e-bf8d-e33ebf4e2e38"
 
 # Store PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET and PAYPAL_WEBHOOK_ID with
 # `wrangler secret put`. Never commit their values.
