@@ -33,7 +33,15 @@ def test_frontend_has_no_secret_and_is_disabled_by_default():
     assert "PAYPAL_CLIENT_SECRET" not in source
     assert "PAYPAL_WEBHOOK_ID" not in source
     assert "VITE_SPONSORSHIP_CHECKOUT_ENABLED === 'true'" in config
-    assert app.count("disabled") >= 2
+    checkout = (ROOT / "src" / "components" / "SponsorshipCheckout.jsx").read_text(encoding="utf-8")
+    sdk = (ROOT / "src" / "services" / "paypalSdk.js").read_text(encoding="utf-8")
+    assert "paymentConfig.checkoutEnabled &&" in app
+    assert "if (!paymentConfig.checkoutEnabled) return null" in checkout
+    assert "createSponsorshipOrder()" in checkout
+    assert "captureVerifiedSponsorshipOrder(orderID)" in checkout
+    assert "amount" not in checkout.lower()
+    assert "client-id" in sdk
+    assert "PAYPAL_CLIENT_SECRET" not in sdk
 
 
 def test_node_payment_regressions():

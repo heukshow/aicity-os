@@ -24,8 +24,11 @@ def test_admin_and_checkout_code_are_not_in_public_source():
     assert "paypal.com/cgi-bin/webscr" not in public_source
     assert "cardCvc" not in public_source
     assert "contactEmail" not in public_source
-    assert "Sponsorship submissions temporarily unavailable" in app
-    assert app.count("disabled") >= 2
+    assert "paymentConfig.checkoutEnabled &&" in app
+    assert "<SponsorshipCheckout />" in app
+    assert "if (!paymentConfig.checkoutEnabled) return null" in (
+        SRC / "components" / "SponsorshipCheckout.jsx"
+    ).read_text(encoding="utf-8")
 
 
 def test_unused_payment_sdk_is_removed():

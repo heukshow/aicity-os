@@ -1,6 +1,8 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import toolsData from '../data/tools.json';
 import CompareModal from './components/CompareModal';
+import SponsorshipCheckout from './components/SponsorshipCheckout';
+import { paymentConfig } from './config/payment.js';
 import { getValidExternalUrl } from './utils/url';
 import { 
   Search, 
@@ -185,14 +187,11 @@ export default function App() {
             </span>
           </div>
           <div className="flex items-center gap-4">
-            <button
-              type="button"
-              disabled
-              title="Sponsorship submissions temporarily unavailable while secure checkout is being configured"
-              className="text-xs sm:text-sm font-medium px-4 py-2 rounded-full border border-slate-700 bg-slate-800/60 text-slate-500 cursor-not-allowed"
-            >
-              Sponsorship submissions temporarily unavailable
-            </button>
+            {paymentConfig.checkoutEnabled && (
+              <a href="#submit" className="text-xs sm:text-sm font-medium px-4 py-2 rounded-full border border-purple-500/40 bg-purple-500/10 text-purple-200 hover:bg-purple-500/20 transition-colors">
+                Sponsor for $49
+              </a>
+            )}
           </div>
 
 
@@ -497,15 +496,7 @@ export default function App() {
             <p className="text-slate-400 mb-8 leading-relaxed">
               Are you a founder? Get listed in front of thousands of digital creators, automators, and developers. Custom sponsorship positions available.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <button
-                type="button"
-                disabled
-                className="bg-slate-800 text-slate-500 font-bold py-3.5 px-6 rounded-xl inline-flex items-center gap-2 border border-slate-700 cursor-not-allowed"
-              >
-                <span>Sponsorship submissions temporarily unavailable while secure checkout is being configured</span>
-              </button>
-            </div>
+            {paymentConfig.checkoutEnabled && <SponsorshipCheckout />}
           </div>
         </section>
 
