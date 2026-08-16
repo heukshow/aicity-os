@@ -7,21 +7,17 @@ import {
   Sparkles, 
   Cpu, 
   Layers, 
-  ExternalLink, 
   Star, 
-  DollarSign, 
   ArrowUpRight, 
   HelpCircle,
   TrendingUp,
   Award,
-  BarChart3,
   Heart,
   Scale,
   Video,
   Mic,
   Image as ImageIcon,
   Code,
-  FileText,
   Briefcase,
   Wand2,
   MessageSquare,
@@ -67,7 +63,7 @@ export default function App() {
   const [bookmarkedIds, setBookmarkedIds] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem('coshuma_bookmarks') || '[]');
-    } catch (e) {
+    } catch {
       return [];
     }
   });

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ExternalLink, Plus, Check, ShieldCheck, Zap } from 'lucide-react';
+import { X, ExternalLink, Zap } from 'lucide-react';
 import { getValidExternalUrl } from '../utils/url';
 
 export default function CompareModal({ toolA, toolB, allTools, onClose }) {
