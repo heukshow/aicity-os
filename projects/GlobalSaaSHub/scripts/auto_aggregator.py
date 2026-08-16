@@ -24,7 +24,11 @@ def normalize_unverified_candidate(new_tool, official_url, affiliate_url):
     normalized = dict(new_tool)
 
     normalized["official_url"] = official_url
-    normalized["affiliate_url"] = affiliate_url
+    # Discovery can prove that a program page exists, but it cannot prove that
+    # COSHUMA was approved or that a URL is our account-specific tracking link.
+    normalized["affiliate_url"] = None
+    normalized["affiliate_verified"] = False
+    normalized["affiliate_status"] = "unverified"
 
     # Search snippets are not official pricing verification. Fail closed: an
     # unverified discovery may not retain a claimed price or any evidence
@@ -591,7 +595,7 @@ def main(base_dir=None):
     - id must be lowercase, alphanumeric, separated by dashes (e.g., "gohighlevel", "notion-ai").
     - logo_url must be a premium high-quality placeholder image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60" (or similar technology placeholder from unsplash).
     - official_url MUST be the root domain URL of the product website (e.g. "https://example.com/").
-    - affiliate_url MUST be the official affiliate/partner program link or referral URL (e.g. "https://example.com/affiliate"). If unknown, default to official_url.
+    - affiliate_url MUST be null. Discovery results and public program pages are not account-specific, approved tracking links.
     - Discovery output is UNVERIFIED. pricing_source_url MUST be null; a later official-page verification step is the only path that may set it.
     - pricing MUST be "See official pricing". Never infer or copy a numeric price from a search snippet.
 
@@ -605,7 +609,7 @@ def main(base_dir=None):
         "category_display": "string",
         "description": "string (engaging, 1-2 sentence description explaining value proposition)",
         "official_url": "string (root domain product URL)",
-        "affiliate_url": "string (affiliate or referral program link)",
+        "affiliate_url": null,
         "pricing_source_url": null,
         "pricing": "See official pricing",
         "key_features": ["string", "string", "string", "string"],

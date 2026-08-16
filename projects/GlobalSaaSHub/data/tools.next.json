@@ -285,7 +285,7 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "An AI-powered writing assistant tailored for indie publishers, helping them generate high-quality content quickly and efficiently for their audience.",
-    "affiliate_url": "https://www.inkfluenceai.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered content generation",
@@ -315,7 +315,7 @@
     "category": "copywriting",
     "category_display": "AI Copywriting",
     "description": "A leading AI writing platform recognized for generating high-quality content for a broad range of business audiences, from marketing blogs to agencies.",
-    "affiliate_url": "https://www.jasper.ai",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Versatile AI content generation",
@@ -346,7 +346,7 @@
     "category": "copywriting",
     "category_display": "AI Copywriting",
     "description": "An advanced AI writing assistant that helps businesses and individuals create a wide array of content, from blog posts to ad copy, with speed and efficiency.",
-    "affiliate_url": "https://writesonic.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI article & blog writer",
@@ -377,7 +377,7 @@
     "category": "copywriting",
     "category_display": "AI Copywriting",
     "description": "An innovative AI writing tool specifically designed to assist fiction writers in brainstorming, drafting, and refining their stories and novels.",
-    "affiliate_url": "https://www.sudowrite.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI story generation",
@@ -445,7 +445,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "QuillBot is an AI-powered paraphrasing tool designed to rewrite text, simplify sentences, and enhance writing style. It improves grammar, adjusts writing tone, and helps avoid plagiarism, automating many editing and proofreading tasks.",
-    "affiliate_url": "https://quillbot.com",
+    "affiliate_url": null,
     "pricing": "Free plan available",
     "key_features": [
       "AI-powered paraphrasing",
@@ -475,7 +475,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Text Cortex is an AI-powered writing assistant that elevates your content through rewriting, summarizing, question answering, plagiarism checks, and generating diverse creative text formats. It's available across multiple platforms, including browser, desktop, and mobile.",
-    "affiliate_url": "https://textcortex.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered writing assistant",
@@ -505,7 +505,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "VidIQ is an essential AI-powered toolkit for YouTube creators, providing robust features for keyword research, video analytics, optimization, and competitor analysis. It leverages AI for generating titles, content ideas, video scripts, and descriptions to boost channel growth.",
-    "affiliate_url": "https://vidiq.com",
+    "affiliate_url": null,
     "pricing": "Free plan available",
     "key_features": [
       "YouTube keyword research",
@@ -1052,7 +1052,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Jotform is a powerful online form builder that helps businesses create custom forms for data collection, payments, and workflow automation without any coding. Design surveys, applications, and order forms with ease.",
-    "affiliate_url": "https://www.jotform.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Drag-and-Drop Form Builder",
@@ -1082,7 +1082,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Webflow is a visual web development platform that allows users to design, build, and launch responsive websites without writing code. It combines design tools, CMS, and hosting into a single, powerful platform for creative professionals.",
-    "affiliate_url": "https://webflow.com/affiliates",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Visual Website Builder",
@@ -1112,7 +1112,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "ReactIn is an intent-based LinkedIn growth platform designed for B2B professionals, offering powerful tools for lead generation and competitor monitoring.",
-    "affiliate_url": "https://www.reactin.io",
+    "affiliate_url": null,
     "pricing": "Tiered subscription plans available",
     "key_features": [
       "Intent Data & Signals",
@@ -1142,7 +1142,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Transform text into AI videos with realistic avatars, ideal for training, e-learning, and professional video production, simplifying content creation.",
-    "affiliate_url": "https://www.synthesia.io/affiliates",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI video generation",
@@ -1173,7 +1173,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "Octo Browser is an advanced antidetect browser designed for secure multi-accounting and digital fingerprint management across various online platforms.",
-    "affiliate_url": "https://octobrowser.net",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Secure multi-accounting capabilities",
@@ -1233,7 +1233,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "JobHire is an AI-powered career assistant that automates the job search process, including resume tailoring and high-volume application submission.",
-    "affiliate_url": "https://jobhire.ai",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered career assistance",
@@ -1263,7 +1263,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "AITable.ai provides a visual AI database to organize data, automate workflows, and build custom AI agents for enhanced productivity.",
-    "affiliate_url": "https://aitable.ai",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Visual AI database for data organization",
@@ -1293,7 +1293,7 @@
     "category": "ai_agents",
     "category_display": "Autonomous AI Agents",
     "description": "LiftmyCV leverages AI and ChatGPT to automate job applications across multiple platforms, acting as an intelligent job search agent.",
-    "affiliate_url": "https://liftmycv.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered job search agent",
@@ -1323,7 +1323,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Blaze is an AI-powered marketing automation platform that creates, schedules, and optimizes brand-specific content across diverse channels.",
-    "affiliate_url": "https://blaze.ai/affiliates",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered marketing automation",
@@ -1353,7 +1353,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "AiAssistWorks integrates over 100 AI models directly into Google Sheets, Docs, and Slides, enabling automated workflows within your favorite productivity suite.",
-    "affiliate_url": "https://aiassistworks.com/affiliates",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Integrates 100+ AI models",
@@ -1383,7 +1383,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Vista Social is an AI-powered platform for comprehensive social media management, offering tools for publishing, engagement, analytics, and team collaboration.",
-    "affiliate_url": "https://vistasocial.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered social media management",
@@ -1413,7 +1413,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Gravity Forms is a powerful WordPress plugin that enables users to build custom forms, manage online payments, and automate various data workflows directly on their website.",
-    "affiliate_url": "https://www.gravityforms.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Powerful WordPress plugin",
@@ -1443,7 +1443,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Sendcloud is an all-in-one shipping automation platform that optimizes checkout, shipping, tracking, and returns for e-commerce businesses.",
-    "affiliate_url": "https://sendcloud.com/affiliates",
+    "affiliate_url": null,
     "pricing": "Varies by plan",
     "key_features": [
       "All-in-one shipping automation",
@@ -1473,7 +1473,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "AliDropship offers WordPress and WooCommerce solutions to automate AliExpress dropshipping store management and product fulfillment with ease.",
-    "affiliate_url": "https://alidropship.com",
+    "affiliate_url": null,
     "pricing": "Varies by plan",
     "key_features": [
       "WordPress dropshipping solution",
@@ -1503,7 +1503,7 @@
     "category": "finance_billing",
     "category_display": "Finance & Billing",
     "description": "Nudgera is an AI-powered revenue operating system that automates invoice chasing and uses sentiment-aware negotiation to optimize payment collection.",
-    "affiliate_url": "https://nudgera.com",
+    "affiliate_url": null,
     "pricing": "Varies by plan",
     "key_features": [
       "AI-powered revenue operating system",
@@ -1534,7 +1534,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Questmate streamlines operations by automating tasks and workflows through smart routines and customizable checklists.",
-    "affiliate_url": "https://questmate.com",
+    "affiliate_url": null,
     "pricing": "Varies by plan",
     "key_features": [
       "Automates tasks and workflows",
@@ -1564,7 +1564,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Merlin is an AI productivity tool designed to supercharge your daily tasks, offering powerful summarization, content generation, and seamless workflow automation features. Boost your efficiency and creativity with intelligent AI assistance across various applications.",
-    "affiliate_url": "https://www.getmerlin.in",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered summarization",
@@ -1594,7 +1594,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "Decktopus is an AI-powered presentation tool that automatically crafts stunning decks, empowering users to create professional presentations in minutes. Leverage customizable templates and integrated forms for effective lead generation and impactful visual storytelling.",
-    "affiliate_url": "https://decktopus.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI auto-created presentations",
@@ -1624,7 +1624,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Dorik is a no-code AI website builder that enables quick creation of professional websites without any coding knowledge. Build stunning, responsive sites effortlessly, perfect for businesses, portfolios, and personal brands.",
-    "affiliate_url": "https://dorik.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "No-code website building",
@@ -1654,7 +1654,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Rytr is an AI-powered writing assistant that helps you generate high-quality content for various needs in just seconds. From blog posts to emails, create compelling copy quickly and efficiently with intelligent AI suggestions.",
-    "affiliate_url": "https://rytr.me",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI content generation",
@@ -1684,7 +1684,7 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "Frase is an AI-powered content optimization platform designed to help you create SEO-driven content that ranks higher and converts better. Research, write, and optimize all in one place for maximum search engine visibility.",
-    "affiliate_url": "https://www.frase.io",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI content research",
@@ -1714,7 +1714,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "HeyGen is an innovative AI-powered video creation platform, allowing you to produce professional videos with realistic avatars and voice cloning technology. Generate engaging content quickly, even with multilingual support, to reach global audiences.",
-    "affiliate_url": "https://www.heygen.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered video generation",
@@ -1745,7 +1745,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "VEED is an intuitive online video editing platform packed with AI-powered tools designed for creators and businesses alike. Easily edit, subtitle, and enhance your videos directly in your browser, streamlining your content production workflow.",
-    "affiliate_url": "https://www.veed.io",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Online video editor",
@@ -1776,7 +1776,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Reclaim AI intelligently optimizes your calendar to protect your time and boost productivity, automatically scheduling smart habits and meetings. Let AI manage your schedule so you can focus on what truly matters.",
-    "affiliate_url": "https://reclaim.ai",
+    "affiliate_url": null,
     "pricing": "Check website for details",
     "key_features": [
       "AI calendar optimization",
@@ -1806,7 +1806,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Descript is an all-in-one AI-powered tool for transcription, audio/video editing, and podcast production, allowing you to edit media like a document. Streamline your content creation workflow with powerful, intuitive features for creators.",
-    "affiliate_url": "https://www.descript.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI transcription",
@@ -1836,7 +1836,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "AI-driven accounting automation software tailored for retail, eCommerce, and SaaS businesses, simplifying financial operations by automatically categorizing transactions and syncing data.",
-    "affiliate_url": "https://synder.com",
+    "affiliate_url": null,
     "pricing": "Check website for details",
     "key_features": [
       "AI-driven accounting automation",
@@ -1866,7 +1866,7 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "An AI-powered B2B platform specializing in WhatsApp automation for marketing, sales, and customer support for businesses and agencies.",
-    "affiliate_url": "https://www.gallabox.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "WhatsApp Business API integration",
@@ -1896,7 +1896,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "A secure and high-performance video hosting platform designed for course creators and video marketers.",
-    "affiliate_url": "https://pandavideo.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Secure video streaming",
@@ -1926,7 +1926,7 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "An AI-powered content intelligence tool designed to help SEO professionals optimize content for higher search engine rankings.",
-    "affiliate_url": "https://surferseo.com/affiliate",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Content editor with real-time feedback",
@@ -1956,7 +1956,7 @@
     "category": "voice_cloning",
     "category_display": "Voice & Speech AI",
     "description": "An AI voice generator that provides realistic text-to-speech voices for various applications, empowering voice-over creators.",
-    "affiliate_url": "https://murf.ai",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Studio-quality AI voices",
@@ -1987,7 +1987,7 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "An AI content platform that streamlines content planning, creation, and SEO optimization for content teams and SEO agencies.",
-    "affiliate_url": "https://www.scalenut.com/affiliate",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI content creation",
@@ -2047,7 +2047,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "LoopCV leverages AI to automate the laborious job application process, finding matching roles across multiple boards and applying on the user's behalf. It significantly streamlines the job search, saving users valuable time and effort.",
-    "affiliate_url": "https://loopcv.pro",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered job application automation",
@@ -2077,7 +2077,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Empower your business with a robust sales funnel builder that turns visitors into loyal customers and automates your entire selling process.",
-    "affiliate_url": "https://www.clickfunnels.com/affiliates",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Intuitive Drag-and-Drop Editor",
@@ -2107,7 +2107,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Launch and manage your affiliate marketing program effortlessly with robust tracking, analytics, and partner recruitment features.",
-    "affiliate_url": "https://tapfiliate.com/partners/",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Real-time Performance Tracking",
@@ -2137,7 +2137,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Boost your marketing efforts with a powerful email marketing and automation platform, perfect for businesses and content creators.",
-    "affiliate_url": "https://www.getresponse.com/affiliate-programs",
+    "affiliate_url": null,
     "pricing": "Varies by plan, offers multiple tiers",
     "key_features": [
       "Email Marketing Campaigns",
@@ -2167,7 +2167,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Empower creators with essential email tools to grow their audience, manage newsletters, and monetize their content effectively.",
-    "affiliate_url": "https://www.kit.co",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Audience Growth Tools",
@@ -2197,7 +2197,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Launch and scale your online courses and coaching products with an intuitive platform built for educators and entrepreneurs.",
-    "affiliate_url": "https://teachable.com/affiliates",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Course Creation & Hosting",
@@ -2227,7 +2227,7 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "Enhance customer support and sales with a powerful live chat solution, enabling real-time communication and efficient query resolution.",
-    "affiliate_url": "https://www.livechat.com",
+    "affiliate_url": null,
     "pricing": "Check website for details.",
     "key_features": [
       "Real-time Chat with Customers",
@@ -2257,7 +2257,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "Kittl is an AI-powered graphic design tool that simplifies creating stunning visuals with an extensive library of templates, vector editing, and print-on-demand assets.",
-    "affiliate_url": "https://www.kittl.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered graphic design",
@@ -2287,7 +2287,7 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "Koala AI is an advanced AI writing tool specifically designed for generating SEO-optimized articles, complete with SERP analysis, Amazon affiliate content, and seamless WordPress integration.",
-    "affiliate_url": "https://koala.sh",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "SEO-optimized article writing",
@@ -2317,7 +2317,7 @@
     "category": "voice_cloning",
     "category_display": "Voice & Speech AI",
     "description": "Lovo is an AI voice platform offering over 500 diverse voices, robust voice cloning capabilities, and integrated Genny video editing for comprehensive media production.",
-    "affiliate_url": "https://lovo.ai",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "500+ AI voices",
@@ -2345,7 +2345,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "n8n is a flexible low-code automation platform designed for building sophisticated workflows, creating AI agents, and integrating with over 500 applications seamlessly.",
-    "affiliate_url": "https://n8n.io",
+    "affiliate_url": null,
     "pricing": "Open-source: free, Enterprise: custom pricing",
     "key_features": [
       "Low-code workflow building",
@@ -2375,7 +2375,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Novita AI is a comprehensive AI cloud platform offering developers and businesses seamless access to 200+ AI model APIs and custom deployment solutions for advanced applications.",
-    "affiliate_url": "https://novita.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "200+ AI model APIs",
@@ -2435,7 +2435,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "10Web offers an AI-powered platform for building and managing WordPress websites, providing automated hosting and optimization features.",
-    "affiliate_url": "https://10web.io",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI Website Builder for WordPress",
@@ -2465,7 +2465,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Supademo is an advanced demo automation platform that helps product-led companies drive leads, onboard new users, and generate consistent revenue through interactive product demos.",
-    "affiliate_url": "https://supademo.com",
+    "affiliate_url": null,
     "pricing": "Not specified in snippet",
     "key_features": [
       "Advanced demo automation",
@@ -2495,7 +2495,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Colossyan is an AI video platform that enables users to create engaging videos with AI presenters and multilingual support for diverse content needs, simplifying complex video production.",
-    "affiliate_url": "https://colossyan.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI video creation",
@@ -2526,7 +2526,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Beefree is a drag-and-drop editor for creating beautiful, responsive emails and landing pages quickly and without coding, ideal for marketers and designers.",
-    "affiliate_url": "https://beefree.io",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Drag-and-drop editor",
@@ -2556,7 +2556,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Apollo is a sales intelligence and engagement platform that provides B2B contact data, lead generation tools, and outreach automation for sales teams to close more deals.",
-    "affiliate_url": "https://apollo.io",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "B2B contact database",
@@ -2586,7 +2586,7 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "GetGenie is an AI-powered content writing assistant that helps marketers and bloggers generate high-quality articles, social media posts, and SEO content efficiently.",
-    "affiliate_url": "https://getgenie.ai",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI content generation",
@@ -2616,7 +2616,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "ActiveCampaign is a powerful customer experience automation platform offering email marketing, marketing automation, and CRM tools for businesses of all sizes to engage customers effectively.",
-    "affiliate_url": "https://activecampaign.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Email marketing automation",
@@ -2646,7 +2646,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Sanebox is an AI-powered email management tool that helps users prioritize important emails, organize their inbox, and reduce clutter efficiently.",
-    "affiliate_url": "https://sanebox.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI email prioritization",
@@ -2676,7 +2676,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Pipedrive is a sales-focused CRM platform designed to help small and medium businesses manage their sales pipeline, track deals, and automate workflows, ensuring no lead is missed.",
-    "affiliate_url": "https://pipedrive.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Sales pipeline management",
@@ -2706,7 +2706,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Framer is a powerful design tool and website builder that enables users to create stunning interactive prototypes and publish them as live websites with ease, no coding required.",
-    "affiliate_url": "https://framer.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Interactive prototyping",
@@ -2736,7 +2736,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Monday.com is a centralized work management platform for project tracking, workflow creation, and team collaboration, helping teams streamline operations and achieve goals efficiently.",
-    "affiliate_url": "https://monday.com",
+    "affiliate_url": null,
     "pricing": "Varies by plan",
     "key_features": [
       "Centralized work management",
@@ -2916,7 +2916,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Cloud-based platform for creating, selling, and managing interactive e-learning courses and secure online assessments.",
-    "affiliate_url": "https://eprofessor.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Create interactive courses",
@@ -2946,7 +2946,7 @@
     "category": "ai_agents",
     "category_display": "Autonomous AI Agents",
     "description": "Deploy custom AI agents trained on your unique business knowledge for superior automated support and enhanced team productivity.",
-    "affiliate_url": "https://docsbot.ai",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Custom AI agent creation",
@@ -2976,7 +2976,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "A powerful platform designed to measure and optimize your brand's visibility across leading AI models like ChatGPT, Gemini, Perplexity, and Claude.",
-    "affiliate_url": "https://surfeo.ai",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Measure AI brand visibility",
@@ -3006,7 +3006,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Create branded short links with advanced conversion tracking and a robust partner management infrastructure for effective marketing campaigns.",
-    "affiliate_url": "https://dub.co",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Branded short links",
@@ -3036,7 +3036,7 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "Centralized ticketing software that streamlines customer support and enhances team collaboration through powerful automation and analytics.",
-    "affiliate_url": "https://helpdesk.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Centralized ticketing system",
@@ -3066,7 +3066,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "AI-powered platform that provides fast transcription, accurate subtitles, and intelligent meeting notes in over 150 languages.",
-    "affiliate_url": "https://happyscribe.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered transcription",
@@ -3096,7 +3096,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "A no-code platform to effortlessly build, deploy, and monetize custom AI agents and branded portals, accelerating your AI development.",
-    "affiliate_url": "https://pickaxe.ai",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "No-code AI agent builder",
@@ -3126,7 +3126,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Transforms long-form videos into engaging, viral short-form clips using advanced AI-driven prompts and smart cropping technology.",
-    "affiliate_url": "https://aivideocut.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Convert long videos to shorts",
@@ -3156,7 +3156,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Generate high-converting, UGC-style AI video ads directly from product URLs or scripts in just minutes, boosting your marketing efforts.",
-    "affiliate_url": "https://tagshop.ai",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Generate AI video ads",
@@ -3186,7 +3186,7 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "An AI-powered customer service platform unifying live chat, helpdesk functionalities, and chatbot automation into one seamless system.",
-    "affiliate_url": "https://text.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI customer service platform",
@@ -3216,7 +3216,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Cross-platform text expander and canned response manager empowering teams to automate repetitive typing tasks and enhance communication efficiency.",
-    "affiliate_url": "https://typedesk.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Cross-platform text expander",
@@ -3246,7 +3246,7 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "Create powerful AI-powered conversational agents to automate customer service, streamline lead generation, and boost sales processes without any coding.",
-    "affiliate_url": "https://chatbot.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Create AI chatbots",
@@ -3276,7 +3276,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "An AI-powered sales engine that intelligently identifies high-intent LinkedIn leads and automates personalized outreach to effortlessly book demos.",
-    "affiliate_url": "https://gojiberry.ai",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI sales engine",
@@ -3523,7 +3523,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "CustomGPT.ai empowers businesses to build bespoke ChatGPT-style agents, ensuring responses are precisely grounded in their private data for enhanced accuracy and role-specific interactions within automated workflows.",
-    "affiliate_url": "https://customgpt.ai",
+    "affiliate_url": null,
     "pricing": "Subscription plans available",
     "key_features": [
       "Build custom AI agents",
@@ -3553,7 +3553,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Automates client reporting for agencies, transforming a traditionally time-consuming process into a scalable and efficient system. Ideal for performance marketing and PPC specialists seeking high ROI from their reporting.",
-    "affiliate_url": "https://databox.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Automates recurring client reporting",
@@ -3620,7 +3620,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Taskip is an operational hub designed to centralize and tie together projects, clients, communication, and various automations, creating a unified and efficient ecosystem for agencies.",
-    "affiliate_url": "https://taskip.net",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Centralized operational hub",
@@ -3650,7 +3650,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Gumloop is an innovative AI agent and workflow automation platform that allows you to build custom AI agents using simple plain language, connecting to your tools and running workflows without code.",
-    "affiliate_url": "https://gumloop.com",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Build custom AI agents without code",
@@ -3680,7 +3680,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Teknikforce offers an extensive ecosystem of marketing, funnel-building, AI, and automation tools, empowering online entrepreneurs to scale their businesses with comprehensive solutions.",
-    "affiliate_url": "https://www.teknikforce.com",
+    "affiliate_url": null,
     "pricing": "Various plans available across a suite of products",
     "key_features": [
       "Comprehensive marketing suite",
@@ -3740,7 +3740,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Snov.io is an all-in-one platform for lead generation, email verification, and outreach, helping sales and marketing teams streamline their prospecting efforts.",
-    "affiliate_url": "https://snov.io",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Email Finder & Verifier",
@@ -3770,7 +3770,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Claap is a powerful software platform that streamlines team communication by helping record, analyze, and share meeting content and asynchronous video updates. Enhance productivity and decision-making by acting on crucial insights efficiently.",
-    "affiliate_url": "https://www.claap.ai",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Record and transcribe meeting content",
@@ -3800,7 +3800,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "CloudTalk is a leading cloud-based call center software designed to revolutionize how businesses interact with their customers. Optimize communication workflows and deliver exceptional customer service with advanced features.",
-    "affiliate_url": "https://www.cloudtalk.io",
+    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Cloud-based call center functionality",
@@ -3857,7 +3857,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "FlowGent AI is a complete platform to build, manage, and scale AI agents and automations, designed to streamline complex workflows.",
-    "affiliate_url": "https://flowgent.ai/affiliate",
+    "affiliate_url": null,
     "pricing": "Not specified",
     "key_features": [
       "AI Agent Creation",
@@ -3887,7 +3887,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "A budget-friendly automated workflow software designed for small teams and solo builders seeking robust automation without the high costs of enterprise solutions.",
-    "affiliate_url": "https://www.activepieces.com/affiliate",
+    "affiliate_url": null,
     "pricing": "Budget-friendly",
     "key_features": [
       "Best for small teams and solo builders",
@@ -3917,7 +3917,7 @@
     "category": "copywriting",
     "category_display": "AI Copywriting",
     "description": "An all-in-one AI marketing platform that replaces copywriters, designers, video editors, and media buyers with intelligent AI agents. It streamlines content creation, ad generation, and funnel management to automate your entire marketing workflow.",
-    "affiliate_url": "https://marketingblocks.ai/affiliates/",
+    "affiliate_url": null,
     "pricing": "Check website for details.",
     "key_features": [
       "AI-powered marketing team replacement",
@@ -4554,7 +4554,7 @@
     "category_display": "Workflow Automation",
     "description": "Empower your business with Marblism's AI agents platform, designed to automate complex tasks and streamline operations using highly customizable virtual team members.",
     "official_url": "https://marblism.com/",
-    "affiliate_url": "https://marblism.com/affiliate",
+    "affiliate_url": null,
     "pricing_source_url": null,
     "pricing": "See official pricing",
     "key_features": [
@@ -4575,15 +4575,16 @@
     "evidence_source_type": null,
     "is_manual_override": false,
     "http_verification_status": null,
-    "affiliate_verified": true,
+    "affiliate_verified": false,
+    "affiliate_status": "program_available_unapproved",
     "affiliate_source_url": "https://marblism.com/affiliate",
     "affiliate_final_url": "https://www.marblism.com/affiliate",
     "affiliate_http_status": 200,
     "affiliate_evidence_markers": [
       "partner\\s+program.{0,80}(commission|payout|earn)"
     ],
-    "affiliate_verified_at": "2026-08-03T14:15:30Z",
-    "affiliate_rejection_reason": "",
+    "affiliate_verified_at": null,
+    "affiliate_rejection_reason": "Program exists, but no approved COSHUMA tracking link is present",
     "primary_category": "automation",
     "comparison_group": "automation",
     "official_verification_status": "verified",
@@ -4618,16 +4619,17 @@
     "primary_category": "automation",
     "comparison_group": "productivity_workspace",
     "is_manual_override": true,
-    "affiliate_url": "https://partners.taskade.com/",
-    "affiliate_verified": true,
+    "affiliate_url": null,
+    "affiliate_verified": false,
+    "affiliate_status": "program_available_unapproved",
     "affiliate_source_url": "https://partners.taskade.com/",
     "affiliate_final_url": "https://partners.taskade.com/",
     "affiliate_http_status": 200,
     "affiliate_evidence_markers": [
       "affiliate\\s+program"
     ],
-    "affiliate_verified_at": "2026-08-03T17:39:24Z",
-    "affiliate_rejection_reason": "",
+    "affiliate_verified_at": null,
+    "affiliate_rejection_reason": "Program exists, but no approved COSHUMA tracking link is present",
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": "2026-08-04T03:25:05Z",
     "pricing_source_http_status": 200,
