@@ -32,7 +32,7 @@ export default function SponsorshipCheckout() {
         });
         if (!buttons.isEligible()) throw new Error('PayPal checkout is unavailable');
         return buttons.render(buttonContainer.current).then(() => {
-          if (active) setStatus({ type: 'neutral', message: 'Secure $49 sponsorship payment via PayPal Sandbox.' });
+          if (active) setStatus({ type: 'neutral', message: 'Secure $49 sponsorship payment via PayPal.' });
         });
       })
       .catch(() => {
