@@ -93,11 +93,12 @@ def test_308_redirect_metadata_stored_in_safe_result():
     with patch("affiliate_url_verifier._build_opener", return_value=mock_opener):
         meta = safe_affiliate_result("https://example.com/old-path", tool_name="RedirectTool")
 
-    assert meta["affiliate_verified"] is True
+    assert meta["affiliate_verified"] is False
+    assert meta["affiliate_status"] == "program_available_unapproved"
     assert meta["affiliate_final_url"] == final_url
-    assert meta["affiliate_url"] == "https://example.com/old-path"
+    assert meta["affiliate_url"] is None
     assert len(meta["affiliate_evidence_markers"]) > 0
-    assert meta["affiliate_rejection_reason"] == ""
+    assert "no approved COSHUMA tracking link" in meta["affiliate_rejection_reason"]
 
 
 # ── Test 4: Redirect loop -> safely rejected ──────────────────────────────────

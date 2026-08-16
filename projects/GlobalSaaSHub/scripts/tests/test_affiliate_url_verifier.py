@@ -17,7 +17,7 @@ from affiliate_url_verifier import (
 )
 
 REQUIRED_META_FIELDS = [
-    "affiliate_url","affiliate_verified","affiliate_source_url","affiliate_final_url",
+    "affiliate_url","affiliate_verified","affiliate_status","affiliate_source_url","affiliate_final_url",
     "affiliate_http_status","affiliate_evidence_markers","affiliate_verified_at","affiliate_rejection_reason",
 ]
 
@@ -140,8 +140,9 @@ def test_safe_affiliate_result_has_all_fields():
         meta = safe_affiliate_result("https://example.com/affiliate", tool_name="Tool")
     for field in REQUIRED_META_FIELDS:
         assert field in meta, f"Missing field in result: {field}"
-    assert meta["affiliate_verified"] is True
-    assert meta["affiliate_url"] == "https://example.com/affiliate"
+    assert meta["affiliate_verified"] is False
+    assert meta["affiliate_status"] == "program_available_unapproved"
+    assert meta["affiliate_url"] is None
 
 
 def test_normalized_tool_contains_all_affiliate_fields():
@@ -159,7 +160,9 @@ def test_normalized_tool_contains_all_affiliate_fields():
     normalized.update(aff_meta)
     for field in REQUIRED_META_FIELDS:
         assert field in normalized, f"Missing affiliate field in normalized tool: {field}"
-    assert normalized["affiliate_verified"] is True
+    assert normalized["affiliate_verified"] is False
+    assert normalized["affiliate_status"] == "program_available_unapproved"
+    assert normalized["affiliate_url"] is None
 
 
 if __name__ == "__main__":

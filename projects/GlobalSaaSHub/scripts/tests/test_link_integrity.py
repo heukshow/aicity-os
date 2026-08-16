@@ -94,12 +94,14 @@ def main():
             fail(errors, "Relevance AI affiliate CTA must not be rendered")
 
     taskade = next((tool for tool in tools if tool["id"] == "taskade"), None)
-    if not taskade or not taskade.get("affiliate_url") or taskade.get("affiliate_verified") is not True:
-        fail(errors, "Taskade verified affiliate fields are missing")
+    if not taskade or taskade.get("affiliate_url") is not None or taskade.get("affiliate_verified") is not False:
+        fail(errors, "Taskade must remain official-only until an approved tracking link is stored")
     else:
         taskade_html = (PUBLIC / "tool" / "taskade.html").read_text(encoding="utf-8")
-        if taskade.get("affiliate_url") not in taskade_html or "Visit Taskade" not in taskade_html:
-            fail(errors, "Taskade affiliate CTA is missing or does not use affiliate_url")
+        if taskade.get("official_url") not in taskade_html or "Visit Official Taskade Site" not in taskade_html:
+            fail(errors, "Taskade official-only CTA is missing")
+        if "via Verified Affiliate Link" in taskade_html:
+            fail(errors, "Taskade affiliate CTA must not be rendered")
     if errors:
         print(f"LINK INTEGRITY: FAIL ({len(errors)} errors)")
         for error in errors:

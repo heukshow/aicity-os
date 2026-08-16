@@ -227,24 +227,26 @@ def safe_affiliate_result(url: str, tool_name: str = "") -> dict:
 
     if verdict["accepted"]:
         print(
-            f"   affiliate_url OK [{tool_name}]: {url} "
-            f"(patterns: {len(verdict['evidence_patterns'])})"
+            f"   affiliate program found [{tool_name}]: {url}; "
+            "an approved account-specific tracking link is still required"
         )
         return {
-            "affiliate_url": url,
-            "affiliate_verified": True,
+            "affiliate_url": None,
+            "affiliate_verified": False,
+            "affiliate_status": "program_available_unapproved",
             "affiliate_source_url": url,
             "affiliate_final_url": verdict["final_url"],
             "affiliate_http_status": verdict["http_status"],
             "affiliate_evidence_markers": verdict["evidence_patterns"],
-            "affiliate_verified_at": verdict["verified_at"],
-            "affiliate_rejection_reason": "",
+            "affiliate_verified_at": None,
+            "affiliate_rejection_reason": "Program exists, but no approved COSHUMA tracking link is present",
         }
     else:
         print(f"   affiliate_url REJECTED [{tool_name}]: {verdict['rejection_reason']}")
         return {
             "affiliate_url": None,
             "affiliate_verified": False,
+            "affiliate_status": "unverified",
             "affiliate_source_url": url,
             "affiliate_final_url": verdict["final_url"],
             "affiliate_http_status": verdict["http_status"],

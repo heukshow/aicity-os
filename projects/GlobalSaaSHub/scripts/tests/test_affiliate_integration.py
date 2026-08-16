@@ -11,7 +11,7 @@ from affiliate_url_verifier import safe_affiliate_result
 from auto_aggregator import normalize_unverified_candidate
 
 REQUIRED_AFFILIATE_FIELDS = [
-    "affiliate_url","affiliate_verified","affiliate_source_url","affiliate_final_url",
+    "affiliate_url","affiliate_verified","affiliate_status","affiliate_source_url","affiliate_final_url",
     "affiliate_http_status","affiliate_evidence_markers","affiliate_verified_at","affiliate_rejection_reason",
 ]
 
@@ -81,14 +81,15 @@ def test_success_path_all_fields_present_and_correct():
     reloaded = _write_and_reload(normalized)
     for field in REQUIRED_AFFILIATE_FIELDS:
         assert field in reloaded, f"SUCCESS PATH: missing field '{field}' after JSON reload"
-    assert reloaded["affiliate_verified"] is True
-    assert reloaded["affiliate_url"] == aff_url
+    assert reloaded["affiliate_verified"] is False
+    assert reloaded["affiliate_status"] == "program_available_unapproved"
+    assert reloaded["affiliate_url"] is None
     assert reloaded["affiliate_source_url"] == aff_url
     assert reloaded["affiliate_final_url"] == aff_url
     assert reloaded["affiliate_http_status"] == 200
     assert len(reloaded["affiliate_evidence_markers"]) > 0
-    assert reloaded["affiliate_verified_at"]
-    assert reloaded["affiliate_rejection_reason"] == ""
+    assert reloaded["affiliate_verified_at"] is None
+    assert "no approved COSHUMA tracking link" in reloaded["affiliate_rejection_reason"]
 
 
 def test_failure_path_network_error_all_fields_present():
@@ -124,7 +125,9 @@ def test_new_tools_discovered_json_format():
         record = reloaded_list[0]
         for field in REQUIRED_AFFILIATE_FIELDS:
             assert field in record, f"new_tools_discovered format: missing field '{field}'"
-        assert record["affiliate_verified"] is True
+        assert record["affiliate_verified"] is False
+        assert record["affiliate_status"] == "program_available_unapproved"
+        assert record["affiliate_url"] is None
     finally:
         os.unlink(fname)
 
