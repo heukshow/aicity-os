@@ -26,7 +26,7 @@ export function detectVisitorCountry() {
       return { country: 'Canada', flag: '🇨🇦', code: 'CA' };
     }
     return { country: 'United States', flag: '🇺🇸', code: 'US' };
-  } catch (e) {
+  } catch {
     return { country: 'United States', flag: '🇺🇸', code: 'US' };
   }
 }
@@ -129,7 +129,7 @@ export function getRealAnalyticsStats() {
       topClickedTools,
       rawEvents: events
     };
-  } catch (e) {
+  } catch {
     return { totalPageviews: 0, totalClicks: 0, ctr: '0.0%', countryBreakdown: [], topClickedTools: [], rawEvents: [] };
   }
 }
