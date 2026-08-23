@@ -1022,7 +1022,11 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Systeme.io is an all-in-one marketing platform designed for entrepreneurs and small businesses, offering tools for sales funnels, email marketing, websites, and online courses. Simplify your online business with its comprehensive and user-friendly features.",
-    "affiliate_url": null,
+    "affiliate_url": "https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_source_url": "https://help.systeme.io/article/162-how-the-systeme-io-affiliate-program-works",
+    "affiliate_verified_at": "2026-08-23T20:23:38Z",
     "pricing": "See official pricing",
     "key_features": [
       "Sales Funnel Builder",
