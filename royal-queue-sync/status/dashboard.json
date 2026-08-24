@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T06:19:39.161832+00:00",
+  "generated_at": "2026-08-24T06:19:46.543768+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -19,18 +19,18 @@
     },
     {
       "name": "Butler",
-      "status": "working",
-      "last_activity": "2026-08-24T00:43:40.578312+00:00",
-      "task": "Pictory Affiliate Program 신청 계속 진행",
-      "uuid": "40782387-5fc1-4b37-8996-72b8f83a7569",
+      "status": "error",
+      "last_activity": "2026-08-24T06:19:42.366800+00:00",
+      "task": "COSHUMA live monetization audit",
+      "uuid": "4e13e2d4-406a-4656-973f-a5c1c31b771d",
       "tool": null
     },
     {
       "name": "Princess",
-      "status": "idle",
-      "last_activity": "2026-08-24T04:14:46.200166+00:00",
-      "task": null,
-      "uuid": null,
+      "status": "error",
+      "last_activity": "2026-08-24T06:19:42.332771+00:00",
+      "task": "COSHUMA SEO and traffic audit",
+      "uuid": "1e27052b-5aff-4508-863c-9171737287ef",
       "tool": null
     }
   ],
@@ -38,7 +38,7 @@
     "todo": 1,
     "in_progress": 1,
     "done": 12,
-    "failed": 0,
+    "failed": 2,
     "waiting_human": 0
   },
   "tracking": [
@@ -56,21 +56,21 @@
       "alive": true,
       "pid": 48788,
       "started_at": "2026-08-24T04:14:36.6779275Z",
-      "heartbeat": "2026-08-24T06:19:39.161832+00:00"
+      "heartbeat": "2026-08-24T06:19:46.543768+00:00"
     },
     {
       "name": "GitHub bridge",
       "alive": true,
       "pid": 4136,
       "started_at": "2026-08-24T06:02:11.7876820Z",
-      "heartbeat": "2026-08-24T06:19:39.161832+00:00"
+      "heartbeat": "2026-08-24T06:19:46.543768+00:00"
     },
     {
       "name": "dashboard",
       "alive": true,
       "pid": 47300,
       "started_at": "2026-08-24T06:19:17.090825+00:00",
-      "heartbeat": "2026-08-24T06:19:39.161832+00:00"
+      "heartbeat": "2026-08-24T06:19:46.543768+00:00"
     }
   ]
 }
