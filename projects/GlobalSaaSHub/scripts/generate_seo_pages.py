@@ -320,7 +320,7 @@ for tool in tools_data:
     else:
         cta_parts.append('<div class="px-6 py-3.5 rounded-xl font-bold text-xs bg-slate-800 text-slate-500 border border-slate-700/50 text-center">Official Link Unavailable</div>')
     if affiliate_url:
-        cta_parts.append(f'<a data-cta="affiliate" href="{affiliate_url}" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center shadow-lg shadow-purple-950/50 hover:brightness-110 transition-all flex items-center justify-center gap-2"><span>Visit {tool_name} via Verified Affiliate Link</span><span>→</span></a>')
+        cta_parts.append(f'<a data-cta="affiliate" href="{affiliate_url}" target="_blank" rel="sponsored noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center shadow-lg shadow-purple-950/50 hover:brightness-110 transition-all flex items-center justify-center gap-2"><span>Visit {tool_name} via Verified Affiliate Link</span><span>→</span></a>')
     cta_button_html = "\n".join(cta_parts)
 
     file_content = html_template.format(
