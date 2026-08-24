@@ -166,15 +166,15 @@
         "name": "Jasper",
         "official_url": "https://www.jasper.ai/",
         "has_affiliate_program": true,
-        "official_source_url": "https://www.jasper.ai/partners",
+        "official_source_url": "https://www.jasper.ai/legal/affiliates",
         "application_url": "https://www.jasper.ai/partners",
-        "commission": "30% Recurring",
-        "cookie_duration_days": 30,
-        "payout_terms": "FirstPromoter monthly",
+        "commission": "25% ~ 30% Recurring for first 12 months",
+        "cookie_duration_days": 45,
+        "payout_terms": "$25 min threshold via Impact / PayPal",
         "free_to_join": true,
         "geo_restriction": "Global",
         "status": "not_applied",
-        "notes": "Verified official affiliate terms."
+        "notes": "Verified directly via official terms (jasper.ai/legal/affiliates): Baseline 25% recurring commission (up to 30% tier) for the first 12 months with a 45-day cookie window."
       },
       {
         "id": "writesonic",
