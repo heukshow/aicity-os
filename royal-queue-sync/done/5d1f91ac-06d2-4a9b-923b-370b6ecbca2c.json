@@ -1,0 +1,14 @@
+{
+  "id": "5d1f91ac-06d2-4a9b-923b-370b6ecbca2c",
+  "title": "Work live FileSystemWatcher test",
+  "assigned_to": "work",
+  "status": "done",
+  "payload": {
+    "test": "harmless"
+  },
+  "result": {
+    "filesystem_event": true
+  },
+  "created_at": "2026-08-24T06:02:00+00:00",
+  "updated_at": "2026-08-24T06:02:00+00:00"
+}
