@@ -33,13 +33,13 @@
         "has_affiliate_program": true,
         "official_source_url": "https://www.notion.so/affiliates",
         "application_url": "https://www.notion.so/affiliates",
-        "commission": "50% for first 12 months",
+        "commission": "$50 bounty + 20% for first 12 months",
         "cookie_duration_days": 90,
-        "payout_terms": "PartnerStack monthly",
+        "payout_terms": "PartnerStack monthly (No earnings cap)",
         "free_to_join": true,
         "geo_restriction": "Global",
-        "status": "not_applied",
-        "notes": "Verified official affiliate terms."
+        "status": "application_paused",
+        "notes": "Verified directly via live official page (notion.so/affiliates): $50 per new signup + 20% of first-year revenue via PartnerStack. Notice: New affiliate applications are currently paused by Notion."
       },
       {
         "id": "make-com",
