@@ -1,6 +1,12 @@
 {
-  "generated_at": "2026-08-24T09:53:19.684109+00:00",
+  "generated_at": "2026-08-24T10:02:22.880153+00:00",
   "latest": [
+    {
+      "id": "supervisor-transition-test-20260824",
+      "actor": "princess",
+      "status": "done",
+      "updated_at": "2026-08-24T18:53:15+00:00"
+    },
     {
       "id": "supervisor-transition-test-20260824",
       "actor": "princess",
@@ -144,12 +150,6 @@
       "actor": "princess",
       "status": "done",
       "updated_at": "2026-08-24T02:36:32.161082+00:00"
-    },
-    {
-      "id": "4a9db850-7cd6-4a05-ad09-f8470d7f0b53",
-      "actor": "princess",
-      "status": "done",
-      "updated_at": "2026-08-23T23:45:01.946904+00:00"
     }
   ]
 }

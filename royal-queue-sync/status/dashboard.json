@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T09:53:16.078844+00:00",
+  "generated_at": "2026-08-24T10:02:21.873679+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -39,10 +39,10 @@
     },
     {
       "name": "Princess",
-      "status": "working",
+      "status": "waiting_human",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
-      "last_activity": "2026-08-24T09:52:53.440552+00:00",
+      "last_activity": "2026-08-24T09:53:16.686646+00:00",
       "task": "Visible UI supervisor transition verification",
       "uuid": "supervisor-transition-test-20260824",
       "tool": null,
@@ -52,10 +52,10 @@
   ],
   "counts": {
     "todo": 146,
-    "in_progress": 6,
+    "in_progress": 5,
     "done": 22,
     "failed": 2,
-    "waiting_human": 0
+    "waiting_human": 1
   },
   "tracking": [
     {
@@ -74,7 +74,7 @@
       "pid": null,
       "started_at": null,
       "heartbeat": "2026-08-24T09:25:49.5786616Z",
-      "heartbeat_age_seconds": 1646
+      "heartbeat_age_seconds": 2192
     },
     {
       "name": "GitHub bridge",
@@ -82,8 +82,8 @@
       "health": "healthy",
       "pid": 47732,
       "started_at": "2026-08-24T09:15:49.8104234Z",
-      "heartbeat": "2026-08-24T09:53:10.3066807Z",
-      "heartbeat_age_seconds": 6
+      "heartbeat": "2026-08-24T10:02:18.6510554Z",
+      "heartbeat_age_seconds": 3
     },
     {
       "name": "dashboard",
@@ -91,7 +91,7 @@
       "health": "healthy",
       "pid": 46088,
       "started_at": "2026-08-24T09:18:44.922329+00:00",
-      "heartbeat": "2026-08-24T09:53:12.661193+00:00",
+      "heartbeat": "2026-08-24T10:02:18.409201+00:00",
       "heartbeat_age_seconds": 3
     }
   ]
