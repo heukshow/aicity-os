@@ -39,7 +39,8 @@
       "monthly_unique_visitors": "Less than 1,000"
     },
     "blocker": "\"Your HeyGen account\" is a required field asking for the email used to log in to the HeyGen platform — i.e. applicants must already have a registered HeyGen account before applying. No COSHUMA/HeyGen platform account exists yet, and creating one requires setting a password (this agent never creates account passwords). Left the Google Form tab open, fully filled except this field, for 큰형/공주 to either create a HeyGen account (e.g. via Google sign-in) and enter that login email, or handle this step directly, then click Submit.",
-    "notes": "Once submitted, revisit to capture approval status and the real unique tracking link before marking this task done."
+    "bypass_attempts_tested": "Checked whether the HeyGen account requirement is free (yes, HeyGen has a free tier) and whether it could be created via Google sign-in without a typed password. Even so, this remains blocked: 'Creating accounts' is a standalone prohibited action under this agent's operating rules, independent of the password sub-issue — the block applies whether the new account would be created via typed password or via Google/SSO. There is no existing HeyGen account to log into (unlike the Semrush/Impact.com case, this is not a reuse-existing-login scenario), so this is a categorical policy block requiring 큰형/공주's own action, not a solvable field-substitution case.",
+    "notes": "Once submitted, revisit to capture approval status and the real unique tracking link before marking this task done. Requires 큰형/공주 to personally create the HeyGen account (free tier, any method including Google) and enter the login email in the one remaining field, then submit."
   },
   "created_at": "2026-08-24T00:00:00Z",
   "updated_at": "2026-08-24T00:00:00Z"
