@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T09:16:26.645243+00:00",
+  "generated_at": "2026-08-24T09:25:14.487744+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -9,7 +9,9 @@
       "last_activity": "2026-08-24T06:19:38.760405+00:00",
       "task": null,
       "uuid": null,
-      "tool": null
+      "tool": null,
+      "recent_failure_count": 0,
+      "recent_error_title": null
     },
     {
       "name": "Work",
@@ -19,27 +21,33 @@
       "last_activity": "2026-08-24T09:16:30+00:00",
       "task": null,
       "uuid": null,
-      "tool": null
+      "tool": null,
+      "recent_failure_count": 0,
+      "recent_error_title": null
     },
     {
       "name": "Butler",
-      "status": "error",
+      "status": "working",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
-      "last_activity": "2026-08-24T09:15:53.814397+00:00",
-      "task": "COSHUMA post-merge live revenue verification",
-      "uuid": "aeb54240-1142-41e0-af3a-96e617b5bc2a",
-      "tool": null
+      "last_activity": "2026-08-24T00:43:40.578312+00:00",
+      "task": "Pictory Affiliate Program 신청 계속 진행",
+      "uuid": "40782387-5fc1-4b37-8996-72b8f83a7569",
+      "tool": null,
+      "recent_failure_count": 1,
+      "recent_error_title": "COSHUMA post-merge live revenue verification"
     },
     {
       "name": "Princess",
-      "status": "error",
+      "status": "idle",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
       "last_activity": "2026-08-24T09:15:53.847704+00:00",
-      "task": "COSHUMA SEO P1 next-action audit",
-      "uuid": "e04621f3-c462-4963-bf23-7e5e69248876",
-      "tool": null
+      "task": null,
+      "uuid": null,
+      "tool": null,
+      "recent_failure_count": 2,
+      "recent_error_title": "COSHUMA SEO P1 next-action audit"
     }
   ],
   "counts": {
@@ -65,8 +73,8 @@
       "health": "healthy",
       "pid": 49132,
       "started_at": "2026-08-24T09:15:49.8893593Z",
-      "heartbeat": "2026-08-24T09:16:20.5697014Z",
-      "heartbeat_age_seconds": 6
+      "heartbeat": "2026-08-24T09:25:09.0417044Z",
+      "heartbeat_age_seconds": 5
     },
     {
       "name": "GitHub bridge",
@@ -74,16 +82,16 @@
       "health": "healthy",
       "pid": 47732,
       "started_at": "2026-08-24T09:15:49.8104234Z",
-      "heartbeat": "2026-08-24T09:16:12.0942482Z",
-      "heartbeat_age_seconds": 15
+      "heartbeat": "2026-08-24T09:25:08.8895233Z",
+      "heartbeat_age_seconds": 6
     },
     {
       "name": "dashboard",
       "alive": true,
       "health": "healthy",
-      "pid": 45636,
-      "started_at": "2026-08-24T09:15:49.723859+00:00",
-      "heartbeat": "2026-08-24T09:16:22.935417+00:00",
+      "pid": 46088,
+      "started_at": "2026-08-24T09:18:44.922329+00:00",
+      "heartbeat": "2026-08-24T09:25:10.759436+00:00",
       "heartbeat_age_seconds": 4
     }
   ]
