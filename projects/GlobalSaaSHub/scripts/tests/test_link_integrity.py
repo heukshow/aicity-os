@@ -93,15 +93,24 @@ def main():
         if "Visit Relevance AI" in relevance_html:
             fail(errors, "Relevance AI affiliate CTA must not be rendered")
 
-    taskade = next((tool for tool in tools if tool["id"] == "taskade"), None)
-    if not taskade or taskade.get("affiliate_url") is not None or taskade.get("affiliate_verified") is not False:
-        fail(errors, "Taskade must remain official-only until an approved tracking link is stored")
-    else:
-        taskade_html = (PUBLIC / "tool" / "taskade.html").read_text(encoding="utf-8")
-        if taskade.get("official_url") not in taskade_html or "Visit Official Taskade Site" not in taskade_html:
-            fail(errors, "Taskade official-only CTA is missing")
-        if "via Verified Affiliate Link" in taskade_html:
-            fail(errors, "Taskade affiliate CTA must not be rendered")
+    approved_tracking_urls = {
+        "taskade": "https://www.taskade.com/?via=7zzjo7",
+        "systeme-io": "https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca",
+        "fliki": "https://fliki.ai?via=sangkwon",
+    }
+    for tool_id, tracking_url in approved_tracking_urls.items():
+        tool = next((item for item in tools if item["id"] == tool_id), None)
+        if not tool or tool.get("affiliate_url") != tracking_url or tool.get("affiliate_verified") is not True:
+            fail(errors, f"{tool_id} approved tracking data is missing or unverified")
+            continue
+        html = (PUBLIC / "tool" / f"{tool_id}.html").read_text(encoding="utf-8")
+        affiliate_cta = re.search(r'<a data-cta="affiliate"[^>]+>', html)
+        if not affiliate_cta or f'href="{tracking_url}"' not in affiliate_cta.group(0):
+            fail(errors, f"{tool_id} generated affiliate CTA does not use its approved tracking URL")
+        if not affiliate_cta or 'rel="sponsored noopener noreferrer"' not in affiliate_cta.group(0):
+            fail(errors, f"{tool_id} affiliate CTA is missing the sponsored safety relation")
+        if "via Verified Affiliate Link" not in html:
+            fail(errors, f"{tool_id} affiliate disclosure is missing")
     if errors:
         print(f"LINK INTEGRITY: FAIL ({len(errors)} errors)")
         for error in errors:
