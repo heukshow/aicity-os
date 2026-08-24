@@ -901,15 +901,15 @@
         "name": "Descript",
         "official_url": "https://www.descript.com/",
         "has_affiliate_program": true,
-        "official_source_url": "https://www.descript.com/affiliates",
-        "application_url": "https://www.descript.com/affiliates",
-        "commission": "15% Recurring for 1 year",
+        "official_source_url": "https://descript.firstpromoter.com/",
+        "application_url": "https://descript.firstpromoter.com/",
+        "commission": "15% Recurring for 12 months (Private Campaign)",
         "cookie_duration_days": 30,
-        "payout_terms": "FirstPromoter",
+        "payout_terms": "FirstPromoter monthly payouts ($50 min)",
         "free_to_join": true,
         "geo_restriction": "Global",
-        "status": "not_applied",
-        "notes": "Verified official affiliate terms."
+        "status": "private_campaign_invitation_only",
+        "notes": "Verified directly via live official portal (descript.firstpromoter.com): Campaign is currently private (invitation/approval required)."
       },
       {
         "id": "synder",
