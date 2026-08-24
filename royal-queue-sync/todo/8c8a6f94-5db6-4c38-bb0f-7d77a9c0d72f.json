@@ -1,0 +1,32 @@
+{
+  "id": "8c8a6f94-5db6-4c38-bb0f-7d77a9c0d72f",
+  "title": "Enable queue-driven Work execution without manual handoff",
+  "assigned_to": "work",
+  "status": "todo",
+  "payload": {
+    "goal": "Make Work-equivalent local execution receive royal-queue tasks directly so the user does not need to click ChatGPT Work handoff or copy results back.",
+    "requirements": [
+      "Inspect current royal-queue watcher/bridge/router and existing work actor support.",
+      "Implement or complete a queue-driven work adapter that executes safe local file/PowerShell/Python/Git tasks directly from assigned_to=work jobs.",
+      "Do not depend on ChatGPT Work UI handoff for normal local execution.",
+      "Preserve UUID idempotency, canonical todo->in_progress->done|failed|waiting_human transitions, single-work concurrency, atomic writes, no duplicate execution.",
+      "Return structured JSON results and auto-push through the existing GitHub bridge so Prince can read results without user copy/paste.",
+      "Keep zero-cost policy and do not expose/read secrets. Only waiting_human for CAPTCHA, payment approval, legal consent, forced human verification.",
+      "Add a harmless E2E assigned_to=work test that performs a temporary/local read-only or disposable action and proves todo->in_progress->done plus GitHub result sync.",
+      "Update dashboard so Work shows whether execution is queue/local-runner versus ChatGPT Work UI handoff.",
+      "Do not break butler/princess adapters, watcher, bridge, dashboard, or existing tracking tasks."
+    ],
+    "success_criteria": [
+      "A new assigned_to=work queue task is automatically executed without ChatGPT Work handoff UI.",
+      "No user click or result copy/paste is required.",
+      "Result appears in royal-queue-sync/done with the same UUID.",
+      "Dashboard records Work execution mode and returns to idle after completion."
+    ]
+  },
+  "depends_on": null,
+  "result": null,
+  "error": null,
+  "human_reason": null,
+  "created_at": "2026-08-24T08:34:00+00:00",
+  "updated_at": "2026-08-24T08:34:00+00:00"
+}
