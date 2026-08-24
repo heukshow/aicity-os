@@ -1,0 +1,20 @@
+{
+  "id": "8f46c277-a9a4-4c4c-a471-462241d0ca7c",
+  "title": "GitHub bridge harmless E2E",
+  "assigned_to": "butler",
+  "status": "done",
+  "payload": {
+    "action": "event_e2e_readonly",
+    "read_path": "C:/Users/qmffo/Documents/Codex/2026-08-24/referenced-chatgpt-conversation-this-is-an-4/outputs/royal-queue/README.md"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "mode": "event",
+    "read_only": true,
+    "tool_name": "Chrome for Claude",
+    "bytes_read": 10489
+  },
+  "created_at": "2026-08-24T06:00:00+00:00",
+  "updated_at": "2026-08-24T05:59:07.411229+00:00"
+}
