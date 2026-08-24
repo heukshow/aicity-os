@@ -1,11 +1,17 @@
 {
-  "generated_at": "2026-08-24T10:05:36.509113+00:00",
+  "generated_at": "2026-08-24T10:11:45.329109+00:00",
   "latest": [
     {
       "id": "supervisor-transition-test-20260824",
       "actor": "princess",
       "status": "done",
       "updated_at": "2026-08-24T18:53:15+00:00"
+    },
+    {
+      "id": "apply-manychat",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-24T10:11:17.600827Z"
     },
     {
       "id": "apply-semrush",
@@ -144,12 +150,6 @@
       "actor": "princess",
       "status": "done",
       "updated_at": "2026-08-24T04:14:46.200166+00:00"
-    },
-    {
-      "id": "e3f49429-422e-42b6-957f-fbb8bb2b2552",
-      "actor": "princess",
-      "status": "done",
-      "updated_at": "2026-08-24T04:00:00+00:00"
     }
   ]
 }

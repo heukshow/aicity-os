@@ -1,0 +1,55 @@
+{
+  "id": "apply-manychat",
+  "title": "Affiliate Application: ManyChat",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "forced_human_verification",
+  "payload": {
+    "tool_id": "manychat",
+    "tool_name": "ManyChat",
+    "application_url": "https://manychat.com/affiliate/ -> https://manychat.partnerstack.com/ -> https://dash.partnerstack.com/application?company=manychat (PartnerStack)",
+    "instructions": "COSHUMA 전체 카탈로그 중 아직 신청하지 않은 무료 제휴 프로그램 1건으로 ManyChat을 선택해 보이는 브라우저에서 신청을 진행한다."
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "in_progress_form_fully_filled_except_phone",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "30% recurring commission for first 12 months (Gold tier, 0-30 paid signups); increases to 40% at 31-200 paid signups (Sapphire), 50% at 201+ (Diamond)",
+      "cookie_days": 120,
+      "payout": "Via PartnerStack, on the 13th of the month following the month earned; payout method Stripe or PayPal, selectable in affiliate dashboard",
+      "activity_requirement": "none disclosed on the program pages reviewed",
+      "source": "https://manychat.com/affiliate/ page text and the PartnerStack application page (dash.partnerstack.com/application?company=manychat), both read live on 2026-08-24"
+    },
+    "existing_account_check": "no prior COSHUMA/ManyChat application found in Gmail before this attempt; first/last name and business name fields were auto-populated by PartnerStack from the existing COSHUMA PartnerStack identity (used previously for Instantly), confirming no duplicate new account was created",
+    "signup_path_used": "https://manychat.com/affiliate/ -> \"JOIN NOW\" -> https://manychat.partnerstack.com/ -> \"Join now\" -> PartnerStack application form",
+    "fields_submitted": {
+      "first_name": "Sangkwon (auto-filled by PartnerStack)",
+      "last_name": "An (auto-filled by PartnerStack)",
+      "email": "support@coshuma.com (auto-filled by PartnerStack)",
+      "company_name": "COSHUMA (GlobalSaaSHub)",
+      "promotion_plan": "SEO-driven review + comparison page strategy on coshuma.com, 30-day plan to publish a dedicated Manychat page, no paid ads/redirects/brand bidding",
+      "tos_acknowledgments": "all 4 required checkboxes checked (agree to terms; no prohibited practices; info is true/verifiable; understand termination risk)",
+      "business_name": "COSHUMA (auto-filled)",
+      "websites_social": "https://coshuma.com",
+      "facebook": "N/A - no active Facebook page",
+      "website_url": "https://coshuma.com",
+      "country": "Korea, Republic of",
+      "familiarity": "researched Manychat while building the GlobalSaaSHub directory",
+      "proof_of_reach": "https://coshuma.com",
+      "audience_geography": "US/UK/Canada/Australia, English-speaking organic search traffic",
+      "past_experience": "Fliki, Pictory, Systeme.io (already-approved COSHUMA affiliate programs)",
+      "industries": "SaaS, AI tools, marketing/sales automation, productivity software",
+      "how_heard": "researching chat marketing tools while building the directory",
+      "paid_search_policy_ack": "checked (I understand / Concordo)"
+    },
+    "blocker": "Phone Number is a required field on the PartnerStack application (with a country-code selector defaulted to US +1). This agent does not have a real, verifiable COSHUMA business phone number and per standing policy does not fabricate contact details or handle OTP/phone verification. Left the browser tab open on the fully-filled form at https://dash.partnerstack.com/application?company=manychat for 큰형/Work to enter a real phone number (ideally set the country code to KR +82) and click Submit application.",
+    "notes": "Once submitted, revisit to capture application/approval status and the real unique PartnerStack tracking link (not the generic manychat.com URL) before marking this task done."
+  },
+  "created_at": "2026-08-24T10:11:17.600827Z",
+  "updated_at": "2026-08-24T10:11:17.600827Z"
+}
