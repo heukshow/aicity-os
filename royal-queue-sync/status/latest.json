@@ -1,6 +1,12 @@
 {
-  "generated_at": "2026-08-24T09:37:29.598881+00:00",
+  "generated_at": "2026-08-24T09:44:13.581964+00:00",
   "latest": [
+    {
+      "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+      "actor": "work",
+      "status": "done",
+      "updated_at": "2026-08-24T09:44:10.279520+00:00"
+    },
     {
       "id": "40782387-5fc1-4b37-8996-72b8f83a7569",
       "actor": "butler",
@@ -36,12 +42,6 @@
       "actor": "butler",
       "status": "failed",
       "updated_at": "2026-08-24T09:15:53.814397+00:00"
-    },
-    {
-      "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
-      "actor": "princess",
-      "status": "failed",
-      "updated_at": "2026-08-24T09:15:53.425546+00:00"
     },
     {
       "id": "459f98a5-8a5d-4ddd-9312-8f7dfa229f77",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T09:37:40.857201+00:00",
+  "generated_at": "2026-08-24T09:44:11.725794+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -18,7 +18,7 @@
       "status": "idle",
       "execution_surface": "UI execution",
       "execution_mode": "interactive_ui",
-      "last_activity": "2026-08-24T09:37:00+00:00",
+      "last_activity": "2026-08-24T09:44:10.279520+00:00",
       "task": null,
       "uuid": null,
       "tool": null,
@@ -30,7 +30,7 @@
       "status": "idle",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
-      "last_activity": "2026-08-24T09:42:00+00:00",
+      "last_activity": "2026-08-24T09:44:10.279520+00:00",
       "task": null,
       "uuid": null,
       "tool": null,
@@ -46,15 +46,15 @@
       "task": null,
       "uuid": null,
       "tool": null,
-      "recent_failure_count": 2,
+      "recent_failure_count": 1,
       "recent_error_title": "COSHUMA SEO P1 next-action audit"
     }
   ],
   "counts": {
-    "todo": 4,
+    "todo": 151,
     "in_progress": 0,
-    "done": 21,
-    "failed": 3,
+    "done": 22,
+    "failed": 2,
     "waiting_human": 0
   },
   "tracking": [
@@ -74,7 +74,7 @@
       "pid": null,
       "started_at": null,
       "heartbeat": "2026-08-24T09:25:49.5786616Z",
-      "heartbeat_age_seconds": 711
+      "heartbeat_age_seconds": 1102
     },
     {
       "name": "GitHub bridge",
@@ -82,8 +82,8 @@
       "health": "healthy",
       "pid": 47732,
       "started_at": "2026-08-24T09:15:49.8104234Z",
-      "heartbeat": "2026-08-24T09:37:12.2623320Z",
-      "heartbeat_age_seconds": 29
+      "heartbeat": "2026-08-24T09:44:02.1195875Z",
+      "heartbeat_age_seconds": 9
     },
     {
       "name": "dashboard",
@@ -91,7 +91,7 @@
       "health": "healthy",
       "pid": 46088,
       "started_at": "2026-08-24T09:18:44.922329+00:00",
-      "heartbeat": "2026-08-24T09:37:37.428366+00:00",
+      "heartbeat": "2026-08-24T09:44:08.324834+00:00",
       "heartbeat_age_seconds": 3
     }
   ]
