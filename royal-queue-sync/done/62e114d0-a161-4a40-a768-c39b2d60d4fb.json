@@ -12,6 +12,21 @@
     "pictory_status": "pending_review (do not re-apply)",
     "audited_catalog": [
       {
+        "id": "getresponse",
+        "name": "GetResponse",
+        "official_url": "https://www.getresponse.com/",
+        "has_affiliate_program": true,
+        "official_source_url": "https://www.getresponse.com/affiliate-programs",
+        "application_url": "https://www.getresponse.com/affiliate-programs",
+        "commission": "40% ~ 60% Tiered Recurring Commission for 12 months",
+        "cookie_duration_days": 120,
+        "payout_terms": "PartnerStack monthly payouts (Bronze 40%, Silver 50%, Gold 60%)",
+        "free_to_join": true,
+        "geo_restriction": "Global",
+        "status": "not_applied",
+        "notes": "Verified directly via live official page (getresponse.com/affiliate-programs): Tiered recurring commission (Bronze 40%, Silver 50%, Gold 60%) for 12 months with a 120-day cookie window via PartnerStack."
+      },
+      {
         "id": "pipedrive",
         "name": "Pipedrive",
         "official_url": "https://www.pipedrive.com/",
