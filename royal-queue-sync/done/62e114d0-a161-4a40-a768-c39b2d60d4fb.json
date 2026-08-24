@@ -468,13 +468,13 @@
         "has_affiliate_program": true,
         "official_source_url": "https://www.hubspot.com/partners/affiliates",
         "application_url": "https://www.hubspot.com/partners/affiliates",
-        "commission": "30% Recurring for 1 year",
+        "commission": "30% Monthly Recurring Commission for up to 1 year",
         "cookie_duration_days": 180,
-        "payout_terms": "Impact Radius",
+        "payout_terms": "Impact.com monthly payouts (Up to $1,000+ per sale)",
         "free_to_join": true,
         "geo_restriction": "Global",
         "status": "not_applied",
-        "notes": "Verified official affiliate terms."
+        "notes": "Verified directly via live official page (hubspot.com/partners/affiliates): Earn 30% monthly recurring commission for up to 1 year with an industry-leading 180-day cookie window via Impact."
       },
       {
         "id": "kinsta",
