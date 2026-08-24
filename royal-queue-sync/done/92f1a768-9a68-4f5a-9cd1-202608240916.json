@@ -1,0 +1,36 @@
+{
+  "id": "92f1a768-9a68-4f5a-9cd1-202608240916",
+  "title": "Royal Queue 실시간 로컬 대시보드 구축",
+  "assigned_to": "work",
+  "status": "done",
+  "payload": {
+    "scope": "local dashboard, heartbeat stale warnings, autostart, GitHub result sync"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "work",
+    "success": true,
+    "url": "http://127.0.0.1:8765/",
+    "refresh_seconds": 3,
+    "fallback_poll_seconds": 5,
+    "features": [
+      "Prince/Work/Butler/Princess status with UI/background adapter labels",
+      "todo/in_progress/done/failed/waiting_human counts and task details",
+      "watcher/GitHub bridge/dashboard heartbeat with 30s warning and 60s critical stale state",
+      "prominent waiting_human panel with prepared URL when available",
+      "recent completion and failure events",
+      "Windows login autostart and desktop browser shortcut"
+    ],
+    "verification": {
+      "http_status": 200,
+      "page_title": "Royal Queue Dashboard",
+      "processes_healthy": true,
+      "unit_tests_passed": 27
+    },
+    "github_sync": "Automatic through the existing royal-queue-sync/status bridge"
+  },
+  "error": null,
+  "human_reason": null,
+  "created_at": "2026-08-24T09:16:30+00:00",
+  "updated_at": "2026-08-24T09:16:30+00:00"
+}

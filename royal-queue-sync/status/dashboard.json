@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T09:16:08.065214+00:00",
+  "generated_at": "2026-08-24T09:16:19.206536+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -16,7 +16,7 @@
       "status": "idle",
       "execution_surface": "UI execution",
       "execution_mode": "interactive_ui",
-      "last_activity": "2026-08-24T08:34:00+00:00",
+      "last_activity": "2026-08-24T09:16:30+00:00",
       "task": null,
       "uuid": null,
       "tool": null
@@ -45,7 +45,7 @@
   "counts": {
     "todo": 4,
     "in_progress": 1,
-    "done": 17,
+    "done": 18,
     "failed": 3,
     "waiting_human": 0
   },
@@ -65,8 +65,8 @@
       "health": "healthy",
       "pid": 49132,
       "started_at": "2026-08-24T09:15:49.8893593Z",
-      "heartbeat": "2026-08-24T09:16:00.1440133Z",
-      "heartbeat_age_seconds": 8
+      "heartbeat": "2026-08-24T09:16:10.3565365Z",
+      "heartbeat_age_seconds": 9
     },
     {
       "name": "GitHub bridge",
@@ -74,8 +74,8 @@
       "health": "healthy",
       "pid": 47732,
       "started_at": "2026-08-24T09:15:49.8104234Z",
-      "heartbeat": "2026-08-24T09:15:49.8104234Z",
-      "heartbeat_age_seconds": 18
+      "heartbeat": "2026-08-24T09:16:12.0942482Z",
+      "heartbeat_age_seconds": 7
     },
     {
       "name": "dashboard",
@@ -83,7 +83,7 @@
       "health": "healthy",
       "pid": 45636,
       "started_at": "2026-08-24T09:15:49.723859+00:00",
-      "heartbeat": "2026-08-24T09:16:04.408394+00:00",
+      "heartbeat": "2026-08-24T09:16:15.473166+00:00",
       "heartbeat_age_seconds": 4
     }
   ]
