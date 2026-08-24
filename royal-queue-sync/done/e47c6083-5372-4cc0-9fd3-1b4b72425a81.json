@@ -1,0 +1,19 @@
+{
+  "id": "e47c6083-5372-4cc0-9fd3-1b4b72425a81",
+  "title": "TEST Butler adapter harmless E2E",
+  "assigned_to": "butler",
+  "status": "done",
+  "payload": {
+    "action": "adapter_e2e"
+  },
+  "depends_on": null,
+  "result": {
+    "success": true,
+    "actor": "butler",
+    "adapter": "butler_safe_adapter",
+    "test": true,
+    "tool_name": "Chrome for Claude"
+  },
+  "created_at": "2026-08-24T06:30:38.801065+00:00",
+  "updated_at": "2026-08-24T06:30:39.011962+00:00"
+}

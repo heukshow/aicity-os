@@ -1,6 +1,18 @@
 {
-  "generated_at": "2026-08-24T06:30:22.508390+00:00",
+  "generated_at": "2026-08-24T06:30:41.996235+00:00",
   "latest": [
+    {
+      "id": "55fbb8b8-ad3e-45a0-81ea-762287729194",
+      "actor": "princess",
+      "status": "done",
+      "updated_at": "2026-08-24T06:30:39.044760+00:00"
+    },
+    {
+      "id": "e47c6083-5372-4cc0-9fd3-1b4b72425a81",
+      "actor": "butler",
+      "status": "done",
+      "updated_at": "2026-08-24T06:30:39.011962+00:00"
+    },
     {
       "id": "1e27052b-5aff-4508-863c-9171737287ef",
       "actor": "princess",

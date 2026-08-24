@@ -1,0 +1,19 @@
+{
+  "id": "55fbb8b8-ad3e-45a0-81ea-762287729194",
+  "title": "TEST Princess adapter harmless E2E",
+  "assigned_to": "princess",
+  "status": "done",
+  "payload": {
+    "action": "adapter_e2e"
+  },
+  "depends_on": null,
+  "result": {
+    "success": true,
+    "actor": "princess",
+    "adapter": "princess_safe_adapter",
+    "test": true,
+    "tool_name": "cloudrun"
+  },
+  "created_at": "2026-08-24T06:30:38.913646+00:00",
+  "updated_at": "2026-08-24T06:30:39.044760+00:00"
+}
