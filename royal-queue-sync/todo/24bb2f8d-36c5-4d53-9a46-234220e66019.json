@@ -1,0 +1,25 @@
+{
+  "id": "24bb2f8d-36c5-4d53-9a46-234220e66019",
+  "title": "COSHUMA affiliate application batch from audited priority list",
+  "assigned_to": "butler",
+  "status": "todo",
+  "payload": {
+    "project": "COSHUMA / GlobalSaaSHub",
+    "goal": "After the full affiliate audit finishes, begin applying to the highest-priority free affiliate programs that can be completed without human-only verification.",
+    "requirements": [
+      "Use the completed Princess audit result as the source of truth for candidate priority and official application links.",
+      "Skip already approved, already pending, rejected-with-cooldown, closed, paid-to-join, or clearly duplicate programs.",
+      "Apply automatically only where signup/application is free and no CAPTCHA, payment approval, legal-signature acknowledgement beyond ordinary account terms, OTP, or forced human verification blocks progress.",
+      "Use existing COSHUMA business identity/profile information already available in the browser/account context; do not ask the user for data that is already known or retrievable from existing connected accounts.",
+      "For each program, record submitted/pending/approved/blocked status, official application URL, network/provider, next expected event, and whether a unique tracking link is issued.",
+      "If a tracking link is issued, verify it is unique/referral-bearing before marking approved_tracking and return it for repo integration.",
+      "Do not spend money or start any paid subscription."
+    ]
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": null,
+  "error": null,
+  "human_reason": null,
+  "created_at": "2026-08-24T08:42:05+00:00",
+  "updated_at": "2026-08-24T08:42:05+00:00"
+}
