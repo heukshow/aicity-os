@@ -1,11 +1,17 @@
 {
-  "generated_at": "2026-08-24T10:30:44.480611+00:00",
+  "generated_at": "2026-08-24T13:34:01.612685+00:00",
   "latest": [
     {
       "id": "supervisor-transition-test-20260824",
       "actor": "princess",
       "status": "done",
       "updated_at": "2026-08-24T18:53:15+00:00"
+    },
+    {
+      "id": "apply-omnisend",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-24T13:40:00Z"
     },
     {
       "id": "apply-tidio",
@@ -144,12 +150,6 @@
       "actor": "butler",
       "status": "done",
       "updated_at": "2026-08-24T04:14:46.232224+00:00"
-    },
-    {
-      "id": "ad6e3cd2-43a5-4be1-b17c-f6b7048cc182",
-      "actor": "princess",
-      "status": "done",
-      "updated_at": "2026-08-24T04:14:46.200166+00:00"
     }
   ]
 }

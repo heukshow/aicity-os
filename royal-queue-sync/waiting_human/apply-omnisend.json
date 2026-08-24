@@ -1,0 +1,36 @@
+{
+  "id": "apply-omnisend",
+  "title": "Affiliate Application: Omnisend",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "forced_human_verification",
+  "payload": {
+    "tool_id": "omnisend",
+    "tool_name": "Omnisend",
+    "application_url": "https://www.omnisend.com/affiliates/ -> \"Apply now\" -> https://app.impact.com/campaign-promo-signup/Omnisend1693918779728.brand (Impact.com)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "blocked_before_form_start",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "20% recurring commission for up to 24 months per referred paying customer",
+      "cookie_days": 60,
+      "payout": "Via Impact.com, EFT or PayPal, on Impact's standard payout schedule",
+      "activity_requirement": "none disclosed beyond standard honest-promotion guidance on the FAQ reviewed",
+      "source": "https://www.omnisend.com/affiliates/, read live on 2026-08-24"
+    },
+    "existing_account_check": "no prior COSHUMA/Omnisend or Impact.com-Omnisend application found in Gmail before this attempt",
+    "signup_path_used": "https://www.omnisend.com/affiliates/ -> \"Apply now\" link -> https://app.impact.com/campaign-promo-signup/Omnisend1693918779728.brand (Impact.com-hosted signup, same account family as the Semrush and 10Web Impact.com applications)",
+    "fields_submitted": {},
+    "blocker": "Same Impact.com 'Sign Up' (new media partner account) form as Semrush: requires Email, First Name, Last Name, and a required Mobile Number (Korea +82, likely OTP-verified) before Continue is enabled. No password field shown yet at this step, but the phone requirement alone blocks progress, and completing this Sign Up form would mean creating a brand-new Impact.com partner account (categorically prohibited for this agent, independent of the phone/OTP issue).",
+    "bypass_attempts_tested": "This is the same Impact.com account family already tested for Semrush earlier in this session (Google OAuth sign-in confirmed to create a new account rather than reuse the existing 10Web-linked one, and that new-account flow requires a verified phone number). Since that finding already applies here, no further bypass was attempted — left the browser tab on the blank Sign Up form rather than entering any personal data into a new-account flow.",
+    "notes": "Likely resolves the same way as Semrush: 큰형/공주 needs to either log in to the existing Impact.com account with its original email+password (not Google) if that avoids the new-account flow, or complete this Sign Up (email/name/phone, OTP) directly themselves."
+  },
+  "created_at": "2026-08-24T13:40:00Z",
+  "updated_at": "2026-08-24T13:40:00Z"
+}
