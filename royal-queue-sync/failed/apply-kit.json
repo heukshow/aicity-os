@@ -1,0 +1,24 @@
+{
+  "id": "apply-kit",
+  "title": "Affiliate Application: Kit (formerly ConvertKit)",
+  "assigned_to": "butler",
+  "status": "rejected",
+  "terminal": true,
+  "result": {
+    "actor": "butler",
+    "success": false,
+    "application_status": "submitted_then_rejected",
+    "approval_status": "rejected",
+    "tracking_link": null,
+    "evidence": {
+      "source": "Gmail",
+      "sender": "Kit Affiliates <affiliates@kit.com>",
+      "subject": "Your Kit affiliate application status",
+      "message_id": "1a034367d5620b6f",
+      "received_at": "2026-08-24T14:39:35+00:00",
+      "summary": "Kit confirmed the affiliate application was reviewed and they decided not to move forward at this time."
+    },
+    "notes": "Terminal correction. Do not re-apply automatically. This supersedes the stale waiting_human CAPTCHA record."
+  },
+  "updated_at": "2026-08-24T18:08:10+00:00"
+}
