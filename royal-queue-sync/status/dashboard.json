@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T10:31:19.653517+00:00",
+  "generated_at": "2026-08-24T11:01:21.425478+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -51,11 +51,11 @@
     }
   ],
   "counts": {
-    "todo": 142,
-    "in_progress": 6,
+    "todo": 140,
+    "in_progress": 8,
     "done": 22,
     "failed": 2,
-    "waiting_human": 4
+    "waiting_human": 5
   },
   "tracking": [
     {
@@ -74,7 +74,7 @@
       "pid": null,
       "started_at": null,
       "heartbeat": "2026-08-24T09:25:49.5786616Z",
-      "heartbeat_age_seconds": 3930
+      "heartbeat_age_seconds": 5731
     },
     {
       "name": "GitHub bridge",
@@ -82,8 +82,8 @@
       "health": "healthy",
       "pid": 47732,
       "started_at": "2026-08-24T09:15:49.8104234Z",
-      "heartbeat": "2026-08-24T10:30:53.7592905Z",
-      "heartbeat_age_seconds": 26
+      "heartbeat": "2026-08-24T11:01:12.9591360Z",
+      "heartbeat_age_seconds": 8
     },
     {
       "name": "dashboard",
@@ -91,7 +91,7 @@
       "health": "healthy",
       "pid": 46088,
       "started_at": "2026-08-24T09:18:44.922329+00:00",
-      "heartbeat": "2026-08-24T10:31:16.241609+00:00",
+      "heartbeat": "2026-08-24T11:01:18.106582+00:00",
       "heartbeat_age_seconds": 3
     }
   ]

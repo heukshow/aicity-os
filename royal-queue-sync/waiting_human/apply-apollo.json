@@ -1,0 +1,49 @@
+{
+  "id": "apply-apollo",
+  "title": "Affiliate Application: Apollo.io",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "forced_human_verification",
+  "payload": {
+    "tool_id": "apollo",
+    "tool_name": "Apollo.io",
+    "application_url": "https://dash.partnerstack.com/application?company=apollo (PartnerStack)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "in_progress_form_fully_filled_except_linkedin",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "not disclosed with a specific figure on the application form reviewed",
+      "cookie_days": null,
+      "payout": "Via PartnerStack",
+      "activity_requirement": "Explicitly forbidden: bidding on Apollo.io brand keywords (including negatives); ad impersonation on search engines results in immediate exclusion",
+      "source": "https://dash.partnerstack.com/application?company=apollo and https://www.apollo.io/terms/affiliate-partner-program, both read live on 2026-08-24"
+    },
+    "existing_account_check": "no prior COSHUMA/Apollo application found in Gmail before this attempt; this form did NOT auto-fill from the existing PartnerStack identity (fields appeared as placeholder text only), so identity fields were entered manually to match the existing COSHUMA identity used on other PartnerStack applications",
+    "signup_path_used": "direct PartnerStack application URL guessed and confirmed correct -> filled form fields manually",
+    "fields_submitted": {
+      "first_name": "Sangkwon",
+      "last_name": "An",
+      "email": "support@coshuma.com",
+      "company": "COSHUMA",
+      "company_website": "https://coshuma.com",
+      "country": "Korea, Republic of",
+      "traffic_sources": "coshuma.com (organic search / SEO content only — no active social media accounts)",
+      "business_type": "Review/Comparison Site",
+      "familiarity_with_apollo": "We are aware of Apollo.io as a leading B2B sales intelligence/engagement platform and plan to publish a dedicated review and comparison page on coshuma.com covering it alongside similar sales/prospecting tools.",
+      "audience_size": "Early-stage SEO site, organic search traffic (no fixed follower count to report)",
+      "terms_ack": "checked (Yes, I understand)",
+      "brand_keyword_bidding_ack": "checked (Yes, I understand)",
+      "ad_impersonation_ack": "checked (Yes, I understand)"
+    },
+    "blocker": "\"LinkedIn URL (personal or business)\" is a required field. This agent does not have a real LinkedIn profile for the COSHUMA business/Sangkwon An to submit honestly, so it was left blank rather than fabricated. Left the browser tab open on the fully-filled form for 큰형/공주 to add a LinkedIn URL and click Submit application.",
+    "notes": "Once submitted, revisit to capture approval status and the real unique PartnerStack tracking link before marking this task done."
+  },
+  "created_at": "2026-08-24T00:00:00Z",
+  "updated_at": "2026-08-24T00:00:00Z"
+}
