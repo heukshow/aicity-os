@@ -1,0 +1,21 @@
+{
+  "id": "9ad02444-7c83-4042-b173-ee958d7634ac",
+  "title": "[DASHBOARD E2E] 상태 전환 표시 검증",
+  "assigned_to": "prince",
+  "status": "done",
+  "payload": {
+    "action": "dashboard_e2e_readonly"
+  },
+  "depends_on": null,
+  "result": {
+    "e2e": true,
+    "harmless": true,
+    "observed": [
+      "todo",
+      "in_progress",
+      "done"
+    ]
+  },
+  "created_at": "2026-08-24T06:19:30.487015+00:00",
+  "updated_at": "2026-08-24T06:19:38.760405+00:00"
+}
