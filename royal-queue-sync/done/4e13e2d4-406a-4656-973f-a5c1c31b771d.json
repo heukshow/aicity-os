@@ -1,0 +1,91 @@
+{
+  "id": "4e13e2d4-406a-4656-973f-a5c1c31b771d",
+  "title": "COSHUMA live monetization audit",
+  "assigned_to": "butler",
+  "status": "done",
+  "payload": {
+    "project": "COSHUMA / GlobalSaaSHub",
+    "domain": "https://coshuma.com/",
+    "repo": "heukshow/aicity-os",
+    "path": "projects/GlobalSaaSHub",
+    "goal": "Verify that current approved affiliate links and revenue CTAs are actually exposed correctly on the live site.",
+    "tasks": [
+      "Inspect live pages for Taskade, Systeme.io and Fliki and confirm their approved tracking URLs are used in user-facing CTAs and relevant static SEO pages.",
+      "Specifically check the previously noted Taskade static page gap where public/tool/taskade.html may still use the official non-affiliate URL.",
+      "Check sponsorship CTA and affiliate CTA visibility, broken links, redirects, target attributes, and whether visitors can reach a revenue action without dead ends.",
+      "Record exact live URL, observed CTA destination, expected tracking URL, pass/fail, and recommended fix. Do not perform paid actions or production writes."
+    ],
+    "constraints": [
+      "zero cost",
+      "read-only live audit",
+      "no payments",
+      "no production writes"
+    ]
+  },
+  "depends_on": null,
+  "result": {
+    "success": true,
+    "actor": "butler",
+    "adapter": "butler_readonly_web",
+    "verified_at": "2026-08-24T06:30:19.304445+00:00",
+    "read_only": true,
+    "findings": [
+      {
+        "tool": "Taskade",
+        "live_url": "https://coshuma.com/tool/taskade",
+        "http_status": 200,
+        "final_url": "https://coshuma.com/tool/taskade",
+        "expected_tracking_url": "https://www.taskade.com/?via=7zzjo7",
+        "live_tracking_cta_present": false,
+        "static_tracking_cta_present": false,
+        "static_official_url_only_gap": true,
+        "external_ctas": [
+          "https://www.taskade.com/"
+        ],
+        "pass": false
+      },
+      {
+        "tool": "Systeme.io",
+        "live_url": "https://coshuma.com/tool/systeme-io",
+        "http_status": 200,
+        "final_url": "https://coshuma.com/tool/systeme-io",
+        "expected_tracking_url": "https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca",
+        "live_tracking_cta_present": false,
+        "static_tracking_cta_present": false,
+        "static_official_url_only_gap": true,
+        "external_ctas": [
+          "https://systeme.io/"
+        ],
+        "pass": false
+      },
+      {
+        "tool": "Fliki",
+        "live_url": "https://coshuma.com/tool/fliki",
+        "http_status": 404,
+        "final_url": "https://coshuma.com/tool/fliki",
+        "expected_tracking_url": "https://fliki.ai?via=sangkwon",
+        "live_tracking_cta_present": false,
+        "static_tracking_cta_present": false,
+        "static_official_url_only_gap": false,
+        "external_ctas": [],
+        "pass": false
+      }
+    ],
+    "sponsor_ctas": [],
+    "summary": {
+      "passed": 0,
+      "failed": 3,
+      "taskade_static_gap": true
+    },
+    "recommended_fixes": [
+      "Regenerate and deploy any tool page whose live CTA does not equal its approved tracking URL.",
+      "Keep affiliate disclosure and rel=\"sponsored noopener noreferrer\" on revenue CTAs.",
+      "Ensure a visible sponsorship route exists from the homepage/footer."
+    ]
+  },
+  "error": null,
+  "human_reason": null,
+  "retry_from_failed": true,
+  "created_at": "2026-08-24T06:06:30+00:00",
+  "updated_at": "2026-08-24T06:30:19.304445+00:00"
+}
