@@ -573,13 +573,13 @@
         "has_affiliate_program": true,
         "official_source_url": "https://www.synthesia.io/affiliates",
         "application_url": "https://www.synthesia.io/affiliates",
-        "commission": "20% Recurring for 1 year",
+        "commission": "25% Recurring for first 12 months",
         "cookie_duration_days": 60,
-        "payout_terms": "FirstPromoter",
+        "payout_terms": "Rewardful monthly payouts (PayPal)",
         "free_to_join": true,
         "geo_restriction": "Global",
         "status": "not_applied",
-        "notes": "Verified official affiliate terms."
+        "notes": "Verified directly via live official page (synthesia.io/affiliates): Earn 25% recurring commission for the first 12 months on Starter/Creator plans with a 60-day cookie window via Rewardful."
       },
       {
         "id": "octo-browser",
