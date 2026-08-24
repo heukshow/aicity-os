@@ -12,6 +12,21 @@
     "pictory_status": "pending_review (do not re-apply)",
     "audited_catalog": [
       {
+        "id": "vidiq",
+        "name": "vidIQ",
+        "official_url": "https://vidiq.com/",
+        "has_affiliate_program": true,
+        "official_source_url": "https://vidiq.com/affiliates/",
+        "application_url": "https://vidiq.com/affiliates/",
+        "commission": "15% ~ 25% Tiered Recurring Commission",
+        "cookie_duration_days": 30,
+        "payout_terms": "Monthly payouts (PayPal / PartnerStack)",
+        "free_to_join": true,
+        "geo_restriction": "Global",
+        "status": "not_applied",
+        "notes": "Verified directly via live official page (vidiq.com/affiliates): Tiered recurring commission (Associate 15%, Influencer 20%, Ambassador 25%) with free vidIQ Boost perks for Ambassadors."
+      },
+      {
         "id": "gohighlevel",
         "name": "GoHighLevel",
         "official_url": "https://www.gohighlevel.com/",
