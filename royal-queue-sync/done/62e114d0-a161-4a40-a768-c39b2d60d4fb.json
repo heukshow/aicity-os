@@ -63,13 +63,13 @@
         "has_affiliate_program": true,
         "official_source_url": "https://elevenlabs.io/affiliates",
         "application_url": "https://elevenlabs.io/affiliates",
-        "commission": "22% ~ 44% Recurring",
+        "commission": "22% Commission for first 12 months",
         "cookie_duration_days": 60,
-        "payout_terms": "FirstPromoter / PayPal",
+        "payout_terms": "PartnerStack monthly payouts (No limits)",
         "free_to_join": true,
         "geo_restriction": "Global",
         "status": "not_applied",
-        "notes": "Verified official affiliate terms."
+        "notes": "Verified directly via live official page (elevenlabs.io/affiliates): Earn 22% of all payments for the first 12 months with no limits via PartnerStack."
       },
       {
         "id": "copy-ai",
