@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T14:56:41.596630+00:00",
+  "generated_at": "2026-08-24T15:00:47.390323+00:00",
   "latest": [
     {
       "id": "supervisor-transition-test-20260824",
@@ -12,6 +12,12 @@
       "actor": "butler",
       "status": "done",
       "updated_at": "2026-08-24T14:45:00Z"
+    },
+    {
+      "id": "apply-kit",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-24T14:20:00Z"
     },
     {
       "id": "apply-aweber",
@@ -144,12 +150,6 @@
       "actor": "work",
       "status": "done",
       "updated_at": "2026-08-24T06:02:00+00:00"
-    },
-    {
-      "id": "bca8e0a1-47e7-4d9a-9b31-c1963832a104",
-      "actor": "work",
-      "status": "done",
-      "updated_at": "2026-08-24T06:00:00+00:00"
     }
   ]
 }
