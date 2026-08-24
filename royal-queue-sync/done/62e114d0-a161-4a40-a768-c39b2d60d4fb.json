@@ -12,6 +12,21 @@
     "pictory_status": "pending_review (do not re-apply)",
     "audited_catalog": [
       {
+        "id": "activecampaign",
+        "name": "ActiveCampaign",
+        "official_url": "https://www.activecampaign.com/",
+        "has_affiliate_program": true,
+        "official_source_url": "https://www.activecampaign.com/partner/affiliate",
+        "application_url": "https://www.activecampaign.com/partner/affiliate",
+        "commission": "30% Recurring Commission",
+        "cookie_duration_days": 90,
+        "payout_terms": "Monthly payouts via PartnerStack ($1,350 avg per referral)",
+        "free_to_join": true,
+        "geo_restriction": "Global",
+        "status": "not_applied",
+        "notes": "Verified directly via live official page (activecampaign.com/partner/affiliate): Earn 30% recurring commission on all subscription sales with a 90-day cookie window via PartnerStack."
+      },
+      {
         "id": "getdrip",
         "name": "Drip (GetDrip)",
         "official_url": "https://www.drip.com/",
