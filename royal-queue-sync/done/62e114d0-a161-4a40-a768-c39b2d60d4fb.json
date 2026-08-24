@@ -543,13 +543,13 @@
         "has_affiliate_program": true,
         "official_source_url": "https://webflow.com/affiliates",
         "application_url": "https://webflow.com/affiliates",
-        "commission": "50% for 12 months",
+        "commission": "50% Commission for up to 12 months",
         "cookie_duration_days": 90,
-        "payout_terms": "PartnerStack",
+        "payout_terms": "PartnerStack monthly payouts",
         "free_to_join": true,
         "geo_restriction": "Global",
         "status": "not_applied",
-        "notes": "Verified official affiliate terms."
+        "notes": "Verified directly via live official page (webflow.com/affiliates): Earn 50% commission on a new customer's first subscription for up to 12 months with a 90-day cookie window via PartnerStack."
       },
       {
         "id": "reactin",
