@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T09:15:53.444623+00:00",
+  "generated_at": "2026-08-24T09:16:00.733043+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -23,12 +23,12 @@
     },
     {
       "name": "Butler",
-      "status": "working",
+      "status": "error",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
-      "last_activity": "2026-08-24T00:43:40.578312+00:00",
-      "task": "Pictory Affiliate Program 신청 계속 진행",
-      "uuid": "40782387-5fc1-4b37-8996-72b8f83a7569",
+      "last_activity": "2026-08-24T09:15:53.814397+00:00",
+      "task": "COSHUMA post-merge live revenue verification",
+      "uuid": "aeb54240-1142-41e0-af3a-96e617b5bc2a",
       "tool": null
     },
     {
@@ -36,17 +36,17 @@
       "status": "error",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
-      "last_activity": "2026-08-24T09:15:53.425546+00:00",
-      "task": "COSHUMA full affiliate program audit for all registered tools",
-      "uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+      "last_activity": "2026-08-24T09:15:53.847704+00:00",
+      "task": "COSHUMA SEO P1 next-action audit",
+      "uuid": "e04621f3-c462-4963-bf23-7e5e69248876",
       "tool": null
     }
   ],
   "counts": {
-    "todo": 6,
+    "todo": 4,
     "in_progress": 1,
     "done": 17,
-    "failed": 1,
+    "failed": 3,
     "waiting_human": 0
   },
   "tracking": [
@@ -65,8 +65,8 @@
       "health": "healthy",
       "pid": 49132,
       "started_at": "2026-08-24T09:15:49.8893593Z",
-      "heartbeat": "2026-08-24T09:15:49.8893593Z",
-      "heartbeat_age_seconds": 3
+      "heartbeat": "2026-08-24T09:16:00.1440133Z",
+      "heartbeat_age_seconds": 0
     },
     {
       "name": "GitHub bridge",
@@ -75,7 +75,7 @@
       "pid": 47732,
       "started_at": "2026-08-24T09:15:49.8104234Z",
       "heartbeat": "2026-08-24T09:15:49.8104234Z",
-      "heartbeat_age_seconds": 4
+      "heartbeat_age_seconds": 11
     },
     {
       "name": "dashboard",
@@ -83,7 +83,7 @@
       "health": "healthy",
       "pid": 45636,
       "started_at": "2026-08-24T09:15:49.723859+00:00",
-      "heartbeat": "2026-08-24T09:15:49.734424+00:00",
+      "heartbeat": "2026-08-24T09:15:57.061948+00:00",
       "heartbeat_age_seconds": 4
     }
   ]
