@@ -976,15 +976,15 @@
         "name": "Murf AI",
         "official_url": "https://murf.ai/",
         "has_affiliate_program": true,
-        "official_source_url": "https://murf.ai/affiliates",
-        "application_url": "https://murf.ai/affiliates",
-        "commission": "20% Recurring for 24 months",
+        "official_source_url": "https://murf.partnerstack.com/",
+        "application_url": "https://murf.partnerstack.com/",
+        "commission": "20% Recurring Commission",
         "cookie_duration_days": 90,
-        "payout_terms": "FirstPromoter",
+        "payout_terms": "Monthly cash-out via PayPal or Stripe (PartnerStack)",
         "free_to_join": true,
         "geo_restriction": "Global",
         "status": "not_applied",
-        "notes": "Verified official affiliate terms."
+        "notes": "Verified directly via live official portal (murf.partnerstack.com): 20% recurring commission with a 90-day cookie window paid out via PartnerStack (PayPal/Stripe)."
       },
       {
         "id": "scalenut",
