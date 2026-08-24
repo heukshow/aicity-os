@@ -207,7 +207,7 @@
         "coshuma_fit": "High (AI/SaaS Tools)",
         "expected_profitability": "High (- / 20%-60% recurring)",
         "status": "applied_pending",
-        "notes": "Email verified and application pending review. Do not re-apply."
+        "notes": "Application submitted & email verified (pending review)."
       },
       {
         "id": "inkfluence-ai",
@@ -757,7 +757,7 @@
         "coshuma_fit": "High (AI/SaaS Tools)",
         "expected_profitability": "High (- / 20%-60% recurring)",
         "status": "approved_tracking",
-        "notes": "Verified directly via live official page (systeme.io/affiliate-program): Earn 60% lifetime recurring commissions on every sale with permanent lifetime referral tagging and $30 min payout via PayPal/Wire."
+        "notes": "Already approved & tracking active in COSHUMA."
       },
       {
         "id": "jotform",
@@ -3278,7 +3278,9 @@
       "no_program_found": 0,
       "paid_or_purchase_required": 0,
       "needs_manual_verification": 0
-    }
+    },
+    "approved_count": 1,
+    "pending_count": 1
   },
   "created_at": "2026-08-24T08:42:00+00:00",
   "updated_at": "2026-08-24T09:44:10.279520+00:00"
