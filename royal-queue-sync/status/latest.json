@@ -1,11 +1,17 @@
 {
-  "generated_at": "2026-08-24T13:34:01.612685+00:00",
+  "generated_at": "2026-08-24T13:40:36.835349+00:00",
   "latest": [
     {
       "id": "supervisor-transition-test-20260824",
       "actor": "princess",
       "status": "done",
       "updated_at": "2026-08-24T18:53:15+00:00"
+    },
+    {
+      "id": "apply-aweber",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-24T14:00:00Z"
     },
     {
       "id": "apply-omnisend",
@@ -144,12 +150,6 @@
       "actor": "butler",
       "status": "done",
       "updated_at": "2026-08-24T05:59:07.411229+00:00"
-    },
-    {
-      "id": "c9e325ee-3e35-4563-b0f6-82f10b2d4e9d",
-      "actor": "butler",
-      "status": "done",
-      "updated_at": "2026-08-24T04:14:46.232224+00:00"
     }
   ]
 }
