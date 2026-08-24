@@ -1,0 +1,58 @@
+{
+  "id": "459f98a5-8a5d-4ddd-9312-8f7dfa229f77",
+  "title": "COSHUMA P0 affiliate CTA and Fliki static page fix",
+  "assigned_to": "codex",
+  "status": "done",
+  "created_at": "2026-08-24T08:04:14.2789384Z",
+  "updated_at": "2026-08-24T08:07:09.9700096Z",
+  "payload": {
+    "repo": "heukshow/aicity-os",
+    "path": "projects/GlobalSaaSHub",
+    "priority": "P0",
+    "approved_tracking_urls": {
+      "taskade": "https://www.taskade.com/?via=7zzjo7",
+      "systeme-io": "https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca",
+      "fliki": "https://fliki.ai?via=sangkwon"
+    }
+  },
+  "result": {
+    "actor": "codex",
+    "success": true,
+    "root_cause": "The approved affiliate data was present on main, but the SEO generator had not been rerun after the data merges. Existing static Taskade and Systeme.io pages therefore lacked affiliate CTAs, and Fliki had no generated static page or sitemap entry. The old link-integrity regression also still expected Taskade to be official-only.",
+    "live_revalidation": {
+      "robots_txt": 200,
+      "sitemap_xml": 200,
+      "taskade": 200,
+      "systeme_io": 200,
+      "fliki_before_fix": 404,
+      "sponsor_cta": "present_and_unchanged"
+    },
+    "changed_files": [
+      "projects/GlobalSaaSHub/public/sitemap.xml",
+      "projects/GlobalSaaSHub/public/tool/fliki.html",
+      "projects/GlobalSaaSHub/public/tool/systeme-io.html",
+      "projects/GlobalSaaSHub/public/tool/taskade.html",
+      "projects/GlobalSaaSHub/scripts/generate_seo_pages.py",
+      "projects/GlobalSaaSHub/scripts/tests/test_content_audit.py",
+      "projects/GlobalSaaSHub/scripts/tests/test_link_integrity.py"
+    ],
+    "tests": {
+      "link_integrity": "PASS (151/151 tools, 151 pages)",
+      "lint": "PASS",
+      "build": "PASS",
+      "unit_generation_suite": "PASS (31 tests)",
+      "diff_check": "PASS"
+    },
+    "branch": "fix/coshuma-p0-affiliate-ctas",
+    "commit": "73ae651f80b8901c4812598c1a58c0f7a8af58ac",
+    "pull_request": {
+      "number": 9,
+      "url": "https://github.com/heukshow/aicity-os/pull/9"
+    },
+    "production_deployed": false,
+    "remaining_items": [
+      "PR #9 must pass repository checks and be reviewed/merged before any production deployment.",
+      "After a validated deployment, verify https://coshuma.com/tool/fliki returns 200 and all three live affiliate CTAs use the approved tracking URLs."
+    ]
+  }
+}
