@@ -48,13 +48,13 @@
         "has_affiliate_program": true,
         "official_source_url": "https://www.make.com/en/affiliate",
         "application_url": "https://www.make.com/en/affiliate",
-        "commission": "20% ~ 50% Recurring",
+        "commission": "35% Commission for 12 months",
         "cookie_duration_days": 90,
-        "payout_terms": "$50 min via FirstPromoter",
+        "payout_terms": "$50 min threshold via PartnerStack / FirstPromoter",
         "free_to_join": true,
         "geo_restriction": "Global",
         "status": "not_applied",
-        "notes": "Verified official affiliate terms."
+        "notes": "Verified directly via live official page (make.com/en/affiliate): Earn 35% commission on all referrals for 12 months."
       },
       {
         "id": "elevenlabs",
