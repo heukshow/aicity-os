@@ -961,15 +961,15 @@
         "name": "Surfer SEO",
         "official_url": "https://surferseo.com/",
         "has_affiliate_program": true,
-        "official_source_url": "https://surferseo.com/affiliates/",
-        "application_url": "https://surferseo.com/affiliates/",
-        "commission": "25% Recurring",
+        "official_source_url": "https://surferseo.firstpromoter.com/",
+        "application_url": "https://surferseo.firstpromoter.com/",
+        "commission": "25% Recurring Commission",
         "cookie_duration_days": 60,
-        "payout_terms": "FirstPromoter",
+        "payout_terms": "$50 min threshold via FirstPromoter (Invoice required)",
         "free_to_join": true,
         "geo_restriction": "Global",
         "status": "not_applied",
-        "notes": "Verified official affiliate terms."
+        "notes": "Verified directly via live official portal (surferseo.firstpromoter.com): 25% recurring commission. Prerequisite: Business must be able to issue an invoice to receive payouts."
       },
       {
         "id": "murf-ai",
