@@ -76,15 +76,15 @@
         "name": "Copy.ai",
         "official_url": "https://www.copy.ai/",
         "has_affiliate_program": true,
-        "official_source_url": "https://www.copy.ai/affiliate-program",
-        "application_url": "https://www.copy.ai/affiliate-program",
-        "commission": "45% first year recurring",
+        "official_source_url": "https://www.copy.ai/",
+        "application_url": "https://www.copy.ai/",
+        "commission": "45% Commission for first 12 months",
         "cookie_duration_days": 60,
-        "payout_terms": "FirstPromoter monthly",
+        "payout_terms": "Monthly payout via PayPal ($50 min threshold)",
         "free_to_join": true,
         "geo_restriction": "Global",
         "status": "not_applied",
-        "notes": "Verified official affiliate terms."
+        "notes": "Verified directly via official site (copy.ai): 45% commission on first-year subscription sales with a 60-day cookie window."
       },
       {
         "id": "zenrows",
