@@ -1,0 +1,31 @@
+{
+  "id": "8e1446b0-8eae-4faa-b8f6-202608240637",
+  "title": "Restore direct Claude Butler and Antigravity Princess chat dispatch",
+  "assigned_to": "work",
+  "status": "done",
+  "payload": {
+    "scope": "desktop chat dispatch correction"
+  },
+  "depends_on": null,
+  "result": {
+    "success": true,
+    "dispatch_mode": "direct_visible_chat_dispatch",
+    "butler": {
+      "app": "Claude desktop",
+      "conversation": "COSHUMA 제휴 수익 연결",
+      "instruction_submitted": true,
+      "status": "working"
+    },
+    "princess": {
+      "app": "Antigravity desktop",
+      "conversation": "Royal Queue Princess Worker Setup",
+      "instruction_submitted": true,
+      "status": "working"
+    },
+    "background_adapter_dispatch": false,
+    "work_role": "open chats, type task instructions, supervise visible execution, verify shared_queue/GitHub results",
+    "paid_services_allowed": false
+  },
+  "created_at": "2026-08-24T09:37:00+00:00",
+  "updated_at": "2026-08-24T09:37:00+00:00"
+}
