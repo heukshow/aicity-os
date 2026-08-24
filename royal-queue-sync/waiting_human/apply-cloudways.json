@@ -1,0 +1,40 @@
+{
+  "id": "apply-cloudways",
+  "title": "Affiliate Application: Cloudways",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "forced_human_verification",
+  "payload": {
+    "tool_id": "cloudways",
+    "tool_name": "Cloudways",
+    "application_url": "https://www.cloudways.com/en/web-hosting-affiliate-program.php -> \"Become an Affiliate Now\" -> https://unified.cloudways.com/signup (full Cloudways account signup, not a standalone affiliate-only application form)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "in_progress_form_partially_filled",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "Up to $125 per sale, three flexible commission models, lifetime recurring commissions per the program landing page",
+      "cookie_days": null,
+      "payout": "not disclosed on the pages reviewed",
+      "activity_requirement": "none disclosed on the pages reviewed",
+      "source": "https://www.cloudways.com/en/web-hosting-affiliate-program.php, read live on 2026-08-24"
+    },
+    "existing_account_check": "no prior COSHUMA/Cloudways application found in Gmail before this attempt",
+    "signup_path_used": "https://www.cloudways.com/en/web-hosting-affiliate-program.php (guessed /affiliates.php and /affiliate-program.php URLs 404'd/redirected first) -> \"Become an Affiliate Now\" button -> redirected to a FULL Cloudways platform account signup form (unified.cloudways.com/signup), not a dedicated affiliate-only application",
+    "fields_submitted": {
+      "first_name": "Sangkwon",
+      "last_name": "An",
+      "email": "support@coshuma.com",
+      "password": "NOT ENTERED — see blocker"
+    },
+    "blocker": "Unlike the other programs processed, Cloudways' 'Become an Affiliate' flow does not have a separate lightweight application form — it goes straight to full Cloudways platform account creation requiring a Create Password field (also 'I would best describe myself as' and 'monthly hosting spending' selectors, and a Terms of Service checkbox, not yet completed). Per standing policy this agent never enters or creates passwords. Left the browser tab open on the partially-filled signup form for 큰형/공주 to set a password and complete signup, after which the affiliate dashboard should become accessible from the account.",
+    "notes": "Confirm whether Cloudways truly requires a full paid-platform-style account (even though marketed as free trial, no credit card) before proceeding — flagging for review since this differs from the pure-affiliate PartnerStack/Impact.com forms used elsewhere. If undesired, this application can be abandoned without cost since no password was set and no account was created."
+  },
+  "created_at": "2026-08-24T00:00:00Z",
+  "updated_at": "2026-08-24T00:00:00Z"
+}

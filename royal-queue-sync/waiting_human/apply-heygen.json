@@ -1,0 +1,46 @@
+{
+  "id": "apply-heygen",
+  "title": "Affiliate Application: HeyGen",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "forced_human_verification",
+  "payload": {
+    "tool_id": "heygen",
+    "tool_name": "HeyGen",
+    "application_url": "https://www.heygen.com/en-in/affiliate-program -> \"Apply Now\" -> Google Form (docs.google.com/forms/d/e/1FAIpQLSe7fBlpbE72XSjSS_ADC03OZlIlRTUnqJ1isJ8l7xEp7_1x5A/viewform)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "in_progress_form_fully_filled_except_heygen_account",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "35% recurring commission for the first 3 months on Creator & Team plan referrals",
+      "cookie_days": 30,
+      "payout": "Monthly, minimum $30 threshold, paid via PayPal; commissions verified after a 60-day window",
+      "activity_requirement": "No search ads on brand terms; affiliates may not use their own links to make purchases",
+      "source": "https://www.heygen.com/en-in/affiliate-program, read live on 2026-08-24"
+    },
+    "existing_account_check": "no prior COSHUMA/HeyGen application found in Gmail before this attempt",
+    "signup_path_used": "https://www.heygen.com/en-in/affiliate-program -> \"Apply Now\" -> Google Form application",
+    "fields_submitted": {
+      "email": "support@coshuma.com",
+      "full_name": "Sangkwon An",
+      "country": "South Korea",
+      "preferred_email": "support@coshuma.com",
+      "how_heard": "Researching AI video tools while building our AI/SaaS directory, COSHUMA (coshuma.com)",
+      "why_interested": "HeyGen is a leading AI video platform and a strong fit for a dedicated review/comparison page on our AI/SaaS directory, driving organic search traffic to a tracked affiliate link.",
+      "where_promote": "Blog/website content (SEO review and comparison articles on coshuma.com)",
+      "website_or_social_link": "https://coshuma.com",
+      "audience_target": "Small businesses, marketers, and content creators evaluating AI video generation tools",
+      "monthly_unique_visitors": "Less than 1,000"
+    },
+    "blocker": "\"Your HeyGen account\" is a required field asking for the email used to log in to the HeyGen platform — i.e. applicants must already have a registered HeyGen account before applying. No COSHUMA/HeyGen platform account exists yet, and creating one requires setting a password (this agent never creates account passwords). Left the Google Form tab open, fully filled except this field, for 큰형/공주 to either create a HeyGen account (e.g. via Google sign-in) and enter that login email, or handle this step directly, then click Submit.",
+    "notes": "Once submitted, revisit to capture approval status and the real unique tracking link before marking this task done."
+  },
+  "created_at": "2026-08-24T00:00:00Z",
+  "updated_at": "2026-08-24T00:00:00Z"
+}
