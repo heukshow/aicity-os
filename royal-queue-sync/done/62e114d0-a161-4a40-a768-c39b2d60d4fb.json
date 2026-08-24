@@ -12,6 +12,21 @@
     "pictory_status": "pending_review (do not re-apply)",
     "audited_catalog": [
       {
+        "id": "getdrip",
+        "name": "Drip (GetDrip)",
+        "official_url": "https://www.drip.com/",
+        "has_affiliate_program": true,
+        "official_source_url": "https://www.drip.com/partners",
+        "application_url": "https://www.drip.com/partners",
+        "commission": "30% Lifetime Recurring Commission",
+        "cookie_duration_days": 60,
+        "payout_terms": "PartnerStack monthly payouts",
+        "free_to_join": true,
+        "geo_restriction": "Global",
+        "status": "not_applied",
+        "notes": "Verified directly via live official portal (drip.com/partners): Earn 30% lifetime recurring commissions on all active referrals via PartnerStack."
+      },
+      {
         "id": "vidiq",
         "name": "vidIQ",
         "official_url": "https://vidiq.com/",
