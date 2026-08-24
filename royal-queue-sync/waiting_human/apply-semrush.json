@@ -1,0 +1,41 @@
+{
+  "id": "apply-semrush",
+  "title": "Affiliate Application: Semrush",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "forced_human_verification",
+  "payload": {
+    "tool_id": "semrush",
+    "tool_name": "Semrush",
+    "application_url": "https://www.semrush.com/lp/affiliate-program/en/ -> https://app.impact.com/campaign-promo-signup/Semrush.brand (Impact.com)",
+    "instructions": "COSHUMA 전체 카탈로그 중 아직 신청하지 않은 무료 제휴 프로그램 1건으로 Semrush를 선택해 보이는 브라우저에서 신청을 진행한다."
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "in_progress_form_partially_filled",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "$10 per trial, $1-$300 per first purchase depending on product SKU (see payout table); no recurring commission mentioned, single-payout-per-referral model via Impact.com",
+      "cookie_days": 120,
+      "payout": "Impact.com standard: actions locked 27 days after month-end tracked, approved transactions paid 21 days after lock (net terms, not immediate)",
+      "activity_requirement": "none disclosed on the signup/offer terms page reviewed",
+      "source": "https://www.semrush.com/lp/affiliate-program/en/ page text and the Impact.com partner-apply-flow offer terms lightbox opened during signup, both read live on 2026-08-24"
+    },
+    "existing_account_check": "no prior COSHUMA/Semrush or Impact.com-Semrush application found in Gmail before this attempt",
+    "signup_path_used": "https://www.semrush.com/lp/affiliate-program/en/ -> \"Become a partner\" -> https://app.impact.com/campaign-promo-signup/Semrush.brand (Impact.com-hosted signup, separate from the existing 10Web Impact.com application)",
+    "fields_submitted": {
+      "email": "support@coshuma.com",
+      "first_name": "Sangkwon",
+      "last_name": "An",
+      "offer_terms_checkbox": "checked (read terms first via the linked offer lightbox)"
+    },
+    "blocker": "Impact.com sign-up form for Semrush also requires a Password field and a verified Mobile Number (Korea +82, likely OTP-verified) before it allows Continue. Per standing policy this agent never enters passwords/OTP values. Left the browser tab open on the partially-filled form (email/first/last name filled, terms checkbox checked) at https://app.impact.com/campaign-promo-signup/Semrush.brand for 큰형/Work to enter the password and phone number and submit.",
+    "notes": "Once submitted, revisit to capture application/approval status and the real unique Impact.com tracking link (not the generic semrush.com URL) before marking this task done."
+  },
+  "created_at": "2026-08-24T10:05:03.946941Z",
+  "updated_at": "2026-08-24T10:05:03.946941Z"
+}
