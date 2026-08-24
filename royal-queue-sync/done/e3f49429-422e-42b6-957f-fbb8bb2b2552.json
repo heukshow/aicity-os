@@ -1,0 +1,23 @@
+{
+  "id": "e3f49429-422e-42b6-957f-fbb8bb2b2552",
+  "title": "AntiGravity royal-queue 프로젝트 쓰기 권한 승인",
+  "assigned_to": "princess",
+  "status": "done",
+  "payload": {
+    "action": "approve_project_write_permission",
+    "actor": "princess",
+    "target": "royal-queue project path",
+    "instructions": "AntiGravity UI에서 현재 표시된 쓰기 권한 요청을 사용자가 직접 검토하고 승인해야 합니다. 비밀번호, OTP 또는 토큰을 기록하지 마십시오."
+  },
+  "depends_on": null,
+  "result": {
+    "permission_scope": "project",
+    "read": true,
+    "write": true,
+    "working": true,
+    "evidence": "AntiGravity resumed the blocked task, edited a queue result, and read capability files after approval."
+  },
+  "human_reason": null,
+  "created_at": "2026-08-24T03:00:00+00:00",
+  "updated_at": "2026-08-24T04:00:00+00:00"
+}

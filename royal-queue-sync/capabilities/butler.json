@@ -1,0 +1,45 @@
+{
+  "schema_version":"1.2","actor":"butler","last_verified_at":"2026-08-24T02:55:00Z","screen_state":"idle-ready",
+  "tools":[
+    {"actor":"butler","tool_name":"Chrome for Claude","category":"browser","capabilities":["read","browser","web"],"catalog_available":true,"connected":true,"working":true,"auth_required":false,"paid_or_unknown":false,"requires_human":false,"cost":"free","last_error":null,"last_tested_at":"2026-08-24T02:55:00Z","notes":"Initial extension-disconnected error recovered on retry; https://example.com title Example Domain read successfully."},
+    {"actor":"butler","tool_name":"Gmail","category":"communication","capabilities":["read","email","search"],"catalog_available":true,"connected":true,"working":true,"auth_required":false,"paid_or_unknown":false,"requires_human":false,"cost":"free","last_error":null,"last_tested_at":"2026-08-24T02:33:00Z","notes":"in:anywhere newer_than:1d returned 16 messages. Pictory/FirstPromoter/Rewardful search found no Pictory verification mail; Pictory remains pending_email_verification."},
+    {"actor":"butler","tool_name":"Google Drive","category":"storage","capabilities":["read","drive"],"catalog_available":true,"connected":true,"working":true,"auth_required":false,"paid_or_unknown":false,"requires_human":false,"cost":"free","last_error":null,"last_tested_at":"2026-08-24T02:52:00Z","notes":"Recent file listing returned successfully."},
+    {"actor":"butler","tool_name":"GitHub native connector","category":"development","capabilities":["read","github","git"],"catalog_available":false,"connected":false,"working":false,"auth_required":false,"paid_or_unknown":false,"requires_human":false,"cost":"free","last_error":"GitHub was absent from the live Claude connector catalog/chat context; native connector smoke test could not run.","last_tested_at":"2026-08-24T02:53:00Z","notes":"Native connector remains unavailable."},
+    {"actor":"butler","tool_name":"GitHub public read fallback","category":"development","capabilities":["read","github","git","web"],"catalog_available":true,"connected":true,"working":true,"auth_required":false,"paid_or_unknown":false,"requires_human":false,"cost":"free","last_error":null,"last_tested_at":"2026-08-24T02:53:00Z","notes":"Public GitHub API and raw content read heukshow/aicity-os root files and README title successfully. Enabled only for public read-only repository tasks."},
+    {"actor":"butler","tool_name":"Local folders and files","category":"filesystem","capabilities":["read","local_files"],"catalog_available":true,"connected":true,"working":true,"auth_required":false,"paid_or_unknown":false,"requires_human":false,"cost":"free","last_error":null,"last_tested_at":"2026-08-24T02:52:00Z","notes":"Connected royal-queue folder read README first line successfully."},
+    {"actor":"butler","tool_name":"Local command execution","category":"execution","capabilities":["read","local_exec","python"],"catalog_available":false,"connected":false,"working":false,"auth_required":false,"paid_or_unknown":false,"requires_human":false,"cost":"free","last_error":"device_bash/local command tool was not connected in this Claude desktop session.","last_tested_at":"2026-08-24T02:52:00Z","notes":"Claude cloud sandbox values were ignored because they are not the Windows royal-queue host."},
+    {"actor":"butler","tool_name":"Google Calendar","category":"calendar","capabilities":["read","calendar"],"catalog_available":true,"connected":false,"working":false,"auth_required":true,"paid_or_unknown":false,"requires_human":true,"cost":"free","last_error":"enabledInChat=false / installState unknown; OAuth connection required.","last_tested_at":"2026-08-24T02:52:00Z"},
+    {"actor":"butler","tool_name":"Additional catalog connectors (Notion, Asana, Airtable, monday.com, Unsplash, Resend)","category":"integration","capabilities":["available_catalog"],"catalog_available":true,"connected":false,"working":false,"auth_required":true,"paid_or_unknown":true,"requires_human":true,"cost":"paid_or_unknown","last_error":"Not installed; connect only when required by an actual workflow.","last_tested_at":"2026-08-24T02:54:00Z"},
+    {"actor":"butler","tool_name":"Slack connector","category":"communication","capabilities":["chat","search"],"catalog_available":true,"connected":false,"working":false,"auth_required":false,"paid_or_unknown":false,"requires_human":false,"cost":"free","last_error":"Excluded by user: Slack is not needed for the intended workflow. OAuth attempt was cancelled and its Chrome tab closed.","last_tested_at":"2026-08-24T03:12:00Z","availability_status":"user_excluded"}
+  ],
+  "skill_inventory":[
+    {"name":"/import-memory","available":true,"purpose":"Import another AI assistant memory export into Claude memory","routing_hint":"Use only when the user explicitly asks to migrate or import assistant memory; never auto-run on ordinary files."},
+    {"name":"/morning","available":true,"purpose":"Create a styled morning brief or recurring weekday briefing","routing_hint":"Use for morning brief, daily briefing, or explicitly requested recurring weekday summary."},
+    {"name":"/skill-creator","available":true,"purpose":"Create, modify, improve, and evaluate Claude skills","routing_hint":"Use when a reusable Claude workflow should be created or an existing skill should be improved."},
+    {"name":"/xlsx","available":true,"purpose":"Work with spreadsheet files when an XLSX is the primary input or output","routing_hint":"Automatically select when .xlsx is the primary artifact."},
+    {"name":"/pptx","available":true,"purpose":"Work with PowerPoint files as input or output","routing_hint":"Automatically select whenever .pptx or .potx is involved."},
+    {"name":"/pdf","available":true,"purpose":"Read, create, or modify PDF files","routing_hint":"Automatically select for PDF inspection, extraction, creation, or editing."}
+  ],
+  "plugin_inventory":[
+    {"name":"Chrome for Claude","status":"connected_working","free":true,"use_when":"Web navigation or an existing Chrome login/session is required."},
+    {"name":"Gmail","status":"connected_working","free":true,"use_when":"Email search and read-only inbox checks are required."},
+    {"name":"Google Drive","status":"connected_working","free":true,"use_when":"Drive file listing, search, and read operations are required."},
+    {"name":"Google Calendar","status":"available_not_connected","free":true,"use_when":"Calendar work is actually requested.","blocker":"OAuth connection required."},
+    {"name":"GitHub native connector","status":"not_in_live_catalog","free":true,"use_when":"Use only if it later becomes available; public read fallback is active now."},
+    {"name":"Notion","status":"available_deferred","free":"unknown","use_when":"A real Notion knowledge or project workflow is requested."},
+    {"name":"Asana","status":"available_deferred","free":"unknown","use_when":"A real Asana task workflow is requested."},
+    {"name":"Airtable","status":"available_deferred","free":"unknown","use_when":"A real Airtable records workflow is requested."},
+    {"name":"monday.com","status":"available_deferred","free":"unknown","use_when":"A real monday.com workflow is requested."},
+    {"name":"Unsplash","status":"available_deferred","free":"unknown","use_when":"Stock-image sourcing is requested and licensing is suitable."},
+    {"name":"Resend","status":"available_deferred","free":"unknown","use_when":"Transactional email delivery is explicitly required."},
+    {"name":"Slack","status":"user_excluded","free":true,"use_when":"Never auto-connect or route; excluded by user."}
+  ],
+  "auto_use_policy":{
+    "skills":"Select an available skill automatically when its routing_hint matches the current task; skill selection itself does not imply permission for external writes or paid actions.",
+    "plugins":"Auto-route only to plugins with status=connected_working, free=true, working=true, and requires_human=false. Available-but-unconnected plugins, including design, music, CRM, and generation tools, may be connected and used when an actual relevant workflow appears after confirming they are free. Paid tools remain excluded.",
+    "excluded":["Slack","paid tools and paid-only operations"],
+    "connect_on_demand_categories":["design","music","CRM","generation","productivity","research","storage","calendar","project management"],
+    "fallback_order":["purpose-built connected plugin","Chrome for Claude read-only flow","GitHub public read fallback","Work actor for local commands and host filesystem"],
+    "never_infer_prince_connection_from_work":true
+  }
+}

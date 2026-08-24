@@ -1,0 +1,200 @@
+{
+  "schema_version": "1.1",
+  "actor": "princess",
+  "last_verified_at": "2026-08-24T13:00:00Z",
+  "screen_state": "idle-ready",
+  "scheduler_state": {
+    "royal_queue_princess_worker": {
+      "task_id": "task-45",
+      "status": "stopped",
+      "schedule": "disabled",
+      "verified_in_ui": "No scheduled tasks configured",
+      "stopped_at": "2026-08-24T13:08:00+09:00"
+    }
+  },
+  "permission_state": {
+    "project_write_permission": {
+      "scope": "royal-queue project path",
+      "status": "approved",
+      "requires_human": false,
+      "last_verified_at": "2026-08-24T13:00:00Z",
+      "notes": "Project-scope general write permission approved and active."
+    }
+  },
+  "tools": [
+    {
+      "server_name": "cloudrun",
+      "catalog_available": true,
+      "connected": true,
+      "working": true,
+      "auth_required": false,
+      "paid_or_unknown": false,
+      "requires_human": false,
+      "last_error": null,
+      "last_tested_at": "2026-08-24T13:04:00+09:00",
+      "tested_tools": ["cloudrun/list_projects", "cloudrun/list_services", "cloudrun/get_service", "cloudrun/get_service_log"],
+      "notes": "Project-specific result: gen-lang-client-0266352111 is CONSUMER_SUSPENDED. stone-armor-461321-n1 successfully listed two Cloud Run services; destinyweaver describe returned Ready=True and logs read completed successfully with no recent entry. Route Cloud Run service/log reads only to stone-armor-461321-n1 until the suspended project is restored.",
+      "project_results": {
+        "gen-lang-client-0266352111": {"working": false, "last_error": "CONSUMER_SUSPENDED"},
+        "stone-armor-461321-n1": {"working": true, "services": ["destiny-weaver", "destinyweaver"], "service_read": true, "log_read": true}
+      },
+      "routing_constraint": "Use stone-armor-461321-n1 only for service and log reads."
+    },
+    {
+      "server_name": "elevenlabs",
+      "catalog_available": true,
+      "connected": false,
+      "working": false,
+      "auth_required": true,
+      "paid_or_unknown": true,
+      "requires_human": false,
+      "last_error": "401 Unauthorized: missing models_read permission / API key auth required",
+      "last_tested_at": "2026-08-24T12:54:39Z",
+      "tested_tools": ["elevenlabs/list_models"],
+      "notes": "Audio generation strictly skipped. Returned 401 missing models_read permission."
+    },
+    {
+      "server_name": "everything",
+      "catalog_available": true,
+      "connected": true,
+      "working": true,
+      "auth_required": false,
+      "paid_or_unknown": false,
+      "requires_human": false,
+      "last_error": null,
+      "last_tested_at": "2026-08-24T12:55:38Z",
+      "tested_tools": ["everything/echo"],
+      "notes": "Read/echo smoke test succeeded ('Echo: smoke test')."
+    },
+    {
+      "server_name": "fetch",
+      "catalog_available": true,
+      "connected": true,
+      "working": true,
+      "auth_required": false,
+      "paid_or_unknown": false,
+      "requires_human": false,
+      "last_error": null,
+      "last_tested_at": "2026-08-24T12:55:46Z",
+      "tested_tools": ["fetch/fetch"],
+      "notes": "Fetched https://example.com/ content successfully."
+    },
+    {
+      "server_name": "filesystem",
+      "catalog_available": true,
+      "connected": true,
+      "working": true,
+      "auth_required": false,
+      "paid_or_unknown": false,
+      "requires_human": false,
+      "last_error": null,
+      "last_tested_at": "2026-08-24T12:55:48Z",
+      "tested_tools": ["filesystem/list_allowed_directories"],
+      "notes": "Returned allowed workspace directories successfully."
+    },
+    {
+      "server_name": "flight-status",
+      "catalog_available": true,
+      "connected": false,
+      "working": false,
+      "auth_required": true,
+      "paid_or_unknown": false,
+      "requires_human": false,
+      "last_error": "Error: AVIATIONSTACK_API_KEY not set",
+      "last_tested_at": "2026-08-24T12:56:03Z",
+      "tested_tools": ["flight-status/airport_info"],
+      "notes": "Safe single read attempted; failed with missing API key error."
+    },
+    {
+      "server_name": "github",
+      "catalog_available": true,
+      "connected": true,
+      "working": true,
+      "auth_required": false,
+      "paid_or_unknown": false,
+      "requires_human": false,
+      "last_error": null,
+      "last_tested_at": "2026-08-24T12:56:10Z",
+      "tested_tools": ["github/get_file_contents"],
+      "notes": "Read root README.md from heukshow/aicity-os public repository successfully."
+    },
+    {
+      "server_name": "instagram-feed",
+      "catalog_available": true,
+      "connected": false,
+      "working": false,
+      "auth_required": true,
+      "paid_or_unknown": false,
+      "requires_human": false,
+      "last_error": "Error: Not logged in. Please use the instagram_login tool to authenticate first.",
+      "last_tested_at": "2026-08-24T12:57:14Z",
+      "tested_tools": ["instagram-feed/instagram_search_accounts"],
+      "notes": "Safe unauthenticated search attempted; failed with authentication required error."
+    },
+    {
+      "server_name": "memory",
+      "catalog_available": true,
+      "connected": true,
+      "working": true,
+      "auth_required": false,
+      "paid_or_unknown": false,
+      "requires_human": false,
+      "last_error": null,
+      "last_tested_at": "2026-08-24T12:58:10Z",
+      "tested_tools": ["memory/read_graph"],
+      "notes": "Read existing memory graph successfully (entities: [], relations: [])."
+    },
+    {
+      "server_name": "puppeteer",
+      "catalog_available": true,
+      "connected": true,
+      "working": true,
+      "auth_required": false,
+      "paid_or_unknown": false,
+      "requires_human": false,
+      "last_error": null,
+      "last_tested_at": "2026-08-24T12:58:12Z",
+      "tested_tools": ["puppeteer/puppeteer_navigate", "puppeteer/puppeteer_fill", "puppeteer/puppeteer_click", "puppeteer/puppeteer_evaluate", "puppeteer/puppeteer_screenshot"],
+      "notes": "Read-only smoke test on https://example.com and data:text/html succeeded."
+    },
+    {
+      "server_name": "sequential-thinking",
+      "catalog_available": true,
+      "connected": true,
+      "working": true,
+      "auth_required": false,
+      "paid_or_unknown": false,
+      "requires_human": false,
+      "last_error": null,
+      "last_tested_at": "2026-08-24T12:59:04Z",
+      "tested_tools": ["sequential-thinking/sequentialthinking"],
+      "notes": "Sequential thinking single thought execution succeeded."
+    },
+    {
+      "server_name": "stitch",
+      "catalog_available": true,
+      "connected": false,
+      "working": false,
+      "auth_required": true,
+      "paid_or_unknown": false,
+      "requires_human": false,
+      "last_error": "calling 'tools/call': sending 'tools/call': Unauthorized",
+      "last_tested_at": "2026-08-24T12:59:57Z",
+      "tested_tools": ["stitch/list_projects"],
+      "notes": "Read-only list_projects attempted; failed with Unauthorized error."
+    },
+    {
+      "server_name": "tavily-search",
+      "catalog_available": true,
+      "connected": true,
+      "working": true,
+      "auth_required": false,
+      "paid_or_unknown": false,
+      "requires_human": false,
+      "last_error": null,
+      "last_tested_at": "2026-08-24T13:00:01Z",
+      "tested_tools": ["tavily-search/tavily-search"],
+      "notes": "Safe single search for python documentation executed successfully."
+    }
+  ]
+}

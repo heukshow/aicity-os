@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "capabilities.schema.json",
+  "title": "Royal Queue actor capability inventory",
+  "type": "object",
+  "required": ["schema_version", "actor", "last_verified_at", "screen_state", "permission_state", "tools"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"enum": ["1.0", "1.1"]},
+    "actor": {"enum": ["prince", "butler", "princess", "work"]},
+    "last_verified_at": {"type": ["string", "null"], "format": "date-time"},
+    "screen_state": {"type": "string"},
+    "permission_state": {"type": "object"},
+    "tools": {"type": "array", "items": {"$ref": "#/$defs/tool"}}
+  },
+  "$defs": {
+    "tool": {
+      "type": "object",
+      "required": ["server_name", "catalog_available", "connected", "working", "auth_required", "paid_or_unknown", "requires_human", "last_tested_at"],
+      "additionalProperties": true,
+      "properties": {
+        "server_name": {"type": "string"},
+        "catalog_available": {"type": "boolean"},
+        "connected": {"type": "boolean"},
+        "working": {"type": "boolean"},
+        "auth_required": {"type": "boolean"},
+        "paid_or_unknown": {"type": "boolean"},
+        "requires_human": {"type": "boolean"},
+        "last_error": {"type": ["string", "null"]},
+        "last_tested_at": {"type": ["string", "null"]},
+        "tested_tools": {"type": "array", "items": {"type": "string"}},
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}

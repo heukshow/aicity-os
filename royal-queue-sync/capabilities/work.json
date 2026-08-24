@@ -1,0 +1,7 @@
+{
+  "schema_version":"1.2","actor":"work","last_verified_at":"2026-08-24T02:57:23Z","screen_state":"idle-ready",
+  "tools":[
+    {"actor":"work","tool_name":"Work local execution","category":"execution","capabilities":["read","write","local_files","code","local_exec","python","powershell","git","ssh","process_execution"],"auth_state":"connected","catalog_available":true,"connected":true,"working":true,"auth_required":false,"paid_or_unknown":false,"requires_human":false,"cost":"free","cost_class":"free","last_tested_at":"2026-08-24T02:51:39Z","last_error":null,"notes":"README read succeeded; PowerShell 7.6.4, Python 3.11.6, Git 2.49.0, OpenSSH 9.5, pwsh process execution, and 12/12 project tests passed.","availability_status":"connected_and_working"},
+    {"actor":"work","tool_name":"Windows app control","category":"computer","capabilities":["read","write","computer_control","local_apps"],"auth_state":"connected","catalog_available":true,"connected":true,"working":true,"auth_required":false,"paid_or_unknown":false,"requires_human":false,"cost":"free","cost_class":"free","last_tested_at":"2026-08-24T02:57:23Z","last_error":null,"notes":"Live Claude and AntiGravity windows were inspected; project-scoped permission was approved and AntiGravity completed registry output.","availability_status":"connected_and_working"}
+  ]
+}

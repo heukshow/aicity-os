@@ -1,0 +1,17 @@
+{
+  "schema_version":"1.1",
+  "policy":{"eligibility_all":["catalog_available=true","connected=true","working=true","auth_required=false","cost_class=free"],"sort_order":["cost_free","connected_and_working","requires_human_false","route_priority"],"paid_requires_explicit_user_permission":true,"unknown_cost_auto_select":false,"auth_required_auto_select":false,"stale_after_days":7,"human_gate_status":"waiting_human"},
+  "routes":[
+    {"task_type":"browser_account_signup_dashboard","match_capabilities_any":["browser","account","signup","dashboard"],"actor_priority":["butler","princess","prince","work"]},
+    {"task_type":"high_volume_research_official_verification","match_capabilities_any":["research","official_verification"],"actor_priority":["princess","butler","work","prince"]},
+    {"task_type":"github_final_verification_orchestration","match_capabilities_any":["git","github","final_verification","orchestration"],"actor_priority":["work","princess","butler","prince"]},
+    {"task_type":"local_code_file_execution","match_capabilities_any":["code","local_files","local_exec"],"actor_priority":["work","prince","princess","butler"]},
+    {"task_type":"gmail_calendar_drive","match_capabilities_any":["email","calendar","drive"],"actor_priority":["butler","princess","work","prince"]},
+    {"task_type":"browser_readonly_fallback","match_capabilities_any":["browser","web"],"actor_priority":["butler","princess","prince","work"]},
+    {"task_type":"local_computer_control","match_capabilities_any":["computer_control","local_apps"],"actor_priority":["work","prince","butler","princess"]}
+    ,{"task_type":"butler_assisted_work","match_capabilities_any":["browser","web","email","drive","github","local_files"],"actor_priority":["butler","princess","work","prince"]}
+    ,{"task_type":"design_music_crm_generation","match_capabilities_any":["browser","web"],"actor_priority":["butler","princess","work","prince"]}
+    ,{"task_type":"cloudrun_project_read","match_capabilities_any":["gcp_projects"],"actor_priority":["princess","work","butler","prince"]}
+  ],
+  "fallback":"Select only entries whose current registry says cost/free, connected=true, working=true, auth_required=false, paid_or_unknown=false, and requires_human=false. Never infer one actor from another. Public GitHub read tasks may use Butler GitHub public read fallback; private/write GitHub tasks require Work credentials or a verified native connector. Local command tasks fall back to Work. Cloud Run service/log reads must target the verified working project stone-armor-461321-n1; gen-lang-client-0266352111 remains excluded as CONSUMER_SUSPENDED. Exclude paid, malformed/user-created, or auth-required tools. If no eligible entry remains, return unavailable with the recorded last_error."
+}
