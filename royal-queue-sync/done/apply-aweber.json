@@ -1,0 +1,31 @@
+{
+  "id": "apply-aweber",
+  "title": "Affiliate Application: AWeber",
+  "assigned_to": "butler",
+  "status": "done",
+  "payload": {
+    "tool_id": "aweber",
+    "tool_name": "AWeber",
+    "application_url": "https://www.aweber.com/advocates.htm -> https://www.aweber.com/signup.htm"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler_and_human",
+    "success": true,
+    "application_status": "submitted",
+    "approval_status": "auto_accepted_no_review_needed",
+    "tracking_link": "not_yet_captured - need to log into the new AWeber Advocate account (ID to arrive by email) to retrieve the actual referral link",
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "30% for 0-99 referrals/12mo, 40% for 100-499, 50% for 500+ recurring for the lifetime of the paid account",
+      "cookie_days": null,
+      "payout": "Direct via PayPal, paid monthly once the selected minimum threshold is reached",
+      "source": "https://www.aweber.com/advocates.htm, read live on 2026-08-24"
+    },
+    "signup_path_used": "https://www.aweber.com/advocates.htm -> https://www.aweber.com/signup.htm; butler filled name/email/company/website, 큰형/공주 completed phone/address/PayPal email/password and submitted",
+    "confirmation": "Landed on https://www.aweber.com/signup_completed.htm - 'You're In! Welcome to the AWeber Customer Referral Program. You will receive your ID via email shortly.' Confirmed complete.",
+    "notes": "Advocate ID will arrive at support@coshuma.com by email - once received, log in to retrieve the real tracking/referral link."
+  },
+  "created_at": "2026-08-24T14:00:00Z",
+  "updated_at": "2026-08-24T14:45:00Z"
+}
