@@ -1,0 +1,32 @@
+{
+  "id": "aeb54240-1142-41e0-af3a-96e617b5bc2a",
+  "title": "COSHUMA post-merge live revenue verification",
+  "assigned_to": "butler",
+  "status": "failed",
+  "payload": {
+    "project": "COSHUMA / GlobalSaaSHub",
+    "domain": "https://coshuma.com/",
+    "goal": "Verify the production site after PR #9 merge and Vercel success.",
+    "tasks": [
+      "Verify https://coshuma.com/tool/fliki and /tool/fliki.html return 200 on production.",
+      "Verify Taskade user-facing affiliate CTA resolves to https://www.taskade.com/?via=7zzjo7.",
+      "Verify Systeme.io user-facing affiliate CTA resolves to https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca.",
+      "Verify Fliki user-facing affiliate CTA resolves to https://fliki.ai?via=sangkwon.",
+      "Verify affiliate CTAs include rel=sponsored noopener noreferrer and disclosure remains visible.",
+      "Verify sponsor/claim CTA still works and no broken revenue route was introduced.",
+      "Return exact production URLs, HTTP status, observed CTA hrefs, pass/fail, and any fix needed. Read-only only."
+    ],
+    "constraints": [
+      "zero cost",
+      "read-only",
+      "no payments",
+      "no production writes"
+    ]
+  },
+  "depends_on": null,
+  "result": null,
+  "error": "unsupported safe butler adapter task profile: COSHUMA post-merge live revenue verification",
+  "human_reason": null,
+  "created_at": "2026-08-24T08:23:46+00:00",
+  "updated_at": "2026-08-24T09:15:53.814397+00:00"
+}

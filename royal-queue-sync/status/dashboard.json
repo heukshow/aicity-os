@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T09:15:49.734424+00:00",
+  "generated_at": "2026-08-24T09:15:53.444623+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -16,7 +16,7 @@
       "status": "idle",
       "execution_surface": "UI execution",
       "execution_mode": "interactive_ui",
-      "last_activity": "2026-08-24T06:03:00+00:00",
+      "last_activity": "2026-08-24T08:34:00+00:00",
       "task": null,
       "uuid": null,
       "tool": null
@@ -33,20 +33,20 @@
     },
     {
       "name": "Princess",
-      "status": "idle",
+      "status": "error",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
-      "last_activity": "2026-08-24T06:30:39.044760+00:00",
-      "task": null,
-      "uuid": null,
+      "last_activity": "2026-08-24T09:15:53.425546+00:00",
+      "task": "COSHUMA full affiliate program audit for all registered tools",
+      "uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
       "tool": null
     }
   ],
   "counts": {
-    "todo": 1,
+    "todo": 6,
     "in_progress": 1,
     "done": 17,
-    "failed": 0,
+    "failed": 1,
     "waiting_human": 0
   },
   "tracking": [
@@ -61,12 +61,12 @@
   "processes": [
     {
       "name": "watcher",
-      "alive": false,
-      "health": "offline",
-      "pid": 19660,
-      "started_at": "2026-08-24T06:30:10.6208509Z",
-      "heartbeat": "2026-08-24T06:30:10.6208509Z",
-      "heartbeat_age_seconds": 9939
+      "alive": true,
+      "health": "healthy",
+      "pid": 49132,
+      "started_at": "2026-08-24T09:15:49.8893593Z",
+      "heartbeat": "2026-08-24T09:15:49.8893593Z",
+      "heartbeat_age_seconds": 3
     },
     {
       "name": "GitHub bridge",
@@ -75,7 +75,7 @@
       "pid": 47732,
       "started_at": "2026-08-24T09:15:49.8104234Z",
       "heartbeat": "2026-08-24T09:15:49.8104234Z",
-      "heartbeat_age_seconds": 0
+      "heartbeat_age_seconds": 4
     },
     {
       "name": "dashboard",
@@ -83,8 +83,8 @@
       "health": "healthy",
       "pid": 45636,
       "started_at": "2026-08-24T09:15:49.723859+00:00",
-      "heartbeat": "2026-08-24T09:15:49.723859+00:00",
-      "heartbeat_age_seconds": 0
+      "heartbeat": "2026-08-24T09:15:49.734424+00:00",
+      "heartbeat_age_seconds": 4
     }
   ]
 }

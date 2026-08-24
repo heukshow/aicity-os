@@ -1,6 +1,24 @@
 {
-  "generated_at": "2026-08-24T08:07:27.517733+00:00",
+  "generated_at": "2026-08-24T09:15:56.433138+00:00",
   "latest": [
+    {
+      "id": "e04621f3-c462-4963-bf23-7e5e69248876",
+      "actor": "princess",
+      "status": "failed",
+      "updated_at": "2026-08-24T09:15:53.847704+00:00"
+    },
+    {
+      "id": "aeb54240-1142-41e0-af3a-96e617b5bc2a",
+      "actor": "butler",
+      "status": "failed",
+      "updated_at": "2026-08-24T09:15:53.814397+00:00"
+    },
+    {
+      "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+      "actor": "princess",
+      "status": "failed",
+      "updated_at": "2026-08-24T09:15:53.425546+00:00"
+    },
     {
       "id": "459f98a5-8a5d-4ddd-9312-8f7dfa229f77",
       "actor": "codex",
