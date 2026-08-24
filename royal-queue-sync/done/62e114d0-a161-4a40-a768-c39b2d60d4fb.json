@@ -498,13 +498,13 @@
         "has_affiliate_program": true,
         "official_source_url": "https://www.shopify.com/affiliates",
         "application_url": "https://www.shopify.com/affiliates",
-        "commission": "$150 average bounty per referral",
+        "commission": "Up to $150 USD bounty per qualified referral",
         "cookie_duration_days": 30,
-        "payout_terms": "Impact Radius",
+        "payout_terms": "Impact Radius / Direct bank transfer (80+ currencies)",
         "free_to_join": true,
         "geo_restriction": "Global",
         "status": "not_applied",
-        "notes": "Verified official affiliate terms."
+        "notes": "Verified directly via live official page (shopify.com/affiliates): Earn up to $150 USD bounty per qualified referral for Basic, Grow, or Advanced paid plans via Impact/Bank transfer."
       },
       {
         "id": "systeme-io",
