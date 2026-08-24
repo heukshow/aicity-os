@@ -12,6 +12,21 @@
     "pictory_status": "pending_review (do not re-apply)",
     "audited_catalog": [
       {
+        "id": "brevo",
+        "name": "Brevo (Sendinblue)",
+        "official_url": "https://www.brevo.com/",
+        "has_affiliate_program": true,
+        "official_source_url": "https://www.brevo.com/affiliates/",
+        "application_url": "https://www.brevo.com/affiliates/",
+        "commission": "€5 per free account signup + €100 per paid referral",
+        "cookie_duration_days": 90,
+        "payout_terms": "PartnerStack monthly payouts (PayPal / Wire)",
+        "free_to_join": true,
+        "geo_restriction": "Global",
+        "status": "not_applied",
+        "notes": "Verified directly via live official page (brevo.com/affiliates): Earn €5 per free account creation plus €100 per paid subscription conversion with a 90-day cookie window via PartnerStack."
+      },
+      {
         "id": "convertkit",
         "name": "ConvertKit (Kit)",
         "official_url": "https://kit.com/",
