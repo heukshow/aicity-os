@@ -1,13 +1,26 @@
 /**
+ * Verified affiliate links that have been confirmed outside the catalog data pipeline
+ * but are not yet migrated into tools.json. Keep this list small and evidence-backed.
+ */
+const VERIFIED_AFFILIATE_OVERRIDES = {
+  castmagic: "https://castmagic.io?fpr=sangkwon-an54",
+};
+
+/**
  * Validates and extracts a clean HTTP/HTTPS external URL from a tool object.
- * Uses affiliate_url only after explicit verification, then falls back to official_url.
+ * Uses an explicit verified override first, then affiliate_url only after explicit
+ * verification, and finally falls back to official_url.
  * Returns null if no valid URL is found (rejects null, undefined, none, #, empty strings).
  */
 export const getValidExternalUrl = (tool) => {
   if (!tool) return null;
-  const candidates = tool.affiliate_verified === true
-    ? [tool.affiliate_url, tool.official_url]
-    : [tool.official_url];
+
+  const verifiedOverride = VERIFIED_AFFILIATE_OVERRIDES[tool.id];
+  const candidates = verifiedOverride
+    ? [verifiedOverride, tool.official_url]
+    : tool.affiliate_verified === true
+      ? [tool.affiliate_url, tool.official_url]
+      : [tool.official_url];
 
   for (const value of candidates) {
     if (typeof value !== "string") continue;
