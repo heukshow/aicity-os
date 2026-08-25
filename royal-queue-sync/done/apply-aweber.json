@@ -24,8 +24,9 @@
     },
     "signup_path_used": "https://www.aweber.com/advocates.htm -> https://www.aweber.com/signup.htm; butler filled name/email/company/website, 큰형/공주 completed phone/address/PayPal email/password and submitted",
     "confirmation": "Landed on https://www.aweber.com/signup_completed.htm - 'You're In! Welcome to the AWeber Customer Referral Program. You will receive your ID via email shortly.' Confirmed complete.",
-    "notes": "Advocate ID will arrive at support@coshuma.com by email - once received, log in to retrieve the real tracking/referral link."
+    "notes": "Advocate ID will arrive at support@coshuma.com by email - once received, log in to retrieve the real tracking/referral link.",
+    "followup_2026_08_25": "Re-checked Gmail again this session (query 'aweber', includeTrash:true) - still ZERO results in inbox, spam, or trash. It has now been roughly 24+ hours since signup completion with no Advocate ID email. This agent has no AWeber dashboard login credentials (only butler-filled name/email/company/website; 큰형/공주 completed phone/address/PayPal email/password during signup) and cannot check the dashboard directly. This is not a CAPTCHA/OTP/payment/legal-consent item, but it is a genuine 'no credentials' blocker on this agent's own authority. Recommend 큰형/공주 log into the AWeber dashboard directly (https://www.aweber.com/) to retrieve the Advocate ID / referral link, since email delivery may simply be delayed or filtered somewhere this agent cannot see (e.g. a spam filter on the recipient mail server itself, not Gmail)."
   },
   "created_at": "2026-08-24T14:00:00Z",
-  "updated_at": "2026-08-24T14:45:00Z"
+  "updated_at": "2026-08-25T22:50:00Z"
 }

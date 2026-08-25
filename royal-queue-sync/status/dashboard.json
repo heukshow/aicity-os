@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T15:00:46.729917+00:00",
+  "generated_at": "2026-08-25T22:39:12.887810+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -30,9 +30,9 @@
       "status": "waiting_human",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
-      "last_activity": "2026-08-24T14:20:00Z",
-      "task": "Affiliate Application: Kit (formerly ConvertKit) [SUPERSEDED - SEE rejected/apply-kit.json]",
-      "uuid": "apply-kit",
+      "last_activity": "2026-08-25T22:50:00Z",
+      "task": "Affiliate Application: 10Web",
+      "uuid": "apply-10web",
       "tool": null,
       "recent_failure_count": 1,
       "recent_error_title": "COSHUMA post-merge live revenue verification"
@@ -51,11 +51,11 @@
     }
   ],
   "counts": {
-    "todo": 133,
+    "todo": 131,
     "in_progress": 9,
-    "done": 22,
+    "done": 23,
     "failed": 2,
-    "waiting_human": 11
+    "waiting_human": 12
   },
   "tracking": [
     {
@@ -74,7 +74,7 @@
       "pid": null,
       "started_at": null,
       "heartbeat": "2026-08-24T09:25:49.5786616Z",
-      "heartbeat_age_seconds": 20097
+      "heartbeat_age_seconds": 134003
     },
     {
       "name": "GitHub bridge",
@@ -82,8 +82,8 @@
       "health": "healthy",
       "pid": 47732,
       "started_at": "2026-08-24T09:15:49.8104234Z",
-      "heartbeat": "2026-08-24T15:00:38.4349571Z",
-      "heartbeat_age_seconds": 8
+      "heartbeat": "2026-08-25T22:39:09.6779720Z",
+      "heartbeat_age_seconds": 3
     },
     {
       "name": "dashboard",
@@ -91,8 +91,8 @@
       "health": "healthy",
       "pid": 46088,
       "started_at": "2026-08-24T09:18:44.922329+00:00",
-      "heartbeat": "2026-08-24T15:00:43.362481+00:00",
-      "heartbeat_age_seconds": 3
+      "heartbeat": "2026-08-25T22:39:09.327501+00:00",
+      "heartbeat_age_seconds": 4
     }
   ]
 }

@@ -1,17 +1,29 @@
 {
-  "generated_at": "2026-08-24T15:00:47.390323+00:00",
+  "generated_at": "2026-08-25T22:39:14.071862+00:00",
   "latest": [
+    {
+      "id": "apply-aweber",
+      "actor": "butler",
+      "status": "done",
+      "updated_at": "2026-08-25T22:50:00Z"
+    },
+    {
+      "id": "apply-castmagic",
+      "actor": "butler",
+      "status": "done",
+      "updated_at": "2026-08-25T22:50:00Z"
+    },
+    {
+      "id": "apply-10web",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-25T22:50:00Z"
+    },
     {
       "id": "supervisor-transition-test-20260824",
       "actor": "princess",
       "status": "done",
       "updated_at": "2026-08-24T18:53:15+00:00"
-    },
-    {
-      "id": "apply-aweber",
-      "actor": "butler",
-      "status": "done",
-      "updated_at": "2026-08-24T14:45:00Z"
     },
     {
       "id": "apply-kit",
@@ -138,18 +150,6 @@
       "actor": "prince",
       "status": "done",
       "updated_at": "2026-08-24T06:19:38.760405+00:00"
-    },
-    {
-      "id": "91a01735-cf71-4232-b75d-08b51f17cb5e",
-      "actor": "work",
-      "status": "done",
-      "updated_at": "2026-08-24T06:03:00+00:00"
-    },
-    {
-      "id": "5d1f91ac-06d2-4a9b-923b-370b6ecbca2c",
-      "actor": "work",
-      "status": "done",
-      "updated_at": "2026-08-24T06:02:00+00:00"
     }
   ]
 }

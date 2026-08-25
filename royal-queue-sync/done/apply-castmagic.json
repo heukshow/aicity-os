@@ -1,0 +1,30 @@
+{
+  "id": "apply-castmagic",
+  "title": "Affiliate Application: Castmagic",
+  "assigned_to": "butler",
+  "status": "done",
+  "payload": {
+    "tool_id": "castmagic",
+    "tool_name": "Castmagic",
+    "application_url": "Castmagic affiliate program (FirstPromoter network)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler_and_human",
+    "success": true,
+    "application_status": "approved",
+    "approval_status": "approved",
+    "tracking_url": "https://castmagic.io?fpr=sangkwon-an54",
+    "tracking_url_is_referral_bearing": true,
+    "affiliate_network": "FirstPromoter",
+    "commission": "30% recurring",
+    "cookie_days": 90,
+    "payout": "Via FirstPromoter, actual account terms confirmed live on the Castmagic FirstPromoter dashboard",
+    "approval_evidence": "Gmail: 'Welcome to the Castmagic Affiliate Program!' from promoter@firstpromoter.com to support@coshuma.com, dated 2026-08-24T18:32:46Z. Also independently confirmed live on the Castmagic FirstPromoter partner dashboard.",
+    "site_integration_status": "MERGED TO PRODUCTION - GitHub repo heukshow/aicity-os, PR #10 'fix(GlobalSaaSHub): publish Castmagic approved affiliate link', merged into main as commit 6abdf61 on 2026-08-25. The PR: (1) routes the GlobalSaaSHub directory CTA for Castmagic through the verified referral URL https://castmagic.io?fpr=sangkwon-an54, (2) adds a sponsored affiliate CTA (rel=\"sponsored noopener noreferrer\") to the static Castmagic detail page, (3) adds a regression test covering the verified tracking URL. The PR explicitly cites the FirstPromoter welcome email as evidence and notes tools.json's catalog affiliate_url field is still null - a runtime override was used instead of rewriting the large catalog file, with a follow-up data-pipeline migration noted as still needed to update the catalog record itself. Vercel preview deployments (coshuma-official, cosuma-market-b2b) built successfully; no production deploy action was taken as part of the PR itself beyond the main-branch merge.",
+    "blocker": null,
+    "notes": "This fully satisfies both 'confirm approval + real unique tracking link' and 'reflect it in the actual COSHUMA site/GitHub main' requirements. Remaining low-priority follow-up (not blocking): update the tools.json catalog record's affiliate_url field directly in a future data-pipeline pass so the runtime override in PR #10 can eventually be removed."
+  },
+  "created_at": "2026-08-24T18:32:46Z",
+  "updated_at": "2026-08-25T22:50:00Z"
+}
