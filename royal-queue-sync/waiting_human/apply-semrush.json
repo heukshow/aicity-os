@@ -2,8 +2,14 @@
   "id": "apply-semrush",
   "title": "Affiliate Application: Semrush",
   "assigned_to": "butler",
-  "status": "waiting_human",
-  "human_reason": "forced_human_verification",
+  "status": "waiting_reply",
+  "human_reason": "escalated_to_vendor_support",
+  "do_not_repeat": "큰형 explicit instruction (2026-08-25): do NOT retry the Semrush Impact.com UI sign-up/login flow a third time. Confirmed by 2 real attempts: (1) Semrush sign-up form recognizes support@coshuma.com as already registered to Impact.com account COSHUMA/7670642 (created for 10Web) and requires login instead of sign-up; (2) logging in via that path succeeds (authenticates fine) but does NOT continue into a Semrush application - it redirects back to the 10Web program's default dashboard with no Semrush relationship added and no confirmation email received. This UI path is a dead end, not something to keep probing.",
+  "escalation_2026_08_25": {
+    "action": "Drafted (not yet sent - awaiting 큰형's go-ahead per the 'explicit permission to send any message' policy) an email to affiliates@semrush.com requesting either (1) manual linking of the Semrush affiliate program to the existing Impact.com account COSHUMA/7670642, or (2) the correct application path for an existing Impact.com partner account. Gmail draft id r5651099209383196731 (thread 1a03b404f22cb4a7).",
+    "content_summary": "States the existing Impact.com account email (support@coshuma.com), account name/ID (COSHUMA / 7670642), its current 10Web program connection, describes the exact failure (sign-up blocked as already-registered, login succeeds but doesn't lead to a Semrush application, tested twice), and asks Semrush to either link the program or advise the correct path.",
+    "status": "waiting_reply - do not re-attempt the Impact.com UI flow again; next action is to check for a reply from affiliates@semrush.com in a future session"
+  },
   "payload": {
     "tool_id": "semrush",
     "tool_name": "Semrush",
