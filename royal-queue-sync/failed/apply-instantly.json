@@ -1,0 +1,17 @@
+{
+  "id": "apply-instantly",
+  "actor": "butler",
+  "title": "Affiliate Application: Instantly",
+  "status": "failed",
+  "terminal": true,
+  "outcome": "submitted_then_rejected",
+  "reason": "PartnerStack rejection confirmed by email",
+  "evidence": {
+    "source": "gmail",
+    "message_id": "1a0389397d4fbceb",
+    "subject": "Updates to your Instantly Application",
+    "received_at": "2026-08-25T10:59:47+00:00",
+    "summary": "PartnerStack states that Instantly declined the application."
+  },
+  "updated_at": "2026-08-25T11:16:39+00:00"
+}
