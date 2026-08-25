@@ -1,0 +1,17 @@
+{
+  "id": "apply-tidio",
+  "actor": "butler",
+  "title": "Affiliate Application: Tidio",
+  "status": "failed",
+  "terminal": true,
+  "outcome": "submitted_then_rejected",
+  "reason": "PartnerStack rejection confirmed by email",
+  "evidence": {
+    "source": "gmail",
+    "message_id": "1a0387f8deafde1e",
+    "subject": "Updates to your Tidio Application",
+    "received_at": "2026-08-25T10:37:51+00:00",
+    "summary": "PartnerStack states that Tidio declined the application."
+  },
+  "updated_at": "2026-08-25T11:16:39+00:00"
+}
