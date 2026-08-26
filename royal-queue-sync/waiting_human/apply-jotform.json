@@ -26,6 +26,12 @@
     "blocker": "Clicking into the actual application form (Name/Email/Website fields) triggered a 'Sign Up Now' modal: 'You will need a free Jotform account in order to access your Dashboard.' Signup requires Name + Password (or Google/Microsoft/Apple SSO). Filled Name (Sangkwon An) with email support@coshuma.com already carried over from the prior step, and checked the required Terms/Privacy/Cookie Policy agreement checkbox. Left both password fields empty per standing instruction, and did not click the final Sign Up button.",
     "notes": "큰형 needs to: 1) return to https://www.jotform.com/partnership/affiliate/application/ (the modal may need to be re-triggered by clicking any form field), 2) enter a password, 3) complete signup, 4) then fill/submit the actual affiliate application form (Name, Email, Website or social media accounts, and likely more fields below the fold that weren't reached yet since the signup gate intercepted first)."
   },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331662,
+    "url": "https://www.jotform.com/partnership/affiliate/application/",
+    "correction_note": "Redone from scratch in its own dedicated tab, left open (not closed) after an earlier pass's tab was mistakenly closed. The signup modal was re-triggered, Name filled, required Terms/Privacy/Cookie checkbox checked; only password remains."
+  },
   "created_at": "2026-08-26T00:00:00Z",
-  "updated_at": "2026-08-26T00:00:00Z"
+  "updated_at": "2026-08-26T01:00:00Z"
 }

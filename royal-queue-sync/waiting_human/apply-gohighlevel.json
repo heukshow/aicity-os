@@ -39,6 +39,12 @@
     },
     "notes": "큰형 needs to: 1) return to https://affiliate.gohighlevel.com/ (may need to re-fill if session/page state was lost - fields are simple to redo), 2) enter a password, 3) click Sign Up. After that, the affiliate dashboard and tracking link should be available immediately (per the page's own '01: Apply and get instant access to your affiliate dashboard' - this may not require manual approval like PartnerStack/Impact.com programs)."
   },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331660,
+    "url": "https://affiliate.gohighlevel.com/",
+    "correction_note": "An earlier pass filled this form in a reused/shared tab that was later closed, destroying the state. This has been redone from scratch in its own dedicated tab which is being left open (not closed, not navigated away from) so 큰형 can go straight to entering a password."
+  },
   "created_at": "2026-08-26T00:00:00Z",
-  "updated_at": "2026-08-26T00:00:00Z"
+  "updated_at": "2026-08-26T01:00:00Z"
 }

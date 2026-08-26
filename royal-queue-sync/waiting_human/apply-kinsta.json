@@ -26,6 +26,12 @@
     "blocker": "Multi-step (4-step) registration form on Kinsta's own affiliate platform requires setting a password on step 1. Filled all non-sensitive fields on step 1 (First/Last name, Email, PayPal Email set to support@coshuma.com pending 큰형's confirmation this is the right payout address, Language: English - no Korean option offered, Country: Korea, Republic of, and the 'how did you find out' field) and left 'Are you an existing Kinsta customer?' toggle off (correct - COSHUMA is not a Kinsta customer). Left both password fields empty per standing instruction and did not click Next.",
     "notes": "큰형 needs to: 1) return to https://affiliate.kinsta.com/register (re-fill step 1 if state was lost - it's a quick form), 2) set a password, 3) click Next through the remaining 3 steps (likely payment/tax details and program terms), 4) submit. Confirm whether support@coshuma.com is the right PayPal payout address or if a different one should be used. This is a genuinely good fit if COSHUMA ever publishes hosting/WordPress-adjacent content, given the strong lifetime-recurring commission structure."
   },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331663,
+    "url": "https://affiliate.kinsta.com/register",
+    "correction_note": "Redone from scratch in its own dedicated tab, left open (not closed) after an earlier pass's tab was mistakenly closed. Step 1 fully re-filled and verified via screenshot (First/Last name, Email, Paypal Email, Language=English, Country=Korea Republic of, 'how did you find out' text); only password remains, existing-customer toggle correctly off."
+  },
   "created_at": "2026-08-26T00:00:00Z",
-  "updated_at": "2026-08-26T00:00:00Z"
+  "updated_at": "2026-08-26T01:00:00Z"
 }

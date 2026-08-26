@@ -26,6 +26,12 @@
     "blocker": "Unlike other PartnerStack-hosted programs seen this session (which used a shared PartnerStack application form), ElevenLabs' affiliate signup is gated behind creating a full ElevenLabs PRODUCT account first (https://elevenlabs.io/app/sign-up, requires email + password), not just a lightweight PartnerStack application. Filled the email field (support@coshuma.com) and checked the required Terms/Privacy agreement checkbox, then left the password field empty per standing instruction to only leave password entry to 큰형. Did not click the final 'Sign up' button.",
     "notes": "큰형 needs to: 1) go to https://elevenlabs.io/app/sign-up?redirect=%2Fapp%2Fhome%3Faffiliate%3Dtrue (may need to re-enter email if session was lost), 2) set a password and complete account creation (may include email verification), 3) once logged in, the affiliate enrollment should appear automatically via the ?affiliate=true redirect, or can be found in account settings. After that, the tracking link becomes available through PartnerStack (dash.partnerstack.com/elevenlabsinc)."
   },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331661,
+    "url": "https://elevenlabs.io/app/sign-up?redirect=%2Fapp%2Fhome%3Faffiliate%3Dtrue",
+    "correction_note": "Redone from scratch in its own dedicated tab, left open (not closed) after an earlier pass's tab was mistakenly closed. Email filled and required Terms/Privacy checkbox checked; only password remains."
+  },
   "created_at": "2026-08-26T00:00:00Z",
-  "updated_at": "2026-08-26T00:00:00Z"
+  "updated_at": "2026-08-26T01:00:00Z"
 }

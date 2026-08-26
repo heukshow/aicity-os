@@ -7,7 +7,7 @@
   "payload": {
     "tool_id": "synthesia",
     "tool_name": "Synthesia",
-    "application_url": "https://www.synthesia.io/partners/affiliates -> HubSpot form (share.hsforms.com) -> redirected to https://synthesia.getrewardful.com/signup?submissionGuid=6973824b-39cd-4bba-838a-0e6858f718bc (Rewardful)"
+    "application_url": "https://www.synthesia.io/partners/affiliates -> HubSpot form (share.hsforms.com) -> redirected to https://synthesia.getrewardful.com/signup?submissionGuid=fb3a8fe5-c364-4afe-bc9d-cb2cfefa4c8c (Rewardful)"
   },
   "depends_on": null,
   "result": {
@@ -27,6 +27,12 @@
     "verification_method": "First click on the HubSpot form's Submit button appeared to do nothing (fields remained filled, no navigation, no submission network request seen in read_network_requests for the hsforms domain except an emailcheck call). Retried by clicking the same Submit button again, which this time produced a real navigation to synthesia.getrewardful.com/signup?submissionGuid=... - the submissionGuid query param plus the fact this is a distinct, dedicated third-party signup page (not just a URL fragment on the same page) is treated as sufficient evidence step 1 succeeded, consistent with prior lessons that a real cross-domain redirect to a purpose-built next step counts as confirmation.",
     "notes": "큰형 needs to: 1) open the Synthesia/Rewardful signup page (link may need to be regenerated if the submissionGuid session expired - butler can resubmit the HubSpot form quickly if so), 2) enter a password and confirm password, 3) click the signup/submit button to finish creating the Rewardful affiliate account. After that, the affiliate link becomes available in the Rewardful dashboard."
   },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331664,
+    "url": "https://synthesia.getrewardful.com/signup?submissionGuid=fb3a8fe5-c364-4afe-bc9d-cb2cfefa4c8c",
+    "correction_note": "The HubSpot lead form was resubmitted fresh (new submissionGuid) in a dedicated tab that is being left open, since the earlier pass's tab was closed after filling. First/Last name and Email are filled on the Rewardful signup page; only Password/Confirm password remain."
+  },
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-08-25T00:00:00Z"
+  "updated_at": "2026-08-26T01:00:00Z"
 }
