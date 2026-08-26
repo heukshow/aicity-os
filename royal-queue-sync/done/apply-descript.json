@@ -25,7 +25,7 @@
       "1a03e348e0865c76"
     ],
     "site_publication": {
-      "status": "gh_pages_deploy_success_live_verification_pending",
+      "status": "live_verified",
       "pr_number": 17,
       "merge_commit_sha": "f2bade9634ab21a67cea5c3ea015b77ee8e0fa9b",
       "previous_override_pr_number": 16,
@@ -47,11 +47,11 @@
       },
       "live_url": "https://coshuma.com/tool/descript.html",
       "live_affiliate_target": "https://get.descript.com/ole5fu20j5sq",
-      "live_verification": "pending",
-      "verified_at": null
+      "live_verification": "verified",
+      "verified_at": "2026-08-26T20:21:52Z"
     },
-    "notes": "Official Descript affiliate approval is active. PR #17 added the sponsored affiliate CTA to the static Descript detail page and both Vercel checks succeeded. The same HTML exists on gh-pages with the verified tracking target. GitHub Pages run #119 remained stuck queued, so automation made a semantics-neutral robots.txt whitespace commit (318eb7acf01e6340b5f628030e6dcfc4ab447342) to retrigger Pages at zero cost. Replacement run #120 completed successfully. A fresh crawler check immediately after deployment still returned the previous live HTML without the affiliate CTA, so production live CTA verification remains pending and must not be marked live_verified yet."
+    "notes": "Official Descript affiliate approval is active. PR #17 added the sponsored affiliate CTA to the static Descript detail page and both Vercel checks succeeded. GitHub Pages replacement run #120 completed successfully. Fresh production verification on 2026-08-26T20:21:52Z confirmed that https://coshuma.com/tool/descript.html exposes 'Visit Descript via Verified Affiliate Link' and the CTA targets https://get.descript.com/ole5fu20j5sq. Following the target redirects to Descript with affiliate attribution parameters, so production tracking CTA is now live_verified."
   },
   "created_at": "2026-08-26T13:13:09Z",
-  "updated_at": "2026-08-26T18:29:27Z"
+  "updated_at": "2026-08-26T20:21:52Z"
 }
