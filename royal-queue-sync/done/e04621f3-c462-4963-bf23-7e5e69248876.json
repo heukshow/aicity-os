@@ -1,0 +1,73 @@
+{
+  "id": "e04621f3-c462-4963-bf23-7e5e69248876",
+  "title": "COSHUMA SEO P1 next-action audit",
+  "assigned_to": "princess",
+  "status": "done",
+  "payload": {
+    "project": "COSHUMA / GlobalSaaSHub",
+    "domain": "https://coshuma.com/",
+    "goal": "Identify and prioritize the next zero-cost organic traffic actions after the P0 affiliate fix."
+  },
+  "result": {
+    "success": true,
+    "actor": "prince_automation",
+    "verified_at": "2026-08-26T10:12:31+00:00",
+    "read_only": true,
+    "findings": [
+      {
+        "priority": "P1",
+        "issue": "crawler_fallback_tool_count_stale",
+        "evidence": "Current projects/GlobalSaaSHub/index.html and live crawler fallback say 150 curated SaaS profiles, while merged PR #9 regression verification passed 151/151 tools and 151 pages and no later main commit removed a catalog tool.",
+        "source_file": "projects/GlobalSaaSHub/index.html",
+        "recommended_change": "Change the static crawler fallback count from 150 to 151 or derive it from the catalog during generation so it cannot drift."
+      },
+      {
+        "priority": "P1",
+        "issue": "sitemap_lastmod_metadata_stale",
+        "evidence": "The deployed gh-pages sitemap still carries 2026-07-27 lastmod values for pages such as vidIQ even though the page was updated and deployed on 2026-08-26.",
+        "source_file": "projects/GlobalSaaSHub/public/sitemap.xml",
+        "recommended_change": "Regenerate lastmod from real page/data modification dates, or omit lastmod when a reliable date is unavailable."
+      },
+      {
+        "priority": "P1",
+        "issue": "crawler_homepage_has_no_internal_links",
+        "evidence": "The current crawler-visible homepage fallback contains descriptive text but no useful internal anchor links, while tool pages contain back/alternative links.",
+        "source_file": "projects/GlobalSaaSHub/index.html",
+        "recommended_change": "Add a small crawler-visible set of category, high-intent comparison, and approved-monetization tool links to the static fallback."
+      },
+      {
+        "priority": "P1",
+        "issue": "extensionless_alias_duplicate_risk",
+        "evidence": "Static tool pages canonicalize to /tool/<slug>.html. Earlier verified live audits showed extensionless /tool/<slug> aliases also serving 200, so canonical tags mitigate but do not eliminate crawl duplication/wasted crawl budget.",
+        "source_file": "static tool routing / generated tool pages",
+        "recommended_change": "Normalize all internal links to .html canonical URLs and, where hosting allows, redirect extensionless aliases to the canonical URL."
+      },
+      {
+        "priority": "P2",
+        "issue": "high_intent_internal_linking_depth",
+        "evidence": "Tool pages expose alternatives, but the crawler fallback does not surface category/comparison hubs. Approved affiliate pages should be linked from relevant comparison/category contexts instead of relying mainly on sitemap discovery.",
+        "source_file": "projects/GlobalSaaSHub/index.html and generated category/compare/tool templates",
+        "recommended_change": "Add contextual links among category, comparison and approved-affiliate tool pages; prioritize Taskade, Systeme.io, Fliki, Castmagic and vidIQ."
+      }
+    ],
+    "verified_good": {
+      "robots": "gh-pages/robots.txt allows all crawlers and points to https://coshuma.com/sitemap.xml",
+      "fliki_in_sitemap": true,
+      "fliki_static_page_present": true,
+      "fliki_affiliate_rel": "sponsored noopener noreferrer",
+      "latest_gh_pages_deploy": "run 116 completed successfully for gh-pages commit 4630eb29b64a10fa212289ff38e024c7be8043c2"
+    },
+    "ranked_next_actions": [
+      "Fix static crawler fallback count drift (150 -> 151 or generated count).",
+      "Regenerate sitemap lastmod metadata from reliable modification dates.",
+      "Add crawler-visible internal links to key categories/comparisons/approved affiliate pages.",
+      "Normalize internal tool links to canonical .html URLs and redirect aliases when feasible.",
+      "Expand contextual internal linking around highest-intent approved affiliate pages."
+    ]
+  },
+  "error": null,
+  "human_reason": null,
+  "retry_from_failed": true,
+  "created_at": "2026-08-24T08:23:46+00:00",
+  "updated_at": "2026-08-26T10:12:31+00:00"
+}
