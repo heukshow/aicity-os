@@ -23,8 +23,28 @@
       "payout": "Via PayPal, dashboard powered by FirstPromoter",
       "source": "https://fireflies.ai/affiliate + live dashboard, read 2026-08-26"
     },
+    "site_publication": {
+      "status": "gh_pages_deploy_success_live_verification_pending",
+      "directory_override": {
+        "pr": 18,
+        "merge_sha": "6446def8f4bb78321cada9412e442108321665a2"
+      },
+      "static_detail_page": {
+        "pr": 19,
+        "merge_sha": "f48b92df727238ddadd3f3854330627b22f97049"
+      },
+      "gh_pages": {
+        "commit_sha": "85ff9250806dca778fcb58f21071157ff6dcdbf9",
+        "run_number": 121,
+        "run_id": 33023404623,
+        "conclusion": "success"
+      },
+      "live_url": "https://coshuma.com/tool/fireflies-ai.html",
+      "expected_tracking_target": "https://fireflies.ai/?fpr=sangkwon53",
+      "live_verification": "pending_web_fetch"
+    },
     "blocker": null,
-    "notes": "큰형 entered the password and clicked Sign Up. This account appears to have been auto-approved immediately (no 'pending' state like Frase) - dashboard at fireflies.firstpromoter.com/home is fully active, showing a live referral link and 10% recurring commission rate. One optional follow-up: dashboard shows 'You don't have any payout method selected. Please select your payout method to get paid.' - not blocking, but needed eventually before any commissions can be paid out. Leaving that as a future task since it may require entering PayPal/bank details."
+    "notes": "큰형 entered the password and clicked Sign Up. This account appears to have been auto-approved immediately (no 'pending' state like Frase) - dashboard at fireflies.firstpromoter.com/home is fully active, showing a live referral link and 10% recurring commission rate. One optional follow-up: dashboard shows 'You don't have any payout method selected. Please select your payout method to get paid.' - not blocking, but needed eventually before any commissions can be paid out. The approved tracking URL is now published in the GlobalSaaSHub directory override and crawler-visible static page; GitHub Pages run #121 completed successfully. Live coshuma.com verification remains separate and pending because the external fetch did not return the page during this check."
   },
   "browser_tab_status": {
     "is_open_now": true,
@@ -33,5 +53,5 @@
     "correction_note": "Application fully done and approved - tab can be closed."
   },
   "created_at": "2026-08-26T21:00:00Z",
-  "updated_at": "2026-08-26T22:00:00Z"
+  "updated_at": "2026-08-26T23:28:00Z"
 }
