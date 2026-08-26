@@ -242,7 +242,6 @@ html_template = """<!doctype html>
 sitemap_urls = [
     """  <url>
     <loc>https://coshuma.com/</loc>
-    <lastmod>2026-07-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>"""
@@ -354,7 +353,6 @@ for tool in tools_data:
     generated_count += 1
     sitemap_urls.append(f"""  <url>
     <loc>https://coshuma.com/tool/{slug}.html</loc>
-    <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>""")
@@ -587,7 +585,6 @@ for tool_a in tools_data:
         compare_generated_count += 1
         sitemap_urls.append(f"""  <url>
     <loc>https://coshuma.com/compare/{slug_a}-vs-{slug_b}.html</loc>
-    <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>""")
