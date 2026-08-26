@@ -1,0 +1,37 @@
+{
+  "id": "apply-surfer-seo",
+  "title": "Affiliate Application: Surfer SEO",
+  "assigned_to": "butler",
+  "status": "done",
+  "human_reason": null,
+  "payload": {
+    "tool_id": "surfer-seo",
+    "tool_name": "Surfer SEO",
+    "application_url": "https://surferseo.com/affiliate-program/ -> https://surferseo.partnerstack.com/?group=tier1starter -> https://dash.partnerstack.com/application?company=surferseo&group=tier1starter&gref=page (PartnerStack-hosted application)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": true,
+    "application_status": "submitted_pending_review",
+    "approval_status": "application_pending",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "Tiered CPA: Tier 1 75% monthly / 15% yearly, Tier 2 100% / 20%, Tier 3 125% / 25%",
+      "cookie_days": 90,
+      "payout": "PayPal or Stripe, NET-45 payout policy, dashboard powered by PartnerStack",
+      "source": "https://surferseo.com/affiliate-program/, read live on 2026-08-26"
+    },
+    "blocker": null,
+    "notes": "큰형 completed the Cloudflare human-verification checkbox and clicked Submit application. Verified via the PartnerStack account dashboard (dash.partnerstack.com/home): the 'Surfer' program row now shows status 'Application pending'. Note: this same PartnerStack account already has other pre-existing partnerships from earlier in the COSHUMA project (monday.com, ActiveCampaign, Pipedrive, Unbounce - all 'Application pending'; Descript - 'Active' with 11 clicks) - unrelated to this session's work, just visible on the shared dashboard."
+  },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331709,
+    "url": "https://dash.partnerstack.com/home?company=surferseo&group=tier1starter&application=surferseo&email=support@coshuma.com&firstName=Sangkwon&lastName=An&businessName=COSHUMA",
+    "correction_note": "Application fully done - tab can be closed."
+  },
+  "created_at": "2026-08-26T20:30:00Z",
+  "updated_at": "2026-08-26T22:00:00Z"
+}

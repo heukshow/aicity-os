@@ -1,0 +1,37 @@
+{
+  "id": "apply-jotform",
+  "title": "Affiliate Application: Jotform",
+  "assigned_to": "butler",
+  "status": "done",
+  "human_reason": null,
+  "payload": {
+    "tool_id": "jotform",
+    "tool_name": "Jotform",
+    "application_url": "https://www.jotform.com/partnership/affiliate/application/"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": true,
+    "application_status": "approved",
+    "approval_status": "approved_partner_dashboard_active",
+    "tracking_link": "available in Jotform Partner Dashboard (avatar -> Settings -> Partnership tab)",
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "30% recurring, tiered up to 50% with growth; $5 bonus per paid referral in first 30 days",
+      "cookie_days": null,
+      "payout": "Via Jotform Partner Dashboard",
+      "source": "Gmail confirmation emails, verified 2026-08-26"
+    },
+    "blocker": null,
+    "notes": "CORRECTION after 큰형 flagged the open Jotform tab looking like an unfilled blank form: that tab was simply showing the base application URL in a stale/reloaded state (browser tab lost its submitted-page view, likely from a reload) - it does NOT mean the application was never submitted. Verified via Gmail: 'Thanks for your application to our Affiliate Program, Sangkwon An' (2026-08-26 02:26 UTC) confirmed the submission went through, and a follow-up email 'Welcome to the Jotform Affiliate Program!' (2026-08-26 06:41 UTC) confirms the application was already APPROVED - Jotform gave full Partner Dashboard access, not just pending review. Upgraded status from 'submitted_pending_review' to fully 'approved'. The blank browser tab can be safely closed - it holds no unfinished work."
+  },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331662,
+    "url": "https://www.jotform.com/partnership/affiliate/application/",
+    "correction_note": "Tab shows a stale blank form view but the application already succeeded and was approved per Gmail confirmation. Safe to close - will close now."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-26T21:35:00Z"
+}
