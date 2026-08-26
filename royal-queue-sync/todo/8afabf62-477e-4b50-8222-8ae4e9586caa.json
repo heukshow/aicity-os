@@ -11,8 +11,9 @@
       "Check watcher, GitHub bridge, dashboard process health and heartbeat persistence.",
       "Safely restart only failed/stuck queue processes using existing project scripts/config; do not touch secrets.",
       "Fetch/sync the royal-queue branch and ingest all new todo jobs exactly once by UUID.",
-      "Fix the source-of-truth/sync logic that re-created stale waiting_human records after they had been removed from royal-queue. As observed on 2026-08-26, apply-apollo, apply-aweber, apply-kit, apply-pipedrive, apply-tidio and supervisor-transition-test-20260824 were reintroduced by 'royal-queue: sync results and capabilities' despite terminal/superseded states. The durable fix must prefer terminal done/failed/superseded results over older waiting_human copies and must not resurrect them on the next sync.",
+      "Fix the source-of-truth/sync logic that re-created stale waiting_human records after they had been removed from royal-queue. The bug reproduced again in sync commit 47848af7d254fe7abc0db02f019704ee9b00106b on 2026-08-26T01:06Z: apply-apollo, apply-aweber, apply-kit, apply-pipedrive, apply-tidio and supervisor-transition-test-20260824 were present again despite terminal/superseded states. The automation cleanup removed them again in commits f1a2985653a7f44f13ca8df8a310ebfc2d671b1f, b1d3d13ca706ec23c852061f1eb42604c8f8b3cf, e76fec7f642d4da66848f6a70d782609f03e01c5, f8d7c026950b216a1243828a34562ed6319022ef, 8dd3aa8761f322ecb021e6eadff95fbd3a651480 and 4f59cb91e34dd8adb3ee31756407f1b019e97632. The durable fix must prefer terminal done/failed/superseded results over older waiting_human copies and must not resurrect them on the next sync.",
       "Treat waiting_reply/escalated vendor-support states such as apply-semrush separately from true forced-human states; they must not count as waiting_human unless an actual CAPTCHA, legal acceptance, payment approval, credential/OTP step, or other forced human verification is currently required.",
+      "Reconcile waiting_human counts against actual directory contents after every sync; status/latest.json and dashboard.json must not report stale duplicates.",
       "Verify the COSHUMA tasks 62e114d0-a161-4a40-a768-c39b2d60d4fb, 24bb2f8d-36c5-4d53-9a46-234220e66019, aeb54240-1142-41e0-af3a-96e617b5bc2a, e04621f3-c462-4963-bf23-7e5e69248876 and Work task 8c8a6f94-5db6-4c38-bb0f-7d77a9c0d72f are not duplicated and become eligible for normal routing.",
       "Add or repair a zero-cost watchdog so stale heartbeat or dead bridge/watcher is automatically detected and safely restarted or surfaced as failed, without spawning duplicate workers.",
       "Update dashboard/latest status after recovery and return root cause, actions taken, tests, exact resulting statuses, and a reconciliation test proving stale waiting_human records stay absent across at least one subsequent sync cycle.",
@@ -24,5 +25,5 @@
   "error": null,
   "human_reason": null,
   "created_at": "2026-08-24T09:05:45+00:00",
-  "updated_at": "2026-08-26T00:08:06+00:00"
+  "updated_at": "2026-08-26T01:24:00+00:00"
 }
