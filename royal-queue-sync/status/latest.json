@@ -1,6 +1,12 @@
 {
-  "generated_at": "2026-08-26T20:26:34.875573+00:00",
+  "generated_at": "2026-08-26T20:29:57.274705+00:00",
   "latest": [
+    {
+      "id": "apply-frase",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-26T20:00:00Z"
+    },
     {
       "id": "apply-gohighlevel",
       "actor": "butler",
@@ -144,12 +150,6 @@
       "actor": "butler",
       "status": "done",
       "updated_at": "2026-08-24T09:42:00+00:00"
-    },
-    {
-      "id": "8e1446b0-8eae-4faa-b8f6-202608240637",
-      "actor": "work",
-      "status": "done",
-      "updated_at": "2026-08-24T09:37:00+00:00"
     }
   ]
 }

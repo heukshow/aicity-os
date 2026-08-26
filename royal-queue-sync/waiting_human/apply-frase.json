@@ -1,0 +1,37 @@
+{
+  "id": "apply-frase",
+  "title": "Affiliate Application: Frase",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "password_required_for_new_firstpromoter_account",
+  "payload": {
+    "tool_id": "frase",
+    "tool_name": "Frase",
+    "application_url": "https://www.frase.io/partners/affiliates -> https://affiliates.frase.io/ (FirstPromoter-hosted signup)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "blocked_before_submit",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "30% recurring for 12 months, upgrading to 35% at $5,000 total referred revenue and 40% at $10,000. More than 1 active referred customer required to receive commissions. Bidding on Frase's brand name via search ads is prohibited (grounds for removal).",
+      "cookie_days": 60,
+      "payout": "Monthly via PayPal, $100 minimum payout threshold, dashboard powered by FirstPromoter",
+      "source": "https://www.frase.io/partners/affiliates, read live on 2026-08-26"
+    },
+    "blocker": "FirstPromoter-hosted signup form at affiliates.frase.io requires setting a password. Filled First Name (Sangkwon), Last Name (An), Email (support@coshuma.com), Country (South Korea), Website (https://coshuma.com), and checked the 'I agree to receive email notifications' checkbox. Left Facebook/YouTube/Twitter/LinkedIn URL fields blank (optional, not applicable) and left the password field empty per standing instruction to only leave password entry to 큰형.",
+    "notes": "큰형 needs to: 1) switch to the open Frase tab, 2) enter a password, 3) click Sign Up. This is a manually-reviewed application (2-3 business days per the program page), so after signup it likely just submits for review rather than needing further form-filling - butler will check the resulting page state once the password is entered and finish confirming/verifying via email if needed."
+  },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331706,
+    "url": "https://affiliates.frase.io/",
+    "correction_note": "New dedicated tab created for this application; the original 6 tabs (GoHighLevel/ElevenLabs/Jotform/Kinsta/Synthesia/vidIQ) were not touched. This tab will be left open, not closed or navigated away from, until resolved."
+  },
+  "created_at": "2026-08-26T20:00:00Z",
+  "updated_at": "2026-08-26T20:00:00Z"
+}
