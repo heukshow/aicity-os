@@ -3,35 +3,35 @@
   "title": "Affiliate Application: ElevenLabs",
   "assigned_to": "butler",
   "status": "waiting_human",
-  "human_reason": "password_required_for_new_elevenlabs_account",
+  "human_reason": "email_verification_required",
   "payload": {
     "tool_id": "elevenlabs",
     "tool_name": "ElevenLabs",
-    "application_url": "https://elevenlabs.io/affiliates -> https://elevenlabs.io/app/home?affiliate=true -> requires an ElevenLabs product account -> https://elevenlabs.io/app/sign-up (affiliate program managed via PartnerStack once inside the account)"
+    "application_url": "https://elevenlabs.io/affiliates -> ElevenLabs account -> affiliate enrollment"
   },
   "depends_on": null,
   "result": {
-    "actor": "butler",
+    "actor": "automation_verification",
     "success": null,
-    "application_status": "blocked_before_submit",
-    "approval_status": "not_yet_submitted",
+    "application_status": "account_creation_advanced_email_verification_pending",
+    "approval_status": "affiliate_enrollment_not_yet_confirmed",
     "tracking_link": null,
     "payout_status": "not_applicable_yet",
     "terms_summary": {
       "commission": "Up to 22% commission on every paying customer referred, for 12 months from qualifying subscriptions",
       "cookie_days": null,
       "payout": "Via PartnerStack, personal dashboard with reports",
-      "source": "https://elevenlabs.io/affiliates, read live on 2026-08-26"
+      "source": "https://elevenlabs.io/affiliates and official ElevenLabs verification emails"
     },
-    "blocker": "Unlike other PartnerStack-hosted programs seen this session (which used a shared PartnerStack application form), ElevenLabs' affiliate signup is gated behind creating a full ElevenLabs PRODUCT account first (https://elevenlabs.io/app/sign-up, requires email + password), not just a lightweight PartnerStack application. Filled the email field (support@coshuma.com) and checked the required Terms/Privacy agreement checkbox, then left the password field empty per standing instruction to only leave password entry to 큰형. Did not click the final 'Sign up' button.",
-    "notes": "큰형 needs to: 1) go to https://elevenlabs.io/app/sign-up?redirect=%2Fapp%2Fhome%3Faffiliate%3Dtrue (may need to re-enter email if session was lost), 2) set a password and complete account creation (may include email verification), 3) once logged in, the affiliate enrollment should appear automatically via the ?affiliate=true redirect, or can be found in account settings. After that, the tracking link becomes available through PartnerStack (dash.partnerstack.com/elevenlabsinc)."
+    "blocker": "ElevenLabs is now sending official 'Verify your email for ElevenLabs' messages to support@coshuma.com, so the earlier pre-account password blocker has been superseded. Email verification is currently required before the account/affiliate flow can proceed.",
+    "evidence_message_ids": ["1a03bc98bd357a73", "1a03be2d2609a3d6", "1a03bec30ea25638", "1a03bf3248e56f46", "1a03c05d0960466d"],
+    "notes": "Human action required: use the newest ElevenLabs verification email and complete email verification. Do not expose verification tokens in GitHub. After verification, Butler can resume the affiliate enrollment and retrieve a tracking link if available."
   },
   "browser_tab_status": {
-    "is_open_now": true,
-    "tab_id": 499331661,
-    "url": "https://elevenlabs.io/app/sign-up?redirect=%2Fapp%2Fhome%3Faffiliate%3Dtrue",
-    "correction_note": "Redone from scratch in its own dedicated tab, left open (not closed) after an earlier pass's tab was mistakenly closed. Email filled and required Terms/Privacy checkbox checked; only password remains."
+    "is_open_now": "unknown_stale_metadata",
+    "url": "https://elevenlabs.io/app/home?affiliate=true",
+    "correction_note": "Official verification emails prove the flow advanced beyond the earlier password-only blocker. Current blocker is email verification."
   },
   "created_at": "2026-08-26T00:00:00Z",
-  "updated_at": "2026-08-26T01:00:00Z"
+  "updated_at": "2026-08-26T03:03:22Z"
 }
