@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T20:27:02.128257+00:00",
+  "generated_at": "2026-08-26T20:27:09.464012+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -74,16 +74,16 @@
       "pid": null,
       "started_at": null,
       "heartbeat": "2026-08-24T09:25:49.5786616Z",
-      "heartbeat_age_seconds": 212472
+      "heartbeat_age_seconds": 212479
     },
     {
       "name": "GitHub bridge",
       "alive": true,
-      "health": "warning_30",
+      "health": "stale_60",
       "pid": 47732,
       "started_at": "2026-08-24T09:15:49.8104234Z",
       "heartbeat": "2026-08-26T20:26:03.0333251Z",
-      "heartbeat_age_seconds": 59
+      "heartbeat_age_seconds": 67
     },
     {
       "name": "dashboard",
@@ -91,7 +91,7 @@
       "health": "healthy",
       "pid": 46088,
       "started_at": "2026-08-24T09:18:44.922329+00:00",
-      "heartbeat": "2026-08-26T20:26:58.440604+00:00",
+      "heartbeat": "2026-08-26T20:27:05.802830+00:00",
       "heartbeat_age_seconds": 4
     }
   ]
