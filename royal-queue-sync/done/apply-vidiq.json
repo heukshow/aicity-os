@@ -1,0 +1,30 @@
+{
+  "id": "apply-vidiq",
+  "title": "Affiliate Application: VidIQ",
+  "assigned_to": "butler",
+  "status": "done",
+  "payload": {
+    "tool_id": "vidiq",
+    "tool_name": "VidIQ",
+    "application_url": "https://vidiq.com/affiliate/"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "automation_verification",
+    "success": true,
+    "application_status": "approved_active",
+    "approval_status": "approved_active",
+    "tracking_link": "https://vidiq.com/coshuma",
+    "payout_status": "active_paypal_setup_optional",
+    "terms_summary": {
+      "commission": "Recurring commission starting at 15% and increasing up to 25% based on performance",
+      "cookie_days": null,
+      "payout": "First week of every month via PayPal; minimum balance $10",
+      "source": "Official vidIQ affiliate welcome email"
+    },
+    "evidence_message_ids": ["1a03c25da5115852"],
+    "notes": "Official vidIQ email confirms COSHUMA is now part of the affiliate program and provides the unique affiliate link https://vidiq.com/coshuma. Earlier email-confirmation/initial-password blockers are superseded. PayPal setup is optional for immediate site publishing and only needed to receive payouts."
+  },
+  "created_at": "2026-08-26T00:00:00Z",
+  "updated_at": "2026-08-26T03:38:20Z"
+}
