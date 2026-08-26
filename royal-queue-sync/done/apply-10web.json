@@ -1,0 +1,30 @@
+{
+  "id": "apply-10web",
+  "title": "Affiliate Application: 10Web",
+  "assigned_to": "butler",
+  "status": "done",
+  "payload": {
+    "tool_id": "10web",
+    "tool_name": "10Web",
+    "application_url": "Impact.com / 10Web partner program"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler_and_human",
+    "success": true,
+    "application_status": "submitted",
+    "approval_status": "pending_review",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "existing_account": {
+      "platform": "Impact.com",
+      "account_id": "7670642",
+      "email": "support@coshuma.com"
+    },
+    "confirmation": "Official 10Web/Impact.com 'Application Received' email confirms the application was submitted and will be reviewed.",
+    "evidence_message_id": "1a0309e859b83a68",
+    "followup": "Monitor support@coshuma.com including spam for approval/rejection. No human action is currently required while review is pending. If approved, sign in to the existing Impact.com account to retrieve the account-specific tracking link before publishing it on COSHUMA."
+  },
+  "created_at": "2026-08-25T22:50:00Z",
+  "updated_at": "2026-08-26T02:12:00Z"
+}
