@@ -22,7 +22,8 @@
       "source": "Official Descript affiliate welcome email"
     },
     "evidence_message_ids": [
-      "1a03e348e0865c76"
+      "1a03e348e0865c76",
+      "1a03fbf097814773"
     ],
     "site_publication": {
       "status": "live_verified",
@@ -50,8 +51,15 @@
       "live_verification": "verified",
       "verified_at": "2026-08-26T20:21:52Z"
     },
-    "notes": "Official Descript affiliate approval is active. PR #17 added the sponsored affiliate CTA to the static Descript detail page and both Vercel checks succeeded. GitHub Pages replacement run #120 completed successfully. Fresh production verification on 2026-08-26T20:21:52Z confirmed that https://coshuma.com/tool/descript.html exposes 'Visit Descript via Verified Affiliate Link' and the CTA targets https://get.descript.com/ole5fu20j5sq. Following the target redirects to Descript with affiliate attribution parameters, so production tracking CTA is now live_verified."
+    "performance_signal": {
+      "status": "first_click_activity_confirmed",
+      "confirmed_at": "2026-08-26T20:24:25Z",
+      "source": "Official Descript Affiliate Team email",
+      "gmail_message_id": "1a03fbf097814773",
+      "evidence": "Descript reported that the affiliate link has already earned clicks and repeated the same unique affiliate URL https://get.descript.com/ole5fu20j5sq."
+    },
+    "notes": "Official Descript affiliate approval is active. PR #17 added the sponsored affiliate CTA to the static Descript detail page and both Vercel checks succeeded. GitHub Pages replacement run #120 completed successfully. Fresh production verification on 2026-08-26T20:21:52Z confirmed that https://coshuma.com/tool/descript.html exposes 'Visit Descript via Verified Affiliate Link' and the CTA targets https://get.descript.com/ole5fu20j5sq. Following the target redirects to Descript with affiliate attribution parameters. At 2026-08-26T20:24:25Z the official Descript Affiliate Team then reported that the unique affiliate link had already received clicks, providing a first real traffic signal after publication."
   },
   "created_at": "2026-08-26T13:13:09Z",
-  "updated_at": "2026-08-26T20:21:52Z"
+  "updated_at": "2026-08-26T20:24:25Z"
 }
