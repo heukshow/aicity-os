@@ -1,6 +1,18 @@
 {
-  "generated_at": "2026-08-26T20:52:41.431292+00:00",
+  "generated_at": "2026-08-26T21:34:13.828825+00:00",
   "latest": [
+    {
+      "id": "apply-jotform",
+      "actor": "butler",
+      "status": "done",
+      "updated_at": "2026-08-26T21:35:00Z"
+    },
+    {
+      "id": "apply-jotform",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-26T21:35:00Z"
+    },
     {
       "id": "apply-fireflies-ai",
       "actor": "butler",
@@ -38,12 +50,6 @@
       "updated_at": "2026-08-26T01:00:00Z"
     },
     {
-      "id": "apply-jotform",
-      "actor": "butler",
-      "status": "done",
-      "updated_at": "2026-08-26T01:00:00Z"
-    },
-    {
       "id": "apply-kinsta",
       "actor": "butler",
       "status": "done",
@@ -69,12 +75,6 @@
     },
     {
       "id": "apply-gohighlevel",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-26T01:00:00Z"
-    },
-    {
-      "id": "apply-jotform",
       "actor": "butler",
       "status": "waiting_human",
       "updated_at": "2026-08-26T01:00:00Z"

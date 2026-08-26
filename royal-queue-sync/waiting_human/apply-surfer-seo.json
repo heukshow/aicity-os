@@ -1,0 +1,37 @@
+{
+  "id": "apply-surfer-seo",
+  "title": "Affiliate Application: Surfer SEO",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "final_submit_left_to_human_per_standing_policy",
+  "payload": {
+    "tool_id": "surfer-seo",
+    "tool_name": "Surfer SEO",
+    "application_url": "https://surferseo.com/affiliate-program/ -> https://surferseo.partnerstack.com/?group=tier1starter -> https://dash.partnerstack.com/application?company=surferseo&group=tier1starter&gref=page (PartnerStack-hosted application)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "form_fully_filled_awaiting_submit",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "Tiered CPA: Tier 1 75% monthly / 15% yearly, Tier 2 100% / 20%, Tier 3 125% / 25%",
+      "cookie_days": 90,
+      "payout": "PayPal or Stripe, NET-45 payout policy, dashboard powered by PartnerStack",
+      "source": "https://surferseo.com/affiliate-program/, read live on 2026-08-26"
+    },
+    "blocker": "All application fields have been filled on the PartnerStack-hosted application form: First name/Last name/Email were pre-populated from the logged-in PartnerStack account, Business name pre-filled as COSHUMA, LinkedIn URL set to https://coshuma.com (no dedicated company LinkedIn page exists, so the company website was used as the closest available substitute), affiliate experience, target audience description, promotion method, and promotion link (https://coshuma.com) were all written, and both dropdowns were set ('Are you currently using Surfer?' = No, 'How did you hear about the Surfer Partner Program?' = Google or AI Search). The 'Submit application' button has NOT been clicked - per this project's standing policy, final form submission is left to 큰형 to click himself.",
+    "notes": "큰형 needs to: 1) switch to the open Surfer SEO tab, 2) quickly review the filled fields, 3) click 'Submit application'. No password or CAPTCHA was required for this one - the only remaining step is the submit click itself. Butler will verify the resulting confirmation page/email once submitted and update this record to done."
+  },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331709,
+    "url": "https://dash.partnerstack.com/application?company=surferseo&group=tier1starter&gref=page",
+    "correction_note": "New dedicated tab created for this application; the original 6 tabs (GoHighLevel/ElevenLabs/Jotform/Kinsta/Synthesia/vidIQ) and the Frase tab (499331706) were not touched. This tab will be left open, not closed or navigated away from, until resolved."
+  },
+  "created_at": "2026-08-26T20:30:00Z",
+  "updated_at": "2026-08-26T20:30:00Z"
+}

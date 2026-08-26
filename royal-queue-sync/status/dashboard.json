@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T20:52:39.069652+00:00",
+  "generated_at": "2026-08-26T21:34:11.383301+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -30,9 +30,9 @@
       "status": "waiting_human",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
-      "last_activity": "2026-08-26T21:00:00Z",
-      "task": "Affiliate Application: Fireflies.ai",
-      "uuid": "apply-fireflies-ai",
+      "last_activity": "2026-08-26T21:35:00Z",
+      "task": "Affiliate Application: Jotform",
+      "uuid": "apply-jotform",
       "tool": null,
       "recent_failure_count": 1,
       "recent_error_title": "COSHUMA post-merge live revenue verification"
@@ -74,7 +74,7 @@
       "pid": null,
       "started_at": null,
       "heartbeat": "2026-08-24T09:25:49.5786616Z",
-      "heartbeat_age_seconds": 214009
+      "heartbeat_age_seconds": 216501
     },
     {
       "name": "GitHub bridge",
@@ -82,8 +82,8 @@
       "health": "healthy",
       "pid": 47732,
       "started_at": "2026-08-24T09:15:49.8104234Z",
-      "heartbeat": "2026-08-26T20:52:29.5327403Z",
-      "heartbeat_age_seconds": 10
+      "heartbeat": "2026-08-26T21:34:05.2577240Z",
+      "heartbeat_age_seconds": 6
     },
     {
       "name": "dashboard",
@@ -91,8 +91,8 @@
       "health": "healthy",
       "pid": 46088,
       "started_at": "2026-08-24T09:18:44.922329+00:00",
-      "heartbeat": "2026-08-26T20:52:35.527255+00:00",
-      "heartbeat_age_seconds": 4
+      "heartbeat": "2026-08-26T21:34:07.886460+00:00",
+      "heartbeat_age_seconds": 3
     }
   ]
 }
