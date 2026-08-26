@@ -1,0 +1,18 @@
+{
+  "id": "apply-apollo",
+  "actor": "butler",
+  "title": "Affiliate Application: Apollo.io",
+  "status": "failed",
+  "terminal": true,
+  "result": "submitted_then_rejected",
+  "affiliate_status": "rejected",
+  "updated_at": "2026-08-26T18:44:52Z",
+  "evidence": {
+    "source": "gmail",
+    "message_id": "1a03f63c03ab9c05",
+    "subject": "Updates to your Apollo.io Application",
+    "summary": "PartnerStack confirmed that Apollo.io declined the affiliate application."
+  },
+  "next_action": "none",
+  "notes": "Terminal rejection recorded from confirmed PartnerStack email. Do not treat as waiting_human or re-submit automatically."
+}
