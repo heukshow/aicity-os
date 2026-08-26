@@ -1,6 +1,12 @@
 {
-  "generated_at": "2026-08-26T20:49:58.170682+00:00",
+  "generated_at": "2026-08-26T20:52:41.431292+00:00",
   "latest": [
+    {
+      "id": "apply-fireflies-ai",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-26T21:00:00Z"
+    },
     {
       "id": "apply-chatbase",
       "actor": "butler",
@@ -144,12 +150,6 @@
       "actor": "butler",
       "status": "waiting_human",
       "updated_at": "2026-08-24T14:00:00Z"
-    },
-    {
-      "id": "apply-tidio",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-24T10:20:41.348834Z"
     }
   ]
 }

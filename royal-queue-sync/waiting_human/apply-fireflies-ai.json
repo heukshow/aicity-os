@@ -1,0 +1,37 @@
+{
+  "id": "apply-fireflies-ai",
+  "title": "Affiliate Application: Fireflies.ai",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "password_required_for_new_firstpromoter_account",
+  "payload": {
+    "tool_id": "fireflies-ai",
+    "tool_name": "Fireflies.ai",
+    "application_url": "https://fireflies.ai/affiliate -> https://fireflies.firstpromoter.com/ (FirstPromoter-hosted signup)"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "blocked_before_submit",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "Up to 30% recurring commissions per sale for 12 months",
+      "cookie_days": 90,
+      "payout": "Via PayPal, dashboard powered by FirstPromoter",
+      "source": "https://fireflies.ai/affiliate, read live on 2026-08-26"
+    },
+    "blocker": "FirstPromoter-hosted signup form at fireflies.firstpromoter.com requires setting a password. Filled First Name (Sangkwon), Last Name (An), Email (support@coshuma.com), Country (South Korea), Website (https://coshuma.com), Company Name (COSHUMA), and checked both consent checkboxes ('I agree to receive email notifications' and 'I agree to affiliate program terms and conditions'). Left the password field empty per standing instruction to only leave password entry to 큰형.",
+    "notes": "큰형 needs to: 1) switch to the open Fireflies.ai tab, 2) enter a password, 3) click Sign Up. This is the same FirstPromoter flow pattern as Frase - manually reviewed after signup, so it likely just submits for review. Butler will check the resulting page state once the password is entered."
+  },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331712,
+    "url": "https://fireflies.firstpromoter.com/?host=fireflies.firstpromoter.com",
+    "correction_note": "New dedicated tab (originally opened for Chatbase, now repurposed after Chatbase completed) created for this application; the original 6 tabs and the Frase (499331706) and Surfer SEO (499331709) tabs were not touched. This tab will be left open, not closed or navigated away from, until resolved."
+  },
+  "created_at": "2026-08-26T21:00:00Z",
+  "updated_at": "2026-08-26T21:00:00Z"
+}
