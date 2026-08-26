@@ -1,0 +1,35 @@
+{
+  "id": "apply-clickfunnels",
+  "title": "Affiliate Application: ClickFunnels",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "requires_login_to_affiliate_center_to_accept_agreement",
+  "payload": {
+    "tool_id": "clickfunnels",
+    "tool_name": "ClickFunnels",
+    "application_url": "https://www.clickfunnels.com/affiliate-program (simple lead form: name/email/phone/checkbox)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": true,
+    "application_status": "submitted",
+    "approval_status": "instant_signup_pending_agreement_acceptance",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "signup_path_used": "On-page lead form on clickfunnels.com/affiliate-program - filled first name, last name, email, phone, checked ToS agreement checkbox, clicked 'Send Me The Invite!'",
+    "fields_submitted": {
+      "first_name": "Sangkwon",
+      "last_name": "An",
+      "email": "support@coshuma.com",
+      "country_code": "South Korea +82",
+      "phone": "010-9509-8985",
+      "terms_agreement": "By checking this box you are agreeing to the ClickFunnels Terms of Service and the Affiliate Terms of Service. (checked)"
+    },
+    "blocker": "Confirmation page instructs: 'The next step is to log into your Affiliate Center here to read and accept the Affiliate Agreement. Once you have read and accepted the Affiliate Agreement you are ready to start promoting.' This requires logging into a ClickFunnels Affiliate Center account, which needs credentials (likely set via an emailed invite/password-setup link) - password entry is outside butler's authority per standing policy. Did not attempt login.",
+    "verification_method": "First click on the styled link (ref_8, href=#submit-form) appeared to only scroll/anchor without submitting (form fields and checkbox remained filled/checked, no confirmation, page text unchanged - matching the known 'click didn't register' pattern from prior sessions). Retried with a direct coordinate click on the visible orange button, which this time triggered a real navigation to https://www.clickfunnels.com/affiliate-program-thank-you - a dedicated thank-you page with full onboarding instructions, which is authoritative confirmation of a genuine submission (not just a URL param).",
+    "notes": "Terms: 30% recurring commission on all price tiers/plans referred, no stated cookie window found on this page. Also mentions a 'dream car' bonus program for 100+ active referred members (marketing framing, not relevant to a directory site). Next real step requires 큰형 to check inbox for a ClickFunnels invite/account-setup email (likely at support@coshuma.com) and log into the Affiliate Center to accept the agreement before any tracking link becomes available. Recommend checking Gmail in a future session (subject likely containing 'ClickFunnels' + 'affiliate')."
+  },
+  "created_at": "2026-08-25T00:00:00Z",
+  "updated_at": "2026-08-25T00:00:00Z"
+}
