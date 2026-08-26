@@ -11,13 +11,13 @@
   "result": {
     "success": true,
     "actor": "prince_automation",
-    "verified_at": "2026-08-26T10:12:31+00:00",
-    "read_only": true,
+    "verified_at": "2026-08-26T10:29:29+00:00",
+    "audit_read_only": true,
     "findings": [
       {
         "priority": "P1",
         "issue": "crawler_fallback_tool_count_stale",
-        "evidence": "Current projects/GlobalSaaSHub/index.html and live crawler fallback say 150 curated SaaS profiles, while merged PR #9 regression verification passed 151/151 tools and 151 pages and no later main commit removed a catalog tool.",
+        "evidence": "Current projects/GlobalSaaSHub/index.html and live crawler fallback said 150 curated SaaS profiles, while merged PR #9 regression verification passed 151/151 tools and 151 pages and no later main commit removed a catalog tool.",
         "source_file": "projects/GlobalSaaSHub/index.html",
         "recommended_change": "Change the static crawler fallback count from 150 to 151 or derive it from the catalog during generation so it cannot drift."
       },
@@ -31,7 +31,7 @@
       {
         "priority": "P1",
         "issue": "crawler_homepage_has_no_internal_links",
-        "evidence": "The current crawler-visible homepage fallback contains descriptive text but no useful internal anchor links, while tool pages contain back/alternative links.",
+        "evidence": "The crawler-visible homepage fallback contains descriptive text but no useful internal anchor links, while tool pages contain back/alternative links.",
         "source_file": "projects/GlobalSaaSHub/index.html",
         "recommended_change": "Add a small crawler-visible set of category, high-intent comparison, and approved-monetization tool links to the static fallback."
       },
@@ -54,11 +54,23 @@
       "robots": "gh-pages/robots.txt allows all crawlers and points to https://coshuma.com/sitemap.xml",
       "fliki_in_sitemap": true,
       "fliki_static_page_present": true,
-      "fliki_affiliate_rel": "sponsored noopener noreferrer",
-      "latest_gh_pages_deploy": "run 116 completed successfully for gh-pages commit 4630eb29b64a10fa212289ff38e024c7be8043c2"
+      "fliki_affiliate_rel": "sponsored noopener noreferrer"
     },
-    "ranked_next_actions": [
-      "Fix static crawler fallback count drift (150 -> 151 or generated count).",
+    "follow_up_execution": {
+      "crawler_count_fix": {
+        "status": "merged_and_gh_pages_deployed",
+        "pr": 13,
+        "pr_title": "fix(GlobalSaaSHub): align crawler fallback corpus count",
+        "merge_sha": "b5165ec5317573abf79dbb3463cea875a7b14d15",
+        "scope_verified": "one-line 150 -> 151 static fallback copy change",
+        "vercel_status": "rate_limited_on_free_plan; no paid upgrade attempted",
+        "gh_pages_commit": "4096952a7fb951a36dde434f67446852b80ffa98",
+        "gh_pages_run": 117,
+        "gh_pages_conclusion": "success",
+        "live_crawler_recheck": "still returned cached 150 immediately after deployment; keep tracking propagation rather than claiming live verification"
+      }
+    },
+    "ranked_remaining_actions": [
       "Regenerate sitemap lastmod metadata from reliable modification dates.",
       "Add crawler-visible internal links to key categories/comparisons/approved affiliate pages.",
       "Normalize internal tool links to canonical .html URLs and redirect aliases when feasible.",
@@ -69,5 +81,5 @@
   "human_reason": null,
   "retry_from_failed": true,
   "created_at": "2026-08-24T08:23:46+00:00",
-  "updated_at": "2026-08-26T10:12:31+00:00"
+  "updated_at": "2026-08-26T10:29:29+00:00"
 }
