@@ -4,6 +4,7 @@
  */
 const VERIFIED_AFFILIATE_OVERRIDES = {
   castmagic: "https://castmagic.io?fpr=sangkwon-an54",
+  vidiq: "https://vidiq.com/coshuma",
 };
 
 /**
