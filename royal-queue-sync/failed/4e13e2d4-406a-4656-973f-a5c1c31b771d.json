@@ -1,0 +1,31 @@
+{
+  "id": "4e13e2d4-406a-4656-973f-a5c1c31b771d",
+  "title": "COSHUMA live monetization audit",
+  "assigned_to": "butler",
+  "status": "failed",
+  "payload": {
+    "project": "COSHUMA / GlobalSaaSHub",
+    "domain": "https://coshuma.com/",
+    "repo": "heukshow/aicity-os",
+    "path": "projects/GlobalSaaSHub",
+    "goal": "Verify that current approved affiliate links and revenue CTAs are actually exposed correctly on the live site.",
+    "tasks": [
+      "Inspect live pages for Taskade, Systeme.io and Fliki and confirm their approved tracking URLs are used in user-facing CTAs and relevant static SEO pages.",
+      "Specifically check the previously noted Taskade static page gap where public/tool/taskade.html may still use the official non-affiliate URL.",
+      "Check sponsorship CTA and affiliate CTA visibility, broken links, redirects, target attributes, and whether visitors can reach a revenue action without dead ends.",
+      "Record exact live URL, observed CTA destination, expected tracking URL, pass/fail, and recommended fix. Do not perform paid actions or production writes."
+    ],
+    "constraints": [
+      "zero cost",
+      "read-only live audit",
+      "no payments",
+      "no production writes"
+    ]
+  },
+  "depends_on": null,
+  "result": null,
+  "error": "no safe execution adapter configured for butler",
+  "human_reason": null,
+  "created_at": "2026-08-24T06:06:30+00:00",
+  "updated_at": "2026-08-24T06:19:42.366800+00:00"
+}

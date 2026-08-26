@@ -1,0 +1,30 @@
+{
+  "id": "e04621f3-c462-4963-bf23-7e5e69248876",
+  "title": "COSHUMA SEO P1 next-action audit",
+  "assigned_to": "princess",
+  "status": "failed",
+  "payload": {
+    "project": "COSHUMA / GlobalSaaSHub",
+    "domain": "https://coshuma.com/",
+    "goal": "Identify and prioritize the next zero-cost organic traffic actions after the P0 affiliate fix.",
+    "tasks": [
+      "Recheck the live homepage crawler/static fallback; determine whether the 130+ tools fallback is stale versus the current 151-tool corpus and identify exact source file/template if so.",
+      "Verify robots.txt and sitemap.xml are healthy and include current canonical tool URLs including Fliki.",
+      "Recheck canonical behavior for /tool/<slug> versus /tool/<slug>.html and identify duplicate-indexing risk.",
+      "Review internal linking from homepage/category/tool/compare pages and identify the highest-impact missing links.",
+      "Rank the next 5 concrete zero-cost changes by expected impact on qualified traffic and affiliate conversion, with exact files/pages and evidence.",
+      "Do not modify production; return a P1/P2 plan that can be handed directly to the code executor."
+    ],
+    "constraints": [
+      "zero cost",
+      "read-only",
+      "verified evidence only"
+    ]
+  },
+  "depends_on": null,
+  "result": null,
+  "error": "unsupported safe princess adapter task profile: COSHUMA SEO P1 next-action audit",
+  "human_reason": null,
+  "created_at": "2026-08-24T08:23:46+00:00",
+  "updated_at": "2026-08-24T09:15:53.847704+00:00"
+}

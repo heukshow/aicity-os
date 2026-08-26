@@ -3,35 +3,35 @@
   "title": "Affiliate Application: ElevenLabs",
   "assigned_to": "butler",
   "status": "waiting_human",
-  "human_reason": "email_verification_required",
+  "human_reason": "stuck_in_verification_loop_needs_manual_check_from_different_device_or_support_contact",
   "payload": {
     "tool_id": "elevenlabs",
     "tool_name": "ElevenLabs",
-    "application_url": "https://elevenlabs.io/affiliates -> ElevenLabs account -> affiliate enrollment"
+    "application_url": "https://elevenlabs.io/affiliates -> https://elevenlabs.io/app/home?affiliate=true -> requires an ElevenLabs product account -> https://elevenlabs.io/app/sign-up (affiliate program managed via PartnerStack once inside the account)"
   },
   "depends_on": null,
   "result": {
-    "actor": "automation_verification",
+    "actor": "butler",
     "success": null,
-    "application_status": "account_creation_advanced_email_verification_pending",
-    "approval_status": "affiliate_enrollment_not_yet_confirmed",
+    "application_status": "blocked_repeating_verification_loop",
+    "approval_status": "not_yet_submitted",
     "tracking_link": null,
     "payout_status": "not_applicable_yet",
     "terms_summary": {
       "commission": "Up to 22% commission on every paying customer referred, for 12 months from qualifying subscriptions",
       "cookie_days": null,
       "payout": "Via PartnerStack, personal dashboard with reports",
-      "source": "https://elevenlabs.io/affiliates and official ElevenLabs verification emails"
+      "source": "https://elevenlabs.io/affiliates, read live on 2026-08-26"
     },
-    "blocker": "ElevenLabs is now sending official 'Verify your email for ElevenLabs' messages to support@coshuma.com, so the earlier pre-account password blocker has been superseded. Email verification is currently required before the account/affiliate flow can proceed.",
-    "evidence_message_ids": ["1a03bc98bd357a73", "1a03be2d2609a3d6", "1a03bec30ea25638", "1a03bf3248e56f46", "1a03c05d0960466d"],
-    "notes": "Human action required: use the newest ElevenLabs verification email and complete email verification. Do not expose verification tokens in GitHub. After verification, Butler can resume the affiliate enrollment and retrieve a tracking link if available."
+    "blocker": "Confirmed stuck in a repeating loop, not a simple wait: 큰형 signs in (email+password already filled) -> ElevenLabs sends a fresh 'Verify your email for ElevenLabs' email -> clicking that link (tried both in a fresh helper tab, and having 큰형 click 'Continue' directly on the original tab 499331661) lands back on the same Sign In page showing 'Email Verification - Almost there! Please sign in once more...' -> signing in again just sends yet another fresh verification email. Reproduced this full cycle twice. Root cause suspected: the verification link's client-side JS (Firebase-style applyActionCode flow) may only fully complete in the exact browser tab/session that's actively signed in, and something about how the link is being opened isn't carrying that through - but even 큰형 clicking natively in the real tab didn't break the loop, so it may simply be an ElevenLabs-side bug. No 'Welcome to the ElevenLabs affiliate program' or PartnerStack email has arrived (checked broadly: newer_than:2d, all elevenlabs.io/elevenlabs.com/partnerstack.com senders) - only the two now-superseded verification emails are in the inbox.",
+    "notes": "Not pursuing further automated retries for now per 큰형's direction (더 이상 계속 확인 안 해도 됨, 스케줄도 삭제함). If 큰형 wants to resolve this later: easiest is probably to open elevenlabs.io directly on a phone or a different browser/device and see if it's actually already signed in (the account may be verified server-side despite this tab's confusing UI) - if so this task can just be marked done from there. Otherwise, contacting ElevenLabs support about the verification loop, or trying a full logout+fresh sign-in from scratch, are the next options. Tab 499331661 left open as-is; not worth continuing to poke at automatically."
   },
   "browser_tab_status": {
-    "is_open_now": "unknown_stale_metadata",
-    "url": "https://elevenlabs.io/app/home?affiliate=true",
-    "correction_note": "Official verification emails prove the flow advanced beyond the earlier password-only blocker. Current blocker is email verification."
+    "is_open_now": true,
+    "tab_id": 499331661,
+    "url": "https://elevenlabs.io/app/sign-up?redirect=%2Fapp%2Fhome%3Faffiliate%3Dtrue",
+    "correction_note": "Tab left open, now on /app/sign-in, showing 'We've sent a verification link to support@coshuma.com' after 큰형's successful sign-in. Not navigated away from."
   },
   "created_at": "2026-08-26T00:00:00Z",
-  "updated_at": "2026-08-26T03:03:22Z"
+  "updated_at": "2026-08-26T01:00:00Z"
 }
