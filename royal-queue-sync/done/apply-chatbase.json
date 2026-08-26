@@ -1,0 +1,37 @@
+{
+  "id": "apply-chatbase",
+  "title": "Affiliate Application: Chatbase",
+  "assigned_to": "butler",
+  "status": "done",
+  "human_reason": null,
+  "payload": {
+    "tool_id": "chatbase",
+    "tool_name": "Chatbase",
+    "application_url": "https://partners.dub.co/chatbase (Dub Partner Network-hosted application; stub URL https://www.chatbase.com/affiliate was a stale 404)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": true,
+    "application_status": "submitted_pending_review",
+    "approval_status": "pending_manual_review",
+    "tracking_link": "refer.dub.co/steven",
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "30% per sale, recurring monthly for 12 months",
+      "cookie_days": null,
+      "payout": "Via Dub Partner Network payout system",
+      "source": "https://partners.dub.co/chatbase, read live on 2026-08-26"
+    },
+    "blocker": null,
+    "notes": "A Dub Partners account (refer.dub.co/steven) was already signed in on this browser, so the application form pre-filled Name/Email from that existing session. Filled Name (Sangkwon An), replaced the pre-filled personal email with support@coshuma.com, added a short note about coshuma.com/GlobalSaaSHub, checked the terms agreement box, and clicked Continue - this submitted the application directly (no password or account-creation step was needed since the Dub session already existed). Reached the final confirmation page: 'Application submitted - Your application has been submitted for review. You'll receive an update at support@coshuma.com.' No further action needed from 큰형 for this one."
+  },
+  "browser_tab_status": {
+    "is_open_now": false,
+    "tab_id": 499331712,
+    "url": "https://partners.dub.co/chatbase/default/apply/success?applicationId=pga_1M0ZX8WYBYNSQKCZMSEYMWSK4&enrollmentId=pge_1M0ZX8WYB4MWNK7MTFET0D6QH",
+    "correction_note": "Tab will be closed after this record is written since the application is fully complete - nothing left unfinished on it."
+  },
+  "created_at": "2026-08-26T20:45:00Z",
+  "updated_at": "2026-08-26T20:45:00Z"
+}

@@ -1,6 +1,18 @@
 {
-  "generated_at": "2026-08-26T20:46:21.445472+00:00",
+  "generated_at": "2026-08-26T20:49:58.170682+00:00",
   "latest": [
+    {
+      "id": "apply-chatbase",
+      "actor": "butler",
+      "status": "done",
+      "updated_at": "2026-08-26T20:45:00Z"
+    },
+    {
+      "id": "apply-chatbase",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-26T20:45:00Z"
+    },
     {
       "id": "apply-surfer-seo",
       "actor": "butler",
@@ -138,18 +150,6 @@
       "actor": "butler",
       "status": "waiting_human",
       "updated_at": "2026-08-24T10:20:41.348834Z"
-    },
-    {
-      "id": "apply-manychat",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-24T10:11:17.600827Z"
-    },
-    {
-      "id": "supervisor-transition-test-20260824",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-24T09:53:16.686646+00:00"
     }
   ]
 }
