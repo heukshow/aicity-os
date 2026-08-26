@@ -1,6 +1,36 @@
 {
-  "generated_at": "2026-08-26T01:05:47.133154+00:00",
+  "generated_at": "2026-08-26T20:26:34.875573+00:00",
   "latest": [
+    {
+      "id": "apply-gohighlevel",
+      "actor": "butler",
+      "status": "done",
+      "updated_at": "2026-08-26T01:00:00Z"
+    },
+    {
+      "id": "apply-jotform",
+      "actor": "butler",
+      "status": "done",
+      "updated_at": "2026-08-26T01:00:00Z"
+    },
+    {
+      "id": "apply-kinsta",
+      "actor": "butler",
+      "status": "done",
+      "updated_at": "2026-08-26T01:00:00Z"
+    },
+    {
+      "id": "apply-synthesia",
+      "actor": "butler",
+      "status": "done",
+      "updated_at": "2026-08-26T01:00:00Z"
+    },
+    {
+      "id": "apply-vidiq",
+      "actor": "butler",
+      "status": "done",
+      "updated_at": "2026-08-26T01:00:00Z"
+    },
     {
       "id": "apply-elevenlabs",
       "actor": "butler",
@@ -120,36 +150,6 @@
       "actor": "work",
       "status": "done",
       "updated_at": "2026-08-24T09:37:00+00:00"
-    },
-    {
-      "id": "7f55d458-8d93-4ef6-bafd-202608240930",
-      "actor": "work",
-      "status": "done",
-      "updated_at": "2026-08-24T09:30:00+00:00"
-    },
-    {
-      "id": "92f1a768-9a68-4f5a-9cd1-202608240916",
-      "actor": "work",
-      "status": "done",
-      "updated_at": "2026-08-24T09:16:30+00:00"
-    },
-    {
-      "id": "e04621f3-c462-4963-bf23-7e5e69248876",
-      "actor": "princess",
-      "status": "failed",
-      "updated_at": "2026-08-24T09:15:53.847704+00:00"
-    },
-    {
-      "id": "aeb54240-1142-41e0-af3a-96e617b5bc2a",
-      "actor": "butler",
-      "status": "failed",
-      "updated_at": "2026-08-24T09:15:53.814397+00:00"
-    },
-    {
-      "id": "459f98a5-8a5d-4ddd-9312-8f7dfa229f77",
-      "actor": "codex",
-      "status": "done",
-      "updated_at": "2026-08-24T08:07:09.9700096Z"
     }
   ]
 }

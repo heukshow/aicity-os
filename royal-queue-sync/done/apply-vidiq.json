@@ -3,42 +3,35 @@
   "title": "Affiliate Application: VidIQ",
   "assigned_to": "butler",
   "status": "done",
+  "human_reason": null,
   "payload": {
     "tool_id": "vidiq",
     "tool_name": "VidIQ",
-    "application_url": "https://vidiq.com/affiliate/"
+    "application_url": "https://vidiq.com/affiliate/ -> https://vidiq.com/affiliate-signup/ -> https://app.vidiq.com/auth/login?redirectTo=/affiliates (requires a vidIQ account)"
   },
   "depends_on": null,
   "result": {
-    "actor": "automation_verification",
+    "actor": "butler",
     "success": true,
-    "application_status": "approved_active",
-    "approval_status": "approved_active",
+    "application_status": "enrolled_and_live",
+    "approval_status": "auto_approved_no_manual_review",
     "tracking_link": "https://vidiq.com/coshuma",
-    "payout_status": "active_paypal_setup_optional",
+    "payout_status": "paypal_email_set_support_at_coshuma.com",
     "terms_summary": {
-      "commission": "Recurring commission starting at 15% and increasing up to 25% based on performance",
+      "commission": "Tiered: Associate 15% (0-10 sales), Influencer 20% (11-50 sales) + custom URL, Ambassador 25% (51+ sales) + custom URL, free vidIQ Boost, potential YouTube collab/podcast/blog features",
       "cookie_days": null,
-      "payout": "First week of every month via PayPal; minimum balance $10",
-      "source": "Official vidIQ affiliate welcome email"
+      "payout": "Not specified on page, review Affiliate Program Terms link before finalizing",
+      "source": "https://vidiq.com/affiliate/, read live on 2026-08-26"
     },
-    "evidence_message_ids": [
-      "1a03c25da5115852"
-    ],
-    "site_publication": {
-      "status": "live_verified",
-      "pr_number": 12,
-      "merge_commit_sha": "12f7b409113934f8e3125419d5983452739e34ff",
-      "vercel": {
-        "coshuma-official": "success",
-        "cosuma-market-b2b": "success"
-      },
-      "live_url": "https://coshuma.com/tool/vidiq.html",
-      "live_affiliate_target": "https://vidiq.com/coshuma",
-      "verified_at": "2026-08-26T06:29:58Z"
-    },
-    "notes": "Official vidIQ email confirms COSHUMA is now part of the affiliate program and provides the unique affiliate link https://vidiq.com/coshuma. Earlier email-confirmation/initial-password blockers are superseded. PayPal setup is optional for immediate site publishing and only needed to receive payouts. PR #12 added the static detail-page affiliate CTA, both Vercel deployments succeeded, and the live COSHUMA vidIQ page was verified to expose the approved tracking target."
+    "blocker": "Affiliate signup requires creating a full vidIQ product account (email + password), and the page notes it's protected by reCAPTCHA. Filled the email field (support@coshuma.com) only; left password empty per standing instruction, and reCAPTCHA/account creation cannot be completed by butler.",
+    "notes": "COMPLETE. 큰형 entered password + solved reCAPTCHA to create the vidIQ account; butler then opened the Affiliate Center modal, set the custom referral URL to 'coshuma' (vidiq.com/coshuma), clicked Enroll Now, and confirmed the account landed on a live dashboard at vidiq.com/refer showing 'You're now an Associate - get ready to earn 15% commission.' No manual approval step exists for vidIQ - enrollment is instant. Also added the PayPal payout email (support@coshuma.com) and clicked Save. Nothing further needed from 큰형 on this one."
+  },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331665,
+    "url": "https://vidiq.com/refer/",
+    "correction_note": "Tab left open showing the live, active affiliate dashboard."
   },
   "created_at": "2026-08-26T00:00:00Z",
-  "updated_at": "2026-08-26T06:29:58Z"
+  "updated_at": "2026-08-26T01:00:00Z"
 }

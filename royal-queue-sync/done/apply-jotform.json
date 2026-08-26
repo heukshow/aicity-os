@@ -3,41 +3,35 @@
   "title": "Affiliate Application: Jotform",
   "assigned_to": "butler",
   "status": "done",
+  "human_reason": null,
   "payload": {
     "tool_id": "jotform",
     "tool_name": "Jotform",
-    "application_url": "https://www.jotform.com/partnership/affiliate/application/"
+    "application_url": "https://www.jotform.com/partnership/affiliate/ -> https://www.jotform.com/partnership/affiliate/application/ (requires creating a free Jotform account before the application form itself can be filled)"
   },
   "depends_on": null,
   "result": {
-    "actor": "automation_verification",
+    "actor": "butler",
     "success": true,
-    "application_status": "approved_active",
-    "approval_status": "approved",
+    "application_status": "submitted_pending_review",
+    "approval_status": "pending_manual_review_1_business_day",
     "tracking_link": null,
-    "tracking_link_status": "pending_dashboard_extraction",
-    "payout_status": "active_program_terms_confirmed",
+    "payout_status": "not_applicable_yet",
     "terms_summary": {
-      "commission": "30% recurring commission, tiered up to 50% as referrals grow",
-      "welcome_bonus": "$5 bonus for every paid user referred during the first 30 days",
+      "commission": "30% commission on every new paid user referred, for the first year of each customer's subscription",
       "cookie_days": null,
-      "payout": "Via PayPal through Tremendous",
-      "source": "Official Jotform Affiliate Program approval email and prior official application receipt"
+      "payout": "Via PayPal, delivered through an email from rewards@reward.tremendous.com (Tremendous) - click 'Redeem' to receive payment",
+      "source": "https://www.jotform.com/partnership/affiliate/, read live on 2026-08-26"
     },
-    "application_evidence": {
-      "message_id": "1a03be3d495aa013",
-      "subject": "Thanks for your application to our Affiliate Program, Sangkwon An",
-      "status": "submitted_pending_review"
-    },
-    "approval_evidence": {
-      "message_id": "1a03ccd70766c536",
-      "subject": "Welcome to the Jotform Affiliate Program!",
-      "received_at": "2026-08-26T06:41:23Z",
-      "dashboard_url": "https://link.jotform.com/voEQi9ftDn?username=AnSangkwon"
-    },
-    "next_action": "Open the authenticated Jotform Partner Dashboard and copy the unique affiliate tracking link. Do not publish a generic or email-campaign redirect as the COSHUMA affiliate CTA. Once the true referral link is verified, update GlobalSaaSHub and verify deployment/live CTA.",
-    "notes": "Jotform officially approved the affiliate application. The approval email states the unique affiliate tracking link is available inside the Partner Dashboard. The email's campaign redirect links are not treated as the final affiliate tracking URL without dashboard verification. No duplicate application is needed."
+    "blocker": "The Jotform account itself is now created and its email is confirmed (큰형 entered the password; butler found the 'Please verify your email address' message from noreply@jotform.com in Gmail and clicked the verify link, landing on a page explicitly reading 'EMAIL VERIFICATION COMPLETE'). The actual affiliate application form on the original tab was NOT reset by this and remains fully filled: Website (https://coshuma.com), 'Focus industry or audience' (AI & SaaS tools - COSHUMA is an AI/SaaS tools directory), promotion-method checkboxes (Blog/Website Articles + Reviews), 'How did you hear about us' = Search engine, 'Why do you want to partner with Jotform?' textarea filled, and the required Terms/Privacy/Cookie Policy agreement checkbox checked. The only remaining items are the 'Please verify that you are human' reCAPTCHA checkbox and the final green Submit button - both must be done by a human per the standing CAPTCHA/final-submission rule.",
+    "notes": "COMPLETE. 큰형 checked the reCAPTCHA and clicked Submit. Page now reads: 'Your application has been received. It will be reviewed in 1 business day. Make sure to check your inbox (also your spam folder) for a reply from the Jotform Team regarding your application status & further instructions.' Nothing further needed from 큰형 right now - just waiting on Jotform's review reply by email."
+  },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331662,
+    "url": "https://www.jotform.com/partnership/affiliate/application/",
+    "correction_note": "Tab left open showing the final 'Your application has been received' confirmation. Account email verification was completed earlier via a separate helper tab (created and closed) opened from the Gmail link; the actual application submission itself was clicked by 큰형."
   },
   "created_at": "2026-08-26T00:00:00Z",
-  "updated_at": "2026-08-26T06:41:23Z"
+  "updated_at": "2026-08-26T01:00:00Z"
 }
