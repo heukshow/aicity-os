@@ -1,0 +1,31 @@
+{
+  "id": "apply-gohighlevel",
+  "title": "Affiliate Application: GoHighLevel",
+  "assigned_to": "butler",
+  "status": "done",
+  "payload": {
+    "tool_id": "gohighlevel",
+    "tool_name": "GoHighLevel",
+    "application_url": "https://affiliate.gohighlevel.com/"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler_and_human",
+    "success": true,
+    "application_status": "submitted",
+    "approval_status": "accepted_active",
+    "tracking_link": "not_yet_captured_from_dashboard",
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "40% recurring commissions for every active referral",
+      "cookie_days": null,
+      "payout": "Affiliate dashboard/account",
+      "source": "HighLevel official welcome email received 2026-08-26T02:05:07Z"
+    },
+    "confirmation": "Official email subject '🎉 You joined the HighLevel Affiliate Program' states the account is officially part of the program and instructs the affiliate to log into the dashboard and copy the referral link.",
+    "evidence_message_id": "1a03bd08d465227a",
+    "followup": "Retrieve the unique referral link from the HighLevel affiliate dashboard and then publish it on COSHUMA after verifying the referral-bearing URL."
+  },
+  "created_at": "2026-08-26T00:00:00Z",
+  "updated_at": "2026-08-26T02:05:07Z"
+}
