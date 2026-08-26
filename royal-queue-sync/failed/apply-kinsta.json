@@ -1,0 +1,30 @@
+{
+  "id": "apply-kinsta",
+  "title": "Affiliate Application: Kinsta",
+  "assigned_to": "butler",
+  "status": "failed",
+  "payload": {
+    "tool_id": "kinsta",
+    "tool_name": "Kinsta",
+    "application_url": "https://affiliate.kinsta.com/register"
+  },
+  "result": {
+    "actor": "prince_automation",
+    "success": false,
+    "terminal": true,
+    "application_status": "submitted_then_rejected",
+    "approval_status": "rejected",
+    "tracking_link": null,
+    "reason": "Kinsta reviewed the application and stated that the COSHUMA profile is not suitable for the affiliate program at this time.",
+    "evidence": {
+      "source": "Gmail official Kinsta Affiliates status email",
+      "message_id": "1a03ddd909a62416",
+      "subject": "Kinsta Affiliate Program: application status",
+      "received_at": "2026-08-26T11:35:58+00:00"
+    },
+    "previous_submission_evidence_message_id": "1a03bd19691886ca",
+    "next_action": "Do not auto-reapply. Keep Kinsta out of approved monetization links unless a future official invitation or materially changed eligibility basis appears."
+  },
+  "created_at": "2026-08-26T00:00:00Z",
+  "updated_at": "2026-08-26T12:19:16+00:00"
+}
