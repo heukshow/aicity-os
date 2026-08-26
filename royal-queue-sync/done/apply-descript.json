@@ -25,7 +25,7 @@
       "1a03e348e0865c76"
     ],
     "site_publication": {
-      "status": "static_cta_merged_gh_pages_deploy_queued",
+      "status": "gh_pages_deploy_success_live_verification_pending",
       "pr_number": 17,
       "merge_commit_sha": "f2bade9634ab21a67cea5c3ea015b77ee8e0fa9b",
       "previous_override_pr_number": 16,
@@ -35,17 +35,23 @@
         "cosuma-market-b2b": "success"
       },
       "gh_pages": {
-        "commit_sha": "db497aeb499d9587a1b00099b96acbad2b608ec7",
-        "run_number": 119,
-        "run_id": 32985033383,
-        "status": "queued"
+        "content_commit_sha": "db497aeb499d9587a1b00099b96acbad2b608ec7",
+        "retrigger_commit_sha": "318eb7acf01e6340b5f628030e6dcfc4ab447342",
+        "stalled_run_number": 119,
+        "stalled_run_id": 32985033383,
+        "stalled_run_status": "queued",
+        "successful_run_number": 120,
+        "successful_run_id": 32999907829,
+        "status": "completed",
+        "conclusion": "success"
       },
       "live_url": "https://coshuma.com/tool/descript.html",
       "live_affiliate_target": "https://get.descript.com/ole5fu20j5sq",
+      "live_verification": "pending",
       "verified_at": null
     },
-    "notes": "Official Descript affiliate approval is active. PR #16 previously added only the verified directory override, leaving the generated static detail page on the official URL. Automation detected that gap, opened and merged PR #17 with a one-line sponsored affiliate CTA addition to projects/GlobalSaaSHub/public/tool/descript.html. Both Vercel checks for the PR head and merged main commit succeeded. The same static HTML was synced to gh-pages in commit db497aeb499d9587a1b00099b96acbad2b608ec7. GitHub Pages run #119 is queued, so production live CTA verification remains pending and must not be marked live_verified yet."
+    "notes": "Official Descript affiliate approval is active. PR #17 added the sponsored affiliate CTA to the static Descript detail page and both Vercel checks succeeded. The same HTML exists on gh-pages with the verified tracking target. GitHub Pages run #119 remained stuck queued, so automation made a semantics-neutral robots.txt whitespace commit (318eb7acf01e6340b5f628030e6dcfc4ab447342) to retrigger Pages at zero cost. Replacement run #120 completed successfully. A fresh crawler check immediately after deployment still returned the previous live HTML without the affiliate CTA, so production live CTA verification remains pending and must not be marked live_verified yet."
   },
   "created_at": "2026-08-26T13:13:09Z",
-  "updated_at": "2026-08-26T15:25:30Z"
+  "updated_at": "2026-08-26T18:29:27Z"
 }
