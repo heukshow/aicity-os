@@ -1,6 +1,36 @@
 {
-  "generated_at": "2026-08-26T00:00:42.773447+00:00",
+  "generated_at": "2026-08-26T00:20:07.565505+00:00",
   "latest": [
+    {
+      "id": "apply-elevenlabs",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-26T00:00:00Z"
+    },
+    {
+      "id": "apply-gohighlevel",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-26T00:00:00Z"
+    },
+    {
+      "id": "apply-jotform",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-26T00:00:00Z"
+    },
+    {
+      "id": "apply-kinsta",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-26T00:00:00Z"
+    },
+    {
+      "id": "apply-vidiq",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-26T00:00:00Z"
+    },
     {
       "id": "apply-omnisend",
       "actor": "butler",
@@ -120,36 +150,6 @@
       "actor": "codex",
       "status": "done",
       "updated_at": "2026-08-24T08:07:09.9700096Z"
-    },
-    {
-      "id": "55fbb8b8-ad3e-45a0-81ea-762287729194",
-      "actor": "princess",
-      "status": "done",
-      "updated_at": "2026-08-24T06:30:39.044760+00:00"
-    },
-    {
-      "id": "e47c6083-5372-4cc0-9fd3-1b4b72425a81",
-      "actor": "butler",
-      "status": "done",
-      "updated_at": "2026-08-24T06:30:39.011962+00:00"
-    },
-    {
-      "id": "1e27052b-5aff-4508-863c-9171737287ef",
-      "actor": "princess",
-      "status": "done",
-      "updated_at": "2026-08-24T06:30:19.662885+00:00"
-    },
-    {
-      "id": "4e13e2d4-406a-4656-973f-a5c1c31b771d",
-      "actor": "butler",
-      "status": "done",
-      "updated_at": "2026-08-24T06:30:19.304445+00:00"
-    },
-    {
-      "id": "4e13e2d4-406a-4656-973f-a5c1c31b771d",
-      "actor": "butler",
-      "status": "failed",
-      "updated_at": "2026-08-24T06:19:42.366800+00:00"
     }
   ]
 }

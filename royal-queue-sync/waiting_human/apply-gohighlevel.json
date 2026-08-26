@@ -1,0 +1,44 @@
+{
+  "id": "apply-gohighlevel",
+  "title": "Affiliate Application: GoHighLevel",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "password_required_for_account_creation",
+  "payload": {
+    "tool_id": "gohighlevel",
+    "tool_name": "GoHighLevel",
+    "application_url": "https://www.gohighlevel.com/joinaffiliate-23423 -> https://affiliate.gohighlevel.com/ (direct sign-up form, own account system, not PartnerStack/Impact.com)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "blocked_before_submit",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "40% recurring commissions for the life of any active account referred",
+      "cookie_days": null,
+      "payout": "Monthly, to affiliate dashboard/account",
+      "source": "https://www.gohighlevel.com/joinaffiliate-23423, read live on 2026-08-26"
+    },
+    "blocker": "Sign-up requires creating a brand new HighLevel affiliate account with a password (own auth system, not PartnerStack or Impact.com). Filled all non-sensitive fields and left the password field empty per standing instruction to only leave password entry to 큰형.",
+    "fields_filled": {
+      "first_name": "Sangkwon",
+      "last_name": "An",
+      "email": "support@coshuma.com",
+      "country": "South Korea",
+      "phone_number": "+82 10 9509 8985",
+      "company_name": "COSHUMA",
+      "which_best_describes_you": "I'm just getting started — new to both",
+      "preferred_language": "English",
+      "preferred_time_zone": "Other / International Time Zone (Seoul not listed as a named option; closest available choice)",
+      "email_phone_notifications_optin": "left unchecked (optional marketing consent, not required)",
+      "affiliate_terms_agreement": "I agree to affiliate terms and conditions (checked, required)"
+    },
+    "notes": "큰형 needs to: 1) return to https://affiliate.gohighlevel.com/ (may need to re-fill if session/page state was lost - fields are simple to redo), 2) enter a password, 3) click Sign Up. After that, the affiliate dashboard and tracking link should be available immediately (per the page's own '01: Apply and get instant access to your affiliate dashboard' - this may not require manual approval like PartnerStack/Impact.com programs)."
+  },
+  "created_at": "2026-08-26T00:00:00Z",
+  "updated_at": "2026-08-26T00:00:00Z"
+}

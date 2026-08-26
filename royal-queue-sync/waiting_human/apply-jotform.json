@@ -1,0 +1,31 @@
+{
+  "id": "apply-jotform",
+  "title": "Affiliate Application: Jotform",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "password_required_for_new_jotform_account",
+  "payload": {
+    "tool_id": "jotform",
+    "tool_name": "Jotform",
+    "application_url": "https://www.jotform.com/partnership/affiliate/ -> https://www.jotform.com/partnership/affiliate/application/ (requires creating a free Jotform account before the application form itself can be filled)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "blocked_before_submit",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "30% commission on every new paid user referred, for the first year of each customer's subscription",
+      "cookie_days": null,
+      "payout": "Via PayPal, delivered through an email from rewards@reward.tremendous.com (Tremendous) - click 'Redeem' to receive payment",
+      "source": "https://www.jotform.com/partnership/affiliate/, read live on 2026-08-26"
+    },
+    "blocker": "Clicking into the actual application form (Name/Email/Website fields) triggered a 'Sign Up Now' modal: 'You will need a free Jotform account in order to access your Dashboard.' Signup requires Name + Password (or Google/Microsoft/Apple SSO). Filled Name (Sangkwon An) with email support@coshuma.com already carried over from the prior step, and checked the required Terms/Privacy/Cookie Policy agreement checkbox. Left both password fields empty per standing instruction, and did not click the final Sign Up button.",
+    "notes": "큰형 needs to: 1) return to https://www.jotform.com/partnership/affiliate/application/ (the modal may need to be re-triggered by clicking any form field), 2) enter a password, 3) complete signup, 4) then fill/submit the actual affiliate application form (Name, Email, Website or social media accounts, and likely more fields below the fold that weren't reached yet since the signup gate intercepted first)."
+  },
+  "created_at": "2026-08-26T00:00:00Z",
+  "updated_at": "2026-08-26T00:00:00Z"
+}

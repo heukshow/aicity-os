@@ -1,0 +1,31 @@
+{
+  "id": "apply-vidiq",
+  "title": "Affiliate Application: VidIQ",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "password_and_recaptcha_required_for_new_account",
+  "payload": {
+    "tool_id": "vidiq",
+    "tool_name": "VidIQ",
+    "application_url": "https://vidiq.com/affiliate/ -> https://vidiq.com/affiliate-signup/ -> https://app.vidiq.com/auth/login?redirectTo=/affiliates (requires a vidIQ account)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "blocked_before_submit",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "Tiered: Associate 15% (0-10 sales), Influencer 20% (11-50 sales) + custom URL, Ambassador 25% (51+ sales) + custom URL, free vidIQ Boost, potential YouTube collab/podcast/blog features",
+      "cookie_days": null,
+      "payout": "Not specified on page, review Affiliate Program Terms link before finalizing",
+      "source": "https://vidiq.com/affiliate/, read live on 2026-08-26"
+    },
+    "blocker": "Affiliate signup requires creating a full vidIQ product account (email + password), and the page notes it's protected by reCAPTCHA. Filled the email field (support@coshuma.com) only; left password empty per standing instruction, and reCAPTCHA/account creation cannot be completed by butler.",
+    "notes": "큰형 needs to: 1) go to https://app.vidiq.com/auth/login?redirectTo=/affiliates, 2) enter a password to create the account (may need to solve reCAPTCHA and verify email), 3) once logged in, should land on /affiliates within the vidIQ app to complete the actual affiliate opt-in. Note vidIQ's core audience is YouTube creators; COSHUMA (B2B SaaS directory) may be a modest fit but the AI Thumbnail Maker / video tools review angle could work for content-creator-adjacent coverage."
+  },
+  "created_at": "2026-08-26T00:00:00Z",
+  "updated_at": "2026-08-26T00:00:00Z"
+}
