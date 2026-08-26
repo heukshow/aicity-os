@@ -11,7 +11,7 @@
   "result": {
     "success": true,
     "actor": "prince_automation",
-    "verified_at": "2026-08-26T10:50:30+00:00",
+    "verified_at": "2026-08-26T12:19:16+00:00",
     "audit_read_only": false,
     "findings": [
       {
@@ -80,7 +80,7 @@
         "deployment_status": "pending regeneration of public/sitemap.xml and gh-pages artifact; do not claim live fix yet"
       },
       "crawler_internal_links_fix": {
-        "status": "merged_and_gh_pages_deployed; live crawler extraction propagation pending",
+        "status": "live_verified",
         "pr": 15,
         "pr_title": "fix(GlobalSaaSHub): add crawler-visible internal links",
         "merge_sha": "4ac9e8ff97019debb90605c514195ddf13ec3270",
@@ -89,12 +89,11 @@
         "gh_pages_commit": "d10a021c6dd9d649b70a637037ad84a2ceb9184c",
         "gh_pages_run": 118,
         "gh_pages_jobs": "build/report-build-status/deploy all completed success",
-        "live_crawler_recheck": "homepage crawler already shows the updated 151 count but did not expose the newly added nav links in extraction yet; keep tracking propagation rather than claiming live link verification"
+        "live_crawler_recheck": "verified on 2026-08-26T12:19Z: live https://coshuma.com/ crawler extraction exposes Taskade, Systeme.io, Fliki, Castmagic, vidIQ and the three comparison links"
       }
     },
     "ranked_remaining_actions": [
       "Regenerate and deploy sitemap.xml so stale lastmod values disappear from the live artifact.",
-      "Verify crawler-visible internal links propagate on the live homepage.",
       "Normalize internal tool links to canonical .html URLs and redirect aliases when feasible.",
       "Expand contextual internal linking around highest-intent approved affiliate pages."
     ]
@@ -103,5 +102,5 @@
   "human_reason": null,
   "retry_from_failed": true,
   "created_at": "2026-08-24T08:23:46+00:00",
-  "updated_at": "2026-08-26T10:50:30+00:00"
+  "updated_at": "2026-08-26T12:19:16+00:00"
 }
