@@ -30,14 +30,14 @@
       "merge_commit_sha": "4b9c8d70b7562d30292cbbf1d726527c8635329b",
       "vercel": {
         "coshuma-official": "failure_build_rate_limit",
-        "cosuma-market-b2b": "success"
+        "cosuma-market-b2b": "failure_build_rate_limit"
       },
       "live_url": "https://coshuma.com/tool/descript.html",
       "live_affiliate_target": "https://get.descript.com/ole5fu20j5sq",
       "verified_at": null
     },
-    "notes": "Official Descript Affiliate Team email on 2026-08-26 confirms approval and provides the personal referral link https://get.descript.com/ole5fu20j5sq. PR #16 added the verified referral URL to GlobalSaaSHub's evidence-backed affiliate override path and merged it to main. The cosuma-market-b2b Vercel check succeeded; coshuma-official is currently blocked by Vercel free-plan build-rate-limit rather than a code failure. Static detail-page/live CTA verification remains pending and must not be marked complete until the production page actually exposes the referral target."
+    "notes": "Official Descript Affiliate Team email on 2026-08-26 confirms approval and provides the personal referral link https://get.descript.com/ole5fu20j5sq. PR #16 added the verified referral URL to GlobalSaaSHub's evidence-backed affiliate override path and merged it to main. The merge commit's coshuma-official and cosuma-market-b2b Vercel checks are both blocked by the free-plan build-rate-limit, not by a code failure. Static detail-page/live CTA verification remains pending and must not be marked complete until the production page actually exposes the referral target."
   },
   "created_at": "2026-08-26T13:13:09Z",
-  "updated_at": "2026-08-26T13:23:00Z"
+  "updated_at": "2026-08-26T13:24:30Z"
 }
