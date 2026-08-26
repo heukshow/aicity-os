@@ -22,9 +22,23 @@
       "payout": "First week of every month via PayPal; minimum balance $10",
       "source": "Official vidIQ affiliate welcome email"
     },
-    "evidence_message_ids": ["1a03c25da5115852"],
-    "notes": "Official vidIQ email confirms COSHUMA is now part of the affiliate program and provides the unique affiliate link https://vidiq.com/coshuma. Earlier email-confirmation/initial-password blockers are superseded. PayPal setup is optional for immediate site publishing and only needed to receive payouts."
+    "evidence_message_ids": [
+      "1a03c25da5115852"
+    ],
+    "site_publication": {
+      "status": "live_verified",
+      "pr_number": 12,
+      "merge_commit_sha": "12f7b409113934f8e3125419d5983452739e34ff",
+      "vercel": {
+        "coshuma-official": "success",
+        "cosuma-market-b2b": "success"
+      },
+      "live_url": "https://coshuma.com/tool/vidiq.html",
+      "live_affiliate_target": "https://vidiq.com/coshuma",
+      "verified_at": "2026-08-26T06:29:58Z"
+    },
+    "notes": "Official vidIQ email confirms COSHUMA is now part of the affiliate program and provides the unique affiliate link https://vidiq.com/coshuma. Earlier email-confirmation/initial-password blockers are superseded. PayPal setup is optional for immediate site publishing and only needed to receive payouts. PR #12 added the static detail-page affiliate CTA, both Vercel deployments succeeded, and the live COSHUMA vidIQ page was verified to expose the approved tracking target."
   },
   "created_at": "2026-08-26T00:00:00Z",
-  "updated_at": "2026-08-26T03:38:20Z"
+  "updated_at": "2026-08-26T06:29:58Z"
 }
