@@ -1,6 +1,12 @@
 {
-  "generated_at": "2026-08-26T20:29:57.274705+00:00",
+  "generated_at": "2026-08-26T20:46:21.445472+00:00",
   "latest": [
+    {
+      "id": "apply-surfer-seo",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-26T20:30:00Z"
+    },
     {
       "id": "apply-frase",
       "actor": "butler",
@@ -144,12 +150,6 @@
       "actor": "princess",
       "status": "waiting_human",
       "updated_at": "2026-08-24T09:53:16.686646+00:00"
-    },
-    {
-      "id": "40782387-5fc1-4b37-8996-72b8f83a7569",
-      "actor": "butler",
-      "status": "done",
-      "updated_at": "2026-08-24T09:42:00+00:00"
     }
   ]
 }
