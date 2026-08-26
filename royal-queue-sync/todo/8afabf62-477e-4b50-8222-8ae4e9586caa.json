@@ -5,15 +5,17 @@
   "status": "todo",
   "payload": {
     "project": "royal-queue infrastructure",
-    "goal": "Recover the stalled queue sync so new COSHUMA tasks are ingested and processed, then harden against recurrence.",
+    "goal": "Recover and harden royal-queue synchronization so current status is accurate, completed/superseded jobs cannot reappear as waiting_human, and new COSHUMA tasks are ingested exactly once.",
     "requirements": [
-      "Confirm why status/latest.json and dashboard.json stopped advancing after 2026-08-24T08:07Z while newer todo files exist.",
+      "Confirm why status/latest.json and dashboard.json previously stopped advancing after 2026-08-24T08:07Z while newer todo files existed; note that by 2026-08-26T00:00Z GitHub bridge/dashboard heartbeats and status generation recovered.",
       "Check watcher, GitHub bridge, dashboard process health and heartbeat persistence.",
       "Safely restart only failed/stuck queue processes using existing project scripts/config; do not touch secrets.",
       "Fetch/sync the royal-queue branch and ingest all new todo jobs exactly once by UUID.",
+      "Fix the source-of-truth/sync logic that re-created stale waiting_human records after they had been removed from royal-queue. As observed on 2026-08-26, apply-apollo, apply-aweber, apply-kit, apply-pipedrive, apply-tidio and supervisor-transition-test-20260824 were reintroduced by 'royal-queue: sync results and capabilities' despite terminal/superseded states. The durable fix must prefer terminal done/failed/superseded results over older waiting_human copies and must not resurrect them on the next sync.",
+      "Treat waiting_reply/escalated vendor-support states such as apply-semrush separately from true forced-human states; they must not count as waiting_human unless an actual CAPTCHA, legal acceptance, payment approval, credential/OTP step, or other forced human verification is currently required.",
       "Verify the COSHUMA tasks 62e114d0-a161-4a40-a768-c39b2d60d4fb, 24bb2f8d-36c5-4d53-9a46-234220e66019, aeb54240-1142-41e0-af3a-96e617b5bc2a, e04621f3-c462-4963-bf23-7e5e69248876 and Work task 8c8a6f94-5db6-4c38-bb0f-7d77a9c0d72f are not duplicated and become eligible for normal routing.",
       "Add or repair a zero-cost watchdog so stale heartbeat or dead bridge/watcher is automatically detected and safely restarted or surfaced as failed, without spawning duplicate workers.",
-      "Update dashboard/latest status after recovery and return root cause, actions taken, tests, and exact resulting statuses.",
+      "Update dashboard/latest status after recovery and return root cause, actions taken, tests, exact resulting statuses, and a reconciliation test proving stale waiting_human records stay absent across at least one subsequent sync cycle.",
       "No payments, no production deploy, no account changes, no CAPTCHA handling, no secrets access."
     ]
   },
@@ -22,5 +24,5 @@
   "error": null,
   "human_reason": null,
   "created_at": "2026-08-24T09:05:45+00:00",
-  "updated_at": "2026-08-24T09:05:45+00:00"
+  "updated_at": "2026-08-26T00:08:06+00:00"
 }
