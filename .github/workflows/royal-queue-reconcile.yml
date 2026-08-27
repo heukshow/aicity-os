@@ -12,6 +12,8 @@ on:
       - 'royal-queue-sync/waiting_human/**'
       - 'royal-queue-sync/reconcile_status.py'
       - '.github/workflows/royal-queue-reconcile.yml'
+  schedule:
+    - cron: '17 * * * *'
   workflow_dispatch:
 
 permissions:
