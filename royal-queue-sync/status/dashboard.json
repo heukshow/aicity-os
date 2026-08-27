@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T22:44:24.020625+00:00",
+  "generated_at": "2026-08-27T13:17:18.538638+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -15,47 +15,47 @@
     },
     {
       "name": "Work",
-      "status": "idle",
+      "status": "in_progress",
       "execution_surface": "UI execution",
       "execution_mode": "interactive_ui",
-      "last_activity": "2026-08-24T09:37:00+00:00",
-      "task": null,
-      "uuid": null,
+      "last_activity": "2026-08-24T10:19:20Z",
+      "task": "COSHUMA 148-tool affiliate audit (Strict Evidence Only - Resetted Fake Defaults)",
+      "uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
       "tool": null,
       "recent_failure_count": 0,
       "recent_error_title": null
     },
     {
       "name": "Butler",
-      "status": "waiting_human",
+      "status": "in_progress",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
-      "last_activity": "2026-08-26T22:00:00Z",
-      "task": "Affiliate Application: Fireflies.ai",
-      "uuid": "apply-fireflies-ai",
+      "last_activity": "2026-08-26T02:18:00Z",
+      "task": "Affiliate Application: Semrush",
+      "uuid": "apply-semrush",
       "tool": null,
       "recent_failure_count": 1,
       "recent_error_title": "COSHUMA post-merge live revenue verification"
     },
     {
       "name": "Princess",
-      "status": "waiting_human",
+      "status": "idle",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
       "last_activity": "2026-08-24T09:53:16.686646+00:00",
-      "task": "Visible UI supervisor transition verification",
-      "uuid": "supervisor-transition-test-20260824",
+      "task": null,
+      "uuid": null,
       "tool": null,
       "recent_failure_count": 1,
       "recent_error_title": "COSHUMA SEO P1 next-action audit"
     }
   ],
   "counts": {
-    "todo": 118,
-    "in_progress": 11,
-    "done": 23,
-    "failed": 2,
-    "waiting_human": 23
+    "todo": 3,
+    "in_progress": 2,
+    "done": 36,
+    "failed": 7,
+    "waiting_human": 6
   },
   "tracking": [
     {
@@ -70,29 +70,34 @@
     {
       "name": "watcher",
       "alive": false,
-      "health": "offline",
+      "health": "stale_remote_observation",
       "pid": null,
       "started_at": null,
       "heartbeat": "2026-08-24T09:25:49.5786616Z",
-      "heartbeat_age_seconds": 220714
+      "heartbeat_age_seconds": 273088
     },
     {
       "name": "GitHub bridge",
-      "alive": true,
-      "health": "warning_30",
-      "pid": 47732,
+      "alive": false,
+      "health": "stale_remote_observation",
+      "pid": null,
       "started_at": "2026-08-24T09:15:49.8104234Z",
       "heartbeat": "2026-08-26T22:43:43.4175765Z",
-      "heartbeat_age_seconds": 40
+      "heartbeat_age_seconds": 52415
     },
     {
       "name": "dashboard",
-      "alive": true,
-      "health": "healthy",
-      "pid": 46088,
+      "alive": false,
+      "health": "stale_remote_observation",
+      "pid": null,
       "started_at": "2026-08-24T09:18:44.922329+00:00",
       "heartbeat": "2026-08-26T22:44:20.580648+00:00",
-      "heartbeat_age_seconds": 3
+      "heartbeat_age_seconds": 52377
     }
-  ]
+  ],
+  "reconciliation": {
+    "source": "github_fallback",
+    "unique_uuid_count": 54,
+    "note": "Counts and latest states are deduplicated from committed queue JSON. Local process liveness is not inferred from stale heartbeats."
+  }
 }
