@@ -1,6 +1,12 @@
 {
-  "generated_at": "2026-08-27T13:18:37.009910+00:00",
+  "generated_at": "2026-08-27T15:19:39.228954+00:00",
   "latest": [
+    {
+      "id": "e04621f3-c462-4963-bf23-7e5e69248876",
+      "actor": "princess",
+      "status": "done",
+      "updated_at": "2026-08-27T15:18:10Z"
+    },
     {
       "id": "8afabf62-477e-4b50-8222-8ae4e9586caa",
       "actor": "codex",
@@ -65,12 +71,6 @@
       "id": "apply-kinsta",
       "actor": "butler",
       "status": "failed",
-      "updated_at": "2026-08-26T12:19:16Z"
-    },
-    {
-      "id": "e04621f3-c462-4963-bf23-7e5e69248876",
-      "actor": "princess",
-      "status": "done",
       "updated_at": "2026-08-26T12:19:16Z"
     },
     {
