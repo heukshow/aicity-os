@@ -19,24 +19,32 @@ jobs:
         shell: bash
         run: |
           set -u
-          echo '=== HTTP STATUS ==='
-          for url in \
-            'https://coshuma.com/tool/fliki' \
-            'https://coshuma.com/tool/fliki.html' \
-            'https://coshuma.com/tool/taskade.html' \
-            'https://coshuma.com/tool/systeme-io.html'; do
-            result="$(curl -L -sS -o /tmp/probe-body -w '%{http_code}|%{url_effective}' "$url" 2>&1)"
-            echo "$url|$result"
-          done
+          {
+            echo '=== HTTP STATUS ==='
+            for url in \
+              'https://coshuma.com/tool/fliki' \
+              'https://coshuma.com/tool/fliki.html' \
+              'https://coshuma.com/tool/taskade.html' \
+              'https://coshuma.com/tool/systeme-io.html'; do
+              result="$(curl -L -sS -o /tmp/probe-body -w '%{http_code}|%{url_effective}' "$url" 2>&1)"
+              echo "$url|$result"
+            done
 
-          echo '=== FLiki HTML EVIDENCE ==='
-          curl -L -sS 'https://coshuma.com/tool/fliki.html' | grep -F -e 'https://fliki.ai?via=sangkwon' -e 'sponsored noopener noreferrer' -e 'Disclosure:' -e 'Claim Fliki Profile' || true
+            echo '=== FLIKI HTML EVIDENCE ==='
+            curl -L -sS 'https://coshuma.com/tool/fliki.html' | grep -F -e 'https://fliki.ai?via=sangkwon' -e 'sponsored noopener noreferrer' -e 'Disclosure:' -e 'Claim Fliki Profile' || true
 
-          echo '=== TASKADE HTML EVIDENCE ==='
-          curl -L -sS 'https://coshuma.com/tool/taskade.html' | grep -F -e 'https://www.taskade.com/?via=7zzjo7' -e 'sponsored noopener noreferrer' -e 'Disclosure:' -e 'Claim Taskade Profile' || true
+            echo '=== TASKADE HTML EVIDENCE ==='
+            curl -L -sS 'https://coshuma.com/tool/taskade.html' | grep -F -e 'https://www.taskade.com/?via=7zzjo7' -e 'sponsored noopener noreferrer' -e 'Disclosure:' -e 'Claim Taskade Profile' || true
 
-          echo '=== SYSTEME.IO HTML EVIDENCE ==='
-          curl -L -sS 'https://coshuma.com/tool/systeme-io.html' | grep -F -e 'https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca' -e 'sponsored noopener noreferrer' -e 'Disclosure:' -e 'Claim Systeme.io Profile' || true
+            echo '=== SYSTEME.IO HTML EVIDENCE ==='
+            curl -L -sS 'https://coshuma.com/tool/systeme-io.html' | grep -F -e 'https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca' -e 'sponsored noopener noreferrer' -e 'Disclosure:' -e 'Claim Systeme.io Profile' || true
 
-          echo '=== CLAIM TARGET STATUS ==='
-          curl -L -sS -o /dev/null -w 'https://coshuma.com/#submit|%{http_code}|%{url_effective}\n' 'https://coshuma.com/#submit'
+            echo '=== CLAIM TARGET STATUS ==='
+            curl -L -sS -o /dev/null -w 'https://coshuma.com/#submit|%{http_code}|%{url_effective}\n' 'https://coshuma.com/#submit'
+          } | tee probe.txt
+      - name: Upload probe evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: royal-queue-live-probe
+          path: probe.txt
+          retention-days: 1
