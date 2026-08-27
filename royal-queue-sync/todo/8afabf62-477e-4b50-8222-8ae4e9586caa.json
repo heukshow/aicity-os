@@ -18,28 +18,24 @@
       "No payments, no production deploy, no account changes, no CAPTCHA handling, and no secrets access."
     ],
     "current_evidence": {
-      "checked_at": "2026-08-27T11:13:18Z",
-      "royal_queue_head": "ecccba6cb3af1971f34a70f96d9473ead761e7a3",
-      "royal_queue_head_committed_at": "2026-08-27T08:27:58Z",
-      "latest_generated_at": "2026-08-26T22:43:56.615614+00:00",
-      "dashboard_generated_at": "2026-08-26T22:44:24.020625+00:00",
-      "authoritative_counts": {
-        "todo": 4,
-        "in_progress": 1,
+      "checked_at": "2026-08-27T13:17:30Z",
+      "royal_queue_head": "fc63c95fbd3e2e765a163f917b229eda2989388d",
+      "latest_generated_at": "2026-08-27T13:17:18.538638+00:00",
+      "dashboard_generated_at": "2026-08-27T13:17:18.538638+00:00",
+      "reconciled_counts": {
+        "todo": 3,
+        "in_progress": 2,
+        "done": 36,
+        "failed": 7,
         "waiting_human": 6
       },
-      "dashboard_reported_counts": {
-        "todo": 118,
-        "in_progress": 11,
-        "waiting_human": 23
-      },
-      "authoritative_todo": [
+      "authoritative_todo_semantic": [
         "24bb2f8d-36c5-4d53-9a46-234220e66019",
-        "62e114d0-a161-4a40-a768-c39b2d60d4fb",
         "8afabf62-477e-4b50-8222-8ae4e9586caa",
         "8c8a6f94-5db6-4c38-bb0f-7d77a9c0d72f"
       ],
       "authoritative_in_progress": [
+        "62e114d0-a161-4a40-a768-c39b2d60d4fb",
         "apply-semrush"
       ],
       "authoritative_waiting_human": [
@@ -50,14 +46,23 @@
         "apply-manychat",
         "apply-omnisend"
       ],
+      "github_fallback_repair": {
+        "status": "active_partial_repair",
+        "script": "royal-queue-sync/reconcile_status.py",
+        "workflow": ".github/workflows/royal-queue-reconcile.yml",
+        "workflow_run": 33076033291,
+        "workflow_run_conclusion": "success",
+        "status_commit": "fc63c95fbd3e2e765a163f917b229eda2989388d",
+        "behavior": "On royal-queue task-state changes, deduplicate by UUID using explicit status/result semantics plus freshness; regenerate latest/dashboard; mark old local process heartbeats stale instead of treating them as current."
+      },
       "observations": [
-        "The semantic reconciliation bug remains: latest.json contains duplicate done/waiting_human states and dashboard counts are far above the authoritative directory contents.",
-        "Status publication is also stalled: latest/dashboard are still the 2026-08-26 22:43-22:44 UTC snapshots.",
-        "Before this evidence refresh, the royal-queue branch itself had not advanced since 2026-08-27 08:27:58 UTC, about 2 hours 45 minutes before this check, so no local worker had consumed the remaining todo tasks during that interval.",
-        "The full affiliate audit UUID also exists in done with internal status=in_progress and only 23/148 actually verified, so the repair must not treat directory name alone as completion.",
-        "Fresh Gmail checks found no newer Semrush support reply beyond request 18190 receipt and no new affiliate approval/decline among the searched PartnerStack/Impact/Rewardful/FirstPromoter/Dub vendor mail since the last recorded states."
+        "The GitHub-side fallback successfully replaced the stale 2026-08-26 snapshot with a fresh deduplicated 2026-08-27 snapshot.",
+        "The 148-tool affiliate audit UUID is correctly resolved as in_progress despite copies in todo/done because its explicit internal status is in_progress; directory name alone is no longer treated as terminal evidence.",
+        "Semrush is correctly in_progress/waiting_reply rather than waiting_human, and the actual forced-human set is six tasks.",
+        "Old local process heartbeats are now explicitly labeled stale_remote_observation; GitHub-side reconciliation does not pretend to know current local PID health.",
+        "Local watcher/bridge/dashboard restart and periodic heartbeat/watchdog recovery remain unfinished, so this UUID must stay open until the local execution surface is durably recovered."
       ],
-      "prior_evidence": "Detailed historical recurrence evidence remains preserved in git history through commit ecccba6cb3af1971f34a70f96d9473ead761e7a3; this payload was compacted to keep the active recovery task executable while retaining the newest authoritative snapshot."
+      "prior_evidence": "Detailed recurrence history is preserved in git history through commit 1331f8b3689fa13777b475705e39c376c6d0d167."
     }
   },
   "depends_on": null,
@@ -65,5 +70,5 @@
   "error": null,
   "human_reason": null,
   "created_at": "2026-08-24T09:05:45+00:00",
-  "updated_at": "2026-08-27T11:13:18+00:00"
+  "updated_at": "2026-08-27T13:17:30+00:00"
 }
