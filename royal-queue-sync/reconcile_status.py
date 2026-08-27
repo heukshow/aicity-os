@@ -180,6 +180,7 @@ def load_records() -> dict[str, list[dict[str, Any]]]:
                 "freshness": freshness,
                 "source_folder": folder,
                 "source_path": str(path.relative_to(ROOT)),
+                "source_data": data,
             }
             by_id.setdefault(task_id, []).append(record)
     return by_id
@@ -232,6 +233,40 @@ def actor_display(actor: str) -> str:
     }.get(actor, actor.title() if actor else "Unknown")
 
 
+def tracking_is_complete(rec: dict[str, Any]) -> bool:
+    """Return True when an old dashboard tracking item is now terminal.
+
+    Tracking rows are legacy follow-up reminders. They should disappear once the
+    authoritative task is rejected, or once an approved tracking URL has been
+    issued and publication has been live-verified.
+    """
+    if rec.get("status") == "failed":
+        return True
+
+    data = rec.get("source_data")
+    if not isinstance(data, dict):
+        return False
+    result = data.get("result")
+    if not isinstance(result, dict):
+        return False
+
+    site_publication = result.get("site_publication")
+    if isinstance(site_publication, dict):
+        site_status = str(site_publication.get("status") or "").strip().lower()
+        live_verification = str(site_publication.get("live_verification") or "").strip().lower()
+        if site_status == "live_verified" or live_verification == "verified":
+            return True
+
+    approval = str(result.get("approval_status") or "").strip().lower()
+    tracking_link = result.get("tracking_link")
+    if rec.get("status") == "done" and tracking_link and (
+        "approved" in approval or "accepted" in approval
+    ):
+        return True
+
+    return False
+
+
 def build_dashboard(winners: list[dict[str, Any]], now: datetime) -> dict[str, Any]:
     old = load_existing(DASHBOARD_PATH)
     counts = {state: 0 for state in STATE_DIRS}
@@ -263,6 +298,21 @@ def build_dashboard(winners: list[dict[str, Any]], now: datetime) -> dict[str, A
             }
         )
 
+    # Legacy tracking rows are preserved only while their authoritative task
+    # still needs follow-up. A terminal rejection or a verified issued link must
+    # not remain as a stale tracking reminder forever.
+    winner_by_id = {rec["id"]: rec for rec in winners}
+    tracking = []
+    old_tracking = old.get("tracking") if isinstance(old.get("tracking"), list) else []
+    for item in old_tracking:
+        if not isinstance(item, dict):
+            continue
+        task_id = str(item.get("task_id") or "")
+        rec = winner_by_id.get(task_id)
+        if rec and tracking_is_complete(rec):
+            continue
+        tracking.append(item)
+
     # A GitHub-side reconciler cannot inspect local PIDs. Preserve heartbeat
     # history only as evidence and explicitly mark it stale when old, so an old
     # snapshot can never masquerade as current health.
@@ -290,7 +340,7 @@ def build_dashboard(winners: list[dict[str, Any]], now: datetime) -> dict[str, A
         "generated_at": now.isoformat(),
         "actors": list(actor_map.values()),
         "counts": counts,
-        "tracking": old.get("tracking", []),
+        "tracking": tracking,
         "processes": processes,
         "reconciliation": {
             "source": "github_fallback",
