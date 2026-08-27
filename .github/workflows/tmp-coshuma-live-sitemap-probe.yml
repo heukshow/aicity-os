@@ -1,0 +1,35 @@
+name: Temporary COSHUMA Live Sitemap Probe
+
+on:
+  push:
+    branches:
+      - royal-queue
+    paths:
+      - .github/workflows/tmp-coshuma-live-sitemap-probe.yml
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify live sitemap
+        shell: bash
+        run: |
+          set -euo pipefail
+          url='https://coshuma.com/sitemap.xml'
+          body="$(mktemp)"
+          code="$(curl -L --silent --show-error --output "$body" --write-out '%{http_code}' "$url")"
+          echo "HTTP_STATUS=$code"
+          test "$code" = '200'
+          url_count="$(grep -o '<url>' "$body" | wc -l | tr -d ' ')"
+          lastmod_count="$(grep -o '<lastmod>' "$body" | wc -l | tr -d ' ')"
+          echo "URL_COUNT=$url_count"
+          echo "LASTMOD_COUNT=$lastmod_count"
+          grep -Fq 'https://coshuma.com/compare/fliki-vs-outlierkit.html' "$body"
+          grep -Fq 'https://coshuma.com/compare/fliki-vs-tubebuddy.html' "$body"
+          test "$url_count" = '385'
+          test "$lastmod_count" = '0'
+          echo 'EXPECTED_COMPARE_URLS=present'
+          sha256sum "$body" | sed 's/^/SITEMAP_SHA256=/'
