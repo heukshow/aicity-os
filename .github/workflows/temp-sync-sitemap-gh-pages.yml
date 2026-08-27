@@ -1,0 +1,62 @@
+name: Temporary Sync COSHUMA Sitemap to GitHub Pages
+
+on:
+  push:
+    branches:
+      - fix/coshuma-regenerate-sitemap
+    paths:
+      - '.github/workflows/temp-sync-sitemap-gh-pages.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out helper branch
+        uses: actions/checkout@v4
+        with:
+          ref: fix/coshuma-regenerate-sitemap
+          fetch-depth: 0
+
+      - name: Extract and validate merged main sitemap
+        run: |
+          git fetch origin main gh-pages
+          git show origin/main:projects/GlobalSaaSHub/public/sitemap.xml > /tmp/sitemap.xml
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          text = Path('/tmp/sitemap.xml').read_text(encoding='utf-8')
+          urls = re.findall(r'<loc>(.*?)</loc>', text)
+          if '<lastmod>' in text:
+              raise SystemExit('Refusing publish: main sitemap still contains lastmod.')
+          if len(urls) != 385 or len(urls) != len(set(urls)):
+              raise SystemExit(f'Refusing publish: expected 385 unique URLs, got {len(urls)} total / {len(set(urls))} unique.')
+          required = {
+              'https://coshuma.com/compare/fliki-vs-outlierkit.html',
+              'https://coshuma.com/compare/fliki-vs-tubebuddy.html',
+          }
+          if not required.issubset(urls):
+              raise SystemExit('Refusing publish: expected regenerated compare URLs missing.')
+          print('Merged main sitemap validated: 385 unique URLs, no lastmod.')
+          PY
+
+      - name: Update gh-pages sitemap only
+        run: |
+          git checkout -B gh-pages origin/gh-pages
+          cp /tmp/sitemap.xml sitemap.xml
+          git config user.name 'COSHUMA-Sitemap-Bot'
+          git config user.email 'bot@coshuma.com'
+          git add sitemap.xml
+          CHANGED=$(git diff --cached --name-only)
+          if [ "$CHANGED" != "sitemap.xml" ]; then
+            echo "Refusing publish: unexpected changed paths: $CHANGED"
+            exit 1
+          fi
+          if git diff --cached --quiet; then
+            echo 'gh-pages sitemap already current.'
+            exit 0
+          fi
+          git commit -m 'fix: publish regenerated COSHUMA sitemap [skip ci]'
+          git push origin HEAD:gh-pages
