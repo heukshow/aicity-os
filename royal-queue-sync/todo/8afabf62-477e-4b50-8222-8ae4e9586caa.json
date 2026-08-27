@@ -7,32 +7,63 @@
     "project": "royal-queue infrastructure",
     "goal": "Recover and harden royal-queue synchronization so current status is accurate, completed/superseded jobs cannot reappear as waiting_human, and new COSHUMA tasks are ingested exactly once.",
     "requirements": [
-      "Confirm why status/latest.json and dashboard.json previously stopped advancing after 2026-08-24T08:07Z while newer todo files existed; note that by 2026-08-26T00:00Z GitHub bridge/dashboard heartbeats and status generation recovered temporarily.",
-      "Check watcher, GitHub bridge, dashboard process health and heartbeat persistence.",
-      "Safely restart only failed/stuck queue processes using existing project scripts/config; do not touch secrets.",
-      "Fetch/sync the royal-queue branch and ingest all new todo jobs exactly once by UUID.",
-      "Fix the source-of-truth/sync logic that re-created stale waiting_human records after they had been removed from royal-queue. The bug reproduced again in sync commit 47848af7d254fe7abc0db02f019704ee9b00106b on 2026-08-26T01:06Z: apply-apollo, apply-aweber, apply-kit, apply-pipedrive, apply-tidio and supervisor-transition-test-20260824 were present again despite terminal/superseded states. The automation cleanup removed them again in commits f1a2985653a7f44f13ca8df8a310ebfc2d671b1f, b1d3d13ca706ec23c852061f1eb42604c8f8b3cf, e76fec7f642d4da66848f6a70d782609f03e01c5, f8d7c026950b216a1243828a34562ed6319022ef, 8dd3aa8761f322ecb021e6eadff95fbd3a651480 and 4f59cb91e34dd8adb3ee31756407f1b019e97632. The durable fix must prefer terminal done/failed/superseded results over older waiting_human copies and must not resurrect them on the next sync.",
-      "New recurrence evidence: as of 2026-08-26T02:06Z, status/latest.json is still frozen at generated_at 2026-08-26T01:05:47Z and dashboard.json at 2026-08-26T01:06:14Z even though royal-queue received later authoritative state changes. GoHighLevel was accepted and moved to done in commits 43265b725b9623dd2213fa1526a90507f9d45e86 and 18afc63c94ec428bb266ecd7340ef75d958cb16f; Kinsta submission was confirmed and moved to done/pending-review in commits 60141528506c95a7712feaf7ea18159d87495236 and 6b3d5c8d8bb9bad3c38fbc0d7f45b138f3030027; Synthesia and Jotform blockers advanced from password creation to email verification in commits 86b024866a5a69444858058decf64d93a5a78909 and da712dbed830079a6712678d43ef5701acef7f5a. Regenerated status must reflect these newer authoritative states and stop reporting GoHighLevel/Kinsta as waiting_human.",
-      "Additional recurrence evidence at 2026-08-26T04:10Z: vidIQ received an official affiliate approval email with unique tracking URL https://vidiq.com/coshuma and was moved from waiting_human to done in commits cc8512213619fcc4cf8b2a51e70ab6aab1ec6414 and c854c171ec3d739575ab21eabbea779d2352fc92, while status/latest.json and dashboard.json still remained at the older 01:05Z/01:06Z snapshots. Recovered status generation must reflect apply-vidiq as done and must not recreate its obsolete activation blocker.",
-      "Additional recurrence evidence at 2026-08-26T06:41Z: Jotform sent an official 'Welcome to the Jotform Affiliate Program!' approval email and royal-queue authoritative result apply-jotform was updated to approved_active in commit b5bc2dd32af858732a0764f5df77cfb45e624d8a. status/latest.json still reports apply-jotform as waiting_human from 2026-08-26T01:00Z. Recovered status generation must resolve apply-jotform from the newer authoritative done result and must not recreate its obsolete verification blocker.",
-      "Additional reconciliation evidence at 2026-08-26T09:18Z: royal-queue HEAD advanced to cf79563603cc4936533b03878c7c61d0f0317cba, but status/latest.json remains generated_at 2026-08-26T01:05:47Z and dashboard.json remains generated_at 2026-08-26T01:06:14Z. The authoritative waiting_human directory currently contains only seven files: apply-clickfunnels, apply-cloudways, apply-elevenlabs, apply-heygen, apply-manychat, apply-omnisend, and apply-synthesia, while dashboard.json still reports waiting_human=19 and latest.json still contains obsolete GoHighLevel/Jotform/Kinsta/vidIQ and duplicate terminal entries. The repaired generator must reconcile counts and latest states from authoritative terminal/in_progress/waiting_human files and prove the stale 19-count does not recur after a subsequent sync cycle.",
-      "Additional recurrence evidence at 2026-08-26T13:16Z: status/latest.json and dashboard.json are still frozen at generated_at 2026-08-26T01:05:47Z / 01:06:14Z while royal-queue HEAD is already 167ccae78372e363d079dfa1912368614756d836 and new authoritative COSHUMA affiliate state continues to arrive; Descript was officially approved at 2026-08-26T13:13:09Z with personal referral URL https://get.descript.com/ole5fu20j5sq. The recovered status generator must advance beyond the frozen snapshot and must not infer current affiliate state from the stale latest/dashboard cache.",
-      "Fresh recurrence evidence at 2026-08-26T21:34Z: sync commits f632b1cdff2d5feaaee64cb667cdf62dbce64cec and 6eff79acdae3749b5458d65ad85be4c0eb79adb2 re-created waiting_human=23 after prior cleanups. Fifteen of those files were stale copies with authoritative done/failed/in_progress/superseded states: apply-10web, apply-apollo, apply-aweber, apply-chatbase, apply-gohighlevel, apply-jotform, apply-kinsta, apply-kit, apply-pipedrive, apply-semrush, apply-surfer-seo, apply-synthesia, apply-tidio, apply-vidiq, and supervisor-transition-test-20260824. Automation reconciled those stale copies again, leaving exactly eight true forced-human blockers: apply-clickfunnels, apply-cloudways, apply-elevenlabs, apply-fireflies-ai, apply-frase, apply-heygen, apply-manychat, and apply-omnisend. The durable repair must preserve this precedence across the next sync: failed/done/in_progress/superseded overrides stale waiting_human, while only genuine CAPTCHA/legal/payment/credential/OTP/forced-verification cases remain waiting_human.",
-      "Freshest recurrence evidence at 2026-08-27T00:19Z: status/latest.json is generating again (generated_at 2026-08-26T22:43:56Z) and dashboard.json is also current (generated_at 2026-08-26T22:44:24Z), but the semantic reconciliation bug remains. latest.json simultaneously lists apply-fireflies-ai/apply-frase/apply-surfer-seo/apply-jotform/apply-chatbase/apply-gohighlevel/apply-kinsta/apply-synthesia/apply-vidiq as done and also repeats several of them as waiting_human; dashboard.json reports waiting_human=23. The authoritative waiting_human directory contains only six files: apply-clickfunnels, apply-cloudways, apply-elevenlabs, apply-heygen, apply-manychat, apply-omnisend. The repaired generator must derive a single winning state per UUID and reconcile dashboard counts to the six authoritative forced-human blockers. Watcher is still offline, while GitHub bridge and dashboard remain alive.",
-      "Fresh reconciliation evidence at 2026-08-27T03:19Z: royal-queue authoritative todo tree contains only five UUID files, while dashboard.json still reports todo=118. UUID 62e114d0-a161-4a40-a768-c39b2d60d4fb is present simultaneously in todo and done; its done copy reports result.success=true but internal status=in_progress, proving directory name alone is not sufficient terminal-state evidence. The repair must select exactly one winning record per UUID using explicit status/result semantics plus freshness, remove stale directory duplicates without discarding genuinely unfinished work, and make dashboard todo/waiting_human counts match the authoritative deduplicated state.",
-      "New status-generator stall evidence at 2026-08-27T08:23Z: status/latest.json is frozen at generated_at 2026-08-26T22:43:56.615614Z and dashboard.json at 2026-08-26T22:44:24.020625Z, while the royal-queue branch advanced much later to HEAD 8f725d270164015a9becfad617bae50c9cf20502 at 2026-08-27T07:17:14Z. Current authoritative directory counts are todo=4, in_progress=1, waiting_human=6, but the frozen dashboard still reports todo=115, in_progress=8, waiting_human=23. This proves status generation/heartbeat publication stalled again after about 07:44 KST while branch writes continued; the dashboard's embedded bridge/dashboard 'alive' heartbeats are stale snapshot data, not current liveness evidence. Recovery must restore periodic status generation and heartbeat persistence, then prove the fix with a subsequent branch change followed by fresh latest/dashboard generated_at timestamps and counts matching the contemporaneous deduplicated authoritative state, without resurrecting stale waiting_human records.",
-      "Treat waiting_reply/escalated vendor-support states such as apply-semrush separately from true forced-human states; they must not count as waiting_human unless an actual CAPTCHA, legal acceptance, payment approval, credential/OTP step, or other forced human verification is currently required.",
-      "Reconcile waiting_human counts against actual directory contents after every sync; status/latest.json and dashboard.json must not report stale duplicates.",
-      "Verify the COSHUMA tasks 62e114d0-a161-4a40-a768-c39b2d60d4fb, 24bb2f8d-36c5-4d53-9a46-234220e66019, aeb54240-1142-41e0-af3a-96e617b5bc2a, e04621f3-c462-4963-bf23-7e5e69248876 and Work task 8c8a6f94-5db6-4c38-bb0f-7d77a9c0d72f are not duplicated and become eligible for normal routing.",
-      "Add or repair a zero-cost watchdog so stale heartbeat or dead bridge/watcher is automatically detected and safely restarted or surfaced as failed, without spawning duplicate workers.",
-      "Update dashboard/latest status after recovery and return root cause, actions taken, tests, exact resulting statuses, and a reconciliation test proving stale waiting_human records stay absent across at least one subsequent sync cycle.",
-      "No payments, no production deploy, no account changes, no CAPTCHA handling, no secrets access."
-    ]
+      "Inspect watcher, GitHub bridge, dashboard and routing processes; safely restart only failed or stuck local queue processes using existing scripts/config. Do not read or expose secrets.",
+      "Fetch and reconcile the royal-queue branch exactly once per UUID. Select one winning state per UUID using explicit status/result semantics and freshness; directory name alone is not terminal evidence.",
+      "Terminal done/failed/superseded results must override older waiting_human copies. waiting_reply/escalated vendor-support states such as apply-semrush are not waiting_human unless an actual CAPTCHA, legal acceptance, payment approval, credential/OTP step, or forced human verification is currently required.",
+      "Reconcile todo, in_progress, done, failed and waiting_human counts against actual authoritative files after every sync; stale directory duplicates must not be resurrected on the next cycle.",
+      "Restore periodic generation of status/latest.json and status/dashboard.json and persistent heartbeats. Embedded liveness data from an old snapshot must never be treated as current process health.",
+      "Add or repair a zero-cost watchdog that detects stale status generation or dead bridge/watcher/dashboard processes and safely restarts or surfaces failure without spawning duplicate workers.",
+      "Prove the durable repair with at least one subsequent branch change followed by fresh latest/dashboard generated_at timestamps, correct deduplicated counts, and no resurrection of stale waiting_human records.",
+      "Keep COSHUMA tasks 62e114d0-a161-4a40-a768-c39b2d60d4fb and 24bb2f8d-36c5-4d53-9a46-234220e66019 plus Work task 8c8a6f94-5db6-4c38-bb0f-7d77a9c0d72f unique and eligible for normal routing; do not recreate completed UUIDs.",
+      "No payments, no production deploy, no account changes, no CAPTCHA handling, and no secrets access."
+    ],
+    "current_evidence": {
+      "checked_at": "2026-08-27T11:13:18Z",
+      "royal_queue_head": "ecccba6cb3af1971f34a70f96d9473ead761e7a3",
+      "royal_queue_head_committed_at": "2026-08-27T08:27:58Z",
+      "latest_generated_at": "2026-08-26T22:43:56.615614+00:00",
+      "dashboard_generated_at": "2026-08-26T22:44:24.020625+00:00",
+      "authoritative_counts": {
+        "todo": 4,
+        "in_progress": 1,
+        "waiting_human": 6
+      },
+      "dashboard_reported_counts": {
+        "todo": 118,
+        "in_progress": 11,
+        "waiting_human": 23
+      },
+      "authoritative_todo": [
+        "24bb2f8d-36c5-4d53-9a46-234220e66019",
+        "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+        "8afabf62-477e-4b50-8222-8ae4e9586caa",
+        "8c8a6f94-5db6-4c38-bb0f-7d77a9c0d72f"
+      ],
+      "authoritative_in_progress": [
+        "apply-semrush"
+      ],
+      "authoritative_waiting_human": [
+        "apply-clickfunnels",
+        "apply-cloudways",
+        "apply-elevenlabs",
+        "apply-heygen",
+        "apply-manychat",
+        "apply-omnisend"
+      ],
+      "observations": [
+        "The semantic reconciliation bug remains: latest.json contains duplicate done/waiting_human states and dashboard counts are far above the authoritative directory contents.",
+        "Status publication is also stalled: latest/dashboard are still the 2026-08-26 22:43-22:44 UTC snapshots.",
+        "Before this evidence refresh, the royal-queue branch itself had not advanced since 2026-08-27 08:27:58 UTC, about 2 hours 45 minutes before this check, so no local worker had consumed the remaining todo tasks during that interval.",
+        "The full affiliate audit UUID also exists in done with internal status=in_progress and only 23/148 actually verified, so the repair must not treat directory name alone as completion.",
+        "Fresh Gmail checks found no newer Semrush support reply beyond request 18190 receipt and no new affiliate approval/decline among the searched PartnerStack/Impact/Rewardful/FirstPromoter/Dub vendor mail since the last recorded states."
+      ],
+      "prior_evidence": "Detailed historical recurrence evidence remains preserved in git history through commit ecccba6cb3af1971f34a70f96d9473ead761e7a3; this payload was compacted to keep the active recovery task executable while retaining the newest authoritative snapshot."
+    }
   },
   "depends_on": null,
   "result": null,
   "error": null,
   "human_reason": null,
   "created_at": "2026-08-24T09:05:45+00:00",
-  "updated_at": "2026-08-27T08:29:00+00:00"
+  "updated_at": "2026-08-27T11:13:18+00:00"
 }
