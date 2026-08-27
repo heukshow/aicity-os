@@ -1,0 +1,68 @@
+{
+  "id": "aeb54240-1142-41e0-af3a-96e617b5bc2a",
+  "title": "COSHUMA post-merge live revenue verification",
+  "assigned_to": "butler",
+  "status": "done",
+  "payload": {
+    "project": "COSHUMA / GlobalSaaSHub",
+    "domain": "https://coshuma.com/",
+    "goal": "Verify the production site after PR #9 merge and Vercel success."
+  },
+  "result": {
+    "success": true,
+    "verification_status": "live_verified",
+    "verified_at": "2026-08-27T07:16:36Z",
+    "method": "Read-only GitHub Actions probe from public repository runner plus direct production page/source checks; no payment, secrets, or production mutation.",
+    "probe_run": {
+      "workflow_run_id": 33049045406,
+      "workflow_conclusion": "success",
+      "artifact_id": 9636803009,
+      "artifact_name": "royal-queue-live-probe"
+    },
+    "http_status": {
+      "https://coshuma.com/tool/fliki": 200,
+      "https://coshuma.com/tool/fliki.html": 200,
+      "https://coshuma.com/tool/taskade.html": 200,
+      "https://coshuma.com/tool/systeme-io.html": 200,
+      "https://coshuma.com/#submit": 200
+    },
+    "affiliate_ctas": {
+      "taskade": {
+        "production_url": "https://coshuma.com/tool/taskade.html",
+        "observed_href": "https://www.taskade.com/?via=7zzjo7",
+        "rel": "sponsored noopener noreferrer",
+        "disclosure_visible": true,
+        "claim_cta_visible": true,
+        "pass": true
+      },
+      "systeme_io": {
+        "production_url": "https://coshuma.com/tool/systeme-io.html",
+        "observed_href": "https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca",
+        "rel": "sponsored noopener noreferrer",
+        "disclosure_visible": true,
+        "claim_cta_visible": true,
+        "pass": true
+      },
+      "fliki": {
+        "production_url": "https://coshuma.com/tool/fliki.html",
+        "extensionless_url": "https://coshuma.com/tool/fliki",
+        "observed_href": "https://fliki.ai?via=sangkwon",
+        "rel": "sponsored noopener noreferrer",
+        "disclosure_visible": true,
+        "claim_cta_visible": true,
+        "pass": true
+      }
+    },
+    "claim_sponsor_route": {
+      "target": "https://coshuma.com/#submit",
+      "http_status": 200,
+      "pass": true
+    },
+    "fix_needed": null,
+    "notes": "All requested production revenue checks passed, including the previously unverified extensionless Fliki route returning HTTP 200."
+  },
+  "error": null,
+  "human_reason": null,
+  "created_at": "2026-08-24T08:23:46+00:00",
+  "updated_at": "2026-08-27T07:16:36Z"
+}
