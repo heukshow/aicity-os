@@ -11,7 +11,7 @@
   "result": {
     "success": true,
     "actor": "prince_automation",
-    "verified_at": "2026-08-26T12:19:16+00:00",
+    "verified_at": "2026-08-27T15:18:10+00:00",
     "audit_read_only": false,
     "findings": [
       {
@@ -24,16 +24,16 @@
       {
         "priority": "P1",
         "issue": "sitemap_lastmod_metadata_stale",
-        "evidence": "The deployed gh-pages sitemap still carries 2026-07-27 lastmod values for pages such as vidIQ even though the page was updated and deployed on 2026-08-26.",
+        "evidence": "The deployed gh-pages sitemap carried 2026-07-27 lastmod values for pages updated on 2026-08-26. The generator fix was merged in PR #14 and the sitemap artifact was regenerated and published on 2026-08-27.",
         "source_file": "projects/GlobalSaaSHub/public/sitemap.xml",
-        "recommended_change": "Regenerate lastmod from real page/data modification dates, or omit lastmod when a reliable date is unavailable."
+        "recommended_change": "Resolved by omitting lastmod when a reliable per-page modification date is unavailable."
       },
       {
         "priority": "P1",
         "issue": "crawler_homepage_has_no_internal_links",
-        "evidence": "The crawler-visible homepage fallback contains descriptive text but no useful internal anchor links, while tool pages contain back/alternative links.",
+        "evidence": "The crawler-visible homepage fallback contained descriptive text but no useful internal anchor links, while tool pages contained back/alternative links.",
         "source_file": "projects/GlobalSaaSHub/index.html",
-        "recommended_change": "Add a small crawler-visible set of category, high-intent comparison, and approved-monetization tool links to the static fallback."
+        "recommended_change": "Resolved by adding a scoped crawler-visible set of high-intent and approved-monetization links."
       },
       {
         "priority": "P1",
@@ -45,9 +45,9 @@
       {
         "priority": "P2",
         "issue": "high_intent_internal_linking_depth",
-        "evidence": "Tool pages expose alternatives, but the crawler fallback does not surface category/comparison hubs. Approved affiliate pages should be linked from relevant comparison/category contexts instead of relying mainly on sitemap discovery.",
+        "evidence": "Tool pages expose alternatives, but broader category/comparison contextual linking can still be expanded around approved affiliate pages.",
         "source_file": "projects/GlobalSaaSHub/index.html and generated category/compare/tool templates",
-        "recommended_change": "Add contextual links among category, comparison and approved-affiliate tool pages; prioritize Taskade, Systeme.io, Fliki, Castmagic and vidIQ."
+        "recommended_change": "Expand contextual links among category, comparison and approved-affiliate tool pages."
       }
     ],
     "verified_good": {
@@ -70,14 +70,26 @@
         "live_crawler_recheck": "verified on 2026-08-26T10:50Z: https://coshuma.com/ crawler-visible fallback now reports 151 curated SaaS profiles"
       },
       "sitemap_lastmod_fix": {
-        "status": "generator_fix_merged; generated artifact/live sitemap still pending regeneration and deploy",
-        "pr": 14,
-        "pr_title": "fix(GlobalSaaSHub): stop publishing stale sitemap lastmod dates",
-        "merge_sha": "c02174d08d7a20582e30a1cd245370ac205efa71",
-        "scope_verified": "only three hard-coded lastmod template lines removed from generate_seo_pages.py",
-        "rationale": "omit lastmod rather than publish false dates when reliable per-page modification dates are unavailable",
-        "vercel_status": "rate_limited_on_free_plan; no paid upgrade attempted",
-        "deployment_status": "pending regeneration of public/sitemap.xml and gh-pages artifact; do not claim live fix yet"
+        "status": "gh_pages_deployed_live_http_recheck_pending",
+        "generator_fix_pr": 14,
+        "generator_fix_pr_title": "fix(GlobalSaaSHub): stop publishing stale sitemap lastmod dates",
+        "generator_fix_merge_sha": "c02174d08d7a20582e30a1cd245370ac205efa71",
+        "publication_pr": 20,
+        "publication_pr_title": "fix(GlobalSaaSHub): regenerate sitemap after lastmod fix",
+        "publication_merge_sha": "5de21b0b45f3be849862ecfb9b9fa78c6fabc807",
+        "scope_verified": "one-shot generation from current tools.json produced 385 unique URLs, removed all stale lastmod elements, removed no existing URL, and added only two canonical compare URLs",
+        "new_urls": [
+          "https://coshuma.com/compare/fliki-vs-outlierkit.html",
+          "https://coshuma.com/compare/fliki-vs-tubebuddy.html"
+        ],
+        "generation_validation_run": 33086734046,
+        "generation_validation_conclusion": "success",
+        "gh_pages_commit": "ef815feda7562fce9dfd08a7e946babc5aa31e09",
+        "gh_pages_run": 122,
+        "gh_pages_run_id": 33086972493,
+        "gh_pages_conclusion": "success",
+        "gh_pages_artifact_verification": "gh-pages/sitemap.xml contains no lastmod in inspected output and matches the regenerated publication commit",
+        "live_http_recheck": "pending because direct external fetch was unavailable in this execution surface; do not overclaim live HTTP verification"
       },
       "crawler_internal_links_fix": {
         "status": "live_verified",
@@ -93,7 +105,7 @@
       }
     },
     "ranked_remaining_actions": [
-      "Regenerate and deploy sitemap.xml so stale lastmod values disappear from the live artifact.",
+      "Confirm the deployed sitemap over live HTTP once the external fetch surface can read coshuma.com/sitemap.xml.",
       "Normalize internal tool links to canonical .html URLs and redirect aliases when feasible.",
       "Expand contextual internal linking around highest-intent approved affiliate pages."
     ]
@@ -102,5 +114,5 @@
   "human_reason": null,
   "retry_from_failed": true,
   "created_at": "2026-08-24T08:23:46+00:00",
-  "updated_at": "2026-08-26T12:19:16+00:00"
+  "updated_at": "2026-08-27T15:18:10+00:00"
 }
