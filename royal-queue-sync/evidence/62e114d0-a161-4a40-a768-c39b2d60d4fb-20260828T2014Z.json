@@ -1,0 +1,96 @@
+{
+  "task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "task": "COSHUMA/GlobalSaaSHub full affiliate-program audit",
+  "checked_at": "2026-08-28T20:14:00Z",
+  "scope": "official-current-source verification for five additional registered GlobalSaaSHub tools; no duplicate application/result UUIDs created",
+  "registry_source": "projects/GlobalSaaSHub/data/tools.json@main",
+  "results": [
+    {
+      "tool": "Vista Social",
+      "status": "needs_manual_verification",
+      "program": "Vista Social Affiliate Program",
+      "terms": {
+        "commission": "current affiliate marketing page advertises recurring 20% base commission while an official support article says 20% for up to 12 months",
+        "cookie": "90 days on the current affiliate marketing page",
+        "payout": "PayPal; USD 100 minimum; current page says payout 90 days after month-end",
+        "network": "FirstPromoter"
+      },
+      "evidence": [
+        "https://vistasocial.com/affiliate-marketing/",
+        "https://support.vistasocial.com/hc/en-us/articles/6896732556955-Affiliate-Program",
+        "https://support.vistasocial.com/hc/en-us/articles/43464793839899-Referral-Program"
+      ],
+      "verification_note": "Official current marketing copy describes commissions recurring while referrals remain customers, while an official support article still limits the same 20% commission to 12 months. Resolve the live signup terms before application so the audit does not assert a false duration."
+    },
+    {
+      "tool": "Gravity Forms",
+      "status": "program_exists_not_applied",
+      "program": "Gravity Forms Affiliate Program",
+      "terms": {
+        "commission": "20% starting commission per sale, with potential to reach 30%",
+        "network": "Impact",
+        "eligibility": "open to everyone; no Gravity Forms customer account required",
+        "approval": "applications reviewed; official June 2026 article says typical approval takes 1-2 weeks",
+        "earnings_cap": "no cap stated"
+      },
+      "evidence": [
+        "https://www.gravityforms.com/blog/affiliate-program/",
+        "https://www.gravityforms.com/affiliate-agreement/"
+      ],
+      "verification_note": "An older affiliate-banners page still says temporarily closed, but newer official sources state the affiliate program has re-opened and describe the current Impact-based program; the newer sources are treated as authoritative."
+    },
+    {
+      "tool": "AliDropship",
+      "status": "program_exists_not_applied",
+      "program": "AliDropship Affiliate Program",
+      "terms": {
+        "commission": "up to 50% per eligible sale",
+        "signup": "free; no requirement to be an AliDropship customer; applications usually reviewed in 3-4 business days",
+        "payout": "monthly cycle; PayPal, Wise, or bank transfer",
+        "payout_threshold": "USD 50 via PayPal; USD 1,000 via bank",
+        "restrictions": "PPC advertisers and coupon/deals website owners are not accepted; some services are excluded from commission"
+      },
+      "evidence": [
+        "https://affiliates.alidropship.com/"
+      ],
+      "safety_note": "The signup page states that signing up constitutes agreement to Terms and Conditions. Do not auto-consent; stop for user approval if the later application batch reaches the legal acceptance/submission step."
+    },
+    {
+      "tool": "Dorik",
+      "status": "needs_manual_verification",
+      "program": "Dorik Partner/Affiliate Program",
+      "terms": {
+        "current_marketing_claim": "current official partners page advertises up to 40% recurring commission",
+        "older_detailed_terms": "official help article updated January 2023 says 40% on first purchase plus 10% recurring on renewals, 90-day cookie, monthly bank-transfer payouts, USD 200 threshold, and 14-day pending period"
+      },
+      "evidence": [
+        "https://dorik.com/partners",
+        "https://help.dorik.com/en/article/partner-program-details-terms-97s9i5/"
+      ],
+      "verification_note": "The current top-level partner page and older detailed help article use materially different commission wording. Confirm the live signup/partner terms before application rather than assuming the 2023 detailed structure is still exact."
+    },
+    {
+      "tool": "AITable.ai",
+      "status": "program_exists_not_applied",
+      "program": "AITable Affiliate Program",
+      "terms": {
+        "commission": "30% lifetime recurring commission while the referral renews",
+        "cookie": "90 days",
+        "referral_discount": "10%",
+        "eligibility": "content creators with their own communication channels, including YouTube, Twitter/X, LinkedIn, bloggers/writers, entrepreneurs, and educators",
+        "agreement": "official FAQ says affiliate/referral signup does not require an additional agreement",
+        "program_exclusivity": "the same individual/team can generally join only one AITable partner program, except the tech partner program"
+      },
+      "evidence": [
+        "https://aitable.ai/partners/affiliate/",
+        "https://aitable.ai/partners/"
+      ],
+      "dedupe_note": "Do not enroll separately in AITable Referral Partner and Affiliate Partner programs. For a content-publisher site, the Affiliate Program is the relevant research classification unless later evidence shows a better fit."
+    }
+  ],
+  "dedupe_rule": "Existing individual application/result records override research-only classifications. Shared partner programs must not be applied to more than once. Already-completed UUIDs must not be recreated.",
+  "new_task_uuid_created": false,
+  "new_application_created": false,
+  "human_action_required_now": false,
+  "audit_remains_in_progress": true
+}
