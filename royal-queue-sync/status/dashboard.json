@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T01:13:40.253092+00:00",
+  "generated_at": "2026-08-28T01:14:16.322166+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -39,20 +39,20 @@
     },
     {
       "name": "Princess",
-      "status": "idle",
+      "status": "in_progress",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
-      "last_activity": "2026-08-24T09:53:16.686646+00:00",
-      "task": null,
-      "uuid": null,
+      "last_activity": "2026-08-28T01:15:00Z",
+      "task": "COSHUMA full affiliate program audit for all registered tools",
+      "uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
       "tool": null,
       "recent_failure_count": 1,
       "recent_error_title": "COSHUMA SEO P1 next-action audit"
     }
   ],
   "counts": {
-    "todo": 4,
-    "in_progress": 1,
+    "todo": 3,
+    "in_progress": 2,
     "done": 36,
     "failed": 7,
     "waiting_human": 6
@@ -66,7 +66,7 @@
       "pid": null,
       "started_at": null,
       "heartbeat": "2026-08-24T09:25:49.5786616Z",
-      "heartbeat_age_seconds": 316070
+      "heartbeat_age_seconds": 316106
     },
     {
       "name": "GitHub bridge",
@@ -75,7 +75,7 @@
       "pid": null,
       "started_at": "2026-08-24T09:15:49.8104234Z",
       "heartbeat": "2026-08-26T22:43:43.4175765Z",
-      "heartbeat_age_seconds": 95396
+      "heartbeat_age_seconds": 95432
     },
     {
       "name": "dashboard",
@@ -84,7 +84,7 @@
       "pid": null,
       "started_at": "2026-08-24T09:18:44.922329+00:00",
       "heartbeat": "2026-08-26T22:44:20.580648+00:00",
-      "heartbeat_age_seconds": 95359
+      "heartbeat_age_seconds": 95395
     }
   ],
   "reconciliation": {
