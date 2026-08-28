@@ -82,6 +82,22 @@ html_template = """<!doctype html>
     <title>{name} Pricing, Features & Review (2026) | GlobalSaaSHub</title>
     <meta name="description" content="{description_short} Discover features, pricing ({pricing}), {rating_meta}and official links for {name} on GlobalSaaSHub." />
     <link rel="canonical" href="https://coshuma.com/tool/{slug}.html" />
+
+    <!-- OpenAI Ads Measurement Pixel -->
+    <script>
+      (function (w, d, s, u) {{
+        if (w.oaiq) return;
+        var q = function () {{ q.q.push(arguments); }};
+        q.q = [];
+        w.oaiq = q;
+        var js = d.createElement(s);
+        js.async = true;
+        js.src = u;
+        var f = d.getElementsByTagName(s)[0];
+        f.parentNode.insertBefore(js, f);
+      }})(window, document, "script", "https://bzrcdn.openai.com/sdk/oaiq.min.js");
+      oaiq("init", {{ pixelId: "L3Ke3aYnYTaKUvxfinDTKa" }});
+    </script>
     
     <!-- Open Graph SEO Tags -->
     <meta property="og:type" content="website" />
@@ -234,6 +250,20 @@ html_template = """<!doctype html>
         &copy; 2026 GlobalSaaSHub. Global AI SaaS Decision Platform. All rights reserved.
       </div>
     </footer>
+    <script>
+      document.querySelectorAll('[data-cta="affiliate"]').forEach(function (link) {{
+        link.addEventListener('click', function () {{
+          if (typeof window.oaiq === 'function') {{
+            window.oaiq(
+              'measure',
+              'custom',
+              {{ type: 'custom' }},
+              {{ custom_event_name: 'affiliate_outbound_click' }}
+            );
+          }}
+        }});
+      }});
+    </script>
   </body>
 </html>
 
