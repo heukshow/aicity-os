@@ -1,7 +1,8 @@
 {
   "task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
   "task": "COSHUMA/GlobalSaaSHub full affiliate-program audit",
-  "checked_at": "2026-08-28T20:14:00Z",
+  "checked_at": "2026-08-28T20:09:00Z",
+  "timestamp_correction": "checked_at corrected to the actual pre-commit observation window; the existing filename is retained to avoid creating a duplicate evidence path",
   "scope": "official-current-source verification for five additional registered GlobalSaaSHub tools; no duplicate application/result UUIDs created",
   "registry_source": "projects/GlobalSaaSHub/data/tools.json@main",
   "results": [
