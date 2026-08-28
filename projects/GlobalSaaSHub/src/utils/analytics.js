@@ -79,6 +79,16 @@ export function trackToolClick(toolId, toolName) {
     events.push(newEvent);
     if (events.length > 2000) events.shift();
     localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
+
+    // ChatGPT Ads conversion: a visitor leaves COSHUMA for a listed service.
+    if (typeof window.oaiq === 'function') {
+      window.oaiq(
+        'measure',
+        'custom',
+        { type: 'custom' },
+        { custom_event_name: 'affiliate_outbound_click' }
+      );
+    }
   } catch (e) {
     console.warn('Click tracking error:', e);
   }

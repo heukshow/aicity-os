@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, ExternalLink, Zap } from 'lucide-react';
 import { getValidExternalUrl } from '../utils/url';
+import { trackToolClick } from '../utils/analytics';
 
 export default function CompareModal({ toolA, toolB, allTools, onClose }) {
   // Safe initial toolB selection if not provided by App.jsx
@@ -188,6 +189,7 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
                 href={urlA}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackToolClick(toolA.id, toolA.name)}
                 className="py-3 px-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-purple-950/40 hover:brightness-110 transition-all"
               >
                 <span>Get {toolA.name}</span>
@@ -199,6 +201,7 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
                 href={urlB}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackToolClick(selectedToolB.id, selectedToolB.name)}
                 className="py-3 px-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-blue-950/40 hover:brightness-110 transition-all"
               >
                 <span>Get {selectedToolB.name}</span>
@@ -210,6 +213,7 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
                 href={urlC}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackToolClick(selectedToolC.id, selectedToolC.name)}
                 className="py-3 px-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-emerald-950/40 hover:brightness-110 transition-all"
               >
                 <span>Get {selectedToolC.name}</span>
