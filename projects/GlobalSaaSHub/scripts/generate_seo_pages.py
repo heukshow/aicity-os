@@ -258,7 +258,7 @@ html_template = """<!doctype html>
               'measure',
               'custom',
               {{ type: 'custom' }},
-              {{ custom_event_name: 'affiliate_outbound_click' }}
+              {{ custom_event_name: '{affiliate_event_name}' }}
             );
           }}
         }});
@@ -344,6 +344,7 @@ for tool in tools_data:
     tool_name = tool.get("name", "AI Tool")
     official_url = clean_url(tool.get("official_url"))
     affiliate_url = clean_url(tool.get("affiliate_url")) if tool.get("affiliate_verified") is True else None
+    affiliate_event_name = "taskade_affiliate_click" if slug == "taskade" else "affiliate_outbound_click"
     cta_parts = []
     if official_url:
         cta_parts.append(f'<a data-cta="official" href="{official_url}" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-slate-800 text-white text-center border border-slate-600 hover:bg-slate-700 transition-all flex items-center justify-center gap-2"><span>Visit Official {tool_name} Site</span><span>→</span></a>')
@@ -356,6 +357,7 @@ for tool in tools_data:
     file_content = html_template.format(
         name=tool.get("name", "AI Tool"),
         slug=slug,
+        affiliate_event_name=affiliate_event_name,
         category_display=tool.get("category_display", "AI & SaaS"),
         description=desc,
         description_short=desc_short,
