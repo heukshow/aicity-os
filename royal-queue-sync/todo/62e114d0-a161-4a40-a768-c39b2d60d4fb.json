@@ -100,6 +100,47 @@
         "payout_terms": null,
         "free_to_join": null,
         "evidence_summary": "Sudowrite's official site links to its current affiliate page, which states 25% recurring commission for every subscription payment during the referral's first year and provides a current Airtable signup link. Cookie/payout/free-to-join terms were not stated on the current program page and remain unknown."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "zenrows",
+        "status": "program_exists_not_applied",
+        "official_source_url": "https://www.zenrows.com/partners/affiliates",
+        "application_url": "https://www.zenrows.com/partners/apply",
+        "network": "ZenRows Partner Program",
+        "commission": "35% recurring revenue on referred spend; featured tier 40%",
+        "cookie_duration_days": null,
+        "payout_terms": "Monthly payouts with real-time dashboard",
+        "free_to_join": null,
+        "evidence_summary": "Official ZenRows affiliate page states application takes about a minute, affiliates receive a tracking link/dashboard, earn 35% recurring revenue, and are paid monthly; official application page says affiliates are commonly approved the same day."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "outlierkit",
+        "status": "program_exists_not_applied",
+        "official_source_url": "https://outlierkit.com/p/affiliate",
+        "application_url": "https://outlierkit.com/p/affiliate",
+        "network": "OutlierKit Affiliate Portal",
+        "commission": "Recurring commission on each referral's first 12 payments; exact percentage not stated on the current official page",
+        "cookie_duration_days": null,
+        "payout_terms": "Monthly payouts; no cap on earnings",
+        "free_to_join": true,
+        "evidence_summary": "Official OutlierKit page states free affiliate account creation, unique referral links, real-time tracking, monthly payouts, and recurring commissions on the first 12 payments."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "triple-whale",
+        "status": "program_exists_not_applied",
+        "official_source_url": "https://www.triplewhale.com/pages/affiliate-tos",
+        "application_url": "https://www.triplewhale.com/pages/affiliate-tos",
+        "network": "Triple Whale Partner Platform",
+        "commission": null,
+        "cookie_duration_days": null,
+        "payout_terms": "Commission payments handled through payment processors on the Triple Whale Platform after eligible subscription payment and 60-day money-back period conditions; current Schedule A rate was not visible on the public terms retrieved",
+        "free_to_join": null,
+        "eligibility": "Application reviewed with reasonable efforts within 7 days; applicant must accept binding affiliate agreement if approved; invalid leads include brands under $500,000 annual ecommerce revenue",
+        "alternate_referral_path": "$250 per referred friend who joins a paid plan and remains active at least 60 days, paid through PartnerStack/PayPal, per official referral page",
+        "evidence_summary": "Current official Triple Whale Affiliate TOS confirms an active affiliate application/review flow and dashboard-generated links. Exact current commission Schedule A/cookie duration was not visible in the retrieved terms, so those values remain unknown. A separate official $250 referral program is also active."
       }
     ]
   },
@@ -108,5 +149,5 @@
   "error": null,
   "human_reason": null,
   "created_at": "2026-08-24T08:42:00+00:00",
-  "updated_at": "2026-08-28T01:15:00+00:00"
+  "updated_at": "2026-08-28T01:16:30+00:00"
 }
