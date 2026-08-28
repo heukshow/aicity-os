@@ -1,0 +1,100 @@
+{
+  "task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "evidence_type": "affiliate_audit_increment",
+  "checked_at": "2026-08-28T18:22:14Z",
+  "new_task_uuid_created": false,
+  "new_application_created": false,
+  "audit_remains_in_progress": true,
+  "dedupe_note": "This file only extends the existing full-catalog affiliate audit. Existing individual task/application results take precedence over generic web research, and no application is created by this audit increment.",
+  "catalog_source": {
+    "branch": "main",
+    "path": "projects/GlobalSaaSHub/data/tools.json",
+    "audit_target_path": "projects/GlobalSaaSHub/data/audit_target_unverified_100.json"
+  },
+  "tools": [
+    {
+      "tool_id": "copy-ai",
+      "tool_name": "Copy.ai",
+      "status": "no_program_found",
+      "official_source_url": "https://www.copy.ai/",
+      "application_url": null,
+      "network": null,
+      "commission": null,
+      "cookie_duration_days": null,
+      "payout_terms": null,
+      "free_to_join": null,
+      "eligibility": null,
+      "evidence_summary": "The current official Copy.ai site/search surface did not expose an active affiliate enrollment route, and the previously plausible official /affiliate-program route returns 404. Copy.ai still publishes general affiliate-marketing educational content, but that is not evidence that its own affiliate program is currently open. Historical or third-party commission claims are therefore not used to mark this program active."
+    },
+    {
+      "tool_id": "inkfluence-ai",
+      "tool_name": "Inkfluence AI",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.inkfluenceai.com/affiliate",
+      "application_url": "https://inkfluence-ai.tolt.io/",
+      "network": "Tolt",
+      "commission": "30% on paid referrals; monthly plans earn recurring commission for up to 12 months, while annual plans pay a one-time commission at signup",
+      "cookie_duration_days": 30,
+      "payout_terms": "Monthly payouts via PayPal, Wise, or local bank transfer; $25 minimum payout. Refunds within 60 days claw back the corresponding commission.",
+      "free_to_join": true,
+      "eligibility": "Manual approval, normally 2-3 business days. Inkfluence says it approves affiliates with a relevant established platform such as a blog, YouTube channel, podcast, newsletter, or active social account; no exclusivity is required.",
+      "evidence_summary": "Inkfluence AI's official affiliate page was updated in August 2026 and confirms a live Tolt-hosted program with 30% commission, a 12-month recurring window for monthly subscribers, a 30-day cookie, $25 minimum monthly payout, and manual review."
+    },
+    {
+      "tool_id": "jasper",
+      "tool_name": "Jasper",
+      "status": "needs_manual_verification",
+      "official_source_url": "https://www.jasper.ai/legal/affiliates",
+      "application_url": null,
+      "network": "FirstPromoter or another affiliate tool specified by Jasper",
+      "commission": "The still-published Marketing Affiliate Program Agreement states 25% commission on eligible non-enterprise subscription plans for the first 12 months of a referred customer's subscription",
+      "cookie_duration_days": null,
+      "payout_terms": null,
+      "free_to_join": null,
+      "eligibility": "Current official materials conflict operationally: Jasper still lists a Marketing Affiliate Program Agreement in its 2026 legal center, but that agreement's program-policy URL now resolves to Jasper's Solutions Partner program, which explicitly says independent affiliates and individual promoters are not eligible and targets consultancies, digital agencies, and systems integrators.",
+      "evidence_summary": "Do not auto-apply yet. Jasper's affiliate legal agreement remains live, but the current program-policy/application surface points to a different Solutions Partner program that excludes independent affiliates. A current affiliate enrollment route must be confirmed before any application action."
+    },
+    {
+      "tool_id": "writesonic",
+      "tool_name": "Writesonic",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://writesonic.com/affiliate",
+      "application_url": "https://writesonic.com/affiliate",
+      "network": "FirstPromoter",
+      "commission": "20% of every referred-customer payment, recurring for up to 12 months",
+      "cookie_duration_days": 60,
+      "payout_terms": "Monthly payouts through FirstPromoter. Current official terms state commissions are paid on the first of the month at least 30 days after a referred trial converts to paid, with a $50 minimum due commission threshold.",
+      "free_to_join": true,
+      "eligibility": "Current official page says most applications are reviewed within 24 hours, with no traffic minimum and no exclusivity/time commitment stated for the standard affiliate program.",
+      "evidence_summary": "Writesonic's current official affiliate page confirms a live program paying 20% recurring for 12 months with a 60-day last-click cookie, monthly payouts, no referral cap, and a free application flow."
+    },
+    {
+      "tool_id": "text-cortex",
+      "tool_name": "TextCortex",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://textcortex.com/post/high-paying-ai-affiliate-programs",
+      "application_url": "https://affiliate.textcortex.com",
+      "network": "Rewardful",
+      "commission": "30% lifetime commission on referred customers' active paid plans, as described by TextCortex's own affiliate materials",
+      "cookie_duration_days": null,
+      "payout_terms": null,
+      "free_to_join": null,
+      "eligibility": "TextCortex's current partner legal terms require affiliate signup through its Rewardful portal with a valid email address, age 18+, and acceptance of the partner terms.",
+      "evidence_summary": "TextCortex's official materials continue to advertise its own affiliate program, a 30% lifetime commission model, and an affiliate application route. Exact current cookie duration and payout threshold were not established from the retrieved official material and are left unknown."
+    }
+  ],
+  "sources": [
+    "https://www.copy.ai/",
+    "https://www.copy.ai/affiliate-program",
+    "https://www.copy.ai/blog/how-to-find-affiliate-programs",
+    "https://www.inkfluenceai.com/affiliate",
+    "https://www.jasper.ai/legal/affiliates",
+    "https://www.jasper.ai/legal",
+    "https://www.jasper.ai/partners/solutions",
+    "https://writesonic.com/affiliate",
+    "https://docs.writesonic.com/docs/writesonic-affiliate-program",
+    "https://textcortex.com/post/high-paying-ai-affiliate-programs",
+    "https://textcortex.com/es/t%C3%A9rminos-legales"
+  ]
+}
