@@ -1,0 +1,79 @@
+{
+  "task_id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "type": "affiliate_audit_evidence",
+  "checked_at": "2026-08-28T14:18:00Z",
+  "note": "Evidence for the existing full-catalog audit UUID only. No application is submitted by this research evidence and no duplicate task UUID is created.",
+  "tools": [
+    {
+      "tool_id": "gohighlevel",
+      "name": "GoHighLevel",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.gohighlevel.com/affiliate",
+      "application_url": "https://affiliate.gohighlevel.com/",
+      "network": "HighLevel Affiliate Program",
+      "commission": "40% monthly recurring commission for the life of an active referred account; 5% recurring level-2 commission on customers referred by sub-affiliates",
+      "cookie_duration_days": null,
+      "payout_terms": "Tipalti payout setup; commissions are released after the account exceeds the USD 50 payout threshold, with payments released between the 10th and 15th of the month",
+      "free_to_join": true,
+      "eligibility": "Current public signup is open and asks for identity/contact/company details. Applying is governed by a binding Affiliate Program Services Agreement, so application/acceptance is not performed by this automated audit.",
+      "evidence_summary": "Current official HighLevel affiliate hub, portal documentation and program agreement confirm an active program, 40% monthly recurring commission, live public signup, and the requirement to agree to binding affiliate terms."
+    },
+    {
+      "tool_id": "make-com",
+      "name": "Make.com",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.make.com/en/affiliate",
+      "application_url": "https://www.make.com/en/affiliate",
+      "network": "Make Affiliate Program",
+      "commission": "35% commission on referrals for 12 months",
+      "cookie_duration_days": null,
+      "payout_terms": "Current public affiliate page retrieved for this audit does not expose payout method or threshold in visible text; values were not inferred",
+      "free_to_join": null,
+      "eligibility": "Official page states anyone can become an affiliate and create a unique affiliate link",
+      "evidence_summary": "Current official Make affiliate page confirms an active open affiliate program and 35% commission on referred customers for 12 months."
+    },
+    {
+      "tool_id": "zenrows",
+      "name": "ZenRows",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.zenrows.com/partners/affiliates",
+      "application_url": "https://www.zenrows.com/partners/apply",
+      "network": "ZenRows Partner Program",
+      "commission": "35% recurring revenue on referred spend; featured tier reaches 40%",
+      "cookie_duration_days": null,
+      "payout_terms": "Automated monthly payouts; real-time dashboard provided",
+      "free_to_join": null,
+      "eligibility": "Official application page says affiliates are generally approved the same day; application asks how the applicant reaches an audience",
+      "evidence_summary": "Current official ZenRows partner pages confirm a live affiliate program with 35% recurring revenue, a 40% featured tier, monthly payouts, unique tracking and a partner application flow."
+    },
+    {
+      "tool_id": "tubebuddy",
+      "name": "TubeBuddy",
+      "status": "program_closed",
+      "official_source_url": "https://www.tubebuddy.com/affiliateprogram/",
+      "application_url": null,
+      "network": "TubeBuddy Affiliate Program",
+      "commission": "Existing active affiliates earn 15% recurring commission on eligible purchases attributed within 365 days of the referral's first click",
+      "cookie_duration_days": 365,
+      "payout_terms": "Existing affiliates: PayPal only; USD 10 minimum threshold; commissions season for 30 days and payments are made between the 1st and 15th of the payment month",
+      "free_to_join": null,
+      "eligibility": "Official 2026 affiliate page explicitly states TubeBuddy is not accepting new affiliates at this time",
+      "evidence_summary": "TubeBuddy's current official affiliate page closes the program to new applicants. Current official terms still document the legacy/active-affiliate 15% recurring economics and payout rules, but COSHUMA must not create a new application while signup is closed."
+    },
+    {
+      "tool_id": "outlierkit",
+      "name": "OutlierKit",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://outlierkit.com/p/affiliate",
+      "application_url": "https://outlierkit.com/p/affiliate",
+      "network": "OutlierKit Affiliate Program",
+      "commission": "Recurring commissions on the first 12 payments from each referred customer; current public official page does not state the percentage",
+      "cookie_duration_days": null,
+      "payout_terms": "Monthly payouts; no earnings cap stated on the official page",
+      "free_to_join": true,
+      "eligibility": "Official page offers a free affiliate account and a unique referral link through its partner portal",
+      "evidence_summary": "Current official OutlierKit page confirms a live free affiliate signup, recurring commissions on the first 12 payments, monthly payouts, no earnings cap and a real-time dashboard. The commission percentage was not inferred because the current official page does not display it."
+    }
+  ]
+}
