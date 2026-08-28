@@ -19,9 +19,8 @@
       "No payments, no production deploy, no account changes, no CAPTCHA handling, and no secrets access."
     ],
     "current_evidence": {
-      "checked_at": "2026-08-27T23:18:00Z",
-      "royal_queue_head_after_hourly_watchdog_probe": "42263f36d690519d0c35e38f9c1a77b661ea8953",
-      "latest_generated_at_before_hourly_watchdog": "2026-08-27T18:15:42.325114+00:00",
+      "checked_at": "2026-08-28T00:25:00Z",
+      "latest_generated_at_before_default_branch_fix": "2026-08-27T23:18:26.791555+00:00",
       "reconciled_counts": {
         "todo": 3,
         "in_progress": 2,
@@ -51,25 +50,36 @@
         "script": "royal-queue-sync/reconcile_status.py",
         "workflow": ".github/workflows/royal-queue-reconcile.yml",
         "scheduled_watchdog_cron": "17 * * * *",
-        "scheduled_watchdog_added_commit": "462807bb0338c222271f1336b7ee8ee11c6267e5",
-        "scheduled_watchdog_verification_run": 33125755892,
-        "scheduled_watchdog_verification_conclusion": "success",
-        "scheduled_watchdog_snapshot_commit": "42263f36d690519d0c35e38f9c1a77b661ea8953",
-        "prior_manual_watchdog_run": 33098209009,
+        "prior_push_verification_run": 33125796560,
+        "prior_push_verification_conclusion": "success",
         "tracking_cleanup_commit": "e1bf8f81f811ea61f7d3401b45fe20f941838965",
-        "behavior": "On royal-queue task-state changes and once per hour on the public-repo zero-cost GitHub runner, deduplicate by UUID using explicit status/result semantics plus freshness; regenerate latest/dashboard; mark old local process heartbeats stale instead of treating them as current; drop completed legacy tracking rows when the authoritative task is rejected or its approved tracking link is verified/live."
+        "behavior": "Deduplicate by UUID using explicit status/result semantics plus freshness; regenerate latest/dashboard; mark old local process heartbeats stale instead of treating them as current; drop completed legacy tracking rows when the authoritative task is rejected or its approved tracking link is verified/live."
+      },
+      "scheduled_watchdog_root_cause": {
+        "observed": "No schedule event ran at the next 00:17 UTC boundary even though the cron existed on royal-queue; Actions history stopped at push Run 33125796560 from 23:18 UTC.",
+        "cause": "The reconcile workflow existed only on the non-default royal-queue branch. GitHub scheduled workflows execute from the repository default branch, which is main, and main did not contain .github/workflows/royal-queue-reconcile.yml.",
+        "default_branch": "main",
+        "main_workflow_before_fix": "absent"
+      },
+      "default_branch_schedule_fix": {
+        "status": "merged_pending_first_schedule_proof",
+        "pr": 22,
+        "pr_title": "fix: enable hourly royal-queue reconcile on default branch",
+        "head_sha": "6d0a269afb1440a512e3f8b738ecb83cf9027a15",
+        "checks": "success",
+        "merge_sha": "1c6092a74272d257df79ca1a5741ba2400787d0c",
+        "change": "Copied the existing reconcile workflow to main. The scheduled job still checks out ref=royal-queue and writes only royal-queue status snapshots.",
+        "next_verification": "Confirm the first event=schedule Royal Queue Reconcile run after the next :17 UTC boundary and confirm fresh latest/dashboard timestamps without stale UUID resurrection."
       },
       "observations": [
-        "The GitHub fallback now has an hourly scheduled watchdog in addition to push and manual triggers, so status snapshots can refresh even when no task-state commit occurs for several hours.",
-        "The workflow change triggered Royal Queue Reconcile Run 33125755892; the reconcile job completed successfully and produced status snapshot commit 42263f36d690519d0c35e38f9c1a77b661ea8953.",
-        "Semantic counts remain todo=3, in_progress=2, done=36, failed=7, waiting_human=6 with tracking=[] and no stale waiting_human resurrection.",
-        "Pictory task 40782387-5fc1-4b37-8996-72b8f83a7569 remains done after approval and live affiliate publication; no duplicate UUID exists in latest.",
+        "Push-triggered GitHub reconciliation remains healthy, with semantic counts todo=3, in_progress=2, done=36, failed=7, waiting_human=6 and tracking=[].",
+        "The previously claimed hourly watchdog was not actually durable because the workflow was absent from the default branch; this is now corrected via PR #22 without creating a new recovery UUID.",
         "The 148-tool affiliate audit UUID is correctly resolved as in_progress despite copies in todo/done because its explicit internal status is in_progress; directory name alone is not treated as terminal evidence.",
-        "Semrush remains correctly in_progress/waiting_reply rather than waiting_human, and the actual forced-human set remains six tasks.",
+        "Semrush remains correctly in_progress/waiting_reply rather than waiting_human, and there is still no new Semrush #18190 reply in Gmail.",
         "Old local process heartbeats remain explicitly labeled stale_remote_observation; GitHub-side reconciliation does not pretend to know current local PID health.",
         "Local watcher/bridge/dashboard restart and persistent local heartbeat recovery remain unfinished, so this UUID stays open until the local execution surface is durably recovered."
       ],
-      "prior_evidence": "Detailed recurrence history is preserved in git history through commit 1331f8b3689fa13777b475705e39c376c6d0d167 and later reconciliation commits."
+      "prior_evidence": "Detailed recurrence history is preserved in git history through commit dc3c32d13dac81fd5f92718af42a1c64dea5dfdc and later reconciliation commits."
     }
   },
   "depends_on": null,
@@ -77,5 +87,5 @@
   "error": null,
   "human_reason": null,
   "created_at": "2026-08-24T09:05:45+00:00",
-  "updated_at": "2026-08-27T23:18:00+00:00"
+  "updated_at": "2026-08-28T00:25:00+00:00"
 }
