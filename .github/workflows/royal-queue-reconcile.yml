@@ -1,0 +1,50 @@
+name: Royal Queue Reconcile Status
+
+on:
+  push:
+    branches:
+      - royal-queue
+    paths:
+      - 'royal-queue-sync/todo/**'
+      - 'royal-queue-sync/in_progress/**'
+      - 'royal-queue-sync/done/**'
+      - 'royal-queue-sync/failed/**'
+      - 'royal-queue-sync/waiting_human/**'
+      - 'royal-queue-sync/reconcile_status.py'
+      - '.github/workflows/royal-queue-reconcile.yml'
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: royal-queue-reconcile
+  cancel-in-progress: true
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out royal-queue
+        uses: actions/checkout@v4
+        with:
+          ref: royal-queue
+          fetch-depth: 0
+
+      - name: Reconcile status snapshots
+        run: python royal-queue-sync/reconcile_status.py
+
+      - name: Commit corrected status if changed
+        shell: bash
+        run: |
+          if git diff --quiet -- royal-queue-sync/status/latest.json royal-queue-sync/status/dashboard.json; then
+            echo 'Status already reconciled.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add royal-queue-sync/status/latest.json royal-queue-sync/status/dashboard.json
+          git commit -m 'royal-queue: reconcile status snapshot [skip ci]'
+          git push origin HEAD:royal-queue
