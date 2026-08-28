@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T00:24:09.737143+00:00",
+  "generated_at": "2026-08-28T01:13:40.253092+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -15,12 +15,12 @@
     },
     {
       "name": "Work",
-      "status": "in_progress",
+      "status": "idle",
       "execution_surface": "UI execution",
       "execution_mode": "interactive_ui",
       "last_activity": "2026-08-24T10:19:20Z",
-      "task": "COSHUMA 148-tool affiliate audit (Strict Evidence Only - Resetted Fake Defaults)",
-      "uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+      "task": null,
+      "uuid": null,
       "tool": null,
       "recent_failure_count": 0,
       "recent_error_title": null
@@ -51,8 +51,8 @@
     }
   ],
   "counts": {
-    "todo": 3,
-    "in_progress": 2,
+    "todo": 4,
+    "in_progress": 1,
     "done": 36,
     "failed": 7,
     "waiting_human": 6
@@ -66,7 +66,7 @@
       "pid": null,
       "started_at": null,
       "heartbeat": "2026-08-24T09:25:49.5786616Z",
-      "heartbeat_age_seconds": 313100
+      "heartbeat_age_seconds": 316070
     },
     {
       "name": "GitHub bridge",
@@ -75,7 +75,7 @@
       "pid": null,
       "started_at": "2026-08-24T09:15:49.8104234Z",
       "heartbeat": "2026-08-26T22:43:43.4175765Z",
-      "heartbeat_age_seconds": 92426
+      "heartbeat_age_seconds": 95396
     },
     {
       "name": "dashboard",
@@ -84,7 +84,7 @@
       "pid": null,
       "started_at": "2026-08-24T09:18:44.922329+00:00",
       "heartbeat": "2026-08-26T22:44:20.580648+00:00",
-      "heartbeat_age_seconds": 92389
+      "heartbeat_age_seconds": 95359
     }
   ],
   "reconciliation": {
