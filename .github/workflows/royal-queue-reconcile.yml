@@ -10,6 +10,7 @@ on:
       - 'royal-queue-sync/done/**'
       - 'royal-queue-sync/failed/**'
       - 'royal-queue-sync/waiting_human/**'
+      - 'royal-queue-sync/evidence/**'
       - 'royal-queue-sync/reconcile_status.py'
       - '.github/workflows/royal-queue-reconcile.yml'
   schedule:
