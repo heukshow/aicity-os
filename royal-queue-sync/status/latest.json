@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-08-28T03:22:23.413002+00:00",
+  "generated_at": "2026-08-28T04:21:14.848877+00:00",
   "latest": [
+    {
+      "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+      "actor": "princess",
+      "status": "in_progress",
+      "updated_at": "2026-08-28T04:16:06Z"
+    },
     {
       "id": "8afabf62-477e-4b50-8222-8ae4e9586caa",
       "actor": "codex",
       "status": "todo",
       "updated_at": "2026-08-28T03:20:00Z"
-    },
-    {
-      "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
-      "actor": "princess",
-      "status": "in_progress",
-      "updated_at": "2026-08-28T02:32:00Z"
     },
     {
       "id": "40782387-5fc1-4b37-8996-72b8f83a7569",
