@@ -3,12 +3,12 @@
   "project": "COSHUMA / GlobalSaaSHub",
   "type": "affiliate_audit_evidence",
   "checked_at": "2026-08-28T14:18:00Z",
-  "note": "Evidence for the existing full-catalog audit UUID only. No application is submitted by this research evidence and no duplicate task UUID is created.",
+  "note": "Evidence for the existing full-catalog audit UUID only. No application is submitted by this research evidence and no duplicate task UUID is created. Existing individual application results take precedence over research-only eligibility classification.",
   "tools": [
     {
       "tool_id": "gohighlevel",
       "name": "GoHighLevel",
-      "status": "program_exists_not_applied",
+      "status": "approved_tracking_link_pending_retrieval",
       "official_source_url": "https://www.gohighlevel.com/affiliate",
       "application_url": "https://affiliate.gohighlevel.com/",
       "network": "HighLevel Affiliate Program",
@@ -16,8 +16,11 @@
       "cookie_duration_days": null,
       "payout_terms": "Tipalti payout setup; commissions are released after the account exceeds the USD 50 payout threshold, with payments released between the 10th and 15th of the month",
       "free_to_join": true,
-      "eligibility": "Current public signup is open and asks for identity/contact/company details. Applying is governed by a binding Affiliate Program Services Agreement, so application/acceptance is not performed by this automated audit.",
-      "evidence_summary": "Current official HighLevel affiliate hub, portal documentation and program agreement confirm an active program, 40% monthly recurring commission, live public signup, and the requirement to agree to binding affiliate terms."
+      "eligibility": "Program is active. COSHUMA has already completed enrollment, email confirmation and instant dashboard approval under the existing apply-gohighlevel task; no new application may be created.",
+      "existing_task_id": "apply-gohighlevel",
+      "existing_task_result": "account_created_email_confirmed / auto_approved_instant_dashboard_access",
+      "tracking_link_status": "pending_login_to_view_in_dashboard",
+      "evidence_summary": "Official HighLevel sources confirm the current 40% recurring program. Queue cross-check found the existing apply-gohighlevel task already completed with account creation, confirmed email and instant dashboard approval, so this audit entry is canonicalized to the existing approved state rather than marked not-applied."
     },
     {
       "tool_id": "make-com",
