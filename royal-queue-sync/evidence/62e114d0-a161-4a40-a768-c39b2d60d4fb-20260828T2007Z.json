@@ -1,0 +1,93 @@
+{
+  "task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "task": "COSHUMA/GlobalSaaSHub full affiliate-program audit",
+  "checked_at": "2026-08-28T20:07:00Z",
+  "scope": "official-current-source verification for five registered GlobalSaaSHub tools after cross-checking latest.json for existing individual application/result records",
+  "registry_source": "projects/GlobalSaaSHub/data/tools.json@main",
+  "results": [
+    {
+      "tool": "Unbounce",
+      "status": "program_exists_not_applied",
+      "program": "Unbounce Partner Program",
+      "terms": {
+        "commission": "25%-35% recurring revenue share for up to 12 months",
+        "cookie": "90 days",
+        "network": "PartnerStack",
+        "signup": "open to anyone; free signup",
+        "payout": "PayPal or Stripe; referrals are verified and paid within 60 days after the referred trial starts"
+      },
+      "evidence": [
+        "https://unbounce.com/partner-program/"
+      ]
+    },
+    {
+      "tool": "Shopify",
+      "status": "program_exists_not_applied",
+      "program": "Shopify Affiliate Program",
+      "terms": {
+        "commission": "up to USD 150 per qualified Basic/Grow/Advanced full-price plan referral; exact amount varies by referred merchant location",
+        "cookie": "30 days from click; if the referral starts a free trial, conversion tracking can continue for up to 400 days",
+        "network": "Impact",
+        "signup": "free; applications are reviewed, generally within 5 business days",
+        "payout": "Impact; minimum withdrawal balance USD 10, with bank account or PayPal supported"
+      },
+      "evidence": [
+        "https://www.shopify.com/affiliates",
+        "https://help.shopify.com/en/affiliates/about",
+        "https://help.shopify.com/en/affiliates/earnings"
+      ],
+      "eligibility_note": "Official guidance prioritizes applicants with an active website, established audience, original commerce/entrepreneurship content, and relevant ecommerce experience. No application was submitted during the audit."
+    },
+    {
+      "tool": "Webflow",
+      "status": "program_exists_not_applied",
+      "program": "Webflow Affiliate Program",
+      "terms": {
+        "commission": "50% revenue share on a qualified new user's first subscription for up to 12 months; higher tiers can add 10%-15% revenue share for up to 12 additional months after renewal",
+        "cookie": "90 days",
+        "signup": "application and approval required; intended for content creators, influencers, educators, bloggers, software reviewers, and others with a digital audience",
+        "program_exclusivity": "cannot participate in both the Webflow Affiliate Program and Webflow Partner Program"
+      },
+      "evidence": [
+        "https://webflow.com/solutions/affiliates",
+        "https://help.webflow.com/hc/en-us/articles/33961372613011-Webflow-s-affiliate-program-overview"
+      ],
+      "safety_note": "The current application requires confirming that the applicant has read and understood program terms. Do not auto-consent; stop for user approval if the later application batch reaches that legal agreement step."
+    },
+    {
+      "tool": "Carv",
+      "status": "needs_manual_verification",
+      "program": "Carv Referral Partner Program",
+      "terms": {
+        "commission": "10% of first-year contract value per qualifying enterprise client, capped at EUR 500 per deal",
+        "payout": "within 30 days after deal close, by invoice",
+        "approval": "application reviewed within 5 business days",
+        "target_partner": "HR tech consultants, staffing group owners, TA advisors, or others with direct relationships to enterprise recruitment/staffing organizations"
+      },
+      "evidence": [
+        "https://www.carv.com/partner-program",
+        "https://www.carv.com/partner-program/referral-partner"
+      ],
+      "eligibility_note": "Official requirements call for strong relationships with enterprise staffing/recruitment organizations in the European or US market, trusted-advisor status, and willingness to make warm introductions. Do not submit automatically until COSHUMA's fit against these requirements is confirmed."
+    },
+    {
+      "tool": "JobHire",
+      "status": "program_exists_not_applied",
+      "program": "JobHire.AI Affiliate Program",
+      "terms": {
+        "commission": "30% commission on every qualified referral; official page describes a recurring-revenue model",
+        "signup": "free and open via the official affiliate registration flow",
+        "target_partner": "blogs, newsletters, YouTube channels, LinkedIn/career communities, and publishers with an audience of job seekers"
+      },
+      "evidence": [
+        "https://jobhire.ai/affiliate-program"
+      ],
+      "verification_note": "The current public official page does not expose a reliable cookie duration or payout threshold in the indexed content, so those fields are intentionally left unasserted."
+    }
+  ],
+  "dedupe_rule": "Existing individual application/result records override research-only classifications. Shared partner programs must not be applied to more than once. Already-completed UUIDs must not be recreated.",
+  "new_task_uuid_created": false,
+  "new_application_created": false,
+  "human_action_required_now": false,
+  "audit_remains_in_progress": true
+}
