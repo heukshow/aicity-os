@@ -1,0 +1,79 @@
+{
+  "task_id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "type": "affiliate_audit_evidence",
+  "checked_at": "2026-08-28T12:29:00Z",
+  "note": "Evidence for the existing full-catalog audit UUID only. No application is submitted by this research evidence and no duplicate task UUID is created.",
+  "tools": [
+    {
+      "tool_id": "lovo",
+      "name": "LOVO AI",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://lovo.ai/affiliate-program",
+      "application_url": "https://lovo.ai/affiliate-program",
+      "network": "LOVO Affiliate Program",
+      "commission": "20% recurring commission on referred new customers for 24 months",
+      "cookie_duration_days": null,
+      "payout_terms": "Paid monthly; current public program page does not expose the payout method in visible text",
+      "free_to_join": true,
+      "eligibility": "No minimum sales requirement; application asks for primary platform, audience/followers and promotion approach; approval is described as taking about one week",
+      "evidence_summary": "Current official LOVO affiliate page confirms free signup, no minimum sales requirement, 20% recurring commission for 24 months, monthly payments, and unique affiliate links after approval."
+    },
+    {
+      "tool_id": "n8n",
+      "name": "n8n",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://n8n.io/affiliates/",
+      "application_url": "https://n8n.io/affiliates/",
+      "network": "n8n Affiliate Program",
+      "commission": "30% on n8n Cloud referrals for 12 months",
+      "cookie_duration_days": null,
+      "payout_terms": "Monthly via PayPal; minimum payable balance EUR 100",
+      "free_to_join": true,
+      "eligibility": "Official page says anyone can become an n8n affiliate; program rewards Cloud Starter and Pro referrals",
+      "evidence_summary": "Current official n8n affiliate and partners pages confirm open application, unique affiliate URL after approval, 30% revenue share for 12 months, monthly PayPal payout, and EUR 100 payout threshold."
+    },
+    {
+      "tool_id": "novita-ai",
+      "name": "Novita AI",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://novita.ai/affiliate-new",
+      "application_url": "https://affiliates.novita.ai/",
+      "network": "Novita AI Affiliate Portal",
+      "commission": "10% of each referral's spending for the first 180 days",
+      "cookie_duration_days": 60,
+      "payout_terms": null,
+      "free_to_join": null,
+      "eligibility": "Official page targets developers/tech enthusiasts, entrepreneurs/founders, AI influencers and audiences interested in AI models/GPU infrastructure; signup requires acceptance of program terms",
+      "evidence_summary": "Current official Novita AI pages confirm a live affiliate portal, 10% commission on referral spend for 180 days, a 60-day cookie, and automatic affiliate credentials for existing Novita accounts. Payout terms were not inferred because they were not shown in the current public materials retrieved."
+    },
+    {
+      "tool_id": "followr",
+      "name": "Followr",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://help.followr.ai/en/articles/11390435-join-the-followr-affiliate-program",
+      "application_url": "https://followr.pushlapgrowth.com",
+      "network": "PushLap Growth",
+      "commission": "25% recurring commission on successful referred sales",
+      "cookie_duration_days": null,
+      "payout_terms": "Managed through PushLap Growth; exact public payout schedule/threshold not stated in the current official help article",
+      "free_to_join": null,
+      "eligibility": "Official help center says available globally with no restrictions; intended for entrepreneurs, creators, agencies, freelancers, influencers and automation audiences",
+      "evidence_summary": "Current official Followr Help Center confirms an active PushLap Growth affiliate portal, 25% recurring commissions, unique referral links and global availability."
+    },
+    {
+      "tool_id": "colossyan",
+      "name": "Colossyan",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.colossyan.com/affiliate-program/",
+      "application_url": "https://www.colossyan.com/affiliate-program/",
+      "network": "Colossyan Affiliate Program",
+      "commission": "Starts at 25% recurring commission and scales by tier up to 50%; commissions last up to one year",
+      "cookie_duration_days": 90,
+      "payout_terms": "Monthly; Wise preferred with PayPal available under certain conditions",
+      "free_to_join": null,
+      "eligibility": "Application required; affiliates receive a personalized tracking link and dashboard after approval",
+      "evidence_summary": "Current official Colossyan affiliate page confirms 25% starting recurring commission, tiers up to 50%, commissions lasting up to one year, a 90-day cookie, monthly payouts, Wise as preferred payout method and PayPal under some conditions."
+    }
+  ]
+}
