@@ -2,26 +2,9 @@
   "task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
   "task": "COSHUMA/GlobalSaaSHub full affiliate-program audit",
   "checked_at": "2026-08-28T19:12:00Z",
-  "scope": "official-current-source verification for five registered GlobalSaaSHub tools not included in prior reported audit batches",
+  "scope": "official-current-source verification for five registered GlobalSaaSHub tools after cross-checking existing individual application/result records",
   "registry_source": "projects/GlobalSaaSHub/data/tools.json@main",
   "results": [
-    {
-      "tool": "ElevenLabs",
-      "status": "program_exists_not_applied",
-      "program": "ElevenLabs Creator Affiliate Program",
-      "terms": {
-        "commission": "22% of all qualifying subscription payments for the first 12 months per new paid subscriber",
-        "duration": "12 months",
-        "network": "PartnerStack",
-        "payout_notes": "official page describes reliable payouts; exact public minimum payout not confirmed in this audit"
-      },
-      "evidence": [
-        "https://elevenlabs.io/affiliates",
-        "https://elevenlabs.io/docs/help-center/partnerships/how-do-i-find-my-affiliate-referral-link",
-        "https://elevenlabs.io/affiliates-terms"
-      ],
-      "safety_note": "Program terms must be accepted to join; do not auto-accept legal terms. Stop for user approval if/when the application reaches that consent step."
-    },
     {
       "tool": "Pictory",
       "status": "needs_manual_verification",
@@ -37,49 +20,71 @@
       "safety_note": "Do not submit an application until the active commercial terms are resolved from the actual application/terms flow; no duplicate application created."
     },
     {
-      "tool": "Synthesia",
+      "tool": "QuillBot",
       "status": "program_exists_not_applied",
-      "program": "Synthesia Affiliate Program",
+      "program": "QuillBot Affiliate Program",
       "terms": {
-        "commission": "25% of the net amount of qualified Starter and Creator plan payments",
-        "cookie": "60 days",
-        "tracking_dashboard": "Rewardful after approval",
-        "self_referral": "not allowed"
+        "commission": "10%-20% per referral; official page also describes earnings of up to $20 per subscriber",
+        "cookie": "30 days",
+        "network": "PartnerStack",
+        "signup": "free; anyone may apply",
+        "payout": "commissions are verified and made available the following month; the exact commission duration is assigned in the affiliate partner group"
       },
       "evidence": [
-        "https://www.synthesia.io/partners/affiliates",
-        "https://www.synthesia.io/partners"
+        "https://quillbot.com/affiliates"
       ]
     },
     {
-      "tool": "HeyGen",
-      "status": "needs_manual_verification",
-      "program": "HeyGen affiliate/ambassador paths",
+      "tool": "Social Champ",
+      "status": "program_exists_not_applied",
+      "program": "Social Champ Affiliate Program",
       "terms": {
-        "finding": "current official Ambassador Program is selective and accepts rolling applications; its official FAQ includes an 'Affiliate link' resource, but the current public official sources retrieved in this audit do not state standard affiliate commission/cookie/payout terms"
+        "commission": "30% recurring for every referred customer for as long as the customer stays subscribed",
+        "network": "PartnerStack",
+        "payout": "PayPal, Stripe, or bank transfer",
+        "approval": "application is reviewed before personalized affiliate dashboard/link access"
       },
       "evidence": [
-        "https://www.heygen.com/ko-kr/geniverse/ambassador-program",
-        "https://help.heygen.com/en/articles/14648487-heygen-ambassador-program-faq"
+        "https://www.socialchamp.com/affiliate-program/"
       ],
-      "safety_note": "Do not conflate the selective Ambassador Program with a standard revenue-share affiliate program; verify the affiliate-link destination/terms before any application."
+      "dedupe_note": "This revenue-share affiliate program is distinct from Social Champ's points/rewards Ambassador Program and older in-app referral flow; do not create duplicate enrollment across those paths."
     },
     {
-      "tool": "Descript",
+      "tool": "Moosend",
       "status": "program_exists_not_applied",
-      "program": "Descript Affiliate Partner Program",
+      "program": "Moosend Affiliate Program",
       "terms": {
-        "commission": "$25 for each new Descript subscriber referred",
-        "signup": "free; no minimum sales required",
-        "approval": "official page says about one week",
-        "payout": "monthly via PayPal",
-        "network_change": "official page says the program is migrating to PartnerStack and existing affiliates need to reapply"
+        "commission": "30% recurring for 0-5 paid accounts, scaling by tier up to 40% for 36+ paid accounts",
+        "duration": "for as long as the referral remains a paying Moosend customer",
+        "network": "PartnerStack",
+        "signup": "free",
+        "payout": "monthly via PayPal or Stripe"
       },
       "evidence": [
-        "https://www.descript.com/affiliate"
+        "https://moosend.com/affiliate-program/",
+        "https://moosend.com/partners/"
+      ],
+      "safety_note": "The current application form contains a required marketing-communications consent checkbox. Do not auto-consent; stop for user approval if/when the application batch reaches that legal/marketing consent step."
+    },
+    {
+      "tool": "Reply.io",
+      "status": "program_exists_not_applied",
+      "program": "Reply.io Affiliate Program",
+      "terms": {
+        "standard_tiers": "15% for 1 year at Standard, 20% for 1 year at Advanced, 25% for 1 year at Premium",
+        "limited_lifetime_offer": "20% lifetime may be available if the affiliate brings at least one paid referral every three calendar months and contacts Reply.io to apply for that offer",
+        "cookie": "90 days",
+        "network": "PartnerStack",
+        "payout": "PartnerStack supports PayPal, Stripe, and direct deposit",
+        "referral_eligibility_note": "official FAQ lists eligible signup regions as North America, Europe, and LATAM; this is recorded without assuming it is an affiliate-applicant residency restriction"
+      },
+      "evidence": [
+        "https://reply.io/affiliates/",
+        "https://reply.io/reply-partner-programs/"
       ]
     }
   ],
+  "correction_note": "The first draft of this evidence file included ElevenLabs, Synthesia, HeyGen, and Descript. latest.json showed pre-existing individual application/result records for all four (including done/waiting_human states), so they were removed immediately instead of duplicating research. Existing individual results remain authoritative.",
   "dedupe_rule": "Existing individual application/result records override research-only classifications. Shared partner programs must not be applied to more than once. Already-completed UUIDs must not be recreated.",
   "new_task_uuid_created": false,
   "new_application_created": false,
