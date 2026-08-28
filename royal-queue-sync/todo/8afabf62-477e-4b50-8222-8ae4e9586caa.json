@@ -19,8 +19,9 @@
       "No payments, no production deploy, no account changes, no CAPTCHA handling, and no secrets access."
     ],
     "current_evidence": {
-      "checked_at": "2026-08-28T00:25:00Z",
+      "checked_at": "2026-08-28T02:27:00Z",
       "latest_generated_at_before_default_branch_fix": "2026-08-27T23:18:26.791555+00:00",
+      "latest_generated_at_after_fallback_rerun": "2026-08-28T02:26:51.068284+00:00",
       "reconciled_counts": {
         "todo": 3,
         "in_progress": 2,
@@ -62,18 +63,35 @@
         "main_workflow_before_fix": "absent"
       },
       "default_branch_schedule_fix": {
-        "status": "merged_pending_first_schedule_proof",
+        "status": "merged_but_schedule_event_not_observed",
         "pr": 22,
         "pr_title": "fix: enable hourly royal-queue reconcile on default branch",
         "head_sha": "6d0a269afb1440a512e3f8b738ecb83cf9027a15",
         "checks": "success",
         "merge_sha": "1c6092a74272d257df79ca1a5741ba2400787d0c",
+        "merged_at": "2026-08-28T00:23:26Z",
         "change": "Copied the existing reconcile workflow to main. The scheduled job still checks out ref=royal-queue and writes only royal-queue status snapshots.",
-        "next_verification": "Confirm the first event=schedule Royal Queue Reconcile run after the next :17 UTC boundary and confirm fresh latest/dashboard timestamps without stale UUID resurrection."
+        "observed_schedule_run_count_after_merge": 0,
+        "expected_boundaries_observed_without_schedule_event": [
+          "2026-08-28T01:17:00Z",
+          "2026-08-28T02:17:00Z"
+        ],
+        "next_verification": "Continue checking event=schedule history. Treat schedule delivery as unproven until an actual scheduled run appears; do not mark this UUID done based only on push/manual success."
+      },
+      "fallback_runtime_probe": {
+        "source_run_id": 33132338437,
+        "source_run_number": 15,
+        "source_event": "push",
+        "rerun_attempt": 2,
+        "rerun_job_id": 98735780262,
+        "conclusion": "success",
+        "action": "Re-ran the existing successful reconcile job as a zero-cost fallback after scheduled events remained absent.",
+        "result": "latest.json and dashboard.json regenerated at 2026-08-28T02:26:51.068284+00:00 with unchanged deduplicated counts and no stale waiting_human/tracking resurrection."
       },
       "observations": [
         "Push-triggered GitHub reconciliation remains healthy, with semantic counts todo=3, in_progress=2, done=36, failed=7, waiting_human=6 and tracking=[].",
-        "The previously claimed hourly watchdog was not actually durable because the workflow was absent from the default branch; this is now corrected via PR #22 without creating a new recovery UUID.",
+        "PR #22 correctly placed the cron workflow on main, but GitHub Actions still reports zero event=schedule runs after the first two expected hourly boundaries, so scheduled watchdog delivery is not yet proven.",
+        "A zero-cost rerun of existing reconcile Run 33132338437 attempt 2 succeeded and refreshed latest/dashboard without resurrecting stale UUIDs; this is only a fallback proof, not proof that cron scheduling works.",
         "The 148-tool affiliate audit UUID is correctly resolved as in_progress despite copies in todo/done because its explicit internal status is in_progress; directory name alone is not treated as terminal evidence.",
         "Semrush remains correctly in_progress/waiting_reply rather than waiting_human, and there is still no new Semrush #18190 reply in Gmail.",
         "Old local process heartbeats remain explicitly labeled stale_remote_observation; GitHub-side reconciliation does not pretend to know current local PID health.",
@@ -87,5 +105,5 @@
   "error": null,
   "human_reason": null,
   "created_at": "2026-08-24T09:05:45+00:00",
-  "updated_at": "2026-08-28T00:25:00+00:00"
+  "updated_at": "2026-08-28T02:27:00+00:00"
 }
