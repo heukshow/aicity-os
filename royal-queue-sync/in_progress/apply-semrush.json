@@ -2,7 +2,7 @@
   "id": "apply-semrush",
   "title": "Affiliate Application: Semrush",
   "assigned_to": "butler",
-  "status": "waiting_reply",
+  "status": "in_progress",
   "payload": {
     "tool_id": "semrush",
     "tool_name": "Semrush",
@@ -12,7 +12,7 @@
   "result": {
     "actor": "butler_and_human",
     "success": null,
-    "application_status": "vendor_support_escalated_waiting_reply",
+    "application_status": "vendor_support_replied_controlled_retry_authorized",
     "approval_status": "not_yet_submitted",
     "tracking_link": null,
     "payout_status": "not_applicable_yet",
@@ -22,18 +22,21 @@
       "email": "support@coshuma.com",
       "current_program": "10Web"
     },
-    "do_not_repeat": "Do not retry the Semrush Impact.com sign-up/login loop. Two real attempts already proved that the existing account login succeeds but returns to the 10Web dashboard without adding Semrush.",
+    "do_not_repeat": "Do not repeat the prior ordinary Semrush/Impact login loop. Semrush support explicitly requested one controlled retry starting from the official Semrush affiliate page in an incognito/private window or a different browser; clearing Impact cookies is an optional troubleshooting step. If the same redirect to the existing 10Web dashboard recurs, stop retrying and reply to ticket 18190 with that result.",
     "support_escalation": {
       "sent_to": "affiliates@semrush.com",
       "request_id": "18190",
       "sent_message_id": "1a03b41f45c2d11b",
       "ack_message_id": "1a03b426363c8e9a",
-      "status": "received_by_semrush_support_waiting_review",
-      "confirmation": "Semrush Affiliate Team confirmed request 18190 was received and will be reviewed by support staff."
+      "reply_message_id": "1a0483a2e2a82360",
+      "reply_received_at": "2026-08-28T11:55:59Z",
+      "status": "substantive_reply_received_retry_path_provided",
+      "confirmation": "Semrush support says an existing Impact account may hold multiple programs and should be able to continue the Semrush application after login. They instructed starting from the official Semrush affiliate page, then trying incognito/private mode or a different browser and optionally clearing Impact cookies. If the Semrush application still does not appear, reply to ticket 18190 for further investigation."
     },
     "human_action_required_now": false,
-    "followup": "Monitor Gmail including spam for a substantive Semrush support reply. Resume only when Semrush provides a supported account-linking/application path or directly adds the program."
+    "next_action": "Butler/browser execution: perform exactly one controlled retry from https://www.semrush.com/lp/affiliate-program/en/ in a private/incognito session (or different browser), log into the existing COSHUMA Impact account when prompted, and verify whether the Semrush application appears/submits. If the same 10Web-dashboard redirect recurs, do not loop; reply to Semrush ticket 18190 with the failed retry result.",
+    "followup": "No CAPTCHA, payment approval, legal acceptance, or forced human verification has been requested by Semrush support at this stage. Keep this same UUID in progress until the controlled retry either submits the application or produces a support-followup result."
   },
   "created_at": "2026-08-24T10:05:03.946941Z",
-  "updated_at": "2026-08-26T02:18:00Z"
+  "updated_at": "2026-08-28T12:27:00Z"
 }
