@@ -1,0 +1,57 @@
+{
+  "parent_task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "generated_at": "2026-08-28T22:24:00Z",
+  "purpose": "Incremental official-source evidence for the existing full affiliate audit. Evidence only; this does not create a new queue task, UUID, or duplicate application. The current main-branch registry, latest queue state, and prior incremental evidence were checked first. Taskade already has approved tracking and was skipped. Marblism is already represented in the registry as program_available_unapproved and was not re-applied. These three registry-tail tools had no prior incremental evidence match and no dedicated application task in latest.json.",
+  "new_task_uuid_created": false,
+  "new_application_created": false,
+  "human_action_required_now": false,
+  "audit_remains_in_progress": true,
+  "entries": [
+    {
+      "tool_id": "babylovegrowth-ai",
+      "tool_name": "BabyLoveGrowth.ai",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.babylovegrowth.ai/en/affiliate",
+      "application_url": "https://www.babylovegrowth.ai/en/affiliate",
+      "network": "Reditus",
+      "commission": "25% recurring for 12 months for 0-4 paying customers; 30% at 5+; 35% at 15+",
+      "cookie_duration_days": 60,
+      "payout_terms": "Monthly payouts via Reditus; $80 payout threshold",
+      "free_to_join": true,
+      "eligibility": "Official page says no paid BabyLoveGrowth subscription is required and signup is instantly approved through Reditus.",
+      "evidence_summary": "BabyLoveGrowth's current official affiliate page confirms a live free Reditus program with 25%-35% recurring commission for 12 months, 60-day tracking, monthly payouts, an $80 threshold, and instant approval. No account or application was created in this audit pass."
+    },
+    {
+      "tool_id": "ai-agent-store",
+      "tool_name": "AI Agent Store",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://aiagentstore.ai/affiliate-program",
+      "terms_url": "https://aiagentstore.ai/terms-of-service",
+      "application_url": "https://aiagentstore.tolt.io/",
+      "network": "Tolt",
+      "commission": "10% on Agent Teams plans and 30% on other eligible paid products",
+      "cookie_duration_days": null,
+      "payout_terms": "Minimum payout $10; NET-15; PayPal",
+      "free_to_join": null,
+      "eligibility": "The current official page exposes a live Join Affiliate Program link to the AI Agent Store Tolt portal.",
+      "evidence_summary": "AI Agent Store's current official affiliate page confirms a live Tolt program paying 10% on Agent Teams and 30% on other eligible paid products. Its current Terms of Service specifies a $10 minimum payout, NET-15, and PayPal. Cookie duration was not stated in retrieved first-party material and is left unknown."
+    },
+    {
+      "tool_id": "relevance-ai",
+      "tool_name": "Relevance AI",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://relevanceai.com/affiliate-program",
+      "terms_url": "https://relevanceai.com/affiliate-program-terms-and-conditions",
+      "application_url": "https://relevance-ai.getrewardful.com/signup",
+      "network": "Rewardful",
+      "commission": "Recurring commission for referred paying customers; exact current rate is shown inside the affiliate portal and is not stated on the public official landing page",
+      "cookie_duration_days": null,
+      "payout_terms": null,
+      "free_to_join": true,
+      "eligibility": "Official page says anyone with a relevant audience may join, including educators, content creators, agencies, and community leaders.",
+      "legal_consent_note": "Relevance AI's current Affiliate Program Terms & Conditions state that clicking Apply Now, Sign Up, or otherwise accessing/using the program constitutes agreement to a legally binding contract. No application was submitted in this audit pass. A future forced agreement/submission step must stop for human approval.",
+      "evidence_summary": "Relevance AI's current official affiliate page confirms a live, free Rewardful affiliate program with recurring commissions and a personal referral dashboard. The public page intentionally leaves the exact commission rate to the portal, so no rate was inferred."
+    }
+  ]
+}
