@@ -1,0 +1,81 @@
+{
+  "parent_task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "generated_at": "2026-08-28T10:19:00Z",
+  "purpose": "Incremental official-source evidence for the existing full affiliate audit. Evidence only; this does not create a new queue task or UUID. The current main-branch COSHUMA tool dataset and latest queue state were checked first; none of these five tools currently has a dedicated application task in latest.json.",
+  "entries": [
+    {
+      "tool_id": "rytr",
+      "tool_name": "Rytr",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://rytr.me/affiliates",
+      "application_url": "https://affiliates.rytr.me/signup",
+      "network": "Rytr affiliate portal",
+      "commission": "30% recurring commission for 12 months for each referred paying customer",
+      "cookie_duration_days": 60,
+      "payout_terms": "PayPal; commission is paid on the first working day of the month after the 30-day post-transaction period, once the account has exceeded the $100 threshold and referred more than one customer",
+      "free_to_join": true,
+      "eligibility": "Open to affiliates globally; official page highlights AI enthusiasts, content marketers, agencies/freelancers and existing customers. Brand-keyword paid advertising and self-referrals are prohibited.",
+      "evidence_summary": "Rytr's current official affiliate page and current affiliate terms confirm a live signup path, 30% recurring commission for 12 months, a 60-day cookie, PayPal payouts, and a $100 payout threshold."
+    },
+    {
+      "tool_id": "veed",
+      "tool_name": "VEED",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.veed.io/affiliate",
+      "alternate_official_source_url": "https://support.veed.io/en/articles/10098098-how-does-veeds-referral-program-work",
+      "application_url": "https://www.veed.io/affiliate",
+      "network": "Impact.com for the affiliate program",
+      "commission": "Affiliate program: 20% on the initial sale plus 20% recurring subscription commission, with performance bonuses up to 50%. A separate in-product referral program pays 40% per referred customer's purchases up to $50 per referral.",
+      "cookie_duration_days": null,
+      "payout_terms": "Affiliate payouts are processed through Impact.com after validation; available methods include ACH/EFT, PayPal and wire transfer. The separate referral path is handled from the VEED account's Earn Rewards flow.",
+      "free_to_join": null,
+      "eligibility": "Official affiliate page says a large audience is not required and accepts creators, educators, bloggers, social marketers and affiliate specialists. The separate referral program is available to VEED account holders except Enterprise accounts; India-specific reward restrictions apply to referred customers.",
+      "evidence_summary": "VEED currently operates both a public Impact-based affiliate program and a separate account-based referral program. The affiliate page confirms 20% initial plus 20% recurring commission and bonus tiers up to 50%; no current cookie duration was visible on the retrieved official sources, so none is inferred."
+    },
+    {
+      "tool_id": "gallabox",
+      "tool_name": "Gallabox",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://partner-docs.gallabox.com/become-an-affiliate/get-your-affiliate-account",
+      "application_url": "https://www.gallabox.com/",
+      "application_navigation": "Partners -> Become an Affiliate",
+      "network": "Tapfiliate",
+      "commission": "Commission is paid for successful referrals that result in a sale; the current official documentation retrieved does not publish the exact percentage, so no rate is inferred.",
+      "cookie_duration_days": null,
+      "payout_terms": "Affiliate onboarding supports PayPal or bank-account payout details; exact payout threshold/timing was not stated on the retrieved public documentation.",
+      "free_to_join": null,
+      "eligibility": "Application requires contact/company details and the channels where Gallabox marketing materials will be promoted; approval is communicated by email before dashboard access is finalized.",
+      "evidence_summary": "Gallabox's current official partner documentation confirms an active affiliate application path, approval flow, Tapfiliate dashboard, unique tracking link, and PayPal/bank payout setup. Exact public commission and cookie terms were not found and are left unknown."
+    },
+    {
+      "tool_id": "panda-video",
+      "tool_name": "Panda Video",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.pandavideo.com/solutions/partners",
+      "alternate_official_source_url": "https://help.pandavideo.com/en-us/article/how-does-the-panda-partners-program-works-7odqgm/",
+      "application_url": "https://www.pandavideo.com/solutions/partners",
+      "network": "Panda Partners",
+      "commission": "Recurring commission for 12 months per active referred customer. The live partner page describes a 10% starting rate scaling up to 20%, while the current helpdesk describes higher partner tiers including 20% Premium and 30% Super Premium; the official-source discrepancy is preserved rather than guessed away.",
+      "cookie_duration_days": null,
+      "payout_terms": "Commission begins accruing after the referred customer pays the first subscription invoice; refund-related commission reversals apply. Exact withdrawal threshold/timing was not visible in the retrieved live partner page snippet.",
+      "free_to_join": null,
+      "eligibility": "Official page presents direct affiliate registration, an exclusive referral link, commission dashboard and promotional materials; no Korea exclusion was visible in the retrieved public terms.",
+      "evidence_summary": "Panda Video's current official partner page confirms a live affiliate program with personalized links and 12 months of recurring commissions. Current first-party pages disagree on the exact tier ceiling, so the audit records the range/discrepancy instead of inventing a single rate."
+    },
+    {
+      "tool_id": "loopcv",
+      "tool_name": "LoopCV",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.loopcv.pro/affiliate/",
+      "application_url": "https://www.loopcv.pro/affiliate/",
+      "network": "LoopCV Affiliate Dashboard",
+      "commission": null,
+      "cookie_duration_days": null,
+      "payout_terms": "The affiliate dashboard tracks earnings and signups; exact public commission percentage, cookie duration, payout method and payout threshold were not visible on the retrieved current official page and remain unknown.",
+      "free_to_join": null,
+      "eligibility": "Official page targets blogs, newsletters and YouTube channels with job-seeker audiences. Signup creates an affiliate account, then email confirmation is required before access to the unique referral link and dashboard.",
+      "evidence_summary": "LoopCV's current official affiliate page confirms an active signup flow, email activation, a unique referral link and an earnings dashboard. Since the retrieved public page does not state current commission/cookie/payout figures, those values are intentionally left unknown."
+    }
+  ]
+}
