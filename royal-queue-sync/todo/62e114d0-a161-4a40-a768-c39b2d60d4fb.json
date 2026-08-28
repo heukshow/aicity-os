@@ -141,6 +141,76 @@
         "eligibility": "Application reviewed with reasonable efforts within 7 days; applicant must accept binding affiliate agreement if approved; invalid leads include brands under $500,000 annual ecommerce revenue",
         "alternate_referral_path": "$250 per referred friend who joins a paid plan and remains active at least 60 days, paid through PartnerStack/PayPal, per official referral page",
         "evidence_summary": "Current official Triple Whale Affiliate TOS confirms an active affiliate application/review flow and dashboard-generated links. Exact current commission Schedule A/cookie duration was not visible in the retrieved terms, so those values remain unknown. A separate official $250 referral program is also active."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "make-com",
+        "status": "program_exists_not_applied",
+        "official_source_url": "https://www.make.com/en/affiliate",
+        "application_url": "https://www.make.com/en/affiliate",
+        "network": "Make Affiliate Dashboard",
+        "commission": "35% of referred subscription payments for 12 months; the current page repeatedly states 12 months although one FAQ comparison paragraph still contains a conflicting 24-month reference",
+        "cookie_duration_days": null,
+        "payout_terms": "Wise only; payout requested from the affiliate dashboard is normally processed in 2-3 weeks, with a current official notice warning of payout delays",
+        "free_to_join": true,
+        "eligibility": "Anyone with a Make account can become an affiliate",
+        "evidence_summary": "Current official Make affiliate page states anyone with a Make account can join, receives a unique affiliate link, and earns 35% for 12 months. Because the same page has one inconsistent legacy 24-month FAQ sentence, the repeated 12-month terms are recorded while the conflict is explicitly preserved rather than silently resolved."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "murf-ai",
+        "status": "program_exists_not_applied",
+        "official_source_url": "https://murf.ai/partner-with-us/affiliate",
+        "application_url": "https://murf.ai/partner-with-us/affiliate",
+        "network": "PartnerStack",
+        "commission": "20% recurring commission for up to 24 months for each referred paid customer",
+        "cookie_duration_days": 90,
+        "payout_terms": "Calculated monthly through PartnerStack; cash-out via PayPal or Stripe, with alternative methods available for non-PayPal regions",
+        "free_to_join": true,
+        "eligibility": "Official page says anyone can join; affiliates should understand Murf and have an audience that can benefit from AI voiceovers",
+        "evidence_summary": "Current official Murf affiliate page confirms open signup, PartnerStack tracking, 20% recurring commissions for up to 24 months, a 90-day attribution window, and monthly payouts."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "scalenut",
+        "status": "program_exists_not_applied",
+        "official_source_url": "https://www.scalenut.com/affiliate",
+        "application_url": "https://www.scalenut.com/affiliate",
+        "network": "FirstPromoter",
+        "commission": "30% recurring commission for the lifetime of each active referred subscription; affiliates with 50 active paid customers may be considered for a 40% premium tier",
+        "cookie_duration_days": 60,
+        "payout_terms": "Monthly; commissions must be at least 30 days old and total at least $50; PayPal payout is described in the official affiliate FAQ",
+        "free_to_join": null,
+        "eligibility": "Affiliate must follow paid-search restrictions and may not target Scalenut branded/trademark keywords",
+        "evidence_summary": "Current official Scalenut affiliate page confirms a unique referral link, FirstPromoter attribution, 30% lifetime recurring base commission, 60-day cookie, $50 payout threshold, and potential 40% premium tier after 50 active paid customers."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "reclaim-ai",
+        "status": "needs_manual_verification",
+        "official_source_url": "https://help.reclaim.ai/en/articles/8370417-reclaim-ai-affiliate-program",
+        "application_url": "https://reclaim.partnerstack.com/",
+        "network": "PartnerStack",
+        "commission": "40% recurring for 12 months plus $1 per work-email signup; 25% commission for customers using personal emails",
+        "cookie_duration_days": 90,
+        "payout_terms": "Automatically tracked and paid monthly with a 30-day delay",
+        "free_to_join": true,
+        "eligibility": "Official approved-country list covers the Americas, Europe, Australia, New Zealand and Japan; South Korea is not listed",
+        "evidence_summary": "Reclaim's official January 12, 2026 affiliate guide confirms an active free program, but its approved-country list does not include South Korea. COSHUMA eligibility therefore requires confirmation and is not treated as safely applicable."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "synder",
+        "status": "needs_manual_verification",
+        "official_source_url": "https://synder.com/affiliate-program/",
+        "application_url": "https://synder.com/affiliate-program/",
+        "network": "Synder Affiliate Program",
+        "commission": "10% Bronze base, 15% Silver after $5,000 sales or 20 subscriptions, up to 20% Gold after $10,000 sales or 50 subscriptions",
+        "cookie_duration_days": null,
+        "payout_terms": "Monthly at the beginning of the month for the previous month's earnings",
+        "free_to_join": null,
+        "eligibility": "Official page requires an established network in the US, UK, Canada, Australia, New Zealand or Western Europe (France), plus active communication channels; South Korea is not listed",
+        "evidence_summary": "Synder's official affiliate page confirms an active program and up-to-20% tiered commissions, but its stated audience/geographic eligibility does not include South Korea. COSHUMA eligibility therefore requires confirmation before any application attempt."
       }
     ]
   },
@@ -149,5 +219,5 @@
   "error": null,
   "human_reason": null,
   "created_at": "2026-08-24T08:42:00+00:00",
-  "updated_at": "2026-08-28T01:16:30+00:00"
+  "updated_at": "2026-08-28T02:32:00+00:00"
 }
