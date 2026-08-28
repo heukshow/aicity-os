@@ -1,0 +1,90 @@
+{
+  "uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "kind": "affiliate_audit_evidence",
+  "project": "COSHUMA/GlobalSaaSHub",
+  "created_at": "2026-08-28T15:12:42Z",
+  "source_catalog": "main:projects/GlobalSaaSHub/data/tools.json",
+  "policy": {
+    "new_task_uuid_created": false,
+    "new_application_created": false,
+    "existing_individual_task_results_take_precedence": true,
+    "audit_remains_in_progress": true
+  },
+  "tools": [
+    {
+      "tool": "Reclaim AI",
+      "tool_id": "reclaim-ai",
+      "status": "needs_manual_verification",
+      "program_url": "https://help.reclaim.ai/en/articles/8370417-reclaim-ai-affiliate-program",
+      "network": "PartnerStack",
+      "terms_verified": {
+        "work_email_customer_commission": "40% recurring for 12 months",
+        "work_email_signup_reward": "$1 per signup",
+        "personal_email_customer_commission": "25% recurring for 12 months",
+        "cookie_days": 90,
+        "payout_timing": "monthly with 30-day delay"
+      },
+      "eligibility_note": "Official help lists approved referral countries as North America, South America, Europe, Australia, New Zealand, and Japan. South Korea is not listed. Do not auto-apply until the geographic condition is confirmed for COSHUMA's intended referrals/applicant context."
+    },
+    {
+      "tool": "Synder",
+      "tool_id": "synder",
+      "status": "needs_manual_verification",
+      "program_url": "https://synder.com/affiliate-program/",
+      "network": "PartnerStack",
+      "terms_verified": {
+        "commission_tiers": "10% Bronze, 15% Silver after $5,000 sales or 20 subscriptions, 20% Gold after $10,000 sales or 50 subscriptions",
+        "payout_timing": "monthly",
+        "application_review": "within 24 hours"
+      },
+      "eligibility_note": "Official requirements say the affiliate needs an established network of business owners/accountants/SaaS businesses in the US, UK, Canada, Australia, New Zealand or Western Europe, plus active communication channels. COSHUMA eligibility should be confirmed before any application."
+    },
+    {
+      "tool": "Murf AI",
+      "tool_id": "murf",
+      "status": "program_exists_not_applied",
+      "program_url": "https://murf.ai/partner-with-us/affiliate",
+      "network": "PartnerStack",
+      "terms_verified": {
+        "commission": "20% recurring",
+        "commission_duration_months": 24,
+        "cookie_days": 90,
+        "payout_timing": "monthly",
+        "payout_methods": "PartnerStack cash-out via PayPal or Stripe; alternatives for non-PayPal regions"
+      },
+      "eligibility_note": "Official page says anyone can join, with an audience that can benefit from Murf."
+    },
+    {
+      "tool": "Scalenut",
+      "tool_id": "scalenut",
+      "status": "program_exists_not_applied",
+      "program_url": "https://www.scalenut.com/affiliate",
+      "network": "FirstPromoter",
+      "terms_verified": {
+        "base_commission": "30% recurring for life",
+        "premium_commission": "40% recurring after 50 active paid customers; page headline describes 30%-50% tiers",
+        "cookie_days": 60,
+        "payout_timing": "monthly",
+        "customer_offer": "10% off first month on monthly plans"
+      }
+    },
+    {
+      "tool": "Tapfiliate",
+      "tool_id": "tapfiliate",
+      "status": "program_exists_not_applied",
+      "program_url": "https://tapfiliate.com/affiliate-program/",
+      "terms_verified": {
+        "program_options": "$178 one-time commission or 20% recurring for first 12 months; official page says affiliates may join either or both",
+        "cookie_days": 45,
+        "payout_timing": "monthly",
+        "payout_method": "PayPal"
+      },
+      "eligibility_note": "Official page says a Tapfiliate subscription is not required to join."
+    }
+  ],
+  "notes": [
+    "This is evidence for the existing master affiliate-audit UUID only; it does not create or imply a new application task.",
+    "Reclaim AI and Synder are held for eligibility verification rather than auto-application because their official geographic/audience conditions could affect COSHUMA.",
+    "The master audit remains in_progress until the registered-tool catalog is fully audited."
+  ]
+}
