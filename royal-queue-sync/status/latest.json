@@ -1,6 +1,12 @@
 {
-  "generated_at": "2026-08-28T12:24:35.304138+00:00",
+  "generated_at": "2026-08-28T12:26:36.789777+00:00",
   "latest": [
+    {
+      "id": "apply-semrush",
+      "actor": "butler",
+      "status": "in_progress",
+      "updated_at": "2026-08-28T12:27:00Z"
+    },
     {
       "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
       "actor": "princess",
@@ -84,12 +90,6 @@
       "actor": "butler",
       "status": "failed",
       "updated_at": "2026-08-26T12:19:16Z"
-    },
-    {
-      "id": "apply-semrush",
-      "actor": "butler",
-      "status": "in_progress",
-      "updated_at": "2026-08-26T02:18:00Z"
     },
     {
       "id": "apply-10web",
