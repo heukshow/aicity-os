@@ -1,0 +1,100 @@
+{
+  "task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "task": "COSHUMA/GlobalSaaSHub full affiliate-program audit",
+  "checked_at": "2026-08-28T20:12:00Z",
+  "scope": "official-current-source verification for five additional registered GlobalSaaSHub tools after checking latest.json for existing individual application/result records",
+  "registry_source": "projects/GlobalSaaSHub/data/tools.json@main",
+  "results": [
+    {
+      "tool": "ActiveCampaign",
+      "status": "program_exists_not_applied",
+      "program": "ActiveCampaign Affiliate Program",
+      "terms": {
+        "commission": "30% recurring commission for each eligible new referral for up to 12 months",
+        "cookie": "90 days; first clicked affiliate link receives credit",
+        "network": "PartnerStack",
+        "payout": "monthly through PartnerStack; commissions held 60 days before payment",
+        "payout_eligibility": "at least two active referred accounts and the PartnerStack minimum due-payment amount",
+        "signup": "designed for content creators, influencers, and publishers; customer account not required"
+      },
+      "evidence": [
+        "https://www.activecampaign.com/partners/affiliate",
+        "https://help.activecampaign.com/hc/en-us/articles/115000065864-Affiliate-program",
+        "https://www.activecampaign.com/legal/affiliate-partner-terms"
+      ],
+      "safety_note": "The legal program terms govern actual enrollment. Do not auto-accept binding affiliate terms or tax declarations if the later application batch reaches that step."
+    },
+    {
+      "tool": "SaneBox",
+      "status": "program_exists_not_applied",
+      "program": "SaneBox Affiliate Program",
+      "terms": {
+        "commission": "up to 30% lifetime commission on paid subscription revenue, with no stated earnings cap",
+        "network": "PartnerStack",
+        "signup": "intended for publishers, content creators, and leaders in AI, tech, remote work, or entrepreneurship",
+        "payout": "rewards accrue monthly and are generally available for withdrawal around the 13th of the following month",
+        "conversion": "commission is paid on paid conversions, not signups or free trials"
+      },
+      "evidence": [
+        "https://www.sanebox.com/partners"
+      ]
+    },
+    {
+      "tool": "Pipedrive",
+      "status": "program_exists_not_applied",
+      "program": "Pipedrive Affiliate Partnership Program",
+      "terms": {
+        "base_commission": "20% revenue share for the first 12 months of each new paying customer",
+        "growth_tier": "30% revenue share for the first 12 months after maintaining 2-5 sales per month for at least 6 consecutive months",
+        "power_tier": "custom commission for 6+ sales per month for at least 6 consecutive months",
+        "cookie": "90 days",
+        "network": "PartnerStack",
+        "signup": "free; no minimum sales requirement and no earnings cap for the base affiliate tier",
+        "payout": "commissions are locked two months after transaction and paid on the 13th; PartnerStack withdrawal becomes available after more than USD 5"
+      },
+      "evidence": [
+        "https://www.pipedrive.com/en/affiliate-partnership",
+        "https://support.pipedrive.com/en/article/how-can-i-become-a-pipedrive-affiliate-or-partner"
+      ]
+    },
+    {
+      "tool": "Framer",
+      "status": "needs_manual_verification",
+      "program": "Framer Creator Program / referral commissions",
+      "terms": {
+        "current_access_model": "creators are automatically enrolled after publishing a Marketplace product or becoming a verified Framer Expert; otherwise they may apply manually through the Community profile Links tab",
+        "review": "manual applications are evaluated on work quality, audience relevance, and promotion plan and are typically reviewed within a few days",
+        "referral_eligibility": "only templates generate referral commissions; plugins, components, and vectors do not",
+        "tracking": "Dub is the current referral tracking and payout platform for verified creators"
+      },
+      "evidence": [
+        "https://www.framer.com/help/articles/how-the-creator-program-works/",
+        "https://www.framer.com/help/articles/getting-started-with-dub/",
+        "https://www.framer.com/legal/affiliates/1.0"
+      ],
+      "verification_note": "Framer's current August 2026 public documentation frames referral earnings inside its Creator Program and limits referral-earning Marketplace products to templates. COSHUMA is a SaaS publisher rather than an established Framer template creator, so do not submit a generic affiliate application until eligibility and the current commission schedule are confirmed in the live Community flow.",
+      "safety_note": "The legacy Affiliate Conditions are binding when accepted. Do not auto-accept legal terms during any later enrollment."
+    },
+    {
+      "tool": "Tagshop AI",
+      "status": "program_exists_not_applied",
+      "program": "Tagshop AI Affiliate Program",
+      "terms": {
+        "commission": "30% recurring commission for 6 months per referred customer",
+        "cookie": "90 days",
+        "signup": "free with instant dashboard and referral-link access according to the current official page",
+        "payout": "monthly Net-10 cycle",
+        "payout_threshold": "USD 35",
+        "earnings_cap": "none stated"
+      },
+      "evidence": [
+        "https://tagshop.ai/affiliate"
+      ]
+    }
+  ],
+  "dedupe_rule": "Existing individual application/result records override research-only classifications. Shared partner programs must not be applied to more than once. Already-completed UUIDs must not be recreated.",
+  "new_task_uuid_created": false,
+  "new_application_created": false,
+  "human_action_required_now": false,
+  "audit_remains_in_progress": true
+}
