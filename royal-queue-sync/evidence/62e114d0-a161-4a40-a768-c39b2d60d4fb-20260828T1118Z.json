@@ -1,0 +1,79 @@
+{
+  "parent_task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "generated_at": "2026-08-28T11:18:32Z",
+  "purpose": "Incremental official-source evidence for the existing full affiliate audit. Evidence only; this does not create a new queue task or UUID. The current main-branch COSHUMA tool dataset and latest queue state were checked first; none of these five tools currently has a dedicated application task in latest.json.",
+  "entries": [
+    {
+      "tool_id": "blaze",
+      "tool_name": "Blaze",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.blaze.ai/affiliates",
+      "alternate_official_source_url": "https://www.blaze.ai/affiliate-tos",
+      "application_url": "https://www.blaze.ai/affiliates",
+      "network": "FirstPromoter on the current affiliate page; an older March 2026 help article still references Impact, so the first-party network discrepancy is preserved",
+      "commission": "Current affiliate page and affiliate terms state 30% commission for the first two paid months, then 15% recurring while the referred subscriber remains active and the program remains active",
+      "cookie_duration_days": null,
+      "payout_terms": "Current affiliate terms say approved commissions are paid on a regular monthly cadence after a 30-90 day processing/fraud-review window; payout method is whatever Blaze supports in the affiliate dashboard. A March 2026 help article separately states Net-30 and a $20 threshold, but because current first-party pages differ, those older details are not treated as controlling.",
+      "free_to_join": null,
+      "eligibility": "Current page targets entrepreneurs, newsletters, educators, media networks, content creators, influencers and bloggers with an existing engaged audience. Applications are reviewed and may be declined; paid-media-heavy and coupon/deal-aggregation models are disfavored. Self-referrals are prohibited.",
+      "evidence_summary": "Blaze currently has a live affiliate application path. Current first-party materials confirm 30% for the first two paid months followed by 15% recurring. First-party pages conflict on tracking/network details (current page shows FirstPromoter and a 30-day trial-attribution flow; older help material shows Impact and a 60-day cookie), so the audit preserves the conflict instead of inventing one cookie value."
+    },
+    {
+      "tool_id": "aiassistworks",
+      "tool_name": "AiAssistWorks",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.aiassistworks.com/affiliate-program",
+      "application_url": "https://www.aiassistworks.com/affiliate-program",
+      "network": "AiAssistWorks affiliate portal",
+      "commission": "Monthly plans: 80% of the first month, then 30% lifetime recurring. Yearly plans: 40% of the first year, then 30% recurring on later renewals. One-time products: $25 flat commission.",
+      "cookie_duration_days": null,
+      "payout_terms": "Current official page does not publicly state payout threshold, payout method or payout timing; those values remain unknown.",
+      "free_to_join": true,
+      "eligibility": "Current official page says signup takes under 60 seconds with no approval wait. It promotes use by video creators, social-media publishers, bloggers and direct referrers; no South Korea exclusion is shown on the retrieved public page.",
+      "evidence_summary": "AiAssistWorks' current official affiliate page confirms an active no-approval-wait signup path, up to 80% initial commission, 30% lifetime recurring revenue on subscriptions after the initial bonus period, and free signup."
+    },
+    {
+      "tool_id": "questmate",
+      "tool_name": "Questmate",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.questmate.com/partners",
+      "application_url": "https://questmate.getrewardful.com/",
+      "network": "Rewardful",
+      "commission": "50% of referred subscription payments for up to 12 months; no payout cap",
+      "cookie_duration_days": null,
+      "payout_terms": "The current official partner page demonstrates recurring payout examples and says there is no payout cap, but does not publicly state payout method, payout schedule or minimum threshold; those values remain unknown.",
+      "free_to_join": null,
+      "eligibility": "The current public partner page invites users to join and start earning in about 60 seconds and does not state a geographic exclusion. Tax reporting is the affiliate's responsibility.",
+      "evidence_summary": "Questmate's current official partner page confirms a live Rewardful signup path and 50% recurring revenue share on each referred subscription for up to 12 months, with no payout cap."
+    },
+    {
+      "tool_id": "merlin",
+      "tool_name": "Merlin",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.getmerlin.in/es/affiliate-program",
+      "application_url": "https://merlin.tapfiliate.com/",
+      "network": "Tapfiliate",
+      "commission": "30% recurring commission for eligible paid conversions; current official headline also advertises earnings up to $67 per sale",
+      "cookie_duration_days": 90,
+      "payout_terms": "Paid around the first working week of each month; $100 minimum payout threshold. Exact payout method is configured in the affiliate partner account and is not specified on the retrieved public page.",
+      "free_to_join": true,
+      "eligibility": "A paid Merlin subscription is not required to join. Monthly referrals must meet a EUR 14 minimum order value and annual referrals a USD 100 minimum order value unless a special affiliate coupon/offer overrides that rule. Self-referrals are prohibited and paid ads require special permission.",
+      "evidence_summary": "Merlin's current official affiliate page confirms a live Tapfiliate signup path, 30% recurring commission, a 90-day cookie, monthly payout cadence, a $100 payout threshold and no requirement to buy a paid Merlin subscription."
+    },
+    {
+      "tool_id": "decktopus",
+      "tool_name": "Decktopus",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.decktopus.com/affiliate",
+      "application_url": "https://affiliate.decktopus.com/signup",
+      "network": "Decktopus affiliate portal",
+      "commission": "50% commission on qualifying sales; the signup portal describes the commission as recurring",
+      "cookie_duration_days": 60,
+      "payout_terms": "Paid monthly via PayPal, approximately 30 days after month-end; no earnings cap",
+      "free_to_join": true,
+      "eligibility": "Official page says the program is open worldwide with no location restrictions. PPC campaigns require prior approval; a 14-day refund policy applies to qualifying commissions.",
+      "evidence_summary": "Decktopus' current official affiliate page confirms a live signup path, 50% commission, 60-day cookie, free worldwide eligibility and monthly PayPal payouts."
+    }
+  ]
+}
