@@ -17,6 +17,90 @@
       "Prioritize ordering by expected monetization value, but DO NOT stop at a top-N list. Produce an actionable queue covering every tool for which a legitimate program exists.",
       "Return a complete per-tool structured inventory plus an ordered application queue containing ALL eligible not-yet-applied programs.",
       "Zero cost only; no paid tools; no production writes; no account applications in this research task."
+    ],
+    "progress_updates": [
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "quillbot",
+        "status": "program_exists_not_applied",
+        "official_source_url": "https://quillbot.com/affiliates",
+        "application_url": "https://quillbot.com/affiliates",
+        "network": "PartnerStack",
+        "commission": "10%-20% per referral; exact commission period depends on affiliate partner group",
+        "cookie_duration_days": 30,
+        "payout_terms": "Verified and paid the month after commission is earned; official page example says February commissions available March 16",
+        "free_to_join": true,
+        "evidence_summary": "Official QuillBot affiliate page states free signup, 30-day cookie, PartnerStack tracking, personal referral URL after approval, and up to 20% commission."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "bolddesk",
+        "status": "program_exists_not_applied",
+        "official_source_url": "https://www.bolddesk.com/affiliate-program",
+        "application_url": "https://www.bolddesk.com/affiliate-program",
+        "network": "Rewardful",
+        "commission": "30% of referred customer payments for 12 months",
+        "cookie_duration_days": 90,
+        "payout_terms": "PayPal; commissions have an initial 30-day hold and are processed within 7 business days after becoming due; no minimum payout threshold",
+        "free_to_join": true,
+        "eligibility": "Available globally with exceptions for countries/regions where BoldDesk cannot do business with the United States",
+        "evidence_summary": "Official BoldDesk affiliate page states free signup, 30% commission for 12 months, 90-day cookie, Rewardful portal, and PayPal payout terms."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "brand24",
+        "status": "program_exists_not_applied",
+        "official_source_url": "https://brand24.com/partner-program/",
+        "application_url": "https://brand24.com/partner-program/",
+        "network": "Brand24 Partner Panel",
+        "commission": "20%-30% recurring for the lifetime of each referred paid customer, tiered by number of paid customers",
+        "cookie_duration_days": 90,
+        "payout_terms": "PayPal or Stripe; typically paid on the 13th of each month",
+        "free_to_join": true,
+        "eligibility": "Affiliate program does not require being a Brand24 customer; designed for content creators, marketers, bloggers, website owners and influencers",
+        "evidence_summary": "Official Brand24 Partner Program page states free participation, 20%-30% lifetime recurring commissions, 90-day cookies, and PayPal/Stripe payouts."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "text-cortex",
+        "status": "program_exists_not_applied",
+        "official_source_url": "https://textcortex.com/es/t%C3%A9rminos-legales",
+        "application_url": "https://textcortex.com/es/t%C3%A9rminos-legales",
+        "network": "Rewardful",
+        "commission": null,
+        "cookie_duration_days": null,
+        "payout_terms": null,
+        "free_to_join": null,
+        "eligibility": "Must be at least 18 years old and accept TextCortex partner legal terms",
+        "evidence_summary": "Current official TextCortex partner legal terms confirm an affiliate program operated through Rewardful and issuance of a unique referral link. Current commission rate/cookie/payout values were not stated on that legal page, so they remain unknown rather than inferred from older marketing content."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "tubebuddy",
+        "status": "program_closed",
+        "official_source_url": "https://www.tubebuddy.com/affiliateprogram/",
+        "application_url": "https://www.tubebuddy.com/affiliateprogram/",
+        "network": "TubeBuddy Affiliate Program",
+        "commission": "15% commission on purchases made within 365 days of a referral's first click while the affiliate account is active",
+        "cookie_duration_days": 365,
+        "payout_terms": "PayPal only; $10 minimum threshold; payment period between the 1st and 15th of each month after the 30-day seasoning period",
+        "free_to_join": null,
+        "eligibility": "Official 2026 affiliate page currently says TubeBuddy is not accepting new affiliates",
+        "evidence_summary": "Official TubeBuddy affiliate page currently states new affiliate applications are not being accepted. Current official program terms retain 15% attribution/commission terms, 365-day window, PayPal-only payout and $10 threshold for existing affiliates."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "sudowrite",
+        "status": "program_exists_not_applied",
+        "official_source_url": "https://sudowrite.notion.site/Sudowrite-Affiliate-Program-12788b26b71746f2a72cd05b7087e8c9",
+        "application_url": "https://sudowrite.notion.site/Sudowrite-Affiliate-Program-12788b26b71746f2a72cd05b7087e8c9",
+        "network": "Sudowrite application via Airtable",
+        "commission": "25% recurring on every subscription payment for the referral's first year",
+        "cookie_duration_days": null,
+        "payout_terms": null,
+        "free_to_join": null,
+        "evidence_summary": "Sudowrite's official site links to its current affiliate page, which states 25% recurring commission for every subscription payment during the referral's first year and provides a current Airtable signup link. Cookie/payout/free-to-join terms were not stated on the current program page and remain unknown."
+      }
     ]
   },
   "depends_on": null,
@@ -24,5 +108,5 @@
   "error": null,
   "human_reason": null,
   "created_at": "2026-08-24T08:42:00+00:00",
-  "updated_at": "2026-08-24T09:09:00+00:00"
+  "updated_at": "2026-08-28T01:10:41+00:00"
 }
