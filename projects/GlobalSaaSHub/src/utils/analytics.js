@@ -82,11 +82,12 @@ export function trackToolClick(toolId, toolName) {
 
     // ChatGPT Ads conversion: a visitor leaves COSHUMA for a listed service.
     if (typeof window.oaiq === 'function') {
+      const isTaskade = String(toolId || '').toLowerCase() === 'taskade' || String(toolName || '').toLowerCase() === 'taskade';
       window.oaiq(
         'measure',
         'custom',
         { type: 'custom' },
-        { custom_event_name: 'affiliate_outbound_click' }
+        { custom_event_name: isTaskade ? 'taskade_affiliate_click' : 'affiliate_outbound_click' }
       );
     }
   } catch (e) {
