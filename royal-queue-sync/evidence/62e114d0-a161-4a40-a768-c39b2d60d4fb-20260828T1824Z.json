@@ -1,0 +1,101 @@
+{
+  "task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "evidence_type": "affiliate_audit_increment",
+  "checked_at": "2026-08-28T18:24:19Z",
+  "new_task_uuid_created": false,
+  "new_application_created": false,
+  "audit_remains_in_progress": true,
+  "dedupe_note": "This is evidence for the existing full-catalog audit only. No application or duplicate task is created. Program variants that could cause duplicate enrollment are explicitly kept separate until the later application stage.",
+  "catalog_source": {
+    "branch": "main",
+    "path": "projects/GlobalSaaSHub/data/tools.json",
+    "audit_target_path": "projects/GlobalSaaSHub/data/audit_target_unverified_100.json"
+  },
+  "tools": [
+    {
+      "tool_id": "bolddesk",
+      "tool_name": "BoldDesk",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.bolddesk.com/affiliate-program",
+      "application_url": "https://www.bolddesk.com/affiliate-program/signup",
+      "network": "Rewardful",
+      "commission": "30% of each eligible referred customer's active subscription for the first 12 months",
+      "cookie_duration_days": 90,
+      "payout_terms": "PayPal after an initial 30-day commission hold. Current official materials conflict on cadence: the main affiliate page mentions monthly payouts in one FAQ answer but also says commissions are processed weekly after becoming due; the current support article says weekly payouts. No minimum threshold is stated.",
+      "free_to_join": true,
+      "eligibility": "Available globally with exceptions for regions where BoldDesk cannot do business with the United States. Self-referrals are not eligible.",
+      "evidence_summary": "BoldDesk's current official affiliate program is open and offers 30% for 12 months with a 90-day cookie. The official payout-cadence wording conflicts internally, so the discrepancy is preserved instead of selecting one cadence silently."
+    },
+    {
+      "tool_id": "brand24",
+      "tool_name": "Brand24",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://brand24.com/partner-program/",
+      "application_url": "https://brand24.com/partner-program/",
+      "network": "Brand24 Partner Program",
+      "commission": "Tiered lifetime recurring commission: 20% for 0-4 paid customers, 25% for 5-7, and 30% for 8+",
+      "cookie_duration_days": 90,
+      "payout_terms": "PayPal and Stripe; Brand24 says payouts are typically made on the 13th of each month.",
+      "free_to_join": true,
+      "eligibility": "Affiliate route is intended for content creators, marketers, bloggers, website owners and influencers. Brand24 says applications are reviewed within a few days; being a Brand24 customer is not required for the Affiliate Program.",
+      "evidence_summary": "Brand24's current official Partner Program is open and free, with a dedicated Affiliate route, lifetime recurring commissions from 20% to 30%, a 90-day cookie and monthly PayPal/Stripe payouts."
+    },
+    {
+      "tool_id": "triple-whale",
+      "tool_name": "Triple Whale",
+      "status": "needs_manual_verification",
+      "official_source_url": "https://www.triplewhale.com/pages/affiliate-tos",
+      "application_url": null,
+      "network": "Triple Whale / PartnerStack",
+      "commission": "Current official surfaces expose more than one referral structure: the live referral page offers a $250 reward per qualifying paid customer via PartnerStack, while Triple Whale also maintains separate Affiliate Program terms and older/current official marketing material describing tiered affiliate revenue-share structures.",
+      "cookie_duration_days": null,
+      "payout_terms": "The current referral page states rewards are paid through PartnerStack using PayPal after the referred customer maintains paid status for at least 60 days. Exact current standard Affiliate Program economics are not established from the retrieved current terms page.",
+      "free_to_join": null,
+      "eligibility": "Affiliate applications are reviewed by Triple Whale. A separate Agency Partner Program also exists and is not the same program.",
+      "evidence_summary": "Do not auto-apply from this audit record yet. Triple Whale currently exposes a $250 referral program, a formal Affiliate Program agreement, and separate agency-partner economics. The correct current enrollment route and offer for a publisher-style COSHUMA affiliate must be confirmed to avoid enrolling in the wrong program."
+    },
+    {
+      "tool_id": "boldsign",
+      "tool_name": "BoldSign",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://boldsign.com/affiliate-program/",
+      "application_url": "https://boldsign.com/affiliate-program/signup/",
+      "network": "BoldSign Affiliate Program",
+      "commission": "30% commission on eligible paid referrals for the first 12 months",
+      "cookie_duration_days": 90,
+      "payout_terms": "PayPal; no minimum payout threshold; commissions become due after a 30-day waiting period.",
+      "free_to_join": true,
+      "eligibility": "Globally available with regional exceptions. Intended for creators, publishers, educators, SaaS reviewers/directories and business communities. Self-referrals are not eligible.",
+      "application_constraint": "The signup form contains a required checkbox accepting BoldSign privacy policy, cookie policy, terms of use and referral-program terms. That legal-consent step must not be auto-accepted and requires user action if/when an application is attempted.",
+      "evidence_summary": "BoldSign's current official affiliate program is open, free, and offers 30% for 12 months with a 90-day cookie and no payout minimum. The later application must stop at the required legal-consent checkbox for human approval."
+    },
+    {
+      "tool_id": "privy",
+      "tool_name": "Privy",
+      "status": "needs_manual_verification",
+      "official_source_url": "https://www.privy.com/partnerships/partner-resources",
+      "application_url": null,
+      "network": "Privy Partner Program",
+      "commission": "Current Partner Program materials advertise 20% of a client's monthly fee; a separate Customer Reference Program offers $500 per qualifying referral to participating customers.",
+      "cookie_duration_days": null,
+      "payout_terms": null,
+      "free_to_join": null,
+      "eligibility": "The current Partner Program is framed around agencies/ecommerce marketing experts managing client accounts, while the Customer Reference Program is for Privy customers. A standard publisher-affiliate path suitable for COSHUMA was not established from the retrieved current official material.",
+      "evidence_summary": "Do not auto-enroll yet. Privy has active partner/referral programs, but the current routes target client-managing marketing partners or existing customers rather than clearly exposing a standard publisher affiliate enrollment. Eligibility and the correct route need confirmation."
+    }
+  ],
+  "sources": [
+    "https://www.bolddesk.com/affiliate-program",
+    "https://support.bolddesk.com/kb/article/21766/bolddesk-affiliate-program-overview-%E2%80%93-earn-30-commission",
+    "https://brand24.com/partner-program/",
+    "https://help.brand24.com/en/articles/3396563-do-you-have-partner-program",
+    "https://www.triplewhale.com/pages/affiliate-tos",
+    "https://www.triplewhale.com/refer",
+    "https://www.triplewhale.com/agency",
+    "https://boldsign.com/affiliate-program/",
+    "https://boldsign.com/affiliate-program/signup/",
+    "https://www.privy.com/partnerships/partner-resources",
+    "https://www.privy.com/partnerships/referralprogram"
+  ]
+}
