@@ -1,0 +1,79 @@
+{
+  "parent_task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "generated_at": "2026-08-28T08:10:00Z",
+  "purpose": "Incremental official-source evidence for the existing full affiliate audit. This file is evidence only, not a new queue task or UUID. It adds five currently registered COSHUMA tools and preserves zero-cost/no-duplicate application rules.",
+  "entries": [
+    {
+      "tool_id": "aitable-ai",
+      "tool_name": "AITable.ai",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://aitable.ai/partners/affiliate/",
+      "application_url": "https://aitable.ai/partners/affiliate/",
+      "network": "AITable Affiliate Portal",
+      "commission": "30% lifetime recurring commission while the referred subscription renews",
+      "cookie_duration_days": 90,
+      "payout_terms": "Commissions become payable after a 60-day refund window; payable commissions are settled during the first five days of the applicable month according to the official FAQ.",
+      "free_to_join": null,
+      "eligibility": "Content creators with their own channels such as YouTube, Twitter/X or LinkedIn who are willing to publish at least one AITable-related piece of content; affiliate signup does not require an additional agreement.",
+      "evidence_summary": "AITable's current official affiliate page confirms a live affiliate program, 30% lifetime recurring commission, 90-day cookie, affiliate portal, and direct affiliate signup."
+    },
+    {
+      "tool_id": "time2book",
+      "tool_name": "Time2book",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.time2book.me/affiliate",
+      "application_url": "https://www.time2book.me/affiliate",
+      "network": "Time2book Affiliate Program",
+      "commission": "30% recurring commission on each referred business's platform subscription for 12 months",
+      "cookie_duration_days": null,
+      "payout_terms": "Commissions unlock for payout after 30 days; eligible commissions can then be paid automatically.",
+      "free_to_join": null,
+      "eligibility": "Open to people who can introduce Time2book to fitness, wellness or small-business audiences; the affiliate does not need to be a Time2book customer.",
+      "evidence_summary": "Time2book's current official affiliate page confirms an open referral-link program with 30% recurring commission for 12 months, 30-day commission unlocking, and no customer-account requirement for affiliates."
+    },
+    {
+      "tool_id": "carv",
+      "tool_name": "Carv",
+      "status": "needs_manual_verification",
+      "official_source_url": "https://www.carv.com/partner-program/referral-partner",
+      "alternate_official_source_url": "https://www.carv.com/partner-program/brand-ambassador",
+      "application_url": "https://www.carv.com/partner-program",
+      "network": "Carv Partner Portal",
+      "commission": "Referral track: 10% of first-year enterprise contract value, capped at €500 per deal. Brand Ambassador track: 20% per qualifying paying referral, capped at €500 per Recruitment Pro customer; Custom deals use a separate flat-fee structure.",
+      "cookie_duration_days": 30,
+      "payout_terms": "Partner commissions are paid by invoice within 30 days after the qualifying deal/customer closes, according to the relevant official partner page.",
+      "free_to_join": null,
+      "eligibility": "Referral track targets trusted advisors with established enterprise staffing/recruitment relationships in European or US markets. Brand Ambassador track targets HR/recruitment creators with at least 5,000 followers or a 1,000+ member community. COSHUMA eligibility should be confirmed before application.",
+      "evidence_summary": "Carv has active official referral and ambassador monetization paths, but both have audience/market qualification requirements that cannot be safely assumed for COSHUMA, so this remains needs_manual_verification rather than automatic application-ready."
+    },
+    {
+      "tool_id": "jobhire",
+      "tool_name": "JobHire.AI",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://jobhire.ai/affiliate-program",
+      "application_url": "https://jobhire.ai/affiliate-program",
+      "network": "JobHire.AI affiliate application (official page links to a HubSpot form)",
+      "commission": "30% commission on every qualified referral; the current official page describes the model as recurring revenue",
+      "cookie_duration_days": null,
+      "payout_terms": null,
+      "free_to_join": true,
+      "eligibility": "Official page targets bloggers, newsletter owners, YouTube creators, LinkedIn creators, career communities and others with job-seeker audiences.",
+      "evidence_summary": "JobHire.AI's current official affiliate page says signup is free and easy, provides an active registration path, and advertises 30% commission on every qualified referral. Cookie and payout terms were not visible on the retrieved official page and are left unknown."
+    },
+    {
+      "tool_id": "liftmycv",
+      "tool_name": "LiftmyCV",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.liftmycv.com/affiliate-program/",
+      "application_url": "https://liftmycv.tolt.io/",
+      "network": "Tolt",
+      "commission": "25% lifetime revenue share on Pay-As-You-Go purchases made through the affiliate referral",
+      "cookie_duration_days": null,
+      "payout_terms": "Official page advertises real-time dashboard and self-managed payouts; exact payout threshold/timing was not stated on the retrieved public page.",
+      "free_to_join": null,
+      "eligibility": null,
+      "evidence_summary": "LiftmyCV's current official affiliate page confirms a live Tolt-based program, 25% lifetime revenue share on Pay-As-You-Go plans, a real-time dashboard and self-managed payouts. Cookie duration and exact payout timing remain unknown from the retrieved official page."
+    }
+  ]
+}
