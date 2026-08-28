@@ -1,0 +1,95 @@
+{
+  "task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "evidence_type": "affiliate_audit_increment",
+  "checked_at": "2026-08-28T17:09:00Z",
+  "new_task_uuid_created": false,
+  "new_application_created": false,
+  "audit_remains_in_progress": true,
+  "dedupe_note": "These findings are additional evidence for the existing full-catalog audit UUID only. No application task is created here. Existing completed/pending/waiting_human application UUIDs continue to take precedence over research-only classifications.",
+  "catalog_source": {
+    "branch": "main",
+    "path": "projects/GlobalSaaSHub/data/tools.json",
+    "blob_sha": "4062e2fa5b8d88356ba9450e287b9782081121b7"
+  },
+  "tools": [
+    {
+      "tool_id": "notion-ai",
+      "tool_name": "Notion AI",
+      "status": "program_closed",
+      "official_source_url": "https://www.notion.com/affiliates",
+      "application_url": "https://www.notion.com/affiliates",
+      "network": "PartnerStack",
+      "commission": "Up to $50 per activated signup plus 20% of first-year revenue for each qualifying referral",
+      "cookie_duration_days": 180,
+      "payout_terms": "Current official affiliate page routes existing affiliates to PartnerStack; current public page does not state a payout threshold/method, so those values remain unknown.",
+      "free_to_join": null,
+      "eligibility": "Official page currently states that Notion is not accepting new affiliate partners.",
+      "evidence_summary": "Notion's current official affiliate page confirms PartnerStack tracking and the historical/current reward model, but explicitly states that new affiliate partners are not being accepted. This is therefore program_closed for new COSHUMA enrollment and must not be queued for application while that notice remains in force."
+    },
+    {
+      "tool_id": "reactin",
+      "tool_name": "ReactIn",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.reactin.io/affiliates",
+      "application_url": "https://app.getreditus.com/",
+      "network": "Reditus",
+      "commission": "30% of every payment for the lifetime of each paying referred subscriber",
+      "cookie_duration_days": null,
+      "payout_terms": "Paid monthly; current public page does not expose the exact payout threshold or payout method, so those remain unknown.",
+      "free_to_join": true,
+      "eligibility": "Official page presents open free signup and does not publish a country restriction on the retrieved page.",
+      "evidence_summary": "ReactIn's current official affiliate page confirms free signup, a unique referral link through Reditus, 30% lifetime recurring commission on referred subscriber payments, and monthly payouts. Cookie duration and payout threshold are not stated on the public page and are left unknown."
+    },
+    {
+      "tool_id": "octo-browser",
+      "tool_name": "Octo Browser",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://docs.octobrowser.net/en/referral-program/",
+      "application_url": "https://octobrowser.net/referral",
+      "network": "Octo Browser in-product Referral Program",
+      "commission": "15% of each payment made by referred users for 360 days after their registration",
+      "cookie_duration_days": null,
+      "payout_terms": "Rewards are held for 14 days after qualifying purchases. Minimum withdrawal is 10 tokens to the participant's own Octo account or 100 tokens to supported USDT/USDC wallets; 1 token equals 1 EUR. Verified withdrawals are paid on the closest 1st or 15th of the month.",
+      "free_to_join": null,
+      "eligibility": "Participant must create an Octo Browser account and obtain the referral link from Settings → Referrals. Promotion rules prohibit brand-keyword contextual ads, spam, self-referrals, and referrals to users already known to have Octo accounts.",
+      "evidence_summary": "Octo Browser's official 2026 documentation confirms an active referral program with 15% revenue share for 360 days, an in-product personal referral link, a 14-day review hold, and documented withdrawal thresholds and payout cadence."
+    },
+    {
+      "tool_id": "surfeo",
+      "tool_name": "Surfeo",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://surfeo.ai/en/afiliados",
+      "application_url": "https://surfeo-ai.getrewardful.com/",
+      "network": "Rewardful",
+      "commission": "15% recurring commission on every referred-customer payment for the first 12 months",
+      "cookie_duration_days": 60,
+      "payout_terms": "Minimum payout $25; commissions are tracked in Rewardful and payout can be requested once the threshold is reached.",
+      "free_to_join": true,
+      "eligibility": "Official page says anyone can sign up as an affiliate and a Surfeo customer account is not required.",
+      "evidence_summary": "Surfeo's current official affiliate page confirms free Rewardful signup, 15% recurring commission for 12 months, a 60-day cookie, no referral cap, real-time stats, and a $25 payout threshold."
+    },
+    {
+      "tool_id": "happyscribe",
+      "tool_name": "HappyScribe",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.happyscribe.com/affiliate",
+      "application_url": "https://app.impact.com/",
+      "network": "Impact",
+      "commission": "Up to 30% recurring commission on referred paid subscriptions; official page describes the beta rate as long-term recurring",
+      "cookie_duration_days": 60,
+      "payout_terms": "Monthly payouts via PayPal or bank transfer.",
+      "free_to_join": null,
+      "eligibility": "Official page describes the program as beta/early access with limited spots; no country restriction is stated on the retrieved page.",
+      "evidence_summary": "HappyScribe's current official affiliate page confirms an active Impact-hosted beta program, up to 30% recurring commission, 60-day cookie attribution, and monthly PayPal/bank-transfer payouts. Because the page says beta access has limited spots, acceptance is not assumed until actually approved."
+    }
+  ],
+  "sources": [
+    "https://www.notion.com/affiliates",
+    "https://www.reactin.io/affiliates",
+    "https://docs.octobrowser.net/en/referral-program/",
+    "https://octobrowser.net/referral",
+    "https://surfeo.ai/en/afiliados",
+    "https://www.happyscribe.com/affiliate"
+  ]
+}
