@@ -1,0 +1,81 @@
+{
+  "parent_task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "generated_at": "2026-08-28T09:13:00Z",
+  "purpose": "Incremental official-source evidence for the existing full affiliate audit. Evidence only; this does not create a new queue task or UUID. Before adding these entries, the current main-branch tool dataset and latest queue state were checked, and no existing task IDs for these five tools were present in latest.json.",
+  "entries": [
+    {
+      "tool_id": "unbounce",
+      "tool_name": "Unbounce",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://unbounce.com/partner-program/",
+      "application_url": "https://unbounce.com/partner-program/",
+      "network": "PartnerStack",
+      "commission": "25%-35% recurring revenue on referred customer transactions for up to 12 months",
+      "cookie_duration_days": 90,
+      "payout_terms": "Cash out at month-end via PayPal or Stripe; referral payments are verified and paid within 60 days after the referral starts a new trial",
+      "free_to_join": true,
+      "eligibility": "Official FAQ says the Partner Program is open to everyone; signup requires a few details and confirmation before a personal referral URL is issued",
+      "evidence_summary": "Current official Unbounce Partner Program confirms open signup, PartnerStack tracking, 25%-35% recurring commission for up to 12 months, a 90-day cookie, and PayPal/Stripe payouts."
+    },
+    {
+      "tool_id": "vista-social",
+      "tool_name": "Vista Social",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://vistasocial.com/affiliate-marketing/",
+      "alternate_official_source_url": "https://support.vistasocial.com/hc/en-us/articles/6896732556955-Affiliate-Program",
+      "application_url": "https://vistasocial.com/affiliate-marketing/",
+      "network": "FirstPromoter",
+      "commission": "Beginner tiers: 20% recurring for 12 months; expert tiers: 23%, 26%, or 30% recurring for 24 months depending on cumulative sales",
+      "cookie_duration_days": 90,
+      "payout_terms": "Current live affiliate page states monthly PayPal payouts with a $100 minimum and commissions paid 90 days after month-end; an older support article describes payout on request, so the live page is treated as fresher evidence and the discrepancy is preserved",
+      "free_to_join": null,
+      "eligibility": "Targets social media professionals, business coaches/consultants, educators, creators, SaaS reviewers and marketing-tool curators; no Vista Social customer account is required",
+      "evidence_summary": "Current official Vista Social affiliate page confirms instant dashboard access after registration, FirstPromoter tracking, a 90-day cookie, recurring commissions from 20% up to 30%, and PayPal payouts subject to a $100 threshold."
+    },
+    {
+      "tool_id": "gravity-forms",
+      "tool_name": "Gravity Forms",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://affiliate.gravity.com/",
+      "alternate_official_source_url": "https://www.gravityforms.com/blog/affiliate-program/",
+      "application_url": "https://affiliate.gravity.com/",
+      "network": "Gravity Affiliate portal; current official materials reference PartnerStack in the affiliate FAQ/terms and Impact in the June 2026 Gravity Forms launch article, so provider naming is preserved as an unresolved official-source discrepancy",
+      "commission": "20% base commission per referred sale, with high-performing affiliates eligible for up to 30%",
+      "cookie_duration_days": 30,
+      "payout_terms": "$10 minimum threshold; affiliates can choose a fixed payout date or balance threshold; official FAQ says payouts take about 8 weeks after the qualifying action depending on contract",
+      "free_to_join": null,
+      "eligibility": "Official June 2026 article says the program is open to everyone and applicants do not need to be Gravity Forms customers; applications are manually reviewed and typical approval time is 1-2 weeks",
+      "evidence_summary": "Current Gravity affiliate portal confirms an active program, 20%-30% per-sale commissions, 30-day cookie, $10 minimum payout threshold, and a live signup path. Network/provider naming differs across current first-party pages, so it is not guessed."
+    },
+    {
+      "tool_id": "alidropship",
+      "tool_name": "AliDropship",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://affiliates.alidropship.com/",
+      "application_url": "https://affiliates.alidropship.com/",
+      "network": "AliDropship Affiliate Program",
+      "commission": "Up to 50% of eligible AliDropship solution sale price",
+      "cookie_duration_days": null,
+      "payout_terms": "Commissions are approved 30 days after the end of the sale month and paid within the following 15 days; PayPal, Wise, or bank transfer; minimum payout $50 via PayPal and $1,000 via bank",
+      "free_to_join": true,
+      "eligibility": "Program targets ecommerce creators, educators, influencers, store owners, developers and freelancers; PPC advertisers and coupon/deal sites are not accepted; normal application review is stated as 3-4 business days",
+      "evidence_summary": "Current official AliDropship affiliate site confirms free signup, unique tracking links after approval, up to 50% commission, monthly payout processing, and explicit payout/eligibility restrictions. No current cookie duration was visible, so none is inferred."
+    },
+    {
+      "tool_id": "dorik",
+      "tool_name": "Dorik",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://dorik.com/affiliates",
+      "alternate_official_source_url": "https://dorik.com/partners",
+      "application_url": "https://dorik.com/affiliates",
+      "network": "Dorik Partnership Program",
+      "commission": "Detailed current affiliate FAQ states 40% commission on the referred customer's first purchase; Dorik's partners page separately advertises up to 40% recurring commission, so the conflict is recorded rather than silently resolved",
+      "cookie_duration_days": 90,
+      "payout_terms": "Monthly bank-transfer payouts; $200 minimum threshold; commissions remain pending for 14 days and payouts are made by the 15th of the following month",
+      "free_to_join": null,
+      "eligibility": "Self-referrals, branded paid-search campaigns, spam/cookie stuffing, and coupon sites are prohibited",
+      "evidence_summary": "Current official Dorik affiliate page confirms a live signup path, 40% first-purchase commission language, 90-day cookie, monthly bank payouts and a $200 minimum. A contradictory 'recurring' marketing phrase on the partners page is preserved as an official-source discrepancy."
+    }
+  ]
+}
