@@ -1,0 +1,73 @@
+{
+  "parent_task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "generated_at": "2026-08-28T07:08:00Z",
+  "purpose": "Incremental evidence for the existing full affiliate audit. This file is evidence only, not a new queue task or UUID. It consolidates terminal/approved queue outcomes and two current official-site no-program findings so the later all-tool inventory will not duplicate applications.",
+  "entries": [
+    {
+      "tool_id": "convertkit",
+      "tool_name": "Kit (formerly ConvertKit)",
+      "status": "rejected",
+      "official_source_url": "https://kit.com/affiliate",
+      "network": "PartnerStack",
+      "commission_current_official": "50% of referred paid-customer payments for up to 12 months, with 10%-20% ongoing recurring commission after year one for qualifying Bronze/Silver/Gold affiliates",
+      "free_to_join": true,
+      "current_queue_evidence": "royal-queue-sync/failed/apply-kit.json",
+      "current_queue_state": "submitted_then_rejected / terminal",
+      "duplicate_application_allowed": false,
+      "evidence_summary": "Kit currently operates an affiliate program, but COSHUMA's submitted application was reviewed and rejected. The terminal queue result explicitly says not to re-apply automatically."
+    },
+    {
+      "tool_id": "vidiq",
+      "tool_name": "vidIQ",
+      "status": "approved_tracking",
+      "official_source_url": "https://vidiq.com/affiliate/",
+      "network": "vidIQ Affiliate Center",
+      "commission": "15% base recurring commission, increasing to 20% and 25% by sales tier",
+      "free_to_join": true,
+      "tracking_link": "https://vidiq.com/coshuma",
+      "current_queue_evidence": "royal-queue-sync/done/apply-vidiq.json",
+      "current_queue_state": "enrolled_and_live / auto_approved",
+      "duplicate_application_allowed": false,
+      "evidence_summary": "COSHUMA is already enrolled and live. The issued custom referral URL is recorded in the completed queue result, so this tool must be excluded from any future application batch."
+    },
+    {
+      "tool_id": "pictory",
+      "tool_name": "Pictory",
+      "status": "approved_tracking",
+      "official_source_url": "https://partners.pictory.ai/signup/40690",
+      "network": "FirstPromoter",
+      "commission_current_signup_page": "40% one-time commission on the first payment from each referred customer",
+      "tracking_link": "https://pictory.ai?fpr=sangkwon-an23",
+      "current_queue_evidence": "royal-queue-sync/done/40782387-5fc1-4b37-8996-72b8f83a7569.json",
+      "current_queue_state": "approved_active / live_verified",
+      "duplicate_application_allowed": false,
+      "evidence_summary": "Pictory approved COSHUMA and issued a personal referral URL. The completed queue result also records live COSHUMA CTA verification, so no new application or generic-link substitution is permitted."
+    },
+    {
+      "tool_id": "copy-ai",
+      "tool_name": "Copy.ai",
+      "status": "no_program_found",
+      "official_source_url": "https://www.copy.ai/",
+      "official_support_url": "https://support.copy.ai/en",
+      "network": null,
+      "commission": null,
+      "cookie_duration_days": null,
+      "application_url": null,
+      "verification_method": "Searched current Copy.ai official domain and official help center for affiliate/referral/partner enrollment. Current official results exposed product, contact, partnership articles and general affiliate-marketing educational content, but no current Copy.ai affiliate enrollment page or commission terms.",
+      "evidence_summary": "No legitimate current Copy.ai affiliate/referral enrollment path was found on official sources in this audit pass. This is recorded as no_program_found rather than inferring an old third-party program is still active."
+    },
+    {
+      "tool_id": "inkfluence-ai",
+      "tool_name": "Inkfluence AI",
+      "status": "no_program_found",
+      "official_source_url": "https://www.inkfluenceai.com/",
+      "network": null,
+      "commission": null,
+      "cookie_duration_days": null,
+      "application_url": null,
+      "verification_method": "Searched the current Inkfluence AI official domain for affiliate/referral/partner enrollment and reviewed the current public homepage. No official affiliate application page, referral terms, tracking network, or commission terms were found.",
+      "evidence_summary": "No legitimate current Inkfluence AI affiliate/referral program was found on official sources in this audit pass."
+    }
+  ]
+}
