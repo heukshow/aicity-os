@@ -3,7 +3,7 @@
   "project": "COSHUMA / GlobalSaaSHub",
   "type": "affiliate_audit_evidence",
   "checked_at": "2026-08-28T14:18:00Z",
-  "note": "Evidence for the existing full-catalog audit UUID only. No application is submitted by this research evidence and no duplicate task UUID is created. Existing individual application results take precedence over research-only eligibility classification.",
+  "note": "Evidence for the existing full-catalog audit UUID only. No application is submitted by this research evidence and no duplicate task UUID is created. Existing individual application results take precedence over research-only eligibility classification. Tools already verified in the base audit are not repeated here.",
   "tools": [
     {
       "tool_id": "gohighlevel",
@@ -14,27 +14,13 @@
       "network": "HighLevel Affiliate Program",
       "commission": "40% monthly recurring commission for the life of an active referred account; 5% recurring level-2 commission on customers referred by sub-affiliates",
       "cookie_duration_days": null,
-      "payout_terms": "Tipalti payout setup; commissions are released after the account exceeds the USD 50 payout threshold, with payments released between the 10th and 15th of the month",
+      "payout_terms": "Monthly payouts under current HighLevel affiliate terms, subject to affiliate account/payment-provider setup and compliance requirements",
       "free_to_join": true,
       "eligibility": "Program is active. COSHUMA has already completed enrollment, email confirmation and instant dashboard approval under the existing apply-gohighlevel task; no new application may be created.",
       "existing_task_id": "apply-gohighlevel",
       "existing_task_result": "account_created_email_confirmed / auto_approved_instant_dashboard_access",
       "tracking_link_status": "pending_login_to_view_in_dashboard",
       "evidence_summary": "Official HighLevel sources confirm the current 40% recurring program. Queue cross-check found the existing apply-gohighlevel task already completed with account creation, confirmed email and instant dashboard approval, so this audit entry is canonicalized to the existing approved state rather than marked not-applied."
-    },
-    {
-      "tool_id": "make-com",
-      "name": "Make.com",
-      "status": "program_exists_not_applied",
-      "official_source_url": "https://www.make.com/en/affiliate",
-      "application_url": "https://www.make.com/en/affiliate",
-      "network": "Make Affiliate Program",
-      "commission": "35% commission on referrals for 12 months",
-      "cookie_duration_days": null,
-      "payout_terms": "Current public affiliate page retrieved for this audit does not expose payout method or threshold in visible text; values were not inferred",
-      "free_to_join": null,
-      "eligibility": "Official page states anyone can become an affiliate and create a unique affiliate link",
-      "evidence_summary": "Current official Make affiliate page confirms an active open affiliate program and 35% commission on referred customers for 12 months."
     },
     {
       "tool_id": "zenrows",
@@ -57,12 +43,12 @@
       "official_source_url": "https://www.tubebuddy.com/affiliateprogram/",
       "application_url": null,
       "network": "TubeBuddy Affiliate Program",
-      "commission": "Existing active affiliates earn 15% recurring commission on eligible purchases attributed within 365 days of the referral's first click",
+      "commission": "Existing active affiliates earn 15% on eligible purchases attributed within 365 days of the referral's first click",
       "cookie_duration_days": 365,
-      "payout_terms": "Existing affiliates: PayPal only; USD 10 minimum threshold; commissions season for 30 days and payments are made between the 1st and 15th of the payment month",
+      "payout_terms": "Existing-affiliate economics only; no new COSHUMA application is allowed while signup remains closed",
       "free_to_join": null,
       "eligibility": "Official 2026 affiliate page explicitly states TubeBuddy is not accepting new affiliates at this time",
-      "evidence_summary": "TubeBuddy's current official affiliate page closes the program to new applicants. Current official terms still document the legacy/active-affiliate 15% recurring economics and payout rules, but COSHUMA must not create a new application while signup is closed."
+      "evidence_summary": "TubeBuddy's current official affiliate page closes the program to new applicants and states existing affiliate referrals earn 15% on purchases attributed up to one year after the first click. COSHUMA must not create a new application while signup is closed."
     },
     {
       "tool_id": "outlierkit",
@@ -77,6 +63,20 @@
       "free_to_join": true,
       "eligibility": "Official page offers a free affiliate account and a unique referral link through its partner portal",
       "evidence_summary": "Current official OutlierKit page confirms a live free affiliate signup, recurring commissions on the first 12 payments, monthly payouts, no earnings cap and a real-time dashboard. The commission percentage was not inferred because the current official page does not display it."
+    },
+    {
+      "tool_id": "sudowrite",
+      "name": "Sudowrite",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://sudowrite.com/",
+      "application_url": "https://sudowrite.notion.site/Sudowrite-Affiliate-Program-12788b26b71746f2a72cd05b7087e8c9",
+      "network": "Sudowrite Affiliate Program",
+      "commission": "25% of every subscription payment made by referred customers for their entire first year",
+      "cookie_duration_days": null,
+      "payout_terms": "Current official affiliate page retrieved for this audit does not state payout method, payout cadence, or threshold; values were not inferred",
+      "free_to_join": null,
+      "eligibility": "Sudowrite's current official site links directly to a live 'Become an Affiliate' page with a signup action",
+      "evidence_summary": "Sudowrite's current official website exposes a live Become an Affiliate link. Its official affiliate page states 25% recurring commission on every subscription payment from referred customers for the first year."
     }
   ]
 }
