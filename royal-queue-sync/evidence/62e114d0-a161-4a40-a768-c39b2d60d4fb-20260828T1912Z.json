@@ -1,0 +1,88 @@
+{
+  "task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "task": "COSHUMA/GlobalSaaSHub full affiliate-program audit",
+  "checked_at": "2026-08-28T19:12:00Z",
+  "scope": "official-current-source verification for five registered GlobalSaaSHub tools not included in prior reported audit batches",
+  "registry_source": "projects/GlobalSaaSHub/data/tools.json@main",
+  "results": [
+    {
+      "tool": "ElevenLabs",
+      "status": "program_exists_not_applied",
+      "program": "ElevenLabs Creator Affiliate Program",
+      "terms": {
+        "commission": "22% of all qualifying subscription payments for the first 12 months per new paid subscriber",
+        "duration": "12 months",
+        "network": "PartnerStack",
+        "payout_notes": "official page describes reliable payouts; exact public minimum payout not confirmed in this audit"
+      },
+      "evidence": [
+        "https://elevenlabs.io/affiliates",
+        "https://elevenlabs.io/docs/help-center/partnerships/how-do-i-find-my-affiliate-referral-link",
+        "https://elevenlabs.io/affiliates-terms"
+      ],
+      "safety_note": "Program terms must be accepted to join; do not auto-accept legal terms. Stop for user approval if/when the application reaches that consent step."
+    },
+    {
+      "tool": "Pictory",
+      "status": "needs_manual_verification",
+      "program": "Pictory Affiliate/Partner Program",
+      "terms": {
+        "official_conflict": "current official signup portal states 40% one-time commission on the referral's first payment, while another current official Pictory partner page advertises recurring commissions up to 50%"
+      },
+      "evidence": [
+        "https://partners.pictory.ai/signup/40690",
+        "https://pictory.ai/partner-with-pictory",
+        "https://pictory.ai/partnernow"
+      ],
+      "safety_note": "Do not submit an application until the active commercial terms are resolved from the actual application/terms flow; no duplicate application created."
+    },
+    {
+      "tool": "Synthesia",
+      "status": "program_exists_not_applied",
+      "program": "Synthesia Affiliate Program",
+      "terms": {
+        "commission": "25% of the net amount of qualified Starter and Creator plan payments",
+        "cookie": "60 days",
+        "tracking_dashboard": "Rewardful after approval",
+        "self_referral": "not allowed"
+      },
+      "evidence": [
+        "https://www.synthesia.io/partners/affiliates",
+        "https://www.synthesia.io/partners"
+      ]
+    },
+    {
+      "tool": "HeyGen",
+      "status": "needs_manual_verification",
+      "program": "HeyGen affiliate/ambassador paths",
+      "terms": {
+        "finding": "current official Ambassador Program is selective and accepts rolling applications; its official FAQ includes an 'Affiliate link' resource, but the current public official sources retrieved in this audit do not state standard affiliate commission/cookie/payout terms"
+      },
+      "evidence": [
+        "https://www.heygen.com/ko-kr/geniverse/ambassador-program",
+        "https://help.heygen.com/en/articles/14648487-heygen-ambassador-program-faq"
+      ],
+      "safety_note": "Do not conflate the selective Ambassador Program with a standard revenue-share affiliate program; verify the affiliate-link destination/terms before any application."
+    },
+    {
+      "tool": "Descript",
+      "status": "program_exists_not_applied",
+      "program": "Descript Affiliate Partner Program",
+      "terms": {
+        "commission": "$25 for each new Descript subscriber referred",
+        "signup": "free; no minimum sales required",
+        "approval": "official page says about one week",
+        "payout": "monthly via PayPal",
+        "network_change": "official page says the program is migrating to PartnerStack and existing affiliates need to reapply"
+      },
+      "evidence": [
+        "https://www.descript.com/affiliate"
+      ]
+    }
+  ],
+  "dedupe_rule": "Existing individual application/result records override research-only classifications. Shared partner programs must not be applied to more than once. Already-completed UUIDs must not be recreated.",
+  "new_task_uuid_created": false,
+  "new_application_created": false,
+  "human_action_required_now": false,
+  "audit_remains_in_progress": true
+}
