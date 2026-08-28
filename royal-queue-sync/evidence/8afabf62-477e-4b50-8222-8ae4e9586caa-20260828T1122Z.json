@@ -1,0 +1,40 @@
+{
+  "parent_task_uuid": "8afabf62-477e-4b50-8222-8ae4e9586caa",
+  "project": "royal-queue infrastructure",
+  "generated_at": "2026-08-28T11:22:00Z",
+  "purpose": "Fresh recovery/watchdog evidence for the existing UUID only. No new task or duplicate UUID is created.",
+  "observations": {
+    "default_branch_workflow_present": true,
+    "default_branch": "main",
+    "workflow_path": ".github/workflows/royal-queue-reconcile.yml",
+    "configured_cron": "17 * * * *",
+    "scheduled_run_count": 0,
+    "latest_expected_boundary_checked": "2026-08-28T11:17:00Z",
+    "latest_push_fallback_run": 33166772413,
+    "latest_push_fallback_run_number": 25,
+    "latest_push_fallback_conclusion": "success",
+    "latest_snapshot_generated_at": "2026-08-28T11:20:32.062004+00:00",
+    "semantic_counts": {
+      "todo": 3,
+      "in_progress": 2,
+      "done": 36,
+      "failed": 7,
+      "waiting_human": 6
+    },
+    "tracking": [],
+    "local_process_health": {
+      "watcher": "stale_remote_observation",
+      "GitHub bridge": "stale_remote_observation",
+      "dashboard": "stale_remote_observation"
+    }
+  },
+  "official_platform_reference": {
+    "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule",
+    "summary": "GitHub documents that scheduled workflows run only from the default branch and can be delayed or occasionally dropped under high Actions load. It also documents that changing the cron schedule can reactivate a deactivated scheduled workflow. The current workflow is on main and uses minute 17, yet no schedule event has been observed, so schedule delivery remains unproven."
+  },
+  "decision": {
+    "status": "partial_repair_still_open",
+    "reason": "Push-triggered reconciliation is healthy and continues to refresh latest/dashboard without stale UUID resurrection, but there is still no actual event=schedule run and the local watcher/bridge/dashboard heartbeats remain stale. Do not mark the recovery UUID done.",
+    "next_safe_action": "Continue using the healthy push-triggered GitHub reconciliation as fallback. A default-branch cron edit may reactivate a disabled schedule, but it is intentionally not performed in this evidence-only step because any main-branch write can have external deployment side effects and should be treated separately from the zero-risk fallback path."
+  }
+}
