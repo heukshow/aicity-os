@@ -1,0 +1,52 @@
+{
+  "id": "8afabf62-477e-4b50-8222-8ae4e9586caa",
+  "record_type": "progress_evidence",
+  "project": "royal-queue infrastructure",
+  "checked_at": "2026-08-28T13:19:02Z",
+  "completed_unit": "scheduled_watchdog_delivery_proven",
+  "schedule_proof": {
+    "workflow": "Royal Queue Reconcile Status",
+    "run_id": 33172595949,
+    "run_number": 30,
+    "event": "schedule",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-08-28T12:48:14Z",
+    "completed_at": "2026-08-28T12:48:26Z",
+    "head_branch": "main",
+    "head_sha": "1c6092a74272d257df79ca1a5741ba2400787d0c",
+    "job": "reconcile",
+    "successful_steps": [
+      "Check out royal-queue",
+      "Reconcile status snapshots",
+      "Commit corrected status if changed"
+    ]
+  },
+  "post_schedule_snapshot": {
+    "royal_queue_head": "a1806dfa92ca7592ac5c2673094ceb3091531f84",
+    "generated_at": "2026-08-28T12:48:21.668534+00:00",
+    "counts": {
+      "todo": 3,
+      "in_progress": 2,
+      "done": 36,
+      "failed": 7,
+      "waiting_human": 6
+    },
+    "tracking": [],
+    "unique_uuid_count": 54,
+    "stale_state_resurrection_observed": false
+  },
+  "interpretation": "The default-branch hourly schedule fix is now proven by an actual GitHub Actions event=schedule run that completed successfully and regenerated royal-queue status snapshots without resurrecting stale waiting_human or tracking rows. This closes the scheduled-watchdog-delivery subunit that had previously remained unproven.",
+  "task_closure": {
+    "status": "keep_open",
+    "reason": "The parent recovery task also requires durable local watcher/GitHub bridge/dashboard process recovery and persistent heartbeats. dashboard.json still marks those local observations stale_remote_observation, so the UUID must not be moved to done yet."
+  },
+  "safety": {
+    "new_uuid_created": false,
+    "payment": false,
+    "production_deploy": false,
+    "account_change": false,
+    "captcha": false,
+    "secret_access": false
+  }
+}
