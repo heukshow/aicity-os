@@ -1,0 +1,79 @@
+{
+  "task_id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "type": "affiliate_audit_evidence",
+  "checked_at": "2026-08-28T12:21:00Z",
+  "note": "Evidence for the existing full-catalog audit UUID only. Do not create duplicate application tasks from this file; application ordering remains gated on completion of the parent audit.",
+  "tools": [
+    {
+      "tool_id": "sendcloud",
+      "name": "Sendcloud",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.sendcloud.com/partnerships/affiliate-program/",
+      "application_url": "https://www.sendcloud.com/partnerships/affiliate-program/",
+      "network": "PartnerStack",
+      "commission": "100% of the referred customer's first paid month",
+      "cookie_duration_days": 90,
+      "payout_terms": "Cash out through PayPal or Stripe",
+      "free_to_join": true,
+      "eligibility": "Official page targets software review sites/bloggers, e-commerce content creators, affiliates promoting e-commerce tools, influencers and e-commerce consultants",
+      "evidence_summary": "Current official Sendcloud affiliate page states free application, PartnerStack tracking, 100% commission on the referral's first month, 90-day last-click attribution, and PayPal/Stripe cash-out."
+    },
+    {
+      "tool_id": "livechat",
+      "name": "LiveChat",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://partners.livechat.com/affiliate-program/",
+      "application_url": "https://partners.livechat.com/affiliate-program/",
+      "network": "LiveChat/Text Partner App",
+      "commission": "20% lifetime recurring commission on each paid subscription; after 5 paying customers, 22% on new licenses",
+      "cookie_duration_days": 120,
+      "payout_terms": "Minimum withdrawal $50; PayPal eCheck; withdrawal requested in Partner App",
+      "free_to_join": true,
+      "eligibility": "Affiliate program can be joined through the Partner Program site and promotion can start immediately after signup",
+      "evidence_summary": "Current official partner pages and July 27, 2026 help-center update confirm free affiliate membership, 20% lifetime recurring commission, 22% tier after 5 paying customers, 120-day cookie, $50 minimum withdrawal and PayPal eCheck payouts."
+    },
+    {
+      "tool_id": "kittl",
+      "name": "Kittl",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.kittl.com/partners/affiliates",
+      "application_url": "https://www.kittl.com/partners/affiliates",
+      "network": "Impact Radius",
+      "commission": "20% of all referred customer payments for 12 months",
+      "cookie_duration_days": null,
+      "payout_terms": "Automatic payouts; public affiliate page does not state a current minimum payout threshold",
+      "free_to_join": null,
+      "eligibility": "General affiliate path is available to online content creators including social, blog/website and newsletter publishers; Kittl says applications are reviewed weekly and answers should arrive within up to five days",
+      "evidence_summary": "Current official Kittl affiliate page confirms Impact Radius, unique affiliate links after approval, recurring commission on payments for the first 12 months and a 20% rate. Cookie and threshold values were not inferred because the current public page did not state them."
+    },
+    {
+      "tool_id": "koala-ai",
+      "name": "Koala AI",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://koala.sh/pages/affiliate?via=affiliatewatch",
+      "application_url": "https://friends.koala.sh/signup",
+      "network": "Koala AI affiliate system",
+      "commission": "30% lifetime recurring commission on all sales",
+      "cookie_duration_days": 60,
+      "payout_terms": "Minimum payout $50; commissions payable after 30 days; payouts during the first week of the month; official help center says payouts are sent through Wise",
+      "free_to_join": null,
+      "eligibility": "No self-referrals, paid ads, deceptive promotion, coupon sites or thin sites. Current official materials expose both an email-review route and a friends.koala.sh signup route, so application entry should be confirmed at execution time rather than duplicated.",
+      "evidence_summary": "Current official affiliate page states 30% lifetime recurring commission, 60-day cookie and $50 minimum payout. Official help center confirms the program, Wise payout method and a current signup portal while prohibiting self-referrals and paid ads."
+    },
+    {
+      "tool_id": "supademo",
+      "name": "Supademo",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://supademo.com/affiliates",
+      "application_url": "https://supademo.com/affiliates",
+      "network": "Supademo Affiliate Program",
+      "commission": "30% recurring revenue on all paid plans",
+      "cookie_duration_days": null,
+      "payout_terms": "Official page says the affiliate is notified after the first referral upgrades and then guided through reward claiming; $10,000 commission cap per referred customer; no cap on number of referred customers",
+      "free_to_join": true,
+      "eligibility": "Best fit includes B2B SaaS influencers, agencies, freelance writers, newsletter creators, course creators and no-code creators. No minimum sales or monthly targets. Self-referrals, coupon/offer sites, search ads, cookie stuffing and spam are prohibited.",
+      "evidence_summary": "Current official Supademo affiliate page confirms free participation, 30% recurring commission, no minimum sales/monthly targets, and no limit on referred customers, while keeping a $10,000 commission cap per referred customer."
+    }
+  ]
+}
