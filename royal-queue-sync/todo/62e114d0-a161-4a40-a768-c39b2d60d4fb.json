@@ -281,6 +281,76 @@
         "free_to_join": null,
         "eligibility": "Jasper's 2026 Legal Center still lists the Marketing Affiliate Program Agreement, but the current public partner pages emphasize Solutions/Technology programs and do not expose a clear affiliate application path. The Solutions Partner program explicitly excludes independent affiliates and individual promoters.",
         "evidence_summary": "Official Jasper legal materials still define an active Marketing Affiliate Program with FirstPromoter-style tracking and 25% base commission, but no clear current public application entrypoint was found. Because the current partner surface routes service organizations to a separate Solutions Partner program, application availability should be confirmed before any signup attempt."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "socialchamp-io",
+        "status": "program_exists_not_applied",
+        "official_source_url": "https://www.socialchamp.com/affiliate-program/",
+        "application_url": "https://www.socialchamp.com/affiliate-program/",
+        "network": "PartnerStack",
+        "commission": "Up to 30% recurring commission for as long as the referred customer remains active",
+        "cookie_duration_days": null,
+        "payout_terms": "PartnerStack; official page lists PayPal, Stripe, and bank transfer payout options",
+        "free_to_join": null,
+        "eligibility": "Designed for content creators, influencers, marketers/agencies, digital educators, entrepreneurs and tech enthusiasts; official FAQ says a large audience is not required",
+        "evidence_summary": "Current official Social Champ affiliate page confirms an active PartnerStack program, recurring commissions up to 30%, real-time tracking, and flexible PayPal/Stripe/bank-transfer payouts. The page does not state a cookie duration, so none is inferred."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "boldsign",
+        "status": "program_exists_not_applied",
+        "official_source_url": "https://boldsign.com/affiliate-program/",
+        "application_url": "https://boldsign.com/affiliate-program/signup/",
+        "network": "BoldSign Affiliate Portal",
+        "commission": "30% commission on eligible paid referrals for the customer's first 12 months",
+        "cookie_duration_days": 90,
+        "payout_terms": "PayPal; no minimum payout threshold; commissions become due after a 30-day waiting period",
+        "free_to_join": true,
+        "eligibility": "Available globally with exceptions for countries/regions where BoldSign cannot do business with the United States",
+        "evidence_summary": "Current official BoldSign affiliate page confirms free signup, 30% commission for 12 months, a 90-day cookie, PayPal payouts, and no minimum payout threshold."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "reply-io",
+        "status": "needs_manual_verification",
+        "official_source_url": "https://reply.io/affiliates/",
+        "application_url": "https://reply.io/affiliates/",
+        "network": "PartnerStack",
+        "commission": "Standard tiers shown as 15% for 1 year, 20% for 1 year, and 25% for 1 year; the page also advertises a special 20% lifetime offer requiring at least one paid referral every 3 calendar months and direct contact",
+        "cookie_duration_days": 90,
+        "payout_terms": "PartnerStack supports PayPal, Stripe, and direct deposit",
+        "free_to_join": null,
+        "eligibility": "Official FAQ lists eligible signup regions as North America, Europe, and LATAM; South Korea is not listed",
+        "evidence_summary": "Current official Reply.io affiliate page confirms an active PartnerStack program and 90-day cookie, but its signup eligibility region list excludes Asia/South Korea. COSHUMA eligibility therefore needs manual confirmation before application."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "privy",
+        "status": "program_exists_not_applied",
+        "official_source_url": "https://www.privy.com/partnerships/sign-up",
+        "application_url": "https://www.privy.com/partnerships/sign-up",
+        "network": "Privy Partner Portal / PartnerStack",
+        "commission": "Current partner resources advertise earning 20% of a client's monthly fee; Privy's older still-published agreement lists 10% Affiliate tier and tiered partner shares up to 20%, so the exact applicable share should be confirmed after acceptance",
+        "cookie_duration_days": null,
+        "payout_terms": "Current/legacy official materials route partner payments through PartnerStack with PayPal or Stripe; monthly earnings are paid the following month under the published agreement",
+        "free_to_join": null,
+        "eligibility": "Current signup explicitly offers Affiliate, Technology, and Co-Marketing partnership types for agencies, marketers, and technology providers; signup form is protected by reCAPTCHA",
+        "evidence_summary": "Current official Privy signup and partner resources confirm an active Affiliate partnership path and a Partner Portal. The live resource page advertises 20% of client monthly fees, while the older agreement shows 10%-20% tiered shares, so the current exact commission tier is preserved as a documented conflict rather than guessed."
+      },
+      {
+        "checked_on": "2026-08-28",
+        "tool_id": "shopify",
+        "status": "program_exists_not_applied",
+        "official_source_url": "https://www.shopify.com/kr/affiliates",
+        "application_url": "https://www.shopify.com/kr/affiliates",
+        "network": "Impact",
+        "commission": "Location-dependent commission per qualified new merchant referral; current official Shopify affiliate pages advertise up to $150 USD per qualified referral",
+        "cookie_duration_days": 30,
+        "payout_terms": "Impact; $10 minimum balance; withdrawal to bank account or PayPal, with threshold-based or bi-weekly payout options",
+        "free_to_join": true,
+        "eligibility": "Applicant should run an active website, have an established audience, create original commerce/entrepreneurship content, and have relevant commerce or ecommerce-platform experience",
+        "evidence_summary": "Current official Shopify Korea affiliate page and Shopify Help Center confirm a free Impact-hosted affiliate program for content publishers and commerce educators, with location-dependent referral commissions, a 30-day click attribution window (and longer tracking after certain trial signups in the global program), and a $10 payout threshold."
       }
     ]
   },
@@ -289,5 +359,5 @@
   "error": null,
   "human_reason": null,
   "created_at": "2026-08-24T08:42:00+00:00",
-  "updated_at": "2026-08-28T04:16:06+00:00"
+  "updated_at": "2026-08-28T05:10:00+00:00"
 }
