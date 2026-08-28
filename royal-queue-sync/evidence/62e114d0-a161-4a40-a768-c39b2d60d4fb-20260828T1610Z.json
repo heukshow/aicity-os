@@ -1,0 +1,100 @@
+{
+  "task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "evidence_type": "affiliate_audit_increment",
+  "checked_at": "2026-08-28T16:10:20Z",
+  "new_task_uuid_created": false,
+  "new_application_created": false,
+  "audit_remains_in_progress": true,
+  "dedupe_note": "These findings are additional evidence for the existing full-catalog audit UUID only. No application task is created here, and already-completed application UUIDs must continue to take precedence over research-only classifications.",
+  "tools": [
+    {
+      "tool_id": "docsbot",
+      "tool_name": "DocsBot",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://docsbot.ai/affiliates",
+      "application_url": "https://docsbot.ai/affiliates",
+      "network": "FirstPromoter",
+      "commission": "25% recurring commission for 12 months on each referred customer",
+      "cookie_duration_days": 60,
+      "payout_terms": "Affiliate dashboard provided through FirstPromoter; current public page does not state a payout threshold or payout method, so those values remain unknown.",
+      "free_to_join": true,
+      "eligibility": "Official affiliate page lists agencies, consultants, creators, educators, software reviewers and partners with an audience interested in AI agents/support automation/business productivity as good fits.",
+      "alternate_program": {
+        "type": "agency_consultant_partner",
+        "official_source_url": "https://docsbot.ai/partners",
+        "commission": "30% of each client DocsBot subscription for the first year",
+        "cost": "Free Partner workspace for approved agencies and AI consultants",
+        "approval_required": true,
+        "notes": "Partner path is aimed at agencies/AI consultants delivering client deployments; it is distinct from the general affiliate path and should not be conflated during application routing."
+      },
+      "evidence_summary": "DocsBot's current official affiliate page confirms a free FirstPromoter program with a unique referral link, 25% recurring revenue share for 12 months and a 60-day cookie. A separate official agency/consultant Partner Program offers a free approved workspace plus 30% of client subscriptions for the first year."
+    },
+    {
+      "tool_id": "getgabs",
+      "tool_name": "Getgabs",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://getgabs.com/partner/affiliate/",
+      "application_url": "https://getgabs.com/partner/affiliate/",
+      "network": "Getgabs Affiliate Dashboard",
+      "commission": "30% on the referred customer's first purchase plus 20% recurring commission while the referred customer keeps an active subscription",
+      "cookie_duration_days": 90,
+      "payout_terms": "No minimum payout threshold; official page lists PayPal and bank transfer as payout options.",
+      "free_to_join": true,
+      "eligibility": "Official page says no technical experience is required and explicitly welcomes content creators, influencers, marketers, agencies, developers, consultants, coaches, tech enthusiasts and educators.",
+      "approval": "Official FAQ says there is no approval process; sign up, receive the referral link and start promoting.",
+      "evidence_summary": "Getgabs' current official affiliate and partner pages confirm free signup, 30% first-purchase plus 20% recurring commission, 90-day cookie, no minimum payout threshold, and a dedicated affiliate dashboard."
+    },
+    {
+      "tool_id": "eprofessor",
+      "tool_name": "eProfessor",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://eprofessor.com/page/referral-program",
+      "application_url": "https://eprofessor.com/page/referral-program",
+      "network": "eProfessor Referral / Ambassador dashboard",
+      "commission": "20% of eProfessor net profit from each referred customer, continuing for the lifetime of the active paid referral while the referrer remains enrolled and in good standing",
+      "cookie_duration_days": null,
+      "payout_terms": "Commissions clear 60 days after the referral payment; withdrawals can be requested after at least $50 USD in cleared earnings. Current help documentation describes PayPal setup and W-9 for US taxpayers or W-8BEN for international users before payouts.",
+      "free_to_join": true,
+      "eligibility": "Age 18+ and legally allowed to participate. A paid eProfessor account is not required because the official terms allow a free Referral-Only Account.",
+      "maintenance_requirement": "Future commissions stop if the referrer leaves/cancels program enrollment; referred accounts must remain active and paid.",
+      "evidence_summary": "eProfessor's current official Referral & Ambassador terms confirm a free referral-only participation path, 20% lifetime commission on net profit, a 60-day clearing period and a $50 withdrawal threshold. International payout setup may later require W-8BEN documentation, which should be treated as a payout-stage compliance step rather than a reason to misclassify the program as unavailable."
+    },
+    {
+      "tool_id": "nudgera",
+      "tool_name": "Nudgera",
+      "status": "no_program_found",
+      "official_source_url": "https://nudgera.com/",
+      "application_url": null,
+      "network": null,
+      "commission": null,
+      "cookie_duration_days": null,
+      "payout_terms": null,
+      "free_to_join": null,
+      "evidence_summary": "The current official Nudgera site was checked directly, and fresh site-restricted searches for affiliate, referral, partner and commission terms returned no official program page or application path. No generic homepage/signup URL is counted as an affiliate link."
+    },
+    {
+      "tool_id": "featureshark",
+      "tool_name": "FeatureShark",
+      "status": "no_program_found",
+      "official_source_url": "https://www.featureshark.com/",
+      "application_url": null,
+      "network": null,
+      "commission": null,
+      "cookie_duration_days": null,
+      "payout_terms": null,
+      "free_to_join": null,
+      "evidence_summary": "FeatureShark's current official site navigation and fresh site-restricted searches were checked for affiliate, referral, ambassador and partner monetization paths. No official affiliate/referral application page or commission program was found, so the catalog entry is classified no_program_found rather than using a generic signup or lifetime-deal page."
+    }
+  ],
+  "sources": [
+    "https://docsbot.ai/affiliates",
+    "https://docsbot.ai/partners",
+    "https://getgabs.com/partner/affiliate/",
+    "https://getgabs.com/partner/",
+    "https://eprofessor.com/page/referral-program",
+    "https://eprofessor.com/page/help/settings-1/referral-program-1",
+    "https://nudgera.com/",
+    "https://www.featureshark.com/"
+  ]
+}
