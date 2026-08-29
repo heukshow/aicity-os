@@ -1,0 +1,60 @@
+{
+  "uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "kind": "affiliate_audit_status_resolution",
+  "generated_at": "2026-08-29T08:29:00Z",
+  "scope": "COSHUMA / GlobalSaaSHub unresolved affiliate audit follow-up",
+  "guards": {
+    "new_task_uuid_created": false,
+    "new_application_created": false,
+    "duplicate_suppression": true,
+    "zero_cost_only": true,
+    "no_account_application_submitted": true,
+    "no_legal_consent_executed": true,
+    "no_payment_executed": true,
+    "no_captcha_or_forced_human_step_executed": true
+  },
+  "resolution": {
+    "tool_id": "triple-whale",
+    "previous_status": "needs_manual_verification",
+    "status": "program_exists_not_applied",
+    "preferred_monetization_path": "customer_referral_program",
+    "official_source_urls": [
+      "https://www.triplewhale.com/refer",
+      "https://triplewhale.partnerstack.com/?group=customerreferral",
+      "https://www.triplewhale.com/pages/affiliate-tos"
+    ],
+    "application_url": "https://triplewhale.partnerstack.com/?group=customerreferral",
+    "network": "PartnerStack",
+    "commission": "$250 fixed referral reward for each referred customer who joins a paid plan and remains active for at least 60 days",
+    "cookie_duration_days": 90,
+    "payout_terms": "PartnerStack; Triple Whale's current referral page specifies PayPal for the fixed referral reward, while the PartnerStack program page states monthly commission calculation and next-month availability.",
+    "free_to_join": true,
+    "requires_human_before_submit": true,
+    "human_gate": "The live PartnerStack join page explicitly requires review/acceptance of Program Terms of Service. Do not click Join/accept terms automatically.",
+    "evidence_summary": "Triple Whale currently exposes a direct official cash referral page with a live PartnerStack signup link and a defined $250 reward. The former generic manual-verification label is no longer needed at research stage; the only known submission-time blocker is legal Terms acceptance."
+  },
+  "authoritative_inventory_delta": {
+    "apply_on_top_of": "royal-queue-sync/evidence/62e114d0-a161-4a40-a768-c39b2d60d4fb-20260829T0822Z-authoritative-inventory-overlay.json",
+    "corrected_counts": {
+      "needs_manual_verification": 14,
+      "program_exists_not_applied": 93
+    },
+    "application_queue": {
+      "prior_unique_application_actions": 88,
+      "add": {
+        "application_action_key": "apply:triple-whale",
+        "covered_tool_ids": ["triple-whale"],
+        "requires_human_before_submit": true,
+        "gate": "legal Terms of Service acceptance at PartnerStack Join",
+        "execution_policy": "planning_only_no_submission"
+      },
+      "corrected_unique_application_actions": 89
+    },
+    "manual_verification_queue": {
+      "prior_count": 15,
+      "remove": ["triple-whale"],
+      "corrected_count": 14
+    }
+  },
+  "master_audit_remains_in_progress": true
+}
