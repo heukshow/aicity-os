@@ -1,6 +1,12 @@
 {
-  "generated_at": "2026-08-29T10:42:09.904394+00:00",
+  "generated_at": "2026-08-29T10:42:45.029814+00:00",
   "latest": [
+    {
+      "id": "24bb2f8d-36c5-4d53-9a46-234220e66019",
+      "actor": "butler",
+      "status": "todo",
+      "updated_at": "2026-08-29T10:43:00Z"
+    },
     {
       "id": "apply-jotform",
       "actor": "butler",
@@ -198,12 +204,6 @@
       "actor": "work",
       "status": "done",
       "updated_at": "2026-08-24T09:16:30Z"
-    },
-    {
-      "id": "24bb2f8d-36c5-4d53-9a46-234220e66019",
-      "actor": "butler",
-      "status": "todo",
-      "updated_at": "2026-08-24T09:09:05Z"
     },
     {
       "id": "8c8a6f94-5db6-4c38-bb0f-7d77a9c0d72f",
