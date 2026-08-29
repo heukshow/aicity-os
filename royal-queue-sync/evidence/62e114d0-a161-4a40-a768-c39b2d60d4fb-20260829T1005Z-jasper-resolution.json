@@ -1,0 +1,53 @@
+{
+  "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "generated_at": "2026-08-29T10:05:00Z",
+  "scope": "COSHUMA/GlobalSaaSHub affiliate master audit",
+  "kind": "authoritative_tool_state_resolution",
+  "tool": {
+    "id": "jasper",
+    "name": "Jasper"
+  },
+  "state_transition": {
+    "from": "needs_manual_verification",
+    "to": "program_closed"
+  },
+  "verification": {
+    "current_public_partner_entry": "https://www.jasper.ai/partners/solutions",
+    "legacy_affiliate_agreement": "https://www.jasper.ai/legal/affiliate-agreement",
+    "current_new_independent_affiliate_route_confirmed": false,
+    "current_eligibility": "Jasper's current Solutions Partner page states that the program is for consultancies, digital agencies and systems integrators, and that independent affiliates and individual promoters are not eligible.",
+    "legacy_terms_context": "Jasper still publishes an older Marketing Affiliate Program agreement describing FirstPromoter-style tracking and a 25% base commission for certain plans for up to 12 months. That agreement is treated as legacy/governing material for existing affiliate relationships, not evidence that a new independent-affiliate application route is currently open.",
+    "account_evidence": "No Jasper affiliate/partner application email was found in the connected Gmail account during this verification.",
+    "notes": [
+      "The current public partner entry route does not admit independent affiliates or individual promoters.",
+      "No application path for a new COSHUMA-style independent affiliate was found on the current partner entry surface.",
+      "The classification is therefore program_closed for new independent-affiliate applications, without disturbing any existing affiliate relationship if one is later discovered."
+    ]
+  },
+  "safety": {
+    "new_task_uuid_created": false,
+    "new_application_created": false,
+    "duplicate_application_submitted": false,
+    "payment_or_purchase_performed": false,
+    "captcha_bypassed": false,
+    "otp_or_forced_human_auth_performed": false,
+    "legal_consent_performed": false,
+    "human_action_required_now": false
+  },
+  "derived_inventory_after_resolution": {
+    "inventory_size": 151,
+    "needs_manual_verification": 1,
+    "program_exists_not_applied": 102,
+    "program_exists_region_restricted": 2,
+    "no_program_found": 6,
+    "program_closed": 3,
+    "waiting_human": 6,
+    "deduplicated_application_actions": 98,
+    "master_audit_status": "in_progress"
+  },
+  "dedupe": {
+    "logical_target": "jasper_independent_affiliate_program",
+    "suppress_duplicate_registration": true,
+    "do_not_apply_until_current_public_independent_affiliate_route_reopens": true
+  }
+}
