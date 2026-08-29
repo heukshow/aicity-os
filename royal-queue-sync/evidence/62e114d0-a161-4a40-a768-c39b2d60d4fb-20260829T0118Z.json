@@ -1,0 +1,65 @@
+{
+  "parent_task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "generated_at": "2026-08-29T01:18:00Z",
+  "purpose": "Incremental state correction for the existing full affiliate audit using fresher account-level Gmail evidence plus current repository/live-site verification. Evidence only; no new queue task UUID or duplicate application was created.",
+  "new_task_uuid_created": false,
+  "new_application_created": false,
+  "human_action_required_now": false,
+  "audit_remains_in_progress": true,
+  "dedupe_notes": [
+    "Pictory already has merged PR #21 and an existing verified tracking CTA, so no new integration task or application was created.",
+    "ActiveCampaign has already been applied to and rejected; no apply-activecampaign UUID is created and no automatic re-application is attempted."
+  ],
+  "entries": [
+    {
+      "tool_id": "pictory",
+      "tool_name": "Pictory",
+      "status": "approved_tracking",
+      "tracking_url": "https://pictory.ai?fpr=sangkwon-an23",
+      "network": "FirstPromoter",
+      "account_evidence": {
+        "source": "Gmail approval email from Ash at Pictory / FirstPromoter",
+        "message_id": "1a044272a9dbc6f6",
+        "received_at": "2026-08-27T16:56:41Z",
+        "confirmation": "Pictory explicitly welcomed Sangkwon An to the Affiliate Partner Program and issued the personal referral link https://pictory.ai?fpr=sangkwon-an23."
+      },
+      "commission": "40% commission on the first transaction from each new referred customer",
+      "payout_terms": "PayPal; payouts begin after the second paid subscriber; $10 minimum payout; commissions eligible 30 days after customer payment clears; payments around the first working day of each month",
+      "maintenance_requirement": "At least one new paid sale every 90 days to remain active",
+      "paid_search_restriction": "No PPC or paid ads targeting the Pictory brand name, variations, or misspellings",
+      "repo_integration": {
+        "pr": 21,
+        "pr_title": "fix(GlobalSaaSHub): publish Pictory approved affiliate link",
+        "merged": true,
+        "merge_commit_sha": "d6f8c0cf857608b3d3052595904136e4fbb506cf",
+        "directory_override_path": "projects/GlobalSaaSHub/src/utils/url.js",
+        "static_page_path": "projects/GlobalSaaSHub/public/tool/pictory.html",
+        "regression_test_path": "projects/GlobalSaaSHub/scripts/tests/test_pictory_affiliate.py"
+      },
+      "live_verification": {
+        "url": "https://coshuma.com/tool/pictory.html",
+        "status": "verified_live",
+        "cta_text": "Visit Pictory via Verified Affiliate Link",
+        "resolved_tracking_url": "https://pictory.ai/?fpr=sangkwon-an23"
+      },
+      "evidence_summary": "Fresher account-level evidence supersedes the earlier needs_manual_verification classification. Pictory is approved, the personal referral URL is known, PR #21 is already merged, and the current COSHUMA production page exposes a working verified affiliate CTA that resolves with the referral parameter intact."
+    },
+    {
+      "tool_id": "activecampaign",
+      "tool_name": "ActiveCampaign",
+      "status": "rejected",
+      "network": "PartnerStack",
+      "tracking_url": null,
+      "account_evidence": {
+        "source": "PartnerStack application-status email sent on behalf of ActiveCampaign",
+        "message_id": "1a049ba49a81c468",
+        "received_at": "2026-08-28T18:55:34Z",
+        "confirmation": "ActiveCampaign declined the affiliate application and said it is unable to offer a place in the program at this time."
+      },
+      "reapply_now": false,
+      "reapply_note": "The decline email contains only generic feedback and says re-application is possible after addressing feedback, but it provides no concrete defect to fix. Do not automatically re-apply without a meaningful changed condition or explicit later evidence.",
+      "evidence_summary": "Account-level PartnerStack evidence supersedes the earlier program_exists_not_applied classification. COSHUMA already applied and was declined, so this program must be skipped by the later all-eligible application batch unless materially new eligibility evidence appears."
+    }
+  ]
+}
