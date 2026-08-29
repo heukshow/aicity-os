@@ -1,7 +1,8 @@
 {
   "parent_task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
   "project": "COSHUMA / GlobalSaaSHub",
-  "generated_at": "2026-08-29T04:31:00Z",
+  "generated_at": "2026-08-29T04:22:00Z",
+  "timestamp_correction_note": "The evidence filename is retained to avoid creating a duplicate evidence object; generated_at is corrected to the actual observation/commit window around 04:22Z.",
   "purpose": "Incremental official-source evidence for the final six IDs in the current 100-item unverified affiliate-audit target list that were not already covered by prior audit evidence or dedicated individual application/result records. Research only; no application, account enrollment, legal acceptance, payment, or new queue UUID is created.",
   "new_task_uuid_created": false,
   "new_application_created": false,
