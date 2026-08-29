@@ -1,0 +1,93 @@
+{
+  "parent_task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "generated_at": "2026-08-29T04:15:00Z",
+  "purpose": "Incremental official-source evidence for five registered catalog entries that had no dedicated individual application/result record in latest.json and were not yet represented as standalone entries in prior master-audit evidence. Research only; no affiliate application, partner account, legal acceptance, or duplicate queue UUID is created.",
+  "new_task_uuid_created": false,
+  "new_application_created": false,
+  "human_action_required_now": false,
+  "audit_remains_in_progress": true,
+  "entries": [
+    {
+      "tool_id": "text",
+      "tool_name": "Text",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.text.com/partners/affiliate/",
+      "application_url": "https://www.text.com/partners/affiliate/",
+      "network": "Text Partner Program",
+      "commission": "Up to 22% lifetime recurring commission on referred paying customers",
+      "cookie_duration_days": 120,
+      "payout_terms": "Partner materials state earnings are available on request after reaching $50; Partner app is used for tracking and withdrawals, with affiliate payout materials referencing PayPal.",
+      "free_to_join": true,
+      "eligibility": "Current official program is aimed at content creators, influencers, PPC marketers, review sites, bloggers and SaaS reviewers.",
+      "shared_program_dedupe": "Text App, LiveChat, ChatBot and HelpDesk are all monetized through the same Text Partner Program account. A later application queue must create/reuse only one Text partner account/application and must not submit four separate partner enrollments.",
+      "legal_consent_note": "Current Text Partner Program Terms state that registering for the program constitutes agreement to binding Partner Program Terms and Privacy Policy. No registration or acceptance was performed in this audit pass.",
+      "evidence_summary": "Text's current official affiliate page explicitly lists Text App as one of the products affiliates can promote and confirms up to 22% lifetime recurring commission, a 120-day cookie, free membership, and the shared Text Partner Program structure."
+    },
+    {
+      "tool_id": "chatbot",
+      "tool_name": "ChatBot",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.text.com/partners/affiliate/",
+      "application_url": "https://www.text.com/partners/affiliate/",
+      "network": "Text Partner Program",
+      "commission": "Up to 22% lifetime recurring commission on referred paying customers",
+      "cookie_duration_days": 120,
+      "payout_terms": "Partner materials state earnings are available on request after reaching $50; Partner app is used for tracking and withdrawals, with affiliate payout materials referencing PayPal.",
+      "free_to_join": true,
+      "eligibility": "Current official program is aimed at content creators, influencers, PPC marketers, review sites, bloggers and SaaS reviewers.",
+      "shared_program_dedupe": "ChatBot shares the exact same Text Partner Program with Text App, LiveChat and HelpDesk. Existing HelpDesk/LiveChat audit evidence therefore governs account-level deduplication; this catalog entry must not trigger a separate enrollment.",
+      "legal_consent_note": "Registration binds the participant to Text Partner Program Terms and Privacy Policy. No registration or legal acceptance was performed.",
+      "evidence_summary": "Text's current official affiliate page explicitly names ChatBot as an eligible referral product and confirms the common up-to-22% lifetime recurring affiliate program with 120-day attribution."
+    },
+    {
+      "tool_id": "typedesk",
+      "tool_name": "typedesk",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.typedesk.com/reseller",
+      "application_url": "https://www.typedesk.com/reseller",
+      "network": "typedesk Affiliate Program / partner dashboard",
+      "commission": "30% recurring commission on revenue generated through the affiliate tracking link",
+      "cookie_duration_days": null,
+      "payout_terms": "Current official affiliate page describes 30% payout on Net-60 terms and access to a partner dashboard after review; exact payout method and minimum threshold are not stated on the retrieved public page.",
+      "free_to_join": null,
+      "eligibility": "Signup asks for an account and business information, after which typedesk says its team responds within a few days and grants partner-dashboard access if accepted.",
+      "evidence_summary": "typedesk's current official Affiliate Program page confirms an active recurring 30% program, a partner-dashboard/tracking-link workflow, and Net-60 commission timing. Cookie, payout rail and threshold are left unknown rather than inferred."
+    },
+    {
+      "tool_id": "gojiberry",
+      "tool_name": "Gojiberry AI",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://gojiberry.ai/affiliate-program-gojiberry",
+      "application_url": "https://gojiberry.ai/affiliate-program-gojiberry",
+      "network": "Gojiberry Affiliate Program",
+      "commission": "30% recurring commission on all referred-customer payments for as long as the customer remains subscribed",
+      "cookie_duration_days": 30,
+      "payout_terms": "Monthly payouts on the 15th for the previous month's commissions; $50 minimum; PayPal or wire transfer.",
+      "free_to_join": true,
+      "eligibility": "Official page targets bloggers/content creators, B2B marketers and sales specialists, YouTube creators, business owners and agency founders. It explicitly states no subscription or setup fee is required to join.",
+      "evidence_summary": "Gojiberry's current official affiliate page confirms 30% lifetime recurring commission, a 30-day cookie, $50 payout threshold, monthly PayPal/wire payments, no earnings cap, and zero-cost signup."
+    },
+    {
+      "tool_id": "catalister",
+      "tool_name": "Catalister",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://catalister.com/affiliates",
+      "application_url": "https://affiliates.catalister.com/",
+      "network": "Catalister Affiliate Portal",
+      "commission": "Base 30% of monthly subscription revenue plus 10% of credit purchases; tiers increase to 35%/15% at 250-499 active referred users and 40%/20% at 500+",
+      "cookie_duration_days": null,
+      "payout_terms": "Monthly via PayPal or bank transfer, paid within 14 days after the end of each month.",
+      "free_to_join": null,
+      "eligibility": "Official page identifies dropshipping experts, community owners, ecommerce influencers, marketing agencies and SaaS reviewers as ideal partners.",
+      "legal_consent_note": "The current affiliate signup portal visibly presents Terms and Conditions. No signup, email-code verification, or terms acceptance was performed in this audit pass; any forced acceptance later must stop for human approval.",
+      "evidence_summary": "Catalister's current official affiliate page confirms an active recurring program with 30%-40% subscription commissions plus 10%-20% on credits, monthly PayPal/bank payouts, and a live affiliate portal. Cookie duration and any payout threshold are not asserted because the public official material retrieved did not state them."
+    }
+  ],
+  "dedupe_notes": [
+    "All findings remain under the existing master audit UUID; no new UUID or application was created.",
+    "Text and ChatBot are standalone catalog entries but share one Text Partner Program account with LiveChat and HelpDesk; they must not generate separate account-level applications.",
+    "latest.json contained no dedicated typedesk, gojiberry, catalister, text, or chatbot application/result record at this observation point.",
+    "No legal terms, privacy policy, payout setup, payment, CAPTCHA, OTP, or account enrollment was accepted or completed."
+  ]
+}
