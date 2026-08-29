@@ -1,0 +1,52 @@
+{
+  "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "generated_at": "2026-08-29T10:05:00Z",
+  "scope": "COSHUMA/GlobalSaaSHub affiliate master audit",
+  "kind": "authoritative_tool_state_resolution",
+  "tool": {
+    "id": "marblism",
+    "name": "Marblism"
+  },
+  "state_transition": {
+    "from": "needs_manual_verification",
+    "to": "rejected"
+  },
+  "verification": {
+    "authoritative_account_evidence": "Dub.co program-status email",
+    "email_timestamp": "2026-08-17T17:06:26Z",
+    "email_subject": "Your application to Marblism was not approved",
+    "decision": "After reviewing the application, Marblism decided not to approve it at this time.",
+    "reapplication_policy": "Do not create or submit a duplicate Marblism application unless a material eligibility/program change or explicit invitation is later observed.",
+    "notes": [
+      "This account-specific rejection is more authoritative for COSHUMA's current application state than generic public program availability.",
+      "No new application, appeal, or contact message was sent."
+    ]
+  },
+  "safety": {
+    "new_task_uuid_created": false,
+    "new_application_created": false,
+    "duplicate_application_submitted": false,
+    "payment_or_purchase_performed": false,
+    "captcha_bypassed": false,
+    "otp_or_forced_human_auth_performed": false,
+    "legal_consent_performed": false,
+    "human_action_required_now": false
+  },
+  "derived_inventory_after_resolution": {
+    "inventory_size": 151,
+    "needs_manual_verification": 0,
+    "program_exists_not_applied": 102,
+    "program_exists_region_restricted": 2,
+    "no_program_found": 6,
+    "program_closed": 3,
+    "rejected": 9,
+    "waiting_human": 6,
+    "deduplicated_application_actions": 98,
+    "master_audit_status": "in_progress"
+  },
+  "dedupe": {
+    "logical_target": "marblism_dub_partner_program",
+    "suppress_duplicate_registration": true,
+    "do_not_reapply_without_material_change": true
+  }
+}
