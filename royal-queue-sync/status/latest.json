@@ -1,6 +1,12 @@
 {
-  "generated_at": "2026-08-28T23:03:43.476979+00:00",
+  "generated_at": "2026-08-29T01:15:25.535801+00:00",
   "latest": [
+    {
+      "id": "8afabf62-477e-4b50-8222-8ae4e9586caa",
+      "actor": "codex",
+      "status": "todo",
+      "updated_at": "2026-08-29T01:13:22Z"
+    },
     {
       "id": "apply-semrush",
       "actor": "butler",
@@ -12,12 +18,6 @@
       "actor": "princess",
       "status": "in_progress",
       "updated_at": "2026-08-28T05:10:00Z"
-    },
-    {
-      "id": "8afabf62-477e-4b50-8222-8ae4e9586caa",
-      "actor": "codex",
-      "status": "todo",
-      "updated_at": "2026-08-28T03:20:00Z"
     },
     {
       "id": "40782387-5fc1-4b37-8996-72b8f83a7569",
