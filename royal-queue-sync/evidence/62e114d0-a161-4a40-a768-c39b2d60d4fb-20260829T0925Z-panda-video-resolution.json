@@ -1,0 +1,58 @@
+{
+  "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "generated_at": "2026-08-29T09:25:00Z",
+  "scope": "COSHUMA/GlobalSaaSHub affiliate master audit",
+  "kind": "authoritative_tool_state_resolution",
+  "tool": {
+    "id": "panda-video",
+    "name": "Panda Video"
+  },
+  "state_transition": {
+    "from": "needs_manual_verification",
+    "to": "program_exists_not_applied"
+  },
+  "verification": {
+    "official_partner_page": "https://www.pandavideo.com/solutions/partners",
+    "official_helpdesk": "https://help.pandavideo.com/en-us/article/how-does-the-panda-partners-program-works-7odqgm/",
+    "current_public_program_confirmed": true,
+    "program": "Panda Partners",
+    "commission_duration": "12 months per referred active customer",
+    "global_default_tiers": "20% Premium; up to 30% Super Premium",
+    "global_default_activation": "Premium Partner is described as automatically activated after registration",
+    "withdrawal": "requested through Panda support with affiliate account and payout details",
+    "regional_terms_conflict": {
+      "global_english": "20% starting commission, scaling up to 30%",
+      "brazil_localized": "10% starting commission, scaling up to 20%",
+      "handling": "Treat commission rate as locale-dependent until Panda confirms which schedule applies to a Korean/COSHUMA affiliate; this does not prevent confirming that the program and registration path exist."
+    },
+    "notes": [
+      "Panda Video's current global Partner page and official Helpdesk both confirm an active, registrable Panda Partners affiliate program and 12-month recurring commissions.",
+      "The previous manual-verification state was driven by conflicting localized commission rates; program existence/application availability is now sufficiently verified even though the applicable regional rate still needs confirmation before promotion economics are finalized.",
+      "No registration, terms acceptance, payout setup, or duplicate application was performed."
+    ]
+  },
+  "safety": {
+    "new_task_uuid_created": false,
+    "new_application_created": false,
+    "duplicate_application_submitted": false,
+    "payment_or_purchase_performed": false,
+    "captcha_bypassed": false,
+    "otp_or_forced_human_auth_performed": false,
+    "legal_consent_performed": false,
+    "human_action_required_now": false
+  },
+  "derived_inventory_after_resolution": {
+    "inventory_size": 151,
+    "needs_manual_verification": 7,
+    "program_exists_not_applied": 98,
+    "program_exists_region_restricted": 2,
+    "waiting_human": 6,
+    "deduplicated_application_actions": 94,
+    "master_audit_status": "in_progress"
+  },
+  "dedupe": {
+    "logical_target": "panda_partners_affiliate_program",
+    "suppress_duplicate_registration": true,
+    "reuse_existing_account_or_application_if_discovered_before_submit": true
+  }
+}
