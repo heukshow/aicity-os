@@ -14,42 +14,39 @@
     "actor": "butler",
     "success": true,
     "application_status": "approved",
-    "approval_status": "approved_tracking_live_deployed",
-    "tracking_link": "https://link.jotform.com/yS9uTiLnz1?username=AnSangkwon",
-    "tracking_link_status": "verified_referral_bearing_from_jotform_welcome_email_and_published",
+    "approval_status": "approved_tracking_link_pending_retrieval",
+    "tracking_link": null,
+    "tracking_link_status": "dashboard_redirect_candidate_removed_pending_unique_partner_dashboard_link",
     "payout_status": "not_applicable_yet",
     "terms_summary": {
       "commission": "30% recurring, tiered up to 50% with growth; $5 bonus per paid referral in first 30 days",
       "cookie_days": null,
       "payout": "Via Jotform Partner Dashboard",
-      "source": "Jotform Affiliate Partner welcome email, verified 2026-08-29"
+      "source": "Jotform Affiliate Partner welcome email, re-verified 2026-08-29"
     },
-    "blocker": null,
+    "blocker": "Retrieve the actual unique customer-facing affiliate tracking link from the existing approved Jotform Partner Dashboard. Do not create a new application.",
     "tracking_verification": {
       "email_subject": "Welcome to the Jotform Affiliate Program!",
-      "email_evidence": "Jotform states the Partner Dashboard exposes the unique affiliate tracking link and that custom/share links track back to the affiliate. The published share URL was issued in that official welcome email and includes username=AnSangkwon.",
-      "repo_pr": 23,
-      "repo_merge_sha": "0bea59e5639a366f9707d7384bc6ea8ef0940442",
-      "gh_pages_commit": "af4ca2369c327ef5199bc3062e0b9c6dff944dda",
-      "pages_run": 129,
-      "pages_run_id": 33247650358,
-      "pages_result": "success",
+      "email_evidence": "The official welcome email states that the Partner Dashboard is where the unique affiliate tracking link is available. The previously published yS9uTiLnz1 link is also used in the email as Partner Dashboard access/share navigation.",
+      "invalid_candidate": "https://link.jotform.com/yS9uTiLnz1?username=AnSangkwon",
+      "invalid_candidate_live_resolution": "https://www.jotform.com/partnership/dashboard/?utm_source=welcome_emailv2&utm_campaign=affiliate_onboard&utm_medium=email&username=AnSangkwon",
+      "correction_pr": 24,
+      "correction_merge_sha": "28a229cc6981438d560a89adab58e3d651d051cd",
+      "previous_pr": 23,
+      "previous_merge_sha": "0bea59e5639a366f9707d7384bc6ea8ef0940442",
+      "previous_pages_run": 129,
       "static_page": "tool/jotform.html",
-      "static_cta_attributes": [
-        "data-cta=affiliate",
-        "rel=sponsored noopener noreferrer"
-      ],
       "dynamic_override_path": "projects/GlobalSaaSHub/src/utils/url.js",
       "regression_test": "projects/GlobalSaaSHub/scripts/tests/test_jotform_affiliate.py"
     },
-    "notes": "Application approval was already authoritative from Gmail. This update retrieves and publishes the referral-bearing share link from Jotform's official affiliate welcome email without creating a new application. PR #23 added the verified override, static sponsored CTA and regression test; it was merged, and GitHub Pages run #129 deployed the static CTA successfully. The Vercel preview checks on the PR were rate-limited by the free deployment quota rather than failing code validation, so no paid upgrade or retry was performed."
+    "notes": "CORRECTION: PR #23 successfully deployed the candidate URL, but a post-deploy live follow showed that it resolves to Jotform's Partner Dashboard rather than a customer-facing acquisition destination. PR #24 removes that URL from both the dynamic verified override and the static sponsored affiliate CTA and adds a regression guard. The Jotform affiliate account remains approved; only tracking-link publication is pending retrieval of the actual unique customer-facing link from the existing Partner Dashboard. No duplicate application was created."
   },
   "browser_tab_status": {
     "is_open_now": false,
     "tab_id": null,
     "url": null,
-    "correction_note": "No browser tab is required for the now-complete tracking-link publication."
+    "correction_note": "No browser tab is currently available; actual unique tracking-link retrieval remains pending from the existing approved Partner Dashboard."
   },
   "created_at": "2026-08-24T09:44:10.279520+00:00",
-  "updated_at": "2026-08-29T10:22:34Z"
+  "updated_at": "2026-08-29T10:38:03Z"
 }
