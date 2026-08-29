@@ -1,0 +1,50 @@
+{
+  "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "generated_at": "2026-08-29T09:22:00Z",
+  "scope": "COSHUMA/GlobalSaaSHub affiliate master audit",
+  "kind": "authoritative_tool_state_resolution",
+  "tool": {
+    "id": "liftmycv",
+    "name": "LiftmyCV"
+  },
+  "state_transition": {
+    "from": "needs_manual_verification",
+    "to": "no_program_found"
+  },
+  "verification": {
+    "official_current_guide": "https://www.liftmycv.com/how-to/",
+    "current_official_referral_reward": "free Lifts / product credits for qualifying referrals",
+    "cash_affiliate_program_confirmed": false,
+    "notes": [
+      "LiftmyCV's current official product guide documents an Invite & Earn / Referral Program whose reward is free Lifts (product credits), not cash affiliate commission.",
+      "Targeted searches of the current official LiftmyCV domain did not surface a public cash affiliate/partner commission page or application path.",
+      "For COSHUMA's revenue-producing affiliate audit, this is therefore classified as no current cash affiliate program found rather than treating the non-cash referral credits as monetization.",
+      "If LiftmyCV publishes a cash partner program later, this classification should be re-opened."
+    ]
+  },
+  "safety": {
+    "new_task_uuid_created": false,
+    "new_application_created": false,
+    "duplicate_application_submitted": false,
+    "payment_or_purchase_performed": false,
+    "captcha_bypassed": false,
+    "otp_or_forced_human_auth_performed": false,
+    "legal_consent_performed": false,
+    "human_action_required_now": false
+  },
+  "derived_inventory_after_resolution": {
+    "inventory_size": 151,
+    "needs_manual_verification": 4,
+    "program_exists_not_applied": 100,
+    "program_exists_region_restricted": 2,
+    "no_program_found": 6,
+    "waiting_human": 6,
+    "deduplicated_application_actions": 96,
+    "master_audit_status": "in_progress"
+  },
+  "dedupe": {
+    "logical_target": "liftmycv_cash_affiliate_program",
+    "suppress_duplicate_registration": true,
+    "exclude_from_application_queue": true
+  }
+}
