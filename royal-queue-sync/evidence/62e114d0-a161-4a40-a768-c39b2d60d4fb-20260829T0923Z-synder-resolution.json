@@ -1,0 +1,65 @@
+{
+  "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "generated_at": "2026-08-29T09:23:00Z",
+  "scope": "COSHUMA/GlobalSaaSHub affiliate master audit",
+  "kind": "authoritative_tool_state_resolution",
+  "tool": {
+    "id": "synder",
+    "name": "Synder"
+  },
+  "state_transition": {
+    "from": "needs_manual_verification",
+    "to": "program_exists_region_restricted"
+  },
+  "verification": {
+    "official_affiliate_page": "https://synder.com/affiliate-program/",
+    "official_partner_page": "https://synder.com/partners/",
+    "current_public_program_confirmed": true,
+    "commission_tiers": [
+      "Bronze: 10%",
+      "Silver: 15% after more than $5,000 sales or 20 subscriptions",
+      "Gold: 20% after more than $10,000 sales or 50 subscriptions"
+    ],
+    "payout": "monthly at the beginning of the following month",
+    "published_eligibility_markets": [
+      "United States",
+      "United Kingdom",
+      "Canada",
+      "Australia",
+      "New Zealand",
+      "Western Europe (France stated on the affiliate page)"
+    ],
+    "legal_terms_required_before_application": true,
+    "notes": [
+      "Synder's current official affiliate page confirms the program, commission tiers, monthly payout cadence, and a published market/audience eligibility requirement.",
+      "The published eligible market list does not include South Korea, so the COSHUMA application should not be submitted while this restriction remains in force.",
+      "Synder explicitly requires applicants to read and agree to Affiliate Program Terms and Conditions before applying; no agreement was accepted automatically.",
+      "No location workaround, duplicate signup, or application submission was attempted."
+    ]
+  },
+  "safety": {
+    "new_task_uuid_created": false,
+    "new_application_created": false,
+    "duplicate_application_submitted": false,
+    "region_or_identity_misrepresentation_attempted": false,
+    "payment_or_purchase_performed": false,
+    "captcha_bypassed": false,
+    "otp_or_forced_human_auth_performed": false,
+    "legal_consent_performed": false,
+    "human_action_required_now": false
+  },
+  "derived_inventory_after_resolution": {
+    "inventory_size": 151,
+    "needs_manual_verification": 8,
+    "program_exists_not_applied": 97,
+    "program_exists_region_restricted": 2,
+    "waiting_human": 6,
+    "deduplicated_application_actions": 93,
+    "master_audit_status": "in_progress"
+  },
+  "dedupe": {
+    "logical_target": "synder_affiliate_program",
+    "suppress_duplicate_registration": true,
+    "exclude_from_application_queue_while_region_restricted": true
+  }
+}
