@@ -19,10 +19,11 @@
       "No payments, no production deploy, no account changes, no CAPTCHA handling, and no secrets access."
     ],
     "current_evidence": {
-      "checked_at": "2026-08-28T03:20:00Z",
+      "checked_at": "2026-08-29T01:13:22Z",
       "latest_generated_at_before_default_branch_fix": "2026-08-27T23:18:26.791555+00:00",
       "latest_generated_at_after_fallback_rerun": "2026-08-28T02:26:51.068284+00:00",
       "latest_generated_at_before_current_probe": "2026-08-28T02:30:31.701047+00:00",
+      "latest_generated_at_after_scheduled_run": "2026-08-28T23:03:43.476979+00:00",
       "reconciled_counts": {
         "todo": 3,
         "in_progress": 2,
@@ -58,27 +59,55 @@
         "behavior": "Deduplicate by UUID using explicit status/result semantics plus freshness; regenerate latest/dashboard; mark old local process heartbeats stale instead of treating them as current; drop completed legacy tracking rows when the authoritative task is rejected or its approved tracking link is verified/live."
       },
       "scheduled_watchdog_root_cause": {
-        "observed": "No schedule event ran at the next 00:17 UTC boundary even though the cron existed on royal-queue; Actions history stopped at push Run 33125796560 from 23:18 UTC.",
-        "cause": "The reconcile workflow existed only on the non-default royal-queue branch. GitHub scheduled workflows execute from the repository default branch, which is main, and main did not contain .github/workflows/royal-queue-reconcile.yml.",
+        "observed": "No schedule event ran at the first three expected hourly boundaries after the cron was copied to main, even though the cron existed on royal-queue.",
+        "cause": "The reconcile workflow originally existed only on the non-default royal-queue branch. GitHub scheduled workflows execute from the repository default branch, which is main, and main initially did not contain .github/workflows/royal-queue-reconcile.yml.",
         "default_branch": "main",
         "main_workflow_before_fix": "absent"
       },
       "default_branch_schedule_fix": {
-        "status": "merged_but_schedule_event_not_observed",
+        "status": "proven_operational",
         "pr": 22,
         "pr_title": "fix: enable hourly royal-queue reconcile on default branch",
         "head_sha": "6d0a269afb1440a512e3f8b738ecb83cf9027a15",
         "checks": "success",
         "merge_sha": "1c6092a74272d257df79ca1a5741ba2400787d0c",
         "merged_at": "2026-08-28T00:23:26Z",
-        "change": "Copied the existing reconcile workflow to main. The scheduled job still checks out ref=royal-queue and writes only royal-queue status snapshots.",
-        "observed_schedule_run_count_after_merge": 0,
-        "expected_boundaries_observed_without_schedule_event": [
-          "2026-08-28T01:17:00Z",
-          "2026-08-28T02:17:00Z",
-          "2026-08-28T03:17:00Z"
+        "change": "Copied the existing reconcile workflow to main. The scheduled job checks out ref=royal-queue and writes only royal-queue status snapshots.",
+        "observed_schedule_run_count_after_merge": 2,
+        "observed_schedule_runs": [
+          {
+            "run_number": 30,
+            "run_id": 33172595949,
+            "created_at": "2026-08-28T12:48:14Z",
+            "conclusion": "success"
+          },
+          {
+            "run_number": 51,
+            "run_id": 33219091656,
+            "created_at": "2026-08-28T23:03:37Z",
+            "completed_at": "2026-08-28T23:03:46Z",
+            "conclusion": "success",
+            "status_snapshot_generated_at": "2026-08-28T23:03:43.476979+00:00"
+          }
         ],
-        "next_verification": "Continue checking event=schedule history. Treat schedule delivery as unproven until an actual scheduled run appears; do not mark this UUID done based only on push/manual success."
+        "next_verification": "Scheduled GitHub-side watchdog delivery is now proven. Keep this UUID open only for the separate local watcher/bridge/dashboard runtime and persistent-heartbeat recovery requirements."
+      },
+      "scheduled_watchdog_delivery_proof": {
+        "status": "complete",
+        "verified_at": "2026-08-29T01:13:22Z",
+        "latest_run_number": 51,
+        "latest_run_id": 33219091656,
+        "event": "schedule",
+        "workflow_head_branch": "main",
+        "workflow_head_sha": "1c6092a74272d257df79ca1a5741ba2400787d0c",
+        "conclusion": "success",
+        "job": "reconcile",
+        "successful_steps": [
+          "Check out royal-queue",
+          "Reconcile status snapshots",
+          "Commit corrected status if changed"
+        ],
+        "result": "The scheduled workflow checked out royal-queue, regenerated latest.json/dashboard.json, committed the corrected snapshot, preserved deduplicated counts, and did not resurrect stale tracking or waiting_human entries."
       },
       "fallback_runtime_probe": {
         "source_run_id": 33132338437,
@@ -91,14 +120,13 @@
         "result": "latest.json and dashboard.json regenerated at 2026-08-28T02:26:51.068284+00:00 with unchanged deduplicated counts and no stale waiting_human/tracking resurrection."
       },
       "observations": [
-        "Push-triggered GitHub reconciliation remains healthy, with semantic counts todo=3, in_progress=2, done=36, failed=7, waiting_human=6 and tracking=[].",
-        "PR #22 correctly placed the cron workflow on main, but GitHub Actions still reports zero event=schedule runs after the first three expected hourly boundaries (01:17, 02:17, 03:17 UTC), so scheduled watchdog delivery is still unproven.",
-        "The current latest/dashboard snapshot is generated at 2026-08-28T02:30:31.701047+00:00, while the affiliate audit task has a fresher updated_at of 2026-08-28T02:32:00Z; this probe intentionally updates the existing recovery UUID to trigger the healthy push-based reconcile path without creating a duplicate task.",
-        "A zero-cost rerun of existing reconcile Run 33132338437 attempt 2 previously succeeded and refreshed latest/dashboard without resurrecting stale UUIDs; this is only a fallback proof, not proof that cron scheduling works.",
-        "The 148-tool affiliate audit UUID is correctly resolved as in_progress despite copies in todo/done because its explicit internal status is in_progress; directory name alone is not treated as terminal evidence.",
-        "Semrush remains correctly in_progress/waiting_reply rather than waiting_human; no automatic reapplication is permitted while vendor support is pending.",
-        "Old local process heartbeats remain explicitly labeled stale_remote_observation; GitHub-side reconciliation does not pretend to know current local PID health.",
-        "Local watcher/bridge/dashboard restart and persistent local heartbeat recovery remain unfinished, so this UUID stays open until the local execution surface is durably recovered."
+        "GitHub-side reconciliation is healthy, with semantic counts todo=3, in_progress=2, done=36, failed=7, waiting_human=6 and tracking=[].",
+        "The scheduled watchdog is now proven operational: actual event=schedule runs #30 and #51 both completed successfully after PR #22 placed the workflow on main.",
+        "Run #51 checked out royal-queue and successfully executed reconciliation plus corrected-status commit; latest.json and dashboard.json were regenerated at 2026-08-28T23:03:43.476979+00:00.",
+        "The COSHUMA full affiliate audit UUID remains correctly resolved as in_progress despite its source file living in todo because explicit internal status/freshness semantics win over directory placement.",
+        "Semrush remains correctly in_progress rather than waiting_human; its next step is the single controlled browser retry authorized by vendor support, and no automatic retry loop is permitted.",
+        "Old local watcher/bridge/dashboard heartbeats remain explicitly labeled stale_remote_observation; GitHub-side reconciliation does not pretend to know current local PID health.",
+        "Local watcher/bridge/dashboard restart and persistent local heartbeat recovery remain unfinished, so this UUID stays open even though the scheduled GitHub-side watchdog requirement is now satisfied."
       ],
       "prior_evidence": "Detailed recurrence history is preserved in git history through commit dc3c32d13dac81fd5f92718af42a1c64dea5dfdc and later reconciliation commits."
     }
@@ -108,5 +136,5 @@
   "error": null,
   "human_reason": null,
   "created_at": "2026-08-24T09:05:45+00:00",
-  "updated_at": "2026-08-28T03:20:00+00:00"
+  "updated_at": "2026-08-29T01:13:22+00:00"
 }
