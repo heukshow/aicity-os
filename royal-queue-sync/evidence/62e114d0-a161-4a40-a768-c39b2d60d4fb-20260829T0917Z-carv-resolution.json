@@ -1,0 +1,64 @@
+{
+  "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "generated_at": "2026-08-29T09:17:00Z",
+  "scope": "COSHUMA/GlobalSaaSHub affiliate master audit",
+  "kind": "authoritative_tool_state_resolution",
+  "tool": {
+    "id": "carv",
+    "name": "Carv"
+  },
+  "state_transition": {
+    "from": "needs_manual_verification",
+    "to": "program_exists_not_applied"
+  },
+  "verification": {
+    "official_partner_program": "https://www.carv.com/partner-program",
+    "official_referral_partner": "https://www.carv.com/partner-program/referral-partner",
+    "official_brand_ambassador": "https://www.carv.com/partner-program/brand-ambassador",
+    "current_public_program_confirmed": true,
+    "tracks": [
+      {
+        "name": "Referral Partner",
+        "commission": "10% of first-year enterprise contract value, capped at EUR 500 per deal",
+        "payout": "within 30 days of deal close by invoice",
+        "eligibility": "trusted advisors with direct relationships to enterprise staffing/recruitment organizations in European or US markets"
+      },
+      {
+        "name": "Brand Ambassador",
+        "commission": "20% per qualified Recruitment Pro referral; Custom-plan referral terms include flat-fee rewards",
+        "payout": "within 30 days after qualifying paid conversion, by invoice",
+        "eligibility": "recruiting/TA/HR-tech content creators; page states 5,000+ followers or a 1,000+ member community"
+      }
+    ],
+    "official_source_conflict": "The Referral Partner page says an active Carv account is not required, while the Brand Ambassador FAQ describes the Referral track as requiring active Carv use. This eligibility conflict is preserved and must be rechecked before submission.",
+    "notes": [
+      "Carv now has public official Partner Program pages and an explicit application path, so 'needs_manual_verification' is no longer appropriate for program existence.",
+      "COSHUMA should choose only one Carv partner track before any application; do not create duplicate Referral and Ambassador applications.",
+      "No application, account creation, invoice setup, agreement acceptance, or other submission was performed."
+    ]
+  },
+  "safety": {
+    "new_task_uuid_created": false,
+    "new_application_created": false,
+    "duplicate_application_submitted": false,
+    "payment_or_purchase_performed": false,
+    "captcha_bypassed": false,
+    "otp_or_forced_human_auth_performed": false,
+    "legal_consent_performed": false,
+    "human_action_required_now": false
+  },
+  "derived_inventory_after_resolution": {
+    "inventory_size": 151,
+    "needs_manual_verification": 11,
+    "program_exists_not_applied": 96,
+    "waiting_human": 6,
+    "deduplicated_application_actions": 92,
+    "master_audit_status": "in_progress"
+  },
+  "dedupe": {
+    "logical_target": "carv_partner_program_choose_one_track",
+    "suppress_duplicate_registration": true,
+    "single_track_application_only": true,
+    "reuse_existing_account_or_application_if_discovered_before_submit": true
+  }
+}
