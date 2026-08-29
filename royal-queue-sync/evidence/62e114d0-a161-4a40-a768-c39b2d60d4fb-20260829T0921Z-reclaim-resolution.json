@@ -1,0 +1,64 @@
+{
+  "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "generated_at": "2026-08-29T09:21:00Z",
+  "scope": "COSHUMA/GlobalSaaSHub affiliate master audit",
+  "kind": "authoritative_tool_state_resolution",
+  "tool": {
+    "id": "reclaim-ai",
+    "name": "Reclaim.ai"
+  },
+  "state_transition": {
+    "from": "needs_manual_verification",
+    "to": "program_exists_region_restricted"
+  },
+  "verification": {
+    "official_affiliate_help": "https://help.reclaim.ai/en/articles/8370417-reclaim-ai-affiliate-program",
+    "official_partner_hub": "https://partner.reclaim.ai/get-started",
+    "network": "PartnerStack",
+    "joining_cost": "free",
+    "commission": "40% recurring for 12 months on customers using work emails plus $1 per referred work-email signup; 25% commission on customers using personal emails",
+    "cookie_days": 90,
+    "payout": "monthly with a 30-day delay",
+    "approved_country_policy": [
+      "North America including Central America",
+      "South America",
+      "Europe",
+      "Australia",
+      "New Zealand",
+      "Japan"
+    ],
+    "current_public_program_confirmed": true,
+    "current_region_restriction_confirmed": true,
+    "notes": [
+      "Reclaim's official January 12, 2026 Affiliate Program help page confirms a current, free PartnerStack affiliate program and publishes the approved-country list.",
+      "South Korea is not included in the published approved-country list, so the COSHUMA application should not be submitted while this restriction remains in force.",
+      "This resolves the earlier uncertainty: the program exists, but the current geography policy blocks the intended Korean application path.",
+      "No application, account creation, payment setup, terms acceptance, or location workaround was attempted."
+    ]
+  },
+  "safety": {
+    "new_task_uuid_created": false,
+    "new_application_created": false,
+    "duplicate_application_submitted": false,
+    "region_or_identity_misrepresentation_attempted": false,
+    "payment_or_purchase_performed": false,
+    "captcha_bypassed": false,
+    "otp_or_forced_human_auth_performed": false,
+    "legal_consent_performed": false,
+    "human_action_required_now": false
+  },
+  "derived_inventory_after_resolution": {
+    "inventory_size": 151,
+    "needs_manual_verification": 9,
+    "program_exists_not_applied": 97,
+    "program_exists_region_restricted": 1,
+    "waiting_human": 6,
+    "deduplicated_application_actions": 93,
+    "master_audit_status": "in_progress"
+  },
+  "dedupe": {
+    "logical_target": "reclaim_partnerstack_affiliate_program",
+    "suppress_duplicate_registration": true,
+    "exclude_from_application_queue_while_region_restricted": true
+  }
+}
