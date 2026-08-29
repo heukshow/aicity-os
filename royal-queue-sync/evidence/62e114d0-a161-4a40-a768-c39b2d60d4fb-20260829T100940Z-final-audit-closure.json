@@ -1,0 +1,60 @@
+{
+  "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "generated_at": "2026-08-29T10:09:40Z",
+  "scope": "COSHUMA/GlobalSaaSHub full affiliate program audit",
+  "kind": "final_research_audit_closure",
+  "research_status": "complete",
+  "catalog": {
+    "inventory_size": 151,
+    "representation": "The complete 151-tool base inventory in 62e114d0-a161-4a40-a768-c39b2d60d4fb-final-inventory.json plus all later authoritative state-resolution evidence files for the same UUID. Later dedicated/account evidence takes precedence over older base rows.",
+    "needs_manual_verification": 0
+  },
+  "final_status_counts": {
+    "application_failed": 1,
+    "applied_pending": 7,
+    "applied_pending_legal_consent": 1,
+    "approved_tracking": 8,
+    "approved_tracking_link_pending_retrieval": 4,
+    "in_progress": 1,
+    "needs_manual_verification": 0,
+    "no_program_found": 6,
+    "program_closed": 3,
+    "program_exists_cost_gated": 1,
+    "program_exists_not_applied": 102,
+    "program_exists_region_restricted": 2,
+    "rejected": 9,
+    "waiting_human": 6
+  },
+  "validation": {
+    "status_count_sum": 151,
+    "all_original_target100_research_covered": true,
+    "complete_catalog_inventory_previously_validated": true,
+    "deduplicated_application_actions": 98,
+    "shared_application_groups_preserved": [
+      "text_partner_program_shared",
+      "merlin_affiliate_shared"
+    ],
+    "duplicate_uuid_created": false,
+    "duplicate_program_application_submitted": false,
+    "research_task_required_account_application": false
+  },
+  "last_manual_resolutions": {
+    "make-com": "program_exists_not_applied; current official program is live, while its own page retains a 12-month versus one 24-month wording inconsistency",
+    "jasper": "program_closed for new independent affiliates; current public Solutions Partner entry explicitly excludes independent affiliates and individual promoters",
+    "marblism": "rejected; Dub.co account email dated 2026-08-17 confirms the submitted Marblism application was not approved"
+  },
+  "application_queue": {
+    "eligible_not_yet_applied_deduplicated_actions": 98,
+    "scope_note": "Application execution remains separate from this research-only audit. Existing pending, rejected, approved, cost-gated, region-restricted, closed, waiting-human and in-progress account states must not be duplicated.",
+    "human_gate_rule": "Any future application action that reaches CAPTCHA, payment approval, legal consent, OTP/forced human verification must stop at that gate."
+  },
+  "safety": {
+    "new_task_uuid_created": false,
+    "new_application_created": false,
+    "payment_or_purchase_performed": false,
+    "captcha_bypassed": false,
+    "otp_or_forced_human_auth_performed": false,
+    "legal_consent_performed": false,
+    "human_action_required_now": false
+  }
+}
