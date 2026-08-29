@@ -1,0 +1,53 @@
+{
+  "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "generated_at": "2026-08-29T09:11:00Z",
+  "scope": "COSHUMA/GlobalSaaSHub affiliate master audit",
+  "kind": "authoritative_tool_state_resolution",
+  "tool": {
+    "id": "speechify",
+    "name": "Speechify"
+  },
+  "state_transition": {
+    "from": "needs_manual_verification",
+    "to": "program_exists_not_applied"
+  },
+  "verification": {
+    "official_program_page": "https://speechify.com/affiliates/",
+    "official_affiliate_agreement": "https://speechify.com/affiliate-agreement/",
+    "network": "Impact",
+    "commission": "30% on paid Speechify subscriptions",
+    "cookie_days": 30,
+    "payout_frequency": "monthly",
+    "program_entry_confirmed": true,
+    "current_public_program_confirmed": true,
+    "notes": [
+      "Speechify's official affiliate page currently exposes a Join/Impact signup path and states 30% commission on paid subscriptions, monthly payouts, and 30-day tracking.",
+      "Speechify's official affiliate agreement independently confirms the 30% paid-plan commission framework.",
+      "The signup form includes acceptance/acknowledgement language for legal/privacy terms, so no application was submitted automatically."
+    ]
+  },
+  "safety": {
+    "new_task_uuid_created": false,
+    "new_application_created": false,
+    "duplicate_application_submitted": false,
+    "payment_or_purchase_performed": false,
+    "captcha_bypassed": false,
+    "otp_or_forced_human_auth_performed": false,
+    "legal_consent_performed": false,
+    "requires_human_legal_consent_before_submit": true,
+    "human_action_required_now": false
+  },
+  "derived_inventory_after_resolution": {
+    "inventory_size": 151,
+    "needs_manual_verification": 13,
+    "program_exists_not_applied": 94,
+    "waiting_human": 6,
+    "deduplicated_application_actions": 90,
+    "master_audit_status": "in_progress"
+  },
+  "dedupe": {
+    "logical_target": "speechify_affiliate_program",
+    "suppress_duplicate_registration": true,
+    "reuse_existing_account_or_application_if_discovered_before_submit": true
+  }
+}
