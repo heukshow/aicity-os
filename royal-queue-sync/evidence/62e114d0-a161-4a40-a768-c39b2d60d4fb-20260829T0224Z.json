@@ -1,0 +1,91 @@
+{
+  "parent_task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "generated_at": "2026-08-29T02:24:00Z",
+  "purpose": "Continue the full-registry, research-only affiliate audit for five registered tools that had no known completed affiliate audit result in the existing queue/evidence review. No application was submitted and no new task UUID was created.",
+  "new_task_uuid_created": false,
+  "new_application_created": false,
+  "human_action_required_now": false,
+  "audit_remains_in_progress": true,
+  "entries": [
+    {
+      "tool_id": "sendcloud",
+      "tool_name": "Sendcloud",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.sendcloud.com/partnerships/affiliate-program/",
+      "application_url": "https://dash.partnerstack.com/",
+      "network": "PartnerStack",
+      "commission": "100% commission on the referred customer's first paid month",
+      "cookie_duration_days": 90,
+      "attribution": "Last click",
+      "payout_terms": "Cash out via PayPal or Stripe; public page does not state a minimum payout threshold",
+      "free_to_join": true,
+      "eligibility": "Official page explicitly targets software review sites/bloggers, e-commerce content creators, affiliates promoting e-commerce tools, influencers and e-commerce consultants.",
+      "evidence_summary": "Sendcloud's current official affiliate page confirms a free PartnerStack application, unique tracking link, 100% of the referral's first paid month, last-click attribution, a 90-day cookie and PayPal/Stripe cash-out. The separate agency program is not treated as the same application path."
+    },
+    {
+      "tool_id": "blaze",
+      "tool_name": "Blaze",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.blaze.ai/affiliates",
+      "application_url": "https://blaze.firstpromoter.com/",
+      "network": "FirstPromoter / Impact payout references in current official materials",
+      "commission": "30% for a referral's first two paid months, then 15% recurring while the referral remains an active paying subscriber and the program remains active",
+      "cookie_duration_days": null,
+      "attribution": "Last click. Current affiliate page and current legal terms require the trial to start within 30 days of the affiliate click and the paid upgrade within 30 days of trial start; Blaze's March 26, 2026 help article still states a 60-day cookie, so the official-source conflict is preserved rather than silently resolved.",
+      "payout_terms": "Official help article states monthly/Net-30 through Impact and a payout threshold over $20; the current legal terms say commissions typically process in 30-90 days and payout method/currency are as specified by Blaze/dashboard.",
+      "free_to_join": null,
+      "eligibility": "Current page invites entrepreneurs, newsletters, educators, media networks, content creators/influencers, bloggers and writers. Paid-media-primary and coupon/deal aggregation models are excluded; organic blogs/newsletters/social content are supported.",
+      "legal_consent_required_at_submission": true,
+      "evidence_summary": "Blaze's current affiliate page and legal terms confirm an active program and the 30% then 15% recurring commission model. Application enrollment requires agreeing to the affiliate agreement, so no application was submitted in this research task. An official 30-day-vs-60-day attribution-window inconsistency remains and should be rechecked at application time."
+    },
+    {
+      "tool_id": "decktopus",
+      "tool_name": "Decktopus",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.decktopus.com/affiliate",
+      "application_url": "https://affiliate.decktopus.com/signup",
+      "network": "Decktopus affiliate portal",
+      "commission": "50% on qualifying purchases; the signup portal uses recurring-commission wording while the main official program page describes 50% per qualifying sale, so that wording difference is preserved",
+      "cookie_duration_days": 60,
+      "payout_terms": "Monthly via PayPal, approximately 30 days after month-end; no earnings cap",
+      "free_to_join": true,
+      "eligibility": "Open worldwide. PPC campaigns require affiliate-manager permission.",
+      "legal_consent_required_at_submission": true,
+      "evidence_summary": "Decktopus's current official page confirms 50% commission, a 60-day cookie, $0/free joining, worldwide eligibility, PayPal monthly payouts and a 14-day refund policy. The signup surface states that creating the account agrees to Terms of Service, so no signup was performed in this research task."
+    },
+    {
+      "tool_id": "aiassistworks",
+      "tool_name": "AiAssistWorks",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.aiassistworks.com/affiliate-program",
+      "application_url": "https://aiassistworks.affonso.io/",
+      "network": "Affonso",
+      "commission": "Up to 80% initial plus 30% lifetime recurring: 80% first month for monthly plans, 40% first year for yearly plans, $25 flat for one-time products, then 30% lifetime recurring after the initial period",
+      "cookie_duration_days": null,
+      "payout_terms": null,
+      "free_to_join": null,
+      "eligibility": "Official affiliate page offers a fast signup and says there is no approval wait. A separate user referral program rewards free subscription months and is not treated as the cash affiliate program.",
+      "evidence_summary": "AiAssistWorks's current official affiliate page and Affonso portal confirm an active cash affiliate program with up-to-80% initial and 30% lifetime recurring commissions. Cookie duration, payout threshold/method and explicit joining fee status were not established from the official public material retrieved, so they remain unknown rather than inferred from third-party directories."
+    },
+    {
+      "tool_id": "liftmycv",
+      "tool_name": "LiftmyCV",
+      "status": "needs_manual_verification",
+      "official_source_url": "https://www.liftmycv.com/how-to/",
+      "application_url": null,
+      "network": null,
+      "commission": null,
+      "cookie_duration_days": null,
+      "payout_terms": null,
+      "free_to_join": null,
+      "eligibility": "LiftmyCV's current official guide documents a user referral program that awards free Lifts when invited users qualify; this is not a cash affiliate monetization path for COSHUMA.",
+      "evidence_summary": "Current official LiftmyCV pages confirm only an in-product referral program that rewards free Lifts. No official cash affiliate application or commission terms were found in the current official-domain search. Third-party affiliate directories claim a cash program, but those claims are not treated as authoritative; the tool therefore remains needs_manual_verification rather than being falsely marked as monetizable or as definitively having no program."
+    }
+  ],
+  "dedupe_notes": [
+    "This file belongs to the existing full-audit UUID and does not create another queue UUID.",
+    "No application, signup, account creation, legal acceptance, payment or production-site change was performed.",
+    "Known already-completed or already-pending affiliate tasks were not recreated."
+  ]
+}
