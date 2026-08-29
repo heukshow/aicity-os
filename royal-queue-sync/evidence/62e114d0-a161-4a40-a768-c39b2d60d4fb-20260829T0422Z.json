@@ -1,0 +1,91 @@
+{
+  "parent_task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "generated_at": "2026-08-29T04:22:00Z",
+  "purpose": "Incremental official-source evidence for five more registered GlobalSaaSHub affiliate-audit targets. Research only; no application, account enrollment, legal acceptance, payment, or new queue UUID is created.",
+  "new_task_uuid_created": false,
+  "new_application_created": false,
+  "human_action_required_now": false,
+  "audit_remains_in_progress": true,
+  "entries": [
+    {
+      "tool_id": "bookyourdata",
+      "tool_name": "Bookyourdata",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.bookyourdata.com/affiliate-program",
+      "application_url": "https://www.bookyourdata.com/affiliate-program",
+      "network": "Bookyourdata Affiliate Program",
+      "commission": "Up to 15% lifetime commission on qualifying referred orders",
+      "cookie_duration_days": 90,
+      "payout_terms": "Monthly payouts; current public affiliate page advertises average revenue per order around $700 but does not expose the payout rail or threshold in the retrieved content.",
+      "free_to_join": null,
+      "eligibility": "Current public program page provides a direct affiliate join path and promotes sharing Bookyourdata with an audience; no mandatory paid Bookyourdata subscription is stated on the retrieved page.",
+      "evidence_summary": "Bookyourdata's current official affiliate page confirms an active program with up to 15% lifetime commission, monthly payouts and a 90-day cookie. Unknown payout details are not inferred."
+    },
+    {
+      "tool_id": "databox",
+      "tool_name": "Databox",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://databox.com/affiliate-program-policy",
+      "application_url": "https://databox.com/affiliate-program-policy",
+      "network": "FirstPromoter or PartnerStack",
+      "commission": "20% recurring commission on each referred paying customer's eligible subscription payments for the first 12 months",
+      "cookie_duration_days": 90,
+      "payout_terms": "Paid through the affiliate profile at the beginning of the applicable calendar month; a valid up-to-date PayPal account is required by the current Affiliate Program Terms.",
+      "free_to_join": null,
+      "eligibility": "A Program application is required and Databox must approve it before issuing the unique Affiliate ID/link. Self-referrals involving a company owned by or employing the affiliate are excluded.",
+      "legal_consent_note": "Databox's current Affiliate Program Terms state that affiliates must agree to the Agreement to participate and receive payment. No application or agreement acceptance was performed.",
+      "evidence_summary": "Databox's current official Affiliate Program Terms, revised October 2025, confirm an active FirstPromoter/PartnerStack application route, 20% recurring commission for 12 months, a 90-day attribution period and PayPal payout requirements."
+    },
+    {
+      "tool_id": "taskip",
+      "tool_name": "Taskip",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://taskip.net/affiliates/",
+      "alternate_official_source_url": "https://taskip.net/legal/partner-program-agreement/",
+      "application_url": "https://taskip.net/affiliates/",
+      "network": "Taskip Partner / Affiliate Program",
+      "commission": "Current Partner Program Agreement states 30% recurring on monthly subscriptions while the customer remains subscribed, 30% recurring annually on yearly subscriptions, and a one-time commission for lifetime deals.",
+      "cookie_duration_days": null,
+      "payout_terms": "Current Partner Agreement states monthly payments after reaching a $50 minimum. The affiliate landing page also lists PayPal/Stripe and describes payment after the grace period; public wording on exact monthly timing differs slightly between sections.",
+      "free_to_join": null,
+      "eligibility": "The affiliate page encourages everyone to apply and says applications are normally reviewed within three business days, especially welcoming affiliates with agency/freelancer audiences and content channels.",
+      "official_wording_note": "The affiliate page FAQ contains a narrower phrase saying 30% on the initial purchase, while the current legal Partner Program Agreement explicitly defines recurring 30% monthly/yearly commissions. The legal agreement is recorded as the more specific governing terms, without hiding the first-party wording discrepancy.",
+      "legal_consent_note": "The current Partner Program Agreement states that joining constitutes agreement to its terms, including independent-contractor, confidentiality, non-competition/non-solicitation and governing-law provisions. No application or acceptance was performed; a later forced acceptance must stop for human approval.",
+      "evidence_summary": "Taskip has a current active affiliate/partner program. First-party legal terms support 30% recurring commissions and a $50 payout floor, while the public affiliate FAQ has partially inconsistent initial-purchase wording that should be rechecked at actual enrollment."
+    },
+    {
+      "tool_id": "gumloop",
+      "tool_name": "Gumloop",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.gumloop.com/partners/apply-to-be-a-creator",
+      "application_url": "https://www.gumloop.com/partners/apply-to-be-a-creator",
+      "network": "Gumloop Creator Program",
+      "commission": "20% commission on a new customer's first-subscription revenue for up to 12 months",
+      "cookie_duration_days": null,
+      "payout_terms": "Accepted creators receive a referral link, discount code and tracking dashboard; exact public payout method, threshold and cadence were not stated on the retrieved official page.",
+      "free_to_join": null,
+      "eligibility": "Current official page targets AI/automation creators, educators/community builders and affiliate partners; applications are reviewed by Gumloop before acceptance.",
+      "evidence_summary": "Gumloop's current official Creator Program confirms a live application path and 20% first-year commission for new customers. Missing cookie and payout figures are left unknown rather than guessed."
+    },
+    {
+      "tool_id": "hide-me",
+      "tool_name": "hide.me",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://hide.me/en/affiliates",
+      "application_url": "https://hide.me/en/affiliates",
+      "network": "Post Affiliate Pro",
+      "commission": "Flexible recurring revenue share starting from 30%, described by hide.me as lifetime revenue share",
+      "cookie_duration_days": null,
+      "payout_terms": "Official page advertises fast global payouts and an affiliate dashboard but does not publish a current public payout threshold, rail, or exact cadence in the retrieved text.",
+      "free_to_join": null,
+      "eligibility": "Current official page invites promotion through websites, blogs, social channels and Google Ads and provides a live affiliate-registration path via Post Affiliate Pro.",
+      "evidence_summary": "hide.me's current official affiliate page confirms an active Post Affiliate Pro program, recurring/lifetime revenue share starting from 30%, a dedicated affiliate manager and global payout support. Cookie and exact payout mechanics remain unknown from the public page."
+    }
+  ],
+  "dedupe_notes": [
+    "latest.json contained no dedicated bookyourdata, databox, taskip, gumloop, or hide-me application/result record at this observation point.",
+    "No application was submitted and no new UUID was created.",
+    "Databox and Taskip contain binding-program terms; no legal acceptance was performed and any later forced acceptance must be treated as a human-approval gate."
+  ]
+}
