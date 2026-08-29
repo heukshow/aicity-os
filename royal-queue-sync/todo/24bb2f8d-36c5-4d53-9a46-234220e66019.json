@@ -16,12 +16,23 @@
       "For each program record submitted/pending/approved/blocked/waiting_human status, official application URL, network/provider, next expected event, and whether a unique tracking link is issued.",
       "When a unique tracking/referral link is issued, verify that it is actually referral-bearing, then return it for COSHUMA repo integration. Generic homepage/pricing/signup URLs do not qualify.",
       "Do not spend money, start paid subscriptions, or make purchases."
-    ]
+    ],
+    "dependency_resolution": {
+      "checked_at": "2026-08-29T10:43:00Z",
+      "audit_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+      "audit_status": "done",
+      "catalog_total": 151,
+      "needs_manual_verification": 0,
+      "deduplicated_application_actions": 98,
+      "ready_for_normal_butler_routing": true,
+      "duplicate_application_guard": "Reuse the audit's 98 deduplicated application actions and authoritative per-tool states. Do not resubmit approved, pending, rejected/cooldown, closed, cost-gated, region-restricted, waiting-human, in-progress, or shared-program duplicates.",
+      "execution_note": "The dependency is cleared. Keep this batch todo until a browser-capable Butler execution surface actually starts processing applications; do not mark in_progress merely because research finished."
+    }
   },
   "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
   "result": null,
   "error": null,
   "human_reason": null,
   "created_at": "2026-08-24T08:42:05+00:00",
-  "updated_at": "2026-08-24T09:09:05+00:00"
+  "updated_at": "2026-08-29T10:43:00Z"
 }
