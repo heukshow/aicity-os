@@ -1,0 +1,53 @@
+{
+  "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "generated_at": "2026-08-29T09:20:00Z",
+  "scope": "COSHUMA/GlobalSaaSHub affiliate master audit",
+  "kind": "authoritative_tool_state_resolution",
+  "tool": {
+    "id": "marketingblocks",
+    "name": "MarketingBlocks AI"
+  },
+  "state_transition": {
+    "from": "needs_manual_verification",
+    "to": "program_exists_not_applied"
+  },
+  "verification": {
+    "official_support_article": "https://support.marketingblocks.ai/article/69966870-0d8f-46fd-ba0d-00298713baed",
+    "official_commission_article": "https://support.marketingblocks.ai/article/17a087a5-1639-4c51-b2ad-4cadfc3d5ce6",
+    "application_url": "https://marketingblocks.firstpromoter.com/",
+    "network": "FirstPromoter",
+    "current_public_program_confirmed": true,
+    "commission_rate": null,
+    "commission_behavior": "approved affiliates receive a unique tracking link; sales, upgrades, and recurring purchases are attributed; commissions are approved after about 30 days",
+    "notes": [
+      "MarketingBlocks' official support knowledge base explicitly says it has an affiliate/partnership program and publishes a FirstPromoter application URL.",
+      "A separate official support article confirms that sales, upgrades, and recurring purchases are attributed to approved affiliates and commission approval takes about 30 days.",
+      "A current official commission percentage was not found, so no stale or third-party rate was inserted.",
+      "No FirstPromoter application, account creation, or terms acceptance was performed automatically."
+    ]
+  },
+  "safety": {
+    "new_task_uuid_created": false,
+    "new_application_created": false,
+    "duplicate_application_submitted": false,
+    "payment_or_purchase_performed": false,
+    "captcha_bypassed": false,
+    "otp_or_forced_human_auth_performed": false,
+    "legal_consent_performed": false,
+    "human_action_required_now": false
+  },
+  "derived_inventory_after_resolution": {
+    "inventory_size": 151,
+    "needs_manual_verification": 5,
+    "program_exists_not_applied": 100,
+    "program_exists_region_restricted": 2,
+    "waiting_human": 6,
+    "deduplicated_application_actions": 96,
+    "master_audit_status": "in_progress"
+  },
+  "dedupe": {
+    "logical_target": "marketingblocks_firstpromoter_affiliate_program",
+    "suppress_duplicate_registration": true,
+    "reuse_existing_account_or_application_if_discovered_before_submit": true
+  }
+}
