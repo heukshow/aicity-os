@@ -1,0 +1,145 @@
+{
+  "uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "kind": "authoritative_inventory_overlay",
+  "generated_at": "2026-08-29T08:22:45Z",
+  "scope": "COSHUMA / GlobalSaaSHub affiliate audit authoritative state overlay",
+  "base_inventory": {
+    "path": "royal-queue-sync/evidence/62e114d0-a161-4a40-a768-c39b2d60d4fb-final-inventory.json",
+    "generated_at": "2026-08-29T05:08:13Z",
+    "reason_for_overlay": "Later dedicated-task/account-state evidence and newer official-source research supersede stale fields in the earlier consolidated inventory according to its declared precedence rules."
+  },
+  "precedence_sources": [
+    "royal-queue-sync/evidence/62e114d0-a161-4a40-a768-c39b2d60d4fb-20260829T0614Z-state-precedence-correction.json",
+    "royal-queue-sync/evidence/62e114d0-a161-4a40-a768-c39b2d60d4fb-20260829T0720Z.json"
+  ],
+  "guards": {
+    "new_task_uuid_created": false,
+    "new_application_created": false,
+    "duplicate_suppression": true,
+    "zero_cost_only": true,
+    "no_legal_consent_executed": true,
+    "no_payment_executed": true,
+    "no_captcha_or_forced_human_step_executed": true
+  },
+  "corrected_status_counts": {
+    "application_failed": 1,
+    "applied_pending": 7,
+    "applied_pending_legal_consent": 1,
+    "approved_tracking": 8,
+    "approved_tracking_link_pending_retrieval": 4,
+    "in_progress": 1,
+    "needs_manual_verification": 15,
+    "waiting_human": 6,
+    "no_program_found": 5,
+    "program_closed": 2,
+    "program_exists_cost_gated": 1,
+    "program_exists_not_applied": 92,
+    "rejected": 8
+  },
+  "corrections": [
+    {
+      "tool_id": "elevenlabs",
+      "from": "needs_manual_verification",
+      "to": "waiting_human",
+      "reason": "Repeating email verification loop; application not yet submitted.",
+      "do_not_reapply": true
+    },
+    {
+      "tool_id": "omnisend",
+      "from": "needs_manual_verification",
+      "to": "waiting_human",
+      "reason": "Impact account/login path requires user-controlled authentication and may require verified mobile/OTP.",
+      "do_not_reapply": true
+    },
+    {
+      "tool_id": "manychat",
+      "from": "needs_manual_verification",
+      "to": "waiting_human",
+      "reason": "PartnerStack application requires a real phone number; no honest substitute exists.",
+      "do_not_reapply": true
+    },
+    {
+      "tool_id": "heygen",
+      "from": "needs_manual_verification",
+      "to": "waiting_human",
+      "reason": "Affiliate form requires an existing HeyGen account and user-controlled authentication.",
+      "do_not_reapply": true
+    },
+    {
+      "tool_id": "cloudways",
+      "from": "needs_manual_verification",
+      "to": "waiting_human",
+      "reason": "Affiliate entry routes to platform account creation requiring password and Terms acceptance.",
+      "do_not_reapply": true
+    },
+    {
+      "tool_id": "dorik",
+      "from": "needs_manual_verification",
+      "to": "waiting_human",
+      "reason": "Partner signup exists but requires forced email OTP confirmation before use.",
+      "do_not_reapply": true
+    },
+    {
+      "tool_id": "vista-social",
+      "from": "needs_manual_verification",
+      "to": "program_exists_not_applied",
+      "reason": "Current official affiliate page provides a live signup path, 20% recurring base commission, 90-day cookie, FirstPromoter tracking and payout terms.",
+      "requires_human_before_submit": false
+    },
+    {
+      "tool_id": "privy",
+      "from": "needs_manual_verification",
+      "to": "program_exists_not_applied",
+      "reason": "Current official Affiliate signup path and partner resources confirm a 20% client monthly-fee revenue share.",
+      "requires_human_before_submit": true,
+      "submission_gate": "reCAPTCHA; stop for human only when the gate is actually reached"
+    }
+  ],
+  "application_queue_delta": {
+    "prior_unique_application_actions": 86,
+    "add": [
+      {
+        "application_action_key": "apply:vista-social",
+        "covered_tool_ids": ["vista-social"],
+        "requires_human_before_submit": false,
+        "execution_policy": "planning_only_no_submission"
+      },
+      {
+        "application_action_key": "apply:privy",
+        "covered_tool_ids": ["privy"],
+        "requires_human_before_submit": true,
+        "gate": "reCAPTCHA at submission",
+        "execution_policy": "planning_only_no_submission"
+      }
+    ],
+    "corrected_unique_application_actions": 88
+  },
+  "manual_verification_queue_delta": {
+    "prior_count": 23,
+    "remove": [
+      "elevenlabs",
+      "omnisend",
+      "manychat",
+      "heygen",
+      "cloudways",
+      "dorik",
+      "vista-social",
+      "privy"
+    ],
+    "corrected_count": 15
+  },
+  "non_application_followup_delta": [
+    {"tool_id":"elevenlabs","status":"waiting_human","next_policy":"resume_existing_application_only_after_email_verification_or_support_resolution; do_not_reapply"},
+    {"tool_id":"omnisend","status":"waiting_human","next_policy":"resume_existing_application_only_after account authentication/OTP if required; do_not_reapply"},
+    {"tool_id":"manychat","status":"waiting_human","next_policy":"resume_existing_application only after real phone number is supplied; do_not_reapply"},
+    {"tool_id":"heygen","status":"waiting_human","next_policy":"resume_existing_application only after HeyGen account authentication; do_not_reapply"},
+    {"tool_id":"cloudways","status":"waiting_human","next_policy":"resume_existing_application only after account creation/legal consent; do_not_reapply"},
+    {"tool_id":"dorik","status":"waiting_human","next_policy":"resume_existing signup after forced email OTP; do_not_reapply"}
+  ],
+  "master_task_state": {
+    "state": "in_progress",
+    "reason": "The consolidated inventory is now corrected for later authoritative evidence, but 15 manual-verification items plus existing dedicated in-progress/follow-up states remain unresolved.",
+    "no_status_transition_performed": true
+  },
+  "supersession_note": "Apply this overlay on top of the earlier final-inventory file. It changes only stale status/queue fields and does not create or recreate any task/application UUID."
+}
