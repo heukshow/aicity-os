@@ -16,7 +16,7 @@
     "application_status": "approved",
     "approval_status": "approved_tracking_link_pending_retrieval",
     "tracking_link": null,
-    "tracking_link_status": "dashboard_redirect_candidate_removed_pending_unique_partner_dashboard_link",
+    "tracking_link_status": "dashboard_redirect_candidate_removed_live_pending_unique_partner_dashboard_link",
     "payout_status": "not_applicable_yet",
     "terms_summary": {
       "commission": "30% recurring, tiered up to 50% with growth; $5 bonus per paid referral in first 30 days",
@@ -24,7 +24,7 @@
       "payout": "Via Jotform Partner Dashboard",
       "source": "Jotform Affiliate Partner welcome email, re-verified 2026-08-29"
     },
-    "blocker": "Two follow-ups remain: retrieve the actual unique customer-facing affiliate tracking link from the existing approved Jotform Partner Dashboard, and deploy the corrective removal of the invalid dashboard CTA to the production Vercel site after the free daily deployment limit clears. Do not create a new affiliate application.",
+    "blocker": "The production correction is now live-verified. The only remaining follow-up is to retrieve and verify the actual unique customer-facing affiliate tracking link from the existing approved Jotform Partner Dashboard. Do not create a new affiliate application.",
     "production_correction": {
       "repository_fix_merged": true,
       "correction_pr": 24,
@@ -35,13 +35,16 @@
       "production_provider": "Vercel project coshuma-official",
       "vercel_pr24_comment_id": 5461840608,
       "vercel_pr24_comment_created_at": "2026-08-29T10:37:20Z",
-      "vercel_status": "deployment_blocked_rate_limit",
-      "vercel_error_code": "api-deployments-free-per-day",
-      "vercel_error_summary": "Resource is limited - try again in 24 hours (more than 100 deployments on the free plan).",
-      "public_check_at": "2026-08-29T11:06:24Z",
+      "prior_vercel_status": "deployment_blocked_rate_limit",
+      "prior_vercel_error_code": "api-deployments-free-per-day",
+      "prior_vercel_error_summary": "Resource is limited - try again in 24 hours (more than 100 deployments on the free plan).",
+      "public_check_at": "2026-08-29T13:11:51Z",
       "public_url": "https://coshuma.com/tool/jotform.html",
-      "public_result": "stale_invalid_affiliate_cta_still_visible",
-      "next_safe_action": "Do not waste additional deployment attempts while the Vercel free daily limit is active. Recheck production after the limit window clears, then redeploy the already-merged correction if needed and verify the public CTA is gone."
+      "public_result": "live_corrected_invalid_affiliate_cta_absent",
+      "public_evidence": "Fresh public fetch shows only the normal 'Visit Official Jotform Site' CTA and no 'Verified Affiliate Link' / sponsored affiliate CTA.",
+      "production_correction_live_verified": true,
+      "deployment_attribution_note": "A prior PR #24 Vercel deployment failed on the free daily deployment limit. The public page is now corrected, but this check does not infer which later deployment or propagation event made the already-merged correction live.",
+      "next_safe_action": "Retrieve the actual unique customer-facing tracking link from the existing approved Partner Dashboard when an authenticated browser session is available; verify it is referral-bearing before repo integration. Do not reapply."
     },
     "tracking_verification": {
       "email_subject": "Welcome to the Jotform Affiliate Program!",
@@ -55,7 +58,7 @@
       "correction_pages_run_id": 33248335452,
       "correction_pages_result": "success",
       "correction_static_branch_verified": true,
-      "post_deploy_public_cache_check": "A web fetch after GitHub Pages run #130 still returned the prior CTA. Subsequent GitHub/Vercel evidence shows the production Vercel deployment for PR #24 failed because the free daily deployment limit had been exceeded, so this is an undeployed-production blocker rather than a completed cache propagation event.",
+      "post_deploy_public_check": "Fresh public verification at 2026-08-29T13:11:51Z shows the invalid affiliate CTA is no longer present on coshuma.com/tool/jotform.html. Production correction is therefore complete; unique tracking-link retrieval remains separately pending.",
       "previous_pr": 23,
       "previous_merge_sha": "0bea59e5639a366f9707d7384bc6ea8ef0940442",
       "previous_pages_run": 129,
@@ -63,7 +66,7 @@
       "dynamic_override_path": "projects/GlobalSaaSHub/src/utils/url.js",
       "regression_test": "projects/GlobalSaaSHub/scripts/tests/test_jotform_affiliate.py"
     },
-    "notes": "CORRECTION: PR #23 published a URL that resolves to Jotform's Partner Dashboard instead of a customer-facing acquisition destination. PR #24 correctly removes that URL from the dynamic verified override and static sponsored affiliate CTA. GitHub Pages deployment succeeded, but the actual production Vercel project coshuma-official rejected the PR #24 deployment because the free daily deployment limit was exceeded. Public coshuma.com therefore still exposes the stale invalid CTA as of 2026-08-29T11:06:24Z. Keep this task in progress until production is corrected and the actual unique customer-facing tracking link is retrieved. No duplicate application was created and no paid upgrade is authorized."
+    "notes": "PR #23 had published a URL that resolves to Jotform's Partner Dashboard instead of a customer-facing acquisition destination. PR #24 removed that URL from the dynamic verified override and static sponsored affiliate CTA. GitHub Pages deployment succeeded; a contemporaneous Vercel deployment initially failed due to the free daily deployment limit, but a fresh public check on 2026-08-29 now confirms the invalid affiliate CTA is absent on production. Keep this task in_progress only until the actual unique customer-facing tracking link is retrieved and verified. No duplicate application was created and no paid upgrade is authorized."
   },
   "browser_tab_status": {
     "is_open_now": false,
@@ -72,5 +75,5 @@
     "correction_note": "No authenticated browser tab is currently available; actual unique tracking-link retrieval remains pending from the existing approved Partner Dashboard."
   },
   "created_at": "2026-08-24T09:44:10.279520+00:00",
-  "updated_at": "2026-08-29T11:06:24Z"
+  "updated_at": "2026-08-29T13:11:51Z"
 }
