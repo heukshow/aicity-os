@@ -1,0 +1,55 @@
+{
+  "id": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "generated_at": "2026-08-29T09:15:00Z",
+  "scope": "COSHUMA/GlobalSaaSHub affiliate master audit",
+  "kind": "authoritative_tool_state_resolution",
+  "tool": {
+    "id": "framer",
+    "name": "Framer"
+  },
+  "state_transition": {
+    "from": "needs_manual_verification",
+    "to": "program_exists_not_applied"
+  },
+  "verification": {
+    "official_creator_program_help": "https://www.framer.com/help/articles/how-the-creator-program-works/",
+    "official_affiliate_links_help": "https://www.framer.com/help/articles/how-affiliate-links-work/",
+    "official_dub_help": "https://www.framer.com/help/articles/getting-started-with-dub/",
+    "program": "Framer Creator Program referral/affiliate links",
+    "network": "Dub",
+    "payout_processor": "Stripe",
+    "manual_application_available": true,
+    "application_location": "Framer Community profile settings > Links tab",
+    "current_public_program_confirmed": true,
+    "commission_rate": null,
+    "commission_rate_note": "Current official help pages checked in this resolution confirm referral commissions but do not state a universal percentage; do not reuse an older percentage without a current official source.",
+    "notes": [
+      "Framer's official help, updated August 7, 2026, states that creators can apply manually through the Links tab in Community profile settings and are reviewed based on work quality, audience relevance, and promotion plan.",
+      "Approved Creator Program members receive affiliate links; Dub handles tracking/analytics and Stripe handles payouts.",
+      "No application was submitted and no existing Framer account/application state was modified."
+    ]
+  },
+  "safety": {
+    "new_task_uuid_created": false,
+    "new_application_created": false,
+    "duplicate_application_submitted": false,
+    "payment_or_purchase_performed": false,
+    "captcha_bypassed": false,
+    "otp_or_forced_human_auth_performed": false,
+    "legal_consent_performed": false,
+    "human_action_required_now": false
+  },
+  "derived_inventory_after_resolution": {
+    "inventory_size": 151,
+    "needs_manual_verification": 12,
+    "program_exists_not_applied": 95,
+    "waiting_human": 6,
+    "deduplicated_application_actions": 91,
+    "master_audit_status": "in_progress"
+  },
+  "dedupe": {
+    "logical_target": "framer_creator_program_referral",
+    "suppress_duplicate_registration": true,
+    "reuse_existing_account_or_application_if_discovered_before_submit": true
+  }
+}
