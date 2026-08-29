@@ -1,0 +1,88 @@
+{
+  "parent_task_uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "project": "COSHUMA / GlobalSaaSHub",
+  "generated_at": "2026-08-29T02:30:00Z",
+  "purpose": "Continue the full-registry affiliate-program audit for another five registered tools. This is research-only evidence under the existing audit UUID; no application or duplicate task was created.",
+  "new_task_uuid_created": false,
+  "new_application_created": false,
+  "human_action_required_now": false,
+  "audit_remains_in_progress": true,
+  "entries": [
+    {
+      "tool_id": "panda-video",
+      "tool_name": "Panda Video",
+      "status": "needs_manual_verification",
+      "official_source_url": "https://www.pandavideo.com/solutions/partners",
+      "application_url": null,
+      "network": "Panda Partners",
+      "commission": null,
+      "cookie_duration_days": null,
+      "payout_terms": null,
+      "free_to_join": null,
+      "eligibility": "Current official pages confirm an affiliate/partner program with recurring commissions for 12 months per active referred customer.",
+      "evidence_summary": "Panda Video clearly operates Panda Partners, but current official materials conflict on the rate/tier structure. The current Brazilian program page says signup begins at 10% and can scale to 20%, while the official help article describes Premium at 20% and Super Premium at 30% for 12 months. Because the authoritative rate applicable to a new COSHUMA account is not unambiguous, the program is kept at needs_manual_verification rather than recording a guessed commission."
+    },
+    {
+      "tool_id": "loopcv",
+      "tool_name": "LoopCV",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.loopcv.pro/affiliate/",
+      "application_url": "https://www.loopcv.pro/affiliate/",
+      "network": "LoopCV affiliate dashboard",
+      "commission": "25% recurring on referred subscriptions while referred customers remain subscribed, according to LoopCV's current July 10, 2026 official company blog and affiliate materials",
+      "cookie_duration_days": null,
+      "payout_terms": null,
+      "free_to_join": null,
+      "eligibility": "Official affiliate page is aimed at blogs and companies serving job seekers and provides registration, email verification and a unique referral-link dashboard.",
+      "evidence_summary": "LoopCV's official affiliate page confirms an active affiliate registration flow and affiliate dashboard; LoopCV's official July 10, 2026 article states a 25% recurring commission. Cookie duration and public payout threshold/method were not established from the official sources retrieved and remain unknown."
+    },
+    {
+      "tool_id": "tapfiliate",
+      "tool_name": "Tapfiliate",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://tapfiliate.com/affiliate-program/",
+      "application_url": "https://affiliates.tapfiliate.com/",
+      "network": "Tapfiliate's own affiliate platform",
+      "commission": "Choice of $178 one-time commission per qualifying paying customer or 20% recurring commission during the first 12 months; official page says affiliates may join one or both structures",
+      "cookie_duration_days": 45,
+      "payout_terms": "Monthly via PayPal; current offer page states a $20 payout threshold and a two-month hold for the $178 fixed offer",
+      "free_to_join": null,
+      "eligibility": "No Tapfiliate customer subscription is required. Official page targets e-commerce entrepreneurs, social influencers, complementary businesses, professional marketers and content creators.",
+      "legal_consent_required_at_submission": true,
+      "evidence_summary": "Tapfiliate's current official affiliate page confirms two active commission structures, a 45-day cookie and monthly PayPal payouts. Its signup form has a required Terms and Conditions agreement, so no signup was performed in this research-only audit."
+    },
+    {
+      "tool_id": "kittl",
+      "tool_name": "Kittl",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://www.kittl.com/partners/affiliates",
+      "application_url": "https://www.kittl.com/partners/affiliates",
+      "network": "Impact Radius",
+      "commission": "20% of all referred-customer payments for 12 months, for monthly or yearly plans",
+      "cookie_duration_days": null,
+      "payout_terms": "Automatic payouts; public affiliate page does not state the current payout threshold or exact payout method",
+      "free_to_join": null,
+      "eligibility": "Kittl's current partner hub says the affiliate path is for anyone who creates online content on social media, blogs or websites; applications are reviewed weekly and an answer is normally expected within five days.",
+      "evidence_summary": "Kittl's current official affiliate page confirms an active Impact Radius affiliate program, a unique link after approval, and 20% commission on all payments for the first 12 months. Cookie and payout-threshold values were not stated in the official public material retrieved, so they remain unknown."
+    },
+    {
+      "tool_id": "koala-ai",
+      "tool_name": "Koala AI",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://koala.sh/pages/affiliate",
+      "application_url": "mailto:hello@koala.sh",
+      "network": "Koala AI direct affiliate program",
+      "commission": "30% lifetime recurring commission on all sales",
+      "cookie_duration_days": 60,
+      "payout_terms": "$50 minimum payout; commissions become payable after 30 days; payouts run in the first week of each month; official support says payments are sent through Wise to an email/bank account",
+      "free_to_join": null,
+      "eligibility": "Applicants email Koala AI with audience details and relevant website/YouTube/social links. Paid advertising, self-referrals, deceptive promotion and coupon/thin sites are prohibited.",
+      "evidence_summary": "Koala AI's current official affiliate page confirms 30% lifetime recurring commission, a 60-day cookie, $50 minimum payout and direct application by email. No application email was sent because this task is the research-only full audit, not the later application batch."
+    }
+  ],
+  "dedupe_notes": [
+    "All five results are attached to the existing audit UUID; no new queue UUID was generated.",
+    "No affiliate signup, terms acceptance, account creation, email application, payment or production write was performed.",
+    "Where official sources conflict, the conflict is preserved and the status is needs_manual_verification instead of fabricating a single value."
+  ]
+}
