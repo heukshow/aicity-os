@@ -1,0 +1,73 @@
+{
+  "uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "kind": "affiliate_state_precedence_correction",
+  "generated_at": "2026-08-29T06:14:44Z",
+  "scope": "COSHUMA/GlobalSaaSHub affiliate audit state correction",
+  "guards": {
+    "new_task_uuid_created": false,
+    "new_application_created": false,
+    "duplicate_suppression": true,
+    "zero_cost_only": true,
+    "no_legal_consent_executed": true,
+    "no_payment_executed": true,
+    "no_captcha_or_forced_human_step_executed": true
+  },
+  "precedence_note": "Dedicated task outcomes and current account-state evidence supersede generic research-only needs_manual_verification labels in the consolidated inventory.",
+  "corrections": [
+    {
+      "tool_id": "elevenlabs",
+      "authoritative_status": "waiting_human",
+      "source": "royal-queue-sync/waiting_human/apply-elevenlabs.json",
+      "blocker": "repeating email verification loop; application not yet submitted",
+      "human_step_type": "forced_email_verification_or_support_resolution",
+      "do_not_duplicate": true
+    },
+    {
+      "tool_id": "omnisend",
+      "authoritative_status": "waiting_human",
+      "source": "royal-queue-sync/waiting_human/apply-omnisend.json",
+      "blocker": "Impact.com account/login path requires user-owned account access and may require verified mobile/OTP; application not yet submitted",
+      "human_step_type": "forced_account_authentication_or_phone_otp",
+      "do_not_duplicate": true
+    },
+    {
+      "tool_id": "manychat",
+      "authoritative_status": "waiting_human",
+      "source": "royal-queue-sync/waiting_human/apply-manychat.json",
+      "blocker": "PartnerStack application is filled but requires a real phone number; no honest substitute exists",
+      "human_step_type": "real_phone_number_required",
+      "do_not_duplicate": true
+    },
+    {
+      "tool_id": "heygen",
+      "authoritative_status": "waiting_human",
+      "source": "royal-queue-sync/waiting_human/apply-heygen.json",
+      "blocker": "affiliate form requires an existing HeyGen platform account; creating/logging into that account requires user-controlled authentication",
+      "human_step_type": "account_creation_or_authentication",
+      "do_not_duplicate": true
+    },
+    {
+      "tool_id": "cloudways",
+      "authoritative_status": "waiting_human",
+      "source": "royal-queue-sync/waiting_human/apply-cloudways.json",
+      "blocker": "Cloudways affiliate entry routes to full platform account creation requiring password plus Terms of Service acceptance",
+      "human_step_type": "account_creation_and_legal_consent",
+      "do_not_duplicate": true
+    },
+    {
+      "tool_id": "dorik",
+      "authoritative_status": "waiting_human",
+      "source": "Gmail account-state evidence",
+      "account_state_observed_at": "2026-08-23T20:35:37Z",
+      "evidence_sender": "Dorik notifications@mail.affonso.io",
+      "evidence_subject": "Welcome to our affiliate program",
+      "blocker": "Dorik confirms signup for its partner program but requires email confirmation with a one-time password before the affiliate program can be used",
+      "human_step_type": "forced_email_otp",
+      "do_not_duplicate": true,
+      "note": "No OTP value is stored in repository evidence. Do not create a second Dorik application."
+    }
+  ],
+  "master_audit_status": "in_progress",
+  "human_action_required_now": true,
+  "human_action_reason": "Dorik is blocked specifically on forced email OTP; other listed items are existing waiting-human tasks and must not be re-applied."
+}
