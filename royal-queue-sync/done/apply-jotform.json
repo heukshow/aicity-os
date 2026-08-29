@@ -14,24 +14,42 @@
     "actor": "butler",
     "success": true,
     "application_status": "approved",
-    "approval_status": "approved_partner_dashboard_active",
-    "tracking_link": "available in Jotform Partner Dashboard (avatar -> Settings -> Partnership tab)",
+    "approval_status": "approved_tracking_live_deployed",
+    "tracking_link": "https://link.jotform.com/yS9uTiLnz1?username=AnSangkwon",
+    "tracking_link_status": "verified_referral_bearing_from_jotform_welcome_email_and_published",
     "payout_status": "not_applicable_yet",
     "terms_summary": {
       "commission": "30% recurring, tiered up to 50% with growth; $5 bonus per paid referral in first 30 days",
       "cookie_days": null,
       "payout": "Via Jotform Partner Dashboard",
-      "source": "Gmail confirmation emails, verified 2026-08-26"
+      "source": "Jotform Affiliate Partner welcome email, verified 2026-08-29"
     },
     "blocker": null,
-    "notes": "CORRECTION after 큰형 flagged the open Jotform tab looking like an unfilled blank form: that tab was simply showing the base application URL in a stale/reloaded state (browser tab lost its submitted-page view, likely from a reload) - it does NOT mean the application was never submitted. Verified via Gmail: 'Thanks for your application to our Affiliate Program, Sangkwon An' (2026-08-26 02:26 UTC) confirmed the submission went through, and a follow-up email 'Welcome to the Jotform Affiliate Program!' (2026-08-26 06:41 UTC) confirms the application was already APPROVED - Jotform gave full Partner Dashboard access, not just pending review. Upgraded status from 'submitted_pending_review' to fully 'approved'. The blank browser tab can be safely closed - it holds no unfinished work."
+    "tracking_verification": {
+      "email_subject": "Welcome to the Jotform Affiliate Program!",
+      "email_evidence": "Jotform states the Partner Dashboard exposes the unique affiliate tracking link and that custom/share links track back to the affiliate. The published share URL was issued in that official welcome email and includes username=AnSangkwon.",
+      "repo_pr": 23,
+      "repo_merge_sha": "0bea59e5639a366f9707d7384bc6ea8ef0940442",
+      "gh_pages_commit": "af4ca2369c327ef5199bc3062e0b9c6dff944dda",
+      "pages_run": 129,
+      "pages_run_id": 33247650358,
+      "pages_result": "success",
+      "static_page": "tool/jotform.html",
+      "static_cta_attributes": [
+        "data-cta=affiliate",
+        "rel=sponsored noopener noreferrer"
+      ],
+      "dynamic_override_path": "projects/GlobalSaaSHub/src/utils/url.js",
+      "regression_test": "projects/GlobalSaaSHub/scripts/tests/test_jotform_affiliate.py"
+    },
+    "notes": "Application approval was already authoritative from Gmail. This update retrieves and publishes the referral-bearing share link from Jotform's official affiliate welcome email without creating a new application. PR #23 added the verified override, static sponsored CTA and regression test; it was merged, and GitHub Pages run #129 deployed the static CTA successfully. The Vercel preview checks on the PR were rate-limited by the free deployment quota rather than failing code validation, so no paid upgrade or retry was performed."
   },
   "browser_tab_status": {
-    "is_open_now": true,
-    "tab_id": 499331662,
-    "url": "https://www.jotform.com/partnership/affiliate/application/",
-    "correction_note": "Tab shows a stale blank form view but the application already succeeded and was approved per Gmail confirmation. Safe to close - will close now."
+    "is_open_now": false,
+    "tab_id": null,
+    "url": null,
+    "correction_note": "No browser tab is required for the now-complete tracking-link publication."
   },
   "created_at": "2026-08-24T09:44:10.279520+00:00",
-  "updated_at": "2026-08-26T21:35:00Z"
+  "updated_at": "2026-08-29T10:22:34Z"
 }
