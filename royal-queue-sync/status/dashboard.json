@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T11:09:00.726079+00:00",
+  "generated_at": "2026-08-29T13:19:46.355060+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -30,7 +30,7 @@
       "status": "in_progress",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
-      "last_activity": "2026-08-29T11:06:24Z",
+      "last_activity": "2026-08-29T13:11:51Z",
       "task": "Affiliate Application: Jotform",
       "uuid": "apply-jotform",
       "tool": null,
@@ -66,7 +66,7 @@
       "pid": null,
       "started_at": null,
       "heartbeat": "2026-08-24T09:25:49.5786616Z",
-      "heartbeat_age_seconds": 438191
+      "heartbeat_age_seconds": 446036
     },
     {
       "name": "GitHub bridge",
@@ -75,7 +75,7 @@
       "pid": null,
       "started_at": "2026-08-24T09:15:49.8104234Z",
       "heartbeat": "2026-08-26T22:43:43.4175765Z",
-      "heartbeat_age_seconds": 217517
+      "heartbeat_age_seconds": 225362
     },
     {
       "name": "dashboard",
@@ -84,7 +84,7 @@
       "pid": null,
       "started_at": "2026-08-24T09:18:44.922329+00:00",
       "heartbeat": "2026-08-26T22:44:20.580648+00:00",
-      "heartbeat_age_seconds": 217480
+      "heartbeat_age_seconds": 225325
     }
   ],
   "reconciliation": {
