@@ -1,0 +1,70 @@
+{
+  "uuid": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "kind": "affiliate_audit_status_resolution",
+  "generated_at": "2026-08-29T07:20:15Z",
+  "scope": "COSHUMA / GlobalSaaSHub unresolved affiliate audit follow-up",
+  "guards": {
+    "new_task_uuid_created": false,
+    "new_application_created": false,
+    "duplicate_suppression": true,
+    "zero_cost_only": true,
+    "no_account_application_submitted": true,
+    "no_legal_consent_executed": true,
+    "no_payment_executed": true,
+    "no_captcha_or_forced_human_step_executed": true
+  },
+  "resolutions": [
+    {
+      "tool_id": "vista-social",
+      "previous_status": "needs_manual_verification",
+      "status": "program_exists_not_applied",
+      "official_source_url": "https://vistasocial.com/affiliate-marketing/",
+      "application_url": "https://vistasocial.com/affiliate-marketing/",
+      "network": "FirstPromoter",
+      "commission": "20% recurring base commission; official page also describes higher affiliate tiers, including an Elite 23% example",
+      "cookie_duration_days": 90,
+      "payout_terms": "PayPal; $100 minimum threshold; commissions paid 90 days after month-end",
+      "free_to_join": true,
+      "eligibility": "No requirement to already be a Vista Social customer; official page says affiliates can promote through blogs, YouTube, podcasts, social media, email lists, and online courses",
+      "requires_human_before_submit": false,
+      "evidence_summary": "Current official Vista Social affiliate page provides a live affiliate signup path, instant dashboard/link access, recurring commission terms, 90-day cookie, FirstPromoter tracking and payout terms. The former manual-verification classification is no longer necessary at research stage."
+    },
+    {
+      "tool_id": "privy",
+      "previous_status": "needs_manual_verification",
+      "status": "program_exists_not_applied",
+      "official_source_urls": [
+        "https://www.privy.com/partnerships/sign-up",
+        "https://www.privy.com/partnerships/partner-resources"
+      ],
+      "application_url": "https://www.privy.com/partnerships/sign-up",
+      "network": "Privy Partner Program / Partner Portal",
+      "commission": "20% of referred/transferred client's monthly fee per current official partner resources",
+      "cookie_duration_days": null,
+      "payout_terms": "Official partner resources state earnings can be tracked in the Partner Portal and cashed out; exact public threshold/method was not confirmed and remains null",
+      "free_to_join": null,
+      "eligibility": "Current signup page explicitly offers Affiliate, Technology, and Co-Marketing partnership types for agencies, marketers, and technology providers",
+      "requires_human_before_submit": true,
+      "human_gate": "The current official signup form is protected by reCAPTCHA; do not submit automatically if the CAPTCHA gate is reached.",
+      "evidence_summary": "Privy now has a current official Affiliate signup path and current partner resources that state a 20% client monthly-fee revenue share. Therefore the research classification can be upgraded to program_exists_not_applied while preserving reCAPTCHA as a submission-time human gate."
+    }
+  ],
+  "still_unresolved": [
+    {
+      "tool_id": "make-com",
+      "status": "needs_manual_verification",
+      "reason": "The same current official affiliate page repeatedly states 35% for 12 months but still contains a conflicting comparison sentence saying 24 months; do not silently choose one for final contractual terms."
+    },
+    {
+      "tool_id": "panda-video",
+      "status": "needs_manual_verification",
+      "reason": "Current official sources still conflict on tier rates: the current Brazilian landing page describes 10% scaling to 20%, while the official helpdesk describes Premium 20% and Super Premium 30%."
+    },
+    {
+      "tool_id": "jasper",
+      "status": "needs_manual_verification",
+      "reason": "Jasper's current Legal Center still publishes the Marketing Affiliate Program Agreement (25% base for eligible plans, up to 12 months, FirstPromoter or similar), but the current public partner navigation surfaces Solutions/Technology programs rather than a clearly discoverable affiliate application entry point. Keep manual verification until the live application route is confirmed."
+    }
+  ],
+  "master_audit_remains_in_progress": true
+}
