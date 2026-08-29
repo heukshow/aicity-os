@@ -6,7 +6,6 @@ const VERIFIED_AFFILIATE_OVERRIDES = {
   castmagic: "https://castmagic.io?fpr=sangkwon-an54",
   descript: "https://get.descript.com/ole5fu20j5sq",
   fireflies-ai: "https://fireflies.ai/?fpr=sangkwon53",
-  jotform: "https://link.jotform.com/yS9uTiLnz1?username=AnSangkwon",
   pictory: "https://pictory.ai?fpr=sangkwon-an23",
   vidiq: "https://vidiq.com/coshuma",
 };
