@@ -32,6 +32,12 @@
       "invalid_candidate_live_resolution": "https://www.jotform.com/partnership/dashboard/?utm_source=welcome_emailv2&utm_campaign=affiliate_onboard&utm_medium=email&username=AnSangkwon",
       "correction_pr": 24,
       "correction_merge_sha": "28a229cc6981438d560a89adab58e3d651d051cd",
+      "correction_gh_pages_commit": "30187591d1084f490aa49b20da0585ccb4b725bd",
+      "correction_pages_run": 130,
+      "correction_pages_run_id": 33248335452,
+      "correction_pages_result": "success",
+      "correction_static_branch_verified": true,
+      "post_deploy_public_cache_check": "A web fetch immediately after Pages run #130 still returned the prior CTA, so customer-facing cache propagation was not claimed as complete in this check.",
       "previous_pr": 23,
       "previous_merge_sha": "0bea59e5639a366f9707d7384bc6ea8ef0940442",
       "previous_pages_run": 129,
@@ -39,7 +45,7 @@
       "dynamic_override_path": "projects/GlobalSaaSHub/src/utils/url.js",
       "regression_test": "projects/GlobalSaaSHub/scripts/tests/test_jotform_affiliate.py"
     },
-    "notes": "CORRECTION: PR #23 successfully deployed the candidate URL, but a post-deploy live follow showed that it resolves to Jotform's Partner Dashboard rather than a customer-facing acquisition destination. PR #24 removes that URL from both the dynamic verified override and the static sponsored affiliate CTA and adds a regression guard. The Jotform affiliate account remains approved; only tracking-link publication is pending retrieval of the actual unique customer-facing link from the existing Partner Dashboard. No duplicate application was created."
+    "notes": "CORRECTION: PR #23 successfully deployed the candidate URL, but a post-deploy live follow showed that it resolves to Jotform's Partner Dashboard rather than a customer-facing acquisition destination. PR #24 removes that URL from both the dynamic verified override and the static sponsored affiliate CTA and adds a regression guard. The corrective static gh-pages commit 30187591 was deployed successfully by Pages run #130. An immediate public web fetch still showed the prior CTA, so CDN/cache propagation remains to be rechecked and is not falsely marked live-corrected yet. The Jotform affiliate account remains approved; only tracking-link publication is pending retrieval of the actual unique customer-facing link from the existing Partner Dashboard. No duplicate application was created."
   },
   "browser_tab_status": {
     "is_open_now": false,
@@ -48,5 +54,5 @@
     "correction_note": "No browser tab is currently available; actual unique tracking-link retrieval remains pending from the existing approved Partner Dashboard."
   },
   "created_at": "2026-08-24T09:44:10.279520+00:00",
-  "updated_at": "2026-08-29T10:38:03Z"
+  "updated_at": "2026-08-29T10:41:20Z"
 }
