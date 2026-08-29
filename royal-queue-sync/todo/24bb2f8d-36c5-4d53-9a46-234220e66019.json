@@ -27,6 +27,17 @@
       "ready_for_normal_butler_routing": true,
       "duplicate_application_guard": "Reuse the audit's 98 deduplicated application actions and authoritative per-tool states. Do not resubmit approved, pending, rejected/cooldown, closed, cost-gated, region-restricted, waiting-human, in-progress, or shared-program duplicates.",
       "execution_note": "The dependency is cleared. Keep this batch todo until a browser-capable Butler execution surface actually starts processing applications; do not mark in_progress merely because research finished."
+    },
+    "recent_safe_followup": {
+      "checked_at": "2026-08-29T15:08:00Z",
+      "program": "Jotform",
+      "existing_task_id": "apply-jotform",
+      "action": "Requested official clarification from Jotform Affiliate Team for the exact customer-facing default unique affiliate tracking URL because the welcome email mixes dashboard-access and share-Jotform link.jotform.com URLs.",
+      "email_recipient": "affiliates@jotform.com",
+      "email_subject": "Clarification on my unique affiliate tracking link",
+      "duplicate_application_created": false,
+      "tracking_url_published": false,
+      "next_expected_event": "Jotform Affiliate Team reply confirming the exact referral-bearing customer link. Do not republish an uncertain link before confirmation."
     }
   },
   "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
@@ -34,5 +45,5 @@
   "error": null,
   "human_reason": null,
   "created_at": "2026-08-24T08:42:05+00:00",
-  "updated_at": "2026-08-29T10:43:00Z"
+  "updated_at": "2026-08-29T15:08:00Z"
 }
