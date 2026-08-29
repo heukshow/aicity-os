@@ -2,23 +2,21 @@ import unittest
 from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parents[2]
-TRACKING_URL = "https://link.jotform.com/yS9uTiLnz1?username=AnSangkwon"
+MISDIRECTING_URL = "https://link.jotform.com/yS9uTiLnz1?username=AnSangkwon"
 
 
 class JotformAffiliateTests(unittest.TestCase):
-    def test_directory_cta_override_uses_verified_tracking_url(self):
+    def test_directory_override_does_not_use_dashboard_redirect(self):
         url_js = (PROJECT / "src" / "utils" / "url.js").read_text(encoding="utf-8")
-        self.assertIn(
-            'jotform: "https://link.jotform.com/yS9uTiLnz1?username=AnSangkwon"',
-            url_js,
-        )
-        self.assertIn("VERIFIED_AFFILIATE_OVERRIDES", url_js)
+        self.assertNotIn(MISDIRECTING_URL, url_js)
+        self.assertNotIn('jotform: "https://link.jotform.com/yS9uTiLnz1?username=AnSangkwon"', url_js)
 
-    def test_static_page_publishes_verified_tracking_cta(self):
+    def test_static_page_does_not_publish_dashboard_redirect_as_affiliate_cta(self):
         page = (PROJECT / "public" / "tool" / "jotform.html").read_text(encoding="utf-8")
-        self.assertIn(TRACKING_URL, page)
-        self.assertIn('data-cta="affiliate"', page)
-        self.assertIn('rel="sponsored noopener noreferrer"', page)
+        self.assertNotIn(MISDIRECTING_URL, page)
+        self.assertNotIn('data-cta="affiliate"', page)
+        self.assertIn('data-cta="official"', page)
+        self.assertIn('href="https://www.jotform.com/"', page)
 
 
 if __name__ == "__main__":
