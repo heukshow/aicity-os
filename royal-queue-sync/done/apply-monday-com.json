@@ -1,0 +1,37 @@
+{
+  "id": "apply-monday-com",
+  "title": "Affiliate Application: Monday.com",
+  "assigned_to": "butler",
+  "status": "done",
+  "human_reason": null,
+  "payload": {
+    "tool_id": "monday-com",
+    "tool_name": "Monday.com",
+    "application_url": "https://monday.com/affiliate (PartnerStack-hosted)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": true,
+    "application_status": "submitted_pending_review",
+    "approval_status": "application_pending",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "20-30% recurring (per todo stub)",
+      "cookie_days": null,
+      "payout": "Via PartnerStack",
+      "source": "PartnerStack account dashboard (dash.partnerstack.com/home), checked 2026-08-30"
+    },
+    "blocker": null,
+    "notes": "No new application needed - this was already submitted via the shared COSHUMA PartnerStack account from earlier project work (prior to this conversation). Verified current status directly on the PartnerStack dashboard: 'monday.com - Application pending'. Marking as done since the application itself is complete and just awaiting monday.com's review; nothing further for butler or 큰형 to do until they respond."
+  },
+  "browser_tab_status": {
+    "is_open_now": false,
+    "tab_id": null,
+    "url": "https://dash.partnerstack.com/home",
+    "correction_note": "Verified via shared PartnerStack dashboard tab, no dedicated tab needed."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-30T22:30:00Z"
+}

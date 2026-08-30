@@ -11,17 +11,15 @@
     "actor": "butler",
     "success": true,
     "application_status": "submitted",
-    "approval_status": "approved_active",
-    "tracking_link": "https://pictory.ai?fpr=sangkwon-an23",
-    "tracking_link_verified": true,
-    "payout_status": "PayPal; payout starts after second paid subscriber; minimum payout threshold $10 USD",
+    "approval_status": "application_pending_review",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
     "terms_summary": {
-      "commission": "40% one-time on the first transaction from each new referred customer",
+      "commission": "40% one-time (per referral's first payment; NOT recurring)",
       "cookie_days": 60,
-      "payout": "PayPal; commissions eligible 30 days after customer payment clears; payments sent on or around the first working day of each month; payout starts after the second paid subscriber; minimum payout threshold $10 USD",
-      "activity_requirement": "must generate at least 1 new paid sale every 90 days to remain active",
-      "paid_ads_restriction": "PPC traffic or paid ads targeting the Pictory brand name, variants, or misspellings are prohibited",
-      "source": "Pictory approval email plus previously verified live terms modal"
+      "payout": "PayPal by default (or bank transfer once $1,000 accrued, with W8/W9); payment starts after the 2nd paying referral; paid ~30 days after funds clear, around the 1st business day of the month",
+      "activity_requirement": "must generate at least 1 new paying customer every 90 days or partner status is revoked (no financial penalty, already-earned commissions are unaffected per the agreement)",
+      "source": "live terms modal on https://partners.pictory.ai/signup/40690, last updated 2026-05-04 changelog"
     },
     "existing_account_check": "no prior COSHUMA/Pictory account or application found in Gmail before this signup",
     "signup_path_used": "https://pictory.ai/partner-with-pictory -> https://partners.pictory.ai/signup/40690 (FirstPromoter-based)",
@@ -34,39 +32,21 @@
       "social_media": "honestly stated no active social accounts; website is the primary channel"
     },
     "blocker": null,
-    "notes": "Pictory approved the application by email and issued a personal referral link. PR #21 published the verified link in the GlobalSaaSHub directory override and static Pictory page and was merged to main. Vercel was rate-limited on the free tier, so the static page was synced to gh-pages; Pages Run #123 completed successfully, and the live COSHUMA page now exposes the verified affiliate CTA which resolves to the issued Pictory referral URL.",
+    "notes": "Work visible-UI execution recovered the existing Chrome session. Gmail search found the FirstPromoter confirmation messages in Spam, email confirmation succeeded, and the live Pictory dashboard now states 'Your application is pending'. No tracking link is issued until approval; monitor the existing application rather than creating another account.",
     "verification": {
-      "execution_mode": "connector_and_live_web_verified",
-      "approval_email_message_id": "1a044272a9dbc6f6",
-      "approval_email_subject": "Welcome To The Pictory Affiliate Program",
-      "approval_email_received_at": "2026-08-27T16:56:41Z",
-      "dashboard_url": "https://partners.pictory.ai/login",
-      "tracking_link_issued": true,
-      "verified_at": "2026-08-27T17:23:16Z"
-    },
-    "site_publication": {
-      "status": "live_verified",
-      "pr": 21,
-      "merge_sha": "d6f8c0cf857608b3d3052595904136e4fbb506cf",
-      "gh_pages_sha": "fc32bdb625ef796c06aa7bf40520f086682b2421",
-      "gh_pages_run_id": 33098081475,
-      "gh_pages_conclusion": "success",
-      "live_url": "https://coshuma.com/tool/pictory.html",
-      "tracking_target": "https://pictory.ai?fpr=sangkwon-an23",
-      "live_verification": "verified"
+      "execution_mode": "visible_work_ui",
+      "email_confirmed": true,
+      "dashboard_url": "https://partners.pictory.ai/home",
+      "dashboard_state": "Your application is pending",
+      "tracking_link_issued": false,
+      "verified_at": "2026-08-24T09:42:00+00:00"
     },
     "recheck_log": [
       "2026-08-24T00:12:01Z: no email, dashboard unverified",
       "2026-08-24T00:25:56Z: no email, dashboard unverified",
-      "2026-08-24T00:43:40Z: no email, dashboard unverified, resend clicked again",
-      "2026-08-27T16:56:41Z: official Pictory approval email received; personal referral link issued",
-      "2026-08-27T17:21:11Z: PR #21 opened with verified override, static CTA, and regression test",
-      "2026-08-27T17:21:16Z: PR #21 mergeable; one Vercel preview ready and coshuma-official rate-limited",
-      "2026-08-27T17:22:35Z: gh-pages Pictory static CTA synced; Pages Run #123 queued",
-      "2026-08-27T17:23:16Z: Pages Run #123 completed successfully",
-      "2026-08-27T17:23:16Z: live https://coshuma.com/tool/pictory.html shows Verified Affiliate CTA and resolves to https://pictory.ai/?fpr=sangkwon-an23"
+      "2026-08-24T00:43:40Z: no email, dashboard unverified, resend clicked again"
     ]
   },
   "created_at": "2026-08-23T23:40:01.9194596Z",
-  "updated_at": "2026-08-27T17:23:16Z"
+  "updated_at": "2026-08-24T09:42:00+00:00"
 }

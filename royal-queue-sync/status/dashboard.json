@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T21:09:57.784340+00:00",
+  "generated_at": "2026-08-30T22:26:01.133792+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -18,7 +18,7 @@
       "status": "idle",
       "execution_surface": "UI execution",
       "execution_mode": "interactive_ui",
-      "last_activity": "2026-08-24T10:19:20Z",
+      "last_activity": "2026-08-24T09:37:00+00:00",
       "task": null,
       "uuid": null,
       "tool": null,
@@ -27,69 +27,72 @@
     },
     {
       "name": "Butler",
-      "status": "in_progress",
+      "status": "waiting_human",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
-      "last_activity": "2026-08-29T13:11:51Z",
-      "task": "Affiliate Application: Jotform",
-      "uuid": "apply-jotform",
+      "last_activity": "2026-08-26T22:00:00Z",
+      "task": "Affiliate Application: Fireflies.ai",
+      "uuid": "apply-fireflies-ai",
       "tool": null,
       "recent_failure_count": 1,
       "recent_error_title": "COSHUMA post-merge live revenue verification"
     },
     {
       "name": "Princess",
-      "status": "idle",
+      "status": "waiting_human",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
-      "last_activity": "2026-08-28T05:10:00Z",
-      "task": null,
-      "uuid": null,
+      "last_activity": "2026-08-24T09:53:16.686646+00:00",
+      "task": "Visible UI supervisor transition verification",
+      "uuid": "supervisor-transition-test-20260824",
       "tool": null,
       "recent_failure_count": 1,
       "recent_error_title": "COSHUMA SEO P1 next-action audit"
     }
   ],
   "counts": {
-    "todo": 3,
-    "in_progress": 2,
-    "done": 36,
-    "failed": 7,
-    "waiting_human": 6
+    "todo": 118,
+    "in_progress": 11,
+    "done": 23,
+    "failed": 2,
+    "waiting_human": 23
   },
-  "tracking": [],
+  "tracking": [
+    {
+      "id": "pictory-affiliate-verification",
+      "title": "Pictory 제휴 계정 이메일 확인 및 고유 tracking link 발급",
+      "status": "tracking",
+      "task_id": "40782387-5fc1-4b37-8996-72b8f83a7569",
+      "last_checked_at": "2026-08-24T00:43:40.578312+00:00"
+    }
+  ],
   "processes": [
     {
       "name": "watcher",
       "alive": false,
-      "health": "stale_remote_observation",
+      "health": "offline",
       "pid": null,
       "started_at": null,
       "heartbeat": "2026-08-24T09:25:49.5786616Z",
-      "heartbeat_age_seconds": 560648
+      "heartbeat_age_seconds": 565211
     },
     {
       "name": "GitHub bridge",
-      "alive": false,
-      "health": "stale_remote_observation",
-      "pid": null,
+      "alive": true,
+      "health": "healthy",
+      "pid": 47732,
       "started_at": "2026-08-24T09:15:49.8104234Z",
-      "heartbeat": "2026-08-26T22:43:43.4175765Z",
-      "heartbeat_age_seconds": 339974
+      "heartbeat": "2026-08-30T22:25:55.1878102Z",
+      "heartbeat_age_seconds": 6
     },
     {
       "name": "dashboard",
-      "alive": false,
-      "health": "stale_remote_observation",
-      "pid": null,
+      "alive": true,
+      "health": "healthy",
+      "pid": 46088,
       "started_at": "2026-08-24T09:18:44.922329+00:00",
-      "heartbeat": "2026-08-26T22:44:20.580648+00:00",
-      "heartbeat_age_seconds": 339937
+      "heartbeat": "2026-08-30T22:25:57.412819+00:00",
+      "heartbeat_age_seconds": 4
     }
-  ],
-  "reconciliation": {
-    "source": "github_fallback",
-    "unique_uuid_count": 54,
-    "note": "Counts and latest states are deduplicated from committed queue JSON. Local process liveness is not inferred from stale heartbeats."
-  }
+  ]
 }

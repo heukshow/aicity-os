@@ -1,0 +1,37 @@
+{
+  "id": "apply-descript",
+  "title": "Affiliate Application: Descript",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "terms_of_service_acceptance_requires_human_click",
+  "payload": {
+    "tool_id": "descript",
+    "tool_name": "Descript",
+    "application_url": "https://www.descript.com/affiliates (PartnerStack-hosted)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": true,
+    "application_status": "approved_active_pending_terms_acceptance",
+    "approval_status": "active",
+    "tracking_link": "not visible yet - dashboard shows 'Please review the program's Terms of Service' banner blocking full access",
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "15% recurring for 1 year (per todo stub)",
+      "cookie_days": null,
+      "payout": "Via PartnerStack",
+      "source": "PartnerStack account dashboard (dash.partnerstack.com/home), checked 2026-08-30"
+    },
+    "blocker": "The Descript program is already Active on the shared COSHUMA PartnerStack account (15 clicks recorded) from earlier project work, but the dashboard shows 'Please review the program's Terms of Service' - meaning 큰형 needs to open the Descript program page on PartnerStack and click to accept/agree to the terms before full dashboard access (tracking link, resources) unlocks. Per standing policy, accepting terms and conditions is left to 큰형 rather than clicked automatically.",
+    "notes": "큰형: log into dash.partnerstack.com, click into the Descript program row, and accept the Terms of Service banner. Should take one click. Butler will verify and mark fully done afterward."
+  },
+  "browser_tab_status": {
+    "is_open_now": false,
+    "tab_id": null,
+    "url": "https://dash.partnerstack.com/home",
+    "correction_note": "Verified via shared PartnerStack dashboard, no dedicated tab needed."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-30T22:30:00Z"
+}

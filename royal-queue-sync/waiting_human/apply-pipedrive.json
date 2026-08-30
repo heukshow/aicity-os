@@ -1,0 +1,16 @@
+{
+  "id": "apply-pipedrive",
+  "title": "Affiliate Application: Pipedrive (SUPERSEDED)",
+  "assigned_to": "butler",
+  "status": "superseded",
+  "human_reason": "forced_human_verification",
+  "superseded_by": "shared_queue/in_progress/apply-pipedrive.json (LinkedIn requirement bypassed with COSHUMA website URL, application submitted — no human action needed)",
+  "payload": {
+    "tool_id": "pipedrive",
+    "tool_name": "Pipedrive"
+  },
+  "depends_on": null,
+  "result": {},
+  "created_at": "2026-08-24T00:00:00Z",
+  "updated_at": "2026-08-24T00:00:00Z"
+}

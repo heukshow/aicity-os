@@ -1,0 +1,50 @@
+{
+  "id": "apply-gohighlevel",
+  "title": "Affiliate Application: GoHighLevel",
+  "assigned_to": "butler",
+  "status": "done",
+  "human_reason": null,
+  "payload": {
+    "tool_id": "gohighlevel",
+    "tool_name": "GoHighLevel",
+    "application_url": "https://www.gohighlevel.com/joinaffiliate-23423 -> https://affiliate.gohighlevel.com/ (direct sign-up form, own account system, not PartnerStack/Impact.com)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": true,
+    "application_status": "account_created_email_confirmed",
+    "approval_status": "auto_approved_instant_dashboard_access",
+    "tracking_link": "pending_login_to_view_in_dashboard",
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "40% recurring commissions for the life of any active account referred",
+      "cookie_days": null,
+      "payout": "Monthly, to affiliate dashboard/account",
+      "source": "https://www.gohighlevel.com/joinaffiliate-23423, read live on 2026-08-26"
+    },
+    "blocker": "Sign-up requires creating a brand new HighLevel affiliate account with a password (own auth system, not PartnerStack or Impact.com). Filled all non-sensitive fields and left the password field empty per standing instruction to only leave password entry to 큰형.",
+    "fields_filled": {
+      "first_name": "Sangkwon",
+      "last_name": "An",
+      "email": "support@coshuma.com",
+      "country": "South Korea",
+      "phone_number": "+82 10 9509 8985",
+      "company_name": "COSHUMA",
+      "which_best_describes_you": "I'm just getting started — new to both",
+      "preferred_language": "English",
+      "preferred_time_zone": "Other / International Time Zone (Seoul not listed as a named option; closest available choice)",
+      "email_phone_notifications_optin": "left unchecked (optional marketing consent, not required)",
+      "affiliate_terms_agreement": "I agree to affiliate terms and conditions (checked, required)"
+    },
+    "notes": "COMPLETE. 큰형 entered the password and submitted; account created and landed on the dashboard (Home/Referrals/Commissions/Payouts/Assets/Reports tabs, showing 'Sangkwon An'). A confirmation email arrived from noreply@aff.gohighlevel.com; butler opened the confirmation link and got 'Email confirmed successfully.' Additional confirmation: 큰형 received a welcome SMS on 2026-08-26 from GoHighLevel's Affiliate Team ('welcome to the HighLevel Affiliate Program! Your Affiliate Manager can help you set up fast... Speak with your Affiliate Manager: speakwith.us/affiliate') - this is a fourth independent confirmation signal (dashboard + email + now SMS) that enrollment is fully live. Booking a call with the Affiliate Manager is optional and up to 큰형; butler has not visited the speakwith.us link. Nothing further needed from 큰형 - dashboard access is already instant per GoHighLevel's own program design. Tracking link can be grabbed by logging into the dashboard whenever convenient."
+  },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331660,
+    "url": "https://affiliate.gohighlevel.com/home",
+    "correction_note": "Tab left open showing the confirmed, active affiliate dashboard."
+  },
+  "created_at": "2026-08-26T00:00:00Z",
+  "updated_at": "2026-08-26T01:00:00Z"
+}
