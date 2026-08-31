@@ -116,7 +116,7 @@
     "category": "voice_cloning",
     "category_display": "Voice & Speech AI",
     "description": "The leading generative voice AI software that creates lifelike speech, voice clones, and sound effects in any language and voice style.",
-    "affiliate_url": null,
+    "affiliate_url": "https://try.elevenlabs.io/ldc2xmh2x2t5",
     "pricing": "Varies",
     "key_features": [
       "AI Voice Cloning",
@@ -141,11 +141,11 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://elevenlabs.io/",
     "affiliate_verified": true,
-    "affiliate_status": "application_ready",
+    "affiliate_status": "approved_tracking",
     "affiliate_source_url": "https://elevenlabs.io/affiliates",
-    "affiliate_final_url": "https://elevenlabs.io/app/home?affiliate=true",
+    "affiliate_final_url": "https://try.elevenlabs.io/ldc2xmh2x2t5",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["22% commission", "12 months", "PartnerStack"]
+    "affiliate_evidence_markers": ["22% commission", "12 months", "active affiliate account", "Default affiliate link"]
   },
   {
     "id": "copy-ai",
@@ -220,7 +220,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "An essential browser extension and mobile app for YouTube creators, TubeBuddy helps optimize and grow YouTube channels through advanced analytics, SEO tools, and productivity features.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.tubebuddy.com/pricing?a=coshuma",
     "pricing": "See official pricing",
     "key_features": [
       "Video SEO optimization",
@@ -244,11 +244,11 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.tubebuddy.com/",
     "affiliate_verified": true,
-    "affiliate_status": "application_ready",
+    "affiliate_status": "approved_tracking",
     "affiliate_source_url": "https://support.tubebuddy.com/hc/en-us/sections/8981416080411-Affiliates",
-    "affiliate_final_url": "https://www.tubebuddy.com/affiliates/signup",
+    "affiliate_final_url": "https://www.tubebuddy.com/pricing?a=coshuma",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["Affiliate account", "Affiliate Code"]
+    "affiliate_evidence_markers": ["successfully set up your Affiliate account", "15% Commission", "Affiliate Link"]
   },
   {
     "id": "outlierkit",
