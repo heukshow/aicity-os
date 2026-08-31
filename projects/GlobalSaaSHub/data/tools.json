@@ -256,7 +256,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "An AI-powered platform designed for content creators, OutlierKit helps identify trending topics and viral video ideas, specifically for YouTube-focused audiences, to maximize engagement and growth.",
-    "affiliate_url": null,
+    "affiliate_url": "https://outlierkit.com/?ref=sangkwon",
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered trend analysis",
@@ -280,11 +280,11 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://outlierkit.com/",
     "affiliate_verified": true,
-    "affiliate_status": "otp_required",
+    "affiliate_status": "approved_tracking",
     "affiliate_source_url": "https://outlierkit.com/p/affiliate",
-    "affiliate_final_url": "https://outlierkit.tolt.io/login",
+    "affiliate_final_url": "https://outlierkit.com/?ref=sangkwon",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["20% on all paid customers", "verification code"]
+    "affiliate_evidence_markers": ["20% on all paid customers", "all set up and ready to go", "partner link"]
   },
   {
     "id": "pictory",
