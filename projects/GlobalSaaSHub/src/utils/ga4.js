@@ -1,7 +1,9 @@
 const MEASUREMENT_ID_PATTERN = /^G-[A-Z0-9]{8,14}$/
 
 export function configureGA4() {
-  const measurementId = import.meta.env.VITE_GA4_MEASUREMENT_ID
+  // A GA4 measurement ID is a public site identifier, not a credential.
+  // The environment variable remains the deployment override.
+  const measurementId = import.meta.env.VITE_GA4_MEASUREMENT_ID || 'G-ZSFMKB7S5C'
   if (!MEASUREMENT_ID_PATTERN.test(measurementId || '')) return false
 
   window.dataLayer = window.dataLayer || []
