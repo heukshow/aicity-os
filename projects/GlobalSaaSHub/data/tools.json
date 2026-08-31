@@ -463,7 +463,7 @@
     "category": "copywriting",
     "category_display": "AI Copywriting",
     "description": "An innovative AI writing tool specifically designed to assist fiction writers in brainstorming, drafting, and refining their stories and novels.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.sudowrite.com?via=sangkwon",
     "pricing": "See official pricing",
     "key_features": [
       "AI story generation",
@@ -488,11 +488,11 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.sudowrite.com/",
     "affiliate_verified": true,
-    "affiliate_status": "application_submitted",
+    "affiliate_status": "approved_tracking",
     "affiliate_source_url": "https://sudowrite.notion.site/Sudowrite-Affiliate-Program-12788b26b71746f2a72cd05b7087e8c9",
-    "affiliate_final_url": "https://airtable.com/apprFqnCHKxTNmQGt/pagxsCzPSxTERKCFA/form",
+    "affiliate_final_url": "https://www.sudowrite.com?via=sangkwon",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["25% recurring commission", "Thanks for signing up. Please check your emails"]
+    "affiliate_evidence_markers": ["Welcome to the Sudowrite partner program", "25% on all payments, first 12 months", "60 day cookie", "affiliate link"]
   },
   {
     "id": "convertkit",
@@ -2270,7 +2270,11 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.getresponse.com/"
+    "official_evidence_url": "https://www.getresponse.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["PartnerStack application received", "submitted for GetResponse review"]
   },
   {
     "id": "kit",
@@ -2390,7 +2394,11 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.kittl.com/"
+    "official_evidence_url": "https://www.kittl.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["Impact application received", "application will be reviewed"]
   },
   {
     "id": "koala-ai",
@@ -3338,7 +3346,11 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://text.com/"
+    "official_evidence_url": "https://text.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_account",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["Welcome to the Text Partner Program"]
   },
   {
     "id": "typedesk",
@@ -3468,7 +3480,11 @@
     "pricing_source_final_url": "https://www.bidx.io/pricing",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.bidx.io/"
+    "official_evidence_url": "https://www.bidx.io/",
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["PartnerStack application received", "submitted for BidX review"]
   },
   {
     "id": "tidio",
@@ -3558,7 +3574,11 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://bookyourdata.com/"
+    "official_evidence_url": "https://bookyourdata.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["PartnerStack application received", "submitted for Bookyourdata review"]
   },
   {
     "id": "mindstudio",
@@ -4475,7 +4495,11 @@
     "pricing_source_final_url": null,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://gamma.app/"
+    "official_evidence_url": "https://gamma.app/",
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["PartnerStack application received", "submitted for Gamma review"]
   },
   {
     "id": "gobii",
