@@ -442,7 +442,14 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://writesonic.com/"
+    "official_evidence_url": "https://writesonic.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "rejected",
+    "affiliate_source_url": "https://writesonic.com/affiliate",
+    "affiliate_final_url": "https://affiliates.writesonic.com/home",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["20% recurring", "12 months", "Your application has been rejected"],
+    "affiliate_rejection_reason": "The authenticated Writesonic affiliate dashboard explicitly shows that the application was rejected."
   },
   {
     "id": "sudowrite",
