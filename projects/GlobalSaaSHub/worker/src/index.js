@@ -1,6 +1,7 @@
 import { captureIsVerifiedPaid, providerOrderIdFromWebhook, validatePaidWebhook, webhookTarget } from './domain.js';
 import { capturePayPalOrder, createPayPalOrder, getPayPalOrder, verifyPayPalWebhook } from './paypal.js';
 import { D1OrderRepository } from './repository.js';
+import { handleAdminRequest, isAdminPath } from './admin.js';
 
 const json = (body, status = 200, extra = {}) => new Response(JSON.stringify(body), {
   status,
@@ -65,6 +66,13 @@ async function webhook(request, env, repo) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (isAdminPath(url, env)) return handleAdminRequest(request, env);
+    if (url.pathname === '/robots.txt') {
+      const privatePath = String(env.ADMIN_PATH || '/ops-private').replace(/\/$/, '');
+      return new Response(`User-agent: *\nDisallow: ${privatePath}/\n`, {
+        headers: { 'content-type': 'text/plain; charset=utf-8', 'x-robots-tag': 'noindex, nofollow' },
+      });
+    }
     if (request.method === 'OPTIONS') {
       return new Response(null, { status: 204, headers: {
         ...corsHeaders(request, env),

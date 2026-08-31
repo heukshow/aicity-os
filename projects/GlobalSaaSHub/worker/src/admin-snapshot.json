@@ -1,0 +1,382 @@
+{
+  "generatedAt": "2026-08-31T19:51:49.612Z",
+  "counts": {
+    "totalTools": 151,
+    "verifiedAffiliates": 44,
+    "toolPages": 151,
+    "comparePages": 233,
+    "sitemapUrls": 385
+  },
+  "connections": {
+    "ga4": "Not connected",
+    "searchConsole": "연결 필요"
+  },
+  "seo": {
+    "testsPassed": true,
+    "koreanLeakCount": 0
+  },
+  "affiliates": [
+    {
+      "id": "bolddesk",
+      "name": "BoldDesk",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://www.bolddesk.com/?via=sangkwon",
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "boldsign",
+      "name": "BoldSign",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://boldsign.com?via=sangkwon",
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "castmagic",
+      "name": "Castmagic",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://castmagic.io?fpr=sangkwon-an54",
+      "verifiedAt": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "id": "descript",
+      "name": "Descript",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://get.descript.com/ole5fu20j5sq",
+      "verifiedAt": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://try.elevenlabs.io/ldc2xmh2x2t5",
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "fireflies-ai",
+      "name": "Fireflies.ai",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://fireflies.ai/?fpr=sangkwon53",
+      "verifiedAt": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "id": "fliki",
+      "name": "Fliki",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://fliki.ai?via=sangkwon",
+      "verifiedAt": "2026-08-23T22:05:38Z"
+    },
+    {
+      "id": "followr",
+      "name": "Followr",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://followr.ai/?ref=support22",
+      "verifiedAt": "2026-08-31T14:00:00Z"
+    },
+    {
+      "id": "getgenie",
+      "name": "GetGenie",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://getgenie.ai?rui=3921",
+      "verifiedAt": "2026-08-31T14:00:00Z"
+    },
+    {
+      "id": "gohighlevel",
+      "name": "GoHighLevel",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://www.gohighlevel.com/?fp_ref=sangkwon56",
+      "verifiedAt": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "id": "gojiberry",
+      "name": "Gojiberry",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://gojiberry.ai/?ref=sangkwon",
+      "verifiedAt": "2026-08-31T14:00:00Z"
+    },
+    {
+      "id": "inkfluence-ai",
+      "name": "Inkfluence AI",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://www.inkfluenceai.com/?ref=sangkwon",
+      "verifiedAt": "2026-08-31T14:00:00Z"
+    },
+    {
+      "id": "liftmycv",
+      "name": "LiftmyCV",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://www.liftmycv.com/?via=sangkwon",
+      "verifiedAt": "2026-08-31T14:00:00Z"
+    },
+    {
+      "id": "make-com",
+      "name": "Make.com",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://www.make.com/?pc=coshuma",
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "merlin",
+      "name": "Merlin",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://www.getmerlin.in/chat?ref=yjeyytn",
+      "verifiedAt": "2026-08-31T14:00:00Z"
+    },
+    {
+      "id": "outlierkit",
+      "name": "OutlierKit",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://outlierkit.com/?ref=sangkwon",
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "pictory",
+      "name": "Pictory",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://pictory.ai?fpr=sangkwon-an23",
+      "verifiedAt": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "id": "relevance-ai",
+      "name": "Relevance AI",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://relevanceai.com?via=sangkwon",
+      "verifiedAt": "2026-08-31T17:44:19Z"
+    },
+    {
+      "id": "sudowrite",
+      "name": "Sudowrite",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://www.sudowrite.com?via=sangkwon",
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "systeme-io",
+      "name": "Systeme.io",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca",
+      "verifiedAt": "2026-08-23T20:23:38Z"
+    },
+    {
+      "id": "taskade",
+      "name": "Taskade",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://www.taskade.com/?via=7zzjo7",
+      "verifiedAt": "2026-08-16T04:20:43Z"
+    },
+    {
+      "id": "tubebuddy",
+      "name": "TubeBuddy",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://www.tubebuddy.com/pricing?a=coshuma",
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "vidiq",
+      "name": "VidIQ",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://vidiq.com/coshuma",
+      "verifiedAt": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "id": "airia",
+      "name": "Airia",
+      "status": "blocked_partnerstack_marketplace_limited",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "bidx",
+      "name": "BidX",
+      "status": "application_submitted",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "bookyourdata",
+      "name": "Bookyourdata",
+      "status": "application_submitted",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "gamma",
+      "name": "Gamma",
+      "status": "application_submitted",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "getresponse",
+      "name": "GetResponse",
+      "status": "application_submitted",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "jotform",
+      "name": "Jotform",
+      "status": "approved_account",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "kinsta",
+      "name": "Kinsta",
+      "status": "rejected",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "convertkit",
+      "name": "Kit (formerly ConvertKit)",
+      "status": "blocked_partnerstack_marketplace_limited",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "kittl",
+      "name": "Kittl",
+      "status": "application_submitted",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "lovo",
+      "name": "Lovo",
+      "status": "application_blocked_vendor_site_paused",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "moosend",
+      "name": "Moosend",
+      "status": "email_verification_pending",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T04:40:00+09:00"
+    },
+    {
+      "id": "notion-ai",
+      "name": "Notion AI",
+      "status": "program_closed_to_new_applicants",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "quillbot",
+      "name": "QuillBot",
+      "status": "blocked_partnerstack_marketplace_limited",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "seamless",
+      "name": "Seamless",
+      "status": "application_blocked_region",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "shopify",
+      "name": "Shopify",
+      "status": "excluded_user_request",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "synthesia",
+      "name": "Synthesia",
+      "status": "email_confirmed_login_required",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "text",
+      "name": "Text",
+      "status": "approved_account",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "text-cortex",
+      "name": "Text Cortex",
+      "status": "program_inactive",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "unbounce",
+      "name": "Unbounce",
+      "status": "application_submitted",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "writesonic",
+      "name": "Writesonic",
+      "status": "rejected",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "zenrows",
+      "name": "ZenRows",
+      "status": "application_submitted",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-01T00:00:00Z"
+    }
+  ],
+  "recentSeoChanges": [
+    {
+      "title": "공개 SEO 무결성 계약 강화",
+      "date": "2026-09-01"
+    },
+    {
+      "title": "Sitemap 및 정적 페이지 동기화",
+      "date": "2026-09-01"
+    }
+  ]
+}
