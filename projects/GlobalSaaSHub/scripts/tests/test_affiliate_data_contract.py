@@ -7,7 +7,7 @@ from urllib.parse import parse_qs, urlparse
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATA_FILES = (PROJECT_ROOT / "data" / "tools.json", PROJECT_ROOT / "data" / "tools.next.json")
-TRACKING_KEYS = {"aff", "affiliate", "affiliate_id", "ref", "referral", "tag", "via"}
+TRACKING_KEYS = {"aff", "affiliate", "affiliate_id", "fpr", "fp_ref", "ref", "referral", "rui", "sa", "tag", "via"}
 
 
 def _has_tracking_identifier(url):

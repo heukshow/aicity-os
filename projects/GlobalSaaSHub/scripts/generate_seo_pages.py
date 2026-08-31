@@ -540,16 +540,20 @@ for tool_a in tools_data:
         rating_a_disp = f"⭐ {r_a} / 5.0" if r_a is not None else "Not rated"
         rating_b_disp = f"⭐ {r_b} / 5.0" if r_b is not None else "Not rated"
 
-        target_a_url = clean_url(tool_a.get("affiliate_url")) or clean_url(tool_a.get("official_url"))
-        target_b_url = clean_url(tool_b.get("affiliate_url")) or clean_url(tool_b.get("official_url"))
+        target_a_affiliate = clean_url(tool_a.get("affiliate_url")) if tool_a.get("affiliate_verified") is True else None
+        target_b_affiliate = clean_url(tool_b.get("affiliate_url")) if tool_b.get("affiliate_verified") is True else None
+        target_a_url = target_a_affiliate or clean_url(tool_a.get("official_url"))
+        target_b_url = target_b_affiliate or clean_url(tool_b.get("official_url"))
+        target_a_rel = "sponsored noopener noreferrer" if target_a_affiliate else "noopener noreferrer"
+        target_b_rel = "sponsored noopener noreferrer" if target_b_affiliate else "noopener noreferrer"
 
         if target_a_url:
-            cta_a_html = f'<a href="{target_a_url}" target="_blank" rel="noopener noreferrer" class="py-3.5 px-4 rounded-xl bg-purple-600 hover:bg-purple-500 font-extrabold text-xs text-white text-center shadow-lg transition-all">Get {tool_a.get("name")} →</a>'
+            cta_a_html = f'<a href="{target_a_url}" target="_blank" rel="{target_a_rel}" class="py-3.5 px-4 rounded-xl bg-purple-600 hover:bg-purple-500 font-extrabold text-xs text-white text-center shadow-lg transition-all">Get {tool_a.get("name")} →</a>'
         else:
             cta_a_html = '<div class="py-3.5 px-4 rounded-xl bg-slate-800 text-slate-500 font-bold text-xs text-center border border-slate-700/50">Link Unavailable</div>'
 
         if target_b_url:
-            cta_b_html = f'<a href="{target_b_url}" target="_blank" rel="noopener noreferrer" class="py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 font-extrabold text-xs text-white text-center shadow-lg transition-all">Get {tool_b.get("name")} →</a>'
+            cta_b_html = f'<a href="{target_b_url}" target="_blank" rel="{target_b_rel}" class="py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 font-extrabold text-xs text-white text-center shadow-lg transition-all">Get {tool_b.get("name")} →</a>'
         else:
             cta_b_html = '<div class="py-3.5 px-4 rounded-xl bg-slate-800 text-slate-500 font-bold text-xs text-center border border-slate-700/50">Link Unavailable</div>'
 
