@@ -4,6 +4,10 @@
 
 Affiliate revenue and paid sponsorship are independent products. An affiliate link is used only when its program URL has been verified; otherwise visitors receive the official product URL. Affiliate participation never changes editorial ratings, badges, comparison text, or ranking.
 
+## Payout account handling
+
+The COSHUMA Wise Business Basic account has been created for `support@coshuma.com`, but no USD, EUR, GBP, or other receiving account details have been issued. Never invent or submit Wise bank details to an affiliate platform. Allow commissions to accrue on each platform and defer payout setup until the balance approaches its payment threshold. Immediately before a real payout, re-check the current Wise terms and fee, complete any required Advanced activation and identity verification, and register only the receiving details actually issued by Wise. Passwords and authentication secrets must never be stored in this repository.
+
 The one-time sponsorship is a separate USD 49 promotional placement. Payment alone does not guarantee acceptance, a particular position, or an editorial rating. The placement begins only after the payment is verified by the server and the submission is reviewed against the sponsorship policy.
 
 ## Payment architecture
