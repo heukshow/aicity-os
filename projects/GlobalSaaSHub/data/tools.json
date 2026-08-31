@@ -350,7 +350,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.inkfluenceai.com/"
+    "official_evidence_url": "https://www.inkfluenceai.com/",
+    "affiliate_status": "approved_tracking"
   },
   {
     "id": "jasper",
@@ -1367,7 +1368,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://liftmycv.com/"
+    "official_evidence_url": "https://liftmycv.com/",
+    "affiliate_status": "approved_tracking"
   },
   {
     "id": "blaze",
@@ -1640,7 +1642,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.getmerlin.in/"
+    "official_evidence_url": "https://www.getmerlin.in/",
+    "affiliate_status": "approved_tracking"
   },
   {
     "id": "decktopus",
@@ -2489,7 +2492,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://followr.ai/"
+    "official_evidence_url": "https://followr.ai/",
+    "affiliate_status": "approved_tracking"
   },
   {
     "id": "10web",
@@ -2672,7 +2676,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://getgenie.ai/"
+    "official_evidence_url": "https://getgenie.ai/",
+    "affiliate_status": "approved_tracking"
   },
   {
     "id": "activecampaign",
@@ -3364,7 +3369,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://gojiberry.ai/"
+    "official_evidence_url": "https://gojiberry.ai/",
+    "affiliate_status": "approved_tracking"
   },
   {
     "id": "bidx",

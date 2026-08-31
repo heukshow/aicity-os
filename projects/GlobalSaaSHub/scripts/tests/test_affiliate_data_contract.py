@@ -13,7 +13,8 @@ TRACKING_KEYS = {"aff", "affiliate", "affiliate_id", "fpr", "fp_ref", "ref", "re
 def _has_tracking_identifier(url):
     parsed = urlparse(url)
     query = parse_qs(parsed.query, keep_blank_values=True)
-    return any(key.lower() in TRACKING_KEYS and any(value.strip() for value in values) for key, values in query.items())
+    has_query_id = any(key.lower() in TRACKING_KEYS and any(value.strip() for value in values) for key, values in query.items())
+    return has_query_id or parsed.path.strip("/") != ""
 
 
 def test_affiliate_urls_are_approved_unique_tracking_links():
