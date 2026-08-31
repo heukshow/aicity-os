@@ -4431,7 +4431,6 @@
     "pricing_source_url": null,
     "pricing": "See official pricing",
     "key_features": [
-      "25% recurring commission on every payment",
       "Fully on-device dictation mode using OpenAI's Whisper models",
       "Private open-source cloud mode that stores nothing",
       "Never trains AI on user dictation"
