@@ -45,7 +45,7 @@ export async function fetchGoogleMetrics(env) {
   const property = env.GA_PROPERTY_ID || '552119661';
   const gaBase = `https://analyticsdata.googleapis.com/v1beta/properties/${property}`;
   const [kpis, countries, sources, pages, affiliate, searchTotals, search] = await Promise.all([
-    googlePost(`${gaBase}:batchRunReports`, token, { reports: [
+    googlePost(`${gaBase}:batchRunReports`, token, { requests: [
       { dateRanges: [{ startDate: 'today', endDate: 'today' }], metrics: [{ name: 'activeUsers' }] },
       { dateRanges: [{ startDate: '7daysAgo', endDate: 'today' }], metrics: [{ name: 'activeUsers' }] },
       { dateRanges: [{ startDate: '30daysAgo', endDate: 'today' }], metrics: [{ name: 'activeUsers' }] },
