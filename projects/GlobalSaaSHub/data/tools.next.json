@@ -909,7 +909,10 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.aweber.com/",
-    "affiliate_url": null
+    "affiliate_url": "https://www.aweber.com/easy-email.htm?id=561868",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-01T08:20:00+09:00"
   },
   {
     "id": "unbounce",

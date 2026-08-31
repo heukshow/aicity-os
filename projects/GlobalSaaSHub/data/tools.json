@@ -852,7 +852,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "A long-standing and reliable email marketing service, perfect for small businesses and creators looking to build their audience and automate communication.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.aweber.com/easy-email.htm?id=561868",
     "pricing": "See official pricing",
     "key_features": [
       "Email Campaign Creation",
@@ -874,7 +874,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.aweber.com/"
+    "official_evidence_url": "https://www.aweber.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-01T08:20:00+09:00"
   },
   {
     "id": "unbounce",
