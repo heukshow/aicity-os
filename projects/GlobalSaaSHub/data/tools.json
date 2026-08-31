@@ -529,7 +529,13 @@
     "pricing_source_final_url": "https://kit.com/pricing",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://kit.com/"
+    "official_evidence_url": "https://kit.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "blocked_partnerstack_marketplace_limited",
+    "affiliate_source_url": "https://kit.com/affiliate",
+    "affiliate_final_url": "https://dash.partnerstack.com/application?company=kit&group=kitaffiliates",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["50% commission for 12 months", "PartnerStack Network marketplace access limited", "application page rendered blank"]
   },
   {
     "id": "quillbot",
@@ -559,7 +565,12 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://quillbot.com/"
+    "official_evidence_url": "https://quillbot.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "blocked_partnerstack_marketplace_limited",
+    "affiliate_source_url": "https://quillbot.com/affiliates",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["10% - 20% commission", "30-day cookie", "PartnerStack Network marketplace access limited"]
   },
   {
     "id": "text-cortex",
@@ -589,7 +600,13 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://textcortex.com/"
+    "official_evidence_url": "https://textcortex.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "program_inactive",
+    "affiliate_source_url": "https://affiliate.textcortex.com/signup",
+    "affiliate_final_url": "https://affiliate.textcortex.com/signup",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["campaign has been deactivated by the owner", "affiliate program is no longer active"]
   },
   {
     "id": "vidiq",
