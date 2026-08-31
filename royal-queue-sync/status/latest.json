@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-08-31T15:35:23.741283+00:00",
+  "generated_at": "2026-08-31T15:56:40.960666+00:00",
   "latest": [
-    {
-      "id": "apply-descript",
-      "actor": "prince",
-      "status": "done",
-      "updated_at": "2026-08-31T15:00:00Z"
-    },
     {
       "id": "apply-gohighlevel",
       "actor": "butler",
+      "status": "done",
+      "updated_at": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "id": "apply-descript",
+      "actor": "prince",
       "status": "done",
       "updated_at": "2026-08-31T15:00:00Z"
     },
@@ -20,586 +20,136 @@
       "updated_at": "2026-08-31T14:00:00Z"
     },
     {
-      "id": "apply-unbounce",
+      "id": "apply-castmagic",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-31T13:05:00+00:00"
+    },
+    {
+      "id": "apply-inkfluence-ai",
       "actor": "princess",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T12:34:00Z"
+      "updated_at": "2026-08-31T13:05:00+00:00"
+    },
+    {
+      "id": "apply-liftmycv",
+      "actor": "princess",
+      "status": "waiting_human",
+      "updated_at": "2026-08-31T13:05:00+00:00"
+    },
+    {
+      "id": "apply-merlin-ai",
+      "actor": "princess",
+      "status": "waiting_human",
+      "updated_at": "2026-08-31T13:05:00+00:00"
     },
     {
       "id": "apply-monday-com",
-      "actor": "princess",
+      "actor": "butler",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T12:32:00Z"
+      "updated_at": "2026-08-31T13:05:00+00:00"
     },
     {
-      "id": "apply-castmagic",
-      "actor": "princess",
-      "status": "in_progress",
-      "updated_at": "2026-08-31T12:20:00Z"
+      "id": "apply-unbounce",
+      "actor": "butler",
+      "status": "waiting_human",
+      "updated_at": "2026-08-31T13:05:00+00:00"
     },
     {
       "id": "apply-zenrows",
       "actor": "butler",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T12:15:00Z"
+      "updated_at": "2026-08-31T12:15:00+00:00"
     },
     {
       "id": "apply-writesonic",
       "actor": "butler",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T12:05:00Z"
+      "updated_at": "2026-08-31T12:05:00+00:00"
     },
     {
       "id": "apply-voibe",
       "actor": "princess",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T12:00:00Z"
+      "updated_at": "2026-08-31T12:00:00+00:00"
     },
     {
       "id": "apply-vista-social",
       "actor": "princess",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T11:55:00Z"
+      "updated_at": "2026-08-31T11:55:00+00:00"
     },
     {
       "id": "apply-veed",
       "actor": "princess",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T11:50:00Z"
+      "updated_at": "2026-08-31T11:50:00+00:00"
     },
     {
       "id": "apply-typedesk",
       "actor": "princess",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T11:45:00Z"
+      "updated_at": "2026-08-31T11:45:00+00:00"
     },
     {
       "id": "apply-tubebuddy",
       "actor": "butler",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T11:40:00Z"
+      "updated_at": "2026-08-31T11:40:00+00:00"
     },
     {
       "id": "apply-triple-whale",
       "actor": "princess",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T11:35:00Z"
+      "updated_at": "2026-08-31T11:35:00+00:00"
     },
     {
       "id": "apply-time2book",
       "actor": "princess",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T11:30:00Z"
+      "updated_at": "2026-08-31T11:30:00+00:00"
     },
     {
       "id": "apply-text",
       "actor": "princess",
-      "status": "in_progress",
-      "updated_at": "2026-08-31T11:25:00Z"
+      "status": "waiting_human",
+      "updated_at": "2026-08-31T11:25:00+00:00"
     },
     {
       "id": "apply-text-cortex",
       "actor": "butler",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T11:20:00Z"
+      "updated_at": "2026-08-31T11:20:00+00:00"
     },
     {
       "id": "apply-teknikforce",
       "actor": "princess",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T11:15:00Z"
+      "updated_at": "2026-08-31T11:15:00+00:00"
     },
     {
       "id": "apply-teachable",
       "actor": "princess",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T11:10:00Z"
+      "updated_at": "2026-08-31T11:10:00+00:00"
     },
     {
       "id": "apply-taskip",
       "actor": "princess",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T11:05:00Z"
+      "updated_at": "2026-08-31T11:05:00+00:00"
     },
     {
       "id": "apply-tapfiliate",
       "actor": "princess",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T11:00:00Z"
+      "updated_at": "2026-08-31T11:00:00+00:00"
     },
     {
       "id": "apply-tagshop-ai",
       "actor": "princess",
       "status": "waiting_human",
-      "updated_at": "2026-08-31T10:55:00Z"
-    },
-    {
-      "id": "apply-systeme-io",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T10:50:00Z"
-    },
-    {
-      "id": "apply-synthflow-ai",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T10:40:00Z"
-    },
-    {
-      "id": "apply-synder",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T10:35:00Z"
-    },
-    {
-      "id": "apply-surfeo",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T10:30:00Z"
-    },
-    {
-      "id": "apply-supademo",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T10:20:00Z"
-    },
-    {
-      "id": "apply-sudowrite",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T10:05:00Z"
-    },
-    {
-      "id": "apply-speechify",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T09:55:00Z"
-    },
-    {
-      "id": "apply-socialchamp-io",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T09:50:00Z"
-    },
-    {
-      "id": "apply-snov-io",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T09:40:00Z"
-    },
-    {
-      "id": "apply-sendcloud",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T09:35:00Z"
-    },
-    {
-      "id": "apply-seamless",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T09:30:00Z"
-    },
-    {
-      "id": "apply-scalenut",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T09:25:00Z"
-    },
-    {
-      "id": "apply-sanebox",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T09:20:00Z"
-    },
-    {
-      "id": "apply-rytr",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T09:15:00Z"
-    },
-    {
-      "id": "apply-reply-io",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T09:10:00Z"
-    },
-    {
-      "id": "apply-reditus",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T09:00:00Z"
-    },
-    {
-      "id": "apply-reclaim-ai",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T08:50:00Z"
-    },
-    {
-      "id": "apply-reactin",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T08:45:00Z"
-    },
-    {
-      "id": "apply-quillbot",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T08:40:00Z"
-    },
-    {
-      "id": "apply-questmate",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T08:35:00Z"
-    },
-    {
-      "id": "apply-privy",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T08:30:00Z"
-    },
-    {
-      "id": "apply-pickaxe",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T08:25:00Z"
-    },
-    {
-      "id": "apply-panda-video",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T08:20:00Z"
-    },
-    {
-      "id": "apply-marketingblocks",
-      "actor": "princess",
-      "status": "failed",
-      "updated_at": "2026-08-31T08:18:00Z"
-    },
-    {
-      "id": "apply-murf-ai",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T08:15:00Z"
-    },
-    {
-      "id": "apply-novita-ai",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T08:15:00Z"
-    },
-    {
-      "id": "apply-nudgera",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T08:15:00Z"
-    },
-    {
-      "id": "apply-octo-browser",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T08:15:00Z"
-    },
-    {
-      "id": "apply-omi-ai",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T08:15:00Z"
-    },
-    {
-      "id": "apply-outlierkit",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T08:15:00Z"
-    },
-    {
-      "id": "apply-merlin-ai",
-      "actor": "princess",
-      "status": "done",
-      "updated_at": "2026-08-31T08:10:00Z"
-    },
-    {
-      "id": "apply-livechat",
-      "actor": "princess",
-      "status": "failed",
-      "updated_at": "2026-08-31T07:53:00Z"
-    },
-    {
-      "id": "apply-liftmycv",
-      "actor": "princess",
-      "status": "done",
-      "updated_at": "2026-08-31T07:42:00Z"
-    },
-    {
-      "id": "apply-gojiberry",
-      "actor": "princess",
-      "status": "done",
-      "updated_at": "2026-08-31T07:36:00Z"
-    },
-    {
-      "id": "apply-happyscribe",
-      "actor": "butler",
-      "status": "failed",
-      "updated_at": "2026-08-31T06:18:00.849257Z"
-    },
-    {
-      "id": "apply-gumloop",
-      "actor": "butler",
-      "status": "failed",
-      "updated_at": "2026-08-31T06:18:00.848753Z"
-    },
-    {
-      "id": "apply-google-workspace",
-      "actor": "butler",
-      "status": "failed",
-      "updated_at": "2026-08-31T06:18:00.847748Z"
-    },
-    {
-      "id": "apply-gravity-forms",
-      "actor": "butler",
-      "status": "failed",
-      "updated_at": "2026-08-31T06:18:00.847748Z"
-    },
-    {
-      "id": "apply-getgabs",
-      "actor": "butler",
-      "status": "failed",
-      "updated_at": "2026-08-31T06:18:00.846743Z"
-    },
-    {
-      "id": "apply-gallabox",
-      "actor": "butler",
-      "status": "failed",
-      "updated_at": "2026-08-31T06:18:00.846239Z"
-    },
-    {
-      "id": "apply-expandi",
-      "actor": "butler",
-      "status": "failed",
-      "updated_at": "2026-08-31T06:18:00.845237Z"
-    },
-    {
-      "id": "apply-featureshark",
-      "actor": "butler",
-      "status": "failed",
-      "updated_at": "2026-08-31T06:18:00.845237Z"
-    },
-    {
-      "id": "apply-docsbot",
-      "actor": "butler",
-      "status": "failed",
-      "updated_at": "2026-08-31T06:18:00.844238Z"
-    },
-    {
-      "id": "apply-eprofessor",
-      "actor": "butler",
-      "status": "failed",
-      "updated_at": "2026-08-31T06:18:00.844238Z"
-    },
-    {
-      "id": "apply-decktopus",
-      "actor": "butler",
-      "status": "failed",
-      "updated_at": "2026-08-31T06:18:00.843237Z"
-    },
-    {
-      "id": "apply-customgpt-ai",
-      "actor": "butler",
-      "status": "failed",
-      "updated_at": "2026-08-31T06:18:00.842238Z"
-    },
-    {
-      "id": "apply-databox",
-      "actor": "butler",
-      "status": "failed",
-      "updated_at": "2026-08-31T06:18:00.842238Z"
-    },
-    {
-      "id": "apply-boldsign",
-      "actor": "butler",
-      "status": "failed",
-      "updated_at": "2026-08-31T06:18:00.841240Z"
-    },
-    {
-      "id": "apply-chatbot",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T06:18:00.841240Z"
-    },
-    {
-      "id": "apply-babylovegrowth-ai",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T06:18:00.840240Z"
-    },
-    {
-      "id": "apply-catalister",
-      "actor": "princess",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T06:18:00.840240Z"
-    },
-    {
-      "id": "apply-blaze",
-      "actor": "princess",
-      "status": "done",
-      "updated_at": "2026-08-31T06:18:00.839233Z"
-    },
-    {
-      "id": "apply-bolddesk",
-      "actor": "princess",
-      "status": "done",
-      "updated_at": "2026-08-31T06:18:00.839233Z"
-    },
-    {
-      "id": "apply-alidropship",
-      "actor": "princess",
-      "status": "done",
-      "updated_at": "2026-08-31T06:18:00.837729Z"
-    },
-    {
-      "id": "apply-followr",
-      "actor": "butler",
-      "status": "done",
-      "updated_at": "2026-08-31T04:19:13Z"
-    },
-    {
-      "id": "apply-fathom",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T04:19:13Z"
-    },
-    {
-      "id": "apply-flowgent-ai",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T04:19:13Z"
-    },
-    {
-      "id": "apply-brand24",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T02:35:00Z"
-    },
-    {
-      "id": "apply-bookyourdata",
-      "actor": "butler",
-      "status": "in_progress",
-      "updated_at": "2026-08-31T02:25:00Z"
-    },
-    {
-      "id": "apply-bidx",
-      "actor": "butler",
-      "status": "in_progress",
-      "updated_at": "2026-08-31T01:45:00Z"
-    },
-    {
-      "id": "apply-beefree",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T01:35:00Z"
-    },
-    {
-      "id": "apply-dorik",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T01:35:00Z"
-    },
-    {
-      "id": "apply-aitable-ai",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T01:10:00Z"
-    },
-    {
-      "id": "apply-airia",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T01:05:00Z"
-    },
-    {
-      "id": "apply-aiassistworks",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T00:58:00Z"
-    },
-    {
-      "id": "apply-ai-video-cut",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T00:55:00Z"
-    },
-    {
-      "id": "apply-ai-agent-store",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T00:50:00Z"
-    },
-    {
-      "id": "apply-agentworks",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T00:45:00Z"
-    },
-    {
-      "id": "apply-make-com",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T00:32:00Z"
-    },
-    {
-      "id": "apply-dub",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T00:25:00Z"
-    },
-    {
-      "id": "apply-n8n",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T00:15:00Z"
-    },
-    {
-      "id": "apply-kit",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T00:05:00Z"
-    },
-    {
-      "id": "apply-convertkit",
-      "actor": "butler",
-      "status": "waiting_human",
-      "updated_at": "2026-08-31T00:05:00Z"
-    },
-    {
-      "id": "apply-getgenie",
-      "actor": "butler",
-      "status": "done",
-      "updated_at": "2026-08-31T00:00:00Z"
-    },
-    {
-      "id": "apply-cloudtalk",
-      "actor": "butler",
-      "status": "in_progress",
-      "updated_at": "2026-08-31T00:00:00Z"
-    },
-    {
-      "id": "apply-gamma",
-      "actor": "butler",
-      "status": "in_progress",
-      "updated_at": "2026-08-31T00:00:00Z"
-    },
-    {
-      "id": "apply-getresponse",
-      "actor": "butler",
-      "status": "in_progress",
-      "updated_at": "2026-08-31T00:00:00Z"
-    },
-    {
-      "id": "apply-jobhire",
-      "actor": "butler",
-      "status": "in_progress",
-      "updated_at": "2026-08-31T00:00:00Z"
+      "updated_at": "2026-08-31T10:55:00+00:00"
     }
   ]
 }

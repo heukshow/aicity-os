@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T15:35:23.741283+00:00",
+  "generated_at": "2026-08-31T15:56:39.889542+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -30,9 +30,9 @@
       "status": "waiting_human",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
-      "last_activity": "2026-08-31T12:15:00Z",
-      "task": "Affiliate Application: ZenRows",
-      "uuid": "apply-zenrows",
+      "last_activity": "2026-08-31T13:05:00+00:00",
+      "task": "Affiliate Application: Castmagic",
+      "uuid": "apply-castmagic",
       "tool": null,
       "recent_failure_count": 15,
       "recent_error_title": "Affiliate Application: happyscribe"
@@ -42,20 +42,20 @@
       "status": "waiting_human",
       "execution_surface": "background adapter",
       "execution_mode": "background_adapter",
-      "last_activity": "2026-08-31T12:34:00Z",
-      "task": "Affiliate Application: Unbounce",
-      "uuid": "apply-unbounce",
+      "last_activity": "2026-08-31T13:05:00+00:00",
+      "task": "Affiliate Application: Inkfluence AI",
+      "uuid": "apply-inkfluence-ai",
       "tool": null,
       "recent_failure_count": 1,
       "recent_error_title": "COSHUMA SEO P1 next-action audit"
     }
   ],
   "counts": {
-    "todo": 3,
-    "in_progress": 11,
-    "done": 45,
-    "failed": 19,
-    "waiting_human": 95
+    "todo": 2,
+    "in_progress": 5,
+    "done": 26,
+    "failed": 16,
+    "waiting_human": 128
   },
   "tracking": [
     {
@@ -70,11 +70,11 @@
     {
       "name": "watcher",
       "alive": false,
-      "health": "stale_remote_observation",
+      "health": "offline",
       "pid": null,
       "started_at": null,
       "heartbeat": "2026-08-24T09:25:49.5786616Z",
-      "heartbeat_age_seconds": 626974
+      "heartbeat_age_seconds": 628250
     },
     {
       "name": "GitHub bridge",
@@ -82,8 +82,8 @@
       "health": "healthy",
       "pid": 47732,
       "started_at": "2026-08-24T09:15:49.8104234Z",
-      "heartbeat": "2026-08-31T15:34:52.5948037Z",
-      "heartbeat_age_seconds": 31
+      "heartbeat": "2026-08-31T15:56:32.0107301Z",
+      "heartbeat_age_seconds": 8
     },
     {
       "name": "dashboard",
@@ -91,13 +91,8 @@
       "health": "healthy",
       "pid": 46088,
       "started_at": "2026-08-24T09:18:44.922329+00:00",
-      "heartbeat": "2026-08-31T15:34:54.676154+00:00",
-      "heartbeat_age_seconds": 29
+      "heartbeat": "2026-08-31T15:56:36.048836+00:00",
+      "heartbeat_age_seconds": 4
     }
-  ],
-  "reconciliation": {
-    "source": "github_fallback",
-    "unique_uuid_count": 173,
-    "note": "Counts and latest states are deduplicated from committed queue JSON. Local process liveness is not inferred from stale heartbeats."
-  }
+  ]
 }

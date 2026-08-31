@@ -1,56 +1,27 @@
 {
   "id": "apply-castmagic",
   "title": "Affiliate Application: Castmagic",
-  "assigned_to": "princess",
-  "status": "in_progress",
+  "assigned_to": "butler",
+  "status": "superseded_by_done",
   "payload": {
     "tool_id": "castmagic",
     "tool_name": "Castmagic",
-    "application_url": "https://www.castmagic.io/affiliate",
-    "commission": "20% ~ 30% Recurring",
-    "instructions": "Navigate to https://www.castmagic.io/affiliate, complete application form for Castmagic, and record status as done."
+    "application_url": "Castmagic affiliate program (FirstPromoter network)"
   },
-  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
-  "dedupe_key": "castmagic",
-  "candidate_for_princess": true,
-  "result": {
-    "url_chain": [
-      "castmagic.io/affiliate - now 404s directly ('Not Found | Castmagic').",
-      "WebSearch confirmed Castmagic's affiliate program is hosted on the PartnerStack marketplace, resolved to https://market.partnerstack.com/program/castmagic which loads a working 'Apply to program' / 'Already a partner? Sign in' gate - consistent with the established PartnerStack password-required pattern seen elsewhere in this backlog (Apollo, Fathom, GetResponse, Kit, n8n, Monday.com, Unbounce, etc.)."
-    ],
-    "form_filled": {},
-    "left_blank_for_human": [],
-    "browser_tab_id": 499332374
+  "correction_note": "SELF-CORRECTION (2026-08-31): This waiting_human/princess-handoff record was created in error by the butler based on an incomplete cross-reference that only diffed todo/ against waiting_human/, missing the done/ folder. Castmagic was already fully APPROVED prior to this record being created. No princess action needed - do not reapply.",
+  "actual_result_see_done_folder": {
+    "status": "done",
+    "application_status": "approved",
+    "tracking_url": "https://castmagic.io?fpr=sangkwon-an54",
+    "tracking_url_is_referral_bearing": true,
+    "affiliate_network": "FirstPromoter",
+    "commission": "30% recurring",
+    "approval_evidence": "Gmail: 'Welcome to the Castmagic Affiliate Program!' from promoter@firstpromoter.com to support@coshuma.com, dated 2026-08-24T18:32:46Z; also confirmed live on the Castmagic FirstPromoter partner dashboard.",
+    "site_integration_status": "MERGED TO PRODUCTION - GitHub repo heukshow/aicity-os, PR #10, merged as commit 6abdf61 on 2026-08-25.",
+    "source_file": "royal-queue/shared_queue/done/apply-castmagic.json"
   },
-  "error": null,
-  "human_reason": "castmagics_direct_affiliate_url_now_404s_the_actual_program_is_hosted_on_the_partnerstack_marketplace_market_partnerstack_com_program_castmagic_requiring_a_new_password_protected_partnerstack_account_no_password_free_application_path_found_routed_to_princess",
-  "application_status": "partnerstack_network_application_pending_review",
-  "waiting_human_category": null,
-  "princess_handoff": {
-    "reason": "Castmagic's affiliate program is hosted on the PartnerStack marketplace (market.partnerstack.com/program/castmagic), requiring a new password-protected PartnerStack account. Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
-    "common_profile": {
-      "company_name": "COSHUMA",
-      "contact_name": "Sangkwon An",
-      "email": "support@coshuma.com",
-      "website_url": "https://coshuma.com",
-      "address": null,
-      "phone": "+82 10 9509 8985",
-      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping podcasters and content creators discover and compare AI tools for repurposing long-form audio/video into social content, including Castmagic.",
-      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting podcasters and video creators evaluating content repurposing tools.",
-      "social_urls": []
-    },
-    "site_specific": {
-      "platform": "PartnerStack marketplace",
-      "current_url": "https://market.partnerstack.com/program/castmagic",
-      "current_status": "Existing PartnerStack account logged in. LinkedIn company-page creation was blocked by LinkedIn because the personal account has insufficient connections. The real personal LinkedIn public URL was changed to an ASCII vanity URL and verified live. PartnerStack Network profile was completed and successfully submitted; confirmation says it is pending team review. Castmagic application remains fully prepared but cannot be submitted until Network approval unlocks program applications.",
-      "missing_fields": [],
-      "human_only_steps": []
-    },
-    "handoff_ready": true,
-    "handoff_completed": false
-  },
-  "tracking_link": null,
-  "tracking_link_verified": null,
+  "tracking_link": "https://castmagic.io?fpr=sangkwon-an54",
+  "tracking_link_verified": true,
   "created_at": "2026-08-24T09:44:10.279520+00:00",
-  "updated_at": "2026-08-31T12:20:00+00:00"
+  "updated_at": "2026-08-31T13:05:00+00:00"
 }

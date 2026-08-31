@@ -1,63 +1,25 @@
 {
   "id": "apply-unbounce",
   "title": "Affiliate Application: Unbounce",
-  "assigned_to": "princess",
-  "status": "waiting_human",
+  "assigned_to": "butler",
+  "status": "superseded_by_done",
   "payload": {
     "tool_id": "unbounce",
     "tool_name": "Unbounce",
-    "application_url": "https://unbounce.com/affiliate",
-    "commission": "20% ~ 30% Recurring",
-    "instructions": "Navigate to https://unbounce.com/affiliate, complete application form for Unbounce, and record status as done."
+    "application_url": "https://unbounce.com/affiliate (PartnerStack-hosted)"
   },
-  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
-  "dedupe_key": "unbounce",
-  "candidate_for_princess": true,
-  "result": {
-    "url_chain": [
-      "unbounce.com/affiliate - does not expose a simple no-password application form directly.",
-      "WebSearch confirmed Unbounce's affiliate program is hosted on PartnerStack, resolved to https://dash.partnerstack.com/application?company=unbounce&gref=page which loads a canvas-based PartnerStack application form (get_page_text returned 'No text content found... canvas-based content', consistent with other working PartnerStack signup forms elsewhere in this backlog) - a password-required account, matching the established PartnerStack pattern (Apollo, Fathom, GetResponse, Kit, n8n, Castmagic, Monday.com, etc.)."
-    ],
-    "form_filled": {},
-    "left_blank_for_human": [],
-    "browser_tab_id": null
-  },
-  "error": null,
-  "human_reason": "unbounces_affiliate_program_is_hosted_on_partnerstack_dash_partnerstack_com_application_company_unbounce_requiring_a_new_password_protected_partnerstack_account_no_password_free_application_path_found_routed_to_princess",
-  "application_status": "blocked_before_submit",
-  "waiting_human_category": null,
-  "princess_handoff": {
-    "reason": "Unbounce's affiliate program is hosted on PartnerStack (dash.partnerstack.com/application?company=unbounce&gref=page), requiring a new password-protected PartnerStack account. Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
-    "common_profile": {
-      "company_name": "COSHUMA",
-      "contact_name": "Sangkwon An",
-      "email": "support@coshuma.com",
-      "website_url": "https://coshuma.com",
-      "address": null,
-      "phone": null,
-      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping marketers discover and compare landing page and conversion optimization platforms, including Unbounce.",
-      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting marketers evaluating landing page builders/conversion optimization tools.",
-      "social_urls": []
-    },
-    "site_specific": {
-      "platform": "PartnerStack (dash.partnerstack.com application form)",
-      "current_url": "https://dash.partnerstack.com/application?company=unbounce&gref=page",
-      "current_status": "Identified the working PartnerStack application form (canvas-rendered); account creation/application has not yet been started",
-      "missing_fields": [
-        "PartnerStack account email + password",
-        "Publisher/business profile details"
-      ],
-      "human_only_steps": [
-        "Open https://dash.partnerstack.com/application?company=unbounce&gref=page",
-        "Create or log into a PartnerStack account",
-        "Complete and submit the application"
-      ]
-    },
-    "handoff_ready": true,
-    "handoff_completed": false
+  "correction_note": "SELF-CORRECTION (2026-08-31): This waiting_human/princess-handoff record was created in error by the butler based on an incomplete cross-reference that only diffed todo/ against waiting_human/, missing the done/ folder. The application was already submitted via the shared COSHUMA PartnerStack account in earlier project work and is pending Unbounce's review - no new account/application needed, and no princess action required.",
+  "actual_result_see_done_folder": {
+    "status": "done",
+    "actor": "butler",
+    "application_status": "submitted_pending_review",
+    "approval_status": "application_pending",
+    "tracking_link": null,
+    "source": "PartnerStack account dashboard (dash.partnerstack.com/home), checked 2026-08-30: 'Unbounce - Application pending'",
+    "source_file": "royal-queue/shared_queue/done/apply-unbounce.json"
   },
   "tracking_link": null,
   "tracking_link_verified": null,
   "created_at": "2026-08-24T09:44:10.279520+00:00",
-  "updated_at": "2026-08-31T12:34:00+00:00"
+  "updated_at": "2026-08-31T13:05:00+00:00"
 }
