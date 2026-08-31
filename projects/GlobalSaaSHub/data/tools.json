@@ -675,7 +675,12 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.bolddesk.com/"
+    "official_evidence_url": "https://www.bolddesk.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "application_ready_password_and_business_paypal_required",
+    "affiliate_source_url": "https://www.bolddesk.com/affiliate-program/signup",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["30% of active subscription for first year", "password creation required", "payment only via Business PayPal account"]
   },
   {
     "id": "brand24",
@@ -802,7 +807,12 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.boldsign.com/"
+    "official_evidence_url": "https://www.boldsign.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "application_ready_password_creation_required",
+    "affiliate_source_url": "https://boldsign.com/affiliate-program/signup/",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["30% of active subscription for first year", "password creation required"]
   },
   {
     "id": "privy",
@@ -892,7 +902,11 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://unbounce.com/"
+    "official_evidence_url": "https://unbounce.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["PartnerStack application received", "submitted for Unbounce review"]
   },
   {
     "id": "moosend",
@@ -1102,7 +1116,11 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://kinsta.com/"
+    "official_evidence_url": "https://kinsta.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "rejected",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["Kinsta Affiliate Program application status", "profile is not suitable for the program at this time"]
   },
   {
     "id": "shopify",
@@ -1196,7 +1214,12 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.jotform.com/"
+    "official_evidence_url": "https://www.jotform.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_account",
+    "affiliate_source_url": "https://www.jotform.com/partnership/affiliate/",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["Welcome to the Jotform Affiliate Program", "30% recurring commission", "Partner Dashboard"]
   },
   {
     "id": "webflow",
@@ -1287,7 +1310,13 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.synthesia.io/"
+    "official_evidence_url": "https://www.synthesia.io/",
+    "affiliate_verified": true,
+    "affiliate_status": "email_confirmed_login_required",
+    "affiliate_source_url": "https://synthesia.getrewardful.com/login",
+    "affiliate_final_url": "https://synthesia.getrewardful.com/login",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["Welcome to Synthesia Affiliate Program", "email confirmation redirected to login", "unique link available after login"]
   },
   {
     "id": "octo-browser",
