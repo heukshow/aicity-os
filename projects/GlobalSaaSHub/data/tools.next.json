@@ -220,7 +220,7 @@
     "official_evidence_url": "https://www.zenrows.com/",
     "affiliate_url": null,
     "affiliate_verified": true,
-    "affiliate_status": "application_ready",
+    "affiliate_status": "application_submitted",
     "affiliate_source_url": "https://www.zenrows.com/partners/affiliates",
     "affiliate_final_url": "https://www.zenrows.com/partners/apply",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
@@ -712,7 +712,12 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.bolddesk.com/",
-    "affiliate_url": null
+    "affiliate_url": "https://www.bolddesk.com/?via=sangkwon",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_source_url": "https://www.bolddesk.com/affiliate-program/signup",
+    "affiliate_final_url": "https://www.bolddesk.com/?via=sangkwon",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z"
   },
   {
     "id": "brand24",
@@ -839,7 +844,12 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.boldsign.com/",
-    "affiliate_url": null
+    "affiliate_url": "https://boldsign.com?via=sangkwon",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_source_url": "https://boldsign.com/affiliate-program/signup/",
+    "affiliate_final_url": "https://boldsign.com?via=sangkwon",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z"
   },
   {
     "id": "privy",
@@ -1169,7 +1179,12 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.shopify.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "application_blocked_impact_account_creation_required",
+    "affiliate_source_url": "https://www.shopify.com/kr/affiliates",
+    "affiliate_final_url": "https://app.impact.com/campaign-promo-signup/Shopify.brand",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z"
   },
   {
     "id": "systeme-io",
@@ -4444,7 +4459,7 @@
     "pricing_source_final_url": null,
     "affiliate_url": null,
     "affiliate_verified": true,
-    "affiliate_status": "application_ready",
+    "affiliate_status": "blocked_partnerstack_marketplace_limited",
     "affiliate_source_url": "https://airia.com/partners/",
     "affiliate_final_url": "https://dash.partnerstack.com/application?company=airia&group=default",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
@@ -4718,7 +4733,8 @@
     "affiliate_http_status": 308,
     "affiliate_evidence_markers": [],
     "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "HTTP error 308"
+    "affiliate_rejection_reason": "Official affiliate URL displays Page Not Found",
+    "affiliate_status": "application_blocked_official_page_not_found"
   },
   {
     "id": "babylovegrowth-ai",
@@ -4800,7 +4816,8 @@
     "affiliate_http_status": null,
     "affiliate_evidence_markers": [],
     "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "URL error: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1017)"
+    "affiliate_rejection_reason": "URL error: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1017)",
+    "affiliate_status": "application_blocked_affiliate_domain_ssl_error"
   },
   {
     "id": "marblism",

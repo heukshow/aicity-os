@@ -214,7 +214,7 @@
     "official_verified_at": "2026-08-09T00:00:00Z",
     "official_evidence_url": "https://www.zenrows.com/",
     "affiliate_verified": true,
-    "affiliate_status": "application_ready",
+    "affiliate_status": "application_submitted",
     "affiliate_source_url": "https://www.zenrows.com/partners/affiliates",
     "affiliate_final_url": "https://www.zenrows.com/partners/apply",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
@@ -653,7 +653,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "A comprehensive help desk solution designed for startups, offering a free plan to manage customer inquiries efficiently and streamline support operations.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.bolddesk.com/?via=sangkwon",
     "pricing": "See official pricing",
     "key_features": [
       "Ticket Management System",
@@ -677,8 +677,9 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.bolddesk.com/",
     "affiliate_verified": true,
-    "affiliate_status": "application_ready_password_and_business_paypal_required",
+    "affiliate_status": "approved_tracking",
     "affiliate_source_url": "https://www.bolddesk.com/affiliate-program/signup",
+    "affiliate_final_url": "https://www.bolddesk.com/?via=sangkwon",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
     "affiliate_evidence_markers": ["30% of active subscription for first year", "password creation required", "payment only via Business PayPal account"]
   },
@@ -785,7 +786,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "A secure and efficient e-signature solution that streamlines document signing workflows, making legal agreements faster and more convenient.",
-    "affiliate_url": null,
+    "affiliate_url": "https://boldsign.com?via=sangkwon",
     "pricing": "See official pricing",
     "key_features": [
       "Legally Binding E-signatures",
@@ -809,8 +810,9 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.boldsign.com/",
     "affiliate_verified": true,
-    "affiliate_status": "application_ready_password_creation_required",
+    "affiliate_status": "approved_tracking",
     "affiliate_source_url": "https://boldsign.com/affiliate-program/signup/",
+    "affiliate_final_url": "https://boldsign.com?via=sangkwon",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
     "affiliate_evidence_markers": ["30% of active subscription for first year", "password creation required"]
   },
@@ -1150,7 +1152,12 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.shopify.com/"
+    "official_evidence_url": "https://www.shopify.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "application_blocked_impact_account_creation_required",
+    "affiliate_source_url": "https://www.shopify.com/kr/affiliates",
+    "affiliate_final_url": "https://app.impact.com/campaign-promo-signup/Shopify.brand",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z"
   },
   {
     "id": "systeme-io",
@@ -4434,7 +4441,7 @@
     "official_verified_at": "2026-09-01T00:00:00Z",
     "official_evidence_url": "https://airia.com/partners/",
     "affiliate_verified": true,
-    "affiliate_status": "application_ready",
+    "affiliate_status": "blocked_partnerstack_marketplace_limited",
     "affiliate_source_url": "https://airia.com/partners/",
     "affiliate_final_url": "https://dash.partnerstack.com/application?company=airia&group=default",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
@@ -4703,12 +4710,13 @@
     "affiliate_http_status": 308,
     "affiliate_evidence_markers": [],
     "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "HTTP error 308",
+    "affiliate_rejection_reason": "Official affiliate URL displays Page Not Found",
     "primary_category": "voice_cloning",
     "comparison_group": "voice_generation",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://speechify.com/"
+    "official_evidence_url": "https://speechify.com/",
+    "affiliate_status": "application_blocked_official_page_not_found"
   },
   {
     "id": "babylovegrowth-ai",
@@ -4790,7 +4798,8 @@
     "comparison_group": "automation",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://aiagentstore.ai/"
+    "official_evidence_url": "https://aiagentstore.ai/",
+    "affiliate_status": "application_blocked_affiliate_domain_ssl_error"
   },
   {
     "id": "marblism",
