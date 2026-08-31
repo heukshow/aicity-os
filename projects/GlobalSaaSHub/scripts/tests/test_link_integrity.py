@@ -81,22 +81,11 @@ def main():
         if regression_id not in ids or f"/tool/{regression_id}.html" not in actual_files:
             fail(errors, f"Regression page missing: {regression_id}")
 
-    relevance = next((tool for tool in tools if tool["id"] == "relevance-ai"), None)
-    if not relevance or relevance.get("affiliate_url") is not None or relevance.get("affiliate_verified") is not False:
-        fail(errors, "Relevance AI affiliate safety fields changed")
-    else:
-        relevance_html = (PUBLIC / "tool" / "relevance-ai.html").read_text(encoding="utf-8")
-        if "Visit Official Relevance AI Site" not in relevance_html:
-            fail(errors, "Relevance AI official-only CTA is missing")
-        if relevance.get("official_url") not in relevance_html:
-            fail(errors, "Relevance AI official CTA does not use official_url")
-        if "Visit Relevance AI" in relevance_html:
-            fail(errors, "Relevance AI affiliate CTA must not be rendered")
-
     approved_tracking_urls = {
         "taskade": "https://www.taskade.com/?via=7zzjo7",
         "systeme-io": "https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca",
         "fliki": "https://fliki.ai?via=sangkwon",
+        "relevance-ai": "https://relevanceai.com?via=sangkwon",
     }
     for tool_id, tracking_url in approved_tracking_urls.items():
         tool = next((item for item in tools if item["id"] == tool_id), None)

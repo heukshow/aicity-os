@@ -2400,7 +2400,20 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-09-01T00:00:00Z",
+    "official_evidence_url": "https://lovo.ai/affiliate-program",
+    "affiliate_verified": true,
+    "affiliate_status": "application_blocked_vendor_site_paused",
+    "affiliate_source_url": "https://lovo.ai/affiliate-program",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "20% recurring commission for 24 months",
+      "Free to sign up",
+      "No minimum sales required"
+    ],
+    "affiliate_rejection_reason": "Application page returned 'This deployment is temporarily paused' in the live browser on 2026-09-01."
   },
   {
     "id": "n8n",
@@ -3921,7 +3934,21 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-09-01T00:00:00Z",
+    "official_evidence_url": "https://seamless.ai/company/affiliate-program",
+    "affiliate_verified": true,
+    "affiliate_status": "application_blocked_region",
+    "affiliate_source_url": "https://seamless.ai/company/affiliate-program",
+    "affiliate_final_url": "https://dash.partnerstack.com/application?company=seamlessai&gref=page",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "20-40% commission",
+      "PartnerStack",
+      "FREE"
+    ],
+    "affiliate_rejection_reason": "Seamless application path is confirmed, but the live site returned a CloudFront country restriction on 2026-09-01 and the PartnerStack application UI did not render."
   },
   {
     "id": "flowgent-ai",
@@ -4009,7 +4036,10 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-09-01T00:00:00Z",
+    "official_evidence_url": "https://marketingblocks.ai/pricing/index.html"
   },
   {
     "id": "google-workspace",
@@ -4265,10 +4295,10 @@
       "Audit Logging"
     ],
     "rating": null,
-    "logo_url": "https://www.google.com/s2/favicons?domain=airia.ai&sz=128",
+    "logo_url": "https://www.google.com/s2/favicons?domain=airia.com&sz=128",
     "primary_category": "developer",
     "comparison_group": "enterprise_ai_governance",
-    "official_url": "https://airia.ai/",
+    "official_url": "https://airia.com/",
     "pricing_source_url": null,
     "pricing_evidence_markers": null,
     "pricing_verified": false,
@@ -4279,7 +4309,20 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": null,
     "pricing_source_http_status": null,
-    "pricing_source_final_url": null
+    "pricing_source_final_url": null,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-09-01T00:00:00Z",
+    "official_evidence_url": "https://airia.com/partners/",
+    "affiliate_verified": true,
+    "affiliate_status": "application_ready",
+    "affiliate_source_url": "https://airia.com/partners/",
+    "affiliate_final_url": "https://dash.partnerstack.com/application?company=airia&group=default",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "Referral partner",
+      "Apply",
+      "PartnerStack"
+    ]
   },
   {
     "id": "omi-ai",
@@ -4494,9 +4537,13 @@
     "affiliate_http_status": null,
     "affiliate_evidence_markers": [],
     "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "URL error: [Errno -5] No address associated with hostname",
+    "affiliate_rejection_reason": "The configured merlin.ai hostname does not resolve and this entry duplicates the verified getmerlin.in product already stored as id 'merlin'.",
     "primary_category": "creator",
-    "comparison_group": "creator"
+    "comparison_group": "creator",
+    "official_verification_status": "duplicate_invalid_official_url",
+    "official_verified_at": "2026-09-01T00:00:00Z",
+    "official_evidence_url": "https://www.getmerlin.in/",
+    "affiliate_status": "duplicate_do_not_apply"
   },
   {
     "id": "speechify",
