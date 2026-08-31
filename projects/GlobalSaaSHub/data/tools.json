@@ -278,7 +278,13 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://outlierkit.com/"
+    "official_evidence_url": "https://outlierkit.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "otp_required",
+    "affiliate_source_url": "https://outlierkit.com/p/affiliate",
+    "affiliate_final_url": "https://outlierkit.tolt.io/login",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["20% on all paid customers", "verification code"]
   },
   {
     "id": "pictory",
@@ -480,7 +486,13 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.sudowrite.com/"
+    "official_evidence_url": "https://www.sudowrite.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_source_url": "https://sudowrite.notion.site/Sudowrite-Affiliate-Program-12788b26b71746f2a72cd05b7087e8c9",
+    "affiliate_final_url": "https://airtable.com/apprFqnCHKxTNmQGt/pagxsCzPSxTERKCFA/form",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["25% recurring commission", "Thanks for signing up. Please check your emails"]
   },
   {
     "id": "convertkit",
