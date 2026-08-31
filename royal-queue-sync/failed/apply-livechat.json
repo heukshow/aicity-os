@@ -1,0 +1,20 @@
+{
+  "id": "apply-livechat",
+  "title": "Affiliate Application: LiveChat / Text Partner Program",
+  "assigned_to": "princess",
+  "status": "failed",
+  "error": "post_verification_partner_app_authentication_401",
+  "result": {
+    "actor": "princess",
+    "success": false,
+    "tool_id": "livechat",
+    "application_status": "technical_failure_after_account_creation",
+    "email_used": "support@coshuma.com",
+    "account_created": true,
+    "email_verified": true,
+    "submitted": false,
+    "tracking_link": null,
+    "notes": "Princess created and email-verified the shared Text Partner account. Text then returned a server-side OAuth error and the Partner App returned 401 identity verification failure. This is technical retry work, not a user task. The same account should be reused for HelpDesk and ChatBot."
+  },
+  "updated_at": "2026-08-31T07:53:00Z"
+}

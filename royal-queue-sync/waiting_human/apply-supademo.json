@@ -1,0 +1,37 @@
+{
+  "id": "apply-supademo",
+  "title": "Affiliate Application: Supademo",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "supademo",
+    "tool_name": "Supademo",
+    "application_url": "https://supademo.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://supademo.com/affiliate, complete application form for Supademo, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "supademo",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "supademo.com/affiliate -> 404, WebSearch found the real page at https://supademo.com/affiliates (plural)",
+      "supademo.com/affiliates - 'Affiliate Program | Supademo', 30% recurring commission, 'Join the Affiliate Program' links to an in-page anchor (#affiliate-form) containing an embedded application form",
+      "inspected the embed's iframe src via JavaScript: https://eu.makeforms.io/k1ibmll - the iframe consistently failed to render on the page (broken-content placeholder after multiple reloads/waits)",
+      "navigated directly to https://eu.makeforms.io/k1ibmll in a fresh tab (twice) - both attempts returned 'Frame with ID 0 is showing error page', so the form's actual fields could not be inspected"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": null
+  },
+  "error": null,
+  "human_reason": "supademos_affiliate_application_is_a_makeforms_io_embed_eu_makeforms_io_k1ibmll_that_failed_to_render_both_as_an_embedded_iframe_and_via_direct_navigation_across_multiple_attempts_so_the_actual_form_fields_could_not_be_inspected_or_filled_needs_human_to_open_the_link_directly_in_a_real_browser",
+  "application_status": "blocked_needs_human_research",
+  "waiting_human_category": null,
+  "princess_handoff": null,
+  "note_on_fit": "Could not classify butler vs princess because the application form itself (a MakeForms embed at https://eu.makeforms.io/k1ibmll, linked from https://supademo.com/affiliates#affiliate-form) never successfully loaded in this environment - neither as the embedded iframe on the Supademo page nor via direct navigation to the MakeForms URL in a new tab (both attempts errored). A human should try https://supademo.com/affiliates directly (click 'Join the Affiliate Program') or https://eu.makeforms.io/k1ibmll and confirm whether it's a no-password data form (butler-eligible) or requires account creation (princess-eligible).",
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T10:20:00+00:00"
+}

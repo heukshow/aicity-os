@@ -1,0 +1,63 @@
+{
+  "id": "apply-reactin",
+  "title": "Affiliate Application: ReactIn",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "reactin",
+    "tool_name": "ReactIn",
+    "application_url": "https://www.reactin.io/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://www.reactin.io/affiliate, complete application form for ReactIn, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "reactin",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "WebSearch found the real page: https://www.reactin.io/affiliates ('Affiliate Program - Earn 30% Lifetime Commission')",
+      "'Become a ReactIn Affiliate' leads to the ReactIn product account signup at https://app.reactin.io/auth/sign-up",
+      "confirmed via direct navigation: 'Sign Up' form with Email Address, Password, 'Sign up with Email' - a native account-creation form with a mandatory password field, no separate no-password affiliate application exists"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332203
+  },
+  "error": null,
+  "human_reason": "reactin_affiliate_program_is_managed_from_inside_a_full_reactin_product_account_requiring_email_and_password_registration_no_password_free_application_path_found_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "ReactIn's affiliate program requires creating a full ReactIn product account (LinkedIn outreach automation tool) via https://app.reactin.io/auth/sign-up, which has a mandatory Email Address + Password field (no OAuth alternative visible). Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare tools, including AI-powered LinkedIn outreach tools like ReactIn.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting B2B growth and GTM teams evaluating LinkedIn automation tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "ReactIn native account system",
+      "current_url": "https://app.reactin.io/auth/sign-up",
+      "current_status": "On the sign-up form; no fields filled yet",
+      "missing_fields": [
+        "Email Address (support@coshuma.com)",
+        "Password"
+      ],
+      "human_only_steps": [
+        "Fill in Email Address and Password on https://app.reactin.io/auth/sign-up",
+        "Create the account and locate the affiliate program enrollment from the dashboard"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T08:45:00+00:00"
+}

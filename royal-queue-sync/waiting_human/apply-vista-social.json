@@ -1,0 +1,64 @@
+{
+  "id": "apply-vista-social",
+  "title": "Affiliate Application: Vista Social",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "vista-social",
+    "tool_name": "Vista Social",
+    "application_url": "https://vistasocial.com/affiliate-marketing/",
+    "commission": "20-30% Recurring (12-24 months, tiered)",
+    "instructions": "Navigate to https://vistasocial.com/affiliate-marketing/, complete application form for Vista-social, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "vista-social",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "vistasocial.com/affiliate-marketing/ - loaded directly, 'Earn 20% commissions' recurring, tiered up to 30% at higher sales volumes, 'Become an Affiliate' CTA. Page states 'Complete our simple registration form. No approval delays - get instant access to your dashboard.'",
+      "'Become an Affiliate' link resolves to https://vistasocial.firstpromoter.com/ - a FirstPromoter-hosted signup, consistent with the established FirstPromoter password-required pattern seen elsewhere in this backlog (Tagshop AI, DocsBot AI, Blaze, Catalister, etc.)."
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332320
+  },
+  "error": null,
+  "human_reason": "vista_socials_become_an_affiliate_cta_resolves_to_a_firstpromoter_hosted_signup_vistasocial_firstpromoter_com_requiring_a_new_password_protected_account_no_password_free_application_path_found_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Vista Social's affiliate program ('Become an Affiliate' on vistasocial.com/affiliate-marketing/) is hosted on FirstPromoter (vistasocial.firstpromoter.com), requiring a new password-protected account. Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping social media managers and agencies discover and compare social media management platforms, including Vista Social.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting social media managers and marketing agencies evaluating SMM tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "FirstPromoter (vistasocial.firstpromoter.com)",
+      "current_url": "https://vistasocial.firstpromoter.com/",
+      "current_status": "Identified the FirstPromoter signup destination; form has not yet been opened/filled",
+      "missing_fields": [
+        "Email",
+        "Password",
+        "Business/profile information"
+      ],
+      "human_only_steps": [
+        "Open https://vistasocial.com/affiliate-marketing/ -> 'Become an Affiliate'",
+        "Create a new FirstPromoter account with email and password",
+        "Get instant dashboard access and affiliate link (no approval delay per the program's own FAQ)"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T11:55:00+00:00"
+}

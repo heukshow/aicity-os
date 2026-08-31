@@ -1,0 +1,29 @@
+{
+  "id": "apply-colossyan",
+  "title": "Affiliate Application: Colossyan",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "colossyan",
+    "tool_name": "Colossyan",
+    "application_url": "https://colossyan.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://colossyan.com/affiliate, complete application form for Colossyan, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "url_chain": [
+      "https://colossyan.com/affiliate (404, stub URL stale)",
+      "https://colossyan.com/affiliate-program/ (marketing page still live: 'Standard Affiliate Partner' tier, 25% commission, 'Request access now' CTA)",
+      "https://colossyan.getrewardful.com/signup (attempted direct navigation to the Rewardful-hosted signup URL) -> auto-redirected to https://colossyan.getrewardful.com/inactive"
+    ],
+    "confirmed_page_text": "Affiliate Program Inactive. Sorry, this affiliate program is no longer active. If you believe this is an error, please email us. Affiliate program powered by Rewardful.",
+    "note": "Colossyan's marketing page describing the affiliate program is still live, but the actual Rewardful signup backend has been shut down / made inactive. No application form exists to fill. No application was submitted anywhere.",
+    "browser_tab_id": 499331942
+  },
+  "error": "affiliate_program_inactive",
+  "human_reason": "affiliate_program_confirmed_inactive_no_form_to_submit",
+  "application_status": "blocked_program_discontinued",
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00.000000+00:00"
+}

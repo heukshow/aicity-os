@@ -1,0 +1,67 @@
+{
+  "id": "apply-scalenut",
+  "title": "Affiliate Application: Scalenut",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "scalenut",
+    "tool_name": "Scalenut",
+    "application_url": "https://www.scalenut.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://www.scalenut.com/affiliate, complete application form for Scalenut, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "scalenut",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "www.scalenut.com/affiliate loaded directly (30-50% recurring lifetime commission); clicked 'Become a Partner' - no visible page change",
+      "WebSearch found the actual FirstPromoter-hosted signup: https://affiliates.scalenut.com/signup",
+      "confirmed via direct navigation: 'Scalenut's Affiliate Program' signup form with First Name, Last Name, Email, Password, Country, Website, Facebook/YouTube/Twitter/LinkedIn URLs, 'Powered by FirstPromoter' footer - a native account with a mandatory password field, no password-free application path"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332206
+  },
+  "error": null,
+  "human_reason": "scalenut_affiliate_program_requires_a_new_firstpromoter_hosted_native_account_with_email_and_password_no_password_free_application_path_found_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Scalenut's affiliate program (30-50% recurring lifetime commission) requires creating a new account at https://affiliates.scalenut.com/signup, a FirstPromoter-hosted signup form with First Name, Last Name, Email, and a mandatory Password field. Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI-powered content/SEO tools, including Scalenut's GEO (Generative Engine Optimization) platform.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting content marketers and SEO professionals evaluating AI content and GEO platforms.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "FirstPromoter (affiliates.scalenut.com)",
+      "current_url": "https://affiliates.scalenut.com/signup",
+      "current_status": "On the signup form; no fields filled yet",
+      "missing_fields": [
+        "First Name",
+        "Last Name",
+        "Email (support@coshuma.com)",
+        "Password",
+        "Country",
+        "Website (https://coshuma.com)"
+      ],
+      "human_only_steps": [
+        "Fill in the signup form on https://affiliates.scalenut.com/signup",
+        "Create the account and complete any onboarding"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T09:25:00+00:00"
+}

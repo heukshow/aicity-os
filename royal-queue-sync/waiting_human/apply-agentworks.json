@@ -1,0 +1,37 @@
+{
+  "id": "apply-agentworks",
+  "title": "Affiliate Application: AgentWorks",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "no_public_application_form_found",
+  "payload": {
+    "tool_id": "agentworks",
+    "tool_name": "AgentWorks",
+    "application_url": "https://agentworks.ai/affiliate (agentworks.ai is an expired/parked domain listed for sale on GoDaddy, unrelated to the actual product) -> real product found at https://agent-works.ai (hyphenated) via WebSearch, but /affiliate 404s and no partners/affiliate link exists anywhere on the site's homepage or navigation"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": false,
+    "application_status": "no_application_form_found",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "20-30% Recurring (per todo stub; unverified - could not find this rate confirmed on the real agent-works.ai site)",
+      "cookie_days": null,
+      "payout": "Unknown - no affiliate program page exists",
+      "source": "https://agent-works.ai/, read live on 2026-08-30"
+    },
+    "blocker": "The stub's URL (agentworks.ai/affiliate) points to an expired domain now parked for sale by GoDaddy - the real product lives at agent-works.ai (hyphenated). That site's /affiliate path 404s, and no 'Partners', 'Affiliate', or 'Refer' link exists anywhere in its header, footer, or navigation. No application form could be located.",
+    "notes": "큰형: AgentWorks (agent-works.ai) doesn't appear to run a public affiliate/referral program right now. Could contact them directly (via /contact or the in-app chat) to ask if one exists informally, but butler found nothing to apply to."
+  },
+  "browser_tab_status": {
+    "is_open_now": false,
+    "tab_id": null,
+    "url": "https://agent-works.ai/",
+    "correction_note": "No application tab needed - no form exists to fill."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:45:00Z"
+}

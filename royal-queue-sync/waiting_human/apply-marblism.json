@@ -1,0 +1,47 @@
+{
+  "id": "apply-marblism",
+  "title": "Affiliate Application: Marblism",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "marblism",
+    "tool_name": "Marblism",
+    "application_url": "https://marblism.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://marblism.com/affiliate, complete application form for Marblism, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "marblism",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "marblism.com/affiliate (real page: 'BECOME A MARBLISM PARTNER - earn up to 40% lifetime')",
+      "clicked 'Get Your Partner Link' -> navigated to partners.dub.co/marblism ('Marblism Affiliate Program | Dub') - same Dub Partners platform as Krater",
+      "clicked 'Apply' -> partners.dub.co/marblism/apply ('Step 1 of 2 - Apply to Marblism')",
+      "form fields again pre-populated by the browser's existing authenticated Dub Partners account (Name: '흑쇼', Email: qmfforfhem@gmail.com) before this automation overwrote them with COSHUMA's business identity - confirms the same standing Dub Partners login covers multiple Dub-hosted programs (Krater, Marblism, and likely others)"
+    ],
+    "form_filled": {
+      "Name": "Sangkwon An",
+      "Email": "support@coshuma.com",
+      "Website / Social media channel": "https://coshuma.com",
+      "Where would your referrals most likely come from...": "Content on coshuma.com (GlobalSaaSHub), a dedicated AI/SaaS tool directory - comparison articles and listings.",
+      "Any additional questions or comments?": "Applying on behalf of COSHUMA (coshuma.com / GlobalSaaSHub), an AI/SaaS tool directory."
+    },
+    "left_blank_for_human": [
+      "'What best describes you?' - a custom dropdown select, required, not filled by this automation (component type made a reliable value selection uncertain without human/visual confirmation of the option list)",
+      "'I agree to the Marblism Program Terms' checkbox - legal consent checkbox, human-only per standing policy",
+      "'Continue' button - proceeds to Step 2 of 2 (contents not yet seen; likely payout details since the account is already authenticated to Dub Partners)"
+    ],
+    "browser_tab_id": 499332149
+  },
+  "error": null,
+  "human_reason": "dub_partners_application_form_step_1_of_2_mostly_completed_by_butler_no_new_password_required_because_browser_already_has_an_authenticated_dub_partners_account_remaining_dropdown_legal_consent_checkbox_and_continue_to_step_2_left_for_human",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": "legal_consent",
+  "princess_handoff": null,
+  "related_record_note": "Same Dub Partners account/browser session as apply-krater.json - both Krater and Marblism are separately Dub-hosted programs reachable from one existing login. If more Dub-hosted programs appear later in the backlog, they likely follow the same pattern.",
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

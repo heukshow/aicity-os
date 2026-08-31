@@ -1,0 +1,54 @@
+{
+  "id": "apply-fathom",
+  "title": "Affiliate Application: Fathom",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "fathom",
+    "tool_name": "Fathom",
+    "application_url": "https://fathom.video/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://fathom.video/affiliate, complete application form for Fathom, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "url_chain": [
+      "https://fathom.video/affiliate (404 'Page Not Found')",
+      "https://fathom.video/ auto-redirects to https://www.fathom.ai/ (confirms fathom.video has migrated its primary domain to fathom.ai - same AI meeting-notetaker product, brand disambiguation from usefathom.com re-confirmed still correct)",
+      "https://www.fathom.ai/affiliates -> 404 (guessed URL, wrong)",
+      "Found real footer link 'Partner Program' -> https://www.fathom.ai/partner-programs",
+      "Fathom does NOT have a simple self-serve content-affiliate program. It offers 4 distinct partner tracks: (1) Solution/Growth Partners - commission-based, for agencies/consultants/service providers, application-reviewed; (2) Integration & tech partners - for API integration builders; (3) Points program - in-product referral rewards (not real commission, requires being an existing paying-ish user); (4) Qualified Portfolio Partners - for VC firms/accelerators.",
+      "Clicked into 'Solution Partners' -> https://www.fathom.ai/program/growth-partner ('Fathom Growth Partner Program | For Agencies & Consultants') - explicitly requires (a) an ACTIVE Fathom user account first, and (b) submission of a manually-reviewed partner intake form (48hr review, business email required)",
+      "Clicked APPLY -> opened new tab: PartnerStack-hosted application form at https://dash.partnerstack.com/application?company=fathom&group=growthpartnertier2&gref=page",
+      "PartnerStack pre-filled our existing account's Email/First name/Last name automatically, confirming an existing PartnerStack relationship was found and reused (per standing instructions) rather than creating a new one",
+      "Scrolling the PartnerStack form revealed it is heavily oriented toward HubSpot solution-partner agencies specifically: it includes REQUIRED fields 'Are you a HubSpot Partner?', 'What is your HubSpot partner tier?', and 'Include a link to your HubSpot listing page.' - none of which COSHUMA (an AI/SaaS directory/content site, not a HubSpot implementation partner) can honestly complete"
+    ],
+    "form_filled": {
+      "Email": "support@coshuma.com (auto-filled by existing PartnerStack account)",
+      "First name": "Sangkwon (auto-filled by existing PartnerStack account)",
+      "Last name": "An (auto-filled by existing PartnerStack account)",
+      "What is your company domain?": "coshuma.com",
+      "What best describes you as a partner?": "Other (no listed option - Consulting firm/Agency/Technology Partner/Coach/Sales Training Provider - actually fits a content/directory site)",
+      "What industries or customer segments do you typically serve?": "We are COSHUMA (coshuma.com), an AI/SaaS tool discovery directory. Our readers are founders, marketers, and operators researching and comparing AI and SaaS tools across many industries.",
+      "In which regions do you offer support or services?": "Asia Pacific (APAC) checked (honest home-base answer; left North America/LATAM/EMEA unchecked since we cannot honestly claim active service delivery there)",
+      "What services do you primarily offer?": "We operate an AI/SaaS tool directory and publish content featuring tools like Fathom to help our audience discover and evaluate software. We are a content/referral publisher, not a consulting or implementation service provider."
+    },
+    "left_blank_for_human": [
+      "'Do you specialize in working with specific platforms?' (optional, left blank - not applicable)",
+      "'What goals do you hope to achieve through this partnership...' (required, needs a human decision on how to honestly frame a directory/publisher's fit into an agency-oriented program)",
+      "'Is there any more information you'd like to provide about your network or reach?' (optional)",
+      "'Are you a HubSpot Partner?' (required - honest answer is No, but this may make the application ineligible; needs human judgment)",
+      "'What is your HubSpot partner tier?' (required per form, but N/A since not a HubSpot partner - likely blocks self-service submission)",
+      "'Include a link to your HubSpot listing page.' (required per form, cannot be honestly filled - COSHUMA has no HubSpot listing)",
+      "'Submit application' button (final submit)"
+    ],
+    "browser_tab_id": 499332011,
+    "secondary_browser_tab_id": 499331987,
+    "important_followup_note": "Fathom has no simple self-serve content-affiliate signup. The only commission-bearing track ('Growth Partner Program') is explicitly designed for agencies/consultants/HubSpot implementation partners and requires (1) an active Fathom user account, (2) a manually-reviewed intake form with REQUIRED HubSpot-partner-tier and HubSpot-listing-page fields that a directory/content site like COSHUMA cannot honestly satisfy, and (3) up to 48hrs of manual review by Fathom's team. An alternative lighter-weight option exists: the in-product 'Points program' (earn points/rewards via referral link, redeemable for perks, top referrers can eventually be invited into the Growth Partner track) - but this requires first creating and using a regular Fathom account, which was left undone per the no-account-creation-without-review policy. Recommend 큰형 decide between: (a) proceeding with the Growth Partner PartnerStack form by honestly answering 'No' to HubSpot Partner and accepting the application may be rejected/deprioritized, or (b) creating a personal Fathom account and pursuing the simpler Points program referral link instead, or (c) skipping Fathom's affiliate program entirely as not well-suited to a directory site."
+  },
+  "error": "program_requires_hubspot_partnership_and_active_account",
+  "human_reason": "program_mismatch_agency_oriented_form_requires_hubspot_partner_fields_human_cannot_be_honestly_answered_by_automation",
+  "application_status": "blocked_needs_human_decision",
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T04:19:13+00:00"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "apply-jasper",
+  "title": "Affiliate Application: Jasper",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "no_public_application_form_found",
+  "payload": {
+    "tool_id": "jasper",
+    "tool_name": "Jasper",
+    "application_url": "https://www.jasper.ai/partners (redirects to /partners/solutions, an enterprise Solutions Partner program, not affiliates) and https://www.jasper.ai/affiliates (redirects to /legal/affiliates, the ToS page only - no signup form found)"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": false,
+    "application_status": "no_application_form_found",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "30% Recurring (per todo stub); third-party trackers (getreditus.com, bloggingtips.com) corroborate ~25-30% recurring commission, paid via PayPal",
+      "cookie_days": null,
+      "payout": "Reportedly via PayPal (per third-party sources; not confirmed on jasper.ai directly)",
+      "source": "https://www.jasper.ai/legal/affiliates and https://getreditus.com/affiliate-programs/jasper, read live on 2026-08-30"
+    },
+    "blocker": "Both https://www.jasper.ai/partners and https://www.jasper.ai/affiliates redirect away from any application form: /partners goes to an enterprise 'AI Solutions Partner Program' (unrelated to referral affiliates), and /affiliates redirects straight to the Terms of Service page (/legal/affiliates) with no visible sign-up form on it. A third-party directory (getreditus.com) suggests Jasper's affiliate program may run through Reditus, but its 'Apply on the official site' link points to the same jasper.ai/affiliates URL that redirects to ToS-only for butler. No working public application form could be located.",
+    "notes": "큰형: Jasper's affiliate program may currently be invite-only, paused, or moved behind a login (possibly a Reditus partner portal requiring a Jasper-side invite). Suggest either contacting Jasper support/partnerships directly to ask how to apply, or checking if COSHUMA already has any account with Reditus. Butler could not find a form to fill and did not want to guess at signup flows that might involve account creation."
+  },
+  "browser_tab_status": {
+    "is_open_now": false,
+    "tab_id": null,
+    "url": "https://www.jasper.ai/legal/affiliates",
+    "correction_note": "No application tab needed - no form exists to fill at this time."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-30T23:48:00Z"
+}

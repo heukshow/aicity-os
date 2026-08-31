@@ -15,7 +15,11 @@
     "success": true,
     "application_status": "account_created_email_confirmed",
     "approval_status": "auto_approved_instant_dashboard_access",
-    "tracking_link": "pending_login_to_view_in_dashboard",
+    "tracking_link": "https://www.gohighlevel.com/?fp_ref=sangkwon56",
+    "tracking_link_verified": true,
+    "tracking_url_is_referral_bearing": true,
+    "verification_evidence": "HighLevel FirstPromoter dashboard campaign 2342 displayed the Default referral link https://www.gohighlevel.com/?fp_ref=sangkwon56. Prince opened it and verified the destination loaded successfully with fp_ref=sangkwon56 preserved on 2026-09-01.",
+    "site_integration_status": "affiliate_url updated in tools.json and tools.next.json; generated GoHighLevel tool-page CTA updated to the referral-bearing URL",
     "payout_status": "not_applicable_yet",
     "terms_summary": {
       "commission": "40% recurring commissions for the life of any active account referred",
@@ -46,5 +50,5 @@
     "correction_note": "Tab left open showing the confirmed, active affiliate dashboard."
   },
   "created_at": "2026-08-26T00:00:00Z",
-  "updated_at": "2026-08-26T01:00:00Z"
+  "updated_at": "2026-09-01T00:00:00+09:00"
 }

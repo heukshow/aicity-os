@@ -1,0 +1,65 @@
+{
+  "id": "apply-voibe",
+  "title": "Affiliate Application: Voibe",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "voibe",
+    "tool_name": "Voibe",
+    "application_url": "https://www.getvoibe.com/resources/affiliate-program/",
+    "commission": "25% Recurring",
+    "instructions": "Navigate to https://www.getvoibe.com/resources/affiliate-program/, complete application form for Voibe, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "voibe",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "getvoibe.com/resources/affiliate-program/ - detailed program page: 25% recurring commission, 30-day cookie, no earnings cap, NET30 payout, $50 minimum. Explicitly states: 'Visit store.getvoibe.com/affiliates and click Become an affiliate to create your account through Lemon Squeezy' and 'Applications are reviewed manually by the founder.'",
+      "Confirmed the program requires (a) creating a new Lemon Squeezy-hosted account (password-protected) and (b) passing manual founder approval - not an instant no-password signup."
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332320
+  },
+  "error": null,
+  "human_reason": "voibes_affiliate_program_is_hosted_on_lemon_squeezy_store_getvoibe_com_affiliates_requiring_a_new_password_protected_account_plus_manual_founder_approval_with_details_about_the_applicants_channel_and_audience_no_password_free_application_path_found_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Voibe's affiliate program is hosted on Lemon Squeezy (store.getvoibe.com/affiliates), requiring a new password-protected account, and applications are manually reviewed by the founder (requiring a written pitch about the applicant's channel/audience). Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping professionals discover and compare AI dictation and productivity tools, including Voibe (a private-by-design Mac dictation app).",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting Mac professionals (developers, writers, consultants) evaluating dictation/productivity tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Lemon Squeezy (store.getvoibe.com/affiliates) with manual founder approval",
+      "current_url": "https://www.getvoibe.com/resources/affiliate-program/",
+      "current_status": "Reviewed the program's full documentation page; the Lemon Squeezy signup form has not yet been opened",
+      "missing_fields": [
+        "Email",
+        "Password",
+        "Written pitch about COSHUMA's channel/audience for manual approval"
+      ],
+      "human_only_steps": [
+        "Open https://store.getvoibe.com/affiliates -> 'Become an affiliate'",
+        "Create a new Lemon Squeezy account with email and password",
+        "Submit details about coshuma.com's audience/channel for the founder's manual review",
+        "Await approval"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T12:00:00+00:00"
+}

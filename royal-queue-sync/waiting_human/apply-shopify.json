@@ -1,0 +1,37 @@
+{
+  "id": "apply-shopify",
+  "title": "Affiliate Application: Shopify",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "password_field_populated_final_submit_left_to_human",
+  "payload": {
+    "tool_id": "shopify",
+    "tool_name": "Shopify",
+    "application_url": "https://www.shopify.com/affiliates -> https://app.impact.com/campaign-promo-signup/Shopify.brand (Impact-hosted signup)"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "blocked_before_submit",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "$150 average bounty per referral (per todo stub)",
+      "cookie_days": null,
+      "payout": "Via Impact",
+      "source": "https://www.shopify.com/kr/affiliates (Korean-localized page, auto-redirected), read live on 2026-08-30"
+    },
+    "blocker": "Third Impact-hosted signup this session (after HubSpot and Semrush) - same shared Impact.com account/autofill pre-filled Email (support@coshuma.com), First Name (Sangkwon), Last Name (An), a Password (obscured), and phone (+82 10 9509 8985). Did NOT click 계속(Continue) since a password is present in the field - per standing policy left for 큰형.",
+    "notes": "큰형: same pattern as HubSpot/Semrush - review the pre-filled fields and click 계속(Continue) to proceed. There may be additional signup steps after this (business info, promotion method) that butler can fill once you get past this password step, if the tab is still open."
+  },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331879,
+    "url": "https://app.impact.com/campaign-promo-signup/Shopify.brand?execution=e3s1",
+    "correction_note": "New tab this session. Will remain open until resolved."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-30T23:35:00Z"
+}

@@ -1,0 +1,68 @@
+{
+  "id": "apply-loopcv",
+  "title": "Affiliate Application: LoopCV",
+  "assigned_to": "princess",
+  "status": "in_progress",
+  "payload": {
+    "tool_id": "loopcv",
+    "tool_name": "LoopCV",
+    "application_url": "https://loopcv.pro/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://loopcv.pro/affiliate, complete application form for LoopCV, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "loopcv",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "loopcv.pro/affiliate (redirected to www.loopcv.pro/affiliate/, real page: 'Do you own a blog, a newsletter or a youtube channel with hundreds of job seekers?')",
+      "dismissed cookie consent via 'Opt Out' (privacy-preserving choice)",
+      "clicked 'Register for our Affiliate program' -> opened new tab loopcv.getrewardful.com/signup ('Loopcv Technologies IKE | Sign up - Affiliates of Loopcv')",
+      "page requires First name, Last name, Email, Password (min 8 characters), Confirm password - a Rewardful-hosted account-creation form with a mandatory password field"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332143
+  },
+  "error": null,
+  "human_reason": "rewardful_hosted_signup_form_requires_a_new_password_no_existing_account_or_passwordless_option_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "LoopCV's affiliate program is Rewardful-hosted (loopcv.getrewardful.com/signup) and requires creating a brand-new account with First name, Last name, Email, and a Password (min 8 characters) - no passwordless/OAuth option is offered. Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI-powered tools, including AI job-search/auto-apply tools like LoopCV.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting job seekers and career-tool audiences evaluating AI job-application tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Rewardful (loopcv.getrewardful.com)",
+      "current_url": "https://loopcv.getrewardful.com/signup",
+      "current_status": "On the signup form; no fields filled yet",
+      "missing_fields": [
+        "First name",
+        "Last name",
+        "Email (support@coshuma.com)",
+        "Password",
+        "Confirm password"
+      ],
+      "human_only_steps": [
+        "Fill in First name, Last name, Email, and choose a password on https://loopcv.getrewardful.com/signup",
+        "Submit the form",
+        "Confirm the account via any verification email Rewardful/LoopCV sends"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

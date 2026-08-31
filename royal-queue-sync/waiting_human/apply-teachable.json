@@ -1,0 +1,64 @@
+{
+  "id": "apply-teachable",
+  "title": "Affiliate Application: Teachable",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "teachable",
+    "tool_name": "Teachable",
+    "application_url": "https://teachable.com/affiliate",
+    "commission": "30% Recurring (1 year)",
+    "instructions": "Navigate to https://teachable.com/affiliate, complete application form for Teachable, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "teachable",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "teachable.com/affiliate -> 404 'Page Not Found'",
+      "teachable.com/partners - 'Affiliate Partner Program', 30% recurring commission for a full year, 30-day cookie. Page's own FAQ explicitly states: 'What is PartnerStack? PartnerStack is the trusted platform we use to manage our affiliate program.' - confirming PartnerStack Handshake without needing to click through 'Apply now'."
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332320
+  },
+  "error": null,
+  "human_reason": "teachables_affiliate_program_is_explicitly_stated_on_its_own_page_to_be_managed_via_partnerstack_requiring_a_new_partnerstack_account_email_password_or_google_oauth_no_password_free_application_path_found_routed_to_princess_per_established_partnerstack_handshake_pattern",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Teachable's own affiliate partner page (teachable.com/partners) states in its FAQ that PartnerStack is the platform used to manage the program, requiring a new PartnerStack account (email+password or Google OAuth) to apply. Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping creators and educators discover and compare online course and knowledge-commerce platforms, including Teachable.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting course creators and educators evaluating online course platforms.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "PartnerStack Handshake (via teachable.com/partners -> Apply now)",
+      "current_url": "https://teachable.com/partners",
+      "current_status": "On the program landing page; 'Apply now' opens the PartnerStack application/account-creation flow",
+      "missing_fields": [
+        "Email",
+        "Password (or Google OAuth)"
+      ],
+      "human_only_steps": [
+        "Open https://teachable.com/partners",
+        "Click 'Apply now'",
+        "Create or log into a PartnerStack account (email/password or Google OAuth)",
+        "Complete and submit the application"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T11:10:00+00:00"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "apply-aitable-ai",
+  "title": "Affiliate Application: AITable.ai",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "program_currently_inactive",
+  "payload": {
+    "tool_id": "aitable-ai",
+    "tool_name": "AITable.ai",
+    "application_url": "https://aitable.ai/affiliate (404) -> https://aitable.ai/partners/affiliate/ (real marketing page, still describes the program) -> 'Apply now' links to https://apitable.getrewardful.com/signup, which shows 'Affiliate Program Inactive'"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": false,
+    "application_status": "program_closed_to_new_applicants",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "30% lifetime recurring commission, 10% off for referred customers, 90-day cookie (per the marketing page - though the actual signup backend is currently disabled)",
+      "cookie_days": 90,
+      "payout": "Via Rewardful",
+      "source": "https://aitable.ai/partners/affiliate/ and https://apitable.getrewardful.com/signup, read live on 2026-08-30"
+    },
+    "blocker": "AITable's marketing page still advertises the affiliate program and links to a Rewardful-hosted signup form, but that signup page itself displays 'Affiliate Program Inactive' - meaning AITable has turned off new sign-ups on the backend without updating their marketing page. No application form is currently reachable.",
+    "notes": "큰형: AITable's affiliate program appears to be temporarily inactive on their end (marketing copy is stale). Worth checking back later, or emailing support@aitable.ai directly to ask when it reopens."
+  },
+  "browser_tab_status": {
+    "is_open_now": false,
+    "tab_id": null,
+    "url": "https://apitable.getrewardful.com/inactive",
+    "correction_note": "No application tab needed - program confirmed inactive, nothing to fill."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T01:10:00Z"
+}

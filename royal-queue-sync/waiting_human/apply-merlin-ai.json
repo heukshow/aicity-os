@@ -1,0 +1,68 @@
+{
+  "id": "apply-merlin-ai",
+  "title": "Affiliate Application: Merlin AI",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "merlin-ai",
+    "tool_name": "Merlin AI",
+    "application_url": "https://getmerlin.in/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://getmerlin.in/affiliate, complete application form for Merlin AI, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "merlin-ai",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "getmerlin.in/affiliate -> 404 (auto-redirected to Korean locale /ko/affiliate, also 404)",
+      "WebSearch + retry found the real page: www.getmerlin.in/affiliate-program (auto-served as /ko/affiliate-program - 'Merlin AI 제휴 프로그램') - describes 30% recurring commission, 90-day cookie",
+      "clicked '지금 가입하기' (Sign up now) -> navigated to merlin.tapfiliate.com/ ('Merlin Affiliate Program | Affiliate signup | Merlin')",
+      "page requires First name, Last name, Email, Password (min 8 chars), and a Terms checkbox - a Tapfiliate-hosted account-creation form with a mandatory password field (also offers 'Sign up with Google' as an OAuth alternative)"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332155
+  },
+  "error": null,
+  "human_reason": "tapfiliate_hosted_signup_form_requires_a_new_password_or_google_oauth_no_existing_account_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Merlin AI's affiliate program is Tapfiliate-hosted (merlin.tapfiliate.com) and requires creating a brand-new account with First name, Last name, Email, and Password (or 'Sign up with Google' as an OAuth alternative). Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI-powered tools, including the Merlin AI ChatGPT browser extension.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting productivity and AI-browser-extension audiences.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Tapfiliate (merlin.tapfiliate.com)",
+      "current_url": "https://merlin.tapfiliate.com/",
+      "current_status": "On the signup form; no fields filled yet",
+      "missing_fields": [
+        "First name",
+        "Last name",
+        "Email (support@coshuma.com)",
+        "Password (or Sign up with Google)"
+      ],
+      "human_only_steps": [
+        "Fill in First name, Last name, Email, and Password on https://merlin.tapfiliate.com/ (or use 'Sign up with Google')",
+        "Agree to Terms and conditions",
+        "Submit and complete any payout-details step that follows"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "related_record_note": "This queue also has a separate generic 'tapfiliate' backlog item (apply-tapfiliate.json, not yet processed). Merlin AI's program happens to run on the Tapfiliate platform but is a distinct program from whatever the standalone 'tapfiliate' item refers to - do not merge them.",
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

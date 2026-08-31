@@ -1,0 +1,37 @@
+{
+  "id": "apply-hubspot",
+  "title": "Affiliate Application: HubSpot",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "password_field_populated_final_submit_left_to_human",
+  "payload": {
+    "tool_id": "hubspot",
+    "tool_name": "HubSpot",
+    "application_url": "https://www.hubspot.com/partners/affiliates -> https://app.impact.com/campaign-promo-signup/HubSpot.brand (Impact-hosted signup)"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "blocked_before_submit",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "30% recurring for up to 1 year on sales, 180-day cookie window, Starter tier (0-29 signups/month)",
+      "cookie_days": 180,
+      "payout": "Direct deposit (EFT) or PayPal via Impact, $10 minimum withdrawal",
+      "source": "https://www.hubspot.com/partners/affiliates, read live on 2026-08-30"
+    },
+    "blocker": "Reached the Impact-hosted signup form. Chrome's autofill/password manager had already populated Email (support@coshuma.com), First Name (Sangkwon), Last Name (An), a Password (auto-suggested, obscured), and a phone number (+82 10 9509 8985). Did NOT click the '계속'(Continue) button since a password is present in the field - per standing policy, any final step that would create an account with a password is left to 큰형, regardless of whether butler or Chrome autofill populated it.",
+    "notes": "큰형 needs to: 1) review the pre-filled fields (especially the phone number, which butler did not enter and should be double-checked as correct), 2) click 계속(Continue) to proceed. There may be additional signup steps after this (business info, promotion method) - butler will pick up filling those non-sensitive fields once 큰형 gets past this password step, if the tab is still open, or will need it re-opened otherwise."
+  },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331858,
+    "url": "https://app.impact.com/campaign-promo-signup/HubSpot.brand?execution=e1s1",
+    "correction_note": "New tab this session (previous session's dedicated tabs from 2026-08-26 are no longer part of this session's tab group - likely closed or detached after several days passed). This tab will be left open until resolved."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-30T22:40:00Z"
+}

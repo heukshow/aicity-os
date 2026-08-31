@@ -1,0 +1,66 @@
+{
+  "id": "apply-rytr",
+  "title": "Affiliate Application: Rytr",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "rytr",
+    "tool_name": "Rytr",
+    "application_url": "https://rytr.me/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://rytr.me/affiliate, complete application form for Rytr, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "rytr",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "rytr.me/affiliate -> 404 (This page could not be found)",
+      "WebSearch found the real pages: https://rytr.me/affiliates (program info) and https://affiliates.rytr.me/signup (Rewardful-style native signup, 'Friends of Rytr', 30% commission for 12 months)",
+      "confirmed via direct navigation to https://affiliates.rytr.me/signup: signup form with First name, Last name, Email, Password (min 8 characters), Confirm password - same Rewardful-style family as prior LoopCV/Colossyan/Questmate signups"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332206
+  },
+  "error": null,
+  "human_reason": "rytr_affiliate_program_requires_a_new_native_account_with_email_and_password_at_affiliates_rytr_me_no_password_free_application_path_found_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Rytr's 'Friends of Rytr' affiliate program (30% commission for 12 months) requires creating a new account at https://affiliates.rytr.me/signup with First name, Last name, Email, Password, and Confirm password. Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI writing tools, including Rytr.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting writers, marketers, and content creators evaluating AI writing assistants.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Rewardful-style native account (affiliates.rytr.me)",
+      "current_url": "https://affiliates.rytr.me/signup",
+      "current_status": "On the signup form; no fields filled yet",
+      "missing_fields": [
+        "First name",
+        "Last name",
+        "Email (support@coshuma.com)",
+        "Password",
+        "Confirm password"
+      ],
+      "human_only_steps": [
+        "Fill in the signup form on https://affiliates.rytr.me/signup",
+        "Create the account and complete any onboarding"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T09:15:00+00:00"
+}

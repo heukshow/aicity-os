@@ -1,0 +1,36 @@
+{
+  "id": "apply-pickaxe",
+  "title": "Affiliate Application: Pickaxe",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "pickaxe",
+    "tool_name": "Pickaxe",
+    "application_url": "https://pickaxe.co/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://pickaxe.co/affiliate, complete application form for Pickaxe, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "pickaxe",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "pickaxe.co/affiliate -> loaded directly, program description page",
+      "page explicitly states: 'affiliate earnings only accrue while you're a paying Pickaxe user. Any successful referrals made while an affiliate is not a paying Pickaxe user will not result in a payout.'",
+      "clicked 'Join the Program' (external-link icon) - no new tab opened and no visible navigation occurred (likely requires a signed-in Pickaxe account first via 'Sign in'/'Sign up' in the top nav)"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332191
+  },
+  "error": null,
+  "human_reason": "pickaxe_affiliate_program_requires_being_an_active_paying_pickaxe_subscriber_to_earn_commissions_which_conflicts_with_the_standing_no_paid_signups_or_subscriptions_rule_human_must_decide_whether_to_pursue_this_program_at_all",
+  "application_status": "blocked_needs_human_decision",
+  "waiting_human_category": null,
+  "princess_handoff": null,
+  "note_on_fit": "Pickaxe's affiliate program only pays out while the affiliate is themselves a PAYING Pickaxe subscriber (Gold or Pro plan). Per the standing rule '유료 가입·구독·결제는 금지' (no paid signups/subscriptions/payments, ever), COSHUMA cannot become a paying subscriber to qualify, so this program is likely not viable regardless of account/password status. Flagging for human decision on whether to skip this one entirely rather than routing to princess for account creation, since a free account would not earn any commission per the program's own terms.",
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T08:25:00+00:00"
+}

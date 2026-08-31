@@ -1,0 +1,62 @@
+{
+  "id": "apply-kittl",
+  "title": "Affiliate Application: Kittl",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "kittl",
+    "tool_name": "Kittl",
+    "application_url": "https://www.kittl.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://www.kittl.com/affiliate, complete application form for Kittl, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "kittl",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "kittl.com/affiliate (404)",
+      "kittl.com/ (footer 'Affiliates' link also points to the same broken /affiliate URL)",
+      "WebSearch found the real page: kittl.com/partners/affiliates ('Earn Money with Kittl Affiliates')",
+      "page explicitly states: 'We use Impact Radius for managing our affiliate program' - same Impact.com email+password signup pattern already seen for HubSpot, Semrush, Shopify, and HappyScribe",
+      "clicked 'Join Now' - did not navigate the tab or open a detectable new tab within this session"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332116
+  },
+  "error": null,
+  "human_reason": "kittl_uses_impact_radius_for_its_affiliate_program_same_email_plus_password_account_creation_pattern_as_hubspot_semrush_shopify_and_happyscribe_routed_to_princess",
+  "application_status": "impact_account_verified_application_route_retry_needed",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Kittl's affiliate page states directly that it uses Impact Radius (Impact.com) to manage the affiliate program - the same platform and account-creation pattern already seen for HubSpot, Semrush, Shopify, and HappyScribe in this queue (email + password required). Routed to princess rather than attempted by the butler. The 'Join Now' click did not visibly navigate within this automation session, so the princess should click through from the affiliate page directly.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": "+82 10 9509 8985",
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI-powered tools, including design tools like Kittl.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting designers, marketers, and content creators evaluating AI design platforms.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Impact Radius (Impact.com) - same integration pattern as HubSpot/Semrush/Shopify/HappyScribe",
+      "current_url": "https://www.kittl.com/partners/affiliates",
+      "current_status": "Existing Impact account detected. Signed in successfully with email/password and completed email OTP verification. Impact redirected to the existing publisher dashboard, but the Kittl Apply Now route redirected back to the branded signup form; application itself is not yet submitted.",
+      "missing_fields": [],
+      "human_only_steps": [
+        "Dismiss the browser password-save prompt if it blocks visible interaction",
+        "Confirm immediately before the final Impact.com account-creation submission"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

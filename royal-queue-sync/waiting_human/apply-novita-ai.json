@@ -1,0 +1,65 @@
+{
+  "id": "apply-novita-ai",
+  "title": "Affiliate Application: Novita AI",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "novita-ai",
+    "tool_name": "Novita AI",
+    "application_url": "https://novita.ai/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://novita.ai/affiliate, complete application form for Novita AI, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "novita-ai",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "novita.ai/affiliate -> auto-redirected to novita.ai/affiliate-new ('Join Novita's Affiliate program' - 10% commission on referral spending for 180 days)",
+      "page requires either logging into an EXISTING Novita account, or clicking 'Get Started' which leads to /user/login?redirect=%2Faffiliate-new - Novita's own account creation/login flow (email+password or OAuth) - no separate password-free application form exists",
+      "there is also a separate 'Become an Affiliate' link to affiliates.novita.ai (a distinct affiliate-portal login) - same account-creation requirement"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332173
+  },
+  "error": null,
+  "human_reason": "novita_requires_creating_or_logging_into_a_full_novita_account_email_password_or_oauth_before_any_affiliate_application_fields_are_shown_no_password_free_path_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Novita AI's affiliate program requires signing up for (or logging into) a full Novita.ai account first (email + password, or OAuth) before any affiliate application appears. Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI-powered tools, including AI cloud/GPU and model-API platforms like Novita AI.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting developers and teams evaluating AI cloud infrastructure and model APIs.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Novita AI native account system (novita.ai / affiliates.novita.ai)",
+      "current_url": "https://novita.ai/affiliate-new",
+      "current_status": "On the affiliate program landing page; 'Get Started' leads to account login/signup",
+      "missing_fields": [
+        "Email",
+        "Password (or OAuth)",
+        "any affiliate application fields shown after account creation"
+      ],
+      "human_only_steps": [
+        "Click 'Get Started' or 'Become an Affiliate' on https://novita.ai/affiliate-new",
+        "Create or log into a Novita account (email/password or OAuth)",
+        "Complete the affiliate application and submit"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T08:15:00+00:00"
+}

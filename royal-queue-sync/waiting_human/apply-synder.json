@@ -1,0 +1,63 @@
+{
+  "id": "apply-synder",
+  "title": "Affiliate Application: Synder",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "synder",
+    "tool_name": "Synder",
+    "application_url": "https://synder.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://synder.com/affiliate, complete application form for Synder, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "synder",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "synder.com/affiliate -> 404 ('Page not found'), WebSearch found the real page at https://synder.com/affiliate-program/",
+      "synder.com/affiliate-program/ - 'Synder Affiliate Program', top-of-page link resolves directly to https://synder.partnerstack.com/ - a PartnerStack Handshake application requiring a new PartnerStack account (matches established PartnerStack pattern, no further click-through needed)"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332316
+  },
+  "error": null,
+  "human_reason": "synder_affiliate_program_is_hosted_on_partnerstack_synder_partnerstack_com_requiring_a_new_partnerstack_account_email_password_or_google_oauth_no_password_free_application_path_found_routed_to_princess_per_established_partnerstack_handshake_pattern",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Synder's affiliate program (synder.com/affiliate-program/) links directly to synder.partnerstack.com, a PartnerStack Handshake application requiring a new PartnerStack account (email+password or Google OAuth). Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare accounting and bookkeeping automation tools, including Synder's e-commerce accounting sync platform.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting e-commerce sellers and accountants evaluating bookkeeping automation tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "PartnerStack Handshake (synder.partnerstack.com)",
+      "current_url": "https://synder.partnerstack.com/",
+      "current_status": "On the program landing page; the linked PartnerStack signup opens the account creation/login flow",
+      "missing_fields": [
+        "Email",
+        "Password (or Google OAuth)"
+      ],
+      "human_only_steps": [
+        "Open https://synder.partnerstack.com/",
+        "Create or log into a PartnerStack account (email/password or Google OAuth)",
+        "Complete and submit the application"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T10:35:00+00:00"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "apply-speechify",
+  "title": "Affiliate Application: Speechify",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "speechify",
+    "tool_name": "Speechify",
+    "application_url": "https://speechify.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://speechify.com/affiliate, complete application form for Speechify, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "speechify",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "speechify.com/affiliate -> 404",
+      "found footer link 'Affiliates' -> https://speechify.com/affiliates/ ('Affiliates Program', 30% of every sale, 30 day cookies), an inline no-password application form"
+    ],
+    "form_filled": {
+      "First Name": "Sangkwon",
+      "Last Name": "An",
+      "Work Email": "support@coshuma.com",
+      "Your Website": "https://coshuma.com"
+    },
+    "left_blank_for_human": [
+      "How many web visitors do you have per month? (judgment call / dropdown)",
+      "Become an Affiliate (submit button)"
+    ],
+    "browser_tab_id": 499332206
+  },
+  "error": null,
+  "human_reason": "form_filled_up_to_butler_scope_but_monthly_visitors_field_requires_judgment_and_final_submit_is_human_only",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": null,
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T09:55:00+00:00"
+}

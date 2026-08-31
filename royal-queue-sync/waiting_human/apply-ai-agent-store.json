@@ -1,0 +1,37 @@
+{
+  "id": "apply-ai-agent-store",
+  "title": "Affiliate Application: AI Agent Store",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "requires_creating_a_tolt_account_via_email_verification",
+  "payload": {
+    "tool_id": "ai-agent-store",
+    "tool_name": "AI Agent Store",
+    "application_url": "https://aiagentstore.com/affiliate (wrong TLD, errored) -> https://aiagentstore.ai/affiliate-program (real) -> https://aiagentstore.tolt.io/ (Tolt-hosted affiliate signup)"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "blocked_before_submit",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "30% on all paid customers (Tolt page); marketing page breaks it down further: 10% on Agent Teams plans, 30% on other eligible paid products (AI Agent listings, agency listings, premium placements, subscriptions, newsletter sponsorships)",
+      "cookie_days": null,
+      "payout": "Not specified pre-signup",
+      "source": "https://aiagentstore.ai/affiliate-program and https://aiagentstore.tolt.io/, read live on 2026-08-30"
+    },
+    "blocker": "Unlike the PartnerStack-hosted programs handled elsewhere in this project (which have a public fillable application form that only creates a partner account upon approval), AI Agent Store's affiliate program is hosted on Tolt and gates entry behind a 'Log in or Sign up' screen requiring an email address to receive a one-time verification code BEFORE any application details can be entered. This is a genuine account-creation/authentication step, not just a form submission, so it falls under the 'Creating accounts' prohibition - butler did not enter an email or proceed.",
+    "notes": "큰형: to apply, go to https://aiagentstore.tolt.io/, enter support@coshuma.com (or your preferred email), retrieve the verification code from that inbox, and complete signup yourself. Let butler know if you'd like help with any follow-up profile/application fields once you're logged in."
+  },
+  "browser_tab_status": {
+    "is_open_now": false,
+    "tab_id": null,
+    "url": "https://aiagentstore.tolt.io/login",
+    "correction_note": "No application tab left open - stopped at the email verification gate, nothing further to fill without human-provided email verification."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:50:00Z"
+}

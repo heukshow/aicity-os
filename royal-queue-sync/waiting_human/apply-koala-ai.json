@@ -1,0 +1,37 @@
+{
+  "id": "apply-koala-ai",
+  "title": "Affiliate Application: Koala AI",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "koala-ai",
+    "tool_name": "Koala AI",
+    "application_url": "https://koala.sh/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://koala.sh/affiliate, complete application form for Koala AI, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "koala-ai",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "koala.sh/affiliate (404)",
+      "WebSearch found the real page: koala.sh/pages/affiliate ('Earn passive income as a Koala AI Affiliate')"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [
+      "There is no web application form. The page states: 'To register for our affiliate program, please email us at hello@koala.sh. Please include details about your audience and any relevant links (website, YouTube channel, social media, etc.)' - this requires sending an actual outbound email, which is a send-a-message-on-the-user's-behalf action needing the user's explicit per-message permission, so it was not sent by this automation. Draft email prepared below for the human to review and send.",
+      "Draft email - To: hello@koala.sh / Subject: Affiliate Program Application - COSHUMA / Body: 'Hi Koala AI team, I'd like to apply for your affiliate program on behalf of COSHUMA (coshuma.com / GlobalSaaSHub), an AI/SaaS tool directory. We plan to promote Koala AI through a dedicated directory listing and comparison content targeting content creators and marketers evaluating AI writing tools. Relevant link: https://coshuma.com. Looking forward to your custom affiliate link and coupon code. Thanks, Sangkwon An, COSHUMA (support@coshuma.com)'"
+    ],
+    "browser_tab_id": 499332116
+  },
+  "error": null,
+  "human_reason": "affiliate_signup_is_email_based_not_a_web_form_requires_sending_an_outbound_email_to_hello_at_koala_sh_which_needs_the_users_explicit_per_message_permission_draft_prepared_for_human_to_send",
+  "application_status": "blocked_needs_human_decision",
+  "waiting_human_category": null,
+  "princess_handoff": null,
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

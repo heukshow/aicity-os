@@ -1,0 +1,17 @@
+{
+  "id": "apply-marketingblocks",
+  "title": "Affiliate Application: MarketingBlocks",
+  "assigned_to": "princess",
+  "status": "discontinued",
+  "error": "program_not_accepting_new_signups",
+  "result": {
+    "actor": "princess",
+    "success": false,
+    "tool_id": "marketingblocks",
+    "application_status": "discontinued",
+    "submitted": false,
+    "tracking_link": null,
+    "notes": "Prince completed and submitted the FirstPromoter form. The portal explicitly responded: At the moment we can not accept new sign ups. Please contact us. Do not retry automatically."
+  },
+  "updated_at": "2026-08-31T08:18:00Z"
+}

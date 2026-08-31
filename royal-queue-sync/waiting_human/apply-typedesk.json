@@ -1,0 +1,64 @@
+{
+  "id": "apply-typedesk",
+  "title": "Affiliate Application: Typedesk",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "typedesk",
+    "tool_name": "Typedesk",
+    "application_url": "https://www.typedesk.com/reseller",
+    "commission": "30% Recurring",
+    "instructions": "Navigate to https://www.typedesk.com/reseller, complete application form for Typedesk, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "typedesk",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "typedesk.com/reseller - 'Promote typedesk and earn big', 30% recurring commission, 60-day net payout. Step 1: 'Sign up for an account. Leave your business information, and our team will reach back within a few days.' 'Become an affiliate' CTA.",
+      "WebSearch confirmed the underlying signup platform is Rewardful, hosted at typedesk.getrewardful.com/login - a password-protected account (consistent with the established Rewardful pattern seen elsewhere in this backlog, e.g. DocsBot AI, Databox, Blaze)."
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332320
+  },
+  "error": null,
+  "human_reason": "typedesks_become_an_affiliate_cta_resolves_to_a_rewardful_hosted_account_typedesk_getrewardful_com_requiring_a_new_password_protected_account_no_password_free_application_path_found_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Typedesk's affiliate program ('Become an affiliate' on typedesk.com/reseller) is hosted on Rewardful (typedesk.getrewardful.com), requiring a new password-protected account. Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping customer support, HR, and sales teams discover and compare text-expander and workflow automation tools, including Typedesk.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting customer support, HR, and sales teams evaluating text-expander/productivity tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Rewardful (typedesk.getrewardful.com)",
+      "current_url": "https://www.typedesk.com/reseller",
+      "current_status": "On the affiliate program landing page; 'Become an affiliate' resolves to the Rewardful signup/login form",
+      "missing_fields": [
+        "Email",
+        "Password",
+        "Business information"
+      ],
+      "human_only_steps": [
+        "Open https://www.typedesk.com/reseller -> 'Become an affiliate'",
+        "Create a new Rewardful-hosted account with email and password, plus business information",
+        "Await approval (per the page, the team reaches back within a few days) and receive partner dashboard access"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T11:45:00+00:00"
+}

@@ -1,0 +1,64 @@
+{
+  "id": "apply-surfeo",
+  "title": "Affiliate Application: Surfe",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "surfeo",
+    "tool_name": "Surfe",
+    "application_url": "https://surfeo.io/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://surfeo.io/affiliate, complete application form for Surfeo, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "surfeo",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "surfeo.io/affiliate -> error page (surfeo.io does not appear to be the correct domain)",
+      "WebSearch identified the tool as Surfe (surfe.com, formerly Leadjet, a LinkedIn/CRM sales tool) with a Partner Program at https://www.surfe.com/partner-program/",
+      "'Become a Referral Partner' link resolves to https://dash.partnerstack.com/application?company=surfe&group=launch - a PartnerStack Handshake application requiring a new PartnerStack account, per the page's own link (no further click-through needed to confirm, matching the established PartnerStack pattern)"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332312
+  },
+  "error": null,
+  "human_reason": "surfe_referral_partner_program_is_a_partnerstack_handshake_application_dash_partnerstack_com_application_company_surfe_group_launch_requiring_a_new_partnerstack_account_email_password_or_google_oauth_no_password_free_application_path_found_routed_to_princess_per_established_partnerstack_handshake_pattern",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Surfe's Referral Partner program (surfe.com/partner-program) links directly to a PartnerStack Handshake application (dash.partnerstack.com/application?company=surfe&group=launch), requiring a new PartnerStack account (email+password or Google OAuth). Per the butler's standing restriction on never entering passwords, this is routed to the princess. Note: the backlog's original URL (surfeo.io/affiliate) appears to be a naming mismatch - the actual tool is Surfe (surfe.com).",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare sales and LinkedIn prospecting tools, including Surfe's CRM/LinkedIn integration platform.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting sales teams evaluating LinkedIn prospecting and CRM integration tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "PartnerStack Handshake (dash.partnerstack.com/application?company=surfe&group=launch)",
+      "current_url": "https://dash.partnerstack.com/application?company=surfe&group=launch",
+      "current_status": "Not yet opened; link confirmed from the Surfe partner program page",
+      "missing_fields": [
+        "Email",
+        "Password (or Google OAuth)"
+      ],
+      "human_only_steps": [
+        "Open https://dash.partnerstack.com/application?company=surfe&group=launch",
+        "Create or log into a PartnerStack account (email/password or Google OAuth)",
+        "Complete and submit the application"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T10:30:00+00:00"
+}

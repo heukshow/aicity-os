@@ -1,0 +1,62 @@
+{
+  "id": "apply-tagshop-ai",
+  "title": "Affiliate Application: Tagshop AI",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "tagshop-ai",
+    "tool_name": "Tagshop AI",
+    "application_url": "https://tagshop.ai/affiliate",
+    "commission": "30% Recurring (6 months)",
+    "instructions": "Navigate to https://tagshop.ai/affiliate, complete application form for Tagshop-ai, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "tagshop-ai",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "tagshop.ai/affiliate - loaded directly, '30% recurring commissions for 6 months, 90-day cookie', 'Join Affiliate Program' link resolves to https://tagshop.firstpromoter.com",
+      "tagshop.firstpromoter.com - a FirstPromoter signup form requiring First Name, Last Name, Email, Password, Country, and an Instagram/social URL - confirmed via read_page that a password field is present (type=password), so this requires creating a new FirstPromoter-hosted account"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332320
+  },
+  "error": null,
+  "human_reason": "tagshop_ais_affiliate_signup_at_tagshop_firstpromoter_com_requires_creating_a_new_firstpromoter_account_with_a_password_field_present_in_the_form_no_password_free_application_path_found_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Tagshop AI's affiliate program signup (tagshop.firstpromoter.com) is a FirstPromoter-hosted form that requires setting a password to create the account, alongside First Name, Last Name, Email, Country, and a social/Instagram URL. Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders and marketers discover and compare AI-powered UGC and social commerce tools, including Tagshop's shoppable content platform.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting e-commerce and social commerce marketers evaluating shoppable UGC tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "FirstPromoter (tagshop.firstpromoter.com)",
+      "current_url": "https://tagshop.firstpromoter.com",
+      "current_status": "On the signup form; First Name, Last Name, Email, Country, and Instagram/social URL fields are visible alongside the password field",
+      "missing_fields": [
+        "Password"
+      ],
+      "human_only_steps": [
+        "Open https://tagshop.firstpromoter.com",
+        "Fill in name, email, country, social URL, and set a password",
+        "Submit the signup form"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T10:55:00+00:00"
+}

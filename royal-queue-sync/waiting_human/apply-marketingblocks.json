@@ -1,0 +1,67 @@
+{
+  "id": "apply-marketingblocks",
+  "title": "Affiliate Application: MarketingBlocks",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "marketingblocks",
+    "tool_name": "MarketingBlocks",
+    "application_url": "https://marketingblocks.ai/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://marketingblocks.ai/affiliate, complete application form for MarketingBlocks, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "marketingblocks",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "marketingblocks.ai/affiliate -> briefly showed a Cloudflare bot-check interstitial ('보안 확인 수행 중'), which auto-resolved to a genuine 404 ('Page not found - MarketingBlocks')",
+      "WebSearch found the real signup page: marketingblocks.firstpromoter.com/ ('MarketingBlocks Partner Program - Promote Agentic AI Marketing SaaS & Earn 30% Recurring Commissions for life!')",
+      "page requires First Name, Last Name, Email, Password, Country (all required), plus optional Website/Company/social URLs and a promotion-plan field, and an affiliate-terms checkbox - a FirstPromoter-hosted account-creation form with a mandatory password field"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332152
+  },
+  "error": null,
+  "human_reason": "firstpromoter_hosted_signup_form_requires_a_new_password_no_existing_account_or_passwordless_option_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "MarketingBlocks' affiliate program is FirstPromoter-hosted (marketingblocks.firstpromoter.com) and requires creating a brand-new account with First Name, Last Name, Email, Password, and Country - no passwordless/OAuth option is offered. Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI-powered tools, including AI marketing-content tools like MarketingBlocks.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting marketers and small businesses evaluating AI marketing-content generation tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "FirstPromoter (marketingblocks.firstpromoter.com)",
+      "current_url": "https://marketingblocks.firstpromoter.com/?host=marketingblocks.firstpromoter.com",
+      "current_status": "On the signup form; no fields filled yet",
+      "missing_fields": [
+        "First Name",
+        "Last Name",
+        "Email (support@coshuma.com)",
+        "Password",
+        "Country"
+      ],
+      "human_only_steps": [
+        "Fill in First Name, Last Name, Email, Password, and Country on https://marketingblocks.firstpromoter.com/",
+        "Optionally fill Website, Company Name, and promotion-plan fields",
+        "Agree to affiliate terms & conditions and submit"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

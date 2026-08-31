@@ -1,0 +1,55 @@
+{
+  "id": "apply-mindstudio",
+  "title": "Affiliate Application: MindStudio",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "mindstudio",
+    "tool_name": "MindStudio",
+    "application_url": "https://mindstudio.ai/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://mindstudio.ai/affiliate, complete application form for MindStudio, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "mindstudio",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "mindstudio.ai/affiliate -> 404 ('Page Not Found | MindStudio', served at www.mindstudio.ai/affiliate)",
+      "WebSearch found the real page: https://www.mindstudio.ai/forms/ms-partner-application ('Apply to the MindStudio partner program')",
+      "this is NOT a simple affiliate-link signup - it is a 'Solutions Partner Program' application aimed at agencies/consultants who implement MindStudio for clients, asking detailed business-qualification questions"
+    ],
+    "form_filled": {
+      "First name": "Sangkwon",
+      "Last name": "An",
+      "Work email": "support@coshuma.com",
+      "Company name": "COSHUMA",
+      "Website URL": "https://coshuma.com"
+    },
+    "left_blank_for_human": [
+      "Mobile phone number (optional, not a business phone line for COSHUMA)",
+      "LinkedIn profile URL (required) - needs a specific human LinkedIn profile",
+      "Number of employees (Select: 1-5 / 6-20 / 21-50 / 51-200 / 201-1000 / 1000+) - requires a business decision on how to represent COSHUMA",
+      "What services do you currently offer to your clients? - requires human judgment; COSHUMA is a directory site, not a services agency, so this needs careful framing",
+      "Number of clients - requires a real figure or judgment call",
+      "Average client engagement (USD) (Select: $100-500 / $500-1,000 / $1,000-2,000 / $2,000-5,000 / $10,000) - requires a business decision",
+      "MindStudio username - implies an existing MindStudio product account may need to be created/logged into first (account-dependent field)",
+      "Are you or someone on your team a MindStudio Certified AI Agent Builder? (Select: Yes/No) - factual answer only the human knows",
+      "Have you ever implemented MindStudio for a client? - requires factual/judgment answer",
+      "What specialty/expertise do you have that would make you an ideal MindStudio partner? - requires human-crafted positioning statement",
+      "How did you hear about us? - minor but left for human context",
+      "Consent/certification/terms language and final Submit - human-only per standing policy"
+    ],
+    "browser_tab_id": 499332158
+  },
+  "error": null,
+  "human_reason": "this_is_a_solutions_partner_agency_application_not_a_simple_affiliate_link_signup_it_requires_a_mindstudio_product_username_and_multiple_business_qualification_judgment_calls_number_of_clients_client_engagement_value_certification_status_specialty_positioning_that_only_a_human_can_answer_accurately_for_coshuma_a_directory_site_not_a_client_services_agency",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": null,
+  "note_on_fit": "This program is explicitly aimed at agencies/consultants who implement MindStudio for their own clients, not at content/directory sites. Before submitting, the human should decide whether COSHUMA (an AI/SaaS tool directory) is actually a good fit for this 'Solutions Partner' program, or whether a simpler MindStudio affiliate/referral option exists instead - this may be worth re-evaluating rather than just filling in the remaining fields.",
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "apply-flowgent-ai",
+  "title": "Affiliate Application: FlowGent AI",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "flowgent-ai",
+    "tool_name": "FlowGent AI",
+    "application_url": "https://flowgent.ai/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://flowgent.ai/affiliate, complete application form for FlowGent AI, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "url_chain": [
+      "https://flowgent.ai/affiliate (marketing page loaded successfully: '20% LIFETIME recurring commission, 60-day cookie', earnings calculator, FAQ - all still live)",
+      "Clicked 'Join the Affiliate Program' button -> auto-redirected to https://flowgent-ai.getrewardful.com/inactive",
+      "Confirmed page text: 'Sorry, this affiliate program is no longer active.' (Rewardful-hosted terminal inactive state)"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": null
+  },
+  "error": "affiliate_program_inactive",
+  "human_reason": "program_discontinued_marketing_page_stale",
+  "application_status": "blocked_program_discontinued",
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T04:19:13+00:00"
+}

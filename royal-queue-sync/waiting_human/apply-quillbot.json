@@ -1,0 +1,65 @@
+{
+  "id": "apply-quillbot",
+  "title": "Affiliate Application: Quillbot",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "quillbot",
+    "tool_name": "Quillbot",
+    "application_url": "https://quillbot.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://quillbot.com/affiliate, complete application form for Quillbot, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "quillbot",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "quillbot.com/affiliate -> 404 (Page not found)",
+      "found footer link 'Affiliates' -> https://quillbot.com/affiliates (Quillbot Affiliate Program, up to 20% commission, PartnerStack-powered per FAQ)",
+      "clicked 'Apply now' - no visible navigation (JS-driven PartnerStack Handshake widget)",
+      "WebSearch found the PartnerStack storefront: https://quillbot.partnerstack.com/ - clicked 'Join now', no visible page change (same PartnerStack Handshake gateway family as Murf AI, requires new PartnerStack account via email+password or Google OAuth)"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332200
+  },
+  "error": null,
+  "human_reason": "quillbot_affiliate_program_is_gated_behind_partnerstack_handshake_requiring_a_new_partnerstack_account_email_password_or_google_oauth_no_password_free_application_path_found_routed_to_princess_per_established_partnerstack_handshake_pattern",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Quillbot's affiliate program (quillbot.partnerstack.com) is a PartnerStack Handshake storefront requiring a new PartnerStack account (email+password or Google OAuth) to complete 'Join now'. Per the butler's standing restriction on never entering passwords, this is routed to the princess, consistent with the Murf AI PartnerStack Handshake precedent.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI writing tools, including Quillbot.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting writers and students evaluating AI paraphrasing/grammar tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "PartnerStack Handshake (quillbot.partnerstack.com)",
+      "current_url": "https://quillbot.partnerstack.com/",
+      "current_status": "On the program landing page; 'Join now' opens the PartnerStack account creation/login flow",
+      "missing_fields": [
+        "Email",
+        "Password (or Google OAuth)"
+      ],
+      "human_only_steps": [
+        "Click 'Join now' on https://quillbot.partnerstack.com/",
+        "Create or log into a PartnerStack account (email/password or Google OAuth)",
+        "Complete and submit the application"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T08:40:00+00:00"
+}

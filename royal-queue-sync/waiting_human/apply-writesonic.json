@@ -1,0 +1,35 @@
+{
+  "id": "apply-writesonic",
+  "title": "Affiliate Application: Writesonic",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "writesonic",
+    "tool_name": "Writesonic",
+    "application_url": "https://affiliates.writesonic.com/",
+    "commission": "30% Recurring",
+    "instructions": "Navigate to https://affiliates.writesonic.com/, complete application form for Writesonic, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "writesonic",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "affiliates.writesonic.com/ - navigating here landed directly on an already-authenticated affiliate dashboard for 'Sang Kwon An' (not a signup/login form) - meaning an application to Writesonic's affiliate program (Writesonic GEO Affiliate program) was already submitted in a prior session.",
+      "The dashboard's own home page states: 'Your application has been rejected' - 'Please [contact] to get more details about the rejection reason.' with a mailto link to tanay@writesonic.com. Dashboard tabs (Referrals, Commissions, Payouts, Assets, Reports) show zeroed-out stats (DUE A DAY AGO / TOTAL UNPAID / TOTAL PAID / rejected), consistent with a rejected application that never became active."
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332320
+  },
+  "error": null,
+  "human_reason": "a_writesonic_affiliate_application_was_already_submitted_in_a_prior_session_using_the_coshuma_account_and_has_since_been_rejected_by_writesonic_no_signup_form_remains_to_fill_a_human_needs_to_decide_whether_to_email_tanay_writesonic_com_for_the_rejection_reason_and_whether_to_reapply",
+  "application_status": "blocked_needs_human_decision",
+  "waiting_human_category": null,
+  "princess_handoff": null,
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T12:05:00+00:00",
+  "note_on_fit": "This is not a fresh application task - an account already exists for COSHUMA on affiliates.writesonic.com and Writesonic has already rejected it. Recommend the human either email tanay@writesonic.com to ask for the rejection reason and whether reapplying is possible, or mark this program as declined/closed and move on. Emailing requires the user's explicit per-message permission and was not sent."
+}

@@ -1,0 +1,28 @@
+{
+  "id": "apply-dorik",
+  "title": "Affiliate Application: Dorik",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "dorik",
+    "tool_name": "Dorik",
+    "application_url": "https://dorik.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://dorik.com/affiliate, complete application form for Dorik, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "url_chain": [
+      "https://dorik.com/affiliate (stub URL) -> redirected to https://dorik.com/affiliates (real marketing page: ~$571 per conversion, 40% commission)",
+      "Clicked 'Become an Affiliate' -> opened https://dorik.firstpromoter.com/ which immediately showed 'Sign Up — This campaign is private.' No application form is reachable through this path.",
+      "Clicked the alternate 'Become a Selected Partner' button on the same marketing page -> opened and then immediately closed a new tab (likely a live-chat widget rather than a form); page text confirms the only guidance is 'If you have any questions, please contact us via Live Chat.'"
+    ],
+    "conclusion": "Dorik's self-serve affiliate signup campaign (FirstPromoter) is currently marked private/closed to new public applicants. The 'Selected Partner' track is a manual, live-chat-driven process rather than a fillable self-service form. No application could be submitted through any automated path.",
+    "browser_tab_id": 499331980
+  },
+  "error": "affiliate_program_private_no_public_signup",
+  "human_reason": "firstpromoter_campaign_private_selected_partner_requires_manual_live_chat_contact",
+  "application_status": "blocked_needs_human_research",
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T01:35:00.000000+00:00"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "apply-krater",
+  "title": "Affiliate Application: Krater",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "krater",
+    "tool_name": "Krater",
+    "application_url": "https://krater.ai/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://krater.ai/affiliate, complete application form for Krater, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "krater",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "krater.ai/affiliate (real page loads, Korean-language, 'Krater Affiliate Program: Earn 25% Recurring Promoting AI', states program is Dub Partners-operated and links to partners.dub.co/kraterai",
+      "partners.dub.co/kraterai -> clicked 'Apply' (ref_6) -> navigated to partners.dub.co/kraterai/apply ('Step 1 of 2 - Apply to Krater')",
+      "form fields pre-populated by browser/session autofill with an EXISTING Dub Partners account identity (Name: '흑쇼', Email: qmfforfhem@gmail.com) before this automation overwrote them - confirms a Dub Partners account is already logged in for this browser session, so this is an application submission under an existing account, not a fresh account-creation flow",
+      "overwrote autofilled values with COSHUMA's standard business profile (Name, Email, Website, promotion plan, additional comments) per standing policy of using the business identity"
+    ],
+    "form_filled": {
+      "Name": "Sangkwon An",
+      "Email": "support@coshuma.com",
+      "Website / Social media channel": "https://coshuma.com",
+      "How do you plan to promote Krater?": "Dedicated directory listing and comparison content on coshuma.com (GlobalSaaSHub) targeting marketers and small teams evaluating AI writing/content tools.",
+      "Any additional questions or comments?": "Applying on behalf of COSHUMA (coshuma.com / GlobalSaaSHub), an AI/SaaS tool directory."
+    },
+    "left_blank_for_human": [
+      "'I agree to the Krater Program Terms' checkbox - legal consent checkbox, human-only per standing policy",
+      "'Continue' button - proceeds to Step 2 of 2 (contents not yet seen by this automation; likely payout/PayPal details since account is already authenticated to Dub Partners, but not confirmed)"
+    ],
+    "browser_tab_id": 499332116
+  },
+  "error": null,
+  "human_reason": "dub_partners_application_form_step_1_of_2_completed_by_butler_no_new_password_required_because_browser_already_has_an_authenticated_dub_partners_account_legal_consent_checkbox_and_continue_to_step_2_left_for_human",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": "legal_consent",
+  "princess_handoff": null,
+  "note_on_related_tab": "A separate pre-existing tab (499332125, https://partners.dub.co/dub/apply, titled 'Dub Affiliate Program | Dub') is Dub's OWN affiliate program (promoting Dub itself), a different program slug ('/dub') from Krater's ('/kraterai'). Both happen to run on the same Dub Partners platform but are distinct affiliate programs for distinct products - they should be tracked as separate queue items, not merged. If 'dub' is not already a todo/waiting_human item in this queue, it may need to be added separately; this record covers only Krater.",
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "apply-chatbot",
+  "title": "Affiliate Application: chatbot",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "human_reason": "business_email_verification_required",
+  "result": {
+    "actor": "princess",
+    "success": false,
+    "tool_id": "chatbot",
+    "application_status": "waiting_human",
+    "email_used": "support@coshuma.com",
+    "notes": "Inputs prepared on tab. Pending human action: business_email_verification_required."
+  },
+  "updated_at": "2026-08-31T06:18:00.841240Z"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "apply-cartstack",
+  "title": "Affiliate Application: CartStack",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "cartstack",
+    "tool_name": "CartStack",
+    "application_url": "https://www.cartstack.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://www.cartstack.com/affiliate, complete application form for CartStack, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "resolved_url_chain": [
+      "https://www.cartstack.com/affiliate -> https://cartstack.com/referrals/ (real program page)",
+      "https://cartstack.com/referrals/ -> https://cartstack.leaddyno.com/ (LeadDyno-hosted signup form)"
+    ],
+    "platform": "LeadDyno",
+    "form_type": "simple_3_field_no_password",
+    "fields_filled": {
+      "first_name": "Sangkwon",
+      "last_name": "An",
+      "email": "support@coshuma.com"
+    },
+    "fields_left_blank": "none required - form only has 3 fields",
+    "notes": "Unusual LeadDyno variant: this signup form has NO password field at all, just First Name / Last Name / Email + orange 'Sign Up' button. All 3 content fields were safely filled. Only the final 'Sign Up' button submission is left for human review, per standing policy of never clicking final submit/account-creation buttons.",
+    "browser_tab_status": {
+      "tab_id": 499331926,
+      "url": "https://cartstack.leaddyno.com/",
+      "state": "form_fully_filled_ready_for_human_to_click_sign_up"
+    }
+  },
+  "error": null,
+  "human_reason": "final_signup_button_left_to_human",
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-30T00:00:00.000000+00:00"
+}

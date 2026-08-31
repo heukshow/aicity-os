@@ -1,0 +1,37 @@
+{
+  "id": "apply-beefree",
+  "title": "Affiliate Application: Beefree",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "no_public_application_form_found",
+  "payload": {
+    "tool_id": "beefree",
+    "tool_name": "Beefree",
+    "application_url": "https://beefree.io/affiliate (404) - no official affiliate/partner page found anywhere on beefree.io; only a 'Become a Template Designer' marketplace program (a different thing) and third-party SEO aggregator pages describing an affiliate program with no working sign-up link"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": false,
+    "application_status": "no_application_form_found",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "20-30% Recurring (per todo stub and an unverified third-party aggregator site); could not confirm directly on beefree.io",
+      "cookie_days": null,
+      "payout": "Unknown - no official program page exists",
+      "source": "https://beefree.io/, read live on 2026-08-30; theaffiliatemonkey.com (unverified third-party listing, no working sign-up link)"
+    },
+    "blocker": "beefree.io/affiliate 404s and no 'Affiliate'/'Partners' link exists on the current beefree.io site (which has also rebranded parts of itself to 'RGE Studio'). The only official partner-type program found is 'Become a Template Designer' (a marketplace for selling email templates, not a referral affiliate program). A third-party SEO aggregator site describes a BeeFree affiliate program but provides no working sign-up link. No genuine application form could be located.",
+    "notes": "큰형: Beefree doesn't appear to run a current public affiliate/referral program - the third-party listing describing one may be outdated or unverified. Could try emailing their support to ask directly."
+  },
+  "browser_tab_status": {
+    "is_open_now": false,
+    "tab_id": null,
+    "url": "https://beefree.io/",
+    "correction_note": "No application tab needed - no form exists to fill."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T01:35:00Z"
+}

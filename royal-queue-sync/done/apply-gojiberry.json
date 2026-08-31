@@ -1,0 +1,20 @@
+{
+  "id": "apply-gojiberry",
+  "title": "Affiliate Application: Gojiberry",
+  "assigned_to": "princess",
+  "status": "completed",
+  "result": {
+    "actor": "princess",
+    "success": true,
+    "tool_id": "gojiberry",
+    "application_status": "completed",
+    "email_used": "support@coshuma.com",
+    "observed_url": "https://gojiberryaff.tolt.io/",
+    "submitted": true,
+    "partner_agreement_accepted": true,
+    "tracking_link": "https://gojiberry.ai/?ref=sangkwon",
+    "tracking_link_verified": true,
+    "notes": "Prince verified account creation, mailbox OTP verification, Tolt Partner Agreement acceptance authorized by the user, completed onboarding, dashboard access, and the referral-bearing tracking link."
+  },
+  "updated_at": "2026-08-31T07:36:00Z"
+}

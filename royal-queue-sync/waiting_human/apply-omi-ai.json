@@ -1,0 +1,65 @@
+{
+  "id": "apply-omi-ai",
+  "title": "Affiliate Application: Omi AI",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "omi-ai",
+    "tool_name": "Omi AI",
+    "application_url": "https://omi.me/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://omi.me/affiliate, complete application form for Omi AI, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "omi-ai",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "omi.me/affiliate -> redirected to homepage (no dedicated /affiliate page)",
+      "WebSearch found the real page: https://affiliate.omi.me/ ('Omi Affiliate Program', earn up to 30% commission)",
+      "clicked 'Join Now' -> navigated to affiliate.omi.me/register",
+      "registration form requires Full Name, Email, Password (or 'Sign up with Google' as an OAuth alternative) - a native account-creation form with a mandatory password field"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332182
+  },
+  "error": null,
+  "human_reason": "omi_affiliate_portal_requires_a_new_account_full_name_email_password_or_google_oauth_no_existing_account_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Omi AI's affiliate program (affiliate.omi.me) requires creating a new account with Full Name, Email, and Password (or 'Sign up with Google' as an OAuth alternative). Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI-powered tools and wearables, including Omi.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting audiences interested in AI wearables and productivity devices.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Omi native affiliate portal (affiliate.omi.me)",
+      "current_url": "https://affiliate.omi.me/register",
+      "current_status": "On the registration form; no fields filled yet",
+      "missing_fields": [
+        "Full Name",
+        "Email (support@coshuma.com)",
+        "Password (or Sign up with Google)"
+      ],
+      "human_only_steps": [
+        "Fill in Full Name, Email, and Password on https://affiliate.omi.me/register (or use 'Sign up with Google')",
+        "Complete account creation and any onboarding steps"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T08:15:00+00:00"
+}

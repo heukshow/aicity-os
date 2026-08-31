@@ -1,0 +1,29 @@
+{
+  "id": "apply-copy-ai",
+  "title": "Affiliate Application: Copy.ai",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "copy-ai",
+    "tool_name": "Copy.ai",
+    "application_url": "https://www.copy.ai/affiliate-program",
+    "commission": "45% first year recurring",
+    "instructions": "Navigate to https://www.copy.ai/affiliate-program, complete application form for Copy.ai, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "investigation": [
+      "https://www.copy.ai/affiliate-program (stub URL) returned a 404.",
+      "https://www.copy.ai/ homepage loaded successfully; footer (all nav sections: Platform, Use Cases, Resources, Support, Careers, Free Tools, Podcasts, Live Training, Help Docs, Community, Privacy Notice, Terms of Service, Status, social links) contains no affiliate program link.",
+      "WebSearch for a direct signup subdomain (FirstPromoter/Rewardful/PartnerStack/Impact) found no confirmed backend; a 'site:copy.ai' search for affiliate/become-an-affiliate pages returned zero copy.ai results.",
+      "All search results are third-party review/aggregator sites (getlasso.co, postaffiliatepro.com, referly.so, way2earning.com, rizeads.io, toolify.ai, trakaff.com, affinsight.com) citing '45% Recurring Commission, 60-Day Cookie' but none link to a live, working copy.ai-controlled application form."
+    ],
+    "conclusion": "No current public, directly-accessible affiliate application form could be located for Copy.ai. The program may have been discontinued, folded into a private/invite-only partnership process, or moved behind a page not discoverable via search or on-site navigation. No application was submitted anywhere; no form was filled.",
+    "browser_tab_id": 499331943
+  },
+  "error": "no_public_application_form_found",
+  "human_reason": "no_working_signup_path_discovered_needs_human_investigation_or_direct_outreach",
+  "application_status": "blocked_needs_human_research",
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00.000000+00:00"
+}

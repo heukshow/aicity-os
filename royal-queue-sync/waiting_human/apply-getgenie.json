@@ -1,0 +1,41 @@
+{
+  "id": "apply-getgenie",
+  "title": "Affiliate Application: GetGenie",
+  "assigned_to": "butler",
+  "status": "done",
+  "payload": {
+    "tool_id": "getgenie",
+    "tool_name": "GetGenie",
+    "application_url": "https://getgenie.ai/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://getgenie.ai/affiliate, complete application form for GetGenie, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "url_chain": [
+      "https://getgenie.ai/affiliate (auto-redirects)",
+      "https://getgenie.ai/affiliate-program-policy/ (terms/policy page: up to 30% / $356 per sale, PayPal payout, $200 minimum; mentions a 'Join Today' CTA)",
+      "clicked 'Join Today' link -> https://getgenie.ai/affiliates/ (marketing page with 'Join Now as an Affiliate' CTA)",
+      "clicked 'Join Now as an Affiliate' -> https://app.getgenie.ai/affiliate-area/ (direct 'Register a new affiliate account' form, no login/account gating found)"
+    ],
+    "form_filled": {
+      "Name": "Sangkwon An",
+      "Username": "coshuma",
+      "Account Email": "support@coshuma.com",
+      "Payment Email": "support@coshuma.com",
+      "Website URL": "https://coshuma.com",
+      "How will you promote us?": "We will feature GetGenie on COSHUMA (coshuma.com), an AI/SaaS tool directory, through a dedicated listing page and content aimed at our audience of SaaS and AI tool researchers."
+    },
+    "left_blank_for_human": [
+      "Register (button, guarded by reCAPTCHA)"
+    ],
+    "browser_tab_id": 499332016
+  },
+  "error": null,
+  "human_reason": null,
+  "application_status": "active",
+  "tracking_link": "https://getgenie.ai?rui=3921",
+  "tracking_link_verified": true,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

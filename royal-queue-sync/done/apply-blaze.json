@@ -1,0 +1,16 @@
+{
+  "id": "apply-blaze",
+  "title": "Affiliate Application: blaze",
+  "assigned_to": "princess",
+  "status": "applied_pending",
+  "result": {
+    "actor": "princess",
+    "success": true,
+    "tool_id": "blaze",
+    "application_status": "applied_pending",
+    "sub_status": "waiting_login_or_approval",
+    "email_used": "support@coshuma.com",
+    "notes": "Account created successfully. Pending first login / approval."
+  },
+  "updated_at": "2026-08-31T06:18:00.839233Z"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "apply-framer",
+  "title": "Affiliate Application: Framer",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "requires_creating_a_framer_account_to_apply",
+  "payload": {
+    "tool_id": "framer",
+    "tool_name": "Framer",
+    "application_url": "https://framer.com/affiliate (404, stale) -> no standalone marketing-site apply form exists; program is called the 'Creator Program' and application happens inside a Framer account at framer.com/community (Links tab in profile settings)"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "not_applicable_no_form_found",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "20% ~ 30% Recurring (per todo stub) - Framer's own docs describe referral commissions only on template remix links, not a flat recurring %; actual rate unclear from public docs",
+      "cookie_days": null,
+      "payout": "Via Dub -> Stripe",
+      "source": "https://www.framer.com/help/articles/how-affiliate-links-work/ and how-the-creator-program-works/, read live on 2026-08-30"
+    },
+    "blocker": "Framer does not have a simple marketing-page affiliate application form. Its affiliate system ('Creator Program') is only accessible from INSIDE a Framer account: you must sign in/sign up for framer.com, go to Community profile settings > Links tab, and submit a manual application there (reviewed within a few days based on work quality, audience, and promotion plans) - OR be auto-enrolled by publishing a Template/Plugin/Component in the Framer Marketplace or becoming a verified Framer Expert. All paths require first creating a Framer account, which falls under 'Creating accounts' - an action butler is not permitted to take even with authorization. No application was started.",
+    "notes": "큰형: to get COSHUMA into Framer's Creator Program, you'll need to personally create/log into a Framer account, open Community profile settings > Links tab, and submit the manual affiliate application there. Butler can help draft the application text (promotion plan, etc.) if useful, but cannot create the account or submit on your behalf."
+  },
+  "browser_tab_status": {
+    "is_open_now": false,
+    "tab_id": null,
+    "url": "https://www.framer.com/help/articles/how-the-creator-program-works/",
+    "correction_note": "No application tab needed - research-only, no form to fill."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-30T23:40:00Z"
+}

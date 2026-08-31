@@ -1,0 +1,16 @@
+{
+  "id": "apply-bolddesk",
+  "title": "Affiliate Application: bolddesk",
+  "assigned_to": "princess",
+  "status": "applied_pending",
+  "result": {
+    "actor": "princess",
+    "success": true,
+    "tool_id": "bolddesk",
+    "application_status": "applied_pending",
+    "sub_status": "waiting_email_verification",
+    "email_used": "support@coshuma.com",
+    "notes": "Form submitted successfully. Confirmation email sent to support@coshuma.com."
+  },
+  "updated_at": "2026-08-31T06:18:00.839233Z"
+}

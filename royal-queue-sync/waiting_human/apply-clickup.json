@@ -1,0 +1,37 @@
+{
+  "id": "apply-clickup",
+  "title": "Affiliate Application: ClickUp",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "prior_application_declined_reapplication_is_a_business_decision",
+  "payload": {
+    "tool_id": "clickup",
+    "tool_name": "ClickUp",
+    "application_url": "https://clickup.com/affiliate (404, stale) -> https://clickup.com/partners/affiliates -> https://dash.partnerstack.com/clickup (PartnerStack-hosted)"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": false,
+    "application_status": "declined",
+    "approval_status": "declined",
+    "tracking_link": null,
+    "payout_status": "not_applicable",
+    "terms_summary": {
+      "commission": "20% ~ 30% Recurring (per todo stub)",
+      "cookie_days": null,
+      "payout": "Via PartnerStack",
+      "source": "PartnerStack account dashboard (dash.partnerstack.com/clickup/application), checked 2026-08-30"
+    },
+    "blocker": "No new application was needed - discovered an EXISTING application on the shared COSHUMA PartnerStack account from prior work (submitted before this conversation) that was DECLINED by ClickUp on Aug 25, 2026. No decline reason was given by ClickUp. The prior application stated: business name COSHUMA, promoting at https://coshuma.com, partnership type 'Comparison Site', claimed audience of 1,000-10,000 monthly organic visitors, SEO-only promotion strategy, not US/Canada-based. PartnerStack shows an 'Apply again' option, but butler did not click it - deciding whether/how to reapply (e.g. with different framing, or after building more traffic history) is a business judgment call left to 큰형 rather than an automatic retry.",
+    "notes": "큰형: ClickUp declined our affiliate application on Aug 25, 2026 (before this conversation started) with no reason given. An 'Apply again' button is available on dash.partnerstack.com/clickup/application if you want to retry - possibly worth waiting until coshuma.com has more traffic/content history, or reapplying with updated info. Marking as waiting_human since this is a decision, not a technical blocker."
+  },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331875,
+    "url": "https://dash.partnerstack.com/clickup/application",
+    "correction_note": "New tab this session, discovered pre-existing declined application."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-30T23:30:00Z"
+}

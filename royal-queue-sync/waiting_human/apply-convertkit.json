@@ -1,0 +1,49 @@
+{
+  "id": "apply-convertkit",
+  "title": "Affiliate Application: ConvertKit (now Kit)",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "missing_social_profile_and_audience_size_fields",
+  "payload": {
+    "tool_id": "convertkit",
+    "tool_name": "ConvertKit",
+    "application_url": "https://convertkit.com/affiliates -> redirects to https://kit.com/affiliate (ConvertKit rebranded to 'Kit') -> https://dash.partnerstack.com/application?company=kit&group=kitaffiliates (PartnerStack-hosted)"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "blocked_before_submit",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "50% commission for first 12 months of every referred customer, plus 10-20% recurring revenue beyond 12 months at Bronze/Silver/Gold status (refer 10+/50+/100+ paying customers per year respectively)",
+      "cookie_days": null,
+      "payout": "Via PartnerStack (Stripe, PayPal, or direct deposit); $5 minimum withdrawal, ~31 day hold",
+      "source": "https://kit.com/affiliate, read live on 2026-08-30"
+    },
+    "fields_completed": {
+      "first_name": "Sangkwon",
+      "last_name": "An",
+      "email": "support@coshuma.com",
+      "business_name": "COSHUMA",
+      "website_url": "https://coshuma.com",
+      "describe_yourself": "Media",
+      "are_you_a_kit_user": "No",
+      "why_kit_good_fit": "Described COSHUMA's directory audience of newsletter creators/marketers researching email tools",
+      "promotion_method": "Blog / website (checked)",
+      "country": "Korea, Republic of"
+    },
+    "blocker": "IMPORTANT NOTE: this is the SAME company/program as the separate 'apply-kit' todo stub - ConvertKit rebranded to 'Kit', both stubs point to kit.com/affiliate. Only ONE application should be submitted; please treat apply-kit.json (if separately processed) as a duplicate of this one. Remaining blockers on the form itself: (1) 'What's your main social media profile link?' is required and COSHUMA has no dedicated social account - left blank. (2) 'What size is your social media following?' and (3) 'How many email subscribers do you have?' are required dropdowns needing real audience numbers butler does not have and won't fabricate. (4) 'What region are you located in?' appeared after selecting Korea as country - a South Korean province/city dropdown requiring 큰형's actual location. Submit button also left unclicked per standing policy on final application submission.",
+    "notes": "큰형: please provide (1) a social media profile link to use (or confirm none exists), (2) your actual social following size bracket, (3) your actual email subscriber count bracket (or confirm 'I haven't started my email list yet' if accurate), and (4) your region within South Korea. All other fields are filled and verified on the open tab - once those four are set, Submit application is a single click."
+  },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331882,
+    "url": "https://dash.partnerstack.com/application?company=kit&group=kitaffiliates",
+    "correction_note": "New tab this session. Will remain open until resolved. NOTE: this is a duplicate program with apply-kit.json - do not submit twice."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:05:00Z"
+}

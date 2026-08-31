@@ -1,0 +1,65 @@
+{
+  "id": "apply-liftmycv",
+  "title": "Affiliate Application: LiftmyCV",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "liftmycv",
+    "tool_name": "LiftmyCV",
+    "application_url": "https://liftmycv.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://liftmycv.com/affiliate, complete application form for LiftmyCV, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "liftmycv",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "liftmycv.com/affiliate (404)",
+      "WebSearch found the real page: liftmycv.com/affiliate-program/ ('Affiliate Program - Earn 25% Commission | LiftmyCV') -> 'Join now' button links to a Tolt-hosted portal",
+      "liftmycv.tolt.io/ -> redirects to liftmycv.tolt.io/login: 'Log in or Sign up - Enter your email below and we'll send you a verification code' - Tolt account creation via emailed OTP/verification code, same pattern as Gojiberry and Inkfluence AI precedents"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332137
+  },
+  "error": null,
+  "human_reason": "tolt_hosted_portal_requires_new_account_creation_via_emailed_otp_verification_code_same_pattern_as_gojiberry_and_inkfluence_ai_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": "otp",
+  "princess_handoff": {
+    "reason": "LiftmyCV's affiliate program is Tolt-hosted (liftmycv.tolt.io). The login/signup screen only asks for an email address and then sends a one-time verification code to that inbox - no traditional password. This requires access to the coshuma.com inbox to retrieve the OTP, so it is routed to the princess rather than the butler.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI-powered tools, including AI job-search tools like LiftmyCV.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting job seekers and career-tool audiences evaluating AI auto-apply tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Tolt (liftmycv.tolt.io)",
+      "current_url": "https://liftmycv.tolt.io/login",
+      "current_status": "On the Tolt login/signup email-entry screen; no email submitted yet",
+      "missing_fields": [
+        "Email (support@coshuma.com) submission",
+        "OTP/verification code retrieval from the coshuma.com inbox"
+      ],
+      "human_only_steps": [
+        "Enter support@coshuma.com on https://liftmycv.tolt.io/login",
+        "Retrieve the verification code emailed to support@coshuma.com",
+        "Enter the code to complete Tolt account creation",
+        "Complete any post-verification affiliate profile fields Tolt requests"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

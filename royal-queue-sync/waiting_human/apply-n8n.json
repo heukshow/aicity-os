@@ -1,0 +1,49 @@
+{
+  "id": "apply-n8n",
+  "title": "Affiliate Application: n8n",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "policy_acknowledgment_checkbox_and_final_submit_left_to_human",
+  "payload": {
+    "tool_id": "n8n",
+    "tool_name": "n8n",
+    "application_url": "https://n8n.io/affiliate (404, stale) -> https://n8n.io/affiliates/ (real) -> https://dash.partnerstack.com/application?company=n8n&group=affiliates2025 (PartnerStack-hosted)"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "blocked_before_submit",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "30% recurring commission for 12 months (per todo stub / n8n.io/affiliates/)",
+      "cookie_days": null,
+      "payout": "Via PartnerStack",
+      "source": "https://n8n.io/affiliates/ and https://dash.partnerstack.com/application?company=n8n&group=affiliates2025, read live on 2026-08-30"
+    },
+    "fields_completed": {
+      "first_name": "Sangkwon",
+      "last_name": "An",
+      "email": "support@coshuma.com",
+      "business_name": "COSHUMA",
+      "other_affiliate_programs": "COSHUMA participates in multiple SaaS affiliate/referral programs as part of our AI/SaaS directory site (e.g. HubSpot, Semrush, Webflow, and others).",
+      "main_activity_to_refer_users": "blog or website",
+      "are_you_an_n8n_user": "not yet",
+      "do_you_have_a_company_website": "yes (checked)",
+      "company_website": "https://coshuma.com",
+      "social_urls_left_blank": "Instagram, X (Twitter), Facebook, LinkedIn, Tiktok, YouTube, Other - all optional (no asterisk) and left blank since COSHUMA has no dedicated social accounts to honestly report"
+    },
+    "blocker": "The only remaining required field is a policy-acknowledgment checkbox: 'Please acknowledge we do not allow bidding on our branded search terms. Doing so will result in a ban & your commissions forfeited.' with 'I agree' / 'I do not agree' options. Per standing policy, butler does not check Terms-of-Service or policy-acknowledgment checkboxes on 큰형's behalf. The 'Submit application' button below it was also left unclicked per standing policy on final submission.",
+    "notes": "큰형: everything is filled and verified on the open tab. To finish, just check 'I agree' on the branded-search-terms acknowledgment (assuming you agree not to bid on n8n's branded search terms) and click 'Submit application'. If you have real social media/YouTube URLs for COSHUMA you'd like listed, feel free to add them first (all optional, not required to submit)."
+  },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331885,
+    "url": "https://dash.partnerstack.com/application?company=n8n&group=affiliates2025",
+    "correction_note": "Tab left open this session, form fully filled except the final acknowledgment checkbox and submit."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:15:00Z"
+}

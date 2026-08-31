@@ -1,0 +1,64 @@
+{
+  "id": "apply-inkfluence-ai",
+  "title": "Affiliate Application: Inkfluence AI",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "inkfluence-ai",
+    "tool_name": "Inkfluence AI",
+    "application_url": "https://www.inkfluenceai.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://www.inkfluenceai.com/affiliate, complete application form for Inkfluence AI, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "inkfluence-ai",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "www.inkfluenceai.com/affiliate (real marketing page, 'Earn 30% promoting a tool authors actually want')",
+      "page explicitly states: 'Apply: Submit your application via the Tolt-hosted portal. Tell us about your audience and where you'd promote us.'",
+      "clicked 'Apply to the program' (both instances, ref_93 and re-clicked) - did not navigate the current tab or open a detectable new tab within this session; likely opens the Tolt portal in a way this session could not follow through to"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332072
+  },
+  "error": null,
+  "human_reason": "page_explicitly_states_application_is_submitted_via_tolt_hosted_portal_new_account_creation_required_same_pattern_as_gojiberry_precedent_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Inkfluence AI's affiliate page states outright that applications go through a Tolt-hosted portal ('Submit your application via the Tolt-hosted portal'). Per the established Gojiberry precedent, a Tolt-hosted signup counts as new-account creation (even without a traditional password field, Tolt typically uses email-verification/magic-link) and is routed to the princess rather than completed by the butler. The 'Apply to the program' click did not visibly navigate within this automation session, so the princess should click through from the affiliate page directly.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI-powered tools, including Inkfluence AI's indie author publishing suite.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting indie authors, self-publishing course creators, and AI-writing-tool audiences.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Tolt (hosted portal, exact subdomain not yet reached by this session)",
+      "current_url": "https://www.inkfluenceai.com/affiliate",
+      "current_status": "Still on the marketing/affiliate-info page; 'Apply to the program' link clicked twice but no navigation or new tab was observed to complete in this session",
+      "missing_fields": [
+        "Tolt account email (start the Tolt-hosted application from the 'Apply to the program' link)",
+        "Any post-verification profile fields Tolt requests"
+      ],
+      "human_only_steps": [
+        "Click 'Apply to the program' on https://www.inkfluenceai.com/affiliate",
+        "Complete Tolt's email-verification/magic-link signup for support@coshuma.com",
+        "Complete any account setup screen Tolt shows after verification"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

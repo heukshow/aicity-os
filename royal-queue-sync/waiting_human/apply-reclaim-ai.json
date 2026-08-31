@@ -1,0 +1,64 @@
+{
+  "id": "apply-reclaim-ai",
+  "title": "Affiliate Application: Reclaim.ai",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "reclaim-ai",
+    "tool_name": "Reclaim.ai",
+    "application_url": "https://reclaim.ai/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://reclaim.ai/affiliate, complete application form for Reclaim.ai, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "reclaim-ai",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "reclaim.ai/affiliate -> 404",
+      "found footer link 'Affiliate program' -> https://reclaim.ai/affiliate-program ('Join the Reclaim.ai Affiliate Program', 40% recurring commission on work emails / 25% on personal)",
+      "clicked 'Join the Affiliate Program' -> https://reclaim.partnerstack.com/?group=marketplace, a PartnerStack Handshake storefront ('Join now' requires a new PartnerStack account via email+password or Google OAuth) - same family as Murf AI and Quillbot"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332206
+  },
+  "error": null,
+  "human_reason": "reclaim_ai_affiliate_program_is_gated_behind_partnerstack_handshake_requiring_a_new_partnerstack_account_email_password_or_google_oauth_no_password_free_application_path_found_routed_to_princess_per_established_partnerstack_handshake_pattern",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Reclaim.ai's affiliate program (reclaim.partnerstack.com) is a PartnerStack Handshake storefront requiring a new PartnerStack account (email+password or Google OAuth) to complete 'Join now'. Per the butler's standing restriction on never entering passwords, this is routed to the princess, consistent with the Murf AI / Quillbot PartnerStack Handshake precedent.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI-powered productivity tools, including Reclaim.ai's AI calendar assistant.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting professionals evaluating AI calendar/scheduling and productivity tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "PartnerStack Handshake (reclaim.partnerstack.com)",
+      "current_url": "https://reclaim.partnerstack.com/?group=marketplace",
+      "current_status": "On the program landing page; 'Join now' opens the PartnerStack account creation/login flow",
+      "missing_fields": [
+        "Email",
+        "Password (or Google OAuth)"
+      ],
+      "human_only_steps": [
+        "Click 'Join now' on https://reclaim.partnerstack.com/?group=marketplace",
+        "Create or log into a PartnerStack account (email/password or Google OAuth)",
+        "Complete and submit the application"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T08:50:00+00:00"
+}

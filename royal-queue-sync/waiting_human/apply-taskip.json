@@ -1,0 +1,65 @@
+{
+  "id": "apply-taskip",
+  "title": "Affiliate Application: Taskip",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "taskip",
+    "tool_name": "Taskip",
+    "application_url": "https://taskip.net/affiliate",
+    "commission": "30% Recurring",
+    "instructions": "Navigate to https://taskip.net/affiliate, complete application form for Taskip, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "taskip",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "taskip.net/affiliate -> redirected to an unrelated blog article (Affiliate Marketing MOU Template page), not an application form",
+      "found 'Become an affiliate' link in the site footer -> https://taskip.net/affiliates/ - 'Earn $1,000+ Monthly with 30% Commissions', 'Become an affiliate' CTA links to https://taskip.affonso.io/onboarding",
+      "taskip.affonso.io - Taskip's affiliate program runs on the Affonso platform (a new affiliate-management platform not seen in this backlog before). The auth page (Korean-localized: '제휴 프로그램에 참여하여...') offers only an email field with NO password field at all - 'Create account' ('계정 만들기') and 'Log in' ('로그인') both just take an email and state '로그인을 위한 매직 링크를 보내드립니다' (We'll send a magic link to your email for login) - i.e. a fully passwordless, magic-link-only authentication system."
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332320
+  },
+  "error": null,
+  "human_reason": "taskips_affiliate_program_via_affonso_taskip_affonso_io_uses_passwordless_magic_link_email_authentication_no_password_field_exists_but_completing_signup_requires_receiving_and_clicking_a_magic_link_in_the_coshuma_com_inbox_which_is_an_otp_style_email_verification_gate_per_the_standing_rule_this_is_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": "otp",
+  "princess_handoff": {
+    "reason": "Taskip's affiliate program (via the Affonso platform at taskip.affonso.io) never requires a password - but joining requires entering an email and then clicking a one-time magic link sent to that inbox to complete authentication. This is functionally an OTP/email-verification gate, which per the standing butler/princess split is routed to the princess (butler does not have access to the coshuma.com inbox to click the link).",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping solopreneurs and agencies discover and compare agency management and client portal platforms, including Taskip.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting agencies and freelancers evaluating client portal / agency management software.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Affonso (passwordless magic-link auth) - taskip.affonso.io",
+      "current_url": "https://taskip.affonso.io/auth",
+      "current_status": "On the account-creation form; only an email field is present",
+      "missing_fields": [
+        "Email submission",
+        "Clicking the magic link sent to the coshuma.com inbox"
+      ],
+      "human_only_steps": [
+        "Open https://taskip.affonso.io/onboarding",
+        "Enter support@coshuma.com and submit",
+        "Check the coshuma.com inbox for the magic link email and click it to complete login/signup",
+        "Fill any remaining affiliate profile fields and submit"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T11:05:00+00:00"
+}

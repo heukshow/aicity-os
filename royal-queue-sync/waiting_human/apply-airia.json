@@ -1,0 +1,37 @@
+{
+  "id": "apply-airia",
+  "title": "Affiliate Application: Airia",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "requires_joining_partnerstack_network_terms_acceptance",
+  "payload": {
+    "tool_id": "airia",
+    "tool_name": "Airia",
+    "application_url": "https://airia.ai/affiliate (wrong/enterprise-app domain, redirects to login) -> real marketing site is airia.com -> https://market.partnerstack.com/program/airia -> https://dash.partnerstack.com/marketplace/all/details/airia?company=airia&gref=marketplace (PartnerStack-hosted)"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "blocked_before_submit",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "10% on new software sales for the first year, plus an additional 20% through the end of March 2026",
+      "cookie_days": null,
+      "payout": "Via PartnerStack",
+      "source": "https://dash.partnerstack.com/marketplace/all/details/airia, read live on 2026-08-30"
+    },
+    "blocker": "Unlike other PartnerStack programs handled this session, clicking 'Apply to program' for Airia showed a lock overlay: 'Before you apply to Airia's program, you must first join the PartnerStack Network to unlock access,' with a 'Join the PartnerStack Network' button. This is a broader, account-wide agreement (linking to a Partner Agreement and Code of Conduct) that affects the whole shared PartnerStack account, not just this one application - it falls under 'Accepting terms, agreements' and 'changing account settings', which require explicit human permission. Butler did not click it. The application form fields underneath (Website, HQ, etc.) are visible but disabled/locked until the network join happens.",
+    "notes": "큰형: to apply to Airia, please sign into the shared PartnerStack account, go to Discover Partnerships > Airia, and click 'Join the PartnerStack Network' yourself (this reviews/accepts PartnerStack's Partner Agreement and Code of Conduct for the whole account). Once joined, let butler know and the rest of the application (website, HQ location, etc.) can be filled in."
+  },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331902,
+    "url": "https://dash.partnerstack.com/marketplace/all/details/airia?company=airia&gref=marketplace",
+    "correction_note": "New tab this session. Left open at the network-join lock screen."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T01:05:00Z"
+}

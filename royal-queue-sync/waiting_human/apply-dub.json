@@ -1,0 +1,45 @@
+{
+  "id": "apply-dub",
+  "title": "Affiliate Application: Dub",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "terms_of_service_checkbox_and_final_submit_left_to_human",
+  "payload": {
+    "tool_id": "dub",
+    "tool_name": "Dub",
+    "application_url": "https://dub.co/affiliate (404, stale) -> https://dub.co/affiliates -> https://partners.dub.co/dub -> https://partners.dub.co/dub/apply"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "blocked_before_submit",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "30% per sale for 1 year; new users referred also get 20% off for 3 months",
+      "cookie_days": null,
+      "payout": "Not specified on the apply page (see https://dub.co/legal/affiliates for full program terms)",
+      "source": "https://partners.dub.co/dub and https://partners.dub.co/dub/apply, read live on 2026-08-30"
+    },
+    "fields_completed": {
+      "name": "Sangkwon An (form arrived pre-filled with an unrelated autofilled value '흑쇼' - corrected to the real name)",
+      "email": "support@coshuma.com (form arrived pre-filled with the account email qmfforfhem@gmail.com via browser autofill - replaced with COSHUMA's business email for consistency with all other applications)",
+      "website": "https://coshuma.com",
+      "youtube_linkedin_x_handles": "left blank - optional fields, COSHUMA has no dedicated social handles to honestly report",
+      "why_partner_with_dub": "Explained COSHUMA is an AI/SaaS directory site and Dub fits our marketing/dev tool audience",
+      "how_will_you_promote": "Explained plan to list Dub on the directory with a profile page + affiliate link, and reference it in related content"
+    },
+    "blocker": "This is a 2-step form. Step 1 (name/email/website/socials/why/how) is fully filled. A required checkbox 'I agree to the Dub Program Terms' sits just above the 'Continue' button - per standing policy butler does not check Terms-of-Service checkboxes on 큰형's behalf. Step 2 of the form has not yet been seen since Continue was not clicked.",
+    "notes": "큰형: please review the two written answers, check the 'I agree to the Dub Program Terms' box if you agree, and click Continue to proceed to step 2 (unseen - may have additional fields, possibly another ToS/submit gate)."
+  },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331888,
+    "url": "https://partners.dub.co/dub/apply",
+    "correction_note": "New tab this session. Left open pending human review of step 1 and completion of step 2."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:25:00Z"
+}

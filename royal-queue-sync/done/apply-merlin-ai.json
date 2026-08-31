@@ -1,0 +1,19 @@
+{
+  "id": "apply-merlin-ai",
+  "title": "Affiliate Application: Merlin AI",
+  "assigned_to": "princess",
+  "status": "completed",
+  "result": {
+    "actor": "princess",
+    "success": true,
+    "tool_id": "merlin-ai",
+    "application_status": "completed",
+    "email_used": "support@coshuma.com",
+    "submitted": true,
+    "profile_completed": true,
+    "tracking_link": "https://www.getmerlin.in/chat?ref=yjeyytn",
+    "tracking_link_verified": true,
+    "notes": "Prince verified the COSHUMA business registration certificate, confirmed postal code 10869, bridged the verified address to Princess, completed Tapfiliate onboarding, and verified the referral-bearing link on the dashboard."
+  },
+  "updated_at": "2026-08-31T08:10:00Z"
+}

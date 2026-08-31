@@ -1,0 +1,35 @@
+{
+  "id": "apply-joiin",
+  "title": "Affiliate Application: Joiin",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "joiin",
+    "tool_name": "Joiin",
+    "application_url": "https://www.joiin.co/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://www.joiin.co/affiliate, complete application form for Joiin, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "joiin",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "www.joiin.co/affiliate/ -> real page loads, but it is a blog-style content article titled 'affiliate' (written by Joiin, Nov 16 2023) about their affiliate program, not an application form",
+      "Cookiebot cookie-consent dialog dismissed via 'Deny' (privacy-preserving choice)",
+      "Full page text re-checked after dismissal: only nav/footer links (Features, Pricing, Demo, Login, Start free trial) and generic CTAs ('Start free trial', 'Book a demo') - no affiliate signup form, no 'Apply' or 'Join the program' link found anywhere on the page"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332074
+  },
+  "error": null,
+  "human_reason": "real_affiliate_page_is_a_content_article_not_an_application_form_no_signup_cta_or_link_found_on_page_needs_human_research_to_locate_actual_application_channel_possibly_via_contact_or_demo_request",
+  "application_status": "blocked_needs_human_research",
+  "waiting_human_category": null,
+  "princess_handoff": null,
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

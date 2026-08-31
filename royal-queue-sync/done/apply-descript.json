@@ -1,65 +1,28 @@
 {
   "id": "apply-descript",
   "title": "Affiliate Application: Descript",
-  "assigned_to": "butler",
+  "assigned_to": "prince",
   "status": "done",
   "payload": {
     "tool_id": "descript",
     "tool_name": "Descript",
-    "application_url": "https://www.descript.com/affiliate-program"
+    "application_url": "https://dash.partnerstack.com/descriptinc"
   },
   "depends_on": null,
   "result": {
-    "actor": "automation_verification",
+    "actor": "prince",
     "success": true,
     "application_status": "approved_active",
-    "approval_status": "approved_active",
+    "approval_status": "approved",
     "tracking_link": "https://get.descript.com/ole5fu20j5sq",
-    "terms_summary": {
-      "commission": null,
-      "cookie_days": null,
-      "payout": null,
-      "source": "Official Descript affiliate welcome email"
-    },
-    "evidence_message_ids": [
-      "1a03e348e0865c76",
-      "1a03fbf097814773"
-    ],
-    "site_publication": {
-      "status": "live_verified",
-      "pr_number": 17,
-      "merge_commit_sha": "f2bade9634ab21a67cea5c3ea015b77ee8e0fa9b",
-      "previous_override_pr_number": 16,
-      "previous_override_merge_commit_sha": "4b9c8d70b7562d30292cbbf1d726527c8635329b",
-      "vercel": {
-        "coshuma-official": "success",
-        "cosuma-market-b2b": "success"
-      },
-      "gh_pages": {
-        "content_commit_sha": "db497aeb499d9587a1b00099b96acbad2b608ec7",
-        "retrigger_commit_sha": "318eb7acf01e6340b5f628030e6dcfc4ab447342",
-        "stalled_run_number": 119,
-        "stalled_run_id": 32985033383,
-        "stalled_run_status": "queued",
-        "successful_run_number": 120,
-        "successful_run_id": 32999907829,
-        "status": "completed",
-        "conclusion": "success"
-      },
-      "live_url": "https://coshuma.com/tool/descript.html",
-      "live_affiliate_target": "https://get.descript.com/ole5fu20j5sq",
-      "live_verification": "verified",
-      "verified_at": "2026-08-26T20:21:52Z"
-    },
-    "performance_signal": {
-      "status": "first_click_activity_confirmed",
-      "confirmed_at": "2026-08-26T20:24:25Z",
-      "source": "Official Descript Affiliate Team email",
-      "gmail_message_id": "1a03fbf097814773",
-      "evidence": "Descript reported that the affiliate link has already earned clicks and repeated the same unique affiliate URL https://get.descript.com/ole5fu20j5sq."
-    },
-    "notes": "Official Descript affiliate approval is active. PR #17 added the sponsored affiliate CTA to the static Descript detail page and both Vercel checks succeeded. GitHub Pages replacement run #120 completed successfully. Fresh production verification on 2026-08-26T20:21:52Z confirmed that https://coshuma.com/tool/descript.html exposes 'Visit Descript via Verified Affiliate Link' and the CTA targets https://get.descript.com/ole5fu20j5sq. Following the target redirects to Descript with affiliate attribution parameters. At 2026-08-26T20:24:25Z the official Descript Affiliate Team then reported that the unique affiliate link had already received clicks, providing a first real traffic signal after publication."
+    "tracking_link_verified": true,
+    "tracking_url_is_referral_bearing": true,
+    "affiliate_network": "PartnerStack",
+    "commission": "$25 one-time flat fee per new conversion",
+    "terms_status": "confirmed",
+    "verification_evidence": "PartnerStack displayed 'Terms of Service confirmed', unlocked the Descript Links section, and showed the unique referral link https://get.descript.com/ole5fu20j5sq redirecting to https://www.descript.com on 2026-08-31.",
+    "site_integration_status": "affiliate_url updated in projects/GlobalSaaSHub/data/tools.json and tools.next.json"
   },
-  "created_at": "2026-08-26T13:13:09Z",
-  "updated_at": "2026-08-26T20:24:25Z"
+  "created_at": "2026-08-26T00:00:00Z",
+  "updated_at": "2026-08-31T15:00:00Z"
 }

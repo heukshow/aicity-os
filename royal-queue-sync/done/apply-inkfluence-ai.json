@@ -1,0 +1,19 @@
+{
+  "id": "apply-inkfluence-ai",
+  "title": "Affiliate Application: Inkfluence AI",
+  "assigned_to": "princess",
+  "status": "completed",
+  "result": {
+    "actor": "princess",
+    "success": true,
+    "tool_id": "inkfluence-ai",
+    "application_status": "approved_active",
+    "sub_status": "approved",
+    "email_used": "support@coshuma.com",
+    "submitted": true,
+    "tracking_link": "https://www.inkfluenceai.com/?ref=sangkwon",
+    "tracking_link_verified": true,
+    "notes": "Prince bridged the butler handoff, verified the mailbox OTP, completed the Tolt profile and audience fields, and observed the explicit under-review confirmation."
+  },
+  "updated_at": "2026-08-31T14:00:00Z"
+}

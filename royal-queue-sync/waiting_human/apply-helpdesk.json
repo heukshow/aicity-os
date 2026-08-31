@@ -1,0 +1,67 @@
+{
+  "id": "apply-helpdesk",
+  "title": "Affiliate Application: HelpDesk",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "helpdesk",
+    "tool_name": "HelpDesk",
+    "application_url": "https://www.helpdesk.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://www.helpdesk.com/affiliate, complete application form for HelpDesk, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "helpdesk",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "helpdesk.com/affiliate (404)",
+      "helpdesk.com/ (homepage, footer 'Company' section has 'Partner Program' and 'Find a Partner' links)",
+      "clicked footer 'Partner Program' -> www.text.com/partners/find-a-partner/?internal_campaign=footer&landing_page=https://www.helpdesk.com/affiliate (this is Text's general partner-hiring directory, not an affiliate signup)",
+      "page FAQ: 'How do I become a Text partner?' -> 'Visit the Text Partner Program page to explore the Affiliate, Solution, and Technology programs... Sign up here' (link click did not navigate in this session; underlying signup is the shared Text Accounts flow)"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332070
+  },
+  "error": null,
+  "human_reason": "helpdesk_com_is_part_of_the_text_com_family_liveChat_chatbot_helpdesk_and_its_affiliate_program_is_unified_under_the_text_partner_program_which_requires_creating_a_new_text_accounts_login_email_plus_password_the_same_signup_mechanism_already_open_in_this_browser_session_for_livechat_tab_499331929_princess_should_check_whether_one_text_partner_account_can_cover_helpdesk_livechat_and_chatbot_together_before_creating_a_new_one",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "No dedicated HelpDesk-only affiliate signup form exists. HelpDesk's 'Partner Program' footer link leads to Text.com's general partner-hiring directory, whose FAQ explains that becoming a Text partner (Affiliate/Solution/Technology programs) requires signing up for a Text Partner Program account. This is the same underlying account system as LiveChat's partner signup (accounts.livechat.com, OAuth-style, requires a password) already open in this browser session at tab 499331929. Routed to princess to (a) check whether that existing/pending LiveChat Text-partner signup already covers HelpDesk, or (b) complete a fresh Text Partner Program signup naming HelpDesk specifically.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI-powered tools, including help desk/ticketing software like HelpDesk.com.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting SMB/startup audiences evaluating help desk and ticketing tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Text.com Partner Program (shared account system across HelpDesk, LiveChat, ChatBot; underlying login at accounts.livechat.com)",
+      "current_url": "https://www.text.com/partners/find-a-partner/?internal_campaign=footer&landing_page=https%3A%2F%2Fwww.helpdesk.com%2Faffiliate",
+      "current_status": "Reached Text's general partner directory and read the FAQ explaining the Affiliate/Solution/Technology program structure; the 'Sign up here' link did not navigate to a dedicated signup form in this session. No account created, no fields filled.",
+      "missing_fields": [
+        "Text Accounts email + password (never to be entered by the butler)",
+        "Program selection (Affiliate vs Solution vs Technology)",
+        "Company/business details for the partner application"
+      ],
+      "human_only_steps": [
+        "Confirm whether an existing Text Partner account already covers HelpDesk (check the pending LiveChat signup in tab 499331929 first)",
+        "If not, create a new Text Accounts login (email + password)",
+        "Select the Affiliate program specifically for HelpDesk",
+        "Complete and submit the partner application"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

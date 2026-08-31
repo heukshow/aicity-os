@@ -1,0 +1,67 @@
+{
+  "id": "apply-questmate",
+  "title": "Affiliate Application: Questmate",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "questmate",
+    "tool_name": "Questmate",
+    "application_url": "https://www.questmate.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://www.questmate.com/affiliate, complete application form for Questmate, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "questmate",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "questmate.com/affiliate -> redirected to homepage (no dedicated /affiliate page)",
+      "WebSearch found the real page: https://www.questmate.com/partners ('Partner & Affiliate Program', 50% commission for 12 months)",
+      "clicked 'Join and start earning in 60 seconds!' -> https://questmate.getrewardful.com/signup",
+      "Rewardful-hosted signup form requires First name, Last name, Email, Password, Confirm password - same family as prior LoopCV/Colossyan Rewardful signups"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332197
+  },
+  "error": null,
+  "human_reason": "questmate_partner_program_requires_a_new_rewardful_account_with_email_and_password_no_password_free_application_path_found_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Questmate's Partner & Affiliate Program (50% commission) is hosted on Rewardful (questmate.getrewardful.com/signup), which requires creating a new account with First name, Last name, Email, Password, and Confirm password. Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare tools, including form/checklist automation tools like Questmate.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting teams evaluating workflow/checklist automation tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Rewardful (questmate.getrewardful.com)",
+      "current_url": "https://questmate.getrewardful.com/signup",
+      "current_status": "On the signup form; no fields filled yet",
+      "missing_fields": [
+        "First name",
+        "Last name",
+        "Email (support@coshuma.com)",
+        "Password",
+        "Confirm password"
+      ],
+      "human_only_steps": [
+        "Fill in the Rewardful signup form on https://questmate.getrewardful.com/signup",
+        "Create the account and complete any onboarding"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T08:35:00+00:00"
+}

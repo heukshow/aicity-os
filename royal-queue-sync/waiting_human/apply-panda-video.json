@@ -1,0 +1,43 @@
+{
+  "id": "apply-panda-video",
+  "title": "Affiliate Application: Panda Video",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "panda-video",
+    "tool_name": "Panda Video",
+    "application_url": "https://www.pandavideo.com/afiliados",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://www.pandavideo.com/afiliados, complete application form for Panda Video, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "panda-video",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "pandavideo.com/afiliados -> 404",
+      "WebSearch found the real page: https://affiliates.pandavideo.com/ (Tapfiliate-hosted, 'Earn up to 10% commission for 12 months')",
+      "inline Tapfiliate application form: Nome completo (Full name), E-mail, Site/canal principal (Website/channel), Telefone (Phone, required), Tamanho da audiencia (Audience size) - no password field, no legal consent checkbox visible"
+    ],
+    "form_filled": {
+      "Nome completo": "Sangkwon An",
+      "E-mail": "support@coshuma.com",
+      "Site / canal principal": "https://coshuma.com"
+    },
+    "left_blank_for_human": [
+      "Telefone (required, no real phone number on file)",
+      "Tamanho da audiencia (judgment call)",
+      "Become an affiliate (submit button)"
+    ],
+    "browser_tab_id": 499332188
+  },
+  "error": null,
+  "human_reason": "form_filled_up_to_butler_scope_but_telefone_is_a_required_field_with_no_real_phone_number_on_file_and_final_submit_is_human_only",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": null,
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T08:20:00+00:00"
+}

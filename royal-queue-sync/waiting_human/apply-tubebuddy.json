@@ -1,0 +1,33 @@
+{
+  "id": "apply-tubebuddy",
+  "title": "Affiliate Application: TubeBuddy",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "tubebuddy",
+    "tool_name": "TubeBuddy",
+    "application_url": "https://www.tubebuddy.com/affiliateprogram",
+    "commission": "N/A - not currently accepting new affiliates",
+    "instructions": "Navigate to https://www.tubebuddy.com/affiliateprogram, complete application form for Tubebuddy, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "tubebuddy",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "tubebuddy.com/affiliateprogram - loaded directly. Page's own banner explicitly states: 'At this time, TubeBuddy is not accepting new affiliates to the program.' 15% commission (up to 1 year cookie) is described for context, but no application form is present - the program is closed to new applicants."
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332320
+  },
+  "error": null,
+  "human_reason": "tubebuddys_own_affiliate_program_page_explicitly_states_at_this_time_tubebuddy_is_not_accepting_new_affiliates_to_the_program_no_application_form_exists_nothing_for_butler_or_princess_to_apply_to_right_now",
+  "application_status": "blocked_program_discontinued",
+  "waiting_human_category": null,
+  "princess_handoff": null,
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T11:40:00+00:00"
+}

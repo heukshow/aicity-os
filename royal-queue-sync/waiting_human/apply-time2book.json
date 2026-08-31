@@ -1,0 +1,64 @@
+{
+  "id": "apply-time2book",
+  "title": "Affiliate Application: Time2book",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "time2book",
+    "tool_name": "Time2book",
+    "application_url": "https://www.time2book.me/affiliate",
+    "commission": "30% Recurring",
+    "instructions": "Navigate to https://www.time2book.me/affiliate, complete application form for Time2book, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "time2book",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "time2book.me/affiliate - loaded directly, 'Become affiliate today & earn up to 30% on each sale!' - step 1 of the program is explicitly 'Sign up: Create your account in a few minutes'",
+      "Clicking 'Get started' (href https://time2book.me/affiliates) redirected to https://time2book.me/login - 'Sign in to your account' with 'Continue with Apple', 'Continue with Google', 'Continue with Facebook', or email 'Continue' - i.e. Time2book's main product account (email+password or OAuth), not a separate no-password affiliate-only form.",
+      "Confirmed the affiliate program is only accessible after creating/logging into a full Time2book product account."
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332320
+  },
+  "error": null,
+  "human_reason": "time2books_affiliate_program_requires_creating_or_logging_into_a_full_time2book_product_account_via_time2book_me_login_email_password_or_google_apple_facebook_oauth_no_password_free_application_path_found_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Time2book's affiliate program ('Get started' on time2book.me/affiliate) redirects to the main product login/signup page (time2book.me/login), requiring a new Time2book account via email+password or Google/Apple/Facebook OAuth. Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping fitness and wellness businesses discover and compare booking/scheduling software, including Time2book.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting Pilates studios, yoga studios, gyms, and other booking-based fitness businesses.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Native Time2book product account (time2book.me/login) - email+password or Google/Apple/Facebook OAuth",
+      "current_url": "https://time2book.me/login",
+      "current_status": "On the login/signup page; no separate affiliate-only application form exists",
+      "missing_fields": [
+        "Email",
+        "Password (or OAuth provider)"
+      ],
+      "human_only_steps": [
+        "Open https://www.time2book.me/affiliate -> 'Get started'",
+        "Create a new Time2book account (email/password or OAuth)",
+        "Locate the affiliate/referral link inside the account dashboard"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T11:30:00+00:00"
+}

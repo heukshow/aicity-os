@@ -1,0 +1,65 @@
+{
+  "id": "apply-systeme-io",
+  "title": "Affiliate Application: Systeme.io",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "systeme-io",
+    "tool_name": "Systeme.io",
+    "application_url": "https://systeme.io/affiliate",
+    "commission": "60% Lifetime Recurring",
+    "instructions": "Navigate to https://systeme.io/affiliate, complete application form for Systeme-io, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "systeme-io",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "systeme.io/affiliate -> 404 'Page not found'",
+      "WebSearch found the real page at https://systeme.io/affiliate-program",
+      "systeme.io/affiliate-program - '60% on every sale, lifetime recurring, no application, no purchase required' - but joining requires creating a free systeme.io platform account (their main SaaS product, not a separate affiliate tool). The page's 'Start for free now' / 'Start promoting now' CTAs all resolve to https://systeme.io/register, a full account signup (email + password, or presumably Google OAuth) for the systeme.io product itself, which then auto-issues an affiliate ID/dashboard.",
+      "Because this requires creating a new password-protected systeme.io account (not a no-password data-collection form), per the butler's standing restriction on never entering passwords, this is routed to the princess."
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332320
+  },
+  "error": null,
+  "human_reason": "systeme_ios_affiliate_program_has_no_separate_application_it_is_granted_automatically_upon_creating_a_free_systeme_io_platform_account_at_systeme_io_register_which_requires_a_password_or_oauth_no_password_free_application_path_found_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Systeme.io's affiliate program has no separate application form - it is unlocked automatically by creating a free systeme.io account (their core SaaS product) at systeme.io/register, which requires setting a password (or Google OAuth). Per the butler's standing restriction on never entering passwords, this is routed to the princess. Note: this is NOT a paid signup - the free plan requires no credit card - but it is still a full product account with a password, which the butler cannot create.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders and small teams discover and compare all-in-one marketing platforms, including systeme.io's funnel/website/course-builder suite.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting solopreneurs and small businesses evaluating all-in-one marketing/funnel platforms.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Native systeme.io account (systeme.io/register) - free plan, no application, affiliate ID auto-issued",
+      "current_url": "https://systeme.io/register",
+      "current_status": "Not yet opened; identified from the affiliate-program page's signup CTAs",
+      "missing_fields": [
+        "Email",
+        "Password (or Google OAuth)"
+      ],
+      "human_only_steps": [
+        "Open https://systeme.io/register",
+        "Create a free systeme.io account (email/password or Google OAuth) - no credit card required",
+        "Locate the auto-issued affiliate ID/link in the account's affiliate dashboard"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T10:50:00+00:00"
+}

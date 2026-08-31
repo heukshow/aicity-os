@@ -1,0 +1,38 @@
+{
+  "id": "apply-lovo",
+  "title": "Affiliate Application: LOVO AI",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "lovo",
+    "tool_name": "LOVO AI",
+    "application_url": "https://lovo.ai/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://lovo.ai/affiliate, complete application form for LOVO AI, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "lovo",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "lovo.ai/affiliate -> 'Deployment Paused' error page (not a normal 404 - indicates the site's hosting deployment itself is temporarily paused/suspended)",
+      "WebSearch found the real affiliate page URL, lovo.ai/affiliate-program -> also returns 'Deployment Paused'",
+      "checked lovo.ai/ (homepage) -> also 'Deployment Paused'",
+      "checked genny.lovo.ai/ (product subdomain) -> also 'Deployment Paused'",
+      "conclusion: the entire lovo.ai domain and its subdomains appear to be down site-wide at the hosting/deployment level, not a broken link - this is a vendor-side outage outside this automation's or the human's control at this time"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332146
+  },
+  "error": "site_unreachable",
+  "human_reason": "lovo_ai_entire_domain_and_subdomains_return_deployment_paused_vendor_side_hosting_outage_not_a_broken_link_needs_retry_later_once_the_site_is_back_up",
+  "application_status": "blocked_needs_human_research",
+  "waiting_human_category": null,
+  "princess_handoff": null,
+  "retry_note": "This is a temporary vendor-side outage (Vercel-style 'Deployment Paused' page), not a permanent 404 or discontinued program. Recommend retrying this item in a future pass once lovo.ai is confirmed back online, rather than treating it as blocked_program_discontinued.",
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "apply-privy",
+  "title": "Affiliate Application: Privy",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "privy",
+    "tool_name": "Privy",
+    "application_url": "https://www.privy.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://www.privy.com/affiliate, complete application form for Privy, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "privy",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "privy.com/affiliate -> 404",
+      "privy.com/partnerships/partner-program-affiliate -> also 404",
+      "WebSearch found the real page: https://partners.dub.co/privy ('Privy Affiliate Program', Dub-hosted, 15% commission for 1 year)",
+      "clicked 'Apply' -> https://partners.dub.co/privy/apply (Step 1 of 2), pre-authenticated Dub Partners account auto-filled Name and Email"
+    ],
+    "form_filled": {
+      "Name": "(auto-filled by Dub account: 흑쇼)",
+      "Email": "(auto-filled by Dub account: qmfforfhem@gmail.com)",
+      "What city are you located in?": "Seoul",
+      "Website / Social media channel": "https://coshuma.com"
+    },
+    "left_blank_for_human": [
+      "How do you plan to promote Privy? (judgment call)",
+      "Any additional questions or comments? (optional)",
+      "I agree to the Privy Program Terms (legal consent checkbox)",
+      "Continue (advances multi-step form)"
+    ],
+    "browser_tab_id": 499332194
+  },
+  "error": null,
+  "human_reason": "form_filled_up_to_butler_scope_but_legal_consent_checkbox_and_multi_step_continue_button_are_human_only",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": "legal_consent",
+  "princess_handoff": null,
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T08:30:00+00:00"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "apply-liftmycv",
+  "title": "Affiliate Application: LiftmyCV",
+  "assigned_to": "princess",
+  "status": "completed",
+  "result": {
+    "actor": "princess",
+    "success": true,
+    "tool_id": "liftmycv",
+    "application_status": "completed",
+    "email_used": "support@coshuma.com",
+    "submitted": true,
+    "partner_agreement_accepted": true,
+    "tracking_link": "https://www.liftmycv.com/?via=sangkwon",
+    "tracking_link_verified": true,
+    "notes": "Prince bridged the butler handoff to Princess, verified the mailbox OTP, completed the Tolt profile and agreement, and verified the referral-bearing link."
+  },
+  "updated_at": "2026-08-31T07:42:00Z"
+}

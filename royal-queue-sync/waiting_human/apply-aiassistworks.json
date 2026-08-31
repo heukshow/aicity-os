@@ -1,0 +1,37 @@
+{
+  "id": "apply-aiassistworks",
+  "title": "Affiliate Application: AiAssistWorks",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "no_public_application_form_found",
+  "payload": {
+    "tool_id": "aiassistworks",
+    "tool_name": "AiAssistWorks",
+    "application_url": "https://aiassistworks.com/affiliate - silently serves the regular homepage content (no affiliate-specific page, no redirect to a program page); no 'Affiliate'/'Partners' link found on the page"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": false,
+    "application_status": "no_application_form_found",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "20-30% Recurring (per todo stub; unverified)",
+      "cookie_days": null,
+      "payout": "Unknown - no affiliate program page exists",
+      "source": "https://www.aiassistworks.com/affiliate, read live on 2026-08-30"
+    },
+    "blocker": "The /affiliate URL just renders AiAssistWorks' regular marketing homepage (a Google Sheets/Docs/Slides AI add-on) with no affiliate-specific content, FAQ mention, or link anywhere on the page. No application form exists to fill.",
+    "notes": "큰형: AiAssistWorks doesn't appear to run a public affiliate program. Nothing for butler to apply to."
+  },
+  "browser_tab_status": {
+    "is_open_now": false,
+    "tab_id": null,
+    "url": "https://www.aiassistworks.com/affiliate",
+    "correction_note": "No application tab needed - no form exists to fill."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:58:00Z"
+}

@@ -1,0 +1,67 @@
+{
+  "id": "apply-tapfiliate",
+  "title": "Affiliate Application: Tapfiliate",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "tapfiliate",
+    "tool_name": "Tapfiliate",
+    "application_url": "https://tapfiliate.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://tapfiliate.com/affiliate, complete application form for Tapfiliate, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "tapfiliate",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "tapfiliate.com/affiliate -> redirected to an unrelated blog article ('Affiliate Agreement: The 2026 Guide to Protecting Your Brand'), not an application form",
+      "WebSearch found the real program pages: tapfiliate.com/affiliate-program/ (marketing overview) and the actual signup form at https://affiliates.tapfiliate.com/publisher/signup/referral-program-20/ - Tapfiliate hosts its own affiliate program on its own platform ('eating its own dog food')",
+      "affiliates.tapfiliate.com/publisher/signup/referral-program-20/ - confirmed via read_page: First name, Last name, Email, and Password fields, i.e. a new password-protected Tapfiliate account is required to join"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332320,
+    "note_on_related_tabs": "Distinct from the many pre-existing tabs where OTHER companies' affiliate programs are hosted on the Tapfiliate platform (e.g. Gallabox at gallabox.tapfiliate.com, Merlin at merlin.tapfiliate.com) - this record is specifically for Tapfiliate's OWN affiliate program (promoting the Tapfiliate SaaS product itself)."
+  },
+  "error": null,
+  "human_reason": "tapfiliates_own_affiliate_program_signup_at_affiliates_tapfiliate_com_publisher_signup_referral_program_20_requires_creating_a_new_password_protected_account_no_password_free_application_path_found_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Tapfiliate's own affiliate program signup form (affiliates.tapfiliate.com/publisher/signup/referral-program-20/) requires creating a new password-protected account (First name, Last name, Email, Password fields confirmed). Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders and marketers discover and compare affiliate tracking and partner management platforms, including Tapfiliate.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting businesses evaluating affiliate/referral program management software.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Tapfiliate (self-hosted on its own platform) - affiliates.tapfiliate.com",
+      "current_url": "https://affiliates.tapfiliate.com/publisher/signup/referral-program-20/",
+      "current_status": "On the signup form; First name, Last name, Email, and Password fields are visible",
+      "missing_fields": [
+        "First name",
+        "Last name",
+        "Email",
+        "Password"
+      ],
+      "human_only_steps": [
+        "Open https://affiliates.tapfiliate.com/publisher/signup/referral-program-20/",
+        "Fill in name, email, and set a password",
+        "Submit the signup form"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T11:00:00+00:00"
+}

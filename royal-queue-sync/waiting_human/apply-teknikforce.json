@@ -1,0 +1,66 @@
+{
+  "id": "apply-teknikforce",
+  "title": "Affiliate Application: Teknikforce",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "teknikforce",
+    "tool_name": "Teknikforce",
+    "application_url": "https://teknikforce.com/affiliate",
+    "commission": "50% on all products",
+    "instructions": "Navigate to https://teknikforce.com/affiliate, complete application form for Teknikforce, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "teknikforce",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "teknikforce.com/affiliate -> failed to load ('Frame with ID 0 is showing error page')",
+      "WebSearch found teknikforce.com/affiliates (plural) - 'Affiliate Opportunities... Here's a list of our awesome software products for Internet marketers that you can sell as an affiliate. We offer 50% commissions on all our products.' - this is NOT a single affiliate program but a directory table of ~40 separate independent SaaS products (AdPlify, Adstorm, AI Collective, Blogi, Callsi, Cinemation, Cloudfunnels, Cohortia, Complyfi, Converti, Coursefunnels, Diggy Miner, Engagi, Freezur, Helpira, Imimic, Lead2List, Livecaster 4, Logii, MailEngine, Mighty Memes, Outrich, People Bots, Pinflux, Pixci, Postifluence, Qroq, Selli, Sendster, ShopFunnels, Tarantula SEO Crawler, Thumble, Tube Rank Jeet, Tubetarget, Vidatia, Vidicom, Vidko, VidScribe, Voisi, Webinarloop, Webira, Writix), each with its own separate 'Sales Site' and 'Affiliate Site' URL",
+      "Inspected one representative product's affiliate page as a sample: https://getadplify.in/affiliate ('Adplify Affiliate Invitation') - confirms these run on the JVZoo marketplace platform ('Top 1% JvZoo Affiliates & Vendors', 'Top 5-10 Affiliates', vendor is 'Cyril M. Gupta' / Teknikforce). The page itself only offers an email opt-in ('Sign up to Affiliate List') plus a 'Get Your Affiliate Link' CTA - actually generating a usable affiliate link requires having (or creating) a JVZoo marketplace account, which is a password-protected account (email+password), separate from Teknikforce's own site.",
+      "Conclusion: 'teknikforce' as a single backlog item does not correspond to one application - it is an umbrella of ~40 independent product-level JVZoo affiliate programs, each requiring the same JVZoo account (or a per-vendor request) to get a tracking link. Routed to princess both because (a) JVZoo requires a password-protected account and (b) a human needs to decide which of the ~40 individual Teknikforce products, if any, are worth listing/promoting on coshuma.com before applying per-product."
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332320,
+    "note_on_fit": "Unlike every other backlog entry, 'teknikforce' is a portfolio/umbrella brand, not a single product with one affiliate program. The vendor (Cyril M. Gupta, via Teknikforce) sells ~40 separate SaaS tools on the JVZoo marketplace, each with its own dedicated 'Affiliate Site' signup page (pattern: https://get<productname>.in/affiliate or similar, e.g. getadplify.in/affiliate, getadstorm.in/affiliate). A single COSHUMA affiliate-application record cannot meaningfully cover all 40. Recommend the human either (a) pick specific Teknikforce products already listed/relevant on coshuma.com and apply per-product via JVZoo, or (b) skip this umbrella entry entirely and treat any individual Teknikforce product as its own future backlog item if/when it's added to the directory."
+  },
+  "error": null,
+  "human_reason": "teknikforce_is_an_umbrella_company_with_approximately_40_separate_independent_saas_products_each_hosting_its_own_jvzoo_based_affiliate_program_requiring_a_password_protected_jvzoo_marketplace_account_no_single_unified_no_password_application_exists_and_a_human_must_first_decide_which_specific_products_if_any_to_pursue_routed_to_princess",
+  "application_status": "blocked_needs_human_research",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Teknikforce is not a single product/program - it's a portfolio of ~40 separate SaaS tools, each sold and affiliate-tracked via the JVZoo marketplace (which requires a password-protected JVZoo account to obtain a tracking link). Before any application can proceed, a human needs to decide which specific Teknikforce product(s), if any, are relevant to list/promote on coshuma.com. Per the butler's standing restriction on never entering passwords, and because this requires a product-selection decision only a human can make, this is routed to the princess for research and, if pursued, JVZoo account creation.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory. Teknikforce is a portfolio vendor (Cyril M. Gupta) selling ~40 separate marketing/productivity SaaS tools, each independently JVZoo-affiliate-tracked.",
+      "traffic_promotion_plan": "Depends on which specific Teknikforce product(s) are selected for listing on coshuma.com - not yet determined.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "JVZoo marketplace (per-product affiliate links) - sample inspected at getadplify.in/affiliate",
+      "current_url": "https://getadplify.in/affiliate",
+      "current_status": "On a sample product's ('AdPlify') affiliate invitation page; this is only one of ~40 similar per-product pages under the Teknikforce umbrella",
+      "missing_fields": [
+        "Decision on which Teknikforce product(s) to pursue",
+        "JVZoo account email+password (if pursuing any)"
+      ],
+      "human_only_steps": [
+        "Review the full product list at https://teknikforce.com/affiliates",
+        "Decide which product(s), if any, fit coshuma.com's directory",
+        "For each chosen product, visit its specific '<product>.in/affiliate' page and create/use a JVZoo account to obtain the affiliate link"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T11:15:00+00:00"
+}

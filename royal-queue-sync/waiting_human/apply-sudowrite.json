@@ -1,0 +1,43 @@
+{
+  "id": "apply-sudowrite",
+  "title": "Affiliate Application: Sudowrite",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "sudowrite",
+    "tool_name": "Sudowrite",
+    "application_url": "https://www.sudowrite.com/affiliate",
+    "commission": "25% Recurring",
+    "instructions": "Navigate to https://www.sudowrite.com/affiliate, complete application form for Sudowrite, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "sudowrite",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "sudowrite.com/affiliate -> 'Page not found', but footer 'Become an Affiliate' link resolved to https://sudowrite.notion.site/Sudowrite-Affiliate-Program-12788b26b71746f2a72cd05b7087e8c9",
+      "Notion page ('Earn 25% recurring commission promoting the AI writing tool fiction writers actually love') confirmed 25% recurring commission for the referral's entire first year, and linked 'Become a Sudowrite affiliate' to an Airtable intake form",
+      "https://airtable.com/appqmjelcq49cqMOc/pagxsCzPSxTERKCFA/form - a no-password Airtable form stating 'Fill out this quick form below and you'll get instant access to your affiliate link + dashboard' and 'Do not submit passwords through this form.' A separate login-only link (sudowrite.getrewardful.com) is shown for existing affiliates, but the application itself does not require creating a Rewardful account with a password."
+    ],
+    "form_filled": {
+      "Full Name": "Sangkwon An",
+      "Email": "support@coshuma.com",
+      "Country": "South Korea",
+      "Please provide the link to the primary social media profile or page you'll use to promote Sudowrite": "https://coshuma.com",
+      "Tell us a little bit more about how you plan to promote Sudowrite": "1) Where I'll share: dedicated tool listing and comparison articles on coshuma.com (GlobalSaaSHub), an AI/SaaS directory. 2) Audience: founders, marketers, and writers researching AI writing tools. 3) Promotion plan: a Sudowrite profile/review page plus 'best AI writing tools' comparison content linking to the affiliate link."
+    },
+    "left_blank_for_human": [
+      "Submit (final submission is human-only)"
+    ],
+    "browser_tab_id": 499332261
+  },
+  "error": null,
+  "human_reason": "form_fully_filled_by_butler_no_password_required_but_final_submit_is_human_only",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": null,
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T10:05:00+00:00"
+}

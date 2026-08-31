@@ -1,0 +1,67 @@
+{
+  "id": "apply-synthflow-ai",
+  "title": "Affiliate Application: Synthflow AI",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "synthflow-ai",
+    "tool_name": "Synthflow AI",
+    "application_url": "https://synthflow.ai/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://synthflow.ai/affiliate, complete application form for Synthflow-ai, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "synthflow-ai",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "synthflow.ai/affiliate -> 404 'Page not found'",
+      "WebSearch found multiple leads: synthflow.ai/partners, partners.synthflow.ai, and market.partnerstack.com/page/synthflowai",
+      "partners.synthflow.ai redirected to https://synthflow.ai/partners - a B2B 'Partner Program' page (resell/deliver/operate AI voice agents) with only marketing content, a case study, and an FAQ - no visible application form or input fields anywhere on the page (confirmed via get_page_text and read_page after dismissing the cookie banner)",
+      "the page's 'become-a-partner' sub-link (https://synthflow.ai/partners/become-a-partner) also rendered only marketing copy/FAQ with no application form - this appears to be a sales-inquiry/B2B partner page, not the self-serve affiliate program",
+      "navigated directly to https://market.partnerstack.com/page/synthflowai (from the WebSearch lead) - confirmed 'Apply to program' / 'Already a partner? Sign in' - a standard PartnerStack Handshake program listing requiring a new PartnerStack account (email+password or Google OAuth), matching the established PartnerStack pattern with no further click-through needed"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332316
+  },
+  "error": null,
+  "human_reason": "synthflow_ais_self_serve_affiliate_program_is_hosted_on_partnerstack_market_partnerstack_com_page_synthflowai_requiring_a_new_partnerstack_account_email_password_or_google_oauth_the_synthflow_ai_partners_page_is_a_separate_b2b_sales_inquiry_page_with_no_application_form_no_password_free_application_path_found_routed_to_princess_per_established_partnerstack_handshake_pattern",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Synthflow AI's self-serve affiliate program is listed on PartnerStack's marketplace directory (market.partnerstack.com/page/synthflowai), which requires creating a new PartnerStack account (email+password or Google OAuth) to apply. Per the butler's standing restriction on never entering passwords, this is routed to the princess. Note for the human/princess: synthflow.ai/partners and synthflow.ai/partners/become-a-partner are a SEPARATE B2B 'Partner Program' (for resellers/agencies delivering AI voice agents to customers) that has no self-serve application form at all - only marketing content, a case study, and an FAQ, with a 'Get a demo' / talk-to-sales CTA. Do not confuse the two: the PartnerStack listing is the actual affiliate/referral program to apply to.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare voice AI and customer service automation tools, including Synthflow's production voice AI platform.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting businesses evaluating voice AI agents and customer service automation platforms.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "PartnerStack Handshake (market.partnerstack.com/page/synthflowai)",
+      "current_url": "https://market.partnerstack.com/page/synthflowai",
+      "current_status": "On the PartnerStack program directory listing page; 'Apply to program' opens the account creation/login flow",
+      "missing_fields": [
+        "Email",
+        "Password (or Google OAuth)"
+      ],
+      "human_only_steps": [
+        "Open https://market.partnerstack.com/page/synthflowai",
+        "Click 'Apply to program'",
+        "Create or log into a PartnerStack account (email/password or Google OAuth)",
+        "Complete and submit the application"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T10:40:00+00:00"
+}

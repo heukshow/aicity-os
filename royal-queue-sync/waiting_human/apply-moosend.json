@@ -1,0 +1,43 @@
+{
+  "id": "apply-moosend",
+  "title": "Affiliate Application: Moosend",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "moosend",
+    "tool_name": "Moosend",
+    "application_url": "https://moosend.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://moosend.com/affiliate, complete application form for Moosend, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "moosend",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "moosend.com/affiliate -> 404 ('Page not found')",
+      "WebSearch found the real page: https://moosend.com/affiliate-program/ ('Moosend Affiliate Program' - tiered commissions up to 40% recurring)",
+      "page has an inline PartnerStack-powered application form embedded directly on the page (First Name, Last Name, Your Email, Website, then 'Join Now!' button) - no separate account/password required, similar to other PartnerStack 'application' style forms seen elsewhere in this queue"
+    ],
+    "form_filled": {
+      "First Name": "Sangkwon",
+      "Last Name": "An",
+      "Your Email": "support@coshuma.com",
+      "Website": "https://coshuma.com"
+    },
+    "left_blank_for_human": [
+      "'I consent to receive marketing communications...' checkbox - consent checkbox, human-only per standing policy",
+      "'Join Now!' submit button - human-only final submit"
+    ],
+    "browser_tab_id": 499332161
+  },
+  "error": null,
+  "human_reason": "partnerstack_inline_application_form_step_1_mostly_completed_by_butler_no_password_required_remaining_consent_checkbox_and_join_now_submit_left_for_human",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": "legal_consent",
+  "princess_handoff": null,
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

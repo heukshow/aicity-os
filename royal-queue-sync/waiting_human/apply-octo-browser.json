@@ -1,0 +1,66 @@
+{
+  "id": "apply-octo-browser",
+  "title": "Affiliate Application: Octo Browser",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "octo-browser",
+    "tool_name": "Octo Browser",
+    "application_url": "https://octobrowser.net/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://octobrowser.net/affiliate, complete application form for Octo Browser, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "octo-browser",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "octobrowser.net/affiliate -> 404",
+      "WebSearch found the real page: https://octobrowser.net/referral ('Referral Program')",
+      "the referral program is tied to a full Octo Browser product account - the only account/signup entry point on the page is 'Sign Up' -> octobrowser.org/signup/, the main multi-accounting-browser product registration (email + password)",
+      "no separate password-free affiliate application form exists; referrals are managed from inside the product account/dashboard"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332179
+  },
+  "error": null,
+  "human_reason": "octo_browser_referral_program_is_managed_from_inside_a_full_product_account_requiring_email_and_password_registration_no_password_free_application_path_found_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Octo Browser's referral/affiliate program is managed from within a full Octo Browser product account (a multi-accounting browser tool). The only signup path found is octobrowser.org/signup/, requiring email and password. Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare tools, including browser/privacy/multi-accounting tools like Octo Browser.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting affiliate marketers and agencies evaluating multi-accounting browser tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Octo Browser native account system",
+      "current_url": "https://octobrowser.net/referral",
+      "current_status": "On the referral program landing page; 'Sign Up' leads to full product account creation",
+      "missing_fields": [
+        "Email",
+        "Password",
+        "any referral-program-specific fields shown after account creation"
+      ],
+      "human_only_steps": [
+        "Click 'Sign Up' on https://octobrowser.net/referral (or octobrowser.org/signup/)",
+        "Create the Octo Browser account (email/password)",
+        "Locate and enroll in the referral program from the account dashboard"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T08:15:00+00:00"
+}

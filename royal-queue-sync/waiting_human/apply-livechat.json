@@ -1,0 +1,64 @@
+{
+  "id": "apply-livechat",
+  "title": "Affiliate Application: LiveChat",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "livechat",
+    "tool_name": "LiveChat",
+    "application_url": "https://www.livechat.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://www.livechat.com/affiliate, complete application form for LiveChat, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "livechat",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "www.livechat.com/affiliate -> redirected/linked to Text's shared partner-program signup at accounts.livechat.com/signup?client_id=707e85fc3f4f678c3fefd0326167230a&redirect_uri=https%3A%2F%2Fpartners.livechat.com%2Fapp (tab pre-existed from an earlier session as tab 499331929)",
+      "page ('Sign up | Register Text Partner Program Account | Text Accounts') offers: Sign up with Google / Sign up with Microsoft / Sign up with Apple, OR Business email + 'Sign up with email' (which leads to password creation) - new account creation required either way"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499331929
+  },
+  "error": null,
+  "human_reason": "livechat_affiliate_signup_shares_the_same_text_partner_program_account_system_as_helpdesk_com_new_account_required_via_oauth_or_email_plus_password_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "LiveChat's affiliate program is operated through the shared 'Text Partner Program' account system (Text is the parent brand for LiveChat, HelpDesk, ChatBot, etc. per Text.com). This is the SAME signup screen already flagged in apply-helpdesk.json (tab 499331929) - creating one Text Partner Program account under support@coshuma.com should satisfy both LiveChat and HelpDesk's affiliate program requirements. The princess should create ONE account here and then confirm from inside the resulting partner dashboard (partners.livechat.com/app) whether it lets her add/apply for both the LiveChat and HelpDesk programs, rather than creating two separate accounts.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI-powered tools, including customer-support/live-chat tools like LiveChat and HelpDesk (both under the Text brand).",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting small businesses and support teams evaluating live-chat and helpdesk software.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Text Accounts (accounts.livechat.com) - shared OAuth/email+password system covering LiveChat, HelpDesk, and other Text-brand products",
+      "current_url": "https://accounts.livechat.com/signup?client_id=707e85fc3f4f678c3fefd0326167230a&redirect_uri=https%3A%2F%2Fpartners.livechat.com%2Fapp&response_type=code&state=4yFgpJr5qDlGO293jkQFMz5Zp9IKG1WSFmDfet4ILdL8HIESxxkjTLJaIX6Tv865&code_challenge=ZSxR3h_gA9AEou7-X2bOIg5izEJM2zJI4KyGvixA4So&code_challenge_method=S256",
+      "current_status": "Still on the initial sign-up choice screen (OAuth buttons or business-email field); nothing submitted yet",
+      "missing_fields": [
+        "OAuth provider choice (Google/Microsoft/Apple) or Business email + password",
+        "Any post-signup partner-profile fields on partners.livechat.com/app"
+      ],
+      "human_only_steps": [
+        "Choose an OAuth provider or enter support@coshuma.com and create a password on accounts.livechat.com/signup",
+        "Complete Text account verification if prompted",
+        "From partners.livechat.com/app, check whether HelpDesk's affiliate program can also be applied for from the same account (see apply-helpdesk.json note) before creating a second account"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "related_record_note": "See apply-helpdesk.json - both HelpDesk and LiveChat route through this same Text Partner Program account system. Recommend the princess handle both together as one account-creation task.",
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

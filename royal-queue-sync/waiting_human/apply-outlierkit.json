@@ -1,0 +1,64 @@
+{
+  "id": "apply-outlierkit",
+  "title": "Affiliate Application: OutlierKit",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "outlierkit",
+    "tool_name": "OutlierKit",
+    "application_url": "https://outlierkit.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://outlierkit.com/affiliate, complete application form for OutlierKit, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "outlierkit",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "outlierkit.com/affiliate -> 404",
+      "WebSearch found the real page: https://outlierkit.com/p/affiliate ('Affiliate Program | OutlierKit', 20% recurring on first 12 payments)",
+      "clicked 'Join the Affiliate Program' -> navigated to outlierkit.tolt.io/login ('OutlierKit's Affiliate Program - Powered by Tolt')",
+      "Tolt-hosted login: 'Enter your email below and we'll send you a verification code' - email + emailed OTP, no traditional password, same pattern as Gojiberry/LiftmyCV/Inkfluence AI"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332185
+  },
+  "error": null,
+  "human_reason": "tolt_hosted_email_plus_emailed_otp_login_no_password_but_requires_checking_the_inbox_for_a_one_time_code_routed_to_princess_per_established_tolt_otp_pattern",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": "otp",
+  "princess_handoff": {
+    "reason": "OutlierKit's affiliate program is Tolt-hosted (outlierkit.tolt.io) and uses passwordless email + one-time verification code login (no password field). Since completing signup requires checking a real inbox for the emailed code, this is routed to the princess, consistent with the Gojiberry/LiftmyCV/Inkfluence AI Tolt precedent.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI-powered tools, including AI research/analysis tools like OutlierKit.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting creators and marketers evaluating AI research/analysis tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "Tolt (outlierkit.tolt.io)",
+      "current_url": "https://outlierkit.tolt.io/login",
+      "current_status": "On the email-entry login screen; no email submitted yet",
+      "missing_fields": [
+        "Email (support@coshuma.com)",
+        "the emailed one-time verification code"
+      ],
+      "human_only_steps": [
+        "Enter support@coshuma.com on https://outlierkit.tolt.io/login",
+        "Check the inbox for the verification code and enter it to complete login/signup"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T08:15:00+00:00"
+}

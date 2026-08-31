@@ -1,0 +1,57 @@
+{
+  "id": "apply-webflow",
+  "title": "Affiliate Application: Webflow",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "terms_of_service_checkbox_and_final_submit_left_to_human",
+  "payload": {
+    "tool_id": "webflow",
+    "tool_name": "Webflow",
+    "application_url": "https://webflow.com/solutions/affiliates#apply (native Webflow multi-step form, NOT PartnerStack/Impact-hosted)"
+  },
+  "depends_on": null,
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "blocked_before_submit",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "50% revenue share on a new customer's first subscription for up to 12 months (Base tier); higher tiers add 10-15% revenue share for up to 12 additional months on renewal, plus achievement bonuses",
+      "cookie_days": 90,
+      "payout": "Via PartnerStack (all affiliates must register with PartnerStack.com to receive payouts)",
+      "source": "https://webflow.com/solutions/affiliates#apply, read live on 2026-08-30"
+    },
+    "fields_completed": {
+      "basic_info": {
+        "first_name": "Sangkwon",
+        "last_name": "An",
+        "business_name": "COSHUMA",
+        "country": "Korea, South",
+        "email": "support@coshuma.com",
+        "freelancer_or_agency": "No"
+      },
+      "affiliate_strategy": {
+        "primary_channels": [
+          "Blogger or affiliate website owner",
+          "Media or newsletter company"
+        ],
+        "webflow_certified_partner_or_template_creator": "neither (left unchecked - not applicable)",
+        "primary_website": "https://coshuma.com",
+        "other_social_fields": "left blank (optional, no dedicated social accounts)",
+        "message": "COSHUMA (GlobalSaaSHub) is an AI/SaaS tools directory and content site at coshuma.com. We publish reviews, comparisons, and curated lists of AI and SaaS products for our audience of startup founders, marketers, and tech professionals researching software. We plan to feature Webflow within relevant \"best website builder\" and \"best no-code tools\" articles and directory listings, linking out with our affiliate link to drive qualified signups."
+      }
+    },
+    "blocker": "Reached the final 'Program terms' step. It requires checking 'Yes, I have read and understood the terms.' (a Terms-of-Service acceptance checkbox) and clicking the final 'Submit' button. Per standing policy, accepting terms/agreements and clicking any final/irreversible submit control is left to 큰형 - butler did not check the box or click Submit. Note: there is also an optional second checkbox 'Yes, I agree to receive e-mails relating to Webflow and to the affiliate program.' which 큰형 can decide on independently.",
+    "notes": "큰형: all form fields are filled and verified correct (see fields_completed above) on the open tab. To finish: scroll to the bottom of the Program terms step, check 'Yes, I have read and understood the terms.' (and optionally the marketing-emails checkbox), then click Submit. No password or CAPTCHA is required for this application - it's Webflow's own native form, not an Impact.com/FirstPromoter account-creation flow. Butler fixed a coordinate-drift bug earlier in this session (a cookie-consent banner shifted the layout) and re-verified all typed fields via fresh screenshots before proceeding."
+  },
+  "browser_tab_status": {
+    "is_open_now": true,
+    "tab_id": 499331865,
+    "url": "https://webflow.com/solutions/affiliates#apply",
+    "correction_note": "Tab will remain open until 큰형 completes the final ToS checkbox + Submit."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-30T23:05:00Z"
+}

@@ -1,0 +1,66 @@
+{
+  "id": "apply-murf-ai",
+  "title": "Affiliate Application: Murf AI",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "murf-ai",
+    "tool_name": "Murf AI",
+    "application_url": "https://murf.ai/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://murf.ai/affiliate, complete application form for Murf AI, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "murf-ai",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "murf.ai/affiliate -> 404 ('Page Not Found')",
+      "WebSearch found the real page: https://murf.ai/partner-with-us/affiliate ('Affiliate Partner Program - Refer & Earn from Murf.AI', 20% commission for 24 months)",
+      "clicked 'Become a Murf Affiliate' -> navigated to murfai.partnerstack.com/?group=affiliatepartners20 (a PartnerStack Handshake gateway page, same family as the LiveChat/HelpDesk and other PartnerStack 'Application' programs already in this queue)",
+      "clicked 'Join now' - PartnerStack Handshake signup requires creating a new PartnerStack partner account (email + password, or Google OAuth) - no way to complete without setting a password"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332170
+  },
+  "error": null,
+  "human_reason": "partnerstack_handshake_hosted_signup_requires_a_new_partnerstack_account_email_and_password_or_google_oauth_no_existing_account_routed_to_princess",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Murf AI's affiliate program is PartnerStack-hosted (murfai.partnerstack.com). Joining requires creating a new PartnerStack partner account with email and password (or 'Sign up with Google' as an OAuth alternative). Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI-powered tools, including AI voice/speech tools like Murf AI.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting creators, marketers, and teams evaluating AI voiceover and dubbing tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "PartnerStack (murfai.partnerstack.com)",
+      "current_url": "https://murfai.partnerstack.com/?group=affiliatepartners20",
+      "current_status": "On the PartnerStack Handshake gateway page; 'Join now' opens the account-creation flow",
+      "missing_fields": [
+        "Email",
+        "Password (or Sign up with Google)",
+        "any additional PartnerStack profile fields shown after account creation"
+      ],
+      "human_only_steps": [
+        "Click 'Join now' on https://murfai.partnerstack.com/?group=affiliatepartners20",
+        "Create a PartnerStack partner account (email/password or Google OAuth)",
+        "Complete any additional profile/application fields and submit"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T08:15:00+00:00"
+}

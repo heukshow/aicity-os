@@ -1,0 +1,38 @@
+{
+  "id": "apply-followr",
+  "title": "Affiliate Application: Followr",
+  "assigned_to": "butler",
+  "status": "done",
+  "payload": {
+    "tool_id": "followr",
+    "tool_name": "Followr",
+    "application_url": "https://followr.com/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://followr.com/affiliate, complete application form for Followr, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "url_chain": [
+      "https://followr.com/affiliate -> auto-redirects to https://followr.network/ (unrelated 'coming soon / creator economy' placeholder page, NOT the same product)",
+      "https://followr.ai/affiliates (verified this IS the correct product: an 'AI Social Media Management Platform' with AI Avatars/AI Video Shorts/AI Studio - matches what COSHUMA's directory would list as 'Followr'; 25% recurring commission for life, powered by PushLapGrowth)",
+      "Clicked 'APPLY NOW' -> opened new tab at https://followr.pushlapgrowth.com/register (Powered by Referly - the real signup form)"
+    ],
+    "form_filled": {
+      "First name": "Sangkwon",
+      "Last name": "An",
+      "Email": "support@coshuma.com"
+    },
+    "left_blank_for_human": [
+      "Submit/Register button (final submit) - note: this form has NO password field; Referly likely emails a magic link or setup instructions after submission"
+    ],
+    "browser_tab_id": 499332002,
+    "important_followup_note": "Domain drift: the directory stub URL followr.com/affiliate no longer points to the intended product - it now redirects to an unrelated placeholder at followr.network. The real, live Followr product (AI social media management, matching COSHUMA's likely listing) is hosted at followr.ai. Please confirm this is the same 'Followr' tool before submitting, since followr.com and followr.ai could in theory be different companies that share a common name."
+  },
+  "error": null,
+  "human_reason": null,
+  "application_status": "active",
+  "tracking_link": "https://followr.ai/?ref=support22",
+  "tracking_link_verified": true,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T04:19:13+00:00"
+}

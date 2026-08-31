@@ -1,0 +1,16 @@
+{
+  "id": "apply-babylovegrowth-ai",
+  "title": "Affiliate Application: babylovegrowth-ai",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "human_reason": "email_verification_required",
+  "result": {
+    "actor": "princess",
+    "success": false,
+    "tool_id": "babylovegrowth-ai",
+    "application_status": "waiting_human",
+    "email_used": "support@coshuma.com",
+    "notes": "Inputs prepared on tab. Pending human action: email_verification_required."
+  },
+  "updated_at": "2026-08-31T06:18:00.840240Z"
+}

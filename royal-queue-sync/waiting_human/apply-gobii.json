@@ -1,0 +1,30 @@
+{
+  "id": "apply-gobii",
+  "title": "Affiliate Application: Gobii",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "gobii",
+    "tool_name": "Gobii",
+    "application_url": "https://gobii.ai/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://gobii.ai/affiliate, complete application form for Gobii, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "url_chain": [
+      "https://gobii.ai/affiliate (404, 'Page not found - Gobii')",
+      "https://gobii.ai/ (bare homepage checked per the FeatureShark lesson before concluding no program exists) -> page is titled 'Gobii - Company Update' and displays a company-wide shutdown notice, not a normal homepage",
+      "find tool confirmed: footer contains only Product/Company/Comparisons/Resources/Support sections with no affiliate or partner program link of any kind",
+      "get_page_text confirmed the notice text: 'Gobii is winding down. Our final day of operations will be September 1, 2026.' Customers are being offered refunds and an agent-data export tool; contact is contact@gobii.ai"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": null
+  },
+  "error": "company_shutting_down",
+  "human_reason": "entire_company_ceasing_operations_september_1_2026_no_affiliate_program_to_apply_to",
+  "application_status": "blocked_program_discontinued",
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:00:00+00:00"
+}

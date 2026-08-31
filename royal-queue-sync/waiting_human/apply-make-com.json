@@ -1,0 +1,37 @@
+{
+  "id": "apply-make-com",
+  "title": "Affiliate Application: Make (formerly Integromat)",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "requires_creating_or_logging_into_a_make_account_to_enroll",
+  "payload": {
+    "tool_id": "make-com",
+    "tool_name": "Make",
+    "application_url": "https://www.make.com/en/affiliate -> 'Get started' link (http://make.com/user/affiliate) redirects to https://www.make.com/en/login (a Make account sign-in page) since enrollment happens inside a logged-in Make account"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": null,
+    "application_status": "not_applicable_requires_account",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "35% commission on all referrals for 12 months from registration date; payouts require $100 minimum earned AND 3 unique paying referred users, paid exclusively via Wise",
+      "cookie_days": null,
+      "payout": "Via Wise only (Personal account type recommended over Business)",
+      "source": "https://www.make.com/en/affiliate and https://help.make.com/affiliate-program, read live on 2026-08-30"
+    },
+    "blocker": "Make's affiliate program has no standalone public application form. Per Make's own Help Center: 'Anyone with a Make account can become an affiliate' - enrollment is done entirely from inside a logged-in Make account (profile icon > Affiliate program > choose an affiliate code, enter Wise payout email/account type/currency, complete a short survey, and agree to ToS). The marketing page's 'Get started' link (make.com/user/affiliate) redirects straight to the Make login/signup page. This requires creating or logging into a Make account first, which falls under the 'Creating accounts' prohibition - an action butler cannot take even with standing authorization. No application was attempted, matching how apply-framer.json was handled for the same structural reason.",
+    "notes": "큰형: to enroll COSHUMA in Make's affiliate program, please log into (or create) a Make account yourself, then go to your profile icon > Affiliate program, choose a unique affiliate code (5-20 chars, lowercase, can't be changed later), and provide a Wise email/account type/payout currency for receiving commissions. Let butler know if you'd like help drafting the short survey answers once you're in the flow."
+  },
+  "browser_tab_status": {
+    "is_open_now": false,
+    "tab_id": null,
+    "url": "https://www.make.com/en/login",
+    "correction_note": "No application tab needed - research-only, login wall reached and not proceeded past."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:32:00Z"
+}

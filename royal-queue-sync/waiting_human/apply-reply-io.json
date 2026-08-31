@@ -1,0 +1,64 @@
+{
+  "id": "apply-reply-io",
+  "title": "Affiliate Application: Reply.io",
+  "assigned_to": "princess",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "reply-io",
+    "tool_name": "Reply.io",
+    "application_url": "https://reply.io/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://reply.io/affiliate, complete application form for Reply.io, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "reply-io",
+  "candidate_for_princess": true,
+  "result": {
+    "url_chain": [
+      "reply.io/affiliate -> 404 (Page not found)",
+      "WebSearch found the real page: https://reply.io/affiliates/ ('Reply.io Affiliate Program', 15-25% commission tiers, 20% lifetime limited-time offer, 90-day cookie, explicitly states 'Partnerstack is our third-party Partnership Management Platform... Partnerstack also pays out your commissions')",
+      "clicked 'Apply now' -> no visible page change (same JS-driven PartnerStack Handshake widget behavior as Quillbot/Reclaim.ai/Murf AI) - classified via strong pattern match to the confirmed PartnerStack Handshake family"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332206
+  },
+  "error": null,
+  "human_reason": "reply_io_affiliate_program_is_powered_by_partnerstack_per_the_programs_own_faq_requiring_a_new_partnerstack_account_email_password_or_google_oauth_no_password_free_application_path_found_routed_to_princess_per_established_partnerstack_handshake_pattern",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": {
+    "reason": "Reply.io's affiliate program (reply.io/affiliates/) is explicitly powered by PartnerStack ('Partnerstack is our third-party Partnership Management Platform... Partnerstack also pays out your commissions' per the page's own FAQ). Clicking 'Apply now' triggers a JS-driven PartnerStack widget with no visible navigation, matching the confirmed Murf AI / Quillbot / Reclaim.ai Handshake pattern, which requires a new PartnerStack account (email+password or Google OAuth). Per the butler's standing restriction on never entering passwords, this is routed to the princess.",
+    "common_profile": {
+      "company_name": "COSHUMA",
+      "contact_name": "Sangkwon An",
+      "email": "support@coshuma.com",
+      "website_url": "https://coshuma.com",
+      "address": null,
+      "phone": null,
+      "company_description": "COSHUMA (coshuma.com / GlobalSaaSHub) is an AI/SaaS tool directory helping founders, marketers, and small teams discover and compare AI-powered sales engagement tools, including Reply.io.",
+      "traffic_promotion_plan": "Dedicated directory listing and comparison content on coshuma.com targeting sales and marketing teams evaluating AI SDR / multichannel outreach tools.",
+      "social_urls": []
+    },
+    "site_specific": {
+      "platform": "PartnerStack Handshake (via reply.io/affiliates/)",
+      "current_url": "https://reply.io/affiliates/",
+      "current_status": "On the program landing page; 'Apply now' opens the PartnerStack account creation/login flow",
+      "missing_fields": [
+        "Email",
+        "Password (or Google OAuth)"
+      ],
+      "human_only_steps": [
+        "Click 'Apply now' on https://reply.io/affiliates/",
+        "Create or log into a PartnerStack account (email/password or Google OAuth)",
+        "Complete and submit the application"
+      ]
+    },
+    "handoff_ready": true,
+    "handoff_completed": false
+  },
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T09:10:00+00:00"
+}

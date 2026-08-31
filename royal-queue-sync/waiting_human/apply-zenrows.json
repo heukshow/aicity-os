@@ -1,0 +1,43 @@
+{
+  "id": "apply-zenrows",
+  "title": "Affiliate Application: ZenRows",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "zenrows",
+    "tool_name": "ZenRows",
+    "application_url": "https://www.zenrows.com/partners/apply",
+    "commission": "35% Recurring (Affiliate tier)",
+    "instructions": "Navigate to https://www.zenrows.com/partners/apply, complete application form for ZenRows, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "zenrows",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "zenrows.com/affiliate -> zenrows.com/partners/affiliates ('35% recurring revenue... Apply now') -> zenrows.com/partners/apply",
+      "zenrows.com/partners/apply is a native, no-password intake form (Name*, Last Name, Work Email*, Website or main profile URL*, 'How do you want to partner with us?'* dropdown listing Affiliate/Reseller/Creator/Technology/Solutions/Agency/Strategic, plus two checkboxes: an optional 'I agree to receive other communications from ZenRows' and a required 'I agree to allow ZenRows to store and process my personal data*'). No password field anywhere - squarely butler territory by the standing role split.",
+      "TECHNICAL BLOCKER: across 3 separate fresh browser tabs (499332320, 499332362, 499332365), every attempt to click into and type in the Name field triggered a reproducible renderer freeze (CDP 'Page.captureScreenshot' timing out after 30000ms, 'renderer may be frozen or unresponsive'). A javascript_tool DOM check on one frozen tab confirmed 0 <input> elements were receiving the typed text (fields remained empty in every verified screenshot taken before each freeze). This appears to be a site-specific rendering issue on zenrows.com/partners/apply that is not resolved by opening a new tab, resizing the window, using Tab-key navigation instead of raw clicks, or typing single characters instead of full strings - the freeze occurs immediately upon the first keystroke into the Name field on every attempt."
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [
+      "Name",
+      "Last Name",
+      "Work Email",
+      "Website or main profile URL",
+      "How do you want to partner with us? (select Affiliate)",
+      "I agree to allow ZenRows to store and process my personal data (required checkbox - left unchecked per the standing rule against checking legal/consent checkboxes)"
+    ],
+    "browser_tab_id": 499332365
+  },
+  "error": "Persistent renderer freeze (CDP screenshot timeout) triggered by any keyboard input into the Name field on zenrows.com/partners/apply, reproduced across 3 fresh tabs; no form data could be entered by automation.",
+  "human_reason": "zenrows_partners_apply_is_a_simple_no_password_native_intake_form_that_would_normally_be_fully_butler_fillable_but_the_browser_automation_tool_hit_a_reproducible_page_specific_rendering_freeze_on_every_attempt_to_type_into_the_name_field_across_3_separate_fresh_tabs_so_no_data_could_be_entered_recommend_a_human_either_fill_the_short_form_manually_name_sangkwon_last_name_an_work_email_support_at_coshuma_com_website_https_coshuma_com_partner_type_affiliate_or_have_automation_retried_later_once_the_page_rendering_issue_is_investigated_the_required_personal_data_consent_checkbox_must_still_be_reviewed_and_ticked_by_a_human_per_the_standing_rule_against_the_butler_checking_legal_consent_boxes",
+  "application_status": "blocked_before_submit",
+  "waiting_human_category": null,
+  "princess_handoff": null,
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T12:15:00+00:00",
+  "note_on_fit": "This is NOT a password/legal/CAPTCHA/OTP block - it is a technical browser-automation failure specific to this page (reproducible renderer freeze on keystroke). The form itself requires no password and would otherwise be fully within butler scope. Suggested values for manual completion: Name='Sangkwon', Last Name='An', Work Email='support@coshuma.com', Website='https://coshuma.com', Partner type='Affiliate'. The required 'store and process my personal data' consent checkbox was intentionally left unchecked for human review, consistent with the standing rule that the butler never checks legal/consent checkboxes."
+}

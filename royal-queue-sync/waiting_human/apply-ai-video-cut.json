@@ -1,0 +1,37 @@
+{
+  "id": "apply-ai-video-cut",
+  "title": "Affiliate Application: AI Video Cut",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "human_reason": "no_public_application_form_found",
+  "payload": {
+    "tool_id": "ai-video-cut",
+    "tool_name": "AI Video Cut",
+    "application_url": "https://aivideocut.com/affiliate (404) -> homepage (www.aivideocut.com) checked, no affiliate/partner/referral link anywhere in navigation or footer"
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "result": {
+    "actor": "butler",
+    "success": false,
+    "application_status": "no_application_form_found",
+    "approval_status": "not_yet_submitted",
+    "tracking_link": null,
+    "payout_status": "not_applicable_yet",
+    "terms_summary": {
+      "commission": "20-30% Recurring (per todo stub; unverified)",
+      "cookie_days": null,
+      "payout": "Unknown - no affiliate program page exists",
+      "source": "https://www.aivideocut.com/, read live on 2026-08-30"
+    },
+    "blocker": "The stub URL 404s, and the real homepage (www.aivideocut.com) has no 'Affiliate', 'Partners', or 'Referral' link in its navigation, footer, or help pages. No application form could be located.",
+    "notes": "큰형: AI Video Cut doesn't appear to have a public affiliate program right now. Could reach out via their Help page/support if interested, but nothing for butler to apply to."
+  },
+  "browser_tab_status": {
+    "is_open_now": false,
+    "tab_id": null,
+    "url": "https://www.aivideocut.com/",
+    "correction_note": "No application tab needed - no form exists to fill."
+  },
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T00:55:00Z"
+}

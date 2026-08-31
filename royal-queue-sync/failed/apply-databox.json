@@ -1,0 +1,16 @@
+{
+  "id": "apply-databox",
+  "title": "Affiliate Application: databox",
+  "assigned_to": "butler",
+  "status": "failed",
+  "error": "Network timeout (30s) or 403 Forbidden",
+  "result": {
+    "actor": "princess",
+    "success": false,
+    "tool_id": "databox",
+    "application_status": "connection_timeout_or_blocked",
+    "reassigned_to": "butler",
+    "notes": "Network connection timed out or 403 Forbidden. Reassigned to butler for retry/alternative routing."
+  },
+  "updated_at": "2026-08-31T06:18:00.842238Z"
+}

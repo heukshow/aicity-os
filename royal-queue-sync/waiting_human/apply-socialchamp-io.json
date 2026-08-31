@@ -1,0 +1,38 @@
+{
+  "id": "apply-socialchamp-io",
+  "title": "Affiliate Application: Social Champ",
+  "assigned_to": "butler",
+  "status": "waiting_human",
+  "payload": {
+    "tool_id": "socialchamp-io",
+    "tool_name": "Social Champ",
+    "application_url": "https://www.socialchamp.io/affiliate",
+    "commission": "20% ~ 30% Recurring",
+    "instructions": "Navigate to https://www.socialchamp.io/affiliate, complete application form for Social Champ, and record status as done."
+  },
+  "depends_on": "62e114d0-a161-4a40-a768-c39b2d60d4fb",
+  "dedupe_key": "socialchamp-io",
+  "candidate_for_princess": false,
+  "result": {
+    "url_chain": [
+      "socialchamp.io/affiliate redirected to https://www.socialchamp.com/affiliate/ (note: socialchamp.com, not .io) - 'Social Champ Affiliate Program', 30% recurring commission per page title, but the page's hero/CTA section rendered only decorative graphics with no extractable text or accessible CTA link (get_page_text repeatedly returned 'No text content found')",
+      "footer 'Affiliate program' link (ref_245) resolved to the same page (https://www.socialchamp.com/affiliate-program/), not a separate signup form",
+      "the page tab became unresponsive on a follow-up screenshot attempt (CDP timeout)",
+      "guessed https://socialchamp.firstpromoter.com/ in a fresh tab -> 404, so it is not FirstPromoter-hosted under that slug",
+      "WebSearch for the actual signup platform (Rewardful/FirstPromoter/PartnerStack/Tapfiliate) did not surface a definitive answer"
+    ],
+    "form_filled": {},
+    "left_blank_for_human": [],
+    "browser_tab_id": 499332206
+  },
+  "error": null,
+  "human_reason": "social_champs_affiliate_page_hero_cta_did_not_render_as_accessible_text_or_links_and_the_page_became_unresponsive_on_screenshot_attempts_guessed_firstpromoter_subdomain_was_a_404_and_the_actual_signup_platform_could_not_be_confirmed_via_search_needs_human_to_open_the_page_directly_and_locate_the_real_apply_link",
+  "application_status": "blocked_needs_human_research",
+  "waiting_human_category": null,
+  "princess_handoff": null,
+  "note_on_fit": "Unlike other backlog items, this one could not be classified as butler vs princess because the actual application form/platform was never reached - the page's CTA appears to be a JS-rendered element not exposed to the accessibility tree, and the tab became unresponsive when attempting a follow-up screenshot. A human should open https://www.socialchamp.com/affiliate/ directly in a real browser to find the 'Become a partner' or 'Apply now' button and confirm whether it leads to a password-free form (butler-eligible) or a native/PartnerStack-style account creation (princess-eligible).",
+  "tracking_link": null,
+  "tracking_link_verified": null,
+  "created_at": "2026-08-24T09:44:10.279520+00:00",
+  "updated_at": "2026-08-31T09:50:00+00:00"
+}
