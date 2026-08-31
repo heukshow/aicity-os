@@ -1,4 +1,4 @@
-"""SEO and English-only contract for public GlobalSaaSHub pages."""
+"""SEO, English-only, and revenue-link contract for public GlobalSaaSHub pages."""
 import json
 import re
 import sys
@@ -43,6 +43,22 @@ def main():
             slugs = path.stem.split("-vs-")
             if len(slugs) != 2 or any(f'href="/tool/{slug}.html"' not in text for slug in slugs):
                 errors.append(f"Missing comparison-to-tool internal links: {relative}")
+
+    tools = json.loads((PROJECT / "data" / "tools.json").read_text(encoding="utf-8"))
+    for tool in tools:
+        if tool.get("affiliate_verified") is not True or tool.get("affiliate_status") != "approved_tracking":
+            continue
+        affiliate_url = tool.get("affiliate_url")
+        if not affiliate_url:
+            errors.append(f"Verified affiliate missing URL in tools.json: {tool.get('id')}")
+            continue
+        page = PUBLIC / "tool" / f"{tool['id']}.html"
+        if not page.exists():
+            errors.append(f"Verified affiliate missing static tool page: {tool['id']}")
+            continue
+        text = page.read_text(encoding="utf-8")
+        if 'data-cta="affiliate"' not in text or f'href="{affiliate_url}"' not in text:
+            errors.append(f"Verified affiliate CTA drift: {tool['id']}")
 
     root = ET.parse(PUBLIC / "sitemap.xml").getroot()
     namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
