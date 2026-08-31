@@ -104,7 +104,7 @@
     "official_verified_at": "2026-08-09T00:00:00Z",
     "official_evidence_url": "https://www.make.com/",
     "affiliate_verified": true,
-    "affiliate_status": "login_consent_required",
+    "affiliate_status": "blocked_requires_active_wise_account",
     "affiliate_source_url": "https://www.make.com/en/affiliate",
     "affiliate_final_url": "https://make.com/user/affiliate",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
