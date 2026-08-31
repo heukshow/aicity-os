@@ -1765,7 +1765,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "Decktopus is an AI-powered presentation tool that automatically crafts stunning decks, empowering users to create professional presentations in minutes. Leverage customizable templates and integrated forms for effective lead generation and impactful visual storytelling.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.decktopus.com?via=sangkwon",
     "pricing": "See official pricing",
     "key_features": [
       "AI auto-created presentations",
@@ -1787,7 +1787,17 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://decktopus.com/"
+    "official_evidence_url": "https://decktopus.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_source_url": "https://affiliate.decktopus.com/",
+    "affiliate_final_url": "https://www.decktopus.com?via=sangkwon",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "active affiliate dashboard",
+      "50% commission on the first 3 payments within the first 12 months",
+      "PayPal payout email confirmed"
+    ]
   },
   {
     "id": "dorik",
@@ -1836,7 +1846,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Rytr is an AI-powered writing assistant that helps you generate high-quality content for various needs in just seconds. From blog posts to emails, create compelling copy quickly and efficiently with intelligent AI suggestions.",
-    "affiliate_url": null,
+    "affiliate_url": "https://rytr.me?via=sangkwon",
     "pricing": "See official pricing",
     "key_features": [
       "AI content generation",
@@ -1858,7 +1868,18 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://rytr.me/"
+    "official_evidence_url": "https://rytr.me/",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_source_url": "https://affiliates.rytr.me/",
+    "affiliate_final_url": "https://rytr.me?via=sangkwon",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "active affiliate dashboard",
+      "30% commission",
+      "$100 minimum payout threshold",
+      "PayPal payout email confirmed"
+    ]
   },
   {
     "id": "frase",
