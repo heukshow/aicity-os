@@ -22,3 +22,5 @@ database_id = "d791d3d4-1ade-462e-bf8d-e33ebf4e2e38"
 
 # Store PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET and PAYPAL_WEBHOOK_ID with
 # `wrangler secret put`. Never commit their values.
+# Private operations dashboard also requires ADMIN_PATH, ADMIN_USERNAME and
+# ADMIN_PASSWORD_SHA256 as Worker secrets. Do not add them to this file.

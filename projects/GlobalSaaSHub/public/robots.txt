@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /ops-private/
 
 Sitemap: https://coshuma.com/sitemap.xml

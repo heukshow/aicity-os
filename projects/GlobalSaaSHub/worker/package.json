@@ -3,7 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "snapshot": "node ../scripts/generate_admin_snapshot.mjs",
+    "pretest": "npm run snapshot",
     "test": "node --test test/*.test.js",
+    "predeploy:check": "npm run snapshot",
     "deploy:check": "wrangler deploy --dry-run"
   },
   "devDependencies": {
