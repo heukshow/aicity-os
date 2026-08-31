@@ -5,7 +5,7 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "An all-in-one sales, marketing, and CRM platform designed specifically for agencies and businesses to automate client acquisition and retention.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.gohighlevel.com/?fp_ref=sangkwon56",
     "pricing": "See official pricing",
     "key_features": [
       "CRM & Pipeline",
@@ -27,7 +27,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.gohighlevel.com/"
+    "official_evidence_url": "https://www.gohighlevel.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "notion-ai",
@@ -254,7 +257,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "An AI-powered video creation tool that automatically transforms text into engaging videos, making it easy for marketers and content creators to produce compelling video content quickly.",
-    "affiliate_url": null,
+    "affiliate_url": "https://pictory.ai?fpr=sangkwon-an23",
     "pricing": "See official pricing",
     "key_features": [
       "Text-to-video conversion",
@@ -277,7 +280,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://pictory.ai/"
+    "official_evidence_url": "https://pictory.ai/",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "fliki",
@@ -344,7 +350,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.inkfluenceai.com/"
+    "official_evidence_url": "https://www.inkfluenceai.com/",
+    "affiliate_status": "approved_tracking"
   },
   {
     "id": "jasper",
@@ -542,7 +549,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "VidIQ is an essential AI-powered toolkit for YouTube creators, providing robust features for keyword research, video analytics, optimization, and competitor analysis. It leverages AI for generating titles, content ideas, video scripts, and descriptions to boost channel growth.",
-    "affiliate_url": null,
+    "affiliate_url": "https://vidiq.com/coshuma",
     "pricing": "Free plan available",
     "key_features": [
       "YouTube keyword research",
@@ -564,7 +571,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://vidiq.com/"
+    "official_evidence_url": "https://vidiq.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "bolddesk",
@@ -1358,7 +1368,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://liftmycv.com/"
+    "official_evidence_url": "https://liftmycv.com/",
+    "affiliate_status": "approved_tracking"
   },
   {
     "id": "blaze",
@@ -1631,7 +1642,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.getmerlin.in/"
+    "official_evidence_url": "https://www.getmerlin.in/",
+    "affiliate_status": "approved_tracking"
   },
   {
     "id": "decktopus",
@@ -1873,7 +1885,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.descript.com/"
+    "official_evidence_url": "https://www.descript.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "synder",
@@ -2062,7 +2077,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Castmagic is an AI-powered content workflow tool that transforms audio and video files into various scalable content formats. It helps professionals and creators automate the repurposing of their media into blog posts, social content, and more.",
-    "affiliate_url": null,
+    "affiliate_url": "https://castmagic.io?fpr=sangkwon-an54",
     "pricing": "See website for details",
     "key_features": [
       "AI-powered content repurposing",
@@ -2084,7 +2099,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.castmagic.io/"
+    "official_evidence_url": "https://www.castmagic.io/",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "loopcv",
@@ -2474,7 +2492,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://followr.ai/"
+    "official_evidence_url": "https://followr.ai/",
+    "affiliate_status": "approved_tracking"
   },
   {
     "id": "10web",
@@ -2657,7 +2676,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://getgenie.ai/"
+    "official_evidence_url": "https://getgenie.ai/",
+    "affiliate_status": "approved_tracking"
   },
   {
     "id": "activecampaign",
@@ -3349,7 +3369,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://gojiberry.ai/"
+    "official_evidence_url": "https://gojiberry.ai/",
+    "affiliate_status": "approved_tracking"
   },
   {
     "id": "bidx",
@@ -4300,7 +4321,7 @@
     "category": "automation",
     "category_display": "Workflow Automation",
     "description": "AI voice assistant and meeting note-taker that transcribes, summarizes, and analyzes conversations.",
-    "affiliate_url": null,
+    "affiliate_url": "https://fireflies.ai/?fpr=sangkwon53",
     "pricing": "See official pricing",
     "key_features": [
       "Automated Meeting Transcription",
@@ -4326,7 +4347,10 @@
     "pricing_source_final_url": null,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://fireflies.ai/"
+    "official_evidence_url": "https://fireflies.ai/",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "gamma",

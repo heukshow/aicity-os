@@ -2,6 +2,20 @@
 
 const STORAGE_KEY = 'coshuma_real_analytics_events_v1';
 
+function campaignContext() {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    source: params.get('utm_source') || 'direct',
+    medium: params.get('utm_medium') || 'none',
+    campaign: params.get('utm_campaign') || 'none',
+    landing_page: window.location.pathname + window.location.search,
+  };
+}
+
+function emit(eventName, event) {
+  if (typeof window.gtag === 'function') window.gtag('event', eventName, event);
+}
+
 // Country mapping helper based on browser TimeZone & Locale
 export function detectVisitorCountry() {
   try {
@@ -47,20 +61,22 @@ export function trackPageView(category = 'all') {
       code: countryInfo.code,
       referrer: document.referrer || 'Direct / Bookmark',
       category: category,
-      device: isMobile ? 'Mobile' : 'Desktop'
+      device: isMobile ? 'Mobile' : 'Desktop',
+      ...campaignContext()
     };
 
     events.push(newEvent);
     // Keep max 2000 events to manage storage
     if (events.length > 2000) events.shift();
     localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
+    emit('page_view', newEvent);
   } catch (e) {
     console.warn('Analytics tracking error:', e);
   }
 }
 
 // Track an Affiliate Tool Click Event
-export function trackToolClick(toolId, toolName) {
+export function trackToolClick(toolId, toolName, outboundUrl, isAffiliate = false) {
   try {
     const events = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
     const countryInfo = detectVisitorCountry();
@@ -73,12 +89,19 @@ export function trackToolClick(toolId, toolName) {
       toolName: toolName,
       country: countryInfo.country,
       flag: countryInfo.flag,
-      code: countryInfo.code
+      code: countryInfo.code,
+      tool_id: toolId,
+      outbound_url: outboundUrl,
+      affiliate_network: isAffiliate ? new URL(outboundUrl).hostname : null,
+      affiliate_click: isAffiliate,
+      landing_page: window.location.pathname + window.location.search,
+      ...campaignContext()
     };
 
     events.push(newEvent);
     if (events.length > 2000) events.shift();
     localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
+    emit(isAffiliate ? 'affiliate_click' : 'outbound_click', newEvent);
   } catch (e) {
     console.warn('Click tracking error:', e);
   }

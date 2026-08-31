@@ -456,8 +456,8 @@ export default function App() {
                       <a
                         href={validUrl}
                         target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => trackToolClick(tool.id, tool.name)}
+                        rel={tool.affiliate_verified === true ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
+                        onClick={() => trackToolClick(tool.id, tool.name, validUrl, tool.affiliate_verified === true)}
                         className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-purple-950/30 group-hover:shadow-purple-900/20"
                       >
                         <span>Visit & Access Tool</span>

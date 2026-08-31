@@ -1,0 +1,22 @@
+import fs from 'node:fs';
+
+const verified = {
+  gohighlevel: 'https://www.gohighlevel.com/?fp_ref=sangkwon56',
+  castmagic: 'https://castmagic.io?fpr=sangkwon-an54',
+  descript: 'https://get.descript.com/ole5fu20j5sq',
+  'fireflies-ai': 'https://fireflies.ai/?fpr=sangkwon53',
+  pictory: 'https://pictory.ai?fpr=sangkwon-an23',
+  vidiq: 'https://vidiq.com/coshuma',
+};
+
+for (const file of ['data/tools.json', 'data/tools.next.json']) {
+  const tools = JSON.parse(fs.readFileSync(file, 'utf8'));
+  for (const tool of tools) {
+    if (verified[tool.id]) tool.affiliate_url = verified[tool.id];
+    if (!tool.affiliate_url || (tool.affiliate_verified !== true && !verified[tool.id])) continue;
+    tool.affiliate_verified = true;
+    tool.affiliate_status = 'approved_tracking';
+    tool.affiliate_verified_at ||= '2026-09-01T00:00:00+09:00';
+  }
+  fs.writeFileSync(file, `${JSON.stringify(tools, null, 2)}\n`);
+}
