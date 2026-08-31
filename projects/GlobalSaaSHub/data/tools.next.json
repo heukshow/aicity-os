@@ -969,7 +969,14 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://moosend.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "email_verification_pending",
+    "affiliate_verified_at": "2026-09-01T04:40:00+09:00",
+    "affiliate_evidence_markers": [
+      "Moosend official affiliate form submitted",
+      "Congrats, please check your inbox for the verification link to complete your registration!"
+    ]
   },
   {
     "id": "reply-io",
