@@ -55,7 +55,7 @@ export async function fetchGoogleMetrics(env) {
     googlePost(`${gaBase}:runReport`, token, { dateRanges: [{ startDate: '30daysAgo', endDate: 'today' }], dimensions: [{ name: 'pagePath' }], metrics: [{ name: 'screenPageViews' }], orderBys: [{ metric: { metricName: 'screenPageViews' }, desc: true }], limit: 5 }),
     googlePost(`${gaBase}:runReport`, token, { dateRanges: [{ startDate: '30daysAgo', endDate: 'today' }], dimensions: [{ name: 'eventName' }], metrics: [{ name: 'eventCount' }], dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { matchType: 'EXACT', value: 'affiliate_click' } } } }),
     googlePost(`https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(env.GSC_SITE_URL || 'https://coshuma.com/')}/searchAnalytics/query`, token, { startDate: '2026-06-01', endDate: new Date(Date.now() - 86400000).toISOString().slice(0, 10), rowLimit: 1 }),
-    googlePost(`https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(env.GSC_SITE_URL || 'https://coshuma.com/')}/searchAnalytics/query`, token, { startDate: '2026-06-01', endDate: new Date(Date.now() - 86400000).toISOString().slice(0, 10), dimensions: ['query'], rowLimit: 10 }),
+    googlePost(`https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(env.GSC_SITE_URL || 'https://coshuma.com/')}/searchAnalytics/query`, token, { startDate: '2026-06-01', endDate: new Date(Date.now() - 86400000).toISOString().slice(0, 10), dimensions: ['query'], rowLimit: 250 }),
   ]);
   const searchRows = search.rows || [];
   const total = searchTotals.rows?.[0] || {};
@@ -74,7 +74,7 @@ export async function fetchGoogleMetrics(env) {
       clicks: Math.round(total.clicks || 0),
       ctr: `${(Number(total.ctr || 0) * 100).toFixed(2)}%`,
       averagePosition: Number(Number(total.position || 0).toFixed(1)),
-      topQueries: searchRows.slice(0, 5).map((row) => ({ query: row.keys?.[0] || '알 수 없음', impressions: Math.round(row.impressions || 0), clicks: Math.round(row.clicks || 0) })),
+      topQueries: searchRows.sort((a, b) => Number(b.impressions || 0) - Number(a.impressions || 0)).slice(0, 5).map((row) => ({ query: row.keys?.[0] || '알 수 없음', impressions: Math.round(row.impressions || 0), clicks: Math.round(row.clicks || 0) })),
       checkedAt: new Date().toISOString(),
     },
   };
