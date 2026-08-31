@@ -2293,7 +2293,17 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://loopcv.pro/",
-    "affiliate_url": null
+    "affiliate_url": "https://loopcv.pro?via=sang-kwon",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_source_url": "https://loopcv.getrewardful.com/",
+    "affiliate_final_url": "https://loopcv.pro?via=sang-kwon",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "active affiliate dashboard",
+      "25% commission on all payments",
+      "PayPal payout email confirmed"
+    ]
   },
   {
     "id": "clickfunnels",
