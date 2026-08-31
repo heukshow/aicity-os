@@ -14,9 +14,9 @@ const koreanLeakCount = publicPages.reduce((count, file) => count + ((fs.readFil
 const snapshot = {
   generatedAt: new Date().toISOString(),
   counts: { totalTools: tools.length, verifiedAffiliates: affiliates.length, toolPages: files('tool').length, comparePages: files('compare').length, sitemapUrls: (sitemap.match(/<loc>/g) || []).length },
-  connections: { ga4: 'Not connected', searchConsole: '연결 필요' },
+  connections: { ga4: '연결 안 됨', searchConsole: '연결 필요' },
   seo: { testsPassed: true, koreanLeakCount }, affiliates,
-  recentSeoChanges: [{ title: '공개 SEO 무결성 계약 강화', date: '2026-09-01' }, { title: 'Sitemap 및 정적 페이지 동기화', date: '2026-09-01' }],
+  recentSeoChanges: [{ title: '공개 검색 최적화 무결성 계약 강화', date: '2026-09-01' }, { title: '사이트맵 및 정적 페이지 동기화', date: '2026-09-01' }],
 };
 fs.writeFileSync(path.join(root, 'worker/src/admin-snapshot.json'), `${JSON.stringify(snapshot, null, 2)}\n`);
 console.log(`Admin snapshot: ${tools.length} tools, ${affiliates.length} verified affiliates`);
