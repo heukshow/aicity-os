@@ -159,7 +159,17 @@
     "category": "copywriting",
     "category_display": "AI Copywriting",
     "description": "An AI-powered copywriting platform and marketing operating system designed to automate content writing, translation, and social media posting.",
-    "affiliate_url": null,
+    "affiliate_url": "https://dorik.com/?ref=coshuma",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_source_url": "https://partners.dorik.com/success-hub",
+    "affiliate_final_url": "https://dorik.com/?ref=coshuma",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "40% commission on first sale",
+      "$200 payout threshold",
+      "active promotion link in affiliate portal"
+    ],
     "pricing": "See official pricing",
     "key_features": [
       "Marketing Workflows",
