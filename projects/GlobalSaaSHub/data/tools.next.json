@@ -4650,7 +4650,7 @@
     "is_manual_override": false,
     "http_verification_status": null,
     "affiliate_verified": false,
-    "affiliate_status": "applied_pending_email_confirmation",
+    "affiliate_status": "account_active_payout_setup_required",
     "affiliate_source_url": "https://marblism.com/affiliate",
     "affiliate_final_url": "https://www.marblism.com/affiliate",
     "affiliate_http_status": 200,
@@ -4753,7 +4753,7 @@
       "no upfront fee"
     ],
     "affiliate_verified_at": "2026-08-31T17:44:19Z",
-    "affiliate_rejection_reason": "Affiliate account created; confirmation email requested and activation remains pending.",
+    "affiliate_rejection_reason": "Affiliate account and email are confirmed; dashboard access requires confirming a Wise payout email.",
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": "2026-08-04T03:25:05Z",
     "pricing_source_http_status": 200,
