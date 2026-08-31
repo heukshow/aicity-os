@@ -5,7 +5,6 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "An all-in-one sales, marketing, and CRM platform designed specifically for agencies and businesses to automate client acquisition and retention.",
-    "affiliate_url": "https://www.gohighlevel.com/?fp_ref=sangkwon56",
     "pricing": "See official pricing",
     "key_features": [
       "CRM & Pipeline",
@@ -28,6 +27,7 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.gohighlevel.com/",
+    "affiliate_url": "https://www.gohighlevel.com/?fp_ref=sangkwon56",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
     "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
@@ -38,7 +38,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "An integrated AI assistant within Notion that helps you write, summarize, brainstorm, and automate document formatting directly inside your workspace.",
-    "affiliate_url": null,
     "pricing": "Free trial; Business plan with Notion AI at $20/user/month",
     "key_features": [
       "Inline Writing Help",
@@ -67,15 +66,23 @@
     "pricing_source_final_url": "https://www.notion.com/pricing",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.notion.com/"
+    "official_evidence_url": "https://www.notion.com/",
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "program_closed_to_new_applicants",
+    "affiliate_source_url": "https://www.notion.com/en-gb/affiliates",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "20% of year one revenue",
+      "currently not accepting new affiliates"
+    ]
   },
   {
     "id": "make-com",
     "name": "Make.com",
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
-    "description": "A visual automation platform that lets you design, build, and automate anything—from simple tasks to complex workflows—in minutes without coding.",
-    "affiliate_url": null,
+    "description": "A visual automation platform that lets you design, build, and automate anything\u2014from simple tasks to complex workflows\u2014in minutes without coding.",
     "pricing": "See official pricing",
     "key_features": [
       "Visual Drag & Drop",
@@ -97,7 +104,18 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://www.make.com/"
+    "official_evidence_url": "https://www.make.com/",
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "blocked_requires_active_wise_account",
+    "affiliate_source_url": "https://www.make.com/en/affiliate",
+    "affiliate_final_url": "https://make.com/user/affiliate",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "35% commission",
+      "12 months",
+      "Wise"
+    ]
   },
   {
     "id": "elevenlabs",
@@ -105,7 +123,6 @@
     "category": "voice_cloning",
     "category_display": "Voice & Speech AI",
     "description": "The leading generative voice AI software that creates lifelike speech, voice clones, and sound effects in any language and voice style.",
-    "affiliate_url": null,
     "pricing": "Varies",
     "key_features": [
       "AI Voice Cloning",
@@ -128,7 +145,19 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://elevenlabs.io/"
+    "official_evidence_url": "https://elevenlabs.io/",
+    "affiliate_url": "https://try.elevenlabs.io/ldc2xmh2x2t5",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_source_url": "https://elevenlabs.io/affiliates",
+    "affiliate_final_url": "https://try.elevenlabs.io/ldc2xmh2x2t5",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "22% commission",
+      "12 months",
+      "active affiliate account",
+      "Default affiliate link"
+    ]
   },
   {
     "id": "copy-ai",
@@ -136,7 +165,6 @@
     "category": "copywriting",
     "category_display": "AI Copywriting",
     "description": "An AI-powered copywriting platform and marketing operating system designed to automate content writing, translation, and social media posting.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Marketing Workflows",
@@ -159,7 +187,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://www.copy.ai/"
+    "official_evidence_url": "https://www.copy.ai/",
+    "affiliate_url": null
   },
   {
     "id": "zenrows",
@@ -167,7 +196,6 @@
     "category": "scraping_data",
     "category_display": "Data & Scraping APIs",
     "description": "An all-in-one web scraping API that handles proxies, anti-bot bypasses (Cloudflare, CAPTCHAs), and headless browsers with a single API call.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Anti-Bot Bypass",
@@ -189,7 +217,17 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://www.zenrows.com/"
+    "official_evidence_url": "https://www.zenrows.com/",
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "application_ready",
+    "affiliate_source_url": "https://www.zenrows.com/partners/affiliates",
+    "affiliate_final_url": "https://www.zenrows.com/partners/apply",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "35% recurring",
+      "approved the same day"
+    ]
   },
   {
     "id": "tubebuddy",
@@ -197,7 +235,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "An essential browser extension and mobile app for YouTube creators, TubeBuddy helps optimize and grow YouTube channels through advanced analytics, SEO tools, and productivity features.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Video SEO optimization",
@@ -219,7 +256,18 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.tubebuddy.com/"
+    "official_evidence_url": "https://www.tubebuddy.com/",
+    "affiliate_url": "https://www.tubebuddy.com/pricing?a=coshuma",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_source_url": "https://support.tubebuddy.com/hc/en-us/sections/8981416080411-Affiliates",
+    "affiliate_final_url": "https://www.tubebuddy.com/pricing?a=coshuma",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "successfully set up your Affiliate account",
+      "15% Commission",
+      "Affiliate Link"
+    ]
   },
   {
     "id": "outlierkit",
@@ -227,7 +275,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "An AI-powered platform designed for content creators, OutlierKit helps identify trending topics and viral video ideas, specifically for YouTube-focused audiences, to maximize engagement and growth.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered trend analysis",
@@ -249,7 +296,18 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://outlierkit.com/"
+    "official_evidence_url": "https://outlierkit.com/",
+    "affiliate_url": "https://outlierkit.com/?ref=sangkwon",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_source_url": "https://outlierkit.com/p/affiliate",
+    "affiliate_final_url": "https://outlierkit.com/?ref=sangkwon",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "20% on all paid customers",
+      "all set up and ready to go",
+      "partner link"
+    ]
   },
   {
     "id": "pictory",
@@ -257,7 +315,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "An AI-powered video creation tool that automatically transforms text into engaging videos, making it easy for marketers and content creators to produce compelling video content quickly.",
-    "affiliate_url": "https://pictory.ai?fpr=sangkwon-an23",
     "pricing": "See official pricing",
     "key_features": [
       "Text-to-video conversion",
@@ -281,6 +338,7 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://pictory.ai/",
+    "affiliate_url": "https://pictory.ai?fpr=sangkwon-an23",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
     "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
@@ -291,11 +349,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Create studio-quality videos from scripts, ideas, and long-form content with lifelike voices.",
-    "affiliate_url": "https://fliki.ai?via=sangkwon",
-    "affiliate_verified": true,
-    "affiliate_status": "approved_tracking",
-    "affiliate_source_url": "https://fliki.ai/affiliate-program",
-    "affiliate_verified_at": "2026-08-23T22:05:38Z",
     "pricing": "See official pricing",
     "key_features": [
       "Text-to-video creation",
@@ -318,7 +371,12 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-23T22:05:38Z",
-    "official_evidence_url": "https://fliki.ai/"
+    "official_evidence_url": "https://fliki.ai/",
+    "affiliate_url": "https://fliki.ai?via=sangkwon",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_source_url": "https://fliki.ai/affiliate-program",
+    "affiliate_verified_at": "2026-08-23T22:05:38Z"
   },
   {
     "id": "inkfluence-ai",
@@ -326,9 +384,6 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "An AI-powered writing assistant tailored for indie publishers, helping them generate high-quality content quickly and efficiently for their audience.",
-    "affiliate_url": "https://www.inkfluenceai.com/?ref=sangkwon",
-    "affiliate_verified": true,
-    "affiliate_verified_at": "2026-08-31T14:00:00Z",
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered content generation",
@@ -351,6 +406,9 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.inkfluenceai.com/",
+    "affiliate_url": "https://www.inkfluenceai.com/?ref=sangkwon",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-08-31T14:00:00Z",
     "affiliate_status": "approved_tracking"
   },
   {
@@ -359,7 +417,6 @@
     "category": "copywriting",
     "category_display": "AI Copywriting",
     "description": "A leading AI writing platform recognized for generating high-quality content for a broad range of business audiences, from marketing blogs to agencies.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Versatile AI content generation",
@@ -382,7 +439,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.jasper.ai/"
+    "official_evidence_url": "https://www.jasper.ai/",
+    "affiliate_url": null
   },
   {
     "id": "writesonic",
@@ -390,7 +448,6 @@
     "category": "copywriting",
     "category_display": "AI Copywriting",
     "description": "An advanced AI writing assistant that helps businesses and individuals create a wide array of content, from blog posts to ad copy, with speed and efficiency.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI article & blog writer",
@@ -413,7 +470,19 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://writesonic.com/"
+    "official_evidence_url": "https://writesonic.com/",
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "rejected",
+    "affiliate_source_url": "https://writesonic.com/affiliate",
+    "affiliate_final_url": "https://affiliates.writesonic.com/home",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "20% recurring",
+      "12 months",
+      "Your application has been rejected"
+    ],
+    "affiliate_rejection_reason": "The authenticated Writesonic affiliate dashboard explicitly shows that the application was rejected."
   },
   {
     "id": "sudowrite",
@@ -421,7 +490,6 @@
     "category": "copywriting",
     "category_display": "AI Copywriting",
     "description": "An innovative AI writing tool specifically designed to assist fiction writers in brainstorming, drafting, and refining their stories and novels.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI story generation",
@@ -444,7 +512,19 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.sudowrite.com/"
+    "official_evidence_url": "https://www.sudowrite.com/",
+    "affiliate_url": "https://www.sudowrite.com?via=sangkwon",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_source_url": "https://sudowrite.notion.site/Sudowrite-Affiliate-Program-12788b26b71746f2a72cd05b7087e8c9",
+    "affiliate_final_url": "https://www.sudowrite.com?via=sangkwon",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "Welcome to the Sudowrite partner program",
+      "25% on all payments, first 12 months",
+      "60 day cookie",
+      "affiliate link"
+    ]
   },
   {
     "id": "convertkit",
@@ -452,7 +532,6 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "A powerful email marketing platform built for creators, offering robust tools for audience growth, email automation, and engagement, now with AI-powered writing features.",
-    "affiliate_url": null,
     "pricing": "Free plan; Creator plan from $33/month for 1,000 subscribers",
     "key_features": [
       "Email marketing automation",
@@ -481,7 +560,18 @@
     "pricing_source_final_url": "https://kit.com/pricing",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://kit.com/"
+    "official_evidence_url": "https://kit.com/",
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "blocked_partnerstack_marketplace_limited",
+    "affiliate_source_url": "https://kit.com/affiliate",
+    "affiliate_final_url": "https://dash.partnerstack.com/application?company=kit&group=kitaffiliates",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "50% commission for 12 months",
+      "PartnerStack Network marketplace access limited",
+      "application page rendered blank"
+    ]
   },
   {
     "id": "quillbot",
@@ -489,7 +579,6 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "QuillBot is an AI-powered paraphrasing tool designed to rewrite text, simplify sentences, and enhance writing style. It improves grammar, adjusts writing tone, and helps avoid plagiarism, automating many editing and proofreading tasks.",
-    "affiliate_url": null,
     "pricing": "Free plan available",
     "key_features": [
       "AI-powered paraphrasing",
@@ -511,7 +600,17 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://quillbot.com/"
+    "official_evidence_url": "https://quillbot.com/",
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "blocked_partnerstack_marketplace_limited",
+    "affiliate_source_url": "https://quillbot.com/affiliates",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "10% - 20% commission",
+      "30-day cookie",
+      "PartnerStack Network marketplace access limited"
+    ]
   },
   {
     "id": "text-cortex",
@@ -519,7 +618,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Text Cortex is an AI-powered writing assistant that elevates your content through rewriting, summarizing, question answering, plagiarism checks, and generating diverse creative text formats. It's available across multiple platforms, including browser, desktop, and mobile.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered writing assistant",
@@ -541,7 +639,17 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://textcortex.com/"
+    "official_evidence_url": "https://textcortex.com/",
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "program_inactive",
+    "affiliate_source_url": "https://affiliate.textcortex.com/signup",
+    "affiliate_final_url": "https://affiliate.textcortex.com/signup",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "campaign has been deactivated by the owner",
+      "affiliate program is no longer active"
+    ]
   },
   {
     "id": "vidiq",
@@ -549,7 +657,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "VidIQ is an essential AI-powered toolkit for YouTube creators, providing robust features for keyword research, video analytics, optimization, and competitor analysis. It leverages AI for generating titles, content ideas, video scripts, and descriptions to boost channel growth.",
-    "affiliate_url": "https://vidiq.com/coshuma",
     "pricing": "Free plan available",
     "key_features": [
       "YouTube keyword research",
@@ -572,6 +679,7 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://vidiq.com/",
+    "affiliate_url": "https://vidiq.com/coshuma",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
     "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
@@ -582,7 +690,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "A comprehensive help desk solution designed for startups, offering a free plan to manage customer inquiries efficiently and streamline support operations.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Ticket Management System",
@@ -604,7 +711,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.bolddesk.com/"
+    "official_evidence_url": "https://www.bolddesk.com/",
+    "affiliate_url": null
   },
   {
     "id": "brand24",
@@ -612,7 +720,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "An essential social media monitoring tool that helps businesses track mentions, analyze sentiment, and understand their online presence.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Real-time Brand Monitoring",
@@ -634,7 +741,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://brand24.com/"
+    "official_evidence_url": "https://brand24.com/",
+    "affiliate_url": null
   },
   {
     "id": "socialchamp-io",
@@ -642,7 +750,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "A robust social media management platform designed to simplify content scheduling, publishing, and engagement across multiple channels.",
-    "affiliate_url": null,
     "pricing": "Free plan; paid plans from $4/month billed annually",
     "key_features": [
       "Multi-Platform Scheduling",
@@ -671,7 +778,8 @@
     "pricing_source_final_url": "https://www.socialchamp.com/pricing/",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.socialchamp.com/"
+    "official_evidence_url": "https://www.socialchamp.com/",
+    "affiliate_url": null
   },
   {
     "id": "triple-whale",
@@ -679,7 +787,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "An all-in-one operating system for e-commerce, providing comprehensive analytics and attribution to help brands optimize their marketing spend.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Centralized E-commerce Analytics",
@@ -701,7 +808,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://triplewhale.com/"
+    "official_evidence_url": "https://triplewhale.com/",
+    "affiliate_url": null
   },
   {
     "id": "boldsign",
@@ -709,7 +817,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "A secure and efficient e-signature solution that streamlines document signing workflows, making legal agreements faster and more convenient.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Legally Binding E-signatures",
@@ -731,7 +838,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.boldsign.com/"
+    "official_evidence_url": "https://www.boldsign.com/",
+    "affiliate_url": null
   },
   {
     "id": "privy",
@@ -739,7 +847,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "A powerful email marketing and conversion platform specifically designed for e-commerce businesses to grow their email lists and boost sales.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Pop-up & Exit-Intent Campaigns",
@@ -761,7 +868,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.privy.com/"
+    "official_evidence_url": "https://www.privy.com/",
+    "affiliate_url": null
   },
   {
     "id": "aweber",
@@ -769,7 +877,6 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "A long-standing and reliable email marketing service, perfect for small businesses and creators looking to build their audience and automate communication.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Email Campaign Creation",
@@ -791,7 +898,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.aweber.com/"
+    "official_evidence_url": "https://www.aweber.com/",
+    "affiliate_url": null
   },
   {
     "id": "unbounce",
@@ -799,7 +907,6 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "A leading landing page builder that empowers marketers to create high-converting landing pages and pop-ups without any coding required.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Drag-and-Drop Page Builder",
@@ -821,7 +928,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://unbounce.com/"
+    "official_evidence_url": "https://unbounce.com/",
+    "affiliate_url": null
   },
   {
     "id": "moosend",
@@ -829,7 +937,6 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "A powerful and user-friendly email marketing and marketing automation platform, perfect for businesses aiming to engage their audience effectively.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Email Campaign Designer",
@@ -851,7 +958,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://moosend.com/"
+    "official_evidence_url": "https://moosend.com/",
+    "affiliate_url": null
   },
   {
     "id": "reply-io",
@@ -859,7 +967,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "A comprehensive AI-powered sales engagement platform designed to automate and scale multi-channel outreach, boosting sales team productivity.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Multi-Channel Sales Sequences",
@@ -881,7 +988,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://reply.io/"
+    "official_evidence_url": "https://reply.io/",
+    "affiliate_url": null
   },
   {
     "id": "omnisend",
@@ -889,7 +997,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "An advanced e-commerce marketing automation platform, integrating email, SMS, and push notifications to drive sales and customer retention.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Email & SMS Campaigns",
@@ -911,7 +1018,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://www.omnisend.com/"
+    "official_evidence_url": "https://www.omnisend.com/",
+    "affiliate_url": null
   },
   {
     "id": "time2book",
@@ -919,7 +1027,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "A specialized SaaS platform for fitness studios, personal trainers, and yoga teachers, streamlining booking and payment processes.",
-    "affiliate_url": null,
     "pricing": "Contact for pricing.",
     "key_features": [
       "Integrated Booking System",
@@ -941,7 +1048,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.time2book.me/"
+    "official_evidence_url": "https://www.time2book.me/",
+    "affiliate_url": null
   },
   {
     "id": "semrush",
@@ -949,7 +1057,6 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "A leading all-in-one platform providing comprehensive SEO and marketing tools for bloggers, agencies, and B2B content creators.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Keyword Research Tools",
@@ -971,7 +1078,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.semrush.com/"
+    "official_evidence_url": "https://www.semrush.com/",
+    "affiliate_url": null
   },
   {
     "id": "hubspot",
@@ -979,7 +1087,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "A powerful CRM platform offering integrated tools for marketing, sales, customer service, and content management to grow businesses.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Comprehensive CRM Database",
@@ -1001,7 +1108,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.hubspot.com/"
+    "official_evidence_url": "https://www.hubspot.com/",
+    "affiliate_url": null
   },
   {
     "id": "kinsta",
@@ -1009,7 +1117,6 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "Premium managed WordPress hosting designed for speed, security, and scalability, ideal for agencies and businesses with high-traffic websites.",
-    "affiliate_url": null,
     "pricing": "Pricing details on website",
     "key_features": [
       "High-Performance Hosting",
@@ -1031,7 +1138,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://kinsta.com/"
+    "official_evidence_url": "https://kinsta.com/",
+    "affiliate_url": null
   },
   {
     "id": "shopify",
@@ -1039,7 +1147,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "A leading e-commerce platform that enables businesses to build, run, and grow online stores with robust sales and management tools.",
-    "affiliate_url": null,
     "pricing": "Pricing details on website",
     "key_features": [
       "Intuitive Store Builder",
@@ -1061,7 +1168,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.shopify.com/"
+    "official_evidence_url": "https://www.shopify.com/",
+    "affiliate_url": null
   },
   {
     "id": "systeme-io",
@@ -1069,11 +1177,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Systeme.io is an all-in-one marketing platform designed for entrepreneurs and small businesses, offering tools for sales funnels, email marketing, websites, and online courses. Simplify your online business with its comprehensive and user-friendly features.",
-    "affiliate_url": "https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca",
-    "affiliate_verified": true,
-    "affiliate_status": "approved_tracking",
-    "affiliate_source_url": "https://help.systeme.io/article/162-how-the-systeme-io-affiliate-program-works",
-    "affiliate_verified_at": "2026-08-23T20:23:38Z",
     "pricing": "See official pricing",
     "key_features": [
       "Sales Funnel Builder",
@@ -1095,7 +1198,12 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://systeme.io/"
+    "official_evidence_url": "https://systeme.io/",
+    "affiliate_url": "https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_source_url": "https://help.systeme.io/article/162-how-the-systeme-io-affiliate-program-works",
+    "affiliate_verified_at": "2026-08-23T20:23:38Z"
   },
   {
     "id": "jotform",
@@ -1103,7 +1211,6 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Jotform is a powerful online form builder that helps businesses create custom forms for data collection, payments, and workflow automation without any coding. Design surveys, applications, and order forms with ease.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Drag-and-Drop Form Builder",
@@ -1125,7 +1232,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.jotform.com/"
+    "official_evidence_url": "https://www.jotform.com/",
+    "affiliate_url": null
   },
   {
     "id": "webflow",
@@ -1133,7 +1241,6 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Webflow is a visual web development platform that allows users to design, build, and launch responsive websites without writing code. It combines design tools, CMS, and hosting into a single, powerful platform for creative professionals.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Visual Website Builder",
@@ -1155,7 +1262,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://webflow.com/"
+    "official_evidence_url": "https://webflow.com/",
+    "affiliate_url": null
   },
   {
     "id": "reactin",
@@ -1163,7 +1271,6 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "ReactIn is an intent-based LinkedIn growth platform designed for B2B professionals, offering powerful tools for lead generation and competitor monitoring.",
-    "affiliate_url": null,
     "pricing": "Tiered subscription plans available",
     "key_features": [
       "Intent Data & Signals",
@@ -1185,7 +1292,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.reactin.io/"
+    "official_evidence_url": "https://www.reactin.io/",
+    "affiliate_url": null
   },
   {
     "id": "synthesia",
@@ -1193,7 +1301,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Transform text into AI videos with realistic avatars, ideal for training, e-learning, and professional video production, simplifying content creation.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI video generation",
@@ -1216,7 +1323,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.synthesia.io/"
+    "official_evidence_url": "https://www.synthesia.io/",
+    "affiliate_url": null
   },
   {
     "id": "octo-browser",
@@ -1224,7 +1332,6 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "Octo Browser is an advanced antidetect browser designed for secure multi-accounting and digital fingerprint management across various online platforms.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Secure multi-accounting capabilities",
@@ -1246,7 +1353,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://octobrowser.net/"
+    "official_evidence_url": "https://octobrowser.net/",
+    "affiliate_url": null
   },
   {
     "id": "carv",
@@ -1254,7 +1362,6 @@
     "category": "ai_agents",
     "category_display": "Autonomous AI Agents",
     "description": "Carv provides AI-powered recruitment agents that streamline high-volume hiring by automating administrative tasks, candidate screening, and scheduling processes.",
-    "affiliate_url": null,
     "pricing": "Custom enterprise pricing",
     "key_features": [
       "AI-powered recruitment agents",
@@ -1276,7 +1383,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.carv.com/"
+    "official_evidence_url": "https://www.carv.com/",
+    "affiliate_url": null
   },
   {
     "id": "jobhire",
@@ -1284,7 +1392,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "JobHire is an AI-powered career assistant that automates the job search process, including resume tailoring and high-volume application submission.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered career assistance",
@@ -1306,7 +1413,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://jobhire.ai/"
+    "official_evidence_url": "https://jobhire.ai/",
+    "affiliate_url": null
   },
   {
     "id": "aitable-ai",
@@ -1314,7 +1422,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "AITable.ai provides a visual AI database to organize data, automate workflows, and build custom AI agents for enhanced productivity.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Visual AI database for data organization",
@@ -1336,7 +1443,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://aitable.ai/"
+    "official_evidence_url": "https://aitable.ai/",
+    "affiliate_url": null
   },
   {
     "id": "liftmycv",
@@ -1344,9 +1452,6 @@
     "category": "ai_agents",
     "category_display": "Autonomous AI Agents",
     "description": "LiftmyCV leverages AI and ChatGPT to automate job applications across multiple platforms, acting as an intelligent job search agent.",
-    "affiliate_url": "https://www.liftmycv.com/?via=sangkwon",
-    "affiliate_verified": true,
-    "affiliate_verified_at": "2026-08-31T14:00:00Z",
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered job search agent",
@@ -1369,6 +1474,9 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://liftmycv.com/",
+    "affiliate_url": "https://www.liftmycv.com/?via=sangkwon",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-08-31T14:00:00Z",
     "affiliate_status": "approved_tracking"
   },
   {
@@ -1377,7 +1485,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Blaze is an AI-powered marketing automation platform that creates, schedules, and optimizes brand-specific content across diverse channels.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered marketing automation",
@@ -1399,7 +1506,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://blaze.ai/"
+    "official_evidence_url": "https://blaze.ai/",
+    "affiliate_url": null
   },
   {
     "id": "aiassistworks",
@@ -1407,7 +1515,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "AiAssistWorks integrates over 100 AI models directly into Google Sheets, Docs, and Slides, enabling automated workflows within your favorite productivity suite.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Integrates 100+ AI models",
@@ -1429,7 +1536,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://aiassistworks.com/"
+    "official_evidence_url": "https://aiassistworks.com/",
+    "affiliate_url": null
   },
   {
     "id": "vista-social",
@@ -1437,7 +1545,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Vista Social is an AI-powered platform for comprehensive social media management, offering tools for publishing, engagement, analytics, and team collaboration.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered social media management",
@@ -1459,7 +1566,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://vistasocial.com/"
+    "official_evidence_url": "https://vistasocial.com/",
+    "affiliate_url": null
   },
   {
     "id": "gravity-forms",
@@ -1467,7 +1575,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Gravity Forms is a powerful WordPress plugin that enables users to build custom forms, manage online payments, and automate various data workflows directly on their website.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Powerful WordPress plugin",
@@ -1489,7 +1596,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.gravityforms.com/"
+    "official_evidence_url": "https://www.gravityforms.com/",
+    "affiliate_url": null
   },
   {
     "id": "sendcloud",
@@ -1497,7 +1605,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Sendcloud is an all-in-one shipping automation platform that optimizes checkout, shipping, tracking, and returns for e-commerce businesses.",
-    "affiliate_url": null,
     "pricing": "Varies by plan",
     "key_features": [
       "All-in-one shipping automation",
@@ -1519,7 +1626,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://sendcloud.com/"
+    "official_evidence_url": "https://sendcloud.com/",
+    "affiliate_url": null
   },
   {
     "id": "alidropship",
@@ -1527,7 +1635,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "AliDropship offers WordPress and WooCommerce solutions to automate AliExpress dropshipping store management and product fulfillment with ease.",
-    "affiliate_url": null,
     "pricing": "Varies by plan",
     "key_features": [
       "WordPress dropshipping solution",
@@ -1549,7 +1656,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://alidropship.com/"
+    "official_evidence_url": "https://alidropship.com/",
+    "affiliate_url": null
   },
   {
     "id": "nudgera",
@@ -1557,7 +1665,6 @@
     "category": "finance_billing",
     "category_display": "Finance & Billing",
     "description": "Nudgera is an AI-powered revenue operating system that automates invoice chasing and uses sentiment-aware negotiation to optimize payment collection.",
-    "affiliate_url": null,
     "pricing": "Varies by plan",
     "key_features": [
       "AI-powered revenue operating system",
@@ -1580,7 +1687,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://nudgera.com/"
+    "official_evidence_url": "https://nudgera.com/",
+    "affiliate_url": null
   },
   {
     "id": "questmate",
@@ -1588,7 +1696,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Questmate streamlines operations by automating tasks and workflows through smart routines and customizable checklists.",
-    "affiliate_url": null,
     "pricing": "Varies by plan",
     "key_features": [
       "Automates tasks and workflows",
@@ -1610,7 +1717,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://questmate.com/"
+    "official_evidence_url": "https://questmate.com/",
+    "affiliate_url": null
   },
   {
     "id": "merlin",
@@ -1618,9 +1726,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Merlin is an AI productivity tool designed to supercharge your daily tasks, offering powerful summarization, content generation, and seamless workflow automation features. Boost your efficiency and creativity with intelligent AI assistance across various applications.",
-    "affiliate_url": "https://www.getmerlin.in/chat?ref=yjeyytn",
-    "affiliate_verified": true,
-    "affiliate_verified_at": "2026-08-31T14:00:00Z",
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered summarization",
@@ -1643,6 +1748,9 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.getmerlin.in/",
+    "affiliate_url": "https://www.getmerlin.in/chat?ref=yjeyytn",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-08-31T14:00:00Z",
     "affiliate_status": "approved_tracking"
   },
   {
@@ -1651,7 +1759,6 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "Decktopus is an AI-powered presentation tool that automatically crafts stunning decks, empowering users to create professional presentations in minutes. Leverage customizable templates and integrated forms for effective lead generation and impactful visual storytelling.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI auto-created presentations",
@@ -1673,7 +1780,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://decktopus.com/"
+    "official_evidence_url": "https://decktopus.com/",
+    "affiliate_url": null
   },
   {
     "id": "dorik",
@@ -1681,7 +1789,6 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Dorik is a no-code AI website builder that enables quick creation of professional websites without any coding knowledge. Build stunning, responsive sites effortlessly, perfect for businesses, portfolios, and personal brands.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "No-code website building",
@@ -1703,7 +1810,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://dorik.com/"
+    "official_evidence_url": "https://dorik.com/",
+    "affiliate_url": null
   },
   {
     "id": "rytr",
@@ -1711,7 +1819,6 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Rytr is an AI-powered writing assistant that helps you generate high-quality content for various needs in just seconds. From blog posts to emails, create compelling copy quickly and efficiently with intelligent AI suggestions.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI content generation",
@@ -1733,7 +1840,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://rytr.me/"
+    "official_evidence_url": "https://rytr.me/",
+    "affiliate_url": null
   },
   {
     "id": "frase",
@@ -1741,7 +1849,6 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "Frase is an AI-powered content optimization platform designed to help you create SEO-driven content that ranks higher and converts better. Research, write, and optimize all in one place for maximum search engine visibility.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI content research",
@@ -1763,7 +1870,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.frase.io/"
+    "official_evidence_url": "https://www.frase.io/",
+    "affiliate_url": null
   },
   {
     "id": "heygen",
@@ -1771,7 +1879,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "HeyGen is an innovative AI-powered video creation platform, allowing you to produce professional videos with realistic avatars and voice cloning technology. Generate engaging content quickly, even with multilingual support, to reach global audiences.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered video generation",
@@ -1794,7 +1901,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.heygen.com/"
+    "official_evidence_url": "https://www.heygen.com/",
+    "affiliate_url": null
   },
   {
     "id": "veed",
@@ -1802,7 +1910,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "VEED is an intuitive online video editing platform packed with AI-powered tools designed for creators and businesses alike. Easily edit, subtitle, and enhance your videos directly in your browser, streamlining your content production workflow.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Online video editor",
@@ -1825,7 +1932,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.veed.io/"
+    "official_evidence_url": "https://www.veed.io/",
+    "affiliate_url": null
   },
   {
     "id": "reclaim-ai",
@@ -1833,7 +1941,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Reclaim AI intelligently optimizes your calendar to protect your time and boost productivity, automatically scheduling smart habits and meetings. Let AI manage your schedule so you can focus on what truly matters.",
-    "affiliate_url": null,
     "pricing": "Check website for details",
     "key_features": [
       "AI calendar optimization",
@@ -1855,7 +1962,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://reclaim.ai/"
+    "official_evidence_url": "https://reclaim.ai/",
+    "affiliate_url": null
   },
   {
     "id": "descript",
@@ -1863,7 +1971,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Descript is an all-in-one AI-powered tool for transcription, audio/video editing, and podcast production, allowing you to edit media like a document. Streamline your content creation workflow with powerful, intuitive features for creators.",
-    "affiliate_url": "https://get.descript.com/ole5fu20j5sq",
     "pricing": "See official pricing",
     "key_features": [
       "AI transcription",
@@ -1886,6 +1993,7 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.descript.com/",
+    "affiliate_url": "https://get.descript.com/ole5fu20j5sq",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
     "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
@@ -1896,7 +2004,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "AI-driven accounting automation software tailored for retail, eCommerce, and SaaS businesses, simplifying financial operations by automatically categorizing transactions and syncing data.",
-    "affiliate_url": null,
     "pricing": "Check website for details",
     "key_features": [
       "AI-driven accounting automation",
@@ -1918,7 +2025,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://synder.com/"
+    "official_evidence_url": "https://synder.com/",
+    "affiliate_url": null
   },
   {
     "id": "gallabox",
@@ -1926,7 +2034,6 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "An AI-powered B2B platform specializing in WhatsApp automation for marketing, sales, and customer support for businesses and agencies.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "WhatsApp Business API integration",
@@ -1948,7 +2055,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.gallabox.com/"
+    "official_evidence_url": "https://www.gallabox.com/",
+    "affiliate_url": null
   },
   {
     "id": "panda-video",
@@ -1956,7 +2064,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "A secure and high-performance video hosting platform designed for course creators and video marketers.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Secure video streaming",
@@ -1978,7 +2085,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://pandavideo.com/"
+    "official_evidence_url": "https://pandavideo.com/",
+    "affiliate_url": null
   },
   {
     "id": "surfer-seo",
@@ -1986,7 +2094,6 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "An AI-powered content intelligence tool designed to help SEO professionals optimize content for higher search engine rankings.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Content editor with real-time feedback",
@@ -2008,7 +2115,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://surferseo.com/"
+    "official_evidence_url": "https://surferseo.com/",
+    "affiliate_url": null
   },
   {
     "id": "murf-ai",
@@ -2016,7 +2124,6 @@
     "category": "voice_cloning",
     "category_display": "Voice & Speech AI",
     "description": "An AI voice generator that provides realistic text-to-speech voices for various applications, empowering voice-over creators.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Studio-quality AI voices",
@@ -2039,7 +2146,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://murf.ai/"
+    "official_evidence_url": "https://murf.ai/",
+    "affiliate_url": null
   },
   {
     "id": "scalenut",
@@ -2047,7 +2155,6 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "An AI content platform that streamlines content planning, creation, and SEO optimization for content teams and SEO agencies.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI content creation",
@@ -2069,7 +2176,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.scalenut.com/"
+    "official_evidence_url": "https://www.scalenut.com/",
+    "affiliate_url": null
   },
   {
     "id": "castmagic",
@@ -2077,7 +2185,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Castmagic is an AI-powered content workflow tool that transforms audio and video files into various scalable content formats. It helps professionals and creators automate the repurposing of their media into blog posts, social content, and more.",
-    "affiliate_url": "https://castmagic.io?fpr=sangkwon-an54",
     "pricing": "See website for details",
     "key_features": [
       "AI-powered content repurposing",
@@ -2100,6 +2207,7 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.castmagic.io/",
+    "affiliate_url": "https://castmagic.io?fpr=sangkwon-an54",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
     "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
@@ -2110,7 +2218,6 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "LoopCV leverages AI to automate the laborious job application process, finding matching roles across multiple boards and applying on the user's behalf. It significantly streamlines the job search, saving users valuable time and effort.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered job application automation",
@@ -2132,7 +2239,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://loopcv.pro/"
+    "official_evidence_url": "https://loopcv.pro/",
+    "affiliate_url": null
   },
   {
     "id": "clickfunnels",
@@ -2140,7 +2248,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Empower your business with a robust sales funnel builder that turns visitors into loyal customers and automates your entire selling process.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Intuitive Drag-and-Drop Editor",
@@ -2162,7 +2269,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.clickfunnels.com/"
+    "official_evidence_url": "https://www.clickfunnels.com/",
+    "affiliate_url": null
   },
   {
     "id": "tapfiliate",
@@ -2170,7 +2278,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Launch and manage your affiliate marketing program effortlessly with robust tracking, analytics, and partner recruitment features.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Real-time Performance Tracking",
@@ -2192,7 +2299,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://tapfiliate.com/"
+    "official_evidence_url": "https://tapfiliate.com/",
+    "affiliate_url": null
   },
   {
     "id": "getresponse",
@@ -2200,7 +2308,6 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Boost your marketing efforts with a powerful email marketing and automation platform, perfect for businesses and content creators.",
-    "affiliate_url": null,
     "pricing": "Varies by plan, offers multiple tiers",
     "key_features": [
       "Email Marketing Campaigns",
@@ -2222,7 +2329,15 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.getresponse.com/"
+    "official_evidence_url": "https://www.getresponse.com/",
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "PartnerStack application received",
+      "submitted for GetResponse review"
+    ]
   },
   {
     "id": "kit",
@@ -2230,7 +2345,6 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Empower creators with essential email tools to grow their audience, manage newsletters, and monetize their content effectively.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Audience Growth Tools",
@@ -2252,7 +2366,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.kit.co/"
+    "official_evidence_url": "https://www.kit.co/",
+    "affiliate_url": null
   },
   {
     "id": "teachable",
@@ -2260,7 +2375,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Launch and scale your online courses and coaching products with an intuitive platform built for educators and entrepreneurs.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Course Creation & Hosting",
@@ -2282,7 +2396,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://teachable.com/"
+    "official_evidence_url": "https://teachable.com/",
+    "affiliate_url": null
   },
   {
     "id": "livechat",
@@ -2290,7 +2405,6 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "Enhance customer support and sales with a powerful live chat solution, enabling real-time communication and efficient query resolution.",
-    "affiliate_url": null,
     "pricing": "Check website for details.",
     "key_features": [
       "Real-time Chat with Customers",
@@ -2312,7 +2426,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.livechat.com/"
+    "official_evidence_url": "https://www.livechat.com/",
+    "affiliate_url": null
   },
   {
     "id": "kittl",
@@ -2320,7 +2435,6 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "Kittl is an AI-powered graphic design tool that simplifies creating stunning visuals with an extensive library of templates, vector editing, and print-on-demand assets.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered graphic design",
@@ -2342,7 +2456,15 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.kittl.com/"
+    "official_evidence_url": "https://www.kittl.com/",
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "Impact application received",
+      "application will be reviewed"
+    ]
   },
   {
     "id": "koala-ai",
@@ -2350,7 +2472,6 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "Koala AI is an advanced AI writing tool specifically designed for generating SEO-optimized articles, complete with SERP analysis, Amazon affiliate content, and seamless WordPress integration.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "SEO-optimized article writing",
@@ -2372,7 +2493,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://koala.sh/"
+    "official_evidence_url": "https://koala.sh/",
+    "affiliate_url": null
   },
   {
     "id": "lovo",
@@ -2380,7 +2502,6 @@
     "category": "voice_cloning",
     "category_display": "Voice & Speech AI",
     "description": "Lovo is an AI voice platform offering over 500 diverse voices, robust voice cloning capabilities, and integrated Genny video editing for comprehensive media production.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "500+ AI voices",
@@ -2400,7 +2521,18 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "application_blocked_vendor_site_paused",
+    "affiliate_source_url": "https://lovo.ai/affiliate-program",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "20% recurring commission for 24 months",
+      "Free to sign up",
+      "No minimum sales required"
+    ],
+    "affiliate_rejection_reason": "Application page returned 'This deployment is temporarily paused' in the live browser on 2026-09-01."
   },
   {
     "id": "n8n",
@@ -2408,7 +2540,6 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "n8n is a flexible low-code automation platform designed for building sophisticated workflows, creating AI agents, and integrating with over 500 applications seamlessly.",
-    "affiliate_url": null,
     "pricing": "Open-source: free, Enterprise: custom pricing",
     "key_features": [
       "Low-code workflow building",
@@ -2430,7 +2561,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://n8n.io/"
+    "official_evidence_url": "https://n8n.io/",
+    "affiliate_url": null
   },
   {
     "id": "novita-ai",
@@ -2438,7 +2570,6 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Novita AI is a comprehensive AI cloud platform offering developers and businesses seamless access to 200+ AI model APIs and custom deployment solutions for advanced applications.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "200+ AI model APIs",
@@ -2460,7 +2591,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://novita.com/"
+    "official_evidence_url": "https://novita.com/",
+    "affiliate_url": null
   },
   {
     "id": "followr",
@@ -2468,9 +2600,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Followr.ai is a software platform empowering individuals and small teams to manage and grow their social media presence through sophisticated automation and AI-assisted tools.",
-    "affiliate_url": "https://followr.ai/?ref=support22",
-    "affiliate_verified": true,
-    "affiliate_verified_at": "2026-08-31T14:00:00Z",
     "pricing": "Pricing varies by plan",
     "key_features": [
       "Social media management",
@@ -2493,6 +2622,9 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://followr.ai/",
+    "affiliate_url": "https://followr.ai/?ref=support22",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-08-31T14:00:00Z",
     "affiliate_status": "approved_tracking"
   },
   {
@@ -2501,7 +2633,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "10Web offers an AI-powered platform for building and managing WordPress websites, providing automated hosting and optimization features.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI Website Builder for WordPress",
@@ -2523,7 +2654,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://10web.io/"
+    "official_evidence_url": "https://10web.io/",
+    "affiliate_url": null
   },
   {
     "id": "supademo",
@@ -2531,7 +2663,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Supademo is an advanced demo automation platform that helps product-led companies drive leads, onboard new users, and generate consistent revenue through interactive product demos.",
-    "affiliate_url": null,
     "pricing": "Not specified in snippet",
     "key_features": [
       "Advanced demo automation",
@@ -2553,7 +2684,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://supademo.com/"
+    "official_evidence_url": "https://supademo.com/",
+    "affiliate_url": null
   },
   {
     "id": "colossyan",
@@ -2561,7 +2693,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Colossyan is an AI video platform that enables users to create engaging videos with AI presenters and multilingual support for diverse content needs, simplifying complex video production.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI video creation",
@@ -2584,7 +2715,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://colossyan.com/"
+    "official_evidence_url": "https://colossyan.com/",
+    "affiliate_url": null
   },
   {
     "id": "beefree",
@@ -2592,7 +2724,6 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Beefree is a drag-and-drop editor for creating beautiful, responsive emails and landing pages quickly and without coding, ideal for marketers and designers.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Drag-and-drop editor",
@@ -2614,7 +2745,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://beefree.io/"
+    "official_evidence_url": "https://beefree.io/",
+    "affiliate_url": null
   },
   {
     "id": "apollo",
@@ -2622,7 +2754,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Apollo is a sales intelligence and engagement platform that provides B2B contact data, lead generation tools, and outreach automation for sales teams to close more deals.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "B2B contact database",
@@ -2644,7 +2775,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://apollo.io/"
+    "official_evidence_url": "https://apollo.io/",
+    "affiliate_url": null
   },
   {
     "id": "getgenie",
@@ -2652,9 +2784,6 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "GetGenie is an AI-powered content writing assistant that helps marketers and bloggers generate high-quality articles, social media posts, and SEO content efficiently.",
-    "affiliate_url": "https://getgenie.ai?rui=3921",
-    "affiliate_verified": true,
-    "affiliate_verified_at": "2026-08-31T14:00:00Z",
     "pricing": "See official pricing",
     "key_features": [
       "AI content generation",
@@ -2677,6 +2806,9 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://getgenie.ai/",
+    "affiliate_url": "https://getgenie.ai?rui=3921",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-08-31T14:00:00Z",
     "affiliate_status": "approved_tracking"
   },
   {
@@ -2685,7 +2817,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "ActiveCampaign is a powerful customer experience automation platform offering email marketing, marketing automation, and CRM tools for businesses of all sizes to engage customers effectively.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Email marketing automation",
@@ -2707,7 +2838,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://activecampaign.com/"
+    "official_evidence_url": "https://activecampaign.com/",
+    "affiliate_url": null
   },
   {
     "id": "sanebox",
@@ -2715,7 +2847,6 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Sanebox is an AI-powered email management tool that helps users prioritize important emails, organize their inbox, and reduce clutter efficiently.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI email prioritization",
@@ -2737,7 +2868,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://sanebox.com/"
+    "official_evidence_url": "https://sanebox.com/",
+    "affiliate_url": null
   },
   {
     "id": "pipedrive",
@@ -2745,7 +2877,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Pipedrive is a sales-focused CRM platform designed to help small and medium businesses manage their sales pipeline, track deals, and automate workflows, ensuring no lead is missed.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Sales pipeline management",
@@ -2767,7 +2898,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://pipedrive.com/"
+    "official_evidence_url": "https://pipedrive.com/",
+    "affiliate_url": null
   },
   {
     "id": "framer",
@@ -2775,7 +2907,6 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Framer is a powerful design tool and website builder that enables users to create stunning interactive prototypes and publish them as live websites with ease, no coding required.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Interactive prototyping",
@@ -2797,7 +2928,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://framer.com/"
+    "official_evidence_url": "https://framer.com/",
+    "affiliate_url": null
   },
   {
     "id": "monday-com",
@@ -2805,7 +2937,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Monday.com is a centralized work management platform for project tracking, workflow creation, and team collaboration, helping teams streamline operations and achieve goals efficiently.",
-    "affiliate_url": null,
     "pricing": "Varies by plan",
     "key_features": [
       "Centralized work management",
@@ -2827,7 +2958,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://monday.com/"
+    "official_evidence_url": "https://monday.com/",
+    "affiliate_url": null
   },
   {
     "id": "cartstack",
@@ -2835,7 +2967,6 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "CartStack is the ultimate customer recovery tool, deploying targeted remarketing emails, SMS texts, and push notifications to help retailers re-engage and recover abandoned carts and much more.",
-    "affiliate_url": null,
     "pricing": "Contact for pricing",
     "key_features": [
       "Targeted Remarketing Emails",
@@ -2857,7 +2988,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.cartstack.com/"
+    "official_evidence_url": "https://www.cartstack.com/",
+    "affiliate_url": null
   },
   {
     "id": "cloudways",
@@ -2865,7 +2997,6 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Cloudways is a managed cloud hosting platform designed to simplify the deployment and management of web applications for businesses and developers.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Managed cloud hosting platform",
@@ -2887,7 +3018,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.cloudways.com/"
+    "official_evidence_url": "https://www.cloudways.com/",
+    "affiliate_url": null
   },
   {
     "id": "featureshark",
@@ -2895,7 +3027,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "FeatureShark helps product teams efficiently gather customer feedback and streamline their product management and roadmap planning processes.",
-    "affiliate_url": null,
     "pricing": "Check website for pricing details",
     "key_features": [
       "Customer feedback collection",
@@ -2917,7 +3048,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://featureshark.com/"
+    "official_evidence_url": "https://featureshark.com/",
+    "affiliate_url": null
   },
   {
     "id": "clickup",
@@ -2925,7 +3057,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "ClickUp is an all-in-one productivity platform offering highly customizable project management solutions for teams seeking to streamline workflows.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Customizable project management",
@@ -2947,7 +3078,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://clickup.com/"
+    "official_evidence_url": "https://clickup.com/",
+    "affiliate_url": null
   },
   {
     "id": "getgabs",
@@ -2955,7 +3087,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Getgabs is a WhatsApp marketing platform empowering businesses to automate customer communication and engage audiences effectively through chat.",
-    "affiliate_url": null,
     "pricing": "Check website for pricing details",
     "key_features": [
       "Automated WhatsApp campaigns",
@@ -2977,7 +3108,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://getgabs.com/"
+    "official_evidence_url": "https://getgabs.com/",
+    "affiliate_url": null
   },
   {
     "id": "eprofessor",
@@ -2985,7 +3117,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Cloud-based platform for creating, selling, and managing interactive e-learning courses and secure online assessments.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Create interactive courses",
@@ -3007,7 +3138,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://eprofessor.com/"
+    "official_evidence_url": "https://eprofessor.com/",
+    "affiliate_url": null
   },
   {
     "id": "docsbot",
@@ -3015,7 +3147,6 @@
     "category": "ai_agents",
     "category_display": "Autonomous AI Agents",
     "description": "Deploy custom AI agents trained on your unique business knowledge for superior automated support and enhanced team productivity.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Custom AI agent creation",
@@ -3037,7 +3168,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://docsbot.ai/"
+    "official_evidence_url": "https://docsbot.ai/",
+    "affiliate_url": null
   },
   {
     "id": "surfeo",
@@ -3045,7 +3177,6 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "A powerful platform designed to measure and optimize your brand's visibility across leading AI models like ChatGPT, Gemini, Perplexity, and Claude.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Measure AI brand visibility",
@@ -3067,7 +3198,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://surfeo.ai/"
+    "official_evidence_url": "https://surfeo.ai/",
+    "affiliate_url": null
   },
   {
     "id": "dub",
@@ -3075,7 +3207,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Create branded short links with advanced conversion tracking and a robust partner management infrastructure for effective marketing campaigns.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Branded short links",
@@ -3097,7 +3228,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://dub.co/"
+    "official_evidence_url": "https://dub.co/",
+    "affiliate_url": null
   },
   {
     "id": "helpdesk",
@@ -3105,7 +3237,6 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "Centralized ticketing software that streamlines customer support and enhances team collaboration through powerful automation and analytics.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Centralized ticketing system",
@@ -3127,7 +3258,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://helpdesk.com/"
+    "official_evidence_url": "https://helpdesk.com/",
+    "affiliate_url": null
   },
   {
     "id": "happyscribe",
@@ -3135,7 +3267,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "AI-powered platform that provides fast transcription, accurate subtitles, and intelligent meeting notes in over 150 languages.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered transcription",
@@ -3157,7 +3288,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://happyscribe.com/"
+    "official_evidence_url": "https://happyscribe.com/",
+    "affiliate_url": null
   },
   {
     "id": "pickaxe",
@@ -3165,7 +3297,6 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "A no-code platform to effortlessly build, deploy, and monetize custom AI agents and branded portals, accelerating your AI development.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "No-code AI agent builder",
@@ -3187,7 +3318,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://pickaxe.ai/"
+    "official_evidence_url": "https://pickaxe.ai/",
+    "affiliate_url": null
   },
   {
     "id": "ai-video-cut",
@@ -3195,7 +3327,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Transforms long-form videos into engaging, viral short-form clips using advanced AI-driven prompts and smart cropping technology.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Convert long videos to shorts",
@@ -3217,7 +3348,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://aivideocut.com/"
+    "official_evidence_url": "https://aivideocut.com/",
+    "affiliate_url": null
   },
   {
     "id": "tagshop-ai",
@@ -3225,7 +3357,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Generate high-converting, UGC-style AI video ads directly from product URLs or scripts in just minutes, boosting your marketing efforts.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Generate AI video ads",
@@ -3247,7 +3378,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://tagshop.ai/"
+    "official_evidence_url": "https://tagshop.ai/",
+    "affiliate_url": null
   },
   {
     "id": "text",
@@ -3255,7 +3387,6 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "An AI-powered customer service platform unifying live chat, helpdesk functionalities, and chatbot automation into one seamless system.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI customer service platform",
@@ -3277,7 +3408,14 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://text.com/"
+    "official_evidence_url": "https://text.com/",
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "approved_account",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "Welcome to the Text Partner Program"
+    ]
   },
   {
     "id": "typedesk",
@@ -3285,7 +3423,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Cross-platform text expander and canned response manager empowering teams to automate repetitive typing tasks and enhance communication efficiency.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Cross-platform text expander",
@@ -3307,7 +3444,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://typedesk.com/"
+    "official_evidence_url": "https://typedesk.com/",
+    "affiliate_url": null
   },
   {
     "id": "chatbot",
@@ -3315,7 +3453,6 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "Create powerful AI-powered conversational agents to automate customer service, streamline lead generation, and boost sales processes without any coding.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Create AI chatbots",
@@ -3337,7 +3474,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://chatbot.com/"
+    "official_evidence_url": "https://chatbot.com/",
+    "affiliate_url": null
   },
   {
     "id": "gojiberry",
@@ -3345,9 +3483,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "An AI-powered sales engine that intelligently identifies high-intent LinkedIn leads and automates personalized outreach to effortlessly book demos.",
-    "affiliate_url": "https://gojiberry.ai/?ref=sangkwon",
-    "affiliate_verified": true,
-    "affiliate_verified_at": "2026-08-31T14:00:00Z",
     "pricing": "See official pricing",
     "key_features": [
       "AI sales engine",
@@ -3370,6 +3505,9 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://gojiberry.ai/",
+    "affiliate_url": "https://gojiberry.ai/?ref=sangkwon",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-08-31T14:00:00Z",
     "affiliate_status": "approved_tracking"
   },
   {
@@ -3378,8 +3516,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "An AI-driven platform that fully automates and optimizes advertising campaigns for Amazon and Walmart sellers, maximizing their ROI.",
-    "affiliate_url": null,
-    "pricing": "From €495/month plus a percentage of ad spend",
+    "pricing": "From \u20ac495/month plus a percentage of ad spend",
     "key_features": [
       "AI-driven advertising",
       "Automate ad campaigns",
@@ -3399,7 +3536,7 @@
     "evidence_source_type": "official_help_page",
     "is_manual_override": true,
     "pricing_evidence_markers": [
-      "€495",
+      "\u20ac495",
       "month"
     ],
     "http_verification_status": "verified_http_200",
@@ -3407,7 +3544,15 @@
     "pricing_source_final_url": "https://www.bidx.io/pricing",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.bidx.io/"
+    "official_evidence_url": "https://www.bidx.io/",
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "PartnerStack application received",
+      "submitted for BidX review"
+    ]
   },
   {
     "id": "tidio",
@@ -3415,7 +3560,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "An AI-powered customer service platform offering Lyro AI Agent, live chat, ticketing, and automations to streamline customer interactions for over 300K businesses.",
-    "affiliate_url": null,
     "pricing": "Offers a free plan, paid plans vary",
     "key_features": [
       "AI Agent (Lyro)",
@@ -3437,7 +3581,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.tidio.com/"
+    "official_evidence_url": "https://www.tidio.com/",
+    "affiliate_url": null
   },
   {
     "id": "catalister",
@@ -3445,7 +3590,6 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "An AI-powered listing tool designed specifically for Shopify dropshippers, simplifying product listings and enhancing efficiency for e-commerce creators.",
-    "affiliate_url": null,
     "pricing": "Varies by membership",
     "key_features": [
       "AI-powered product listing generation",
@@ -3467,7 +3611,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://catalister.com/"
+    "official_evidence_url": "https://catalister.com/",
+    "affiliate_url": null
   },
   {
     "id": "bookyourdata",
@@ -3475,7 +3620,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "A B2B contact data platform providing real-time, high-quality leads on a pay-as-you-go model, trusted by thousands for effective lead generation.",
-    "affiliate_url": null,
     "pricing": "Pay-as-you-go model",
     "key_features": [
       "Real-time B2B contact data",
@@ -3497,7 +3641,15 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://bookyourdata.com/"
+    "official_evidence_url": "https://bookyourdata.com/",
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "PartnerStack application received",
+      "submitted for Bookyourdata review"
+    ]
   },
   {
     "id": "mindstudio",
@@ -3505,7 +3657,6 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "A flexible and secure no-code platform that empowers users to rapidly build and deploy powerful AI agents without needing programming expertise.",
-    "affiliate_url": null,
     "pricing": "Varies by workspace subscription",
     "key_features": [
       "Rapid AI agent building",
@@ -3527,7 +3678,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.mindstudio.ai/"
+    "official_evidence_url": "https://www.mindstudio.ai/",
+    "affiliate_url": null
   },
   {
     "id": "manychat",
@@ -3535,7 +3687,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "The leading chat marketing platform enabling creators and businesses to automate conversations on platforms like Instagram, driving engagement and fostering meaningful connections.",
-    "affiliate_url": null,
     "pricing": "Varies by plan",
     "key_features": [
       "Instagram chat marketing",
@@ -3557,7 +3708,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://manychat.com/"
+    "official_evidence_url": "https://manychat.com/",
+    "affiliate_url": null
   },
   {
     "id": "synthflow-ai",
@@ -3565,7 +3717,6 @@
     "category": "voice_cloning",
     "category_display": "Voice & Speech AI",
     "description": "A no-code platform for building voice AI agents that automate customer interactions, streamlining processes like appointment scheduling, lead qualification, and customer support.",
-    "affiliate_url": null,
     "pricing": "Varies by paid referral plan",
     "key_features": [
       "No-code voice AI agent builder",
@@ -3587,7 +3738,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://synthflow.ai/"
+    "official_evidence_url": "https://synthflow.ai/",
+    "affiliate_url": null
   },
   {
     "id": "customgpt-ai",
@@ -3595,7 +3747,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "CustomGPT.ai empowers businesses to build bespoke ChatGPT-style agents, ensuring responses are precisely grounded in their private data for enhanced accuracy and role-specific interactions within automated workflows.",
-    "affiliate_url": null,
     "pricing": "Subscription plans available",
     "key_features": [
       "Build custom AI agents",
@@ -3617,7 +3768,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://customgpt.ai/"
+    "official_evidence_url": "https://customgpt.ai/",
+    "affiliate_url": null
   },
   {
     "id": "databox",
@@ -3625,7 +3777,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Automates client reporting for agencies, transforming a traditionally time-consuming process into a scalable and efficient system. Ideal for performance marketing and PPC specialists seeking high ROI from their reporting.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Automates recurring client reporting",
@@ -3647,7 +3798,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://databox.com/"
+    "official_evidence_url": "https://databox.com/",
+    "affiliate_url": null
   },
   {
     "id": "fathom",
@@ -3655,7 +3807,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "An AI meeting assistant that automatically transcribes calls, generates concise summaries, extracts key action items, and pushes notes directly to your CRM, eliminating manual documentation.",
-    "affiliate_url": null,
     "pricing": "Free plan; paid plans from $16/user/month",
     "key_features": [
       "Automatic call transcription",
@@ -3684,7 +3835,8 @@
     "pricing_source_final_url": "https://www.fathom.ai/pricing",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.fathom.ai/"
+    "official_evidence_url": "https://www.fathom.ai/",
+    "affiliate_url": null
   },
   {
     "id": "taskip",
@@ -3692,7 +3844,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Taskip is an operational hub designed to centralize and tie together projects, clients, communication, and various automations, creating a unified and efficient ecosystem for agencies.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Centralized operational hub",
@@ -3714,7 +3865,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://taskip.net/"
+    "official_evidence_url": "https://taskip.net/",
+    "affiliate_url": null
   },
   {
     "id": "gumloop",
@@ -3722,7 +3874,6 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Gumloop is an innovative AI agent and workflow automation platform that allows you to build custom AI agents using simple plain language, connecting to your tools and running workflows without code.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Build custom AI agents without code",
@@ -3744,7 +3895,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://gumloop.com/"
+    "official_evidence_url": "https://gumloop.com/",
+    "affiliate_url": null
   },
   {
     "id": "teknikforce",
@@ -3752,7 +3904,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Teknikforce offers an extensive ecosystem of marketing, funnel-building, AI, and automation tools, empowering online entrepreneurs to scale their businesses with comprehensive solutions.",
-    "affiliate_url": null,
     "pricing": "Various plans available across a suite of products",
     "key_features": [
       "Comprehensive marketing suite",
@@ -3774,7 +3925,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.teknikforce.com/"
+    "official_evidence_url": "https://www.teknikforce.com/",
+    "affiliate_url": null
   },
   {
     "id": "hide-me",
@@ -3782,7 +3934,6 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "hide.me offers an advanced VPN service ensuring online privacy, anonymity, and secure encrypted internet connections for users worldwide. Protect your digital footprint with robust security features.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Advanced online privacy",
@@ -3804,7 +3955,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://hide.me/"
+    "official_evidence_url": "https://hide.me/",
+    "affiliate_url": null
   },
   {
     "id": "snov-io",
@@ -3812,7 +3964,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Snov.io is an all-in-one platform for lead generation, email verification, and outreach, helping sales and marketing teams streamline their prospecting efforts.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Email Finder & Verifier",
@@ -3834,7 +3985,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://snov.io/"
+    "official_evidence_url": "https://snov.io/",
+    "affiliate_url": null
   },
   {
     "id": "claap",
@@ -3842,7 +3994,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Claap is a powerful software platform that streamlines team communication by helping record, analyze, and share meeting content and asynchronous video updates. Enhance productivity and decision-making by acting on crucial insights efficiently.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Record and transcribe meeting content",
@@ -3864,7 +4015,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.claap.ai/"
+    "official_evidence_url": "https://www.claap.ai/",
+    "affiliate_url": null
   },
   {
     "id": "cloudtalk",
@@ -3872,7 +4024,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "CloudTalk is a leading cloud-based call center software designed to revolutionize how businesses interact with their customers. Optimize communication workflows and deliver exceptional customer service with advanced features.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Cloud-based call center functionality",
@@ -3894,7 +4045,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.cloudtalk.io/"
+    "official_evidence_url": "https://www.cloudtalk.io/",
+    "affiliate_url": null
   },
   {
     "id": "seamless",
@@ -3902,7 +4054,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Seamless is a sales intelligence platform that empowers B2B teams to find, verify, and connect with ideal prospects by providing accurate contact information and sales tools.",
-    "affiliate_url": null,
     "pricing": "Custom pricing (B2B)",
     "key_features": [
       "B2B sales intelligence platform",
@@ -3921,7 +4072,19 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "application_blocked_region",
+    "affiliate_source_url": "https://seamless.ai/company/affiliate-program",
+    "affiliate_final_url": "https://dash.partnerstack.com/application?company=seamlessai&gref=page",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "20-40% commission",
+      "PartnerStack",
+      "FREE"
+    ],
+    "affiliate_rejection_reason": "Seamless application path is confirmed, but the live site returned a CloudFront country restriction on 2026-09-01 and the PartnerStack application UI did not render."
   },
   {
     "id": "flowgent-ai",
@@ -3929,7 +4092,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "FlowGent AI is a complete platform to build, manage, and scale AI agents and automations, designed to streamline complex workflows.",
-    "affiliate_url": null,
     "pricing": "Not specified",
     "key_features": [
       "AI Agent Creation",
@@ -3951,7 +4113,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://flowgent.ai/"
+    "official_evidence_url": "https://flowgent.ai/",
+    "affiliate_url": null
   },
   {
     "id": "activepieces",
@@ -3959,7 +4122,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "A budget-friendly automated workflow software designed for small teams and solo builders seeking robust automation without the high costs of enterprise solutions.",
-    "affiliate_url": null,
     "pricing": "Budget-friendly",
     "key_features": [
       "Best for small teams and solo builders",
@@ -3981,7 +4143,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.activepieces.com/"
+    "official_evidence_url": "https://www.activepieces.com/",
+    "affiliate_url": null
   },
   {
     "id": "marketingblocks",
@@ -3989,7 +4152,6 @@
     "category": "copywriting",
     "category_display": "AI Copywriting",
     "description": "An all-in-one AI marketing platform that replaces copywriters, designers, video editors, and media buyers with intelligent AI agents. It streamlines content creation, ad generation, and funnel management to automate your entire marketing workflow.",
-    "affiliate_url": null,
     "pricing": "Check website for details.",
     "key_features": [
       "AI-powered marketing team replacement",
@@ -4009,7 +4171,8 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false
+    "is_manual_override": false,
+    "affiliate_url": null
   },
   {
     "id": "google-workspace",
@@ -4017,7 +4180,6 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Google Workspace offers a powerful suite of cloud-based productivity and collaboration tools, including Gmail, Drive, Calendar, Docs, and Meet, empowering businesses to work efficiently from anywhere. It's ideal for enhancing team communication and content creation.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Professional Email (Gmail)",
@@ -4039,7 +4201,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://workspace.google.com/"
+    "official_evidence_url": "https://workspace.google.com/",
+    "affiliate_url": null
   },
   {
     "id": "chatbase",
@@ -4047,7 +4210,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Empower your business to build no-code AI agents for customer support, sales, and workflow automation, enhancing customer engagement across multiple channels.",
-    "affiliate_url": null,
     "pricing": "Varies",
     "key_features": [
       "Build AI agents without code",
@@ -4069,7 +4231,8 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.chatbase.co/"
+    "official_evidence_url": "https://www.chatbase.co/",
+    "affiliate_url": null
   },
   {
     "id": "krater",
@@ -4077,7 +4240,6 @@
     "category": "creator",
     "category_display": "Creator Tools",
     "description": "All-in-one AI content creation suite featuring text, voiceover, image, and code generation for creators.",
-    "affiliate_url": null,
     "pricing": "Pro plan starting at $200/year (billed annually)",
     "key_features": [
       "AI Text Generation",
@@ -4106,7 +4268,8 @@
     "pricing_source_final_url": "https://krater.ai/pricing",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://krater.ai/"
+    "official_evidence_url": "https://krater.ai/",
+    "affiliate_url": null
   },
   {
     "id": "expandi",
@@ -4114,7 +4277,6 @@
     "category": "automation",
     "category_display": "Workflow Automation",
     "description": "Safe and automated LinkedIn outreach and email sequence platform for B2B lead generation.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "LinkedIn Automation",
@@ -4140,7 +4302,8 @@
     "pricing_source_final_url": null,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://expandi.io/"
+    "official_evidence_url": "https://expandi.io/",
+    "affiliate_url": null
   },
   {
     "id": "reditus",
@@ -4148,7 +4311,6 @@
     "category": "automation",
     "category_display": "Workflow Automation",
     "description": "B2B SaaS affiliate management software designed to grow recurring revenue through partner networks.",
-    "affiliate_url": null,
     "pricing": "14-day free trial; Startup plan at $99/month (billed annually) or $149 monthly",
     "key_features": [
       "B2B Partner Marketplace",
@@ -4177,7 +4339,8 @@
     "pricing_source_final_url": "https://getreditus.com/help/reditus-pricing",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://getreditus.com/"
+    "official_evidence_url": "https://getreditus.com/",
+    "affiliate_url": null
   },
   {
     "id": "joiin",
@@ -4185,7 +4348,6 @@
     "category": "automation",
     "category_display": "Workflow Automation",
     "description": "Consolidated financial reporting software integrating QuickBooks, Xero, and Sage multi-entity data.",
-    "affiliate_url": null,
     "pricing": "Starting at $23/month (billed annually, 1 company)",
     "key_features": [
       "Multi-Entity Consolidation",
@@ -4214,7 +4376,8 @@
     "pricing_source_final_url": "https://www.joiin.co/pricing/",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.joiin.co/"
+    "official_evidence_url": "https://www.joiin.co/",
+    "affiliate_url": null
   },
   {
     "id": "agentworks",
@@ -4222,7 +4385,6 @@
     "category": "developer",
     "category_display": "Coding & Dev Tools",
     "description": "Enterprise AI agent deployment and orchestration workspace for automated enterprise workflows.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Enterprise Agentic Framework",
@@ -4248,7 +4410,8 @@
     "pricing_source_final_url": null,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://agent-works.ai/"
+    "official_evidence_url": "https://agent-works.ai/",
+    "affiliate_url": null
   },
   {
     "id": "airia",
@@ -4256,7 +4419,6 @@
     "category": "developer",
     "category_display": "Coding & Dev Tools",
     "description": "Enterprise AI governance, security, and orchestration platform for managing agentic AI models.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI Security Governance",
@@ -4279,7 +4441,18 @@
     "http_verification_status": "verified_http_200",
     "pricing_verified_at": null,
     "pricing_source_http_status": null,
-    "pricing_source_final_url": null
+    "pricing_source_final_url": null,
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "application_ready",
+    "affiliate_source_url": "https://airia.com/partners/",
+    "affiliate_final_url": "https://dash.partnerstack.com/application?company=airia&group=default",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "Referral partner",
+      "Apply",
+      "PartnerStack"
+    ]
   },
   {
     "id": "omi-ai",
@@ -4287,7 +4460,6 @@
     "category": "developer",
     "category_display": "Coding & Dev Tools",
     "description": "Open-source AI wearable necklace and conversation assistant capturing real-time voice memories.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Wearable Voice Hardware",
@@ -4313,7 +4485,8 @@
     "pricing_source_final_url": null,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.omi.me/"
+    "official_evidence_url": "https://www.omi.me/",
+    "affiliate_url": null
   },
   {
     "id": "fireflies-ai",
@@ -4321,7 +4494,6 @@
     "category": "automation",
     "category_display": "Workflow Automation",
     "description": "AI voice assistant and meeting note-taker that transcribes, summarizes, and analyzes conversations.",
-    "affiliate_url": "https://fireflies.ai/?fpr=sangkwon53",
     "pricing": "See official pricing",
     "key_features": [
       "Automated Meeting Transcription",
@@ -4348,6 +4520,7 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://fireflies.ai/",
+    "affiliate_url": "https://fireflies.ai/?fpr=sangkwon53",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
     "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
@@ -4358,7 +4531,6 @@
     "category": "creator",
     "category_display": "Creator Tools",
     "description": "AI-powered presentation and document generator creating interactive web slides and pages.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI Presentation Generator",
@@ -4384,7 +4556,15 @@
     "pricing_source_final_url": null,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://gamma.app/"
+    "official_evidence_url": "https://gamma.app/",
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "PartnerStack application received",
+      "submitted for Gamma review"
+    ]
   },
   {
     "id": "gobii",
@@ -4392,7 +4572,6 @@
     "category": "developer",
     "category_display": "Coding & Dev Tools",
     "description": "AI workforce and automated teammate platform building AI employees for teams with complex operational tasks.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Autonomous AI Employees",
@@ -4418,7 +4597,8 @@
     "pricing_source_final_url": null,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://gobii.ai/"
+    "official_evidence_url": "https://gobii.ai/",
+    "affiliate_url": null
   },
   {
     "id": "voibe",
@@ -4427,7 +4607,6 @@
     "category_display": "Voice & Speech AI",
     "description": "Voibe is a dictation app for Mac, offering fully on-device or private open-source cloud modes, ensuring user privacy by not training AI on user dictation. It's ideal for Mac-using professionals seeking efficient and secure speech processing.",
     "official_url": "https://www.getvoibe.com/",
-    "affiliate_url": null,
     "pricing_source_url": null,
     "pricing": "See official pricing",
     "key_features": [
@@ -4447,18 +4626,19 @@
     "evidence_source_type": null,
     "is_manual_override": false,
     "http_verification_status": null,
+    "primary_category": "voice_cloning",
+    "comparison_group": "voice_generation",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.getvoibe.com/",
+    "affiliate_url": null,
     "affiliate_verified": false,
     "affiliate_source_url": "https://www.getvoibe.com/",
     "affiliate_final_url": "https://www.getvoibe.com/",
     "affiliate_http_status": 200,
     "affiliate_evidence_markers": [],
     "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "HTTP 200 but no strong affiliate evidence found. Required at least one compound pattern (e.g. 'affiliate program', 'commission rate', 'cookie duration'). Single-word matches in footer/privacy/blog are not accepted.",
-    "primary_category": "voice_cloning",
-    "comparison_group": "voice_generation",
-    "official_verification_status": "verified",
-    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.getvoibe.com/"
+    "affiliate_rejection_reason": "HTTP 200 but no strong affiliate evidence found. Required at least one compound pattern (e.g. 'affiliate program', 'commission rate', 'cookie duration'). Single-word matches in footer/privacy/blog are not accepted."
   },
   {
     "id": "merlin-ai",
@@ -4467,7 +4647,6 @@
     "category_display": "Creator & Productivity",
     "description": "Merlin AI is an advanced AI assistant designed to boost productivity for AI enthusiasts and content creators, offering sophisticated tools for various content generation needs.",
     "official_url": "https://merlin.ai/",
-    "affiliate_url": null,
     "pricing_source_url": null,
     "pricing": "See official pricing",
     "key_features": [
@@ -4488,15 +4667,17 @@
     "evidence_source_type": null,
     "is_manual_override": false,
     "http_verification_status": null,
+    "primary_category": "creator",
+    "comparison_group": "creator",
+    "affiliate_url": null,
     "affiliate_verified": false,
     "affiliate_source_url": "https://merlin.ai/affiliate",
     "affiliate_final_url": null,
     "affiliate_http_status": null,
     "affiliate_evidence_markers": [],
     "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "URL error: [Errno -5] No address associated with hostname",
-    "primary_category": "creator",
-    "comparison_group": "creator"
+    "affiliate_rejection_reason": "The configured merlin.ai hostname does not resolve and this entry duplicates the verified getmerlin.in product already stored as id 'merlin'.",
+    "affiliate_status": "duplicate_do_not_apply"
   },
   {
     "id": "speechify",
@@ -4505,7 +4686,6 @@
     "category_display": "Voice & Speech AI",
     "description": "Speechify leverages AI to convert written content into natural-sounding audio, serving as a popular accessibility and productivity tool for students, professionals, and education audiences.",
     "official_url": "https://speechify.com/",
-    "affiliate_url": null,
     "pricing_source_url": null,
     "pricing": "See official pricing",
     "key_features": [
@@ -4526,18 +4706,19 @@
     "evidence_source_type": null,
     "is_manual_override": false,
     "http_verification_status": null,
+    "primary_category": "voice_cloning",
+    "comparison_group": "voice_generation",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://speechify.com/",
+    "affiliate_url": null,
     "affiliate_verified": false,
     "affiliate_source_url": "https://speechify.com/affiliate",
     "affiliate_final_url": null,
     "affiliate_http_status": 308,
     "affiliate_evidence_markers": [],
     "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "HTTP error 308",
-    "primary_category": "voice_cloning",
-    "comparison_group": "voice_generation",
-    "official_verification_status": "verified",
-    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://speechify.com/"
+    "affiliate_rejection_reason": "HTTP error 308"
   },
   {
     "id": "babylovegrowth-ai",
@@ -4546,7 +4727,6 @@
     "category_display": "Creator & Productivity",
     "description": "BabyLoveGrowth.ai is an AI-powered tool that generates SEO-optimized content, helping users create high-quality, engaging material efficiently.",
     "official_url": "https://babylovegrowth.ai",
-    "affiliate_url": null,
     "pricing_source_url": null,
     "pricing": "See official pricing",
     "key_features": [
@@ -4567,18 +4747,19 @@
     "evidence_source_type": null,
     "is_manual_override": false,
     "http_verification_status": null,
+    "primary_category": "creator",
+    "comparison_group": "creator",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://babylovegrowth.ai",
+    "affiliate_url": null,
     "affiliate_verified": false,
     "affiliate_source_url": "https://babylovegrowth.ai",
     "affiliate_final_url": null,
     "affiliate_http_status": 308,
     "affiliate_evidence_markers": [],
     "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "HTTP error 308",
-    "primary_category": "creator",
-    "comparison_group": "creator",
-    "official_verification_status": "verified",
-    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://babylovegrowth.ai"
+    "affiliate_rejection_reason": "HTTP error 308"
   },
   {
     "id": "ai-agent-store",
@@ -4587,7 +4768,6 @@
     "category_display": "Workflow Automation",
     "description": "Discover and deploy a diverse array of AI agents, access agency listings, and leverage hosted AI solutions with premium subscriptions designed for businesses seeking advanced automation.",
     "official_url": "https://aiagentstore.ai/",
-    "affiliate_url": null,
     "pricing_source_url": null,
     "pricing": "See official pricing",
     "key_features": [
@@ -4608,18 +4788,19 @@
     "evidence_source_type": null,
     "is_manual_override": false,
     "http_verification_status": null,
+    "primary_category": "automation",
+    "comparison_group": "automation",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-09T00:00:00Z",
+    "official_evidence_url": "https://aiagentstore.ai/",
+    "affiliate_url": null,
     "affiliate_verified": false,
     "affiliate_source_url": "https://aiagentstore.com/affiliate",
     "affiliate_final_url": null,
     "affiliate_http_status": null,
     "affiliate_evidence_markers": [],
     "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "URL error: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1017)",
-    "primary_category": "automation",
-    "comparison_group": "automation",
-    "official_verification_status": "verified",
-    "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://aiagentstore.ai/"
+    "affiliate_rejection_reason": "URL error: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1017)"
   },
   {
     "id": "marblism",
@@ -4628,7 +4809,6 @@
     "category_display": "Workflow Automation",
     "description": "Empower your business with Marblism's AI agents platform, designed to automate complex tasks and streamline operations using highly customizable virtual team members.",
     "official_url": "https://marblism.com/",
-    "affiliate_url": null,
     "pricing_source_url": null,
     "pricing": "See official pricing",
     "key_features": [
@@ -4649,6 +4829,12 @@
     "evidence_source_type": null,
     "is_manual_override": false,
     "http_verification_status": null,
+    "primary_category": "automation",
+    "comparison_group": "automation",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://marblism.com/",
+    "affiliate_url": null,
     "affiliate_verified": false,
     "affiliate_status": "account_active_payout_setup_required",
     "affiliate_source_url": "https://marblism.com/affiliate",
@@ -4658,12 +4844,7 @@
       "partner\\s+program.{0,80}(commission|payout|earn)"
     ],
     "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "Program exists, but no approved COSHUMA tracking link is present",
-    "primary_category": "automation",
-    "comparison_group": "automation",
-    "official_verification_status": "verified",
-    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://marblism.com/"
+    "affiliate_rejection_reason": "Program exists, but no approved COSHUMA tracking link is present"
   },
   {
     "id": "taskade",
@@ -4693,6 +4874,13 @@
     "primary_category": "automation",
     "comparison_group": "productivity_workspace",
     "is_manual_override": true,
+    "http_verification_status": "verified_http_200",
+    "pricing_verified_at": "2026-08-04T03:25:05Z",
+    "pricing_source_http_status": 200,
+    "pricing_source_final_url": "https://www.taskade.com/pricing",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://www.taskade.com/",
     "affiliate_url": "https://www.taskade.com/?via=7zzjo7",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
@@ -4703,14 +4891,7 @@
       "affiliate\\s+program"
     ],
     "affiliate_verified_at": "2026-08-16T04:20:43Z",
-    "affiliate_rejection_reason": null,
-    "http_verification_status": "verified_http_200",
-    "pricing_verified_at": "2026-08-04T03:25:05Z",
-    "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://www.taskade.com/pricing",
-    "official_verification_status": "verified",
-    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.taskade.com/"
+    "affiliate_rejection_reason": null
   },
   {
     "id": "relevance-ai",
@@ -4740,6 +4921,13 @@
     "primary_category": "developer",
     "comparison_group": "ai_agent_platform",
     "is_manual_override": true,
+    "http_verification_status": "verified_http_200",
+    "pricing_verified_at": "2026-08-04T03:25:05Z",
+    "pricing_source_http_status": 200,
+    "pricing_source_final_url": "https://relevanceai.com/docs/get-started/pricing",
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
+    "official_evidence_url": "https://relevanceai.com/",
     "affiliate_url": "https://relevanceai.com?via=sangkwon",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
@@ -4753,13 +4941,6 @@
       "no upfront fee"
     ],
     "affiliate_verified_at": "2026-08-31T17:44:19Z",
-    "affiliate_rejection_reason": null,
-    "http_verification_status": "verified_http_200",
-    "pricing_verified_at": "2026-08-04T03:25:05Z",
-    "pricing_source_http_status": 200,
-    "pricing_source_final_url": "https://relevanceai.com/docs/get-started/pricing",
-    "official_verification_status": "verified",
-    "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://relevanceai.com/"
+    "affiliate_rejection_reason": null
   }
 ]
