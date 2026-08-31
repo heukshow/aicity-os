@@ -375,6 +375,29 @@ compare_template = """<!doctype html>
     <meta name="description" content="In-depth side-by-side comparison of {toolA_name} vs {toolB_name}. Compare pricing, features, ratings ({toolA_rating_badge} vs {toolB_rating_badge}), and find out which AI tool is best for your workflow." />
 
     <link rel="canonical" href="https://coshuma.com/compare/{slug_a}-vs-{slug_b}.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://coshuma.com/compare/{slug_a}-vs-{slug_b}.html" />
+    <meta property="og:title" content="{toolA_name} vs {toolB_name} Comparison (2026) | GlobalSaaSHub" />
+    <meta property="og:description" content="Compare {toolA_name} and {toolB_name} by pricing, features, and verified public information." />
+
+    <script type="application/ld+json">
+    {{
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": {comparison_name_json},
+      "url": "https://coshuma.com/compare/{slug_a}-vs-{slug_b}.html",
+      "description": {comparison_description_json},
+      "isPartOf": {{
+        "@type": "WebSite",
+        "name": "GlobalSaaSHub",
+        "url": "https://coshuma.com/"
+      }},
+      "about": [
+        {{"@type": "SoftwareApplication", "name": {toolA_name_json}, "url": "https://coshuma.com/tool/{slug_a}.html"}},
+        {{"@type": "SoftwareApplication", "name": {toolB_name_json}, "url": "https://coshuma.com/tool/{slug_b}.html"}}
+      ]
+    }}
+    </script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -449,10 +472,10 @@ compare_template = """<!doctype html>
         
         <div class="grid grid-cols-2 gap-4 text-center">
           <div class="p-4 rounded-2xl bg-[#181a29] border border-purple-500/30 font-bold text-white text-base">
-            {toolA_name}
+            <a href="/tool/{slug_a}.html" class="hover:text-purple-300">{toolA_name}</a>
           </div>
           <div class="p-4 rounded-2xl bg-[#181a29] border border-blue-500/30 font-bold text-white text-base">
-            {toolB_name}
+            <a href="/tool/{slug_b}.html" class="hover:text-blue-300">{toolB_name}</a>
           </div>
         </div>
 
@@ -571,6 +594,13 @@ for tool_a in tools_data:
             toolB_features=feat_b,
             toolA_cta_html=cta_a_html,
             toolB_cta_html=cta_b_html,
+            comparison_name_json=json.dumps(f'{tool_a.get("name")} vs {tool_b.get("name")} Comparison', ensure_ascii=False),
+            comparison_description_json=json.dumps(
+                f'Compare {tool_a.get("name")} and {tool_b.get("name")} by pricing, features, and verified public information.',
+                ensure_ascii=False,
+            ),
+            toolA_name_json=json.dumps(tool_a.get("name"), ensure_ascii=False),
+            toolB_name_json=json.dumps(tool_b.get("name"), ensure_ascii=False),
             last_updated_date=last_updated_date
         )
 

@@ -1,7 +1,9 @@
 """Strict UTF-8 and structural audit for generated GlobalSaaSHub HTML."""
 import sys
+import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urlparse
 
 PROJECT = Path(__file__).resolve().parents[2]
 PUBLIC = PROJECT / "public"
@@ -42,8 +44,18 @@ class StrictHTMLParser(HTMLParser):
 def main():
     files = sorted((PUBLIC / "tool").glob("*.html")) + sorted((PUBLIC / "compare").glob("*.html"))
     errors = []
-    if len(files) != 381:
-        errors.append(f"generated HTML count is {len(files)}, expected 381")
+    root = ET.parse(PUBLIC / "sitemap.xml").getroot()
+    namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    sitemap_pages = {
+        urlparse(node.text).path
+        for node in root.findall("sm:url/sm:loc", namespace)
+        if node.text and ("/tool/" in node.text or "/compare/" in node.text)
+    }
+    generated_pages = {f"/{path.relative_to(PUBLIC).as_posix()}" for path in files}
+    if generated_pages != sitemap_pages:
+        errors.append(
+            f"generated HTML/sitemap mismatch: {len(generated_pages)} files vs {len(sitemap_pages)} URLs"
+        )
     for path in files:
         raw = path.read_bytes()
         if raw.startswith(b"\xef\xbb\xbf"):

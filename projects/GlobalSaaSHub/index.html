@@ -43,22 +43,6 @@
     }
     </script>
 
-    <!-- GA4 loads only when a real Vite-provided Measurement ID is configured. -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      (function configureAnalytics() {
-        var measurementId = '%VITE_GA4_MEASUREMENT_ID%';
-        if (!/^G-[A-Z0-9]{8,14}$/.test(measurementId)) return;
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
-        document.head.appendChild(script);
-        gtag('js', new Date());
-        gtag('config', measurementId, { send_page_view: false, cookie_domain: 'coshuma.com' });
-      })();
-    </script>
-
     <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
