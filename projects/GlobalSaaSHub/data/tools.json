@@ -1154,7 +1154,7 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.shopify.com/",
     "affiliate_verified": true,
-    "affiliate_status": "application_blocked_impact_account_creation_required",
+    "affiliate_status": "excluded_user_request",
     "affiliate_source_url": "https://www.shopify.com/kr/affiliates",
     "affiliate_final_url": "https://app.impact.com/campaign-promo-signup/Shopify.brand",
     "affiliate_verified_at": "2026-09-01T00:00:00Z"
