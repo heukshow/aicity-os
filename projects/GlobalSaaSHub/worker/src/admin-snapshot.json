@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-31T20:30:36.334Z",
+  "generatedAt": "2026-08-31T21:04:31.622Z",
   "counts": {
     "totalTools": 151,
-    "verifiedAffiliates": 44,
+    "verifiedAffiliates": 45,
     "toolPages": 151,
     "comparePages": 233,
     "sitemapUrls": 385
@@ -84,6 +84,14 @@
       "verified": true,
       "url": "https://get.descript.com/ole5fu20j5sq",
       "verifiedAt": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "id": "dorik",
+      "name": "Dorik",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://dorik.com/?ref=coshuma",
+      "verifiedAt": "2026-09-01T00:00:00Z"
     },
     {
       "id": "elevenlabs",
