@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T20:17:58.657Z",
+  "generatedAt": "2026-08-31T20:30:36.334Z",
   "counts": {
     "totalTools": 151,
     "verifiedAffiliates": 44,
@@ -8,8 +8,45 @@
     "sitemapUrls": 385
   },
   "connections": {
-    "ga4": "연결 안 됨",
-    "searchConsole": "연결 필요"
+    "ga4": "수집 연결됨",
+    "searchConsole": "연결됨"
+  },
+  "searchConsole": {
+    "period": "최근 3개월",
+    "impressions": 2006,
+    "clicks": 1,
+    "ctr": "0%",
+    "averagePosition": 48.9,
+    "indexedPages": 240,
+    "notIndexedPages": 147,
+    "checkedAt": "2026-09-01T05:24:00+09:00",
+    "topQueries": [
+      {
+        "query": "unbounce",
+        "impressions": 82,
+        "clicks": 0
+      },
+      {
+        "query": "pipedrive pricing",
+        "impressions": 46,
+        "clicks": 0
+      },
+      {
+        "query": "brand24",
+        "impressions": 44,
+        "clicks": 0
+      },
+      {
+        "query": "beefree",
+        "impressions": 36,
+        "clicks": 0
+      },
+      {
+        "query": "sanebox",
+        "impressions": 36,
+        "clicks": 0
+      }
+    ]
   },
   "seo": {
     "testsPassed": true,
