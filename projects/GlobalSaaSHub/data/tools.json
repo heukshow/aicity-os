@@ -67,7 +67,12 @@
     "pricing_source_final_url": "https://www.notion.com/pricing",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.notion.com/"
+    "official_evidence_url": "https://www.notion.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "program_closed_to_new_applicants",
+    "affiliate_source_url": "https://www.notion.com/en-gb/affiliates",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["20% of year one revenue", "currently not accepting new affiliates"]
   },
   {
     "id": "make-com",
@@ -97,7 +102,13 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://www.make.com/"
+    "official_evidence_url": "https://www.make.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "login_consent_required",
+    "affiliate_source_url": "https://www.make.com/en/affiliate",
+    "affiliate_final_url": "https://make.com/user/affiliate",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["35% commission", "12 months", "Wise"]
   },
   {
     "id": "elevenlabs",
@@ -128,7 +139,13 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://elevenlabs.io/"
+    "official_evidence_url": "https://elevenlabs.io/",
+    "affiliate_verified": true,
+    "affiliate_status": "application_ready",
+    "affiliate_source_url": "https://elevenlabs.io/affiliates",
+    "affiliate_final_url": "https://elevenlabs.io/app/home?affiliate=true",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["22% commission", "12 months", "PartnerStack"]
   },
   {
     "id": "copy-ai",
@@ -189,7 +206,13 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://www.zenrows.com/"
+    "official_evidence_url": "https://www.zenrows.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "application_ready",
+    "affiliate_source_url": "https://www.zenrows.com/partners/affiliates",
+    "affiliate_final_url": "https://www.zenrows.com/partners/apply",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["35% recurring", "approved the same day"]
   },
   {
     "id": "tubebuddy",
@@ -219,7 +242,13 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.tubebuddy.com/"
+    "official_evidence_url": "https://www.tubebuddy.com/",
+    "affiliate_verified": true,
+    "affiliate_status": "application_ready",
+    "affiliate_source_url": "https://support.tubebuddy.com/hc/en-us/sections/8981416080411-Affiliates",
+    "affiliate_final_url": "https://www.tubebuddy.com/affiliates/signup",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": ["Affiliate account", "Affiliate Code"]
   },
   {
     "id": "outlierkit",
