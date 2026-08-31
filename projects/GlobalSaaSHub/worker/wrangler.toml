@@ -13,6 +13,8 @@ enabled = true
 [vars]
 PAYPAL_ENVIRONMENT = "live"
 ALLOWED_ORIGIN = "https://coshuma.com"
+GA_PROPERTY_ID = "552119661"
+GSC_SITE_URL = "https://coshuma.com/"
 
 # Create the D1 database before deployment, then add its non-secret database_id here.
 [[d1_databases]]
@@ -24,3 +26,4 @@ database_id = "d791d3d4-1ade-462e-bf8d-e33ebf4e2e38"
 # `wrangler secret put`. Never commit their values.
 # Private operations dashboard also requires ADMIN_PATH, ADMIN_USERNAME and
 # ADMIN_PASSWORD_SHA256 as Worker secrets. Do not add them to this file.
+# GOOGLE_SERVICE_ACCOUNT_JSON is also a Worker secret and must never be committed.
