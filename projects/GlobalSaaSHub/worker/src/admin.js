@@ -27,8 +27,17 @@ function constantTimeEqual(left, right) {
   return mismatch === 0;
 }
 
+async function sessionToken(env) {
+  const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(env.ADMIN_PASSWORD_SHA256), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  const signature = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`${env.ADMIN_USERNAME}:${env.ADMIN_PATH}`));
+  return [...new Uint8Array(signature)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
+}
+
 async function authorized(request, env) {
   if (!env.ADMIN_USERNAME || !env.ADMIN_PASSWORD_SHA256) return false;
+  const cookie = request.headers.get('cookie') || '';
+  const session = cookie.split(';').map((part) => part.trim()).find((part) => part.startsWith('coshuma_ops='))?.slice(12);
+  if (session && constantTimeEqual(session, await sessionToken(env))) return true;
   const header = request.headers.get('authorization') || '';
   if (!header.startsWith('Basic ')) return false;
   try {
@@ -40,6 +49,10 @@ async function authorized(request, env) {
     return constantTimeEqual(username, env.ADMIN_USERNAME)
       && constantTimeEqual(passwordHash, env.ADMIN_PASSWORD_SHA256.toLowerCase());
   } catch { return false; }
+}
+
+function loginPage(error = '') {
+  return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>COSHUMA 비공개 로그인</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 80% 0,#272057,transparent 36%),#070b14;color:#eef4ff;font:14px system-ui}.box{width:min(420px,calc(100% - 32px));padding:30px;border:1px solid #293650;border-radius:22px;background:#101827;box-shadow:0 24px 70px #0008}.eyebrow{color:#22d3ee;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}h1{margin:7px 0 5px;font-size:26px}p{color:#96a5bb;margin:0 0 22px}label{display:block;margin:13px 0 6px;color:#cbd5e1;font-weight:700}input{width:100%;box-sizing:border-box;padding:13px;border:1px solid #34425d;border-radius:12px;background:#09111e;color:white;font:inherit;outline:none}input:focus{border-color:#8b5cf6;box-shadow:0 0 0 3px #8b5cf625}button{width:100%;margin-top:20px;padding:13px;border:0;border-radius:12px;background:linear-gradient(90deg,#7c3aed,#2563eb);color:white;font-weight:800;cursor:pointer}.error{padding:10px;border-radius:10px;background:#421b28;color:#fda4af;margin:12px 0}.lock{margin-top:16px;text-align:center;color:#718096;font-size:11px}</style></head><body><main class="box"><div class="eyebrow">Private operations</div><h1>COSHUMA 운영센터</h1><p>소유자 인증 후 운영 데이터를 확인할 수 있습니다.</p>${error ? `<div class="error">${escapeHtml(error)}</div>` : ''}<form method="post"><label for="username">아이디</label><input id="username" name="username" autocomplete="username" required><label for="password">비밀번호</label><input id="password" name="password" type="password" autocomplete="current-password" required><button type="submit">안전하게 로그인</button></form><div class="lock">검색 차단 · 캐시 금지 · 서버측 인증</div></main></body></html>`;
 }
 
 export function isAdminPath(url, env) {
@@ -106,11 +119,21 @@ function render(data, money) {
 }
 
 export async function handleAdminRequest(request, env) {
-  if (!(await authorized(request, env))) {
-    return new Response('Authentication required', { status: 401, headers: {
-      ...PRIVATE_HEADERS, 'content-type': 'text/plain; charset=utf-8',
-      'www-authenticate': 'Basic realm="COSHUMA Private Operations", charset="UTF-8"',
+  if (request.method === 'POST') {
+    const form = await request.formData().catch(() => new FormData());
+    const username = String(form.get('username') || '');
+    const passwordHash = await sha256(String(form.get('password') || ''));
+    const valid = constantTimeEqual(username, env.ADMIN_USERNAME || '')
+      && constantTimeEqual(passwordHash, String(env.ADMIN_PASSWORD_SHA256 || '').toLowerCase());
+    if (!valid) return new Response(loginPage('아이디 또는 비밀번호가 맞지 않습니다.'), { status: 401, headers: PRIVATE_HEADERS });
+    const base = String(env.ADMIN_PATH).replace(/\/$/, '');
+    return new Response(null, { status: 303, headers: {
+      ...PRIVATE_HEADERS, location: base,
+      'set-cookie': `coshuma_ops=${await sessionToken(env)}; Path=${base}; Max-Age=28800; HttpOnly; Secure; SameSite=Strict`,
     } });
+  }
+  if (!(await authorized(request, env))) {
+    return new Response(loginPage(), { status: 200, headers: PRIVATE_HEADERS });
   }
   if (request.method !== 'GET' && request.method !== 'HEAD') return new Response('Method not allowed', { status: 405, headers: PRIVATE_HEADERS });
   const body = request.method === 'HEAD' ? null : render(snapshot, await revenue(env));
