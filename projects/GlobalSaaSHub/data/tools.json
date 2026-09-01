@@ -1316,7 +1316,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Transform text into AI videos with realistic avatars, ideal for training, e-learning, and professional video production, simplifying content creation.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.synthesia.io?via=sangkwon",
     "pricing": "See official pricing",
     "key_features": [
       "AI video generation",
@@ -1341,11 +1341,11 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.synthesia.io/",
     "affiliate_verified": true,
-    "affiliate_status": "email_confirmed_login_required",
-    "affiliate_source_url": "https://synthesia.getrewardful.com/login",
-    "affiliate_final_url": "https://synthesia.getrewardful.com/login",
+    "affiliate_status": "approved_link_verified",
+    "affiliate_source_url": "https://synthesia.getrewardful.com/",
+    "affiliate_final_url": "https://www.synthesia.io?via=sangkwon",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["Welcome to Synthesia Affiliate Program", "email confirmation redirected to login", "unique link available after login"]
+    "affiliate_evidence_markers": ["Logged in successfully.", "Joined August 26, 2026", "https://www.synthesia.io?via=sangkwon"]
   },
   {
     "id": "octo-browser",
