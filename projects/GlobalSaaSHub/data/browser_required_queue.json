@@ -26,5 +26,19 @@
       "Do not guess the Partner ID or construct a ?a= tracking parameter from documentation examples.",
       "Do not submit another Text Partner Program application."
     ]
+  },
+  {
+    "id": "omi-ai-affiliate-referral-link",
+    "priority": "high",
+    "status": "browser_required",
+    "cost": "0",
+    "verified_at": "2026-09-01T23:35:00+09:00",
+    "reason": "Omi AI's approval email verifies that the COSHUMA account is approved for referrals and can earn commissions, but the email supplies only a Get Started link that resolves to affiliate.basedhardware.com and does not expose a customer-facing unique referral URL.",
+    "next_action": "Reuse an already authenticated Omi/Based Hardware affiliate browser session, open the referral or link area, copy the exact customer-facing unique affiliate URL, verify its account-specific tracking identifier and final destination, then update only matching data records and eligible COSHUMA CTAs.",
+    "do_not": [
+      "Do not treat the affiliate.basedhardware.com dashboard/onboarding URL or its email tracking redirect as a revenue link.",
+      "Do not guess or construct a referral parameter.",
+      "Do not submit another Omi AI referral application."
+    ]
   }
 ]
