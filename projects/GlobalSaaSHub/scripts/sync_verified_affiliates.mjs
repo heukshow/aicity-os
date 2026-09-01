@@ -7,6 +7,7 @@ const verified = {
   'fireflies-ai': 'https://fireflies.ai/?fpr=sangkwon53',
   pictory: 'https://pictory.ai?fpr=sangkwon-an23',
   vidiq: 'https://vidiq.com/coshuma',
+  cartstack: 'http://www.cartstack.com/?afmc=wb',
 };
 
 for (const file of ['data/tools.json', 'data/tools.next.json']) {
