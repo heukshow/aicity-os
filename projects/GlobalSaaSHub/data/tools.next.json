@@ -1949,7 +1949,10 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.frase.io/",
-    "affiliate_url": null
+    "affiliate_url": "https://www.frase.io/?utm_source=firstpromoter&utm_medium=affiliate&utm_campaign=affiliate_program&via=sangkwon12",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "heygen",
@@ -2194,7 +2197,10 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://surferseo.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": false,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "murf-ai",
@@ -2225,7 +2231,10 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://murf.ai/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": false,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "scalenut",
@@ -2255,7 +2264,10 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.scalenut.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": false,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "castmagic",
