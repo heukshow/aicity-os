@@ -56,5 +56,19 @@
       "Do not bypass CAPTCHA, OTP, phone verification, legal consent or forced identity verification; request user intervention only for those mandatory steps.",
       "Do not purchase YouTube, design, editing or promotion services."
     ]
+  },
+  {
+    "id": "kittl-impact-approved-referral-link",
+    "priority": "high",
+    "status": "browser_required",
+    "cost": "0",
+    "verified_at": "2026-09-02T00:47:00+09:00",
+    "reason": "Kittl's Impact email explicitly welcomes COSHUMA to the Kittl Affiliate Program, while the repository still records Kittl as application_submitted with affiliate_url=null. The approval email provides brand/support resources but does not expose an account-specific customer referral URL, so no revenue URL can be safely published yet.",
+    "next_action": "Reuse an already authenticated Impact browser session, open the Kittl campaign/link-creation area, obtain the exact customer-facing tracking URL, verify its account-specific tracking identifier and destination, then update Kittl's affiliate status/data and eligible COSHUMA CTAs. Use Kittl's provided brand guidelines when preparing conversion content after the tracking URL is verified.",
+    "do_not": [
+      "Do not treat the Impact email redirect, notification-settings URL, Help Center or brand-guidelines URL as an affiliate/revenue link.",
+      "Do not guess or construct an Impact tracking URL or campaign parameter.",
+      "Do not submit another Kittl affiliate application because approval is already evidenced by the welcome email."
+    ]
   }
 ]
