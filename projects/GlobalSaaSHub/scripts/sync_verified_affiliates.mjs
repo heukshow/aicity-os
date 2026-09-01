@@ -8,6 +8,7 @@ const verified = {
   pictory: 'https://pictory.ai?fpr=sangkwon-an23',
   vidiq: 'https://vidiq.com/coshuma',
   cartstack: 'http://www.cartstack.com/?afmc=wb',
+  'customgpt-ai': 'https://customgpt.ai/?fpr=sangkwon-3b18de',
 };
 
 for (const file of ['data/tools.json', 'data/tools.next.json']) {
