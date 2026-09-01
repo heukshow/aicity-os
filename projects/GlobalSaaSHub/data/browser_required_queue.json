@@ -40,5 +40,21 @@
       "Do not guess or construct a referral parameter.",
       "Do not submit another Omi AI referral application."
     ]
+  },
+  {
+    "id": "coshuma-youtube-channel-branding",
+    "priority": "high",
+    "status": "browser_required",
+    "cost": "0",
+    "verified_at": "2026-09-01T23:55:00+09:00",
+    "reason": "The user explicitly requested a new COSHUMA YouTube channel to be created and fully branded before starting affiliate-tool Shorts. This requires authenticated YouTube/YouTube Studio UI access, which is not available in the current execution environment.",
+    "next_action": "Reuse the existing COSHUMA Work session if it is already open. In the authenticated YouTube/YouTube Studio browser, first check whether a COSHUMA channel already exists and do not create a duplicate. If absent, create the COSHUMA channel, prefer @coshuma if available, configure a global-English AI/SaaS description, link coshuma.com, apply profile/banner branding, channel layout and other free branding settings, and verify the resulting channel URL and visible settings. Only after branding is complete should Shorts production/upload begin.",
+    "do_not": [
+      "Do not create a second COSHUMA channel if one already exists.",
+      "Do not create another Work handoff if a COSHUMA Work session is already available.",
+      "Do not publish affiliate Shorts before the channel identity and outbound coshuma.com link are verified.",
+      "Do not bypass CAPTCHA, OTP, phone verification, legal consent or forced identity verification; request user intervention only for those mandatory steps.",
+      "Do not purchase YouTube, design, editing or promotion services."
+    ]
   }
 ]
