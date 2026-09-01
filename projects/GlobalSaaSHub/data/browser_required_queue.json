@@ -26,19 +26,5 @@
       "Do not guess the Partner ID or construct a ?a= tracking parameter from documentation examples.",
       "Do not submit another Text Partner Program application."
     ]
-  },
-  {
-    "id": "rytr-rewardful-confirm-and-link",
-    "priority": "medium",
-    "status": "browser_required",
-    "cost": "0",
-    "verified_at": "2026-09-01T16:39:00+09:00",
-    "reason": "Rytr's Rewardful email requires email confirmation before the unique tracking link and reports can be accessed. The confirmation URL contains an account token and is intentionally not stored in this public queue.",
-    "next_action": "Using the authenticated mail/browser flow, complete the existing Rytr email confirmation, then log in to the Rytr affiliate area and copy the unique tracking URL. Verify it before any site or data update.",
-    "do_not": [
-      "Do not create or guess a Rytr referral URL.",
-      "Do not expose the email-confirmation token in repository files.",
-      "Do not create a duplicate Rytr affiliate account."
-    ]
   }
 ]
