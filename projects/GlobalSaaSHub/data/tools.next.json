@@ -3491,12 +3491,13 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://text.com/",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.text.com/?a=8IetMhQvR&utm_campaign=pp_text-wins-martech-awards&utm_source=PP",
     "affiliate_verified": true,
-    "affiliate_status": "approved_account",
-    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-01T10:04:07Z",
     "affiliate_evidence_markers": [
-      "Welcome to the Text Partner Program"
+      "Text Partner Program dashboard",
+      "Share your default signup link without campaign customization"
     ]
   },
   {
