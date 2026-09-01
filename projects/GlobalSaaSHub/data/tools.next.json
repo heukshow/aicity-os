@@ -747,7 +747,11 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://brand24.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-08-31T22:59:47Z",
+    "affiliate_evidence_markers": ["PartnerStack application received", "submitted for Brand24 review"]
   },
   {
     "id": "socialchamp-io",
@@ -814,7 +818,11 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://triplewhale.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-08-31T23:01:13Z",
+    "affiliate_evidence_markers": ["PartnerStack application received", "submitted for Triple Whale review"]
   },
   {
     "id": "boldsign",
@@ -1099,7 +1107,11 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.semrush.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "rejected",
+    "affiliate_verified_at": "2026-09-01T08:45:37Z",
+    "affiliate_evidence_markers": ["Impact email", "Semrush Contract Terms Declined"]
   },
   {
     "id": "hubspot",
@@ -1592,7 +1604,11 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://vistasocial.com/",
-    "affiliate_url": null
+    "affiliate_url": "https://vistasocial.com?fpr=sangkwon14",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-08-31T22:02:27Z",
+    "affiliate_evidence_markers": ["Vista Social approval email", "unique referral link in email body"]
   },
   {
     "id": "gravity-forms",
@@ -2398,11 +2414,11 @@
     "official_evidence_url": "https://www.getresponse.com/",
     "affiliate_url": null,
     "affiliate_verified": true,
-    "affiliate_status": "application_submitted",
-    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_status": "rejected",
+    "affiliate_verified_at": "2026-09-01T09:14:55Z",
     "affiliate_evidence_markers": [
-      "PartnerStack application received",
-      "submitted for GetResponse review"
+      "PartnerStack decision email",
+      "GetResponse application declined"
     ]
   },
   {
@@ -4082,7 +4098,11 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.claap.ai/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "application_not_submitted",
+    "affiliate_verified_at": "2026-08-31T16:05:00Z",
+    "affiliate_evidence_markers": ["Claap affiliate manager email", "application did not go through", "correct PartnerStack link provided"]
   },
   {
     "id": "cloudtalk",
