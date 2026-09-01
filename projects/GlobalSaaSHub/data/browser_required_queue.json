@@ -14,6 +14,20 @@
     ]
   },
   {
+    "id": "text-partner-app-affiliate-link",
+    "priority": "high",
+    "status": "browser_required",
+    "cost": "0",
+    "verified_at": "2026-09-01T17:40:00+09:00",
+    "reason": "Text Partner Program welcome/onboarding emails verify that the account is in the Affiliate Program and can promote Text App, LiveChat, ChatBot and HelpDesk. The official partner documentation says the unique affiliate link must be copied from the Partner App. The repository still has LiveChat affiliate_url=null, and no account-specific Text/LiveChat tracking URL has been verified.",
+    "next_action": "Reuse an already authenticated Text Partner App browser session, open the campaign/link area, copy the exact customer-facing affiliate URL (or campaign URL), verify its account-specific tracking identifier and destination, then update only the matching product records and eligible CTAs. A request for the exact link was already sent to the Text Partner Program team, so do not send a duplicate request unless they reply with incomplete information.",
+    "do_not": [
+      "Do not treat the Text/LiveChat Partner login, dashboard or onboarding URL as a revenue link.",
+      "Do not guess the Partner ID or construct a ?a= tracking parameter from documentation examples.",
+      "Do not submit another Text Partner Program application."
+    ]
+  },
+  {
     "id": "rytr-rewardful-confirm-and-link",
     "priority": "medium",
     "status": "browser_required",
