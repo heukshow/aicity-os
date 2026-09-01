@@ -1,0 +1,30 @@
+[
+  {
+    "id": "shopify-impact-referral-link",
+    "priority": "high",
+    "status": "browser_required",
+    "cost": "0",
+    "verified_at": "2026-09-01T16:39:00+09:00",
+    "reason": "Shopify Affiliate Program approval is verified, but the approval email instructs the affiliate to log in to Impact to obtain a unique referral link. The current repository has no Shopify affiliate_url and its stored affiliate_final_url is an Impact campaign signup URL, so it must not be used as a revenue link.",
+    "next_action": "Using an already authenticated browser session, open Impact, obtain the account-specific Shopify referral/tracking URL, verify that it contains a unique tracking identifier, then update tools.json/tools.next.json and only then replace eligible Shopify CTAs.",
+    "do_not": [
+      "Do not use the Shopify homepage as an affiliate link.",
+      "Do not use the Impact campaign signup/onboarding URL as an affiliate link.",
+      "Do not submit another Shopify application."
+    ]
+  },
+  {
+    "id": "rytr-rewardful-confirm-and-link",
+    "priority": "medium",
+    "status": "browser_required",
+    "cost": "0",
+    "verified_at": "2026-09-01T16:39:00+09:00",
+    "reason": "Rytr's Rewardful email requires email confirmation before the unique tracking link and reports can be accessed. The confirmation URL contains an account token and is intentionally not stored in this public queue.",
+    "next_action": "Using the authenticated mail/browser flow, complete the existing Rytr email confirmation, then log in to the Rytr affiliate area and copy the unique tracking URL. Verify it before any site or data update.",
+    "do_not": [
+      "Do not create or guess a Rytr referral URL.",
+      "Do not expose the email-confirmation token in repository files.",
+      "Do not create a duplicate Rytr affiliate account."
+    ]
+  }
+]
