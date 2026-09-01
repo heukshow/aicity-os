@@ -9,6 +9,7 @@ const verified = {
   vidiq: 'https://vidiq.com/coshuma',
   cartstack: 'http://www.cartstack.com/?afmc=wb',
   'customgpt-ai': 'https://customgpt.ai/?fpr=sangkwon-3b18de',
+  docsbot: 'https://docsbot.ai?via=31kq9q',
 };
 
 for (const file of ['data/tools.json', 'data/tools.next.json']) {
