@@ -1465,7 +1465,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://aitable.ai/"
+    "official_evidence_url": "https://aitable.ai/partners/affiliate/",
+    "affiliate_verified": false,
+    "affiliate_status": "program_inactive",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "liftmycv",
@@ -1622,7 +1625,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.gravityforms.com/"
+    "official_evidence_url": "https://affiliate.gravity.com/",
+    "affiliate_verified": false,
+    "affiliate_status": "application_session_conflict",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "sendcloud",
@@ -1652,7 +1658,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://sendcloud.com/"
+    "official_evidence_url": "https://sendcloud.com/",
+    "affiliate_status": "application_available_partnerstack",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://www.sendcloud.com/en-uk/partnerships/affiliate-program/"
   },
   {
     "id": "alidropship",
@@ -1682,7 +1691,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://alidropship.com/"
+    "official_evidence_url": "https://affiliates.alidropship.com/",
+    "affiliate_verified": false,
+    "affiliate_status": "application_pending",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "nudgera",
@@ -1993,7 +2005,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.veed.io/"
+    "official_evidence_url": "https://www.veed.io/",
+    "affiliate_status": "application_available_impact",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://www.veed.io/affiliate"
   },
   {
     "id": "reclaim-ai",
@@ -2023,7 +2038,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://reclaim.ai/"
+    "official_evidence_url": "https://reclaim.ai/affiliate-program",
+    "affiliate_verified": false,
+    "affiliate_status": "application_page_unavailable",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "descript",
@@ -2086,7 +2104,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://synder.com/"
+    "official_evidence_url": "https://synder.com/affiliate-program/",
+    "affiliate_verified": false,
+    "affiliate_status": "application_page_unavailable",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "gallabox",
@@ -2116,7 +2137,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.gallabox.com/"
+    "official_evidence_url": "https://gallabox.com/affiliate-partner-program",
+    "affiliate_verified": false,
+    "affiliate_status": "application_blocked_tax_id_captcha",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "panda-video",
@@ -2124,7 +2148,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "A secure and high-performance video hosting platform designed for course creators and video marketers.",
-    "affiliate_url": null,
+    "affiliate_url": "https://pandavideo.com?ref=wds66lmt&refc=usd",
     "pricing": "See official pricing",
     "key_features": [
       "Secure video streaming",
@@ -2146,7 +2170,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://pandavideo.com/"
+    "official_evidence_url": "https://www.pandavideo.com/solutions/partners",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "surfer-seo",
@@ -2379,7 +2406,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://tapfiliate.com/"
+    "official_evidence_url": "https://tapfiliate.com/affiliate-program/",
+    "affiliate_verified": false,
+    "affiliate_status": "application_blocked_captcha",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "getresponse",
@@ -2443,7 +2473,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.kit.co/"
+    "official_evidence_url": "https://kit.com/affiliate",
+    "affiliate_verified": false,
+    "affiliate_status": "application_page_unavailable",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "teachable",
@@ -2473,7 +2506,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://teachable.com/"
+    "official_evidence_url": "https://support.teachable.com/en/collections/13696598-affiliates",
+    "affiliate_verified": false,
+    "affiliate_status": "corporate_affiliate_program_not_found",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "livechat",
@@ -2567,7 +2603,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://koala.sh/"
+    "official_evidence_url": "https://friends.koala.sh/signup",
+    "affiliate_verified": false,
+    "affiliate_status": "campaign_registration_unavailable",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "lovo",
@@ -2638,7 +2677,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://n8n.io/"
+    "official_evidence_url": "https://n8n.io/affiliates/",
+    "affiliate_verified": false,
+    "affiliate_status": "application_page_unavailable",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "novita-ai",
@@ -2668,7 +2710,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://novita.com/"
+    "official_evidence_url": "https://affiliates.novita.ai/",
+    "affiliate_verified": false,
+    "affiliate_status": "application_blocked_captcha",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "followr",
@@ -2731,7 +2776,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://10web.io/"
+    "official_evidence_url": "https://10web.io/affiliates/",
+    "affiliate_verified": false,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "supademo",
@@ -2761,7 +2809,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://supademo.com/"
+    "official_evidence_url": "https://supademo.com/affiliates",
+    "affiliate_verified": false,
+    "affiliate_status": "application_embed_unavailable",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "colossyan",
@@ -2792,7 +2843,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://colossyan.com/"
+    "official_evidence_url": "https://colossyan.com/affiliate-program/",
+    "affiliate_verified": false,
+    "affiliate_status": "program_inactive",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "beefree",
@@ -2822,7 +2876,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://beefree.io/"
+    "official_evidence_url": "https://beefree.io/ambassador-program",
+    "affiliate_verified": false,
+    "affiliate_status": "application_page_unavailable",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "apollo",
@@ -2852,7 +2909,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://apollo.io/"
+    "official_evidence_url": "https://www.apollo.io/partners/affiliates",
+    "affiliate_verified": false,
+    "affiliate_status": "application_page_unavailable",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "getgenie",
@@ -2915,7 +2975,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://activecampaign.com/"
+    "official_evidence_url": "https://www.activecampaign.com/partners/affiliate",
+    "affiliate_verified": false,
+    "affiliate_status": "application_page_unavailable",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "sanebox",
@@ -2945,7 +3008,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://sanebox.com/"
+    "official_evidence_url": "https://www.sanebox.com/partners",
+    "affiliate_verified": false,
+    "affiliate_status": "application_page_unavailable",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "pipedrive",
@@ -3065,7 +3131,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.cartstack.com/"
+    "official_evidence_url": "https://www.cartstack.com/",
+    "affiliate_status": "application_available",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://www.cartstack.com/referrals/"
   },
   {
     "id": "cloudways",
@@ -3185,7 +3254,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://getgabs.com/"
+    "official_evidence_url": "https://getgabs.com/",
+    "affiliate_status": "application_available_instant",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://getgabs.com/partner/affiliate/"
   },
   {
     "id": "eprofessor",
@@ -3223,7 +3295,7 @@
     "category": "ai_agents",
     "category_display": "Autonomous AI Agents",
     "description": "Deploy custom AI agents trained on your unique business knowledge for superior automated support and enhanced team productivity.",
-    "affiliate_url": null,
+    "affiliate_url": "https://docsbot.ai?via=31kq9q",
     "pricing": "See official pricing",
     "key_features": [
       "Custom AI agent creation",
@@ -3245,7 +3317,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://docsbot.ai/"
+    "official_evidence_url": "https://docsbot.ai/affiliates",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "surfeo",
@@ -3305,7 +3380,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://dub.co/"
+    "official_evidence_url": "https://partners.dub.co/dub/apply",
+    "affiliate_verified": false,
+    "affiliate_status": "application_not_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "helpdesk",
@@ -3335,7 +3413,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://helpdesk.com/"
+    "official_evidence_url": "https://helpdesk.com/",
+    "affiliate_status": "application_available",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://www.helpdesk.com/legal/for-partners/"
   },
   {
     "id": "happyscribe",
@@ -3365,7 +3446,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://happyscribe.com/"
+    "official_evidence_url": "https://happyscribe.com/",
+    "affiliate_status": "beta_application_available",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://www.happyscribe.com/affiliate"
   },
   {
     "id": "pickaxe",
@@ -3395,7 +3479,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://pickaxe.ai/"
+    "official_evidence_url": "https://pickaxe.ai/",
+    "affiliate_status": "application_available",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://pickaxe.co/affiliate"
   },
   {
     "id": "ai-video-cut",
@@ -3425,7 +3512,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://aivideocut.com/"
+    "official_evidence_url": "https://aivideocut.com/",
+    "affiliate_status": "application_available_auto_approval",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://www.aivideocut.com/affiliate-program"
   },
   {
     "id": "tagshop-ai",
@@ -3455,7 +3545,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://tagshop.ai/"
+    "official_evidence_url": "https://tagshop.ai/",
+    "affiliate_status": "application_available",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://tagshop.ai/affiliate"
   },
   {
     "id": "text",
@@ -3519,7 +3612,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://typedesk.com/"
+    "official_evidence_url": "https://typedesk.com/",
+    "affiliate_status": "application_available",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://www.typedesk.com/reseller"
   },
   {
     "id": "chatbot",
@@ -3653,7 +3749,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.tidio.com/"
+    "official_evidence_url": "https://www.tidio.com/",
+    "affiliate_status": "application_available",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://www.tidio.com/partners/affiliate/"
   },
   {
     "id": "catalister",
@@ -3683,7 +3782,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://catalister.com/"
+    "official_evidence_url": "https://catalister.com/",
+    "affiliate_status": "application_available_email_code",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://affiliates.catalister.com/"
   },
   {
     "id": "bookyourdata",
@@ -3747,7 +3849,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.mindstudio.ai/"
+    "official_evidence_url": "https://www.mindstudio.ai/",
+    "affiliate_status": "application_available_partnerstack",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://university.mindstudio.ai/programs/affiliate-program"
   },
   {
     "id": "manychat",
@@ -3777,7 +3882,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://manychat.com/"
+    "official_evidence_url": "https://manychat.com/",
+    "affiliate_status": "application_available_partnerstack",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://manychat.com/affiliate/"
   },
   {
     "id": "synthflow-ai",
@@ -3837,7 +3945,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://customgpt.ai/"
+    "official_evidence_url": "https://customgpt.ai/partners/",
+    "affiliate_verified": false,
+    "affiliate_status": "account_active_payout_setup_required",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "databox",
@@ -3867,7 +3978,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://databox.com/"
+    "official_evidence_url": "https://databox.com/affiliate-program",
+    "affiliate_verified": false,
+    "affiliate_status": "application_pending",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "fathom",
@@ -3904,7 +4018,10 @@
     "pricing_source_final_url": "https://www.fathom.ai/pricing",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.fathom.ai/"
+    "official_evidence_url": "https://www.fathom.ai/",
+    "affiliate_status": "solution_partner_application_available",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://www.fathom.ai/partner-programs"
   },
   {
     "id": "taskip",
@@ -3934,7 +4051,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://taskip.net/"
+    "official_evidence_url": "https://taskip.net/affiliates/",
+    "affiliate_verified": false,
+    "affiliate_status": "program_unavailable_ssl_error",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "gumloop",
@@ -3964,7 +4084,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://gumloop.com/"
+    "official_evidence_url": "https://gumloop.com/",
+    "affiliate_status": "application_submitted",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://www.gumloop.com/partners/apply-to-be-a-creator"
   },
   {
     "id": "teknikforce",
@@ -4024,7 +4147,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://hide.me/"
+    "official_evidence_url": "https://hide.me/",
+    "affiliate_status": "application_available",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://hide.me/en/affiliates"
   },
   {
     "id": "snov-io",
@@ -4054,7 +4180,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://snov.io/"
+    "official_evidence_url": "https://snov.io/",
+    "affiliate_status": "application_available",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://snov.io/affiliate-program"
   },
   {
     "id": "claap",
@@ -4118,7 +4247,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.cloudtalk.io/"
+    "official_evidence_url": "https://www.cloudtalk.io/",
+    "affiliate_status": "application_available_partnerstack",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://www.cloudtalk.io/affiliate-program/"
   },
   {
     "id": "seamless",
@@ -4310,7 +4442,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.chatbase.co/"
+    "official_evidence_url": "https://www.chatbase.co/",
+    "affiliate_status": "legacy_program_inactive_new_experts_program_available",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://affiliates.chatbase.co/"
   },
   {
     "id": "krater",
@@ -4489,7 +4624,11 @@
     "pricing_source_final_url": null,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://agent-works.ai/"
+    "official_evidence_url": "https://agent-works.ai/",
+    "affiliate_status": "referral_link_requested",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://agent-works.ai/contact",
+    "affiliate_evidence_markers": ["Message sent", "Thanks for reaching out. We typically respond within 1 business day."]
   },
   {
     "id": "airia",
@@ -4567,7 +4706,11 @@
     "pricing_source_final_url": null,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.omi.me/"
+    "official_evidence_url": "https://www.omi.me/",
+    "affiliate_status": "approved_email_verification_required",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://affiliate.omi.me/overview",
+    "affiliate_evidence_markers": ["Your account has been approved", "Verify your email"]
   },
   {
     "id": "fireflies-ai",
@@ -4676,7 +4819,11 @@
     "pricing_source_final_url": null,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://gobii.ai/"
+    "official_evidence_url": "https://gobii.ai/",
+    "affiliate_status": "program_unavailable_company_winding_down",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://gobii.ai/",
+    "affiliate_evidence_markers": ["Gobii is winding down", "final day of operations will be September 1, 2026"]
   },
   {
     "id": "voibe",
@@ -4712,6 +4859,10 @@
     "affiliate_evidence_markers": [],
     "affiliate_verified_at": null,
     "affiliate_rejection_reason": "HTTP 200 but no strong affiliate evidence found. Required at least one compound pattern (e.g. 'affiliate program', 'commission rate', 'cookie duration'). Single-word matches in footer/privacy/blog are not accepted.",
+    "affiliate_status": "affiliate_profile_pending",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://affiliates.lemonsqueezy.com/programs/voibe",
+    "affiliate_evidence_markers": ["Affiliate application has been submitted and is awaiting approval", "This may take up to 48 hours"],
     "primary_category": "voice_cloning",
     "comparison_group": "voice_generation",
     "official_verification_status": "verified",
@@ -4841,7 +4992,10 @@
     "comparison_group": "creator",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://babylovegrowth.ai"
+    "official_evidence_url": "https://babylovegrowth.ai",
+    "affiliate_status": "application_blocked_existing_reditus_onboarding",
+    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status_evidence_url": "https://www.babylovegrowth.ai/en/affiliate"
   },
   {
     "id": "ai-agent-store",
