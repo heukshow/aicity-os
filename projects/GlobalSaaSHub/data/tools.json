@@ -1906,7 +1906,7 @@
     "category": "seo_tools",
     "category_display": "SEO & Optimization",
     "description": "Frase is an AI-powered content optimization platform designed to help you create SEO-driven content that ranks higher and converts better. Research, write, and optimize all in one place for maximum search engine visibility.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.frase.io/?utm_source=firstpromoter&utm_medium=affiliate&utm_campaign=affiliate_program&via=sangkwon12",
     "pricing": "See official pricing",
     "key_features": [
       "AI content research",
@@ -1928,7 +1928,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.frase.io/"
+    "official_evidence_url": "https://www.frase.io/",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "heygen",
@@ -2173,7 +2176,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://surferseo.com/"
+    "official_evidence_url": "https://surferseo.com/",
+    "affiliate_verified": false,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "murf-ai",
@@ -2204,7 +2210,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://murf.ai/"
+    "official_evidence_url": "https://murf.ai/",
+    "affiliate_verified": false,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "scalenut",
@@ -2234,7 +2243,10 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.scalenut.com/"
+    "official_evidence_url": "https://www.scalenut.com/",
+    "affiliate_verified": false,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "castmagic",
