@@ -10,6 +10,7 @@ const verified = {
   cartstack: 'http://www.cartstack.com/?afmc=wb',
   'customgpt-ai': 'https://customgpt.ai/?fpr=sangkwon-3b18de',
   docsbot: 'https://docsbot.ai?via=31kq9q',
+  databox: 'https://databox.com?aff_id=15298659&fp_ref=sangkwon-72c9ec',
 };
 
 for (const file of ['data/tools.json', 'data/tools.next.json']) {
