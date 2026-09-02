@@ -13,6 +13,7 @@ const verified = {
   databox: 'https://databox.com?aff_id=15298659&fp_ref=sangkwon-72c9ec',
   'murf-ai': 'https://get.murf.ai/fqac0vixj0qs',
   brand24: 'https://try.brand24.com/8xqrjxybmsbt',
+  shopify: 'https://shopify.pxf.io/7670642-link?sharedid=7670642',
   'vista-social': 'https://vistasocial.com?fpr=sangkwon14',
 };
 
