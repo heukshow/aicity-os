@@ -15,6 +15,7 @@ const verified = {
   brand24: 'https://try.brand24.com/8xqrjxybmsbt',
   shopify: 'https://shopify.pxf.io/7670642-link?sharedid=7670642',
   'vista-social': 'https://vistasocial.com?fpr=sangkwon14',
+  bookyourdata: 'https://join.bookyourdata.com/swcyqmumr3s5',
 };
 
 for (const file of ['data/tools.json', 'data/tools.next.json']) {
