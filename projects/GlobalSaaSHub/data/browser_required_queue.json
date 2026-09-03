@@ -57,5 +57,20 @@
       "Do not guess or construct a referral parameter or merchant link.",
       "Do not reapply to programs already pending, approved, rejected, cooling down or closed."
     ]
+  },
+  {
+    "id": "chatbase-dub-approved-referral-link",
+    "priority": "high",
+    "status": "browser_required",
+    "cost": "0",
+    "verified_at": "2026-09-03T19:56:00+09:00",
+    "reason": "Dub's August 26 approval email confirms that the existing COSHUMA Dub Partner account is approved for the Chatbase program and can earn up to 30% per sale for 1 year, but the email exposes only the authenticated Chatbase Links dashboard path rather than a customer-facing referral URL. Dub's August 30 network rejection explicitly says it affects only marketplace access and does not affect existing program partnerships or payouts. A newer email sent to support@coshuma.com asks for a new Dub Partner account to finish a separate Dub application, which would conflict with the existing rejected-network state and should not be treated as a reason to reapply.",
+    "next_action": "Reuse the already authenticated Dub Partner session for the existing account, open the Chatbase program Links area, copy the exact customer-facing unique referral URL, verify its destination and account-specific tracking identifier, then update Chatbase affiliate data and eligible COSHUMA detail/comparison CTAs. Preserve the existing Chatbase approval; do not create another Dub Partner Network application.",
+    "do_not": [
+      "Do not use the partners.dub.co Chatbase dashboard, Links page, earnings page, login page or email-tracking redirect as a customer revenue link.",
+      "Do not guess or construct a Chatbase referral parameter.",
+      "Do not create a second Dub Partner account with support@coshuma.com merely because the saved-application reminder email keeps arriving.",
+      "Do not reapply to the Dub Partner Network while the August 30 rejection/cooldown remains the latest authoritative network status."
+    ]
   }
 ]
