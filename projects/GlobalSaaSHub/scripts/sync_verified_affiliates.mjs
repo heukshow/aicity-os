@@ -16,6 +16,11 @@ const verified = {
   shopify: 'https://shopify.pxf.io/7670642-link?sharedid=7670642',
   'vista-social': 'https://vistasocial.com?fpr=sangkwon14',
   bookyourdata: 'https://join.bookyourdata.com/swcyqmumr3s5',
+  unbounce: 'https://unbounce.partnerlinks.io/5ubjnt8lluqi',
+};
+
+const verifiedAt = {
+  unbounce: '2026-09-04T03:52:58+09:00',
 };
 
 for (const file of ['data/tools.json', 'data/tools.next.json']) {
@@ -25,7 +30,7 @@ for (const file of ['data/tools.json', 'data/tools.next.json']) {
     if (!tool.affiliate_url || (tool.affiliate_verified !== true && !verified[tool.id])) continue;
     tool.affiliate_verified = true;
     tool.affiliate_status = 'approved_tracking';
-    tool.affiliate_verified_at ||= '2026-09-01T00:00:00+09:00';
+    tool.affiliate_verified_at ||= verifiedAt[tool.id] || '2026-09-01T00:00:00+09:00';
   }
   fs.writeFileSync(file, `${JSON.stringify(tools, null, 2)}\n`);
 }
