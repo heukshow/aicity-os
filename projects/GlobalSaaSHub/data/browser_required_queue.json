@@ -42,5 +42,20 @@
       "Do not guess or construct an Impact tracking URL or campaign parameter.",
       "Do not submit another Kittl affiliate application because approval is already evidenced by the welcome email."
     ]
+  },
+  {
+    "id": "lemon-squeezy-hub-approved-program-links",
+    "priority": "high",
+    "status": "browser_required",
+    "cost": "0",
+    "verified_at": "2026-09-03T14:04:48+09:00",
+    "reason": "Lemon Squeezy sent two fresh emails confirming that COSHUMA's affiliate account/profile is approved and that the account can now join affiliate programs and start earning referrals. The approval emails do not provide a customer-facing account-specific referral URL for any individual merchant/program, so no Lemon Squeezy dashboard or onboarding link can safely be published as a revenue CTA.",
+    "next_action": "Reuse an already authenticated Lemon Squeezy affiliate browser session. First verify the current status of the existing Voibe program entry, then inspect eligible affiliate programs, join only suitable free programs that are not already pending/approved/rejected/closed, and for each approved program copy the exact customer-facing referral URL from the hub. Verify the merchant, tracking identifier and destination before updating COSHUMA data or production CTAs.",
+    "do_not": [
+      "Do not treat the Lemon Squeezy affiliate hub, dashboard, onboarding, help or email-tracking redirect as an affiliate/revenue link.",
+      "Do not infer that Lemon Squeezy profile approval automatically means the existing Voibe program is approved.",
+      "Do not guess or construct a referral parameter or merchant link.",
+      "Do not reapply to programs already pending, approved, rejected, cooling down or closed."
+    ]
   }
 ]
