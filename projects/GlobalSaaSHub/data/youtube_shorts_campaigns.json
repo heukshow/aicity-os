@@ -1,0 +1,22 @@
+{
+  "pictory": {
+    "priority": 100,
+    "source_page": "/best/ai-video-generators.html",
+    "campaign_slug": "pictory_coshuma20",
+    "hook": "Turning scripts into videos still takes too long?",
+    "beats": [
+      "Pictory can turn scripts and long-form content into videos with captions, stock media, and AI voice options.",
+      "COSHUMA's verified partner code is COSHUMA20 for 20% off.",
+      "Pictory's affiliate manager confirmed that, while the site-wide 40% annual offer is active, combining it with the COSHUMA code can produce savings of more than 52%.",
+      "Promotions can change, so check the final price and eligibility at checkout."
+    ],
+    "cta": "See the full AI video buyer guide and current Pictory offer on COSHUMA.",
+    "hashtags": ["Pictory", "AIVideo", "AITools"],
+    "evidence": {
+      "type": "affiliate_manager_email",
+      "sender": "Ashutosh Dhamija, Pictory Affiliate Manager",
+      "verified_at": "2026-09-04",
+      "note": "Email confirmed promo code coshuma20, 20% discount, and the then-current site-wide 40% annual offer with combined savings over 52%."
+    }
+  }
+}
