@@ -80,6 +80,9 @@ def render(tool_id: str, output: str | None = None) -> dict:
             p.write_text(wrap_card(card), encoding="utf-8")
             card_files.append(p)
 
+        cta_file = tmpdir / "cta.txt"
+        cta_file.write_text("Full guide: coshuma.com", encoding="utf-8")
+
         font = font_path()
         slot = duration / len(card_files)
         escaped_comma = r"\,"
@@ -94,13 +97,16 @@ def render(tool_id: str, output: str | None = None) -> dict:
             filters.append(
                 "drawtext="
                 f"fontfile='{font}':textfile='{card_file}':"
-                "fontcolor=white:fontsize=56:line_spacing=18:"
+                "expansion=none:fontcolor=white:fontsize=56:line_spacing=18:fix_bounds=true:"
                 "x=(w-text_w)/2:y=(h-text_h)/2:"
                 f"enable='between(t{escaped_comma}{start:.3f}{escaped_comma}{end:.3f})'"
             )
         filters.extend([
             "drawbox=x=90:y=1660:w=900:h=150:color=0x7C3AED@0.92:t=fill",
-            f"drawtext=fontfile='{font}':text='Full guide: coshuma.com':fontcolor=white:fontsize=46:x=(w-text_w)/2:y=1708",
+            "drawtext="
+            f"fontfile='{font}':textfile='{cta_file}':"
+            "expansion=none:fontcolor=white:fontsize=46:fix_bounds=true:"
+            "x=(w-text_w)/2:y=1708",
         ])
 
         cmd = [
