@@ -1,6 +1,14 @@
 name: COSHUMA YouTube Shorts Pipeline
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/coshuma-youtube-shorts.yml'
+      - 'projects/GlobalSaaSHub/scripts/youtube_shorts/**'
+      - 'projects/GlobalSaaSHub/scripts/tests/test_youtube_shorts_pipeline.py'
+      - 'projects/GlobalSaaSHub/scripts/tests/test_youtube_shorts_render_upload.py'
+      - 'projects/GlobalSaaSHub/data/youtube_shorts_*.json'
   pull_request:
     paths:
       - '.github/workflows/coshuma-youtube-shorts.yml'
