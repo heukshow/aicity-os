@@ -6,6 +6,7 @@ on:
     paths:
       - 'projects/GlobalSaaSHub/src/**'
       - 'projects/GlobalSaaSHub/public/**'
+      - 'projects/GlobalSaaSHub/scripts/polish_public_copy.py'
       - 'projects/GlobalSaaSHub/index.html'
       - 'projects/GlobalSaaSHub/package.json'
       - 'projects/GlobalSaaSHub/package-lock.json'
@@ -38,6 +39,9 @@ jobs:
         working-directory: projects/GlobalSaaSHub
         run: npm ci
 
+      - name: Polish generated public copy
+        run: python projects/GlobalSaaSHub/scripts/polish_public_copy.py
+
       - name: Build production bundle
         working-directory: projects/GlobalSaaSHub
         run: npm run build
@@ -47,8 +51,12 @@ jobs:
           set -e
           test -f projects/GlobalSaaSHub/dist/index.html
           grep -q 'COSHUMA' projects/GlobalSaaSHub/dist/index.html
-          if grep -q 'GlobalSaaSHub - Premier AI' projects/GlobalSaaSHub/dist/index.html; then
-            echo 'Stale GlobalSaaSHub fallback detected in production bundle.'
+          if grep -R -q 'GlobalSaaSHub' projects/GlobalSaaSHub/dist/tool projects/GlobalSaaSHub/dist/compare 2>/dev/null; then
+            echo 'Legacy GlobalSaaSHub branding detected in generated production pages.'
+            exit 1
+          fi
+          if grep -R -q 'Side-by-Side Head-to-Head Comparison' projects/GlobalSaaSHub/dist/compare 2>/dev/null; then
+            echo 'Legacy comparison boilerplate detected in production pages.'
             exit 1
           fi
           grep -q 'coshuma.com' projects/GlobalSaaSHub/dist/CNAME
