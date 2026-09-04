@@ -1,0 +1,68 @@
+name: COSHUMA YouTube Shorts - Content Selection & Queueing
+
+# Selects the next revenue-priority Shorts topic, generates UTM-tagged
+# metadata, and opens a PR recording the selection. Rendering and YouTube
+# API upload remain separate stages until those steps are fully verified.
+# Repository code currently contains no YouTube OAuth upload wiring.
+# GitHub Actions secret values are not readable through this integration,
+# so the presence of YOUTUBE_* secrets must not be assumed either way.
+
+on:
+  workflow_dispatch: {}
+
+concurrency:
+  group: coshuma-youtube-shorts-selection
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  select-next-short:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/GlobalSaaSHub
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.10'
+
+      - name: Install ffmpeg
+        run: sudo apt-get update -y && sudo apt-get install -y ffmpeg
+
+      - name: Install test deps
+        run: pip install pytest
+
+      - name: Run YouTube Shorts pipeline tests
+        run: python3 -m pytest scripts/tests/test_youtube_shorts_pipeline.py -v
+
+      - name: Select next candidate and queue it
+        run: python3 scripts/youtube_shorts/prepare_next_short.py
+
+      - name: Open PR with the queued selection
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          if git diff --quiet -- data/youtube_shorts_manifest.json data/browser_required_queue.json; then
+            echo "No new candidate selected. Nothing to do."
+            exit 0
+          fi
+          BRANCH="automation/youtube-shorts-next-$(date -u +%Y%m%d%H%M%S)"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git checkout -b "$BRANCH"
+          git add data/youtube_shorts_manifest.json data/browser_required_queue.json
+          git commit -m "chore(youtube-shorts): queue next Shorts candidate [skip ci]"
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "COSHUMA YouTube Shorts: queue next candidate" \
+            --body "Auto-selected by .github/workflows/coshuma-youtube-shorts.yml. Adds one topic_selected entry to the Shorts manifest and a matching render/upload queue task. This workflow does not render video or upload to YouTube." \
+            --base main \
+            --head "$BRANCH"
