@@ -38,5 +38,25 @@
       "verified_at": "2026-09-05",
       "note": "Partner onboarding email supplied the verified referral URL and recommended 'Best email list providers' as an in-market search topic. COSHUMA's existing Bookyourdata guide records the current 10-free-leads, no-card offer from official product pages. The partner-search recommendation is retained as internal evidence rather than surfaced in viewer-facing copy."
     }
+  },
+  "boldsign": {
+    "priority": 90,
+    "source_page": "/best/esignature-software.html",
+    "campaign_slug": "boldsign_esignature_value",
+    "hook": "Still printing, signing, and scanning contracts?",
+    "beats": [
+      "BoldSign is built for electronic signatures, reusable templates, reminders, audit trails, and team approval workflows.",
+      "Its current public pricing includes a free entry option, while the Business plan emphasizes unlimited envelopes for frequent senders.",
+      "Before paying, compare your expected document volume, team size, and integrations instead of choosing on headline price alone.",
+      "COSHUMA compares BoldSign with Dropbox Sign and PandaDoc so you can see which workflow fits before you commit."
+    ],
+    "cta": "Compare eSignature software and review the verified BoldSign partner option on COSHUMA.",
+    "hashtags": ["eSignature", "SmallBusiness", "SaaS"],
+    "evidence": {
+      "type": "affiliate_program_email_and_official_pricing",
+      "sender": "BoldSign Affiliates",
+      "verified_at": "2026-09-05",
+      "note": "BoldSign affiliate emails confirm active program participation, while COSHUMA's verified tracking URL is stored in the repository. Viewer-facing plan claims are limited to current official BoldSign pricing signals checked September 5, 2026."
+    }
   }
 }
