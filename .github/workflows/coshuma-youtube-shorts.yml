@@ -59,6 +59,19 @@ jobs:
       - name: Compile all Shorts modules
         run: python3 -m py_compile scripts/youtube_shorts/*.py
 
+      - name: Render Pictory smoke Short through quality gate on main
+        if: ${{ github.event_name == 'push' }}
+        run: python3 scripts/youtube_shorts/run_pipeline.py pictory
+
+      - name: Upload Pictory smoke MP4 artifact
+        if: ${{ github.event_name == 'push' }}
+        uses: actions/upload-artifact@v6
+        with:
+          name: coshuma-short-pictory-smoke-${{ github.run_id }}
+          path: projects/GlobalSaaSHub/data/youtube_shorts_output/*.mp4
+          if-no-files-found: error
+          retention-days: 3
+
       - name: Render requested Short through quality gate
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.render_tool != '' }}
         run: python3 scripts/youtube_shorts/run_pipeline.py "${{ inputs.render_tool }}"
