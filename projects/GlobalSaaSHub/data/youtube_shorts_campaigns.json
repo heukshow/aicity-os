@@ -23,20 +23,20 @@
     "priority": 95,
     "source_page": "/best/b2b-email-list-providers.html",
     "campaign_slug": "bookyourdata_free_leads",
-    "hook": "Need a B2B email list without paying for another subscription?",
+    "hook": "Looking for B2B contacts without adding another monthly subscription?",
     "beats": [
-      "Bookyourdata uses a pay-as-you-go model for B2B contact data.",
-      "Its current COSHUMA buyer guide highlights 10 free leads with no credit card required.",
-      "Bookyourdata's partner team specifically recommends best email list provider searches as an in-market promotion topic.",
-      "Start small, check whether the data fits your campaign, and compare the alternatives before buying more."
+      "Bookyourdata lets you buy B2B contact data on a pay-as-you-go basis.",
+      "You can start with 10 free leads, and the current offer does not require a credit card.",
+      "Use the free sample to check whether the contacts fit your target market before you buy more.",
+      "On COSHUMA, you can compare Bookyourdata with other prospecting options before choosing."
     ],
-    "cta": "See the B2B email list provider comparison and Bookyourdata free-lead option on COSHUMA.",
+    "cta": "Compare B2B email list providers and see the Bookyourdata free-lead option on COSHUMA.",
     "hashtags": ["B2BLeads", "SalesTools", "LeadGeneration"],
     "evidence": {
       "type": "partner_email_and_verified_buyer_guide",
       "sender": "Bookyourdata via PartnerStack",
       "verified_at": "2026-09-05",
-      "note": "Partner onboarding email supplied the verified referral URL and recommended 'Best email list providers' as an in-market search topic. COSHUMA's existing Bookyourdata guide records the current 10-free-leads, no-card offer from official product pages."
+      "note": "Partner onboarding email supplied the verified referral URL and recommended 'Best email list providers' as an in-market search topic. COSHUMA's existing Bookyourdata guide records the current 10-free-leads, no-card offer from official product pages. The partner-search recommendation is retained as internal evidence rather than surfaced in viewer-facing copy."
     }
   }
 }
