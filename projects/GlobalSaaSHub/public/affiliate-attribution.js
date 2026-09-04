@@ -83,8 +83,14 @@
     const path = window.location.pathname;
     if (/\/tool\/[^/.]+\.html$/.test(path)) return 'tool';
     if (/\/compare\/[^/.]+\.html$/.test(path)) return 'compare';
+    if (/\/best\/[^/.]+\.html$/.test(path)) return 'best';
     if (path === '/' || path === '/index.html') return 'home';
     return 'other';
+  }
+
+  function contentSlugFromPath() {
+    const match = window.location.pathname.match(/\/(?:tool|compare|best)\/([^/.]+)\.html$/);
+    return match ? match[1] : (window.location.pathname === '/' || window.location.pathname === '/index.html' ? 'home' : 'unknown');
   }
 
   function hostnameFromUrl(url) {
@@ -122,6 +128,7 @@
     page_location: window.location.href,
     page_path: window.location.pathname + window.location.search,
     page_type: pageTypeFromPath(),
+    content_slug: contentSlugFromPath(),
     tool_id: toolIdFromPath(),
     entry_page: attribution.entry_page,
     entry_referrer: attribution.entry_referrer,
@@ -141,6 +148,7 @@
       page_location: window.location.href,
       page_path: window.location.pathname + window.location.search,
       page_type: pageTypeFromPath(),
+      content_slug: contentSlugFromPath(),
       entry_page: attribution.entry_page,
       entry_referrer: attribution.entry_referrer,
       ...campaign,
