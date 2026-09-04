@@ -14,9 +14,14 @@
     "hashtags": ["Pictory", "AIVideo", "AITools"],
     "evidence": {
       "type": "affiliate_manager_email",
-      "sender": "Ashutosh Dhamija, Pictory Affiliate Manager",
+      "sender": "Pictory Affiliate Manager",
       "verified_at": "2026-09-04",
-      "note": "Email confirmed promo code coshuma20, 20% discount, and the then-current site-wide 40% annual offer with combined savings over 52%."
+      "claim_status": "verified_external_primary_source",
+      "note": "Primary-source partner email was re-read in the connected Gmail account on 2026-09-05. It explicitly confirms promo code coshuma20, a 20% discount, the then-current site-wide 40% annual offer, and combined savings over 52%.",
+      "verified_claims": {
+        "promo_codes": ["COSHUMA20"],
+        "discount_percentages": [20, 40, 52]
+      }
     }
   },
   "bookyourdata": {
