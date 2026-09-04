@@ -8,6 +8,7 @@ on:
       - 'projects/GlobalSaaSHub/public/**'
       - 'projects/GlobalSaaSHub/scripts/polish_public_copy.py'
       - 'projects/GlobalSaaSHub/scripts/ensure_best_pages_in_sitemap.py'
+      - 'projects/GlobalSaaSHub/scripts/inject_pictory_partner_offer.py'
       - 'projects/GlobalSaaSHub/index.html'
       - 'projects/GlobalSaaSHub/package.json'
       - 'projects/GlobalSaaSHub/package-lock.json'
@@ -43,6 +44,9 @@ jobs:
       - name: Polish generated public copy
         run: python projects/GlobalSaaSHub/scripts/polish_public_copy.py
 
+      - name: Inject current Pictory partner offer
+        run: python projects/GlobalSaaSHub/scripts/inject_pictory_partner_offer.py
+
       - name: Index buyer-intent hubs in sitemap
         run: python projects/GlobalSaaSHub/scripts/ensure_best_pages_in_sitemap.py
 
@@ -63,6 +67,12 @@ jobs:
             echo 'Legacy comparison boilerplate detected in production pages.'
             exit 1
           fi
+          while IFS= read -r page; do
+            if ! grep -q 'COSHUMA20' "$page"; then
+              echo "Pictory monetized page missing current partner offer: $page"
+              exit 1
+            fi
+          done < <(grep -R -l -F 'https://pictory.ai?fpr=sangkwon-an23' projects/GlobalSaaSHub/dist --include='*.html' || true)
           for page in projects/GlobalSaaSHub/dist/best/*.html; do
             [ -e "$page" ] || continue
             slug=$(basename "$page")
