@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T05:57:20.336252+00:00",
+  "generated_at": "2026-09-04T11:22:53.247882+00:00",
   "actors": [
     {
       "name": "Prince",
@@ -74,7 +74,7 @@
       "pid": null,
       "started_at": null,
       "heartbeat": "2026-08-24T09:25:49.5786616Z",
-      "heartbeat_age_seconds": 937890
+      "heartbeat_age_seconds": 957423
     },
     {
       "name": "GitHub bridge",
@@ -83,7 +83,7 @@
       "pid": null,
       "started_at": "2026-08-24T09:15:49.8104234Z",
       "heartbeat": "2026-08-31T15:56:32.0107301Z",
-      "heartbeat_age_seconds": 309648
+      "heartbeat_age_seconds": 329181
     },
     {
       "name": "dashboard",
@@ -92,7 +92,7 @@
       "pid": null,
       "started_at": "2026-08-24T09:18:44.922329+00:00",
       "heartbeat": "2026-08-31T15:56:39.889542+00:00",
-      "heartbeat_age_seconds": 309640
+      "heartbeat_age_seconds": 329173
     }
   ],
   "reconciliation": {
