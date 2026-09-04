@@ -85,12 +85,16 @@
     if (/\/compare\/[^/.]+\.html$/.test(path)) return 'compare';
     if (/\/best\/[^/.]+\.html$/.test(path)) return 'best';
     if (path === '/' || path === '/index.html') return 'home';
+    if (/^\/[^/.]+\.html$/.test(path)) return 'guide';
     return 'other';
   }
 
   function contentSlugFromPath() {
     const match = window.location.pathname.match(/\/(?:tool|compare|best)\/([^/.]+)\.html$/);
-    return match ? match[1] : (window.location.pathname === '/' || window.location.pathname === '/index.html' ? 'home' : 'unknown');
+    if (match) return match[1];
+    if (window.location.pathname === '/' || window.location.pathname === '/index.html') return 'home';
+    const rootGuide = window.location.pathname.match(/^\/([^/.]+)\.html$/);
+    return rootGuide ? rootGuide[1] : 'unknown';
   }
 
   function hostnameFromUrl(url) {
