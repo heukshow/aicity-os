@@ -18,5 +18,25 @@
       "verified_at": "2026-09-04",
       "note": "Email confirmed promo code coshuma20, 20% discount, and the then-current site-wide 40% annual offer with combined savings over 52%."
     }
+  },
+  "bookyourdata": {
+    "priority": 95,
+    "source_page": "/best/b2b-email-list-providers.html",
+    "campaign_slug": "bookyourdata_free_leads",
+    "hook": "Need a B2B email list without paying for another subscription?",
+    "beats": [
+      "Bookyourdata uses a pay-as-you-go model for B2B contact data.",
+      "Its current COSHUMA buyer guide highlights 10 free leads with no credit card required.",
+      "Bookyourdata's partner team specifically recommends best email list provider searches as an in-market promotion topic.",
+      "Start small, check whether the data fits your campaign, and compare the alternatives before buying more."
+    ],
+    "cta": "See the B2B email list provider comparison and Bookyourdata free-lead option on COSHUMA.",
+    "hashtags": ["B2BLeads", "SalesTools", "LeadGeneration"],
+    "evidence": {
+      "type": "partner_email_and_verified_buyer_guide",
+      "sender": "Bookyourdata via PartnerStack",
+      "verified_at": "2026-09-05",
+      "note": "Partner onboarding email supplied the verified referral URL and recommended 'Best email list providers' as an in-market search topic. COSHUMA's existing Bookyourdata guide records the current 10-free-leads, no-card offer from official product pages."
+    }
   }
 }
