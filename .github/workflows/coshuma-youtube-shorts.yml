@@ -1,17 +1,31 @@
-name: COSHUMA YouTube Shorts - Content Selection & Queueing
-
-# Selects the next revenue-priority Shorts topic, generates UTM-tagged
-# metadata, and opens a PR recording the selection. Rendering and YouTube
-# API upload remain separate stages until those steps are fully verified.
-# Repository code currently contains no YouTube OAuth upload wiring.
-# GitHub Actions secret values are not readable through this integration,
-# so the presence of YOUTUBE_* secrets must not be assumed either way.
+name: COSHUMA YouTube Shorts Pipeline
 
 on:
-  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/coshuma-youtube-shorts.yml'
+      - 'projects/GlobalSaaSHub/scripts/youtube_shorts/**'
+      - 'projects/GlobalSaaSHub/scripts/tests/test_youtube_shorts_pipeline.py'
+      - 'projects/GlobalSaaSHub/scripts/tests/test_youtube_shorts_render_upload.py'
+      - 'projects/GlobalSaaSHub/data/youtube_shorts_*.json'
+  pull_request:
+    paths:
+      - '.github/workflows/coshuma-youtube-shorts.yml'
+      - 'projects/GlobalSaaSHub/scripts/youtube_shorts/**'
+      - 'projects/GlobalSaaSHub/scripts/tests/test_youtube_shorts_pipeline.py'
+      - 'projects/GlobalSaaSHub/scripts/tests/test_youtube_shorts_render_upload.py'
+      - 'projects/GlobalSaaSHub/data/youtube_shorts_*.json'
+  workflow_dispatch:
+    inputs:
+      render_tool:
+        description: 'Optional tool id to render through quality gate (example: pictory). Leave blank to queue the next candidate.'
+        required: false
+        default: ''
+        type: string
 
 concurrency:
-  group: coshuma-youtube-shorts-selection
+  group: coshuma-youtube-shorts-${{ github.ref }}
   cancel-in-progress: false
 
 permissions:
@@ -19,7 +33,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  select-next-short:
+  validate-and-prepare:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -33,19 +47,37 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install ffmpeg
-        run: sudo apt-get update -y && sudo apt-get install -y ffmpeg
+      - name: Install free media dependencies
+        run: sudo apt-get update -y && sudo apt-get install -y ffmpeg espeak-ng fonts-dejavu-core
 
-      - name: Install test deps
-        run: pip install pytest
+      - name: Install Python dependencies
+        run: pip install pytest requests
 
-      - name: Run YouTube Shorts pipeline tests
-        run: python3 -m pytest scripts/tests/test_youtube_shorts_pipeline.py -v
+      - name: Run Shorts tests
+        run: python3 -m pytest scripts/tests/test_youtube_shorts_pipeline.py scripts/tests/test_youtube_shorts_render_upload.py -v
+
+      - name: Compile all Shorts modules
+        run: python3 -m py_compile scripts/youtube_shorts/*.py
+
+      - name: Render requested Short through quality gate
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.render_tool != '' }}
+        run: python3 scripts/youtube_shorts/run_pipeline.py "${{ inputs.render_tool }}"
+
+      - name: Upload rendered dry-run artifact
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.render_tool != '' }}
+        uses: actions/upload-artifact@v6
+        with:
+          name: coshuma-short-${{ inputs.render_tool }}-${{ github.run_id }}
+          path: projects/GlobalSaaSHub/data/youtube_shorts_output/*.mp4
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Select next candidate and queue it
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.render_tool == '' }}
         run: python3 scripts/youtube_shorts/prepare_next_short.py
 
-      - name: Open PR with the queued selection
+      - name: Open PR with queued selection
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.render_tool == '' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -63,6 +95,6 @@ jobs:
           git push origin "$BRANCH"
           gh pr create \
             --title "COSHUMA YouTube Shorts: queue next candidate" \
-            --body "Auto-selected by .github/workflows/coshuma-youtube-shorts.yml. Adds one topic_selected entry to the Shorts manifest and a matching render/upload queue task. This workflow does not render video or upload to YouTube." \
+            --body "Auto-selected by the COSHUMA Shorts workflow. Adds one topic_selected manifest entry and a matching render/upload queue task. No video was uploaded to YouTube." \
             --base main \
             --head "$BRANCH"
