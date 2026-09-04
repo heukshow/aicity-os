@@ -16,17 +16,31 @@
   {
     "id": "coshuma-youtube-channel-branding",
     "priority": "high",
-    "status": "browser_required",
+    "status": "resolved",
     "cost": "0",
     "verified_at": "2026-09-01T23:55:00+09:00",
-    "reason": "The user explicitly requested a new COSHUMA YouTube channel to be created and fully branded before starting affiliate-tool Shorts. This requires authenticated YouTube/YouTube Studio UI access, which is not available in the current execution environment.",
-    "next_action": "Reuse the existing COSHUMA Work session if it is already open. In the authenticated YouTube/YouTube Studio browser, first check whether a COSHUMA channel already exists and do not create a duplicate. If absent, create the COSHUMA channel, prefer @coshuma if available, configure a global-English AI/SaaS description, link coshuma.com, apply profile/banner branding, channel layout and other free branding settings, and verify the resulting channel URL and visible settings. Only after branding is complete should Shorts production/upload begin.",
+    "resolved_at": "2026-09-04T20:10:00+09:00",
+    "reason": "The COSHUMA YouTube channel branding task had required authenticated YouTube Studio access.",
+    "resolution_evidence": "Confirmed in the prior authenticated YouTube Studio session: channel id UCT33Ogj3tjh1_ddTAomOkBQ exists, is branded for COSHUMA, and has four published Shorts recorded in youtube_shorts_manifest.json.",
+    "next_action": "None. Do not create a duplicate COSHUMA channel.",
     "do_not": [
-      "Do not create a second COSHUMA channel if one already exists.",
-      "Do not create another Work handoff if a COSHUMA Work session is already available.",
-      "Do not publish affiliate Shorts before the channel identity and outbound coshuma.com link are verified.",
-      "Do not bypass CAPTCHA, OTP, phone verification, legal consent or forced identity verification; request user intervention only for those mandatory steps.",
-      "Do not purchase YouTube, design, editing or promotion services."
+      "Do not create a second COSHUMA channel unless new evidence shows the existing channel is unusable.",
+      "Do not reopen this item without new evidence."
+    ]
+  },
+  {
+    "id": "coshuma-youtube-oauth-setup",
+    "priority": "medium",
+    "status": "browser_required_user_consent",
+    "cost": "0",
+    "verified_at": "2026-09-05T05:15:00+09:00",
+    "reason": "Repository code currently has no YouTube Data API v3 upload/OAuth implementation. GitHub Actions secret values are not readable through the current integration, so YOUTUBE_* secret presence is unverified rather than assumed absent. A one-time Google OAuth consent flow will be required if no usable refresh token already exists.",
+    "next_action": "When the user is available, reuse the authenticated COSHUMA Google/YouTube session. First check whether an existing Google Cloud project, YouTube Data API v3 OAuth client, and reusable refresh token already exist. If not, enable YouTube Data API v3 in a free Google Cloud project, create an OAuth client, and have the user personally grant the required YouTube upload permission. Store credentials only as GitHub Actions secrets or another approved secret store; never commit them. After authentication is verified, test a non-public upload before enabling scheduled publishing.",
+    "do_not": [
+      "Do not attempt Google account consent, CAPTCHA, OTP, phone verification, or legal agreement acceptance on the user's behalf.",
+      "Do not commit OAuth client secrets or refresh tokens to the repository, logs, issues, or PR bodies.",
+      "Do not enable paid Google Cloud services or billing without explicit approval.",
+      "Do not assume YOUTUBE_* secrets are absent unless an authorized environment actually verifies that."
     ]
   },
   {
