@@ -72,6 +72,10 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         run: python3 scripts/youtube_shorts/run_pipeline.py bookyourdata
 
+      - name: Render BoldSign revenue Short through quality gate on main
+        if: ${{ github.event_name == 'push' }}
+        run: python3 scripts/youtube_shorts/run_pipeline.py boldsign
+
       - name: Upload revenue smoke MP4 artifacts
         if: ${{ github.event_name == 'push' }}
         uses: actions/upload-artifact@v6
