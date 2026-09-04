@@ -4,39 +4,40 @@
 Run before any upload step (manual or API). Fails closed: any check that
 cannot be verified counts as a failure, it is never silently skipped.
 
-Checks implemented (see brief section 10):
+Checks implemented:
   - video file exists and is non-empty
-  - duration is in the expected Shorts range (10-60s; house style targets 30-45s,
-    warn but do not fail outside that band, fail hard outside 10-60s)
+  - duration is in the expected Shorts range (10-60s; house style targets 30-45s)
   - resolution is exactly 1080x1920 (9:16)
+  - video codec is H.264 and frame rate is sane for Shorts
   - has both a video and an audio stream
   - not a byte-for-byte duplicate of any video already in the manifest
-    (dedup via sha256, independent of file name)
-  - CTA URL (coshuma_url) points at coshuma.com, carries utm_source=youtube
-    and utm_medium=shorts, and is not a bare generic homepage/affiliate URL
+  - already-uploaded (affiliate_target, campaign_slug) pairs cannot upload again
+  - CTA URL points at coshuma.com with youtube/shorts/campaign UTM attribution
   - description/title do not contain banned unverifiable-earnings phrases
-  - description's COSHUMA URL host/path matches an existing tool/best/compare
-    page in the repo (catches typos and stale slugs)
+  - price, promo-code and percentage claims must be grounded in either the
+    tool page or structured primary-source evidence committed for that exact
+    campaign
 
 Usage:
     python3 quality_gate.py --video path/to.mp4 --coshuma-url "https://coshuma.com/tool/x.html?..." \
-        --title "..." --description "..."
-Exits 0 and prints a JSON report if everything passes; exits 1 with the same
-JSON report (each failed check listed) otherwise.
+        --title "..." --description "..." --affiliate-target x --campaign-slug x
+Exits 0 and prints a JSON report if everything passes; exits 1 otherwise.
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import parse_qs, urlparse
 
 ROOT = Path(__file__).resolve().parents[2]
 PUBLIC_DIR = ROOT / "public"
 MANIFEST_JSON = ROOT / "data" / "youtube_shorts_manifest.json"
+CAMPAIGNS_JSON = ROOT / "data" / "youtube_shorts_campaigns.json"
 
 BANNED_PHRASES = [
     "guaranteed income", "guaranteed money", "get rich", "risk-free profit",
@@ -45,6 +46,7 @@ BANNED_PHRASES = [
 
 TARGET_MIN_S, TARGET_MAX_S = 30, 45
 HARD_MIN_S, HARD_MAX_S = 10, 60
+MIN_FPS, MAX_FPS = 24.0, 60.0
 
 
 def sha256_of(path: Path) -> str:
@@ -66,11 +68,18 @@ def ffprobe_streams(path: Path) -> dict:
     return json.loads(out.stdout)
 
 
-def manifest_hashes() -> set[str]:
+def _load_manifest() -> dict:
     if not MANIFEST_JSON.exists():
-        return set()
-    manifest = json.loads(MANIFEST_JSON.read_text(encoding="utf-8"))
-    return {e.get("video_sha256") for e in manifest.get("entries", []) if e.get("video_sha256")}
+        return {"entries": []}
+    return json.loads(MANIFEST_JSON.read_text(encoding="utf-8"))
+
+
+def manifest_hashes() -> set[str]:
+    return {
+        e.get("video_sha256")
+        for e in _load_manifest().get("entries", [])
+        if e.get("video_sha256")
+    }
 
 
 def coshuma_page_exists(coshuma_url: str) -> bool:
@@ -79,12 +88,26 @@ def coshuma_page_exists(coshuma_url: str) -> bool:
     return candidate.exists()
 
 
+def _parse_fps(value: str | None) -> float:
+    if not value:
+        return 0.0
+    try:
+        if "/" in value:
+            num, den = value.split("/", 1)
+            den_f = float(den)
+            return float(num) / den_f if den_f else 0.0
+        return float(value)
+    except (TypeError, ValueError, ZeroDivisionError):
+        return 0.0
+
+
 def check_video(video_path: str, report: dict) -> None:
     p = Path(video_path)
     if not p.exists() or p.stat().st_size == 0:
         report["failures"].append(f"video file missing or empty: {video_path}")
         return
 
+    report["checks"]["file_size_bytes"] = p.stat().st_size
     report["checks"]["video_sha256"] = sha256_of(p)
     if report["checks"]["video_sha256"] in manifest_hashes():
         report["failures"].append("duplicate video: this exact file is already in the manifest")
@@ -111,12 +134,30 @@ def check_video(video_path: str, report: dict) -> None:
     if not v_streams:
         report["failures"].append("no video stream found")
     else:
-        w, h = v_streams[0].get("width"), v_streams[0].get("height")
+        stream = v_streams[0]
+        w, h = stream.get("width"), stream.get("height")
         report["checks"]["resolution"] = f"{w}x{h}"
         if (w, h) != (1080, 1920):
             report["failures"].append(f"resolution {w}x{h} != required 1080x1920 (9:16)")
+
+        codec = (stream.get("codec_name") or "").lower()
+        report["checks"]["video_codec"] = codec or None
+        if codec != "h264":
+            report["failures"].append(f"video codec {codec or 'unknown'} != required h264")
+
+        fps = _parse_fps(stream.get("avg_frame_rate") or stream.get("r_frame_rate"))
+        report["checks"]["fps"] = round(fps, 3) if fps else None
+        if not (MIN_FPS <= fps <= MAX_FPS):
+            report["failures"].append(
+                f"frame rate {fps:.3f}fps outside supported range [{MIN_FPS:.0f}, {MAX_FPS:.0f}]"
+            )
+        elif not (29.0 <= fps <= 31.0):
+            report["warnings"].append(f"frame rate {fps:.3f}fps differs from the 30fps house target")
+
     if not a_streams:
         report["failures"].append("no audio stream found (voice/captions/BGM all require an audio track)")
+    else:
+        report["checks"]["audio_codec"] = a_streams[0].get("codec_name")
 
 
 def check_cta_url(coshuma_url: str | None, report: dict) -> None:
@@ -148,11 +189,127 @@ def check_copy(title: str | None, description: str | None, report: dict) -> None
         report["failures"].append("description exceeds YouTube's 5000-character limit")
 
 
-def run_quality_gate(video: str, coshuma_url: str | None, title: str | None, description: str | None) -> dict:
+def check_campaign_dedup(
+    affiliate_target: str | None,
+    campaign_slug: str | None,
+    report: dict,
+) -> None:
+    if not affiliate_target or not campaign_slug:
+        return
+    matches = [
+        e for e in _load_manifest().get("entries", [])
+        if e.get("affiliate_target") == affiliate_target and e.get("campaign_slug") == campaign_slug
+    ]
+    uploaded = [e for e in matches if e.get("status") in {"uploaded", "published", "public"}]
+    if uploaded:
+        ids = [e.get("youtube_video_id") for e in uploaded if e.get("youtube_video_id")]
+        suffix = f" ({', '.join(ids)})" if ids else ""
+        report["failures"].append(
+            f"campaign already uploaded for ({affiliate_target}, {campaign_slug}){suffix}; use a new campaign slug for a new creative"
+        )
+    elif matches:
+        report["warnings"].append(
+            f"campaign ({affiliate_target}, {campaign_slug}) already has a non-uploaded manifest entry; current run may replace its ready/rendered metadata"
+        )
+
+
+def _campaign_verified_claims(affiliate_target: str, campaign_slug: str | None) -> dict:
+    if not CAMPAIGNS_JSON.exists():
+        return {}
+    campaigns = json.loads(CAMPAIGNS_JSON.read_text(encoding="utf-8"))
+    campaign = campaigns.get(affiliate_target) or {}
+    if campaign_slug and campaign.get("campaign_slug") != campaign_slug:
+        return {}
+    evidence = campaign.get("evidence") or {}
+    if evidence.get("claim_status") != "verified_external_primary_source":
+        return {}
+    claims = evidence.get("verified_claims") or {}
+    return {
+        "promo_codes": {str(x).upper() for x in claims.get("promo_codes", [])},
+        "discount_percentages": {int(x) for x in claims.get("discount_percentages", [])},
+        "prices": {str(x).replace(" ", "") for x in claims.get("prices", [])},
+        "source_type": evidence.get("type"),
+        "verified_at": evidence.get("verified_at"),
+    }
+
+
+def check_price_and_discount_claims(
+    text: str | None,
+    affiliate_target: str | None,
+    campaign_slug: str | None,
+    report: dict,
+) -> None:
+    if not text:
+        return
+
+    price_claims = re.findall(r"\$\s?\d[\d,]*(?:\.\d+)?(?:\s*/\s*(?:mo|month|yr|year))?", text, flags=re.I)
+    code_claims = [
+        m.group(1).upper()
+        for m in re.finditer(
+            r"\b(?:promo\s+code|code)\s*(?:is|:|=)?\s*[\"']?([A-Z][A-Z0-9_-]{3,15})\b",
+            text,
+        )
+    ]
+    pct_claims = [int(x) for x in re.findall(r"\b(\d{1,3})\s?%", text)]
+
+    if not (price_claims or code_claims or pct_claims):
+        return
+    if not affiliate_target:
+        report["failures"].append("numeric/promo claim present but affiliate_target was not supplied for verification")
+        return
+
+    tool_page = PUBLIC_DIR / "tool" / f"{affiliate_target}.html"
+    page_text = tool_page.read_text(encoding="utf-8") if tool_page.exists() else ""
+    page_compact = page_text.replace(" ", "")
+    verified = _campaign_verified_claims(affiliate_target, campaign_slug)
+
+    if verified:
+        report["checks"]["promotion_evidence"] = {
+            "source_type": verified.get("source_type"),
+            "verified_at": verified.get("verified_at"),
+            "campaign_slug": campaign_slug,
+        }
+
+    for price in price_claims:
+        normalized = price.replace(" ", "")
+        if normalized not in page_compact and normalized not in verified.get("prices", set()):
+            report["failures"].append(
+                f"description/narration states price {price!r} without matching tool-page or structured primary-source evidence"
+            )
+
+    for code in code_claims:
+        if code not in page_text.upper() and code not in verified.get("promo_codes", set()):
+            report["failures"].append(
+                f"description/narration mentions promo code {code!r} without matching tool-page or structured primary-source evidence"
+            )
+
+    for pct in pct_claims:
+        if (
+            f"{pct}%" not in page_text
+            and f"{pct} %" not in page_text
+            and pct not in verified.get("discount_percentages", set())
+        ):
+            report["failures"].append(
+                f"description/narration claims {pct}% without matching tool-page or structured primary-source evidence"
+            )
+
+
+def run_quality_gate(
+    video: str,
+    coshuma_url: str | None,
+    title: str | None,
+    description: str | None,
+    affiliate_target: str | None = None,
+    campaign_slug: str | None = None,
+    narration: str | None = None,
+) -> dict:
     report = {"checks": {}, "warnings": [], "failures": []}
     check_video(video, report)
     check_cta_url(coshuma_url, report)
     check_copy(title, description, report)
+    check_campaign_dedup(affiliate_target, campaign_slug, report)
+    combined_copy = "\n".join(filter(None, [description, narration]))
+    check_price_and_discount_claims(combined_copy, affiliate_target, campaign_slug, report)
     report["passed"] = len(report["failures"]) == 0
     return report
 
@@ -163,9 +320,20 @@ def main():
     parser.add_argument("--coshuma-url", required=True)
     parser.add_argument("--title", default="")
     parser.add_argument("--description", default="")
+    parser.add_argument("--affiliate-target", default=None)
+    parser.add_argument("--campaign-slug", default=None)
+    parser.add_argument("--narration", default=None)
     args = parser.parse_args()
 
-    report = run_quality_gate(args.video, args.coshuma_url, args.title, args.description)
+    report = run_quality_gate(
+        args.video,
+        args.coshuma_url,
+        args.title,
+        args.description,
+        affiliate_target=args.affiliate_target,
+        campaign_slug=args.campaign_slug,
+        narration=args.narration,
+    )
     print(json.dumps(report, indent=2, ensure_ascii=False))
     sys.exit(0 if report["passed"] else 1)
 

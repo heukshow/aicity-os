@@ -84,7 +84,13 @@ def run(tool_id: str, upload_private: bool = False) -> dict:
 
     rendered = render_short.render(tool_id)
     report = quality_gate.run_quality_gate(
-        rendered["output"], metadata["coshuma_url"], metadata["title"], metadata["description"]
+        rendered["output"],
+        metadata["coshuma_url"],
+        metadata["title"],
+        metadata["description"],
+        affiliate_target=script["tool_id"],
+        campaign_slug=script["campaign_slug"],
+        narration=script.get("narration"),
     )
     if not report["passed"]:
         raise RuntimeError("Shorts quality gate failed: " + "; ".join(report["failures"]))
