@@ -82,6 +82,7 @@ def render(tool_id: str, output: str | None = None) -> dict:
 
         font = font_path()
         slot = duration / len(card_files)
+        escaped_comma = r"\,"
         filters = [
             "drawbox=x=70:y=120:w=940:h=1460:color=0x151827@0.96:t=fill",
             f"drawtext=fontfile='{font}':text='COSHUMA':fontcolor=0xC4B5FD:fontsize=58:x=(w-text_w)/2:y=175",
@@ -95,7 +96,7 @@ def render(tool_id: str, output: str | None = None) -> dict:
                 f"fontfile='{font}':textfile='{card_file}':"
                 "fontcolor=white:fontsize=56:line_spacing=18:"
                 "x=(w-text_w)/2:y=(h-text_h)/2:"
-                f"enable='between(t\,{start:.3f}\,{end:.3f})'"
+                f"enable='between(t{escaped_comma}{start:.3f}{escaped_comma}{end:.3f})'"
             )
         filters.extend([
             "drawbox=x=90:y=1660:w=900:h=150:color=0x7C3AED@0.92:t=fill",
