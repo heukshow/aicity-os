@@ -81,6 +81,17 @@ jobs:
               exit 1
             fi
           done
+          for page in projects/GlobalSaaSHub/dist/*.html; do
+            [ -e "$page" ] || continue
+            if ! grep -q 'data-cta="affiliate"' "$page"; then
+              continue
+            fi
+            slug=$(basename "$page")
+            if ! grep -q "https://coshuma.com/$slug" projects/GlobalSaaSHub/dist/sitemap.xml; then
+              echo "Root revenue page missing from sitemap: $slug"
+              exit 1
+            fi
+          done
           grep -q 'coshuma.com' projects/GlobalSaaSHub/dist/CNAME
 
       - name: Publish complete Vite dist to gh-pages
