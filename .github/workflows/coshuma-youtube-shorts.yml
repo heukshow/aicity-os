@@ -60,8 +60,14 @@ jobs:
       - name: Install Python dependencies
         run: pip install pytest requests
 
-      - name: Run Shorts tests
-        run: python3 -m pytest scripts/tests/test_youtube_shorts_pipeline.py scripts/tests/test_youtube_shorts_render_upload.py scripts/tests/test_youtube_shorts_claim_gate.py -v
+      - name: Run Shorts foundation tests
+        run: python3 -m pytest scripts/tests/test_youtube_shorts_pipeline.py -v
+
+      - name: Run Shorts render and upload tests
+        run: python3 -m pytest scripts/tests/test_youtube_shorts_render_upload.py -v
+
+      - name: Run Shorts claim evidence tests
+        run: python3 -m pytest scripts/tests/test_youtube_shorts_claim_gate.py -v
 
       - name: Compile all Shorts modules
         run: python3 -m py_compile scripts/youtube_shorts/*.py
