@@ -250,7 +250,7 @@ def check_price_and_discount_claims(
             text,
         )
     ]
-    pct_claims = [int(x) for x in re.findall(r"\b(\d{1,3})\s?%\b", text)]
+    pct_claims = [int(x) for x in re.findall(r"\b(\d{1,3})\s?%", text)]
 
     if not (price_claims or code_claims or pct_claims):
         return
