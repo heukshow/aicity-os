@@ -72,5 +72,20 @@
       "Do not create a second Dub Partner account with support@coshuma.com merely because the saved-application reminder email keeps arriving.",
       "Do not reapply to the Dub Partner Network while the August 30 rejection/cooldown remains the latest authoritative network status."
     ]
+  },
+  {
+    "id": "clickfunnels-affiliate-agreement-and-campaign-link",
+    "priority": "high",
+    "status": "browser_required_user_consent",
+    "cost": "0",
+    "verified_at": "2026-09-04T13:38:42+09:00",
+    "reason": "ClickFunnels' affiliate confirmation email states that the COSHUMA account has joined the ClickFunnels Affiliate Program, but promotion links are only exposed in the Affiliate Center after the Affiliate Agreement is read and accepted. The repository still has affiliate_url=null for ClickFunnels, so publishing any generic ClickFunnels URL as a revenue link would be unsafe.",
+    "next_action": "When the user is available, reuse the authenticated ClickFunnels Affiliate Portal session and have the user personally review and accept the Affiliate Agreement. After acceptance, open the Campaigns tab, copy the exact customer-facing campaign/referral URL, verify its tracking identifier and destination, then update ClickFunnels affiliate data and eligible COSHUMA detail/comparison CTAs.",
+    "do_not": [
+      "Do not accept the ClickFunnels Affiliate Agreement on the user's behalf.",
+      "Do not treat the Affiliate Portal, Campaigns dashboard, email-tracking redirect or generic clickfunnels.com homepage as an affiliate/revenue link.",
+      "Do not guess or construct a ClickFunnels referral or campaign URL.",
+      "Do not submit another ClickFunnels affiliate application because the confirmation email already verifies program enrollment."
+    ]
   }
 ]
