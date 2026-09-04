@@ -6,6 +6,7 @@ on:
       - '.github/workflows/coshuma-youtube-shorts.yml'
       - 'projects/GlobalSaaSHub/scripts/youtube_shorts/**'
       - 'projects/GlobalSaaSHub/scripts/tests/test_youtube_shorts_pipeline.py'
+      - 'projects/GlobalSaaSHub/scripts/tests/test_youtube_shorts_render_upload.py'
       - 'projects/GlobalSaaSHub/data/youtube_shorts_*.json'
   workflow_dispatch:
     inputs:
@@ -44,8 +45,8 @@ jobs:
       - name: Install Python dependencies
         run: pip install pytest requests
 
-      - name: Run Shorts foundation tests
-        run: python3 -m pytest scripts/tests/test_youtube_shorts_pipeline.py -v
+      - name: Run Shorts tests
+        run: python3 -m pytest scripts/tests/test_youtube_shorts_pipeline.py scripts/tests/test_youtube_shorts_render_upload.py -v
 
       - name: Compile all Shorts modules
         run: python3 -m py_compile scripts/youtube_shorts/*.py
