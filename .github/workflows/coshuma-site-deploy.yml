@@ -6,6 +6,9 @@ on:
     paths:
       - 'projects/GlobalSaaSHub/src/**'
       - 'projects/GlobalSaaSHub/public/**'
+      - 'projects/GlobalSaaSHub/data/tools.json'
+      - 'projects/GlobalSaaSHub/data/tools.next.json'
+      - 'projects/GlobalSaaSHub/scripts/sync_verified_affiliates.mjs'
       - 'projects/GlobalSaaSHub/scripts/polish_public_copy.py'
       - 'projects/GlobalSaaSHub/scripts/ensure_best_pages_in_sitemap.py'
       - 'projects/GlobalSaaSHub/scripts/inject_pictory_partner_offer.py'
@@ -40,6 +43,25 @@ jobs:
       - name: Install dependencies
         working-directory: projects/GlobalSaaSHub
         run: npm ci
+
+      - name: Sync verified affiliate revenue data
+        working-directory: projects/GlobalSaaSHub
+        run: |
+          node scripts/sync_verified_affiliates.mjs
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const tools = JSON.parse(fs.readFileSync('data/tools.json', 'utf8'));
+          const expected = new Map([
+            ['murf-ai', 'https://get.murf.ai/fqac0vixj0qs'],
+            ['unbounce', 'https://unbounce.partnerlinks.io/5ubjnt8lluqi'],
+          ]);
+          for (const [id, url] of expected) {
+            const tool = tools.find((item) => item.id === id);
+            if (!tool || tool.affiliate_verified !== true || tool.affiliate_url !== url) {
+              throw new Error(`Verified affiliate sync failed for ${id}`);
+            }
+          }
+          NODE
 
       - name: Polish generated public copy
         run: python projects/GlobalSaaSHub/scripts/polish_public_copy.py
@@ -78,6 +100,8 @@ jobs:
             exit 1
           fi
           grep -R -q -F 'https://unbounce.partnerlinks.io/5ubjnt8lluqi' projects/GlobalSaaSHub/dist/compare
+          grep -R -q -F 'https://get.murf.ai/fqac0vixj0qs' projects/GlobalSaaSHub/dist/assets
+          grep -R -q -F 'https://unbounce.partnerlinks.io/5ubjnt8lluqi' projects/GlobalSaaSHub/dist/assets
           for page in projects/GlobalSaaSHub/dist/compare/*.html; do
             [ -e "$page" ] || continue
             if grep -q 'data-cta="affiliate"' "$page" && ! grep -q 'data-affiliate-disclosure="compare"' "$page"; then
