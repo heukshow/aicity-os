@@ -38,6 +38,7 @@ const verifiedRoutes = tools.filter((tool) =>
 
 let filesChanged = 0;
 let linksMonetized = 0;
+let linksAttributed = 0;
 const changedByTool = new Map();
 
 for (const filename of fs.readdirSync(COMPARE_DIR)) {
@@ -54,16 +55,34 @@ for (const filename of fs.readdirSync(COMPARE_DIR)) {
       'g'
     );
     const matches = updated.match(exactGeneratedAnchor)?.length || 0;
-    if (!matches) continue;
 
-    const replacement =
-      `<a data-cta="affiliate" data-tool-id="${tool.id}" data-cta-source="compare-generated-auto" ` +
-      `href="${tool.affiliate_url}" target="_blank" rel="sponsored noopener noreferrer"`;
+    if (matches) {
+      const replacement =
+        `<a data-cta="affiliate" data-tool-id="${tool.id}" data-cta-source="compare-generated-auto" ` +
+        `href="${tool.affiliate_url}" target="_blank" rel="sponsored noopener noreferrer"`;
 
-    updated = updated.replace(exactGeneratedAnchor, () => replacement);
-    changedThisFile += matches;
-    linksMonetized += matches;
-    changedByTool.set(tool.id, (changedByTool.get(tool.id) || 0) + matches);
+      updated = updated.replace(exactGeneratedAnchor, () => replacement);
+      changedThisFile += matches;
+      linksMonetized += matches;
+      changedByTool.set(tool.id, (changedByTool.get(tool.id) || 0) + matches);
+    }
+
+    const exactUnattributedAffiliateAnchor = new RegExp(
+      `<a href="${escapeRegExp(tool.affiliate_url)}" target="_blank" rel="[^"]*"`,
+      'g'
+    );
+    const unattributedMatches = updated.match(exactUnattributedAffiliateAnchor)?.length || 0;
+
+    if (unattributedMatches) {
+      const attributedReplacement =
+        `<a data-cta="affiliate" data-tool-id="${tool.id}" data-cta-source="compare-existing-affiliate-auto" ` +
+        `href="${tool.affiliate_url}" target="_blank" rel="sponsored noopener noreferrer"`;
+
+      updated = updated.replace(exactUnattributedAffiliateAnchor, () => attributedReplacement);
+      changedThisFile += unattributedMatches;
+      linksAttributed += unattributedMatches;
+      changedByTool.set(tool.id, (changedByTool.get(tool.id) || 0) + unattributedMatches);
+    }
   }
 
   if (!changedThisFile) continue;
@@ -90,6 +109,6 @@ const breakdown = [...changedByTool.entries()]
 
 console.log(
   `monetize_verified_compare_links: verified_routes=${verifiedRoutes.length} ` +
-  `files_changed=${filesChanged} links_monetized=${linksMonetized}` +
+  `files_changed=${filesChanged} links_monetized=${linksMonetized} links_attributed=${linksAttributed}` +
   (breakdown ? ` [${breakdown}]` : '')
 );
