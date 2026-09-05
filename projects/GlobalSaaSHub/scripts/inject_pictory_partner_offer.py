@@ -6,6 +6,7 @@ PUBLIC_DIR = PROJECT_DIR / "public"
 PICTORY_AFFILIATE_URL = "https://pictory.ai?fpr=sangkwon-an23"
 MARKER = 'data-pictory-promo="coshuma20"'
 PROMO_CTA_SOURCE = "pictory-promo-banner"
+EXCLUDED_PATHS = {"best/pictory-discount-code.html"}
 
 PROMO = rf'''
 <section data-pictory-promo="coshuma20" class="mx-auto mb-6 max-w-4xl rounded-2xl border border-amber-400/25 bg-amber-400/[0.07] p-4 sm:p-5">
@@ -29,6 +30,10 @@ PROMO = rf'''
 
 updated = []
 for path in sorted(PUBLIC_DIR.rglob("*.html")):
+    relative_path = path.relative_to(PUBLIC_DIR).as_posix()
+    if relative_path in EXCLUDED_PATHS:
+        continue
+
     text = path.read_text(encoding="utf-8")
     if PICTORY_AFFILIATE_URL not in text or MARKER in text:
         continue
