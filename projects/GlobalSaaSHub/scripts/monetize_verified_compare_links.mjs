@@ -6,12 +6,17 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_DIR = path.resolve(SCRIPT_DIR, '..');
 const TOOLS_PATH = path.join(PROJECT_DIR, 'data', 'tools.json');
 const COMPARE_DIR = path.join(PROJECT_DIR, 'public', 'compare');
+const TOOL_DIR = path.join(PROJECT_DIR, 'public', 'tool');
 
 const DISCLOSURE =
   '      <p data-affiliate-disclosure="compare" class="text-[11px] leading-relaxed text-slate-500">' +
   'Affiliate disclosure: Some buttons on this comparison use verified COSHUMA partner links. ' +
   'COSHUMA may earn a commission if you become a paying customer after using them, at no extra cost to you.' +
   '</p>';
+
+const SPONSORSHIP_MAILTO =
+  'mailto:support@coshuma.com?subject=COSHUMA%20%2449%20sponsorship%20inquiry&amp;' +
+  'body=Product%20name%3A%0AWebsite%3A%0APlacement%20goal%3A%0A';
 
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -102,6 +107,34 @@ for (const filename of fs.readdirSync(COMPARE_DIR)) {
   filesChanged += 1;
 }
 
+let sponsorshipFilesChanged = 0;
+let sponsorshipCtasNormalized = 0;
+const legacySponsorshipAnchor =
+  /<a(?<before>[^>]*)href="\/#submit"(?<after>[^>]*)>(?<label>[^<]*\$49\/yr[^<]*)<\/a>/gi;
+
+for (const filename of fs.readdirSync(TOOL_DIR)) {
+  if (!filename.endsWith('.html')) continue;
+
+  const filePath = path.join(TOOL_DIR, filename);
+  const original = fs.readFileSync(filePath, 'utf8');
+  let normalizedInFile = 0;
+
+  const updated = original.replace(legacySponsorshipAnchor, (...args) => {
+    const groups = args.at(-1);
+    normalizedInFile += 1;
+    return (
+      `<a${groups.before}data-cta="sponsorship-inquiry" data-cta-source="tool-legacy-normalized" ` +
+      `href="${SPONSORSHIP_MAILTO}"${groups.after}>Request $49 sponsored placement →</a>`
+    );
+  });
+
+  if (!normalizedInFile) continue;
+
+  fs.writeFileSync(filePath, updated, 'utf8');
+  sponsorshipFilesChanged += 1;
+  sponsorshipCtasNormalized += normalizedInFile;
+}
+
 const breakdown = [...changedByTool.entries()]
   .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
   .map(([toolId, count]) => `${toolId}:${count}`)
@@ -109,6 +142,7 @@ const breakdown = [...changedByTool.entries()]
 
 console.log(
   `monetize_verified_compare_links: verified_routes=${verifiedRoutes.length} ` +
-  `files_changed=${filesChanged} links_monetized=${linksMonetized} links_attributed=${linksAttributed}` +
+  `files_changed=${filesChanged} links_monetized=${linksMonetized} links_attributed=${linksAttributed} ` +
+  `sponsorship_files_changed=${sponsorshipFilesChanged} sponsorship_ctas_normalized=${sponsorshipCtasNormalized}` +
   (breakdown ? ` [${breakdown}]` : '')
 );
