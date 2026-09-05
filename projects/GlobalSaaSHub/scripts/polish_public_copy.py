@@ -142,16 +142,45 @@ def monetize_verified_compare_links(text: str) -> str:
     return text
 
 
-def ensure_compare_affiliate_disclosure(text: str) -> str:
-    """Ensure every monetized comparison has one accurate, generic disclosure."""
-    if 'data-cta="affiliate"' not in text:
+def tag_existing_compare_disclosure(text: str) -> str:
+    """Tag an existing human-written disclosure without rewriting its claims."""
+    marker = text.find("Affiliate disclosure:")
+    if marker < 0:
         return text
 
-    existing = re.compile(r'<p\b[^>]*>Affiliate disclosure:.*?</p>', re.DOTALL)
-    if existing.search(text):
-        return existing.sub(COMPARE_AFFILIATE_DISCLOSURE.strip(), text)
+    candidates = [text.rfind(f"<{tag}", 0, marker) for tag in ("p", "section", "div")]
+    start = max(candidates)
+    if start < 0:
+        return text
 
-    return text.replace("    </main>", f"{COMPARE_AFFILIATE_DISCLOSURE}\n    </main>", 1)
+    end = text.find(">", start, marker)
+    if end < 0:
+        return text
+
+    opening = text[start:end]
+    if 'data-affiliate-disclosure="compare"' in opening:
+        return text
+    return text[:end] + ' data-affiliate-disclosure="compare"' + text[end:]
+
+
+def ensure_compare_affiliate_disclosure(text: str) -> str:
+    """Ensure every monetized comparison has one clearly tagged disclosure."""
+    if 'data-cta="affiliate"' not in text:
+        return text
+    if 'data-affiliate-disclosure="compare"' in text:
+        return text
+
+    tagged = tag_existing_compare_disclosure(text)
+    if tagged != text:
+        return tagged
+
+    # Generated pages may use different indentation; insert before the first closing main tag.
+    return re.sub(
+        r"(?=\s*</main>)",
+        COMPARE_AFFILIATE_DISCLOSURE + "\n",
+        text,
+        count=1,
+    )
 
 
 def main() -> None:
