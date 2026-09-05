@@ -35,6 +35,13 @@ TEXT_REPLACEMENTS = {
     "Editorial review in progress": "Review pending",
 }
 
+# Exact verified revenue routes that may safely replace a vendor homepage in
+# generated comparison CTAs. Keep this list deliberately small and evidence-based.
+VERIFIED_COMPARE_LINK_REPLACEMENTS = {
+    '<a href="https://unbounce.com/" target="_blank" rel="noopener noreferrer"':
+        '<a data-cta="affiliate" data-tool-id="unbounce" data-cta-source="compare-generated" href="https://unbounce.partnerlinks.io/5ubjnt8lluqi" target="_blank" rel="sponsored noopener noreferrer"',
+}
+
 # These lines are generic claims that can be misleading when applied to every product.
 REMOVE_LINE_PATTERNS = [
     r"<li>Flexible pricing structure \([^<]*\)</li>",
@@ -121,6 +128,13 @@ def polish(text: str) -> str:
     return text
 
 
+def monetize_verified_compare_links(text: str) -> str:
+    """Swap only exact, pre-verified vendor-homepage CTAs for revenue links."""
+    for official_anchor, affiliate_anchor in VERIFIED_COMPARE_LINK_REPLACEMENTS.items():
+        text = text.replace(official_anchor, affiliate_anchor)
+    return text
+
+
 def main() -> None:
     changed = 0
     scanned = 0
@@ -131,6 +145,8 @@ def main() -> None:
             scanned += 1
             original = path.read_text(encoding="utf-8")
             updated = polish(original)
+            if folder.name == "compare":
+                updated = monetize_verified_compare_links(updated)
             if updated != original:
                 path.write_text(updated, encoding="utf-8")
                 changed += 1

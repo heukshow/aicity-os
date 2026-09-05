@@ -73,6 +73,11 @@ jobs:
               exit 1
             fi
           done < <(grep -R -l -F 'https://pictory.ai?fpr=sangkwon-an23' projects/GlobalSaaSHub/dist --include='*.html' || true)
+          if grep -R -q -F 'href="https://unbounce.com/"' projects/GlobalSaaSHub/dist/compare 2>/dev/null; then
+            echo 'Unbounce comparison CTA still points to the non-revenue homepage.'
+            exit 1
+          fi
+          grep -R -q -F 'https://unbounce.partnerlinks.io/5ubjnt8lluqi' projects/GlobalSaaSHub/dist/compare
           for page in projects/GlobalSaaSHub/dist/best/*.html; do
             [ -e "$page" ] || continue
             slug=$(basename "$page")
