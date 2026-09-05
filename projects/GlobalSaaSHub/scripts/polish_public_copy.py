@@ -45,7 +45,8 @@ VERIFIED_COMPARE_LINK_REPLACEMENTS = {
 COMPARE_AFFILIATE_DISCLOSURE = (
     '      <p data-affiliate-disclosure="compare" class="text-[11px] leading-relaxed text-slate-500">'
     'Affiliate disclosure: Some buttons on this comparison use verified COSHUMA partner links. '
-    'COSHUMA may earn a commission if you become a paying customer after using them, at no extra cost to you.'</n    'p>'
+    'COSHUMA may earn a commission if you become a paying customer after using them, at no extra cost to you.'
+    '</p>'
 )
 
 # These lines are generic claims that can be misleading when applied to every product.
