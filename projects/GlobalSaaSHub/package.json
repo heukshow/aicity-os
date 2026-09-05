@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/monetize_verified_compare_links.mjs && vite build",
     "test:links": "python scripts/tests/test_link_integrity.py",
     "lint": "oxlint",
     "preview": "vite preview"
