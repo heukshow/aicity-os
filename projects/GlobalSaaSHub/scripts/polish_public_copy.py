@@ -42,6 +42,13 @@ VERIFIED_COMPARE_LINK_REPLACEMENTS = {
         '<a data-cta="affiliate" data-tool-id="unbounce" data-cta-source="compare-generated" href="https://unbounce.partnerlinks.io/5ubjnt8lluqi" target="_blank" rel="sponsored noopener noreferrer"',
 }
 
+COMPARE_AFFILIATE_DISCLOSURE = (
+    '      <p data-affiliate-disclosure="compare" class="text-[11px] leading-relaxed text-slate-500">'
+    'Affiliate disclosure: Some buttons on this comparison use verified COSHUMA partner links. '
+    'COSHUMA may earn a commission if you become a paying customer after using them, at no extra cost to you.'
+    '</p>'
+)
+
 # These lines are generic claims that can be misleading when applied to every product.
 REMOVE_LINE_PATTERNS = [
     r"<li>Flexible pricing structure \([^<]*\)</li>",
@@ -135,6 +142,18 @@ def monetize_verified_compare_links(text: str) -> str:
     return text
 
 
+def ensure_compare_affiliate_disclosure(text: str) -> str:
+    """Ensure every monetized comparison has one accurate, generic disclosure."""
+    if 'data-cta="affiliate"' not in text:
+        return text
+
+    existing = re.compile(r'<p\b[^>]*>Affiliate disclosure:.*?</p>', re.DOTALL)
+    if existing.search(text):
+        return existing.sub(COMPARE_AFFILIATE_DISCLOSURE.strip(), text)
+
+    return text.replace("    </main>", f"{COMPARE_AFFILIATE_DISCLOSURE}\n    </main>", 1)
+
+
 def main() -> None:
     changed = 0
     scanned = 0
@@ -147,6 +166,7 @@ def main() -> None:
             updated = polish(original)
             if folder.name == "compare":
                 updated = monetize_verified_compare_links(updated)
+                updated = ensure_compare_affiliate_disclosure(updated)
             if updated != original:
                 path.write_text(updated, encoding="utf-8")
                 changed += 1

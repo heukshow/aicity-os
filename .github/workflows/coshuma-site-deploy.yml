@@ -78,6 +78,13 @@ jobs:
             exit 1
           fi
           grep -R -q -F 'https://unbounce.partnerlinks.io/5ubjnt8lluqi' projects/GlobalSaaSHub/dist/compare
+          for page in projects/GlobalSaaSHub/dist/compare/*.html; do
+            [ -e "$page" ] || continue
+            if grep -q 'data-cta="affiliate"' "$page" && ! grep -q 'data-affiliate-disclosure="compare"' "$page"; then
+              echo "Monetized comparison missing affiliate disclosure: $page"
+              exit 1
+            fi
+          done
           for page in projects/GlobalSaaSHub/dist/best/*.html; do
             [ -e "$page" ] || continue
             slug=$(basename "$page")
