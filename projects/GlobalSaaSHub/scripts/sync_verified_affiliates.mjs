@@ -17,10 +17,12 @@ const verified = {
   'vista-social': 'https://vistasocial.com?fpr=sangkwon14',
   bookyourdata: 'https://join.bookyourdata.com/swcyqmumr3s5',
   unbounce: 'https://unbounce.partnerlinks.io/5ubjnt8lluqi',
+  moosend: 'https://trymoo.moosend.com/6eappdpw04pw',
 };
 
 const verifiedAt = {
   unbounce: '2026-09-04T03:52:58+09:00',
+  moosend: '2026-09-01T04:48:36+09:00',
 };
 
 for (const file of ['data/tools.json', 'data/tools.next.json']) {
