@@ -40,6 +40,8 @@ TEXT_REPLACEMENTS = {
 VERIFIED_COMPARE_LINK_REPLACEMENTS = {
     '<a href="https://unbounce.com/" target="_blank" rel="noopener noreferrer"':
         '<a data-cta="affiliate" data-tool-id="unbounce" data-cta-source="compare-generated" href="https://unbounce.partnerlinks.io/5ubjnt8lluqi" target="_blank" rel="sponsored noopener noreferrer"',
+    '<a href="https://brand24.com/" target="_blank" rel="noopener noreferrer"':
+        '<a data-cta="affiliate" data-tool-id="brand24" data-cta-source="compare-generated" href="https://try.brand24.com/8xqrjxybmsbt" target="_blank" rel="sponsored noopener noreferrer"',
 }
 
 COMPARE_AFFILIATE_DISCLOSURE = (
