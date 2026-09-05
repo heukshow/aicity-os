@@ -14,6 +14,12 @@ const DISCLOSURE =
   'COSHUMA may earn a commission if you become a paying customer after using them, at no extra cost to you.' +
   '</p>';
 
+const TOOL_DISCLOSURE =
+  '      <p data-affiliate-disclosure="tool" class="text-[11px] leading-relaxed text-slate-500">' +
+  'Affiliate disclosure: This page may use a verified COSHUMA partner link. ' +
+  'COSHUMA may earn a commission if you become a paying customer after using it, at no extra cost to you.' +
+  '</p>';
+
 const SPONSORSHIP_MAILTO =
   'mailto:support@coshuma.com?subject=COSHUMA%20%2449%20sponsorship%20inquiry&amp;' +
   'body=Product%20name%3A%0AWebsite%3A%0APlacement%20goal%3A%0A';
@@ -40,6 +46,7 @@ const verifiedRoutes = tools.filter((tool) =>
   isSafeHttpUrl(tool?.official_url) &&
   tool.affiliate_url !== tool.official_url
 );
+const verifiedById = new Map(verifiedRoutes.map((tool) => [tool.id, tool]));
 
 let filesChanged = 0;
 let linksMonetized = 0;
@@ -107,6 +114,8 @@ for (const filename of fs.readdirSync(COMPARE_DIR)) {
   filesChanged += 1;
 }
 
+let toolAffiliateFilesChanged = 0;
+let toolLinksMonetized = 0;
 let sponsorshipFilesChanged = 0;
 let sponsorshipCtasNormalized = 0;
 const legacySponsorshipAnchor =
@@ -117,9 +126,62 @@ for (const filename of fs.readdirSync(TOOL_DIR)) {
 
   const filePath = path.join(TOOL_DIR, filename);
   const original = fs.readFileSync(filePath, 'utf8');
+  let updated = original;
+  let affiliateChangesInFile = 0;
   let normalizedInFile = 0;
 
-  const updated = original.replace(legacySponsorshipAnchor, (...args) => {
+  const toolId = filename.slice(0, -5);
+  const tool = verifiedById.get(toolId);
+  if (tool) {
+    const officialPatterns = [
+      new RegExp(
+        `<a data-cta="official" href="${escapeRegExp(tool.official_url)}" target="_blank" rel="noopener noreferrer"`,
+        'g'
+      ),
+      new RegExp(
+        `<a href="${escapeRegExp(tool.official_url)}" target="_blank" rel="noopener noreferrer"`,
+        'g'
+      ),
+    ];
+
+    for (const pattern of officialPatterns) {
+      const matches = updated.match(pattern)?.length || 0;
+      if (!matches) continue;
+      const replacement =
+        `<a data-cta="affiliate" data-tool-id="${tool.id}" data-cta-source="tool-primary-auto" ` +
+        `href="${tool.affiliate_url}" target="_blank" rel="sponsored noopener noreferrer"`;
+      updated = updated.replace(pattern, () => replacement);
+      affiliateChangesInFile += matches;
+      toolLinksMonetized += matches;
+    }
+
+    const existingAffiliatePattern = new RegExp(
+      `<a href="${escapeRegExp(tool.affiliate_url)}" target="_blank" rel="[^"]*"`,
+      'g'
+    );
+    const unattributedMatches = updated.match(existingAffiliatePattern)?.length || 0;
+    if (unattributedMatches) {
+      const replacement =
+        `<a data-cta="affiliate" data-tool-id="${tool.id}" data-cta-source="tool-existing-affiliate-auto" ` +
+        `href="${tool.affiliate_url}" target="_blank" rel="sponsored noopener noreferrer"`;
+      updated = updated.replace(existingAffiliatePattern, () => replacement);
+      affiliateChangesInFile += unattributedMatches;
+      toolLinksMonetized += unattributedMatches;
+    }
+
+    if (affiliateChangesInFile && !updated.includes('/affiliate-attribution.js')) {
+      updated = updated.replace(
+        /\s*<\/head>/,
+        '\n    <script defer src="/affiliate-attribution.js"></script>\n  </head>'
+      );
+    }
+
+    if (affiliateChangesInFile && !updated.includes('data-affiliate-disclosure="tool"')) {
+      updated = updated.replace(/(?=\s*<\/main>)/, `${TOOL_DISCLOSURE}\n`);
+    }
+  }
+
+  updated = updated.replace(legacySponsorshipAnchor, (...args) => {
     const groups = args.at(-1);
     normalizedInFile += 1;
     return (
@@ -128,10 +190,11 @@ for (const filename of fs.readdirSync(TOOL_DIR)) {
     );
   });
 
-  if (!normalizedInFile) continue;
+  if (updated === original) continue;
 
   fs.writeFileSync(filePath, updated, 'utf8');
-  sponsorshipFilesChanged += 1;
+  if (affiliateChangesInFile) toolAffiliateFilesChanged += 1;
+  if (normalizedInFile) sponsorshipFilesChanged += 1;
   sponsorshipCtasNormalized += normalizedInFile;
 }
 
@@ -143,6 +206,7 @@ const breakdown = [...changedByTool.entries()]
 console.log(
   `monetize_verified_compare_links: verified_routes=${verifiedRoutes.length} ` +
   `files_changed=${filesChanged} links_monetized=${linksMonetized} links_attributed=${linksAttributed} ` +
+  `tool_affiliate_files_changed=${toolAffiliateFilesChanged} tool_links_monetized=${toolLinksMonetized} ` +
   `sponsorship_files_changed=${sponsorshipFilesChanged} sponsorship_ctas_normalized=${sponsorshipCtasNormalized}` +
   (breakdown ? ` [${breakdown}]` : '')
 );
