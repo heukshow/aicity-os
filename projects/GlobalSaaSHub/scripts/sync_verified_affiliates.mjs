@@ -18,11 +18,13 @@ const verified = {
   bookyourdata: 'https://join.bookyourdata.com/swcyqmumr3s5',
   unbounce: 'https://unbounce.partnerlinks.io/5ubjnt8lluqi',
   moosend: 'https://trymoo.moosend.com/6eappdpw04pw',
+  chatbase: 'https://link.chatbase.co/sang-kwon-an',
 };
 
 const verifiedAt = {
   unbounce: '2026-09-04T03:52:58+09:00',
   moosend: '2026-09-01T04:48:36+09:00',
+  chatbase: '2026-09-06T01:50:28+09:00',
 };
 
 for (const file of ['data/tools.json', 'data/tools.next.json']) {
