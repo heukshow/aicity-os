@@ -9,6 +9,7 @@ on:
       - 'projects/GlobalSaaSHub/data/tools.json'
       - 'projects/GlobalSaaSHub/data/tools.next.json'
       - 'projects/GlobalSaaSHub/scripts/sync_verified_affiliates.mjs'
+      - 'projects/GlobalSaaSHub/scripts/monetize_verified_compare_links.mjs'
       - 'projects/GlobalSaaSHub/scripts/polish_public_copy.py'
       - 'projects/GlobalSaaSHub/scripts/ensure_best_pages_in_sitemap.py'
       - 'projects/GlobalSaaSHub/scripts/inject_pictory_partner_offer.py'

@@ -51,6 +51,16 @@ COMPARE_AFFILIATE_DISCLOSURE = (
     '</p>'
 )
 
+TOOL_SPONSORSHIP_INQUIRY = (
+    '      <section data-sponsorship-inquiry="tool" class="mt-8 p-5 rounded-2xl bg-violet-500/5 border border-violet-500/20 space-y-3">\n'
+    '        <div class="text-[10px] uppercase tracking-wider font-bold text-violet-300">Represent this product?</div>\n'
+    '        <h2 class="text-lg font-extrabold text-white">Request a COSHUMA sponsored placement</h2>\n'
+    '        <p class="text-xs text-slate-400 leading-relaxed">A one-time sponsored placement is USD 49. Sponsorship is reviewed separately from editorial coverage; payment does not guarantee acceptance, ranking, or an editorial rating.</p>\n'
+    '        <a data-cta="sponsorship-inquiry" href="mailto:support@coshuma.com?subject=COSHUMA%20%2449%20sponsorship%20inquiry&amp;body=Product%20name%3A%0AWebsite%3A%0APlacement%20goal%3A%0A" class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-extrabold transition-all">Email a sponsorship request →</a>\n'
+    '        <p class="text-[10px] text-slate-500">This inquiry link does not create a charge.</p>\n'
+    '      </section>'
+)
+
 # These lines are generic claims that can be misleading when applied to every product.
 REMOVE_LINE_PATTERNS = [
     r"<li>Flexible pricing structure \([^<]*\)</li>",
@@ -185,6 +195,20 @@ def ensure_compare_affiliate_disclosure(text: str) -> str:
     )
 
 
+def ensure_tool_sponsorship_inquiry(text: str) -> str:
+    """Keep a no-charge sponsorship lead path visible on every static tool profile."""
+    if 'data-sponsorship-inquiry="tool"' in text:
+        return text
+    if "</main>" not in text:
+        return text
+    return re.sub(
+        r"(?=\s*</main>)",
+        TOOL_SPONSORSHIP_INQUIRY + "\n",
+        text,
+        count=1,
+    )
+
+
 def main() -> None:
     changed = 0
     scanned = 0
@@ -195,6 +219,8 @@ def main() -> None:
             scanned += 1
             original = path.read_text(encoding="utf-8")
             updated = polish(original)
+            if folder.name == "tool":
+                updated = ensure_tool_sponsorship_inquiry(updated)
             if folder.name == "compare":
                 updated = monetize_verified_compare_links(updated)
                 updated = ensure_compare_affiliate_disclosure(updated)
