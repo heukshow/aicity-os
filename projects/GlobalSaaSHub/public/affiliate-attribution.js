@@ -105,6 +105,20 @@
     }
   }
 
+  function enhanceVerifiedPartnerOffers() {
+    if (!/\/tool\/make-com\.html$/.test(window.location.pathname)) return;
+    if (document.querySelector('[data-partner-offer="make-pro-welcome"]')) return;
+
+    const primaryCta = document.querySelector('a[data-cta="affiliate"][data-tool-id="make-com"]');
+    if (!primaryCta || !primaryCta.href.includes('pc=coshuma')) return;
+
+    const offer = document.createElement('div');
+    offer.dataset.partnerOffer = 'make-pro-welcome';
+    offer.className = 'mt-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-xs leading-relaxed text-emerald-100';
+    offer.innerHTML = '<strong>Partner welcome offer:</strong> Make says new users who sign up through this verified partner link automatically receive their first month of Pro (10,000 operations) free. Confirm the offer is shown during signup before relying on it.';
+    primaryCta.insertAdjacentElement('afterend', offer);
+  }
+
   const attribution = sessionAttribution();
   const campaign = attribution.campaign || directCampaign();
 
@@ -138,6 +152,8 @@
     entry_referrer: attribution.entry_referrer,
     ...campaign
   });
+
+  enhanceVerifiedPartnerOffers();
 
   document.addEventListener('click', function (event) {
     const link = event.target.closest('a[data-cta="affiliate"]');
