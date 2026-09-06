@@ -25,11 +25,16 @@ on:
         required: false
         default: ''
         type: string
-      upload_private:
-        description: 'Upload the rendered Short as PRIVATE after quality gate. Requires existing YouTube OAuth repository secrets.'
+      upload_privacy:
+        description: 'Upload the rendered Short to YouTube with this privacy after quality gate. Requires existing YouTube OAuth repository secrets. Leave as "none" to render/quality-gate only.'
         required: false
-        default: false
-        type: boolean
+        default: 'none'
+        type: choice
+        options:
+          - none
+          - private
+          - unlisted
+          - public
 
 concurrency:
   group: coshuma-youtube-shorts-${{ github.ref }}
@@ -94,11 +99,11 @@ jobs:
           retention-days: 3
 
       - name: Render requested Short through quality gate
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.render_tool != '' && inputs.upload_private != true }}
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.render_tool != '' && inputs.upload_privacy == 'none' }}
         run: python3 scripts/youtube_shorts/run_pipeline.py "${{ inputs.render_tool }}"
 
-      - name: Verify OAuth secret presence for private upload
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.render_tool != '' && inputs.upload_private == true }}
+      - name: Verify OAuth secret presence for upload
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.render_tool != '' && inputs.upload_privacy != 'none' }}
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
@@ -113,18 +118,18 @@ jobs:
             fi
           done
           if [ "$missing" -ne 0 ]; then
-            echo "Private upload blocked safely. Configure the missing OAuth secrets after the channel owner completes Google's one-time consent flow."
+            echo "Upload blocked safely. Configure the missing OAuth secrets after the channel owner completes Google's one-time consent flow."
             exit 1
           fi
           echo "Required YouTube OAuth secrets are present. Values were not printed."
 
-      - name: Render, quality-gate, and upload requested Short as private
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.render_tool != '' && inputs.upload_private == true }}
+      - name: Render, quality-gate, and upload requested Short
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.render_tool != '' && inputs.upload_privacy != 'none' }}
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-        run: python3 scripts/youtube_shorts/run_pipeline.py "${{ inputs.render_tool }}" --upload-private
+        run: python3 scripts/youtube_shorts/run_pipeline.py "${{ inputs.render_tool }}" --upload "${{ inputs.upload_privacy }}"
 
       - name: Upload rendered dry-run artifact
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.render_tool != '' }}
@@ -135,8 +140,8 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-      - name: Upload private-upload manifest evidence
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.render_tool != '' && inputs.upload_private == true }}
+      - name: Upload upload-manifest evidence
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.render_tool != '' && inputs.upload_privacy != 'none' }}
         uses: actions/upload-artifact@v6
         with:
           name: coshuma-short-upload-manifest-${{ inputs.render_tool }}-${{ github.run_id }}
