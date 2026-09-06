@@ -1,5 +1,6 @@
 from pathlib import Path
 import re
+import runpy
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
 PUBLIC_DIR = PROJECT_DIR / "public"
@@ -53,3 +54,5 @@ if not updated:
 print(f"Injected Pictory partner offer into {len(updated)} pages")
 for item in updated:
     print(f" - {item}")
+
+runpy.run_path(str(Path(__file__).with_name("inject_jotform_partner_offer.py")), run_name="__main__")
