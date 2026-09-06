@@ -16,17 +16,28 @@ const terminalAffiliateStatuses = new Set([
   'closed',
 ]);
 
-const revenueReady = (tool) =>
+const genericRevenueReady = (tool) =>
   tool.affiliate_verified === true &&
   tool.affiliate_status === 'approved_tracking' &&
   typeof tool.affiliate_url === 'string' &&
   /^https?:\/\//i.test(tool.affiliate_url);
 
+const targetedRevenueReady = (tool) => {
+  if (tool.affiliate_verified !== true) return false;
+  const toolPage = path.join(root, 'public', 'tool', `${tool.id}.html`);
+  if (!fs.existsSync(toolPage)) return false;
+  const html = fs.readFileSync(toolPage, 'utf8');
+  return /<a\b[^>]*data-cta=["']affiliate["'][^>]*href=["']https?:\/\/[^"']+["'][^>]*rel=["'][^"']*sponsored[^"']*["'][^>]*>/i.test(html) ||
+    /<a\b[^>]*rel=["'][^"']*sponsored[^"']*["'][^>]*data-cta=["']affiliate["'][^>]*href=["']https?:\/\/[^"']+["'][^>]*>/i.test(html);
+};
+
 const affiliateCoverage = tools
   .map((tool) => {
     const status = tool.affiliate_status || 'unclassified';
     const terminal = terminalAffiliateStatuses.has(status);
-    const ready = revenueReady(tool);
+    const genericReady = genericRevenueReady(tool);
+    const targetedReady = targetedRevenueReady(tool);
+    const ready = genericReady || targetedReady;
     let blocker = null;
     if (!ready && !terminal) {
       if (!tool.affiliate_status) blocker = 'affiliate_status_unclassified';
@@ -42,6 +53,8 @@ const affiliateCoverage = tools
       affiliateStatus: status,
       affiliateVerified: tool.affiliate_verified === true,
       hasAffiliateUrl: typeof tool.affiliate_url === 'string' && tool.affiliate_url.length > 0,
+      genericRevenueReady: genericReady,
+      targetedRevenueReady: targetedReady,
       revenueReady: ready,
       terminal,
       blocker,
@@ -51,6 +64,8 @@ const affiliateCoverage = tools
 
 const coverageCounts = affiliateCoverage.reduce((acc, item) => {
   acc.revenueReady += Number(item.revenueReady);
+  acc.genericRevenueReady += Number(item.genericRevenueReady);
+  acc.targetedRevenueReady += Number(item.targetedRevenueReady && !item.genericRevenueReady);
   acc.terminal += Number(item.terminal);
   acc.openMonetizationGaps += Number(!item.revenueReady && !item.terminal);
   acc.unclassifiedAffiliateStatus += Number(item.affiliateStatus === 'unclassified');
@@ -58,7 +73,7 @@ const coverageCounts = affiliateCoverage.reduce((acc, item) => {
   acc.officialUnverified += Number(!item.officialVerified);
   acc.pricingUnverified += Number(!item.pricingVerified);
   return acc;
-}, { revenueReady: 0, terminal: 0, openMonetizationGaps: 0, unclassifiedAffiliateStatus: 0, exactAffiliateUrlMissing: 0, officialUnverified: 0, pricingUnverified: 0 });
+}, { revenueReady: 0, genericRevenueReady: 0, targetedRevenueReady: 0, terminal: 0, openMonetizationGaps: 0, unclassifiedAffiliateStatus: 0, exactAffiliateUrlMissing: 0, officialUnverified: 0, pricingUnverified: 0 });
 
 const affiliates = tools.filter((tool) => tool.affiliate_verified === true)
   .sort((a, b) => Number(Boolean(b.affiliate_url)) - Number(Boolean(a.affiliate_url)) || a.name.localeCompare(b.name))
@@ -72,6 +87,8 @@ const snapshot = {
     totalTools: tools.length,
     verifiedAffiliates: affiliates.length,
     revenueReadyAffiliates: coverageCounts.revenueReady,
+    genericRevenueReadyAffiliates: coverageCounts.genericRevenueReady,
+    targetedRevenueReadyAffiliates: coverageCounts.targetedRevenueReady,
     openMonetizationGaps: coverageCounts.openMonetizationGaps,
     toolPages: files('tool').length,
     comparePages: files('compare').length,
@@ -101,4 +118,4 @@ const snapshot = {
   recentSeoChanges: [{ title: '공개 검색 최적화 무결성 계약 강화', date: '2026-09-01' }, { title: '사이트맵 및 정적 페이지 동기화', date: '2026-09-01' }],
 };
 fs.writeFileSync(path.join(root, 'worker/src/admin-snapshot.json'), `${JSON.stringify(snapshot, null, 2)}\n`);
-console.log(`Admin snapshot: ${tools.length} tools, ${coverageCounts.revenueReady} revenue-ready affiliates, ${coverageCounts.openMonetizationGaps} open monetization gaps`);
+console.log(`Admin snapshot: ${tools.length} tools, ${coverageCounts.revenueReady} revenue-ready affiliates (${coverageCounts.targetedRevenueReady} targeted-only), ${coverageCounts.openMonetizationGaps} open monetization gaps`);
