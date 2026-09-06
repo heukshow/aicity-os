@@ -223,6 +223,23 @@ def _campaign_verified_claims(affiliate_target: str, campaign_slug: str | None) 
     evidence = campaign.get("evidence") or {}
     if evidence.get("claim_status") != "verified_external_primary_source":
         return {}
+    # A "verified_external_primary_source" label is just prose someone typed
+    # into this JSON file unless it also carries a concrete, independently
+    # re-checkable reference to the primary source itself. Without this, the
+    # claim_status field is pure self-certification: anyone (or any future
+    # automated run) could mark a fabricated claim "verified" with no way to
+    # audit it. Require at least one checkable reference id.
+    reference_fields = (
+        "gmail_message_id",
+        "gmail_thread_id",
+        "source_url",
+        "screenshot_path",
+    )
+    matched_reference = next(
+        (field for field in reference_fields if evidence.get(field)), None
+    )
+    if not matched_reference:
+        return {}
     claims = evidence.get("verified_claims") or {}
     return {
         "promo_codes": {str(x).upper() for x in claims.get("promo_codes", [])},
@@ -230,6 +247,8 @@ def _campaign_verified_claims(affiliate_target: str, campaign_slug: str | None) 
         "prices": {str(x).replace(" ", "") for x in claims.get("prices", [])},
         "source_type": evidence.get("type"),
         "verified_at": evidence.get("verified_at"),
+        "reference_field": matched_reference,
+        "reference_value": evidence.get(matched_reference),
     }
 
 
@@ -268,6 +287,8 @@ def check_price_and_discount_claims(
             "source_type": verified.get("source_type"),
             "verified_at": verified.get("verified_at"),
             "campaign_slug": campaign_slug,
+            "reference_field": verified.get("reference_field"),
+            "reference_value": verified.get("reference_value"),
         }
 
     for price in price_claims:
