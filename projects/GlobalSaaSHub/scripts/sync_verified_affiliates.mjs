@@ -19,12 +19,38 @@ const verified = {
   unbounce: 'https://unbounce.partnerlinks.io/5ubjnt8lluqi',
   moosend: 'https://trymoo.moosend.com/6eappdpw04pw',
   chatbase: 'https://link.chatbase.co/sang-kwon-an',
+  taskade: 'https://www.taskade.com/?via=7zzjo7',
 };
 
 const verifiedAt = {
   unbounce: '2026-09-04T03:52:58+09:00',
   moosend: '2026-09-01T04:48:36+09:00',
   chatbase: '2026-09-06T01:50:28+09:00',
+  taskade: '2026-09-06T00:00:00+09:00',
+};
+
+// Current official product data that must remain correct in the production build
+// even when an older source record is still present in tools.json/tools.next.json.
+// These fields are rechecked against the vendor's official pricing/product pages
+// before being changed here.
+const dataOverrides = {
+  taskade: {
+    description: 'AI workspace for building Taskade Genesis apps, AI agents, automations and collaborative workspaces in one environment.',
+    pricing: 'Free plan; Pro $10/month in the annual-billing view (10 users included)',
+    pricing_source_url: 'https://www.taskade.com/pricing',
+    pricing_evidence_markers: ['$10', '10 users included', '50,000 credits/month'],
+    pricing_verified: true,
+    pricing_verified_at: '2026-09-06T00:00:00+09:00',
+    currency: 'USD',
+    billing_period: 'annual billing displayed monthly',
+    evidence_source_type: 'official_pricing_page',
+    key_features: [
+      'Taskade Genesis AI apps',
+      'Unlimited AI agents',
+      'Unlimited AI automations',
+      '100+ integrations',
+    ],
+  },
 };
 
 // Account-state evidence recovered from connected Gmail. These overrides do not
@@ -64,6 +90,9 @@ const statusOverrides = {
 for (const file of ['data/tools.json', 'data/tools.next.json']) {
   const tools = JSON.parse(fs.readFileSync(file, 'utf8'));
   for (const tool of tools) {
+    const dataOverride = dataOverrides[tool.id];
+    if (dataOverride) Object.assign(tool, dataOverride);
+
     const override = statusOverrides[tool.id];
     if (override) Object.assign(tool, override);
 
