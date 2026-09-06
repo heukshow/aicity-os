@@ -3,8 +3,9 @@
 
 Default behavior is a safe dry production run: generate evidence-bounded copy,
 render an MP4, quality-gate it, and record `ready` in the manifest. Nothing is
-uploaded unless --upload-private is explicitly supplied and OAuth environment
-variables are available.
+uploaded unless --upload {private,unlisted,public} is explicitly supplied and
+OAuth environment variables are available. --upload-private is kept as a
+backward-compatible alias for --upload private.
 """
 from __future__ import annotations
 
@@ -62,7 +63,9 @@ def upsert_ready(script: dict, metadata: dict, rendered: dict, report: dict) -> 
     MANIFEST_JSON.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def run(tool_id: str, upload_private: bool = False) -> dict:
+def run(tool_id: str, upload_privacy: str | None = None) -> dict:
+    if upload_privacy is not None and upload_privacy not in {"private", "unlisted", "public"}:
+        raise ValueError("upload_privacy must be None, 'private', 'unlisted', or 'public'")
     script = generate_script.generate(tool_id)
     tool = generate_metadata.load_tool(tool_id)
     coshuma_url = generate_metadata.build_coshuma_url(script["source_page"], script["campaign_slug"])
@@ -97,23 +100,36 @@ def run(tool_id: str, upload_private: bool = False) -> dict:
     upsert_ready(script, metadata, rendered, report)
 
     result = {"script": script, "metadata": metadata, "render": rendered, "quality_gate": report}
-    if upload_private:
+    if upload_privacy:
         import upload_youtube
         video_id = upload_youtube.upload(
-            Path(rendered["output"]), metadata["title"], metadata["description"], privacy="private"
+            Path(rendered["output"]), metadata["title"], metadata["description"], privacy=upload_privacy
         )
-        upload_youtube.record_manifest(script["campaign_slug"], video_id, "private")
+        upload_youtube.record_manifest(script["campaign_slug"], video_id, upload_privacy)
         result["youtube_video_id"] = video_id
-        result["youtube_privacy"] = "private"
+        result["youtube_privacy"] = upload_privacy
     return result
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("tool_id")
-    parser.add_argument("--upload-private", action="store_true")
+    parser.add_argument(
+        "--upload",
+        dest="upload_privacy",
+        choices=["private", "unlisted", "public"],
+        default=None,
+        help="Upload the rendered Short to YouTube with this privacy status. Omit to render/quality-gate only.",
+    )
+    parser.add_argument(
+        "--upload-private",
+        dest="upload_privacy",
+        action="store_const",
+        const="private",
+        help="Deprecated alias for --upload private (kept for backward compatibility).",
+    )
     args = parser.parse_args()
-    print(json.dumps(run(args.tool_id, args.upload_private), indent=2, ensure_ascii=False))
+    print(json.dumps(run(args.tool_id, args.upload_privacy), indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":
