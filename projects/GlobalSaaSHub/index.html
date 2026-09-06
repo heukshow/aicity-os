@@ -48,6 +48,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;550;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+      button[title="Compare side-by-side"] {
+        gap: 0.5rem;
+        min-width: 8.75rem;
+        padding-top: 0.625rem;
+        padding-bottom: 0.625rem;
+        border-color: rgba(167, 139, 250, 0.28);
+        background-color: rgba(139, 92, 246, 0.10);
+        color: rgb(221, 214, 254);
+      }
+      button[title="Compare side-by-side"]::after {
+        content: "Compare 2 tools";
+        font-size: 0.75rem;
+        line-height: 1rem;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      button[title="Compare side-by-side"]:hover {
+        background-color: rgba(139, 92, 246, 0.20);
+        color: white;
+      }
+    </style>
   </head>
   <body style="background-color: #08090d; color: #ffffff; margin: 0; padding: 0;">
     <div id="root">
