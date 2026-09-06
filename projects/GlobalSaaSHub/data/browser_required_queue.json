@@ -75,16 +75,17 @@
   {
     "id": "chatbase-dub-approved-referral-link",
     "priority": "high",
-    "status": "browser_required",
+    "status": "resolved",
     "cost": "0",
     "verified_at": "2026-09-03T19:56:00+09:00",
-    "reason": "Dub's August 26 approval email confirms that the existing COSHUMA Dub Partner account is approved for the Chatbase program and can earn up to 30% per sale for 1 year, but the email exposes only the authenticated Chatbase Links dashboard path rather than a customer-facing referral URL. Dub's August 30 network rejection explicitly says it affects only marketplace access and does not affect existing program partnerships or payouts. A newer email sent to support@coshuma.com asks for a new Dub Partner account to finish a separate Dub application, which would conflict with the existing rejected-network state and should not be treated as a reason to reapply.",
-    "next_action": "Reuse the already authenticated Dub Partner session for the existing account, open the Chatbase program Links area, copy the exact customer-facing unique referral URL, verify its destination and account-specific tracking identifier, then update Chatbase affiliate data and eligible COSHUMA detail/comparison CTAs. Preserve the existing Chatbase approval; do not create another Dub Partner Network application.",
+    "resolved_at": "2026-09-06T10:18:00+09:00",
+    "reason": "This browser-required item is no longer blocking monetization. Chatbase support directly reviewed the COSHUMA partner account and supplied the exact customer-facing referral URL https://link.chatbase.co/sang-kwon-an. That link was subsequently activated in COSHUMA affiliate data and production CTAs.",
+    "resolution_evidence": "Exact customer-facing referral URL confirmed by Chatbase support: https://link.chatbase.co/sang-kwon-an. Repository history records the Chatbase affiliate activation and deployed tool-page monetization.",
+    "next_action": "None for referral-link recovery. Keep the existing verified Chatbase route and do not create another Dub Partner Network application.",
     "do_not": [
-      "Do not use the partners.dub.co Chatbase dashboard, Links page, earnings page, login page or email-tracking redirect as a customer revenue link.",
-      "Do not guess or construct a Chatbase referral parameter.",
-      "Do not create a second Dub Partner account with support@coshuma.com merely because the saved-application reminder email keeps arriving.",
-      "Do not reapply to the Dub Partner Network while the August 30 rejection/cooldown remains the latest authoritative network status."
+      "Do not replace the verified Chatbase referral URL with a Dub dashboard, Links page, login page, or generic Chatbase homepage.",
+      "Do not create a second Dub Partner account or reapply to the Dub Partner Network solely to recover a link that is already verified.",
+      "Do not reopen this item without newer evidence that the verified referral route is invalid."
     ]
   },
   {
