@@ -13,6 +13,7 @@ on:
       - 'projects/GlobalSaaSHub/scripts/polish_public_copy.py'
       - 'projects/GlobalSaaSHub/scripts/ensure_best_pages_in_sitemap.py'
       - 'projects/GlobalSaaSHub/scripts/inject_pictory_partner_offer.py'
+      - 'projects/GlobalSaaSHub/scripts/publish_affiliate_audit.mjs'
       - 'projects/GlobalSaaSHub/index.html'
       - 'projects/GlobalSaaSHub/package.json'
       - 'projects/GlobalSaaSHub/package-lock.json'
@@ -73,6 +74,10 @@ jobs:
       - name: Index buyer-intent hubs in sitemap
         run: python projects/GlobalSaaSHub/scripts/ensure_best_pages_in_sitemap.py
 
+      - name: Publish live affiliate coverage audit
+        working-directory: projects/GlobalSaaSHub
+        run: node scripts/publish_affiliate_audit.mjs
+
       - name: Build production bundle
         working-directory: projects/GlobalSaaSHub
         run: npm run build
@@ -81,6 +86,7 @@ jobs:
         run: |
           set -e
           test -f projects/GlobalSaaSHub/dist/index.html
+          test -f projects/GlobalSaaSHub/dist/admin-affiliate-audit.json
           grep -q 'COSHUMA' projects/GlobalSaaSHub/dist/index.html
           if grep -R -q 'GlobalSaaSHub' projects/GlobalSaaSHub/dist/tool projects/GlobalSaaSHub/dist/compare 2>/dev/null; then
             echo 'Legacy GlobalSaaSHub branding detected in generated production pages.'
