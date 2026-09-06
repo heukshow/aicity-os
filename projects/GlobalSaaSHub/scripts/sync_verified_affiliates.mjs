@@ -20,6 +20,7 @@ const verified = {
   moosend: 'https://trymoo.moosend.com/6eappdpw04pw',
   chatbase: 'https://link.chatbase.co/sang-kwon-an',
   taskade: 'https://www.taskade.com/?via=7zzjo7',
+  gamma: 'https://try.gamma.app/pu20lusdpn1j',
 };
 
 const verifiedAt = {
@@ -27,6 +28,7 @@ const verifiedAt = {
   moosend: '2026-09-01T04:48:36+09:00',
   chatbase: '2026-09-06T01:50:28+09:00',
   taskade: '2026-09-06T00:00:00+09:00',
+  gamma: '2026-09-07T05:19:08+09:00',
 };
 
 // Current official product data that must remain correct in the production build
