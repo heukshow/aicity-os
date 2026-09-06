@@ -14,10 +14,12 @@
     "hashtags": ["Pictory", "AIVideo", "AITools"],
     "evidence": {
       "type": "affiliate_manager_email",
-      "sender": "Pictory Affiliate Manager",
-      "verified_at": "2026-09-04",
+      "sender": "Ashutosh Dhamija <ashutosh@pictory.ai>",
+      "verified_at": "2026-09-06",
       "claim_status": "verified_external_primary_source",
-      "note": "Primary-source partner email was re-read in the connected Gmail account on 2026-09-05. It explicitly confirms promo code coshuma20, a 20% discount, the then-current site-wide 40% annual offer, and combined savings over 52%.",
+      "note": "Re-verified 2026-09-06 by independently re-reading the primary-source email in the connected Gmail account (not just trusting this file's prior self-declared status). Message from ashutosh@pictory.ai, 2026-09-04T15:34:21Z, in thread 'There isn't one right way to promote Pictory', explicitly states: 'Promo code linked to your Affilaite account is \"coshuma20\"', 'your 20% discount', and 'our site-wide 40% discount combined with your promo code, subscribers can save over 52%.' gmail_thread_id/gmail_message_id below are the actual re-checkable Gmail identifiers, not prose, so any future run (human or automated) can re-open this exact message rather than trust this note.",
+      "gmail_thread_id": "1a06833b51e6cb00",
+      "gmail_message_id": "1a06d0ec1bf6a3a8",
       "verified_claims": {
         "promo_codes": ["COSHUMA20"],
         "discount_percentages": [20, 40, 52]
