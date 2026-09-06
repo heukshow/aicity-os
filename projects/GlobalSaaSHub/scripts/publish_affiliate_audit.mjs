@@ -18,10 +18,21 @@ const terminalStatuses = new Set([
   'blocked_partnerstack_marketplace_limited',
 ]);
 
+const hasVerifiedTargetedAffiliateCta = (tool) => {
+  if (tool.affiliate_verified !== true) return false;
+  const toolPage = path.join(root, 'public', 'tool', `${tool.id}.html`);
+  if (!fs.existsSync(toolPage)) return false;
+  const html = fs.readFileSync(toolPage, 'utf8');
+  return /<a\b[^>]*data-cta=["']affiliate["'][^>]*href=["']https?:\/\/[^"']+["'][^>]*rel=["'][^"']*sponsored[^"']*["'][^>]*>/i.test(html) ||
+    /<a\b[^>]*rel=["'][^"']*sponsored[^"']*["'][^>]*data-cta=["']affiliate["'][^>]*href=["']https?:\/\/[^"']+["'][^>]*>/i.test(html);
+};
+
 const records = tools.map((tool) => {
   const status = tool.affiliate_status || 'unclassified';
   const hasAffiliateUrl = typeof tool.affiliate_url === 'string' && /^https?:\/\//i.test(tool.affiliate_url);
-  const revenueReady = tool.affiliate_verified === true && status === 'approved_tracking' && hasAffiliateUrl;
+  const genericRevenueReady = tool.affiliate_verified === true && status === 'approved_tracking' && hasAffiliateUrl;
+  const targetedRevenueReady = !genericRevenueReady && hasVerifiedTargetedAffiliateCta(tool);
+  const revenueReady = genericRevenueReady || targetedRevenueReady;
   const terminal = terminalStatuses.has(status);
   let blocker = null;
   if (!revenueReady && !terminal) {
@@ -36,6 +47,8 @@ const records = tools.map((tool) => {
     affiliateStatus: status,
     affiliateVerified: tool.affiliate_verified === true,
     hasAffiliateUrl,
+    genericRevenueReady,
+    targetedRevenueReady,
     revenueReady,
     terminal,
     blocker,
@@ -48,6 +61,8 @@ const records = tools.map((tool) => {
 const counts = records.reduce((acc, item) => {
   acc.totalTools += 1;
   acc.revenueReady += Number(item.revenueReady);
+  acc.genericRevenueReady += Number(item.genericRevenueReady);
+  acc.targetedRevenueReady += Number(item.targetedRevenueReady);
   acc.terminal += Number(item.terminal);
   acc.openMonetizationGaps += Number(!item.revenueReady && !item.terminal);
   acc.exactAffiliateUrlMissing += Number(!item.revenueReady && !item.terminal && !item.hasAffiliateUrl);
@@ -59,6 +74,8 @@ const counts = records.reduce((acc, item) => {
 }, {
   totalTools: 0,
   revenueReady: 0,
+  genericRevenueReady: 0,
+  targetedRevenueReady: 0,
   terminal: 0,
   openMonetizationGaps: 0,
   exactAffiliateUrlMissing: 0,
