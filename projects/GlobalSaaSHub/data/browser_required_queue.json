@@ -102,5 +102,23 @@
       "Do not guess or construct a ClickFunnels referral or campaign URL.",
       "Do not submit another ClickFunnels affiliate application because the confirmation email already verifies program enrollment."
     ]
+  },
+  {
+    "id": "coshuma-short-render-boldsign",
+    "priority": "medium",
+    "status": "browser_required",
+    "cost": "0",
+    "verified_at": "2026-09-06T02:58:26.936484+00:00",
+    "reason": "Next Shorts candidate selected by prepare_next_short.py: 'BoldSign' (affiliate_status=approved_tracking, best_hub_pages=['public/best/esignature-software.html'], compare_pages=['public/compare/boldsign-vs-notion-ai.html', 'public/compare/boldsign-vs-bolddesk.html']). Rendering still requires a verified creative asset or a generated visual. Repository code does not yet contain unattended YouTube API upload wiring.",
+    "next_action": "Find an official, reuse-permitted media asset for BoldSign when available, or use a clearly licensed/generated visual. Render a 9:16 1080x1920 Short (30-45s) with COSHUMA intro/outro cards and safe-area captions. Run quality_gate.py before upload. Use this UTM-tagged metadata for campaign_slug=boldsign:\nTITLE: Still doing Workflow Automation the slow way? Here's the AI shortcut - BoldSign #Shorts\nDESCRIPTION:\nStill doing Workflow Automation the slow way? Here's the AI shortcut.\n\nFull review, features, and current pricing on COSHUMA:\nhttps://coshuma.com/tool/boldsign.html?utm_source=youtube&utm_medium=shorts&utm_campaign=boldsign\n\n#BoldSign #Shorts #SaaS #AITools",
+    "do_not": [
+      "Do not use a generic homepage URL as the CTA — use the coshuma_url below.",
+      "Do not fabricate pricing, discount codes, or reuse permission.",
+      "Do not upload before quality_gate.py passes.",
+      "Do not re-render this same tool if a ready/uploaded manifest entry already covers the campaign."
+    ],
+    "coshuma_url": "https://coshuma.com/tool/boldsign.html?utm_source=youtube&utm_medium=shorts&utm_campaign=boldsign",
+    "affiliate_target": "boldsign",
+    "campaign_slug": "boldsign"
   }
 ]
