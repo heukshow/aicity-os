@@ -21,7 +21,11 @@
       "script_hash": null,
       "published_at": "2026-09-02",
       "status": "uploaded",
-      "ga4": {"source": "youtube", "medium": "shorts", "campaign": "gohighlevel"},
+      "ga4": {
+        "source": "youtube",
+        "medium": "shorts",
+        "campaign": "gohighlevel"
+      },
       "provenance": "pre-existing at start of this session (2026-09-04); reconstructed from live YouTube Studio description + local file in /mnt/user-data/outputs, not produced by this pipeline. script_hash unknown (no source script file found).",
       "notes": "Text/motion-graphic card style (no avatar host). Coexists with the second GoHighLevel Short below by explicit user decision (different creative angle, same tool)."
     },
@@ -42,7 +46,11 @@
       "script_hash": null,
       "published_at": "2026-09-02",
       "status": "uploaded",
-      "ga4": {"source": "youtube", "medium": "shorts", "campaign": "vidiq"},
+      "ga4": {
+        "source": "youtube",
+        "medium": "shorts",
+        "campaign": "vidiq"
+      },
       "provenance": "pre-existing at start of this session (2026-09-04); reconstructed from live YouTube Studio description + local file in /mnt/user-data/outputs, not produced by this pipeline. script_hash unknown (no source script file found).",
       "notes": "Text/motion-graphic card style (no avatar host)."
     },
@@ -63,7 +71,11 @@
       "script_hash": null,
       "published_at": "2026-09-02",
       "status": "uploaded",
-      "ga4": {"source": "youtube", "medium": "shorts", "campaign": "descript"},
+      "ga4": {
+        "source": "youtube",
+        "medium": "shorts",
+        "campaign": "descript"
+      },
       "provenance": "pre-existing at start of this session (2026-09-04); reconstructed from live YouTube Studio description + local file in /mnt/user-data/outputs, not produced by this pipeline. script_hash unknown (no source script file found).",
       "notes": "Text/motion-graphic card style (no avatar host)."
     },
@@ -84,7 +96,11 @@
       "script_hash": null,
       "published_at": "2026-09-04",
       "status": "uploaded",
-      "ga4": {"source": "youtube", "medium": "shorts", "campaign": "gohighlevel_promo"},
+      "ga4": {
+        "source": "youtube",
+        "medium": "shorts",
+        "campaign": "gohighlevel_promo"
+      },
       "source_asset": {
         "provider": "HighLevel official affiliate media library (Google Drive folder shared by the affiliate program)",
         "asset_type": "official downloadable + reuse-permitted promo clip",
@@ -93,6 +109,30 @@
       },
       "provenance": "produced end-to-end in this session (2026-09-04): ffmpeg card+overlay pipeline over an official HighLevel affiliate clip, uploaded via YouTube Studio browser automation with human click-through for the OS file picker.",
       "notes": "Card style consistent with the other 3 (no avatar host). Deliberately coexists with the older gohighlevel entry above per explicit user decision (2026-09-04 AskUserQuestion: 'upload as-is, coexisting with existing video')."
+    },
+    {
+      "content_slug": "boldsign",
+      "source_page": "/tool/boldsign.html",
+      "affiliate_target": "boldsign",
+      "affiliate_url": "https://boldsign.com?via=sangkwon",
+      "campaign_slug": "boldsign",
+      "coshuma_url": "https://coshuma.com/tool/boldsign.html?utm_source=youtube&utm_medium=shorts&utm_campaign=boldsign",
+      "youtube_video_id": null,
+      "title": "Still doing Workflow Automation the slow way? Here's the AI shortcut - BoldSign #Shorts",
+      "video_file_name": null,
+      "video_sha256": null,
+      "video_duration_seconds": null,
+      "resolution": null,
+      "script_hash": null,
+      "published_at": null,
+      "status": "topic_selected",
+      "ga4": {
+        "source": "youtube",
+        "medium": "shorts",
+        "campaign": "boldsign"
+      },
+      "provenance": "auto-selected by prepare_next_short.py; not yet rendered or uploaded.",
+      "notes": "See matching entry in browser_required_queue.json for the render+upload task."
     }
   ],
   "duplicate_prevention_rule": "Before selecting new content, select_content.py must skip any (affiliate_target, campaign_slug) pair already present in 'entries' with status in ['rendered','ready','uploaded'] unless explicitly forced. A new creative angle on an already-covered tool is allowed but must use a new, distinct content_slug (see the two gohighlevel entries above) and should be a deliberate exception, not the default."
