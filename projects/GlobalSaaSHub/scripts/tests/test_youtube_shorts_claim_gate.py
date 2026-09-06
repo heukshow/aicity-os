@@ -22,7 +22,45 @@ def test_pictory_partner_email_claims_are_allowed_only_by_structured_verified_ev
     )
     assert report["failures"] == []
     assert report["checks"]["promotion_evidence"]["source_type"] == "affiliate_manager_email"
-    assert report["checks"]["promotion_evidence"]["verified_at"] == "2026-09-04"
+    assert report["checks"]["promotion_evidence"]["reference_field"] == "gmail_message_id"
+    assert report["checks"]["promotion_evidence"]["reference_value"] == "1a06d0ec1bf6a3a8"
+
+
+def test_verified_claim_without_checkable_reference_is_not_trusted(monkeypatch, tmp_path):
+    """claim_status alone is self-certification; it must not be trusted unless
+    it also carries a concrete, re-checkable reference (e.g. a Gmail message
+    id) to the primary source. This is a regression test for a real gap: an
+    earlier version of the evidence file only had a claim_status label and a
+    prose 'note', which anyone (or any future automated run) could set to
+    'verified_external_primary_source' without any way to audit it."""
+    campaigns_path = tmp_path / "youtube_shorts_campaigns.json"
+    campaigns_path.write_text(
+        """
+        {
+          "pictory": {
+            "campaign_slug": "pictory_coshuma20",
+            "evidence": {
+              "type": "affiliate_manager_email",
+              "claim_status": "verified_external_primary_source",
+              "note": "trust me, I read an email",
+              "verified_claims": {"promo_codes": ["COSHUMA20"], "discount_percentages": [20, 40, 52]}
+            }
+          }
+        }
+        """,
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(quality_gate, "CAMPAIGNS_JSON", campaigns_path)
+
+    report = _report()
+    quality_gate.check_price_and_discount_claims(
+        "Use code COSHUMA20 for 20% off.",
+        "pictory",
+        "pictory_coshuma20",
+        report,
+    )
+    assert any("COSHUMA20" in failure for failure in report["failures"])
+    assert "promotion_evidence" not in report["checks"]
 
 
 def test_unknown_promo_code_fails_closed():
