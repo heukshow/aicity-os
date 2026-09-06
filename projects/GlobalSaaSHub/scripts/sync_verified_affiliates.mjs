@@ -27,9 +27,46 @@ const verifiedAt = {
   chatbase: '2026-09-06T01:50:28+09:00',
 };
 
+// Account-state evidence recovered from connected Gmail. These overrides do not
+// create affiliate URLs; they only stop already-known outcomes from remaining
+// "unclassified" in the production revenue audit.
+const statusOverrides = {
+  hubspot: {
+    affiliate_verified: true,
+    affiliate_status: 'rejected',
+    affiliate_verified_at: '2026-09-02T11:28:46+09:00',
+    affiliate_evidence_markers: [
+      'HubSpot Affiliate Team re-review response',
+      'minimum requirement of 1,000 monthly visitors',
+      'reconsider once site meets the traffic criteria',
+    ],
+  },
+  omnisend: {
+    affiliate_verified: true,
+    affiliate_status: 'application_submitted',
+    affiliate_verified_at: '2026-09-01T20:00:57+09:00',
+    affiliate_evidence_markers: [
+      'Omnisend Affiliate Partner Program application received',
+      'application will be reviewed and processed',
+    ],
+  },
+  'socialchamp-io': {
+    affiliate_verified: true,
+    affiliate_status: 'application_submitted',
+    affiliate_verified_at: '2026-09-01T19:35:42+09:00',
+    affiliate_evidence_markers: [
+      'Social Champ affiliate application received',
+      'profile review expected in 3-5 business days',
+    ],
+  },
+};
+
 for (const file of ['data/tools.json', 'data/tools.next.json']) {
   const tools = JSON.parse(fs.readFileSync(file, 'utf8'));
   for (const tool of tools) {
+    const override = statusOverrides[tool.id];
+    if (override) Object.assign(tool, override);
+
     if (verified[tool.id]) tool.affiliate_url = verified[tool.id];
     if (!tool.affiliate_url || (tool.affiliate_verified !== true && !verified[tool.id])) continue;
     tool.affiliate_verified = true;
