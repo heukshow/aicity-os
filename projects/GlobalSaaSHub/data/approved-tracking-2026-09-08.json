@@ -1,0 +1,87 @@
+{
+  "source": "affiliate-browser-results-2026-09-08.json (local browser follow-up evidence)",
+  "metrics_note": "User-reported signups, sales, commissions and revenue remain 0; no new dashboard metrics measurement or conversion is claimed.",
+  "items": [
+    {
+      "id": "brand24",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://try.brand24.com/8xqrjxybmsbt",
+      "destination": "https://brand24.com/",
+      "evidence": "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Brand24 page loaded with PartnerStack attribution parameters. Program dashboard showed 7 clicks, 0 signups, and $0 revenue.",
+      "checked_at": "2026-09-08T00:00:00Z"
+    },
+    {
+      "id": "bookyourdata",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://join.bookyourdata.com/swcyqmumr3s5",
+      "destination": "https://www.bookyourdata.com/",
+      "evidence": "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Bookyourdata page loaded with PartnerStack attribution parameters. Dashboard showed 7 clicks, 0 signups, and $0 revenue.",
+      "checked_at": "2026-09-08T00:00:00Z"
+    },
+    {
+      "id": "gamma",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://try.gamma.app/pu20lusdpn1j",
+      "destination": "https://gamma.app",
+      "evidence": "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Gamma page loaded with affiliate and PartnerStack attribution parameters. Dashboard showed 3 clicks, 0 signups, and $0 revenue.",
+      "checked_at": "2026-09-08T00:00:00Z"
+    },
+    {
+      "id": "murf-ai",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://get.murf.ai/fqac0vixj0qs",
+      "destination": "https://murf.ai/",
+      "evidence": "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Murf AI page loaded with PartnerStack attribution parameters. Dashboard showed 4 clicks, 0 signups, and $0 revenue.",
+      "checked_at": "2026-09-08T00:00:00Z"
+    },
+    {
+      "id": "unbounce",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://unbounce.partnerlinks.io/5ubjnt8lluqi",
+      "destination": "https://unbounce.com/your-invitation/",
+      "evidence": "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Unbounce invitation page loaded with PartnerStack attribution parameters and the 20%/35% referral offer. Dashboard showed 8 clicks, 0 signups, and $0 revenue.",
+      "checked_at": "2026-09-08T00:00:00Z"
+    },
+    {
+      "id": "moosend",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://trymoo.moosend.com/6eappdpw04pw",
+      "destination": "https://moosend.com/",
+      "evidence": "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Moosend page loaded with PartnerStack attribution parameters. Dashboard showed 2 clicks, 0 signups, and $0 revenue.",
+      "checked_at": "2026-09-08T00:00:00Z"
+    },
+    {
+      "id": "kittl",
+      "status": "approved_tracking",
+      "program_approved": true,
+      "blocker": null,
+      "evidence": "Approval email 1a05cb0bb6ebc623 reread. Existing Impact account 7670642 authenticated with the user-authorized password. Impact Create a link for Kittl displayed and copied the exact redirect; official Kittl page loaded with irclickid, impact campaign, and afsrc attribution parameters.",
+      "portal_url": "https://app.impact.com/login.user",
+      "action": "Reused existing approved account; no duplicate account or application.",
+      "checked_at": "2026-09-08T00:00:00Z",
+      "exact_tracking_url": "https://kittl.pxf.io/0GMrXY",
+      "destination": "https://www.kittl.com/"
+    },
+    {
+      "id": "helpdesk",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.helpdesk.com/?a=8IetMhQvR&utm_campaign=pp_helpdesk-default&utm_source=PP&d=14",
+      "evidence": "Authenticated active HelpDesk - default campaign 723911 created 2026-08-31. Exact Campaign link copied; customer destination renders HelpDesk. Text email 1a079dd172f5ca22 explicitly confirms campaign-link commissions.",
+      "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
+      "action": "Reused existing campaign; no new campaign.",
+      "destination": "https://www.helpdesk.com/",
+      "checked_at": "2026-09-07T17:06:13Z"
+    },
+    {
+      "id": "voibe",
+      "platform": "Lemon Squeezy",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.getvoibe.com/?aff=G5Yr5D",
+      "evidence": "Authenticated program initially showed status '-' and Submit affiliate request, with no prior merchant request in either mailbox. Existing repository affiliate_profile_pending was hub-profile status. One free request was submitted; program changed to Active with its exact Affiliate URL. Copied; customer page retains aff=G5Yr5D.",
+      "portal_url": "https://affiliates.lemonsqueezy.com/programs/voibe",
+      "action": "One free merchant request; no paid product signup.",
+      "destination": "https://www.getvoibe.com/?aff=G5Yr5D",
+      "checked_at": "2026-09-07T17:06:13Z"
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import { applyApprovedTracking } from './approved_tracking_evidence.mjs';
 import fs from 'node:fs';
 
 const observedAt = '2026-09-08T02:19:00+09:00';
@@ -196,6 +197,7 @@ for (const relativePath of ['data/tools.json', 'data/tools.next.json']) {
   const tools = JSON.parse(fs.readFileSync(relativePath, 'utf8'));
   let changed = 0;
   for (const tool of tools) {
+    if (applyApprovedTracking(tool)) continue;
     const next = states[tool.id];
     if (!next) continue;
     Object.assign(tool, next);

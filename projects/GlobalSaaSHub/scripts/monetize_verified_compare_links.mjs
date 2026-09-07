@@ -1,3 +1,4 @@
+import { approvedTracking } from './approved_tracking_evidence.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -210,3 +211,27 @@ console.log(
   `sponsorship_files_changed=${sponsorshipFilesChanged} sponsorship_ctas_normalized=${sponsorshipCtasNormalized}` +
   (breakdown ? ` [${breakdown}]` : '')
 );
+
+// Normalize existing hand-authored CTAs as well as newly monetized anchors.
+for (const [directory, type] of [[TOOL_DIR, 'tool'], [COMPARE_DIR, 'compare']]) {
+  for (const filename of fs.readdirSync(directory).filter(name => name.endsWith('.html'))) {
+    const file = path.join(directory, filename);
+    const original = fs.readFileSync(file, 'utf8');
+    let relevant = false;
+    let updated = original.replace(/<a\b[^>]*>/g, anchor => {
+      const id = anchor.match(/data-tool-id="([^"]+)"/)?.[1];
+      const item = approvedTracking.get(id);
+      if (!item || !anchor.includes('data-cta="affiliate"')) return anchor;
+      relevant = true;
+      anchor = anchor.replace(/href="[^"]*"/, () => 'href="' + item.exact_tracking_url + '"');
+      if (!anchor.includes('data-cta-source=')) anchor = anchor.replace('<a ', '<a data-cta-source="' + type + '-existing-affiliate-auto" ');
+      return anchor;
+    });
+    if (relevant && !updated.includes('/affiliate-attribution.js')) updated = updated.replace('</head>', '<script defer src="/affiliate-attribution.js"></script>\n</head>');
+    if (relevant && !updated.includes('data-affiliate-disclosure="' + type + '"')) {
+      if (/Affiliate disclosure:/i.test(updated)) updated = updated.replace(/<p([^>]*)>(\s*Affiliate disclosure:)/i, '<p data-affiliate-disclosure="' + type + '"$1>$2');
+      else updated = updated.replace('</main>', (type === 'tool' ? TOOL_DISCLOSURE : DISCLOSURE) + '\n</main>');
+    }
+    if (updated !== original) fs.writeFileSync(file, updated);
+  }
+}

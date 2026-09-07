@@ -747,11 +747,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://brand24.com/",
-    "affiliate_url": null,
+    "affiliate_url": "https://try.brand24.com/8xqrjxybmsbt",
     "affiliate_verified": true,
-    "affiliate_status": "application_submitted",
-    "affiliate_verified_at": "2026-08-31T22:59:47Z",
-    "affiliate_evidence_markers": ["PartnerStack application received", "submitted for Brand24 review"]
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-08T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Brand24 page loaded with PartnerStack attribution parameters. Program dashboard showed 7 clicks, 0 signups, and $0 revenue.",
+      "data/approved-tracking-2026-09-08.json"
+    ],
+    "affiliate_final_url": "https://brand24.com/"
   },
   {
     "id": "socialchamp-io",
@@ -950,7 +954,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://unbounce.com/",
-    "affiliate_url": null
+    "affiliate_url": "https://unbounce.partnerlinks.io/5ubjnt8lluqi",
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-09-08T00:00:00Z",
+    "affiliate_final_url": "https://unbounce.com/your-invitation/",
+    "affiliate_evidence_markers": [
+      "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Unbounce invitation page loaded with PartnerStack attribution parameters and the 20%/35% referral offer. Dashboard showed 8 clicks, 0 signups, and $0 revenue.",
+      "data/approved-tracking-2026-09-08.json"
+    ]
   },
   {
     "id": "moosend",
@@ -980,14 +992,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://moosend.com/",
-    "affiliate_url": null,
+    "affiliate_url": "https://trymoo.moosend.com/6eappdpw04pw",
     "affiliate_verified": true,
-    "affiliate_status": "email_verification_pending",
-    "affiliate_verified_at": "2026-09-01T04:40:00+09:00",
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-08T00:00:00Z",
     "affiliate_evidence_markers": [
-      "Moosend official affiliate form submitted",
-      "Congrats, please check your inbox for the verification link to complete your registration!"
-    ]
+      "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Moosend page loaded with PartnerStack attribution parameters. Dashboard showed 2 clicks, 0 signups, and $0 revenue.",
+      "data/approved-tracking-2026-09-08.json"
+    ],
+    "affiliate_final_url": "https://moosend.com/"
   },
   {
     "id": "reply-io",
@@ -2258,10 +2271,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://murf.ai/",
-    "affiliate_url": null,
-    "affiliate_verified": false,
-    "affiliate_status": "application_submitted",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_url": "https://get.murf.ai/fqac0vixj0qs",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-08T00:00:00Z",
+    "affiliate_final_url": "https://murf.ai/",
+    "affiliate_evidence_markers": [
+      "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Murf AI page loaded with PartnerStack attribution parameters. Dashboard showed 4 clicks, 0 signups, and $0 revenue.",
+      "data/approved-tracking-2026-09-08.json"
+    ]
   },
   {
     "id": "scalenut",
@@ -2593,14 +2611,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.kittl.com/",
-    "affiliate_url": null,
+    "affiliate_url": "https://kittl.pxf.io/0GMrXY",
     "affiliate_verified": true,
-    "affiliate_status": "application_submitted",
-    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-08T00:00:00Z",
     "affiliate_evidence_markers": [
-      "Impact application received",
-      "application will be reviewed"
-    ]
+      "Approval email 1a05cb0bb6ebc623 reread. Existing Impact account 7670642 authenticated with the user-authorized password. Impact Create a link for Kittl displayed and copied the exact redirect; official Kittl page loaded with irclickid, impact campaign, and afsrc attribution parameters.",
+      "data/approved-tracking-2026-09-08.json"
+    ],
+    "affiliate_final_url": "https://www.kittl.com/"
   },
   {
     "id": "koala-ai",
@@ -3437,10 +3456,17 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://helpdesk.com/",
-    "affiliate_url": null,
-    "affiliate_status": "application_available",
+    "affiliate_url": "https://www.helpdesk.com/?a=8IetMhQvR&utm_campaign=pp_helpdesk-default&utm_source=PP&d=14",
+    "affiliate_status": "approved_tracking",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://www.helpdesk.com/legal/for-partners/"
+    "affiliate_status_evidence_url": "https://www.helpdesk.com/legal/for-partners/",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-09-07T17:06:13Z",
+    "affiliate_final_url": "https://www.helpdesk.com/",
+    "affiliate_evidence_markers": [
+      "Authenticated active HelpDesk - default campaign 723911 created 2026-08-31. Exact Campaign link copied; customer destination renders HelpDesk. Text email 1a079dd172f5ca22 explicitly confirms campaign-link commissions.",
+      "data/approved-tracking-2026-09-08.json"
+    ]
   },
   {
     "id": "happyscribe",
@@ -3845,14 +3871,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
     "official_evidence_url": "https://bookyourdata.com/",
-    "affiliate_url": null,
+    "affiliate_url": "https://join.bookyourdata.com/swcyqmumr3s5",
     "affiliate_verified": true,
-    "affiliate_status": "application_submitted",
-    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-08T00:00:00Z",
     "affiliate_evidence_markers": [
-      "PartnerStack application received",
-      "submitted for Bookyourdata review"
-    ]
+      "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Bookyourdata page loaded with PartnerStack attribution parameters. Dashboard showed 7 clicks, 0 signups, and $0 revenue.",
+      "data/approved-tracking-2026-09-08.json"
+    ],
+    "affiliate_final_url": "https://www.bookyourdata.com/"
   },
   {
     "id": "mindstudio",
@@ -4817,14 +4844,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
     "official_evidence_url": "https://gamma.app/",
-    "affiliate_url": null,
+    "affiliate_url": "https://try.gamma.app/pu20lusdpn1j",
     "affiliate_verified": true,
-    "affiliate_status": "application_submitted",
-    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-08T00:00:00Z",
     "affiliate_evidence_markers": [
-      "PartnerStack application received",
-      "submitted for Gamma review"
-    ]
+      "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Gamma page loaded with affiliate and PartnerStack attribution parameters. Dashboard showed 3 clicks, 0 signups, and $0 revenue.",
+      "data/approved-tracking-2026-09-08.json"
+    ],
+    "affiliate_final_url": "https://gamma.app"
   },
   {
     "id": "gobii",
@@ -4895,18 +4923,20 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.getvoibe.com/",
-    "affiliate_url": null,
-    "affiliate_verified": false,
+    "affiliate_url": "https://www.getvoibe.com/?aff=G5Yr5D",
+    "affiliate_verified": true,
     "affiliate_source_url": "https://www.getvoibe.com/",
-    "affiliate_final_url": "https://www.getvoibe.com/",
+    "affiliate_final_url": "https://www.getvoibe.com/?aff=G5Yr5D",
     "affiliate_http_status": 200,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "HTTP 200 but no strong affiliate evidence found. Required at least one compound pattern (e.g. 'affiliate program', 'commission rate', 'cookie duration'). Single-word matches in footer/privacy/blog are not accepted.",
-    "affiliate_status": "affiliate_profile_pending",
+    "affiliate_evidence_markers": [
+      "Authenticated program initially showed status '-' and Submit affiliate request, with no prior merchant request in either mailbox. Existing repository affiliate_profile_pending was hub-profile status. One free request was submitted; program changed to Active with its exact Affiliate URL. Copied; customer page retains aff=G5Yr5D.",
+      "data/approved-tracking-2026-09-08.json"
+    ],
+    "affiliate_verified_at": "2026-09-07T17:06:13Z",
+    "affiliate_rejection_reason": null,
+    "affiliate_status": "approved_tracking",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://affiliates.lemonsqueezy.com/programs/voibe",
-    "affiliate_evidence_markers": ["Affiliate application has been submitted and is awaiting approval", "This may take up to 48 hours"]
+    "affiliate_status_evidence_url": "https://affiliates.lemonsqueezy.com/programs/voibe"
   },
   {
     "id": "merlin-ai",

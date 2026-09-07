@@ -6,6 +6,8 @@ on:
     paths:
       - 'projects/GlobalSaaSHub/src/**'
       - 'projects/GlobalSaaSHub/public/**'
+      - 'projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json'
+      - 'projects/GlobalSaaSHub/scripts/approved_tracking_evidence.mjs'
       - 'projects/GlobalSaaSHub/data/tools.json'
       - 'projects/GlobalSaaSHub/data/tools.next.json'
       - 'projects/GlobalSaaSHub/scripts/sync_verified_affiliates.mjs'
@@ -82,7 +84,7 @@ jobs:
             ['gumloop', 'application_submitted'],
             ['pipedrive', 'pending'],
             ['monday-com', 'pending'],
-            ['kittl', 'approved'],
+            ['kittl', 'approved_tracking'],
           ]);
           for (const [id, status] of expectedStates) {
             const tool = tools.find((item) => item.id === id);
@@ -115,6 +117,10 @@ jobs:
       - name: Build production bundle
         working-directory: projects/GlobalSaaSHub
         run: npm run build
+
+      - name: Verify approved tracking state and built CTAs
+        working-directory: projects/GlobalSaaSHub
+        run: node scripts/verify_approved_tracking.mjs
 
       - name: Verify COSHUMA bundle identity
         run: |

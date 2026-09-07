@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-08T02:34:00+09:00",
+  "updated_at": "2026-09-07T17:57:28.144Z",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -164,6 +164,55 @@
       "tracking_url": "https://www.clickfunnels.com/signup-flow?aff=b57f3056884d05b842f607e32347df542821875bbe3209a214141aa32a210532",
       "verified_at": "2026-09-08T02:19:00+09:00",
       "note": "Affiliate Agreement was accepted with recorded user authorization. The authenticated dashboard supplied this exact Free Trial campaign link. Dashboard showed $0 commissions and 0 conversions at verification time. Do not reapply."
+    },
+    "brand24": {
+      "status": "approved_tracking",
+      "tracking_url": "https://try.brand24.com/8xqrjxybmsbt",
+      "verified_at": "2026-09-08T00:00:00Z",
+      "note": "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Brand24 page loaded with PartnerStack attribution parameters. Program dashboard showed 7 clicks, 0 signups, and $0 revenue.",
+      "evidence_file": "data/approved-tracking-2026-09-08.json"
+    },
+    "bookyourdata": {
+      "status": "approved_tracking",
+      "tracking_url": "https://join.bookyourdata.com/swcyqmumr3s5",
+      "verified_at": "2026-09-08T00:00:00Z",
+      "note": "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Bookyourdata page loaded with PartnerStack attribution parameters. Dashboard showed 7 clicks, 0 signups, and $0 revenue.",
+      "evidence_file": "data/approved-tracking-2026-09-08.json"
+    },
+    "gamma": {
+      "status": "approved_tracking",
+      "tracking_url": "https://try.gamma.app/pu20lusdpn1j",
+      "verified_at": "2026-09-08T00:00:00Z",
+      "note": "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Gamma page loaded with affiliate and PartnerStack attribution parameters. Dashboard showed 3 clicks, 0 signups, and $0 revenue.",
+      "evidence_file": "data/approved-tracking-2026-09-08.json"
+    },
+    "murf-ai": {
+      "status": "approved_tracking",
+      "tracking_url": "https://get.murf.ai/fqac0vixj0qs",
+      "verified_at": "2026-09-08T00:00:00Z",
+      "note": "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Murf AI page loaded with PartnerStack attribution parameters. Dashboard showed 4 clicks, 0 signups, and $0 revenue.",
+      "evidence_file": "data/approved-tracking-2026-09-08.json"
+    },
+    "unbounce": {
+      "status": "approved_tracking",
+      "tracking_url": "https://unbounce.partnerlinks.io/5ubjnt8lluqi",
+      "verified_at": "2026-09-08T00:00:00Z",
+      "note": "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Unbounce invitation page loaded with PartnerStack attribution parameters and the 20%/35% referral offer. Dashboard showed 8 clicks, 0 signups, and $0 revenue.",
+      "evidence_file": "data/approved-tracking-2026-09-08.json"
+    },
+    "moosend": {
+      "status": "approved_tracking",
+      "tracking_url": "https://trymoo.moosend.com/6eappdpw04pw",
+      "verified_at": "2026-09-08T00:00:00Z",
+      "note": "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Moosend page loaded with PartnerStack attribution parameters. Dashboard showed 2 clicks, 0 signups, and $0 revenue.",
+      "evidence_file": "data/approved-tracking-2026-09-08.json"
+    },
+    "kittl": {
+      "status": "approved_tracking",
+      "tracking_url": "https://kittl.pxf.io/0GMrXY",
+      "verified_at": "2026-09-08T00:00:00Z",
+      "note": "Approval email 1a05cb0bb6ebc623 reread. Existing Impact account 7670642 authenticated with the user-authorized password. Impact Create a link for Kittl displayed and copied the exact redirect; official Kittl page loaded with irclickid, impact campaign, and afsrc attribution parameters.",
+      "evidence_file": "data/approved-tracking-2026-09-08.json"
     }
   }
 }

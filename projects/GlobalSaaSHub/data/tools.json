@@ -901,7 +901,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "A leading landing page builder that empowers marketers to create high-converting landing pages and pop-ups without any coding required.",
-    "affiliate_url": null,
+    "affiliate_url": "https://unbounce.partnerlinks.io/5ubjnt8lluqi",
     "pricing": "See official pricing",
     "key_features": [
       "Drag-and-Drop Page Builder",
@@ -925,9 +925,13 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://unbounce.com/",
     "affiliate_verified": true,
-    "affiliate_status": "application_submitted",
-    "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["PartnerStack application received", "submitted for Unbounce review"]
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-08T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Unbounce invitation page loaded with PartnerStack attribution parameters and the 20%/35% referral offer. Dashboard showed 8 clicks, 0 signups, and $0 revenue.",
+      "data/approved-tracking-2026-09-08.json"
+    ],
+    "affiliate_final_url": "https://unbounce.com/your-invitation/"
   },
   {
     "id": "moosend",
@@ -935,7 +939,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "A powerful and user-friendly email marketing and marketing automation platform, perfect for businesses aiming to engage their audience effectively.",
-    "affiliate_url": null,
+    "affiliate_url": "https://trymoo.moosend.com/6eappdpw04pw",
     "pricing": "See official pricing",
     "key_features": [
       "Email Campaign Designer",
@@ -959,12 +963,13 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://moosend.com/",
     "affiliate_verified": true,
-    "affiliate_status": "email_verification_pending",
-    "affiliate_verified_at": "2026-09-01T04:40:00+09:00",
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-08T00:00:00Z",
     "affiliate_evidence_markers": [
-      "Moosend official affiliate form submitted",
-      "Congrats, please check your inbox for the verification link to complete your registration!"
-    ]
+      "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Moosend page loaded with PartnerStack attribution parameters. Dashboard showed 2 clicks, 0 signups, and $0 revenue.",
+      "data/approved-tracking-2026-09-08.json"
+    ],
+    "affiliate_final_url": "https://moosend.com/"
   },
   {
     "id": "reply-io",
@@ -2222,7 +2227,7 @@
     "category": "voice_cloning",
     "category_display": "Voice & Speech AI",
     "description": "An AI voice generator that provides realistic text-to-speech voices for various applications, empowering voice-over creators.",
-    "affiliate_url": null,
+    "affiliate_url": "https://get.murf.ai/fqac0vixj0qs",
     "pricing": "See official pricing",
     "key_features": [
       "Studio-quality AI voices",
@@ -2246,9 +2251,14 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://murf.ai/",
-    "affiliate_verified": false,
-    "affiliate_status": "application_submitted",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-08T00:00:00Z",
+    "affiliate_final_url": "https://murf.ai/",
+    "affiliate_evidence_markers": [
+      "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Murf AI page loaded with PartnerStack attribution parameters. Dashboard showed 4 clicks, 0 signups, and $0 revenue.",
+      "data/approved-tracking-2026-09-08.json"
+    ]
   },
   {
     "id": "scalenut",
@@ -2555,7 +2565,7 @@
     "category": "design_art",
     "category_display": "Design & Graphics",
     "description": "Kittl is an AI-powered graphic design tool that simplifies creating stunning visuals with an extensive library of templates, vector editing, and print-on-demand assets.",
-    "affiliate_url": null,
+    "affiliate_url": "https://kittl.pxf.io/0GMrXY",
     "pricing": "See official pricing",
     "key_features": [
       "AI-powered graphic design",
@@ -2579,9 +2589,13 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.kittl.com/",
     "affiliate_verified": true,
-    "affiliate_status": "application_submitted",
-    "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["Impact application received", "application will be reviewed"]
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-08T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "Approval email 1a05cb0bb6ebc623 reread. Existing Impact account 7670642 authenticated with the user-authorized password. Impact Create a link for Kittl displayed and copied the exact redirect; official Kittl page loaded with irclickid, impact campaign, and afsrc attribution parameters.",
+      "data/approved-tracking-2026-09-08.json"
+    ],
+    "affiliate_final_url": "https://www.kittl.com/"
   },
   {
     "id": "koala-ai",
@@ -3399,7 +3413,7 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "Centralized ticketing software that streamlines customer support and enhances team collaboration through powerful automation and analytics.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.helpdesk.com/?a=8IetMhQvR&utm_campaign=pp_helpdesk-default&utm_source=PP&d=14",
     "pricing": "See official pricing",
     "key_features": [
       "Centralized ticketing system",
@@ -3422,9 +3436,16 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://helpdesk.com/",
-    "affiliate_status": "application_available",
+    "affiliate_status": "approved_tracking",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://www.helpdesk.com/legal/for-partners/"
+    "affiliate_status_evidence_url": "https://www.helpdesk.com/legal/for-partners/",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-09-07T17:06:13Z",
+    "affiliate_final_url": "https://www.helpdesk.com/",
+    "affiliate_evidence_markers": [
+      "Authenticated active HelpDesk - default campaign 723911 created 2026-08-31. Exact Campaign link copied; customer destination renders HelpDesk. Text email 1a079dd172f5ca22 explicitly confirms campaign-link commissions.",
+      "data/approved-tracking-2026-09-08.json"
+    ]
   },
   {
     "id": "happyscribe",
@@ -3801,7 +3822,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "A B2B contact data platform providing real-time, high-quality leads on a pay-as-you-go model, trusted by thousands for effective lead generation.",
-    "affiliate_url": null,
+    "affiliate_url": "https://join.bookyourdata.com/swcyqmumr3s5",
     "pricing": "Pay-as-you-go model",
     "key_features": [
       "Real-time B2B contact data",
@@ -3825,9 +3846,13 @@
     "official_verified_at": "2026-08-09T00:00:00Z",
     "official_evidence_url": "https://bookyourdata.com/",
     "affiliate_verified": true,
-    "affiliate_status": "application_submitted",
-    "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["PartnerStack application received", "submitted for Bookyourdata review"]
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-08T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Bookyourdata page loaded with PartnerStack attribution parameters. Dashboard showed 7 clicks, 0 signups, and $0 revenue.",
+      "data/approved-tracking-2026-09-08.json"
+    ],
+    "affiliate_final_url": "https://www.bookyourdata.com/"
   },
   {
     "id": "mindstudio",
@@ -4776,7 +4801,7 @@
     "category": "creator",
     "category_display": "Creator Tools",
     "description": "AI-powered presentation and document generator creating interactive web slides and pages.",
-    "affiliate_url": null,
+    "affiliate_url": "https://try.gamma.app/pu20lusdpn1j",
     "pricing": "See official pricing",
     "key_features": [
       "AI Presentation Generator",
@@ -4804,9 +4829,13 @@
     "official_verified_at": "2026-08-09T00:00:00Z",
     "official_evidence_url": "https://gamma.app/",
     "affiliate_verified": true,
-    "affiliate_status": "application_submitted",
-    "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["PartnerStack application received", "submitted for Gamma review"]
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-08T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Gamma page loaded with affiliate and PartnerStack attribution parameters. Dashboard showed 3 clicks, 0 signups, and $0 revenue.",
+      "data/approved-tracking-2026-09-08.json"
+    ],
+    "affiliate_final_url": "https://gamma.app"
   },
   {
     "id": "gobii",
@@ -4853,7 +4882,7 @@
     "category_display": "Voice & Speech AI",
     "description": "Voibe is a dictation app for Mac, offering fully on-device or private open-source cloud modes, ensuring user privacy by not training AI on user dictation. It's ideal for Mac-using professionals seeking efficient and secure speech processing.",
     "official_url": "https://www.getvoibe.com/",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.getvoibe.com/?aff=G5Yr5D",
     "pricing_source_url": null,
     "pricing": "See official pricing",
     "key_features": [
@@ -4873,17 +4902,19 @@
     "evidence_source_type": null,
     "is_manual_override": false,
     "http_verification_status": null,
-    "affiliate_verified": false,
+    "affiliate_verified": true,
     "affiliate_source_url": "https://www.getvoibe.com/",
-    "affiliate_final_url": "https://www.getvoibe.com/",
+    "affiliate_final_url": "https://www.getvoibe.com/?aff=G5Yr5D",
     "affiliate_http_status": 200,
-    "affiliate_evidence_markers": [],
-    "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "HTTP 200 but no strong affiliate evidence found. Required at least one compound pattern (e.g. 'affiliate program', 'commission rate', 'cookie duration'). Single-word matches in footer/privacy/blog are not accepted.",
-    "affiliate_status": "affiliate_profile_pending",
+    "affiliate_evidence_markers": [
+      "Authenticated program initially showed status '-' and Submit affiliate request, with no prior merchant request in either mailbox. Existing repository affiliate_profile_pending was hub-profile status. One free request was submitted; program changed to Active with its exact Affiliate URL. Copied; customer page retains aff=G5Yr5D.",
+      "data/approved-tracking-2026-09-08.json"
+    ],
+    "affiliate_verified_at": "2026-09-07T17:06:13Z",
+    "affiliate_rejection_reason": null,
+    "affiliate_status": "approved_tracking",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
     "affiliate_status_evidence_url": "https://affiliates.lemonsqueezy.com/programs/voibe",
-    "affiliate_evidence_markers": ["Affiliate application has been submitted and is awaiting approval", "This may take up to 48 hours"],
     "primary_category": "voice_cloning",
     "comparison_group": "voice_generation",
     "official_verification_status": "verified",
