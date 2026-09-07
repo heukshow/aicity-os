@@ -82,7 +82,7 @@
     "name": "Make.com",
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
-    "description": "A visual automation platform that lets you design, build, and automate anything—from simple tasks to complex workflows—in minutes without coding.",
+    "description": "A visual automation platform that lets you design, build, and automate anything\u2014from simple tasks to complex workflows\u2014in minutes without coding.",
     "pricing": "See official pricing",
     "key_features": [
       "Visual Drag & Drop",
@@ -751,10 +751,7 @@
     "affiliate_verified": true,
     "affiliate_status": "application_submitted",
     "affiliate_verified_at": "2026-08-31T22:59:47Z",
-    "affiliate_evidence_markers": [
-      "PartnerStack application received",
-      "submitted for Brand24 review"
-    ]
+    "affiliate_evidence_markers": ["PartnerStack application received", "submitted for Brand24 review"]
   },
   {
     "id": "socialchamp-io",
@@ -825,10 +822,7 @@
     "affiliate_verified": true,
     "affiliate_status": "application_submitted",
     "affiliate_verified_at": "2026-08-31T23:01:13Z",
-    "affiliate_evidence_markers": [
-      "PartnerStack application received",
-      "submitted for Triple Whale review"
-    ]
+    "affiliate_evidence_markers": ["PartnerStack application received", "submitted for Triple Whale review"]
   },
   {
     "id": "boldsign",
@@ -1117,10 +1111,7 @@
     "affiliate_verified": true,
     "affiliate_status": "rejected",
     "affiliate_verified_at": "2026-09-01T08:45:37Z",
-    "affiliate_evidence_markers": [
-      "Impact email",
-      "Semrush Contract Terms Declined"
-    ]
+    "affiliate_evidence_markers": ["Impact email", "Semrush Contract Terms Declined"]
   },
   {
     "id": "hubspot",
@@ -1376,11 +1367,7 @@
     "affiliate_source_url": "https://synthesia.getrewardful.com/",
     "affiliate_final_url": "https://www.synthesia.io?via=sangkwon",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": [
-      "Logged in successfully.",
-      "Joined August 26, 2026",
-      "https://www.synthesia.io?via=sangkwon"
-    ]
+    "affiliate_evidence_markers": ["Logged in successfully.", "Joined August 26, 2026", "https://www.synthesia.io?via=sangkwon"]
   },
   {
     "id": "octo-browser",
@@ -1630,10 +1617,7 @@
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
     "affiliate_verified_at": "2026-08-31T22:02:27Z",
-    "affiliate_evidence_markers": [
-      "Vista Social approval email",
-      "unique referral link in email body"
-    ]
+    "affiliate_evidence_markers": ["Vista Social approval email", "unique referral link in email body"]
   },
   {
     "id": "gravity-forms",
@@ -3729,7 +3713,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "An AI-driven platform that fully automates and optimizes advertising campaigns for Amazon and Walmart sellers, maximizing their ROI.",
-    "pricing": "From €495/month plus a percentage of ad spend",
+    "pricing": "From \u20ac495/month plus a percentage of ad spend",
     "key_features": [
       "AI-driven advertising",
       "Automate ad campaigns",
@@ -3749,7 +3733,7 @@
     "evidence_source_type": "official_help_page",
     "is_manual_override": true,
     "pricing_evidence_markers": [
-      "€495",
+      "\u20ac495",
       "month"
     ],
     "http_verification_status": "verified_http_200",
@@ -4266,11 +4250,7 @@
     "affiliate_verified": true,
     "affiliate_status": "application_not_submitted",
     "affiliate_verified_at": "2026-08-31T16:05:00Z",
-    "affiliate_evidence_markers": [
-      "Claap affiliate manager email",
-      "application did not go through",
-      "correct PartnerStack link provided"
-    ]
+    "affiliate_evidence_markers": ["Claap affiliate manager email", "application did not go through", "correct PartnerStack link provided"]
   },
   {
     "id": "cloudtalk",
@@ -4677,10 +4657,7 @@
     "affiliate_status": "referral_link_requested",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
     "affiliate_status_evidence_url": "https://agent-works.ai/contact",
-    "affiliate_evidence_markers": [
-      "Message sent",
-      "Thanks for reaching out. We typically respond within 1 business day."
-    ]
+    "affiliate_evidence_markers": ["Message sent", "Thanks for reaching out. We typically respond within 1 business day."]
   },
   {
     "id": "airia",
@@ -4759,10 +4736,7 @@
     "affiliate_status": "approved_email_verification_required",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
     "affiliate_status_evidence_url": "https://affiliate.omi.me/overview",
-    "affiliate_evidence_markers": [
-      "Your account has been approved",
-      "Verify your email"
-    ]
+    "affiliate_evidence_markers": ["Your account has been approved", "Verify your email"]
   },
   {
     "id": "fireflies-ai",
@@ -4878,10 +4852,7 @@
     "affiliate_status": "program_unavailable_company_winding_down",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
     "affiliate_status_evidence_url": "https://gobii.ai/",
-    "affiliate_evidence_markers": [
-      "Gobii is winding down",
-      "final day of operations will be September 1, 2026"
-    ]
+    "affiliate_evidence_markers": ["Gobii is winding down", "final day of operations will be September 1, 2026"]
   },
   {
     "id": "voibe",
@@ -4919,15 +4890,13 @@
     "affiliate_source_url": "https://www.getvoibe.com/",
     "affiliate_final_url": "https://www.getvoibe.com/",
     "affiliate_http_status": 200,
-    "affiliate_evidence_markers": [
-      "Affiliate application has been submitted and is awaiting approval",
-      "This may take up to 48 hours"
-    ],
+    "affiliate_evidence_markers": [],
     "affiliate_verified_at": null,
     "affiliate_rejection_reason": "HTTP 200 but no strong affiliate evidence found. Required at least one compound pattern (e.g. 'affiliate program', 'commission rate', 'cookie duration'). Single-word matches in footer/privacy/blog are not accepted.",
     "affiliate_status": "affiliate_profile_pending",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://affiliates.lemonsqueezy.com/programs/voibe"
+    "affiliate_status_evidence_url": "https://affiliates.lemonsqueezy.com/programs/voibe",
+    "affiliate_evidence_markers": ["Affiliate application has been submitted and is awaiting approval", "This may take up to 48 hours"]
   },
   {
     "id": "merlin-ai",
