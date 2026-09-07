@@ -50,6 +50,19 @@ try {
 assert.equal(state.typedesk.sender, 'qmfforfhem@gmail.com');
 assert.equal(state.typedesk.portal_enrollment_confirmed, false);
 assert.equal(state.n8n.application_state, 'submitted');
+for (const [id, expected] of [['krater', 'application_submitted'], ['framer', 'browser_required_application_form'], ['eprofessor', 'browser_required_login']]) {
+  assert.equal(state[id].status, expected);
+  assert.equal(state[id].tracking_url, null);
+  const stale = {id, affiliate_url: 'https://example.com/dashboard', affiliate_verified: true};
+  applyBrowserFollowup(stale);
+  assert.equal(stale.affiliate_status, expected);
+  assert.equal(stale.affiliate_url, null);
+  assert.equal(stale.affiliate_verified, false);
+}
+assert.equal(state.krater.application_state, 'submitted');
+assert.equal(state.krater.do_not_reapply, true);
+assert.equal(state.framer.application_state, 'not_submitted');
+assert.equal(state.eprofessor.application_state, 'not_submitted');
 assert.equal(state.webflow.application_state, 'submitted');
 for (const id of ['airia', 'joiin']) {
   assert.equal(state[id].status, 'application_submitted');

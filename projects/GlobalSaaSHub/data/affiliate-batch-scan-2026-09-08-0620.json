@@ -1,0 +1,1727 @@
+{
+  "checked_at": "2026-09-07T21:21:56.008052+00:00",
+  "main_sha": "af19c13423f242ddad36d8cefc6530a4543101ea",
+  "tool_count": 151,
+  "sources": [
+    "data/tools.json",
+    "data/tools.next.json",
+    "data/affiliate_outreach_state.json",
+    "data/browser_required_queue.json",
+    "scripts/sync_verified_affiliates.mjs",
+    "scripts/sync_latest_affiliate_states.mjs",
+    "data/affiliate-submission-batch-2026-09-08.json",
+    "data/affiliate-browser-followup-wave3-2026-09-08.json",
+    "data/approved-tracking-2026-09-08.json"
+  ],
+  "method": "Both deployed sync scripts were applied in an isolated checkout for screening; original main fields and evidence overrides were combined. Empty status never overrides existing enrollment evidence. Ranking is qualitative expected opportunity, not measured revenue.",
+  "selected_order": [
+    "framer",
+    "krater",
+    "eprofessor"
+  ],
+  "ranking_rationale": {
+    "framer": "Website-builder buyer-guide fit; official creator program advertises 50% for 12 months and manual applications without a required paid plan.",
+    "krater": "AI creator-suite buyer-guide fit; official Dub form offers 25% per sale for one year and no signup fee shown.",
+    "eprofessor": "Course-creator SaaS fit; official terms explicitly allow free Referral-Only Account and 20% of net profit while enrolled."
+  },
+  "pre_application_mail_check": {
+    "account": "support@coshuma.com",
+    "query": "in:anywhere {expandi framer krater activepieces nudgera featureshark surfeo eprofessor}",
+    "result": "No matching messages before application and account creation; in:anywhere includes Spam and Trash.",
+    "existing_accounts": "Krater used existing authenticated Dub session; Framer email login returned new-account completion screen; eProfessor existing-account status remains unknown due Google popup interaction failure."
+  },
+  "other_screening": "Expandi requires 14 days active product use; no qualifying use evidence. Carv audience requirements not established. No official cash-affiliate path established for Activepieces, Nudgera, FeatureShark or Surfeo in this scan. Google Workspace not selected over dedicated SaaS/AI buyer-guide candidates.",
+  "tools": [
+    {
+      "id": "gohighlevel",
+      "name": "GoHighLevel",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "notion-ai",
+      "name": "Notion AI",
+      "source_status": "program_closed_to_new_applicants",
+      "cross_checked_statuses": [
+        "program_closed_to_new_applicants"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "make-com",
+      "name": "Make.com",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "copy-ai",
+      "name": "Copy.ai",
+      "source_status": "no_affiliate_program",
+      "cross_checked_statuses": [
+        "no_affiliate_program"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "zenrows",
+      "name": "ZenRows",
+      "source_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "tubebuddy",
+      "name": "TubeBuddy",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "outlierkit",
+      "name": "OutlierKit",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "pictory",
+      "name": "Pictory",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "fliki",
+      "name": "Fliki",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "inkfluence-ai",
+      "name": "Inkfluence AI",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "jasper",
+      "name": "Jasper",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "enrollment_requested"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "writesonic",
+      "name": "Writesonic",
+      "source_status": "rejected",
+      "cross_checked_statuses": [
+        "rejected",
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "sudowrite",
+      "name": "Sudowrite",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "convertkit",
+      "name": "Kit (formerly ConvertKit)",
+      "source_status": "blocked_partnerstack_marketplace_limited",
+      "cross_checked_statuses": [
+        "blocked_partnerstack_marketplace_limited"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "quillbot",
+      "name": "QuillBot",
+      "source_status": "blocked_partnerstack_marketplace_limited",
+      "cross_checked_statuses": [
+        "blocked_partnerstack_marketplace_limited"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "text-cortex",
+      "name": "Text Cortex",
+      "source_status": "program_inactive",
+      "cross_checked_statuses": [
+        "program_inactive"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "vidiq",
+      "name": "VidIQ",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "bolddesk",
+      "name": "BoldDesk",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "brand24",
+      "name": "Brand24",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "socialchamp-io",
+      "name": "Social Champ",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "triple-whale",
+      "name": "Triple Whale",
+      "source_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "boldsign",
+      "name": "BoldSign",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "privy",
+      "name": "Privy",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "outreach_sent"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "aweber",
+      "name": "AWeber",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "unbounce",
+      "name": "Unbounce",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "moosend",
+      "name": "Moosend",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "reply-io",
+      "name": "Reply.io",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "enrollment_requested"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "omnisend",
+      "name": "Omnisend",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "time2book",
+      "name": "Time2book",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "semrush",
+      "name": "Semrush",
+      "source_status": "rejected",
+      "cross_checked_statuses": [
+        "rejected"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "hubspot",
+      "name": "HubSpot",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "rejected"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "kinsta",
+      "name": "Kinsta",
+      "source_status": "rejected",
+      "cross_checked_statuses": [
+        "rejected"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "shopify",
+      "name": "Shopify",
+      "source_status": "excluded_user_request",
+      "cross_checked_statuses": [
+        "excluded_user_request",
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "systeme-io",
+      "name": "Systeme.io",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "jotform",
+      "name": "Jotform",
+      "source_status": "approved_account",
+      "cross_checked_statuses": [
+        "approved_account",
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "webflow",
+      "name": "Webflow",
+      "source_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "queue_ids": [
+        "webflow-affiliate-browser-followup"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "reactin",
+      "name": "ReactIn",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "outreach_sent"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "synthesia",
+      "name": "Synthesia",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "octo-browser",
+      "name": "Octo Browser",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "outreach_sent"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "carv",
+      "name": "Carv",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "program_mismatch"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": "data/affiliate-candidate-triage-2026-09-08-0220.json"
+    },
+    {
+      "id": "jobhire",
+      "name": "JobHire",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "outreach_sent"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "aitable-ai",
+      "name": "AITable.ai",
+      "source_status": "program_inactive",
+      "cross_checked_statuses": [
+        "program_inactive"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "liftmycv",
+      "name": "LiftmyCV",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "blaze",
+      "name": "Blaze",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "outreach_sent"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "aiassistworks",
+      "name": "AiAssistWorks",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [
+        "aiassistworks-affiliate-browser-followup"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "vista-social",
+      "name": "Vista Social",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "gravity-forms",
+      "name": "Gravity Forms",
+      "source_status": "application_session_conflict",
+      "cross_checked_statuses": [
+        "application_session_conflict",
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "sendcloud",
+      "name": "Sendcloud",
+      "source_status": "application_available_partnerstack",
+      "cross_checked_statuses": [
+        "application_available_partnerstack",
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "alidropship",
+      "name": "AliDropship",
+      "source_status": "application_pending",
+      "cross_checked_statuses": [
+        "application_pending"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "nudgera",
+      "name": "Nudgera",
+      "source_status": null,
+      "cross_checked_statuses": [],
+      "queue_ids": [],
+      "decision": "not_selected_program_or_fit_unverified",
+      "additional_evidence": null
+    },
+    {
+      "id": "questmate",
+      "name": "Questmate",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "outreach_sent"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "merlin",
+      "name": "Merlin",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "decktopus",
+      "name": "Decktopus",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "dorik",
+      "name": "Dorik",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "rytr",
+      "name": "Rytr",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "frase",
+      "name": "Frase",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "heygen",
+      "name": "HeyGen",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "outreach_sent"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "veed",
+      "name": "VEED",
+      "source_status": "application_available_impact",
+      "cross_checked_statuses": [
+        "application_available_impact",
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "reclaim-ai",
+      "name": "Reclaim AI",
+      "source_status": "application_page_unavailable",
+      "cross_checked_statuses": [
+        "application_page_unavailable",
+        "enrollment_requested"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "descript",
+      "name": "Descript",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "synder",
+      "name": "Synder",
+      "source_status": "application_page_unavailable",
+      "cross_checked_statuses": [
+        "application_page_unavailable",
+        "outreach_sent"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "gallabox",
+      "name": "Gallabox",
+      "source_status": "application_blocked_tax_id_captcha",
+      "cross_checked_statuses": [
+        "application_blocked_tax_id_captcha"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "panda-video",
+      "name": "Panda Video",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "surfer-seo",
+      "name": "Surfer SEO",
+      "source_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "murf-ai",
+      "name": "Murf AI",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "scalenut",
+      "name": "Scalenut",
+      "source_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "castmagic",
+      "name": "Castmagic",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "loopcv",
+      "name": "LoopCV",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "clickfunnels",
+      "name": "ClickFunnels",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "tapfiliate",
+      "name": "Tapfiliate",
+      "source_status": "application_blocked_captcha",
+      "cross_checked_statuses": [
+        "application_blocked_captcha",
+        "outreach_sent"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "getresponse",
+      "name": "GetResponse",
+      "source_status": "rejected",
+      "cross_checked_statuses": [
+        "rejected"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "kit",
+      "name": "Kit",
+      "source_status": "application_page_unavailable",
+      "cross_checked_statuses": [
+        "application_page_unavailable"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "teachable",
+      "name": "Teachable",
+      "source_status": "corporate_affiliate_program_not_found",
+      "cross_checked_statuses": [
+        "corporate_affiliate_program_not_found",
+        "outreach_sent"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "livechat",
+      "name": "LiveChat",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "existing_text_partner_account"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": "data/browser_required_queue.json"
+    },
+    {
+      "id": "kittl",
+      "name": "Kittl",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "koala-ai",
+      "name": "Koala AI",
+      "source_status": "campaign_registration_unavailable",
+      "cross_checked_statuses": [
+        "campaign_registration_unavailable"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "lovo",
+      "name": "Lovo",
+      "source_status": "application_blocked_vendor_site_paused",
+      "cross_checked_statuses": [
+        "application_blocked_vendor_site_paused"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "n8n",
+      "name": "n8n",
+      "source_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "queue_ids": [
+        "n8n-affiliate-browser-followup"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "novita-ai",
+      "name": "Novita AI",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [
+        "novita-ai-affiliate-browser-followup"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "followr",
+      "name": "Followr",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [
+        "followr-affiliate-browser-followup"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "10web",
+      "name": "10Web",
+      "source_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "supademo",
+      "name": "Supademo",
+      "source_status": "application_embed_unavailable",
+      "cross_checked_statuses": [
+        "application_embed_unavailable"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "colossyan",
+      "name": "Colossyan",
+      "source_status": "program_inactive",
+      "cross_checked_statuses": [
+        "program_inactive"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "beefree",
+      "name": "Beefree",
+      "source_status": "application_page_unavailable",
+      "cross_checked_statuses": [
+        "application_page_unavailable",
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "apollo",
+      "name": "Apollo",
+      "source_status": "application_page_unavailable",
+      "cross_checked_statuses": [
+        "application_page_unavailable",
+        "rejected"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "getgenie",
+      "name": "GetGenie",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "activecampaign",
+      "name": "ActiveCampaign",
+      "source_status": "application_page_unavailable",
+      "cross_checked_statuses": [
+        "application_page_unavailable"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "sanebox",
+      "name": "Sanebox",
+      "source_status": "application_page_unavailable",
+      "cross_checked_statuses": [
+        "application_page_unavailable",
+        "outreach_sent"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "pipedrive",
+      "name": "Pipedrive",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "pending"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "framer",
+      "name": "Framer",
+      "source_status": null,
+      "cross_checked_statuses": [],
+      "queue_ids": [],
+      "decision": "selected",
+      "additional_evidence": null
+    },
+    {
+      "id": "monday-com",
+      "name": "Monday.com",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "pending"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "cartstack",
+      "name": "CartStack",
+      "source_status": "application_available",
+      "cross_checked_statuses": [
+        "application_available",
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "cloudways",
+      "name": "Cloudways",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "pending"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "featureshark",
+      "name": "FeatureShark",
+      "source_status": null,
+      "cross_checked_statuses": [],
+      "queue_ids": [],
+      "decision": "not_selected_program_or_fit_unverified",
+      "additional_evidence": null
+    },
+    {
+      "id": "clickup",
+      "name": "ClickUp",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "rejected"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": "data/clickup-affiliate-rejection-evidence-2026-08-25.md"
+    },
+    {
+      "id": "getgabs",
+      "name": "Getgabs",
+      "source_status": "application_available_instant",
+      "cross_checked_statuses": [
+        "application_available_instant",
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "eprofessor",
+      "name": "eProfessor",
+      "source_status": null,
+      "cross_checked_statuses": [],
+      "queue_ids": [],
+      "decision": "selected",
+      "additional_evidence": null
+    },
+    {
+      "id": "docsbot",
+      "name": "DocsBot",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "surfeo",
+      "name": "Surfeo",
+      "source_status": null,
+      "cross_checked_statuses": [],
+      "queue_ids": [],
+      "decision": "not_selected_program_or_fit_unverified",
+      "additional_evidence": null
+    },
+    {
+      "id": "dub",
+      "name": "Dub",
+      "source_status": "application_not_submitted",
+      "cross_checked_statuses": [
+        "application_not_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "helpdesk",
+      "name": "HelpDesk",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "happyscribe",
+      "name": "HappyScribe",
+      "source_status": "beta_application_available",
+      "cross_checked_statuses": [
+        "beta_application_available"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "pickaxe",
+      "name": "Pickaxe",
+      "source_status": "application_available",
+      "cross_checked_statuses": [
+        "application_available",
+        "excluded_user_request"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "ai-video-cut",
+      "name": "AI Video Cut",
+      "source_status": "application_available_auto_approval",
+      "cross_checked_statuses": [
+        "application_available_auto_approval",
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "tagshop-ai",
+      "name": "Tagshop AI",
+      "source_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "queue_ids": [
+        "tagshop-ai-affiliate-followup"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "text",
+      "name": "Text",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "typedesk",
+      "name": "Typedesk",
+      "source_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "queue_ids": [
+        "typedesk-affiliate-browser-followup"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "chatbot",
+      "name": "ChatBot",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "existing_text_partner_account"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": "data/browser_required_queue.json"
+    },
+    {
+      "id": "gojiberry",
+      "name": "Gojiberry",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [
+        "gojiberry-affiliate-browser-followup"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "bidx",
+      "name": "BidX",
+      "source_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "tidio",
+      "name": "Tidio",
+      "source_status": "application_available",
+      "cross_checked_statuses": [
+        "application_available",
+        "rejected"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": "data/tidio-affiliate-rejection-evidence-2026-08-25.md"
+    },
+    {
+      "id": "catalister",
+      "name": "Catalister",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [
+        "catalister-affiliate-followup"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "bookyourdata",
+      "name": "Bookyourdata",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "mindstudio",
+      "name": "MindStudio",
+      "source_status": "application_available_partnerstack",
+      "cross_checked_statuses": [
+        "application_available_partnerstack"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "manychat",
+      "name": "Manychat",
+      "source_status": "application_available_partnerstack",
+      "cross_checked_statuses": [
+        "application_available_partnerstack"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "synthflow-ai",
+      "name": "Synthflow AI",
+      "source_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "customgpt-ai",
+      "name": "CustomGPT.ai",
+      "source_status": "account_active_payout_setup_required",
+      "cross_checked_statuses": [
+        "account_active_payout_setup_required",
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "databox",
+      "name": "Databox",
+      "source_status": "application_pending",
+      "cross_checked_statuses": [
+        "application_pending",
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "fathom",
+      "name": "Fathom",
+      "source_status": "solution_partner_application_available",
+      "cross_checked_statuses": [
+        "solution_partner_application_available"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "taskip",
+      "name": "Taskip",
+      "source_status": "program_unavailable_ssl_error",
+      "cross_checked_statuses": [
+        "program_unavailable_ssl_error",
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "gumloop",
+      "name": "Gumloop",
+      "source_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "teknikforce",
+      "name": "Teknikforce",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "enrollment_requested"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "hide-me",
+      "name": "hide.me",
+      "source_status": "application_available",
+      "cross_checked_statuses": [
+        "application_available",
+        "application_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": "data/hideme-affiliate-application-evidence-2026-09-07.md"
+    },
+    {
+      "id": "snov-io",
+      "name": "Snov.io",
+      "source_status": "application_available",
+      "cross_checked_statuses": [
+        "application_available",
+        "enrollment_requested"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": "data/snov-affiliate-enrollment-evidence-2026-09-07.md"
+    },
+    {
+      "id": "claap",
+      "name": "Claap",
+      "source_status": "application_not_submitted",
+      "cross_checked_statuses": [
+        "application_not_submitted"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "cloudtalk",
+      "name": "CloudTalk",
+      "source_status": "application_available_partnerstack",
+      "cross_checked_statuses": [
+        "application_available_partnerstack"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "seamless",
+      "name": "Seamless",
+      "source_status": "application_blocked_region",
+      "cross_checked_statuses": [
+        "application_blocked_region"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "flowgent-ai",
+      "name": "FlowGent AI",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "existing_enrollment_conflict"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": "data/flowgent-affiliate-conflict-evidence-2026-09-07.md"
+    },
+    {
+      "id": "activepieces",
+      "name": "Activepieces",
+      "source_status": null,
+      "cross_checked_statuses": [],
+      "queue_ids": [],
+      "decision": "not_selected_program_or_fit_unverified",
+      "additional_evidence": null
+    },
+    {
+      "id": "marketingblocks",
+      "name": "MarketingBlocks",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "enrollment_requested"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "google-workspace",
+      "name": "Google Workspace",
+      "source_status": null,
+      "cross_checked_statuses": [],
+      "queue_ids": [],
+      "decision": "not_selected_program_or_fit_unverified",
+      "additional_evidence": null
+    },
+    {
+      "id": "chatbase",
+      "name": "Chatbase",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "krater",
+      "name": "Krater",
+      "source_status": null,
+      "cross_checked_statuses": [],
+      "queue_ids": [],
+      "decision": "selected",
+      "additional_evidence": null
+    },
+    {
+      "id": "expandi",
+      "name": "Expandi",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "eligibility_unverified"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": "https://expandi.io/affiliate-program/"
+    },
+    {
+      "id": "reditus",
+      "name": "Reditus",
+      "source_status": null,
+      "cross_checked_statuses": [
+        "enrollment_requested"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "joiin",
+      "name": "Joiin",
+      "source_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "queue_ids": [
+        "joiin-affiliate-browser-followup"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "agentworks",
+      "name": "AgentWorks",
+      "source_status": "referral_link_requested",
+      "cross_checked_statuses": [
+        "referral_link_requested"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "airia",
+      "name": "Airia",
+      "source_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "queue_ids": [
+        "airia-affiliate-browser-followup"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "omi-ai",
+      "name": "Omi AI",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "fireflies-ai",
+      "name": "Fireflies.ai",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "gamma",
+      "name": "Gamma",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "gobii",
+      "name": "Gobii",
+      "source_status": "program_unavailable_company_winding_down",
+      "cross_checked_statuses": [
+        "program_unavailable_company_winding_down"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "voibe",
+      "name": "Voibe",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "merlin-ai",
+      "name": "Merlin AI",
+      "source_status": "duplicate_do_not_apply",
+      "cross_checked_statuses": [
+        "duplicate_do_not_apply"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "speechify",
+      "name": "Speechify",
+      "source_status": "application_blocked_official_page_not_found",
+      "cross_checked_statuses": [
+        "application_blocked_official_page_not_found"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "babylovegrowth-ai",
+      "name": "BabyLoveGrowth.ai",
+      "source_status": "application_blocked_existing_reditus_onboarding",
+      "cross_checked_statuses": [
+        "application_blocked_existing_reditus_onboarding"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "ai-agent-store",
+      "name": "AI Agent Store",
+      "source_status": "application_blocked_affiliate_domain_ssl_error",
+      "cross_checked_statuses": [
+        "application_blocked_affiliate_domain_ssl_error"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "marblism",
+      "name": "Marblism",
+      "source_status": "account_active_payout_setup_required",
+      "cross_checked_statuses": [
+        "account_active_payout_setup_required",
+        "rejected"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "taskade",
+      "name": "Taskade",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    },
+    {
+      "id": "relevance-ai",
+      "name": "Relevance AI",
+      "source_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "queue_ids": [],
+      "decision": "excluded_existing_or_protected",
+      "additional_evidence": null
+    }
+  ]
+}

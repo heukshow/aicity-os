@@ -373,6 +373,53 @@
       "application_state": "submitted",
       "review_state": "pending_review",
       "blocker": null
+    },
+    "krater": {
+      "status": "application_submitted",
+      "tracking_url": null,
+      "account": "support@coshuma.com",
+      "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
+      "note": "Authenticated Chrome: after a pre-application company Gmail in:anywhere search found no matching messages, the Dub application was submitted once with COSHUMA, support@coshuma.com, https://coshuma.com and factual buyer-guide promotion text. Program terms accepted under explicit user authorization. Step 2 of 2 displayed Application submitted and stated the review update will be sent to support@coshuma.com. The decorative dashboard illustration on this success page is not real account revenue or an issued referral link. No approval or exact tracking URL was issued.",
+      "next_action": "Await the existing Krater application review in Dub; do not reapply. Only publish an issued exact customer-facing link after approval evidence.",
+      "checked_date_kst": "2026-09-08",
+      "application_state": "submitted",
+      "portal_enrollment_confirmed": true,
+      "do_not_reapply": true,
+      "workflow_url": "https://partners.dub.co/kraterai/apply",
+      "blockers": [],
+      "review_state": "pending_review"
+    },
+    "eprofessor": {
+      "status": "browser_required_login",
+      "tracking_url": null,
+      "account": "support@coshuma.com",
+      "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
+      "note": "Official terms explicitly permit a free Referral-Only Account and pay 20% of net profit, subject to continued enrollment and paid referrals. Company Gmail in:anywhere search had no matching prior messages. The official Referrals page redirected to login. Google account chooser displayed support@coshuma.com, but selection failed repeatedly with browser command timeouts, including a fresh popup. No authenticated dashboard, account creation, application submission or tracking URL was confirmed. Email signup requires a new password; none was created. Login screen retained for the user.",
+      "next_action": "Complete the existing Google company-account login, then inspect the Referrals page and existing enrollment before taking any signup action. No payment. Do not create a duplicate account.",
+      "checked_date_kst": "2026-09-08",
+      "application_state": "not_submitted",
+      "portal_enrollment_confirmed": false,
+      "do_not_reapply": false,
+      "workflow_url": "https://admin.eprofessor.com/referrals/",
+      "blockers": [
+        "Google login popup interaction timeout; user login assistance requested"
+      ]
+    },
+    "framer": {
+      "status": "browser_required_application_form",
+      "tracking_url": null,
+      "account": "support@coshuma.com",
+      "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
+      "note": "Official Creator Program advertises manual application from Community settings Links tab. Pre-action company Gmail in:anywhere search had no prior Framer messages. Email authentication was completed using the newly received verified team@framer.com activation message, and free account creation was completed as Sangkwon An under support@coshuma.com. Optional newsletter was unchecked. Official creator Links route redirected to /@sangkwon-an/?settings=open&settingsTab=links and displayed Page not found. Marketplace Account menu exposed Settings but no application form became available after activation. Account exists; affiliate submission, approval and tracking URL are not confirmed. No paid plan or marketplace product was created.",
+      "next_action": "Reuse the existing support@coshuma.com Framer account. Recover Community Settings > Links when the vendor route works; submit the manual creator application once. Do not recreate the account or publish a generic profile/dashboard URL as a referral link.",
+      "checked_date_kst": "2026-09-08",
+      "application_state": "not_submitted",
+      "portal_enrollment_confirmed": false,
+      "do_not_reapply": false,
+      "workflow_url": "https://www.framer.com/community/creator/?settings=open&settingsTab=links",
+      "blockers": [
+        "Official Community Links route returns Page not found; Settings does not expose an application form"
+      ]
     }
   }
 }
