@@ -14,6 +14,7 @@ SITEMAP = PUBLIC / "sitemap.xml"
 BEST_DIR = PUBLIC / "best"
 CATEGORY_DIR = PUBLIC / "category"
 NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
+FULL_PROJECT = (PROJECT / "src" / "App.jsx").exists()
 
 ET.register_namespace("", NS)
 
@@ -46,6 +47,10 @@ def parse_date(value):
             return datetime.strptime(value[:10], "%Y-%m-%d")
         except ValueError:
             return None
+
+
+def pretty_date(value):
+    return value.strftime("%B %d, %Y").replace(" 0", " ")
 
 
 def render_methodology_page():
@@ -149,7 +154,7 @@ def inject_tool_trust_blocks(tools):
             continue
         dates = [parse_date(tool.get(k)) for k in ("official_verified_at", "affiliate_verified_at", "pricing_verified_at", "verified_at")]
         dates = [d for d in dates if d is not None]
-        last_verified = max(dates).strftime("%B %-d, %Y") if dates else None
+        last_verified = pretty_date(max(dates)) if dates else None
         public_sources = []
         for key in ("pricing_source_url", "official_evidence_url", "official_url"):
             url = valid_http_url(tool.get(key))
@@ -178,11 +183,14 @@ def inject_tool_trust_blocks(tools):
     return injected
 
 
-# Generate persistent public trust/discovery pages before sitemap scan.
 tools = json.loads((PROJECT / "data/tools.json").read_text(encoding="utf-8"))
-render_methodology_page()
-category_configs = render_category_pages(tools)
-trust_count = inject_tool_trust_blocks(tools)
+if FULL_PROJECT:
+    render_methodology_page()
+    category_configs = render_category_pages(tools)
+    trust_count = inject_tool_trust_blocks(tools)
+else:
+    category_configs = {}
+    trust_count = 0
 
 tree = ET.parse(SITEMAP)
 root = tree.getroot()
@@ -209,10 +217,10 @@ best_pages = sorted(BEST_DIR.glob("*.html"))
 for page in best_pages:
     add_url(f"{BASE_URL}/best/{page.name}", "0.9")
 
-# Methodology is a trust page, not a revenue page, but it should be indexable.
-add_url(f"{BASE_URL}/methodology.html", "0.6")
-for slug in category_configs:
-    add_url(f"{BASE_URL}/category/{slug}.html", "0.85")
+if FULL_PROJECT:
+    add_url(f"{BASE_URL}/methodology.html", "0.6")
+    for slug in category_configs:
+        add_url(f"{BASE_URL}/category/{slug}.html", "0.85")
 
 
 class IndexablePage(HTMLParser):
@@ -230,10 +238,10 @@ class IndexablePage(HTMLParser):
             self.noindex |= "noindex" in attrs.get("content", "").lower()
 
 
-# Scan finished pages, including hand-written pages omitted by generators.
 tool_ids = {tool["id"] for tool in tools}
 tool_ids.update(json.loads((PROJECT / "data/standalone_tool_pages.json").read_text(encoding="utf-8")))
-for directory in ("tool", "compare", "category"):
+scan_directories = ("tool", "compare", "category") if FULL_PROJECT else ("tool", "compare")
+for directory in scan_directories:
     for page in sorted((PUBLIC / directory).glob("*.html")):
         if directory == "tool" and page.stem not in tool_ids:
             continue
@@ -243,8 +251,6 @@ for directory in ("tool", "compare", "category"):
             priority = "0.8" if directory == "tool" else "0.85" if directory == "category" else "0.7"
             add_url(url, priority)
 
-# Root-level buyer-intent landing pages are hand-written and are not emitted by generators.
-# Include only pages that contain an affiliate CTA and a matching canonical URL.
 root_revenue_pages = []
 for page in sorted(PUBLIC.glob("*.html")):
     text = page.read_text(encoding="utf-8")
@@ -258,7 +264,7 @@ ET.indent(tree, space="  ")
 tree.write(SITEMAP, encoding="utf-8", xml_declaration=True)
 print(
     "Sitemap buyer hubs: "
-    f"best={len(best_pages)} categories={len(category_configs)} methodology=1 "
+    f"best={len(best_pages)} categories={len(category_configs)} methodology={1 if FULL_PROJECT else 0} "
     f"tool_trust_blocks={trust_count} root_revenue={len(root_revenue_pages)} added={len(added)}"
 )
 for url in added:
