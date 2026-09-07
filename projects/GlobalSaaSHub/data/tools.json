@@ -3239,18 +3239,18 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://framer.com/",
-    "affiliate_status": "browser_required_application_form",
+    "affiliate_status": "outreach_sent",
     "affiliate_verified": false,
     "affiliate_final_url": null,
     "affiliate_evidence_markers": [
-      "Official Creator Program advertises manual application from Community settings Links tab. Pre-action company Gmail in:anywhere search had no prior Framer messages. Email authentication was completed using the newly received verified team@framer.com activation message, and free account creation was completed as Sangkwon An under support@coshuma.com. Optional newsletter was unchecked. Official creator Links route redirected to /@sangkwon-an/?settings=open&settingsTab=links and displayed Page not found. Marketplace Account menu exposed Settings but no application form became available after activation. Account exists; affiliate submission, approval and tracking URL are not confirmed. No paid plan or marketplace product was created.",
-      "Reuse the existing support@coshuma.com Framer account. Recover Community Settings > Links when the vendor route works; submit the manual creator application once. Do not recreate the account or publish a generic profile/dashboard URL as a referral link.",
+      "Official Creator Program advertises manual application from Community settings Links tab. Pre-action company Gmail in:anywhere search had no prior Framer messages. Email authentication was completed using the newly received verified team@framer.com activation message, and free account creation was completed as Sangkwon An under support@coshuma.com. Optional newsletter was unchecked. Official creator Links route redirected to /@sangkwon-an/?settings=open&settingsTab=links and displayed Page not found. Marketplace Account menu exposed Settings but no application form became available after activation. Account exists; affiliate submission, approval and tracking URL are not confirmed. No paid plan or marketplace product was created. Newer main commit 02e5ba2 records Framer Creator Team outreach. Verified in the authenticated company Gmail UI: COSHUMA <support@coshuma.com> sent COSHUMA — Framer Creator Program / affiliate enrollment to creators@framer.com at 06:25 KST on 2026-09-08, requesting the current manual application path or activation of the Links application. Gmail message 1a07dc29ac469c2d; data/framer-creator-program-outreach-2026-09-08.md. This request is not an application submission or approval. No duplicate outreach sent in this task.",
+      "Await the existing Framer Creator Team reply to the 06:25 KST company email. Do not send another request or recreate the account. If the vendor enables the Links application, resume the existing account and submit once; no tracking URL until issued and verified.",
       "data/affiliate-submission-batch-2026-09-08.json"
     ],
     "affiliate_status_checked_at": "2026-09-07T21:21:56.008052+00:00",
     "affiliate_status_evidence_url": "https://www.framer.com/creators",
     "affiliate_workflow_url": "https://www.framer.com/community/creator/?settings=open&settingsTab=links",
-    "affiliate_next_action": "Reuse the existing support@coshuma.com Framer account. Recover Community Settings > Links when the vendor route works; submit the manual creator application once. Do not recreate the account or publish a generic profile/dashboard URL as a referral link."
+    "affiliate_next_action": "Await the existing Framer Creator Team reply to the 06:25 KST company email. Do not send another request or recreate the account. If the vendor enables the Links application, resume the existing account and submit once; no tracking URL until issued and verified."
   },
   {
     "id": "monday-com",
