@@ -65,6 +65,15 @@ const sameGroupAlternatives = (t) => {
 };
 const list = (items) => '<ul class="list-disc pl-5 space-y-1">' + items.map((x) => `<li>${esc(x)}</li>`).join('') + '</ul>';
 
+const insertBuyerBox = (html, box) => {
+  if (html.includes('<!-- buyer-box:start -->')) return html.replace(/<!-- buyer-box:start -->[\s\S]*?<!-- buyer-box:end -->/, box);
+  if (html.includes('<!-- Description -->')) return html.replace('<!-- Description -->', box + '\n<!-- Description -->');
+  const mainMatch = html.match(/<main\b[^>]*>/i);
+  if (mainMatch) return html.replace(mainMatch[0], mainMatch[0] + '\n' + box);
+  if (html.includes('</body>')) return html.replace('</body>', box + '\n</body>');
+  return html + '\n' + box;
+};
+
 for (const t of selected) {
   const source = publicSource(t);
   const f = features(t);
@@ -109,14 +118,13 @@ for (const t of selected) {
 <p>Compare alternatives: ${alternatives}</p>
 </section>
 <!-- buyer-box:end -->`;
-  html = html.includes('<!-- buyer-box:start -->') ? html.replace(/<!-- buyer-box:start -->[\s\S]*?<!-- buyer-box:end -->/, box) : html.replace('<!-- Description -->', box + '\n<!-- Description -->');
+  html = insertBuyerBox(html, box);
   if (!html.includes(`data-buyer-decision-box="${t.id}"`)) throw new Error(`Buyer box insertion failed: ${t.id}`);
   if (!html.includes('/affiliate-attribution.js')) html = html.replace('</head>', '<script defer src="/affiliate-attribution.js"></script>\n</head>');
   html = html.replace(/<a\b(?=[^>]*data-cta=)(?![^>]*data-cta-source=)/g, '<a data-cta-source="tool-existing"');
   fs.writeFileSync(p, html);
 }
 
-// Add a decision-oriented "winner by use case" block to 10 strong comparison pages.
 const compareDir = path.join(root, 'public/compare');
 const compareCandidates = fs.existsSync(compareDir) ? fs.readdirSync(compareDir).filter((f) => f.endsWith('.html')).map((file) => {
   const stem = file.slice(0, -5);
@@ -148,7 +156,7 @@ for (const {file, a, b} of compareCandidates) {
   }
   const rowHtml = rows.map(([use,winner,why]) => `<tr class="border-t border-slate-700"><td class="p-3">${esc(use)}</td><td class="p-3 font-bold">${esc(winner)}</td><td class="p-3">${esc(why)}</td></tr>`).join('');
   const table = `<!-- winner-table:start --><section data-winner-by-use-case class="my-8 rounded-2xl border border-purple-400/30 bg-slate-900 p-6"><h2 class="text-2xl font-bold">Winner by use case</h2><p class="mt-2 text-sm text-slate-400">Use the requirement that matters most to you. Pricing and feature limits can change, so verify vendor terms before purchase.</p><div class="overflow-x-auto mt-4"><table class="w-full text-left text-sm"><thead><tr><th class="p-3">Use case</th><th class="p-3">Better fit</th><th class="p-3">Why</th></tr></thead><tbody>${rowHtml}</tbody></table></div><p class="mt-4 text-sm">Read the full guides: <a class="underline" href="/tool/${a.id}.html">${esc(a.name)}</a> · <a class="underline" href="/tool/${b.id}.html">${esc(b.name)}</a></p></section><!-- winner-table:end -->`;
-  html = html.includes('<!-- winner-table:start -->') ? html.replace(/<!-- winner-table:start -->[\s\S]*?<!-- winner-table:end -->/, table) : html.replace('</main>', table + '\n</main>');
+  html = html.includes('<!-- winner-table:start -->') ? html.replace(/<!-- winner-table:start -->[\s\S]*?<!-- winner-table:end -->/, table) : html.includes('</main>') ? html.replace('</main>', table + '\n</main>') : html + '\n' + table;
   if (!html.includes('data-winner-by-use-case')) throw new Error(`Winner table insertion failed: ${file}`);
   fs.writeFileSync(p, html);
 }
