@@ -1,0 +1,82 @@
+name: COSHUMA Character Short Upload
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/coshuma-character-short-upload.yml'
+      - 'projects/GlobalSaaSHub/data/youtube_character_upload_request.json'
+
+permissions:
+  contents: write
+
+jobs:
+  upload-character-short:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/GlobalSaaSHub
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.10'
+
+      - name: Install free dependencies
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y ffmpeg jq
+          pip install requests
+
+      - name: Download requested video
+        run: |
+          set -euo pipefail
+          VIDEO_URL=$(jq -r '.video_url' data/youtube_character_upload_request.json)
+          test -n "$VIDEO_URL"
+          curl -fL --retry 3 "$VIDEO_URL" -o /tmp/coshuma-character-short.mp4
+          ffprobe -v error -show_entries stream=width,height -show_entries format=duration,size -of json /tmp/coshuma-character-short.mp4
+
+      - name: Upload to YouTube
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.youtube_shorts.upload_youtube import upload
+
+          request = json.loads(Path('data/youtube_character_upload_request.json').read_text(encoding='utf-8'))
+          video_id = upload(
+              Path('/tmp/coshuma-character-short.mp4'),
+              request['title'],
+              request['description'],
+              request.get('privacy', 'unlisted'),
+          )
+          result = {
+              'campaign_slug': request['campaign_slug'],
+              'youtube_video_id': video_id,
+              'youtube_url': f'https://youtube.com/shorts/{video_id}',
+              'privacy': request.get('privacy', 'unlisted'),
+              'character_name': request.get('character_name'),
+              'source_video_url': request['video_url'],
+          }
+          Path('data/youtube_character_upload_result.json').write_text(
+              json.dumps(result, indent=2, ensure_ascii=False) + '\n', encoding='utf-8'
+          )
+          print(json.dumps(result, ensure_ascii=False))
+          PY
+
+      - name: Persist upload evidence
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/youtube_character_upload_result.json
+          git commit -m 'chore(youtube): record character short upload [skip ci]' || exit 0
+          git push origin HEAD:main
