@@ -3424,19 +3424,20 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://eprofessor.com/",
-    "affiliate_url": null,
-    "affiliate_status": "browser_required_login",
-    "affiliate_verified": false,
-    "affiliate_final_url": null,
+    "affiliate_url": "https://eprofessor.com/invite/coshuma173",
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified": true,
+    "affiliate_final_url": "https://eprofessor.com/invite/coshuma173",
     "affiliate_evidence_markers": [
-      "Official terms explicitly permit a free Referral-Only Account and pay 20% of net profit, subject to continued enrollment and paid referrals. Company Gmail in:anywhere search had no matching prior messages. The official Referrals page redirected to login. Google account chooser displayed support@coshuma.com, but selection failed repeatedly with browser command timeouts, including a fresh popup. No authenticated dashboard, account creation, application submission or tracking URL was confirmed. Email signup requires a new password; none was created. Login screen retained for the user.",
-      "Complete the existing Google company-account login, then inspect the Referrals page and existing enrollment before taking any signup action. No payment. Do not create a duplicate account.",
+      "After the Google popup failed, the user explicitly instructed completion of email signup. One free signup with COSHUMA and support@coshuma.com reached the authenticated Referrals dashboard. The dashboard issued this exact Your Referral Link and explicitly states it tracks who signs up through the account. Real Chrome opened the URL to the official customer product page. This is an account-specific issued referral path, not a generic invitation or administrative link. Operational enrollment and link issuance are confirmed; no separate approval email is claimed. Before validation, Net Earnings $0, Unpaid Balance $0, Active Subscribers 0 and Total signups 0. The dashboard says PayPal and W-9/W-8BEN setup are required before earning; payout and tax setup are incomplete and were not submitted. No payment or customer signup was performed. Validation views are not customer conversions.",
+      "Preserve the existing account and exact issued referral link; do not reapply. PayPal and tax-document setup remain incomplete and require a separate user action before earnings can start, as stated by the dashboard. Keep real signups, commissions and revenue at 0 without evidence.",
       "data/affiliate-submission-batch-2026-09-08.json"
     ],
-    "affiliate_status_checked_at": "2026-09-07T21:21:56.008052+00:00",
-    "affiliate_status_evidence_url": "https://eprofessor.com/page/referral-program",
+    "affiliate_status_checked_at": "2026-09-07T21:24:29.148094+00:00",
+    "affiliate_status_evidence_url": "https://admin.eprofessor.com/referrals/",
     "affiliate_workflow_url": "https://admin.eprofessor.com/referrals/",
-    "affiliate_next_action": "Complete the existing Google company-account login, then inspect the Referrals page and existing enrollment before taking any signup action. No payment. Do not create a duplicate account."
+    "affiliate_next_action": "Preserve the existing account and exact issued referral link; do not reapply. PayPal and tax-document setup remain incomplete and require a separate user action before earnings can start, as stated by the dashboard. Keep real signups, commissions and revenue at 0 without evidence.",
+    "affiliate_verified_at": "2026-09-07T21:24:29.148094+00:00"
   },
   {
     "id": "docsbot",

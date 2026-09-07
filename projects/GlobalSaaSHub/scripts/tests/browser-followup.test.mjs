@@ -50,7 +50,7 @@ try {
 assert.equal(state.typedesk.sender, 'qmfforfhem@gmail.com');
 assert.equal(state.typedesk.portal_enrollment_confirmed, false);
 assert.equal(state.n8n.application_state, 'submitted');
-for (const [id, expected] of [['krater', 'application_submitted'], ['framer', 'browser_required_application_form'], ['eprofessor', 'browser_required_login']]) {
+for (const [id, expected] of [['krater', 'application_submitted'], ['framer', 'browser_required_application_form']]) {
   assert.equal(state[id].status, expected);
   assert.equal(state[id].tracking_url, null);
   const stale = {id, affiliate_url: 'https://example.com/dashboard', affiliate_verified: true};
@@ -62,7 +62,15 @@ for (const [id, expected] of [['krater', 'application_submitted'], ['framer', 'b
 assert.equal(state.krater.application_state, 'submitted');
 assert.equal(state.krater.do_not_reapply, true);
 assert.equal(state.framer.application_state, 'not_submitted');
-assert.equal(state.eprofessor.application_state, 'not_submitted');
+assert.equal(state.eprofessor.application_state, 'submitted');
+assert.equal(state.eprofessor.payout_setup_complete, false);
+assert.equal(state.eprofessor.earning_setup_complete, false);
+const eprofessor = browserFollowups.get('eprofessor');
+for (const patch of [{customer_landing_verified:false}, {portal_enrollment_confirmed:false}, {customer_tracking_kind:null}, {affiliate_url:'https://eprofessor.com/invite'}, {affiliate_url:'https://admin.eprofessor.com/referrals/'}, {affiliate_url:'https://eprofessor.com/invite/another-account'}]) {
+  browserFollowups.set('eprofessor', {...eprofessor,...patch});
+  assert.throws(() => applyBrowserFollowup({id:'eprofessor'}));
+}
+browserFollowups.set('eprofessor', eprofessor);
 assert.equal(state.webflow.application_state, 'submitted');
 for (const id of ['airia', 'joiin']) {
   assert.equal(state[id].status, 'application_submitted');

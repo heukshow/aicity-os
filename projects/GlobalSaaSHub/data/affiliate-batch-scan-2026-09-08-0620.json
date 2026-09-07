@@ -28,7 +28,7 @@
     "account": "support@coshuma.com",
     "query": "in:anywhere {expandi framer krater activepieces nudgera featureshark surfeo eprofessor}",
     "result": "No matching messages before application and account creation; in:anywhere includes Spam and Trash.",
-    "existing_accounts": "Krater used existing authenticated Dub session; Framer email login returned new-account completion screen; eProfessor existing-account status remains unknown due Google popup interaction failure."
+    "existing_accounts": "Krater used the existing authenticated Dub session. Framer email authentication returned new-account setup and the free account was created. eProfessor Google popup failed; user-authorized email signup then created one account and issued an exact referral link. No pre-existing candidate messages were found in the company mailbox before these actions."
   },
   "other_screening": "Expandi requires 14 days active product use; no qualifying use evidence. Carv audience requirements not established. No official cash-affiliate path established for Activepieces, Nudgera, FeatureShark or Surfeo in this scan. Google Workspace not selected over dedicated SaaS/AI buyer-guide candidates.",
   "tools": [
