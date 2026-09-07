@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-07T15:52:30Z",
+  "updated_at": "2026-09-07T16:05:00Z",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -110,6 +110,15 @@
       "tracking_url": null,
       "official_program_url": "https://www.gumloop.com/partners/apply-to-be-a-creator",
       "note": "Fresh official Gumloop Creator Program page says AI and automation creators, educators, community builders and affiliate partners may apply, and accepted creators receive a referral link and discount code. Duplicate checks across both connected Gmail accounts found no prior Gumloop affiliate/creator thread before outreach. COSHUMA requested enrollment or an official invitation tied to support@coshuma.com. Email outreach is not proof of application submission or acceptance; no customer-facing tracking URL is verified yet."
+    },
+    "beefree": {
+      "status": "enrollment_requested",
+      "contact": "samantha.hoffmann@beefree.io",
+      "gmail_message_id": "1a07ca21b3858dc7",
+      "sender": "support@coshuma.com",
+      "tracking_url": null,
+      "official_program_url": "https://beefree.io/ambassador-program",
+      "note": "Beefree's current official Ambassador page says approved partners earn 20% of first-year customer revenue, use PartnerStack, and receive unique referral links after approval. The existing repository state showed the self-service application blocked by CAPTCHA. Duplicate checks found no prior direct Beefree/RGE Studio outreach, so COSHUMA requested a direct PartnerStack invitation or alternate official enrollment route from the program contact. This is an enrollment request only, not proof of submission, approval, or a customer-facing tracking URL."
     }
   }
 }
