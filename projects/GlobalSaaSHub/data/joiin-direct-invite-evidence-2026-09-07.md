@@ -1,5 +1,7 @@
 # Joiin direct affiliate invite evidence — 2026-09-07
 
+> Superseded by authenticated browser submission on 2026-09-08: application_submitted / pending_review; affiliate_url remains null. See affiliate-submission-batch-2026-09-08.json. Historical pre-submission evidence follows.
+
 ## Decision
 
 - `affiliate_url`: `null`

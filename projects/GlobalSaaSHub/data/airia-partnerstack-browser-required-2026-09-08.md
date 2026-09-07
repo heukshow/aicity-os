@@ -1,5 +1,7 @@
 # Airia partner-program evidence — 2026-09-08
 
+> Superseded by authenticated browser submission on 2026-09-08: application_submitted / pending_review; affiliate_url remains null. See affiliate-submission-batch-2026-09-08.json. Historical pre-submission evidence follows.
+
 ## Current first-party program
 
 - Airia's current official partner page is `https://airia.com/partners/`.

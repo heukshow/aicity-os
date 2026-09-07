@@ -347,6 +347,32 @@
       "portal_enrollment_confirmed": true,
       "verified_at": "2026-09-08T05:29:50+09:00",
       "payout_setup_complete": false
+    },
+    "airia": {
+      "status": "application_submitted",
+      "tracking_url": null,
+      "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
+      "note": "Existing PartnerStack account support@coshuma.com reused. No Airia partnership matched before submission. Submitted the Airia application once with existing Sangkwon An / COSHUMA identity, https://coshuma.com, Korea Republic of, and Something else partnership type. PartnerStack then displayed Airia / Application pending, 0 clicks, 0 signups, $0.00 revenue, pending commissions and paid commissions. No tracking URL issued.",
+      "next_action": "Await review in the existing account; do not reapply or send duplicate outreach. Only record approved_tracking after actual approval and an issued exact customer-facing tracking URL are verified.",
+      "checked_date_kst": "2026-09-08",
+      "do_not_reapply": true,
+      "workflow_url": "https://dash.partnerstack.com/home",
+      "application_state": "submitted",
+      "review_state": "pending_review",
+      "blocker": null
+    },
+    "joiin": {
+      "status": "application_submitted",
+      "tracking_url": null,
+      "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
+      "note": "Recovered the existing direct invitation from Joiin ticket 40896; private invite key is omitted. Existing support@coshuma.com affiliate account authenticated through Google. Direct invite resumed unrelated unfinished ReactIn onboarding; the existing Joiin program route exposed its application form. Submitted once with COSHUMA website, No for own product use, Yes for similar tools on the website, and required Joiin terms accepted under explicit user authorization. Actual confirmation: Partnership is pending review; Joiin will review your application and email when approved. Public Auto-accept marketing is not approval evidence. No new account, duplicate outreach, paid action, analytics integration, or customer tracking URL. Customer signups, commissions and revenue remain unverified and unchanged at 0.",
+      "next_action": "Await review in the existing account; do not reapply or send duplicate outreach. Only record approved_tracking after actual approval and an issued exact customer-facing tracking URL are verified.",
+      "checked_date_kst": "2026-09-08",
+      "do_not_reapply": true,
+      "workflow_url": "https://app.getreditus.com/marketplace/joiin",
+      "application_state": "submitted",
+      "review_state": "pending_review",
+      "blocker": null
     }
   }
 }

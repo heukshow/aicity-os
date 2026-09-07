@@ -558,5 +558,43 @@
     "application_submitted": true,
     "portal_enrollment_confirmed": true,
     "payout_setup_complete": false
+  },
+  {
+    "id": "airia-affiliate-browser-followup",
+    "tool_id": "airia",
+    "status": "resolved",
+    "affiliate_status": "application_submitted",
+    "cost": "0",
+    "exact_tracking_url": null,
+    "workflow_url": "https://dash.partnerstack.com/home",
+    "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
+    "reason": "Existing PartnerStack account support@coshuma.com reused. No Airia partnership matched before submission. Submitted the Airia application once with existing Sangkwon An / COSHUMA identity, https://coshuma.com, Korea Republic of, and Something else partnership type. PartnerStack then displayed Airia / Application pending, 0 clicks, 0 signups, $0.00 revenue, pending commissions and paid commissions. No tracking URL issued.",
+    "next_action": "Await review in the existing account; do not reapply or send duplicate outreach. Only record approved_tracking after actual approval and an issued exact customer-facing tracking URL are verified.",
+    "verified_at": "2026-09-08T05:50:35+09:00",
+    "do_not": [
+      "Do not reapply or submit duplicate outreach.",
+      "Do not create a new account or pay.",
+      "Do not use a marketplace, invite, signup or dashboard URL as a revenue link.",
+      "Do not infer customer signups, commissions or revenue from submission."
+    ]
+  },
+  {
+    "id": "joiin-affiliate-browser-followup",
+    "tool_id": "joiin",
+    "status": "resolved",
+    "affiliate_status": "application_submitted",
+    "cost": "0",
+    "exact_tracking_url": null,
+    "workflow_url": "https://app.getreditus.com/marketplace/joiin",
+    "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
+    "reason": "Recovered the existing direct invitation from Joiin ticket 40896; private invite key is omitted. Existing support@coshuma.com affiliate account authenticated through Google. Direct invite resumed unrelated unfinished ReactIn onboarding; the existing Joiin program route exposed its application form. Submitted once with COSHUMA website, No for own product use, Yes for similar tools on the website, and required Joiin terms accepted under explicit user authorization. Actual confirmation: Partnership is pending review; Joiin will review your application and email when approved. Public Auto-accept marketing is not approval evidence. No new account, duplicate outreach, paid action, analytics integration, or customer tracking URL. Customer signups, commissions and revenue remain unverified and unchanged at 0.",
+    "next_action": "Await review in the existing account; do not reapply or send duplicate outreach. Only record approved_tracking after actual approval and an issued exact customer-facing tracking URL are verified.",
+    "verified_at": "2026-09-08T05:50:35+09:00",
+    "do_not": [
+      "Do not reapply or submit duplicate outreach.",
+      "Do not create a new account or pay.",
+      "Do not use a marketplace, invite, signup or dashboard URL as a revenue link.",
+      "Do not infer customer signups, commissions or revenue from submission."
+    ]
   }
 ]

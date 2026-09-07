@@ -51,6 +51,12 @@ assert.equal(state.typedesk.sender, 'qmfforfhem@gmail.com');
 assert.equal(state.typedesk.portal_enrollment_confirmed, false);
 assert.equal(state.n8n.application_state, 'submitted');
 assert.equal(state.webflow.application_state, 'submitted');
+for (const id of ['airia', 'joiin']) {
+  assert.equal(state[id].status, 'application_submitted');
+  assert.equal(state[id].review_state, 'pending_review');
+  assert.equal(state[id].do_not_reapply, true);
+  assert.equal(queue.find(q => q.tool_id === id).status, 'resolved');
+}
 assert.equal(state.aiassistworks.application_state, 'submitted');
 assert.equal(state.aiassistworks.status, 'approved_tracking');
 assert.equal(state.aiassistworks.tracking_url, 'https://www.aiassistworks.com/?via=coshuma');
@@ -63,7 +69,7 @@ for (const patch of [{customer_landing_verified:false}, {portal_enrollment_confi
 }
 browserFollowups.set('aiassistworks', issued);
 assert.equal(state['novita-ai'].application_state, 'not_submitted');
-for (const id of ['n8n', 'novita-ai', 'typedesk']) {
+for (const id of ['n8n', 'novita-ai', 'typedesk', 'airia', 'joiin']) {
   const stale = {id, affiliate_url: 'https://example.com/dashboard', affiliate_verified: true};
   applyBrowserFollowup(stale);
   assert.equal(stale.affiliate_url, null);
