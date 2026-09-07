@@ -123,6 +123,18 @@ const statusOverrides = {
       'Exact customer-facing referral URL not yet issued or verified',
     ],
   },
+  veed: {
+    affiliate_verified: true,
+    affiliate_status: 'application_submitted',
+    affiliate_verified_at: '2026-09-07T00:00:00+09:00',
+    affiliate_evidence_markers: [
+      'VEED official affiliate page currently advertises recurring affiliate commission',
+      'Repository application route is Impact and no COSHUMA customer tracking URL is verified yet',
+      'COSHUMA direct enrollment request sent to official hello@veed.io support address',
+      'Gmail message id 1a07aa4c0c4a2a6d',
+      'Exact customer-facing tracking URL not yet issued or verified',
+    ],
+  },
   helpdesk: {
     affiliate_verified: true,
     affiliate_status: 'approved_account_campaign_link_pending',
