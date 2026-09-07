@@ -1,0 +1,16 @@
+{
+  "recorded_at": "2026-09-08T02:15:50+09:00",
+  "sender": "support@coshuma.com",
+  "rule": "outreach_sent is not application_submitted or approved; do not duplicate while awaiting reply",
+  "spam_checked": true,
+  "items": [
+    {"id":"webflow","status":"outreach_sent","contact":"affiliates@webflow.com","gmail_message_id":"1a07d11319866975","subject":"COSHUMA Webflow Affiliate Program application path"},
+    {"id":"octo-browser","status":"outreach_sent","contact":"support@octobrowser.net","gmail_message_id":"1a07d11543a2ddd5","subject":"COSHUMA Octo Browser referral program access"},
+    {"id":"privy","status":"outreach_sent","contact":"partners@privy.com","gmail_message_id":"1a07d1178d900425","subject":"COSHUMA Privy Partner Affiliate enrollment"},
+    {"id":"heygen","status":"outreach_sent","contact":"support@heygen.com","gmail_message_id":"1a07d11c9459f1f2","subject":"COSHUMA HeyGen Affiliate Program enrollment path"},
+    {"id":"copy-ai","status":"outreach_sent","contact":"support@copy.ai","gmail_message_id":"1a07d11e99a63785","subject":"COSHUMA Copy.ai affiliate program availability"},
+    {"id":"blaze","status":"outreach_sent","contact":"fatima@blaze.ai","gmail_message_id":"1a07d15348a88345","subject":"COSHUMA — Blaze Affiliate Program application","official_program_url":"https://www.blaze.ai/affiliates"},
+    {"id":"questmate","status":"outreach_sent","contact":"hello@questmate.com","gmail_message_id":"1a07d155181b14b5","subject":"COSHUMA — Questmate Partner & Affiliate Program","official_program_url":"https://www.questmate.com/partners"},
+    {"id":"reactin","status":"outreach_sent","contact":"hello@reactin.io","gmail_message_id":"1a07d156944e99b9","subject":"COSHUMA — ReactIn Affiliate Program enrollment"}
+  ]
+}
