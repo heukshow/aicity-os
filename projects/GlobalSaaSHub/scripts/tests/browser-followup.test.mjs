@@ -49,7 +49,10 @@ try {
 }
 assert.equal(state.typedesk.sender, 'qmfforfhem@gmail.com');
 assert.equal(state.typedesk.portal_enrollment_confirmed, false);
-assert.equal(state.n8n.application_state, 'not_submitted');
+assert.equal(state.n8n.application_state, 'submitted');
+assert.equal(state.webflow.application_state, 'submitted');
+assert.equal(state.aiassistworks.application_state, 'not_confirmed');
+assert.equal(state.aiassistworks.status, 'browser_required_onboarding');
 assert.equal(state['novita-ai'].application_state, 'not_submitted');
 for (const id of ['n8n', 'novita-ai', 'typedesk']) {
   const stale = {id, affiliate_url: 'https://example.com/dashboard', affiliate_verified: true};
@@ -59,4 +62,4 @@ for (const id of ['n8n', 'novita-ai', 'typedesk']) {
   const page = fs.readFileSync(`dist/tool/${id}.html`, 'utf8');
   assert.ok(!page.includes(`data-cta="affiliate" data-tool-id="${id}"`));
 }
-console.log('PASS: five browser states, duplicate prevention, exact links, and repeat sync preservation');
+console.log('PASS: browser states, confirmed submissions, duplicate prevention, exact links, and repeat sync preservation');

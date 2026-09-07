@@ -4,6 +4,10 @@ export const browserEvidencePath = 'data/affiliate-browser-followup-wave3-2026-0
 export const browserFollowups = new Map(JSON.parse(fs.readFileSync(
   new URL('../' + browserEvidencePath, import.meta.url), 'utf8',
 )).results.map(item => [item.id, item]));
+const submissionEvidencePath = 'data/affiliate-submission-batch-2026-09-08.json';
+for (const item of JSON.parse(fs.readFileSync(new URL('../' + submissionEvidencePath, import.meta.url), 'utf8')).results) {
+  browserFollowups.set(item.id, {...item, evidence_path: submissionEvidencePath});
+}
 
 // This browser snapshot preserves existing approvals, never infers a new one
 // from a successful public landing, and keeps account access separate from CTAs.
@@ -23,7 +27,7 @@ export function applyBrowserFollowup(tool) {
     affiliate_url: approved ? item.affiliate_url : null,
     affiliate_verified: approved,
     affiliate_final_url: approved ? item.affiliate_url : null,
-    affiliate_evidence_markers: [item.evidence, item.next_action, browserEvidencePath],
+    affiliate_evidence_markers: [item.evidence, item.next_action, item.evidence_path || browserEvidencePath],
     affiliate_status_checked_at: '2026-09-08',
     affiliate_status_evidence_url: item.official_program_url || item.workflow_url,
     affiliate_workflow_url: item.workflow_url,

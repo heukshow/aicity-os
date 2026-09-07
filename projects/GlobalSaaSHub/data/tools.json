@@ -1367,7 +1367,19 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://webflow.com/"
+    "official_evidence_url": "https://webflow.com/",
+    "affiliate_status": "application_submitted",
+    "affiliate_verified": false,
+    "affiliate_final_url": null,
+    "affiliate_evidence_markers": [
+      "2026-09-08 authenticated browser: existing prepared form, final Program terms accepted under explicit user authorization; submitted once. Affiliate Program Application success and Thank you for applying displayed, with response expected in 1-2 weeks by email or PartnerStack. Optional email marketing checkbox remained unchecked. Approval and customer tracking URL not confirmed.",
+      "Await review email or PartnerStack update; do not submit again or duplicate outreach. No further consent request is needed for this submitted application.",
+      "data/affiliate-submission-batch-2026-09-08.json"
+    ],
+    "affiliate_status_checked_at": "2026-09-08",
+    "affiliate_status_evidence_url": "https://webflow.com/solutions/affiliates",
+    "affiliate_workflow_url": "https://webflow.com/solutions/affiliates",
+    "affiliate_next_action": "Await review email or PartnerStack update; do not submit again or duplicate outreach. No further consent request is needed for this submitted application."
   },
   {
     "id": "reactin",
@@ -1654,7 +1666,19 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://aiassistworks.com/"
+    "official_evidence_url": "https://aiassistworks.com/",
+    "affiliate_status": "browser_required_onboarding",
+    "affiliate_verified": false,
+    "affiliate_final_url": null,
+    "affiliate_evidence_markers": [
+      "2026-09-08 browser requested a fresh code; company Gmail received latest AiAssistWorks verification email at 05:22 KST. Authentication succeeded and onboarding displayed signed in as support@coshuma.com, step 1 of 2, name empty and Korea, Republic of selected. OTP blocker resolved; onboarding and application submission are not complete. No code or token retained.",
+      "Resume existing authenticated onboarding when continuing account setup. Do not request another OTP while session remains valid. Do not mark submitted or approved until actual confirmation.",
+      "data/affiliate-submission-batch-2026-09-08.json"
+    ],
+    "affiliate_status_checked_at": "2026-09-08",
+    "affiliate_status_evidence_url": "https://www.aiassistworks.com/affiliate-program",
+    "affiliate_workflow_url": "https://aiassistworks.affonso.io/onboarding",
+    "affiliate_next_action": "Resume existing authenticated onboarding when continuing account setup. Do not request another OTP while session remains valid. Do not mark submitted or approved until actual confirmation."
   },
   {
     "id": "vista-social",
@@ -2786,18 +2810,18 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://n8n.io/affiliates/",
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_user_consent",
+    "affiliate_status": "application_submitted",
     "affiliate_verified_at": "2026-09-01T00:00:00+09:00",
     "affiliate_final_url": null,
     "affiliate_evidence_markers": [
-      "Official page shows 30% for 12 months. Existing authenticated PartnerStack application form displays Sangkwon An, support@coshuma.com and COSHUMA. Entered existing affiliate programs, selected blog or website, checked company website yes and entered https://coshuma.com. No prior application confirmation found in searched mailboxes; source record was application_page_unavailable. Form now loads.",
-      "User reviews program agreement and required acknowledgement, then submits prepared application. Record application_submitted only after actual confirmation. Optional unverified n8n-use and social fields left blank.",
-      "data/affiliate-browser-followup-wave3-2026-09-08.json"
+      "2026-09-08 authenticated browser: checked the prepared required I agree acknowledgement under explicit user authorization and submitted once. PartnerStack home then displayed n8n GmbH / Application pending. Clicks and signups 0; revenue, pending and paid commissions $0.00. No approval or customer tracking URL issued.",
+      "Await program review in the existing account. Do not reapply. Recover only an issued customer-facing tracking URL after approval evidence.",
+      "data/affiliate-submission-batch-2026-09-08.json"
     ],
     "affiliate_status_checked_at": "2026-09-08",
     "affiliate_status_evidence_url": "https://n8n.io/affiliates/",
-    "affiliate_workflow_url": "https://dash.partnerstack.com/application?company=n8n&group=affiliates2025",
-    "affiliate_next_action": "User reviews program agreement and required acknowledgement, then submits prepared application. Record application_submitted only after actual confirmation. Optional unverified n8n-use and social fields left blank."
+    "affiliate_workflow_url": "https://dash.partnerstack.com/home",
+    "affiliate_next_action": "Await program review in the existing account. Do not reapply. Recover only an issued customer-facing tracking URL after approval evidence."
   },
   {
     "id": "novita-ai",

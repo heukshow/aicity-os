@@ -10,6 +10,8 @@ on:
       - 'projects/GlobalSaaSHub/scripts/approved_tracking_evidence.mjs'
       - 'projects/GlobalSaaSHub/scripts/browser_followup_evidence.mjs'
       - 'projects/GlobalSaaSHub/data/affiliate-browser-followup-wave3-2026-09-08.json'
+      - 'projects/GlobalSaaSHub/data/affiliate-submission-batch-2026-09-08.json'
+      - 'projects/GlobalSaaSHub/data/standalone_tool_pages.json'
       - 'projects/GlobalSaaSHub/data/tools.json'
       - 'projects/GlobalSaaSHub/data/tools.next.json'
       - 'projects/GlobalSaaSHub/scripts/sync_verified_affiliates.mjs'
@@ -128,6 +130,7 @@ jobs:
         working-directory: projects/GlobalSaaSHub
         run: |
           python scripts/tests/test_revenue_seo.py dist
+          python scripts/tests/test_link_integrity.py
           node scripts/verify_approved_tracking.mjs
           node scripts/tests/browser-followup.test.mjs
           node scripts/tests/tagshop-consent.test.mjs
