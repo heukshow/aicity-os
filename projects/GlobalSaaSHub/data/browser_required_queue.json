@@ -102,21 +102,21 @@
   {
     "id": "clickfunnels-affiliate-agreement-and-campaign-link",
     "priority": "high",
-    "status": "browser_required_user_consent",
+    "status": "approved_tracking",
     "cost": "0",
-    "verified_at": "2026-09-07T17:06:13Z",
-    "reason": "Confirmation email 1a03b554562a0d88 explicitly requires Affiliate Agreement before Campaign links. Existing portal URL redirects to sign-in. Email login requested once and reached numeric-code page for support@coshuma.com.",
-    "next_action": "OTP page preserved; no OTP entered, agreement accepted, or duplicate registration.",
+    "verified_at": "2026-09-07T17:19:00Z",
+    "reason": "User explicitly authorized acceptance of the prepared ClickFunnels Affiliate Agreement in this conversation. Accept clicked; dashboard returned with 'Thank you for accepting the affiliate agreement', prior legal blocker removed and exact Free Trial campaign URL retained. Exact aff-bearing URL loaded official customer signup-flow. Dashboard displays $0 commissions and 0 conversions.",
+    "next_action": "Preserve exact verified campaign link; no duplicate enrollment.",
     "do_not": [
-      "Do not accept the ClickFunnels Affiliate Agreement on the user's behalf.",
       "Do not treat the Affiliate Portal, Campaigns dashboard, email-tracking redirect or generic clickfunnels.com homepage as an affiliate/revenue link.",
       "Do not guess or construct a ClickFunnels referral or campaign URL.",
-      "Do not submit another ClickFunnels affiliate application because the confirmation email already verifies program enrollment."
+      "Do not submit another ClickFunnels affiliate application because the confirmation email already verifies program enrollment.",
+      "Do not infer commissions or revenue from agreement acceptance or link verification."
     ],
-    "affiliate_status": "browser_required_user_consent",
-    "exact_tracking_url": null,
+    "affiliate_status": "approved_tracking",
+    "exact_tracking_url": "https://www.clickfunnels.com/signup-flow?aff=b57f3056884d05b842f607e32347df542821875bbe3209a214141aa32a210532",
     "execution_evidence": "affiliate-browser-results-2026-09-08.json",
-    "blocker": "otp_then_affiliate_agreement"
+    "blocker": null
   },
   {
     "id": "text-helpdesk-campaign-affiliate-link",
@@ -186,14 +186,15 @@
   {
     "id": "fillout-browser-followup-20260908",
     "priority": "medium",
-    "status": "browser_required_user_consent",
+    "status": "application_submitted",
     "cost": "0",
-    "verified_at": "2026-09-07T17:06:13Z",
-    "reason": "Existing Dub form has termsAgreement unchecked. Existing fields retained; missing email filled with support@coshuma.com. Page says Step 1 of 2; later steps unverified.",
-    "next_action": "Form retained; no consent or submission.",
+    "verified_at": "2026-09-07T17:19:00Z",
+    "reason": "User explicitly authorized acceptance of the prepared Fillout Program Terms. Existing form preserved, checkbox selected and Continue clicked once. Step 2 of 2 shows Application submitted / submitted for review. Notification address shown by existing Dub account is qmfforfhem@gmail.com. Application ID pga_1M1YE0ANQP8BPWPGEW2BENNGR. Promotional dashboard illustration is not actual earnings or a personal referral link.",
+    "next_action": "Await decision; do not reapply.",
     "exact_tracking_url": null,
-    "blocker": "legal_agreement",
-    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+    "blocker": null,
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json",
+    "affiliate_status": "application_submitted"
   },
   {
     "id": "time2book-browser-followup-20260908",
@@ -265,14 +266,15 @@
   {
     "id": "taskip-browser-followup-20260908",
     "priority": "medium",
-    "status": "browser_required_user_consent",
+    "status": "approved_tracking",
     "cost": "0",
-    "verified_at": "2026-09-07T17:06:13Z",
-    "reason": "Official affiliate page links to taskip.affonso.io. Existing-account login with support@coshuma.com reached 이메일 인증 / 일회용 코드. One code requested; no code read or entered and no repeat request.",
-    "next_action": "OTP page preserved; no account/application completion claimed.",
-    "exact_tracking_url": null,
-    "blocker": "otp",
-    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+    "verified_at": "2026-09-07T17:16:58Z",
+    "reason": "Email authentication completed in existing tab. Nine-question application submitted once, followed by name/country and generated tracking-ID onboarding. Authenticated Success Hub displays Your Promotion Link and 30% lifetime commissions. Copy confirmation observed. Exact URL loaded official Taskip customer landing page with atp=qnV3mw retained in browser URL. No pending/rejection banner shown. Payout settings remain incomplete.",
+    "next_action": "Do not reapply. Preserve verified referral link. Payout settings remain incomplete.",
+    "exact_tracking_url": "https://taskip.net/?atp=qnV3mw",
+    "blocker": null,
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json",
+    "affiliate_status": "approved_tracking"
   },
   {
     "id": "gumloop-browser-followup-20260908",

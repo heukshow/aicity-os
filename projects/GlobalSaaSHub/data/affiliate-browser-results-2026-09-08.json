@@ -23,12 +23,12 @@
     },
     {
       "id": "fillout",
-      "status": "browser_required_user_consent",
-      "blocker": "legal_agreement",
-      "evidence": "Existing Dub form has termsAgreement unchecked. Existing fields retained; missing email filled with support@coshuma.com. Page says Step 1 of 2; later steps unverified.",
+      "status": "application_submitted",
+      "blocker": null,
+      "evidence": "User explicitly authorized acceptance of the prepared Fillout Program Terms. Existing form preserved, checkbox selected and Continue clicked once. Step 2 of 2 shows Application submitted / submitted for review. Notification address shown by existing Dub account is qmfforfhem@gmail.com. Application ID pga_1M1YE0ANQP8BPWPGEW2BENNGR. Promotional dashboard illustration is not actual earnings or a personal referral link.",
       "portal_url": "https://partners.dub.co/fillout/apply",
-      "action": "Form retained; no consent or submission.",
-      "checked_at": "2026-09-07T17:06:13Z",
+      "action": "Accepted specifically approved terms and submitted existing application once. Await review; do not reapply.",
+      "checked_at": "2026-09-07T17:19:00Z",
       "exact_tracking_url": null
     },
     {
@@ -118,13 +118,14 @@
     },
     {
       "id": "taskip",
-      "status": "browser_required_user_consent",
-      "blocker": "otp",
-      "evidence": "Official affiliate page links to taskip.affonso.io. Existing-account login with support@coshuma.com reached 이메일 인증 / 일회용 코드. One code requested; no code read or entered and no repeat request.",
-      "portal_url": "https://taskip.affonso.io/auth",
-      "action": "OTP page preserved; no account/application completion claimed.",
-      "checked_at": "2026-09-07T17:06:13Z",
-      "exact_tracking_url": null
+      "status": "approved_tracking",
+      "blocker": null,
+      "evidence": "Email authentication completed in existing tab. Nine-question application submitted once, followed by name/country and generated tracking-ID onboarding. Authenticated Success Hub displays Your Promotion Link and 30% lifetime commissions. Copy confirmation observed. Exact URL loaded official Taskip customer landing page with atp=qnV3mw retained in browser URL. No pending/rejection banner shown. Payout settings remain incomplete.",
+      "portal_url": "https://taskip.affonso.io/success-hub",
+      "action": "Completed free non-legal application and account setup; no purchase or agreement acceptance.",
+      "checked_at": "2026-09-07T17:16:58Z",
+      "exact_tracking_url": "https://taskip.net/?atp=qnV3mw",
+      "destination": "https://taskip.net/?atp=qnV3mw"
     },
     {
       "id": "gumloop",
@@ -147,13 +148,14 @@
     },
     {
       "id": "clickfunnels",
-      "status": "browser_required_user_consent",
-      "blocker": "otp_then_affiliate_agreement",
-      "evidence": "Confirmation email 1a03b554562a0d88 explicitly requires Affiliate Agreement before Campaign links. Existing portal URL redirects to sign-in. Email login requested once and reached numeric-code page for support@coshuma.com.",
-      "portal_url": "https://www.clickfunnels.com/contacts/token_waiting",
-      "action": "OTP page preserved; no OTP entered, agreement accepted, or duplicate registration.",
-      "checked_at": "2026-09-07T17:06:13Z",
-      "exact_tracking_url": null
+      "status": "approved_tracking",
+      "blocker": null,
+      "evidence": "User explicitly authorized acceptance of the prepared ClickFunnels Affiliate Agreement in this conversation. Accept clicked; dashboard returned with 'Thank you for accepting the affiliate agreement', prior legal blocker removed and exact Free Trial campaign URL retained. Exact aff-bearing URL loaded official customer signup-flow. Dashboard displays $0 commissions and 0 conversions.",
+      "portal_url": "https://www.clickfunnels.com/customers/profiles/kMXlLGaZ/affiliates/dashboard",
+      "action": "Authenticated existing account, accepted the specifically approved agreement, recovered and verified exact customer campaign URL; no duplicate enrollment.",
+      "checked_at": "2026-09-07T17:19:00Z",
+      "exact_tracking_url": "https://www.clickfunnels.com/signup-flow?aff=b57f3056884d05b842f607e32347df542821875bbe3209a214141aa32a210532"
     }
-  ]
+  ],
+  "followup_checked_at": "2026-09-07T17:19:00Z"
 }
