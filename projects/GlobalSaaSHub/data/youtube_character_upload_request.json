@@ -1,11 +1,12 @@
 {
-  "campaign_slug": "chatbase_real_ui_cora",
+  "campaign_slug": "chatbase_real_ui_hana",
   "generator": "real_ui_chatbase_v1",
-  "character_name": "CORA-REAL-COSHUMA",
-  "presenter_image_url": "https://images.unsplash.com/photo-1783094269325-4ba186e8e01b?auto=format&fit=crop&fm=jpg&q=85&w=1400",
-  "presenter_source": "Cabri Caldwell / Unsplash — smiling professional woman working on a laptop at a desk; free under the Unsplash License. Reuse this same presenter master across CORA-REAL episodes unless explicitly redesigned.",
+  "character_name": "HANA-COSHUMA",
+  "presenter_label": "HANA",
+  "presenter_image_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_31CEl0VJ93W86g07a1gb5c1p4C0/acbaba19-47f2-4c94-a365-7203cdc7692f.webp",
+  "presenter_source": "Higgsfield Marketing Studio preset avatar Hana, copied into the COSHUMA workspace and registered as reusable reference element HANA-COSHUMA (element edb10f37-df1d-417f-af0f-dc4ff3d66fbe). Use this same photorealistic presenter identity for future COSHUMA tool videos unless deliberately redesigned.",
   "title": "Build a Customer-Support AI Agent with Chatbase | Real UI Demo | COSHUMA #Shorts",
-  "description": "CORA walks through the real Chatbase workflow: create an agent, connect business knowledge, test it, and deploy it for repetitive support questions. The business angle is implementation work — setup, training, deployment, and ongoing knowledge-base maintenance — not guaranteed income.\n\nFull COSHUMA Chatbase guide: https://coshuma.com/tool/chatbase.html?utm_source=youtube&utm_medium=shorts&utm_campaign=chatbase_real_ui_cora\n\nCOSHUMA may earn a commission from eligible partner links on the guide page. Presenter master uses an Unsplash-licensed photo by Cabri Caldwell.\n\n#Chatbase #AIAgent #CustomerSupport #Automation #SaaS #Shorts",
+  "description": "HANA shows the real Chatbase workflow using official Chatbase web and documentation screens: create an agent, connect business knowledge, test the answers, and deploy it for repetitive support questions. The business angle is implementation work — setup, training, deployment, and ongoing knowledge-base maintenance — not guaranteed income.\n\nFull COSHUMA Chatbase guide: https://coshuma.com/tool/chatbase.html?utm_source=youtube&utm_medium=shorts&utm_campaign=chatbase_real_ui_hana\n\nCOSHUMA may earn a commission from eligible partner links on the guide page.\n\n#Chatbase #AIAgent #CustomerSupport #Automation #SaaS #Shorts",
   "narration": "Customer questions keep repeating? Watch this. In Chatbase, create an AI agent, connect your website or documents, then test the answers before you deploy. The agent can handle common support questions across chat, email, and voice, while your team takes the cases that actually need a person. For a business, that means fewer repetitive replies and faster first responses. And if you sell automation services, setup, training, deployment, and ongoing knowledge-base maintenance can become a client service. Full Chatbase guide on COSHUMA.",
   "privacy": "unlisted"
 }
