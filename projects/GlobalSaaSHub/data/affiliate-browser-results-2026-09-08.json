@@ -109,11 +109,11 @@
     {
       "id": "ai-video-cut",
       "status": "pending",
-      "blocker": "required_business_address_and_account_setup",
-      "evidence": "Old /affiliate URL is 404; footer links to current /affiliate-program, which links to aivideocut.firstpromoter.com. Form has required Address and Password. Known name, email, country South Korea, website, company and promotion plan filled. No address invented; user asked for address. No submission, no legal agreement accepted.",
+      "blocker": "required_business_address",
+      "evidence": "Old /affiliate URL is 404; footer links to current /affiliate-program, which links to aivideocut.firstpromoter.com. Form has required Address and Password. Known name, email, country South Korea, website, company and promotion plan filled. No address invented; user asked for address. No submission, no legal agreement accepted. Follow-up: existing support@coshuma.com Google authentication completed; selected account displayed and password field removed. All other required fields prepared; required business address is still missing.",
       "portal_url": "https://aivideocut.firstpromoter.com/",
-      "action": "Prepared form preserved; outreach 1a07c4bd28897ce1 remains distinct from application.",
-      "checked_at": "2026-09-07T17:06:13Z",
+      "action": "Google authentication and ordinary fields prepared; awaiting user-provided business address, not submitted.",
+      "checked_at": "2026-09-07T17:19:30Z",
       "exact_tracking_url": null
     },
     {
