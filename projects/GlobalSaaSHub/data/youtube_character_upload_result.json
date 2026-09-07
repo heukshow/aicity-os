@@ -5,5 +5,28 @@
   "privacy": "unlisted",
   "character_name": "CORA-REAL-COSHUMA",
   "source_video_url": "generated:real_ui_chatbase_v1",
-  "generator": "real_ui_chatbase_v1"
+  "generator": "real_ui_chatbase_v1",
+  "superseded_uploads": [
+    {
+      "campaign_slug": "chatbase_real_ui_cora",
+      "youtube_video_id": "Stg73UVBp1c",
+      "youtube_url": "https://youtube.com/shorts/Stg73UVBp1c",
+      "status": "deleted",
+      "deletion_verified_at": "2026-09-07T02:59:41.6680076Z",
+      "historical_record_commit": "f0943ccf69716c9ff089f2a8439d0d184cbfe10d",
+      "studio_evidence": {
+        "title": "Build a Customer-Support AI Agent with Chatbase | Real UI Demo | COSHUMA #Shorts",
+        "duration_seconds": 35,
+        "privacy": "unlisted",
+        "uploaded_on": "2026-09-07",
+        "views_at_confirmation": 1
+      },
+      "deletion_verification": {
+        "studio_result": "redirected_to_shorts_list_and_video_id_absent",
+        "public_url_result": "video_unavailable",
+        "studio_list_url": "https://studio.youtube.com/channel/UCT33Ogj3tjh1_ddTAomOkBQ/videos/short",
+        "public_url": "https://www.youtube.com/shorts/Stg73UVBp1c"
+      }
+    }
+  ]
 }
