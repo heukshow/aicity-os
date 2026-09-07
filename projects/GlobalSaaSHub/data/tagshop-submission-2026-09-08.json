@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-09-08T05:05:00+09:00",
+  "tool_id": "tagshop-ai",
+  "status": "application_submitted",
+  "application_submitted": true,
+  "email_confirmed": true,
+  "program_consent_checked": true,
+  "approval_status": "unconfirmed",
+  "pending_review_confirmed": false,
+  "exact_tracking_url": null,
+  "workflow_url": "https://tagshop.firstpromoter.com/login",
+  "evidence": "User explicitly authorized the mandatory program agreement; live signup checkbox was checked and Sign Up submitted once for support@coshuma.com. FirstPromoter Team <support@firstpromoter.com> sent Confirmation instructions at 05:02 KST thanking COSHUMA for signing up to Tagshop - Partner Program. The official confirmation page displayed Email confirmed successfully. Subsequent sign-in attempts remained on the login form without a dashboard or visible error. Enrollment and email confirmation are verified; approval, pending-review status and customer tracking URL remain unconfirmed. No payment was made.",
+  "next_action": "Resume the existing confirmed account at the login page and verify its dashboard or a subsequent program email. Do not create another account or resubmit the application. Record only an issued customer-facing tracking URL after approval verification. No further consent request is needed. Leave CAPTCHA or forced identity verification to the user; no paid plan.",
+  "confirmation_email_subject": "Confirmation instructions",
+  "confirmation_email_received_at": "2026-09-08T05:02:00+09:00",
+  "metrics_note": "No authenticated dashboard metrics available. Existing signup, commission and revenue values remain 0, not newly measured. Affiliate enrollment is not a referred customer signup."
+}

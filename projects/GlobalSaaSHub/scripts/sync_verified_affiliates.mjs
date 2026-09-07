@@ -154,16 +154,16 @@ const statusOverrides = {
   'tagshop-ai': {
     "affiliate_url": null,
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_user_consent",
+    "affiliate_status": "application_submitted",
     "affiliate_final_url": null,
-    "affiliate_verified_at": "2026-09-08T04:55:00+09:00",
-    "affiliate_status_checked_at": "2026-09-08T04:55:00+09:00",
-    "affiliate_status_evidence_url": "https://tagshop.firstpromoter.com/signup",
-    "affiliate_workflow_url": "https://tagshop.firstpromoter.com/signup",
-    "affiliate_next_action": "User completes password and mandatory program agreement in the preserved signup form, then submits once; handle any CAPTCHA or OTP personally. Verify receipt/account state before retrying. No duplicate outreach or application, and no payment.",
+    "affiliate_verified_at": "2026-09-08T05:05:00+09:00",
+    "affiliate_status_checked_at": "2026-09-08T05:05:00+09:00",
+    "affiliate_status_evidence_url": "https://tagshop.firstpromoter.com/login",
+    "affiliate_workflow_url": "https://tagshop.firstpromoter.com/login",
+    "affiliate_next_action": "Resume the existing confirmed account at the login page and verify its dashboard or a subsequent program email. Do not create another account or resubmit the application. Record only an issued customer-facing tracking URL after approval verification. No further consent request is needed. Leave CAPTCHA or forced identity verification to the user; no paid plan.",
     "affiliate_evidence_markers": [
-      "Official FirstPromoter signup form prepared with COSHUMA / GlobalSaaSHub, support@coshuma.com, South Korea and existing COSHUMA YouTube channel. Mandatory program agreement covers brand guidelines, restricted promotions, program emails and suspension/loss of commissions. Agreement unchecked; password blank; Sign Up not clicked. No portal application or customer tracking URL issued. Earlier email outreach is historical and does not establish a FirstPromoter account.",
-      "data/catalister-tagshop-followup-2026-09-08.json"
+      "User explicitly authorized the mandatory program agreement; live signup checkbox was checked and Sign Up submitted once for support@coshuma.com. FirstPromoter Team <support@firstpromoter.com> sent Confirmation instructions at 05:02 KST thanking COSHUMA for signing up to Tagshop - Partner Program. The official confirmation page displayed Email confirmed successfully. Subsequent sign-in attempts remained on the login form without a dashboard or visible error. Enrollment and email confirmation are verified; approval, pending-review status and customer tracking URL remain unconfirmed. No payment was made.",
+      "data/tagshop-submission-2026-09-08.json"
     ]
   },
   veed: {
