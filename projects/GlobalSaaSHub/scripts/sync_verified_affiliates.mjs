@@ -192,6 +192,18 @@ const statusOverrides = {
       'Exact customer-facing tracking URL not yet issued or verified',
     ],
   },
+  marblism: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'rejected',
+    affiliate_verified_at: '2026-08-17T17:06:26Z',
+    affiliate_evidence_markers: [
+      'Dub.co program status email: Your application to Marblism was not approved',
+      'Marblism partner application was explicitly rejected after review',
+      'Rejection email lists partners@marblism.com only for cases believed to be rejected in error',
+      'Do not retry or request payout setup unless newer evidence changes this state',
+    ],
+  },
 };
 
 for (const file of ['data/tools.json', 'data/tools.next.json']) {
