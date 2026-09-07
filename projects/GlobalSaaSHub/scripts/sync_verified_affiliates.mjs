@@ -25,6 +25,7 @@ const verified = {
 };
 
 const verifiedAt = {
+  brand24: '2026-09-02T20:44:55+09:00',
   unbounce: '2026-09-04T03:52:58+09:00',
   moosend: '2026-09-01T04:48:36+09:00',
   chatbase: '2026-09-06T01:50:28+09:00',
@@ -61,6 +62,18 @@ const dataOverrides = {
 // create affiliate URLs; they only stop already-known outcomes from remaining
 // "unclassified" in the production revenue audit.
 const statusOverrides = {
+  brand24: {
+    affiliate_url: 'https://try.brand24.com/8xqrjxybmsbt',
+    affiliate_verified: true,
+    affiliate_status: 'approved_tracking',
+    affiliate_final_url: 'https://try.brand24.com/8xqrjxybmsbt',
+    affiliate_verified_at: '2026-09-02T20:44:55+09:00',
+    affiliate_evidence_markers: [
+      'Fresh Brand24 partner welcome evidence supplied the account-specific customer tracking route',
+      'Merged PR #109 recorded the verified Brand24 partner URL',
+      'https://try.brand24.com/8xqrjxybmsbt',
+    ],
+  },
   'synthflow-ai': {
     affiliate_url: null,
     affiliate_verified: false,
