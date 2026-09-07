@@ -4420,7 +4420,7 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Empower your business to build no-code AI agents for customer support, sales, and workflow automation, enhancing customer engagement across multiple channels.",
-    "affiliate_url": null,
+    "affiliate_url": "https://link.chatbase.co/sang-kwon-an",
     "pricing": "Varies",
     "key_features": [
       "Build AI agents without code",
@@ -4443,9 +4443,11 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.chatbase.co/",
-    "affiliate_status": "legacy_program_inactive_new_experts_program_available",
-    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://affiliates.chatbase.co/"
+    "affiliate_status": "approved_tracking",
+    "affiliate_status_checked_at": "2026-09-07T00:00:00+09:00",
+    "affiliate_status_evidence_url": "https://link.chatbase.co/sang-kwon-an",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-09-06T01:50:28+09:00"
   },
   {
     "id": "krater",
