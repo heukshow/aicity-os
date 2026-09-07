@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-07T23:50:00+09:00",
+  "updated_at": "2026-09-07T15:25:37Z",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -25,12 +25,14 @@
       "note": "Pipedrive's automatic reply states partners@pipedrive.com is no longer the support path. Future partner inquiries must use Quick help > Chat with us inside the authenticated Partner Portal. Do not send another email or infer approval/tracking from portal access."
     },
     "monday-com": {
-      "status": "outreach_sent",
+      "status": "pending",
       "contact": "support@partnerstack.com",
       "gmail_message_id": "1a07c4872cf1ca3b",
+      "support_ticket_message_id": "1a07c48a31741b90",
+      "support_ticket_id": "122275",
       "sender": "support@coshuma.com",
       "tracking_url": null,
-      "note": "Requested monday.com program access using the existing PartnerStack account. Do not create a second PartnerStack account."
+      "note": "PartnerStack Support confirmed receipt of COSHUMA's monday.com program-access request as ticket 122275. Treat this as pending support review, not program approval or application acceptance. Do not create a second PartnerStack account or duplicate request while the ticket is unresolved."
     },
     "time2book": {
       "status": "outreach_sent",
@@ -80,6 +82,16 @@
       "sender": "support@coshuma.com",
       "tracking_url": null,
       "note": "PartnerStack confirmed on 2026-09-07 that COSHUMA's Sendcloud application was received and submitted for Sendcloud review. Do not reapply; wait for approval or rejection. No customer-facing tracking URL is verified yet."
+    },
+    "pictory": {
+      "status": "approved_tracking",
+      "contact": "ashutosh@pictory.ai",
+      "gmail_message_id": "1a07c67038d3afcc",
+      "sender": "support@coshuma.com",
+      "tracking_url": "https://pictory.ai?fpr=sangkwon-an23",
+      "promo_code": "COSHUMA20",
+      "payout_status": "setup_pending",
+      "note": "Pictory's affiliate manager explicitly reconfirmed that COSHUMA's existing affiliate link and COSHUMA20 promo code remain active while payout setup is pending. Referral and sale tracking can continue and commissions can accrue, but payout cannot be completed until payout details are configured. Keep the verified affiliate link as the primary tracking route and display COSHUMA20 alongside it; do not use the promo code as a replacement for the link."
     }
   }
 }
