@@ -14,6 +14,8 @@ on:
       - 'projects/GlobalSaaSHub/data/tools.next.json'
       - 'projects/GlobalSaaSHub/scripts/sync_verified_affiliates.mjs'
       - 'projects/GlobalSaaSHub/scripts/sync_latest_affiliate_states.mjs'
+      - 'projects/GlobalSaaSHub/scripts/tests/tagshop-consent.test.mjs'
+      - 'projects/GlobalSaaSHub/data/tagshop-submission-2026-09-08.json'
       - 'projects/GlobalSaaSHub/scripts/monetize_verified_compare_links.mjs'
       - 'projects/GlobalSaaSHub/scripts/build_search_comparisons.mjs'
       - 'projects/GlobalSaaSHub/scripts/polish_public_copy.py'
