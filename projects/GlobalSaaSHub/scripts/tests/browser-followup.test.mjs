@@ -50,7 +50,7 @@ try {
 assert.equal(state.typedesk.sender, 'qmfforfhem@gmail.com');
 assert.equal(state.typedesk.portal_enrollment_confirmed, false);
 assert.equal(state.n8n.application_state, 'submitted');
-for (const [id, expected] of [['krater', 'application_submitted'], ['framer', 'browser_required_application_form']]) {
+for (const [id, expected] of [['krater', 'application_submitted'], ['framer', 'outreach_sent']]) {
   assert.equal(state[id].status, expected);
   assert.equal(state[id].tracking_url, null);
   const stale = {id, affiliate_url: 'https://example.com/dashboard', affiliate_verified: true};
