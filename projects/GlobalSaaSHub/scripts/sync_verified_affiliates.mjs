@@ -87,6 +87,17 @@ const statusOverrides = {
       'profile review expected in 3-5 business days',
     ],
   },
+  getgabs: {
+    affiliate_verified: true,
+    affiliate_status: 'application_submitted',
+    affiliate_verified_at: '2026-09-07T00:00:00+09:00',
+    affiliate_evidence_markers: [
+      'Getgabs official affiliate page says signup is free and provides a unique referral link',
+      'COSHUMA affiliate application sent to official info@getgabs.com address',
+      'Gmail message id 1a07a9eff46a2c04',
+      'Exact customer-facing referral URL not yet issued or verified',
+    ],
+  },
   helpdesk: {
     affiliate_verified: true,
     affiliate_status: 'approved_account_campaign_link_pending',
