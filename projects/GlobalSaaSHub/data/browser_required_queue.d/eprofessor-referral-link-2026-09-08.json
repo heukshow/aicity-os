@@ -2,14 +2,14 @@
   "id": "eprofessor-referral-link-recovery",
   "tool_id": "eprofessor",
   "priority": "medium",
-  "status": "browser_required_account_activation",
-  "affiliate_status": "browser_required_account_activation",
+  "status": "resolved",
+  "affiliate_status": "approved_tracking",
   "cost": "0",
   "verified_at": "2026-09-08T06:23:15+09:00",
-  "exact_tracking_url": null,
-  "workflow_url": "https://examprofessor.com/",
-  "reason": "The company mailbox received an eProfessor account verification email for COSHUMA (Gmail message 1a07dc143f8f79c2). eProfessor's official help documents an account-level Referral Program that issues a unique /invite/ referral URL and tracks paying-subscriber conversions. The account must be verified and authenticated before any exact COSHUMA referral URL can be recovered.",
-  "next_action": "Verify the existing COSHUMA account once, sign in, open the account-menu Referral Program, and copy the exact unique referral URL. Independently verify the customer destination before adding eProfessor to revenue CTAs or tool data. Payment/tax setup is not required to validate the referral URL and should remain separate.",
+  "exact_tracking_url": "https://eprofessor.com/invite/coshuma173",
+  "workflow_url": "https://admin.eprofessor.com/referrals/",
+  "reason": "Superseded by confirmed referral issuance and published main evidence in data/affiliate-submission-batch-2026-09-08.json. The exact issued customer referral URL is https://eprofessor.com/invite/coshuma173. Account/link recovery is complete; do not follow the stale activation route or create another account.",
+  "next_action": "Preserve the verified referral URL. No further account or link recovery. PayPal and tax setup remain incomplete as separately recorded; no earning or revenue claim.",
   "do_not": [
     "Do not create another eProfessor account because support@coshuma.com already has a verification email for an existing COSHUMA signup.",
     "Do not construct or guess the /invite/ slug from the account name.",
@@ -18,5 +18,7 @@
     "Do not infer sign-ups, active subscribers, commissions, or revenue until dashboard evidence exists."
   ],
   "gmail_message_id": "1a07dc143f8f79c2",
-  "official_program_evidence_url": "https://examprofessor.com/page/help/settings-1/referral-program-1"
+  "official_program_evidence_url": "https://examprofessor.com/page/help/settings-1/referral-program-1",
+  "do_not_reapply": true,
+  "evidence_file": "data/affiliate-submission-batch-2026-09-08.json"
 }

@@ -146,6 +146,66 @@
       ],
       "checked_at": "2026-09-07T21:21:56.008052+00:00",
       "outreach_sent": true
+    },
+    {
+      "id": "koala-ai",
+      "status": "application_submitted",
+      "application_state": "submitted",
+      "review_state": "awaiting_vendor_response",
+      "affiliate_url": null,
+      "workflow_url": "https://koala.sh/pages/affiliate",
+      "official_program_url": "https://koala.sh/pages/affiliate",
+      "portal_enrollment_confirmed": false,
+      "application_channel": "official_email_application",
+      "evidence": "2026-09-08 06:33 KST: official Koala page instructs applicants to email hello@koala.sh with audience details and links. Company Gmail in:anywhere koala returned no messages before applying. Sent one application with factual COSHUMA buyer-guide description and website/product links, without invented traffic or customer usage. Gmail displayed Message sent; Sent message subject COSHUMA — Koala AI Affiliate Program Application, sender COSHUMA <support@coshuma.com>, recipient hello@koala.sh. Sent URL https://mail.google.com/mail/u/1/#sent/QgrcJHsHsHNwknQNnbrBrVCglRWGxCQHpKQ. This verifies dispatch of the official email application, not vendor receipt, approval or enrollment. No tracking URL issued.",
+      "next_action": "Await the existing email application response. Do not reapply or send duplicate outreach. Record only an exact customer-facing link issued by the vendor after approval.",
+      "blockers": [],
+      "checked_at": "2026-09-07T21:35:04.579403+00:00",
+      "paid_actions": 0,
+      "customer_signups": 0,
+      "commissions": 0,
+      "revenue": 0
+    },
+    {
+      "id": "speechify",
+      "status": "application_submitted",
+      "application_state": "interest_form_submitted",
+      "review_state": "awaiting_vendor_response",
+      "affiliate_url": null,
+      "workflow_url": "https://speechify.com/affiliates/",
+      "official_program_url": "https://speechify.com/affiliates/",
+      "portal_enrollment_confirmed": false,
+      "application_channel": "official_affiliate_interest_form",
+      "evidence": "2026-09-08 authenticated Chrome: company Gmail in:anywhere search including speechify returned no messages before submission. Current /affiliates/ page exposes a free Submit Interest form, replacing the old singular /affiliate Page Not Found route. Submitted once with Sangkwon An, support@coshuma.com, https://coshuma.com, and traffic stated as Not yet verified; early-stage SaaS/AI buyer-guide website. No invented traffic number. After Processing your submission the page displayed Thanks for getting in touch! and A member of our team will reach out to you shortly. This is affiliate-interest submission, not an approved partner account. No customer tracking URL issued.",
+      "next_action": "Await the vendor response to the existing affiliate-interest submission. Do not resubmit. Recover only an issued customer-facing referral link after approval.",
+      "blockers": [],
+      "checked_at": "2026-09-07T21:35:04.579403+00:00",
+      "paid_actions": 0,
+      "customer_signups": 0,
+      "commissions": 0,
+      "revenue": 0,
+      "supersedes_unavailable_route": true
+    },
+    {
+      "id": "supademo",
+      "status": "application_embed_unavailable",
+      "application_state": "not_submitted",
+      "review_state": "not_applicable",
+      "affiliate_url": null,
+      "workflow_url": "https://eu.makeforms.io/k1ibmll/",
+      "official_program_url": "https://supademo.com/affiliates",
+      "portal_enrollment_confirmed": false,
+      "application_channel": "official_embedded_form",
+      "evidence": "2026-09-08: company Gmail in:anywhere search including supademo returned no existing messages. Official Supademo page explicitly states affiliate signup is completely free, no customer subscription or sales minimum is required, and advertises 30% recurring commission. Join the affiliate program exposed an eu.makeforms.io frame with connection reset. Its exact official form https://eu.makeforms.io/k1ibmll/ also returned net::ERR_CONNECTION_RESET when opened directly in Chrome and the in-app browser. No form fields or submission confirmation were available. Technical connectivity failure, not CAPTCHA or a user-consent blocker. No account, application, payment or referral link created.",
+      "next_action": "Resume this exact official form when its connection recovers. Recheck mailbox before a first submission. No user action currently required; do not publish the form or homepage as an affiliate URL.",
+      "blockers": [
+        "official_application_form_connection_reset"
+      ],
+      "checked_at": "2026-09-07T21:35:04.579403+00:00",
+      "paid_actions": 0,
+      "customer_signups": 0,
+      "commissions": 0,
+      "revenue": 0
     }
   ]
 }
