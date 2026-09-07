@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-07T23:42:00+09:00",
+  "updated_at": "2026-09-07T23:50:00+09:00",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -16,12 +16,13 @@
   },
   "programs": {
     "pipedrive": {
-      "status": "outreach_sent",
-      "contact": "partners@pipedrive.com",
-      "gmail_message_id": "1a07c483aae01ce5",
+      "status": "browser_required_partner_portal_chat",
+      "contact": "support@pipedrive.com",
+      "gmail_message_id": "1a07c48b9d1d24f8",
       "sender": "support@coshuma.com",
       "tracking_url": null,
-      "note": "Requested current affiliate application path and exact customer-facing tracking URL. Do not duplicate outreach while awaiting reply."
+      "official_portal_guide": "https://partners.pipedrive.com/prm/English/s/journey-user",
+      "note": "Pipedrive's automatic reply states partners@pipedrive.com is no longer the support path. Future partner inquiries must use Quick help > Chat with us inside the authenticated Partner Portal. Do not send another email or infer approval/tracking from portal access."
     },
     "monday-com": {
       "status": "outreach_sent",
@@ -53,7 +54,7 @@
       "gmail_message_id": "1a07c4bd28897ce1",
       "sender": "support@coshuma.com",
       "tracking_url": null,
-      "note": "Requested current affiliate signup path/account activation and exact customer-facing referral URL."
+      "note": "Requested current affiliate signup path/account activation and exact customer-facing referral URL. The vendor's official interactive application form remains the authoritative submission route, so this email alone is not proof of application submission."
     },
     "sanebox": {
       "status": "outreach_sent",
@@ -70,7 +71,15 @@
       "sender": null,
       "tracking_url": null,
       "official_program_url": "https://www.gravityforms.com/blog/affiliate-program/",
-      "note": "Current official affiliate program is active and uses an application form plus Impact after approval. No prior Gmail outreach found. Requires browser form submission; do not invent an email address."
+      "note": "Current official affiliate program page says applications are reviewed and approved affiliates receive Impact links. A legacy affiliate-banners page still says temporarily closed, so do not claim application availability or submission without completing and verifying the current official Apply flow in browser."
+    },
+    "sendcloud": {
+      "status": "application_submitted",
+      "contact": "PartnerStack / Sendcloud",
+      "gmail_message_id": "1a07bc61a476b59e",
+      "sender": "support@coshuma.com",
+      "tracking_url": null,
+      "note": "PartnerStack confirmed on 2026-09-07 that COSHUMA's Sendcloud application was received and submitted for Sendcloud review. Do not reapply; wait for approval or rejection. No customer-facing tracking URL is verified yet."
     }
   }
 }
