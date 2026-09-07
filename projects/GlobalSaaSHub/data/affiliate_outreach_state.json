@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-07T16:42:00Z",
+  "updated_at": "2026-09-08T00:55:00+09:00",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -67,13 +67,23 @@
       "note": "Existing outreach already asked for a direct PartnerStack invitation or official enrollment route for support@coshuma.com. Do not send a duplicate while awaiting reply."
     },
     "gravity-forms": {
-      "status": "browser_required_application_form",
-      "contact": null,
+      "status": "application_submitted",
+      "contact": "Impact / Gravity Forms",
       "gmail_message_id": null,
-      "sender": null,
+      "sender": "support@coshuma.com",
       "tracking_url": null,
       "official_program_url": "https://www.gravityforms.com/blog/affiliate-program/",
-      "note": "Current official affiliate program page says applications are reviewed and approved affiliates receive Impact links. A legacy affiliate-banners page still says temporarily closed, so do not claim application availability or submission without completing and verifying the current official Apply flow in browser."
+      "verified_at": "2026-09-08T00:54:00+09:00",
+      "note": "Authenticated browser evidence confirms the Gravity Forms affiliate application was submitted and is awaiting approval. Do not reapply. No customer-facing Impact tracking URL is verified yet."
+    },
+    "fillout": {
+      "status": "browser_required_user_consent",
+      "contact": null,
+      "gmail_message_id": null,
+      "sender": "support@coshuma.com",
+      "tracking_url": null,
+      "verified_at": "2026-09-08T00:54:00+09:00",
+      "note": "Authenticated browser flow reached the final program-terms acceptance step. All non-consent work may proceed automatically, but the legal/program terms checkbox/acceptance must be completed by the user before submission. Do not claim application submission until that consent is completed and the confirmation screen is verified."
     },
     "sendcloud": {
       "status": "application_submitted",
