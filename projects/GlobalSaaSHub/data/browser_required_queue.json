@@ -104,6 +104,23 @@
     ]
   },
   {
+    "id": "text-helpdesk-campaign-affiliate-link",
+    "priority": "high",
+    "status": "browser_required",
+    "cost": "0",
+    "verified_at": "2026-09-07T12:15:27+09:00",
+    "gmail_thread_id": "1a056c2fa4964d52",
+    "gmail_message_id": "1a079dd172f5ca22",
+    "reason": "Text Support has now explicitly confirmed that Campaign affiliate links created in the authenticated Partner App are commission-bearing customer links, and that COSHUMA may create a HelpDesk-specific Campaign instead of using a generic URL. The exact generated HelpDesk customer-facing campaign URL has not yet been verified, so HelpDesk must remain non-monetized until that link is recovered.",
+    "next_action": "Reuse an already authenticated Text Partner App browser session and open https://partners.livechat.com/app/affiliate/campaigns. Prefer an existing active HelpDesk-specific campaign if one already exists; otherwise create a zero-cost HelpDesk-specific Campaign. Copy the exact generated customer-facing affiliate URL, verify that it routes to the intended HelpDesk signup/product destination and contains the account/campaign tracking assigned by Text, then update HelpDesk affiliate data and eligible COSHUMA HelpDesk CTAs.",
+    "do_not": [
+      "Do not treat https://partners.livechat.com/app/affiliate or /affiliate/campaigns as a revenue link; those are authenticated Partner App/dashboard locations.",
+      "Do not treat a generic helpdesk.com URL, Customer Portal URL, email tracking redirect, or https://share.text.com/CkwfynGH as the HelpDesk affiliate link unless the authenticated Campaign UI itself verifies it as the generated customer-facing campaign URL.",
+      "Do not guess or construct tracking parameters.",
+      "Do not submit another Text/HelpDesk affiliate application because the account is already enrolled."
+    ]
+  },
+  {
     "id": "coshuma-short-render-boldsign",
     "priority": "medium",
     "status": "browser_required",

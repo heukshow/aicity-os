@@ -87,6 +87,17 @@ const statusOverrides = {
       'profile review expected in 3-5 business days',
     ],
   },
+  helpdesk: {
+    affiliate_verified: true,
+    affiliate_status: 'approved_account_campaign_link_pending',
+    affiliate_verified_at: '2026-09-07T12:15:27+09:00',
+    affiliate_evidence_markers: [
+      'Text Partner Program account enrolled',
+      'Text Support confirms Campaign affiliate links are commission-bearing customer links',
+      'Text Support permits creating a HelpDesk-specific Campaign instead of using a generic URL',
+      'Exact HelpDesk Campaign customer URL still requires authenticated Partner App verification',
+    ],
+  },
 };
 
 for (const file of ['data/tools.json', 'data/tools.next.json']) {
