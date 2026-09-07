@@ -125,15 +125,18 @@
     "priority": "medium",
     "status": "browser_required",
     "cost": "0",
-    "verified_at": "2026-09-06T04:20:23.976162+00:00",
-    "reason": "Next Shorts candidate selected by prepare_next_short.py: 'BoldSign' (affiliate_status=approved_tracking, best_hub_pages=['public/best/esignature-software.html'], compare_pages=['public/compare/boldsign-vs-notion-ai.html', 'public/compare/boldsign-vs-bolddesk.html']). Rendering still requires a verified creative asset or a generated visual. Repository code does not yet contain unattended YouTube API upload wiring.",
-    "next_action": "Find an official, reuse-permitted media asset for BoldSign when available, or use a clearly licensed/generated visual. Render a 9:16 1080x1920 Short (30-45s) with COSHUMA intro/outro cards and safe-area captions. Run quality_gate.py before upload. Use this UTM-tagged metadata for campaign_slug=boldsign:\nTITLE: Still doing Workflow Automation the slow way? Here's the AI shortcut - BoldSign #Shorts\nDESCRIPTION:\nStill doing Workflow Automation the slow way? Here's the AI shortcut.\n\nFull review, features, and current pricing on COSHUMA:\nhttps://coshuma.com/tool/boldsign.html?utm_source=youtube&utm_medium=shorts&utm_campaign=boldsign\n\n#BoldSign #Shorts #SaaS #AITools",
+    "verified_at": "2026-09-07T13:20:00+09:00",
+    "reason": "Next Shorts candidate: BoldSign (affiliate_status=approved_tracking). The repository now contains the canonical COSHUMA fixed male+female duo reference, so character identity no longer needs to be invented at render time. Rendering still needs official/authenticated BoldSign UI capture or another reuse-permitted visual, and unattended YouTube upload still requires the separate OAuth/user-consent setup.",
+    "next_action": "Render a 9:16 1080x1920 Short (30-45s) for BoldSign using the fixed COSHUMA male+female duo from projects/GlobalSaaSHub/assets/characters/COSHUMA_DUO_MASTER.jpg. Use natural dialogue: one person operates the real BoldSign UI while the other points to the next button or workflow step and explains the concrete business value; alternate roles where useful. Focus on credible outcomes such as faster document-signing workflows, less repetitive follow-up, and smoother client operations. Do not invent product screens, pricing, discounts, revenue numbers, or guaranteed-income claims. Run quality_gate.py before upload. Use this UTM-tagged metadata for campaign_slug=boldsign:\nTITLE: Still doing Workflow Automation the slow way? Here's the AI shortcut - BoldSign #Shorts\nDESCRIPTION:\nStill doing Workflow Automation the slow way? Here's the AI shortcut.\n\nFull review, features, and current pricing on COSHUMA:\nhttps://coshuma.com/tool/boldsign.html?utm_source=youtube&utm_medium=shorts&utm_campaign=boldsign\n\n#BoldSign #Shorts #SaaS #AITools",
     "do_not": [
       "Do not use a generic homepage URL as the CTA — use the coshuma_url below.",
-      "Do not fabricate pricing, discount codes, or reuse permission.",
+      "Do not fabricate pricing, discount codes, revenue numbers, product UI, or reuse permission.",
+      "Do not silently substitute new character faces if the canonical duo reference cannot be loaded; mark character_reference_missing instead.",
       "Do not upload before quality_gate.py passes.",
       "Do not re-render this same tool if a ready/uploaded manifest entry already covers the campaign."
     ],
+    "character_system_id": "COSHUMA_DUO_V1",
+    "character_reference_path": "projects/GlobalSaaSHub/assets/characters/COSHUMA_DUO_MASTER.jpg",
     "coshuma_url": "https://coshuma.com/tool/boldsign.html?utm_source=youtube&utm_medium=shorts&utm_campaign=boldsign",
     "affiliate_target": "boldsign",
     "campaign_slug": "boldsign"
