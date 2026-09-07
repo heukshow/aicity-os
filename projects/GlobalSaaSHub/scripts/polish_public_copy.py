@@ -61,6 +61,29 @@ TOOL_SPONSORSHIP_INQUIRY = (
     '      </section>'
 )
 
+# Some high-intent tool pages do not yet have a verified customer-facing affiliate
+# URL for the searched vendor. In those cases, show one clearly framed, relevant
+# alternative that does have a verified COSHUMA revenue route. Never substitute the
+# alternative as if it were the searched vendor's own affiliate link.
+TOOL_REVENUE_ALTERNATIVES = {
+    "monday-com.html": {
+        "headline": "Need an AI-first workspace instead?",
+        "copy": "Monday.com is the work-management option on this page. If you want a lighter AI-native workspace with collaborative tasks, AI agents and automations, compare Taskade before choosing.",
+        "tool_id": "taskade",
+        "source": "monday-com-taskade-alternative",
+        "href": "https://www.taskade.com/?via=7zzjo7",
+        "label": "Compare Taskade →",
+    },
+    "time2book.html": {
+        "headline": "Need CRM + appointment automation instead?",
+        "copy": "Time2book is focused on fitness-business bookings. If you need a broader CRM with funnels, messaging and appointment workflows for an agency or service business, compare HighLevel before choosing.",
+        "tool_id": "gohighlevel",
+        "source": "time2book-highlevel-alternative",
+        "href": "https://www.gohighlevel.com/?fp_ref=sangkwon56",
+        "label": "Compare HighLevel →",
+    },
+}
+
 # These lines are generic claims that can be misleading when applied to every product.
 REMOVE_LINE_PATTERNS = [
     r"<li>Flexible pricing structure \([^<]*\)</li>",
@@ -195,6 +218,24 @@ def ensure_compare_affiliate_disclosure(text: str) -> str:
     )
 
 
+def ensure_tool_revenue_alternative(text: str, filename: str) -> str:
+    """Add one honest verified affiliate alternative to selected untracked vendor pages."""
+    offer = TOOL_REVENUE_ALTERNATIVES.get(filename)
+    if not offer or 'data-tool-revenue-alternative="true"' in text or "</main>" not in text:
+        return text
+
+    section = (
+        '      <section data-tool-revenue-alternative="true" class="mt-8 p-5 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-3">\n'
+        '        <div class="text-[10px] uppercase tracking-wider font-bold text-emerald-300">Buyer decision</div>\n'
+        f'        <h2 class="text-lg font-extrabold text-white">{offer["headline"]}</h2>\n'
+        f'        <p class="text-xs text-slate-300 leading-relaxed">{offer["copy"]}</p>\n'
+        f'        <a data-cta="affiliate" data-tool-id="{offer["tool_id"]}" data-cta-source="{offer["source"]}" href="{offer["href"]}" target="_blank" rel="sponsored noopener noreferrer" class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold transition-all">{offer["label"]}</a>\n'
+        '        <p class="text-[10px] text-slate-500">Affiliate disclosure: This alternative button uses a verified COSHUMA partner link. COSHUMA may earn a commission if you become a paying customer after using it, at no extra cost to you.</p>\n'
+        '      </section>'
+    )
+    return re.sub(r"(?=\s*</main>)", section + "\n", text, count=1)
+
+
 def ensure_tool_sponsorship_inquiry(text: str) -> str:
     """Keep a no-charge sponsorship lead path visible on every static tool profile."""
     if 'data-sponsorship-inquiry="tool"' in text:
@@ -220,6 +261,7 @@ def main() -> None:
             original = path.read_text(encoding="utf-8")
             updated = polish(original)
             if folder.name == "tool":
+                updated = ensure_tool_revenue_alternative(updated, path.name)
                 updated = ensure_tool_sponsorship_inquiry(updated)
             if folder.name == "compare":
                 updated = monetize_verified_compare_links(updated)
