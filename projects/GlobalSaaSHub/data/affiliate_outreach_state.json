@@ -1,0 +1,59 @@
+{
+  "updated_at": "2026-09-07T23:35:00+09:00",
+  "rules": {
+    "do_not_duplicate_statuses": [
+      "outreach_sent",
+      "enrollment_requested",
+      "application_submitted",
+      "approved",
+      "approved_tracking",
+      "rejected",
+      "pending",
+      "cooldown",
+      "closed"
+    ],
+    "require_exact_customer_tracking_url_before_revenue_cta": true
+  },
+  "programs": {
+    "pipedrive": {
+      "status": "outreach_sent",
+      "contact": "partners@pipedrive.com",
+      "gmail_message_id": "1a07c483aae01ce5",
+      "sender": "support@coshuma.com",
+      "tracking_url": null,
+      "note": "Requested current affiliate application path and exact customer-facing tracking URL. Do not duplicate outreach while awaiting reply."
+    },
+    "monday-com": {
+      "status": "outreach_sent",
+      "contact": "support@partnerstack.com",
+      "gmail_message_id": "1a07c4872cf1ca3b",
+      "sender": "support@coshuma.com",
+      "tracking_url": null,
+      "note": "Requested monday.com program access using the existing PartnerStack account. Do not create a second PartnerStack account."
+    },
+    "time2book": {
+      "status": "outreach_sent",
+      "contact": "info@time2book.me",
+      "gmail_message_id": "1a07c470b1cf08a6",
+      "sender": "support@coshuma.com",
+      "tracking_url": null,
+      "note": "Requested affiliate signup path/account activation and exact customer-facing referral URL."
+    },
+    "apollo": {
+      "status": "outreach_sent",
+      "contact": "partners@apollo.io",
+      "gmail_message_id": "1a07c4afcbba2b71",
+      "sender": "support@coshuma.com",
+      "tracking_url": null,
+      "note": "Requested Apollo Affiliate Program access through the existing PartnerStack account and exact customer-facing tracking URL."
+    },
+    "ai-video-cut": {
+      "status": "outreach_sent",
+      "contact": "marketing@aivideocut.com",
+      "gmail_message_id": "1a07c4bd28897ce1",
+      "sender": "support@coshuma.com",
+      "tracking_url": null,
+      "note": "Requested current affiliate signup path/account activation and exact customer-facing referral URL."
+    }
+  }
+}
