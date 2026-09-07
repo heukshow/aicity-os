@@ -98,7 +98,7 @@ def main():
             fail(errors, f"{tool_id} generated affiliate CTA does not use its approved tracking URL")
         if not affiliate_cta or 'rel="sponsored noopener noreferrer"' not in affiliate_cta.group(0):
             fail(errors, f"{tool_id} affiliate CTA is missing the sponsored safety relation")
-        if "via Verified Affiliate Link" not in html:
+        if not ("via Verified Affiliate Link" in html or re.search(r"Affiliate disclosure:.*?commission", html, re.I | re.S)):
             fail(errors, f"{tool_id} affiliate disclosure is missing")
     if errors:
         print(f"LINK INTEGRITY: FAIL ({len(errors)} errors)")

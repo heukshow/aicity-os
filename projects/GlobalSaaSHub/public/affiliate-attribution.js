@@ -1,11 +1,13 @@
 (function () {
   'use strict';
 
+  if (!['coshuma.com', 'www.coshuma.com'].includes(window.location.hostname)) return;
+
   if (window.__coshumaStaticAttributionInitialized) return;
   window.__coshumaStaticAttributionInitialized = true;
 
   const measurementId = 'G-J7E0J89VCV';
-  const sessionKey = 'coshuma_affiliate_campaign_v1';
+  const sessionKey = 'coshuma_affiliate_campaign_v2';
   const params = new URLSearchParams(window.location.search);
   const campaignKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
 
@@ -23,19 +25,13 @@
   }
 
   function directCampaign() {
-    return {
-      utm_source: 'direct',
-      utm_medium: 'none',
-      utm_campaign: 'none',
-      utm_content: 'none',
-      utm_term: 'none'
-    };
+    return {};
   }
 
   function normalizeCampaign(values) {
     const normalized = {};
     campaignKeys.forEach(function (key) {
-      normalized[key] = values && values[key] ? values[key] : (key === 'utm_source' ? 'direct' : 'none');
+      if (values && values[key]) normalized[key] = values[key];
     });
     return normalized;
   }
@@ -144,6 +140,7 @@
   window.gtag('event', 'page_view', {
     page_title: document.title,
     page_location: window.location.href,
+    page_referrer: document.referrer,
     page_path: window.location.pathname + window.location.search,
     page_type: pageTypeFromPath(),
     content_slug: contentSlugFromPath(),

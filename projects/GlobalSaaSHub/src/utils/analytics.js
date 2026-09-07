@@ -13,7 +13,25 @@ function campaignContext() {
 }
 
 function emit(eventName, event) {
-  if (typeof window.gtag === 'function') window.gtag('event', eventName, event);
+  // Let GA4 derive acquisition from the real URL and referrer. Local dashboard
+  // defaults such as source=direct/medium=none must never override attribution.
+  const payload = {
+    page_title: document.title,
+    page_location: window.location.href,
+    page_referrer: document.referrer,
+    page_path: window.location.pathname,
+    page_type: 'home',
+    category: event.category,
+  };
+  if (eventName !== 'page_view') Object.assign(payload, {
+    tool_id: event.tool_id,
+    tool_name: event.toolName,
+    link_url: event.outbound_url,
+    outbound_domain: event.affiliate_network,
+    cta_source: 'home-tool-card',
+    transport_type: 'beacon',
+  });
+  if (typeof window.gtag === 'function') window.gtag('event', eventName, payload);
 }
 
 // Country mapping helper based on browser TimeZone & Locale
@@ -47,6 +65,7 @@ export function detectVisitorCountry() {
 
 // Track a Page Visit Event
 export function trackPageView(category = 'all') {
+  emit('page_view', { category });
   try {
     const events = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
     const countryInfo = detectVisitorCountry();
@@ -69,7 +88,6 @@ export function trackPageView(category = 'all') {
     // Keep max 2000 events to manage storage
     if (events.length > 2000) events.shift();
     localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
-    emit('page_view', newEvent);
   } catch (e) {
     console.warn('Analytics tracking error:', e);
   }
@@ -77,6 +95,12 @@ export function trackPageView(category = 'all') {
 
 // Track an Affiliate Tool Click Event
 export function trackToolClick(toolId, toolName, outboundUrl, isAffiliate = false) {
+  let outboundDomain;
+  try { outboundDomain = new URL(outboundUrl).hostname; } catch { /* optional */ }
+  emit(isAffiliate ? 'affiliate_click' : 'outbound_click', {
+    tool_id: toolId, toolName, outbound_url: outboundUrl,
+    affiliate_network: outboundDomain,
+  });
   try {
     const events = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
     const countryInfo = detectVisitorCountry();
@@ -101,7 +125,6 @@ export function trackToolClick(toolId, toolName, outboundUrl, isAffiliate = fals
     events.push(newEvent);
     if (events.length > 2000) events.shift();
     localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
-    emit(isAffiliate ? 'affiliate_click' : 'outbound_click', newEvent);
   } catch (e) {
     console.warn('Click tracking error:', e);
   }
