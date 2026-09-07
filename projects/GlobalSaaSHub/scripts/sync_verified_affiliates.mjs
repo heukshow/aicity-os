@@ -152,16 +152,19 @@ const statusOverrides = {
     ],
   },
   'tagshop-ai': {
-    affiliate_verified: true,
-    affiliate_status: 'application_submitted',
-    affiliate_verified_at: '2026-09-07T00:00:00+09:00',
-    affiliate_evidence_markers: [
-      'Tagshop AI official affiliate page says joining is free and provides dashboard referral-link access',
-      'Official affiliate terms show 30% recurring commission for 6 months and a 90-day cookie',
-      'COSHUMA affiliate application sent to official hello@tagshop.ai address',
-      'Gmail message id 1a07aa3450c58442',
-      'Exact customer-facing tracking URL not yet issued or verified',
-    ],
+    "affiliate_url": null,
+    "affiliate_verified": false,
+    "affiliate_status": "browser_required_user_consent",
+    "affiliate_final_url": null,
+    "affiliate_verified_at": "2026-09-08T04:55:00+09:00",
+    "affiliate_status_checked_at": "2026-09-08T04:55:00+09:00",
+    "affiliate_status_evidence_url": "https://tagshop.firstpromoter.com/signup",
+    "affiliate_workflow_url": "https://tagshop.firstpromoter.com/signup",
+    "affiliate_next_action": "User completes password and mandatory program agreement in the preserved signup form, then submits once; handle any CAPTCHA or OTP personally. Verify receipt/account state before retrying. No duplicate outreach or application, and no payment.",
+    "affiliate_evidence_markers": [
+      "Official FirstPromoter signup form prepared with COSHUMA / GlobalSaaSHub, support@coshuma.com, South Korea and existing COSHUMA YouTube channel. Mandatory program agreement covers brand guidelines, restricted promotions, program emails and suspension/loss of commissions. Agreement unchecked; password blank; Sign Up not clicked. No portal application or customer tracking URL issued. Earlier email outreach is historical and does not establish a FirstPromoter account.",
+      "data/catalister-tagshop-followup-2026-09-08.json"
+    ]
   },
   veed: {
     affiliate_verified: true,

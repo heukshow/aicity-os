@@ -301,6 +301,24 @@
       "do_not_reapply": true,
       "do_not_outreach": true,
       "note": "Official support confirmation in Copy.ai ticket #19902: Currently, we do not have an active affiliate or referral program. No new partners or referral links are available. Exclude from outreach/application targets unless newer official evidence confirms an active program."
+    },
+    "catalister": {
+      "status": "approved_tracking",
+      "tracking_url": "https://app.catalister.com/signup?via=coshuma",
+      "sender": "support@coshuma.com",
+      "verified_at": "2026-09-08T04:55:00+09:00",
+      "note": "Authenticated Catalister onboarding accepted First Name COSHUMA, Last Name GlobalSaaSHub and affiliate identifier coshuma. Dashboard welcomes COSHUMA, displays Your Affiliate Link app.catalister.com/signup?via=coshuma and confirms Link copied. Customer destination shows Create your account with via=coshuma retained. Operational enrollment and issued link confirmed; no separate approval email claimed. Before verification visit, dashboard displayed 0 clicks, 0 paying referrals, 0 trialing referrals, EUR 0 total/unpaid commission and EUR 0 revenue.",
+      "next_action": "Preserve issued link. Do not reapply.",
+      "portal_enrollment_confirmed": true
+    },
+    "tagshop-ai": {
+      "status": "browser_required_user_consent",
+      "tracking_url": null,
+      "sender": "support@coshuma.com",
+      "verified_at": "2026-09-08T04:55:00+09:00",
+      "note": "Official FirstPromoter signup form prepared with COSHUMA / GlobalSaaSHub, support@coshuma.com, South Korea and existing COSHUMA YouTube channel. Mandatory program agreement covers brand guidelines, restricted promotions, program emails and suspension/loss of commissions. Agreement unchecked; password blank; Sign Up not clicked. No portal application or customer tracking URL issued. Earlier email outreach is historical and does not establish a FirstPromoter account.",
+      "next_action": "User completes password and mandatory program agreement in the preserved signup form, then submits once; handle any CAPTCHA or OTP personally. Verify receipt/account state before retrying. No duplicate outreach or application, and no payment.",
+      "portal_enrollment_confirmed": false
     }
   }
 }

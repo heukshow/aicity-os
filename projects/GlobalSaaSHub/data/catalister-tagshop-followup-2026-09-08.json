@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-09-08T04:55:00+09:00",
+  "catalister": {
+    "status": "approved_tracking",
+    "exact_tracking_url": "https://app.catalister.com/signup?via=coshuma",
+    "evidence": "Authenticated Catalister onboarding accepted First Name COSHUMA, Last Name GlobalSaaSHub and affiliate identifier coshuma. Dashboard welcomes COSHUMA, displays Your Affiliate Link app.catalister.com/signup?via=coshuma and confirms Link copied. Customer destination shows Create your account with via=coshuma retained. Operational enrollment and issued link confirmed; no separate approval email claimed. Before verification visit, dashboard displayed 0 clicks, 0 paying referrals, 0 trialing referrals, EUR 0 total/unpaid commission and EUR 0 revenue.",
+    "dashboard_metrics_before_link_verification": {
+      "clicks": 0,
+      "paying_referrals": 0,
+      "trialing_referrals": 0,
+      "total_commission_eur": 0,
+      "unpaid_commission_eur": 0,
+      "revenue_eur": 0
+    },
+    "attribution_note": "A browser verification visit is not an organic click, conversion, commission or sale; server-side attribution not independently measured."
+  },
+  "tagshop": {
+    "status": "browser_required_user_consent",
+    "application_submitted": false,
+    "exact_tracking_url": null,
+    "evidence": "Official FirstPromoter signup form prepared with COSHUMA / GlobalSaaSHub, support@coshuma.com, South Korea and existing COSHUMA YouTube channel. Mandatory program agreement covers brand guidelines, restricted promotions, program emails and suspension/loss of commissions. Agreement unchecked; password blank; Sign Up not clicked. No portal application or customer tracking URL issued. Earlier email outreach is historical and does not establish a FirstPromoter account.",
+    "next_action": "User completes password and mandatory program agreement in the preserved signup form, then submits once; handle any CAPTCHA or OTP personally. Verify receipt/account state before retrying. No duplicate outreach or application, and no payment.",
+    "metrics_note": "No dashboard metrics available. Existing signup, commission and revenue values remain 0; these are not newly measured."
+  }
+}

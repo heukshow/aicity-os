@@ -125,6 +125,7 @@ jobs:
         run: |
           node scripts/verify_approved_tracking.mjs
           node scripts/tests/browser-followup.test.mjs
+          node scripts/tests/tagshop-consent.test.mjs
 
       - name: Verify COSHUMA bundle identity
         run: |

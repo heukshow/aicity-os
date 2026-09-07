@@ -490,5 +490,43 @@
       "Do not pay or create a new account.",
       "Do not infer conversions, commissions or revenue from approval or public landing checks."
     ]
+  },
+  {
+    "id": "catalister-affiliate-followup",
+    "tool_id": "catalister",
+    "priority": "high",
+    "status": "approved_tracking",
+    "affiliate_status": "approved_tracking",
+    "cost": "0",
+    "verified_at": "2026-09-08T04:55:00+09:00",
+    "exact_tracking_url": "https://app.catalister.com/signup?via=coshuma",
+    "reason": "Authenticated Catalister onboarding accepted First Name COSHUMA, Last Name GlobalSaaSHub and affiliate identifier coshuma. Dashboard welcomes COSHUMA, displays Your Affiliate Link app.catalister.com/signup?via=coshuma and confirms Link copied. Customer destination shows Create your account with via=coshuma retained. Operational enrollment and issued link confirmed; no separate approval email claimed. Before verification visit, dashboard displayed 0 clicks, 0 paying referrals, 0 trialing referrals, EUR 0 total/unpaid commission and EUR 0 revenue.",
+    "next_action": "Resolved. Preserve exact issued URL; do not reapply.",
+    "execution_evidence": "catalister-tagshop-followup-2026-09-08.json",
+    "do_not": [
+      "Do not submit duplicate applications or outreach.",
+      "Do not substitute dashboard, homepage or empty tracking parameter for a revenue URL.",
+      "Do not infer conversions or revenue from link issuance or a verification visit.",
+      "No paid enrollment."
+    ]
+  },
+  {
+    "id": "tagshop-ai-affiliate-followup",
+    "tool_id": "tagshop-ai",
+    "priority": "high",
+    "status": "browser_required_user_consent",
+    "affiliate_status": "browser_required_user_consent",
+    "cost": "0",
+    "verified_at": "2026-09-08T04:55:00+09:00",
+    "exact_tracking_url": null,
+    "reason": "Official FirstPromoter signup form prepared with COSHUMA / GlobalSaaSHub, support@coshuma.com, South Korea and existing COSHUMA YouTube channel. Mandatory program agreement covers brand guidelines, restricted promotions, program emails and suspension/loss of commissions. Agreement unchecked; password blank; Sign Up not clicked. No portal application or customer tracking URL issued. Earlier email outreach is historical and does not establish a FirstPromoter account.",
+    "next_action": "User completes password and mandatory program agreement in the preserved signup form, then submits once; handle any CAPTCHA or OTP personally. Verify receipt/account state before retrying. No duplicate outreach or application, and no payment.",
+    "execution_evidence": "catalister-tagshop-followup-2026-09-08.json",
+    "do_not": [
+      "Do not submit duplicate applications or outreach.",
+      "Do not substitute dashboard, homepage or empty tracking parameter for a revenue URL.",
+      "Do not infer conversions or revenue from link issuance or a verification visit.",
+      "No paid enrollment."
+    ]
   }
 ]

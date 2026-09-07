@@ -3651,9 +3651,18 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://tagshop.ai/",
     "affiliate_url": null,
-    "affiliate_status": "application_available",
-    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://tagshop.ai/affiliate"
+    "affiliate_status": "browser_required_user_consent",
+    "affiliate_status_checked_at": "2026-09-08T04:55:00+09:00",
+    "affiliate_status_evidence_url": "https://tagshop.firstpromoter.com/signup",
+    "affiliate_verified": false,
+    "affiliate_final_url": null,
+    "affiliate_verified_at": "2026-09-08T04:55:00+09:00",
+    "affiliate_workflow_url": "https://tagshop.firstpromoter.com/signup",
+    "affiliate_next_action": "User completes password and mandatory program agreement in the preserved signup form, then submits once; handle any CAPTCHA or OTP personally. Verify receipt/account state before retrying. No duplicate outreach or application, and no payment.",
+    "affiliate_evidence_markers": [
+      "Official FirstPromoter signup form prepared with COSHUMA / GlobalSaaSHub, support@coshuma.com, South Korea and existing COSHUMA YouTube channel. Mandatory program agreement covers brand guidelines, restricted promotions, program emails and suspension/loss of commissions. Agreement unchecked; password blank; Sign Up not clicked. No portal application or customer tracking URL issued. Earlier email outreach is historical and does not establish a FirstPromoter account.",
+      "data/catalister-tagshop-followup-2026-09-08.json"
+    ]
   },
   {
     "id": "text",
@@ -3914,10 +3923,17 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://catalister.com/",
-    "affiliate_url": null,
-    "affiliate_status": "application_available_email_code",
-    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://affiliates.catalister.com/"
+    "affiliate_url": "https://app.catalister.com/signup?via=coshuma",
+    "affiliate_status": "approved_tracking",
+    "affiliate_status_checked_at": "2026-09-08T04:55:00+09:00",
+    "affiliate_status_evidence_url": "https://affiliates.catalister.com/dashboard",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-09-08T04:55:00+09:00",
+    "affiliate_final_url": "https://app.catalister.com/signup?via=coshuma",
+    "affiliate_evidence_markers": [
+      "Authenticated Catalister onboarding accepted First Name COSHUMA, Last Name GlobalSaaSHub and affiliate identifier coshuma. Dashboard welcomes COSHUMA, displays Your Affiliate Link app.catalister.com/signup?via=coshuma and confirms Link copied. Customer destination shows Create your account with via=coshuma retained. Operational enrollment and issued link confirmed; no separate approval email claimed. Before verification visit, dashboard displayed 0 clicks, 0 paying referrals, 0 trialing referrals, EUR 0 total/unpaid commission and EUR 0 revenue.",
+      "data/approved-tracking-2026-09-08.json"
+    ]
   },
   {
     "id": "bookyourdata",

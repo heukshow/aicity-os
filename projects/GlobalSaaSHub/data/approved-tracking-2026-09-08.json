@@ -106,6 +106,14 @@
       "status_origin": "existing_remote_record_preserved_not_new_approval",
       "current_dashboard_status": "otp_required",
       "tracking_attribution_currently_verified": false
+    },
+    {
+      "id": "catalister",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://app.catalister.com/signup?via=coshuma",
+      "destination": "https://app.catalister.com/signup?via=coshuma",
+      "evidence": "Authenticated Catalister onboarding accepted First Name COSHUMA, Last Name GlobalSaaSHub and affiliate identifier coshuma. Dashboard welcomes COSHUMA, displays Your Affiliate Link app.catalister.com/signup?via=coshuma and confirms Link copied. Customer destination shows Create your account with via=coshuma retained. Operational enrollment and issued link confirmed; no separate approval email claimed. Before verification visit, dashboard displayed 0 clicks, 0 paying referrals, 0 trialing referrals, EUR 0 total/unpaid commission and EUR 0 revenue.",
+      "checked_at": "2026-09-08T04:55:00+09:00"
     }
   ]
 }
