@@ -6,6 +6,18 @@ Turn revenue-priority COSHUMA pages (`/best/`, `/compare/`, `/tool/`) into Short
 
 ## Current pipeline
 
+## Fixed COSHUMA presenter duo
+
+Every new COSHUMA SaaS video must load these repository assets before any character generation:
+
+- `assets/characters/COSHUMA_MALE_MASTER.png`
+- `assets/characters/COSHUMA_FEMALE_MASTER.png`
+- `assets/characters/COSHUMA_DUO_REFERENCE.png`
+
+The male and female identities are permanent. Clothing, pose and background may change, but face shape, hairstyle, late-20s age range, skin tone and overall impression must remain consistent. Do not generate replacement faces. If either individual master is absent, unreadable or fails its recorded SHA-256 check, stop only that video and record `character_reference_missing`.
+
+The default episode format is 9:16 and 30-45 seconds: a strong first-two-second hook, alternating dialogue between the two presenters, real tool UI, one presenter operating while the other guides the next action, and a natural CTA. Emphasize verified workflow efficiency, time savings, automation and business opportunity without invented revenue claims.
+
 | Stage | Status | Implementation |
 |---|---|---|
 | Revenue-priority selection | Done | `scripts/youtube_shorts/select_content.py` |

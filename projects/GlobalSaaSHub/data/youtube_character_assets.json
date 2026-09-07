@@ -1,6 +1,46 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "default_format": "coshuma_fixed_duo",
+  "required_local_assets": {
+    "male": "assets/characters/COSHUMA_MALE_MASTER.png",
+    "female": "assets/characters/COSHUMA_FEMALE_MASTER.png",
+    "duo": "assets/characters/COSHUMA_DUO_REFERENCE.png"
+  },
+  "missing_asset_status": "character_reference_missing",
+  "identity_rules": [
+    "Always load both master portraits before generating a COSHUMA SaaS video.",
+    "Never replace either identity with a newly generated face.",
+    "Face shape, hairstyle, late-20s age range, skin tone and overall impression must remain consistent.",
+    "Wardrobe, pose and background may change for the episode.",
+    "If either required master is missing or unreadable, stop only that video and record character_reference_missing."
+  ],
   "characters": [
+    {
+      "name": "COSHUMA-MALE-MASTER",
+      "role": "Fixed male COSHUMA SaaS operator and presenter",
+      "local_reference_path": "assets/characters/COSHUMA_MALE_MASTER.png",
+      "sha256": "A551C2D278D6571200EF42943C3CE4F0727E28D02577995836A394EFFB820549",
+      "visual_identity": "Photorealistic Korean man in his late 20s with a polished idol-inspired appearance, black center-parted hair and a calm professional expression",
+      "usage_rule": "Reuse this exact master identity in every COSHUMA duo video; never regenerate the face.",
+      "created_at": "2026-09-07"
+    },
+    {
+      "name": "COSHUMA-FEMALE-MASTER",
+      "role": "Fixed female COSHUMA SaaS guide and presenter",
+      "local_reference_path": "assets/characters/COSHUMA_FEMALE_MASTER.png",
+      "sha256": "6EFC653E24DA4DE33EB710E7B2D52CB251AEEEAA222C581E7A98F211E9D43B82",
+      "visual_identity": "Photorealistic Korean woman in her late 20s with a polished idol-inspired appearance, long dark-brown softly waved hair and a friendly professional expression",
+      "usage_rule": "Reuse this exact master identity in every COSHUMA duo video; never regenerate the face.",
+      "created_at": "2026-09-07"
+    },
+    {
+      "name": "COSHUMA-DUO-REFERENCE",
+      "role": "Canonical two-person identity and proportion reference",
+      "local_reference_path": "assets/characters/COSHUMA_DUO_REFERENCE.png",
+      "sha256": "A114A23956E0C02B9278CA7E79494E86E8C50A19E6DD7FFE2B35685031AD2924",
+      "usage_rule": "Use with both individual masters whenever the model supports multiple references.",
+      "created_at": "2026-09-07"
+    },
     {
       "name": "CORA-COSHUMA",
       "role": "Recurring COSHUMA SaaS workflow guide",
