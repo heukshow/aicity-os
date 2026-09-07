@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-07T15:49:30Z",
+  "updated_at": "2026-09-07T15:52:30Z",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -101,6 +101,15 @@
       "tracking_url": null,
       "official_program_url": "https://www.taskip.net/affiliates/",
       "note": "Fresh official affiliate page confirms applications are open, with no minimum traffic or follower requirement and a unique affiliate link after approval. Duplicate checks across both connected Gmail accounts found no prior Taskip affiliate thread before outreach. COSHUMA requested enrollment or the official invitation route from Taskip's published support address. Email outreach is not proof of application submission or approval; exact customer-facing tracking URL remains unverified."
+    },
+    "gumloop": {
+      "status": "enrollment_requested",
+      "contact": "support@gumloop.com",
+      "gmail_message_id": "1a07c91048a2779e",
+      "sender": "support@coshuma.com",
+      "tracking_url": null,
+      "official_program_url": "https://www.gumloop.com/partners/apply-to-be-a-creator",
+      "note": "Fresh official Gumloop Creator Program page says AI and automation creators, educators, community builders and affiliate partners may apply, and accepted creators receive a referral link and discount code. Duplicate checks across both connected Gmail accounts found no prior Gumloop affiliate/creator thread before outreach. COSHUMA requested enrollment or an official invitation tied to support@coshuma.com. Email outreach is not proof of application submission or acceptance; no customer-facing tracking URL is verified yet."
     }
   }
 }
