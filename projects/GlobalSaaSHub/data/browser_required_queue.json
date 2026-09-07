@@ -48,31 +48,40 @@
   {
     "id": "kittl-impact-approved-referral-link",
     "priority": "high",
-    "status": "browser_required",
+    "status": "pending",
     "cost": "0",
-    "verified_at": "2026-09-02T00:47:00+09:00",
-    "reason": "Kittl's Impact email explicitly welcomes COSHUMA to the Kittl Affiliate Program, while the repository still records Kittl as application_submitted with affiliate_url=null. The approval email provides brand/support resources but does not expose an account-specific customer referral URL, so no revenue URL can be safely published yet.",
-    "next_action": "Reuse an already authenticated Impact browser session, open the Kittl campaign/link-creation area, obtain the exact customer-facing tracking URL, verify its account-specific tracking identifier and destination, then update Kittl's affiliate status/data and eligible COSHUMA CTAs. Use Kittl's provided brand guidelines when preparing conversion content after the tracking URL is verified.",
+    "verified_at": "2026-09-07T17:06:13Z",
+    "reason": "Approval email 1a05cb0bb6ebc623 reread. Impact password login reached with support@coshuma.com. Both existing Google accounts route to new Partner Sign Up; neither signup was submitted. No saved password surfaced.",
+    "next_action": "No duplicate account, application, or password reset. Pending means link recovery is unfinished, not approval pending.",
     "do_not": [
       "Do not treat the Impact email redirect, notification-settings URL, Help Center or brand-guidelines URL as an affiliate/revenue link.",
       "Do not guess or construct an Impact tracking URL or campaign parameter.",
       "Do not submit another Kittl affiliate application because approval is already evidenced by the welcome email."
-    ]
+    ],
+    "affiliate_status": "pending",
+    "exact_tracking_url": null,
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json",
+    "blocker": "existing_account_credentials_required"
   },
   {
     "id": "lemon-squeezy-hub-approved-program-links",
     "priority": "high",
-    "status": "browser_required",
+    "status": "approved_tracking",
     "cost": "0",
-    "verified_at": "2026-09-03T14:04:48+09:00",
-    "reason": "Lemon Squeezy sent two fresh emails confirming that COSHUMA's affiliate account/profile is approved and that the account can now join affiliate programs and start earning referrals. The approval emails do not provide a customer-facing account-specific referral URL for any individual merchant/program, so no Lemon Squeezy dashboard or onboarding link can safely be published as a revenue CTA.",
-    "next_action": "Reuse an already authenticated Lemon Squeezy affiliate browser session. First verify the current status of the existing Voibe program entry, then inspect eligible affiliate programs, join only suitable free programs that are not already pending/approved/rejected/closed, and for each approved program copy the exact customer-facing referral URL from the hub. Verify the merchant, tracking identifier and destination before updating COSHUMA data or production CTAs.",
+    "verified_at": "2026-09-07T17:06:13Z",
+    "reason": "Authenticated program initially showed status '-' and Submit affiliate request, with no prior merchant request in either mailbox. Existing repository affiliate_profile_pending was hub-profile status. One free request was submitted; program changed to Active with its exact Affiliate URL. Copied; customer page retains aff=G5Yr5D.",
+    "next_action": "Link recovered. Do not reapply. Use the exact customer URL from the execution evidence when updating eligible site CTAs.",
     "do_not": [
       "Do not treat the Lemon Squeezy affiliate hub, dashboard, onboarding, help or email-tracking redirect as an affiliate/revenue link.",
       "Do not infer that Lemon Squeezy profile approval automatically means the existing Voibe program is approved.",
       "Do not guess or construct a referral parameter or merchant link.",
       "Do not reapply to programs already pending, approved, rejected, cooling down or closed."
-    ]
+    ],
+    "affiliate_status": "approved_tracking",
+    "exact_tracking_url": "https://www.getvoibe.com/?aff=G5Yr5D",
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json",
+    "resolved_at": "2026-09-07T17:06:13Z",
+    "resolution_evidence": "Authenticated program initially showed status '-' and Submit affiliate request, with no prior merchant request in either mailbox. Existing repository affiliate_profile_pending was hub-profile status. One free request was submitted; program changed to Active with its exact Affiliate URL. Copied; customer page retains aff=G5Yr5D."
   },
   {
     "id": "chatbase-dub-approved-referral-link",
@@ -95,32 +104,41 @@
     "priority": "high",
     "status": "browser_required_user_consent",
     "cost": "0",
-    "verified_at": "2026-09-04T13:38:42+09:00",
-    "reason": "ClickFunnels' affiliate confirmation email states that the COSHUMA account has joined the ClickFunnels Affiliate Program, but promotion links are only exposed in the Affiliate Center after the Affiliate Agreement is read and accepted. The repository still has affiliate_url=null for ClickFunnels, so publishing any generic ClickFunnels URL as a revenue link would be unsafe.",
-    "next_action": "When the user is available, reuse the authenticated ClickFunnels Affiliate Portal session and have the user personally review and accept the Affiliate Agreement. After acceptance, open the Campaigns tab, copy the exact customer-facing campaign/referral URL, verify its tracking identifier and destination, then update ClickFunnels affiliate data and eligible COSHUMA detail/comparison CTAs.",
+    "verified_at": "2026-09-07T17:06:13Z",
+    "reason": "Confirmation email 1a03b554562a0d88 explicitly requires Affiliate Agreement before Campaign links. Existing portal URL redirects to sign-in. Email login requested once and reached numeric-code page for support@coshuma.com.",
+    "next_action": "OTP page preserved; no OTP entered, agreement accepted, or duplicate registration.",
     "do_not": [
       "Do not accept the ClickFunnels Affiliate Agreement on the user's behalf.",
       "Do not treat the Affiliate Portal, Campaigns dashboard, email-tracking redirect or generic clickfunnels.com homepage as an affiliate/revenue link.",
       "Do not guess or construct a ClickFunnels referral or campaign URL.",
       "Do not submit another ClickFunnels affiliate application because the confirmation email already verifies program enrollment."
-    ]
+    ],
+    "affiliate_status": "browser_required_user_consent",
+    "exact_tracking_url": null,
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json",
+    "blocker": "otp_then_affiliate_agreement"
   },
   {
     "id": "text-helpdesk-campaign-affiliate-link",
     "priority": "high",
-    "status": "browser_required",
+    "status": "approved_tracking",
     "cost": "0",
-    "verified_at": "2026-09-07T12:15:27+09:00",
+    "verified_at": "2026-09-07T17:06:13Z",
     "gmail_thread_id": "1a056c2fa4964d52",
     "gmail_message_id": "1a079dd172f5ca22",
-    "reason": "Text Support has now explicitly confirmed that Campaign affiliate links created in the authenticated Partner App are commission-bearing customer links, and that COSHUMA may create a HelpDesk-specific Campaign instead of using a generic URL. The exact generated HelpDesk customer-facing campaign URL has not yet been verified, so HelpDesk must remain non-monetized until that link is recovered.",
-    "next_action": "Reuse an already authenticated Text Partner App browser session and open https://partners.livechat.com/app/affiliate/campaigns. Prefer an existing active HelpDesk-specific campaign if one already exists; otherwise create a zero-cost HelpDesk-specific Campaign. Copy the exact generated customer-facing affiliate URL, verify that it routes to the intended HelpDesk signup/product destination and contains the account/campaign tracking assigned by Text, then update HelpDesk affiliate data and eligible COSHUMA HelpDesk CTAs.",
+    "reason": "Authenticated active HelpDesk - default campaign 723911 created 2026-08-31. Exact Campaign link copied; customer destination renders HelpDesk. Text email 1a079dd172f5ca22 explicitly confirms campaign-link commissions.",
+    "next_action": "Link recovered. Do not reapply. Use the exact customer URL from the execution evidence when updating eligible site CTAs.",
     "do_not": [
       "Do not treat https://partners.livechat.com/app/affiliate or /affiliate/campaigns as a revenue link; those are authenticated Partner App/dashboard locations.",
       "Do not treat a generic helpdesk.com URL, Customer Portal URL, email tracking redirect, or https://share.text.com/CkwfynGH as the HelpDesk affiliate link unless the authenticated Campaign UI itself verifies it as the generated customer-facing campaign URL.",
       "Do not guess or construct tracking parameters.",
       "Do not submit another Text/HelpDesk affiliate application because the account is already enrolled."
-    ]
+    ],
+    "affiliate_status": "approved_tracking",
+    "exact_tracking_url": "https://www.helpdesk.com/?a=8IetMhQvR&utm_campaign=pp_helpdesk-default&utm_source=PP&d=14",
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json",
+    "resolved_at": "2026-09-07T17:06:13Z",
+    "resolution_evidence": "Authenticated active HelpDesk - default campaign 723911 created 2026-08-31. Exact Campaign link copied; customer destination renders HelpDesk. Text email 1a079dd172f5ca22 explicitly confirms campaign-link commissions."
   },
   {
     "id": "coshuma-short-render-boldsign",
@@ -142,5 +160,141 @@
     "coshuma_url": "https://coshuma.com/tool/boldsign.html?utm_source=youtube&utm_medium=shorts&utm_campaign=boldsign",
     "affiliate_target": "boldsign",
     "campaign_slug": "boldsign"
+  },
+  {
+    "id": "fill-browser-followup-20260908",
+    "priority": "high",
+    "status": "approved_tracking",
+    "cost": "0",
+    "verified_at": "2026-09-07T17:06:13Z",
+    "reason": "Prior verified welcome-email link preserved per user instruction; fresh anonymous HTTP 200 retains exact tracking parameters and renders Fill.",
+    "next_action": "No reapplication. Preserve this exact customer referral URL.",
+    "exact_tracking_url": "https://www.fillhq.com/?utm_medium=affiliates&fpr=sangkwon-018d58",
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+  },
+  {
+    "id": "gravity-forms-browser-followup-20260908",
+    "priority": "medium",
+    "status": "application_submitted",
+    "cost": "0",
+    "verified_at": "2026-09-07T17:06:13Z",
+    "reason": "Authenticated PartnerStack home displays Gravity / Application pending.",
+    "next_action": "Read only; no reapplication.",
+    "exact_tracking_url": null,
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+  },
+  {
+    "id": "fillout-browser-followup-20260908",
+    "priority": "medium",
+    "status": "browser_required_user_consent",
+    "cost": "0",
+    "verified_at": "2026-09-07T17:06:13Z",
+    "reason": "Existing Dub form has termsAgreement unchecked. Existing fields retained; missing email filled with support@coshuma.com. Page says Step 1 of 2; later steps unverified.",
+    "next_action": "Form retained; no consent or submission.",
+    "exact_tracking_url": null,
+    "blocker": "legal_agreement",
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+  },
+  {
+    "id": "time2book-browser-followup-20260908",
+    "priority": "high",
+    "status": "approved_tracking",
+    "cost": "0",
+    "verified_at": "2026-09-07T17:06:13Z",
+    "reason": "Existing authenticated /affiliates dashboard displays Earn 30% per referral, this exact link and Copy link. No registration. Anonymous request returns 302, sets cookie named aff, then HTTP 200 at official www homepage. Authenticated browser instead routes to /schedule.",
+    "next_action": "No reapplication. Preserve this exact customer referral URL.",
+    "exact_tracking_url": "https://time2book.me?aff=9TzesqKi",
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+  },
+  {
+    "id": "pipedrive-browser-followup-20260908",
+    "priority": "medium",
+    "status": "pending",
+    "cost": "0",
+    "verified_at": "2026-09-07T17:06:13Z",
+    "reason": "Authenticated PartnerStack home displays Pipedrive / Application pending. Prior confirmation email 1a033ebe93e30c46. Support email 1a07c48b9d1d24f8 specifies Quick help > Chat with us. Its guide URL is now 404; homepage leads to Partner Portal password login. Username prepared but password unavailable.",
+    "next_action": "No duplicate request. Application state confirmed through PartnerStack; partner chat itself not reached.",
+    "exact_tracking_url": null,
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+  },
+  {
+    "id": "monday-com-browser-followup-20260908",
+    "priority": "medium",
+    "status": "pending",
+    "cost": "0",
+    "verified_at": "2026-09-07T17:06:13Z",
+    "reason": "Authenticated PartnerStack home displays monday.com / Application pending. Support receipt 1a07c48a31741b90 is ticket #122275, not program approval.",
+    "next_action": "No duplicate application or ticket.",
+    "exact_tracking_url": null,
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+  },
+  {
+    "id": "sendcloud-browser-followup-20260908",
+    "priority": "medium",
+    "status": "application_submitted",
+    "cost": "0",
+    "verified_at": "2026-09-07T17:06:13Z",
+    "reason": "Authenticated PartnerStack home displays Sendcloud / Application pending; existing receipt 1a07bc61a476b59e.",
+    "next_action": "No reapplication.",
+    "exact_tracking_url": null,
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+  },
+  {
+    "id": "apollo-browser-followup-20260908",
+    "priority": "medium",
+    "status": "rejected",
+    "cost": "0",
+    "verified_at": "2026-09-07T17:06:13Z",
+    "reason": "Gmail 1a03f63c03ab9c05 dated 2026-08-26 declines Apollo.io application, later than receipt 1a033df9edcb2f45. Authenticated PartnerStack with all statuses selected also displays Apollo.io / Application declined.",
+    "next_action": "No reapplication; Sep 7 outreach is not evidence that rejection was reversed.",
+    "exact_tracking_url": null,
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+  },
+  {
+    "id": "ai-video-cut-browser-followup-20260908",
+    "priority": "medium",
+    "status": "pending",
+    "cost": "0",
+    "verified_at": "2026-09-07T17:06:13Z",
+    "reason": "Old /affiliate URL is 404; footer links to current /affiliate-program, which links to aivideocut.firstpromoter.com. Form has required Address and Password. Known name, email, country South Korea, website, company and promotion plan filled. No address invented; user asked for address. No submission, no legal agreement accepted.",
+    "next_action": "Prepared form preserved; outreach 1a07c4bd28897ce1 remains distinct from application.",
+    "exact_tracking_url": null,
+    "blocker": "required_business_address_and_account_setup",
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+  },
+  {
+    "id": "taskip-browser-followup-20260908",
+    "priority": "medium",
+    "status": "browser_required_user_consent",
+    "cost": "0",
+    "verified_at": "2026-09-07T17:06:13Z",
+    "reason": "Official affiliate page links to taskip.affonso.io. Existing-account login with support@coshuma.com reached 이메일 인증 / 일회용 코드. One code requested; no code read or entered and no repeat request.",
+    "next_action": "OTP page preserved; no account/application completion claimed.",
+    "exact_tracking_url": null,
+    "blocker": "otp",
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+  },
+  {
+    "id": "gumloop-browser-followup-20260908",
+    "priority": "medium",
+    "status": "pending",
+    "cost": "0",
+    "verified_at": "2026-09-07T17:06:13Z",
+    "reason": "Remote main tools.json already records application_submitted dated 2026-09-01; later outreach 1a07c91048a2779e exists. Current official page opens the Airtable Creator Program form, which provides no prior-submission lookup. Neither mailbox contains a new acceptance/referral link. Blank form cannot prove no prior submission.",
+    "next_action": "No resubmission due to existing application record; no approval claimed.",
+    "exact_tracking_url": null,
+    "blocker": "prior_submission_record_requires_vendor_reconciliation",
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+  },
+  {
+    "id": "beefree-browser-followup-20260908",
+    "priority": "medium",
+    "status": "application_submitted",
+    "cost": "0",
+    "verified_at": "2026-09-07T17:06:13Z",
+    "reason": "Existing-account PartnerStack all-status search for RGE returned No data to display; both mailboxes had outreach but no prior program receipt. Official B2B/B2C directory route opened application as existing Sangkwon An / COSHUMA account. Filled truthful non-consent fields, selected Korea, Republic of, submitted once. Dashboard now shows Really Good Emails (RGE Studio) / Application pending. Fresh receipt 1a07cd33372b8a88 at 2026-09-07T17:03:30Z.",
+    "next_action": "One free application; no legal checkbox, payment, or subscription.",
+    "exact_tracking_url": null,
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
   }
 ]

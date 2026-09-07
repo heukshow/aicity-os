@@ -1,0 +1,159 @@
+{
+  "checked_at": "2026-09-07T17:06:13Z",
+  "scope": "COSHUMA requested browser-required affiliate work and remaining affiliate entries from browser_required_queue.json; non-affiliate YouTube tasks excluded.",
+  "metrics_note": "No customer acquisitions, sales, commissions, or revenue are claimed. Verification visits may increment click counters.",
+  "paid_actions": 0,
+  "items": [
+    {
+      "id": "fill",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.fillhq.com/?utm_medium=affiliates&fpr=sangkwon-018d58",
+      "evidence": "Prior verified welcome-email link preserved per user instruction; fresh anonymous HTTP 200 retains exact tracking parameters and renders Fill.",
+      "action": "No signup or reapplication.",
+      "destination": "https://www.fillhq.com/?utm_medium=affiliates&fpr=sangkwon-018d58",
+      "checked_at": "2026-09-07T17:06:13Z"
+    },
+    {
+      "id": "gravity-forms",
+      "status": "application_submitted",
+      "evidence": "Authenticated PartnerStack home displays Gravity / Application pending.",
+      "action": "Read only; no reapplication.",
+      "checked_at": "2026-09-07T17:06:13Z",
+      "exact_tracking_url": null
+    },
+    {
+      "id": "fillout",
+      "status": "browser_required_user_consent",
+      "blocker": "legal_agreement",
+      "evidence": "Existing Dub form has termsAgreement unchecked. Existing fields retained; missing email filled with support@coshuma.com. Page says Step 1 of 2; later steps unverified.",
+      "portal_url": "https://partners.dub.co/fillout/apply",
+      "action": "Form retained; no consent or submission.",
+      "checked_at": "2026-09-07T17:06:13Z",
+      "exact_tracking_url": null
+    },
+    {
+      "id": "kittl",
+      "status": "pending",
+      "program_approved": true,
+      "blocker": "existing_account_credentials_required",
+      "evidence": "Approval email 1a05cb0bb6ebc623 reread. Impact password login reached with support@coshuma.com. Both existing Google accounts route to new Partner Sign Up; neither signup was submitted. No saved password surfaced.",
+      "portal_url": "https://app.impact.com/login.user",
+      "action": "No duplicate account, application, or password reset. Pending means link recovery is unfinished, not approval pending.",
+      "checked_at": "2026-09-07T17:06:13Z",
+      "exact_tracking_url": null
+    },
+    {
+      "id": "helpdesk",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.helpdesk.com/?a=8IetMhQvR&utm_campaign=pp_helpdesk-default&utm_source=PP&d=14",
+      "evidence": "Authenticated active HelpDesk - default campaign 723911 created 2026-08-31. Exact Campaign link copied; customer destination renders HelpDesk. Text email 1a079dd172f5ca22 explicitly confirms campaign-link commissions.",
+      "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
+      "action": "Reused existing campaign; no new campaign.",
+      "destination": "https://www.helpdesk.com/",
+      "checked_at": "2026-09-07T17:06:13Z"
+    },
+    {
+      "id": "voibe",
+      "platform": "Lemon Squeezy",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.getvoibe.com/?aff=G5Yr5D",
+      "evidence": "Authenticated program initially showed status '-' and Submit affiliate request, with no prior merchant request in either mailbox. Existing repository affiliate_profile_pending was hub-profile status. One free request was submitted; program changed to Active with its exact Affiliate URL. Copied; customer page retains aff=G5Yr5D.",
+      "portal_url": "https://affiliates.lemonsqueezy.com/programs/voibe",
+      "action": "One free merchant request; no paid product signup.",
+      "destination": "https://www.getvoibe.com/?aff=G5Yr5D",
+      "checked_at": "2026-09-07T17:06:13Z"
+    },
+    {
+      "id": "time2book",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://time2book.me?aff=9TzesqKi",
+      "evidence": "Existing authenticated /affiliates dashboard displays Earn 30% per referral, this exact link and Copy link. No registration. Anonymous request returns 302, sets cookie named aff, then HTTP 200 at official www homepage. Authenticated browser instead routes to /schedule.",
+      "portal_url": "https://time2book.me/affiliates",
+      "destination": "https://www.time2book.me/",
+      "action": "Recovered existing referral link. Cookie name observed; no customer conversion test.",
+      "checked_at": "2026-09-07T17:06:13Z"
+    },
+    {
+      "id": "pipedrive",
+      "status": "pending",
+      "evidence": "Authenticated PartnerStack home displays Pipedrive / Application pending. Prior confirmation email 1a033ebe93e30c46. Support email 1a07c48b9d1d24f8 specifies Quick help > Chat with us. Its guide URL is now 404; homepage leads to Partner Portal password login. Username prepared but password unavailable.",
+      "portal_url": "https://partners.pipedrive.com/login",
+      "action": "No duplicate request. Application state confirmed through PartnerStack; partner chat itself not reached.",
+      "checked_at": "2026-09-07T17:06:13Z",
+      "exact_tracking_url": null
+    },
+    {
+      "id": "monday-com",
+      "status": "pending",
+      "evidence": "Authenticated PartnerStack home displays monday.com / Application pending. Support receipt 1a07c48a31741b90 is ticket #122275, not program approval.",
+      "action": "No duplicate application or ticket.",
+      "checked_at": "2026-09-07T17:06:13Z",
+      "exact_tracking_url": null
+    },
+    {
+      "id": "sendcloud",
+      "status": "application_submitted",
+      "evidence": "Authenticated PartnerStack home displays Sendcloud / Application pending; existing receipt 1a07bc61a476b59e.",
+      "action": "No reapplication.",
+      "checked_at": "2026-09-07T17:06:13Z",
+      "exact_tracking_url": null
+    },
+    {
+      "id": "apollo",
+      "status": "rejected",
+      "evidence": "Gmail 1a03f63c03ab9c05 dated 2026-08-26 declines Apollo.io application, later than receipt 1a033df9edcb2f45. Authenticated PartnerStack with all statuses selected also displays Apollo.io / Application declined.",
+      "action": "No reapplication; Sep 7 outreach is not evidence that rejection was reversed.",
+      "checked_at": "2026-09-07T17:06:13Z",
+      "exact_tracking_url": null
+    },
+    {
+      "id": "ai-video-cut",
+      "status": "pending",
+      "blocker": "required_business_address_and_account_setup",
+      "evidence": "Old /affiliate URL is 404; footer links to current /affiliate-program, which links to aivideocut.firstpromoter.com. Form has required Address and Password. Known name, email, country South Korea, website, company and promotion plan filled. No address invented; user asked for address. No submission, no legal agreement accepted.",
+      "portal_url": "https://aivideocut.firstpromoter.com/",
+      "action": "Prepared form preserved; outreach 1a07c4bd28897ce1 remains distinct from application.",
+      "checked_at": "2026-09-07T17:06:13Z",
+      "exact_tracking_url": null
+    },
+    {
+      "id": "taskip",
+      "status": "browser_required_user_consent",
+      "blocker": "otp",
+      "evidence": "Official affiliate page links to taskip.affonso.io. Existing-account login with support@coshuma.com reached 이메일 인증 / 일회용 코드. One code requested; no code read or entered and no repeat request.",
+      "portal_url": "https://taskip.affonso.io/auth",
+      "action": "OTP page preserved; no account/application completion claimed.",
+      "checked_at": "2026-09-07T17:06:13Z",
+      "exact_tracking_url": null
+    },
+    {
+      "id": "gumloop",
+      "status": "pending",
+      "blocker": "prior_submission_record_requires_vendor_reconciliation",
+      "evidence": "Remote main tools.json already records application_submitted dated 2026-09-01; later outreach 1a07c91048a2779e exists. Current official page opens the Airtable Creator Program form, which provides no prior-submission lookup. Neither mailbox contains a new acceptance/referral link. Blank form cannot prove no prior submission.",
+      "portal_url": "https://airtable.com/app6qESMAH3D9CHLH/pagmpSXRNAh8PpmqF/form",
+      "action": "No resubmission due to existing application record; no approval claimed.",
+      "checked_at": "2026-09-07T17:06:13Z",
+      "exact_tracking_url": null
+    },
+    {
+      "id": "beefree",
+      "status": "application_submitted",
+      "evidence": "Existing-account PartnerStack all-status search for RGE returned No data to display; both mailboxes had outreach but no prior program receipt. Official B2B/B2C directory route opened application as existing Sangkwon An / COSHUMA account. Filled truthful non-consent fields, selected Korea, Republic of, submitted once. Dashboard now shows Really Good Emails (RGE Studio) / Application pending. Fresh receipt 1a07cd33372b8a88 at 2026-09-07T17:03:30Z.",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "action": "One free application; no legal checkbox, payment, or subscription.",
+      "checked_at": "2026-09-07T17:06:13Z",
+      "exact_tracking_url": null
+    },
+    {
+      "id": "clickfunnels",
+      "status": "browser_required_user_consent",
+      "blocker": "otp_then_affiliate_agreement",
+      "evidence": "Confirmation email 1a03b554562a0d88 explicitly requires Affiliate Agreement before Campaign links. Existing portal URL redirects to sign-in. Email login requested once and reached numeric-code page for support@coshuma.com.",
+      "portal_url": "https://www.clickfunnels.com/contacts/token_waiting",
+      "action": "OTP page preserved; no OTP entered, agreement accepted, or duplicate registration.",
+      "checked_at": "2026-09-07T17:06:13Z",
+      "exact_tracking_url": null
+    }
+  ]
+}
