@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-07T23:35:00+09:00",
+  "updated_at": "2026-09-07T23:42:00+09:00",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -54,6 +54,23 @@
       "sender": "support@coshuma.com",
       "tracking_url": null,
       "note": "Requested current affiliate signup path/account activation and exact customer-facing referral URL."
+    },
+    "sanebox": {
+      "status": "outreach_sent",
+      "contact": "partners@sanebox.com",
+      "gmail_message_id": "1a07adfccb9d43a5",
+      "sender": "qmfforfhem@gmail.com",
+      "tracking_url": null,
+      "note": "Existing outreach already asked for a direct PartnerStack invitation or official enrollment route for support@coshuma.com. Do not send a duplicate while awaiting reply."
+    },
+    "gravity-forms": {
+      "status": "browser_required_application_form",
+      "contact": null,
+      "gmail_message_id": null,
+      "sender": null,
+      "tracking_url": null,
+      "official_program_url": "https://www.gravityforms.com/blog/affiliate-program/",
+      "note": "Current official affiliate program is active and uses an application form plus Impact after approval. No prior Gmail outreach found. Requires browser form submission; do not invent an email address."
     }
   }
 }
