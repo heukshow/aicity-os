@@ -1,0 +1,81 @@
+{
+  "checked_date_kst": "2026-09-08",
+  "account": "support@coshuma.com",
+  "scope": ["n8n", "novita-ai", "gojiberry", "followr", "typedesk"],
+  "duplicate_checks": {
+    "browser": "Reused existing Chrome profile and Gmail tab 499335039. Company mailbox /u/1 and legacy mailbox /u/0 searched with in:anywhere, including spam and trash. Restored company inbox afterward.",
+    "repository": "Fetched heukshow/aicity-os origin/main at 95b5cadea5a36beaab574a6b6a502a7fede00ac3. Read tools.json and existing typedesk application evidence. Existing Gojiberry and Followr approved_tracking records found.",
+    "important_correction": "Legacy mailbox contains company-addressed Gojiberry and Followr welcome emails. Typedesk enrollment request was actually sent from qmfforfhem@gmail.com, not support@coshuma.com. Company mailbox has Novita outreach and a bounced Followr outreach message; outreach is not portal enrollment."
+  },
+  "new_applications_submitted": 0,
+  "new_tracking_links_issued": 0,
+  "paid_transactions": 0,
+  "results": [
+    {
+      "id": "n8n",
+      "status": "browser_required_user_consent",
+      "application_state": "not_submitted",
+      "affiliate_url": null,
+      "official_program_url": "https://n8n.io/affiliates/",
+      "workflow_url": "https://dash.partnerstack.com/application?company=n8n&group=affiliates2025",
+      "tab_id": "499335088",
+      "evidence": "Official page shows 30% for 12 months. Existing authenticated PartnerStack application form displays Sangkwon An, support@coshuma.com and COSHUMA. Entered existing affiliate programs, selected blog or website, checked company website yes and entered https://coshuma.com. No prior application confirmation found in searched mailboxes; source record was application_page_unavailable. Form now loads.",
+      "blocker": "Required I agree acknowledgement prohibits branded-search bidding and specifies ban/commission forfeiture. Left unchecked; Submit application not clicked. Program agreement is linked on the form.",
+      "next_action": "User reviews program agreement and required acknowledgement, then submits prepared application. Record application_submitted only after actual confirmation. Optional unverified n8n-use and social fields left blank."
+    },
+    {
+      "id": "novita-ai",
+      "status": "browser_required_user_consent",
+      "application_state": "not_submitted",
+      "affiliate_url": null,
+      "workflow_url": "https://affiliates.novita.ai/",
+      "tab_id": "499335091",
+      "evidence": "Company mailbox contains prior outreach only. Portal did not have an authenticated session. Existing-account Google sign-in using support@coshuma.com returned Invalid email or password; this does not prove that no account exists. Signup form prepared with Sangkwon, An, support@coshuma.com.",
+      "blockers": ["existing_account_status_unconfirmed_after_login_error", "new_password_requires_user_entry", "recaptcha", "terms_and_conditions"],
+      "next_action": "If an existing Novita affiliate account exists, use its existing login instead of registering again. Otherwise user completes password, CAPTCHA and Terms and conditions on prepared signup. Password blank and agreement unchecked; no signup submitted."
+    },
+    {
+      "id": "gojiberry",
+      "status": "approved_tracking",
+      "status_origin": "existing_remote_record_preserved_not_new_approval",
+      "affiliate_url": "https://gojiberry.ai/?ref=sangkwon",
+      "official_program_url": "https://gojiberry.ai/affiliate-program-gojiberry",
+      "workflow_url": "https://gojiberryaff.tolt.io/login",
+      "tab_id": "499335094",
+      "evidence": "Remote tools.json already records this exact approved_tracking URL. Legacy Gmail welcome email dated 2026-08-31 says Your affiliate account is ready; recipient details confirmed support@coshuma.com. Existing URL opened in real Chrome to the official customer page with ref=sangkwon retained. Official program footer links to this Tolt portal.",
+      "current_dashboard_status": "otp_required",
+      "tracking_attribution_currently_verified": false,
+      "next_action": "No reapplication. User may complete requested email OTP in preserved portal to recheck current dashboard and exact assigned link. Current public landing check does not prove attribution or commission receipt."
+    },
+    {
+      "id": "followr",
+      "status": "approved_tracking",
+      "status_origin": "existing_remote_record_preserved_not_new_approval",
+      "affiliate_url": "https://followr.ai/?ref=support22",
+      "official_program_url": "https://help.followr.ai/en/articles/11390435-join-the-followr-affiliate-program",
+      "workflow_url": "https://followr.pushlapgrowth.com/login?verify=true&redirect_url=%2Fdashboard",
+      "tab_id": "499335097",
+      "evidence": "Official Help Center points to followr.pushlapgrowth.com. Remote tools.json already records this exact approved_tracking URL. Legacy Gmail welcome email dated 2026-08-31 shows 25% per sale and recipient details support@coshuma.com. Existing URL opened in real Chrome to the official customer page with ref=support22 retained. Existing-account Sign In reached Verify Email code input.",
+      "current_dashboard_status": "otp_required",
+      "tracking_attribution_currently_verified": false,
+      "next_action": "No reapplication or paid subscription. User may complete email OTP to recheck current affiliate dashboard. Existing bounced outreach to support@followr.ai does not invalidate the pre-existing affiliation."
+    },
+    {
+      "id": "typedesk",
+      "status": "application_submitted",
+      "application_channel": "prior_email_enrollment_request",
+      "application_sender": "qmfforfhem@gmail.com",
+      "application_date": "2026-09-07",
+      "application_state": "pending_response",
+      "portal_enrollment_confirmed": false,
+      "affiliate_url": null,
+      "official_program_url": "https://www.typedesk.com/reseller",
+      "enrollment_url": "https://typedesk.getrewardful.com/signup",
+      "workflow_url": "https://typedesk.getrewardful.com/login",
+      "tab_id": "499335100",
+      "evidence": "Read existing evidence file and verified sent email titled COSHUMA application for the typedesk Affiliate Program in legacy Gmail. No reply found in searched company/legacy mailboxes. Current official Become an affiliate link reaches a real Rewardful signup form. It advertises 30% recurring for up to 12 months, requests password/confirmation, and states signup agrees to Terms of Service. Login requires email and password; no authenticated session was present.",
+      "next_action": "Preserve existing email application; do not send or submit a duplicate. Resolve existing request/account before any Rewardful registration. Current dashboard approval and customer referral URL remain unconfirmed."
+    }
+  ],
+  "verification_limits": "No current dashboard metrics, revenue, commissions, or conversion attribution verified. Existing approved_tracking states are preserved with explicit source provenance; no new approval inferred from public landing alone. OTP values, passwords and OAuth state are not stored. This run saved local evidence only; no remote repository mutation or deployment performed."
+}

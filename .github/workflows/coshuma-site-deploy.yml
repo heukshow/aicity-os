@@ -8,6 +8,8 @@ on:
       - 'projects/GlobalSaaSHub/public/**'
       - 'projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json'
       - 'projects/GlobalSaaSHub/scripts/approved_tracking_evidence.mjs'
+      - 'projects/GlobalSaaSHub/scripts/browser_followup_evidence.mjs'
+      - 'projects/GlobalSaaSHub/data/affiliate-browser-followup-wave3-2026-09-08.json'
       - 'projects/GlobalSaaSHub/data/tools.json'
       - 'projects/GlobalSaaSHub/data/tools.next.json'
       - 'projects/GlobalSaaSHub/scripts/sync_verified_affiliates.mjs'
@@ -120,7 +122,9 @@ jobs:
 
       - name: Verify approved tracking state and built CTAs
         working-directory: projects/GlobalSaaSHub
-        run: node scripts/verify_approved_tracking.mjs
+        run: |
+          node scripts/verify_approved_tracking.mjs
+          node scripts/tests/browser-followup.test.mjs
 
       - name: Verify COSHUMA bundle identity
         run: |

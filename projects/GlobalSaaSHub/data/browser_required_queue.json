@@ -399,5 +399,96 @@
     "execution_evidence": "approved-tracking-2026-09-08.json",
     "blocker": null,
     "next_action": "No reapplication. Preserve the exact verified customer-facing URL. Approval and publication do not imply revenue."
+  },
+  {
+    "id": "n8n-affiliate-browser-followup",
+    "tool_id": "n8n",
+    "status": "browser_required_user_consent",
+    "affiliate_status": "browser_required_user_consent",
+    "cost": "0",
+    "exact_tracking_url": null,
+    "workflow_url": "https://dash.partnerstack.com/application?company=n8n&group=affiliates2025",
+    "evidence_file": "data/affiliate-browser-followup-wave3-2026-09-08.json",
+    "reason": "Required I agree acknowledgement prohibits branded-search bidding and specifies ban/commission forfeiture. Left unchecked; Submit application not clicked. Program agreement is linked on the form.",
+    "next_action": "User reviews program agreement and required acknowledgement, then submits prepared application. Record application_submitted only after actual confirmation. Optional unverified n8n-use and social fields left blank.",
+    "do_not": [
+      "Do not reapply or submit duplicate outreach.",
+      "Do not pay or create a new account.",
+      "Do not infer conversions, commissions or revenue from approval or public landing checks."
+    ]
+  },
+  {
+    "id": "novita-ai-affiliate-browser-followup",
+    "tool_id": "novita-ai",
+    "status": "browser_required_user_consent",
+    "affiliate_status": "browser_required_user_consent",
+    "cost": "0",
+    "exact_tracking_url": null,
+    "workflow_url": "https://affiliates.novita.ai/",
+    "evidence_file": "data/affiliate-browser-followup-wave3-2026-09-08.json",
+    "reason": "existing_account_status_unconfirmed_after_login_error; new_password_requires_user_entry; recaptcha; terms_and_conditions",
+    "next_action": "If an existing Novita affiliate account exists, use its existing login instead of registering again. Otherwise user completes password, CAPTCHA and Terms and conditions on prepared signup. Password blank and agreement unchecked; no signup submitted.",
+    "do_not": [
+      "Do not reapply or submit duplicate outreach.",
+      "Do not pay or create a new account.",
+      "Do not infer conversions, commissions or revenue from approval or public landing checks."
+    ]
+  },
+  {
+    "id": "gojiberry-affiliate-browser-followup",
+    "tool_id": "gojiberry",
+    "status": "browser_required_otp",
+    "affiliate_status": "approved_tracking",
+    "cost": "0",
+    "exact_tracking_url": "https://gojiberry.ai/?ref=sangkwon",
+    "workflow_url": "https://gojiberryaff.tolt.io/login",
+    "evidence_file": "data/affiliate-browser-followup-wave3-2026-09-08.json",
+    "reason": "Remote tools.json already records this exact approved_tracking URL. Legacy Gmail welcome email dated 2026-08-31 says Your affiliate account is ready; recipient details confirmed support@coshuma.com. Existing URL opened in real Chrome to the official customer page with ref=sangkwon retained. Official program footer links to this Tolt portal.",
+    "next_action": "No reapplication. User may complete requested email OTP in preserved portal to recheck current dashboard and exact assigned link. Current public landing check does not prove attribution or commission receipt.",
+    "do_not": [
+      "Do not reapply or submit duplicate outreach.",
+      "Do not pay or create a new account.",
+      "Do not infer conversions, commissions or revenue from approval or public landing checks."
+    ],
+    "current_dashboard_status": "otp_required",
+    "tracking_attribution_currently_verified": false,
+    "referral_link_recovery_status": "resolved_existing_exact_url"
+  },
+  {
+    "id": "followr-affiliate-browser-followup",
+    "tool_id": "followr",
+    "status": "browser_required_otp",
+    "affiliate_status": "approved_tracking",
+    "cost": "0",
+    "exact_tracking_url": "https://followr.ai/?ref=support22",
+    "workflow_url": "https://followr.pushlapgrowth.com/login?verify=true&redirect_url=%2Fdashboard",
+    "evidence_file": "data/affiliate-browser-followup-wave3-2026-09-08.json",
+    "reason": "Official Help Center points to followr.pushlapgrowth.com. Remote tools.json already records this exact approved_tracking URL. Legacy Gmail welcome email dated 2026-08-31 shows 25% per sale and recipient details support@coshuma.com. Existing URL opened in real Chrome to the official customer page with ref=support22 retained. Existing-account Sign In reached Verify Email code input.",
+    "next_action": "No reapplication or paid subscription. User may complete email OTP to recheck current affiliate dashboard. Existing bounced outreach to support@followr.ai does not invalidate the pre-existing affiliation.",
+    "do_not": [
+      "Do not reapply or submit duplicate outreach.",
+      "Do not pay or create a new account.",
+      "Do not infer conversions, commissions or revenue from approval or public landing checks."
+    ],
+    "current_dashboard_status": "otp_required",
+    "tracking_attribution_currently_verified": false,
+    "referral_link_recovery_status": "resolved_existing_exact_url"
+  },
+  {
+    "id": "typedesk-affiliate-browser-followup",
+    "tool_id": "typedesk",
+    "status": "application_submitted",
+    "affiliate_status": "application_submitted",
+    "cost": "0",
+    "exact_tracking_url": null,
+    "workflow_url": "https://typedesk.getrewardful.com/login",
+    "evidence_file": "data/affiliate-browser-followup-wave3-2026-09-08.json",
+    "reason": "Read existing evidence file and verified sent email titled COSHUMA application for the typedesk Affiliate Program in legacy Gmail. No reply found in searched company/legacy mailboxes. Current official Become an affiliate link reaches a real Rewardful signup form. It advertises 30% recurring for up to 12 months, requests password/confirmation, and states signup agrees to Terms of Service. Login requires email and password; no authenticated session was present.",
+    "next_action": "Preserve existing email application; do not send or submit a duplicate. Resolve existing request/account before any Rewardful registration. Current dashboard approval and customer referral URL remain unconfirmed.",
+    "do_not": [
+      "Do not reapply or submit duplicate outreach.",
+      "Do not pay or create a new account.",
+      "Do not infer conversions, commissions or revenue from approval or public landing checks."
+    ]
   }
 ]

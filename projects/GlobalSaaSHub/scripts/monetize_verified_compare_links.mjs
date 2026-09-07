@@ -219,10 +219,13 @@ for (const [directory, type] of [[TOOL_DIR, 'tool'], [COMPARE_DIR, 'compare']]) 
     const original = fs.readFileSync(file, 'utf8');
     let relevant = false;
     let updated = original.replace(/<a\b[^>]*>/g, anchor => {
-      const id = anchor.match(/data-tool-id="([^"]+)"/)?.[1];
+      const href = anchor.match(/href="([^"]+)"/)?.[1]?.replaceAll('&amp;', '&');
+      const id = anchor.match(/data-tool-id="([^"]+)"/)?.[1] ||
+        [...approvedTracking.values()].find(item => item.exact_tracking_url === href)?.id;
       const item = approvedTracking.get(id);
       if (!item || !anchor.includes('data-cta="affiliate"')) return anchor;
       relevant = true;
+      if (!anchor.includes('data-tool-id=')) anchor = anchor.replace('<a ', '<a data-tool-id="' + id + '" ');
       anchor = anchor.replace(/href="[^"]*"/, () => 'href="' + item.exact_tracking_url + '"');
       if (!anchor.includes('data-cta-source=')) anchor = anchor.replace('<a ', '<a data-cta-source="' + type + '-existing-affiliate-auto" ');
       return anchor;

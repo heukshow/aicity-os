@@ -18,6 +18,6 @@ for(const [id,e] of approvedTracking){assert.equal(outreach[id].status,'approved
  for(const [file,s] of pages){const anchors=[...s.matchAll(/<a\b[^>]*>/g)].map(m=>m[0]).filter(a=>(a.includes(`data-tool-id="${id}"`)&&a.includes('data-cta="affiliate"'))||decode(a).includes(`href="${e.exact_tracking_url}"`));assert.ok(anchors.length,`${id}: no CTA on ${file}`);for(const a of anchors){assert.ok(decode(a).includes(`href="${e.exact_tracking_url}"`),`${file}: wrong link`);assert.ok(a.includes('data-cta="affiliate"'),file);assert.ok(a.includes('data-cta-source='),file);assert.ok(a.includes('sponsored'),file);count++;}assert.ok(s.includes('/affiliate-attribution.js'),file);assert.ok(/affiliate disclosure/i.test(s),file);}
  console.log(`${id}: ${count} attributed CTAs across ${pages.length} pages`);
 }
-console.log('PASS: nine exact URLs, state/evidence/queue, repeated deployment sync preservation, and built CTAs.');
+console.log('PASS: authoritative exact URLs, state/evidence/queue, repeated deployment sync preservation, and built CTAs.');
 
 

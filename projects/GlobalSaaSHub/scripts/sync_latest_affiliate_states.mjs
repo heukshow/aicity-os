@@ -1,3 +1,4 @@
+import { applyBrowserFollowup } from './browser_followup_evidence.mjs';
 import { applyApprovedTracking } from './approved_tracking_evidence.mjs';
 import fs from 'node:fs';
 
@@ -343,6 +344,7 @@ for (const relativePath of ['data/tools.json', 'data/tools.next.json']) {
   const tools = JSON.parse(fs.readFileSync(relativePath, 'utf8'));
   let changed = 0;
   for (const tool of tools) {
+    if (applyBrowserFollowup(tool)) continue;
     if (applyApprovedTracking(tool)) continue;
     const next = states[tool.id];
     if (!next) continue;

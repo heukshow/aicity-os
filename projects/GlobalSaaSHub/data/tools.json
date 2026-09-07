@@ -72,7 +72,10 @@
     "affiliate_status": "program_closed_to_new_applicants",
     "affiliate_source_url": "https://www.notion.com/en-gb/affiliates",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["20% of year one revenue", "currently not accepting new affiliates"]
+    "affiliate_evidence_markers": [
+      "20% of year one revenue",
+      "currently not accepting new affiliates"
+    ]
   },
   {
     "id": "make-com",
@@ -108,7 +111,14 @@
     "affiliate_source_url": "https://www.make.com/en/affiliate",
     "affiliate_final_url": "https://www.make.com/en?pc=coshuma",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["35% commission", "12 months", "Partner code created", "pc=coshuma", "Wise Business Basic account created", "receiving account details not issued"],
+    "affiliate_evidence_markers": [
+      "35% commission",
+      "12 months",
+      "Partner code created",
+      "pc=coshuma",
+      "Wise Business Basic account created",
+      "receiving account details not issued"
+    ],
     "payout_setup_status": "deferred_until_payout_threshold",
     "payout_setup_note": "Do not submit invented Wise bank details. Affiliate earnings may accrue on-platform; before an actual payout, complete Wise Business Advanced activation and identity verification, then register only issued receiving account details.",
     "payout_account_email": "support@coshuma.com",
@@ -151,7 +161,12 @@
     "affiliate_source_url": "https://elevenlabs.io/affiliates",
     "affiliate_final_url": "https://try.elevenlabs.io/ldc2xmh2x2t5",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["22% commission", "12 months", "active affiliate account", "Default affiliate link"]
+    "affiliate_evidence_markers": [
+      "22% commission",
+      "12 months",
+      "active affiliate account",
+      "Default affiliate link"
+    ]
   },
   {
     "id": "copy-ai",
@@ -218,7 +233,10 @@
     "affiliate_source_url": "https://www.zenrows.com/partners/affiliates",
     "affiliate_final_url": "https://www.zenrows.com/partners/apply",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["35% recurring", "approved the same day"]
+    "affiliate_evidence_markers": [
+      "35% recurring",
+      "approved the same day"
+    ]
   },
   {
     "id": "tubebuddy",
@@ -254,7 +272,11 @@
     "affiliate_source_url": "https://support.tubebuddy.com/hc/en-us/sections/8981416080411-Affiliates",
     "affiliate_final_url": "https://www.tubebuddy.com/pricing?a=coshuma",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["successfully set up your Affiliate account", "15% Commission", "Affiliate Link"]
+    "affiliate_evidence_markers": [
+      "successfully set up your Affiliate account",
+      "15% Commission",
+      "Affiliate Link"
+    ]
   },
   {
     "id": "outlierkit",
@@ -290,7 +312,11 @@
     "affiliate_source_url": "https://outlierkit.com/p/affiliate",
     "affiliate_final_url": "https://outlierkit.com/?ref=sangkwon",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["20% on all paid customers", "all set up and ready to go", "partner link"]
+    "affiliate_evidence_markers": [
+      "20% on all paid customers",
+      "all set up and ready to go",
+      "partner link"
+    ]
   },
   {
     "id": "pictory",
@@ -460,7 +486,11 @@
     "affiliate_source_url": "https://writesonic.com/affiliate",
     "affiliate_final_url": "https://affiliates.writesonic.com/home",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["20% recurring", "12 months", "Your application has been rejected"],
+    "affiliate_evidence_markers": [
+      "20% recurring",
+      "12 months",
+      "Your application has been rejected"
+    ],
     "affiliate_rejection_reason": "The authenticated Writesonic affiliate dashboard explicitly shows that the application was rejected."
   },
   {
@@ -498,7 +528,12 @@
     "affiliate_source_url": "https://sudowrite.notion.site/Sudowrite-Affiliate-Program-12788b26b71746f2a72cd05b7087e8c9",
     "affiliate_final_url": "https://www.sudowrite.com?via=sangkwon",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["Welcome to the Sudowrite partner program", "25% on all payments, first 12 months", "60 day cookie", "affiliate link"]
+    "affiliate_evidence_markers": [
+      "Welcome to the Sudowrite partner program",
+      "25% on all payments, first 12 months",
+      "60 day cookie",
+      "affiliate link"
+    ]
   },
   {
     "id": "convertkit",
@@ -541,7 +576,11 @@
     "affiliate_source_url": "https://kit.com/affiliate",
     "affiliate_final_url": "https://dash.partnerstack.com/application?company=kit&group=kitaffiliates",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["50% commission for 12 months", "PartnerStack Network marketplace access limited", "application page rendered blank"]
+    "affiliate_evidence_markers": [
+      "50% commission for 12 months",
+      "PartnerStack Network marketplace access limited",
+      "application page rendered blank"
+    ]
   },
   {
     "id": "quillbot",
@@ -576,7 +615,11 @@
     "affiliate_status": "blocked_partnerstack_marketplace_limited",
     "affiliate_source_url": "https://quillbot.com/affiliates",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["10% - 20% commission", "30-day cookie", "PartnerStack Network marketplace access limited"]
+    "affiliate_evidence_markers": [
+      "10% - 20% commission",
+      "30-day cookie",
+      "PartnerStack Network marketplace access limited"
+    ]
   },
   {
     "id": "text-cortex",
@@ -612,7 +655,10 @@
     "affiliate_source_url": "https://affiliate.textcortex.com/signup",
     "affiliate_final_url": "https://affiliate.textcortex.com/signup",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["campaign has been deactivated by the owner", "affiliate program is no longer active"]
+    "affiliate_evidence_markers": [
+      "campaign has been deactivated by the owner",
+      "affiliate program is no longer active"
+    ]
   },
   {
     "id": "vidiq",
@@ -681,7 +727,11 @@
     "affiliate_source_url": "https://www.bolddesk.com/affiliate-program/signup",
     "affiliate_final_url": "https://www.bolddesk.com/?via=sangkwon",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["30% of active subscription for first year", "password creation required", "payment only via Business PayPal account"]
+    "affiliate_evidence_markers": [
+      "30% of active subscription for first year",
+      "password creation required",
+      "payment only via Business PayPal account"
+    ]
   },
   {
     "id": "brand24",
@@ -794,7 +844,10 @@
     "affiliate_verified": true,
     "affiliate_status": "application_submitted",
     "affiliate_verified_at": "2026-08-31T23:01:13Z",
-    "affiliate_evidence_markers": ["PartnerStack application received", "submitted for Triple Whale review"]
+    "affiliate_evidence_markers": [
+      "PartnerStack application received",
+      "submitted for Triple Whale review"
+    ]
   },
   {
     "id": "boldsign",
@@ -830,7 +883,10 @@
     "affiliate_source_url": "https://boldsign.com/affiliate-program/signup/",
     "affiliate_final_url": "https://boldsign.com?via=sangkwon",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["30% of active subscription for first year", "password creation required"]
+    "affiliate_evidence_markers": [
+      "30% of active subscription for first year",
+      "password creation required"
+    ]
   },
   {
     "id": "privy",
@@ -1093,7 +1149,10 @@
     "affiliate_verified": true,
     "affiliate_status": "rejected",
     "affiliate_verified_at": "2026-09-01T08:45:37Z",
-    "affiliate_evidence_markers": ["Impact email", "Semrush Contract Terms Declined"]
+    "affiliate_evidence_markers": [
+      "Impact email",
+      "Semrush Contract Terms Declined"
+    ]
   },
   {
     "id": "hubspot",
@@ -1157,7 +1216,10 @@
     "affiliate_verified": true,
     "affiliate_status": "rejected",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["Kinsta Affiliate Program application status", "profile is not suitable for the program at this time"]
+    "affiliate_evidence_markers": [
+      "Kinsta Affiliate Program application status",
+      "profile is not suitable for the program at this time"
+    ]
   },
   {
     "id": "shopify",
@@ -1261,7 +1323,11 @@
     "affiliate_status": "approved_account",
     "affiliate_source_url": "https://www.jotform.com/partnership/affiliate/",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["Welcome to the Jotform Affiliate Program", "30% recurring commission", "Partner Dashboard"]
+    "affiliate_evidence_markers": [
+      "Welcome to the Jotform Affiliate Program",
+      "30% recurring commission",
+      "Partner Dashboard"
+    ]
   },
   {
     "id": "webflow",
@@ -1358,7 +1424,11 @@
     "affiliate_source_url": "https://synthesia.getrewardful.com/",
     "affiliate_final_url": "https://www.synthesia.io?via=sangkwon",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["Logged in successfully.", "Joined August 26, 2026", "https://www.synthesia.io?via=sangkwon"]
+    "affiliate_evidence_markers": [
+      "Logged in successfully.",
+      "Joined August 26, 2026",
+      "https://www.synthesia.io?via=sangkwon"
+    ]
   },
   {
     "id": "octo-browser",
@@ -1608,7 +1678,10 @@
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
     "affiliate_verified_at": "2026-08-31T22:02:27Z",
-    "affiliate_evidence_markers": ["Vista Social approval email", "unique referral link in email body"]
+    "affiliate_evidence_markers": [
+      "Vista Social approval email",
+      "unique referral link in email body"
+    ]
   },
   {
     "id": "gravity-forms",
@@ -1849,7 +1922,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Dorik is a no-code AI website builder that enables quick creation of professional websites without any coding knowledge. Build stunning, responsive sites effortlessly, perfect for businesses, portfolios, and personal brands.",
-    "affiliate_url": null,
+    "affiliate_url": "https://dorik.com/?ref=coshuma",
     "pricing": "See official pricing",
     "key_features": [
       "No-code website building",
@@ -1872,7 +1945,6 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://dorik.com/",
-    "affiliate_url": "https://dorik.com/?ref=coshuma",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
     "affiliate_source_url": "https://partners.dorik.com/success-hub",
@@ -2461,7 +2533,10 @@
     "affiliate_verified": true,
     "affiliate_status": "rejected",
     "affiliate_verified_at": "2026-09-01T09:14:55Z",
-    "affiliate_evidence_markers": ["PartnerStack decision email", "GetResponse application declined"]
+    "affiliate_evidence_markers": [
+      "PartnerStack decision email",
+      "GetResponse application declined"
+    ]
   },
   {
     "id": "kit",
@@ -2701,8 +2776,18 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://n8n.io/affiliates/",
     "affiliate_verified": false,
-    "affiliate_status": "application_page_unavailable",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_status": "browser_required_user_consent",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00",
+    "affiliate_final_url": null,
+    "affiliate_evidence_markers": [
+      "Official page shows 30% for 12 months. Existing authenticated PartnerStack application form displays Sangkwon An, support@coshuma.com and COSHUMA. Entered existing affiliate programs, selected blog or website, checked company website yes and entered https://coshuma.com. No prior application confirmation found in searched mailboxes; source record was application_page_unavailable. Form now loads.",
+      "User reviews program agreement and required acknowledgement, then submits prepared application. Record application_submitted only after actual confirmation. Optional unverified n8n-use and social fields left blank.",
+      "data/affiliate-browser-followup-wave3-2026-09-08.json"
+    ],
+    "affiliate_status_checked_at": "2026-09-08",
+    "affiliate_status_evidence_url": "https://n8n.io/affiliates/",
+    "affiliate_workflow_url": "https://dash.partnerstack.com/application?company=n8n&group=affiliates2025",
+    "affiliate_next_action": "User reviews program agreement and required acknowledgement, then submits prepared application. Record application_submitted only after actual confirmation. Optional unverified n8n-use and social fields left blank."
   },
   {
     "id": "novita-ai",
@@ -2734,8 +2819,18 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://affiliates.novita.ai/",
     "affiliate_verified": false,
-    "affiliate_status": "application_blocked_captcha",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_status": "browser_required_user_consent",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00",
+    "affiliate_final_url": null,
+    "affiliate_evidence_markers": [
+      "Company mailbox contains prior outreach only. Portal did not have an authenticated session. Existing-account Google sign-in using support@coshuma.com returned Invalid email or password; this does not prove that no account exists. Signup form prepared with Sangkwon, An, support@coshuma.com.",
+      "If an existing Novita affiliate account exists, use its existing login instead of registering again. Otherwise user completes password, CAPTCHA and Terms and conditions on prepared signup. Password blank and agreement unchecked; no signup submitted.",
+      "data/affiliate-browser-followup-wave3-2026-09-08.json"
+    ],
+    "affiliate_status_checked_at": "2026-09-08",
+    "affiliate_status_evidence_url": "https://affiliates.novita.ai/",
+    "affiliate_workflow_url": "https://affiliates.novita.ai/",
+    "affiliate_next_action": "If an existing Novita affiliate account exists, use its existing login instead of registering again. Otherwise user completes password, CAPTCHA and Terms and conditions on prepared signup. Password blank and agreement unchecked; no signup submitted."
   },
   {
     "id": "followr",
@@ -2768,7 +2863,19 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://followr.ai/",
-    "affiliate_status": "approved_tracking"
+    "affiliate_status": "approved_tracking",
+    "affiliate_final_url": "https://followr.ai/?ref=support22",
+    "affiliate_evidence_markers": [
+      "Official Help Center points to followr.pushlapgrowth.com. Remote tools.json already records this exact approved_tracking URL. Legacy Gmail welcome email dated 2026-08-31 shows 25% per sale and recipient details support@coshuma.com. Existing URL opened in real Chrome to the official customer page with ref=support22 retained. Existing-account Sign In reached Verify Email code input.",
+      "No reapplication or paid subscription. User may complete email OTP to recheck current affiliate dashboard. Existing bounced outreach to support@followr.ai does not invalidate the pre-existing affiliation.",
+      "data/affiliate-browser-followup-wave3-2026-09-08.json"
+    ],
+    "affiliate_status_checked_at": "2026-09-08",
+    "affiliate_status_evidence_url": "https://help.followr.ai/en/articles/11390435-join-the-followr-affiliate-program",
+    "affiliate_workflow_url": "https://followr.pushlapgrowth.com/login?verify=true&redirect_url=%2Fdashboard",
+    "affiliate_next_action": "No reapplication or paid subscription. User may complete email OTP to recheck current affiliate dashboard. Existing bounced outreach to support@followr.ai does not invalidate the pre-existing affiliation.",
+    "affiliate_dashboard_status": "otp_required",
+    "affiliate_tracking_attribution_currently_verified": false
   },
   {
     "id": "10web",
@@ -3611,7 +3718,10 @@
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
     "affiliate_verified_at": "2026-09-01T10:04:07Z",
-    "affiliate_evidence_markers": ["Text Partner Program dashboard", "Share your default signup link without campaign customization"]
+    "affiliate_evidence_markers": [
+      "Text Partner Program dashboard",
+      "Share your default signup link without campaign customization"
+    ]
   },
   {
     "id": "typedesk",
@@ -3642,9 +3752,18 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://typedesk.com/",
-    "affiliate_status": "application_available",
-    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://www.typedesk.com/reseller"
+    "affiliate_status": "application_submitted",
+    "affiliate_status_checked_at": "2026-09-08",
+    "affiliate_status_evidence_url": "https://www.typedesk.com/reseller",
+    "affiliate_verified": false,
+    "affiliate_final_url": null,
+    "affiliate_evidence_markers": [
+      "Read existing evidence file and verified sent email titled COSHUMA application for the typedesk Affiliate Program in legacy Gmail. No reply found in searched company/legacy mailboxes. Current official Become an affiliate link reaches a real Rewardful signup form. It advertises 30% recurring for up to 12 months, requests password/confirmation, and states signup agrees to Terms of Service. Login requires email and password; no authenticated session was present.",
+      "Preserve existing email application; do not send or submit a duplicate. Resolve existing request/account before any Rewardful registration. Current dashboard approval and customer referral URL remain unconfirmed.",
+      "data/affiliate-browser-followup-wave3-2026-09-08.json"
+    ],
+    "affiliate_workflow_url": "https://typedesk.getrewardful.com/login",
+    "affiliate_next_action": "Preserve existing email application; do not send or submit a duplicate. Resolve existing request/account before any Rewardful registration. Current dashboard approval and customer referral URL remain unconfirmed."
   },
   {
     "id": "chatbot",
@@ -3707,7 +3826,19 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://gojiberry.ai/",
-    "affiliate_status": "approved_tracking"
+    "affiliate_status": "approved_tracking",
+    "affiliate_final_url": "https://gojiberry.ai/?ref=sangkwon",
+    "affiliate_evidence_markers": [
+      "Remote tools.json already records this exact approved_tracking URL. Legacy Gmail welcome email dated 2026-08-31 says Your affiliate account is ready; recipient details confirmed support@coshuma.com. Existing URL opened in real Chrome to the official customer page with ref=sangkwon retained. Official program footer links to this Tolt portal.",
+      "No reapplication. User may complete requested email OTP in preserved portal to recheck current dashboard and exact assigned link. Current public landing check does not prove attribution or commission receipt.",
+      "data/affiliate-browser-followup-wave3-2026-09-08.json"
+    ],
+    "affiliate_status_checked_at": "2026-09-08",
+    "affiliate_status_evidence_url": "https://gojiberry.ai/affiliate-program-gojiberry",
+    "affiliate_workflow_url": "https://gojiberryaff.tolt.io/login",
+    "affiliate_next_action": "No reapplication. User may complete requested email OTP in preserved portal to recheck current dashboard and exact assigned link. Current public landing check does not prove attribution or commission receipt.",
+    "affiliate_dashboard_status": "otp_required",
+    "affiliate_tracking_attribution_currently_verified": false
   },
   {
     "id": "bidx",
@@ -3748,7 +3879,10 @@
     "affiliate_verified": true,
     "affiliate_status": "application_submitted",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
-    "affiliate_evidence_markers": ["PartnerStack application received", "submitted for BidX review"]
+    "affiliate_evidence_markers": [
+      "PartnerStack application received",
+      "submitted for BidX review"
+    ]
   },
   {
     "id": "tidio",
@@ -4260,7 +4394,11 @@
     "affiliate_verified": true,
     "affiliate_status": "application_not_submitted",
     "affiliate_verified_at": "2026-08-31T16:05:00Z",
-    "affiliate_evidence_markers": ["Claap affiliate manager email", "application did not go through", "correct PartnerStack link provided"]
+    "affiliate_evidence_markers": [
+      "Claap affiliate manager email",
+      "application did not go through",
+      "correct PartnerStack link provided"
+    ]
   },
   {
     "id": "cloudtalk",
@@ -4673,7 +4811,10 @@
     "affiliate_status": "referral_link_requested",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
     "affiliate_status_evidence_url": "https://agent-works.ai/contact",
-    "affiliate_evidence_markers": ["Message sent", "Thanks for reaching out. We typically respond within 1 business day."]
+    "affiliate_evidence_markers": [
+      "Message sent",
+      "Thanks for reaching out. We typically respond within 1 business day."
+    ]
   },
   {
     "id": "airia",
@@ -4756,7 +4897,12 @@
     "affiliate_status": "approved_tracking",
     "affiliate_status_checked_at": "2026-09-07T06:16:08Z",
     "affiliate_status_evidence_url": "https://affiliate.omi.me/overview",
-    "affiliate_evidence_markers": ["Email verified", "Welcome back, Sangkwon", "Your Referral Link", "https://www.omi.me/?ref=SANGKWONAN"]
+    "affiliate_evidence_markers": [
+      "Email verified",
+      "Welcome back, Sangkwon",
+      "Your Referral Link",
+      "https://www.omi.me/?ref=SANGKWONAN"
+    ]
   },
   {
     "id": "fireflies-ai",
@@ -4873,7 +5019,10 @@
     "affiliate_status": "program_unavailable_company_winding_down",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
     "affiliate_status_evidence_url": "https://gobii.ai/",
-    "affiliate_evidence_markers": ["Gobii is winding down", "final day of operations will be September 1, 2026"]
+    "affiliate_evidence_markers": [
+      "Gobii is winding down",
+      "final day of operations will be September 1, 2026"
+    ]
   },
   {
     "id": "voibe",

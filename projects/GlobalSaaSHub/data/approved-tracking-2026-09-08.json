@@ -82,6 +82,30 @@
       "action": "One free merchant request; no paid product signup.",
       "destination": "https://www.getvoibe.com/?aff=G5Yr5D",
       "checked_at": "2026-09-07T17:06:13Z"
+    },
+    {
+      "id": "gojiberry",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://gojiberry.ai/?ref=sangkwon",
+      "destination": "https://gojiberry.ai/?ref=sangkwon",
+      "evidence": "Remote tools.json already records this exact approved_tracking URL. Legacy Gmail welcome email dated 2026-08-31 says Your affiliate account is ready; recipient details confirmed support@coshuma.com. Existing URL opened in real Chrome to the official customer page with ref=sangkwon retained. Official program footer links to this Tolt portal.",
+      "checked_at": "2026-09-08",
+      "source": "data/affiliate-browser-followup-wave3-2026-09-08.json",
+      "status_origin": "existing_remote_record_preserved_not_new_approval",
+      "current_dashboard_status": "otp_required",
+      "tracking_attribution_currently_verified": false
+    },
+    {
+      "id": "followr",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://followr.ai/?ref=support22",
+      "destination": "https://followr.ai/?ref=support22",
+      "evidence": "Official Help Center points to followr.pushlapgrowth.com. Remote tools.json already records this exact approved_tracking URL. Legacy Gmail welcome email dated 2026-08-31 shows 25% per sale and recipient details support@coshuma.com. Existing URL opened in real Chrome to the official customer page with ref=support22 retained. Existing-account Sign In reached Verify Email code input.",
+      "checked_at": "2026-09-08",
+      "source": "data/affiliate-browser-followup-wave3-2026-09-08.json",
+      "status_origin": "existing_remote_record_preserved_not_new_approval",
+      "current_dashboard_status": "otp_required",
+      "tracking_attribution_currently_verified": false
     }
   ]
 }

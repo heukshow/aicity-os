@@ -1,3 +1,4 @@
+import { applyBrowserFollowup } from './browser_followup_evidence.mjs';
 import { applyApprovedTracking } from './approved_tracking_evidence.mjs';
 import fs from 'node:fs';
 
@@ -284,6 +285,7 @@ const statusOverrides = {
 for (const file of ['data/tools.json', 'data/tools.next.json']) {
   const tools = JSON.parse(fs.readFileSync(file, 'utf8'));
   for (const tool of tools) {
+    if (applyBrowserFollowup(tool)) continue;
     if (applyApprovedTracking(tool)) continue;
     const dataOverride = dataOverrides[tool.id];
     if (dataOverride) Object.assign(tool, dataOverride);
