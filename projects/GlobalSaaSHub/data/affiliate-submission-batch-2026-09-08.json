@@ -29,16 +29,20 @@
     },
     {
       "id": "aiassistworks",
-      "status": "browser_required_onboarding",
-      "application_state": "not_confirmed",
-      "affiliate_url": null,
-      "workflow_url": "https://aiassistworks.affonso.io/onboarding",
+      "status": "approved_tracking",
+      "application_state": "submitted",
+      "affiliate_url": "https://www.aiassistworks.com/?via=coshuma",
+      "workflow_url": "https://aiassistworks.affonso.io/",
       "official_program_url": "https://www.aiassistworks.com/affiliate-program",
-      "evidence": "2026-09-08 browser requested a fresh code; company Gmail received latest AiAssistWorks verification email at 05:22 KST. Authentication succeeded and onboarding displayed signed in as support@coshuma.com, step 1 of 2, name empty and Korea, Republic of selected. OTP blocker resolved; onboarding and application submission are not complete. No code or token retained.",
-      "next_action": "Resume existing authenticated onboarding when continuing account setup. Do not request another OTP while session remains valid. Do not mark submitted or approved until actual confirmation.",
-      "blockers": [
-        "onboarding_incomplete"
-      ]
+      "evidence": "Existing support@coshuma.com authenticated session reused. Onboarding step 1 accepted name COSHUMA with the existing Korea, Republic of selection; step 2 accepted identifier coshuma and Complete was submitted once. Success Hub and the affiliate dashboard issued https://www.aiassistworks.com/?via=coshuma. Live Chrome opened the official customer product page with via=coshuma retained. Operational enrollment and issued tracking link confirmed; no separate approval email claimed. Before verification visit, dashboard showed 0 clicks, 0 conversions and $0 commission. Payout settings remain incomplete. No new OTP, additional agreement checkbox, paid action or duplicate application occurred. Link validation is not proof of a customer signup, sale or attributed commission.",
+      "next_action": "Preserve the issued exact link and existing account; do not reapply. Payout setup remains incomplete and is separate from enrollment. Keep real customer signups, commissions and revenue at 0 without new evidence; verification visits are not customer activity.",
+      "blockers": [],
+      "review_state": "operational_enrollment_confirmed",
+      "status_origin": "authenticated_portal_issued_tracking",
+      "portal_enrollment_confirmed": true,
+      "customer_landing_verified": true,
+      "checked_at": "2026-09-08T05:29:50+09:00",
+      "payout_setup_complete": false
     }
   ]
 }

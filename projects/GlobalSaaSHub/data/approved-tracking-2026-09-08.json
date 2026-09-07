@@ -114,6 +114,17 @@
       "destination": "https://app.catalister.com/signup?via=coshuma",
       "evidence": "Authenticated Catalister onboarding accepted First Name COSHUMA, Last Name GlobalSaaSHub and affiliate identifier coshuma. Dashboard welcomes COSHUMA, displays Your Affiliate Link app.catalister.com/signup?via=coshuma and confirms Link copied. Customer destination shows Create your account with via=coshuma retained. Operational enrollment and issued link confirmed; no separate approval email claimed. Before verification visit, dashboard displayed 0 clicks, 0 paying referrals, 0 trialing referrals, EUR 0 total/unpaid commission and EUR 0 revenue.",
       "checked_at": "2026-09-08T04:55:00+09:00"
+    },
+    {
+      "id": "aiassistworks",
+      "platform": "Affonso",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.aiassistworks.com/?via=coshuma",
+      "destination": "https://www.aiassistworks.com/?via=coshuma",
+      "portal_url": "https://aiassistworks.affonso.io/",
+      "checked_at": "2026-09-08T05:29:50+09:00",
+      "evidence": "Existing support@coshuma.com authenticated session reused. Onboarding step 1 accepted name COSHUMA with the existing Korea, Republic of selection; step 2 accepted identifier coshuma and Complete was submitted once. Success Hub and the affiliate dashboard issued https://www.aiassistworks.com/?via=coshuma. Live Chrome opened the official customer product page with via=coshuma retained. Operational enrollment and issued tracking link confirmed; no separate approval email claimed. Before verification visit, dashboard showed 0 clicks, 0 conversions and $0 commission. Payout settings remain incomplete. No new OTP, additional agreement checkbox, paid action or duplicate application occurred. Link validation is not proof of a customer signup, sale or attributed commission.",
+      "status_origin": "authenticated_portal_issued_tracking"
     }
   ]
 }

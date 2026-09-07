@@ -124,18 +124,6 @@ const states = {
       'Browser enrollment remains required; no exact customer tracking URL is verified yet',
     ],
   },
-  aiassistworks: {
-    affiliate_url: null,
-    affiliate_verified: true,
-    affiliate_status: 'browser_required_otp',
-    affiliate_source_url: 'https://www.aiassistworks.com/affiliate-program',
-    affiliate_verified_at: observedAt,
-    affiliate_evidence_markers: [
-      'The official AiAssistWorks Affonso flow was opened for support@coshuma.com',
-      'AiAssistWorks sent a one-time-password login email at 2026-09-08 03:21 KST',
-      'OTP/browser completion is required before an exact customer-facing affiliate URL can be recovered',
-    ],
-  },
   synder: {
     affiliate_url: null,
     affiliate_verified: true,
