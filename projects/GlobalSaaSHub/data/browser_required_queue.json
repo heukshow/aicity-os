@@ -637,5 +637,47 @@
     "reason": "Official Creator Program advertises manual application from Community settings Links tab. Pre-action company Gmail in:anywhere search had no prior Framer messages. Email authentication was completed using the newly received verified team@framer.com activation message, and free account creation was completed as Sangkwon An under support@coshuma.com. Optional newsletter was unchecked. Official creator Links route redirected to /@sangkwon-an/?settings=open&settingsTab=links and displayed Page not found. Marketplace Account menu exposed Settings but no application form became available after activation. Account exists; affiliate submission, approval and tracking URL are not confirmed. No paid plan or marketplace product was created. Newer main commit 02e5ba2 records Framer Creator Team outreach. Verified in the authenticated company Gmail UI: COSHUMA <support@coshuma.com> sent COSHUMA — Framer Creator Program / affiliate enrollment to creators@framer.com at 06:25 KST on 2026-09-08, requesting the current manual application path or activation of the Links application. Gmail message 1a07dc29ac469c2d; data/framer-creator-program-outreach-2026-09-08.md. This request is not an application submission or approval. No duplicate outreach sent in this task.",
     "next_action": "Await the existing Framer Creator Team reply to the 06:25 KST company email. Do not send another request or recreate the account. If the vendor enables the Links application, resume the existing account and submit once; no tracking URL until issued and verified.",
     "evidence_file": "data/affiliate-submission-batch-2026-09-08.json"
+  },
+  {
+    "id": "koala-ai-affiliate-batch-20260908-0633",
+    "tool_id": "koala-ai",
+    "priority": "high",
+    "status": "resolved",
+    "affiliate_status": "application_submitted",
+    "exact_tracking_url": null,
+    "cost": "0",
+    "verified_at": "2026-09-07T21:35:04.579403+00:00",
+    "reason": "2026-09-08 06:33 KST: official Koala page instructs applicants to email hello@koala.sh with audience details and links. Company Gmail in:anywhere koala returned no messages before applying. Sent one application with factual COSHUMA buyer-guide description and website/product links, without invented traffic or customer usage. Gmail displayed Message sent; Sent message subject COSHUMA — Koala AI Affiliate Program Application, sender COSHUMA <support@coshuma.com>, recipient hello@koala.sh. Sent URL https://mail.google.com/mail/u/1/#sent/QgrcJHsHsHNwknQNnbrBrVCglRWGxCQHpKQ. This verifies dispatch of the official email application, not vendor receipt, approval or enrollment. No tracking URL issued.",
+    "next_action": "Await the existing email application response. Do not reapply or send duplicate outreach. Record only an exact customer-facing link issued by the vendor after approval.",
+    "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
+    "user_action_required": false
+  },
+  {
+    "id": "speechify-affiliate-batch-20260908-0633",
+    "tool_id": "speechify",
+    "priority": "high",
+    "status": "resolved",
+    "affiliate_status": "application_submitted",
+    "exact_tracking_url": null,
+    "cost": "0",
+    "verified_at": "2026-09-07T21:35:04.579403+00:00",
+    "reason": "2026-09-08 authenticated Chrome: company Gmail in:anywhere search including speechify returned no messages before submission. Current /affiliates/ page exposes a free Submit Interest form, replacing the old singular /affiliate Page Not Found route. Submitted once with Sangkwon An, support@coshuma.com, https://coshuma.com, and traffic stated as Not yet verified; early-stage SaaS/AI buyer-guide website. No invented traffic number. After Processing your submission the page displayed Thanks for getting in touch! and A member of our team will reach out to you shortly. This is affiliate-interest submission, not an approved partner account. No customer tracking URL issued.",
+    "next_action": "Await the vendor response to the existing affiliate-interest submission. Do not resubmit. Recover only an issued customer-facing referral link after approval.",
+    "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
+    "user_action_required": false
+  },
+  {
+    "id": "supademo-affiliate-batch-20260908-0633",
+    "tool_id": "supademo",
+    "priority": "high",
+    "status": "technical_failure",
+    "affiliate_status": "application_embed_unavailable",
+    "exact_tracking_url": null,
+    "cost": "0",
+    "verified_at": "2026-09-07T21:35:04.579403+00:00",
+    "reason": "2026-09-08: company Gmail in:anywhere search including supademo returned no existing messages. Official Supademo page explicitly states affiliate signup is completely free, no customer subscription or sales minimum is required, and advertises 30% recurring commission. Join the affiliate program exposed an eu.makeforms.io frame with connection reset. Its exact official form https://eu.makeforms.io/k1ibmll/ also returned net::ERR_CONNECTION_RESET when opened directly in Chrome and the in-app browser. No form fields or submission confirmation were available. Technical connectivity failure, not CAPTCHA or a user-consent blocker. No account, application, payment or referral link created.",
+    "next_action": "Resume this exact official form when its connection recovers. Recheck mailbox before a first submission. No user action currently required; do not publish the form or homepage as an affiliate URL.",
+    "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
+    "user_action_required": false
   }
 ]
