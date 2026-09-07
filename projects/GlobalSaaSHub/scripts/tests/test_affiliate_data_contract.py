@@ -13,8 +13,8 @@ TRACKING_KEYS = {"aff", "affiliate", "affiliate_id", "fpr", "fp_ref", "pc", "ref
 def _has_tracking_identifier(url):
     parsed = urlparse(url)
     query = parse_qs(parsed.query, keep_blank_values=True)
-    # HelpDesk's verified Text Partner campaign uses `a` as its account ID.
-    if parsed.hostname == "www.helpdesk.com" and any(value.strip() for value in query.get("a", [])):
+    # Verified HelpDesk and Text Partner campaigns use `a` as their account ID.
+    if parsed.hostname in {"www.helpdesk.com", "www.text.com"} and any(value.strip() for value in query.get("a", [])):
         return True
     has_query_id = any(key.lower() in TRACKING_KEYS and any(value.strip() for value in values) for key, values in query.items())
     return has_query_id or parsed.path.strip("/") != ""
@@ -50,7 +50,23 @@ def test_helpdesk_tracking_identifier():
     assert not _has_tracking_identifier("https://unrelated.invalid/?a=8IetMhQvR")
 
 
+def test_text_tracking_identifier():
+    exact_url = "https://www.text.com/?a=8IetMhQvR&utm_campaign=pp_text-wins-martech-awards&utm_source=PP"
+    for data_file in DATA_FILES:
+        tool = next(item for item in json.loads(data_file.read_text(encoding="utf-8")) if item["id"] == "text")
+        assert tool["affiliate_status"] == "approved_tracking"
+        assert tool["affiliate_verified"] is True
+        assert tool["affiliate_url"] == exact_url
+        assert _has_tracking_identifier(tool["affiliate_url"])
+    assert not _has_tracking_identifier("https://www.text.com/")
+    assert not _has_tracking_identifier("https://www.text.com/?utm_campaign=pp_text-wins-martech-awards&utm_source=PP")
+    assert not _has_tracking_identifier("https://www.text.com/?a=&utm_source=PP")
+    assert not _has_tracking_identifier("https://www.text.com/?a=%20&utm_source=PP")
+    assert not _has_tracking_identifier("https://www.text.com.unrelated.invalid/?a=8IetMhQvR")
+
+
 if __name__ == "__main__":
     test_helpdesk_tracking_identifier()
+    test_text_tracking_identifier()
     test_affiliate_urls_are_approved_unique_tracking_links()
     print("PASS affiliate data contract")
