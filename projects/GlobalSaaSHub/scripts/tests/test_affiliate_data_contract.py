@@ -13,6 +13,9 @@ TRACKING_KEYS = {"aff", "affiliate", "affiliate_id", "fpr", "fp_ref", "pc", "ref
 def _has_tracking_identifier(url):
     parsed = urlparse(url)
     query = parse_qs(parsed.query, keep_blank_values=True)
+    # CartStack's confirmed COSHUMA referral uses `afmc` at the site root.
+    if parsed.hostname == "www.cartstack.com" and query.get("afmc") == ["wb"]:
+        return True
     # Jotform's confirmed COSHUMA customer links use `partner`, including at root.
     if parsed.hostname == "www.jotform.com" and query.get("partner") == ["coshuma"]:
         return True
@@ -80,9 +83,21 @@ def test_jotform_tracking_identifier():
     assert not _has_tracking_identifier("https://unrelated.invalid/?partner=coshuma")
 
 
+def test_cartstack_tracking_identifier():
+    assert _has_tracking_identifier("http://www.cartstack.com/?afmc=wb")
+    assert not _has_tracking_identifier("http://www.cartstack.com/")
+    assert not _has_tracking_identifier("http://www.cartstack.com/?afmc=")
+    assert not _has_tracking_identifier("http://www.cartstack.com/?afmc=%20")
+    assert not _has_tracking_identifier("http://www.cartstack.com/?afmc=unconfirmed")
+    assert not _has_tracking_identifier("http://www.cartstack.com/?utm_source=wb")
+    assert not _has_tracking_identifier("http://www.cartstack.com.unrelated.invalid/?afmc=wb")
+    assert not _has_tracking_identifier("http://unrelated.invalid/?afmc=wb")
+
+
 if __name__ == "__main__":
     test_helpdesk_tracking_identifier()
     test_text_tracking_identifier()
     test_jotform_tracking_identifier()
+    test_cartstack_tracking_identifier()
     test_affiliate_urls_are_approved_unique_tracking_links()
     print("PASS affiliate data contract")
