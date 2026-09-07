@@ -57,6 +57,7 @@ class IndexablePage(HTMLParser):
 # Scan the finished pages, including hand-written pages omitted by generators.
 # Only index self-canonical pages; aliases and explicitly noindexed pages stay out.
 tool_ids = {tool["id"] for tool in json.loads((PROJECT / "data/tools.json").read_text(encoding="utf-8"))}
+tool_ids.update(json.loads((PROJECT / "data/standalone_tool_pages.json").read_text(encoding="utf-8")))
 for directory in ("tool", "compare"):
     for page in sorted((PUBLIC / directory).glob("*.html")):
         if directory == "tool" and page.stem not in tool_ids:

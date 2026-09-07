@@ -92,6 +92,7 @@ if source != "live":
         (root / "scripts").mkdir()
         (root / "data").mkdir()
         (root / "data/tools.json").write_text('[{"id":"new"},{"id":"alias"},{"id":"private"}]')
+        (root / "data/standalone_tool_pages.json").write_text('{"standalone":{}}')
         public = root / "public"
         public.mkdir()
         script = root / "scripts/ensure_best_pages_in_sitemap.py"
@@ -99,14 +100,14 @@ if source != "live":
         (public / "sitemap.xml").write_text('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"/>')
         for directory in ("tool", "compare"):
             (public / directory).mkdir()
-            for name in ("new", "alias", "private"):
+            for name in ("new", "alias", "private", "standalone"):
                 canonical = f"{BASE}/{directory}/{'new' if name == 'alias' else name}.html"
                 meta = '<meta name="robots" content="noindex">' if name == "private" else ""
                 (public / directory / f"{name}.html").write_text(f'<link rel="canonical" href="{canonical}">{meta}')
         subprocess.run([sys.executable, str(script)], check=True, capture_output=True)
         before = (public / "sitemap.xml").read_bytes()
         nodes = ET.fromstring(before).findall("{*}url/{*}loc")
-        assert {n.text for n in nodes} == {f"{BASE}/{d}/new.html" for d in ("tool", "compare")}
+        assert {n.text for n in nodes} == {f"{BASE}/{d}/{name}.html" for d in ("tool", "compare") for name in ("new", "standalone")}
         subprocess.run([sys.executable, str(script)], check=True, capture_output=True)
         assert (public / "sitemap.xml").read_bytes() == before
     print("PASS sitemap discovery, alias/noindex exclusion and idempotence")

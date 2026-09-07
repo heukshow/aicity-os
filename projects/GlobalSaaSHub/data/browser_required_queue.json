@@ -403,14 +403,14 @@
   {
     "id": "n8n-affiliate-browser-followup",
     "tool_id": "n8n",
-    "status": "browser_required_user_consent",
-    "affiliate_status": "browser_required_user_consent",
+    "status": "resolved",
+    "affiliate_status": "application_submitted",
     "cost": "0",
     "exact_tracking_url": null,
-    "workflow_url": "https://dash.partnerstack.com/application?company=n8n&group=affiliates2025",
-    "evidence_file": "data/affiliate-browser-followup-wave3-2026-09-08.json",
-    "reason": "Required I agree acknowledgement prohibits branded-search bidding and specifies ban/commission forfeiture. Left unchecked; Submit application not clicked. Program agreement is linked on the form.",
-    "next_action": "User reviews program agreement and required acknowledgement, then submits prepared application. Record application_submitted only after actual confirmation. Optional unverified n8n-use and social fields left blank.",
+    "workflow_url": "https://dash.partnerstack.com/home",
+    "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
+    "reason": "2026-09-08 authenticated browser: checked the prepared required I agree acknowledgement under explicit user authorization and submitted once. PartnerStack home then displayed n8n GmbH / Application pending. Clicks and signups 0; revenue, pending and paid commissions $0.00. No approval or customer tracking URL issued.",
+    "next_action": "Await program review in the existing account. Do not reapply. Recover only an issued customer-facing tracking URL after approval evidence.",
     "do_not": [
       "Do not reapply or submit duplicate outreach.",
       "Do not pay or create a new account.",
@@ -531,5 +531,29 @@
     "application_submitted": true,
     "email_confirmed": true,
     "program_consent_checked": true
+  },
+  {
+    "id": "webflow-affiliate-browser-followup",
+    "tool_id": "webflow",
+    "cost": "0",
+    "status": "resolved",
+    "affiliate_status": "application_submitted",
+    "exact_tracking_url": null,
+    "workflow_url": "https://webflow.com/solutions/affiliates",
+    "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
+    "reason": "2026-09-08 authenticated browser: existing prepared form, final Program terms accepted under explicit user authorization; submitted once. Affiliate Program Application success and Thank you for applying displayed, with response expected in 1-2 weeks by email or PartnerStack. Optional email marketing checkbox remained unchecked. Approval and customer tracking URL not confirmed.",
+    "next_action": "Await review email or PartnerStack update; do not submit again or duplicate outreach. No further consent request is needed for this submitted application."
+  },
+  {
+    "id": "aiassistworks-affiliate-browser-followup",
+    "tool_id": "aiassistworks",
+    "cost": "0",
+    "status": "browser_required_onboarding",
+    "affiliate_status": "browser_required_onboarding",
+    "exact_tracking_url": null,
+    "workflow_url": "https://aiassistworks.affonso.io/onboarding",
+    "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
+    "reason": "2026-09-08 browser requested a fresh code; company Gmail received latest AiAssistWorks verification email at 05:22 KST. Authentication succeeded and onboarding displayed signed in as support@coshuma.com, step 1 of 2, name empty and Korea, Republic of selected. OTP blocker resolved; onboarding and application submission are not complete. No code or token retained.",
+    "next_action": "Resume existing authenticated onboarding when continuing account setup. Do not request another OTP while session remains valid. Do not mark submitted or approved until actual confirmation."
   }
 ]

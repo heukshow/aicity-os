@@ -1,0 +1,44 @@
+{
+  "checked_date_kst": "2026-09-08",
+  "account": "support@coshuma.com",
+  "paid_actions": 0,
+  "results": [
+    {
+      "id": "n8n",
+      "status": "application_submitted",
+      "application_state": "submitted",
+      "review_state": "pending_review",
+      "affiliate_url": null,
+      "workflow_url": "https://dash.partnerstack.com/home",
+      "official_program_url": "https://n8n.io/affiliates/",
+      "evidence": "2026-09-08 authenticated browser: checked the prepared required I agree acknowledgement under explicit user authorization and submitted once. PartnerStack home then displayed n8n GmbH / Application pending. Clicks and signups 0; revenue, pending and paid commissions $0.00. No approval or customer tracking URL issued.",
+      "next_action": "Await program review in the existing account. Do not reapply. Recover only an issued customer-facing tracking URL after approval evidence.",
+      "blockers": []
+    },
+    {
+      "id": "webflow",
+      "status": "application_submitted",
+      "application_state": "submitted",
+      "review_state": "pending_review",
+      "affiliate_url": null,
+      "workflow_url": "https://webflow.com/solutions/affiliates",
+      "official_program_url": "https://webflow.com/solutions/affiliates",
+      "evidence": "2026-09-08 authenticated browser: existing prepared form, final Program terms accepted under explicit user authorization; submitted once. Affiliate Program Application success and Thank you for applying displayed, with response expected in 1-2 weeks by email or PartnerStack. Optional email marketing checkbox remained unchecked. Approval and customer tracking URL not confirmed.",
+      "next_action": "Await review email or PartnerStack update; do not submit again or duplicate outreach. No further consent request is needed for this submitted application.",
+      "blockers": []
+    },
+    {
+      "id": "aiassistworks",
+      "status": "browser_required_onboarding",
+      "application_state": "not_confirmed",
+      "affiliate_url": null,
+      "workflow_url": "https://aiassistworks.affonso.io/onboarding",
+      "official_program_url": "https://www.aiassistworks.com/affiliate-program",
+      "evidence": "2026-09-08 browser requested a fresh code; company Gmail received latest AiAssistWorks verification email at 05:22 KST. Authentication succeeded and onboarding displayed signed in as support@coshuma.com, step 1 of 2, name empty and Korea, Republic of selected. OTP blocker resolved; onboarding and application submission are not complete. No code or token retained.",
+      "next_action": "Resume existing authenticated onboarding when continuing account setup. Do not request another OTP while session remains valid. Do not mark submitted or approved until actual confirmation.",
+      "blockers": [
+        "onboarding_incomplete"
+      ]
+    }
+  ]
+}

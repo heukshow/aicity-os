@@ -4,6 +4,7 @@ import json
 import re
 import sys
 import xml.etree.ElementTree as ET
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -27,6 +28,18 @@ def fail(errors, message):
     errors.append(message)
 
 
+class AffiliateLinks(HTMLParser):
+    def __init__(self, html):
+        super().__init__()
+        self.links = []
+        self.feed(html)
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "a" and attrs.get("data-cta") == "affiliate":
+            self.links.append(attrs)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--source", choices=("auto", "tools.json", "tools.next.json"), default="tools.json")
@@ -38,6 +51,8 @@ def main():
     if len(ids) != len(set(ids)):
         fail(errors, "tools.json contains duplicate canonical ids")
     expected_paths = {f"/tool/{tool_id}.html" for tool_id in ids}
+    standalone = json.loads((PROJECT / "data/standalone_tool_pages.json").read_text(encoding="utf-8"))
+    expected_paths.update(f"/tool/{tool_id}.html" for tool_id in standalone)
 
     app_source = (PROJECT / "src" / "App.jsx").read_text(encoding="utf-8")
     if 'href={`/tool/${tool.id}.html`}' not in app_source:
@@ -67,7 +82,7 @@ def main():
             if link not in actual_files:
                 fail(errors, f"Broken internal link in {html_file.relative_to(PUBLIC)}: {link}")
 
-    for tool_id in ids:
+    for tool_id in [*ids, *standalone]:
         path = f"/tool/{tool_id}.html"
         html = (PUBLIC / path.removeprefix("/")).read_text(encoding="utf-8")
         canonical = canonical_pattern.search(html)
@@ -93,13 +108,20 @@ def main():
             fail(errors, f"{tool_id} approved tracking data is missing or unverified")
             continue
         html = (PUBLIC / "tool" / f"{tool_id}.html").read_text(encoding="utf-8")
-        affiliate_cta = re.search(r'<a data-cta="affiliate"[^>]+>', html)
-        if not affiliate_cta or f'href="{tracking_url}"' not in affiliate_cta.group(0):
+        affiliate_ctas = AffiliateLinks(html).links
+        if not affiliate_ctas or any(a.get("href") != tracking_url for a in affiliate_ctas):
             fail(errors, f"{tool_id} generated affiliate CTA does not use its approved tracking URL")
-        if not affiliate_cta or 'rel="sponsored noopener noreferrer"' not in affiliate_cta.group(0):
+        if not affiliate_ctas or any(not {"sponsored", "noopener", "noreferrer"} <= set(a.get("rel", "").split()) for a in affiliate_ctas):
             fail(errors, f"{tool_id} affiliate CTA is missing the sponsored safety relation")
         if not ("via Verified Affiliate Link" in html or re.search(r"Affiliate disclosure:.*?commission", html, re.I | re.S)):
             fail(errors, f"{tool_id} affiliate disclosure is missing")
+    for tool_id, record in standalone.items():
+        evidence = json.loads((PROJECT / record["evidence_file"]).read_text(encoding="utf-8"))
+        item = next(item for item in evidence["items"] if item["id"] == record["program_id"])
+        html = (PUBLIC / "tool" / f"{tool_id}.html").read_text(encoding="utf-8")
+        links = AffiliateLinks(html).links
+        if item["status"] != "approved_tracking" or not item.get("exact_tracking_url") or not links or any(a.get("href") != item["exact_tracking_url"] for a in links):
+            fail(errors, f"Standalone page {tool_id} does not match its approved tracking evidence")
     if errors:
         print(f"LINK INTEGRITY: FAIL ({len(errors)} errors)")
         for error in errors:
