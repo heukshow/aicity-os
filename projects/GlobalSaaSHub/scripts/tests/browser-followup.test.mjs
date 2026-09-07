@@ -21,7 +21,7 @@ function check() {
       assert.equal(q.length, 1, id);
       assert.equal(q[0].affiliate_status, t.affiliate_status, id);
       assert.equal(q[0].exact_tracking_url, t.affiliate_url, id);
-      if (t.affiliate_url) {
+      if (t.affiliate_url && evidence.current_dashboard_status === 'otp_required') {
         assert.equal(q[0].status, 'browser_required_otp');
         assert.equal(t.affiliate_tracking_attribution_currently_verified, false);
       }
@@ -51,8 +51,17 @@ assert.equal(state.typedesk.sender, 'qmfforfhem@gmail.com');
 assert.equal(state.typedesk.portal_enrollment_confirmed, false);
 assert.equal(state.n8n.application_state, 'submitted');
 assert.equal(state.webflow.application_state, 'submitted');
-assert.equal(state.aiassistworks.application_state, 'not_confirmed');
-assert.equal(state.aiassistworks.status, 'browser_required_onboarding');
+assert.equal(state.aiassistworks.application_state, 'submitted');
+assert.equal(state.aiassistworks.status, 'approved_tracking');
+assert.equal(state.aiassistworks.tracking_url, 'https://www.aiassistworks.com/?via=coshuma');
+assert.equal(state.aiassistworks.portal_enrollment_confirmed, true);
+assert.equal(queue.find(q => q.tool_id === 'aiassistworks').status, 'resolved');
+const issued = browserFollowups.get('aiassistworks');
+for (const patch of [{customer_landing_verified:false}, {portal_enrollment_confirmed:false}, {affiliate_url:'https://www.aiassistworks.com/'}, {affiliate_url:'https://aiassistworks.affonso.io/'}]) {
+  browserFollowups.set('aiassistworks', {...issued,...patch});
+  assert.throws(() => applyBrowserFollowup({id:'aiassistworks'}));
+}
+browserFollowups.set('aiassistworks', issued);
 assert.equal(state['novita-ai'].application_state, 'not_submitted');
 for (const id of ['n8n', 'novita-ai', 'typedesk']) {
   const stale = {id, affiliate_url: 'https://example.com/dashboard', affiliate_verified: true};
