@@ -13,7 +13,8 @@
       "closed",
       "browser_required_user_consent",
       "browser_required_otp",
-      "existing_enrollment_referral_link_unrecovered"
+      "existing_enrollment_referral_link_unrecovered",
+      "no_affiliate_program"
     ],
     "require_exact_customer_tracking_url_before_revenue_cta": true
   },
@@ -288,6 +289,18 @@
       "portal_enrollment_confirmed": false,
       "enrollment_url": "https://typedesk.getrewardful.com/signup",
       "sender": "qmfforfhem@gmail.com"
+    },
+    "copy-ai": {
+      "status": "no_affiliate_program",
+      "terminal": true,
+      "contact": "support@copyaihelp.zendesk.com",
+      "gmail_message_id": "1a07d1d846b4d3c8",
+      "source": "official support confirmation",
+      "source_url": "https://mail.google.com/mail/u/?authuser=support%40coshuma.com#all/1a07d1d846b4d3c8",
+      "tracking_url": null,
+      "do_not_reapply": true,
+      "do_not_outreach": true,
+      "note": "Official support confirmation in Copy.ai ticket #19902: Currently, we do not have an active affiliate or referral program. No new partners or referral links are available. Exclude from outreach/application targets unless newer official evidence confirms an active program."
     }
   }
 }

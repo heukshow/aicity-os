@@ -7,10 +7,12 @@ const observedAt = '2026-09-08T03:27:00+09:00';
 const states = {
   'copy-ai': {
     affiliate_url: null,
-    affiliate_verified: true,
+    affiliate_verified: false,
     affiliate_status: 'no_affiliate_program',
+    affiliate_source_url: 'https://mail.google.com/mail/u/?authuser=support%40coshuma.com#all/1a07d1d846b4d3c8',
     affiliate_verified_at: observedAt,
     affiliate_evidence_markers: [
+      'Official support confirmation: Gmail message id 1a07d1d846b4d3c8, Copy.ai support ticket #19902',
       'Copy.ai support ticket #19902 states there is currently no active affiliate or referral program',
       'Copy.ai support states it cannot accept new partners or provide referral links at this time',
       'Do not reapply unless Copy.ai later announces a new active program',

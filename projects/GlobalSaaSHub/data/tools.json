@@ -197,7 +197,17 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
-    "official_evidence_url": "https://www.copy.ai/"
+    "official_evidence_url": "https://www.copy.ai/",
+    "affiliate_verified": false,
+    "affiliate_status": "no_affiliate_program",
+    "affiliate_source_url": "https://mail.google.com/mail/u/?authuser=support%40coshuma.com#all/1a07d1d846b4d3c8",
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "Official support confirmation: Gmail message id 1a07d1d846b4d3c8, Copy.ai support ticket #19902",
+      "Copy.ai support ticket #19902 states there is currently no active affiliate or referral program",
+      "Copy.ai support states it cannot accept new partners or provide referral links at this time",
+      "Do not reapply unless Copy.ai later announces a new active program"
+    ]
   },
   {
     "id": "zenrows",
