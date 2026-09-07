@@ -3437,7 +3437,8 @@
     "affiliate_status_evidence_url": "https://admin.eprofessor.com/referrals/",
     "affiliate_workflow_url": "https://admin.eprofessor.com/referrals/",
     "affiliate_next_action": "Preserve the existing account and exact issued referral link; do not reapply. PayPal and tax-document setup remain incomplete and require a separate user action before earnings can start, as stated by the dashboard. Keep real signups, commissions and revenue at 0 without evidence.",
-    "affiliate_verified_at": "2026-09-07T21:24:29.148094+00:00"
+    "affiliate_verified_at": "2026-09-07T21:24:29.148094+00:00",
+    "payout_setup_status": "incomplete"
   },
   {
     "id": "docsbot",

@@ -48,6 +48,9 @@ export function applyBrowserFollowup(tool) {
     affiliate_next_action: item.next_action,
   });
   if (approved && item.checked_at) tool.affiliate_verified_at = item.checked_at;
+  if (typeof item.payout_setup_complete === 'boolean') {
+    tool.payout_setup_status = item.payout_setup_complete ? 'complete' : 'incomplete';
+  }
   if (item.current_dashboard_status) {
     tool.affiliate_dashboard_status = item.current_dashboard_status;
     tool.affiliate_tracking_attribution_currently_verified = false;
