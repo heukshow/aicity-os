@@ -4680,7 +4680,8 @@
     "category": "developer",
     "category_display": "Coding & Dev Tools",
     "description": "Open-source AI wearable necklace and conversation assistant capturing real-time voice memories.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.omi.me/?ref=SANGKWONAN",
+    "affiliate_verified": true,
     "pricing": "See official pricing",
     "key_features": [
       "Wearable Voice Hardware",
@@ -4707,10 +4708,10 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.omi.me/",
-    "affiliate_status": "approved_email_verification_required",
-    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_status": "approved_tracking",
+    "affiliate_status_checked_at": "2026-09-07T06:16:08Z",
     "affiliate_status_evidence_url": "https://affiliate.omi.me/overview",
-    "affiliate_evidence_markers": ["Your account has been approved", "Verify your email"]
+    "affiliate_evidence_markers": ["Email verified", "Welcome back, Sangkwon", "Your Referral Link", "https://www.omi.me/?ref=SANGKWONAN"]
   },
   {
     "id": "fireflies-ai",
