@@ -9,6 +9,7 @@ on:
       - 'projects/GlobalSaaSHub/data/tools.json'
       - 'projects/GlobalSaaSHub/data/tools.next.json'
       - 'projects/GlobalSaaSHub/scripts/sync_verified_affiliates.mjs'
+      - 'projects/GlobalSaaSHub/scripts/sync_latest_affiliate_states.mjs'
       - 'projects/GlobalSaaSHub/scripts/monetize_verified_compare_links.mjs'
       - 'projects/GlobalSaaSHub/scripts/build_search_comparisons.mjs'
       - 'projects/GlobalSaaSHub/scripts/polish_public_copy.py'
@@ -52,6 +53,7 @@ jobs:
         working-directory: projects/GlobalSaaSHub
         run: |
           node scripts/sync_verified_affiliates.mjs
+          node scripts/sync_latest_affiliate_states.mjs
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
           const tools = JSON.parse(fs.readFileSync('data/tools.json', 'utf8'));
@@ -68,6 +70,24 @@ jobs:
             const tool = tools.find((item) => item.id === id);
             if (!tool || tool.affiliate_verified !== true || tool.affiliate_status !== 'approved_tracking' || tool.affiliate_url !== url) {
               throw new Error(`Verified affiliate sync failed for ${id}`);
+            }
+          }
+          const expectedStates = new Map([
+            ['gravity-forms', 'application_submitted'],
+            ['sendcloud', 'application_submitted'],
+            ['apollo', 'rejected'],
+            ['ai-video-cut', 'application_submitted'],
+            ['fillout', 'application_submitted'],
+            ['beefree', 'application_submitted'],
+            ['gumloop', 'application_submitted'],
+            ['pipedrive', 'pending'],
+            ['monday-com', 'pending'],
+            ['kittl', 'approved'],
+          ]);
+          for (const [id, status] of expectedStates) {
+            const tool = tools.find((item) => item.id === id);
+            if (tool && tool.affiliate_status !== status) {
+              throw new Error(`Affiliate state sync failed for ${id}: ${tool.affiliate_status} !== ${status}`);
             }
           }
           NODE
