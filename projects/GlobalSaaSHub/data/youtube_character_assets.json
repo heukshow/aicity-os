@@ -18,6 +18,7 @@
     {
       "name": "COSHUMA-MALE-MASTER",
       "role": "Fixed male COSHUMA SaaS operator and presenter",
+      "higgsfield_reference_element_id": "be0264da-7f17-4c46-a10f-2c2e995c434a",
       "local_reference_path": "assets/characters/COSHUMA_MALE_MASTER.png",
       "sha256": "A551C2D278D6571200EF42943C3CE4F0727E28D02577995836A394EFFB820549",
       "visual_identity": "Photorealistic Korean man in his late 20s with a polished idol-inspired appearance, black center-parted hair and a calm professional expression",
@@ -27,6 +28,7 @@
     {
       "name": "COSHUMA-FEMALE-MASTER",
       "role": "Fixed female COSHUMA SaaS guide and presenter",
+      "higgsfield_reference_element_id": "b4b7175c-2dc9-4bcf-9d86-b5a41a2ed37e",
       "local_reference_path": "assets/characters/COSHUMA_FEMALE_MASTER.png",
       "sha256": "6EFC653E24DA4DE33EB710E7B2D52CB251AEEEAA222C581E7A98F211E9D43B82",
       "visual_identity": "Photorealistic Korean woman in her late 20s with a polished idol-inspired appearance, long dark-brown softly waved hair and a friendly professional expression",
