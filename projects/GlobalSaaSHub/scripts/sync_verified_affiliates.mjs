@@ -21,6 +21,7 @@ const verified = {
   chatbase: 'https://link.chatbase.co/sang-kwon-an',
   taskade: 'https://www.taskade.com/?via=7zzjo7',
   gamma: 'https://try.gamma.app/pu20lusdpn1j',
+  jotform: 'https://www.jotform.com/?partner=coshuma',
 };
 
 const verifiedAt = {
@@ -29,6 +30,7 @@ const verifiedAt = {
   chatbase: '2026-09-06T01:50:28+09:00',
   taskade: '2026-09-06T00:00:00+09:00',
   gamma: '2026-09-07T05:19:08+09:00',
+  jotform: '2026-09-07T06:06:40+00:00',
 };
 
 // Current official product data that must remain correct in the production build
@@ -158,6 +160,36 @@ const statusOverrides = {
       'Text Support confirms Campaign affiliate links are commission-bearing customer links',
       'Text Support permits creating a HelpDesk-specific Campaign instead of using a generic URL',
       'Exact HelpDesk Campaign customer URL still requires authenticated Partner App verification',
+    ],
+  },
+  joiin: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'enrollment_requested',
+    affiliate_source_url: 'https://www.joiin.co/affiliate-partner-programme/',
+    affiliate_final_url: 'https://app.getreditus.com/marketplace/joiin',
+    affiliate_verified_at: '2026-09-07T18:38:00+09:00',
+    affiliate_evidence_markers: [
+      'Joiin Support confirmed the official affiliate programme route',
+      'Official Joiin signup CTA resolves to the Joiin Reditus programme listing',
+      'COSHUMA requested direct invitation/enrollment for the existing Reditus business account',
+      'Gmail sent message id 1a07b3b2652931e8',
+      'Exact customer-facing referral URL not yet issued or verified',
+    ],
+  },
+  teknikforce: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'enrollment_requested',
+    affiliate_source_url: 'https://teknikforce.com/affiliates',
+    affiliate_verified_at: '2026-09-07T18:47:00+09:00',
+    affiliate_evidence_markers: [
+      'Teknikforce official affiliate page currently lists its software products for affiliates and states 50% commissions',
+      'Official affiliate page lists support@teknikforce.com for contact',
+      'No prior Teknikforce affiliate or partner Gmail thread found before outreach',
+      'COSHUMA enrollment/signup-path request sent to official support address',
+      'Gmail sent message id 1a07b429298ef60e',
+      'Exact customer-facing tracking URL not yet issued or verified',
     ],
   },
 };
