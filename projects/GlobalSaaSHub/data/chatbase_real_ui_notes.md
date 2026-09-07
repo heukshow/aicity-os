@@ -1,0 +1,1 @@
+Temporary pilot note: replace with final Chatbase real-UI Short implementation in PR.
