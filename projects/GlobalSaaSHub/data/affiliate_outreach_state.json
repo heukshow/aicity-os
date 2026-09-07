@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-08T00:55:00+09:00",
+  "updated_at": "2026-09-08T02:34:00+09:00",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -16,47 +16,48 @@
   },
   "programs": {
     "pipedrive": {
-      "status": "browser_required_partner_portal_chat",
+      "status": "pending",
       "contact": "support@pipedrive.com",
       "gmail_message_id": "1a07c48b9d1d24f8",
       "sender": "support@coshuma.com",
       "tracking_url": null,
-      "official_portal_guide": "https://partners.pipedrive.com/prm/English/s/journey-user",
-      "note": "Pipedrive's automatic reply states partners@pipedrive.com is no longer the support path. Future partner inquiries must use Quick help > Chat with us inside the authenticated Partner Portal. Do not send another email or infer approval/tracking from portal access."
+      "note": "Authenticated PartnerStack shows Pipedrive / Application pending. Do not reapply. The later support email says future support should use Partner Portal chat, but the application itself is already pending."
     },
     "monday-com": {
       "status": "pending",
       "contact": "support@partnerstack.com",
-      "gmail_message_id": "1a07c4872cf1ca3b",
       "support_ticket_message_id": "1a07c48a31741b90",
       "support_ticket_id": "122275",
       "sender": "support@coshuma.com",
       "tracking_url": null,
-      "note": "PartnerStack Support confirmed receipt of COSHUMA's monday.com program-access request as ticket 122275. Treat this as pending support review, not program approval or application acceptance. Do not create a second PartnerStack account or duplicate request while the ticket is unresolved."
+      "note": "Authenticated PartnerStack shows monday.com / Application pending. Ticket 122275 is only a support receipt, not approval. Do not duplicate the application or support request."
     },
     "time2book": {
-      "status": "outreach_sent",
+      "status": "approved_tracking",
       "contact": "info@time2book.me",
       "gmail_message_id": "1a07c470b1cf08a6",
       "sender": "support@coshuma.com",
-      "tracking_url": null,
-      "note": "Requested affiliate signup path/account activation and exact customer-facing referral URL."
+      "tracking_url": "https://time2book.me?aff=9TzesqKi",
+      "verified_at": "2026-09-08T02:06:13+09:00",
+      "note": "Authenticated Time2book affiliates dashboard displays 30% per referral and supplied this exact customer referral link. Anonymous verification sets the aff cookie and resolves to the official Time2book site. Do not reapply."
     },
     "apollo": {
-      "status": "outreach_sent",
+      "status": "rejected",
       "contact": "partners@apollo.io",
-      "gmail_message_id": "1a07c4afcbba2b71",
+      "gmail_message_id": "1a03f63c03ab9c05",
       "sender": "support@coshuma.com",
       "tracking_url": null,
-      "note": "Requested Apollo Affiliate Program access through the existing PartnerStack account and exact customer-facing tracking URL."
+      "verified_at": "2026-09-08T02:06:13+09:00",
+      "note": "The later Apollo.io decision email declines the application, and authenticated PartnerStack also shows Application declined. Do not reapply unless a future vendor message explicitly changes eligibility."
     },
     "ai-video-cut": {
-      "status": "outreach_sent",
+      "status": "application_submitted",
       "contact": "marketing@aivideocut.com",
       "gmail_message_id": "1a07c4bd28897ce1",
       "sender": "support@coshuma.com",
       "tracking_url": null,
-      "note": "Requested current affiliate signup path/account activation and exact customer-facing referral URL. The vendor's official interactive application form remains the authoritative submission route, so this email alone is not proof of application submission."
+      "verified_at": "2026-09-08T02:19:00+09:00",
+      "note": "One application was submitted through the official authenticated flow. Campaign 27205326 is pending. No customer tracking URL is displayed. Do not reapply."
     },
     "sanebox": {
       "status": "outreach_sent",
@@ -64,26 +65,24 @@
       "gmail_message_id": "1a07adfccb9d43a5",
       "sender": "qmfforfhem@gmail.com",
       "tracking_url": null,
-      "note": "Existing outreach already asked for a direct PartnerStack invitation or official enrollment route for support@coshuma.com. Do not send a duplicate while awaiting reply."
+      "note": "Existing outreach already asked for a direct PartnerStack invitation or official enrollment route. Do not send a duplicate while awaiting reply."
     },
     "gravity-forms": {
       "status": "application_submitted",
-      "contact": "Impact / Gravity Forms",
-      "gmail_message_id": null,
+      "contact": "PartnerStack / Gravity Forms",
       "sender": "support@coshuma.com",
       "tracking_url": null,
-      "official_program_url": "https://www.gravityforms.com/blog/affiliate-program/",
-      "verified_at": "2026-09-08T00:54:00+09:00",
-      "note": "Authenticated browser evidence confirms the Gravity Forms affiliate application was submitted and is awaiting approval. Do not reapply. No customer-facing Impact tracking URL is verified yet."
+      "verified_at": "2026-09-08T02:06:13+09:00",
+      "note": "Authenticated PartnerStack displays Gravity / Application pending. Do not reapply. No customer-facing tracking URL is verified yet."
     },
     "fillout": {
-      "status": "browser_required_user_consent",
-      "contact": null,
-      "gmail_message_id": null,
+      "status": "application_submitted",
+      "contact": "Dub / Fillout",
       "sender": "support@coshuma.com",
       "tracking_url": null,
-      "verified_at": "2026-09-08T00:54:00+09:00",
-      "note": "Authenticated browser flow reached the final program-terms acceptance step. All non-consent work may proceed automatically, but the legal/program terms checkbox/acceptance must be completed by the user before submission. Do not claim application submission until that consent is completed and the confirmation screen is verified."
+      "application_id": "pga_1M1YE0ANQP8BPWPGEW2BENNGR",
+      "verified_at": "2026-09-08T02:19:00+09:00",
+      "note": "Program Terms were accepted with recorded user authorization and the existing form was submitted once. Step 2 of 2 confirms Application submitted / submitted for review. Do not reapply."
     },
     "sendcloud": {
       "status": "application_submitted",
@@ -91,7 +90,7 @@
       "gmail_message_id": "1a07bc61a476b59e",
       "sender": "support@coshuma.com",
       "tracking_url": null,
-      "note": "PartnerStack confirmed on 2026-09-07 that COSHUMA's Sendcloud application was received and submitted for Sendcloud review. Do not reapply; wait for approval or rejection. No customer-facing tracking URL is verified yet."
+      "note": "PartnerStack confirms the application was received and authenticated PartnerStack currently shows Application pending. Do not reapply."
     },
     "pictory": {
       "status": "approved_tracking",
@@ -101,34 +100,36 @@
       "tracking_url": "https://pictory.ai?fpr=sangkwon-an23",
       "promo_code": "COSHUMA20",
       "payout_status": "setup_pending",
-      "note": "Pictory's affiliate manager explicitly reconfirmed that COSHUMA's existing affiliate link and COSHUMA20 promo code remain active while payout setup is pending. Referral and sale tracking can continue and commissions can accrue, but payout cannot be completed until payout details are configured. Keep the verified affiliate link as the primary tracking route and display COSHUMA20 alongside it; do not use the promo code as a replacement for the link."
+      "note": "Pictory's affiliate manager reconfirmed that the existing affiliate link and COSHUMA20 remain active. Referrals and sales can track while payout setup is pending. No revenue is inferred from approval alone."
     },
     "taskip": {
-      "status": "enrollment_requested",
+      "status": "approved_tracking",
       "contact": "support@taskip.net",
-      "gmail_message_id": "1a07c8e7f493663b",
+      "gmail_message_id": "1a07cdf40fe3c060",
       "sender": "support@coshuma.com",
-      "tracking_url": null,
+      "tracking_url": "https://taskip.net/?atp=qnV3mw",
       "official_program_url": "https://www.taskip.net/affiliates/",
-      "note": "Fresh official affiliate page confirms applications are open, with no minimum traffic or follower requirement and a unique affiliate link after approval. Duplicate checks across both connected Gmail accounts found no prior Taskip affiliate thread before outreach. COSHUMA requested enrollment or the official invitation route from Taskip's published support address. Email outreach is not proof of application submission or approval; exact customer-facing tracking URL remains unverified."
+      "verified_at": "2026-09-08T02:19:00+09:00",
+      "note": "Taskip welcome email confirms enrollment. Authenticated Success Hub supplied the exact Promotion Link and states 30% commissions. Exact customer URL retains atp=qnV3mw. Do not reapply."
     },
     "gumloop": {
-      "status": "enrollment_requested",
+      "status": "application_submitted",
       "contact": "support@gumloop.com",
       "gmail_message_id": "1a07c91048a2779e",
       "sender": "support@coshuma.com",
       "tracking_url": null,
       "official_program_url": "https://www.gumloop.com/partners/apply-to-be-a-creator",
-      "note": "Fresh official Gumloop Creator Program page says AI and automation creators, educators, community builders and affiliate partners may apply, and accepted creators receive a referral link and discount code. Duplicate checks across both connected Gmail accounts found no prior Gumloop affiliate/creator thread before outreach. COSHUMA requested enrollment or an official invitation tied to support@coshuma.com. Email outreach is not proof of application submission or acceptance; no customer-facing tracking URL is verified yet."
+      "note": "Existing repository evidence already records a submitted application dated 2026-09-01. The current Airtable form cannot prove that no prior submission exists. Do not submit again while awaiting a decision."
     },
     "beefree": {
-      "status": "enrollment_requested",
+      "status": "application_submitted",
       "contact": "samantha.hoffmann@beefree.io",
-      "gmail_message_id": "1a07ca21b3858dc7",
+      "gmail_message_id": "1a07cd33372b8a88",
       "sender": "support@coshuma.com",
       "tracking_url": null,
       "official_program_url": "https://beefree.io/ambassador-program",
-      "note": "Beefree's current official Ambassador page says approved partners earn 20% of first-year customer revenue, use PartnerStack, and receive unique referral links after approval. The existing repository state showed the self-service application blocked by CAPTCHA. Duplicate checks found no prior direct Beefree/RGE Studio outreach, so COSHUMA requested a direct PartnerStack invitation or alternate official enrollment route from the program contact. This is an enrollment request only, not proof of submission, approval, or a customer-facing tracking URL."
+      "verified_at": "2026-09-08T02:03:30+09:00",
+      "note": "Really Good Emails (RGE Studio) / Beefree application was submitted once through the existing PartnerStack account. Fresh PartnerStack receipt confirms submission for review. No tracking URL is verified yet. Do not reapply."
     },
     "fill": {
       "status": "approved_tracking",
@@ -138,7 +139,31 @@
       "tracking_url": "https://www.fillhq.com/?utm_medium=affiliates&fpr=sangkwon-018d58",
       "official_program_url": "https://www.fillhq.com/affiliate-program",
       "verified_at": "2026-09-07T16:33:44Z",
-      "note": "Fill's affiliate welcome email explicitly issued this customer-facing referral URL to COSHUMA and instructed sharing it to earn rewards on referred paid subscriptions. Fill's official affiliate page currently states 25% commission and a 60-day cookie window. The FirstPromoter dashboard login URL is not a customer revenue link and must not replace the issued referral URL."
+      "note": "Fill welcome email explicitly issued this customer-facing referral URL. The FirstPromoter dashboard URL is not a revenue link. Do not reapply."
+    },
+    "helpdesk": {
+      "status": "approved_tracking",
+      "contact": "Text Partner Program",
+      "sender": "support@coshuma.com",
+      "tracking_url": "https://www.helpdesk.com/?a=8IetMhQvR&utm_campaign=pp_helpdesk-default&utm_source=PP&d=14",
+      "verified_at": "2026-09-08T02:06:13+09:00",
+      "note": "Authenticated Text Partner App shows active HelpDesk campaign 723911 and supplied the exact customer-facing campaign URL. Text Support explicitly confirmed campaign links are commission-bearing."
+    },
+    "voibe": {
+      "status": "approved_tracking",
+      "contact": "Lemon Squeezy affiliate hub",
+      "sender": "support@coshuma.com",
+      "tracking_url": "https://www.getvoibe.com/?aff=G5Yr5D",
+      "verified_at": "2026-09-08T02:06:13+09:00",
+      "note": "Authenticated Lemon Squeezy hub shows Voibe Active after one free request and supplied the exact customer-facing affiliate URL. Do not reapply."
+    },
+    "clickfunnels": {
+      "status": "approved_tracking",
+      "contact": "ClickFunnels Affiliate Center",
+      "sender": "support@coshuma.com",
+      "tracking_url": "https://www.clickfunnels.com/signup-flow?aff=b57f3056884d05b842f607e32347df542821875bbe3209a214141aa32a210532",
+      "verified_at": "2026-09-08T02:19:00+09:00",
+      "note": "Affiliate Agreement was accepted with recorded user authorization. The authenticated dashboard supplied this exact Free Trial campaign link. Dashboard showed $0 commissions and 0 conversions at verification time. Do not reapply."
     }
   }
 }
