@@ -98,6 +98,18 @@ const statusOverrides = {
       'Exact customer-facing referral URL not yet issued or verified',
     ],
   },
+  'tagshop-ai': {
+    affiliate_verified: true,
+    affiliate_status: 'application_submitted',
+    affiliate_verified_at: '2026-09-07T00:00:00+09:00',
+    affiliate_evidence_markers: [
+      'Tagshop AI official affiliate page says joining is free and provides dashboard referral-link access',
+      'Official affiliate terms show 30% recurring commission for 6 months and a 90-day cookie',
+      'COSHUMA affiliate application sent to official hello@tagshop.ai address',
+      'Gmail message id 1a07aa3450c58442',
+      'Exact customer-facing referral URL not yet issued or verified',
+    ],
+  },
   helpdesk: {
     affiliate_verified: true,
     affiliate_status: 'approved_account_campaign_link_pending',
