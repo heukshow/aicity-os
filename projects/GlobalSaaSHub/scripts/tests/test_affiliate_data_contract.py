@@ -13,6 +13,9 @@ TRACKING_KEYS = {"aff", "affiliate", "affiliate_id", "fpr", "fp_ref", "pc", "ref
 def _has_tracking_identifier(url):
     parsed = urlparse(url)
     query = parse_qs(parsed.query, keep_blank_values=True)
+    # Jotform's confirmed COSHUMA customer links use `partner`, including at root.
+    if parsed.hostname == "www.jotform.com" and query.get("partner") == ["coshuma"]:
+        return True
     # Verified HelpDesk and Text Partner campaigns use `a` as their account ID.
     if parsed.hostname in {"www.helpdesk.com", "www.text.com"} and any(value.strip() for value in query.get("a", [])):
         return True
@@ -65,8 +68,21 @@ def test_text_tracking_identifier():
     assert not _has_tracking_identifier("https://www.text.com.unrelated.invalid/?a=8IetMhQvR")
 
 
+def test_jotform_tracking_identifier():
+    assert _has_tracking_identifier("https://www.jotform.com/?partner=coshuma")
+    assert _has_tracking_identifier("https://www.jotform.com/ai/agents/?partner=coshuma")
+    assert not _has_tracking_identifier("https://www.jotform.com/")
+    assert not _has_tracking_identifier("https://www.jotform.com/?partner=")
+    assert not _has_tracking_identifier("https://www.jotform.com/?partner=%20")
+    assert not _has_tracking_identifier("https://www.jotform.com/?partner=unconfirmed")
+    assert not _has_tracking_identifier("https://www.jotform.com/?utm_source=coshuma")
+    assert not _has_tracking_identifier("https://www.jotform.com.unrelated.invalid/?partner=coshuma")
+    assert not _has_tracking_identifier("https://unrelated.invalid/?partner=coshuma")
+
+
 if __name__ == "__main__":
     test_helpdesk_tracking_identifier()
     test_text_tracking_identifier()
+    test_jotform_tracking_identifier()
     test_affiliate_urls_are_approved_unique_tracking_links()
     print("PASS affiliate data contract")
