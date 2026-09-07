@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "characters": [
+    {
+      "name": "CORA-COSHUMA",
+      "role": "Recurring COSHUMA SaaS workflow guide",
+      "higgsfield_reference_element_id": "803f2f5e-2763-4492-8638-48a9d8d00b68",
+      "reference_media_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_31CEl0VJ93W86g07a1gb5c1p4C0/c4235ce2-98fd-4c34-b9cf-c73d166bf629.png",
+      "visual_identity": "Purple-teal hair, dark blazer, white shirt, COSHUMA badge",
+      "usage_rule": "Reuse the same reference element across future Shorts. Change situation, pose and scene; do not redesign the character per tool.",
+      "created_at": "2026-09-07"
+    }
+  ]
+}
