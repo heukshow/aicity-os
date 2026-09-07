@@ -1,8 +1,11 @@
 {
-  "campaign_slug": "make_cora_workflow",
+  "campaign_slug": "chatbase_real_ui_cora",
+  "generator": "real_ui_chatbase_v1",
   "character_name": "CORA-COSHUMA",
-  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_31CEl0VJ93W86g07a1gb5c1p4C0/040893ef-dd47-4bc3-9e23-d8cda47c3984.mp4",
-  "title": "Stop Copying Leads by Hand: Build This Make Workflow | COSHUMA #Shorts",
-  "description": "CORA shows a simple Make workflow idea: Gmail → filter → Google Sheets → Slack. The goal is repeatable automation, not flashy AI or guaranteed income.\n\nFull COSHUMA Make guide: https://coshuma.com/tool/make-com.html?utm_source=youtube&utm_medium=shorts&utm_campaign=make_cora_workflow\n\nCOSHUMA may earn a commission from eligible partner links on the guide page.\n\n#Make #Automation #NoCode #SaaS #Shorts",
+  "presenter_image_url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=85",
+  "presenter_source": "Unsplash photorealistic presenter master; reuse the same source image across CORA episodes unless explicitly redesigned",
+  "title": "Build a Customer-Support AI Agent with Chatbase | Real UI Demo | COSHUMA #Shorts",
+  "description": "CORA walks through the real Chatbase workflow: create an agent, connect business knowledge, test it, and deploy it for repetitive support questions. The business angle is implementation work — setup, training, deployment, and ongoing knowledge-base maintenance — not guaranteed income.\n\nFull COSHUMA Chatbase guide: https://coshuma.com/tool/chatbase.html?utm_source=youtube&utm_medium=shorts&utm_campaign=chatbase_real_ui_cora\n\nCOSHUMA may earn a commission from eligible partner links on the guide page. Presenter master uses an Unsplash-licensed photo.\n\n#Chatbase #AIAgent #CustomerSupport #Automation #SaaS #Shorts",
+  "narration": "Customer questions keep repeating? Watch this. In Chatbase, create an AI agent, connect your website or documents, then test the answers before you deploy. The agent can handle common support questions across chat, email, and voice, while your team takes the cases that actually need a person. For a business, that means fewer repetitive replies and faster first responses. And if you sell automation services, setup, training, deployment, and ongoing knowledge-base maintenance can become a client service. Full Chatbase guide on COSHUMA.",
   "privacy": "unlisted"
 }
