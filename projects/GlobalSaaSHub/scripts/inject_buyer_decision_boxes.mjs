@@ -14,7 +14,7 @@ const cleanHttps = (value) => {
     return null;
   }
 };
-const approved = (t) => t?.affiliate_verified === true && t?.affiliate_status === 'approved_tracking' && cleanHttps(t.affiliate_url);
+const approved = (t) => Boolean(t?.affiliate_verified === true && t?.affiliate_status === 'approved_tracking' && cleanHttps(t.affiliate_url));
 const publicSource = (t) => cleanHttps(t.pricing_source_url) || cleanHttps(t.official_evidence_url) || cleanHttps(t.official_url);
 const features = (t) => Array.isArray(t.key_features) ? t.key_features.filter(Boolean) : [];
 const category = (t) => t.category_display || 'AI & SaaS software';
