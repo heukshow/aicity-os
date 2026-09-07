@@ -73,6 +73,20 @@ const dataOverrides = {
 // Account-state evidence recovered from connected Gmail and authenticated vendor
 // dashboards. These overrides prevent stale records from reopening duplicate work.
 const statusOverrides = {
+  writesonic: {
+    affiliate_url: 'https://writesonic.com?fp_ref=sang-kwon-f5452a',
+    affiliate_verified: true,
+    affiliate_status: 'approved_tracking',
+    affiliate_final_url: 'https://writesonic.com/',
+    affiliate_verified_at: '2026-09-08T03:02:55+09:00',
+    affiliate_rejection_reason: null,
+    affiliate_evidence_markers: [
+      'Writesonic reviewer Tanay Ahir explicitly accepted the COSHUMA application in Gmail message 1a07d09c9175ad13',
+      'Writesonic welcome email 1a07d08d00c9f651 issued the exact customer-facing referral URL and states referrals are rewarded when they subscribe to a paid account',
+      'https://writesonic.com?fp_ref=sang-kwon-f5452a',
+      'This September 8 acceptance is newer and supersedes the stale September 1 rejected state in source tool data',
+    ],
+  },
   brand24: {
     affiliate_url: 'https://try.brand24.com/8xqrjxybmsbt',
     affiliate_verified: true,
