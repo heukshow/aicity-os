@@ -20,10 +20,11 @@
 
 ## Sendcloud
 - Current official affiliate page: https://www.sendcloud.com/partnerships/affiliate-program/
-- The vendor currently states the programme is free to join, runs on PartnerStack, pays 100% of the referred customer's first month, and uses a 90-day last-click cookie.
-- Gmail was searched on 2026-09-07 and no prior Sendcloud affiliate application/conversation was found.
-- Current blocker: the vendor routes the actual application through an interactive PartnerStack signup/application flow; this automation does not have the authenticated Work browser session needed to safely complete it.
-- State: `browser_required_application`; no submission, approval, or customer tracking URL is claimed.
+- The vendor states the programme is free to join and routes applications through PartnerStack.
+- New authoritative Gmail evidence: PartnerStack message `1a07bc61a476b59e` received 2026-09-07 confirms `Application received!` and says COSHUMA's Sendcloud application has been submitted for Sendcloud's review at `support@coshuma.com`.
+- State: `application_submitted`; the earlier browser-form blocker is resolved.
+- No approval, customer-facing tracking URL, conversion, commission, or revenue is claimed yet.
+- Do not submit another Sendcloud application while this one is under review, and do not treat the PartnerStack application/dashboard URL as a customer affiliate link.
 
 ## AI Video Cut
 - Current official affiliate page: https://www.aivideocut.com/affiliate
