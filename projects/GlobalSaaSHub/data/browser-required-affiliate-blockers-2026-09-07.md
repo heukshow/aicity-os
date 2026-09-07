@@ -18,5 +18,17 @@
 - Current blocker: browser form completion through the official Join Now route.
 - State: `browser_required_application`; customer tracking URL remains unverified.
 
+## Sendcloud
+- Current official affiliate page: https://www.sendcloud.com/partnerships/affiliate-program/
+- The vendor currently states the programme is free to join, runs on PartnerStack, pays 100% of the referred customer's first month, and uses a 90-day last-click cookie.
+- Gmail was searched on 2026-09-07 and no prior Sendcloud affiliate application/conversation was found.
+- Current blocker: the vendor routes the actual application through an interactive PartnerStack signup/application flow; this automation does not have the authenticated Work browser session needed to safely complete it.
+- State: `browser_required_application`; no submission, approval, or customer tracking URL is claimed.
+
+## AI Video Cut
+- Current official affiliate page: https://www.aivideocut.com/affiliate
+- Previous verification found the vendor requires its interactive application form; no authenticated browser submission completion evidence is available in this automation context.
+- State: `browser_required_application`; do not mark `application_submitted` until the confirmation screen or vendor email is actually observed.
+
 ## Operating rule
 These blockers must not stop other COSHUMA revenue work. Skip them while the user is absent, do not retry blindly, and resume only when the required browser or verification step is available. No revenue is claimed for any of these programmes yet.
