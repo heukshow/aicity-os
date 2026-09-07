@@ -82,6 +82,14 @@ TOOL_REVENUE_ALTERNATIVES = {
         "href": "https://www.gohighlevel.com/?fp_ref=sangkwon56",
         "label": "Compare HighLevel →",
     },
+    "ai-video-cut.html": {
+        "headline": "Need a verified video-creation alternative now?",
+        "copy": "AI Video Cut is the short-form clipping tool on this page. If you also need text-to-video creation, captions, stock-media workflows and highlight reels, compare Pictory. COSHUMA's Pictory partner link below is verified; promo code COSHUMA20 is currently confirmed active and should be used alongside the link rather than instead of it.",
+        "tool_id": "pictory",
+        "source": "ai-video-cut-pictory-alternative",
+        "href": "https://pictory.ai?fpr=sangkwon-an23",
+        "label": "Compare Pictory + COSHUMA20 →",
+    },
 }
 
 # These lines are generic claims that can be misleading when applied to every product.
