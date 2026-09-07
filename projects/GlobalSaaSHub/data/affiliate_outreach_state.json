@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-07T16:05:00Z",
+  "updated_at": "2026-09-07T16:42:00Z",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -119,6 +119,16 @@
       "tracking_url": null,
       "official_program_url": "https://beefree.io/ambassador-program",
       "note": "Beefree's current official Ambassador page says approved partners earn 20% of first-year customer revenue, use PartnerStack, and receive unique referral links after approval. The existing repository state showed the self-service application blocked by CAPTCHA. Duplicate checks found no prior direct Beefree/RGE Studio outreach, so COSHUMA requested a direct PartnerStack invitation or alternate official enrollment route from the program contact. This is an enrollment request only, not proof of submission, approval, or a customer-facing tracking URL."
+    },
+    "fill": {
+      "status": "approved_tracking",
+      "contact": "rose@fillhq.com",
+      "gmail_message_id": "1a07cb7f32606b2f",
+      "sender": "support@coshuma.com",
+      "tracking_url": "https://www.fillhq.com/?utm_medium=affiliates&fpr=sangkwon-018d58",
+      "official_program_url": "https://www.fillhq.com/affiliate-program",
+      "verified_at": "2026-09-07T16:33:44Z",
+      "note": "Fill's affiliate welcome email explicitly issued this customer-facing referral URL to COSHUMA and instructed sharing it to earn rewards on referred paid subscriptions. Fill's official affiliate page currently states 25% commission and a 60-day cookie window. The FirstPromoter dashboard login URL is not a customer revenue link and must not replace the issued referral URL."
     }
   }
 }
