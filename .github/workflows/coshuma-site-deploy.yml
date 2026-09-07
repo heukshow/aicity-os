@@ -67,6 +67,10 @@ jobs:
           }
           NODE
 
+      - name: Monetize verified tool and comparison CTAs
+        working-directory: projects/GlobalSaaSHub
+        run: node scripts/monetize_verified_compare_links.mjs
+
       - name: Polish generated public copy
         run: python projects/GlobalSaaSHub/scripts/polish_public_copy.py
 
