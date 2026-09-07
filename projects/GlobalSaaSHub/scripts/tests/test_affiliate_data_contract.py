@@ -13,6 +13,9 @@ TRACKING_KEYS = {"aff", "affiliate", "affiliate_id", "fpr", "fp_ref", "pc", "ref
 def _has_tracking_identifier(url):
     parsed = urlparse(url)
     query = parse_qs(parsed.query, keep_blank_values=True)
+    # Taskip's confirmed COSHUMA referral uses `atp` at the site root.
+    if parsed.hostname == "taskip.net" and query.get("atp") == ["qnV3mw"]:
+        return True
     # CartStack's confirmed COSHUMA referral uses `afmc` at the site root.
     if parsed.hostname == "www.cartstack.com" and query.get("afmc") == ["wb"]:
         return True
@@ -94,10 +97,22 @@ def test_cartstack_tracking_identifier():
     assert not _has_tracking_identifier("http://unrelated.invalid/?afmc=wb")
 
 
+def test_taskip_tracking_identifier():
+    assert _has_tracking_identifier("https://taskip.net/?atp=qnV3mw")
+    assert not _has_tracking_identifier("https://taskip.net/")
+    assert not _has_tracking_identifier("https://taskip.net/?atp=")
+    assert not _has_tracking_identifier("https://taskip.net/?atp=%20")
+    assert not _has_tracking_identifier("https://taskip.net/?atp=unconfirmed")
+    assert not _has_tracking_identifier("https://taskip.net/?utm_source=qnV3mw")
+    assert not _has_tracking_identifier("https://taskip.net.unrelated.invalid/?atp=qnV3mw")
+    assert not _has_tracking_identifier("https://unrelated.invalid/?atp=qnV3mw")
+
+
 if __name__ == "__main__":
     test_helpdesk_tracking_identifier()
     test_text_tracking_identifier()
     test_jotform_tracking_identifier()
     test_cartstack_tracking_identifier()
+    test_taskip_tracking_identifier()
     test_affiliate_urls_are_approved_unique_tracking_links()
     print("PASS affiliate data contract")
