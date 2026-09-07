@@ -135,6 +135,20 @@ const statusOverrides = {
       'Exact customer-facing tracking URL not yet issued or verified',
     ],
   },
+  jasper: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'enrollment_requested',
+    affiliate_source_url: 'https://www.jasper.ai/legal/affiliates',
+    affiliate_verified_at: '2026-09-07T17:40:00+09:00',
+    affiliate_evidence_markers: [
+      'Jasper official Marketing Affiliate Program Agreement remains published and describes application review plus an affiliate tracking tool after acceptance',
+      'No prior Jasper affiliate or partner Gmail thread found before outreach',
+      'COSHUMA current application route / account-specific invitation request sent to official hey@jasper.ai',
+      'Gmail message id 1a07b08a71bdbf24',
+      'Exact customer-facing affiliate URL not yet issued or verified',
+    ],
+  },
   helpdesk: {
     affiliate_verified: true,
     affiliate_status: 'approved_account_campaign_link_pending',
