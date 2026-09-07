@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-09-08T08:25:00+09:00",
+  "sender": "support@coshuma.com",
+  "purpose": "Record conversion-support outreach so future automation does not resend or confuse vendor support URLs with customer affiliate URLs.",
+  "items": [
+    {
+      "id": "vista-social",
+      "affiliate_status": "approved_tracking",
+      "action": "conversion_support_request_sent",
+      "gmail_message_id": "1a07e2fa084747e4",
+      "recipient": "partners@vistasocial.com",
+      "note": "The earlier reply to promoter@firstpromoter.com bounced. Gmail Reply-To on the vendor message resolved to partners@vistasocial.com, so the request for current best-performing approved landing pages, creative assets or customer-facing promotions was resent there. Existing verified customer referral URL remains unchanged."
+    },
+    {
+      "id": "castmagic",
+      "affiliate_status": "approved_tracking",
+      "action": "conversion_support_request_sent",
+      "gmail_message_id": "1a07e30f7d16a842",
+      "recipient": "john@castmagic.io",
+      "note": "Affiliate manager reconfirmed the issued customer referral URL https://castmagic.io?fpr=sangkwon-an54 and stated 30% commission for 18 months per paying customer. COSHUMA requested only current affiliate-approved landing pages, creative assets, demo content or promotions. Existing tracking URL remains unchanged."
+    },
+    {
+      "id": "heygen",
+      "affiliate_status": "application_submitted",
+      "action": "publisher_eligibility_followup_sent",
+      "gmail_message_id": "1a07e3017183d53d",
+      "recipient": "partnership@heygen.com",
+      "note": "HeyGen Support directed COSHUMA to partnership@heygen.com for publisher eligibility / existing-account confirmation. Existing submitted application state remains authoritative; this is not a new application and no tracking URL has been issued."
+    }
+  ],
+  "guardrails": [
+    "Do not resend these requests unless a human reply creates a new actionable question.",
+    "Do not treat FirstPromoter login/dashboard URLs or HeyGen enrollment pages as customer-facing affiliate URLs.",
+    "Do not claim signup, commission or revenue from these messages alone."
+  ]
+}
