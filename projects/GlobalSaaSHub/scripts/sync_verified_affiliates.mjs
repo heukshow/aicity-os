@@ -22,6 +22,11 @@ const verified = {
   taskade: 'https://www.taskade.com/?via=7zzjo7',
   gamma: 'https://try.gamma.app/pu20lusdpn1j',
   jotform: 'https://www.jotform.com/?partner=coshuma',
+  helpdesk: 'https://www.helpdesk.com/?a=8IetMhQvR&utm_campaign=pp_helpdesk-default&utm_source=PP&d=14',
+  voibe: 'https://www.getvoibe.com/?aff=G5Yr5D',
+  time2book: 'https://time2book.me?aff=9TzesqKi',
+  taskip: 'https://taskip.net/?atp=qnV3mw',
+  clickfunnels: 'https://www.clickfunnels.com/signup-flow?aff=b57f3056884d05b842f607e32347df542821875bbe3209a214141aa32a210532',
 };
 
 const verifiedAt = {
@@ -32,6 +37,11 @@ const verifiedAt = {
   taskade: '2026-09-06T00:00:00+09:00',
   gamma: '2026-09-07T05:19:08+09:00',
   jotform: '2026-09-07T06:06:40+00:00',
+  helpdesk: '2026-09-08T02:06:13+09:00',
+  voibe: '2026-09-08T02:06:13+09:00',
+  time2book: '2026-09-08T02:06:13+09:00',
+  taskip: '2026-09-08T02:19:00+09:00',
+  clickfunnels: '2026-09-08T02:19:00+09:00',
 };
 
 // Current official product data that must remain correct in the production build
@@ -58,9 +68,8 @@ const dataOverrides = {
   },
 };
 
-// Account-state evidence recovered from connected Gmail. These overrides do not
-// create affiliate URLs; they only stop already-known outcomes from remaining
-// "unclassified" in the production revenue audit.
+// Account-state evidence recovered from connected Gmail and authenticated vendor
+// dashboards. These overrides prevent stale records from reopening duplicate work.
 const statusOverrides = {
   brand24: {
     affiliate_url: 'https://try.brand24.com/8xqrjxybmsbt',
@@ -135,7 +144,7 @@ const statusOverrides = {
       'Official affiliate terms show 30% recurring commission for 6 months and a 90-day cookie',
       'COSHUMA affiliate application sent to official hello@tagshop.ai address',
       'Gmail message id 1a07aa3450c58442',
-      'Exact customer-facing referral URL not yet issued or verified',
+      'Exact customer-facing tracking URL not yet issued or verified',
     ],
   },
   veed: {
@@ -165,14 +174,66 @@ const statusOverrides = {
     ],
   },
   helpdesk: {
+    affiliate_url: 'https://www.helpdesk.com/?a=8IetMhQvR&utm_campaign=pp_helpdesk-default&utm_source=PP&d=14',
     affiliate_verified: true,
-    affiliate_status: 'approved_account_campaign_link_pending',
-    affiliate_verified_at: '2026-09-07T12:15:27+09:00',
+    affiliate_status: 'approved_tracking',
+    affiliate_final_url: 'https://www.helpdesk.com/',
+    affiliate_verified_at: '2026-09-08T02:06:13+09:00',
     affiliate_evidence_markers: [
-      'Text Partner Program account enrolled',
-      'Text Support confirms Campaign affiliate links are commission-bearing customer links',
-      'Text Support permits creating a HelpDesk-specific Campaign instead of using a generic URL',
-      'Exact HelpDesk Campaign customer URL still requires authenticated Partner App verification',
+      'Authenticated Text Partner App shows active HelpDesk default campaign 723911',
+      'Text Support confirmed Campaign links are commission-bearing customer links',
+      'Exact customer-facing HelpDesk campaign URL copied from the authenticated Campaign UI',
+      'https://www.helpdesk.com/?a=8IetMhQvR&utm_campaign=pp_helpdesk-default&utm_source=PP&d=14',
+    ],
+  },
+  voibe: {
+    affiliate_url: 'https://www.getvoibe.com/?aff=G5Yr5D',
+    affiliate_verified: true,
+    affiliate_status: 'approved_tracking',
+    affiliate_final_url: 'https://www.getvoibe.com/?aff=G5Yr5D',
+    affiliate_verified_at: '2026-09-08T02:06:13+09:00',
+    affiliate_evidence_markers: [
+      'Authenticated Lemon Squeezy affiliate hub showed Voibe program Active after one free merchant request',
+      'Exact Affiliate URL copied from the active Voibe program',
+      'Customer destination retained aff=G5Yr5D',
+    ],
+  },
+  time2book: {
+    affiliate_url: 'https://time2book.me?aff=9TzesqKi',
+    affiliate_verified: true,
+    affiliate_status: 'approved_tracking',
+    affiliate_final_url: 'https://www.time2book.me/',
+    affiliate_verified_at: '2026-09-08T02:06:13+09:00',
+    affiliate_evidence_markers: [
+      'Authenticated Time2book affiliates dashboard displays Earn 30% per referral',
+      'Dashboard supplied exact Copy link https://time2book.me?aff=9TzesqKi',
+      'Anonymous request sets aff cookie and resolves to the official Time2book site',
+    ],
+  },
+  taskip: {
+    affiliate_url: 'https://taskip.net/?atp=qnV3mw',
+    affiliate_verified: true,
+    affiliate_status: 'approved_tracking',
+    affiliate_final_url: 'https://taskip.net/?atp=qnV3mw',
+    affiliate_verified_at: '2026-09-08T02:19:00+09:00',
+    affiliate_evidence_markers: [
+      'Taskip affiliate welcome email confirmed program enrollment',
+      'Authenticated Success Hub displayed the exact Promotion Link after onboarding',
+      'Taskip dashboard states 30% lifetime commissions',
+      'Exact customer URL retained atp=qnV3mw',
+    ],
+  },
+  clickfunnels: {
+    affiliate_url: 'https://www.clickfunnels.com/signup-flow?aff=b57f3056884d05b842f607e32347df542821875bbe3209a214141aa32a210532',
+    affiliate_verified: true,
+    affiliate_status: 'approved_tracking',
+    affiliate_final_url: 'https://www.clickfunnels.com/signup-flow?aff=b57f3056884d05b842f607e32347df542821875bbe3209a214141aa32a210532',
+    affiliate_verified_at: '2026-09-08T02:19:00+09:00',
+    affiliate_evidence_markers: [
+      'ClickFunnels Affiliate Agreement accepted with the user authorization recorded in the browser execution evidence',
+      'Authenticated affiliate dashboard exposed the exact Free Trial campaign URL',
+      'Exact aff-bearing URL loaded the official ClickFunnels signup flow',
+      'Dashboard showed $0 commissions and 0 conversions at verification time',
     ],
   },
   joiin: {
