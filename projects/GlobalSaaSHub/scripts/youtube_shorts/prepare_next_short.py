@@ -14,6 +14,8 @@ What this script DOES do, safely, with no external calls:
      COSHUMA URL via generate_metadata.generate()
   3. Append a 'topic_selected' entry to the manifest and a matching
      browser_required_queue.json task for render/upload follow-up.
+  4. Attach the canonical COSHUMA fixed-duo character system and dialogue/
+     monetization rules to every newly queued Short.
 
 Usage:
     python3 prepare_next_short.py             # writes manifest + queue entry
@@ -34,6 +36,7 @@ import generate_metadata  # noqa: E402
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST_JSON = ROOT / "data" / "youtube_shorts_manifest.json"
 QUEUE_JSON = ROOT / "data" / "browser_required_queue.json"
+CHARACTER_SYSTEM_JSON = ROOT / "data" / "coshuma_character_system.json"
 
 HOOK_TEMPLATES = {
     "chatbots_support": "Tired of juggling five tools to run your {category}?",
@@ -66,6 +69,7 @@ def prepare_next(dry_run: bool = False) -> dict | None:
     top = candidates[0]
     tools = load_json(ROOT / "data" / "tools.json")
     tool = next(t for t in tools if t["id"] == top["affiliate_target"])
+    character_system = load_json(CHARACTER_SYSTEM_JSON)
 
     hook = build_hook(tool["name"], tool.get("category_display"), tool.get("category"))
     meta = generate_metadata.generate(
@@ -85,22 +89,30 @@ def prepare_next(dry_run: bool = False) -> dict | None:
             f"Next Shorts candidate selected by prepare_next_short.py: '{tool['name']}' "
             f"(affiliate_status={tool.get('affiliate_status')}, "
             f"best_hub_pages={top['best_hub_pages']}, compare_pages={top['compare_pages']}). "
-            "Rendering still requires a verified creative asset or a generated visual. "
+            "Rendering still requires official/verified UI capture or another reuse-permitted visual. "
             "Repository code does not yet contain unattended YouTube API upload wiring."
         ),
         "next_action": (
-            f"Find an official, reuse-permitted media asset for {tool['name']} when available, "
-            "or use a clearly licensed/generated visual. Render a 9:16 1080x1920 Short (30-45s) "
-            "with COSHUMA intro/outro cards and safe-area captions. Run quality_gate.py before "
-            f"upload. Use this UTM-tagged metadata for campaign_slug={top['campaign_slug']}:\n"
+            f"Render a 9:16 1080x1920 Short (30-45s) for {tool['name']} using the fixed COSHUMA "
+            f"male+female duo from {character_system['master_reference_path']}. Use a natural dialogue: "
+            "one person operates the real SaaS UI while the other points out the next button/workflow step "
+            "and explains the concrete business benefit; alternate roles when useful. Show official or authenticated "
+            "real product UI when available. Emphasize credible work outcomes such as time saved, fewer repetitive "
+            "tasks, faster lead/customer handling, or realistic service/revenue opportunities without guaranteed-income "
+            "claims. Add COSHUMA intro/outro cards and safe-area captions. Run quality_gate.py before upload. "
+            f"Use this UTM-tagged metadata for campaign_slug={top['campaign_slug']}:\n"
             f"TITLE: {meta['title']}\nDESCRIPTION:\n{meta['description']}"
         ),
         "do_not": [
             "Do not use a generic homepage URL as the CTA — use the coshuma_url below.",
-            "Do not fabricate pricing, discount codes, or reuse permission.",
+            "Do not fabricate pricing, discount codes, revenue numbers, product UI, or reuse permission.",
+            "Do not silently substitute new character faces if the canonical duo reference cannot be loaded; mark character_reference_missing instead.",
             "Do not upload before quality_gate.py passes.",
             "Do not re-render this same tool if a ready/uploaded manifest entry already covers the campaign.",
         ],
+        "character_system_id": character_system["character_system_id"],
+        "character_reference_path": character_system["master_reference_path"],
+        "character_episode_rules": character_system["episode_rules"],
         "coshuma_url": meta["coshuma_url"],
         "affiliate_target": tool["id"],
         "campaign_slug": top["campaign_slug"],
@@ -122,9 +134,11 @@ def prepare_next(dry_run: bool = False) -> dict | None:
         "script_hash": None,
         "published_at": None,
         "status": "topic_selected",
+        "character_system_id": character_system["character_system_id"],
+        "character_reference_path": character_system["master_reference_path"],
         "ga4": {"source": "youtube", "medium": "shorts", "campaign": top["campaign_slug"]},
         "provenance": "auto-selected by prepare_next_short.py; not yet rendered or uploaded.",
-        "notes": "See matching entry in browser_required_queue.json for the render+upload task.",
+        "notes": "See matching entry in browser_required_queue.json for the render+upload task. Fixed-duo character system required.",
     }
 
     if dry_run:
