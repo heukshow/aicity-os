@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "character_system_id": "COSHUMA_DUO_V1",
+  "status": "active",
+  "master_reference_path": "projects/GlobalSaaSHub/assets/characters/COSHUMA_DUO_MASTER.jpg",
+  "master_reference_source": "ChatGPT-generated photorealistic COSHUMA duo approved by the user on 2026-09-07; this repository copy is the canonical visual reference for future COSHUMA Shorts.",
+  "characters": {
+    "male": {
+      "role": "operator_or_explainer",
+      "reference_region_normalized": [0.0, 0.0, 0.52, 1.0],
+      "visual_lock": "Preserve the same face, dark center-parted hair, late-20s Korean idol-inspired photorealistic appearance, and overall identity from the master reference. Wardrobe and pose may change with the episode."
+    },
+    "female": {
+      "role": "guide_or_operator",
+      "reference_region_normalized": [0.48, 0.0, 1.0, 1.0],
+      "visual_lock": "Preserve the same face, long dark hair, late-20s Korean idol-inspired photorealistic appearance, and overall identity from the master reference. Wardrobe and pose may change with the episode."
+    }
+  },
+  "episode_rules": [
+    "Use both fixed characters by default; do not silently substitute new faces.",
+    "Use a natural two-person dialogue: one operates the real SaaS UI while the other points out the next button, workflow step, or business implication; alternate roles when useful.",
+    "Show official or authenticated real product UI whenever available; do not fabricate dashboard screens or unsupported features.",
+    "Weight the story toward concrete work outcomes: fewer repetitive tasks, faster execution, better lead handling, better customer support, or credible revenue opportunities. Do not promise guaranteed income or invent performance numbers.",
+    "For monetized episodes, send viewers to the UTM-tagged COSHUMA tool/comparison page and only rely on a verified customer-facing affiliate/referral route already recorded in repository data.",
+    "Default format: 9:16, 30-45 seconds, strong first-2-second hook, dialogue plus real UI demonstration, and a natural CTA in the final scene.",
+    "If the master reference cannot be loaded, mark character_reference_missing and do not generate replacement identities."
+  ]
+}
