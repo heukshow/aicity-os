@@ -3906,6 +3906,16 @@
     "primary_category": "voice_cloning",
     "comparison_group": "voice_generation",
     "official_url": "https://synthflow.ai/",
+    "affiliate_verified": false,
+    "affiliate_status": "application_submitted",
+    "affiliate_source_url": "https://synthflow.ai/partners/become-a-partner",
+    "affiliate_final_url": "https://forms.default.com/166142",
+    "affiliate_verified_at": "2026-09-07T06:52:20Z",
+    "affiliate_evidence_markers": [
+      "Thanks for filling out the form!",
+      "A Synthflow AI Channel representative will contact you shortly",
+      "Referral Partners application submitted; approval and tracking link not confirmed"
+    ],
     "pricing_source_url": null,
     "pricing_verified_at": null,
     "pricing_verified": false,
