@@ -1,0 +1,26 @@
+{
+  "recorded_at": "2026-09-08T02:20:00+09:00",
+  "items": [
+    {
+      "id": "jobhire",
+      "status": "outreach_sent",
+      "official_program_url": "https://jobhire.ai/affiliate-program",
+      "contact": "support@jobhire.ai",
+      "gmail_message_id": "1a07d1688d1ef15a",
+      "note": "Official program is currently open and free; JobHire.AI states up to 30% commission. COSHUMA requested the current enrollment path and exact account-specific customer tracking link. Outreach is not proof of submission or approval."
+    },
+    {
+      "id": "aiassistworks",
+      "status": "browser_required_application_form",
+      "official_program_url": "https://www.aiassistworks.com/affiliate-program",
+      "application_url": "https://aiassistworks.affonso.io/",
+      "note": "Official AiAssistWorks affiliate program is open and advertises 80% first-month commission on monthly plans, 40% first-year commission on yearly plans, and 30% lifetime recurring thereafter. Official Affonso portal allows account creation/sign-in and should be used to obtain the exact customer-facing affiliate link. No application or approval is claimed yet."
+    },
+    {
+      "id": "carv",
+      "status": "program_mismatch",
+      "official_program_url": "https://www.carv.com/partner-program",
+      "note": "Carv partner tracks are designed for HR/recruitment advisors, staffing networks, resellers, or ambassadors with 5,000+ followers or 1,000+ community members. COSHUMA should not auto-apply under the current generic SaaS-review profile without stronger qualifying evidence."
+    }
+  ]
+}
