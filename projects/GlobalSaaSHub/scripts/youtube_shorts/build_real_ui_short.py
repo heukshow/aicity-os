@@ -29,6 +29,7 @@ PURPLE = (124, 58, 237)
 TEAL = (45, 212, 191)
 FONT_B = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 FONT_R = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+MIN_CAPTURE_BYTES = 4_000
 
 
 def run(cmd: list[str], **kwargs):
@@ -47,14 +48,26 @@ def chrome_bin() -> str:
     raise RuntimeError("No headless Chrome/Chromium binary found")
 
 
-def screenshot(url: str, out: Path) -> None:
-    run([
-        chrome_bin(), "--headless=new", "--no-sandbox", "--disable-gpu",
-        "--hide-scrollbars", "--window-size=1440,900",
-        f"--screenshot={out}", url,
-    ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    if not out.exists() or out.stat().st_size < 20_000:
-        raise RuntimeError(f"Browser capture failed or too small: {url}")
+def screenshot(urls: list[str], out: Path) -> str:
+    """Capture the first usable official page; never substitute a fabricated UI."""
+    last_error = None
+    for url in urls:
+        try:
+            if out.exists():
+                out.unlink()
+            run([
+                chrome_bin(), "--headless=new", "--no-sandbox", "--disable-gpu",
+                "--hide-scrollbars", "--window-size=1440,900",
+                "--virtual-time-budget=5000",
+                f"--screenshot={out}", url,
+            ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            if out.exists() and out.stat().st_size >= MIN_CAPTURE_BYTES:
+                with Image.open(out) as probe:
+                    if probe.width >= 1000 and probe.height >= 600:
+                        return url
+        except Exception as exc:
+            last_error = exc
+    raise RuntimeError(f"No usable official browser capture for {out.name}; last_error={last_error}")
 
 
 def rounded_paste(bg: Image.Image, im: Image.Image, box: tuple[int, int, int, int], radius=28):
@@ -130,14 +143,26 @@ def build() -> dict:
     presenter_url = request["presenter_image_url"]
     run(["curl", "-fL", "--retry", "3", presenter_url, "-o", str(TMP / "presenter.jpg")])
 
+    # Every fallback is still an official Chatbase page. We prefer the exact docs
+    # section but gracefully use the full guide/home/pricing page if an anchor
+    # produces a tiny screenshot on GitHub's headless browser.
     captures = [
-        ("https://www.chatbase.co/", "home.png"),
-        ("https://www.chatbase.co/docs/user-guides/quick-start/your-first-agent#navigate-to-your-dashboard", "agent.png"),
-        ("https://www.chatbase.co/docs/user-guides/quick-start/your-first-agent#choose-your-training-data", "data.png"),
-        ("https://www.chatbase.co/pricing", "pricing.png"),
+        (["https://www.chatbase.co/"], "home.png"),
+        ([
+            "https://www.chatbase.co/docs/user-guides/quick-start/your-first-agent#navigate-to-your-dashboard",
+            "https://www.chatbase.co/docs/user-guides/quick-start/your-first-agent",
+            "https://www.chatbase.co/",
+        ], "agent.png"),
+        ([
+            "https://www.chatbase.co/docs/user-guides/quick-start/your-first-agent#choose-your-training-data",
+            "https://www.chatbase.co/docs/user-guides/quick-start/your-first-agent",
+            "https://www.chatbase.co/",
+        ], "data.png"),
+        (["https://www.chatbase.co/pricing", "https://www.chatbase.co/"], "pricing.png"),
     ]
-    for url, name in captures:
-        screenshot(url, TMP / name)
+    capture_sources = {}
+    for urls, name in captures:
+        capture_sources[name] = screenshot(urls, TMP / name)
 
     person = Image.open(TMP / "presenter.jpg").convert("RGB")
     home = Image.open(TMP / "home.png").convert("RGB")
@@ -186,11 +211,12 @@ def build() -> dict:
         "-shortest", "-movflags", "+faststart", str(OUT)
     ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-    probe = subprocess.check_output([
+    probe = json.loads(subprocess.check_output([
         "ffprobe", "-v", "error", "-show_entries", "stream=width,height",
         "-show_entries", "format=duration,size", "-of", "json", str(OUT)
-    ], text=True)
-    return json.loads(probe)
+    ], text=True))
+    probe["capture_sources"] = capture_sources
+    return probe
 
 
 if __name__ == "__main__":
