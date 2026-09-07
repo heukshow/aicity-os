@@ -1,0 +1,55 @@
+{
+  "checked_at": "2026-09-08T00:00:00Z",
+  "source": "browser follow-up results plus support@coshuma.com Gmail verification",
+  "rules": {
+    "do_not_duplicate": true,
+    "no_paid_actions": true,
+    "require_exact_customer_tracking_url_before_revenue_cta": true
+  },
+  "items": [
+    {
+      "id": "jobhire",
+      "status": "application_submitted",
+      "tracking_url": null,
+      "evidence": "Existing application check was clean; free application submitted with support@coshuma.com and Form submitted confirmation was shown. JobHire.AI support also confirmed the official Join Now enrollment route. Approval and tracking URL are not yet confirmed."
+    },
+    {
+      "id": "privy",
+      "status": "application_submitted",
+      "tracking_url": null,
+      "evidence": "Official Privy partner application submitted once; confirmation screen shown. Privy supports a partner affiliate model, but no customer tracking link is confirmed yet."
+    },
+    {
+      "id": "heygen",
+      "status": "application_submitted",
+      "tracking_url": null,
+      "evidence": "Existing submitted application state was confirmed and no duplicate submission was made. HeyGen support independently reconfirmed the current public affiliate enrollment route. Approval and tracking URL remain unconfirmed."
+    },
+    {
+      "id": "aiassistworks",
+      "status": "browser_required_user_consent",
+      "tracking_url": null,
+      "evidence": "Affiliate login flow reached the email one-time-password step. OTP message is present in support@coshuma.com. User action is required; do not bypass OTP or create a duplicate application."
+    },
+    {
+      "id": "webflow",
+      "status": "browser_required_user_consent",
+      "tracking_url": null,
+      "evidence": "Application information is filled; final affiliate-program legal agreement acceptance and submit remain. Do not accept legal terms on the user's behalf."
+    },
+    {
+      "id": "octo-browser",
+      "status": "browser_required_user_consent",
+      "tracking_url": null,
+      "evidence": "Signup email entered; password, hCaptcha and account terms remain. No paid subscription should be created."
+    },
+    {
+      "id": "copy-ai",
+      "status": "no_affiliate_program",
+      "tracking_url": null,
+      "gmail_message_id": "1a07d1d846b4d3c8",
+      "evidence": "Copy.ai support explicitly replied that there is currently no active affiliate or referral program. Treat as terminal until newer vendor evidence says otherwise."
+    }
+  ],
+  "spam_check": "support@coshuma.com spam folder checked for the same affiliate/application keywords; no relevant new spam messages found."
+}
