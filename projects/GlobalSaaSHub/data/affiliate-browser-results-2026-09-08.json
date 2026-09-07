@@ -108,12 +108,12 @@
     },
     {
       "id": "ai-video-cut",
-      "status": "pending",
-      "blocker": "required_business_address",
-      "evidence": "Old /affiliate URL is 404; footer links to current /affiliate-program, which links to aivideocut.firstpromoter.com. Form has required Address and Password. Known name, email, country South Korea, website, company and promotion plan filled. No address invented; user asked for address. No submission, no legal agreement accepted. Follow-up: existing support@coshuma.com Google authentication completed; selected account displayed and password field removed. All other required fields prepared; required business address is still missing.",
-      "portal_url": "https://aivideocut.firstpromoter.com/",
-      "action": "Google authentication and ordinary fields prepared; awaiting user-provided business address, not submitted.",
-      "checked_at": "2026-09-07T17:19:30Z",
+      "status": "application_submitted",
+      "blocker": null,
+      "evidence": "Submitted once from the existing Google-authenticated form after obtaining the required business address from the user's previously shared, newer business registration certificate. Authenticated home displays Pending AIVIDEOCUT Affiliate Campaign and Your application is pending / You will receive an email if your application is approved. Campaign ID 27205326. No customer tracking URL displayed.",
+      "portal_url": "https://aivideocut.firstpromoter.com/home",
+      "action": "Free application submitted once; await review, do not reapply. No document or government identifier uploaded. No commissions or revenue claimed.",
+      "checked_at": "2026-09-07T17:21:22Z",
       "exact_tracking_url": null
     },
     {
@@ -157,5 +157,5 @@
       "exact_tracking_url": "https://www.clickfunnels.com/signup-flow?aff=b57f3056884d05b842f607e32347df542821875bbe3209a214141aa32a210532"
     }
   ],
-  "followup_checked_at": "2026-09-07T17:19:00Z"
+  "followup_checked_at": "2026-09-07T17:21:22Z"
 }

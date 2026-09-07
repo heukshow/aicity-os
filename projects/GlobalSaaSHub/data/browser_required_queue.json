@@ -254,14 +254,15 @@
   {
     "id": "ai-video-cut-browser-followup-20260908",
     "priority": "medium",
-    "status": "pending",
+    "status": "application_submitted",
     "cost": "0",
-    "verified_at": "2026-09-07T17:19:30Z",
-    "reason": "Old /affiliate URL is 404; footer links to current /affiliate-program, which links to aivideocut.firstpromoter.com. Form has required Address and Password. Known name, email, country South Korea, website, company and promotion plan filled. No address invented; user asked for address. No submission, no legal agreement accepted. Follow-up: existing support@coshuma.com Google authentication completed; selected account displayed and password field removed. All other required fields prepared; required business address is still missing.",
-    "next_action": "Google authentication and ordinary fields prepared; awaiting user-provided business address, not submitted.",
+    "verified_at": "2026-09-07T17:21:22Z",
+    "reason": "Submitted once from the existing Google-authenticated form after obtaining the required business address from the user's previously shared, newer business registration certificate. Authenticated home displays Pending AIVIDEOCUT Affiliate Campaign and Your application is pending / You will receive an email if your application is approved. Campaign ID 27205326. No customer tracking URL displayed.",
+    "next_action": "Await vendor review; do not reapply. Recover exact customer URL only after approval.",
     "exact_tracking_url": null,
-    "blocker": "required_business_address",
-    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+    "blocker": null,
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json",
+    "affiliate_status": "application_submitted"
   },
   {
     "id": "taskip-browser-followup-20260908",
