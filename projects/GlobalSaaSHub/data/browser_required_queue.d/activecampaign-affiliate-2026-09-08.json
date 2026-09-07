@@ -7,9 +7,10 @@
   "cost": "0",
   "verified_at": "2026-09-08T06:23:15+09:00",
   "exact_tracking_url": null,
-  "workflow_url": "https://www.activecampaign.com/partners/affiliate",
+  "official_program_url": "https://www.activecampaign.com/partners/affiliate",
+  "workflow_url": "https://activecampaign.partnerstack.com/?group=affiliatepartners",
   "reason": "ActiveCampaign's current official affiliate page exposes a live Apply Now route to its PartnerStack application. The company mailbox support@coshuma.com has no ActiveCampaign application/outreach evidence in the prior year, so the prior application_page_unavailable state is stale and there is no known duplicate submission.",
-  "next_action": "Open the official Apply Now route, reuse the existing COSHUMA PartnerStack identity where possible, and submit once with factual COSHUMA information. After approval, recover and independently verify the exact customer-facing referral URL before publishing any revenue CTA.",
+  "next_action": "Open the exact PartnerStack application route, reuse the existing COSHUMA PartnerStack identity where possible, and submit once with factual COSHUMA information. After approval, recover and independently verify the exact customer-facing referral URL before publishing any revenue CTA.",
   "do_not": [
     "Do not use the ActiveCampaign homepage, application URL, PartnerStack dashboard, login page, or onboarding URL as an affiliate/revenue link.",
     "Do not submit a second application if the PartnerStack UI reveals an existing pending/approved/declined application.",
