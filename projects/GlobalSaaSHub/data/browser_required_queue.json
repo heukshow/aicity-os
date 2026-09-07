@@ -2,16 +2,18 @@
   {
     "id": "omi-ai-affiliate-referral-link",
     "priority": "high",
-    "status": "browser_required",
+    "status": "resolved",
     "cost": "0",
-    "verified_at": "2026-09-01T23:35:00+09:00",
-    "reason": "Omi AI's approval email verifies that the COSHUMA account is approved for referrals and can earn commissions, but the email supplies only a Get Started link that resolves to affiliate.basedhardware.com and does not expose a customer-facing unique referral URL.",
-    "next_action": "Reuse an already authenticated Omi/Based Hardware affiliate browser session, open the referral or link area, copy the exact customer-facing unique affiliate URL, verify its account-specific tracking identifier and final destination, then update only matching data records and eligible COSHUMA CTAs.",
+    "verified_at": "2026-09-07T06:48:39Z",
+    "reason": "The browser blocker is resolved. The authenticated Omi affiliate dashboard supplied the exact customer-facing referral URL https://www.omi.me/?ref=SANGKWONAN; PR #256 merged it into tool data and eligible CTAs, and production verification confirmed the CTA preserves ref=SANGKWONAN.",
+    "next_action": "None for referral-link recovery. Keep the verified customer-facing Omi URL and exclude this resolved item from browser-required/application automation.",
     "do_not": [
-      "Do not treat the affiliate.basedhardware.com dashboard/onboarding URL or its email tracking redirect as a revenue link.",
-      "Do not guess or construct a referral parameter.",
-      "Do not submit another Omi AI referral application."
-    ]
+      "Do not replace the verified URL with an affiliate dashboard, onboarding URL, email redirect, or generic Omi homepage.",
+      "Do not submit another Omi referral application or reopen this browser blocker without newer contradictory evidence that the verified referral route is invalid.",
+      "Do not infer sales, orders, commissions, clicks, or conversions from approval, publication, HTTP success, or link verification."
+    ],
+    "resolved_at": "2026-09-07T06:48:39Z",
+    "resolution_evidence": "Authenticated dashboard evidence is recorded in omi-referral-evidence-2026-09-07.md. Production https://coshuma.com/tool/omi-ai.html links to https://www.omi.me/?ref=SANGKWONAN and the customer destination responds successfully. Link verification does not imply any sale, order, commission, or conversion."
   },
   {
     "id": "coshuma-youtube-channel-branding",
