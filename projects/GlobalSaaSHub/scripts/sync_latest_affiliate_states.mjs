@@ -1,9 +1,155 @@
 import { applyApprovedTracking } from './approved_tracking_evidence.mjs';
 import fs from 'node:fs';
 
-const observedAt = '2026-09-08T02:19:00+09:00';
+const observedAt = '2026-09-08T03:27:00+09:00';
 
 const states = {
+  'copy-ai': {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'no_affiliate_program',
+    affiliate_verified_at: observedAt,
+    affiliate_evidence_markers: [
+      'Copy.ai support ticket #19902 states there is currently no active affiliate or referral program',
+      'Copy.ai support states it cannot accept new partners or provide referral links at this time',
+      'Do not reapply unless Copy.ai later announces a new active program',
+    ],
+  },
+  webflow: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'outreach_sent',
+    affiliate_verified_at: observedAt,
+    affiliate_evidence_markers: [
+      'COSHUMA sent a zero-cost Webflow affiliate enrollment-path request from support@coshuma.com',
+      'Gmail message 1a07d11319866975 records the outreach',
+      'Do not send duplicate outreach while awaiting a response or browser enrollment result',
+    ],
+  },
+  'octo-browser': {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'outreach_sent',
+    affiliate_verified_at: observedAt,
+    affiliate_evidence_markers: [
+      'COSHUMA sent a zero-cost Octo Browser referral-program access request from support@coshuma.com',
+      'Gmail message 1a07d11543a2ddd5 records the outreach',
+      'Do not send duplicate outreach while awaiting a response or authenticated referral-link recovery',
+    ],
+  },
+  privy: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'outreach_sent',
+    affiliate_verified_at: observedAt,
+    affiliate_evidence_markers: [
+      'COSHUMA sent a Privy Partner Affiliate enrollment request from support@coshuma.com',
+      'Gmail message 1a07d1178d900425 records the outreach',
+      'Do not duplicate enrollment outreach while Privy clarifies the applicable publisher path',
+    ],
+  },
+  heygen: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'outreach_sent',
+    affiliate_source_url: 'https://www.heygen.com/affiliate-program',
+    affiliate_verified_at: observedAt,
+    affiliate_evidence_markers: [
+      'HeyGen support confirmed the current public enrollment route is the HeyGen Affiliate Program page',
+      'Gmail thread 1a07d11c9459f1f2 contains the current support confirmation',
+      'Browser enrollment remains required; no exact customer tracking URL is verified yet',
+    ],
+  },
+  blaze: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'outreach_sent',
+    affiliate_verified_at: observedAt,
+    affiliate_evidence_markers: [
+      'COSHUMA sent a Blaze affiliate enrollment request from support@coshuma.com',
+      'Gmail message 1a07d15348a88345 records the outreach',
+      'Do not duplicate outreach while awaiting the vendor response or Impact enrollment result',
+    ],
+  },
+  questmate: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'outreach_sent',
+    affiliate_verified_at: observedAt,
+    affiliate_evidence_markers: [
+      'COSHUMA sent a Questmate partner and affiliate enrollment request from support@coshuma.com',
+      'Gmail message 1a07d155181b14b5 records the outreach',
+      'Do not duplicate outreach while awaiting a response or exact referral link',
+    ],
+  },
+  reactin: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'outreach_sent',
+    affiliate_verified_at: observedAt,
+    affiliate_evidence_markers: [
+      'COSHUMA sent a ReactIn affiliate enrollment request from support@coshuma.com',
+      'Gmail message 1a07d156944e99b9 records the outreach',
+      'Do not duplicate outreach while awaiting enrollment or a customer-facing referral link',
+    ],
+  },
+  jobhire: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'outreach_sent',
+    affiliate_source_url: 'https://jobhire.ai/affiliate-program',
+    affiliate_verified_at: observedAt,
+    affiliate_evidence_markers: [
+      'JobHire.AI support confirmed the current affiliate enrollment path is the free Join Now flow on its affiliate page',
+      'Gmail thread 1a07d1688d1ef15a contains the support confirmation',
+      'Browser enrollment remains required; no exact customer tracking URL is verified yet',
+    ],
+  },
+  aiassistworks: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'browser_required_otp',
+    affiliate_source_url: 'https://www.aiassistworks.com/affiliate-program',
+    affiliate_verified_at: observedAt,
+    affiliate_evidence_markers: [
+      'The official AiAssistWorks Affonso flow was opened for support@coshuma.com',
+      'AiAssistWorks sent a one-time-password login email at 2026-09-08 03:21 KST',
+      'OTP/browser completion is required before an exact customer-facing affiliate URL can be recovered',
+    ],
+  },
+  synder: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'outreach_sent',
+    affiliate_verified_at: observedAt,
+    affiliate_evidence_markers: [
+      'COSHUMA sent a Synder affiliate enrollment request from support@coshuma.com',
+      'Gmail message 1a07d1eb47ed18d2 records the outreach',
+      'Do not send duplicate outreach while awaiting Synder response',
+    ],
+  },
+  teachable: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'outreach_sent',
+    affiliate_verified_at: observedAt,
+    affiliate_evidence_markers: [
+      'COSHUMA sent a Teachable Affiliate Partner enrollment request from support@coshuma.com',
+      'Gmail message 1a07d1e9a83375a1 records the outreach',
+      'Do not send duplicate outreach while awaiting Teachable response',
+    ],
+  },
+  tapfiliate: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'outreach_sent',
+    affiliate_verified_at: observedAt,
+    affiliate_evidence_markers: [
+      'COSHUMA sent a Tapfiliate affiliate enrollment request from support@coshuma.com',
+      'Gmail message 1a07d1ed0e6585e5 records the outreach',
+      'Do not send duplicate outreach while awaiting Tapfiliate response or a browser path that can bypass the prior CAPTCHA blocker',
+    ],
+  },
   'gravity-forms': {
     affiliate_url: null,
     affiliate_verified: true,
