@@ -125,6 +125,17 @@
       "checked_at": "2026-09-08T05:29:50+09:00",
       "evidence": "Existing support@coshuma.com authenticated session reused. Onboarding step 1 accepted name COSHUMA with the existing Korea, Republic of selection; step 2 accepted identifier coshuma and Complete was submitted once. Success Hub and the affiliate dashboard issued https://www.aiassistworks.com/?via=coshuma. Live Chrome opened the official customer product page with via=coshuma retained. Operational enrollment and issued tracking link confirmed; no separate approval email claimed. Before verification visit, dashboard showed 0 clicks, 0 conversions and $0 commission. Payout settings remain incomplete. No new OTP, additional agreement checkbox, paid action or duplicate application occurred. Link validation is not proof of a customer signup, sale or attributed commission.",
       "status_origin": "authenticated_portal_issued_tracking"
+    },
+    {
+      "id": "novita-ai",
+      "platform": "Tapfiliate",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://novita.ai/?ref=mwjmyjy&utm_source=affiliate",
+      "destination": "https://novita.ai/?ref=mwjmyjy&utm_source=affiliate",
+      "evidence": "Existing company mailbox searched including spam/trash; only prior outreach found. Google Sign in returned Invalid email or password. One password reset request returned a conditional known-address message; no reset mail was observed. Using the same support@coshuma.com Google identity through Sign up with Google then reached /p/new/onboarding/profile/. At 2026-09-08 06:03 KST, noreply-affiliates@tapfiliate.com sent You just got approved for Novita AI Affiliate to support@coshuma.com, signed by tapfiliate.com, addressed Hey Sangkwon, issuing the exact referral URL. Real Chrome opened the official Novita customer page with ref=mwjmyjy and utm_source=affiliate retained. No second signup, password change, outreach or payment was performed. Pre-existing account absence was not conclusively established; current approval and assigned link are directly confirmed. Portal onboarding displays Unsupported Browser even after reload; profile completion, dashboard metrics and payout setup are unverified.",
+      "checked_at": "2026-09-08T06:04:00+09:00",
+      "status_origin": "authenticated_approval_email_issued_tracking",
+      "source": "data/affiliate-submission-batch-2026-09-08.json"
     }
   ]
 }

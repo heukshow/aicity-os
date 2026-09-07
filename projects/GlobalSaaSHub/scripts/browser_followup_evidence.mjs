@@ -20,7 +20,10 @@ export function applyBrowserFollowup(tool) {
     const url = new URL(item.affiliate_url);
     const existing = url.searchParams.get('ref') &&
       item.status_origin === 'existing_remote_record_preserved_not_new_approval';
-    const issued = item.status_origin === 'authenticated_portal_issued_tracking' &&
+    const emailIssued = item.status_origin === 'authenticated_approval_email_issued_tracking' &&
+      item.approval_email_confirmed === true && item.approval_email_recipient === 'support@coshuma.com' &&
+      item.approval_email_sender === 'noreply-affiliates@tapfiliate.com';
+    const issued = (item.status_origin === 'authenticated_portal_issued_tracking' || emailIssued) &&
       item.portal_enrollment_confirmed === true && item.customer_landing_verified === true &&
       approvedTracking.get(item.id)?.exact_tracking_url === item.affiliate_url &&
       [...url.searchParams.values()].some(value => value.trim());
