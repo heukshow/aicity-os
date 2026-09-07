@@ -136,6 +136,19 @@
       "checked_at": "2026-09-08T06:04:00+09:00",
       "status_origin": "authenticated_approval_email_issued_tracking",
       "source": "data/affiliate-submission-batch-2026-09-08.json"
+    },
+    {
+      "id": "eprofessor",
+      "platform": "eProfessor native referrals",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://eprofessor.com/invite/coshuma173",
+      "destination": "https://eprofessor.com/invite/coshuma173",
+      "evidence": "After the Google popup failed, the user explicitly instructed completion of email signup. One free signup with COSHUMA and support@coshuma.com reached the authenticated Referrals dashboard. The dashboard issued this exact Your Referral Link and explicitly states it tracks who signs up through the account. Real Chrome opened the URL to the official customer product page. This is an account-specific issued referral path, not a generic invitation or administrative link. Operational enrollment and link issuance are confirmed; no separate approval email is claimed. Before validation, Net Earnings $0, Unpaid Balance $0, Active Subscribers 0 and Total signups 0. The dashboard says PayPal and W-9/W-8BEN setup are required before earning; payout and tax setup are incomplete and were not submitted. No payment or customer signup was performed. Validation views are not customer conversions.",
+      "checked_at": "2026-09-07T21:24:29.148094+00:00",
+      "status_origin": "authenticated_portal_issued_tracking",
+      "source": "data/affiliate-submission-batch-2026-09-08.json",
+      "payout_setup_complete": false,
+      "earning_setup_complete": false
     }
   ]
 }

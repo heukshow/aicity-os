@@ -596,5 +596,46 @@
       "Do not use a marketplace, invite, signup or dashboard URL as a revenue link.",
       "Do not infer customer signups, commissions or revenue from submission."
     ]
+  },
+  {
+    "id": "krater-affiliate-batch-20260908",
+    "tool_id": "krater",
+    "priority": "high",
+    "status": "resolved",
+    "affiliate_status": "application_submitted",
+    "exact_tracking_url": null,
+    "cost": "0",
+    "verified_at": "2026-09-07T21:21:56.008052+00:00",
+    "reason": "Authenticated Chrome: after a pre-application company Gmail in:anywhere search found no matching messages, the Dub application was submitted once with COSHUMA, support@coshuma.com, https://coshuma.com and factual buyer-guide promotion text. Program terms accepted under explicit user authorization. Step 2 of 2 displayed Application submitted and stated the review update will be sent to support@coshuma.com. The decorative dashboard illustration on this success page is not real account revenue or an issued referral link. No approval or exact tracking URL was issued.",
+    "next_action": "Await the existing Krater application review in Dub; do not reapply. Only publish an issued exact customer-facing link after approval evidence.",
+    "evidence_file": "data/affiliate-submission-batch-2026-09-08.json"
+  },
+  {
+    "id": "eprofessor-affiliate-batch-20260908",
+    "tool_id": "eprofessor",
+    "priority": "high",
+    "status": "resolved",
+    "affiliate_status": "approved_tracking",
+    "exact_tracking_url": "https://eprofessor.com/invite/coshuma173",
+    "cost": "0",
+    "verified_at": "2026-09-07T21:24:29.148094+00:00",
+    "reason": "After the Google popup failed, the user explicitly instructed completion of email signup. One free signup with COSHUMA and support@coshuma.com reached the authenticated Referrals dashboard. The dashboard issued this exact Your Referral Link and explicitly states it tracks who signs up through the account. Real Chrome opened the URL to the official customer product page. This is an account-specific issued referral path, not a generic invitation or administrative link. Operational enrollment and link issuance are confirmed; no separate approval email is claimed. Before validation, Net Earnings $0, Unpaid Balance $0, Active Subscribers 0 and Total signups 0. The dashboard says PayPal and W-9/W-8BEN setup are required before earning; payout and tax setup are incomplete and were not submitted. No payment or customer signup was performed. Validation views are not customer conversions.",
+    "next_action": "Preserve the existing account and exact issued referral link; do not reapply. PayPal and tax-document setup remain incomplete and require a separate user action before earnings can start, as stated by the dashboard. Keep real signups, commissions and revenue at 0 without evidence.",
+    "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
+    "payout_setup_complete": false,
+    "earning_setup_complete": false
+  },
+  {
+    "id": "framer-affiliate-batch-20260908",
+    "tool_id": "framer",
+    "priority": "high",
+    "status": "browser_required_application_form",
+    "affiliate_status": "browser_required_application_form",
+    "exact_tracking_url": null,
+    "cost": "0",
+    "verified_at": "2026-09-07T21:21:56.008052+00:00",
+    "reason": "Official Creator Program advertises manual application from Community settings Links tab. Pre-action company Gmail in:anywhere search had no prior Framer messages. Email authentication was completed using the newly received verified team@framer.com activation message, and free account creation was completed as Sangkwon An under support@coshuma.com. Optional newsletter was unchecked. Official creator Links route redirected to /@sangkwon-an/?settings=open&settingsTab=links and displayed Page not found. Marketplace Account menu exposed Settings but no application form became available after activation. Account exists; affiliate submission, approval and tracking URL are not confirmed. No paid plan or marketplace product was created.",
+    "next_action": "Reuse the existing support@coshuma.com Framer account. Recover Community Settings > Links when the vendor route works; submit the manual creator application once. Do not recreate the account or publish a generic profile/dashboard URL as a referral link.",
+    "evidence_file": "data/affiliate-submission-batch-2026-09-08.json"
   }
 ]

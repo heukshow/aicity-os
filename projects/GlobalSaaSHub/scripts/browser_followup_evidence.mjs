@@ -23,10 +23,15 @@ export function applyBrowserFollowup(tool) {
     const emailIssued = item.status_origin === 'authenticated_approval_email_issued_tracking' &&
       item.approval_email_confirmed === true && item.approval_email_recipient === 'support@coshuma.com' &&
       item.approval_email_sender === 'noreply-affiliates@tapfiliate.com';
+    // Native eProfessor referrals carry the issued account identifier in the path.
+    // Keep this narrow: a generic /invite or a dashboard must never pass this gate.
+    const accountPath = item.id === 'eprofessor' &&
+      item.customer_tracking_kind === 'account_specific_referral_path' &&
+      url.hostname === 'eprofessor.com' && /^\/invite\/[a-z0-9-]+$/i.test(url.pathname);
     const issued = (item.status_origin === 'authenticated_portal_issued_tracking' || emailIssued) &&
       item.portal_enrollment_confirmed === true && item.customer_landing_verified === true &&
       approvedTracking.get(item.id)?.exact_tracking_url === item.affiliate_url &&
-      [...url.searchParams.values()].some(value => value.trim());
+      (accountPath || [...url.searchParams.values()].some(value => value.trim()));
     if (url.protocol !== 'https:' || (!existing && !issued)) {
       throw new Error(`Missing exact existing referral evidence: ${item.id}`);
     }

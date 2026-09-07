@@ -3237,7 +3237,19 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://framer.com/"
+    "official_evidence_url": "https://framer.com/",
+    "affiliate_status": "browser_required_application_form",
+    "affiliate_verified": false,
+    "affiliate_final_url": null,
+    "affiliate_evidence_markers": [
+      "Official Creator Program advertises manual application from Community settings Links tab. Pre-action company Gmail in:anywhere search had no prior Framer messages. Email authentication was completed using the newly received verified team@framer.com activation message, and free account creation was completed as Sangkwon An under support@coshuma.com. Optional newsletter was unchecked. Official creator Links route redirected to /@sangkwon-an/?settings=open&settingsTab=links and displayed Page not found. Marketplace Account menu exposed Settings but no application form became available after activation. Account exists; affiliate submission, approval and tracking URL are not confirmed. No paid plan or marketplace product was created.",
+      "Reuse the existing support@coshuma.com Framer account. Recover Community Settings > Links when the vendor route works; submit the manual creator application once. Do not recreate the account or publish a generic profile/dashboard URL as a referral link.",
+      "data/affiliate-submission-batch-2026-09-08.json"
+    ],
+    "affiliate_status_checked_at": "2026-09-07T21:21:56.008052+00:00",
+    "affiliate_status_evidence_url": "https://www.framer.com/creators",
+    "affiliate_workflow_url": "https://www.framer.com/community/creator/?settings=open&settingsTab=links",
+    "affiliate_next_action": "Reuse the existing support@coshuma.com Framer account. Recover Community Settings > Links when the vendor route works; submit the manual creator application once. Do not recreate the account or publish a generic profile/dashboard URL as a referral link."
   },
   {
     "id": "monday-com",
@@ -3431,7 +3443,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "Cloud-based platform for creating, selling, and managing interactive e-learning courses and secure online assessments.",
-    "affiliate_url": null,
+    "affiliate_url": "https://eprofessor.com/invite/coshuma173",
     "pricing": "See official pricing",
     "key_features": [
       "Create interactive courses",
@@ -3453,7 +3465,20 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://eprofessor.com/"
+    "official_evidence_url": "https://eprofessor.com/",
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified": true,
+    "affiliate_final_url": "https://eprofessor.com/invite/coshuma173",
+    "affiliate_evidence_markers": [
+      "After the Google popup failed, the user explicitly instructed completion of email signup. One free signup with COSHUMA and support@coshuma.com reached the authenticated Referrals dashboard. The dashboard issued this exact Your Referral Link and explicitly states it tracks who signs up through the account. Real Chrome opened the URL to the official customer product page. This is an account-specific issued referral path, not a generic invitation or administrative link. Operational enrollment and link issuance are confirmed; no separate approval email is claimed. Before validation, Net Earnings $0, Unpaid Balance $0, Active Subscribers 0 and Total signups 0. The dashboard says PayPal and W-9/W-8BEN setup are required before earning; payout and tax setup are incomplete and were not submitted. No payment or customer signup was performed. Validation views are not customer conversions.",
+      "Preserve the existing account and exact issued referral link; do not reapply. PayPal and tax-document setup remain incomplete and require a separate user action before earnings can start, as stated by the dashboard. Keep real signups, commissions and revenue at 0 without evidence.",
+      "data/affiliate-submission-batch-2026-09-08.json"
+    ],
+    "affiliate_status_checked_at": "2026-09-07T21:24:29.148094+00:00",
+    "affiliate_status_evidence_url": "https://admin.eprofessor.com/referrals/",
+    "affiliate_workflow_url": "https://admin.eprofessor.com/referrals/",
+    "affiliate_next_action": "Preserve the existing account and exact issued referral link; do not reapply. PayPal and tax-document setup remain incomplete and require a separate user action before earnings can start, as stated by the dashboard. Keep real signups, commissions and revenue at 0 without evidence.",
+    "affiliate_verified_at": "2026-09-07T21:24:29.148094+00:00"
   },
   {
     "id": "docsbot",
@@ -4718,7 +4743,19 @@
     "pricing_source_final_url": "https://krater.ai/pricing",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://krater.ai/"
+    "official_evidence_url": "https://krater.ai/",
+    "affiliate_status": "application_submitted",
+    "affiliate_verified": false,
+    "affiliate_final_url": null,
+    "affiliate_evidence_markers": [
+      "Authenticated Chrome: after a pre-application company Gmail in:anywhere search found no matching messages, the Dub application was submitted once with COSHUMA, support@coshuma.com, https://coshuma.com and factual buyer-guide promotion text. Program terms accepted under explicit user authorization. Step 2 of 2 displayed Application submitted and stated the review update will be sent to support@coshuma.com. The decorative dashboard illustration on this success page is not real account revenue or an issued referral link. No approval or exact tracking URL was issued.",
+      "Await the existing Krater application review in Dub; do not reapply. Only publish an issued exact customer-facing link after approval evidence.",
+      "data/affiliate-submission-batch-2026-09-08.json"
+    ],
+    "affiliate_status_checked_at": "2026-09-07T21:21:56.008052+00:00",
+    "affiliate_status_evidence_url": "https://partners.dub.co/kraterai/apply",
+    "affiliate_workflow_url": "https://partners.dub.co/kraterai/apply",
+    "affiliate_next_action": "Await the existing Krater application review in Dub; do not reapply. Only publish an issued exact customer-facing link after approval evidence."
   },
   {
     "id": "expandi",
