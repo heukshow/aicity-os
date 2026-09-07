@@ -59,6 +59,19 @@ const dataOverrides = {
 // create affiliate URLs; they only stop already-known outcomes from remaining
 // "unclassified" in the production revenue audit.
 const statusOverrides = {
+  'synthflow-ai': {
+    affiliate_url: null,
+    affiliate_verified: false,
+    affiliate_status: 'application_submitted',
+    affiliate_source_url: 'https://synthflow.ai/partners/become-a-partner',
+    affiliate_final_url: 'https://forms.default.com/166142',
+    affiliate_verified_at: '2026-09-07T06:52:20Z',
+    affiliate_evidence_markers: [
+      'Thanks for filling out the form!',
+      'A Synthflow AI Channel representative will contact you shortly',
+      'Referral Partners application submitted; approval and tracking link not confirmed',
+    ],
+  },
   hubspot: {
     affiliate_verified: true,
     affiliate_status: 'rejected',
