@@ -3,12 +3,23 @@ import re
 
 PROJECT = Path(__file__).resolve().parents[1]
 PAGE = PROJECT / "public" / "tool" / "jotform.html"
-AFFILIATE_URL = "https://link.jotform.com/17STYVOunG?username=AnSangkwon"
+AFFILIATE_URL = "https://www.jotform.com/ai/agents/?partner=coshuma"
+LEGACY_AFFILIATE_URL = "https://link.jotform.com/17STYVOunG?username=AnSangkwon"
 
 html = PAGE.read_text(encoding="utf-8")
 
 if AFFILIATE_URL in html:
     print("Jotform AI affiliate CTA already present")
+    raise SystemExit(0)
+
+# Jotform Affiliate Marketing Specialist Anna Scheucher directly confirmed on
+# 2026-09-07 that this is COSHUMA's customer-facing AI Agents partner link.
+# If an older onboarding-email redirect is already present, normalize it to the
+# direct confirmed URL instead of creating a second CTA.
+if LEGACY_AFFILIATE_URL in html:
+    html = html.replace(LEGACY_AFFILIATE_URL, AFFILIATE_URL)
+    PAGE.write_text(html, encoding="utf-8")
+    print("Replaced legacy Jotform onboarding redirect with confirmed direct affiliate URL")
     raise SystemExit(0)
 
 pattern = re.compile(
