@@ -2,20 +2,21 @@
   "id": "activecampaign-affiliate-partnerstack-application",
   "tool_id": "activecampaign",
   "priority": "high",
-  "status": "browser_required_partnerstack_application",
-  "affiliate_status": "browser_required_partnerstack_application",
+  "status": "blocked_existing_rejection_evidence",
+  "affiliate_status": "rejected",
   "cost": "0",
   "verified_at": "2026-09-08T06:23:15+09:00",
   "exact_tracking_url": null,
   "official_program_url": "https://www.activecampaign.com/partners/affiliate",
   "workflow_url": "https://activecampaign.partnerstack.com/?group=affiliatepartners",
-  "reason": "ActiveCampaign's current official affiliate page exposes a live Apply Now route to its PartnerStack application. The company mailbox support@coshuma.com has no ActiveCampaign application/outreach evidence in the prior year, so the prior application_page_unavailable state is stale and there is no known duplicate submission.",
-  "next_action": "Open the exact PartnerStack application route, reuse the existing COSHUMA PartnerStack identity where possible, and submit once with factual COSHUMA information. After approval, recover and independently verify the exact customer-facing referral URL before publishing any revenue CTA.",
+  "reason": "Existing repository evidence data/activecampaign-affiliate-rejection-evidence-2026-08-28.md records a submitted application followed by an explicit decline (Gmail message 1a049ba49a81c468). A later public application route and an empty search in the newer company mailbox do not establish that the prior rejection was reversed. Current eligibility is unconfirmed; keep this application protected.",
+  "next_action": "Do not reapply. Only reopen after account-specific vendor evidence explicitly reverses the rejection or establishes eligibility. Public program availability alone is insufficient.",
   "do_not": [
     "Do not use the ActiveCampaign homepage, application URL, PartnerStack dashboard, login page, or onboarding URL as an affiliate/revenue link.",
     "Do not submit a second application if the PartnerStack UI reveals an existing pending/approved/declined application.",
     "Do not pay for ActiveCampaign or any PartnerStack service to qualify for the affiliate program; ActiveCampaign states applicants do not need to be customers.",
     "Do not infer clicks, sign-ups, commissions, or revenue from application availability or submission."
   ],
-  "evidence_file": "data/activecampaign-affiliate-route-2026-09-08.md"
+  "evidence_file": "data/activecampaign-affiliate-rejection-evidence-2026-08-28.md",
+  "do_not_reapply": true
 }

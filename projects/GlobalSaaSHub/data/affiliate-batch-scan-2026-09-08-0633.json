@@ -1898,5 +1898,16 @@
       "prior_evidence": null,
       "queue_ids": []
     }
-  ]
+  ],
+  "pre_merge_queue_reconciliation": {
+    "main_sha": "7fbd1935ec547ae56fa141c1e8eb541d4e836a1a",
+    "note": "New sidecar queue entries arrived during the batch. ActiveCampaign remains protected by existing rejection evidence; eProfessor recovery marked resolved against already issued exact link. No candidate membership change."
+  },
+  "validation": {
+    "build": "passed",
+    "repeat_sync_and_duplicate_prevention": "passed",
+    "link_integrity": "151/151 tools and 152 pages passed",
+    "target_seo": "9 detail/comparison pages passed canonical, title, description, OG, schema, sitemap, no unissued affiliate CTA",
+    "existing_seo_regression": "public and dist passed"
+  }
 }
