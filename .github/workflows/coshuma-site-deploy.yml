@@ -58,10 +58,15 @@ jobs:
           const expected = new Map([
             ['murf-ai', 'https://get.murf.ai/fqac0vixj0qs'],
             ['unbounce', 'https://unbounce.partnerlinks.io/5ubjnt8lluqi'],
+            ['helpdesk', 'https://www.helpdesk.com/?a=8IetMhQvR&utm_campaign=pp_helpdesk-default&utm_source=PP&d=14'],
+            ['voibe', 'https://www.getvoibe.com/?aff=G5Yr5D'],
+            ['time2book', 'https://time2book.me?aff=9TzesqKi'],
+            ['taskip', 'https://taskip.net/?atp=qnV3mw'],
+            ['clickfunnels', 'https://www.clickfunnels.com/signup-flow?aff=b57f3056884d05b842f607e32347df542821875bbe3209a214141aa32a210532'],
           ]);
           for (const [id, url] of expected) {
             const tool = tools.find((item) => item.id === id);
-            if (!tool || tool.affiliate_verified !== true || tool.affiliate_url !== url) {
+            if (!tool || tool.affiliate_verified !== true || tool.affiliate_status !== 'approved_tracking' || tool.affiliate_url !== url) {
               throw new Error(`Verified affiliate sync failed for ${id}`);
             }
           }
@@ -118,6 +123,11 @@ jobs:
           grep -R -q -F 'https://unbounce.partnerlinks.io/5ubjnt8lluqi' projects/GlobalSaaSHub/dist/compare
           grep -R -q -F 'https://get.murf.ai/fqac0vixj0qs' projects/GlobalSaaSHub/dist/assets
           grep -R -q -F 'https://unbounce.partnerlinks.io/5ubjnt8lluqi' projects/GlobalSaaSHub/dist/assets
+          grep -R -q -F 'https://www.helpdesk.com/?a=8IetMhQvR&utm_campaign=pp_helpdesk-default&utm_source=PP&d=14' projects/GlobalSaaSHub/dist/tool projects/GlobalSaaSHub/dist/compare
+          grep -R -q -F 'https://www.getvoibe.com/?aff=G5Yr5D' projects/GlobalSaaSHub/dist/tool projects/GlobalSaaSHub/dist/compare
+          grep -R -q -F 'https://time2book.me?aff=9TzesqKi' projects/GlobalSaaSHub/dist/tool projects/GlobalSaaSHub/dist/compare
+          grep -R -q -F 'https://taskip.net/?atp=qnV3mw' projects/GlobalSaaSHub/dist/tool projects/GlobalSaaSHub/dist/compare
+          grep -R -q -F 'https://www.clickfunnels.com/signup-flow?aff=b57f3056884d05b842f607e32347df542821875bbe3209a214141aa32a210532' projects/GlobalSaaSHub/dist/tool projects/GlobalSaaSHub/dist/compare
           test -f projects/GlobalSaaSHub/dist/tool/jotform.html
           grep -q -F 'https://www.jotform.com/ai/agents/?partner=coshuma' projects/GlobalSaaSHub/dist/tool/jotform.html
           if grep -q -F 'https://link.jotform.com/17STYVOunG?username=AnSangkwon' projects/GlobalSaaSHub/dist/tool/jotform.html; then
