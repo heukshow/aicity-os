@@ -1641,7 +1641,8 @@
     "affiliate_status_evidence_url": "https://aiassistworks.affonso.io/",
     "affiliate_workflow_url": "https://aiassistworks.affonso.io/",
     "affiliate_next_action": "Preserve the issued exact link and existing account; do not reapply. Payout setup remains incomplete and is separate from enrollment. Keep real customer signups, commissions and revenue at 0 without new evidence; verification visits are not customer activity.",
-    "affiliate_verified_at": "2026-09-08T05:29:50+09:00"
+    "affiliate_verified_at": "2026-09-08T05:29:50+09:00",
+    "payout_setup_status": "incomplete"
   },
   {
     "id": "vista-social",
