@@ -2830,7 +2830,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Novita AI is a comprehensive AI cloud platform offering developers and businesses seamless access to 200+ AI model APIs and custom deployment solutions for advanced applications.",
-    "affiliate_url": null,
+    "affiliate_url": "https://novita.ai/?ref=mwjmyjy&utm_source=affiliate",
     "pricing": "See official pricing",
     "key_features": [
       "200+ AI model APIs",
@@ -2853,19 +2853,21 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://affiliates.novita.ai/",
-    "affiliate_verified": false,
-    "affiliate_status": "browser_required_user_consent",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00",
-    "affiliate_final_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-08T06:04:00+09:00",
+    "affiliate_final_url": "https://novita.ai/?ref=mwjmyjy&utm_source=affiliate",
     "affiliate_evidence_markers": [
-      "Company mailbox contains prior outreach only. Portal did not have an authenticated session. Existing-account Google sign-in using support@coshuma.com returned Invalid email or password; this does not prove that no account exists. Signup form prepared with Sangkwon, An, support@coshuma.com.",
-      "If an existing Novita affiliate account exists, use its existing login instead of registering again. Otherwise user completes password, CAPTCHA and Terms and conditions on prepared signup. Password blank and agreement unchecked; no signup submitted.",
-      "data/affiliate-browser-followup-wave3-2026-09-08.json"
+      "Existing company mailbox searched including spam/trash; only prior outreach found. Google Sign in returned Invalid email or password. One password reset request returned a conditional known-address message; no reset mail was observed. Using the same support@coshuma.com Google identity through Sign up with Google then reached /p/new/onboarding/profile/. At 2026-09-08 06:03 KST, noreply-affiliates@tapfiliate.com sent You just got approved for Novita AI Affiliate to support@coshuma.com, signed by tapfiliate.com, addressed Hey Sangkwon, issuing the exact referral URL. Real Chrome opened the official Novita customer page with ref=mwjmyjy and utm_source=affiliate retained. No second signup, password change, outreach or payment was performed. Pre-existing account absence was not conclusively established; current approval and assigned link are directly confirmed. Portal onboarding displays Unsupported Browser even after reload; profile completion, dashboard metrics and payout setup are unverified.",
+      "Do not reapply or create another account. Preserve the exact email-issued customer referral URL. Recover access to the existing Google-linked portal to verify profile and payout setup after the Unsupported Browser error is resolved. No customer conversions, commission or revenue inferred; recorded values remain 0 without evidence.",
+      "data/affiliate-submission-batch-2026-09-08.json"
     ],
-    "affiliate_status_checked_at": "2026-09-08",
-    "affiliate_status_evidence_url": "https://affiliates.novita.ai/",
-    "affiliate_workflow_url": "https://affiliates.novita.ai/",
-    "affiliate_next_action": "If an existing Novita affiliate account exists, use its existing login instead of registering again. Otherwise user completes password, CAPTCHA and Terms and conditions on prepared signup. Password blank and agreement unchecked; no signup submitted."
+    "affiliate_status_checked_at": "2026-09-08T06:04:00+09:00",
+    "affiliate_status_evidence_url": "https://affiliates.novita.ai/p/new/onboarding/profile/",
+    "affiliate_workflow_url": "https://affiliates.novita.ai/p/new/onboarding/profile/",
+    "affiliate_next_action": "Do not reapply or create another account. Preserve the exact email-issued customer referral URL. Recover access to the existing Google-linked portal to verify profile and payout setup after the Unsupported Browser error is resolved. No customer conversions, commission or revenue inferred; recorded values remain 0 without evidence.",
+    "affiliate_dashboard_status": "unsupported_browser",
+    "affiliate_tracking_attribution_currently_verified": false
   },
   {
     "id": "followr",

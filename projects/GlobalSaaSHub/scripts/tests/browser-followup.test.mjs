@@ -68,8 +68,15 @@ for (const patch of [{customer_landing_verified:false}, {portal_enrollment_confi
   assert.throws(() => applyBrowserFollowup({id:'aiassistworks'}));
 }
 browserFollowups.set('aiassistworks', issued);
-assert.equal(state['novita-ai'].application_state, 'not_submitted');
-for (const id of ['n8n', 'novita-ai', 'typedesk', 'airia', 'joiin']) {
+assert.equal(state['novita-ai'].application_state, 'submitted');
+assert.equal(state['novita-ai'].tracking_url, 'https://novita.ai/?ref=mwjmyjy&utm_source=affiliate');
+const novita = browserFollowups.get('novita-ai');
+for (const patch of [{approval_email_confirmed:false}, {approval_email_recipient:'wrong@example.com'}, {affiliate_url:'https://novita.ai/'}, {customer_landing_verified:false}]) {
+  browserFollowups.set('novita-ai', {...novita,...patch});
+  assert.throws(() => applyBrowserFollowup({id:'novita-ai'}));
+}
+browserFollowups.set('novita-ai', novita);
+for (const id of ['n8n', 'typedesk', 'airia', 'joiin']) {
   const stale = {id, affiliate_url: 'https://example.com/dashboard', affiliate_verified: true};
   applyBrowserFollowup(stale);
   assert.equal(stale.affiliate_url, null);

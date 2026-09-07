@@ -71,6 +71,30 @@
       "blockers": [],
       "checked_at": "2026-09-08T05:50:35+09:00",
       "current_dashboard_status": "Partnership is pending review"
+    },
+    {
+      "id": "novita-ai",
+      "status": "approved_tracking",
+      "application_state": "submitted",
+      "review_state": "approved",
+      "affiliate_url": "https://novita.ai/?ref=mwjmyjy&utm_source=affiliate",
+      "workflow_url": "https://affiliates.novita.ai/p/new/onboarding/profile/",
+      "official_program_url": "https://affiliates.novita.ai/",
+      "evidence": "Existing company mailbox searched including spam/trash; only prior outreach found. Google Sign in returned Invalid email or password. One password reset request returned a conditional known-address message; no reset mail was observed. Using the same support@coshuma.com Google identity through Sign up with Google then reached /p/new/onboarding/profile/. At 2026-09-08 06:03 KST, noreply-affiliates@tapfiliate.com sent You just got approved for Novita AI Affiliate to support@coshuma.com, signed by tapfiliate.com, addressed Hey Sangkwon, issuing the exact referral URL. Real Chrome opened the official Novita customer page with ref=mwjmyjy and utm_source=affiliate retained. No second signup, password change, outreach or payment was performed. Pre-existing account absence was not conclusively established; current approval and assigned link are directly confirmed. Portal onboarding displays Unsupported Browser even after reload; profile completion, dashboard metrics and payout setup are unverified.",
+      "next_action": "Do not reapply or create another account. Preserve the exact email-issued customer referral URL. Recover access to the existing Google-linked portal to verify profile and payout setup after the Unsupported Browser error is resolved. No customer conversions, commission or revenue inferred; recorded values remain 0 without evidence.",
+      "blockers": [
+        "portal_unsupported_browser"
+      ],
+      "status_origin": "authenticated_approval_email_issued_tracking",
+      "approval_email_confirmed": true,
+      "approval_email_recipient": "support@coshuma.com",
+      "approval_email_sender": "noreply-affiliates@tapfiliate.com",
+      "approval_email_subject": "You just got approved",
+      "portal_enrollment_confirmed": true,
+      "customer_landing_verified": true,
+      "checked_at": "2026-09-08T06:04:00+09:00",
+      "current_dashboard_status": "unsupported_browser",
+      "payout_setup_status": "unverified"
     }
   ]
 }
