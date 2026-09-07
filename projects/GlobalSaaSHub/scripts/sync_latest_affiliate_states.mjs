@@ -113,6 +113,83 @@ const states = {
       'Do not submit another Kittl application',
     ],
   },
+  'reply-io': {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'enrollment_requested',
+    affiliate_source_url: 'https://reply.io/affiliates/',
+    affiliate_verified_at: '2026-09-07T16:47:56+09:00',
+    affiliate_evidence_markers: [
+      'Merged PR #269 records COSHUMA Reply.io affiliate enrollment outreach',
+      'Enrollment request was sent before the audit still showed Reply.io as unclassified',
+      'Exact customer-facing PartnerStack referral URL has not yet been issued',
+    ],
+  },
+  'reclaim-ai': {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'enrollment_requested',
+    affiliate_verified_at: '2026-09-07T19:50:46+09:00',
+    affiliate_evidence_markers: [
+      'Merged PR #289 records a current Reclaim.ai program-specific enrollment/direct-invitation request',
+      'Do not reopen the stale application_page_unavailable state while this request is unresolved',
+      'Exact customer-facing tracking URL is not yet verified',
+    ],
+  },
+  reditus: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'enrollment_requested',
+    affiliate_verified_at: '2026-09-07T19:44:59+09:00',
+    affiliate_evidence_markers: [
+      'Merged PR #287 records a zero-cost Reditus affiliate enrollment request',
+      'Existing Reditus account was reused rather than creating a duplicate account',
+      'Exact customer-facing referral URL is not yet verified',
+    ],
+  },
+  marketingblocks: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'enrollment_requested',
+    affiliate_verified_at: '2026-09-07T19:48:03+09:00',
+    affiliate_evidence_markers: [
+      'Merged PR #288 records a zero-cost MarketingBlocks affiliate enrollment-path request',
+      'Official support material confirms affiliates receive unique tracked links after approval',
+      'Exact customer-facing tracking URL is not yet issued or verified',
+    ],
+  },
+  flowgent: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'vendor-paused',
+    affiliate_verified_at: '2026-09-07T19:43:49+09:00',
+    affiliate_evidence_markers: [
+      'Merged PR #286 records that the official Rewardful CTA currently reports Affiliate Program Inactive',
+      'Do not submit or infer an application until the vendor restores a working program route',
+    ],
+  },
+  cloudways: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'pending',
+    affiliate_verified_at: '2026-09-07T19:43:49+09:00',
+    affiliate_evidence_markers: [
+      'Merged PR #286 records Cloudways support ticket #966456 acknowledging the enrollment request',
+      'Approval and exact customer tracking URL remain unconfirmed',
+      'Do not create a duplicate request while the ticket is pending',
+    ],
+  },
+  pickaxe: {
+    affiliate_url: null,
+    affiliate_verified: true,
+    affiliate_status: 'excluded_user_request',
+    affiliate_verified_at: '2026-09-07T19:50:46+09:00',
+    affiliate_evidence_markers: [
+      'Merged PR #289 records that Pickaxe requires an affiliate to be a paying Pickaxe user for earnings to accrue',
+      'COSHUMA operating rules prohibit adding a paid subscription solely to unlock an affiliate path',
+      'Exclude from zero-cost enrollment unless the vendor changes this requirement',
+    ],
+  },
 };
 
 for (const relativePath of ['data/tools.json', 'data/tools.next.json']) {
