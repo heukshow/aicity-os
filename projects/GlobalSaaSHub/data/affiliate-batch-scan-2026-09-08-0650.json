@@ -1,0 +1,1867 @@
+{
+  "checked_at": "2026-09-07T21:44:39.241362+00:00",
+  "main_sha": "885b33a0bcc7999cacd25a24d4685131303f0796",
+  "tool_count": 151,
+  "selected_order": [
+    "claap",
+    "nudgera",
+    "surfeo"
+  ],
+  "ranking_rationale": {
+    "claap": "AI meeting/sales buyer fit; official 30% commission up to 12 months; existing account free application route.",
+    "nudgera": "B2B AI automation buyer fit; official 40% lifetime recurring; paid customer account not required.",
+    "surfeo": "AI visibility/SEO buyer fit; official free affiliate signup and 15% recurring; live portal subsequently proved inactive."
+  },
+  "excluded_conflicts": {
+    "mindstudio": [
+      "enrollment_requested",
+      "data/mindstudio-affiliate-enrollment-evidence-2026-09-07.md",
+      "https://university.mindstudio.ai/programs/affiliate-program"
+    ],
+    "cloudtalk": [
+      "enrollment_requested",
+      "data/cloudtalk-affiliate-enrollment-evidence-2026-09-07.md",
+      "https://www.cloudtalk.io/affiliate-program/"
+    ],
+    "happyscribe": [
+      "application_submitted",
+      "data/happyscribe-affiliate-application-evidence-2026-09-07.md",
+      "https://www.happyscribe.com/affiliate"
+    ],
+    "fathom": [
+      "enrollment_path_requested",
+      "data/affiliate-outreach-2026-09-07-1829.md",
+      "https://www.fathom.ai/program/growth-partner"
+    ]
+  },
+  "other_screening": {
+    "expandi": "Official page requires 14 days active product use; not established.",
+    "activepieces": "Current official affiliate route not verified.",
+    "featureshark": "Current official affiliate route not verified.",
+    "google-workspace": "Official affiliate program targets 100+ users per year; that qualification is not established. Referral program country list does not establish South Korea eligibility. Not selected."
+  },
+  "sources": [
+    "data/tools.json",
+    "data/tools.next.json",
+    "data/affiliate_outreach_state.json",
+    "data/browser_required_queue.json",
+    "scripts/sync_verified_affiliates.mjs",
+    "scripts/sync_latest_affiliate_states.mjs",
+    "data/affiliate-submission-batch-2026-09-08.json",
+    "data/affiliate-browser-followup-wave3-2026-09-08.json",
+    "data/approved-tracking-2026-09-08.json",
+    "data/activecampaign-affiliate-rejection-evidence-2026-08-28.md",
+    "data/affiliate-outreach-2026-09-07-1829.md",
+    "data/mindstudio-affiliate-enrollment-evidence-2026-09-07.md",
+    "data/cloudtalk-affiliate-enrollment-evidence-2026-09-07.md",
+    "data/happyscribe-affiliate-application-evidence-2026-09-07.md",
+    "data/affiliate-outreach-2026-09-07-1829.md"
+  ],
+  "evidence_inventory": [
+    {
+      "path": "data/activecampaign-affiliate-rejection-evidence-2026-08-28.md",
+      "sha256": "f2ddcdefc0535e9952e2266baa3aac332f706a875122576becda96b462978405"
+    },
+    {
+      "path": "data/affiliate-outreach-2026-09-07-1829.md",
+      "sha256": "f684d512db4a0b91fc72b63597c9d8631d08b4f0d9b474540bf86c80a2e6d8a7"
+    },
+    {
+      "path": "data/catalister-affiliate-application-evidence-2026-09-07.md",
+      "sha256": "c2792b12d765dde793c454258dc94d2253704e912384e27b5dee3f4e88054df3"
+    },
+    {
+      "path": "data/chatbase-buyer-box-evidence.md",
+      "sha256": "8ecc45b475918bae72e1a97f5104079d5de4117b9ad30dec213e84d92766f69b"
+    },
+    {
+      "path": "data/clickup-affiliate-rejection-evidence-2026-08-25.md",
+      "sha256": "512c5dc0774dec3a8f3ae55783f33317678112444abe9bf84285d9149ad2f5a7"
+    },
+    {
+      "path": "data/cloudtalk-affiliate-enrollment-evidence-2026-09-07.md",
+      "sha256": "df487efa957f91eb697307f176c695014375e3a21a15f4596393b7f65eb52148"
+    },
+    {
+      "path": "data/cloudways-affiliate-enrollment-evidence-2026-09-07.md",
+      "sha256": "ff9ff14eb067d1ea9304ae0e7b5935b168399ac2b33033812ebb30ae16884c4f"
+    },
+    {
+      "path": "data/flowgent-affiliate-conflict-evidence-2026-09-07.md",
+      "sha256": "7c33339c7d725951ebbfbc94b92baf7cb6c7a1fe96599bfcb54ad2cea82f489a"
+    },
+    {
+      "path": "data/framer-creator-program-outreach-2026-09-08.md",
+      "sha256": "e15b74a7a1a0b5df4737729b68897f4bdaf467a3e8674cabe2aa068e5e3961fa"
+    },
+    {
+      "path": "data/happyscribe-affiliate-application-evidence-2026-09-07.md",
+      "sha256": "ac3a4d3ec846bff37a66fd46f440e79ef0635754ec778e2a8562dccc83a4c979"
+    },
+    {
+      "path": "data/hideme-affiliate-application-evidence-2026-09-07.md",
+      "sha256": "da0d47e9c9ec25e0a1ef4d7c49b9cb63ce88cf584217b117c50f62cb7390d7ae"
+    },
+    {
+      "path": "data/joiin-affiliate-enrollment-evidence-2026-09-07.md",
+      "sha256": "9def65c6058432447061ee4eb7299f42d8d3fe71cd4d218b1a0f7bc6ebb7e297"
+    },
+    {
+      "path": "data/joiin-direct-invite-evidence-2026-09-07.md",
+      "sha256": "5edb4473e9ce0c7670acbec02bc940239692f9ed20d64bda922b799247f2da85"
+    },
+    {
+      "path": "data/marketingblocks-affiliate-enrollment-evidence-2026-09-07.md",
+      "sha256": "6c0c4bedc8d44c4d73ad4ead04aed0cbfec9abe422a65818716b068d338101b7"
+    },
+    {
+      "path": "data/mindstudio-affiliate-enrollment-evidence-2026-09-07.md",
+      "sha256": "88645bc2b0cfcecde5fa63fca30417d861c51e9437de2dfdcb15a08eaac521dc"
+    },
+    {
+      "path": "data/omi-buyer-box-evidence.md",
+      "sha256": "b03cc734c9097a607c09887d75719f4aaba3490a7325fa6a4a51b9f5bdb74e62"
+    },
+    {
+      "path": "data/omi-referral-evidence-2026-09-07.md",
+      "sha256": "94ed0bc558749789fe525a45f6f9a16901afa050b806b803b0c7a476c92f3485"
+    },
+    {
+      "path": "data/partnerstack-network-reevaluation-evidence-2026-09-07.md",
+      "sha256": "7965609707a73999ccd8be3f0900b838bfadce955dd0e110fc6652869592ba02"
+    },
+    {
+      "path": "data/reditus-affiliate-enrollment-evidence-2026-09-07.md",
+      "sha256": "bb9405228db7975b3cb517d5510fea86cdf833179e8eda6d96f6ac9b82e305c6"
+    },
+    {
+      "path": "data/replyio-affiliate-enrollment-evidence-2026-09-07.md",
+      "sha256": "8d8abeb1cb5d31500fd09c0dc1f024f39199d1e195c5ec3d10a45e7aef01bcca"
+    },
+    {
+      "path": "data/snov-affiliate-enrollment-evidence-2026-09-07.md",
+      "sha256": "ddf97637e6c71ce0156e493453b314e30d05efba58b558ad7f0fd836e3e384da"
+    },
+    {
+      "path": "data/tidio-affiliate-rejection-evidence-2026-08-25.md",
+      "sha256": "d1eae0e4cfa104a04e4d800e18107d3fd5957c1af7d218d3a416608fe9e7b09d"
+    },
+    {
+      "path": "data/typedesk-affiliate-application-evidence-2026-09-07.md",
+      "sha256": "a56c3438402d81ff02e2866558a9ecd9cff7f9e3d3267c7797c0532768b68627"
+    }
+  ],
+  "method": "151 current main records cross-checked against both deployment sync outputs, authoritative state, queue, previous complete scan and repository outreach/evidence files. application_not_submitted is not application_submitted. Historical outreach takes precedence over an empty mailbox search or stale application_available field. Ranking is qualitative, not measured revenue.",
+  "pre_application_mail_check": {
+    "account": "support@coshuma.com",
+    "queries": [
+      "in:anywhere {mindstudio cloudtalk happyscribe \"happy scribe\"}",
+      "in:anywhere {claap surfeo expandi}",
+      "in:anywhere nudgera"
+    ],
+    "result": "No matching messages; in:anywhere includes Spam and Trash."
+  },
+  "tools": [
+    {
+      "id": "gohighlevel",
+      "name": "GoHighLevel",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "notion-ai",
+      "name": "Notion AI",
+      "source_status": "program_closed_to_new_applicants",
+      "deploy_effective_status": "program_closed_to_new_applicants",
+      "cross_checked_statuses": [
+        "program_closed_to_new_applicants"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "make-com",
+      "name": "Make.com",
+      "source_status": "blocked_requires_active_wise_account",
+      "deploy_effective_status": "blocked_requires_active_wise_account",
+      "cross_checked_statuses": [
+        "approved_tracking",
+        "blocked_requires_active_wise_account"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "copy-ai",
+      "name": "Copy.ai",
+      "source_status": "no_affiliate_program",
+      "deploy_effective_status": "no_affiliate_program",
+      "cross_checked_statuses": [
+        "no_affiliate_program"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "zenrows",
+      "name": "ZenRows",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "tubebuddy",
+      "name": "TubeBuddy",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "outlierkit",
+      "name": "OutlierKit",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "pictory",
+      "name": "Pictory",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "fliki",
+      "name": "Fliki",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "inkfluence-ai",
+      "name": "Inkfluence AI",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "jasper",
+      "name": "Jasper",
+      "source_status": null,
+      "deploy_effective_status": "enrollment_requested",
+      "cross_checked_statuses": [
+        "enrollment_requested"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "writesonic",
+      "name": "Writesonic",
+      "source_status": "rejected",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking",
+        "rejected"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "sudowrite",
+      "name": "Sudowrite",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "convertkit",
+      "name": "Kit (formerly ConvertKit)",
+      "source_status": "blocked_partnerstack_marketplace_limited",
+      "deploy_effective_status": "blocked_partnerstack_marketplace_limited",
+      "cross_checked_statuses": [
+        "blocked_partnerstack_marketplace_limited"
+      ],
+      "decision": "not_selected_program_fit_or_eligibility_unverified",
+      "evidence_file": null
+    },
+    {
+      "id": "quillbot",
+      "name": "QuillBot",
+      "source_status": "blocked_partnerstack_marketplace_limited",
+      "deploy_effective_status": "blocked_partnerstack_marketplace_limited",
+      "cross_checked_statuses": [
+        "blocked_partnerstack_marketplace_limited"
+      ],
+      "decision": "not_selected_program_fit_or_eligibility_unverified",
+      "evidence_file": null
+    },
+    {
+      "id": "text-cortex",
+      "name": "Text Cortex",
+      "source_status": "program_inactive",
+      "deploy_effective_status": "program_inactive",
+      "cross_checked_statuses": [
+        "program_inactive"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "vidiq",
+      "name": "VidIQ",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "bolddesk",
+      "name": "BoldDesk",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "brand24",
+      "name": "Brand24",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "socialchamp-io",
+      "name": "Social Champ",
+      "source_status": null,
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "triple-whale",
+      "name": "Triple Whale",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "boldsign",
+      "name": "BoldSign",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "privy",
+      "name": "Privy",
+      "source_status": null,
+      "deploy_effective_status": "outreach_sent",
+      "cross_checked_statuses": [
+        "outreach_sent"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "aweber",
+      "name": "AWeber",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "unbounce",
+      "name": "Unbounce",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "moosend",
+      "name": "Moosend",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "reply-io",
+      "name": "Reply.io",
+      "source_status": null,
+      "deploy_effective_status": "enrollment_requested",
+      "cross_checked_statuses": [
+        "enrollment_requested"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "omnisend",
+      "name": "Omnisend",
+      "source_status": null,
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "time2book",
+      "name": "Time2book",
+      "source_status": null,
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "semrush",
+      "name": "Semrush",
+      "source_status": "rejected",
+      "deploy_effective_status": "rejected",
+      "cross_checked_statuses": [
+        "rejected"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "hubspot",
+      "name": "HubSpot",
+      "source_status": null,
+      "deploy_effective_status": "rejected",
+      "cross_checked_statuses": [
+        "rejected"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "kinsta",
+      "name": "Kinsta",
+      "source_status": null,
+      "deploy_effective_status": null,
+      "cross_checked_statuses": [
+        "rejected"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "shopify",
+      "name": "Shopify",
+      "source_status": "excluded_user_request",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking",
+        "excluded_user_request"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "systeme-io",
+      "name": "Systeme.io",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "jotform",
+      "name": "Jotform",
+      "source_status": null,
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_account",
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "webflow",
+      "name": "Webflow",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "reactin",
+      "name": "ReactIn",
+      "source_status": null,
+      "deploy_effective_status": "outreach_sent",
+      "cross_checked_statuses": [
+        "outreach_sent"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "synthesia",
+      "name": "Synthesia",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "octo-browser",
+      "name": "Octo Browser",
+      "source_status": null,
+      "deploy_effective_status": "outreach_sent",
+      "cross_checked_statuses": [
+        "outreach_sent"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "carv",
+      "name": "Carv",
+      "source_status": null,
+      "deploy_effective_status": null,
+      "cross_checked_statuses": [
+        "program_mismatch"
+      ],
+      "decision": "not_selected_program_fit_or_eligibility_unverified",
+      "evidence_file": "data/affiliate-candidate-triage-2026-09-08-0220.json"
+    },
+    {
+      "id": "jobhire",
+      "name": "JobHire",
+      "source_status": null,
+      "deploy_effective_status": "outreach_sent",
+      "cross_checked_statuses": [
+        "outreach_sent"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "aitable-ai",
+      "name": "AITable.ai",
+      "source_status": "program_inactive",
+      "deploy_effective_status": "program_inactive",
+      "cross_checked_statuses": [
+        "program_inactive"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "liftmycv",
+      "name": "LiftmyCV",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "blaze",
+      "name": "Blaze",
+      "source_status": null,
+      "deploy_effective_status": "outreach_sent",
+      "cross_checked_statuses": [
+        "outreach_sent"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "aiassistworks",
+      "name": "AiAssistWorks",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "vista-social",
+      "name": "Vista Social",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "gravity-forms",
+      "name": "Gravity Forms",
+      "source_status": "application_session_conflict",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_session_conflict",
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "sendcloud",
+      "name": "Sendcloud",
+      "source_status": "application_available_partnerstack",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_available_partnerstack",
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "alidropship",
+      "name": "AliDropship",
+      "source_status": "application_pending",
+      "deploy_effective_status": "application_pending",
+      "cross_checked_statuses": [
+        "application_pending"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "nudgera",
+      "name": "Nudgera",
+      "source_status": null,
+      "deploy_effective_status": null,
+      "cross_checked_statuses": [
+        "browser_required_otp"
+      ],
+      "decision": "selected",
+      "evidence_file": null
+    },
+    {
+      "id": "questmate",
+      "name": "Questmate",
+      "source_status": null,
+      "deploy_effective_status": "outreach_sent",
+      "cross_checked_statuses": [
+        "outreach_sent"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "merlin",
+      "name": "Merlin",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "decktopus",
+      "name": "Decktopus",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "dorik",
+      "name": "Dorik",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "rytr",
+      "name": "Rytr",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "frase",
+      "name": "Frase",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "heygen",
+      "name": "HeyGen",
+      "source_status": null,
+      "deploy_effective_status": "outreach_sent",
+      "cross_checked_statuses": [
+        "outreach_sent"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "veed",
+      "name": "VEED",
+      "source_status": "application_available_impact",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_available_impact",
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "reclaim-ai",
+      "name": "Reclaim AI",
+      "source_status": "application_page_unavailable",
+      "deploy_effective_status": "enrollment_requested",
+      "cross_checked_statuses": [
+        "application_page_unavailable",
+        "enrollment_requested"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "descript",
+      "name": "Descript",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "synder",
+      "name": "Synder",
+      "source_status": "application_page_unavailable",
+      "deploy_effective_status": "outreach_sent",
+      "cross_checked_statuses": [
+        "application_page_unavailable",
+        "outreach_sent"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "gallabox",
+      "name": "Gallabox",
+      "source_status": "application_blocked_tax_id_captcha",
+      "deploy_effective_status": "application_blocked_tax_id_captcha",
+      "cross_checked_statuses": [
+        "application_blocked_tax_id_captcha"
+      ],
+      "decision": "not_selected_program_fit_or_eligibility_unverified",
+      "evidence_file": null
+    },
+    {
+      "id": "panda-video",
+      "name": "Panda Video",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "surfer-seo",
+      "name": "Surfer SEO",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "murf-ai",
+      "name": "Murf AI",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "scalenut",
+      "name": "Scalenut",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "castmagic",
+      "name": "Castmagic",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "loopcv",
+      "name": "LoopCV",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "clickfunnels",
+      "name": "ClickFunnels",
+      "source_status": null,
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "tapfiliate",
+      "name": "Tapfiliate",
+      "source_status": "application_blocked_captcha",
+      "deploy_effective_status": "outreach_sent",
+      "cross_checked_statuses": [
+        "application_blocked_captcha",
+        "outreach_sent"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "getresponse",
+      "name": "GetResponse",
+      "source_status": "rejected",
+      "deploy_effective_status": "rejected",
+      "cross_checked_statuses": [
+        "rejected"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "kit",
+      "name": "Kit",
+      "source_status": "application_page_unavailable",
+      "deploy_effective_status": "application_page_unavailable",
+      "cross_checked_statuses": [
+        "application_page_unavailable"
+      ],
+      "decision": "not_selected_program_fit_or_eligibility_unverified",
+      "evidence_file": null
+    },
+    {
+      "id": "teachable",
+      "name": "Teachable",
+      "source_status": "corporate_affiliate_program_not_found",
+      "deploy_effective_status": "outreach_sent",
+      "cross_checked_statuses": [
+        "corporate_affiliate_program_not_found",
+        "outreach_sent"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "livechat",
+      "name": "LiveChat",
+      "source_status": null,
+      "deploy_effective_status": null,
+      "cross_checked_statuses": [
+        "existing_text_partner_account"
+      ],
+      "decision": "not_selected_program_fit_or_eligibility_unverified",
+      "evidence_file": "data/browser_required_queue.json"
+    },
+    {
+      "id": "kittl",
+      "name": "Kittl",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "koala-ai",
+      "name": "Koala AI",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted",
+        "campaign_registration_unavailable"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "lovo",
+      "name": "Lovo",
+      "source_status": "application_blocked_vendor_site_paused",
+      "deploy_effective_status": "application_blocked_vendor_site_paused",
+      "cross_checked_statuses": [
+        "application_blocked_vendor_site_paused"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "n8n",
+      "name": "n8n",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "novita-ai",
+      "name": "Novita AI",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "followr",
+      "name": "Followr",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "10web",
+      "name": "10Web",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "supademo",
+      "name": "Supademo",
+      "source_status": "application_embed_unavailable",
+      "deploy_effective_status": "application_embed_unavailable",
+      "cross_checked_statuses": [
+        "application_embed_unavailable"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "colossyan",
+      "name": "Colossyan",
+      "source_status": "program_inactive",
+      "deploy_effective_status": "program_inactive",
+      "cross_checked_statuses": [
+        "program_inactive"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "beefree",
+      "name": "Beefree",
+      "source_status": "application_page_unavailable",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_page_unavailable",
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "apollo",
+      "name": "Apollo",
+      "source_status": "application_page_unavailable",
+      "deploy_effective_status": "rejected",
+      "cross_checked_statuses": [
+        "application_page_unavailable",
+        "rejected"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "getgenie",
+      "name": "GetGenie",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "activecampaign",
+      "name": "ActiveCampaign",
+      "source_status": "application_page_unavailable",
+      "deploy_effective_status": "application_page_unavailable",
+      "cross_checked_statuses": [
+        "application_page_unavailable",
+        "rejected"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "sanebox",
+      "name": "Sanebox",
+      "source_status": "application_page_unavailable",
+      "deploy_effective_status": "application_page_unavailable",
+      "cross_checked_statuses": [
+        "application_page_unavailable",
+        "outreach_sent"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "pipedrive",
+      "name": "Pipedrive",
+      "source_status": null,
+      "deploy_effective_status": "pending",
+      "cross_checked_statuses": [
+        "pending"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "framer",
+      "name": "Framer",
+      "source_status": "outreach_sent",
+      "deploy_effective_status": "outreach_sent",
+      "cross_checked_statuses": [
+        "outreach_sent"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "monday-com",
+      "name": "Monday.com",
+      "source_status": null,
+      "deploy_effective_status": "pending",
+      "cross_checked_statuses": [
+        "pending"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "cartstack",
+      "name": "CartStack",
+      "source_status": "application_available",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "application_available",
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "cloudways",
+      "name": "Cloudways",
+      "source_status": null,
+      "deploy_effective_status": "pending",
+      "cross_checked_statuses": [
+        "pending"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "featureshark",
+      "name": "FeatureShark",
+      "source_status": null,
+      "deploy_effective_status": null,
+      "cross_checked_statuses": [],
+      "decision": "not_selected_program_fit_or_eligibility_unverified",
+      "evidence_file": null
+    },
+    {
+      "id": "clickup",
+      "name": "ClickUp",
+      "source_status": null,
+      "deploy_effective_status": null,
+      "cross_checked_statuses": [
+        "rejected"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": "data/clickup-affiliate-rejection-evidence-2026-08-25.md"
+    },
+    {
+      "id": "getgabs",
+      "name": "Getgabs",
+      "source_status": "application_available_instant",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_available_instant",
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "eprofessor",
+      "name": "eProfessor",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "docsbot",
+      "name": "DocsBot",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "surfeo",
+      "name": "Surfeo",
+      "source_status": null,
+      "deploy_effective_status": null,
+      "cross_checked_statuses": [
+        "program_inactive"
+      ],
+      "decision": "selected",
+      "evidence_file": null
+    },
+    {
+      "id": "dub",
+      "name": "Dub",
+      "source_status": "application_not_submitted",
+      "deploy_effective_status": "application_not_submitted",
+      "cross_checked_statuses": [
+        "application_not_submitted"
+      ],
+      "decision": "not_selected_program_fit_or_eligibility_unverified",
+      "evidence_file": null
+    },
+    {
+      "id": "helpdesk",
+      "name": "HelpDesk",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "happyscribe",
+      "name": "HappyScribe",
+      "source_status": "beta_application_available",
+      "deploy_effective_status": "beta_application_available",
+      "cross_checked_statuses": [
+        "application_submitted",
+        "beta_application_available"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": "data/happyscribe-affiliate-application-evidence-2026-09-07.md"
+    },
+    {
+      "id": "pickaxe",
+      "name": "Pickaxe",
+      "source_status": "application_available",
+      "deploy_effective_status": "excluded_user_request",
+      "cross_checked_statuses": [
+        "application_available",
+        "excluded_user_request"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "ai-video-cut",
+      "name": "AI Video Cut",
+      "source_status": "application_available_auto_approval",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_available_auto_approval",
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "tagshop-ai",
+      "name": "Tagshop AI",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "text",
+      "name": "Text",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "typedesk",
+      "name": "Typedesk",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "chatbot",
+      "name": "ChatBot",
+      "source_status": null,
+      "deploy_effective_status": null,
+      "cross_checked_statuses": [
+        "existing_text_partner_account"
+      ],
+      "decision": "not_selected_program_fit_or_eligibility_unverified",
+      "evidence_file": "data/browser_required_queue.json"
+    },
+    {
+      "id": "gojiberry",
+      "name": "Gojiberry",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "bidx",
+      "name": "BidX",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "tidio",
+      "name": "Tidio",
+      "source_status": "application_available",
+      "deploy_effective_status": "application_available",
+      "cross_checked_statuses": [
+        "application_available",
+        "rejected"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": "data/tidio-affiliate-rejection-evidence-2026-08-25.md"
+    },
+    {
+      "id": "catalister",
+      "name": "Catalister",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "bookyourdata",
+      "name": "Bookyourdata",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "mindstudio",
+      "name": "MindStudio",
+      "source_status": "application_available_partnerstack",
+      "deploy_effective_status": "application_available_partnerstack",
+      "cross_checked_statuses": [
+        "application_available_partnerstack",
+        "enrollment_requested"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": "data/mindstudio-affiliate-enrollment-evidence-2026-09-07.md"
+    },
+    {
+      "id": "manychat",
+      "name": "Manychat",
+      "source_status": "application_available_partnerstack",
+      "deploy_effective_status": "application_available_partnerstack",
+      "cross_checked_statuses": [
+        "application_available_partnerstack",
+        "direct_enrollment_path_requested"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "synthflow-ai",
+      "name": "Synthflow AI",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "customgpt-ai",
+      "name": "CustomGPT.ai",
+      "source_status": "account_active_payout_setup_required",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "account_active_payout_setup_required",
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "databox",
+      "name": "Databox",
+      "source_status": "application_pending",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "application_pending",
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "fathom",
+      "name": "Fathom",
+      "source_status": "solution_partner_application_available",
+      "deploy_effective_status": "solution_partner_application_available",
+      "cross_checked_statuses": [
+        "enrollment_path_requested",
+        "solution_partner_application_available"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": "data/affiliate-outreach-2026-09-07-1829.md"
+    },
+    {
+      "id": "taskip",
+      "name": "Taskip",
+      "source_status": "program_unavailable_ssl_error",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking",
+        "program_unavailable_ssl_error"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "gumloop",
+      "name": "Gumloop",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "teknikforce",
+      "name": "Teknikforce",
+      "source_status": null,
+      "deploy_effective_status": "enrollment_requested",
+      "cross_checked_statuses": [
+        "enrollment_requested"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "hide-me",
+      "name": "hide.me",
+      "source_status": "application_available",
+      "deploy_effective_status": "application_available",
+      "cross_checked_statuses": [
+        "application_available",
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": "data/hideme-affiliate-application-evidence-2026-09-07.md"
+    },
+    {
+      "id": "snov-io",
+      "name": "Snov.io",
+      "source_status": "application_available",
+      "deploy_effective_status": "application_available",
+      "cross_checked_statuses": [
+        "application_available",
+        "enrollment_requested"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": "data/snov-affiliate-enrollment-evidence-2026-09-07.md"
+    },
+    {
+      "id": "claap",
+      "name": "Claap",
+      "source_status": "application_not_submitted",
+      "deploy_effective_status": "application_not_submitted",
+      "cross_checked_statuses": [
+        "application_not_submitted",
+        "application_submitted"
+      ],
+      "decision": "selected",
+      "evidence_file": null
+    },
+    {
+      "id": "cloudtalk",
+      "name": "CloudTalk",
+      "source_status": "application_available_partnerstack",
+      "deploy_effective_status": "application_available_partnerstack",
+      "cross_checked_statuses": [
+        "application_available_partnerstack",
+        "enrollment_requested"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": "data/cloudtalk-affiliate-enrollment-evidence-2026-09-07.md"
+    },
+    {
+      "id": "seamless",
+      "name": "Seamless",
+      "source_status": "application_blocked_region",
+      "deploy_effective_status": "application_blocked_region",
+      "cross_checked_statuses": [
+        "application_blocked_region"
+      ],
+      "decision": "not_selected_program_fit_or_eligibility_unverified",
+      "evidence_file": null
+    },
+    {
+      "id": "flowgent-ai",
+      "name": "FlowGent AI",
+      "source_status": null,
+      "deploy_effective_status": null,
+      "cross_checked_statuses": [
+        "existing_enrollment_conflict"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": "data/flowgent-affiliate-conflict-evidence-2026-09-07.md"
+    },
+    {
+      "id": "activepieces",
+      "name": "Activepieces",
+      "source_status": null,
+      "deploy_effective_status": null,
+      "cross_checked_statuses": [],
+      "decision": "not_selected_program_fit_or_eligibility_unverified",
+      "evidence_file": null
+    },
+    {
+      "id": "marketingblocks",
+      "name": "MarketingBlocks",
+      "source_status": null,
+      "deploy_effective_status": "enrollment_requested",
+      "cross_checked_statuses": [
+        "enrollment_requested"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "google-workspace",
+      "name": "Google Workspace",
+      "source_status": null,
+      "deploy_effective_status": null,
+      "cross_checked_statuses": [],
+      "decision": "not_selected_program_fit_or_eligibility_unverified",
+      "evidence_file": null
+    },
+    {
+      "id": "chatbase",
+      "name": "Chatbase",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "krater",
+      "name": "Krater",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "expandi",
+      "name": "Expandi",
+      "source_status": null,
+      "deploy_effective_status": null,
+      "cross_checked_statuses": [
+        "eligibility_unverified"
+      ],
+      "decision": "not_selected_program_fit_or_eligibility_unverified",
+      "evidence_file": "https://expandi.io/affiliate-program/"
+    },
+    {
+      "id": "reditus",
+      "name": "Reditus",
+      "source_status": null,
+      "deploy_effective_status": "enrollment_requested",
+      "cross_checked_statuses": [
+        "enrollment_requested"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "joiin",
+      "name": "Joiin",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "agentworks",
+      "name": "AgentWorks",
+      "source_status": "referral_link_requested",
+      "deploy_effective_status": "referral_link_requested",
+      "cross_checked_statuses": [
+        "referral_link_requested"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "airia",
+      "name": "Airia",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "omi-ai",
+      "name": "Omi AI",
+      "source_status": "approved_email_verification_required",
+      "deploy_effective_status": "approved_email_verification_required",
+      "cross_checked_statuses": [
+        "approved_email_verification_required",
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "fireflies-ai",
+      "name": "Fireflies.ai",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "gamma",
+      "name": "Gamma",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "gobii",
+      "name": "Gobii",
+      "source_status": "program_unavailable_company_winding_down",
+      "deploy_effective_status": "program_unavailable_company_winding_down",
+      "cross_checked_statuses": [
+        "program_unavailable_company_winding_down"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "voibe",
+      "name": "Voibe",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "merlin-ai",
+      "name": "Merlin AI",
+      "source_status": "duplicate_do_not_apply",
+      "deploy_effective_status": "duplicate_do_not_apply",
+      "cross_checked_statuses": [
+        "duplicate_do_not_apply"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "speechify",
+      "name": "Speechify",
+      "source_status": "application_submitted",
+      "deploy_effective_status": "application_submitted",
+      "cross_checked_statuses": [
+        "application_blocked_official_page_not_found",
+        "application_submitted"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "babylovegrowth-ai",
+      "name": "BabyLoveGrowth.ai",
+      "source_status": "application_blocked_existing_reditus_onboarding",
+      "deploy_effective_status": "application_blocked_existing_reditus_onboarding",
+      "cross_checked_statuses": [
+        "application_blocked_existing_reditus_onboarding"
+      ],
+      "decision": "not_selected_program_fit_or_eligibility_unverified",
+      "evidence_file": null
+    },
+    {
+      "id": "ai-agent-store",
+      "name": "AI Agent Store",
+      "source_status": "application_blocked_affiliate_domain_ssl_error",
+      "deploy_effective_status": "application_blocked_affiliate_domain_ssl_error",
+      "cross_checked_statuses": [
+        "application_blocked_affiliate_domain_ssl_error"
+      ],
+      "decision": "not_selected_program_fit_or_eligibility_unverified",
+      "evidence_file": null
+    },
+    {
+      "id": "marblism",
+      "name": "Marblism",
+      "source_status": "account_active_payout_setup_required",
+      "deploy_effective_status": "rejected",
+      "cross_checked_statuses": [
+        "account_active_payout_setup_required",
+        "rejected"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "taskade",
+      "name": "Taskade",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    },
+    {
+      "id": "relevance-ai",
+      "name": "Relevance AI",
+      "source_status": "approved_tracking",
+      "deploy_effective_status": "approved_tracking",
+      "cross_checked_statuses": [
+        "approved_tracking"
+      ],
+      "decision": "excluded_existing_or_protected",
+      "evidence_file": null
+    }
+  ],
+  "paid_actions": 0,
+  "customer_signups": 0,
+  "commissions": 0,
+  "revenue": 0,
+  "validation": {
+    "build": "passed",
+    "repeat_sync_duplicate_prevention": "passed",
+    "link_integrity": "151/151 tools and 152 pages passed",
+    "target_seo": "7 existing detail/comparison pages passed canonical/title/description/OG/schema/sitemap; no unissued affiliate CTAs",
+    "existing_seo_regression": "passed"
+  }
+}

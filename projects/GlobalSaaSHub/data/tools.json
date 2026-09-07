@@ -1847,7 +1847,21 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://nudgera.com/"
+    "official_evidence_url": "https://nudgera.com/",
+    "affiliate_status": "browser_required_otp",
+    "affiliate_verified": false,
+    "affiliate_final_url": null,
+    "affiliate_evidence_markers": [
+      "Official partner page advertises 40% lifetime recurring and says no paid Nudgera account is required. Followed official partners.nudgera.com/signup route. Entered Sangkwon An, COSHUMA and support@coshuma.com, accepted required affiliate terms under explicit user authorization and submitted Create Account once. Turnstile completed automatically without solving a challenge. Result: Verify Your Account; We've sent a 6-digit verification code to support@coshuma.com. Opened Enter Code route /otp. Account verification, affiliate approval and tracking URL remain unconfirmed. No OTP retrieved/entered, no paid action, no payout setup.",
+      "User email-code verification is required in the prepared existing /otp flow. Resume this account afterward; do not create another account or resubmit signup. Recover only an actually issued customer-facing referral URL.",
+      "data/affiliate-submission-batch-2026-09-08.json"
+    ],
+    "affiliate_status_checked_at": "2026-09-07T21:44:39.241362+00:00",
+    "affiliate_status_evidence_url": "https://nudgera.com/platform/partner/overview",
+    "affiliate_workflow_url": "https://partners.nudgera.com/otp",
+    "affiliate_next_action": "User email-code verification is required in the prepared existing /otp flow. Resume this account afterward; do not create another account or resubmit signup. Recover only an actually issued customer-facing referral URL.",
+    "affiliate_dashboard_status": "otp_required",
+    "affiliate_tracking_attribution_currently_verified": false
   },
   {
     "id": "questmate",
@@ -3563,7 +3577,19 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://surfeo.ai/"
+    "official_evidence_url": "https://surfeo.ai/",
+    "affiliate_status": "program_inactive",
+    "affiliate_verified": false,
+    "affiliate_final_url": null,
+    "affiliate_evidence_markers": [
+      "Official page says signup is free, no customer subscription is needed, and advertises 15% recurring for 12 months with 60-day cookie. Its Join the program link points to surfeo-ai.getrewardful.com/signup. Actual Chrome destination redirected to /inactive and displayed Affiliate Program Inactive / Sorry, this affiliate program is no longer active. Live enrollment state takes precedence over the marketing page. No account, application or referral link created.",
+      "Do not reapply while the program is inactive. Resume only after official enrollment reactivation evidence; no user action required.",
+      "data/affiliate-submission-batch-2026-09-08.json"
+    ],
+    "affiliate_status_checked_at": "2026-09-07T21:44:39.241362+00:00",
+    "affiliate_status_evidence_url": "https://surfeo.ai/en/afiliados",
+    "affiliate_workflow_url": "https://surfeo-ai.getrewardful.com/inactive",
+    "affiliate_next_action": "Do not reapply while the program is inactive. Resume only after official enrollment reactivation evidence; no user action required."
   },
   {
     "id": "dub",
@@ -3667,9 +3693,18 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://happyscribe.com/",
-    "affiliate_status": "beta_application_available",
-    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://www.happyscribe.com/affiliate"
+    "affiliate_status": "application_submitted",
+    "affiliate_status_checked_at": "2026-09-07T21:44:39.241362+00:00",
+    "affiliate_status_evidence_url": "https://www.happyscribe.com/affiliate",
+    "affiliate_verified": false,
+    "affiliate_final_url": null,
+    "affiliate_evidence_markers": [
+      "Existing repository evidence preserved, not a new submission or newly verified email: data/happyscribe-affiliate-application-evidence-2026-09-07.md. The current company mailbox search for MindStudio/CloudTalk/HappyScribe returned no results; absence does not reverse the prior recorded outreach. No duplicate sent.",
+      "Await the already recorded request; do not reapply. Recover approval and an issued exact tracking URL only with new direct evidence.",
+      "data/affiliate-submission-batch-2026-09-08.json"
+    ],
+    "affiliate_workflow_url": "https://www.happyscribe.com/affiliate",
+    "affiliate_next_action": "Await the already recorded request; do not reapply. Recover approval and an issued exact tracking URL only with new direct evidence."
   },
   {
     "id": "pickaxe",
@@ -4117,9 +4152,18 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.mindstudio.ai/",
-    "affiliate_status": "application_available_partnerstack",
-    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://university.mindstudio.ai/programs/affiliate-program"
+    "affiliate_status": "enrollment_requested",
+    "affiliate_status_checked_at": "2026-09-07T21:44:39.241362+00:00",
+    "affiliate_status_evidence_url": "https://university.mindstudio.ai/programs/affiliate-program",
+    "affiliate_verified": false,
+    "affiliate_final_url": null,
+    "affiliate_evidence_markers": [
+      "Existing repository evidence preserved, not a new submission or newly verified email: data/mindstudio-affiliate-enrollment-evidence-2026-09-07.md. The current company mailbox search for MindStudio/CloudTalk/HappyScribe returned no results; absence does not reverse the prior recorded outreach. No duplicate sent.",
+      "Await the already recorded request; do not reapply. Recover approval and an issued exact tracking URL only with new direct evidence.",
+      "data/affiliate-submission-batch-2026-09-08.json"
+    ],
+    "affiliate_workflow_url": "https://university.mindstudio.ai/programs/affiliate-program",
+    "affiliate_next_action": "Await the already recorded request; do not reapply. Recover approval and an issued exact tracking URL only with new direct evidence."
   },
   {
     "id": "manychat",
@@ -4296,9 +4340,18 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.fathom.ai/",
-    "affiliate_status": "solution_partner_application_available",
-    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://www.fathom.ai/partner-programs"
+    "affiliate_status": "enrollment_path_requested",
+    "affiliate_status_checked_at": "2026-09-07T21:44:39.241362+00:00",
+    "affiliate_status_evidence_url": "https://www.fathom.ai/program/growth-partner",
+    "affiliate_verified": false,
+    "affiliate_final_url": null,
+    "affiliate_evidence_markers": [
+      "Existing repository evidence preserved, not a new submission or newly verified email: data/affiliate-outreach-2026-09-07-1829.md. The current company mailbox search for MindStudio/CloudTalk/HappyScribe returned no results; absence does not reverse the prior recorded outreach. No duplicate sent.",
+      "Await the already recorded request; do not reapply. Recover approval and an issued exact tracking URL only with new direct evidence.",
+      "data/affiliate-submission-batch-2026-09-08.json"
+    ],
+    "affiliate_workflow_url": "https://www.fathom.ai/program/growth-partner",
+    "affiliate_next_action": "Await the already recorded request; do not reapply. Recover approval and an issued exact tracking URL only with new direct evidence."
   },
   {
     "id": "taskip",
@@ -4491,14 +4544,21 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.claap.ai/",
-    "affiliate_verified": true,
-    "affiliate_status": "application_not_submitted",
+    "affiliate_verified": false,
+    "affiliate_status": "application_submitted",
     "affiliate_verified_at": "2026-08-31T16:05:00Z",
     "affiliate_evidence_markers": [
-      "Claap affiliate manager email",
-      "application did not go through",
-      "correct PartnerStack link provided"
-    ]
+      "Current official page linked claap.partnerstack.com/?group=affiliates. Existing PartnerStack account reused with Sangkwon An, COSHUMA, support@coshuma.com, Korea Republic of and https://coshuma.com. Website promotion and factual early-stage audience description; explicitly Haven't used it yet, no invented traffic. Submitted once. Authenticated dashboard visibly displayed Claap / Application pending, 0 clicks, 0 signups, $0 revenue and $0 pending/paid commissions. No customer tracking link issued.",
+      "Await review in the existing account. Do not reapply or send duplicate outreach. Publish only an issued exact customer-facing tracking URL after approval.",
+      "data/affiliate-submission-batch-2026-09-08.json"
+    ],
+    "affiliate_final_url": null,
+    "affiliate_status_checked_at": "2026-09-07T21:44:39.241362+00:00",
+    "affiliate_status_evidence_url": "https://www.claap.io/affiliate-programs",
+    "affiliate_workflow_url": "https://dash.partnerstack.com/home",
+    "affiliate_next_action": "Await review in the existing account. Do not reapply or send duplicate outreach. Publish only an issued exact customer-facing tracking URL after approval.",
+    "affiliate_dashboard_status": "Application pending",
+    "affiliate_tracking_attribution_currently_verified": false
   },
   {
     "id": "cloudtalk",
@@ -4529,9 +4589,18 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.cloudtalk.io/",
-    "affiliate_status": "application_available_partnerstack",
-    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://www.cloudtalk.io/affiliate-program/"
+    "affiliate_status": "enrollment_requested",
+    "affiliate_status_checked_at": "2026-09-07T21:44:39.241362+00:00",
+    "affiliate_status_evidence_url": "https://www.cloudtalk.io/affiliate-program/",
+    "affiliate_verified": false,
+    "affiliate_final_url": null,
+    "affiliate_evidence_markers": [
+      "Existing repository evidence preserved, not a new submission or newly verified email: data/cloudtalk-affiliate-enrollment-evidence-2026-09-07.md. The current company mailbox search for MindStudio/CloudTalk/HappyScribe returned no results; absence does not reverse the prior recorded outreach. No duplicate sent.",
+      "Await the already recorded request; do not reapply. Recover approval and an issued exact tracking URL only with new direct evidence.",
+      "data/affiliate-submission-batch-2026-09-08.json"
+    ],
+    "affiliate_workflow_url": "https://www.cloudtalk.io/affiliate-program/",
+    "affiliate_next_action": "Await the already recorded request; do not reapply. Recover approval and an issued exact tracking URL only with new direct evidence."
   },
   {
     "id": "seamless",
