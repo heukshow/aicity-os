@@ -1,0 +1,51 @@
+{
+  "checked_at": "2026-09-08T03:10:00+09:00",
+  "rules": {
+    "do_not_duplicate": true,
+    "check_inbox_and_spam": true,
+    "no_paid_actions": true,
+    "require_exact_customer_tracking_url_before_revenue_cta": true
+  },
+  "items": [
+    {
+      "id": "novita-ai",
+      "status": "outreach_sent",
+      "sender": "support@coshuma.com",
+      "gmail_message_id": "1a07d25d47f55138",
+      "tracking_url": null,
+      "evidence": "Current official Novita AI affiliate program remains available. COSHUMA requested the existing-publisher enrollment path and exact customer-facing referral URL from the published affiliate contact."
+    },
+    {
+      "id": "followr",
+      "status": "outreach_sent",
+      "sender": "support@coshuma.com",
+      "gmail_message_id": "1a07d25f03ec44f5",
+      "tracking_url": null,
+      "evidence": "Followr Help Center currently exposes an Affiliates setup path. COSHUMA requested the current enrollment route and exact customer-facing referral URL."
+    },
+    {
+      "id": "n8n",
+      "status": "browser_required_application_form",
+      "tracking_url": null,
+      "evidence": "Current official n8n affiliate program advertises 30% revenue share for 12 months. Browser submission delegated after duplicate-state check; no approval or tracking URL claimed yet."
+    },
+    {
+      "id": "gojiberry",
+      "status": "browser_required_application_form",
+      "tracking_url": null,
+      "evidence": "Current official Gojiberry affiliate program advertises 30% recurring lifetime commission. Browser submission delegated after duplicate-state check; no approval or tracking URL claimed yet."
+    },
+    {
+      "id": "typedesk",
+      "status": "browser_required_application_form",
+      "tracking_url": null,
+      "evidence": "Typedesk currently exposes Affiliates and Affiliate Terms on its official site. Browser enrollment-path verification delegated; no approval or tracking URL claimed yet."
+    },
+    {
+      "id": "gobii",
+      "status": "vendor-paused",
+      "tracking_url": null,
+      "evidence": "Newer official Gobii notice states service operations ended on 2026-09-01. Treat the vendor as paused/closed for monetization despite older signup or pricing pages remaining reachable."
+    }
+  ]
+}
