@@ -689,7 +689,7 @@
     "category": "productivity",
     "category_display": "Productivity & SaaS",
     "description": "An essential social media monitoring tool that helps businesses track mentions, analyze sentiment, and understand their online presence.",
-    "affiliate_url": null,
+    "affiliate_url": "https://try.brand24.com/8xqrjxybmsbt",
     "pricing": "See official pricing",
     "key_features": [
       "Real-time Brand Monitoring",
@@ -713,9 +713,17 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://brand24.com/",
     "affiliate_verified": true,
-    "affiliate_status": "application_submitted",
-    "affiliate_verified_at": "2026-08-31T22:59:47Z",
-    "affiliate_evidence_markers": ["PartnerStack application received", "submitted for Brand24 review"]
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-07T06:48:39Z",
+    "affiliate_evidence_markers": [
+      "Merged PR #229 uses the verified customer-facing PartnerStack URL",
+      "Production Brand24 CTAs use https://try.brand24.com/8xqrjxybmsbt",
+      "Live redirect preserves partner-program attribution parameters",
+      "No sale, commission, or conversion is inferred from link verification"
+    ],
+    "affiliate_source_url": "https://try.brand24.com/8xqrjxybmsbt",
+    "affiliate_final_url": "https://try.brand24.com/8xqrjxybmsbt",
+    "affiliate_rejection_reason": null
   },
   {
     "id": "socialchamp-io",
