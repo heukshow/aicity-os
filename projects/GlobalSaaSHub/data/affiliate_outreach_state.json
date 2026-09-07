@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-07T15:25:37Z",
+  "updated_at": "2026-09-07T15:49:30Z",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -92,6 +92,15 @@
       "promo_code": "COSHUMA20",
       "payout_status": "setup_pending",
       "note": "Pictory's affiliate manager explicitly reconfirmed that COSHUMA's existing affiliate link and COSHUMA20 promo code remain active while payout setup is pending. Referral and sale tracking can continue and commissions can accrue, but payout cannot be completed until payout details are configured. Keep the verified affiliate link as the primary tracking route and display COSHUMA20 alongside it; do not use the promo code as a replacement for the link."
+    },
+    "taskip": {
+      "status": "enrollment_requested",
+      "contact": "support@taskip.net",
+      "gmail_message_id": "1a07c8e7f493663b",
+      "sender": "support@coshuma.com",
+      "tracking_url": null,
+      "official_program_url": "https://www.taskip.net/affiliates/",
+      "note": "Fresh official affiliate page confirms applications are open, with no minimum traffic or follower requirement and a unique affiliate link after approval. Duplicate checks across both connected Gmail accounts found no prior Taskip affiliate thread before outreach. COSHUMA requested enrollment or the official invitation route from Taskip's published support address. Email outreach is not proof of application submission or approval; exact customer-facing tracking URL remains unverified."
     }
   }
 }
