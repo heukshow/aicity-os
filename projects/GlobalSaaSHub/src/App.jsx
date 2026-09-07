@@ -96,8 +96,8 @@ export default function App() {
   ];
 
   useEffect(() => {
-    trackPageView(selectedCategory);
-  }, [selectedCategory]);
+    trackPageView();
+  }, []);
 
   const toggleBookmark = (id) => {
     setBookmarkedIds((prev) => {

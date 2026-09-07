@@ -1,6 +1,7 @@
 const MEASUREMENT_ID_PATTERN = /^G-[A-Z0-9]{8,14}$/
 
 export function configureGA4() {
+  if (!['coshuma.com', 'www.coshuma.com'].includes(window.location.hostname)) return false
   // A GA4 measurement ID is a public site identifier, not a credential.
   // Keep the measurement ID deployment-controlled so local/dev builds never
   // fall back to a different analytics property and contaminate attribution.
