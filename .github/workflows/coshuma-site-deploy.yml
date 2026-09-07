@@ -20,6 +20,8 @@ on:
       - 'projects/GlobalSaaSHub/scripts/build_search_comparisons.mjs'
       - 'projects/GlobalSaaSHub/scripts/polish_public_copy.py'
       - 'projects/GlobalSaaSHub/scripts/ensure_best_pages_in_sitemap.py'
+      - 'projects/GlobalSaaSHub/scripts/sync_revenue_seo.py'
+      - 'projects/GlobalSaaSHub/scripts/tests/test_revenue_seo.py'
       - 'projects/GlobalSaaSHub/scripts/inject_pictory_partner_offer.py'
       - 'projects/GlobalSaaSHub/scripts/inject_jotform_partner_offer.py'
       - 'projects/GlobalSaaSHub/scripts/publish_affiliate_audit.mjs'
@@ -125,6 +127,7 @@ jobs:
       - name: Verify approved tracking state and built CTAs
         working-directory: projects/GlobalSaaSHub
         run: |
+          python scripts/tests/test_revenue_seo.py dist
           node scripts/verify_approved_tracking.mjs
           node scripts/tests/browser-followup.test.mjs
           node scripts/tests/tagshop-consent.test.mjs
