@@ -1,0 +1,31 @@
+{
+  "checked_at": "2026-09-08T03:00:00+09:00",
+  "sender": "support@coshuma.com",
+  "spam_checked": true,
+  "items": [
+    {
+      "id": "teachable",
+      "status": "outreach_sent",
+      "gmail_message_id": "1a07d1e9a83375a1",
+      "contact": "affiliates@teachable.com",
+      "official_program_url": "https://www.teachable.com/partners",
+      "evidence": "Official program is open, uses PartnerStack, offers 30% recurring commission for one year with a 30-day cookie, and explicitly lists review sites among suitable affiliates."
+    },
+    {
+      "id": "synder",
+      "status": "outreach_sent",
+      "gmail_message_id": "1a07d1eb47ed18d2",
+      "contact": "collaboration@synder.com",
+      "official_program_url": "https://synder.com/affiliate-program/",
+      "evidence": "Official affiliate program is open to content creators and e-commerce specialists, offers up to 20% commission, and issues a customized affiliate link after acceptance."
+    },
+    {
+      "id": "tapfiliate",
+      "status": "outreach_sent",
+      "gmail_message_id": "1a07d1ed0e6585e5",
+      "contact": "affiliates@tapfiliate.com",
+      "official_program_url": "https://tapfiliate.com/affiliate-program/",
+      "evidence": "Official affiliate program is open worldwide, offers either $178 one-time commission or 20% recurring for 12 months, with a 45-day cookie and unique referral link after signup."
+    }
+  ]
+}
