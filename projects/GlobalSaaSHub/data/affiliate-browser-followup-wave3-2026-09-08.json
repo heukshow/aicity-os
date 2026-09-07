@@ -7,21 +7,22 @@
     "repository": "Fetched heukshow/aicity-os origin/main at 95b5cadea5a36beaab574a6b6a502a7fede00ac3. Read tools.json and existing typedesk application evidence. Existing Gojiberry and Followr approved_tracking records found.",
     "important_correction": "Legacy mailbox contains company-addressed Gojiberry and Followr welcome emails. Typedesk enrollment request was actually sent from qmfforfhem@gmail.com, not support@coshuma.com. Company mailbox has Novita outreach and a bounced Followr outreach message; outreach is not portal enrollment."
   },
-  "new_applications_submitted": 0,
+  "new_applications_submitted": 1,
   "new_tracking_links_issued": 0,
   "paid_transactions": 0,
   "results": [
     {
       "id": "n8n",
-      "status": "browser_required_user_consent",
-      "application_state": "not_submitted",
+      "status": "application_submitted",
+      "application_state": "submitted_for_review",
       "affiliate_url": null,
       "official_program_url": "https://n8n.io/affiliates/",
       "workflow_url": "https://dash.partnerstack.com/application?company=n8n&group=affiliates2025",
       "tab_id": "499335088",
-      "evidence": "Official page shows 30% for 12 months. Existing authenticated PartnerStack application form displays Sangkwon An, support@coshuma.com and COSHUMA. Entered existing affiliate programs, selected blog or website, checked company website yes and entered https://coshuma.com. No prior application confirmation found in searched mailboxes; source record was application_page_unavailable. Form now loads.",
-      "blocker": "Required I agree acknowledgement prohibits branded-search bidding and specifies ban/commission forfeiture. Left unchecked; Submit application not clicked. Program agreement is linked on the form.",
-      "next_action": "User reviews program agreement and required acknowledgement, then submits prepared application. Record application_submitted only after actual confirmation. Optional unverified n8n-use and social fields left blank."
+      "gmail_confirmation_message_id": "1a07d893c8b66fcd",
+      "evidence": "PartnerStack sent an Application received confirmation to support@coshuma.com at 2026-09-08 05:22 KST for n8n GmbH. The email states that the application has been submitted for n8n GmbH's review and an update will be sent by email. This is direct submission evidence; approval and a customer-facing tracking URL are not yet confirmed.",
+      "blocker": null,
+      "next_action": "Do not reapply. Monitor the existing PartnerStack application and support@coshuma.com for an approval or rejection. Only after approval, verify the exact customer-facing tracking URL before changing any revenue CTA."
     },
     {
       "id": "novita-ai",
@@ -77,5 +78,5 @@
       "next_action": "Preserve existing email application; do not send or submit a duplicate. Resolve existing request/account before any Rewardful registration. Current dashboard approval and customer referral URL remain unconfirmed."
     }
   ],
-  "verification_limits": "No current dashboard metrics, revenue, commissions, or conversion attribution verified. Existing approved_tracking states are preserved with explicit source provenance; no new approval inferred from public landing alone. OTP values, passwords and OAuth state are not stored. This run saved local evidence only; no remote repository mutation or deployment performed."
+  "verification_limits": "n8n submission is verified by a PartnerStack confirmation email, but no n8n approval, customer tracking URL, current dashboard metrics, revenue, commissions, or conversion attribution are verified. Existing approved_tracking states are preserved with explicit source provenance; no new approval is inferred from a public landing alone. OTP values, passwords and OAuth state are not stored."
 }
