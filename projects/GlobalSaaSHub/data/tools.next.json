@@ -4777,7 +4777,21 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.joiin.co/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified": false,
+    "affiliate_final_url": null,
+    "affiliate_evidence_markers": [
+      "Recovered the existing direct invitation from Joiin ticket 40896; private invite key is omitted. Existing support@coshuma.com affiliate account authenticated through Google. Direct invite resumed unrelated unfinished ReactIn onboarding; the existing Joiin program route exposed its application form. Submitted once with COSHUMA website, No for own product use, Yes for similar tools on the website, and required Joiin terms accepted under explicit user authorization. Actual confirmation: Partnership is pending review; Joiin will review your application and email when approved. Public Auto-accept marketing is not approval evidence. No new account, duplicate outreach, paid action, analytics integration, or customer tracking URL. Customer signups, commissions and revenue remain unverified and unchanged at 0.",
+      "Await review in the existing account; do not reapply or send duplicate outreach. Only record approved_tracking after actual approval and an issued exact customer-facing tracking URL are verified.",
+      "data/affiliate-submission-batch-2026-09-08.json"
+    ],
+    "affiliate_status_checked_at": "2026-09-08T05:50:35+09:00",
+    "affiliate_status_evidence_url": "https://www.joiin.co/affiliate-partner-programme/",
+    "affiliate_workflow_url": "https://app.getreditus.com/marketplace/joiin",
+    "affiliate_next_action": "Await review in the existing account; do not reapply or send duplicate outreach. Only record approved_tracking after actual approval and an issued exact customer-facing tracking URL are verified.",
+    "affiliate_dashboard_status": "Partnership is pending review",
+    "affiliate_tracking_attribution_currently_verified": false
   },
   {
     "id": "agentworks",
@@ -4850,16 +4864,22 @@
     "pricing_source_http_status": null,
     "pricing_source_final_url": null,
     "affiliate_url": null,
-    "affiliate_verified": true,
-    "affiliate_status": "blocked_partnerstack_marketplace_limited",
+    "affiliate_verified": false,
+    "affiliate_status": "application_submitted",
     "affiliate_source_url": "https://airia.com/partners/",
-    "affiliate_final_url": "https://dash.partnerstack.com/application?company=airia&group=default",
+    "affiliate_final_url": null,
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
     "affiliate_evidence_markers": [
-      "Referral partner",
-      "Apply",
-      "PartnerStack"
-    ]
+      "Existing PartnerStack account support@coshuma.com reused. No Airia partnership matched before submission. Submitted the Airia application once with existing Sangkwon An / COSHUMA identity, https://coshuma.com, Korea Republic of, and Something else partnership type. PartnerStack then displayed Airia / Application pending, 0 clicks, 0 signups, $0.00 revenue, pending commissions and paid commissions. No tracking URL issued.",
+      "Await review in the existing account; do not reapply or send duplicate outreach. Only record approved_tracking after actual approval and an issued exact customer-facing tracking URL are verified.",
+      "data/affiliate-submission-batch-2026-09-08.json"
+    ],
+    "affiliate_status_checked_at": "2026-09-08T05:50:35+09:00",
+    "affiliate_status_evidence_url": "https://airia.com/partners/",
+    "affiliate_workflow_url": "https://dash.partnerstack.com/home",
+    "affiliate_next_action": "Await review in the existing account; do not reapply or send duplicate outreach. Only record approved_tracking after actual approval and an issued exact customer-facing tracking URL are verified.",
+    "affiliate_dashboard_status": "Application pending",
+    "affiliate_tracking_attribution_currently_verified": false
   },
   {
     "id": "omi-ai",
