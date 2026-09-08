@@ -50,17 +50,30 @@ try {
 assert.equal(state.typedesk.sender, 'qmfforfhem@gmail.com');
 assert.equal(state.typedesk.portal_enrollment_confirmed, false);
 assert.equal(state.n8n.application_state, 'submitted');
-for (const [id, expected] of [['krater', 'application_submitted'], ['framer', 'outreach_sent']]) {
-  assert.equal(state[id].status, expected);
-  assert.equal(state[id].tracking_url, null);
-  const stale = {id, affiliate_url: 'https://example.com/dashboard', affiliate_verified: true};
+
+assert.equal(state.framer.status, 'outreach_sent');
+assert.equal(state.framer.tracking_url, null);
+const staleFramer = {id: 'framer', affiliate_url: 'https://example.com/dashboard', affiliate_verified: true};
+applyBrowserFollowup(staleFramer);
+assert.equal(staleFramer.affiliate_status, 'outreach_sent');
+assert.equal(staleFramer.affiliate_url, null);
+assert.equal(staleFramer.affiliate_verified, false);
+
+for (const [id, expectedUrl] of [
+  ['fillout', 'https://try.fillout.com/sang-kwon-an-hxwn'],
+  ['krater', 'https://go.krater.ai/sang-kwon-an'],
+]) {
+  assert.equal(state[id].status, 'approved_tracking');
+  assert.equal(state[id].tracking_url, expectedUrl);
+  assert.equal(state[id].application_state, 'submitted');
+  assert.equal(state[id].do_not_reapply, true);
+  const stale = {id, affiliate_url: 'https://example.com/dashboard', affiliate_verified: false};
   applyBrowserFollowup(stale);
-  assert.equal(stale.affiliate_status, expected);
-  assert.equal(stale.affiliate_url, null);
-  assert.equal(stale.affiliate_verified, false);
+  assert.equal(stale.affiliate_status, 'approved_tracking');
+  assert.equal(stale.affiliate_url, expectedUrl);
+  assert.equal(stale.affiliate_verified, true);
 }
-assert.equal(state.krater.application_state, 'submitted');
-assert.equal(state.krater.do_not_reapply, true);
+
 assert.equal(state.framer.application_state, 'not_submitted');
 assert.equal(state.eprofessor.application_state, 'submitted');
 assert.equal(state.eprofessor.payout_setup_complete, false);
@@ -105,4 +118,4 @@ for (const id of ['n8n', 'typedesk', 'airia', 'joiin']) {
   const page = fs.readFileSync(`dist/tool/${id}.html`, 'utf8');
   assert.ok(!page.includes(`data-cta="affiliate" data-tool-id="${id}"`));
 }
-console.log('PASS: browser states, confirmed submissions, duplicate prevention, exact links, and repeat sync preservation');
+console.log('PASS: browser states, confirmed submissions, approved follow-ups, duplicate prevention, exact links, and repeat sync preservation');
