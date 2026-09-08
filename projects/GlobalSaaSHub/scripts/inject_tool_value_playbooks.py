@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "tool_value_playbooks.json"
+DATA_DIR = ROOT / "data"
 PUBLIC = ROOT / "public"
 START = "<!-- COSHUMA_VALUE_PLAYBOOK_START -->"
 END = "<!-- COSHUMA_VALUE_PLAYBOOK_END -->"
@@ -21,6 +21,22 @@ SPECIAL_DETAIL_PATHS = {
 
 def esc(value: str) -> str:
     return html.escape(str(value), quote=True)
+
+
+def load_playbooks() -> dict:
+    merged: dict = {}
+    files = sorted(DATA_DIR.glob("tool_value_playbooks*.json"))
+    if not files:
+        raise SystemExit("No tool value playbook data files found")
+    for path in files:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(payload, dict):
+            raise SystemExit(f"Playbook file must contain an object: {path.name}")
+        overlap = sorted(set(merged).intersection(payload))
+        if overlap:
+            raise SystemExit(f"Duplicate tool value playbook ids in {path.name}: {', '.join(overlap)}")
+        merged.update(payload)
+    return merged
 
 
 def detail_path(tool_id: str) -> str:
@@ -116,9 +132,9 @@ def inject_file(tool_id: str, entry: dict) -> None:
 
 
 def main() -> None:
-    payload = json.loads(DATA.read_text(encoding="utf-8"))
+    payload = load_playbooks()
     if not payload:
-        raise SystemExit("tool_value_playbooks.json is empty")
+        raise SystemExit("Tool value playbooks are empty")
     for tool_id, entry in payload.items():
         inject_file(tool_id, entry)
     print(f"Injected {len(payload)} tool value playbooks")
