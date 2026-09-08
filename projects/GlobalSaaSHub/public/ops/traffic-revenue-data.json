@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T17:01:36.537Z",
+  "generated_at": "2026-09-08T19:25:40.087Z",
   "status": "live_google_connected",
   "connections": {
     "ga4": "연결됨 · property 552233666",
@@ -7,9 +7,9 @@
     "partner_revenue": "네트워크별 연결 필요"
   },
   "metrics": {
-    "today_users": 1,
+    "today_users": 5,
     "today_users_note": "GA4 property 552233666",
-    "sessions_7d": 52,
+    "sessions_7d": 57,
     "sessions_7d_note": "GA4 Data API 실집계",
     "affiliate_clicks_30d": 6,
     "affiliate_clicks_30d_note": "GA4 affiliate_click 30일 실집계",
@@ -19,36 +19,36 @@
   },
   "ranges": {
     "today": {
-      "users": 1,
-      "sessions": 1,
-      "views": 2,
+      "users": 5,
+      "sessions": 6,
+      "views": 9,
       "affiliate_clicks": null,
       "search_impressions": 0,
       "search_clicks": 0,
       "verified_revenue": null
     },
     "7d": {
-      "users": 32,
-      "sessions": 52,
-      "views": 76,
+      "users": 35,
+      "sessions": 57,
+      "views": 84,
       "affiliate_clicks": null,
       "search_impressions": 47,
       "search_clicks": 0,
       "verified_revenue": null
     },
     "30d": {
-      "users": 35,
-      "sessions": 57,
-      "views": 86,
+      "users": 38,
+      "sessions": 62,
+      "views": 94,
       "affiliate_clicks": 6,
       "search_impressions": 280,
       "search_clicks": 0,
       "verified_revenue": null
     },
     "90d": {
-      "users": 35,
-      "sessions": 57,
-      "views": 86,
+      "users": 38,
+      "sessions": 62,
+      "views": 94,
       "affiliate_clicks": null,
       "search_impressions": 2085,
       "search_clicks": 1,
@@ -62,14 +62,14 @@
       "note": "세션 26"
     },
     {
-      "name": "(direct)",
-      "value": 5,
-      "note": "세션 17"
+      "name": "(not set)",
+      "value": 8,
+      "note": "세션 18"
     },
     {
-      "name": "(not set)",
-      "value": 5,
-      "note": "세션 15"
+      "name": "(direct)",
+      "value": 7,
+      "note": "세션 21"
     },
     {
       "name": "youtube",
@@ -95,8 +95,8 @@
   "top_pages": [
     {
       "name": "/",
-      "value": 39,
-      "note": "사용자 27"
+      "value": 42,
+      "note": "사용자 30"
     },
     {
       "name": "/tool/chatbase.html",
@@ -169,7 +169,17 @@
       "note": "사용자 1"
     },
     {
+      "name": "/best/highlevel-free-trial.html",
+      "value": 1,
+      "note": "사용자 0"
+    },
+    {
       "name": "/best/moosend-free-trial.html",
+      "value": 1,
+      "note": "사용자 1"
+    },
+    {
+      "name": "/best/novita-ai-agent-sandbox-pricing.html",
       "value": 1,
       "note": "사용자 1"
     },
@@ -182,16 +192,6 @@
       "name": "/best/pictory-free-trial-pricing.html",
       "value": 1,
       "note": "사용자 1"
-    },
-    {
-      "name": "/best/shopify-pricing-free-trial.html",
-      "value": 1,
-      "note": "사용자 1"
-    },
-    {
-      "name": "/best/unbounce-free-trial.html",
-      "value": 1,
-      "note": "사용자 0"
     }
   ],
   "affiliate_pages": [
