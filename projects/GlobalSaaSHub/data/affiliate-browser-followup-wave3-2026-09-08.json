@@ -6,13 +6,12 @@
     "novita-ai",
     "gojiberry",
     "followr",
-    "typedesk",
-    "sanebox"
+    "typedesk"
   ],
   "duplicate_checks": {
     "browser": "Reused existing Chrome profile and Gmail tab 499335039. Company mailbox /u/1 and legacy mailbox /u/0 searched with in:anywhere, including spam and trash. Restored company inbox afterward.",
-    "repository": "Fetched heukshow/aicity-os origin/main at 95b5cadea5a36beaab574a6b6a502a7fede00ac3. Read tools.json and existing typedesk application evidence. Existing Gojiberry and Followr approved_tracking records found. SaneBox was rechecked against the live first-party partner page before queueing; the older application_page_unavailable observation is superseded by the current official PartnerStack route.",
-    "important_correction": "Legacy mailbox contains company-addressed Gojiberry and Followr welcome emails. Typedesk enrollment request was actually sent from qmfforfhem@gmail.com, not support@coshuma.com. Company mailbox has Novita outreach and a bounced Followr outreach message; outreach is not portal enrollment. SaneBox program availability does not constitute application submission or approval."
+    "repository": "Fetched heukshow/aicity-os origin/main at 95b5cadea5a36beaab574a6b6a502a7fede00ac3. Read tools.json and existing typedesk application evidence. Existing Gojiberry and Followr approved_tracking records found.",
+    "important_correction": "Legacy mailbox contains company-addressed Gojiberry and Followr welcome emails. Typedesk enrollment request was actually sent from qmfforfhem@gmail.com, not support@coshuma.com. Company mailbox has Novita outreach and a bounced Followr outreach message; outreach is not portal enrollment."
   },
   "new_applications_submitted": 1,
   "new_tracking_links_issued": 0,
@@ -89,20 +88,7 @@
       "tab_id": "499335100",
       "evidence": "Read existing evidence file and verified sent email titled COSHUMA application for the typedesk Affiliate Program in legacy Gmail. No reply found in searched company/legacy mailboxes. Current official Become an affiliate link reaches a real Rewardful signup form. It advertises 30% recurring for up to 12 months, requests password/confirmation, and states signup agrees to Terms of Service. Login requires email and password; no authenticated session was present.",
       "next_action": "Preserve existing email application; do not send or submit a duplicate. Resolve existing request/account before any Rewardful registration. Current dashboard approval and customer referral URL remain unconfirmed."
-    },
-    {
-      "id": "sanebox",
-      "status": "browser_required_partnerstack_application",
-      "application_state": "existing_application_state_unverified",
-      "portal_enrollment_confirmed": false,
-      "affiliate_url": null,
-      "official_program_url": "https://www.sanebox.com/partners",
-      "workflow_url": "https://sanebox.partnerstack.com",
-      "evidence": "Fresh first-party verification on 2026-09-08 shows the SaneBox Affiliate page is live and its Apply now action routes to SaneBox on PartnerStack. The official page states up to 30% lifetime commission on subscription revenue, a $25 subscription credit for referred customers who become customers, and that commissions are paid on paid conversions rather than signups or free trials. This supersedes the older application_page_unavailable observation but does not prove that COSHUMA has submitted or been approved.",
-      "blocker": "authenticated_partnerstack_application_required",
-      "supersedes_unavailable_route": true,
-      "next_action": "Use the existing COSHUMA/PartnerStack identity if available and inspect the SaneBox program state before submitting anything. Do not duplicate an existing submitted, pending, approved, rejected, cooldown, closed or otherwise protected application. If no prior application exists, use support@coshuma.com for the zero-cost application. Stop for CAPTCHA, OTP, payment, legal/program-term acceptance or forced identity verification. After approval, copy only the exact account-specific customer referral URL from PartnerStack and verify its destination before changing COSHUMA revenue CTAs."
     }
   ],
-  "verification_limits": "n8n submission is verified by a PartnerStack confirmation email, but no n8n approval, customer tracking URL, current dashboard metrics, revenue, commissions, or conversion attribution are verified. Existing approved_tracking states are preserved with explicit source provenance; no new approval is inferred from a public landing alone. SaneBox program availability is verified from the live first-party page, but COSHUMA application submission, approval, customer tracking URL, current dashboard metrics, revenue, commissions and conversion attribution remain unverified. OTP values, passwords and OAuth state are not stored."
+  "verification_limits": "n8n submission is verified by a PartnerStack confirmation email, but no n8n approval, customer tracking URL, current dashboard metrics, revenue, commissions, or conversion attribution are verified. Existing approved_tracking states are preserved with explicit source provenance; no new approval is inferred from a public landing alone. OTP values, passwords and OAuth state are not stored."
 }
