@@ -14,6 +14,7 @@
     "check:tool-value": "python scripts/inject_tool_value_playbooks.py && python scripts/audit_tool_value_playbook_coverage.py && echo tool-value-recommendation-policy-v3-wave7",
     "check:tool-value-policy": "python scripts/audit_tool_value_playbook_coverage.py",
     "check:docsbot-partner": "python scripts/apply_docsbot_partner_guidance.py",
+    "check:omnisend-revenue": "python scripts/apply_search_console_ctr_patches.py && echo omnisend-search-monetization-v1",
     "test:links": "python scripts/tests/test_link_integrity.py",
     "test:revenue-seo": "python scripts/tests/test_revenue_seo.py dist && node scripts/verify_approved_tracking.mjs",
     "test:category": "python scripts/refine_category_relevance.py",
