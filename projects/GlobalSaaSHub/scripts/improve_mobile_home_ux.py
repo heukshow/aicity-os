@@ -56,6 +56,10 @@ replacements = [
         'className="flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 text-slate-400 hover:text-white"',
         'className="flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 text-slate-400 hover:text-white"',
     ),
+    (
+        '>Verified affiliate paths<',
+        '>Verified partner links<',
+    ),
 ]
 
 for old, new in replacements:
@@ -66,4 +70,4 @@ for old, new in replacements:
     text = text.replace(old, new, 1)
 
 app.write_text(text, encoding="utf-8")
-print("Mobile homepage UX improved: swipeable filters and touch-safe controls")
+print("Mobile homepage UX improved: swipeable filters, touch-safe controls, and buyer-friendly labels")
