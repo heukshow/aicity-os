@@ -1,0 +1,23 @@
+{
+  "tool_id": "apollo",
+  "checked_at": "2026-09-09T04:30:00+09:00",
+  "canonical_affiliate_status": "rejected",
+  "do_not_reapply": true,
+  "affiliate_url": null,
+  "tracking_verified": false,
+  "latest_vendor_signal": "reconsideration_escalated_to_affiliate_manager",
+  "evidence": {
+    "prior_decline_date": "2026-08-26",
+    "coshuma_followup_message_id": "1a08213158dcf3b6",
+    "latest_vendor_message_id": "1a0825810624f23e",
+    "vendor_sender": "partners@apollo.io",
+    "vendor_cc": "darryl.yearwood@apollo.io",
+    "vendor_summary": "Apollo Partnerships said they are looping in Darryl Yearwood, who manages the Affiliate Partnership Program, to support COSHUMA's question about the prior declined application. This is not approval and is not authorization to submit a duplicate application."
+  },
+  "next_action": "Wait for Darryl/Apollo to explicitly confirm reactivation, reconsideration, or authorized reapplication. Do not submit a new PartnerStack application while the prior rejection remains canonical. If approval is later confirmed, verify the exact account-specific customer referral URL before changing any COSHUMA revenue CTA.",
+  "guardrails": [
+    "Do not treat PartnerStack application/dashboard URLs as customer affiliate URLs.",
+    "Do not infer approval, clicks, signups, commissions, or revenue from this escalation.",
+    "Do not reapply unless Apollo explicitly authorizes it or reopens the prior application."
+  ]
+}
