@@ -1,0 +1,48 @@
+name: COSHUMA Analytics Snapshot
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: coshuma-analytics-snapshot
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+
+      - name: Generate live GA4 and Search Console snapshot
+        working-directory: projects/GlobalSaaSHub
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          GA_PROPERTY_ID: ${{ vars.GA_PROPERTY_ID }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+        run: node scripts/generate_live_dashboard_data.mjs
+
+      - name: Commit snapshot when changed
+        run: |
+          set -e
+          if git diff --quiet -- projects/GlobalSaaSHub/public/ops/traffic-revenue-data.json; then
+            echo 'No dashboard data change.'
+            exit 0
+          fi
+          git config user.name 'coshuma-analytics-bot'
+          git config user.email 'heukshow@users.noreply.github.com'
+          git add projects/GlobalSaaSHub/public/ops/traffic-revenue-data.json
+          git commit -m 'data: refresh COSHUMA analytics snapshot'
+          git push origin HEAD:main
