@@ -1,28 +1,13 @@
 {
-  "generated_at": "2026-09-09T02:50:00+09:00",
+  "generated_at": "2026-09-09T02:53:00+09:00",
   "source": "Search Console live snapshot",
   "changes": [
-    {
-      "page": "/tool/brand24.html",
-      "signal": "high impressions / zero search clicks",
-      "action": "review + pricing + free-trial CTR metadata"
-    },
-    {
-      "page": "/tool/moosend.html",
-      "signal": "high impressions / zero search clicks",
-      "action": "review + pricing + free-trial CTR metadata"
-    },
-    {
-      "page": "/tool/unbounce.html",
-      "signal": "168 search impressions / zero search clicks",
-      "action": "review + pricing + 14-day-trial + verified-discount CTR metadata"
-    },
-    {
-      "page": "/tool/aweber.html",
-      "signal": "102 search impressions / zero search clicks",
-      "action": "review + pricing + 14-day-trial CTR metadata and COSHUMA branding cleanup"
-    }
+    {"page":"/tool/brand24.html","signal":"high impressions / zero search clicks","action":"review + pricing + free-trial CTR metadata"},
+    {"page":"/tool/moosend.html","signal":"high impressions / zero search clicks","action":"review + pricing + free-trial CTR metadata"},
+    {"page":"/tool/unbounce.html","signal":"168 search impressions / zero search clicks","action":"review + pricing + 14-day-trial + verified-discount CTR metadata"},
+    {"page":"/tool/aweber.html","signal":"102 search impressions / zero search clicks","action":"review + pricing + 14-day-trial CTR metadata and COSHUMA branding cleanup"},
+    {"page":"/tool/jotform.html","signal":"69 page impressions / zero clicks; jotform pricing query 34 impressions / zero clicks","action":"review + free-plan + annual-pricing + AI Agents CTR metadata"}
   ],
   "verified_revenue_links_changed": false,
-  "notes": "No commission or revenue is inferred. Existing verified affiliate URLs are preserved."
+  "notes": "No commission or revenue is inferred. Existing verified affiliate URLs are preserved; Jotform build-time verified-link injector remains authoritative."
 }
