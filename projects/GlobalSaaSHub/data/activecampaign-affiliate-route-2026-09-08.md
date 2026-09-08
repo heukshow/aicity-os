@@ -1,29 +1,37 @@
-# ActiveCampaign affiliate route verification — 2026-09-08
+# ActiveCampaign affiliate route verification — corrected 2026-09-09
 
-## Current evidence
+## Authoritative COSHUMA-specific evidence
 
 - Tool: `activecampaign`
 - COSHUMA page: `https://coshuma.com/tool/activecampaign.html`
-- Company mailbox checked: `support@coshuma.com`
-- Gmail search for ActiveCampaign in the prior year returned no application, approval, rejection, or outreach messages.
-- Official affiliate page: `https://www.activecampaign.com/partners/affiliate`
-- Official affiliate help: `https://help.activecampaign.com/hc/en-us/articles/115000065864-Affiliate-program`
-- Official application route: ActiveCampaign's current **Apply Now** button opens its PartnerStack application.
+- Company identity: `support@coshuma.com`
+- `data/activecampaign-affiliate-rejection-evidence-2026-08-28.md` records that PartnerStack received the COSHUMA application on 2026-08-24 and ActiveCampaign sent a later decision on 2026-08-28 declining it.
+- `data/browser_required_queue.d/activecampaign-affiliate-2026-09-08.json` records `blocked_existing_rejection_evidence` / `rejected`.
+- `data/affiliate-batch-scan-2026-09-08-0633.json` explicitly treats the prior rejection as stronger COSHUMA-specific evidence than a later observation that the public application page is available.
+- Current `data/tools.json` and `data/tools.next.json` also preserve `affiliate_status: rejected`.
 
-## Verified program facts
+## Public program availability
 
-ActiveCampaign's current official affiliate page states the program is for content creators, influencers and publishers, does not require the applicant to be an ActiveCampaign customer, and issues a unique referral link after approval through a PartnerStack-powered affiliate portal. ActiveCampaign's help center, updated July 30, 2026, states eligible referrals earn a 30% recurring commission for up to 12 months.
+ActiveCampaign's official affiliate program is currently public and PartnerStack-powered. Current official documentation states eligible affiliates may earn 30% recurring commission for up to 12 months, with a 90-day purchase attribution window. This only proves the program exists publicly; it does **not** reverse COSHUMA's application decision.
 
-## Decision
+Official references:
+- `https://help.activecampaign.com/hc/en-us/articles/115000199190-Affiliate-Program-Overview`
+- `https://www.activecampaign.com/affiliate-program`
+
+## Correct decision
 
 - `affiliate_url`: `null`
-- `affiliate_status`: `browser_required_partnerstack_application`
-- `cost`: `0`
-- The stale `application_page_unavailable` observation is superseded: a live official application route now exists.
-- No prior company-mailbox application evidence was found, so there is no known duplicate application to protect against at this point.
-- Do not publish the ActiveCampaign homepage, PartnerStack application URL, PartnerStack dashboard, login URL, or onboarding URL as a customer affiliate/revenue link.
-- Do not claim clicks, sign-ups, commissions or revenue until the partner system provides evidence.
+- `affiliate_status`: `rejected`
+- `affiliate_verified`: `true`
+- Do **not** reapply automatically.
+- Do **not** create or keep a browser-required application task merely because the public PartnerStack application route is available.
+- Do **not** publish the ActiveCampaign homepage, affiliate landing page, PartnerStack application/dashboard/login/onboarding URL as a customer affiliate or revenue URL.
+- Do not claim clicks, sign-ups, commissions or revenue for ActiveCampaign without customer-specific partner evidence.
 
-## Next action
+## Reopen condition
 
-Use the existing COSHUMA PartnerStack identity if the ActiveCampaign application permits it. Submit only once with factual COSHUMA information. If CAPTCHA, OTP, forced identity verification or a legal consent requiring the user's action appears, leave only that step for the user. After approval, copy and independently verify the exact customer-facing referral URL before changing any COSHUMA revenue CTA to `approved_tracking`.
+Only reconsider enrollment if ActiveCampaign sends newer COSHUMA-specific first-party evidence that explicitly changes the rejection, invites a new application, or provides a concrete eligibility correction that COSHUMA has actually completed. A generic public program page is not enough.
+
+## Correction note
+
+The earlier 2026-09-08 version of this file incorrectly stated that no prior application or rejection evidence was found and classified the tool as `browser_required_partnerstack_application`. Repository-wide evidence review showed that statement was incomplete. GitHub issue #322, briefly created from that incomplete route note, was closed `not_planned` immediately after the conflict was found, before any duplicate application was submitted.
