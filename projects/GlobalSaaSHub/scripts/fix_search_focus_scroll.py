@@ -27,5 +27,41 @@ if autocomplete_new not in text:
         raise SystemExit("Autocomplete markup changed; refusing unsafe UX patch")
     text = text.replace(autocomplete_old, autocomplete_new, 1)
 
+quick_filters_anchor = '''          <div className="mt-6 flex flex-wrap justify-center gap-2">
+            {categories.slice(1, 7).map((cat) => {'''
+
+quick_filters_new = '''          <div className="mt-5 flex flex-wrap justify-center gap-2">
+            <button
+              onClick={() => {
+                setSearchTerm('');
+                setSelectedCategory('all');
+                setSelectedPricing('free');
+                document.getElementById('directory')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-2 text-xs font-bold text-emerald-200 hover:bg-emerald-400/20"
+            >
+              Free / trial
+            </button>
+            <button
+              onClick={() => {
+                setSearchTerm('');
+                setSelectedCategory('all');
+                setSelectedPricing('under20');
+                document.getElementById('directory')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
+              className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-xs font-bold text-cyan-200 hover:bg-cyan-400/20"
+            >
+              Under $20
+            </button>
+          </div>
+
+          <div className="mt-3 flex flex-wrap justify-center gap-2">
+            {categories.slice(1, 7).map((cat) => {'''
+
+if quick_filters_new not in text:
+    if quick_filters_anchor not in text:
+        raise SystemExit("Quick-filter insertion point changed; refusing unsafe UX patch")
+    text = text.replace(quick_filters_anchor, quick_filters_new, 1)
+
 app.write_text(text, encoding="utf-8")
-print("Search UX patch applied: no focus auto-scroll; autocomplete shows category and pricing")
+print("Search UX patch applied: stable focus, richer autocomplete, quick price filters")
