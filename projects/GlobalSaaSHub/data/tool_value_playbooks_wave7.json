@@ -1,0 +1,60 @@
+{
+  "liftmycv": {
+    "problems": [
+      "Job seekers spend repetitive time discovering roles, filling forms and tracking applications across multiple sites.",
+      "High-volume applications make it difficult to keep resumes, cover letters and submission status organized.",
+      "Applicants need a repeatable workflow for matching roles, preparing job-specific materials and submitting supported applications."
+    ],
+    "monetization": [
+      {"title": "Offer job-search workflow setup", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Configured job-search criteria, application workflow and tracking setup"},
+      {"title": "Provide resume and cover-letter workflow assistance", "difficulty": "Intermediate", "cost": "Usage-based", "output": "Job-specific application-material workflow"}
+    ]
+  },
+  "aiassistworks": {
+    "problems": [
+      "Teams repeatedly perform AI-assisted writing, rewriting, translation and analysis outside Google Workspace and then copy results back manually.",
+      "Large spreadsheet, document or slide tasks take too long when every row or section is processed one at a time.",
+      "Users want direct control over which AI provider and model handles work inside Sheets, Docs and Slides."
+    ],
+    "monetization": [
+      {"title": "Offer spreadsheet enrichment and batch-processing services", "difficulty": "Intermediate", "cost": "Free/low-cost plus API usage", "output": "Processed or enriched spreadsheet dataset"},
+      {"title": "Create document and presentation production workflows for clients", "difficulty": "Intermediate", "cost": "Low-cost plus API usage", "output": "Generated or transformed Docs and Slides deliverables"},
+      {"title": "Set up AI-assisted Google Workspace workflows", "difficulty": "Intermediate", "cost": "Low-cost plus API usage", "output": "Configured Sheets, Docs or Slides AI workflow"}
+    ]
+  },
+  "vista-social": {
+    "problems": [
+      "Social publishing, engagement, reviews and reporting are fragmented across multiple networks and tools.",
+      "Teams and agencies need approvals, client reporting and shared social workflows in one place.",
+      "Manual scheduling, inbox handling and recurring social-media reporting consume operational time."
+    ],
+    "monetization": [
+      {"title": "Offer social media management for clients", "difficulty": "Intermediate", "cost": "Trial/paid", "output": "Scheduled multi-network content calendar and engagement workflow"},
+      {"title": "Provide recurring social reporting and account management", "difficulty": "Intermediate", "cost": "Paid", "output": "Client social-media report and management workflow"},
+      {"title": "Set up agency social operations", "difficulty": "Advanced", "cost": "Paid", "output": "Approval, publishing, reporting and client-access system"}
+    ]
+  },
+  "merlin": {
+    "problems": [
+      "People switch between multiple AI tabs for summarization, research, drafting and browser tasks.",
+      "Webpages, videos and documents take time to summarize before useful information can be extracted.",
+      "Users want a general AI assistant available inside browser workflows instead of moving work into a separate app."
+    ],
+    "monetization": [
+      {"title": "Offer research and summarization support", "difficulty": "Beginner", "cost": "Free/paid", "output": "Research summary, source digest or briefing document"},
+      {"title": "Provide AI-assisted drafting and content support", "difficulty": "Beginner", "cost": "Free/paid", "output": "Draft emails, posts, summaries or first-pass content"}
+    ]
+  },
+  "decktopus": {
+    "problems": [
+      "Creating a presentation from a topic, outline or document requires separate work for structure, copy and visual layout.",
+      "Teams need branded decks quickly without manually designing every slide.",
+      "Presenters need a faster way to prepare both the deck and rehearsal before a meeting or pitch."
+    ],
+    "monetization": [
+      {"title": "Create presentation decks for clients", "difficulty": "Beginner", "cost": "Trial/paid", "output": "Client-ready sales, training or proposal deck"},
+      {"title": "Offer branded presentation production", "difficulty": "Intermediate", "cost": "Paid", "output": "Brand-aligned PPT/PDF presentation package"},
+      {"title": "Provide pitch and presentation-prep services", "difficulty": "Intermediate", "cost": "Paid", "output": "Presentation deck plus rehearsal-ready delivery package"}
+    ]
+  }
+}
