@@ -10,9 +10,52 @@ for (const item of JSON.parse(fs.readFileSync(new URL('../' + submissionEvidence
   browserFollowups.set(item.id, {...item, evidence_path: submissionEvidencePath});
 }
 const hotfixEvidencePath = 'data/affiliate-status-hotfix-2026-09-08.json';
-for (const item of JSON.parse(fs.readFileSync(new URL('../' + hotfixEvidencePath, import.meta.url), 'utf8')).results) {
+const statusHotfixes = JSON.parse(fs.readFileSync(new URL('../' + hotfixEvidencePath, import.meta.url), 'utf8')).results;
+for (const item of statusHotfixes) {
   browserFollowups.set(item.id, {...item, evidence_path: hotfixEvidencePath});
 }
+
+// Keep duplicate-prevention state and browser queue aligned with newer vendor decisions.
+// Only the small explicit hotfix file is allowed to mutate these operational records here.
+function syncStatusHotfixes() {
+  const stateUrl = new URL('../data/affiliate_outreach_state.json', import.meta.url);
+  const state = JSON.parse(fs.readFileSync(stateUrl, 'utf8'));
+  let stateChanged = false;
+  for (const item of statusHotfixes) {
+    const current = state.programs?.[item.id];
+    if (!current) continue;
+    Object.assign(current, {
+      status: item.status,
+      tracking_url: null,
+      application_state: item.application_state || current.application_state,
+      review_state: item.review_state || current.review_state,
+      next_action: item.next_action,
+      do_not_reapply: true,
+      checked_at: item.checked_at || current.checked_at,
+      evidence: item.evidence,
+    });
+    stateChanged = true;
+  }
+  if (stateChanged) fs.writeFileSync(stateUrl, `${JSON.stringify(state, null, 2)}\n`);
+
+  const queueUrl = new URL('../data/browser_required_queue.json', import.meta.url);
+  const queue = JSON.parse(fs.readFileSync(queueUrl, 'utf8'));
+  let queueChanged = false;
+  for (const item of statusHotfixes) {
+    for (const entry of queue.filter(entry => entry.tool_id === item.id)) {
+      Object.assign(entry, {
+        status: 'resolved',
+        affiliate_status: item.status,
+        exact_tracking_url: null,
+        blocker: null,
+        next_action: item.next_action,
+      });
+      queueChanged = true;
+    }
+  }
+  if (queueChanged) fs.writeFileSync(queueUrl, `${JSON.stringify(queue, null, 2)}\n`);
+}
+syncStatusHotfixes();
 
 // This browser snapshot preserves existing approvals, never infers a new one
 // from a successful public landing, and keeps account access separate from CTAs.
