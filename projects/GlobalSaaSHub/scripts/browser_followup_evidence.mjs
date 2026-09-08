@@ -9,6 +9,10 @@ const submissionEvidencePath = 'data/affiliate-submission-batch-2026-09-08.json'
 for (const item of JSON.parse(fs.readFileSync(new URL('../' + submissionEvidencePath, import.meta.url), 'utf8')).results) {
   browserFollowups.set(item.id, {...item, evidence_path: submissionEvidencePath});
 }
+const hotfixEvidencePath = 'data/affiliate-status-hotfix-2026-09-08.json';
+for (const item of JSON.parse(fs.readFileSync(new URL('../' + hotfixEvidencePath, import.meta.url), 'utf8')).results) {
+  browserFollowups.set(item.id, {...item, evidence_path: hotfixEvidencePath});
+}
 
 // This browser snapshot preserves existing approvals, never infers a new one
 // from a successful public landing, and keeps account access separate from CTAs.
