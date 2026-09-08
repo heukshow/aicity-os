@@ -1,10 +1,9 @@
 """Apply conservative CTR-oriented SEO patches backed by live Search Console data.
 
 The 2026-09-08 live snapshot showed substantial impressions but zero search clicks
-for Brand24, Moosend, Unbounce and AWeber tool pages. Query data specifically
-included Brand24 review/pricing variants and "moosend review". Unbounce and AWeber
-were also high-impression zero-click revenue-ready pages. Keep this script exact-match
-and idempotent so it cannot rewrite unrelated pages or invent offers.
+for Brand24, Moosend, Unbounce, AWeber and Jotform tool pages. Query data included
+Brand24 review/pricing variants, "moosend review" and "jotform pricing". Keep this
+script exact-match and idempotent so it cannot rewrite unrelated pages or invent offers.
 """
 from pathlib import Path
 
@@ -90,6 +89,28 @@ PATCHES = {
         (
             '<span class="font-extrabold text-lg tracking-tight text-white">GlobalSaaSHub</span>',
             '<span class="font-extrabold text-lg tracking-tight text-white">COSHUMA</span>',
+        ),
+    ],
+    "jotform.html": [
+        (
+            "<title>Jotform Pricing 2026: Free, Bronze, Silver, Gold & AI Agents | COSHUMA</title>",
+            "<title>Jotform Review & Pricing 2026: Free Plan, $34 Bronze, $39 Silver & AI Agents | COSHUMA</title>",
+        ),
+        (
+            '<meta name="description" content="Jotform pricing and buyer guide for 2026: compare the free Starter plan, Bronze, Silver, Gold and Enterprise, plus a verified Jotform AI Agents partner path for customer-support automation." />',
+            '<meta name="description" content="Jotform review and pricing for 2026: Starter is free, Bronze $34/mo, Silver $39/mo and Gold $99/mo billed annually. Compare limits and the verified Jotform AI Agents partner path." />',
+        ),
+        (
+            '<meta property="og:title" content="Jotform Pricing 2026: Plans, Limits & AI Agents | COSHUMA" />',
+            '<meta property="og:title" content="Jotform Review & Pricing 2026: Free Plan, Paid Tiers & AI Agents | COSHUMA" />',
+        ),
+        (
+            '<h1 class="text-4xl md:text-5xl font-black text-white tracking-tight">Jotform pricing & buyer guide</h1>',
+            '<h1 class="text-4xl md:text-5xl font-black text-white tracking-tight">Jotform Review, Pricing & Buyer Guide</h1>',
+        ),
+        (
+            '<p class="text-sm text-slate-400 mt-2">Updated September 7, 2026</p>',
+            '<p class="text-sm text-slate-400 mt-2">Updated September 9, 2026</p>',
         ),
     ],
 }
