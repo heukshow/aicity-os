@@ -16,9 +16,19 @@ TOOLS = json.loads((ROOT / "data" / "tools.json").read_text(encoding="utf-8"))
 # controls outbound routing on the underlying product pages.
 CATEGORY_RULES = {
     "automation": {
-        "categories": {"workflow_auto"},
-        "include_ids": {"make-com", "n8n"},
-        "preferred_ids": ["make-com", "n8n"],
+        # workflow_auto is currently broad enough to include social-media and support
+        # products, while Make/n8n/Gumloop are stored in developer-oriented groups.
+        # Keep this buyer hub deliberately curated to direct workflow/automation tools.
+        "allowed_ids": {
+            "make-com",
+            "n8n",
+            "gumloop",
+            "taskip",
+            "aiassistworks",
+            "customgpt-ai",
+            "notion-ai",
+        },
+        "preferred_ids": ["make-com", "n8n", "gumloop"],
     },
     "sales-crm": {"categories": {"sales_crm", "chatbots_support", "email_outreach"}},
     "ai-agents": {"categories": {"ai_agents"}},
@@ -92,13 +102,17 @@ def render_card(tool: dict) -> str:
 
 
 def shortlist(rule: dict) -> list[dict]:
+    allowed_ids = set(rule.get("allowed_ids") or ())
     categories = set(rule.get("categories") or ())
     include_ids = set(rule.get("include_ids") or ())
-    candidates = [
-        tool
-        for tool in TOOLS
-        if tool.get("category") in categories or tool.get("id") in include_ids
-    ]
+    if allowed_ids:
+        candidates = [tool for tool in TOOLS if tool.get("id") in allowed_ids]
+    else:
+        candidates = [
+            tool
+            for tool in TOOLS
+            if tool.get("category") in categories or tool.get("id") in include_ids
+        ]
 
     preferred = list(rule.get("preferred_ids") or ())
     preferred_rank = {tool_id: index for index, tool_id in enumerate(preferred)}
