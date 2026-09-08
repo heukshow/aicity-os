@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-09-09T02:44:00+09:00",
+  "source": "Search Console live snapshot",
+  "changes": [
+    {
+      "page": "/tool/brand24.html",
+      "signal": "high impressions / zero search clicks",
+      "action": "review + pricing + free-trial CTR metadata"
+    },
+    {
+      "page": "/tool/moosend.html",
+      "signal": "high impressions / zero search clicks",
+      "action": "review + pricing + free-trial CTR metadata"
+    },
+    {
+      "page": "/tool/unbounce.html",
+      "signal": "168 search impressions / zero search clicks",
+      "action": "review + pricing + 14-day-trial + verified-discount CTR metadata"
+    }
+  ],
+  "verified_revenue_links_changed": false,
+  "notes": "No commission or revenue is inferred. Existing verified affiliate URLs are preserved."
+}
