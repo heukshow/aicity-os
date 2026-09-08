@@ -26,6 +26,9 @@ intent_row = '''
             <button onClick={() => { setSearchTerm(''); setSelectedCategory('sales_crm'); setSelectedPricing('all'); document.getElementById('directory')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="inline-flex min-h-11 items-center gap-2 rounded-full border border-violet-400/20 bg-violet-400/10 px-3 py-2 text-xs font-bold text-violet-200 hover:bg-violet-400/20">
               <TrendingUp className="h-3.5 w-3.5" /> Grow revenue
             </button>
+            <a href="/best/fillout-form-builder.html" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-2 text-xs font-bold text-amber-200 hover:bg-amber-400/20">
+              <CreditCard className="h-3.5 w-3.5" /> Capture leads & payments
+            </a>
             <button onClick={() => { setSearchTerm('content'); setSelectedCategory('all'); setSelectedPricing('all'); document.getElementById('directory')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="inline-flex min-h-11 items-center gap-2 rounded-full border border-fuchsia-400/20 bg-fuchsia-400/10 px-3 py-2 text-xs font-bold text-fuchsia-200 hover:bg-fuchsia-400/20">
               <Sparkles className="h-3.5 w-3.5" /> Create content
             </button>
@@ -40,6 +43,19 @@ text, count = category_row.subn("\n" + intent_row, text, count=1)
 if count != 1 and "Grow revenue" not in text:
     raise SystemExit("Hero category row changed; refusing unsafe revenue-hook patch")
 
+# If an earlier build already applied the outcome row, add the lead-capture link idempotently.
+if "Capture leads & payments" not in text:
+    marker = '''            <button onClick={() => { setSearchTerm(''); setSelectedCategory('sales_crm'); setSelectedPricing('all'); document.getElementById('directory')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="inline-flex min-h-11 items-center gap-2 rounded-full border border-violet-400/20 bg-violet-400/10 px-3 py-2 text-xs font-bold text-violet-200 hover:bg-violet-400/20">
+              <TrendingUp className="h-3.5 w-3.5" /> Grow revenue
+            </button>'''
+    addition = marker + '''
+            <a href="/best/fillout-form-builder.html" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-2 text-xs font-bold text-amber-200 hover:bg-amber-400/20">
+              <CreditCard className="h-3.5 w-3.5" /> Capture leads & payments
+            </a>'''
+    if marker not in text:
+        raise SystemExit("Revenue outcome row changed; refusing unsafe Fillout home-link patch")
+    text = text.replace(marker, addition, 1)
+
 # 3) Remove vanity-count block from the hero. It consumes prime space without helping a buyer decide.
 stats_block = re.compile(
     r'''\n\s*<div className="mx-auto mt-10 grid max-w-4xl grid-cols-3 gap-3 rounded-2xl border border-white/10 bg-white/\[0\.03\] p-3 sm:p-4">.*?\n\s*</div>\n\s*</header>''',
@@ -50,4 +66,4 @@ if count != 1 and "Tool profiles" in text:
     raise SystemExit("Hero stats block changed; refusing unsafe revenue-hook patch")
 
 app.write_text(text, encoding="utf-8")
-print("Revenue-first homepage hook applied: outcome buttons added and vanity stats removed")
+print("Revenue-first homepage hook applied: outcome buttons added, Fillout lead-capture path linked, vanity stats removed")
