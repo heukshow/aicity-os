@@ -15,8 +15,44 @@ for (const item of statusHotfixes) {
   browserFollowups.set(item.id, {...item, evidence_path: hotfixEvidencePath});
 }
 
+// Newer authenticated Dub dashboard checks supersede the original submission snapshots.
+// These exact path-based URLs are customer-facing tracking links, not portal/application URLs.
+const approvalFollowups = [
+  {
+    id: 'fillout',
+    status: 'approved_tracking',
+    affiliate_url: 'https://try.fillout.com/sang-kwon-an-hxwn',
+    status_origin: 'authenticated_portal_issued_tracking',
+    portal_enrollment_confirmed: true,
+    customer_landing_verified: true,
+    checked_at: '2026-09-08T14:00:00+09:00',
+    workflow_url: 'https://partners.dub.co/programs/fillout',
+    official_program_url: 'https://www.fillout.com/affiliate-program',
+    evidence: 'Authenticated Dub partner dashboard shows Fillout Approved/Enrolled and issues the exact customer-facing link https://try.fillout.com/sang-kwon-an-hxwn. No reapplication was made and no referral, sale, commission, or revenue is inferred.',
+    next_action: 'Preserve the issued exact customer-facing link; do not reapply. Keep customer signups, commissions and revenue at 0 without new evidence.',
+    evidence_path: 'data/fillout-affiliate-enrollment-evidence-2026-09-08.md',
+    application_state: 'submitted',
+  },
+  {
+    id: 'krater',
+    status: 'approved_tracking',
+    affiliate_url: 'https://go.krater.ai/sang-kwon-an',
+    status_origin: 'authenticated_portal_issued_tracking',
+    portal_enrollment_confirmed: true,
+    customer_landing_verified: true,
+    checked_at: '2026-09-08T14:00:00+09:00',
+    workflow_url: 'https://partners.dub.co/programs/kraterai',
+    official_program_url: 'https://krater.ai/',
+    evidence: 'Authenticated Dub partner dashboard shows Krater Approved/Enrolled and issues the exact customer-facing link https://go.krater.ai/sang-kwon-an. The Dub partner-application URL is not treated as a customer tracking link. No reapplication was made and no referral, sale, commission, or revenue is inferred.',
+    next_action: 'Preserve the issued exact customer-facing link; do not reapply. Keep customer signups, commissions and revenue at 0 without new evidence.',
+    evidence_path: 'data/krater-affiliate-enrollment-evidence-2026-09-08.md',
+    application_state: 'submitted',
+  },
+];
+for (const item of approvalFollowups) browserFollowups.set(item.id, item);
+
 // Keep duplicate-prevention state and browser queue aligned with newer vendor decisions.
-// Only the small explicit hotfix file is allowed to mutate these operational records here.
+// Only explicit evidence-backed follow-ups are allowed to mutate these operational records here.
 function syncStatusHotfixes() {
   const stateUrl = new URL('../data/affiliate_outreach_state.json', import.meta.url);
   const state = JSON.parse(fs.readFileSync(stateUrl, 'utf8'));
@@ -36,6 +72,20 @@ function syncStatusHotfixes() {
     });
     stateChanged = true;
   }
+  for (const item of approvalFollowups) {
+    const current = state.programs?.[item.id];
+    if (!current) continue;
+    Object.assign(current, {
+      status: item.status,
+      tracking_url: item.affiliate_url,
+      application_state: item.application_state || current.application_state,
+      next_action: item.next_action,
+      do_not_reapply: true,
+      checked_at: item.checked_at,
+      evidence: item.evidence,
+    });
+    stateChanged = true;
+  }
   if (stateChanged) fs.writeFileSync(stateUrl, `${JSON.stringify(state, null, 2)}\n`);
 
   const queueUrl = new URL('../data/browser_required_queue.json', import.meta.url);
@@ -47,6 +97,18 @@ function syncStatusHotfixes() {
         status: 'resolved',
         affiliate_status: item.status,
         exact_tracking_url: null,
+        blocker: null,
+        next_action: item.next_action,
+      });
+      queueChanged = true;
+    }
+  }
+  for (const item of approvalFollowups) {
+    for (const entry of queue.filter(entry => entry.tool_id === item.id)) {
+      Object.assign(entry, {
+        status: 'resolved',
+        affiliate_status: item.status,
+        exact_tracking_url: item.affiliate_url,
         blocker: null,
         next_action: item.next_action,
       });
@@ -75,10 +137,14 @@ export function applyBrowserFollowup(tool) {
     const accountPath = item.id === 'eprofessor' &&
       item.customer_tracking_kind === 'account_specific_referral_path' &&
       url.hostname === 'eprofessor.com' && /^\/invite\/[a-z0-9-]+$/i.test(url.pathname);
+    const approvedPath = (
+      (item.id === 'fillout' && url.hostname === 'try.fillout.com') ||
+      (item.id === 'krater' && url.hostname === 'go.krater.ai')
+    ) && /^\/[a-z0-9-]+$/i.test(url.pathname);
     const issued = (item.status_origin === 'authenticated_portal_issued_tracking' || emailIssued) &&
       item.portal_enrollment_confirmed === true && item.customer_landing_verified === true &&
       approvedTracking.get(item.id)?.exact_tracking_url === item.affiliate_url &&
-      (accountPath || [...url.searchParams.values()].some(value => value.trim()));
+      (accountPath || approvedPath || [...url.searchParams.values()].some(value => value.trim()));
     if (url.protocol !== 'https:' || (!existing && !issued)) {
       throw new Error(`Missing exact existing referral evidence: ${item.id}`);
     }
