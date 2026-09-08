@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T22:30:57.638Z",
+  "generated_at": "2026-09-08T22:34:04.686Z",
   "status": "live_google_connected",
   "connections": {
     "ga4": "연결됨 · property 552233666",
@@ -209,13 +209,21 @@
   "affiliate_links": [
     {
       "name": "알 수 없음",
-      "value": 5,
-      "note": "링크 텍스트: 알 수 없음"
+      "value": 1,
+      "date": "20260906",
+      "note": "날짜 20260906 · 링크 텍스트: 알 수 없음"
     },
     {
       "name": "https://pictory.ai/?fpr=sangkwon-an23",
       "value": 1,
-      "note": "링크 텍스트: Use COSHUMA20 at Pictory →"
+      "date": "20260906",
+      "note": "날짜 20260906 · 링크 텍스트: Use COSHUMA20 at Pictory →"
+    },
+    {
+      "name": "알 수 없음",
+      "value": 4,
+      "date": "20260901",
+      "note": "날짜 20260901 · 링크 텍스트: 알 수 없음"
     }
   ],
   "top_queries": [
@@ -443,9 +451,9 @@
     },
     {
       "label": "제휴 목적지 분석",
-      "value": "2",
+      "value": "3",
       "period": "최근 30일",
-      "source": "GA4 linkUrl/linkText"
+      "source": "GA4 linkUrl/linkText/date"
     },
     {
       "label": "데이터 생성 방식",
