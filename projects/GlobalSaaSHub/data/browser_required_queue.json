@@ -188,15 +188,15 @@
   {
     "id": "fillout-browser-followup-20260908",
     "priority": "medium",
-    "status": "application_submitted",
+    "status": "approved_tracking",
     "cost": "0",
-    "verified_at": "2026-09-07T17:19:00Z",
-    "reason": "User explicitly authorized acceptance of the prepared Fillout Program Terms. Existing form preserved, checkbox selected and Continue clicked once. Step 2 of 2 shows Application submitted / submitted for review. Notification address shown by existing Dub account is qmfforfhem@gmail.com. Application ID pga_1M1YE0ANQP8BPWPGEW2BENNGR. Promotional dashboard illustration is not actual earnings or a personal referral link.",
-    "next_action": "Await decision; do not reapply.",
-    "exact_tracking_url": null,
+    "verified_at": "2026-09-08T14:00:00+09:00",
+    "reason": "User explicitly authorized acceptance of the prepared Fillout Program Terms. Existing form preserved, checkbox selected and Continue clicked once. Step 2 of 2 shows Application submitted / submitted for review. Notification address shown by existing Dub account is qmfforfhem@gmail.com. Application ID pga_1M1YE0ANQP8BPWPGEW2BENNGR. Promotional dashboard illustration is not actual earnings or a personal referral link. Follow-up: authenticated Dub partner dashboard at partners.dub.co/programs/fillout now shows Approved/Enrolled with issued exact customer-facing tracking link try.fillout.com/sang-kwon-an-hxwn.",
+    "next_action": "Preserve the issued exact customer-facing link; do not reapply.",
+    "exact_tracking_url": "https://try.fillout.com/sang-kwon-an-hxwn",
     "blocker": null,
-    "execution_evidence": "affiliate-browser-results-2026-09-08.json",
-    "affiliate_status": "application_submitted"
+    "execution_evidence": "data/fillout-affiliate-enrollment-evidence-2026-09-08.md",
+    "affiliate_status": "approved_tracking"
   },
   {
     "id": "time2book-browser-followup-20260908",
@@ -602,13 +602,13 @@
     "tool_id": "krater",
     "priority": "high",
     "status": "resolved",
-    "affiliate_status": "application_submitted",
-    "exact_tracking_url": null,
+    "affiliate_status": "approved_tracking",
+    "exact_tracking_url": "https://go.krater.ai/sang-kwon-an",
     "cost": "0",
-    "verified_at": "2026-09-07T21:21:56.008052+00:00",
-    "reason": "Authenticated Chrome: after a pre-application company Gmail in:anywhere search found no matching messages, the Dub application was submitted once with COSHUMA, support@coshuma.com, https://coshuma.com and factual buyer-guide promotion text. Program terms accepted under explicit user authorization. Step 2 of 2 displayed Application submitted and stated the review update will be sent to support@coshuma.com. The decorative dashboard illustration on this success page is not real account revenue or an issued referral link. No approval or exact tracking URL was issued.",
-    "next_action": "Await the existing Krater application review in Dub; do not reapply. Only publish an issued exact customer-facing link after approval evidence.",
-    "evidence_file": "data/affiliate-submission-batch-2026-09-08.json"
+    "verified_at": "2026-09-08T14:00:00+09:00",
+    "reason": "Authenticated Chrome: after a pre-application company Gmail in:anywhere search found no matching messages, the Dub application was submitted once with COSHUMA, support@coshuma.com, https://coshuma.com and factual buyer-guide promotion text. Program terms accepted under explicit user authorization. Step 2 of 2 displayed Application submitted and stated the review update will be sent to support@coshuma.com. The decorative dashboard illustration on this success page is not real account revenue or an issued referral link. No approval or exact tracking URL was issued. Follow-up: authenticated Dub partner dashboard at partners.dub.co/programs/kraterai now shows Approved/Enrolled with issued exact customer-facing tracking link go.krater.ai/sang-kwon-an.",
+    "next_action": "Preserve the issued exact customer-facing link; do not reapply.",
+    "evidence_file": "data/krater-affiliate-enrollment-evidence-2026-09-08.md"
   },
   {
     "id": "eprofessor-affiliate-batch-20260908",
