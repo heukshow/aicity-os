@@ -26,7 +26,7 @@ const empty = (status, reason) => ({
     verified_revenue_note: '검증된 파트너/PayPal 수익 통합 미연결'
   },
   ranges: Object.fromEntries(['today','7d','30d','90d'].map(k => [k, { users:null, sessions:null, views:null, affiliate_clicks:null, search_impressions:null, search_clicks:null, verified_revenue:null }])),
-  top_sources: [], top_pages: [], top_queries: [], affiliate_pages: [], search_pages: [],
+  top_sources: [], top_pages: [], top_queries: [], affiliate_pages: [], affiliate_links: [], search_pages: [],
   snapshot: [
     { label:'GA4 Property ID', value:propertyId || '미설정', period:'현재 실행', source:'GitHub Actions env / fallback' },
     { label:'Search Console site', value:siteUrl || '미설정', period:'현재 실행', source:'GitHub Actions env / fallback' },
@@ -84,12 +84,14 @@ try {
   const ga = `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}`;
   const gsc = `https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(siteUrl)}/searchAnalytics/query`;
   const rangeReq = start => ({dateRanges:[{startDate:start,endDate:'today'}],metrics:[{name:'activeUsers'},{name:'sessions'},{name:'screenPageViews'}]});
-  const [kpis,sources,pages,aff30,affPages,gsc90,gscQueries,gscPages,gsc30,gsc7,gscToday] = await Promise.all([
+  const affiliateEventFilter = {filter:{fieldName:'eventName',stringFilter:{matchType:'EXACT',value:'affiliate_click'}}};
+  const [kpis,sources,pages,aff30,affPages,affLinks,gsc90,gscQueries,gscPages,gsc30,gsc7,gscToday] = await Promise.all([
     post(`${ga}:batchRunReports`,access,{requests:[rangeReq('today'),rangeReq('7daysAgo'),rangeReq('30daysAgo'),rangeReq('90daysAgo')]}),
     post(`${ga}:runReport`,access,{dateRanges:[{startDate:'30daysAgo',endDate:'today'}],dimensions:[{name:'sessionSource'}],metrics:[{name:'activeUsers'},{name:'sessions'}],orderBys:[{metric:{metricName:'activeUsers'},desc:true}],limit:15}),
     post(`${ga}:runReport`,access,{dateRanges:[{startDate:'30daysAgo',endDate:'today'}],dimensions:[{name:'pagePath'}],metrics:[{name:'screenPageViews'},{name:'activeUsers'}],orderBys:[{metric:{metricName:'screenPageViews'},desc:true}],limit:20}),
-    post(`${ga}:runReport`,access,{dateRanges:[{startDate:'30daysAgo',endDate:'today'}],dimensions:[{name:'eventName'}],metrics:[{name:'eventCount'}],dimensionFilter:{filter:{fieldName:'eventName',stringFilter:{matchType:'EXACT',value:'affiliate_click'}}}}),
-    post(`${ga}:runReport`,access,{dateRanges:[{startDate:'30daysAgo',endDate:'today'}],dimensions:[{name:'pagePath'}],metrics:[{name:'eventCount'}],dimensionFilter:{filter:{fieldName:'eventName',stringFilter:{matchType:'EXACT',value:'affiliate_click'}}},orderBys:[{metric:{metricName:'eventCount'},desc:true}],limit:20}),
+    post(`${ga}:runReport`,access,{dateRanges:[{startDate:'30daysAgo',endDate:'today'}],dimensions:[{name:'eventName'}],metrics:[{name:'eventCount'}],dimensionFilter:affiliateEventFilter}),
+    post(`${ga}:runReport`,access,{dateRanges:[{startDate:'30daysAgo',endDate:'today'}],dimensions:[{name:'pagePath'}],metrics:[{name:'eventCount'}],dimensionFilter:affiliateEventFilter,orderBys:[{metric:{metricName:'eventCount'},desc:true}],limit:20}),
+    post(`${ga}:runReport`,access,{dateRanges:[{startDate:'30daysAgo',endDate:'today'}],dimensions:[{name:'linkUrl'},{name:'linkText'}],metrics:[{name:'eventCount'}],dimensionFilter:affiliateEventFilter,orderBys:[{metric:{metricName:'eventCount'},desc:true}],limit:50}),
     post(gsc,access,{startDate:ago(89),endDate:yesterday,rowLimit:1}),
     post(gsc,access,{startDate:ago(89),endDate:yesterday,dimensions:['query'],rowLimit:250}),
     post(gsc,access,{startDate:ago(89),endDate:yesterday,dimensions:['page'],rowLimit:250}),
@@ -113,12 +115,14 @@ try {
     top_sources:(sources.rows||[]).map(x=>({name:dim(x),value:metric(x,0),note:`세션 ${metric(x,1)}`})),
     top_pages:(pages.rows||[]).map(x=>({name:dim(x),value:metric(x,0),note:`사용자 ${metric(x,1)}`})),
     affiliate_pages:(affPages.rows||[]).map(x=>({name:dim(x),value:metric(x,0),note:'제휴 클릭'})),
+    affiliate_links:(affLinks.rows||[]).map(x=>({name:dim(x,0),value:metric(x,0),note:`링크 텍스트: ${dim(x,1)}`})),
     top_queries:(gscQueries.rows||[]).sort((a,b)=>(b.impressions||0)-(a.impressions||0)).slice(0,20).map(x=>({name:x.keys?.[0]||'알 수 없음',value:Math.round(x.impressions||0),note:`클릭 ${Math.round(x.clicks||0)} · CTR ${(Number(x.ctr||0)*100).toFixed(1)}% · 순위 ${Number(x.position||0).toFixed(1)}`})),
     search_pages:(gscPages.rows||[]).sort((a,b)=>(b.impressions||0)-(a.impressions||0)).slice(0,20).map(x=>({name:x.keys?.[0]||'알 수 없음',value:Math.round(x.impressions||0),note:`클릭 ${Math.round(x.clicks||0)} · CTR ${(Number(x.ctr||0)*100).toFixed(1)}%`})),
     snapshot:[
       {label:'GA4 Property ID',value:propertyId,period:'현재 실행',source:'Google Analytics Data API'},
       {label:'Search Console site',value:siteUrl,period:`${ago(89)} ~ ${yesterday}`,source:'Search Console API'},
       {label:'30일 제휴 클릭',value:String(click30),period:'최근 30일',source:'GA4 affiliate_click'},
+      {label:'제휴 목적지 분석',value:String((affLinks.rows||[]).length),period:'최근 30일',source:'GA4 linkUrl/linkText'},
       {label:'데이터 생성 방식',value:'GitHub Actions 서버측 실집계',period:'현재',source:'scripts/generate_live_dashboard_data.mjs'}
     ]
   };
