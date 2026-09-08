@@ -11,20 +11,24 @@
 - Official creator support address: `creators@framer.com`
 - Framer account activation email received at `support@coshuma.com`: Gmail message `1a07dbd51358e601`
 - COSHUMA enrollment-path email sent to `creators@framer.com`: Gmail message `1a07dc29ac469c2d`
+- Human reply from Framer Creator Team received at `support@coshuma.com`: Gmail message `1a07fe5188ae7190`, 2026-09-08 16:21 KST.
+- Framer Creator Team explicitly provided this application route: `https://www.framer.com/community/creator/?settings=open&settingsTab=links`
 
 ## Verified program facts
 
-Framer's current official Creator Program documentation says manual applications are available, approved creators receive referral links in the Links tab, and referral tracking is handled by Dub. Framer's current creator page advertises referral commissions up to 50%, while the help documentation explains that eligible referrals can earn commissions after enrollment. Program terms can change, so customer-facing claims must be rechecked before publication.
+Framer's current official Creator Program documentation says manual applications are available from the Links tab in Community profile settings. Approved/enrolled creators receive account-specific referral links there; Framer uses Dub for referral tracking and payouts. Framer's current creator page advertises referral commissions up to 50%, and the current official help says primary affiliate links can point to Framer destinations and track new users who later purchase eligible subscriptions. Program terms can change, so customer-facing claims must be rechecked before publication.
 
 ## Decision
 
 - `affiliate_url`: `null`
-- `affiliate_status`: `outreach_sent`
+- `affiliate_status`: `browser_required_application`
 - `cost`: `0`
+- Prior blocker "official route may be wrong" is resolved by the direct human reply from `creators@framer.com`.
+- Application is **not yet submitted** and approval is **not** confirmed.
 - Do not treat the Framer homepage, account activation URL, Community profile, Creator page, Links tab, or Dub dashboard as a customer affiliate/revenue URL.
-- Do not send another enrollment request while this outreach is unanswered.
-- Do not claim clicks, sign-ups, commissions, or revenue from the account activation or outreach email.
+- Do not send another enrollment request or create another Framer account.
+- Do not claim clicks, sign-ups, commissions, or revenue from account activation, support email, or opening the application route.
 
 ## Next action
 
-Wait for Framer Creator Team's reply. If they enable a manual application or the Links tab, authenticated browser UI may be required to submit the application or copy the issued account-specific referral URL. Only after an exact customer-facing Framer referral URL is issued and independently verified should COSHUMA set `approved_tracking` and replace eligible revenue CTAs.
+Use the existing `support@coshuma.com` Framer account and open the exact Creator Team-provided route. Submit the free manual Creator Program application once if the form is available. If the final submit requires accepting new legal/program terms, stop before that consent and request user intervention per COSHUMA operating rules. After approval, recover the exact account-specific customer referral URL from the Links tab/Dub and independently verify the customer landing before setting `approved_tracking` or changing revenue CTAs.
