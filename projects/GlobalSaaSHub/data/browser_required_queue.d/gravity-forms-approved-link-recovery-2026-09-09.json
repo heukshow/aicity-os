@@ -1,0 +1,20 @@
+{
+  "id": "gravity-forms-approved-link-recovery-2026-09-09",
+  "tool_id": "gravity-forms",
+  "priority": "high",
+  "status": "approved_account_tracking_url_required",
+  "affiliate_status": "approved_account",
+  "cost": 0,
+  "verified_at": "2026-09-08T20:48:27Z",
+  "gmail_message_id": "1a082c784399b2c3",
+  "gmail_thread_id": "1a082c784399b2c3",
+  "reason": "Gravity Affiliate explicitly welcomed COSHUMA to the program. The message states a 30-day attribution window and 20% commission on a qualifying sale, but it does not contain an exact customer-facing affiliate URL. The visible links in the email are SendGrid-tracked PartnerStack login/help/notification routes, not customer revenue links.",
+  "exact_tracking_url": null,
+  "next_action": "Reuse the existing authenticated Gravity/PartnerStack account in the COSHUMA Work browser when available. Open the approved program dashboard and copy the exact customer-facing affiliate/referral link issued to COSHUMA. Verify the destination and tracking parameter before updating any public CTA.",
+  "do_not": [
+    "Do not submit another Gravity affiliate application; the welcome email verifies program acceptance.",
+    "Do not use the SendGrid email redirect, PartnerStack login/dashboard, getting-started guide, notification page, or generic gravityforms.com homepage as the affiliate/revenue URL.",
+    "Do not guess or construct a referral parameter.",
+    "Do not infer clicks, sales, conversions, commissions, or revenue from approval alone."
+  ]
+}
