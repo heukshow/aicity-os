@@ -10,7 +10,7 @@
     "check:home-cards": "python scripts/simplify_home_tool_cards.py",
     "check:mobile-home": "python scripts/fix_search_focus_scroll.py && python scripts/simplify_home_tool_cards.py && python scripts/improve_mobile_home_ux.py",
     "check:mobile-touch": "python scripts/fix_search_focus_scroll.py && python scripts/simplify_home_tool_cards.py && python scripts/improve_mobile_home_ux.py && echo mobile-touch-targets-44px-v3",
-    "check:revenue-home": "python scripts/fix_search_focus_scroll.py && python scripts/simplify_home_tool_cards.py && python scripts/improve_mobile_home_ux.py && python scripts/apply_revenue_first_home_hook.py && echo revenue-home-v3",
+    "check:revenue-home": "python scripts/fix_search_focus_scroll.py && python scripts/simplify_home_tool_cards.py && python scripts/improve_mobile_home_ux.py && python scripts/apply_revenue_first_home_hook.py && echo revenue-home-v4",
     "test:links": "python scripts/tests/test_link_integrity.py",
     "test:revenue-seo": "python scripts/tests/test_revenue_seo.py dist && node scripts/verify_approved_tracking.mjs",
     "test:category": "python scripts/refine_category_relevance.py",
