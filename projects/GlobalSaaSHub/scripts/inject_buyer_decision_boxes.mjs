@@ -55,6 +55,24 @@ const bespoke = new Map([
     pricing:'Paid plans start at $40/month on monthly billing; see the detailed table below.', freePlan:'$0 plan with 50 message credits per month.',
     trial:'7-day trials listed for Hobby, Standard and Pro; confirm checkout terms.',
     risk:'Free-plan agents are deleted after 14 inactive days. Add-ons can increase total cost.', source:'https://www.chatbase.co/pricing'
+  }],
+  ['gamma', {
+    best:['Buyers who want fast AI-assisted presentations and visual drafts','Users who want to test a real workflow on a no-card Free plan before paying'],
+    not:['Teams that require pixel-level manual slide control from the start','Buyers who need API access but are not prepared for a Pro-tier requirement'],
+    why:['Free currently supports up to 10 slides per prompt','Import PDF and PPTX source material','Export to PDF, PPTX, PNG and Google Slides before deciding whether to upgrade'],
+    pricing:'A Free plan is available; Plus, Pro and Ultra add higher limits and paid-only capabilities. Check live pricing before purchase.',
+    freePlan:'Free is currently available with no credit card required and up to 10 slides per prompt.',
+    trial:'Gamma currently documents a no-card Free plan rather than a time-limited free trial on its pricing page.',
+    risk:'Paid-plan prices and workspace terms can change. API access is listed on Pro and above.', source:'https://gamma.app/pricing'
+  }],
+  ['kittl', {
+    best:['Creators who want to learn Kittl before paying','Personal projects that can start with low-resolution PNG or JPG exports'],
+    not:['Client or commercial work that requires commercial-use rights','Buyers who need high-resolution or vector exports on the free tier'],
+    why:['Free is documented as free forever with no expiry','Start with curated design assets and 200 AI tokens','Use up to 5 projects and 500MB storage before deciding whether paid features are necessary'],
+    pricing:'A Free plan is available; paid plans unlock commercial use, higher-resolution/vector exports, premium content and higher limits.',
+    freePlan:'Free is documented as free forever with 5 projects, 500MB storage, 200 AI tokens and low-resolution PNG/JPG exports for personal use.',
+    trial:'Kittl says the Free plan has no trial period and no expiry; it is a persistent free tier rather than a timed trial.',
+    risk:'Free-tier designs are for personal use only, and vector/high-resolution exports require a paid plan.', source:'https://help.kittl.com/subscription-billing/about-free-plan/'
   }]
 ]);
 
