@@ -15,24 +15,9 @@ for (const item of statusHotfixes) {
   browserFollowups.set(item.id, {...item, evidence_path: hotfixEvidencePath});
 }
 
-// Newer authenticated Dub dashboard checks supersede the original submission snapshots.
-// These exact path-based URLs are customer-facing tracking links, not portal/application URLs.
+// Newer authenticated Dub dashboard check supersedes the original Krater submission snapshot.
+// This exact path-based URL is customer-facing tracking, not a portal/application URL.
 const approvalFollowups = [
-  {
-    id: 'fillout',
-    status: 'approved_tracking',
-    affiliate_url: 'https://try.fillout.com/sang-kwon-an-hxwn',
-    status_origin: 'authenticated_portal_issued_tracking',
-    portal_enrollment_confirmed: true,
-    customer_landing_verified: true,
-    checked_at: '2026-09-08T14:00:00+09:00',
-    workflow_url: 'https://partners.dub.co/programs/fillout',
-    official_program_url: 'https://www.fillout.com/affiliate-program',
-    evidence: 'Authenticated Dub partner dashboard shows Fillout Approved/Enrolled and issues the exact customer-facing link https://try.fillout.com/sang-kwon-an-hxwn. No reapplication was made and no referral, sale, commission, or revenue is inferred.',
-    next_action: 'Preserve the issued exact customer-facing link; do not reapply. Keep customer signups, commissions and revenue at 0 without new evidence.',
-    evidence_path: 'data/fillout-affiliate-enrollment-evidence-2026-09-08.md',
-    application_state: 'submitted',
-  },
   {
     id: 'krater',
     status: 'approved_tracking',
@@ -50,6 +35,20 @@ const approvalFollowups = [
   },
 ];
 for (const item of approvalFollowups) browserFollowups.set(item.id, item);
+
+// Fillout approval is valid operational evidence, but Fillout is not yet in the public tool catalog.
+// Keep its duplicate-prevention state current without forcing catalog/tool-page verification.
+const operationalApprovals = [
+  {
+    id: 'fillout',
+    status: 'approved_tracking',
+    affiliate_url: 'https://try.fillout.com/sang-kwon-an-hxwn',
+    checked_at: '2026-09-08T14:00:00+09:00',
+    evidence: 'Authenticated Dub partner dashboard shows Fillout Approved/Enrolled and issues the exact customer-facing link https://try.fillout.com/sang-kwon-an-hxwn. No reapplication was made and no referral, sale, commission, or revenue is inferred.',
+    next_action: 'Preserve the issued exact customer-facing link; do not reapply. Add a public catalog entry separately before treating this as a site CTA.',
+    application_state: 'submitted',
+  },
+];
 
 // Keep duplicate-prevention state and browser queue aligned with newer vendor decisions.
 // Only explicit evidence-backed follow-ups are allowed to mutate these operational records here.
@@ -72,7 +71,7 @@ function syncStatusHotfixes() {
     });
     stateChanged = true;
   }
-  for (const item of approvalFollowups) {
+  for (const item of [...approvalFollowups, ...operationalApprovals]) {
     const current = state.programs?.[item.id];
     if (!current) continue;
     Object.assign(current, {
@@ -103,7 +102,7 @@ function syncStatusHotfixes() {
       queueChanged = true;
     }
   }
-  for (const item of approvalFollowups) {
+  for (const item of [...approvalFollowups, ...operationalApprovals]) {
     for (const entry of queue.filter(entry => entry.tool_id === item.id)) {
       Object.assign(entry, {
         status: 'resolved',
@@ -137,10 +136,8 @@ export function applyBrowserFollowup(tool) {
     const accountPath = item.id === 'eprofessor' &&
       item.customer_tracking_kind === 'account_specific_referral_path' &&
       url.hostname === 'eprofessor.com' && /^\/invite\/[a-z0-9-]+$/i.test(url.pathname);
-    const approvedPath = (
-      (item.id === 'fillout' && url.hostname === 'try.fillout.com') ||
-      (item.id === 'krater' && url.hostname === 'go.krater.ai')
-    ) && /^\/[a-z0-9-]+$/i.test(url.pathname);
+    const approvedPath = item.id === 'krater' &&
+      url.hostname === 'go.krater.ai' && /^\/[a-z0-9-]+$/i.test(url.pathname);
     const issued = (item.status_origin === 'authenticated_portal_issued_tracking' || emailIssued) &&
       item.portal_enrollment_confirmed === true && item.customer_landing_verified === true &&
       approvedTracking.get(item.id)?.exact_tracking_url === item.affiliate_url &&
