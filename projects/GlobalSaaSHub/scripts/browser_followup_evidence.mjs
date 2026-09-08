@@ -50,6 +50,9 @@ const operationalApprovals = [
   },
 ];
 
+const queueMatches = (entry, id) =>
+  entry.tool_id === id || entry.id === id || (typeof entry.id === 'string' && entry.id.startsWith(`${id}-`));
+
 // Keep duplicate-prevention state and browser queue aligned with newer vendor decisions.
 // Only explicit evidence-backed follow-ups are allowed to mutate these operational records here.
 function syncStatusHotfixes() {
@@ -91,7 +94,7 @@ function syncStatusHotfixes() {
   const queue = JSON.parse(fs.readFileSync(queueUrl, 'utf8'));
   let queueChanged = false;
   for (const item of statusHotfixes) {
-    for (const entry of queue.filter(entry => entry.tool_id === item.id)) {
+    for (const entry of queue.filter(entry => queueMatches(entry, item.id))) {
       Object.assign(entry, {
         status: 'resolved',
         affiliate_status: item.status,
@@ -103,7 +106,7 @@ function syncStatusHotfixes() {
     }
   }
   for (const item of [...approvalFollowups, ...operationalApprovals]) {
-    for (const entry of queue.filter(entry => entry.tool_id === item.id)) {
+    for (const entry of queue.filter(entry => queueMatches(entry, item.id))) {
       Object.assign(entry, {
         status: 'resolved',
         affiliate_status: item.status,
