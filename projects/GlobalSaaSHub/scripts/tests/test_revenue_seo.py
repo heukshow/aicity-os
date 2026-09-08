@@ -75,7 +75,17 @@ for path in PAGES:
     if path.startswith("compare/"):
         assert "/tool/" + path.split("/")[1].split("-vs-")[0] + ".html" in page.links
     if path == "tool/tagshop-ai.html":
-        assert "data-cta=\"affiliate\"" not in text
+        if source == "public":
+            # Source remains vendor-neutral; the build monetizer applies only authoritative approved links.
+            assert "data-cta=\"affiliate\"" not in text
+        else:
+            tagshop_url = "https://tagshop.ai?via=coshuma-22501e"
+            assert tagshop_url in text
+            assert "data-cta=\"affiliate\"" in text
+            assert "data-tool-id=\"tagshop-ai\"" in text
+            assert "/affiliate-attribution.js" in text
+            assert "affiliate disclosure" in text.lower()
+            assert "href=\"https://tagshop.firstpromoter.com/login\"" not in text
         assert "UGC-style video ads" in page.meta["description"][0]
         assert "Discover features, pricing (" not in page.meta["description"][0]
         assert not re.search(r"[$€£]\s*\d", page.meta["description"][0])
