@@ -1,9 +1,10 @@
 """Apply conservative CTR-oriented SEO patches backed by live Search Console data.
 
 The 2026-09-08 live snapshot showed substantial impressions but zero search clicks
-for Brand24 and Moosend tool pages. Query data specifically included Brand24
-review/pricing variants and "moosend review". Keep this script exact-match and
-idempotent so it cannot rewrite unrelated pages or invent unverified offers.
+for Brand24, Moosend and Unbounce tool pages. Query data specifically included
+Brand24 review/pricing variants and "moosend review"; Unbounce had the highest
+zero-click page impressions among verified revenue-ready pages. Keep this script
+exact-match and idempotent so it cannot rewrite unrelated pages or invent offers.
 """
 from pathlib import Path
 
@@ -36,11 +37,33 @@ PATCHES = {
         ),
         (
             '<meta name="description" content="Moosend pricing and review for 2026: 30-day no-card trial, Pro, Moosend+ and Enterprise plans, email credits, automation features, and a verified COSHUMA affiliate link." />',
-            '<meta name="description" content="Moosend review and pricing for 2026: 30-day no-card trial, Pro, Moosend+ and Enterprise plans, email credits, automation features, and COSHUMA’s verified affiliate link." />',
+            '<meta name="description" content="Moosend review and pricing for 2026: 30-day no-card trial, Pro, Moosend+ and Enterprise plans, email credits, automation features, and COSHUMA\'s verified affiliate link." />',
         ),
         (
             '<meta property="og:title" content="Moosend Pricing 2026: 30-Day Trial, Plans & Review | COSHUMA" />',
             '<meta property="og:title" content="Moosend Review & Pricing 2026: 30-Day Free Trial & Plans | COSHUMA" />',
+        ),
+    ],
+    "unbounce.html": [
+        (
+            "<title>Unbounce Pricing 2026: $29 Starter + 20%/35% Partner Discount | COSHUMA</title>",
+            "<title>Unbounce Review & Pricing 2026: 14-Day Free Trial, $29 Starter + 20%/35% Discount | COSHUMA</title>",
+        ),
+        (
+            '<meta name="description" content="Unbounce pricing starts at $29/month. Compare current plans, the 14-day no-card trial, and COSHUMA\'s verified offer: 20% off 3 months or 35% off the first annual subscription." />',
+            '<meta name="description" content="Unbounce review and pricing for 2026: Starter $29/mo, 14-day free trial with no credit card, current plan limits, and COSHUMA\'s verified 20%/35% partner discount." />',
+        ),
+        (
+            '<meta property="og:title" content="Unbounce Pricing 2026: $29 Starter + 20%/35% Partner Discount" />',
+            '<meta property="og:title" content="Unbounce Review & Pricing 2026: 14-Day Free Trial + Partner Discount" />',
+        ),
+        (
+            '<h1 class="text-4xl md:text-5xl font-black text-white mt-1">Unbounce pricing, trial & verified partner discount</h1>',
+            '<h1 class="text-4xl md:text-5xl font-black text-white mt-1">Unbounce Review, Pricing & Verified Partner Discount</h1>',
+        ),
+        (
+            '<h2 class="text-3xl font-black text-white mt-1">Unbounce plans checked September 6, 2026</h2>',
+            '<h2 class="text-3xl font-black text-white mt-1">Unbounce plans checked September 9, 2026</h2>',
         ),
     ],
 }
