@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TOOLS = ROOT / "data" / "tools.json"
-PLAYBOOKS = ROOT / "data" / "tool_value_playbooks.json"
+DATA_DIR = ROOT / "data"
 OUT = ROOT / "public" / "ops" / "tool-value-playbook-audit.json"
 
 REQUIRED_SECTIONS = ("problems", "monetization", "pairs")
@@ -16,9 +16,25 @@ def valid_url(value: object) -> bool:
     return isinstance(value, str) and value.startswith(("https://", "http://"))
 
 
+def load_playbooks() -> dict:
+    merged: dict = {}
+    files = sorted(DATA_DIR.glob("tool_value_playbooks*.json"))
+    if not files:
+        raise SystemExit("No tool value playbook data files found")
+    for path in files:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(payload, dict):
+            raise SystemExit(f"Playbook file must contain an object: {path.name}")
+        overlap = sorted(set(merged).intersection(payload))
+        if overlap:
+            raise SystemExit(f"Duplicate tool value playbook ids in {path.name}: {', '.join(overlap)}")
+        merged.update(payload)
+    return merged
+
+
 def main() -> None:
     tools = json.loads(TOOLS.read_text(encoding="utf-8"))
-    playbooks = json.loads(PLAYBOOKS.read_text(encoding="utf-8"))
+    playbooks = load_playbooks()
 
     approved = []
     missing = []
