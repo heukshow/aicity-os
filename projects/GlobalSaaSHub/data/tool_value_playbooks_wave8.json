@@ -1,0 +1,62 @@
+{
+  "dorik": {
+    "problems": [
+      "Small businesses and creators need a professional website without spending time hand-coding layouts, CMS pages, forms and hosting infrastructure.",
+      "Teams need to publish and maintain multiple pages, blog content and custom-domain sites without relying on a developer for every routine change.",
+      "Agencies need a repeatable no-code workflow for building and handing off client sites, with higher tiers offering more domains, collaborators and white-label capacity."
+    ],
+    "monetization": [
+      {"title": "Build small-business websites", "difficulty": "Beginner", "cost": "Trial/paid", "output": "Launch-ready multi-page business website with custom domain, forms and basic CMS content"},
+      {"title": "Create campaign and lead-generation landing pages", "difficulty": "Beginner", "cost": "Trial/paid", "output": "Branded landing-page package with copy, form capture and handoff documentation"},
+      {"title": "Offer repeatable client website packages", "difficulty": "Intermediate", "cost": "Paid", "output": "Reusable client-site workflow covering page creation, CMS setup, collaboration and delivery"}
+    ]
+  },
+  "fireflies-ai": {
+    "problems": [
+      "Teams lose decisions, action items and customer context when meeting notes depend on manual capture or individual memory.",
+      "Sales, support and consulting teams need searchable transcripts and summaries across repeated calls instead of reviewing recordings from scratch.",
+      "Managers need a structured way to review conversation patterns, meeting history and team activity when basic personal notes are no longer enough."
+    ],
+    "monetization": [
+      {"title": "Set up searchable meeting knowledge systems", "difficulty": "Beginner", "cost": "Free/paid", "output": "Configured meeting capture, transcription, folders and searchable call-history workflow"},
+      {"title": "Deliver call-summary and follow-up workflows", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Repeatable meeting summary, action-item and follow-up process for a client team"},
+      {"title": "Offer conversation-review operations", "difficulty": "Intermediate", "cost": "Paid", "output": "Structured call-review package using transcripts, summaries and team-level conversation insights"}
+    ]
+  },
+  "gamma": {
+    "problems": [
+      "Professionals need to turn prompts, documents or source material into presentable visual drafts without manually designing every slide or page.",
+      "Teams need consistent branded presentations, documents and shareable visual content while still being able to export common formats such as PPTX and PDF.",
+      "Consultants, marketers and operators need to repurpose the same source material into presentations, documents, websites or social-ready visual assets faster."
+    ],
+    "monetization": [
+      {"title": "Produce client presentations and pitch decks", "difficulty": "Beginner", "cost": "Free/paid", "output": "Edited presentation deck built from a client brief, source document or outline"},
+      {"title": "Create branded proposal and report packages", "difficulty": "Intermediate", "cost": "Paid", "output": "Reusable branded proposal, report or visual-document template with exported deliverables"},
+      {"title": "Offer visual content repurposing", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Source material converted into a presentation, visual document and additional shareable assets"}
+    ]
+  },
+  "taskade": {
+    "problems": [
+      "Builders and small teams need AI apps, agents, projects and automations in one workspace instead of stitching together several separate tools.",
+      "Recurring workflows need agents and scheduled automations that can continue running without someone manually triggering every step.",
+      "Businesses need hosted internal tools, portals or client-facing AI experiences that can connect to workspace data and integrations."
+    ],
+    "monetization": [
+      {"title": "Build AI workflow prototypes for clients", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Working AI app or agent prototype connected to a defined business workflow"},
+      {"title": "Create internal portals and lightweight business apps", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Hosted internal tool, dashboard or portal with documented user workflow"},
+      {"title": "Implement recurring agent automation", "difficulty": "Advanced", "cost": "Paid", "output": "Scheduled multi-step automation with agents, integrations, monitoring notes and handoff"}
+    ]
+  },
+  "relevance-ai": {
+    "problems": [
+      "Organizations need specialist AI agents for repeatable jobs rather than relying on one general-purpose assistant for every process.",
+      "Complex business processes need multiple agents, integrations and long-running workflows coordinated into a governed operating system.",
+      "Teams deploying agents need evaluations, tracing, analytics and enterprise controls so live runs can be monitored and improved instead of treated as a black box."
+    ],
+    "monetization": [
+      {"title": "Prototype specialist AI agents for business workflows", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Working specialist-agent prototype for one documented repeatable task"},
+      {"title": "Implement multi-agent business processes", "difficulty": "Advanced", "cost": "Paid", "output": "Coordinated agent workflow connected to approved business systems with handoff documentation"},
+      {"title": "Offer agent evaluation and monitoring setup", "difficulty": "Advanced", "cost": "Paid", "output": "Evaluation, tracing and monitoring framework for an existing production agent workflow"}
+    ]
+  }
+}
