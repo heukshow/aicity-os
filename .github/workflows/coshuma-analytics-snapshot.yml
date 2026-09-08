@@ -4,6 +4,11 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '17 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/coshuma-analytics-snapshot.yml'
+      - 'projects/GlobalSaaSHub/scripts/generate_live_dashboard_data.mjs'
 
 permissions:
   contents: write
