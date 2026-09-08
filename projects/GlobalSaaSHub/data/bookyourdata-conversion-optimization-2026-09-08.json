@@ -1,0 +1,50 @@
+{
+  "tool_id": "bookyourdata",
+  "observed_at": "2026-09-08T03:25:00Z",
+  "kpi_reason": "PartnerStack evidence shows 7 clicks, 0 signups, and $0 revenue, so the next no-cost action targeted conversion/search intent rather than generating more unqualified outbound clicks.",
+  "affiliate_status": "approved_tracking",
+  "verified_tracking_url": "https://join.bookyourdata.com/swcyqmumr3s5",
+  "do_not_replace_with_generic_url": true,
+  "prior_performance_evidence": "data/approved-tracking-2026-09-08.json",
+  "official_sources_checked": [
+    "https://www.bookyourdata.com/pricing",
+    "https://www.bookyourdata.com/our-guarantees",
+    "https://www.bookyourdata.com/faq",
+    "https://www.bookyourdata.com/our-data"
+  ],
+  "verified_offer_facts": {
+    "free_database_leads": 10,
+    "credit_card_required_for_free_pack": false,
+    "subscription_required": false,
+    "purchased_credits_expire": false,
+    "published_deliverability_guarantee_percent": 97,
+    "bespoke_sample_is_separate_offer": true
+  },
+  "conversion_action": {
+    "type": "high_intent_buyer_page",
+    "public_path": "/best/bookyourdata-free-trial.html",
+    "intent_cluster": [
+      "bookyourdata free trial",
+      "bookyourdata 10 free leads",
+      "bookyourdata no credit card",
+      "bookyourdata pricing"
+    ],
+    "buyer_decision_box": true,
+    "affiliate_attribution_script": true,
+    "cta_sources": [
+      "bookyourdata_free_trial_hero",
+      "bookyourdata_free_trial_bottom"
+    ],
+    "main_commit": "174cffcc1335f0e7c4e8a6c030d941b2a1e92150",
+    "deploy_run": 174,
+    "deploy_conclusion": "success",
+    "gh_pages_verified": true,
+    "sitemap_priority": "0.9"
+  },
+  "revenue_claim": {
+    "new_signup_confirmed": false,
+    "new_commission_confirmed": false,
+    "new_revenue_confirmed": false
+  },
+  "followup_rule": "Do not recreate this landing page. Re-check attribution or PartnerStack metrics later and only claim improvement when new clicks, signups, commission, or revenue are actually observed."
+}
