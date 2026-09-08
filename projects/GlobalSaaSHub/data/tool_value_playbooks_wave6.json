@@ -1,0 +1,50 @@
+{
+  "databox": {
+    "problems": [
+      "Marketing and operations data is scattered across analytics, advertising, CRM, spreadsheets and other systems, making recurring reporting slow and inconsistent.",
+      "Teams need shareable dashboards and scheduled reports without rebuilding the same KPI views manually each cycle.",
+      "Agencies need a repeatable way to package multi-source performance data into client-facing reporting."
+    ],
+    "monetization": [
+      {"title": "Build executive KPI dashboards for clients", "difficulty": "Intermediate", "cost": "Free/trial/paid", "output": "Configured KPI dashboard with selected business data sources"},
+      {"title": "Set up recurring client reporting", "difficulty": "Intermediate", "cost": "Trial/paid", "output": "Automated dashboard and recurring report package"},
+      {"title": "Offer analytics consolidation projects", "difficulty": "Advanced", "cost": "Paid", "output": "Multi-source reporting workspace with documented metrics and handoff"}
+    ]
+  },
+  "helpdesk": {
+    "problems": [
+      "Customer questions arrive through multiple channels and are difficult to assign, track and resolve consistently.",
+      "Support teams spend time manually routing repetitive tickets and recreating common responses.",
+      "A growing support operation needs shared inbox, ticketing, chat, automation, reporting and AI-assisted support in one workspace."
+    ],
+    "monetization": [
+      {"title": "Set up help-desk workspaces for small businesses", "difficulty": "Intermediate", "cost": "Trial/paid", "output": "Configured inbox, ticket routing, canned responses and basic support workflow"},
+      {"title": "Implement support automation and escalation rules", "difficulty": "Intermediate", "cost": "Trial/paid", "output": "Routing, assignment and escalation workflow package"},
+      {"title": "Offer customer-support operations setup", "difficulty": "Advanced", "cost": "Paid", "output": "Support workspace with reporting, agent roles and documented operating process"}
+    ]
+  },
+  "docsbot": {
+    "problems": [
+      "Customers repeatedly ask questions that are already answered across websites, documentation, PDFs, help-center content or internal knowledge.",
+      "Teams need an AI support agent grounded in their own sources instead of a generic chatbot that can answer without business context.",
+      "Businesses need a way to identify unanswered questions and content gaps from real conversations."
+    ],
+    "monetization": [
+      {"title": "Build documentation-grounded support bots for clients", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Configured AI support bot trained on approved client sources"},
+      {"title": "Prepare knowledge bases for AI support", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Cleaned source set, bot configuration and answer-quality test report"},
+      {"title": "Offer AI support-agent maintenance", "difficulty": "Advanced", "cost": "Paid", "output": "Recurring source updates, conversation review and content-gap report"}
+    ]
+  },
+  "clickfunnels": {
+    "problems": [
+      "A business needs landing pages, offers, checkout paths and follow-up steps but does not want to assemble each selling step from separate tools.",
+      "Campaign launches slow down when funnel pages, lead capture, email and product delivery are managed as disconnected systems.",
+      "Agencies and sellers need repeatable funnel structures that can be adapted across offers or workspaces."
+    ],
+    "monetization": [
+      {"title": "Build sales funnels for client offers", "difficulty": "Intermediate", "cost": "Trial/paid", "output": "Lead-capture or sales funnel with pages and checkout flow"},
+      {"title": "Create campaign landing and checkout packages", "difficulty": "Intermediate", "cost": "Trial/paid", "output": "Launch-ready landing page, offer page and checkout sequence"},
+      {"title": "Offer funnel migration and rebuild services", "difficulty": "Advanced", "cost": "Paid", "output": "Rebuilt funnel structure with documented pages, offers and handoff"}
+    ]
+  }
+}
