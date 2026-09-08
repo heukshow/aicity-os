@@ -14,15 +14,15 @@ PATCHES = {
     "brand24.html": [
         (
             "<title>Brand24 Pricing 2026: $249/mo, 14-Day Free Trial & AI Visibility | COSHUMA</title>",
-            "<title>Brand24 Review & Pricing 2026: 14-Day Free Trial + AI Visibility | COSHUMA</title>",
+            "<title>Brand24 Review & Pricing 2026: 14-Day Free Trial, $249/mo Plans & AI Visibility | COSHUMA</title>",
         ),
         (
             '<meta name="description" content="Brand24 pricing starts at $249/mo ($199/mo billed annually). See the 14-day free trial, AI social listening features, $99 AI Visibility add-on, plan limits, and verified COSHUMA partner link." />',
-            '<meta name="description" content="Brand24 review and pricing for 2026: plans from $249/mo, a 14-day no-card trial, AI social listening, AI Visibility, plan limits, and COSHUMA’s verified partner link." />',
+            '<meta name="description" content="Brand24 review and pricing for 2026: plans start at $249/mo ($199/mo billed annually), with a 14-day free trial and no credit card. Compare limits, AI Visibility, who it fits, and try it through COSHUMA\'s verified partner link." />',
         ),
         (
             '<meta property="og:title" content="Brand24 Pricing 2026: $249/mo + 14-Day Free Trial" />',
-            '<meta property="og:title" content="Brand24 Review & Pricing 2026: 14-Day Free Trial" />',
+            '<meta property="og:title" content="Brand24 Review & Pricing 2026: 14-Day Free Trial + $249/mo Plans" />',
         ),
         (
             '<h1 class="text-4xl md:text-5xl font-black text-white mt-1">Brand24 Pricing & Review 2026</h1>',
