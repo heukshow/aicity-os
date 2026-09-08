@@ -93,8 +93,8 @@ for (const t of selected) {
       'Compare the official source and relevant alternatives before checkout'
     ],
     pricing: t.pricing || 'Check current vendor pricing.',
-    freePlan: String(t.pricing || '').toLowerCase().includes('free') ? 'A free option is indicated in the current catalog snapshot; verify current limits.' : 'No free-plan claim is made here; check the current vendor pricing page.',
-    trial: String(t.pricing || '').toLowerCase().includes('trial') ? 'A trial is indicated in the current catalog snapshot; verify current terms.' : 'Trial availability is not assumed; check the current vendor page.',
+    freePlan: String(t.pricing || '').toLowerCase().includes('free') ? 'A free option is indicated in the current catalog snapshot; verify current limits.' : 'Check current free-plan availability on the vendor pricing page; COSHUMA does not infer that no free plan exists from missing catalog data.',
+    trial: String(t.pricing || '').toLowerCase().includes('trial') ? 'A trial is indicated in the current catalog snapshot; verify current terms.' : 'Check current trial availability and billing terms on the vendor page; COSHUMA does not infer that no trial exists from missing catalog data.',
     risk: 'Features, limits and prices can change. Verify the final plan and checkout terms on the vendor site.',
     source
   };
