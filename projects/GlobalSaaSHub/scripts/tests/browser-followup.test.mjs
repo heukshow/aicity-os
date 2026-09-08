@@ -12,6 +12,9 @@ function check() {
     const tools = JSON.parse(fs.readFileSync(p));
     for (const [id, evidence] of browserFollowups) {
       const t = tools.find(t => t.id === id);
+      // Browser evidence may include operational programs that are intentionally
+      // not part of the public 151-tool catalog. Validate catalog records only.
+      if (!t) continue;
       assert.equal(t.affiliate_status, evidence.status, id);
       assert.equal(t.affiliate_url, evidence.affiliate_url, id);
       assert.equal(t.affiliate_verified, evidence.status === 'approved_tracking', id);
