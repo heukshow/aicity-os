@@ -62,20 +62,25 @@ assert.equal(staleFramer.affiliate_status, 'outreach_sent');
 assert.equal(staleFramer.affiliate_url, null);
 assert.equal(staleFramer.affiliate_verified, false);
 
-for (const [id, expectedUrl] of [
-  ['fillout', 'https://try.fillout.com/sang-kwon-an-hxwn'],
-  ['krater', 'https://go.krater.ai/sang-kwon-an'],
-]) {
-  assert.equal(state[id].status, 'approved_tracking');
-  assert.equal(state[id].tracking_url, expectedUrl);
-  assert.equal(state[id].application_state, 'submitted');
-  assert.equal(state[id].do_not_reapply, true);
-  const stale = {id, affiliate_url: 'https://example.com/dashboard', affiliate_verified: false};
-  applyBrowserFollowup(stale);
-  assert.equal(stale.affiliate_status, 'approved_tracking');
-  assert.equal(stale.affiliate_url, expectedUrl);
-  assert.equal(stale.affiliate_verified, true);
-}
+const kraterUrl = 'https://go.krater.ai/sang-kwon-an';
+assert.equal(state.krater.status, 'approved_tracking');
+assert.equal(state.krater.tracking_url, kraterUrl);
+assert.equal(state.krater.application_state, 'submitted');
+assert.equal(state.krater.do_not_reapply, true);
+const staleKrater = {id: 'krater', affiliate_url: 'https://example.com/dashboard', affiliate_verified: false};
+applyBrowserFollowup(staleKrater);
+assert.equal(staleKrater.affiliate_status, 'approved_tracking');
+assert.equal(staleKrater.affiliate_url, kraterUrl);
+assert.equal(staleKrater.affiliate_verified, true);
+
+// Fillout approval is valid operational evidence, but Fillout is not yet a public catalog tool.
+// Keep duplicate-prevention state and the issued exact link without forcing a nonexistent tool page.
+const filloutUrl = 'https://try.fillout.com/sang-kwon-an-hxwn';
+assert.equal(state.fillout.status, 'approved_tracking');
+assert.equal(state.fillout.tracking_url, filloutUrl);
+assert.equal(state.fillout.application_state, 'submitted');
+assert.equal(state.fillout.do_not_reapply, true);
+assert.ok(queue.some(q => q.tool_id === 'fillout' && q.affiliate_status === 'approved_tracking' && q.exact_tracking_url === filloutUrl));
 
 assert.equal(state.framer.application_state, 'not_submitted');
 assert.equal(state.eprofessor.application_state, 'submitted');
