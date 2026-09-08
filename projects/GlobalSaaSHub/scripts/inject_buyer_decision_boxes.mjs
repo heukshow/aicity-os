@@ -40,6 +40,16 @@ if (selected.length < 15) {
 if (selected.length < 15) throw new Error(`Need 15 safe approved tools, found ${selected.length}`);
 
 const bespoke = new Map([
+  ['make-com', {
+    best:['Teams that want visual no-code automation across apps, APIs and AI services','Buyers who want to validate a real workflow on a permanent free plan before paying'],
+    not:['Teams that require self-hosted infrastructure ownership as a hard requirement','Buyers who have not estimated how many module actions their real workflow will consume'],
+    why:['Free has no time limit and includes up to 1,000 credits per month','Core adds unlimited active scenarios, minute-level scheduling and Make API access','Pro and Teams add execution priority, advanced controls and collaboration features'],
+    pricing:'Free $0. At 10,000 credits/month, the current annual-billing view lists Core $9/month, Pro $16/month and Teams $29/month; month-to-month pricing is $12, $21 and $38.',
+    freePlan:'Free is currently $0 with no time limit, up to 1,000 credits per month and a 15-minute minimum scheduled-run interval.',
+    trial:'Make currently emphasizes a permanent no-time-limit Free plan rather than requiring a timed trial for initial testing.',
+    risk:'Module actions generally consume credits, unused credits expire at the end of the term, and higher credit volumes change total pricing. Test a real scenario before upgrading.',
+    source:'https://www.make.com/en/pricing'
+  }],
   ['omi-ai', {
     best:['People who want searchable conversation notes','Teams reviewing spoken tasks and follow-ups'],
     not:['Workplaces that prohibit recording','Buyers who need verified hands-on accuracy benchmarks'],
@@ -77,6 +87,12 @@ const bespoke = new Map([
 ]);
 
 const sameGroupAlternatives = (t) => {
+  if (t.id === 'make-com') {
+    return ['n8n','gumloop']
+      .map((id) => toolMap.get(id))
+      .filter(Boolean)
+      .map((x) => [x.id, x.name]);
+  }
   const group = t.comparison_group || t.category;
   const matches = tools.filter((x) => x.id !== t.id && (x.comparison_group || x.category) === group);
   return matches.slice(0, 2).map((x) => [x.id, x.name]);
