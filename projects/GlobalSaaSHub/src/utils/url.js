@@ -8,6 +8,8 @@
 export const getValidExternalUrl = (tool) => {
   if (!tool) return null;
 
+  // Keep this predicate aligned with homepage card labeling so program-state evidence
+  // cannot be presented as a buyer-ready tracking route.
   const approvedAffiliate =
     tool.affiliate_verified === true && tool.affiliate_status === "approved_tracking";
 
