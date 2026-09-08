@@ -4805,7 +4805,7 @@
     "category": "creator",
     "category_display": "Creator Tools",
     "description": "All-in-one AI content creation suite featuring text, voiceover, image, and code generation for creators.",
-    "affiliate_url": null,
+    "affiliate_url": "https://go.krater.ai/sang-kwon-an",
     "pricing": "Pro plan starting at $200/year (billed annually)",
     "key_features": [
       "AI Text Generation",
@@ -4835,18 +4835,18 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://krater.ai/",
-    "affiliate_status": "application_submitted",
-    "affiliate_verified": false,
-    "affiliate_final_url": null,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified": true,
+    "affiliate_final_url": "https://go.krater.ai/sang-kwon-an",
     "affiliate_evidence_markers": [
-      "Authenticated Chrome: after a pre-application company Gmail in:anywhere search found no matching messages, the Dub application was submitted once with COSHUMA, support@coshuma.com, https://coshuma.com and factual buyer-guide promotion text. Program terms accepted under explicit user authorization. Step 2 of 2 displayed Application submitted and stated the review update will be sent to support@coshuma.com. The decorative dashboard illustration on this success page is not real account revenue or an issued referral link. No approval or exact tracking URL was issued.",
-      "Await the existing Krater application review in Dub; do not reapply. Only publish an issued exact customer-facing link after approval evidence.",
-      "data/affiliate-submission-batch-2026-09-08.json"
+      "Authenticated Dub partner dashboard at partners.dub.co/programs/kraterai now shows the Krater program as Approved/Enrolled (previously application_submitted). The program Overview surfaces the issued exact customer-facing tracking link go.krater.ai/sang-kwon-an, distinct from the generic partner-application URL partners.dub.co/kraterai/apply?via=sang-kwon-an-dgki which is not a customer-facing link and was not recorded as one.",
+      "Preserve the issued exact customer-facing link; do not reapply. Keep customer signups, commissions and revenue at 0 without new evidence; a dashboard/portal visit is not customer activity.",
+      "data/krater-affiliate-enrollment-evidence-2026-09-08.md"
     ],
-    "affiliate_status_checked_at": "2026-09-07T21:21:56.008052+00:00",
-    "affiliate_status_evidence_url": "https://partners.dub.co/kraterai/apply",
-    "affiliate_workflow_url": "https://partners.dub.co/kraterai/apply",
-    "affiliate_next_action": "Await the existing Krater application review in Dub; do not reapply. Only publish an issued exact customer-facing link after approval evidence."
+    "affiliate_status_checked_at": "2026-09-08T14:00:00+09:00",
+    "affiliate_status_evidence_url": "https://partners.dub.co/programs/kraterai",
+    "affiliate_workflow_url": "https://partners.dub.co/programs/kraterai",
+    "affiliate_next_action": "Preserve the issued exact customer-facing link; do not reapply. Keep customer signups, commissions and revenue at 0 without new evidence; a dashboard/portal visit is not customer activity."
   },
   {
     "id": "expandi",
