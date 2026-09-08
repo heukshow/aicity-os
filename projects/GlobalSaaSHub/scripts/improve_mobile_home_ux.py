@@ -45,8 +45,8 @@ replacements = [
         'className={`inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-semibold ${showBookmarksOnly ? \'bg-rose-500/20 text-rose-200\' : \'bg-white/5 text-slate-400 hover:text-white\'}`}',
     ),
     (
-        'className={`rounded-lg border p-2 ${bookmarks.includes(tool.id) ? \'border-rose-400/30 bg-rose-400/10 text-rose-300\' : \'border-white/10 text-slate-600 hover:text-white\'}`}',
-        'className={`min-h-11 min-w-11 rounded-lg border p-2 ${bookmarks.includes(tool.id) ? \'border-rose-400/30 bg-rose-400/10 text-rose-300\' : \'border-white/10 text-slate-600 hover:text-white\'}`}',
+        'className={`rounded-lg border p-2 ${bookmarkedIds.includes(tool.id) ? \'border-rose-400/30 bg-rose-400/10 text-rose-300\' : \'border-white/10 text-slate-600 hover:text-white\'}`}',
+        'className={`min-h-11 min-w-11 rounded-lg border p-2 ${bookmarkedIds.includes(tool.id) ? \'border-rose-400/30 bg-rose-400/10 text-rose-300\' : \'border-white/10 text-slate-600 hover:text-white\'}`}',
     ),
     (
         'className="flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-xs font-bold text-slate-200 hover:bg-white/10"',
