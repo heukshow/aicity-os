@@ -1,0 +1,21 @@
+{
+  "checked_date_kst": "2026-09-08",
+  "account": "support@coshuma.com",
+  "source": "connected Gmail",
+  "results": [
+    {
+      "id": "n8n",
+      "status": "rejected",
+      "application_state": "submitted",
+      "review_state": "declined",
+      "affiliate_url": null,
+      "workflow_url": "https://dash.partnerstack.com/home",
+      "official_program_url": "https://n8n.io/affiliates/",
+      "checked_at": "2026-09-08T12:50:09+09:00",
+      "evidence": "PartnerStack email to support@coshuma.com, Gmail message 1a07f233f4ba22e8, subject 'Updates to your n8n GmbH Application': 'After careful consideration, n8n GmbH has declined your application to join their program.' This is newer than the earlier application-submitted evidence.",
+      "next_action": "Do not reapply automatically. Keep n8n rejected and keep affiliate_url null unless a later vendor message explicitly reverses the decision or the user requests a future re-application after materially improved eligibility.",
+      "blockers": [],
+      "supersedes_pending_submission": true
+    }
+  ]
+}
