@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T22:34:04.686Z",
+  "generated_at": "2026-09-08T22:35:40.291Z",
   "status": "live_google_connected",
   "connections": {
     "ga4": "연결됨 · property 552233666",
@@ -208,22 +208,25 @@
   ],
   "affiliate_links": [
     {
+      "page": "/",
       "name": "알 수 없음",
       "value": 1,
       "date": "20260906",
-      "note": "날짜 20260906 · 링크 텍스트: 알 수 없음"
+      "note": "페이지 / · 날짜 20260906 · 링크 텍스트: 알 수 없음"
     },
     {
+      "page": "/tool/pictory.html",
       "name": "https://pictory.ai/?fpr=sangkwon-an23",
       "value": 1,
       "date": "20260906",
-      "note": "날짜 20260906 · 링크 텍스트: Use COSHUMA20 at Pictory →"
+      "note": "페이지 /tool/pictory.html · 날짜 20260906 · 링크 텍스트: Use COSHUMA20 at Pictory →"
     },
     {
+      "page": "/",
       "name": "알 수 없음",
       "value": 4,
       "date": "20260901",
-      "note": "날짜 20260901 · 링크 텍스트: 알 수 없음"
+      "note": "페이지 / · 날짜 20260901 · 링크 텍스트: 알 수 없음"
     }
   ],
   "top_queries": [
@@ -453,7 +456,7 @@
       "label": "제휴 목적지 분석",
       "value": "3",
       "period": "최근 30일",
-      "source": "GA4 linkUrl/linkText/date"
+      "source": "GA4 pagePath/linkUrl/linkText/date"
     },
     {
       "label": "데이터 생성 방식",
