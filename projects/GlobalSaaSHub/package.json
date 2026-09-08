@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "python scripts/fix_search_focus_scroll.py && node scripts/build_search_comparisons.mjs && node scripts/monetize_verified_compare_links.mjs && node scripts/inject_buyer_decision_boxes.mjs && python scripts/sync_revenue_seo.py && python scripts/apply_search_console_ctr_patches.py && python scripts/apply_databox_ctr_patch.py && python scripts/apply_search_comparison_ctr_patches.py && python scripts/ensure_best_pages_in_sitemap.py && python scripts/ensure_best_internal_links.py && python scripts/generate_category_and_methodology_pages.py && python scripts/normalize_category_slugs.py && python scripts/refine_category_relevance.py && vite build",
+    "build": "python scripts/fix_search_focus_scroll.py && python scripts/simplify_home_tool_cards.py && node scripts/build_search_comparisons.mjs && node scripts/monetize_verified_compare_links.mjs && node scripts/inject_buyer_decision_boxes.mjs && python scripts/sync_revenue_seo.py && python scripts/apply_search_console_ctr_patches.py && python scripts/apply_databox_ctr_patch.py && python scripts/apply_search_comparison_ctr_patches.py && python scripts/ensure_best_pages_in_sitemap.py && python scripts/ensure_best_internal_links.py && python scripts/generate_category_and_methodology_pages.py && python scripts/normalize_category_slugs.py && python scripts/refine_category_relevance.py && vite build",
     "check:search-ux": "python scripts/fix_search_focus_scroll.py && echo search-ux-v2",
+    "check:home-cards": "python scripts/simplify_home_tool_cards.py",
     "test:links": "python scripts/tests/test_link_integrity.py",
     "test:revenue-seo": "python scripts/tests/test_revenue_seo.py dist && node scripts/verify_approved_tracking.mjs",
     "test:category": "python scripts/refine_category_relevance.py",
