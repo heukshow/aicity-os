@@ -43,6 +43,32 @@ def detail_path(tool_id: str) -> str:
     return SPECIAL_DETAIL_PATHS.get(tool_id, f"/tool/{tool_id}.html")
 
 
+def render_recommendations(entry: dict) -> str:
+    pairs = entry.get("pairs") or []
+    if not pairs:
+        return ""
+
+    cards = "".join(
+        (
+            f'<a href="{esc(detail_path(item["id"]))}" class="block rounded-2xl border border-cyan-500/20 bg-cyan-500/[0.05] p-4 hover:border-cyan-400/40 transition">'
+            f'<div class="font-bold text-cyan-200">{esc(item["id"].replace("-", " ").title())}</div>'
+            f'<p class="mt-2 text-sm text-slate-300">{esc(item["why"])}</p>'
+            '</a>'
+        )
+        for item in pairs
+    )
+
+    return f'''
+      <section class="p-6 rounded-3xl bg-[#131520] border border-cyan-500/20 space-y-5" aria-label="Tools that may be useful in the same workflow">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-[0.18em] text-cyan-300">Workflow recommendation</div>
+          <h2 class="mt-2 text-2xl font-black text-white">Useful together when...</h2>
+          <p class="mt-2 text-sm leading-6 text-slate-400">COSHUMA only shows this section when another tool has a distinct workflow role. This does not imply a native integration unless the page explicitly says so.</p>
+        </div>
+        <div class="grid gap-3 md:grid-cols-3">{cards}</div>
+      </section>'''
+
+
 def render(tool_id: str, entry: dict) -> str:
     problems = "".join(
         f'<li class="flex gap-2"><span class="text-emerald-300">✓</span><span>{esc(item)}</span></li>'
@@ -60,15 +86,7 @@ def render(tool_id: str, entry: dict) -> str:
         for item in entry.get("monetization", [])
     )
 
-    pairs = "".join(
-        (
-            f'<a href="{esc(detail_path(item["id"]))}" class="block rounded-2xl border border-cyan-500/20 bg-cyan-500/[0.05] p-4 hover:border-cyan-400/40 transition">'
-            f'<div class="font-bold text-cyan-200">{esc(item["id"].replace("-", " ").title())}</div>'
-            f'<p class="mt-2 text-sm text-slate-300">{esc(item["why"])}</p>'
-            '</a>'
-        )
-        for item in entry.get("pairs", [])
-    )
+    recommendations = render_recommendations(entry)
 
     return f'''{START}
       <section class="p-6 rounded-3xl bg-[#131520] border border-emerald-500/20 space-y-5" aria-label="Problems this tool can help solve">
@@ -87,16 +105,7 @@ def render(tool_id: str, entry: dict) -> str:
           <p class="mt-2 text-sm leading-6 text-slate-400">Use the tool to create a service, workflow or deliverable someone may pay for. These are use-case ideas, not income guarantees.</p>
         </div>
         <div class="grid gap-3 md:grid-cols-3">{methods}</div>
-      </section>
-
-      <section class="p-6 rounded-3xl bg-[#131520] border border-cyan-500/20 space-y-5" aria-label="Tools that work well together">
-        <div>
-          <div class="text-xs font-bold uppercase tracking-[0.18em] text-cyan-300">Recommended stack</div>
-          <h2 class="mt-2 text-2xl font-black text-white">Works well with</h2>
-          <p class="mt-2 text-sm leading-6 text-slate-400">These recommendations pair complementary workflow roles rather than simply listing competitors.</p>
-        </div>
-        <div class="grid gap-3 md:grid-cols-3">{pairs}</div>
-      </section>
+      </section>{recommendations}
 {END}'''
 
 
