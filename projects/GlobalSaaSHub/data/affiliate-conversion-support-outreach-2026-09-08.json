@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-09-08T10:27:00+09:00",
+  "checked_at": "2026-09-08T19:48:00+09:00",
   "sender": "support@coshuma.com",
-  "purpose": "Record conversion-support outreach so future automation does not resend or confuse vendor support URLs with customer affiliate URLs.",
+  "purpose": "Record conversion-support outreach and latest vendor replies so future automation does not resend requests or confuse vendor support/dashboard URLs with customer affiliate URLs.",
   "items": [
     {
       "id": "vista-social",
@@ -30,15 +30,22 @@
     {
       "id": "pictory",
       "affiliate_status": "approved_tracking",
-      "action": "conversion_assets_followup_sent",
-      "gmail_message_id": "1a07ea164d61491d",
+      "action": "dashboard_assets_access_restored",
+      "gmail_message_id": "1a080260af602adb",
       "recipient": "ashutosh@pictory.ai",
-      "note": "Pictory affiliate manager reconfirmed that COSHUMA's existing verified affiliate link and COSHUMA20 remain active for referral tracking and commission accrual while payout setup is pending, and instructed COSHUMA to keep the affiliate link as the primary tracking route with COSHUMA20 displayed alongside it. Because dashboard marketing-material tabs are restricted until payout setup, COSHUMA asked the affiliate manager to send 1–2 current best-performing approved assets or short swipe-copy examples directly by email. Existing tracking URL remains unchanged; no revenue is inferred."
+      "tracking_url": "https://pictory.ai?fpr=sangkwon-an23",
+      "promo_code": "COSHUMA20",
+      "dashboard_access": "full_access_temporarily_restored",
+      "assets_tab_access": true,
+      "payout_status": "disabled_until_actual_payout_setup_finalized",
+      "note": "On 2026-09-08, Pictory affiliate manager Ashutosh Dhamija stated that he temporarily restored full affiliate-dashboard access by setting the registered COSHUMA email address as the PayPal payout method. He explicitly said payouts remain disabled until actual payout details are finalized, but all promotional materials are now accessible under the Assets tab. The earlier manager confirmation remains authoritative that COSHUMA's existing verified affiliate link and COSHUMA20 stay active for eligible referral tracking and commission accrual while payout setup is pending, and that the affiliate link must remain the primary tracking route with COSHUMA20 shown alongside it. Do not infer any click, signup, sale, commission or payout from restored dashboard access alone."
     }
   ],
   "guardrails": [
     "Do not resend these requests unless a human reply creates a new actionable question.",
     "Do not treat FirstPromoter login/dashboard URLs, PartnerStack dashboards, payout setup pages or HeyGen enrollment pages as customer-facing affiliate URLs.",
-    "Do not claim signup, commission or revenue from these messages alone."
+    "For Pictory, preserve https://pictory.ai?fpr=sangkwon-an23 as the primary customer tracking route and show COSHUMA20 alongside it; do not replace the tracking URL with a dashboard, payout or asset URL.",
+    "Pictory promotional assets may now be collected from the authenticated Assets tab when browser access is available, but payout details must not be invented, exposed, or finalized without the user's actual payout information.",
+    "Do not claim signup, commission, payout or revenue from these messages alone."
   ]
 }
