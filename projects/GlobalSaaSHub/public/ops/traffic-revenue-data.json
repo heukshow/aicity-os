@@ -1,83 +1,439 @@
 {
-  "generated_at": "2026-09-08T15:54:02.600Z",
-  "status": "credential_missing",
+  "generated_at": "2026-09-08T17:01:36.537Z",
+  "status": "live_google_connected",
   "connections": {
-    "ga4": "GitHub Actions에 GOOGLE_SERVICE_ACCOUNT_JSON secret이 없음",
-    "search_console": "GitHub Actions에 GOOGLE_SERVICE_ACCOUNT_JSON secret이 없음",
+    "ga4": "연결됨 · property 552233666",
+    "search_console": "연결됨 · https://coshuma.com/",
     "partner_revenue": "네트워크별 연결 필요"
   },
   "metrics": {
-    "today_users": null,
-    "today_users_note": "GitHub Actions에 GOOGLE_SERVICE_ACCOUNT_JSON secret이 없음",
-    "sessions_7d": null,
-    "sessions_7d_note": "GitHub Actions에 GOOGLE_SERVICE_ACCOUNT_JSON secret이 없음",
-    "affiliate_clicks_30d": null,
-    "affiliate_clicks_30d_note": "GitHub Actions에 GOOGLE_SERVICE_ACCOUNT_JSON secret이 없음",
+    "today_users": 1,
+    "today_users_note": "GA4 property 552233666",
+    "sessions_7d": 52,
+    "sessions_7d_note": "GA4 Data API 실집계",
+    "affiliate_clicks_30d": 6,
+    "affiliate_clicks_30d_note": "GA4 affiliate_click 30일 실집계",
     "verified_revenue": null,
     "verified_revenue_currency": "USD",
-    "verified_revenue_note": "검증된 파트너/PayPal 수익 통합 미연결"
+    "verified_revenue_note": "파트너별 실제 수익 통합 미연결"
   },
   "ranges": {
     "today": {
-      "users": null,
-      "sessions": null,
-      "views": null,
+      "users": 1,
+      "sessions": 1,
+      "views": 2,
       "affiliate_clicks": null,
-      "search_impressions": null,
-      "search_clicks": null,
+      "search_impressions": 0,
+      "search_clicks": 0,
       "verified_revenue": null
     },
     "7d": {
-      "users": null,
-      "sessions": null,
-      "views": null,
+      "users": 32,
+      "sessions": 52,
+      "views": 76,
       "affiliate_clicks": null,
-      "search_impressions": null,
-      "search_clicks": null,
+      "search_impressions": 47,
+      "search_clicks": 0,
       "verified_revenue": null
     },
     "30d": {
-      "users": null,
-      "sessions": null,
-      "views": null,
-      "affiliate_clicks": null,
-      "search_impressions": null,
-      "search_clicks": null,
+      "users": 35,
+      "sessions": 57,
+      "views": 86,
+      "affiliate_clicks": 6,
+      "search_impressions": 280,
+      "search_clicks": 0,
       "verified_revenue": null
     },
     "90d": {
-      "users": null,
-      "sessions": null,
-      "views": null,
+      "users": 35,
+      "sessions": 57,
+      "views": 86,
       "affiliate_clicks": null,
-      "search_impressions": null,
-      "search_clicks": null,
+      "search_impressions": 2085,
+      "search_clicks": 1,
       "verified_revenue": null
     }
   },
-  "top_sources": [],
-  "top_pages": [],
-  "top_queries": [],
-  "affiliate_pages": [],
-  "search_pages": [],
+  "top_sources": [
+    {
+      "name": "direct",
+      "value": 20,
+      "note": "세션 26"
+    },
+    {
+      "name": "(direct)",
+      "value": 5,
+      "note": "세션 17"
+    },
+    {
+      "name": "(not set)",
+      "value": 5,
+      "note": "세션 15"
+    },
+    {
+      "name": "youtube",
+      "value": 5,
+      "note": "세션 5"
+    },
+    {
+      "name": "(data not available)",
+      "value": 2,
+      "note": "세션 2"
+    },
+    {
+      "name": "app.partnerstack.com",
+      "value": 2,
+      "note": "세션 2"
+    },
+    {
+      "name": "chatgpt.com",
+      "value": 2,
+      "note": "세션 2"
+    }
+  ],
+  "top_pages": [
+    {
+      "name": "/",
+      "value": 39,
+      "note": "사용자 27"
+    },
+    {
+      "name": "/tool/chatbase.html",
+      "value": 3,
+      "note": "사용자 3"
+    },
+    {
+      "name": "/tool/pictory.html",
+      "value": 3,
+      "note": "사용자 1"
+    },
+    {
+      "name": "/best/ai-video-generators.html",
+      "value": 2,
+      "note": "사용자 1"
+    },
+    {
+      "name": "/best/novita-ai-free-credits-pricing.html",
+      "value": 2,
+      "note": "사용자 2"
+    },
+    {
+      "name": "/tool/gohighlevel.html",
+      "value": 2,
+      "note": "사용자 2"
+    },
+    {
+      "name": "/tool/gojiberry.html",
+      "value": 2,
+      "note": "사용자 2"
+    },
+    {
+      "name": "/tool/helpdesk.html",
+      "value": 2,
+      "note": "사용자 1"
+    },
+    {
+      "name": "/tool/synthesia.html",
+      "value": 2,
+      "note": "사용자 2"
+    },
+    {
+      "name": "/tool/voibe.html",
+      "value": 2,
+      "note": "사용자 2"
+    },
+    {
+      "name": "/best/aiassistworks-coupon-code.html",
+      "value": 1,
+      "note": "사용자 1"
+    },
+    {
+      "name": "/best/brand24-free-trial.html",
+      "value": 1,
+      "note": "사용자 1"
+    },
+    {
+      "name": "/best/clickfunnels-free-trial.html",
+      "value": 1,
+      "note": "사용자 0"
+    },
+    {
+      "name": "/best/docsbot-free-plan-pricing.html",
+      "value": 1,
+      "note": "사용자 1"
+    },
+    {
+      "name": "/best/esignature-software.html",
+      "value": 1,
+      "note": "사용자 1"
+    },
+    {
+      "name": "/best/moosend-free-trial.html",
+      "value": 1,
+      "note": "사용자 1"
+    },
+    {
+      "name": "/best/pictory-discount-code.html",
+      "value": 1,
+      "note": "사용자 2"
+    },
+    {
+      "name": "/best/pictory-free-trial-pricing.html",
+      "value": 1,
+      "note": "사용자 1"
+    },
+    {
+      "name": "/best/shopify-pricing-free-trial.html",
+      "value": 1,
+      "note": "사용자 1"
+    },
+    {
+      "name": "/best/unbounce-free-trial.html",
+      "value": 1,
+      "note": "사용자 0"
+    }
+  ],
+  "affiliate_pages": [
+    {
+      "name": "/",
+      "value": 5,
+      "note": "제휴 클릭"
+    },
+    {
+      "name": "/tool/pictory.html",
+      "value": 1,
+      "note": "제휴 클릭"
+    }
+  ],
+  "top_queries": [
+    {
+      "name": "pipedrive pricing",
+      "value": 46,
+      "note": "클릭 0 · CTR 0.0% · 순위 77.0"
+    },
+    {
+      "name": "brand24",
+      "value": 44,
+      "note": "클릭 0 · CTR 0.0% · 순위 57.3"
+    },
+    {
+      "name": "beefree",
+      "value": 36,
+      "note": "클릭 0 · CTR 0.0% · 순위 34.0"
+    },
+    {
+      "name": "sanebox",
+      "value": 36,
+      "note": "클릭 0 · CTR 0.0% · 순위 38.8"
+    },
+    {
+      "name": "frase vs semrush",
+      "value": 34,
+      "note": "클릭 0 · CTR 0.0% · 순위 39.0"
+    },
+    {
+      "name": "jotform pricing",
+      "value": 34,
+      "note": "클릭 0 · CTR 0.0% · 순위 59.0"
+    },
+    {
+      "name": "aweber",
+      "value": 33,
+      "note": "클릭 0 · CTR 0.0% · 순위 55.2"
+    },
+    {
+      "name": "moosend review",
+      "value": 30,
+      "note": "클릭 0 · CTR 0.0% · 순위 68.1"
+    },
+    {
+      "name": "aweber pricing",
+      "value": 23,
+      "note": "클릭 0 · CTR 0.0% · 순위 70.4"
+    },
+    {
+      "name": "brand 24",
+      "value": 20,
+      "note": "클릭 0 · CTR 0.0% · 순위 63.0"
+    },
+    {
+      "name": "moosend",
+      "value": 20,
+      "note": "클릭 0 · CTR 0.0% · 순위 59.5"
+    },
+    {
+      "name": "databox pricing",
+      "value": 19,
+      "note": "클릭 0 · CTR 0.0% · 순위 57.5"
+    },
+    {
+      "name": "merlin pricing",
+      "value": 17,
+      "note": "클릭 0 · CTR 0.0% · 순위 66.9"
+    },
+    {
+      "name": "\"brand24\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+      "value": 15,
+      "note": "클릭 0 · CTR 0.0% · 순위 2.1"
+    },
+    {
+      "name": "omnisend pricing",
+      "value": 15,
+      "note": "클릭 0 · CTR 0.0% · 순위 71.5"
+    },
+    {
+      "name": "brand24 عربي",
+      "value": 14,
+      "note": "클릭 0 · CTR 0.0% · 순위 66.8"
+    },
+    {
+      "name": "pipedrive crm pricing",
+      "value": 14,
+      "note": "클릭 0 · CTR 0.0% · 순위 74.3"
+    },
+    {
+      "name": "omnisend vs privy",
+      "value": 13,
+      "note": "클릭 0 · CTR 0.0% · 순위 31.7"
+    },
+    {
+      "name": "brand24 pricing",
+      "value": 11,
+      "note": "클릭 0 · CTR 0.0% · 순위 81.9"
+    },
+    {
+      "name": "brand24 review",
+      "value": 11,
+      "note": "클릭 0 · CTR 0.0% · 순위 87.5"
+    }
+  ],
+  "search_pages": [
+    {
+      "name": "https://coshuma.com/tool/unbounce.html",
+      "value": 168,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/tool/brand24.html",
+      "value": 163,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/tool/moosend.html",
+      "value": 115,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/tool/beefree.html",
+      "value": 114,
+      "note": "클릭 1 · CTR 0.9%"
+    },
+    {
+      "name": "https://coshuma.com/tool/omnisend.html",
+      "value": 114,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/tool/pipedrive.html",
+      "value": 107,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/tool/aweber.html",
+      "value": 102,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/tool/sanebox.html",
+      "value": 71,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/tool/jotform.html",
+      "value": 69,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/tool/sendcloud.html",
+      "value": 60,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/tool/gallabox.html",
+      "value": 54,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/tool/semrush.html",
+      "value": 53,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/tool/databox.html",
+      "value": 46,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/compare/semrush-vs-frase.html",
+      "value": 40,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/tool/alidropship.html",
+      "value": 32,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/tool/pickaxe.html",
+      "value": 31,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/compare/vidiq-vs-outlierkit.html",
+      "value": 30,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/tool/cloudways.html",
+      "value": 30,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/tool/triple-whale.html",
+      "value": 28,
+      "note": "클릭 0 · CTR 0.0%"
+    },
+    {
+      "name": "https://coshuma.com/",
+      "value": 26,
+      "note": "클릭 0 · CTR 0.0%"
+    }
+  ],
   "snapshot": [
     {
       "label": "GA4 Property ID",
-      "value": "552119661",
+      "value": "552233666",
       "period": "현재 실행",
-      "source": "GitHub Actions env / fallback"
+      "source": "Google Analytics Data API"
     },
     {
       "label": "Search Console site",
       "value": "https://coshuma.com/",
-      "period": "현재 실행",
-      "source": "GitHub Actions env / fallback"
+      "period": "2026-06-11 ~ 2026-09-07",
+      "source": "Search Console API"
     },
     {
-      "label": "실데이터 생성",
-      "value": "credential_missing",
-      "period": "현재 실행",
-      "source": "GitHub Actions에 GOOGLE_SERVICE_ACCOUNT_JSON secret이 없음"
+      "label": "30일 제휴 클릭",
+      "value": "6",
+      "period": "최근 30일",
+      "source": "GA4 affiliate_click"
+    },
+    {
+      "label": "데이터 생성 방식",
+      "value": "GitHub Actions 서버측 실집계",
+      "period": "현재",
+      "source": "scripts/generate_live_dashboard_data.mjs"
     }
   ]
 }
