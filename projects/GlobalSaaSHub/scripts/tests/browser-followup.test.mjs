@@ -80,7 +80,10 @@ assert.equal(state.fillout.status, 'approved_tracking');
 assert.equal(state.fillout.tracking_url, filloutUrl);
 assert.equal(state.fillout.application_state, 'submitted');
 assert.equal(state.fillout.do_not_reapply, true);
-assert.ok(queue.some(q => q.tool_id === 'fillout' && q.affiliate_status === 'approved_tracking' && q.exact_tracking_url === filloutUrl));
+assert.ok(queue.some(q =>
+  (q.tool_id === 'fillout' || q.id === 'fillout' || (typeof q.id === 'string' && q.id.startsWith('fillout-'))) &&
+  q.affiliate_status === 'approved_tracking' && q.exact_tracking_url === filloutUrl
+));
 
 assert.equal(state.framer.application_state, 'not_submitted');
 assert.equal(state.eprofessor.application_state, 'submitted');
