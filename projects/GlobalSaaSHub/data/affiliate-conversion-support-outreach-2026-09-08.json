@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-08T08:25:00+09:00",
+  "checked_at": "2026-09-08T10:27:00+09:00",
   "sender": "support@coshuma.com",
   "purpose": "Record conversion-support outreach so future automation does not resend or confuse vendor support URLs with customer affiliate URLs.",
   "items": [
@@ -26,11 +26,19 @@
       "gmail_message_id": "1a07e3017183d53d",
       "recipient": "partnership@heygen.com",
       "note": "HeyGen Support directed COSHUMA to partnership@heygen.com for publisher eligibility / existing-account confirmation. Existing submitted application state remains authoritative; this is not a new application and no tracking URL has been issued."
+    },
+    {
+      "id": "pictory",
+      "affiliate_status": "approved_tracking",
+      "action": "conversion_assets_followup_sent",
+      "gmail_message_id": "1a07ea164d61491d",
+      "recipient": "ashutosh@pictory.ai",
+      "note": "Pictory affiliate manager reconfirmed that COSHUMA's existing verified affiliate link and COSHUMA20 remain active for referral tracking and commission accrual while payout setup is pending, and instructed COSHUMA to keep the affiliate link as the primary tracking route with COSHUMA20 displayed alongside it. Because dashboard marketing-material tabs are restricted until payout setup, COSHUMA asked the affiliate manager to send 1–2 current best-performing approved assets or short swipe-copy examples directly by email. Existing tracking URL remains unchanged; no revenue is inferred."
     }
   ],
   "guardrails": [
     "Do not resend these requests unless a human reply creates a new actionable question.",
-    "Do not treat FirstPromoter login/dashboard URLs or HeyGen enrollment pages as customer-facing affiliate URLs.",
+    "Do not treat FirstPromoter login/dashboard URLs, PartnerStack dashboards, payout setup pages or HeyGen enrollment pages as customer-facing affiliate URLs.",
     "Do not claim signup, commission or revenue from these messages alone."
   ]
 }
