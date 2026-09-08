@@ -17,6 +17,14 @@ replacements = [
         'className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-2 text-xs font-semibold text-slate-300 hover:border-violet-400/30 hover:bg-violet-400/10 hover:text-white"',
     ),
     (
+        'className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-2 text-xs font-bold text-emerald-200 hover:bg-emerald-400/20"',
+        'className="inline-flex min-h-11 items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-2 text-xs font-bold text-emerald-200 hover:bg-emerald-400/20"',
+    ),
+    (
+        'className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-xs font-bold text-cyan-200 hover:bg-cyan-400/20"',
+        'className="inline-flex min-h-11 items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-xs font-bold text-cyan-200 hover:bg-cyan-400/20"',
+    ),
+    (
         'className="mb-4 flex flex-wrap gap-2"',
         'className="mb-4 -mx-1 flex gap-2 overflow-x-auto px-1 pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0"',
     ),
@@ -35,6 +43,10 @@ replacements = [
     (
         'className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold ${showBookmarksOnly ? \'bg-rose-500/20 text-rose-200\' : \'bg-white/5 text-slate-400 hover:text-white\'}`}',
         'className={`inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-semibold ${showBookmarksOnly ? \'bg-rose-500/20 text-rose-200\' : \'bg-white/5 text-slate-400 hover:text-white\'}`}',
+    ),
+    (
+        'className={`rounded-lg border p-2 ${bookmarks.includes(tool.id) ? \'border-rose-400/30 bg-rose-400/10 text-rose-300\' : \'border-white/10 text-slate-600 hover:text-white\'}`}',
+        'className={`min-h-11 min-w-11 rounded-lg border p-2 ${bookmarks.includes(tool.id) ? \'border-rose-400/30 bg-rose-400/10 text-rose-300\' : \'border-white/10 text-slate-600 hover:text-white\'}`}',
     ),
     (
         'className="flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-xs font-bold text-slate-200 hover:bg-white/10"',
