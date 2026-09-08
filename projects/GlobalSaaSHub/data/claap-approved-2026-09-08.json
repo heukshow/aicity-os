@@ -1,0 +1,23 @@
+{
+  "tool_id": "claap",
+  "status": "approved",
+  "tracking_status": "not_yet_verified",
+  "source": "Gmail / PartnerStack welcome email from Claap Affiliates & Influencer Manager Lamia Karmaly",
+  "gmail_message_id": "1a08009379826dfd",
+  "received_at_utc": "2026-09-08T08:01:20Z",
+  "sender_account": "support@coshuma.com",
+  "program_terms_from_email": {
+    "attribution_window": "12 months per referred workspace",
+    "commission": "30% of customer payments during that year, including added seats and plan upgrades",
+    "paid_brand_bidding": "prohibited on Claap and close brand variants"
+  },
+  "tracking_url": null,
+  "tracking_url_rule": "Do not use the dashboard/login URL or SendGrid redirect as a revenue CTA. Recover and verify the exact customer-facing PartnerStack affiliate link from the authenticated dashboard before changing COSHUMA CTAs.",
+  "next_action": "browser_required: open existing Claap PartnerStack dashboard and copy the exact customer-facing affiliate link only; no reapplication.",
+  "outreach": {
+    "sent": true,
+    "gmail_sent_message_id": "1a080205fb2acd44",
+    "purpose": "Asked Lamia for the single highest-converting approved angle/creative for COSHUMA's high-intent buyer pages."
+  },
+  "revenue_claim": "No signup, commission, or revenue is inferred from approval alone."
+}
