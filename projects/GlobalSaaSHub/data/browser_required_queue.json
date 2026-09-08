@@ -188,11 +188,11 @@
   {
     "id": "fillout-browser-followup-20260908",
     "priority": "medium",
-    "status": "approved_tracking",
+    "status": "resolved",
     "cost": "0",
     "verified_at": "2026-09-08T14:00:00+09:00",
     "reason": "User explicitly authorized acceptance of the prepared Fillout Program Terms. Existing form preserved, checkbox selected and Continue clicked once. Step 2 of 2 shows Application submitted / submitted for review. Notification address shown by existing Dub account is qmfforfhem@gmail.com. Application ID pga_1M1YE0ANQP8BPWPGEW2BENNGR. Promotional dashboard illustration is not actual earnings or a personal referral link. Follow-up: authenticated Dub partner dashboard at partners.dub.co/programs/fillout now shows Approved/Enrolled with issued exact customer-facing tracking link try.fillout.com/sang-kwon-an-hxwn.",
-    "next_action": "Preserve the issued exact customer-facing link; do not reapply.",
+    "next_action": "Preserve the issued exact customer-facing link; do not reapply. Add a public catalog entry separately before treating this as a site CTA.",
     "exact_tracking_url": "https://try.fillout.com/sang-kwon-an-hxwn",
     "blocker": null,
     "execution_evidence": "data/fillout-affiliate-enrollment-evidence-2026-09-08.md",
@@ -404,18 +404,19 @@
     "id": "n8n-affiliate-browser-followup",
     "tool_id": "n8n",
     "status": "resolved",
-    "affiliate_status": "application_submitted",
+    "affiliate_status": "rejected",
     "cost": "0",
     "exact_tracking_url": null,
     "workflow_url": "https://dash.partnerstack.com/home",
     "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
     "reason": "2026-09-08 authenticated browser: checked the prepared required I agree acknowledgement under explicit user authorization and submitted once. PartnerStack home then displayed n8n GmbH / Application pending. Clicks and signups 0; revenue, pending and paid commissions $0.00. No approval or customer tracking URL issued.",
-    "next_action": "Await program review in the existing account. Do not reapply. Recover only an issued customer-facing tracking URL after approval evidence.",
+    "next_action": "Do not reapply automatically. Keep n8n rejected and keep affiliate_url null unless a later vendor message explicitly reverses the decision or the user requests a future re-application after materially improved eligibility.",
     "do_not": [
       "Do not reapply or submit duplicate outreach.",
       "Do not pay or create a new account.",
       "Do not infer conversions, commissions or revenue from approval or public landing checks."
-    ]
+    ],
+    "blocker": null
   },
   {
     "id": "novita-ai-affiliate-browser-followup",
@@ -514,23 +515,27 @@
     "id": "tagshop-ai-affiliate-followup",
     "tool_id": "tagshop-ai",
     "priority": "high",
-    "status": "application_submitted",
-    "affiliate_status": "application_submitted",
+    "status": "approved_tracking",
+    "affiliate_status": "approved_tracking",
     "cost": "0",
-    "verified_at": "2026-09-08T05:05:00+09:00",
-    "exact_tracking_url": null,
-    "reason": "User explicitly authorized the mandatory program agreement; live signup checkbox was checked and Sign Up submitted once for support@coshuma.com. FirstPromoter Team <support@firstpromoter.com> sent Confirmation instructions at 05:02 KST thanking COSHUMA for signing up to Tagshop - Partner Program. The official confirmation page displayed Email confirmed successfully. Subsequent sign-in attempts remained on the login form without a dashboard or visible error. Enrollment and email confirmation are verified; approval, pending-review status and customer tracking URL remain unconfirmed. No payment was made.",
-    "next_action": "Resume the existing confirmed account at the login page and verify its dashboard or a subsequent program email. Do not create another account or resubmit the application. Record only an issued customer-facing tracking URL after approval verification. No further consent request is needed. Leave CAPTCHA or forced identity verification to the user; no paid plan.",
+    "verified_at": "2026-09-09T05:03:24+09:00",
+    "exact_tracking_url": "https://tagshop.ai?via=coshuma-22501e",
+    "reason": "Resolved by Tagshop welcome email 1a0829e45df98eb7, which issued the exact customer-facing referral URL https://tagshop.ai?via=coshuma-22501e and states paid referred subscriptions are rewarded.",
+    "next_action": "No browser follow-up or reapplication. Preserve the exact issued customer URL and use it only on eligible customer CTAs.",
     "execution_evidence": "tagshop-submission-2026-09-08.json",
     "do_not": [
-      "Do not submit duplicate applications or outreach.",
-      "Do not substitute dashboard, homepage or empty tracking parameter for a revenue URL.",
-      "Do not infer conversions or revenue from link issuance or a verification visit.",
-      "No paid enrollment."
+      "Do not reapply to Tagshop or create another affiliate account.",
+      "Do not use tagshop.firstpromoter.com/login, an onboarding page, application page, or generic homepage as the affiliate/revenue URL.",
+      "Do not infer customer signup, paid conversion, commission, payout or revenue from link issuance or link verification."
     ],
     "application_submitted": true,
     "email_confirmed": true,
-    "program_consent_checked": true
+    "program_consent_checked": true,
+    "resolved_at": "2026-09-09T05:03:24+09:00",
+    "blocker": null,
+    "resolution_evidence": "data/tagshop-approved-tracking-2026-09-09.md",
+    "portal_enrollment_confirmed": true,
+    "do_not_reapply": true
   },
   {
     "id": "webflow-affiliate-browser-followup",
@@ -607,8 +612,9 @@
     "cost": "0",
     "verified_at": "2026-09-08T14:00:00+09:00",
     "reason": "Authenticated Chrome: after a pre-application company Gmail in:anywhere search found no matching messages, the Dub application was submitted once with COSHUMA, support@coshuma.com, https://coshuma.com and factual buyer-guide promotion text. Program terms accepted under explicit user authorization. Step 2 of 2 displayed Application submitted and stated the review update will be sent to support@coshuma.com. The decorative dashboard illustration on this success page is not real account revenue or an issued referral link. No approval or exact tracking URL was issued. Follow-up: authenticated Dub partner dashboard at partners.dub.co/programs/kraterai now shows Approved/Enrolled with issued exact customer-facing tracking link go.krater.ai/sang-kwon-an.",
-    "next_action": "Preserve the issued exact customer-facing link; do not reapply.",
-    "evidence_file": "data/krater-affiliate-enrollment-evidence-2026-09-08.md"
+    "next_action": "Preserve the issued exact customer-facing link; do not reapply. Keep customer signups, commissions and revenue at 0 without new evidence.",
+    "evidence_file": "data/krater-affiliate-enrollment-evidence-2026-09-08.md",
+    "blocker": null
   },
   {
     "id": "eprofessor-affiliate-batch-20260908",
