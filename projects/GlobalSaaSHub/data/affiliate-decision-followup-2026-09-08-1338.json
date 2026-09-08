@@ -1,0 +1,43 @@
+{
+  "checked_at_kst": "2026-09-08T13:38:33+09:00",
+  "purpose": "Record newer vendor decisions that supersede stale application-submitted records. This file does not claim a customer tracking URL unless one was actually issued and verified.",
+  "rules": {
+    "do_not_reapply_on_approved_or_rejected": true,
+    "require_exact_customer_tracking_url_before_revenue_cta": true,
+    "generic_dashboard_or_links_page_is_not_a_revenue_url": true
+  },
+  "items": [
+    {
+      "id": "fillout",
+      "latest_status": "approved_link_recovery_required",
+      "program_approved": true,
+      "exact_tracking_url": null,
+      "decision_source": "Gmail message 1a07ce0382f005f9 from Dub.co",
+      "decision_at": "2026-09-08T02:17:44+09:00",
+      "evidence": "Dub.co states that the Fillout partner application has been approved and that the partner can earn commissions. Reward shown: 30% per sale for 1 year. The email directs the partner to the authenticated Dub Links page to find unique referral links but does not itself contain the account-specific customer referral URL.",
+      "browser_required_url": "https://partners.dub.co/programs/fillout/links",
+      "next_action": "Reuse the existing Dub account and recover the exact issued customer-facing referral URL. Do not reapply. Do not change a COSHUMA revenue CTA until that exact URL is verified."
+    },
+    {
+      "id": "krater",
+      "latest_status": "approved_link_recovery_required",
+      "program_approved": true,
+      "exact_tracking_url": null,
+      "decision_source": "Gmail message 1a07dbc86ffa0ca3 from Dub.co",
+      "decision_at": "2026-09-08T06:18:22+09:00",
+      "evidence": "Dub.co states that the Krater partner application has been approved. Reward terms shown include 25% per sale for 1 year, 7.5% of the original sale amount for 6 months, and 10% off for a new user's first month. The email directs the partner to the authenticated Dub Links page but does not itself contain the account-specific customer referral URL.",
+      "browser_required_url": "https://partners.dub.co/programs/kraterai/links",
+      "next_action": "Reuse the existing Dub account and recover the exact issued customer-facing referral URL. Do not reapply. Do not put a generic Krater or Dub URL into a COSHUMA revenue CTA."
+    },
+    {
+      "id": "n8n",
+      "latest_status": "rejected",
+      "program_approved": false,
+      "exact_tracking_url": null,
+      "decision_source": "Gmail message 1a07f233f4ba22e8 from PartnerStack",
+      "decision_at": "2026-09-08T12:50:09+09:00",
+      "evidence": "PartnerStack states that n8n GmbH declined the application. A re-apply button is present in the vendor email, but COSHUMA's duplicate/cooldown rules take precedence unless later vendor evidence explicitly changes eligibility.",
+      "next_action": "Do not reapply automatically. Keep n8n out of revenue CTA activation until a later explicit approval and account-specific customer tracking URL are verified."
+    }
+  ]
+}
