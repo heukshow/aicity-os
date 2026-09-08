@@ -67,7 +67,7 @@ PATCHES = {
     ],
     "aweber.html": [
         (
-            "<title>AWeber Pricing, 14-Day Trial & Best Fit (2026) | GlobalSaaSHub</title>",
+            "<title>AWeber Pricing, 14-Day Trial & Best Fit (2026) | COSHUMA</title>",
             "<title>AWeber Review & Pricing 2026: 14-Day Free Trial, $15 Lite & Best Fit | COSHUMA</title>",
         ),
         (
