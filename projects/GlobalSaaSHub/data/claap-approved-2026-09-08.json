@@ -12,8 +12,16 @@
     "paid_brand_bidding": "prohibited on Claap and close brand variants"
   },
   "tracking_url": null,
-  "tracking_url_rule": "Do not use the dashboard/login URL or SendGrid redirect as a revenue CTA. Recover and verify the exact customer-facing PartnerStack affiliate link from the authenticated dashboard before changing COSHUMA CTAs.",
-  "next_action": "browser_required: open existing Claap PartnerStack dashboard and copy the exact customer-facing affiliate link only; no reapplication.",
+  "tracking_url_rule": "Do not use the dashboard/login URL or email redirect as a revenue CTA. Recover and verify the exact customer-facing PartnerStack affiliate link from the authenticated dashboard before changing COSHUMA CTAs.",
+  "manager_guidance": {
+    "gmail_message_id": "1a0802b92ec36e61",
+    "received_at_utc": "2026-09-08T08:38:52Z",
+    "advice": "Start with a concise Claap review in COSHUMA's own editorial tone; Lamia said this is what converts best and invited COSHUMA to share the live review.",
+    "implemented": true,
+    "implemented_path": "/tool/claap.html",
+    "implemented_commit": "ac15763e5c2cef3549efd47d80a4173343c9281d"
+  },
+  "next_action": "browser_required: open the existing Claap PartnerStack dashboard and copy the exact customer-facing affiliate link only; no reapplication. Then replace official CTAs on /tool/claap.html only after verification.",
   "outreach": {
     "sent": true,
     "gmail_sent_message_id": "1a080205fb2acd44",
