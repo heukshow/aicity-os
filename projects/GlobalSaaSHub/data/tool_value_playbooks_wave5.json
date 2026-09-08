@@ -1,0 +1,62 @@
+{
+  "inkfluence-ai": {
+    "problems": [
+      "Writers and creators need a faster way to move from a book idea to an organized long-form draft.",
+      "Turning text into an ebook or publishable digital book requires too many disconnected drafting and formatting steps.",
+      "Creators want a repeatable workflow for producing and exporting book-length content."
+    ],
+    "monetization": [
+      {"title": "Create ebook drafts for clients", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Structured ebook or lead-magnet draft"},
+      {"title": "Offer book-content development support", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Organized manuscript draft or chapter package"},
+      {"title": "Produce digital book products", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Export-ready ebook or digital guide"}
+    ]
+  },
+  "sudowrite": {
+    "problems": [
+      "Fiction writers get stuck on scenes, plot development, description or rewriting while trying to preserve their own voice.",
+      "Novel drafting slows down when brainstorming, feedback and revision are handled as separate manual steps.",
+      "Writers need fiction-specific assistance rather than generic business copy generation."
+    ],
+    "monetization": [
+      {"title": "Develop fiction drafts and story outlines", "difficulty": "Intermediate", "cost": "Trial/paid", "output": "Novel outline, scene draft or story-development package"},
+      {"title": "Offer fiction revision support", "difficulty": "Intermediate", "cost": "Trial/paid", "output": "Reworked scenes, descriptions or narrative alternatives"},
+      {"title": "Create serialized fiction content", "difficulty": "Intermediate", "cost": "Paid", "output": "Episode, chapter or serialized-story draft"}
+    ]
+  },
+  "bolddesk": {
+    "problems": [
+      "Customer questions are spread across channels and agents lack a consistent ticketing workflow.",
+      "Support teams spend time manually triaging repetitive requests and tracking unresolved conversations.",
+      "A growing business needs live chat, ticketing, automation and reporting in one support workspace."
+    ],
+    "monetization": [
+      {"title": "Set up customer-support help desks for clients", "difficulty": "Intermediate", "cost": "Trial/paid", "output": "Configured ticketing and support workspace"},
+      {"title": "Design support-routing workflows", "difficulty": "Intermediate", "cost": "Trial/paid", "output": "Routing, categorization and escalation setup"},
+      {"title": "Offer support operations implementation", "difficulty": "Advanced", "cost": "Paid", "output": "Help-desk process, reporting and agent workflow package"}
+    ]
+  },
+  "boldsign": {
+    "problems": [
+      "Contracts and approvals are delayed by printing, scanning or manually chasing signatures.",
+      "Teams need reusable signature templates, reminders and audit trails for recurring document workflows.",
+      "Small businesses need an electronic-signature process without building custom document infrastructure."
+    ],
+    "monetization": [
+      {"title": "Set up e-signature workflows for clients", "difficulty": "Beginner", "cost": "Free/paid", "output": "Reusable contract or approval workflow"},
+      {"title": "Create reusable document templates", "difficulty": "Beginner", "cost": "Free/paid", "output": "Signature-ready contract, proposal or onboarding template set"},
+      {"title": "Implement document approval processes", "difficulty": "Intermediate", "cost": "Paid", "output": "Configured signature, reminder and audit workflow"}
+    ]
+  },
+  "time2book": {
+    "problems": [
+      "Fitness studios and appointment-based businesses manage bookings, payments or schedules through manual messages and spreadsheets.",
+      "Clients need a self-service booking flow instead of repeated back-and-forth scheduling.",
+      "A fitness business needs scheduling and payment operations organized around classes, appointments or memberships."
+    ],
+    "monetization": [
+      {"title": "Set up booking systems for fitness businesses", "difficulty": "Intermediate", "cost": "Trial/paid", "output": "Configured booking and scheduling portal"},
+      {"title": "Implement class and appointment workflows", "difficulty": "Intermediate", "cost": "Trial/paid", "output": "Client-ready class, appointment and payment setup"},
+      {"title": "Offer booking-operations migration", "difficulty": "Intermediate", "cost": "Paid", "output": "Migration from manual scheduling to structured booking workflow"}
+    ]
+  }
+}
