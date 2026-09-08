@@ -9,6 +9,7 @@ on:
       - 'projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json'
       - 'projects/GlobalSaaSHub/scripts/approved_tracking_evidence.mjs'
       - 'projects/GlobalSaaSHub/scripts/browser_followup_evidence.mjs'
+      - 'projects/GlobalSaaSHub/scripts/reconcile_tagshop_approved_tracking.mjs'
       - 'projects/GlobalSaaSHub/data/affiliate-browser-followup-wave3-2026-09-08.json'
       - 'projects/GlobalSaaSHub/data/affiliate-submission-batch-2026-09-08.json'
       - 'projects/GlobalSaaSHub/data/standalone_tool_pages.json'
@@ -65,6 +66,7 @@ jobs:
         run: |
           node scripts/sync_verified_affiliates.mjs
           node scripts/sync_latest_affiliate_states.mjs
+          node scripts/reconcile_tagshop_approved_tracking.mjs
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
           const tools = JSON.parse(fs.readFileSync('data/tools.json', 'utf8'));
@@ -76,6 +78,7 @@ jobs:
             ['time2book', 'https://time2book.me?aff=9TzesqKi'],
             ['taskip', 'https://taskip.net/?atp=qnV3mw'],
             ['clickfunnels', 'https://www.clickfunnels.com/signup-flow?aff=b57f3056884d05b842f607e32347df542821875bbe3209a214141aa32a210532'],
+            ['tagshop-ai', 'https://tagshop.ai?via=coshuma-22501e'],
           ]);
           for (const [id, url] of expected) {
             const tool = tools.find((item) => item.id === id);
@@ -168,6 +171,7 @@ jobs:
           grep -R -q -F 'https://time2book.me?aff=9TzesqKi' projects/GlobalSaaSHub/dist/tool projects/GlobalSaaSHub/dist/compare
           grep -R -q -F 'https://taskip.net/?atp=qnV3mw' projects/GlobalSaaSHub/dist/tool projects/GlobalSaaSHub/dist/compare
           grep -R -q -F 'https://www.clickfunnels.com/signup-flow?aff=b57f3056884d05b842f607e32347df542821875bbe3209a214141aa32a210532' projects/GlobalSaaSHub/dist/tool projects/GlobalSaaSHub/dist/compare
+          grep -R -q -F 'https://tagshop.ai?via=coshuma-22501e' projects/GlobalSaaSHub/dist/tool projects/GlobalSaaSHub/dist/compare
           test -f projects/GlobalSaaSHub/dist/tool/jotform.html
           grep -q -F 'https://www.jotform.com/ai/agents/?partner=coshuma' projects/GlobalSaaSHub/dist/tool/jotform.html
           if grep -q -F 'https://link.jotform.com/17STYVOunG?username=AnSangkwon' projects/GlobalSaaSHub/dist/tool/jotform.html; then
@@ -201,6 +205,23 @@ jobs:
             fi
           done
           grep -q 'coshuma.com' projects/GlobalSaaSHub/dist/CNAME
+
+      - name: Persist reconciled Tagshop operational state
+        run: |
+          set -e
+          files=(
+            projects/GlobalSaaSHub/data/affiliate_outreach_state.json
+            projects/GlobalSaaSHub/data/browser_required_queue.json
+          )
+          if git diff --quiet -- "${files[@]}"; then
+            echo 'Tagshop operational state already current.'
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add "${files[@]}"
+            git commit -m 'data: reconcile Tagshop approved tracking state [skip ci]'
+            git push origin HEAD:main
+          fi
 
       - name: Publish complete Vite dist to gh-pages
         uses: peaceiris/actions-gh-pages@v4
