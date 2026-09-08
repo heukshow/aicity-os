@@ -1,10 +1,10 @@
 """Apply conservative CTR-oriented SEO patches backed by live Search Console data.
 
 The 2026-09-08 live snapshot showed substantial impressions but zero search clicks
-for Brand24, Moosend and Unbounce tool pages. Query data specifically included
-Brand24 review/pricing variants and "moosend review"; Unbounce had the highest
-zero-click page impressions among verified revenue-ready pages. Keep this script
-exact-match and idempotent so it cannot rewrite unrelated pages or invent offers.
+for Brand24, Moosend, Unbounce and AWeber tool pages. Query data specifically
+included Brand24 review/pricing variants and "moosend review". Unbounce and AWeber
+were also high-impression zero-click revenue-ready pages. Keep this script exact-match
+and idempotent so it cannot rewrite unrelated pages or invent offers.
 """
 from pathlib import Path
 
@@ -64,6 +64,32 @@ PATCHES = {
         (
             '<h2 class="text-3xl font-black text-white mt-1">Unbounce plans checked September 6, 2026</h2>',
             '<h2 class="text-3xl font-black text-white mt-1">Unbounce plans checked September 9, 2026</h2>',
+        ),
+    ],
+    "aweber.html": [
+        (
+            "<title>AWeber Pricing, 14-Day Trial & Best Fit (2026) | GlobalSaaSHub</title>",
+            "<title>AWeber Review & Pricing 2026: 14-Day Free Trial, $15 Lite & Best Fit | COSHUMA</title>",
+        ),
+        (
+            '<meta name="description" content="AWeber buyer guide for 2026: compare current Lite and Plus pricing, the 14-day trial, email automation features, best-fit use cases and a verified affiliate link." />',
+            '<meta name="description" content="AWeber review and pricing for 2026: Lite starts at $15/mo or $12.49/mo billed annually, Plus from $19.99/mo billed annually, with a 14-day trial and COSHUMA\'s verified affiliate link." />',
+        ),
+        (
+            '<meta property="og:title" content="AWeber Pricing, 14-Day Trial & Best Fit (2026)" />',
+            '<meta property="og:title" content="AWeber Review & Pricing 2026: 14-Day Trial + $15 Lite" />',
+        ),
+        (
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">AWeber Pricing &amp; Best-Fit Guide</h1>',
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">AWeber Review, Pricing &amp; Best-Fit Guide</h1>',
+        ),
+        (
+            '<p class="text-slate-400 text-sm mt-2">Checked against AWeber\'s official pricing and Advocate Program documentation on September 2, 2026.</p>',
+            '<p class="text-slate-400 text-sm mt-2">Checked against AWeber\'s official pricing and Advocate Program documentation on September 9, 2026.</p>',
+        ),
+        (
+            '<span class="font-extrabold text-lg tracking-tight text-white">GlobalSaaSHub</span>',
+            '<span class="font-extrabold text-lg tracking-tight text-white">COSHUMA</span>',
         ),
     ],
 }
