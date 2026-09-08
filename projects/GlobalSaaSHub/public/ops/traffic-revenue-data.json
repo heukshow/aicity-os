@@ -1,53 +1,38 @@
 {
-  "generated_at": "2026-09-08T23:10:00+09:00",
+  "generated_at": "2026-09-09T00:10:00+09:00",
   "status": "partial",
+  "connections": {
+    "ga4": "정적 화면 집계 미연결",
+    "search_console": "정적 화면 집계 미연결",
+    "partner_revenue": "네트워크별 연결 필요"
+  },
   "metrics": {
     "today_users": null,
-    "today_users_note": "GA4 Data API 미연결 — 추정하지 않음",
+    "today_users_note": "GA4 이벤트는 수집 중이나 이 정적 페이지에 Data API 실집계가 아직 연결되지 않음",
     "sessions_7d": null,
-    "sessions_7d_note": "GA4 Data API 미연결 — 추정하지 않음",
+    "sessions_7d_note": "GA4 Data API 실집계 연결 필요",
     "affiliate_clicks_30d": null,
-    "affiliate_clicks_30d_note": "affiliate_click 이벤트는 수집 중이나 이 정적 화면에서 과거 집계 API는 미연결",
+    "affiliate_clicks_30d_note": "affiliate_click 이벤트 수집 중 · 과거 집계 연결 필요",
     "verified_revenue": null,
     "verified_revenue_currency": "USD",
-    "verified_revenue_note": "파트너별 실제 수익 데이터 통합 미연결 — 수익 발생을 추정하지 않음"
+    "verified_revenue_note": "검증된 파트너/PayPal 수익만 합산 예정 · 현재 통합 미연결"
   },
+  "ranges": {
+    "today": {"users": null, "sessions": null, "views": null, "affiliate_clicks": null, "search_impressions": null, "search_clicks": null, "verified_revenue": null},
+    "7d": {"users": null, "sessions": null, "views": null, "affiliate_clicks": null, "search_impressions": null, "search_clicks": null, "verified_revenue": null},
+    "30d": {"users": null, "sessions": null, "views": null, "affiliate_clicks": null, "search_impressions": null, "search_clicks": null, "verified_revenue": null},
+    "90d": {"users": null, "sessions": null, "views": null, "affiliate_clicks": null, "search_impressions": null, "search_clicks": null, "verified_revenue": null}
+  },
+  "top_sources": [],
+  "top_pages": [],
+  "top_queries": [],
   "snapshot": [
-    {
-      "label": "GA4 수집 식별자",
-      "value": "G-J7E0J89VCV",
-      "period": "현재",
-      "source": "projects/GlobalSaaSHub/public/affiliate-attribution.js"
-    },
-    {
-      "label": "페이지 유입 이벤트",
-      "value": "page_view",
-      "period": "현재",
-      "source": "affiliate-attribution.js"
-    },
-    {
-      "label": "제휴 클릭 이벤트",
-      "value": "affiliate_click",
-      "period": "현재",
-      "source": "affiliate-attribution.js"
-    },
-    {
-      "label": "캠페인 attribution",
-      "value": "UTM + entry_page + entry_referrer",
-      "period": "현재 세션",
-      "source": "affiliate-attribution.js"
-    },
-    {
-      "label": "과거 방문자/세션 숫자",
-      "value": "미연결",
-      "period": "현재",
-      "source": "GA4 Data API 연결 필요"
-    },
-    {
-      "label": "가입/구매/커미션",
-      "value": "미연결",
-      "period": "현재",
-      "source": "각 제휴 네트워크의 검증된 전환 데이터 연결 필요"
-    }
+    {"label": "GA4 Measurement ID", "value": "G-J7E0J89VCV", "period": "현재", "source": "public/affiliate-attribution.js"},
+    {"label": "Worker GA Property ID", "value": "552119661", "period": "현재 저장소 설정", "source": "worker/wrangler.toml"},
+    {"label": "페이지 유입 이벤트", "value": "page_view + UTM + entry_page + entry_referrer", "period": "현재", "source": "affiliate-attribution.js"},
+    {"label": "제휴 클릭 이벤트", "value": "affiliate_click + tool_id + cta_source + outbound_domain", "period": "현재", "source": "affiliate-attribution.js"},
+    {"label": "서버측 Google 집계 코드", "value": "구현됨", "period": "현재", "source": "worker/src/google-analytics.js"},
+    {"label": "정적 대시보드 실집계", "value": "미연결", "period": "현재", "source": "Worker/API 브리지 필요"},
+    {"label": "가입/구매/커미션", "value": "미연결", "period": "현재", "source": "각 제휴 네트워크의 검증 데이터 연결 필요"}
   ]
 }
