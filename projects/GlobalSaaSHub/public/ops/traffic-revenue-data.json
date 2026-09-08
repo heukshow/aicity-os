@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T19:25:40.087Z",
+  "generated_at": "2026-09-08T22:30:57.638Z",
   "status": "live_google_connected",
   "connections": {
     "ga4": "연결됨 · property 552233666",
@@ -7,9 +7,9 @@
     "partner_revenue": "네트워크별 연결 필요"
   },
   "metrics": {
-    "today_users": 5,
+    "today_users": 8,
     "today_users_note": "GA4 property 552233666",
-    "sessions_7d": 57,
+    "sessions_7d": 63,
     "sessions_7d_note": "GA4 Data API 실집계",
     "affiliate_clicks_30d": 6,
     "affiliate_clicks_30d_note": "GA4 affiliate_click 30일 실집계",
@@ -19,36 +19,36 @@
   },
   "ranges": {
     "today": {
-      "users": 5,
-      "sessions": 6,
-      "views": 9,
+      "users": 8,
+      "sessions": 12,
+      "views": 34,
       "affiliate_clicks": null,
       "search_impressions": 0,
       "search_clicks": 0,
       "verified_revenue": null
     },
     "7d": {
-      "users": 35,
-      "sessions": 57,
-      "views": 84,
+      "users": 37,
+      "sessions": 63,
+      "views": 109,
       "affiliate_clicks": null,
       "search_impressions": 47,
       "search_clicks": 0,
       "verified_revenue": null
     },
     "30d": {
-      "users": 38,
-      "sessions": 62,
-      "views": 94,
+      "users": 40,
+      "sessions": 68,
+      "views": 119,
       "affiliate_clicks": 6,
       "search_impressions": 280,
       "search_clicks": 0,
       "verified_revenue": null
     },
     "90d": {
-      "users": 38,
-      "sessions": 62,
-      "views": 94,
+      "users": 40,
+      "sessions": 68,
+      "views": 119,
       "affiliate_clicks": null,
       "search_impressions": 2085,
       "search_clicks": 1,
@@ -59,17 +59,17 @@
     {
       "name": "direct",
       "value": 20,
-      "note": "세션 26"
+      "note": "세션 28"
     },
     {
       "name": "(not set)",
-      "value": 8,
-      "note": "세션 18"
+      "value": 11,
+      "note": "세션 22"
     },
     {
       "name": "(direct)",
-      "value": 7,
-      "note": "세션 21"
+      "value": 9,
+      "note": "세션 25"
     },
     {
       "name": "youtube",
@@ -95,8 +95,18 @@
   "top_pages": [
     {
       "name": "/",
-      "value": 42,
-      "note": "사용자 30"
+      "value": 59,
+      "note": "사용자 32"
+    },
+    {
+      "name": "/best/ai-tools-to-make-money.html",
+      "value": 4,
+      "note": "사용자 2"
+    },
+    {
+      "name": "/tool/pictory.html",
+      "value": 4,
+      "note": "사용자 2"
     },
     {
       "name": "/tool/chatbase.html",
@@ -104,12 +114,12 @@
       "note": "사용자 3"
     },
     {
-      "name": "/tool/pictory.html",
-      "value": 3,
+      "name": "/best/ai-video-generators.html",
+      "value": 2,
       "note": "사용자 1"
     },
     {
-      "name": "/best/ai-video-generators.html",
+      "name": "/best/docsbot-free-plan-pricing.html",
       "value": 2,
       "note": "사용자 1"
     },
@@ -159,11 +169,6 @@
       "note": "사용자 0"
     },
     {
-      "name": "/best/docsbot-free-plan-pricing.html",
-      "value": 1,
-      "note": "사용자 1"
-    },
-    {
       "name": "/best/esignature-software.html",
       "value": 1,
       "note": "사용자 1"
@@ -174,22 +179,17 @@
       "note": "사용자 0"
     },
     {
+      "name": "/best/jotform-pricing-free-plan.html",
+      "value": 1,
+      "note": "사용자 1"
+    },
+    {
       "name": "/best/moosend-free-trial.html",
       "value": 1,
       "note": "사용자 1"
     },
     {
       "name": "/best/novita-ai-agent-sandbox-pricing.html",
-      "value": 1,
-      "note": "사용자 1"
-    },
-    {
-      "name": "/best/pictory-discount-code.html",
-      "value": 1,
-      "note": "사용자 2"
-    },
-    {
-      "name": "/best/pictory-free-trial-pricing.html",
       "value": 1,
       "note": "사용자 1"
     }
@@ -204,6 +204,18 @@
       "name": "/tool/pictory.html",
       "value": 1,
       "note": "제휴 클릭"
+    }
+  ],
+  "affiliate_links": [
+    {
+      "name": "알 수 없음",
+      "value": 5,
+      "note": "링크 텍스트: 알 수 없음"
+    },
+    {
+      "name": "https://pictory.ai/?fpr=sangkwon-an23",
+      "value": 1,
+      "note": "링크 텍스트: Use COSHUMA20 at Pictory →"
     }
   ],
   "top_queries": [
@@ -428,6 +440,12 @@
       "value": "6",
       "period": "최근 30일",
       "source": "GA4 affiliate_click"
+    },
+    {
+      "label": "제휴 목적지 분석",
+      "value": "2",
+      "period": "최근 30일",
+      "source": "GA4 linkUrl/linkText"
     },
     {
       "label": "데이터 생성 방식",
