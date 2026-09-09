@@ -677,19 +677,6 @@
     "user_action_required": false
   },
   {
-    "id": "claap-affiliate-batch-20260908-0650",
-    "tool_id": "claap",
-    "status": "resolved",
-    "affiliate_status": "application_submitted",
-    "exact_tracking_url": null,
-    "cost": "0",
-    "verified_at": "2026-09-07T21:44:39.241362+00:00",
-    "reason": "Current official page linked claap.partnerstack.com/?group=affiliates. Existing PartnerStack account reused with Sangkwon An, COSHUMA, support@coshuma.com, Korea Republic of and https://coshuma.com. Website promotion and factual early-stage audience description; explicitly Haven't used it yet, no invented traffic. Submitted once. Authenticated dashboard visibly displayed Claap / Application pending, 0 clicks, 0 signups, $0 revenue and $0 pending/paid commissions. No customer tracking link issued.",
-    "next_action": "Await review in the existing account. Do not reapply or send duplicate outreach. Publish only an issued exact customer-facing tracking URL after approval.",
-    "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
-    "user_action_required": false
-  },
-  {
     "id": "nudgera-affiliate-batch-20260908-0650",
     "tool_id": "nudgera",
     "status": "browser_required_otp",
@@ -771,13 +758,14 @@
     "id": "omnisend-status-hotfix-2026-09-09",
     "tool_id": "omnisend",
     "priority": "high",
-    "status": "approved_account_tracking_url_required",
-    "affiliate_status": "approved",
+    "status": "resolved",
+    "affiliate_status": "approved_tracking",
     "cost": 0,
-    "exact_tracking_url": null,
-    "blocker": "Authenticated Impact dashboard required only to retrieve the issued tracking link if Omnisend does not send it directly.",
-    "next_action": "Do not reapply. Retrieve the exact account-issued customer tracking link from the existing Impact account under Content > Assets, as Omnisend's official affiliate page instructs. Keep affiliate_url null and do not publish an Omnisend affiliate CTA until that exact tracking URL is copied and verified. No paid action.",
-    "do_not_reapply": true
+    "exact_tracking_url": "https://your.omnisend.com/4aA5k9",
+    "blocker": null,
+    "next_action": "Preserve and publish the exact Omnisend-issued customer tracking URL on buyer-facing COSHUMA pages; do not reapply and do not substitute a generic Omnisend or Impact operational URL. Measure actual downstream events separately.",
+    "do_not_reapply": true,
+    "browser_required": false
   },
   {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
@@ -798,5 +786,29 @@
       "Do not guess or construct a referral parameter.",
       "Do not infer clicks, sales, conversions, commissions, or revenue from approval alone."
     ]
+  },
+  {
+    "id": "claap-approved-link-recovery-2026-09-09",
+    "tool_id": "claap",
+    "program_name": "Claap Affiliate Program",
+    "priority": "high",
+    "status": "approved_account_tracking_url_required",
+    "affiliate_status": "approved",
+    "exact_tracking_url": null,
+    "cost": "0",
+    "verified_at": "2026-09-09T08:31:35Z",
+    "gmail_message_id": "1a0854b42ac1cc9a",
+    "approval_gmail_message_id": "1a08009379826dfd",
+    "reason": "Claap affiliate manager Lamia Karmaly reviewed COSHUMA's Claap page and explicitly said the current CTAs still point to claap.io rather than COSHUMA's affiliate link. She instructed COSHUMA to grab the exact link in the existing PartnerStack account and swap the buttons. Approval is already verified; only exact customer-facing tracking-link recovery remains.",
+    "next_action": "Do not reapply or send duplicate outreach. Reuse the existing approved Claap PartnerStack partnership, open Claap > Links, and copy only the exact customer-facing affiliate URL issued to COSHUMA. Keep affiliate_url null and keep current official Claap links non-affiliate until that exact URL is verified; then replace revenue CTAs and validate attribution.",
+    "constraints": [
+      "Do not submit another Claap affiliate application.",
+      "Do not treat claap.io, PartnerStack dashboard/login URLs, onboarding URLs, or email redirects as the affiliate URL.",
+      "Do not guess or construct a referral parameter.",
+      "Keep current official Claap links until the exact issued customer-facing tracking URL is verified.",
+      "No revenue, signup, or commission is inferred from approval alone."
+    ],
+    "user_action_required": false,
+    "blocker": "Exact customer-facing tracking URL requires the existing authenticated PartnerStack Claap Links view."
   }
 ]
