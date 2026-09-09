@@ -25,22 +25,22 @@ def replace_once(pattern: str, replacement: str, label: str) -> None:
 
 replace_once(
     r"<title>[^<]*</title>",
-    "<title>Databox Pricing 2026: Free, Analyst, Pro & Growth + 14-Day Trial | COSHUMA</title>",
+    "<title>Databox Pricing 2026: Free, Analyst, Team & Agency + 14-Day Trial | COSHUMA</title>",
     "title",
 )
 replace_once(
     r'<meta name="description" content="[^"]*"\s*/>',
-    '<meta name="description" content="Databox pricing in 2026: compare Free ($0), Analyst ($64), Pro ($159) and Growth ($399) annual-billing plans, plus the 14-day no-card Growth trial and verified COSHUMA referral link." />',
+    '<meta name="description" content="Databox pricing in 2026: Free $0, Analyst $71/mo annually, Team Core $199, Team Scale $319, Agency from $79, plus a 14-day no-card trial through COSHUMA\'s verified referral link." />',
     "meta description",
 )
 replace_once(
     r'<meta property="og:title" content="[^"]*"\s*/>',
-    '<meta property="og:title" content="Databox Pricing 2026: Plans + 14-Day Trial | COSHUMA" />',
+    '<meta property="og:title" content="Databox Pricing 2026: Free, Analyst, Team & Agency | COSHUMA" />',
     "Open Graph title",
 )
 replace_once(
     r'<meta property="og:description" content="[^"]*"\s*/>',
-    '<meta property="og:description" content="Compare Databox Free, Analyst, Pro and Growth pricing, AI credits, data-source limits and the current 14-day no-card Growth trial." />',
+    '<meta property="og:description" content="Compare current Databox Free, Analyst, Team Core, Team Scale and Agency pricing, AI credits and the 14-day no-card trial." />',
     "Open Graph description",
 )
 replace_once(
@@ -50,7 +50,7 @@ replace_once(
 )
 replace_once(
     r'<p class="text-sm text-slate-400 mt-1">Official annual-billing prices (?:re)?checked .*? Monthly billing is higher(?:; annual billing currently saves 20%)?\.</p>',
-    '<p class="text-sm text-slate-400 mt-1">Official annual-billing prices rechecked September 9, 2026. Monthly billing is higher; annual billing currently saves 20%.</p>',
+    '<p class="text-sm text-slate-400 mt-1">Official annual-billing prices rechecked September 9, 2026. Annual billing currently saves 20%.</p>',
     "pricing verification date",
 )
 
