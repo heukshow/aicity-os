@@ -36,7 +36,7 @@ def reconcile_data(evidence: dict, queue_evidence: dict) -> None:
         "Claap manager Lamia Karmaly reviewed the COSHUMA page in message 1a0854b42ac1cc9a.",
         "The manager explicitly confirmed the current COSHUMA Claap buttons are not affiliate-tracked yet and instructed COSHUMA to recover the issued PartnerStack link.",
         "Exact customer-facing Claap tracking URL is still unverified; do not guess or construct a referral parameter.",
-        "Official product domain is claap.io, not claap.ai.",
+        "Official product domain is claap.io, not the former claap.ai reference.",
     ]
 
     for name in ("tools.json", "tools.next.json"):
@@ -90,7 +90,10 @@ def reconcile_data(evidence: dict, queue_evidence: dict) -> None:
 def fix_public_domains() -> None:
     for path in PUBLIC_DIR.rglob("*.html"):
         text = path.read_text(encoding="utf-8")
-        updated = text.replace("https://www.claap.ai/", OFFICIAL_URL)
+        # Some generated pages used www/no-www and slash/no-slash variants.
+        # The manager explicitly confirmed claap.io as the current official domain,
+        # so normalize the hostname itself instead of relying on one exact URL form.
+        updated = text.replace("claap.ai", "claap.io")
         if updated != text:
             path.write_text(updated, encoding="utf-8")
 
@@ -138,6 +141,9 @@ def patch_claap_page() -> None:
         if verdict_marker in html:
             html = html.replace(verdict_marker, integrations_section + "\n  " + verdict_marker, 1)
 
+    # Run hostname normalization again because earlier build transforms can add
+    # a sources-checked block after the first pass.
+    html = html.replace("claap.ai", "claap.io")
     path.write_text(html, encoding="utf-8")
 
     final = path.read_text(encoding="utf-8")
