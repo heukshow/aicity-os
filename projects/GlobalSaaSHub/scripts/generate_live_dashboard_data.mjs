@@ -1,7 +1,11 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 
-const outPath = new URL('../public/ops/traffic-revenue-data.json', import.meta.url);
+import path from 'node:path';
+const outPath = process.env.DASHBOARD_OUTPUT_PATH;
+if (!outPath || !path.isAbsolute(outPath)) throw new Error('An absolute private DASHBOARD_OUTPUT_PATH is required');
+const publicRoot = path.resolve(new URL('../public', import.meta.url).pathname.replace(/^\/(?:([A-Za-z]:))/, '$1'));
+if (path.resolve(outPath).startsWith(publicRoot + path.sep)) throw new Error('Public output is forbidden');
 const serviceRaw = process.env.GOOGLE_SERVICE_ACCOUNT_JSON || '';
 const propertyId = String(process.env.GA_PROPERTY_ID || '552119661').trim();
 const siteUrl = String(process.env.GSC_SITE_URL || 'https://coshuma.com/').trim();
@@ -128,6 +132,6 @@ try {
   };
   write(data);
 } catch (e) {
-  console.error(e);
-  write(empty('google_api_error', `Google API 연결 실패: ${String(e.message||e).slice(0,180)}`));
+  console.error('Google analytics collection failed; prior private snapshot is preserved.');
+  write(empty('google_api_error', 'Google API 연결 실패'));
 }
