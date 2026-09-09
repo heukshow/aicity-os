@@ -505,7 +505,8 @@
       "review_state": "approved",
       "checked_at": "2026-09-09T21:45:09+09:00",
       "evidence": "Claap affiliate manager Lamia Karmaly replied to support@coshuma.com in Gmail message 1a08633651c79db9 and explicitly said she copied COSHUMA's two affiliate URLs directly from the existing PartnerStack dashboard. The first issued customer-facing URL is https://get.claap.io/rc9nqme16a9q-gfvrqk; the second verified alternate is https://get.claap.io/ssb7dex1109s. No click, signup, commission, payout, or revenue is inferred from issuance.",
-      "updated_at": "2026-09-09T12:45:09Z"
+      "updated_at": "2026-09-09T12:45:09Z",
+      "sender": "support@coshuma.com"
     },
     "nudgera": {
       "status": "browser_required_otp",
@@ -604,6 +605,14 @@
       "do_not_reapply": true,
       "checked_at": "2026-09-09T17:50:34+09:00",
       "evidence": "Omnisend Senior Affiliate Marketing Manager Deimantė Vaitkevičiūtė replied to support@coshuma.com in Gmail message 1a0855caf8f6dee2 and explicitly instructed COSHUMA to use https://your.omnisend.com/4aA5k9 for tracking, confirming the tracking link is in Impact Assets. No click, signup, commission, payout, or revenue is inferred."
+    },
+    "teachable": {
+      "status": "approved_tracking",
+      "tracking_url": "https://partnerstack.teachable.com/ce4muoxdj46j",
+      "sender": "support@coshuma.com",
+      "gmail_message_id": "1a086aa6ef5a4d98",
+      "updated_at": "2026-09-09T14:55:10Z",
+      "note": "Teachable manager supplied COSHUMA's exact unique PartnerStack URL by email. Use it as the default tracked CTA. Tracked 30-day trial deeplink remains pending vendor confirmation; do not reapply or guess a wrapper."
     }
   }
 }

@@ -1816,7 +1816,7 @@
     "affiliate_url": null,
     "affiliate_verified": true,
     "affiliate_status": "approved",
-    "affiliate_verified_at": "2026-09-08T20:48:27Z",
+    "affiliate_verified_at": "2026-09-09T15:24:56Z",
     "affiliate_evidence_markers": [
       "Gravity Affiliate welcome email 1a082c784399b2c3 verifies COSHUMA program acceptance.",
       "The welcome email states a 30-day attribution window and 20% commission on a qualifying sale.",
@@ -1824,9 +1824,9 @@
       "Do not reapply, do not reuse a PartnerStack/dashboard/email redirect as a revenue URL, and do not guess tracking parameters."
     ],
     "affiliate_final_url": null,
-    "affiliate_status_checked_at": "2026-09-08T20:48:27Z",
+    "affiliate_status_checked_at": "2026-09-09T15:24:56Z",
     "affiliate_status_evidence_url": "gmail:1a082c784399b2c3",
-    "affiliate_next_action": "Reuse the existing authenticated Gravity/PartnerStack account in the COSHUMA Work browser when available. Open the approved program dashboard and copy the exact customer-facing affiliate/referral link issued to COSHUMA. Verify the destination and tracking parameter before updating any public CTA."
+    "affiliate_next_action": "Wait for the direct vendor reply with the exact customer-facing URL. If Gravity supplies it, verify and activate only that exact URL. Use the authenticated PartnerStack browser only as fallback if the vendor does not paste the link. Do not reapply."
   },
   {
     "id": "sendcloud",
@@ -2783,22 +2783,26 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://support.teachable.com/en/collections/13696598-affiliates",
-    "affiliate_url": null,
-    "affiliate_verified": false,
-    "affiliate_status": "approved",
-    "affiliate_verified_at": null,
+    "affiliate_url": "https://partnerstack.teachable.com/ce4muoxdj46j",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-09T14:55:10Z",
     "affiliate_evidence_markers": [
-      "Teachable welcome email 1a08653d9c3bd9f8 explicitly welcomes COSHUMA to the Teachable Affiliate Program.",
-      "The welcome email says the unique commissionable tracking link is the personalized URL under PartnerStack -> Links.",
-      "The affiliate-only 30-day extended-trial landing page must be wrapped with the account tracking link to earn commission.",
-      "COSHUMA requested the exact customer-facing link from support@coshuma.com in sent Gmail message 1a0865d276cdd5c1.",
-      "Do not use the generic partners page, PartnerStack dashboard/login, unwrapped extended-trial page, onboarding URL, or guessed parameter as an affiliate CTA."
+      "Teachable welcome email 1a08653d9c3bd9f8 confirms COSHUMA is approved for the Teachable Affiliate Program.",
+      "Teachable manager Camila Gouveia pasted COSHUMA's exact unique customer-facing PartnerStack URL into Gmail message 1a086aa6ef5a4d98.",
+      "Primary verified tracking URL: https://partnerstack.teachable.com/ce4muoxdj46j",
+      "The affiliate-only 30-day extended-trial landing page still requires an exact tracked vendor-issued URL before it can be used as an affiliate CTA.",
+      "COSHUMA requested that exact trial URL from support@coshuma.com in sent Gmail message 1a086ca80689bbbf.",
+      "Do not use the generic partners page, PartnerStack dashboard/login, unwrapped partner30 page, onboarding URL, or guessed tracking wrapper as an affiliate CTA.",
+      "Exact tracking route is verified; no actual click, signup, commission, or revenue is inferred from URL issuance alone."
     ],
-    "affiliate_final_url": null,
-    "affiliate_status_checked_at": "2026-09-09T13:20:35Z",
-    "affiliate_status_evidence_url": "gmail:1a08653d9c3bd9f8",
-    "affiliate_dashboard_status": "Approved; personalized PartnerStack tracking URL not yet recovered",
-    "affiliate_next_action": "Prefer the exact-link request already sent from support@coshuma.com. If Teachable does not paste the URL by email, reuse the existing approved PartnerStack relationship and copy the personalized link from Links. Recover a tracked version of the 30-day affiliate-only extended-trial landing page if available. Do not reapply."
+    "affiliate_final_url": "https://partnerstack.teachable.com/ce4muoxdj46j",
+    "affiliate_status_checked_at": "2026-09-09T14:55:10Z",
+    "affiliate_status_evidence_url": "gmail:1a086aa6ef5a4d98",
+    "affiliate_dashboard_status": "Approved; exact unique PartnerStack customer tracking URL supplied directly by Teachable manager",
+    "affiliate_next_action": "Use the exact vendor-supplied PartnerStack URL as the default Teachable revenue CTA. Await the vendor-supplied tracked 30-day extended-trial URL before adding a trial-specific deeplink. Do not reapply or guess a wrapper.",
+    "affiliate_tracking_url_verified": true,
+    "affiliate_tracking_attribution_currently_verified": false
   },
   {
     "id": "livechat",
