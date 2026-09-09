@@ -91,33 +91,36 @@ def reconcile_outreach(evidence: dict) -> None:
     if not path.exists():
         return
     state = load_json(path)
-    programs = state.get("programs", {}) if isinstance(state, dict) else {}
+    if not isinstance(state, dict):
+        raise RuntimeError("affiliate_outreach_state.json must be an object")
+    programs = state.setdefault("programs", {})
     if not isinstance(programs, dict):
-        return
+        raise RuntimeError("affiliate_outreach_state.json programs must be an object")
 
     claap_e = evidence["claap"]
     teachable_e = evidence["teachable"]
-    claap = programs.get("claap")
-    if isinstance(claap, dict):
-        claap.update(
-            {
-                "status": "approved_tracking",
-                "tracking_url": claap_e["primary_tracking_url"],
-                "updated_at": claap_e["received_at_utc"],
-                "note": "Approved Claap account now has exact manager-supplied PartnerStack URLs. Use the first issued URL as the default tracked CTA; do not reapply. Actual click/revenue remains unverified.",
-            }
-        )
+    claap = programs.setdefault("claap", {})
+    claap.update(
+        {
+            "status": "approved_tracking",
+            "tracking_url": claap_e["primary_tracking_url"],
+            "sender": "support@coshuma.com",
+            "updated_at": claap_e["received_at_utc"],
+            "note": "Approved Claap account now has exact manager-supplied PartnerStack URLs. Use the first issued URL as the default tracked CTA; do not reapply. Actual click/revenue remains unverified.",
+        }
+    )
 
-    teachable = programs.get("teachable")
-    if isinstance(teachable, dict):
-        teachable.update(
-            {
-                "status": "approved_tracking",
-                "tracking_url": teachable_e["tracking_url"],
-                "updated_at": teachable_e["received_at_utc"],
-                "note": "Teachable manager supplied COSHUMA's exact unique PartnerStack URL by email. Use it as the default tracked CTA. Tracked 30-day trial deeplink remains pending vendor confirmation; do not reapply or guess a wrapper.",
-            }
-        )
+    teachable = programs.setdefault("teachable", {})
+    teachable.update(
+        {
+            "status": "approved_tracking",
+            "tracking_url": teachable_e["tracking_url"],
+            "sender": "support@coshuma.com",
+            "gmail_message_id": teachable_e["tracking_reply_gmail_message_id"],
+            "updated_at": teachable_e["received_at_utc"],
+            "note": "Teachable manager supplied COSHUMA's exact unique PartnerStack URL by email. Use it as the default tracked CTA. Tracked 30-day trial deeplink remains pending vendor confirmation; do not reapply or guess a wrapper.",
+        }
+    )
     write_json(path, state)
 
 
