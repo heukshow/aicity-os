@@ -16,7 +16,7 @@
     "check:tool-value": "python scripts/inject_tool_value_playbooks.py && python scripts/audit_tool_value_playbook_coverage.py && echo tool-value-recommendation-policy-v3-wave11",
     "check:tool-value-policy": "python scripts/audit_tool_value_playbook_coverage.py",
     "check:docsbot-partner": "python scripts/apply_docsbot_partner_guidance.py && echo docsbot-partner-v2",
-    "check:omnisend-revenue": "python scripts/apply_search_console_ctr_patches.py && python scripts/apply_omnisend_revenue_patch.py && python scripts/finalize_omnisend_tracking.py && echo omnisend-search-monetization-v6",
+    "check:omnisend-revenue": "python scripts/apply_search_console_ctr_patches.py && python scripts/apply_omnisend_revenue_patch.py && python scripts/finalize_omnisend_tracking.py && echo omnisend-search-monetization-v7",
     "check:gravity-approval": "node scripts/reconcile_gravity_approval_state.mjs && echo gravity-approved-link-pending-v1",
     "check:claap-partner": "python scripts/apply_claap_partner_feedback.py && echo claap-approved-link-pending-v5",
     "check:unbounce-revenue": "python scripts/apply_search_console_ctr_patches.py && python scripts/apply_unbounce_search_revenue_patch.py && echo unbounce-search-revenue-v1",
