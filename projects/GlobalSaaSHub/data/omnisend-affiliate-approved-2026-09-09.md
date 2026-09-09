@@ -15,4 +15,10 @@
 - Safety rule: preserve the exact issued URL. Do not substitute a generic Omnisend URL or an Impact operational URL.
 - Revenue evidence: none. No click, signup, commission, payout, or revenue is inferred from approval or link issuance.
 
-Next action: publish the exact verified URL only on buyer-facing Omnisend CTAs with affiliate disclosure and `rel="sponsored noopener noreferrer"`; keep duplicate application blocked and measure downstream events separately.
+## Revenue-optimization follow-up
+
+- On 2026-09-09, COSHUMA sent a reply from `support@coshuma.com` to Deimantė requesting a vendor-issued tracking URL that lands directly on `https://www.omnisend.com/pricing/` for the pricing-focused buyer guide.
+- Sent Gmail message id: `1a0857f4e0784af8` in the existing affiliate thread.
+- Until Omnisend supplies an exact pricing-destination tracking URL, continue using only `https://your.omnisend.com/4aA5k9` for Omnisend affiliate CTAs. Do not synthesize a pricing deep link or append tracking parameters manually.
+
+Next action: keep the verified root tracking URL live, wait for the vendor-issued pricing deep link, and only replace pricing-intent Omnisend CTAs after the exact URL is received and verified. Track real clicks/signups/commissions separately; no revenue is inferred from approval, link issuance, or this follow-up request.
