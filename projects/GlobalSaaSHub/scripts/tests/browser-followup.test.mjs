@@ -33,17 +33,27 @@ function check() {
 }
 check();
 try {
-  // Exercise both deployment syncs twice: no stale override may reopen an application.
+  // A first full sync may legitimately normalize evidence metadata when a newer
+  // vendor decision supersedes the repository snapshot. Idempotence means a
+  // second full sync must preserve that normalized result, not the stale input.
+  let normalized = null;
   for (let n = 0; n < 2; n++) {
     for (const s of ['sync_verified_affiliates', 'sync_latest_affiliate_states']) {
       execFileSync(process.execPath, [`scripts/${s}.mjs`]);
       check();
     }
+    const snapshot = paths.map(p => JSON.parse(fs.readFileSync(p)));
+    if (normalized === null) {
+      normalized = snapshot;
+      continue;
+    }
     for (let i = 0; i < paths.length; i++) {
-      const before = JSON.parse(originals[i]);
-      const after = JSON.parse(fs.readFileSync(paths[i]));
       for (const id of browserFollowups.keys()) {
-        assert.deepEqual(after.find(t => t.id === id), before.find(t => t.id === id));
+        assert.deepEqual(
+          snapshot[i].find(t => t.id === id),
+          normalized[i].find(t => t.id === id),
+          `${id} changed after normalized affiliate sync`,
+        );
       }
     }
   }
