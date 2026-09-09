@@ -18,22 +18,6 @@
       "supersedes_pending_submission": true
     },
     {
-      "id": "omnisend",
-      "status": "approved",
-      "application_state": "submitted",
-      "review_state": "approved",
-      "affiliate_url": null,
-      "workflow_url": "https://app.impact.com/",
-      "official_program_url": "https://www.omnisend.com/affiliates/",
-      "checked_at": "2026-09-09T14:44:42+09:00",
-      "evidence": "Omnisend Affiliate Team / Impact sent Gmail message 1a084b27a331668b to support@coshuma.com with subject 'Welcome to the Omnisend Affiliate Program!' and explicitly welcomed Sangkwon An as part of the Omnisend Affiliate program. This is newer than the September 1 application-submitted state. The email contains program/help links but no account-specific customer tracking URL, so no homepage, Impact dashboard URL, or email redirect is treated as a revenue link.",
-      "next_action": "Do not reapply. Retrieve the exact account-issued customer tracking link from the existing Impact account under Content > Assets, as Omnisend's official affiliate page instructs. Keep affiliate_url null and do not publish an Omnisend affiliate CTA until that exact tracking URL is copied and verified. No paid action.",
-      "blockers": [
-        "Authenticated Impact dashboard required only to retrieve the issued tracking link if Omnisend does not send it directly."
-      ],
-      "supersedes_pending_submission": true
-    },
-    {
       "id": "claap",
       "status": "approved",
       "application_state": "submitted",
