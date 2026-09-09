@@ -232,9 +232,9 @@ jobs:
       - name: Publish complete Vite dist to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: $${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./projects/GlobalSaaSHub/dist
           publish_branch: gh-pages
           force_orphan: true
           enable_jekyll: false
-          commit_message: 'deploy: sync COSHUMA production bundle from $${{ github.sha }}'
+          commit_message: 'deploy: sync COSHUMA production bundle from ${{ github.sha }}'
