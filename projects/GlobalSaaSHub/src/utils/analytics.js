@@ -26,8 +26,14 @@ function emit(eventName, event) {
   if (eventName !== 'page_view') Object.assign(payload, {
     tool_id: event.tool_id,
     tool_name: event.toolName,
+    // Use GA4's standard outbound-link parameter names so the Data API can
+    // report linkUrl/linkText/linkId/linkDomain without a custom definition.
     link_url: event.outbound_url,
+    link_text: event.toolName || '',
+    link_id: event.tool_id || '',
+    link_domain: event.affiliate_network,
     outbound_domain: event.affiliate_network,
+    outbound: true,
     cta_source: 'home-tool-card',
     transport_type: 'beacon',
   });
