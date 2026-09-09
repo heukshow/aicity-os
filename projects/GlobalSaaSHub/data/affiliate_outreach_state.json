@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-09",
+  "updated_at": "2026-09-10",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -587,18 +587,20 @@
       "blockers": []
     },
     "fathom": {
-      "status": "enrollment_path_requested",
+      "status": "rejected",
       "tracking_url": null,
       "account": "support@coshuma.com",
-      "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
-      "note": "Existing repository evidence preserved, not a new submission or newly verified email: data/affiliate-outreach-2026-09-07-1829.md. The current company mailbox search for MindStudio/CloudTalk/HappyScribe returned no results; absence does not reverse the prior recorded outreach. No duplicate sent.",
+      "evidence_file": "data/fathom-growth-partner-not-fit-2026-09-10.md",
+      "note": "Fathom human support confirmed COSHUMA's current content/affiliate publisher profile is not eligible for the Growth Partner Program without being an active Fathom user. Do not reapply or create a paid subscription solely for eligibility.",
       "next_action": "Await the already recorded request; do not reapply. Recover approval and an issued exact tracking URL only with new direct evidence.",
       "application_state": "existing_record_preserved",
       "portal_enrollment_confirmed": false,
       "do_not_reapply": true,
       "checked_date_kst": "2026-09-08",
       "workflow_url": "https://www.fathom.ai/program/growth-partner",
-      "blockers": []
+      "blockers": [],
+      "gmail_message_id": "1a086e0111278d32",
+      "checked_at": "2026-09-10T00:53:45+09:00"
     },
     "omnisend": {
       "status": "approved_tracking",

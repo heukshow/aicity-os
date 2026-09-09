@@ -4613,18 +4613,20 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.fathom.ai/",
-    "affiliate_status": "enrollment_path_requested",
-    "affiliate_status_checked_at": "2026-09-07T21:44:39.241362+00:00",
-    "affiliate_status_evidence_url": "https://www.fathom.ai/program/growth-partner",
-    "affiliate_verified": false,
+    "affiliate_status": "rejected",
+    "affiliate_status_checked_at": "2026-09-10T00:53:45+09:00",
+    "affiliate_status_evidence_url": "https://mail.google.com/mail/#all/1a086e0111278d32",
+    "affiliate_verified": true,
     "affiliate_final_url": null,
     "affiliate_evidence_markers": [
-      "Existing repository evidence preserved, not a new submission or newly verified email: data/affiliate-outreach-2026-09-07-1829.md. The current company mailbox search for MindStudio/CloudTalk/HappyScribe returned no results; absence does not reverse the prior recorded outreach. No duplicate sent.",
-      "Await the already recorded request; do not reapply. Recover approval and an issued exact tracking URL only with new direct evidence.",
-      "data/affiliate-submission-batch-2026-09-08.json"
+      "Human reply from Aby Perez at Fathom says the Growth Partner Program is for active Fathom users such as agencies, consultants, and RevOps practitioners using Fathom with clients.",
+      "Fathom explicitly states content and affiliate publishers without an active Fathom account are not a fit at this time.",
+      "Gmail message 1a086e0111278d32 / data/fathom-growth-partner-not-fit-2026-09-10.md",
+      "No customer-facing tracking URL was issued. Do not infer clicks, signups, commission, or revenue."
     ],
     "affiliate_workflow_url": "https://www.fathom.ai/program/growth-partner",
-    "affiliate_next_action": "Await the already recorded request; do not reapply. Recover approval and an issued exact tracking URL only with new direct evidence."
+    "affiliate_next_action": "Do not reapply to the Fathom Growth Partner Program under the current COSHUMA publisher profile. Revisit only if Fathom changes eligibility or COSHUMA independently becomes an active Fathom user for a genuine operational reason. Do not purchase a plan solely to unlock partner eligibility.",
+    "affiliate_verified_at": "2026-09-10T00:53:45+09:00"
   },
   {
     "id": "taskip",

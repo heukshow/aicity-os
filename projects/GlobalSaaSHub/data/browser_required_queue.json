@@ -749,14 +749,21 @@
     "id": "fathom-affiliate-batch-20260908-0650",
     "tool_id": "fathom",
     "status": "resolved",
-    "affiliate_status": "enrollment_path_requested",
+    "affiliate_status": "rejected",
     "exact_tracking_url": null,
     "cost": "0",
-    "verified_at": "2026-09-07T21:44:39.241362+00:00",
-    "reason": "Existing repository evidence preserved, not a new submission or newly verified email: data/affiliate-outreach-2026-09-07-1829.md. The current company mailbox search for MindStudio/CloudTalk/HappyScribe returned no results; absence does not reverse the prior recorded outreach. No duplicate sent.",
-    "next_action": "Await the already recorded request; do not reapply. Recover approval and an issued exact tracking URL only with new direct evidence.",
+    "verified_at": "2026-09-10T00:53:45+09:00",
+    "reason": "Fathom human support replied that the Growth Partner Program is for active Fathom users working with clients and that content/affiliate publishers without an active Fathom account are not a fit at this time.",
+    "next_action": "None under the current COSHUMA profile. Do not reapply. Revisit only if vendor eligibility changes or COSHUMA independently becomes an active Fathom user for a genuine operational reason.",
     "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
-    "user_action_required": false
+    "user_action_required": false,
+    "source_evidence": "Gmail message 1a086e0111278d32; data/fathom-growth-partner-not-fit-2026-09-10.md",
+    "do_not": [
+      "Do not submit another Fathom Growth Partner application under the current COSHUMA profile.",
+      "Do not buy a Fathom subscription solely to unlock partner eligibility.",
+      "Do not treat the Fathom homepage, partner page, dashboard, or signup URL as an affiliate/revenue link.",
+      "Do not infer clicks, signups, commission, or revenue from this eligibility decision."
+    ]
   },
   {
     "id": "omnisend-status-hotfix-2026-09-09",
