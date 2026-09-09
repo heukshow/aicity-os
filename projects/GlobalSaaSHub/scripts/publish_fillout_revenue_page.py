@@ -17,6 +17,7 @@ html = f'''<!doctype html>
   <meta property="og:title" content="Fillout Review & Pricing 2026: Capture Leads & Payments | COSHUMA" />
   <meta property="og:description" content="A buyer-focused look at Fillout's free form builder, lead capture, payment collection and current pricing." />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="/affiliate-attribution.js"></script>
   <style>body{{background:#08090d;color:#e2e8f0;font-family:Inter,system-ui,sans-serif}}</style>
 </head>
 <body>
@@ -32,7 +33,7 @@ html = f'''<!doctype html>
       <h1 class="mt-5 text-4xl font-black tracking-tight text-white sm:text-6xl">Turn traffic into leads, applications and payments with Fillout.</h1>
       <p class="mt-5 text-lg leading-8 text-slate-300">Fillout is a modern form builder for lead forms, applications, surveys, scheduling and payment collection. Its free plan is unusually useful, so you can test a real workflow before paying.</p>
       <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-        <a data-cta="affiliate" data-tool-id="fillout" href="{tracking}" target="_blank" rel="sponsored noopener noreferrer" class="inline-flex min-h-12 items-center justify-center rounded-xl bg-violet-500 px-6 py-3 font-black text-white hover:bg-violet-400">Try Fillout free →</a>
+        <a data-cta="affiliate" data-tool-id="fillout" data-cta-source="fillout_buyer_primary" href="{tracking}" target="_blank" rel="sponsored noopener noreferrer" class="inline-flex min-h-12 items-center justify-center rounded-xl bg-violet-500 px-6 py-3 font-black text-white hover:bg-violet-400">Try Fillout free →</a>
         <a href="https://www.fillout.com/pricing" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 px-6 py-3 font-bold text-slate-200 hover:bg-white/10">Check official pricing</a>
       </div>
       <p class="mt-3 text-xs leading-5 text-slate-500">Affiliate disclosure: COSHUMA may earn a commission if you purchase after using the verified partner link. Your price is not increased by COSHUMA.</p>
@@ -76,7 +77,7 @@ if hub.exists():
     text = hub.read_text(encoding="utf-8")
     marker = "<!-- COSHUMA_FILLOUT_REVENUE_PATH -->"
     if marker not in text:
-        block = f'''\n<section class="mt-8 rounded-2xl border border-emerald-400/20 bg-emerald-400/5 p-6" id="fillout-leads">\n  {marker}\n  <div class="text-xs font-bold uppercase tracking-wider text-emerald-300">Lead & payment capture</div>\n  <h2 class="mt-2 text-2xl font-black text-white">Fillout: start with a real lead form for $0</h2>\n  <p class="mt-2 text-sm leading-6 text-slate-300">Use the free plan to test lead intake, applications or payment collection before deciding whether a paid tier is worth it.</p>\n  <div class="mt-4 flex flex-wrap gap-3"><a href="/best/fillout-form-builder.html" class="rounded-xl bg-white px-4 py-2.5 text-sm font-black text-slate-950">See Fillout buyer guide</a><a href="{tracking}" target="_blank" rel="sponsored noopener noreferrer" class="rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-2.5 text-sm font-bold text-emerald-200">Try Fillout free</a></div>\n</section>\n'''
+        block = f'''\n<section class="mt-8 rounded-2xl border border-emerald-400/20 bg-emerald-400/5 p-6" id="fillout-leads">\n  {marker}\n  <div class="text-xs font-bold uppercase tracking-wider text-emerald-300">Lead & payment capture</div>\n  <h2 class="mt-2 text-2xl font-black text-white">Fillout: start with a real lead form for $0</h2>\n  <p class="mt-2 text-sm leading-6 text-slate-300">Use the free plan to test lead intake, applications or payment collection before deciding whether a paid tier is worth it.</p>\n  <div class="mt-4 flex flex-wrap gap-3"><a href="/best/fillout-form-builder.html" class="rounded-xl bg-white px-4 py-2.5 text-sm font-black text-slate-950">See Fillout buyer guide</a><a data-cta="affiliate" data-tool-id="fillout" data-cta-source="verified_offers_fillout" href="{tracking}" target="_blank" rel="sponsored noopener noreferrer" class="rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-2.5 text-sm font-bold text-emerald-200">Try Fillout free</a></div>\n</section>\n'''
         close = "</main>"
         if close not in text:
             raise SystemExit("Verified offers hub structure changed; refusing unsafe Fillout insertion")
@@ -95,4 +96,13 @@ if sitemap.exists():
         text = text.replace("</urlset>", entry + "</urlset>", 1)
         sitemap.write_text(text, encoding="utf-8")
 
-print("Published Fillout revenue buyer page, verified CTA, buyer-hub link and sitemap entry")
+# Fail fast if a future edit drops click attribution from either revenue surface.
+rendered = page.read_text(encoding="utf-8")
+if '/affiliate-attribution.js' not in rendered or 'data-cta-source="fillout_buyer_primary"' not in rendered:
+    raise SystemExit("Fillout buyer-page attribution wiring is missing")
+if hub.exists():
+    hub_text = hub.read_text(encoding="utf-8")
+    if marker in hub_text and 'data-cta-source="verified_offers_fillout"' not in hub_text:
+        raise SystemExit("Fillout buyer-hub affiliate CTA attribution wiring is missing")
+
+print("Published Fillout revenue buyer page, tracked verified CTA, buyer-hub link and sitemap entry")
