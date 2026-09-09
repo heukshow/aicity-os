@@ -14,7 +14,7 @@ export function dashboardClient() {
       if (!path.startsWith('/') && !path.startsWith('https://')) return label;
       const url = new URL(path, 'https://coshuma.com');
       if (url.origin !== 'https://coshuma.com' || url.username || url.password) return label;
-      return `<a href="${esc(url.href)}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:3px" title="새 탭에서 페이지 열기">${label}</a>`;
+      return `<a href="${esc(url.href)}" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:3px" title="해당 페이지 열기">${label}</a>`;
     } catch { return label; }
   }
   function list(id, items, label = 'name', value = 'value', suffix = '') {

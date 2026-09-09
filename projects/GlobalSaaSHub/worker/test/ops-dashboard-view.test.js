@@ -23,7 +23,7 @@ test('connected Google snapshot replaces placeholder rows and renders actual que
   assert.equal(get('gaApiDot').className, 'ok');
   assert.match(get('partnerState').textContent, /PartnerStack 연결됨/);
   assert.equal(get('revenue').textContent, '—');
-  assert.match(get('pages').innerHTML, /href="https:\/\/coshuma.com\/tool\/example.html\?source=a&amp;b=2" target="_blank" rel="noopener noreferrer"/);
+  assert.match(get('pages').innerHTML, /href="https:\/\/coshuma.com\/tool\/example.html\?source=a&amp;b=2" rel="noopener noreferrer"/);
   assert.doesNotMatch(get('pages').innerHTML, /href="[^"]*other.example/);
 });
 
