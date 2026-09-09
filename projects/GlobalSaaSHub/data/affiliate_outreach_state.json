@@ -489,12 +489,12 @@
       ]
     },
     "claap": {
-      "status": "approved",
-      "tracking_url": null,
+      "status": "approved_tracking",
+      "tracking_url": "https://get.claap.io/rc9nqme16a9q-gfvrqk",
       "account": "support@coshuma.com",
       "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
-      "note": "Approved via PartnerStack welcome email. Latest manager review confirms COSHUMA CTAs remain non-affiliate until the exact issued PartnerStack customer-facing link is recovered. Do not reapply or send duplicate outreach.",
-      "next_action": "Do not reapply or send duplicate outreach. Reuse the existing approved Claap PartnerStack partnership, open Claap > Links, and copy only the exact customer-facing affiliate URL issued to COSHUMA. Keep affiliate_url null and keep current official Claap links non-affiliate until that exact URL is verified; then replace revenue CTAs and validate attribution.",
+      "note": "Approved Claap account now has exact manager-supplied PartnerStack URLs. Use the first issued URL as the default tracked CTA; do not reapply. Actual click/revenue remains unverified.",
+      "next_action": "Preserve the first exact vendor-issued Claap URL as the default buyer-facing tracking CTA and do not reapply. Await Lamia's destination/custom-label mapping before using the second verified URL for destination-specific routing. Measure actual downstream events separately.",
       "application_state": "submitted",
       "portal_enrollment_confirmed": false,
       "do_not_reapply": true,
@@ -502,9 +502,9 @@
       "workflow_url": "https://dash.partnerstack.com/home",
       "blockers": [],
       "review_state": "approved",
-      "checked_at": "2026-09-09T17:31:35+09:00",
-      "evidence": "Claap's PartnerStack welcome email to support@coshuma.com (Gmail message 1a08009379826dfd) confirms COSHUMA is in the affiliate program. Newer human manager feedback from Lamia Karmaly (Gmail message 1a0854b42ac1cc9a) reviewed the live COSHUMA Claap page and explicitly said the current claap.io buttons are not affiliate-tracked or commissionable yet, instructing COSHUMA to recover the issued link from the existing PartnerStack account. This supersedes the older application-submitted snapshot but does not establish an exact customer-facing tracking URL.",
-      "updated_at": "2026-09-09T08:31:35Z"
+      "checked_at": "2026-09-09T21:45:09+09:00",
+      "evidence": "Claap affiliate manager Lamia Karmaly replied to support@coshuma.com in Gmail message 1a08633651c79db9 and explicitly said she copied COSHUMA's two affiliate URLs directly from the existing PartnerStack dashboard. The first issued customer-facing URL is https://get.claap.io/rc9nqme16a9q-gfvrqk; the second verified alternate is https://get.claap.io/ssb7dex1109s. No click, signup, commission, payout, or revenue is inferred from issuance.",
+      "updated_at": "2026-09-09T12:45:09Z"
     },
     "nudgera": {
       "status": "browser_required_otp",

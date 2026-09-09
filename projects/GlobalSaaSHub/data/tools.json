@@ -2819,14 +2819,21 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://support.teachable.com/en/collections/13696598-affiliates",
-    "affiliate_verified": true,
-    "affiliate_status": "outreach_sent",
-    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_verified": false,
+    "affiliate_status": "approved",
+    "affiliate_verified_at": null,
     "affiliate_evidence_markers": [
-      "COSHUMA sent a Teachable Affiliate Partner enrollment request from support@coshuma.com",
-      "Gmail message 1a07d1e9a83375a1 records the outreach",
-      "Do not send duplicate outreach while awaiting Teachable response"
-    ]
+      "Teachable welcome email 1a08653d9c3bd9f8 explicitly welcomes COSHUMA to the Teachable Affiliate Program.",
+      "The welcome email says the unique commissionable tracking link is the personalized URL under PartnerStack -> Links.",
+      "The affiliate-only 30-day extended-trial landing page must be wrapped with the account tracking link to earn commission.",
+      "COSHUMA requested the exact customer-facing link from support@coshuma.com in sent Gmail message 1a0865d276cdd5c1.",
+      "Do not use the generic partners page, PartnerStack dashboard/login, unwrapped extended-trial page, onboarding URL, or guessed parameter as an affiliate CTA."
+    ],
+    "affiliate_final_url": null,
+    "affiliate_status_checked_at": "2026-09-09T13:20:35Z",
+    "affiliate_status_evidence_url": "gmail:1a08653d9c3bd9f8",
+    "affiliate_dashboard_status": "Approved; personalized PartnerStack tracking URL not yet recovered",
+    "affiliate_next_action": "Prefer the exact-link request already sent from support@coshuma.com. If Teachable does not paste the URL by email, reuse the existing approved PartnerStack relationship and copy the personalized link from Links. Recover a tracked version of the 30-day affiliate-only extended-trial landing page if available. Do not reapply."
   },
   {
     "id": "livechat",
@@ -4779,7 +4786,7 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Claap is a powerful software platform that streamlines team communication by helping record, analyze, and share meeting content and asynchronous video updates. Enhance productivity and decision-making by acting on crucial insights efficiently.",
-    "affiliate_url": null,
+    "affiliate_url": "https://get.claap.io/rc9nqme16a9q-gfvrqk",
     "pricing": "See official pricing",
     "key_features": [
       "Record and transcribe meeting content",
@@ -4802,23 +4809,28 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.claap.io/",
-    "affiliate_verified": false,
-    "affiliate_status": "approved",
-    "affiliate_verified_at": null,
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-09T12:45:09Z",
     "affiliate_evidence_markers": [
       "Claap PartnerStack welcome email 1a08009379826dfd verifies COSHUMA program acceptance.",
-      "Claap manager Lamia Karmaly reviewed the COSHUMA page in message 1a0854b42ac1cc9a.",
-      "The manager explicitly confirmed the current COSHUMA Claap buttons are not affiliate-tracked yet and instructed COSHUMA to recover the issued PartnerStack link.",
-      "Exact customer-facing Claap tracking URL is still unverified; do not guess or construct a referral parameter.",
-      "Official product domain is claap.io, not the former claap.ai reference."
+      "Claap affiliate manager Lamia Karmaly copied the exact customer-facing PartnerStack URLs into Gmail message 1a08633651c79db9.",
+      "Primary verified tracking URL: https://get.claap.io/rc9nqme16a9q-gfvrqk",
+      "Alternate verified tracking URL: https://get.claap.io/ssb7dex1109s",
+      "The first vendor-issued URL is used as the default revenue CTA until the manager identifies the intended destination/custom label of each link.",
+      "Exact tracking route is verified; no actual click, signup, commission, or revenue is inferred from URL issuance alone."
     ],
-    "affiliate_final_url": null,
-    "affiliate_status_checked_at": "2026-09-09T08:31:35Z",
-    "affiliate_status_evidence_url": "gmail:1a08009379826dfd",
+    "affiliate_final_url": "https://get.claap.io/rc9nqme16a9q-gfvrqk",
+    "affiliate_status_checked_at": "2026-09-09T12:45:09Z",
+    "affiliate_status_evidence_url": "gmail:1a08633651c79db9",
     "affiliate_workflow_url": "https://dash.partnerstack.com/home",
-    "affiliate_next_action": "Prefer direct recovery by email from Lamia first. If no exact issued customer-facing link is supplied, browser_required: reuse the existing Claap PartnerStack partnership and copy the exact customer-facing affiliate link only; no reapplication. Then replace Claap revenue CTAs after exact-link verification and validate attribution.",
-    "affiliate_dashboard_status": "Approved; exact customer-facing tracking link not yet verified",
-    "affiliate_tracking_attribution_currently_verified": false
+    "affiliate_next_action": "Keep the first vendor-issued URL as the default tracked CTA. Await Lamia's destination/custom-label mapping for both issued URLs before using the second for destination-specific routing. Do not reapply.",
+    "affiliate_dashboard_status": "Approved; two exact PartnerStack affiliate URLs supplied directly by Claap manager",
+    "affiliate_tracking_attribution_currently_verified": false,
+    "affiliate_tracking_url_verified": true,
+    "affiliate_alternate_verified_urls": [
+      "https://get.claap.io/ssb7dex1109s"
+    ]
   },
   {
     "id": "cloudtalk",

@@ -788,29 +788,64 @@
     ]
   },
   {
+    "id": "claap-approved-tracking-2026-09-09",
+    "tool_id": "claap",
+    "priority": "resolved",
+    "status": "resolved",
+    "affiliate_status": "approved_tracking",
+    "exact_tracking_url": "https://get.claap.io/rc9nqme16a9q-gfvrqk",
+    "alternate_verified_urls": [
+      "https://get.claap.io/ssb7dex1109s"
+    ],
+    "cost": 0,
+    "blocker": null,
+    "user_action_required": false,
+    "next_action": "Preserve the first exact vendor-issued Claap URL as the default buyer-facing tracking CTA and do not reapply. Await Lamia's destination/custom-label mapping before using the second verified URL for destination-specific routing. Measure actual downstream events separately.",
+    "evidence": "Gmail 1a08633651c79db9: Lamia Karmaly copied both URLs from COSHUMA's PartnerStack dashboard."
+  },
+  {
+    "id": "teachable-approved-tracking-recovery-2026-09-09",
+    "tool_id": "teachable",
+    "program_name": "Teachable Affiliate Program",
+    "priority": "high",
+    "status": "browser_required_fallback_email_recovery_pending",
+    "affiliate_status": "approved_account",
+    "exact_tracking_url": null,
+    "cost": "0",
+    "verified_at": "2026-09-09T13:20:35Z",
+    "approval_gmail_message_id": "1a08653d9c3bd9f8",
+    "outbound_exact_url_request_message_id": "1a0865d276cdd5c1",
+    "reason": "Teachable's welcome email explicitly confirms COSHUMA is in the affiliate program and says the personalized customer tracking link is in PartnerStack -> Links. The same email says the affiliate-only 30-day extended-trial landing page must be wrapped with the account tracking link to earn commission. COSHUMA asked from support@coshuma.com for the exact issued link by email first, so browser work is only a fallback.",
+    "next_action": "Prefer the direct email recovery already sent. If Teachable supplies the exact customer-facing PartnerStack link, verify and activate only that issued URL. If no link is supplied, reuse the existing approved Teachable PartnerStack relationship, open Links, and copy the personalized affiliate URL. Also recover the correctly tracked version of the 30-day extended-trial landing page if available. Do not reapply.",
+    "constraints": [
+      "Do not submit another Teachable affiliate application.",
+      "Do not treat https://www.teachable.com/partners, PartnerStack dashboard/login URLs, onboarding URLs, or the unwrapped https://www.teachable.com/welcome/partner30 page as affiliate/revenue links.",
+      "Do not guess or construct a referral parameter.",
+      "No paid plan or subscription is required for this recovery task.",
+      "No revenue, signup, or commission is inferred from approval alone."
+    ],
+    "user_action_required": false
+  },
+  {
     "id": "claap-approved-link-recovery-2026-09-09",
     "tool_id": "claap",
     "program_name": "Claap Affiliate Program",
     "priority": "high",
-    "status": "approved_account_tracking_url_required",
-    "affiliate_status": "approved",
-    "exact_tracking_url": null,
-    "known_issued_url_count": 2,
-    "cost": "0",
-    "verified_at": "2026-09-09T11:57:39Z",
-    "gmail_message_id": "1a08607e8751e8cf",
-    "approval_gmail_message_id": "1a08009379826dfd",
-    "outbound_exact_url_request_message_id": "1a086206d94fc726",
-    "reason": "Claap affiliate manager Lamia Karmaly explicitly confirmed on 2026-09-09 that COSHUMA's existing Claap PartnerStack account already has two affiliate URLs. The PartnerStack notification does not expose those customer-facing URLs in text, so COSHUMA replied from support@coshuma.com asking Lamia to paste both exact URLs directly. This preserves the no-guess rule and can avoid a browser handoff if she replies with the links.",
-    "next_action": "Do not reapply or send duplicate outreach. Reuse the existing approved Claap PartnerStack partnership, open Claap > Links, and copy only the exact customer-facing affiliate URL issued to COSHUMA. Keep affiliate_url null and keep current official Claap links non-affiliate until that exact URL is verified; then replace revenue CTAs and validate attribution.",
-    "constraints": [
-      "Do not submit another Claap affiliate application.",
-      "Do not treat claap.io, PartnerStack dashboard/login URLs, onboarding URLs, prototype URLs, SendGrid/email redirects, or screenshots as affiliate URLs.",
-      "Do not guess or construct a referral parameter.",
-      "Keep current official Claap links until an exact issued customer-facing tracking URL is verified.",
-      "No revenue, signup, or commission is inferred from approval or URL existence alone."
+    "status": "resolved",
+    "affiliate_status": "approved_tracking",
+    "cost": 0,
+    "verified_at": "2026-09-09T12:45:09Z",
+    "exact_tracking_url": "https://get.claap.io/rc9nqme16a9q-gfvrqk",
+    "alternate_verified_url": "https://get.claap.io/ssb7dex1109s",
+    "reason": "Claap affiliate manager Lamia Karmaly copied both exact customer-facing PartnerStack URLs from COSHUMA's existing dashboard into Gmail message 1a08633651c79db9.",
+    "next_action": "Preserve the first exact vendor-issued Claap URL as the default buyer-facing tracking CTA and do not reapply. Await Lamia's destination/custom-label mapping before using the second verified URL for destination-specific routing. Measure actual downstream events separately.",
+    "do_not": [
+      "Do not reapply to Claap.",
+      "Do not replace the verified URLs with PartnerStack dashboard/login, a generic Claap homepage, prototype URL, email redirect, or guessed parameter.",
+      "Do not infer clicks, signups, commissions, or revenue from link issuance or CTA publication."
     ],
-    "user_action_required": false,
-    "blocker": "Exact customer-facing tracking URL requires the existing authenticated PartnerStack Claap Links view."
+    "resolved_at": "2026-09-09T12:45:09Z",
+    "resolution_evidence": "Gmail message 1a08633651c79db9 from Claap affiliate manager Lamia Karmaly supplied both exact URLs; the first is the authoritative default CTA pending destination-label mapping for the second.",
+    "blocker": null
   }
 ]
