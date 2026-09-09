@@ -68,6 +68,25 @@ approvedTracking.set('claap', {
   evidence_file: 'data/claap-teachable-tracking-update-2026-09-09.json',
 });
 
+// Teachable manager Camila Gouveia pasted COSHUMA's exact unique PartnerStack
+// customer-facing URL into the support@coshuma.com mailbox. Use it as the default
+// tracked CTA. The separate 30-day trial deeplink remains unverified until the
+// vendor supplies an exact wrapped customer-facing URL.
+approvedTracking.set('teachable', {
+  id: 'teachable',
+  status: 'approved_tracking',
+  exact_tracking_url: 'https://partnerstack.teachable.com/ce4muoxdj46j',
+  destination: 'https://partnerstack.teachable.com/ce4muoxdj46j',
+  allowed_cta_urls: [
+    'https://partnerstack.teachable.com/ce4muoxdj46j',
+  ],
+  company_mailbox: 'support@coshuma.com',
+  vendor_reply_message_id: '1a086aa6ef5a4d98',
+  evidence: 'Teachable manager Camila Gouveia replied through PartnerStack to support@coshuma.com in Gmail message 1a086aa6ef5a4d98 and pasted COSHUMA\'s unique link https://partnerstack.teachable.com/ce4muoxdj46j, explicitly saying it is the unique link found under Links in the PartnerStack dashboard. Do not infer or construct the separate tracked 30-day extended-trial URL; COSHUMA requested that exact URL from the vendor in Gmail message 1a086ca80689bbbf. No click, signup, commission, or revenue is inferred from link issuance.',
+  checked_at: '2026-09-09T23:55:10+09:00',
+  evidence_file: 'data/claap-teachable-tracking-update-2026-09-09.json',
+});
+
 export function applyApprovedTracking(tool) {
   const item = approvedTracking.get(tool.id);
   if (!item) return false;
