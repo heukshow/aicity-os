@@ -16,7 +16,7 @@
     "check:tool-value": "python scripts/inject_tool_value_playbooks.py && python scripts/audit_tool_value_playbook_coverage.py && echo tool-value-recommendation-policy-v3-wave11",
     "check:tool-value-policy": "python scripts/audit_tool_value_playbook_coverage.py",
     "check:docsbot-partner": "python scripts/apply_docsbot_partner_guidance.py && echo docsbot-partner-v2",
-    "check:omnisend-revenue": "python scripts/apply_search_console_ctr_patches.py && python scripts/apply_omnisend_revenue_patch.py && echo omnisend-search-monetization-v3",
+    "check:omnisend-revenue": "python scripts/apply_search_console_ctr_patches.py && python scripts/apply_omnisend_revenue_patch.py && echo omnisend-search-monetization-v4",
     "check:unbounce-revenue": "python scripts/apply_search_console_ctr_patches.py && python scripts/apply_unbounce_search_revenue_patch.py && echo unbounce-search-revenue-v1",
     "check:databox-ctr": "python scripts/apply_databox_ctr_patch.py && echo databox-search-ctr-v3",
     "test:links": "python scripts/tests/test_link_integrity.py",
