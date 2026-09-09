@@ -1,8 +1,8 @@
 """Patch the high-impression Omnisend page after generic copy polish.
 
 Search Console snapshot: /tool/omnisend.html had 114 impressions and 0 clicks in
-30 days. COSHUMA's Omnisend affiliate application is submitted but no customer
-tracking URL is verified, so Omnisend remains official-only. A clearly disclosed
+30 days. Omnisend approved COSHUMA on 2026-09-09, but no account-issued customer
+tracking URL is verified yet, so Omnisend remains official-only. A clearly disclosed
 Moosend alternative uses the already verified COSHUMA tracking URL.
 """
 from pathlib import Path
@@ -33,7 +33,7 @@ replacements = [
     ),
     (
         '<span>Review pending</span>',
-        '<span>Affiliate application submitted · tracking link not approved yet</span>',
+        '<span>Affiliate approved · exact tracking link pending verification</span>',
     ),
     (
         "    </style>\n  </head>",
@@ -78,7 +78,7 @@ if marker not in text:
             <a data-cta="official" data-tool-id="omnisend" data-cta-source="omnisend_2026_pricing" href="https://www.omnisend.com/pricing/" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl bg-slate-800 border border-slate-600 text-white font-extrabold text-center">Check current Omnisend pricing →</a>
             <a data-cta="affiliate" data-tool-id="moosend" data-cta-source="omnisend_verified_alternative" href="https://trymoo.moosend.com/6eappdpw04pw" target="_blank" rel="sponsored noopener noreferrer" class="px-5 py-3.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-extrabold text-center">Prefer a 30-day trial? Compare Moosend →</a>
           </div>
-          <p class="text-[11px] leading-5 text-slate-500">COSHUMA's Omnisend affiliate application is already submitted, but an account-specific Omnisend customer tracking URL is not yet approved or verified, so Omnisend links remain ordinary official links. The Moosend button uses COSHUMA's separately verified customer-facing partner URL; COSHUMA may earn a commission on an eligible Moosend purchase at no extra cost to you.</p>
+          <p class="text-[11px] leading-5 text-slate-500">COSHUMA was approved for the Omnisend Affiliate Program on September 9, 2026. The approval email did not contain an account-specific customer tracking URL, so Omnisend buttons intentionally remain ordinary official links until the exact Impact-issued URL is copied and verified. The Moosend button uses COSHUMA's separately verified customer-facing partner URL; COSHUMA may earn a commission on an eligible Moosend purchase at no extra cost to you.</p>
         </section>
 
 '''
