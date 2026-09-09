@@ -9,9 +9,11 @@ on:
     paths:
       - '.github/workflows/coshuma-analytics-snapshot.yml'
       - 'projects/GlobalSaaSHub/scripts/generate_live_dashboard_data.mjs'
+      - 'projects/GlobalSaaSHub/scripts/upload_private_dashboard.mjs'
 
 permissions:
-  contents: write
+  contents: read
+  id-token: write
 
 concurrency:
   group: coshuma-analytics-snapshot
@@ -21,64 +23,22 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main
-        uses: actions/checkout@v5
+      - uses: actions/checkout@v5
         with:
           ref: main
-
-      - name: Set up Node.js 20
-        uses: actions/setup-node@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: '20'
-
-      - name: Generate and validate live GA4 and Search Console snapshot
+          node-version: '22'
+      - name: Generate and privately store validated analytics
         working-directory: projects/GlobalSaaSHub
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
           GA_PROPERTY_ID: ${{ vars.GA_PROPERTY_ID }}
           GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+          DASHBOARD_OUTPUT_PATH: ${{ runner.temp }}/traffic-revenue-data.json
         run: |
-          set -e
-          snapshot='public/ops/traffic-revenue-data.json'
-          previous='/tmp/traffic-revenue-data.previous.json'
-          if [ -f "$snapshot" ]; then
-            cp "$snapshot" "$previous"
-          fi
-
           node scripts/generate_live_dashboard_data.mjs
-
-          node - <<'NODE'
-          const fs = require('fs');
-          const p = 'public/ops/traffic-revenue-data.json';
-          const previous = '/tmp/traffic-revenue-data.previous.json';
-          let d;
-          try {
-            d = JSON.parse(fs.readFileSync(p, 'utf8'));
-          } catch (error) {
-            if (fs.existsSync(previous)) fs.copyFileSync(previous, p);
-            console.error(`Google analytics snapshot rejected: invalid JSON (${error.message})`);
-            process.exit(1);
-          }
-          if (d.status !== 'live_google_connected' || d.measurement_status !== 'live_connected') {
-            if (fs.existsSync(previous)) {
-              fs.copyFileSync(previous, p);
-              console.warn(`Google analytics unavailable (${d.status}/${d.measurement_status}); preserving the last verified snapshot.`);
-              process.exit(0);
-            }
-            console.error(`Google analytics snapshot unavailable: ${d.status}/${d.measurement_status}`);
-            process.exit(1);
-          }
-          NODE
-
-      - name: Commit snapshot when changed
-        run: |
-          set -e
-          if git diff --quiet -- projects/GlobalSaaSHub/public/ops/traffic-revenue-data.json; then
-            echo 'No dashboard data change.'
-            exit 0
-          fi
-          git config user.name 'coshuma-analytics-bot'
-          git config user.email 'heukshow@users.noreply.github.com'
-          git add projects/GlobalSaaSHub/public/ops/traffic-revenue-data.json
-          git commit -m 'data: refresh COSHUMA analytics snapshot'
-          git push origin HEAD:main
+          node scripts/upload_private_dashboard.mjs
+      - name: Remove temporary private snapshot
+        if: always()
+        run: rm -f -- "${{ runner.temp }}/traffic-revenue-data.json"

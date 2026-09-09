@@ -1,3 +1,4 @@
+import { handlePrivateOps, handleSnapshotUpload } from './private-ops.js';
 import { captureIsVerifiedPaid, providerOrderIdFromWebhook, validatePaidWebhook, webhookTarget } from './domain.js';
 import { capturePayPalOrder, createPayPalOrder, getPayPalOrder, verifyPayPalWebhook } from './paypal.js';
 import { D1OrderRepository } from './repository.js';
@@ -68,6 +69,8 @@ async function webhook(request, env, repo) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === '/internal/analytics-snapshot') return handleSnapshotUpload(request, env);
+    if (url.pathname === '/ops' || url.pathname.startsWith('/ops/')) return handlePrivateOps(request, env);
     const fixedAdminRoute = url.pathname === PUBLIC_ADMIN_PATH || url.pathname.startsWith(`${PUBLIC_ADMIN_PATH}/`);
     if (fixedAdminRoute) {
       return handleAdminRequest(request, { ...env, ADMIN_PATH: PUBLIC_ADMIN_PATH });

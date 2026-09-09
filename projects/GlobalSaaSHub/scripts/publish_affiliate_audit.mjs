@@ -151,5 +151,6 @@ const output = {
   terminal: records.filter((item) => item.terminal),
 };
 
-fs.writeFileSync(path.join(root, 'public/admin-affiliate-audit.json'), `${JSON.stringify(output, null, 2)}\n`);
+fs.mkdirSync(path.join(root, '.private-ops'), { recursive: true });
+fs.writeFileSync(path.join(root, '.private-ops/admin-affiliate-audit.json'), `${JSON.stringify(output, null, 2)}\n`);
 console.log(JSON.stringify(counts));
