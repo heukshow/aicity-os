@@ -23,8 +23,14 @@ test('acquisition uses browser URL/referrer even when local storage is blocked',
     assert.equal(payload.page_location,window.location.href);
     for (const key of ['source','medium','campaign','country','flag']) assert.equal(key in payload,false);
   }
-  assert.equal(calls[1][2].tool_id,'pictory');
-  assert.equal(calls[1][2].tool_name,'Pictory');
-  assert.equal(calls[1][2].outbound_domain,'pictory.ai');
-  assert.equal(calls[1][2].transport_type,'beacon');
+  const affiliate = calls[1][2];
+  assert.equal(affiliate.tool_id,'pictory');
+  assert.equal(affiliate.tool_name,'Pictory');
+  assert.equal(affiliate.link_url,'https://pictory.ai/?fpr=example');
+  assert.equal(affiliate.link_text,'Pictory');
+  assert.equal(affiliate.link_id,'pictory');
+  assert.equal(affiliate.link_domain,'pictory.ai');
+  assert.equal(affiliate.outbound_domain,'pictory.ai');
+  assert.equal(affiliate.outbound,true);
+  assert.equal(affiliate.transport_type,'beacon');
 });
