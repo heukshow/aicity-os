@@ -1,5 +1,5 @@
 {
-  "checked_at_kst": "2026-09-08T13:38:33+09:00",
+  "checked_at_kst": "2026-09-10T01:31:00+09:00",
   "purpose": "Record newer vendor decisions that supersede stale application-submitted records. This file does not claim a customer tracking URL unless one was actually issued and verified.",
   "rules": {
     "do_not_reapply_on_approved_or_rejected": true,
@@ -9,25 +9,25 @@
   "items": [
     {
       "id": "fillout",
-      "latest_status": "approved_link_recovery_required",
+      "latest_status": "approved_tracking",
       "program_approved": true,
-      "exact_tracking_url": null,
-      "decision_source": "Gmail message 1a07ce0382f005f9 from Dub.co",
-      "decision_at": "2026-09-08T02:17:44+09:00",
-      "evidence": "Dub.co states that the Fillout partner application has been approved and that the partner can earn commissions. Reward shown: 30% per sale for 1 year. The email directs the partner to the authenticated Dub Links page to find unique referral links but does not itself contain the account-specific customer referral URL.",
-      "browser_required_url": "https://partners.dub.co/programs/fillout/links",
-      "next_action": "Reuse the existing Dub account and recover the exact issued customer-facing referral URL. Do not reapply. Do not change a COSHUMA revenue CTA until that exact URL is verified."
+      "exact_tracking_url": "https://try.fillout.com/sang-kwon-an-hxwn",
+      "decision_source": "Gmail message 1a07ce0382f005f9 from Dub.co plus authenticated Dub dashboard evidence recorded in fillout-affiliate-enrollment-evidence-2026-09-08.md",
+      "decision_at": "2026-09-08T14:00:00+09:00",
+      "evidence": "Fillout partner approval is valid and the authenticated Dub partner dashboard issued the exact customer-facing tracking link https://try.fillout.com/sang-kwon-an-hxwn. Fillout support later confirmed that the unique signup link shown in the approved affiliate dashboard is the vendor-issued link used for commission tracking.",
+      "browser_required_url": null,
+      "next_action": "Resolved. Preserve the exact verified URL, do not reapply, and do not reopen dashboard recovery unless later evidence shows the issued link changed."
     },
     {
       "id": "krater",
-      "latest_status": "approved_link_recovery_required",
+      "latest_status": "approved_tracking",
       "program_approved": true,
-      "exact_tracking_url": null,
-      "decision_source": "Gmail message 1a07dbc86ffa0ca3 from Dub.co",
-      "decision_at": "2026-09-08T06:18:22+09:00",
-      "evidence": "Dub.co states that the Krater partner application has been approved. Reward terms shown include 25% per sale for 1 year, 7.5% of the original sale amount for 6 months, and 10% off for a new user's first month. The email directs the partner to the authenticated Dub Links page but does not itself contain the account-specific customer referral URL.",
-      "browser_required_url": "https://partners.dub.co/programs/kraterai/links",
-      "next_action": "Reuse the existing Dub account and recover the exact issued customer-facing referral URL. Do not reapply. Do not put a generic Krater or Dub URL into a COSHUMA revenue CTA."
+      "exact_tracking_url": "https://go.krater.ai/sang-kwon-an",
+      "decision_source": "Gmail message 1a07dbc86ffa0ca3 from Dub.co plus authenticated Dub dashboard evidence already recorded in approved_tracking_evidence.mjs/browser_required_queue.json",
+      "decision_at": "2026-09-08T14:00:00+09:00",
+      "evidence": "Krater partner approval remains valid and authenticated follow-up evidence records the exact customer-facing tracking link https://go.krater.ai/sang-kwon-an. Reward terms in the approval email include 25% per sale for 1 year, 7.5% of the original sale amount for 6 months, and 10% off a new user's first month.",
+      "browser_required_url": null,
+      "next_action": "Resolved. Preserve the exact verified URL, do not reapply, and do not reopen link recovery without newer conflicting vendor evidence."
     },
     {
       "id": "n8n",
