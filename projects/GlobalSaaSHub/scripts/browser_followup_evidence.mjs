@@ -68,18 +68,19 @@ const queueMatches = (entry, id) =>
   entry.tool_id === id || entry.id === id || (typeof entry.id === 'string' && entry.id.startsWith(`${id}-`));
 
 // Keep duplicate-prevention state and browser queue aligned with newer vendor decisions.
-// Only explicit evidence-backed follow-ups are allowed to mutate these operational records here.
+// A newly discovered vendor decision may refer to a program that predates the outreach
+// registry. In that case create the missing operational state instead of silently skipping it.
 function syncStatusHotfixes() {
   const stateUrl = new URL('../data/affiliate_outreach_state.json', import.meta.url);
   const state = JSON.parse(fs.readFileSync(stateUrl, 'utf8'));
+  state.programs ||= {};
   let stateChanged = false;
   for (const item of statusHotfixes) {
-    const current = state.programs?.[item.id];
-    if (!current) continue;
+    const current = state.programs[item.id] ||= {};
     Object.assign(current, {
       status: item.status,
       tracking_url: null,
-      application_state: item.application_state || current.application_state,
+      application_state: item.application_state || current.application_state || 'submitted',
       review_state: item.review_state || current.review_state,
       next_action: item.next_action,
       do_not_reapply: true,
@@ -108,12 +109,36 @@ function syncStatusHotfixes() {
   const queue = JSON.parse(fs.readFileSync(queueUrl, 'utf8'));
   let queueChanged = false;
   for (const item of statusHotfixes) {
-    for (const entry of queue.filter(entry => queueMatches(entry, item.id))) {
+    const needsTrackingRecovery = item.status === 'approved' && !item.affiliate_url;
+    let entries = queue.filter(entry => queueMatches(entry, item.id));
+    if (entries.length === 0) {
+      const date = (item.checked_at || 'current').slice(0, 10);
+      const created = {
+        id: `${item.id}-status-hotfix-${date}`,
+        tool_id: item.id,
+        priority: needsTrackingRecovery ? 'high' : 'medium',
+        status: needsTrackingRecovery ? 'approved_account_tracking_url_required' : 'resolved',
+        affiliate_status: item.status,
+        cost: 0,
+        exact_tracking_url: null,
+        blocker: needsTrackingRecovery
+          ? item.blockers?.[0] || 'Exact customer tracking URL requires authenticated partner dashboard recovery.'
+          : null,
+        next_action: item.next_action,
+        do_not_reapply: true,
+      };
+      queue.push(created);
+      entries = [created];
+      queueChanged = true;
+    }
+    for (const entry of entries) {
       Object.assign(entry, {
-        status: 'resolved',
+        status: needsTrackingRecovery ? 'approved_account_tracking_url_required' : 'resolved',
         affiliate_status: item.status,
         exact_tracking_url: null,
-        blocker: null,
+        blocker: needsTrackingRecovery
+          ? item.blockers?.[0] || 'Exact customer tracking URL requires authenticated partner dashboard recovery.'
+          : null,
         next_action: item.next_action,
       });
       queueChanged = true;
