@@ -31,6 +31,7 @@ on:
       - 'projects/GlobalSaaSHub/scripts/inject_jotform_partner_offer.py'
       - 'projects/GlobalSaaSHub/scripts/apply_omnisend_revenue_patch.py'
       - 'projects/GlobalSaaSHub/scripts/finalize_omnisend_tracking.py'
+      - 'projects/GlobalSaaSHub/scripts/reconcile_beefree_tracking_2026_09_09.py'
       - 'projects/GlobalSaaSHub/scripts/publish_affiliate_audit.mjs'
       - 'projects/GlobalSaaSHub/index.html'
       - 'projects/GlobalSaaSHub/package.json'
@@ -231,9 +232,9 @@ jobs:
       - name: Publish complete Vite dist to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: $${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./projects/GlobalSaaSHub/dist
           publish_branch: gh-pages
           force_orphan: true
           enable_jekyll: false
-          commit_message: 'deploy: sync COSHUMA production bundle from ${{ github.sha }}'
+          commit_message: 'deploy: sync COSHUMA production bundle from $${{ github.sha }}'
