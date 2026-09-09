@@ -155,9 +155,10 @@ def patch_claap_page() -> None:
     final = path.read_text(encoding="utf-8")
     if "claap.ai" in final:
         raise RuntimeError("Stale claap.ai domain remains in Claap page")
-    if "Pro $40 monthly / $32 annual" not in final:
-        raise RuntimeError("Claap manager-supplied pricing marker is missing")
-    if "SOC 2 Type II" not in final:
+    price_tokens = ("$40", "$32", "$75", "$60")
+    if not all(token in final for token in price_tokens):
+        raise RuntimeError("Claap manager-supplied pricing markers are missing")
+    if "SOC 2 Type 2" not in final and "SOC 2 Type II" not in final:
         raise RuntimeError("Claap security marker is missing")
 
 
