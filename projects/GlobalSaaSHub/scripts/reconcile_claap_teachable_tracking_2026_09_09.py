@@ -23,6 +23,7 @@ def reconcile_tools(evidence: dict) -> None:
     teachable_e = evidence["teachable"]
     primary = claap_e["primary_tracking_url"]
     alternate = claap_e["alternate_tracking_url"]
+    teachable_url = teachable_e["tracking_url"]
 
     for name in ("tools.json", "tools.next.json"):
         path = DATA_DIR / name
@@ -60,21 +61,25 @@ def reconcile_tools(evidence: dict) -> None:
 
         teachable.update(
             {
-                "affiliate_url": None,
-                "affiliate_final_url": None,
-                "affiliate_verified": False,
-                "affiliate_status": "approved",
-                "affiliate_verified_at": None,
+                "affiliate_url": teachable_url,
+                "affiliate_final_url": teachable_url,
+                "affiliate_verified": True,
+                "affiliate_status": "approved_tracking",
+                "affiliate_verified_at": teachable_e["received_at_utc"],
                 "affiliate_status_checked_at": teachable_e["received_at_utc"],
-                "affiliate_status_evidence_url": f"gmail:{teachable_e['gmail_message_id']}",
-                "affiliate_dashboard_status": "Approved; personalized PartnerStack tracking URL not yet recovered",
-                "affiliate_next_action": "Prefer the exact-link request already sent from support@coshuma.com. If Teachable does not paste the URL by email, reuse the existing approved PartnerStack relationship and copy the personalized link from Links. Recover a tracked version of the 30-day affiliate-only extended-trial landing page if available. Do not reapply.",
+                "affiliate_status_evidence_url": f"gmail:{teachable_e['tracking_reply_gmail_message_id']}",
+                "affiliate_tracking_url_verified": True,
+                "affiliate_tracking_attribution_currently_verified": False,
+                "affiliate_dashboard_status": "Approved; exact unique PartnerStack customer tracking URL supplied directly by Teachable manager",
+                "affiliate_next_action": "Use the exact vendor-supplied PartnerStack URL as the default Teachable revenue CTA. Await the vendor-supplied tracked 30-day extended-trial URL before adding a trial-specific deeplink. Do not reapply or guess a wrapper.",
                 "affiliate_evidence_markers": [
-                    f"Teachable welcome email {teachable_e['gmail_message_id']} explicitly welcomes COSHUMA to the Teachable Affiliate Program.",
-                    "The welcome email says the unique commissionable tracking link is the personalized URL under PartnerStack -> Links.",
-                    "The affiliate-only 30-day extended-trial landing page must be wrapped with the account tracking link to earn commission.",
-                    f"COSHUMA requested the exact customer-facing link from support@coshuma.com in sent Gmail message {teachable_e['tracking_link_request_message_id']}.",
-                    "Do not use the generic partners page, PartnerStack dashboard/login, unwrapped extended-trial page, onboarding URL, or guessed parameter as an affiliate CTA.",
+                    f"Teachable welcome email {teachable_e['approval_gmail_message_id']} confirms COSHUMA is approved for the Teachable Affiliate Program.",
+                    f"Teachable manager Camila Gouveia pasted COSHUMA's exact unique customer-facing PartnerStack URL into Gmail message {teachable_e['tracking_reply_gmail_message_id']}.",
+                    f"Primary verified tracking URL: {teachable_url}",
+                    "The affiliate-only 30-day extended-trial landing page still requires an exact tracked vendor-issued URL before it can be used as an affiliate CTA.",
+                    f"COSHUMA requested that exact trial URL from support@coshuma.com in sent Gmail message {teachable_e['extended_trial_followup_sent_message_id']}.",
+                    "Do not use the generic partners page, PartnerStack dashboard/login, unwrapped partner30 page, onboarding URL, or guessed tracking wrapper as an affiliate CTA.",
+                    "Exact tracking route is verified; no actual click, signup, commission, or revenue is inferred from URL issuance alone.",
                 ],
             }
         )
@@ -107,10 +112,10 @@ def reconcile_outreach(evidence: dict) -> None:
     if isinstance(teachable, dict):
         teachable.update(
             {
-                "status": "approved",
-                "tracking_url": None,
+                "status": "approved_tracking",
+                "tracking_url": teachable_e["tracking_url"],
                 "updated_at": teachable_e["received_at_utc"],
-                "note": "Teachable welcome email confirms approval. Exact personalized PartnerStack link is still pending direct email recovery/browser fallback. Do not reapply.",
+                "note": "Teachable manager supplied COSHUMA's exact unique PartnerStack URL by email. Use it as the default tracked CTA. Tracked 30-day trial deeplink remains pending vendor confirmation; do not reapply or guess a wrapper.",
             }
         )
     write_json(path, state)
@@ -193,16 +198,19 @@ def patch_claap_page(evidence: dict) -> None:
 def validate(evidence: dict) -> None:
     primary = evidence["claap"]["primary_tracking_url"]
     alternate = evidence["claap"]["alternate_tracking_url"]
+    teachable_url = evidence["teachable"]["tracking_url"]
     if not primary.startswith("https://get.claap.io/") or not alternate.startswith("https://get.claap.io/"):
         raise RuntimeError("Claap URLs are not the manager-supplied get.claap.io routes")
+    if not teachable_url.startswith("https://partnerstack.teachable.com/"):
+        raise RuntimeError("Teachable URL is not the manager-supplied PartnerStack customer route")
 
     tools = load_json(DATA_DIR / "tools.json")
     claap = next(item for item in tools if item.get("id") == "claap")
     teachable = next(item for item in tools if item.get("id") == "teachable")
     if claap.get("affiliate_status") != "approved_tracking" or claap.get("affiliate_url") != primary or claap.get("affiliate_verified") is not True:
         raise RuntimeError("Claap approved tracking state was not preserved")
-    if teachable.get("affiliate_status") != "approved" or teachable.get("affiliate_url") is not None or teachable.get("affiliate_verified") is not False:
-        raise RuntimeError("Teachable must remain approved with no inferred tracking URL")
+    if teachable.get("affiliate_status") != "approved_tracking" or teachable.get("affiliate_url") != teachable_url or teachable.get("affiliate_verified") is not True:
+        raise RuntimeError("Teachable approved tracking state was not preserved")
 
     page = (PUBLIC_DIR / "tool" / "claap.html").read_text(encoding="utf-8")
     if page.count(primary) < 2 or 'data-cta-source="claap_partnerstack_verified"' not in page:
@@ -220,7 +228,7 @@ def main() -> None:
     reconcile_browser_queue(evidence)
     patch_claap_page(evidence)
     validate(evidence)
-    print("Claap exact tracking activated; Teachable approval recorded with exact-link recovery pending.")
+    print("Claap and Teachable exact tracking states activated; browser recovery is no longer required for either default CTA.")
 
 
 if __name__ == "__main__":
