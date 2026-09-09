@@ -48,6 +48,26 @@ approvedTracking.set('typedesk', {
   evidence_file: 'data/typedesk-approved-tracking-2026-09-09.md',
 });
 
+// Claap affiliate manager Lamia Karmaly copied both URLs directly from COSHUMA's
+// existing PartnerStack dashboard into the company mailbox. The first issued URL
+// is the default customer-facing route; the second remains a verified alternate
+// until Lamia confirms the intended destination/custom label of each link.
+approvedTracking.set('claap', {
+  id: 'claap',
+  status: 'approved_tracking',
+  exact_tracking_url: 'https://get.claap.io/rc9nqme16a9q-gfvrqk',
+  destination: 'https://get.claap.io/rc9nqme16a9q-gfvrqk',
+  allowed_cta_urls: [
+    'https://get.claap.io/rc9nqme16a9q-gfvrqk',
+  ],
+  company_mailbox: 'support@coshuma.com',
+  vendor_reply_message_id: '1a08633651c79db9',
+  alternate_verified_url: 'https://get.claap.io/ssb7dex1109s',
+  evidence: 'Claap affiliate manager Lamia Karmaly replied to support@coshuma.com in Gmail message 1a08633651c79db9 and explicitly said she copied the two URLs from COSHUMA\'s PartnerStack dashboard: https://get.claap.io/rc9nqme16a9q-gfvrqk and https://get.claap.io/ssb7dex1109s. The first vendor-issued URL is the authoritative default CTA while COSHUMA awaits destination/custom-label mapping for the second. No click, signup, commission, or revenue is inferred from link issuance.',
+  checked_at: '2026-09-09T21:45:09+09:00',
+  evidence_file: 'data/claap-teachable-tracking-update-2026-09-09.json',
+});
+
 export function applyApprovedTracking(tool) {
   const item = approvedTracking.get(tool.id);
   if (!item) return false;
