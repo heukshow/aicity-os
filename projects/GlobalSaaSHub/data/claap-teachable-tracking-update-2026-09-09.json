@@ -1,0 +1,31 @@
+{
+  "checked_at_utc": "2026-09-09T13:20:35Z",
+  "sender_account": "support@coshuma.com",
+  "claap": {
+    "status": "approved_tracking",
+    "manager": "Lamia Karmaly",
+    "gmail_message_id": "1a08633651c79db9",
+    "received_at_utc": "2026-09-09T12:45:09Z",
+    "primary_tracking_url": "https://get.claap.io/rc9nqme16a9q-gfvrqk",
+    "alternate_tracking_url": "https://get.claap.io/ssb7dex1109s",
+    "verification": "Claap affiliate manager copied both exact customer-facing affiliate URLs directly from COSHUMA's existing PartnerStack dashboard into the email body.",
+    "primary_selection_rule": "Use the first vendor-issued URL as the default tracked Claap CTA. Keep the second as a verified alternate until Lamia identifies the intended destination/custom label for each URL.",
+    "destination_label_followup_sent_message_id": "1a0865d577059ca9",
+    "actual_click_attribution_verified": false,
+    "revenue_claim": "No signup, commission, or revenue is inferred from link issuance or CTA activation alone."
+  },
+  "teachable": {
+    "status": "approved",
+    "gmail_message_id": "1a08653d9c3bd9f8",
+    "received_at_utc": "2026-09-09T13:20:35Z",
+    "commission_from_prior_direct_program_reply": "30% recurring commission on subscription fees from each new customer during their first year",
+    "tracking_url": null,
+    "welcome_email_instruction": "Log into PartnerStack, open Links, and copy the personalized affiliate link. The 30-Day Exclusive Extended Free Trial landing page must be wrapped with the account tracking link to earn commission.",
+    "untracked_extended_trial_url": "https://www.teachable.com/welcome/partner30",
+    "tracking_link_request_sent": true,
+    "tracking_link_request_message_id": "1a0865d276cdd5c1",
+    "tracking_link_request": "Asked Teachable to paste COSHUMA's exact customer-facing PartnerStack affiliate link and, if possible, the correctly tracked version of the 30-day extended trial landing page directly by email.",
+    "safety": "Do not use the generic partners page, PartnerStack dashboard/login, the unwrapped partner30 landing page, onboarding URLs, or guessed parameters as affiliate CTAs.",
+    "revenue_claim": "Approval is not a signup, commission, or revenue event."
+  }
+}
