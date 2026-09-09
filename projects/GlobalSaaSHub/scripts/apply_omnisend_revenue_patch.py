@@ -1,4 +1,4 @@
-"""Apply the authoritative Omnisend approval copy after shared CTR patches.
+"""Patch the high-impression Omnisend page with the latest verified affiliate state.
 
 Search Console snapshot: /tool/omnisend.html had 114 impressions and 0 clicks in
 30 days. Omnisend approved COSHUMA on 2026-09-09, but no account-issued customer
@@ -32,7 +32,7 @@ replacements = [
         '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">Omnisend Review &amp; Pricing 2026</h1>',
     ),
     (
-        '<span>Affiliate application submitted · tracking link not approved yet</span>',
+        '<span>Review pending</span>',
         '<span>Affiliate approved · exact tracking link pending verification</span>',
     ),
     (
@@ -53,21 +53,36 @@ for old, new in replacements:
     if new in text:
         continue
     if old not in text:
-        # Shared CTR patch owns some of the same metadata and may already have
-        # transformed the base source. Fail only where neither safe state exists.
-        raise SystemExit(f"Refusing uncertain Omnisend approval patch; source text missing: {old[:100]}")
+        raise SystemExit(f"Refusing uncertain Omnisend patch; source text missing: {old[:100]}")
     text = text.replace(old, new, 1)
-
-old_note = "COSHUMA's Omnisend affiliate application is already submitted, but an account-specific Omnisend customer tracking URL is not yet approved or verified, so Omnisend links remain ordinary official links. The Moosend button uses COSHUMA's separately verified customer-facing partner URL; COSHUMA may earn a commission on an eligible Moosend purchase at no extra cost to you."
-new_note = "COSHUMA was approved for the Omnisend Affiliate Program on September 9, 2026. The approval email did not contain an account-specific customer tracking URL, so Omnisend buttons intentionally remain ordinary official links until the exact Impact-issued URL is copied and verified. The Moosend button uses COSHUMA's separately verified customer-facing partner URL; COSHUMA may earn a commission on an eligible Moosend purchase at no extra cost to you."
-if new_note not in text:
-    if old_note not in text:
-        raise SystemExit("Refusing uncertain Omnisend approval patch; buyer-decision status note missing")
-    text = text.replace(old_note, new_note, 1)
 
 marker = "<!-- COSHUMA_OMNISEND_2026_BUYER_DECISION -->"
 if marker not in text:
-    raise SystemExit("Refusing uncertain Omnisend approval patch; shared buyer-decision block missing")
+    anchor = "        <!-- Alternatives & Direct Competitors Section -->"
+    if anchor not in text:
+        raise SystemExit("Refusing uncertain Omnisend patch; alternatives anchor missing")
+    block = '''        <!-- COSHUMA_OMNISEND_2026_BUYER_DECISION -->
+        <section class="rounded-2xl border border-cyan-500/25 bg-cyan-500/5 p-6 space-y-5">
+          <div>
+            <div class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-cyan-300">2026 buyer decision · verified against Omnisend Help Center</div>
+            <h2 class="mt-2 text-2xl font-black text-white">Start with contact count and channel needs, not the plan name</h2>
+            <p class="mt-2 text-sm leading-relaxed text-slate-300">Omnisend pricing changes with billable contacts. The current Free plan supports up to 250 billable contacts and 500 emails per month. Standard starts at $16/month and includes email credits equal to 12× billable contacts. Pro starts at $59/month with unlimited email; for new paid subscriptions on or after May 4, 2026, SMS is a Pro add-on with volume pricing starting at $0.007 per SMS for US/Canada recipients.</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="rounded-xl border border-white/10 bg-[#0d1018] p-4"><div class="text-xs font-bold text-slate-400">Free</div><div class="mt-1 text-xl font-black text-white">$0</div><p class="mt-2 text-xs leading-5 text-slate-400">Up to 250 billable contacts · 500 emails/month.</p></div>
+            <div class="rounded-xl border border-white/10 bg-[#0d1018] p-4"><div class="text-xs font-bold text-slate-400">Standard</div><div class="mt-1 text-xl font-black text-white">From $16/mo</div><p class="mt-2 text-xs leading-5 text-slate-400">Email-focused plan; monthly email credits scale at 12× billable contacts.</p></div>
+            <div class="rounded-xl border border-white/10 bg-[#0d1018] p-4"><div class="text-xs font-bold text-slate-400">Pro</div><div class="mt-1 text-xl font-black text-white">From $59/mo</div><p class="mt-2 text-xs leading-5 text-slate-400">Unlimited email. Current SMS access for new subscribers requires Pro plus SMS credits.</p></div>
+          </div>
+          <div class="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4 text-sm leading-relaxed text-slate-300"><strong class="text-white">New-subscriber offer:</strong> Omnisend currently documents 30% off the first three months when a first-time paid subscriber chooses to pay three months upfront: Standard $11.20/month or Pro $41.30/month for that initial three-month period. Verify the live checkout before relying on the offer.</div>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a data-cta="official" data-tool-id="omnisend" data-cta-source="omnisend_2026_pricing" href="https://www.omnisend.com/pricing/" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl bg-slate-800 border border-slate-600 text-white font-extrabold text-center">Check current Omnisend pricing →</a>
+            <a data-cta="affiliate" data-tool-id="moosend" data-cta-source="omnisend_verified_alternative" href="https://trymoo.moosend.com/6eappdpw04pw" target="_blank" rel="sponsored noopener noreferrer" class="px-5 py-3.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-extrabold text-center">Prefer a 30-day trial? Compare Moosend →</a>
+          </div>
+          <p class="text-[11px] leading-5 text-slate-500">COSHUMA was approved for the Omnisend Affiliate Program on September 9, 2026. The approval email did not contain an account-specific customer tracking URL, so Omnisend buttons intentionally remain ordinary official links until the exact Impact-issued URL is copied and verified. The Moosend button uses COSHUMA's separately verified customer-facing partner URL; COSHUMA may earn a commission on an eligible Moosend purchase at no extra cost to you.</p>
+        </section>
+
+'''
+    text = text.replace(anchor, block + anchor, 1)
 
 PAGE.write_text(text, encoding="utf-8")
-print("Omnisend approval copy aligned after Search Console CTR patch")
+print("Omnisend approval-aware Search Console monetization patch applied")
