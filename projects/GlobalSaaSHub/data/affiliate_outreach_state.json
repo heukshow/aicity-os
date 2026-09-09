@@ -109,7 +109,11 @@
       "tracking_url": "https://pictory.ai?fpr=sangkwon-an23",
       "promo_code": "COSHUMA20",
       "payout_status": "setup_pending",
-      "note": "Pictory's affiliate manager reconfirmed that the existing affiliate link and COSHUMA20 remain active. Referrals and sales can track while payout setup is pending. No revenue is inferred from approval alone."
+      "note": "Pictory manager confirmed the Sep 6 COSHUMA referral click is recorded on Pictory's side, matching GA4. End-to-end click attribution is verified; no signup, sale, commission, payout, or revenue is inferred.",
+      "updated_at": "2026-09-09T18:53:59+09:00",
+      "tracking_attribution_currently_verified": true,
+      "tracking_attribution_verified_at": "2026-09-09T18:53:59+09:00",
+      "current_dashboard_status": "access_restored_payout_setup_pending"
     },
     "taskip": {
       "status": "approved_tracking",

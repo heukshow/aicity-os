@@ -360,7 +360,22 @@
     "official_evidence_url": "https://pictory.ai/",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_verified_at": "2026-09-09T18:53:59+09:00",
+    "affiliate_final_url": "https://pictory.ai?fpr=sangkwon-an23",
+    "affiliate_status_checked_at": "2026-09-09T18:53:59+09:00",
+    "affiliate_tracking_url_verified": true,
+    "affiliate_tracking_attribution_currently_verified": true,
+    "affiliate_tracking_attribution_verified_at": "2026-09-09T18:53:59+09:00",
+    "affiliate_dashboard_status": "access_restored_payout_setup_pending",
+    "payout_status": "setup_pending",
+    "affiliate_next_action": "Keep the exact verified Pictory referral URL as the primary tracking route and display COSHUMA20 alongside it. End-to-end click attribution is verified. Do not reapply or reopen the stale OTP task. Do not infer signup, sale, commission, payout, or revenue until direct evidence exists.",
+    "affiliate_evidence_markers": [
+      "Gmail message 1a080260af602adb from Pictory Affiliate Manager Ashutosh Dhamija confirms full affiliate-dashboard access was restored while payout setup remains pending.",
+      "COSHUMA GA4 recorded the 2026-09-06 outbound affiliate_click from /tool/pictory.html to the verified Pictory referral destination.",
+      "Gmail message 1a08596f9b30d2a4 from Pictory Affiliate Manager Ashutosh Dhamija explicitly confirms that the same click was recorded on Pictory's side.",
+      "End-to-end click attribution is therefore verified for that event. This does not prove a signup, sale, commission, payout, or revenue.",
+      "data/pictory-attribution-verification-2026-09-09.md"
+    ]
   },
   {
     "id": "fliki",
