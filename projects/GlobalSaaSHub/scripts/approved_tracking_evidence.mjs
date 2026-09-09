@@ -22,6 +22,8 @@ approvedTracking.set('typedesk', {
   status: 'approved_tracking',
   exact_tracking_url: 'https://www.typedesk.com?via=sangkwon',
   destination: 'https://www.typedesk.com?via=sangkwon',
+  company_mailbox: 'support@coshuma.com',
+  vendor_reply_message_id: '1a083d37fcdad998',
   evidence: 'Typedesk human reply from hennadiy@typedesk.com to support@coshuma.com explicitly identifies https://www.typedesk.com?via=sangkwon as COSHUMA\'s unique tracking link and says reports remain available in the Rewardful dashboard. No click, signup, commission, or revenue is inferred from link issuance alone.',
   checked_at: '2026-09-09T10:40:59+09:00',
   evidence_file: 'data/typedesk-approved-tracking-2026-09-09.md',
