@@ -777,5 +777,17 @@
     "next_action": "Await the already recorded request; do not reapply. Recover approval and an issued exact tracking URL only with new direct evidence.",
     "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
     "user_action_required": false
+  },
+  {
+    "id": "omnisend-status-hotfix-2026-09-09",
+    "tool_id": "omnisend",
+    "priority": "high",
+    "status": "approved_account_tracking_url_required",
+    "affiliate_status": "approved",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "blocker": "Authenticated Impact dashboard required only to retrieve the issued tracking link if Omnisend does not send it directly.",
+    "next_action": "Do not reapply. Retrieve the exact account-issued customer tracking link from the existing Impact account under Content > Assets, as Omnisend's official affiliate page instructs. Keep affiliate_url null and do not publish an Omnisend affiliate CTA until that exact tracking URL is copied and verified. No paid action.",
+    "do_not_reapply": true
   }
 ]
