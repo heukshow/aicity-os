@@ -2,22 +2,23 @@
   "id": "omnisend-approved-link-recovery-2026-09-09",
   "tool_id": "omnisend",
   "priority": "high",
-  "status": "approved_account_tracking_url_required",
-  "affiliate_status": "approved",
+  "status": "resolved",
+  "affiliate_status": "approved_tracking",
   "cost": 0,
   "account": "support@coshuma.com",
-  "browser_required": true,
+  "browser_required": false,
   "workflow_url": "https://app.impact.com/",
   "official_program_url": "https://www.omnisend.com/affiliates/",
+  "exact_tracking_url": "https://your.omnisend.com/4aA5k9",
   "evidence_path": "data/omnisend-affiliate-approved-2026-09-09.md",
+  "resolution_evidence": "Omnisend Senior Affiliate Marketing Manager Deimantė Vaitkevičiūtė sent Gmail message 1a0855caf8f6dee2 to support@coshuma.com and explicitly instructed COSHUMA to use https://your.omnisend.com/4aA5k9 for tracking, confirming that this is the tracking link in Impact Assets.",
   "required_steps": [
-    "Use the existing Impact account tied to support@coshuma.com; do not submit another Omnisend application.",
-    "Open the approved Omnisend program in Impact and go to Content > Assets, matching Omnisend's official instructions.",
-    "Copy only the account-issued customer-facing tracking link. Do not copy a dashboard, onboarding, homepage, login, or generic Impact URL.",
-    "Verify that the tracking URL resolves to an official Omnisend customer landing page while retaining valid attribution behavior.",
-    "Only after verification, update Omnisend to approved_tracking and replace the current official-only Omnisend CTA where appropriate."
+    "Preserve the exact vendor-issued customer-facing URL https://your.omnisend.com/4aA5k9.",
+    "Do not reapply and do not substitute the Omnisend homepage, pricing page, Impact login/dashboard/onboarding URL, or email redirect.",
+    "Use affiliate disclosure and rel=sponsored on buyer-facing COSHUMA CTAs.",
+    "Keep clicks, signups, commissions, payouts, and revenue at unknown/zero unless separately evidenced."
   ],
-  "user_intervention_only_for": ["CAPTCHA", "OTP", "forced identity verification", "legal consent"],
+  "user_intervention_only_for": [],
   "forbidden": ["duplicate application", "paid subscription", "invented tracking URL", "treating Impact redirect or dashboard URL as affiliate revenue link"],
-  "checked_at": "2026-09-09T15:27:00+09:00"
+  "checked_at": "2026-09-09T17:50:34+09:00"
 }
