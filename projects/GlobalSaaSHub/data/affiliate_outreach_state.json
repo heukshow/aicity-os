@@ -611,8 +611,10 @@
       "tracking_url": "https://partnerstack.teachable.com/ce4muoxdj46j",
       "sender": "support@coshuma.com",
       "gmail_message_id": "1a086aa6ef5a4d98",
-      "updated_at": "2026-09-09T14:55:10Z",
-      "note": "Teachable manager supplied COSHUMA's exact unique PartnerStack URL by email. Use it as the default tracked CTA. Tracked 30-day trial deeplink remains pending vendor confirmation; do not reapply or guess a wrapper."
+      "updated_at": "2026-09-09T17:24:53Z",
+      "note": "Resolved: Teachable manager supplied both COSHUMA's default unique PartnerStack tracking URL and the separate exact 30-day Free Trial PartnerStack route. Use only those vendor-issued routes for their intended CTA types; do not reapply or request the trial link again. Actual attribution and revenue remain unverified until observed.",
+      "trial_tracking_url": "https://partnerstack.teachable.com/COSHUMA",
+      "trial_gmail_message_id": "1a087337fdf3bdd1"
     }
   }
 }
