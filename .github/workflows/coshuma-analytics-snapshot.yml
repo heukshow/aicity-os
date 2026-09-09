@@ -60,8 +60,12 @@ jobs:
             process.exit(1);
           }
           if (d.status !== 'live_google_connected' || d.measurement_status !== 'live_connected') {
-            if (fs.existsSync(previous)) fs.copyFileSync(previous, p);
-            console.error(`Google analytics snapshot rejected: ${d.status}/${d.measurement_status}`);
+            if (fs.existsSync(previous)) {
+              fs.copyFileSync(previous, p);
+              console.warn(`Google analytics unavailable (${d.status}/${d.measurement_status}); preserving the last verified snapshot.`);
+              process.exit(0);
+            }
+            console.error(`Google analytics snapshot unavailable: ${d.status}/${d.measurement_status}`);
             process.exit(1);
           }
           NODE
