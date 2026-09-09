@@ -2,7 +2,7 @@
 
 Owner entry: `https://globalsaashub-payments.qmfforfhem.workers.dev/ops/traffic-revenue.html`.
 
-The `/ops` route authenticates `support@coshuma.com` against the `OPS_PASSWORD_SHA256` Worker secret. The existing admin credentials and payment routes are independent. Neither passwords nor secret values belong in Git. Login attempts are limited to ten per client IP per ten-minute bucket; client IPs are stored only as hashes. Sessions expire on the server after eight hours and use Secure, HttpOnly, SameSite=Strict cookies. Basic authentication and unverified Access identity headers cannot bypass this route.
+The `/ops` route authenticates `support@coshuma.com` against the `OPS_PASSWORD_SHA256` Worker secret. The existing admin credentials and payment routes are independent. Neither passwords nor secret values belong in Git. Login forms use a signed ten-minute CSRF cookie plus a matching hidden nonce; this supports the existing Work browser without trusting a mismatched Origin. Login attempts are limited to ten per client IP per ten-minute bucket; client IPs are stored only as hashes. Sessions expire on the server after eight hours and use Secure, HttpOnly, SameSite=Strict cookies. Basic authentication and unverified Access identity headers cannot bypass this route.
 
 HTML and internal JSON live in the existing ORDERS D1 binding's `private_ops_documents` table, outside both GitHub Pages and repository source. Every read requires authentication, including HEAD and direct JSON requests. Responses use no-store/private. Apply `migrations/0002_private_ops.sql` before first deployment; importing documents requires existing authorized Cloudflare administration access. Do not commit document contents or upload them as public Actions artifacts.
 

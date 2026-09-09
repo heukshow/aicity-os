@@ -1,10 +1,11 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+import { fileURLToPath } from 'node:url';
 
 import path from 'node:path';
 const outPath = process.env.DASHBOARD_OUTPUT_PATH;
 if (!outPath || !path.isAbsolute(outPath)) throw new Error('An absolute private DASHBOARD_OUTPUT_PATH is required');
-const publicRoot = path.resolve(new URL('../public', import.meta.url).pathname.replace(/^\/(?:([A-Za-z]:))/, '$1'));
+const publicRoot = path.resolve(fileURLToPath(new URL('../public', import.meta.url)));
 if (path.resolve(outPath).startsWith(publicRoot + path.sep)) throw new Error('Public output is forbidden');
 const serviceRaw = process.env.GOOGLE_SERVICE_ACCOUNT_JSON || '';
 const propertyId = String(process.env.GA_PROPERTY_ID || '552119661').trim();

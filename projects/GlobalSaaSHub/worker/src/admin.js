@@ -149,9 +149,9 @@ export async function handleAdminRequest(request, env) {
   return new Response(body, { status: 200, headers: PRIVATE_HEADERS });
 }
 
-export async function privateLogin(request, env, destination) {
+export async function privateLogin(request, env, destination, csrfValidated = false) {
     const origin = request.headers.get('origin');
-    if (origin && origin !== new URL(request.url).origin) return new Response('Forbidden', { status: 403, headers: PRIVATE_HEADERS });
+    if (!csrfValidated && origin && origin !== new URL(request.url).origin) return new Response('Forbidden', { status: 403, headers: PRIVATE_HEADERS });
     const form = await request.formData().catch(() => new FormData());
     const username = String(form.get('username') || '');
     const passwordHash = await sha256(String(form.get('password') || ''));

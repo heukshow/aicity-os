@@ -37,6 +37,30 @@ const response = (body, status, type = 'application/json; charset=utf-8') => new
   status, headers: { ...PRIVATE_HEADERS, 'content-type': type, 'content-security-policy': "default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'self'; img-src data:; base-uri 'none'; form-action 'self'; frame-ancestors 'none'" },
 });
 
+async function csrfSignature(value, secret) {
+  const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  return [...new Uint8Array(await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`login:${value}`)))].map(b => b.toString(16).padStart(2, '0')).join('');
+}
+async function ownerLoginPage(env, error = '') {
+  if (!env.OPS_PASSWORD_SHA256) return response('{"error":"Authentication unavailable"}', 503);
+  const nonce = crypto.randomUUID();
+  const value = `${nonce}.${Math.floor(Date.now()/1000)+600}`;
+  const signed = `${value}.${await csrfSignature(value, env.OPS_PASSWORD_SHA256)}`;
+  const result = response(loginPage(error).replace('<form method="post">', `<form method="post"><input type="hidden" name="csrf" value="${nonce}">`), 401, 'text/html; charset=utf-8');
+  result.headers.append('set-cookie', `__Secure-coshuma_login=${signed}; Path=/ops; Max-Age=600; HttpOnly; Secure; SameSite=Strict`);
+  return result;
+}
+async function validCsrf(request, env) {
+  try {
+    const cookie = (request.headers.get('cookie') || '').split(';').map(s => s.trim()).find(s => s.startsWith('__Secure-coshuma_login='))?.slice('__Secure-coshuma_login='.length);
+    const [nonce, expires, signature] = (cookie || '').split('.');
+    const form = await request.clone().formData();
+    const now = Date.now()/1000;
+    return nonce === form.get('csrf') && Number(expires) > now && Number(expires) <= now+600
+      && signature === await csrfSignature(`${nonce}.${expires}`, env.OPS_PASSWORD_SHA256);
+  } catch { return false; }
+}
+
 export async function handleSnapshotUpload(request, env) {
   if (request.method !== 'PUT') return response('{"error":"Method not allowed"}', 405);
   const token = request.headers.get('authorization')?.replace(/^Bearer /, '');
@@ -70,6 +94,7 @@ export async function handlePrivateOps(request, env) {
   const authEnv = { ...env, ADMIN_PATH: '/ops', ADMIN_USERNAME: 'support@coshuma.com', ADMIN_PASSWORD_SHA256: env.OPS_PASSWORD_SHA256 };
   if (request.method === 'POST' && ['/ops', '/ops/', '/ops/traffic-revenue.html'].includes(path)) {
     if (!env.ORDERS || !env.OPS_PASSWORD_SHA256) return response('{"error":"Authentication unavailable"}', 503);
+    if (!await validCsrf(request, env)) return response('Login session expired. Reload this page and try again.', 403, 'text/plain; charset=utf-8');
     const ip = request.headers.get('cf-connecting-ip') || 'unknown';
     const digest = [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(ip)))].map(b => b.toString(16).padStart(2, '0')).join('');
     const bucket = Math.floor(Date.now() / 600000);
@@ -77,11 +102,12 @@ export async function handlePrivateOps(request, env) {
       ON CONFLICT(client) DO UPDATE SET bucket=excluded.bucket, attempts=CASE WHEN bucket=excluded.bucket THEN attempts+1 ELSE 1 END RETURNING attempts`)
       .bind(digest, bucket).first();
     if (!attempt || attempt.attempts > 10) return response('{"error":"Too many login attempts; try again later"}', 429);
-    return privateLogin(request, authEnv, '/ops/traffic-revenue.html');
+    const login = await privateLogin(request, authEnv, '/ops/traffic-revenue.html', true);
+    return login.status === 401 ? ownerLoginPage(env, '아이디 또는 비밀번호가 맞지 않습니다.') : login;
   }
   if (!await authorized(request, authEnv, false)) {
     return path.endsWith('.json') ? response('{"error":"Authentication required"}', 401)
-      : response(loginPage(), 401, 'text/html; charset=utf-8');
+      : ownerLoginPage(env);
   }
   if (!['GET', 'HEAD'].includes(request.method)) return response('{"error":"Method not allowed"}', 405);
   const name = ['/ops', '/ops/'].includes(path) ? 'traffic-revenue.html' : path.slice('/ops/'.length);
