@@ -478,19 +478,20 @@
   {
     "id": "typedesk-affiliate-browser-followup",
     "tool_id": "typedesk",
-    "status": "application_submitted",
-    "affiliate_status": "application_submitted",
+    "status": "resolved",
+    "affiliate_status": "approved_tracking",
     "cost": "0",
-    "exact_tracking_url": null,
+    "exact_tracking_url": "https://www.typedesk.com?via=sangkwon",
     "workflow_url": "https://typedesk.getrewardful.com/login",
     "evidence_file": "data/affiliate-browser-followup-wave3-2026-09-08.json",
     "reason": "Read existing evidence file and verified sent email titled COSHUMA application for the typedesk Affiliate Program in legacy Gmail. No reply found in searched company/legacy mailboxes. Current official Become an affiliate link reaches a real Rewardful signup form. It advertises 30% recurring for up to 12 months, requests password/confirmation, and states signup agrees to Terms of Service. Login requires email and password; no authenticated session was present.",
-    "next_action": "Preserve existing email application; do not send or submit a duplicate. Resolve existing request/account before any Rewardful registration. Current dashboard approval and customer referral URL remain unconfirmed.",
+    "next_action": "Preserve and publish the verified Typedesk tracking URL on buyer-facing COSHUMA pages; do not reapply or request another tracking account. Measure actual outbound clicks and only claim downstream revenue when separately evidenced.",
     "do_not": [
       "Do not reapply or submit duplicate outreach.",
       "Do not pay or create a new account.",
       "Do not infer conversions, commissions or revenue from approval or public landing checks."
-    ]
+    ],
+    "blocker": null
   },
   {
     "id": "catalister-affiliate-followup",
