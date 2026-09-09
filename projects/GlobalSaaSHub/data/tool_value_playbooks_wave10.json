@@ -1,0 +1,62 @@
+{
+  "rytr": {
+    "problems": [
+      "Freelancers and small marketing teams need to draft emails, ads, website copy, social posts and other routine business writing without starting every asset from a blank page.",
+      "People writing for multiple brands need reusable tone-of-voice controls, multilingual generation and browser-based writing assistance so brand rules can follow them across common web workflows.",
+      "Product teams need a simple way to embed text generation for use cases such as blog drafts, editing, website copy, ad copy and email inside an existing product without operating their own generation backend."
+    ],
+    "monetization": [
+      {"title": "Deliver small-business copy packages", "difficulty": "Beginner", "cost": "Free/paid", "output": "Human-reviewed package of approved website, email, ad or social copy created from a client brief and brand guidance"},
+      {"title": "Set up brand-voice content workflows", "difficulty": "Intermediate", "cost": "Paid", "output": "Documented writing workflow with tone settings, reusable prompts/use cases and editorial review checklist for one brand"},
+      {"title": "Integrate AI copy generation into a client product", "difficulty": "Advanced", "cost": "Usage-based API", "output": "Working API integration for a defined text-generation use case with input controls, output review and implementation notes"}
+    ]
+  },
+  "castmagic": {
+    "problems": [
+      "Podcasters, video creators and marketing teams need to turn long recordings into transcripts and multiple publishable content assets without manually reviewing the full recording for every output.",
+      "Teams need one workspace for transcription, editing, collaboration and reusable AI-generated outputs instead of moving the same recording through separate transcription and content tools.",
+      "Agencies handling recurring shows or client recordings need a repeatable post-production content workflow that can scale across multiple recordings and team members."
+    ],
+    "monetization": [
+      {"title": "Sell podcast-to-content repurposing packages", "difficulty": "Beginner", "cost": "Trial/paid", "output": "Human-reviewed transcript plus selected show notes, summaries, social posts and other client-approved assets from one recording"},
+      {"title": "Build recurring creator content engines", "difficulty": "Intermediate", "cost": "Paid", "output": "Documented recurring workflow that converts each approved audio/video recording into a consistent set of branded content deliverables"},
+      {"title": "Operate multi-client recording repurposing", "difficulty": "Intermediate", "cost": "Paid", "output": "Agency workflow covering intake, transcription, editing, asset generation, review and delivery for multiple client shows"}
+    ]
+  },
+  "loopcv": {
+    "problems": [
+      "Job seekers need to discover relevant openings across many job boards, match them against a CV and keep application activity organized without manually repeating the same search every day.",
+      "Candidates need a controlled way to automate supported applications and follow-ups while retaining the ability to edit generic messages and review the jobs being targeted.",
+      "People running a serious job search need a single dashboard for application tracking, matching results and CV-review feedback instead of maintaining a separate spreadsheet and multiple job-board tabs."
+    ],
+    "monetization": [
+      {"title": "Offer job-search workflow setup", "difficulty": "Beginner", "cost": "Free/paid", "output": "Configured search preferences, CV matching settings, application-tracking dashboard and written review checklist owned by the client"},
+      {"title": "Deliver CV and application-process optimization", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Human-reviewed CV improvement notes plus a documented process for filters, application review and follow-up tracking"},
+      {"title": "Create career-search onboarding packages", "difficulty": "Intermediate", "cost": "Paid", "output": "Client onboarding session and reusable guide for safely configuring automated searches, reviewing applications and measuring response outcomes"}
+    ]
+  },
+  "panda-video": {
+    "problems": [
+      "Course creators and businesses need hosted video delivery with storage, bandwidth, analytics, a customizable player and domain/security controls instead of serving large video files from a general website host.",
+      "Video businesses need to migrate existing libraries, integrate playback into external platforms and protect paid content with controls such as allowed domains, DRM options and anti-download features available by plan.",
+      "Creators need to repurpose longer videos into short clips and, on higher tiers, generate supporting assets such as subtitles, tutor material, mind maps, quizzes or ebooks without moving the source video between many services."
+    ],
+    "monetization": [
+      {"title": "Set up hosted course and membership video libraries", "difficulty": "Intermediate", "cost": "14-day trial/paid", "output": "Configured video library with player styling, allowed-domain settings, organized embeds and client handoff documentation"},
+      {"title": "Offer video-platform migration services", "difficulty": "Intermediate", "cost": "14-day trial/paid", "output": "Migrated and checked video catalog with playback validation, embed updates and storage/bandwidth planning notes"},
+      {"title": "Produce short-form clips from client video libraries", "difficulty": "Beginner", "cost": "Trial/paid", "output": "Batch of reviewed short-form clips derived from approved long-form client videos for selected social channels"}
+    ]
+  },
+  "getgenie": {
+    "problems": [
+      "WordPress publishers and SEO teams need keyword research, SERP analysis, content generation and optimization in one workflow instead of switching among separate writing and SEO tools for every article.",
+      "Sites need structured topic planning, FAQ and answer-first content, local service copy and ongoing keyword/page tracking so content work can be tied to a documented search strategy.",
+      "Agencies managing many sites need higher usage limits, broader tracking capacity and reusable AI writing templates to standardize research and content-production workflows across clients."
+    ],
+    "monetization": [
+      {"title": "Deliver SEO content briefs and optimized drafts", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Keyword/SERP-backed content brief plus human-reviewed draft, FAQ opportunities and optimization checklist for one target topic"},
+      {"title": "Build topical-map content plans", "difficulty": "Intermediate", "cost": "Paid", "output": "Prioritized topical map with proposed pages, search themes, internal content relationships and publishing sequence for a client site"},
+      {"title": "Offer local-service SEO content packages", "difficulty": "Intermediate", "cost": "Paid", "output": "Reviewed local service-page copy, Google Business Profile post ideas and keyword-tracking setup aligned to the client's approved services and locations"}
+    ]
+  }
+}
