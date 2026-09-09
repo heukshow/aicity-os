@@ -116,7 +116,7 @@ def reconcile_outreach(evidence: dict) -> None:
     write_json(path, state)
 
 
-def reconcile_browser_queue() -> None:
+def reconcile_browser_queue(evidence: dict) -> None:
     path = DATA_DIR / "browser_required_queue.json"
     if not path.exists():
         return
@@ -127,10 +127,28 @@ def reconcile_browser_queue() -> None:
     remove_ids = {
         "claap-affiliate-batch-20260908-0650",
         "claap-approved-link-recovery-2026-09-09",
+        "claap-approved-tracking-2026-09-09",
         "teachable-affiliate-application-2026-09-09",
         "teachable-approved-tracking-recovery-2026-09-09",
     }
     queue = [item for item in queue if item.get("id") not in remove_ids]
+    claap_e = evidence["claap"]
+    queue.append(
+        {
+            "id": "claap-approved-tracking-2026-09-09",
+            "tool_id": "claap",
+            "priority": "resolved",
+            "status": "resolved",
+            "affiliate_status": "approved_tracking",
+            "exact_tracking_url": claap_e["primary_tracking_url"],
+            "alternate_verified_urls": [claap_e["alternate_tracking_url"]],
+            "cost": 0,
+            "blocker": None,
+            "user_action_required": False,
+            "next_action": "Use the first exact vendor-issued Claap URL as the default tracked CTA; await destination/custom-label mapping before destination-specific use of the second URL. Do not reapply.",
+            "evidence": f"Gmail {claap_e['gmail_message_id']}: Lamia Karmaly copied both URLs from COSHUMA's PartnerStack dashboard.",
+        }
+    )
     teachable_queue = load_json(TEACHABLE_QUEUE_PATH)
     queue.append(teachable_queue)
     write_json(path, queue)
@@ -155,8 +173,20 @@ def patch_claap_page(evidence: dict) -> None:
     new_bottom = f'<a data-cta="affiliate" data-tool-id="claap" data-cta-source="claap_partnerstack_verified" href="{primary}" target="_blank" rel="sponsored noopener noreferrer" class="inline-flex px-7 py-4 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:brightness-110">Test Claap with verified tracking →</a>'
     html = html.replace(old_bottom, new_bottom)
 
+    if "Affiliate disclosure:" not in html:
+        disclosure = '<p class="text-[11px] text-slate-500 leading-relaxed"><strong class="text-slate-300">Affiliate disclosure:</strong> COSHUMA may earn a commission if you purchase through a verified Claap affiliate link, at no extra cost to you. This does not affect our editorial assessment.</p>'
+        anchor = '<p class="text-[11px] text-slate-500 leading-relaxed">Affiliate status:'
+        pos = html.find(anchor)
+        if pos != -1:
+            end = html.find('</p>', pos)
+            if end != -1:
+                end += 4
+                html = html[:end] + "\n    " + disclosure + html[end:]
+        else:
+            html = html.replace('</main>', f'  {disclosure}\n</main>', 1)
+
     marker = "<!-- claap-partner-feedback-v6 -->"
-    html = html.replace(marker, "<!-- claap-partner-feedback-v6 --><!-- claap-approved-tracking-v1 -->")
+    html = html.replace(marker, "<!-- claap-partner-feedback-v6 --><!-- claap-approved-tracking-v2 -->")
     path.write_text(html, encoding="utf-8")
 
 
@@ -179,13 +209,15 @@ def validate(evidence: dict) -> None:
         raise RuntimeError("Claap verified tracking CTA was not activated")
     if 'data-cta="affiliate" data-tool-id="claap" href="https://www.claap.io/' in page:
         raise RuntimeError("Generic Claap official URL was incorrectly marked as affiliate")
+    if "Affiliate disclosure:" not in page:
+        raise RuntimeError("Claap affiliate disclosure is missing")
 
 
 def main() -> None:
     evidence = load_json(EVIDENCE_PATH)
     reconcile_tools(evidence)
     reconcile_outreach(evidence)
-    reconcile_browser_queue()
+    reconcile_browser_queue(evidence)
     patch_claap_page(evidence)
     validate(evidence)
     print("Claap exact tracking activated; Teachable approval recorded with exact-link recovery pending.")
