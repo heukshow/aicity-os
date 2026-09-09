@@ -104,6 +104,24 @@ assert.ok(typedeskPage.includes('data-tool-id="typedesk"'));
 assert.ok(typedeskPage.includes('/affiliate-attribution.js'));
 assert.match(typedeskPage, /affiliate disclosure/i);
 
+// Omnisend now has a newer exact vendor-issued tracking URL from its Senior Affiliate Marketing Manager.
+// The older approved-without-link snapshot must never downgrade the account or reopen link recovery.
+const omnisendUrl = 'https://your.omnisend.com/4aA5k9';
+assert.equal(state.omnisend.status, 'approved_tracking');
+assert.equal(state.omnisend.tracking_url, omnisendUrl);
+assert.equal(state.omnisend.application_state, 'submitted');
+assert.equal(state.omnisend.do_not_reapply, true);
+assert.ok(queue.some(q =>
+  q.tool_id === 'omnisend' && q.status === 'resolved' &&
+  q.affiliate_status === 'approved_tracking' && q.exact_tracking_url === omnisendUrl
+));
+const omnisendPage = fs.readFileSync('dist/tool/omnisend.html', 'utf8');
+assert.ok(omnisendPage.includes(omnisendUrl));
+assert.ok(omnisendPage.includes('data-cta="affiliate"'));
+assert.ok(omnisendPage.includes('data-tool-id="omnisend"'));
+assert.ok(omnisendPage.includes('/affiliate-attribution.js'));
+assert.match(omnisendPage, /affiliate disclosure/i);
+
 assert.equal(state.framer.application_state, 'not_submitted');
 assert.equal(state.eprofessor.application_state, 'submitted');
 assert.equal(state.eprofessor.payout_setup_complete, false);
