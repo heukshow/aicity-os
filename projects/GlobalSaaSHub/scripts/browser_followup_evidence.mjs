@@ -36,6 +36,11 @@ const approvalFollowups = [
 ];
 for (const item of approvalFollowups) browserFollowups.set(item.id, item);
 
+// Typedesk now has a newer vendor-issued exact tracking URL from a human reply.
+// Remove the older browser-required snapshot so the authoritative approved-tracking
+// evidence can apply during both sync passes instead of being masked by stale state.
+browserFollowups.delete('typedesk');
+
 // Operational approvals keep duplicate-prevention state and the browser queue current
 // without requiring the browser-followup validator to reinterpret vendor-issued email links.
 const operationalApprovals = [
