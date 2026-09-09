@@ -1134,19 +1134,19 @@
     "official_evidence_url": "https://www.omnisend.com/",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
-    "affiliate_verified_at": "2026-09-09T17:50:34+09:00",
+    "affiliate_verified_at": "2026-09-09T19:56:33+09:00",
     "affiliate_evidence_markers": [
       "Omnisend Affiliate Partner Program application received",
       "application will be reviewed and processed",
-      "Omnisend Senior Affiliate Marketing Manager Deimantė Vaitkevičiūtė replied to support@coshuma.com in Gmail message 1a0855caf8f6dee2: 'Please use this link for tracking: https://your.omnisend.com/4aA5k9' and confirmed the tracking link is in Impact Assets. Omnisend's official affiliate documentation states approved affiliates must use the exact link from Impact Content > Assets; tracking/reporting are handled through Impact with a 60-day attribution window.",
-      "Preserve this exact Omnisend-issued customer tracking URL. Do not reapply and do not substitute the homepage, pricing page, Impact dashboard, onboarding URL, or email redirect. Track real clicks/signups/commissions separately; no revenue is inferred from approval or link issuance.",
+      "Omnisend Senior Affiliate Marketing Manager Deimantė Vaitkevičiūtė replied to support@coshuma.com in Gmail message 1a0855caf8f6dee2 with COSHUMA's exact general customer tracking URL https://your.omnisend.com/4aA5k9. In Gmail message 1a085d0074ddb3a0, replying to COSHUMA's request for a pricing-destination link, she supplied the exact direct pricing tracking URL https://your.omnisend.com/VOKyAj. Omnisend's official affiliate documentation states approved affiliates must use the exact links supplied through Impact Content > Assets; tracking/reporting are handled through Impact with a 60-day attribution window.",
+      "Preserve the vendor-issued general URL as the canonical Omnisend affiliate_url. Use the separate vendor-issued https://your.omnisend.com/VOKyAj only for pricing-intent Omnisend CTAs. Do not synthesize deep links or substitute the homepage, Impact dashboard, onboarding URL, or email redirect. Track real clicks/signups/commissions separately; no revenue is inferred from approval or link issuance.",
       "data/omnisend-affiliate-approved-2026-09-09.md"
     ],
     "affiliate_final_url": "https://your.omnisend.com/4aA5k9",
-    "affiliate_status_checked_at": "2026-09-09T17:50:34+09:00",
+    "affiliate_status_checked_at": "2026-09-09T19:56:33+09:00",
     "affiliate_status_evidence_url": "https://www.omnisend.com/affiliates/",
     "affiliate_workflow_url": "https://app.impact.com/",
-    "affiliate_next_action": "Preserve this exact Omnisend-issued customer tracking URL. Do not reapply and do not substitute the homepage, pricing page, Impact dashboard, onboarding URL, or email redirect. Track real clicks/signups/commissions separately; no revenue is inferred from approval or link issuance."
+    "affiliate_next_action": "Preserve the vendor-issued general URL as the canonical Omnisend affiliate_url. Use the separate vendor-issued https://your.omnisend.com/VOKyAj only for pricing-intent Omnisend CTAs. Do not synthesize deep links or substitute the homepage, Impact dashboard, onboarding URL, or email redirect. Track real clicks/signups/commissions separately; no revenue is inferred from approval or link issuance."
   },
   {
     "id": "time2book",
@@ -4816,7 +4816,7 @@
     "affiliate_status_checked_at": "2026-09-09T08:31:35Z",
     "affiliate_status_evidence_url": "gmail:1a08009379826dfd",
     "affiliate_workflow_url": "https://dash.partnerstack.com/home",
-    "affiliate_next_action": "browser_required: reuse the existing Claap PartnerStack partnership and copy the exact customer-facing affiliate link only; no reapplication. Then replace Claap revenue CTAs after exact-link verification and validate attribution.",
+    "affiliate_next_action": "Prefer direct recovery by email from Lamia first. If no exact issued customer-facing link is supplied, browser_required: reuse the existing Claap PartnerStack partnership and copy the exact customer-facing affiliate link only; no reapplication. Then replace Claap revenue CTAs after exact-link verification and validate attribution.",
     "affiliate_dashboard_status": "Approved; exact customer-facing tracking link not yet verified",
     "affiliate_tracking_attribution_currently_verified": false
   },
