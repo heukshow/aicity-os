@@ -856,5 +856,26 @@
     "resolved_at": "2026-09-09T12:45:09Z",
     "resolution_evidence": "Gmail message 1a08633651c79db9 from Claap affiliate manager Lamia Karmaly supplied both exact URLs; the first is the authoritative default CTA pending destination-label mapping for the second.",
     "blocker": null
+  },
+  {
+    "id": "manychat-partnerstack-direct-application-20260910",
+    "priority": "high",
+    "status": "open",
+    "type": "browser_required",
+    "cost": "0",
+    "verified_at": "2026-09-10T02:39:59+09:00",
+    "gmail_thread_id": "1a07b34ffaf04027",
+    "gmail_message_id": "1a086b6eabaeb524",
+    "reason": "The full Manychat PartnerStack support thread was reviewed. COSHUMA asked for a direct application path without creating a duplicate PartnerStack account, and human PartnerStack support agent Digna Rivas replied on 2026-09-09 with the exact Manychat application form. Repository evidence still shows application_available_partnerstack / direct_enrollment_path_requested, with no verified submitted, pending, approved, declined, closed, or cooldown state. Authenticated browser review is therefore required before any submission.",
+    "url": "https://dash.partnerstack.com/application?company=manychat&gref=page",
+    "next_action": "Reuse the existing authenticated PartnerStack session and open the exact Manychat application form. First verify that Manychat is not already submitted, pending, approved, declined, closed, or in cooldown. Only if there is no existing application state and the application is free and eligible, complete and submit it. Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment. After submission, record the actual resulting state; do not infer approval or a tracking URL.",
+    "do_not": [
+      "Do not treat the PartnerStack application URL as a customer-facing affiliate, referral, or revenue link.",
+      "Do not create another PartnerStack account.",
+      "Do not submit a duplicate application if the authenticated dashboard shows submitted, pending, approved, declined, closed, or cooldown status.",
+      "Do not guess or construct a Manychat tracking/referral URL before one is actually issued and verified.",
+      "Do not complete CAPTCHA, OTP, legal acceptance, identity verification, or any paid step on the user's behalf."
+    ],
+    "source_evidence": "Gmail thread 1a07b34ffaf04027 / human reply 1a086b6eabaeb524 from Digna Rivas (PartnerStack Support), plus repository affiliate-batch evidence showing the prior state as application_available_partnerstack / direct_enrollment_path_requested."
   }
 ]
