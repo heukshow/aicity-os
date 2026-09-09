@@ -11,7 +11,7 @@
     "check:mobile-home": "python scripts/fix_search_focus_scroll.py && python scripts/simplify_home_tool_cards.py && python scripts/improve_mobile_home_ux.py",
     "check:mobile-touch": "python scripts/fix_search_focus_scroll.py && python scripts/simplify_home_tool_cards.py && python scripts/improve_mobile_home_ux.py && echo mobile-touch-targets-44px-v3",
     "check:revenue-home": "python scripts/align_home_revenue_metadata.py && python scripts/fix_search_focus_scroll.py && python scripts/simplify_home_tool_cards.py && python scripts/improve_mobile_home_ux.py && python scripts/apply_revenue_first_home_hook.py && python scripts/harden_money_navigation.py && python scripts/add_fillout_search_shortcut.py && echo revenue-home-v7",
-    "check:tool-value": "python scripts/inject_tool_value_playbooks.py && python scripts/audit_tool_value_playbook_coverage.py && echo tool-value-recommendation-policy-v3-wave9",
+    "check:tool-value": "python scripts/inject_tool_value_playbooks.py && python scripts/audit_tool_value_playbook_coverage.py && echo tool-value-recommendation-policy-v3-wave10",
     "check:tool-value-policy": "python scripts/audit_tool_value_playbook_coverage.py",
     "check:docsbot-partner": "python scripts/apply_docsbot_partner_guidance.py",
     "check:omnisend-revenue": "python scripts/apply_omnisend_revenue_patch.py && python scripts/apply_search_console_ctr_patches.py && echo omnisend-search-monetization-v2",
