@@ -1,13 +1,15 @@
-"""Patch the high-impression Omnisend page with the latest verified affiliate state.
+"""Patch the high-impression Omnisend page with current buyer-intent copy.
 
 Search Console snapshot: /tool/omnisend.html had 114 impressions and 0 clicks in
-30 days. Omnisend approved COSHUMA on 2026-09-09, but no account-issued customer
-tracking URL is verified yet, so Omnisend remains official-only. A clearly disclosed
-Moosend alternative uses the already verified COSHUMA tracking URL.
+30 days. COSHUMA is now approved and has an exact vendor-issued tracking URL.
+This content patch remains idempotent when the generic affiliate sync has already
+monetized the primary Omnisend anchor; final tracking enforcement is handled by
+finalize_omnisend_tracking.py later in the build.
 """
 from pathlib import Path
 
 PAGE = Path(__file__).resolve().parents[1] / "public" / "tool" / "omnisend.html"
+TRACKING_URL = "https://your.omnisend.com/4aA5k9"
 text = PAGE.read_text(encoding="utf-8")
 
 replacements = [
@@ -53,6 +55,17 @@ for old, new in replacements:
     if new in text:
         continue
     if old not in text:
+        # The generic revenue sync may already have converted the original bottom
+        # Omnisend anchor to the exact verified affiliate URL before this content
+        # patch runs. Preserve that stronger revenue state rather than downgrading
+        # it merely to satisfy an obsolete official-link intermediate state.
+        if (
+            old.startswith('<a data-cta="official" href="https://www.omnisend.com/"')
+            and TRACKING_URL in text
+            and 'data-cta="affiliate"' in text
+            and 'data-tool-id="omnisend"' in text
+        ):
+            continue
         raise SystemExit(f"Refusing uncertain Omnisend patch; source text missing: {old[:100]}")
     text = text.replace(old, new, 1)
 
