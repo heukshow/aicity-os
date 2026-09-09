@@ -30,25 +30,32 @@ const pages = [
   },
   {
     slug: 'privy-vs-omnisend', ids: ['privy', 'omnisend'],
-    title: 'Privy vs Omnisend: Pop-ups, Email, SMS & Pricing',
-    description: 'Privy or Omnisend for your store? Compare pop-up capture, email and SMS workflows, billing drivers and what to test before moving your subscriber list.',
-    intro: 'Both products serve ecommerce email and SMS workflows. Start by deciding whether you need better on-site capture alongside your current email platform, or a platform for customer messaging across channels.',
+    checked: 'September 9, 2026',
+    title: 'Privy vs Omnisend Pricing 2026: $30 vs Free/$16/$59',
+    description: "Privy vs Omnisend pricing for 2026: compare Privy's $30/month email plan and 15-day no-card trial with Omnisend Free, Standard from $16 and Pro from $59, plus ecommerce email, SMS, pop-ups and automation.",
+    intro: 'Both products cover ecommerce retention, but the lowest-risk starting point differs. Omnisend offers a permanent Free tier for small lists, while Privy starts with a 15-day no-card trial and puts pop-up capture, email and SMS in one paid stack.',
     fit: [
-      'Shortlist Privy when pop-up design and targeting are the immediate problem, especially if you want to evaluate its separate Pop-ups & Displays offering before replacing your email platform.',
-      'Shortlist Omnisend when you want to evaluate email, SMS and web push together, with ecommerce automations and segmentation in the same platform.'
+      "Shortlist Privy when your immediate problem is converting store traffic with pop-ups and displays and you want email/SMS plus on-site capture under one vendor. Privy's Email plan currently starts at $30/month; Pop-ups & Displays starts at $24/month.",
+      "Shortlist Omnisend when you want to test ecommerce email and automation with no subscription cost first. Its Free plan supports up to 250 contacts and 500 emails/month; Standard starts at $16/month and Pro at $59/month."
     ],
     rows: [
-      ['Subscriber capture', 'Pop-up targeting, embedded forms and A/B testing; a separate displays product is available.', 'Signup forms and list-building features alongside its messaging platform.'],
-      ['Messaging', 'Email and SMS campaigns, automation and segmentation.', 'Email, SMS and web push, with automation and reporting.'],
-      ['Budget check', 'Email starts at $30/month. Displays-only starts at $24/month and is priced by page views. Email pricing uses mailable contacts.', 'Use the list-size pricing selector. Billed contacts include subscribers and non-subscribers receiving automated messages; SMS costs vary by destination and volume.'],
-      ['Before migrating', 'Confirm your store integration and whether you are buying displays only or the email/SMS offering.', 'Confirm your store integration, message volumes and the workflows you will migrate.']
+      ['Lowest-risk start', '15-day free trial with no credit card required.', 'Permanent Free plan: up to 250 contacts and 500 emails/month, no credit card required.'],
+      ['Entry paid pricing', 'Email starts at $30/month, billed by mailable contacts, with unlimited email sends. Pop-ups & Displays only starts at $24/month and is priced by page views.', 'Standard starts at $16/month. Pro starts at $59/month. Paid pricing scales with billable contacts.'],
+      ['Subscriber capture', 'Advanced pop-up design and targeting, embedded forms and a separate displays-only option.', 'Signup forms and list-building features alongside email, automation and ecommerce messaging.'],
+      ['Messaging', 'Email and SMS campaigns, automation and segmentation. Current Email pricing advertises 250 free SMS credits.', 'Email and web push across plans. For new paid subscriptions from May 4, 2026 onward, SMS is available on Pro as a volume-priced add-on starting at $0.007/SMS; Standard does not include SMS access for those new subscriptions.'],
+      ['New-customer discount', 'Use the current checkout/trial terms; no separate discount is assumed here.', 'First-time paid subscribers can currently save 30% for the first 3 months by paying 3 months upfront: Standard $11.20/month equivalent and Pro $41.30/month equivalent for that initial period.'],
+      ['Before migrating', 'Confirm your store integration and whether you need displays only or the full Email/SMS offering.', 'Estimate billable contacts, email volume and whether you need Pro-level SMS before importing your list.']
     ],
-    test: 'Compare quotes using the same contact count, monthly email volume, SMS destination countries and store traffic. Then test a signup form, a welcome sequence and a cart-recovery flow. Review mobile display behavior and suppression rules before importing your full list.',
+    test: 'Compare the same contact count, monthly email volume, SMS destination countries and store traffic. Then test a signup form, welcome sequence and cart-recovery flow. Review mobile display behavior, suppression rules and how each platform counts billable contacts before importing your full list.',
     questions: [
-      ['Do I need to replace my email platform to use Privy?', 'Privy lists a separate Pop-ups & Displays product that can sync collected contacts to supported platforms. Confirm that your existing platform is supported before selecting it.'],
-      ['Which will generate more sales?', 'This comparison does not establish a conversion or deliverability winner. Measure completed purchases and unsubscribes with your own audience; vendor features alone cannot predict the result.']
+      ['Do I need to replace my email platform to use Privy?', 'Privy lists a separate Pop-ups & Displays product that can sync collected contacts to Shopify, BigCommerce, Wix and selected third-party platforms. Confirm your existing platform is supported before selecting it.'],
+      ['Which will generate more sales?', 'This comparison does not establish a conversion or deliverability winner. Measure completed purchases, revenue per recipient and unsubscribes with your own audience; vendor features alone cannot predict the result.']
     ],
-    sources: [['Privy pricing and features', 'https://www.privy.com/pricing'], ['Omnisend platform', 'https://www.omnisend.com/'], ['Omnisend pricing', 'https://www.omnisend.com/pricing/']]
+    ctaOverrides: {
+      privy: { url: 'https://www.privy.com/pricing', affiliate: false, source: 'privy-vs-omnisend-pricing', label: 'Check Privy pricing →' },
+      omnisend: { url: 'https://your.omnisend.com/VOKyAj', affiliate: true, source: 'privy-vs-omnisend-pricing', label: 'Compare Omnisend plans via COSHUMA →' }
+    },
+    sources: [['Privy official pricing', 'https://www.privy.com/pricing'], ['Omnisend 2026 pricing documentation', 'https://support.omnisend.com/en/articles/3533018-omnisend-pricing-plans-2026'], ['Omnisend official pricing', 'https://www.omnisend.com/pricing/']]
   }
 ];
 for (const p of pages) {
@@ -59,10 +66,13 @@ for (const p of pages) {
   });
   const canonical = `https://coshuma.com/compare/${p.slug}.html`;
   const ctas = pair.map(t => {
-    const affiliate = t.affiliate_verified === true && t.affiliate_status === 'approved_tracking';
-    const url = affiliate ? t.affiliate_url : t.official_url;
+    const override = p.ctaOverrides?.[t.id];
+    const affiliate = override ? override.affiliate === true : t.affiliate_verified === true && t.affiliate_status === 'approved_tracking';
+    const url = override?.url || (affiliate ? t.affiliate_url : t.official_url);
+    const source = override?.source || 'comparison-decision';
+    const label = override?.label || `Explore ${t.name} →`;
     if (new URL(url).protocol !== 'https:') throw Error(`Unsafe route for ${t.id}`);
-    return `<a class="cta" data-cta="${affiliate ? 'affiliate' : 'official'}" data-tool-id="${escape(t.id)}" data-cta-source="comparison-decision" href="${escape(url)}" target="_blank" rel="${affiliate ? 'sponsored ' : ''}noopener noreferrer">Explore ${escape(t.name)} →</a>`;
+    return `<a class="cta" data-cta="${affiliate ? 'affiliate' : 'official'}" data-tool-id="${escape(t.id)}" data-cta-source="${escape(source)}" href="${escape(url)}" target="_blank" rel="${affiliate ? 'sponsored ' : ''}noopener noreferrer">${escape(label)}</a>`;
   }).join('');
   const html = `<!doctype html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,7 +82,7 @@ for (const p of pages) {
 <script defer src="/affiliate-attribution.js"></script>
 <style>body{margin:0;background:#0b0c10;color:#e8eaf2;font:17px/1.7 system-ui,sans-serif}header,main,footer{max-width:960px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;border-bottom:1px solid #303445}a{color:#c4b5fd;text-underline-offset:4px}h1{font-size:clamp(30px,5vw,46px);line-height:1.16;color:white}h2{font-size:24px}h3{font-size:19px}section{margin:30px 0;padding:24px;background:#141724;border:1px solid #303445;border-radius:20px}.muted{color:#b0b6cc;font-size:14px}.fit{display:grid;grid-template-columns:1fr 1fr;gap:20px}.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:570px;font-size:15px}th,td{text-align:left;vertical-align:top;padding:16px;border-bottom:1px solid #373c50}th{color:white}nav.ctas{display:flex;flex-wrap:wrap;gap:14px}.cta{display:inline-block;padding:13px 22px;background:#6d28d9;color:white;border-radius:12px;text-decoration:none;font-weight:700}a:focus-visible{outline:3px solid #fcd34d;outline-offset:4px}@media(max-width:600px){header,main,footer{padding:18px}section{padding:18px}.fit{grid-template-columns:1fr}}</style></head>
 <body><header><a href="/">COSHUMA</a><a href="/">Browse tools</a></header><main data-source-comparison="${p.slug}">
-<p class="muted">Buyer comparison · Official sources checked September 8, 2026</p><h1>${escape(p.title)}</h1><p>${escape(p.intro)}</p>
+<p class="muted">Buyer comparison · Official sources checked ${escape(p.checked || 'September 8, 2026')}</p><h1>${escape(p.title)}</h1><p>${escape(p.intro)}</p>
 <section><h2>Which should you shortlist?</h2><div class="fit">${pair.map((t,i)=>`<div><h3>${escape(t.name)}</h3><p>${escape(p.fit[i])}</p><a href="/tool/${t.id}.html">Read the ${escape(t.name)} profile</a></div>`).join('')}</div></section>
 <section><h2>Compare the work and the cost</h2><div class="scroll" role="region" aria-label="Feature and pricing comparison" tabindex="0"><table><thead><tr><th scope="col">Decision</th>${pair.map(t=>`<th scope="col">${escape(t.name)}</th>`).join('')}</tr></thead><tbody>${p.rows.map(r=>`<tr><th scope="row">${escape(r[0])}</th><td>${escape(r[1])}</td><td>${escape(r[2])}</td></tr>`).join('')}</tbody></table></div><p class="muted">USD pricing where shown. Plans, allowances and offers can change; check the linked official pages and checkout terms.</p></section>
 <section><h2>What to test before paying</h2><p>${escape(p.test)}</p>${p.questions.map(([q,a])=>`<h3>${escape(q)}</h3><p>${escape(a)}</p>`).join('')}</section>
