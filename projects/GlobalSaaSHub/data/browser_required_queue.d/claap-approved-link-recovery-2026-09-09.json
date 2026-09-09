@@ -3,21 +3,23 @@
   "tool_id": "claap",
   "program_name": "Claap Affiliate Program",
   "priority": "high",
-  "status": "browser_required",
+  "status": "browser_required_fallback_email_recovery_pending",
   "affiliate_status": "approved_account",
   "exact_tracking_url": null,
+  "known_issued_url_count": 2,
   "cost": "0",
-  "verified_at": "2026-09-09T08:31:35Z",
-  "gmail_message_id": "1a0854b42ac1cc9a",
+  "verified_at": "2026-09-09T11:57:39Z",
+  "gmail_message_id": "1a08607e8751e8cf",
   "approval_gmail_message_id": "1a08009379826dfd",
-  "reason": "Claap affiliate manager Lamia Karmaly reviewed COSHUMA's Claap page and explicitly said the current CTAs still point to claap.io rather than COSHUMA's affiliate link. She instructed COSHUMA to grab the exact link in the existing PartnerStack account and swap the buttons. Approval is already verified; only exact customer-facing tracking-link recovery remains.",
-  "next_action": "Reuse the existing authenticated PartnerStack Claap partnership. Open Claap -> Links and copy the exact customer-facing affiliate URL issued to COSHUMA. Do not reapply. Do not use a PartnerStack dashboard/login/email redirect or construct tracking parameters. After exact link verification, replace Claap revenue CTAs and validate attribution.",
+  "outbound_exact_url_request_message_id": "1a086206d94fc726",
+  "reason": "Claap affiliate manager Lamia Karmaly explicitly confirmed on 2026-09-09 that COSHUMA's existing Claap PartnerStack account already has two affiliate URLs. The PartnerStack notification does not expose those customer-facing URLs in text, so COSHUMA replied from support@coshuma.com asking Lamia to paste both exact URLs directly. This preserves the no-guess rule and can avoid a browser handoff if she replies with the links.",
+  "next_action": "Prefer the direct email recovery already sent. If Lamia supplies both exact customer-facing URLs, verify their official Claap destinations and attribution, then update Claap to approved_tracking and replace only validated revenue CTAs. If no exact URLs are supplied, reuse the existing authenticated PartnerStack Claap partnership, open Claap -> Links, and copy the two issued URLs. Do not reapply.",
   "constraints": [
     "Do not submit another Claap affiliate application.",
-    "Do not treat claap.io, PartnerStack dashboard/login URLs, onboarding URLs, or email redirects as the affiliate URL.",
+    "Do not treat claap.io, PartnerStack dashboard/login URLs, onboarding URLs, prototype URLs, SendGrid/email redirects, or screenshots as affiliate URLs.",
     "Do not guess or construct a referral parameter.",
-    "Keep current official Claap links until the exact issued customer-facing tracking URL is verified.",
-    "No revenue, signup, or commission is inferred from approval alone."
+    "Keep current official Claap links until an exact issued customer-facing tracking URL is verified.",
+    "No revenue, signup, or commission is inferred from approval or URL existence alone."
   ],
   "user_action_required": false
 }
