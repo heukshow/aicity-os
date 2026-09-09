@@ -82,4 +82,36 @@ text = text.replace(
 if TRACKING_URL not in text:
     raise SystemExit("Omnisend tracking URL was not installed in buyer page")
 page.write_text(text, encoding="utf-8")
-print("Omnisend approved_tracking state and buyer CTA finalized")
+
+# Search-comparison pages are generated before this finalizer. Replace only explicit
+# Omnisend decision CTAs that still point at an official Omnisend page; source links
+# and unrelated vendor links remain untouched.
+comparison_changes = 0
+for compare_page in sorted((ROOT / "public/compare").glob("*.html")):
+    compare_text = compare_page.read_text(encoding="utf-8")
+    if 'data-tool-id="omnisend"' not in compare_text:
+        continue
+
+    def convert_compare_anchor(match):
+        nonlocal_tag = match.group(0)
+        if not re.search(r'href="https://www\.omnisend\.com/(?:[^"]*)"', nonlocal_tag):
+            return nonlocal_tag
+        tag = re.sub(r'data-cta="(?:official|affiliate)"', 'data-cta="affiliate"', nonlocal_tag, count=1)
+        tag = re.sub(r'href="https://www\.omnisend\.com/(?:[^"]*)"', f'href="{TRACKING_URL}"', tag, count=1)
+        if re.search(r'rel="[^"]*"', tag):
+            tag = re.sub(r'rel="[^"]*"', 'rel="sponsored noopener noreferrer"', tag, count=1)
+        else:
+            tag = tag[:-1] + ' rel="sponsored noopener noreferrer">'
+        return tag
+
+    updated = re.sub(r'<a\b[^>]*data-tool-id="omnisend"[^>]*>', convert_compare_anchor, compare_text)
+    if updated != compare_text:
+        compare_page.write_text(updated, encoding="utf-8")
+        comparison_changes += 1
+    if TRACKING_URL not in updated or not re.search(
+        rf'<a\b[^>]*data-cta="affiliate"[^>]*data-tool-id="omnisend"[^>]*href="{re.escape(TRACKING_URL)}"',
+        updated,
+    ):
+        raise SystemExit(f"Omnisend comparison CTA was not monetized safely: {compare_page}")
+
+print(f"Omnisend approved_tracking state finalized; comparison_pages_monetized={comparison_changes}")
