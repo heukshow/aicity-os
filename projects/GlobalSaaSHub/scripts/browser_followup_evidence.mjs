@@ -36,8 +36,8 @@ const approvalFollowups = [
 ];
 for (const item of approvalFollowups) browserFollowups.set(item.id, item);
 
-// Fillout approval is valid operational evidence, but Fillout is not yet in the public tool catalog.
-// Keep its duplicate-prevention state current without forcing catalog/tool-page verification.
+// Operational approvals keep duplicate-prevention state and the browser queue current
+// without requiring the browser-followup validator to reinterpret vendor-issued email links.
 const operationalApprovals = [
   {
     id: 'fillout',
@@ -46,6 +46,15 @@ const operationalApprovals = [
     checked_at: '2026-09-08T14:00:00+09:00',
     evidence: 'Authenticated Dub partner dashboard shows Fillout Approved/Enrolled and issues the exact customer-facing link https://try.fillout.com/sang-kwon-an-hxwn. No reapplication was made and no referral, sale, commission, or revenue is inferred.',
     next_action: 'Preserve the issued exact customer-facing link; do not reapply. Add a public catalog entry separately before treating this as a site CTA.',
+    application_state: 'submitted',
+  },
+  {
+    id: 'typedesk',
+    status: 'approved_tracking',
+    affiliate_url: 'https://www.typedesk.com?via=sangkwon',
+    checked_at: '2026-09-09T10:40:59+09:00',
+    evidence: 'Typedesk human reply from hennadiy@typedesk.com to support@coshuma.com explicitly supplied https://www.typedesk.com?via=sangkwon as COSHUMA\'s unique customer-facing tracking link. Rewardful login/dashboard URLs remain operational only and are not revenue links. No click, signup, commission, or revenue is inferred.',
+    next_action: 'Preserve and publish the verified Typedesk tracking URL on buyer-facing COSHUMA pages; do not reapply or request another tracking account. Measure actual outbound clicks and only claim downstream revenue when separately evidenced.',
     application_state: 'submitted',
   },
 ];
