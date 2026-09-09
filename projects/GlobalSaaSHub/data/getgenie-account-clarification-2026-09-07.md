@@ -1,20 +1,23 @@
-# GetGenie affiliate account clarification — 2026-09-07
+# GetGenie affiliate account clarification — updated 2026-09-09
 
-## Fresh Gmail evidence
+## Verified Gmail evidence
 
 - Original acceptance email (2026-08-31) was addressed to `support@coshuma.com` and stated that Sangkwon An's GetGenie affiliate application was accepted.
-- GetGenie support later replied that they could not find an affiliate account associated with the Gmail address used in the support conversation and instructed us to log in with the email used when registering.
-- The discrepancy is therefore account-email related, not evidence that the accepted COSHUMA account was revoked.
+- A later support conversation from the personal Gmail address initially caused an account-email mismatch: GetGenie could not find an affiliate account under that different sender and instructed us to use the registration email.
+- On 2026-09-09, GetGenie support (Reju, Gmail message `1a0857b4426d464f`) explicitly confirmed that they **found an affiliate account registered with `support@coshuma.com`**. They declined to disclose password/account information to the different Gmail address and instructed COSHUMA to open a new request from the registered `support@coshuma.com` mailbox.
+- This is positive confirmation that the accepted business-email affiliate account exists. It is not, by itself, confirmation that any particular customer-facing referral URL belongs to that account.
 
 ## Action taken
 
-- Replied to GetGenie support on 2026-09-07 and identified `support@coshuma.com` as the email that received the original acceptance.
-- Asked GetGenie to check the accepted account under that business email and either send the exact customer-facing referral/tracking URL or send the correct login/password-reset steps to `support@coshuma.com`.
-- Gmail sent message id: `1a07b368561ec4a6`.
+- On 2026-09-09, COSHUMA sent a new request from the registered mailbox `support@coshuma.com` to `help@getgenie.ai`, following GetGenie's explicit security instruction.
+- Gmail sent message id: `1a085c6e5a5a1fed`.
+- The request asks GetGenie to provide either the exact customer-facing referral/tracking URL assigned to the approved account or current password-reset/login steps so COSHUMA can retrieve the URL from the Affiliate Area.
+- No duplicate application was submitted.
 
 ## Current tracking-link conflict
 
-- Repository currently publishes `https://getgenie.ai?rui=3921` as a verified GetGenie affiliate URL.
-- Because the latest support conversation shows an email-account mismatch, keep the existing URL unchanged for now but treat **current account ownership / dashboard visibility as requiring reconfirmation** until GetGenie support ties the accepted `support@coshuma.com` account to the exact customer-facing URL.
-- Do not substitute the affiliate-area/dashboard URL as a customer tracking link.
-- No new approval, conversion, commission, or revenue is claimed in this evidence.
+- Repository currently publishes `https://getgenie.ai?rui=3921` as a previously verified GetGenie affiliate URL.
+- Keep the existing URL unchanged while the registered-email verification request is pending, but treat **current account ownership / dashboard visibility and the exact link-to-account association as requiring reconfirmation** until GetGenie ties the accepted `support@coshuma.com` account to that exact customer-facing URL or supplies the current issued URL.
+- Do not substitute the Affiliate Area, dashboard, login, onboarding, or password-reset URL as a customer tracking link.
+- Do not send another follow-up while the registered-email request is awaiting a human response.
+- No signup, conversion, commission, payout, or revenue is claimed in this evidence.
