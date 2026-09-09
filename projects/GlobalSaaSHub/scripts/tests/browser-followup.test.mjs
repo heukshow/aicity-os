@@ -85,6 +85,25 @@ assert.ok(queue.some(q =>
   q.affiliate_status === 'approved_tracking' && q.exact_tracking_url === filloutUrl
 ));
 
+// Newer human vendor evidence supersedes the older Typedesk browser-required snapshot.
+// Keep the issued Rewardful customer URL live and ensure the stale browser task cannot
+// remove the revenue CTA or reopen duplicate enrollment work.
+const typedeskUrl = 'https://www.typedesk.com?via=sangkwon';
+assert.equal(state.typedesk.status, 'approved_tracking');
+assert.equal(state.typedesk.tracking_url, typedeskUrl);
+assert.equal(state.typedesk.application_state, 'submitted');
+assert.equal(state.typedesk.do_not_reapply, true);
+assert.ok(queue.some(q =>
+  q.tool_id === 'typedesk' && q.status === 'resolved' &&
+  q.affiliate_status === 'approved_tracking' && q.exact_tracking_url === typedeskUrl
+));
+const typedeskPage = fs.readFileSync('dist/tool/typedesk.html', 'utf8');
+assert.ok(typedeskPage.includes(typedeskUrl));
+assert.ok(typedeskPage.includes('data-cta="affiliate"'));
+assert.ok(typedeskPage.includes('data-tool-id="typedesk"'));
+assert.ok(typedeskPage.includes('/affiliate-attribution.js'));
+assert.match(typedeskPage, /affiliate disclosure/i);
+
 assert.equal(state.framer.application_state, 'not_submitted');
 assert.equal(state.eprofessor.application_state, 'submitted');
 assert.equal(state.eprofessor.payout_setup_complete, false);
@@ -121,7 +140,7 @@ for (const patch of [{approval_email_confirmed:false}, {approval_email_recipient
   assert.throws(() => applyBrowserFollowup({id:'novita-ai'}));
 }
 browserFollowups.set('novita-ai', novita);
-for (const id of ['n8n', 'typedesk', 'airia', 'joiin']) {
+for (const id of ['n8n', 'airia', 'joiin']) {
   const stale = {id, affiliate_url: 'https://example.com/dashboard', affiliate_verified: true};
   applyBrowserFollowup(stale);
   assert.equal(stale.affiliate_url, null);
