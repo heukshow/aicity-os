@@ -450,7 +450,18 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.jasper.ai/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "enrollment_requested",
+    "affiliate_source_url": "https://www.jasper.ai/legal/affiliates",
+    "affiliate_verified_at": "2026-09-07T17:40:00+09:00",
+    "affiliate_evidence_markers": [
+      "Jasper official Marketing Affiliate Program Agreement remains published and describes application review plus an affiliate tracking tool after acceptance",
+      "No prior Jasper affiliate or partner Gmail thread found before outreach",
+      "COSHUMA current application route / account-specific invitation request sent to official hey@jasper.ai",
+      "Gmail message id 1a07b08a71bdbf24",
+      "Exact customer-facing affiliate URL not yet issued or verified"
+    ]
   },
   {
     "id": "writesonic",
@@ -481,18 +492,19 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://writesonic.com/",
-    "affiliate_url": null,
+    "affiliate_url": "https://writesonic.com?fp_ref=sang-kwon-f5452a",
     "affiliate_verified": true,
-    "affiliate_status": "rejected",
+    "affiliate_status": "approved_tracking",
     "affiliate_source_url": "https://writesonic.com/affiliate",
-    "affiliate_final_url": "https://affiliates.writesonic.com/home",
-    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_final_url": "https://writesonic.com/",
+    "affiliate_verified_at": "2026-09-08T03:02:55+09:00",
     "affiliate_evidence_markers": [
-      "20% recurring",
-      "12 months",
-      "Your application has been rejected"
+      "Writesonic reviewer Tanay Ahir explicitly accepted the COSHUMA application in Gmail message 1a07d09c9175ad13",
+      "Writesonic welcome email 1a07d08d00c9f651 issued the exact customer-facing referral URL and states referrals are rewarded when they subscribe to a paid account",
+      "https://writesonic.com?fp_ref=sang-kwon-f5452a",
+      "This September 8 acceptance is newer and supersedes the stale September 1 rejected state in source tool data"
     ],
-    "affiliate_rejection_reason": "The authenticated Writesonic affiliate dashboard explicitly shows that the application was rejected."
+    "affiliate_rejection_reason": null
   },
   {
     "id": "sudowrite",
@@ -802,7 +814,14 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.socialchamp.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T19:35:42+09:00",
+    "affiliate_evidence_markers": [
+      "Social Champ affiliate application received",
+      "profile review expected in 3-5 business days"
+    ]
   },
   {
     "id": "triple-whale",
@@ -904,7 +923,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.privy.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "outreach_sent",
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "COSHUMA sent a Privy Partner Affiliate enrollment request from support@coshuma.com",
+      "Gmail message 1a07d1178d900425 records the outreach",
+      "Do not duplicate enrollment outreach while Privy clarifies the applicable publisher path"
+    ]
   },
   {
     "id": "aweber",
@@ -1043,7 +1070,16 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://reply.io/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "enrollment_requested",
+    "affiliate_source_url": "https://reply.io/affiliates/",
+    "affiliate_verified_at": "2026-09-07T16:47:56+09:00",
+    "affiliate_evidence_markers": [
+      "Merged PR #269 records COSHUMA Reply.io affiliate enrollment outreach",
+      "Enrollment request was sent before the audit still showed Reply.io as unclassified",
+      "Exact customer-facing PartnerStack referral URL has not yet been issued"
+    ]
   },
   {
     "id": "omnisend",
@@ -1073,7 +1109,14 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
     "official_evidence_url": "https://www.omnisend.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-01T20:00:57+09:00",
+    "affiliate_evidence_markers": [
+      "Omnisend Affiliate Partner Program application received",
+      "application will be reviewed and processed"
+    ]
   },
   {
     "id": "time2book",
@@ -1103,7 +1146,16 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.time2book.me/",
-    "affiliate_url": null
+    "affiliate_url": "https://time2book.me?aff=9TzesqKi",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_final_url": "https://www.time2book.me/",
+    "affiliate_verified_at": "2026-09-08T02:06:13+09:00",
+    "affiliate_evidence_markers": [
+      "Authenticated Time2book affiliates dashboard displays Earn 30% per referral",
+      "Dashboard supplied exact Copy link https://time2book.me?aff=9TzesqKi",
+      "Anonymous request sets aff cookie and resolves to the official Time2book site"
+    ]
   },
   {
     "id": "semrush",
@@ -1170,7 +1222,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.hubspot.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "rejected",
+    "affiliate_verified_at": "2026-09-02T11:28:46+09:00",
+    "affiliate_evidence_markers": [
+      "HubSpot Affiliate Team re-review response",
+      "minimum requirement of 1,000 monthly visitors",
+      "reconsider once site meets the traffic criteria"
+    ]
   },
   {
     "id": "kinsta",
@@ -1230,9 +1290,9 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.shopify.com/",
-    "affiliate_url": null,
+    "affiliate_url": "https://shopify.pxf.io/7670642-link?sharedid=7670642",
     "affiliate_verified": true,
-    "affiliate_status": "excluded_user_request",
+    "affiliate_status": "approved_tracking",
     "affiliate_source_url": "https://www.shopify.com/kr/affiliates",
     "affiliate_final_url": "https://app.impact.com/campaign-promo-signup/Shopify.brand",
     "affiliate_verified_at": "2026-09-01T00:00:00Z"
@@ -1299,7 +1359,10 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.jotform.com/",
-    "affiliate_url": null
+    "affiliate_url": "https://www.jotform.com/?partner=coshuma",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-07T06:06:40+00:00"
   },
   {
     "id": "webflow",
@@ -1371,7 +1434,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.reactin.io/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "outreach_sent",
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "COSHUMA sent a ReactIn affiliate enrollment request from support@coshuma.com",
+      "Gmail message 1a07d156944e99b9 records the outreach",
+      "Do not duplicate outreach while awaiting enrollment or a customer-facing referral link"
+    ]
   },
   {
     "id": "synthesia",
@@ -1442,7 +1513,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://octobrowser.net/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "outreach_sent",
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "COSHUMA sent a zero-cost Octo Browser referral-program access request from support@coshuma.com",
+      "Gmail message 1a07d11543a2ddd5 records the outreach",
+      "Do not send duplicate outreach while awaiting a response or authenticated referral-link recovery"
+    ]
   },
   {
     "id": "carv",
@@ -1502,7 +1581,16 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://jobhire.ai/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "outreach_sent",
+    "affiliate_source_url": "https://jobhire.ai/affiliate-program",
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "JobHire.AI support confirmed the current affiliate enrollment path is the free Join Now flow on its affiliate page",
+      "Gmail thread 1a07d1688d1ef15a contains the support confirmation",
+      "Browser enrollment remains required; no exact customer tracking URL is verified yet"
+    ]
   },
   {
     "id": "aitable-ai",
@@ -1598,7 +1686,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://blaze.ai/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "outreach_sent",
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "COSHUMA sent a Blaze affiliate enrollment request from support@coshuma.com",
+      "Gmail message 1a07d15348a88345 records the outreach",
+      "Do not duplicate outreach while awaiting the vendor response or Impact enrollment result"
+    ]
   },
   {
     "id": "aiassistworks",
@@ -1710,9 +1806,14 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://affiliate.gravity.com/",
     "affiliate_url": null,
-    "affiliate_verified": false,
-    "affiliate_status": "application_session_conflict",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "Authenticated PartnerStack displays Gravity / Application pending",
+      "Application was already submitted; do not submit another application",
+      "Exact customer-facing tracking URL is not available before approval"
+    ]
   },
   {
     "id": "sendcloud",
@@ -1743,9 +1844,16 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://sendcloud.com/",
     "affiliate_url": null,
-    "affiliate_status": "application_available_partnerstack",
+    "affiliate_status": "application_submitted",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://www.sendcloud.com/en-uk/partnerships/affiliate-program/"
+    "affiliate_status_evidence_url": "https://www.sendcloud.com/en-uk/partnerships/affiliate-program/",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "PartnerStack email confirms Sendcloud application received and submitted for review",
+      "Authenticated PartnerStack currently displays Application pending",
+      "Exact customer-facing tracking URL is not yet available"
+    ]
   },
   {
     "id": "alidropship",
@@ -1853,7 +1961,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://questmate.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "outreach_sent",
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "COSHUMA sent a Questmate partner and affiliate enrollment request from support@coshuma.com",
+      "Gmail message 1a07d155181b14b5 records the outreach",
+      "Do not duplicate outreach while awaiting a response or exact referral link"
+    ]
   },
   {
     "id": "merlin",
@@ -2071,7 +2187,16 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.heygen.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "outreach_sent",
+    "affiliate_source_url": "https://www.heygen.com/affiliate-program",
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "HeyGen support confirmed the current public enrollment route is the HeyGen Affiliate Program page",
+      "Gmail thread 1a07d11c9459f1f2 contains the current support confirmation",
+      "Browser enrollment remains required; no exact customer tracking URL is verified yet"
+    ]
   },
   {
     "id": "veed",
@@ -2103,9 +2228,18 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.veed.io/",
     "affiliate_url": null,
-    "affiliate_status": "application_available_impact",
+    "affiliate_status": "application_submitted",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://www.veed.io/affiliate"
+    "affiliate_status_evidence_url": "https://www.veed.io/affiliate",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-09-07T00:00:00+09:00",
+    "affiliate_evidence_markers": [
+      "VEED official affiliate page currently advertises recurring affiliate commission",
+      "Repository application route is Impact and no COSHUMA customer tracking URL is verified yet",
+      "COSHUMA direct enrollment request sent to official hello@veed.io support address",
+      "Gmail message id 1a07aa4c0c4a2a6d",
+      "Exact customer-facing tracking URL not yet issued or verified"
+    ]
   },
   {
     "id": "reclaim-ai",
@@ -2136,9 +2270,14 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://reclaim.ai/affiliate-program",
     "affiliate_url": null,
-    "affiliate_verified": false,
-    "affiliate_status": "application_page_unavailable",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_verified": true,
+    "affiliate_status": "enrollment_requested",
+    "affiliate_verified_at": "2026-09-07T19:50:46+09:00",
+    "affiliate_evidence_markers": [
+      "Merged PR #289 records a current Reclaim.ai program-specific enrollment/direct-invitation request",
+      "Do not reopen the stale application_page_unavailable state while this request is unresolved",
+      "Exact customer-facing tracking URL is not yet verified"
+    ]
   },
   {
     "id": "descript",
@@ -2202,9 +2341,14 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://synder.com/affiliate-program/",
     "affiliate_url": null,
-    "affiliate_verified": false,
-    "affiliate_status": "application_page_unavailable",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_verified": true,
+    "affiliate_status": "outreach_sent",
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "COSHUMA sent a Synder affiliate enrollment request from support@coshuma.com",
+      "Gmail message 1a07d1eb47ed18d2 records the outreach",
+      "Do not send duplicate outreach while awaiting Synder response"
+    ]
   },
   {
     "id": "gallabox",
@@ -2478,7 +2622,17 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.clickfunnels.com/",
-    "affiliate_url": null
+    "affiliate_url": "https://www.clickfunnels.com/signup-flow?aff=b57f3056884d05b842f607e32347df542821875bbe3209a214141aa32a210532",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_final_url": "https://www.clickfunnels.com/signup-flow?aff=b57f3056884d05b842f607e32347df542821875bbe3209a214141aa32a210532",
+    "affiliate_verified_at": "2026-09-08T02:19:00+09:00",
+    "affiliate_evidence_markers": [
+      "ClickFunnels Affiliate Agreement accepted with the user authorization recorded in the browser execution evidence",
+      "Authenticated affiliate dashboard exposed the exact Free Trial campaign URL",
+      "Exact aff-bearing URL loaded the official ClickFunnels signup flow",
+      "Dashboard showed $0 commissions and 0 conversions at verification time"
+    ]
   },
   {
     "id": "tapfiliate",
@@ -2509,9 +2663,14 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://tapfiliate.com/affiliate-program/",
     "affiliate_url": null,
-    "affiliate_verified": false,
-    "affiliate_status": "application_blocked_captcha",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_verified": true,
+    "affiliate_status": "outreach_sent",
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "COSHUMA sent a Tapfiliate affiliate enrollment request from support@coshuma.com",
+      "Gmail message 1a07d1ed0e6585e5 records the outreach",
+      "Do not send duplicate outreach while awaiting Tapfiliate response or a browser path that can bypass the prior CAPTCHA blocker"
+    ]
   },
   {
     "id": "getresponse",
@@ -2612,9 +2771,14 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://support.teachable.com/en/collections/13696598-affiliates",
     "affiliate_url": null,
-    "affiliate_verified": false,
-    "affiliate_status": "corporate_affiliate_program_not_found",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_verified": true,
+    "affiliate_status": "outreach_sent",
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "COSHUMA sent a Teachable Affiliate Partner enrollment request from support@coshuma.com",
+      "Gmail message 1a07d1e9a83375a1 records the outreach",
+      "Do not send duplicate outreach while awaiting Teachable response"
+    ]
   },
   {
     "id": "livechat",
@@ -2795,18 +2959,18 @@
     "official_evidence_url": "https://n8n.io/affiliates/",
     "affiliate_url": null,
     "affiliate_verified": false,
-    "affiliate_status": "application_submitted",
+    "affiliate_status": "rejected",
     "affiliate_verified_at": "2026-09-01T00:00:00+09:00",
     "affiliate_final_url": null,
     "affiliate_evidence_markers": [
-      "2026-09-08 authenticated browser: checked the prepared required I agree acknowledgement under explicit user authorization and submitted once. PartnerStack home then displayed n8n GmbH / Application pending. Clicks and signups 0; revenue, pending and paid commissions $0.00. No approval or customer tracking URL issued.",
-      "Await program review in the existing account. Do not reapply. Recover only an issued customer-facing tracking URL after approval evidence.",
-      "data/affiliate-submission-batch-2026-09-08.json"
+      "PartnerStack email to support@coshuma.com, Gmail message 1a07f233f4ba22e8, subject 'Updates to your n8n GmbH Application': 'After careful consideration, n8n GmbH has declined your application to join their program.' This is newer than the earlier application-submitted evidence.",
+      "Do not reapply automatically. Keep n8n rejected and keep affiliate_url null unless a later vendor message explicitly reverses the decision or the user requests a future re-application after materially improved eligibility.",
+      "data/affiliate-status-hotfix-2026-09-08.json"
     ],
-    "affiliate_status_checked_at": "2026-09-08",
+    "affiliate_status_checked_at": "2026-09-08T12:50:09+09:00",
     "affiliate_status_evidence_url": "https://n8n.io/affiliates/",
     "affiliate_workflow_url": "https://dash.partnerstack.com/home",
-    "affiliate_next_action": "Await program review in the existing account. Do not reapply. Recover only an issued customer-facing tracking URL after approval evidence."
+    "affiliate_next_action": "Do not reapply automatically. Keep n8n rejected and keep affiliate_url null unless a later vendor message explicitly reverses the decision or the user requests a future re-application after materially improved eligibility."
   },
   {
     "id": "novita-ai",
@@ -3037,9 +3201,14 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://beefree.io/ambassador-program",
     "affiliate_url": null,
-    "affiliate_verified": false,
-    "affiliate_status": "application_page_unavailable",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "PartnerStack receipt confirms Really Good Emails (RGE Studio) / Beefree application submitted for review",
+      "The existing PartnerStack account was reused",
+      "No exact customer-facing tracking URL is available yet"
+    ]
   },
   {
     "id": "apollo",
@@ -3070,9 +3239,14 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.apollo.io/partners/affiliates",
     "affiliate_url": null,
-    "affiliate_verified": false,
-    "affiliate_status": "application_page_unavailable",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_verified": true,
+    "affiliate_status": "rejected",
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "Apollo.io decision email declined the affiliate application",
+      "Authenticated PartnerStack also displays Application declined",
+      "Do not reapply unless Apollo explicitly changes eligibility"
+    ]
   },
   {
     "id": "getgenie",
@@ -3201,7 +3375,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://pipedrive.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "pending",
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "Authenticated PartnerStack displays Pipedrive / Application pending",
+      "Pipedrive support moved partner support to authenticated Partner Portal chat",
+      "Pending application must not be duplicated"
+    ]
   },
   {
     "id": "framer",
@@ -3273,7 +3455,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://monday.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "pending",
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "Authenticated PartnerStack displays monday.com / Application pending",
+      "PartnerStack support ticket 122275 is a receipt only and does not change the pending application state",
+      "Do not submit a second application"
+    ]
   },
   {
     "id": "cartstack",
@@ -3303,10 +3493,12 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.cartstack.com/",
-    "affiliate_url": null,
-    "affiliate_status": "application_available",
+    "affiliate_url": "http://www.cartstack.com/?afmc=wb",
+    "affiliate_status": "approved_tracking",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://www.cartstack.com/referrals/"
+    "affiliate_status_evidence_url": "https://www.cartstack.com/referrals/",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "cloudways",
@@ -3336,7 +3528,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.cloudways.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "pending",
+    "affiliate_verified_at": "2026-09-07T19:43:49+09:00",
+    "affiliate_evidence_markers": [
+      "Merged PR #286 records Cloudways support ticket #966456 acknowledging the enrollment request",
+      "Approval and exact customer tracking URL remain unconfirmed",
+      "Do not create a duplicate request while the ticket is pending"
+    ]
   },
   {
     "id": "featureshark",
@@ -3427,9 +3627,17 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://getgabs.com/",
     "affiliate_url": null,
-    "affiliate_status": "application_available_instant",
+    "affiliate_status": "application_submitted",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://getgabs.com/partner/affiliate/"
+    "affiliate_status_evidence_url": "https://getgabs.com/partner/affiliate/",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-09-07T00:00:00+09:00",
+    "affiliate_evidence_markers": [
+      "Getgabs official affiliate page says signup is free and provides a unique referral link",
+      "COSHUMA affiliate application sent to official info@getgabs.com address",
+      "Gmail message id 1a07a9eff46a2c04",
+      "Exact customer-facing referral URL not yet issued or verified"
+    ]
   },
   {
     "id": "eprofessor",
@@ -3694,9 +3902,16 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://pickaxe.ai/",
     "affiliate_url": null,
-    "affiliate_status": "application_available",
+    "affiliate_status": "excluded_user_request",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://pickaxe.co/affiliate"
+    "affiliate_status_evidence_url": "https://pickaxe.co/affiliate",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-09-07T19:50:46+09:00",
+    "affiliate_evidence_markers": [
+      "Merged PR #289 records that Pickaxe requires an affiliate to be a paying Pickaxe user for earnings to accrue",
+      "COSHUMA operating rules prohibit adding a paid subscription solely to unlock an affiliate path",
+      "Exclude from zero-cost enrollment unless the vendor changes this requirement"
+    ]
   },
   {
     "id": "ai-video-cut",
@@ -3727,9 +3942,16 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://aivideocut.com/",
     "affiliate_url": null,
-    "affiliate_status": "application_available_auto_approval",
+    "affiliate_status": "application_submitted",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://www.aivideocut.com/affiliate-program"
+    "affiliate_status_evidence_url": "https://www.aivideocut.com/affiliate-program",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_evidence_markers": [
+      "One application was submitted through the authenticated official affiliate flow",
+      "Campaign 27205326 is pending",
+      "No customer-facing tracking URL is displayed yet"
+    ]
   },
   {
     "id": "tagshop-ai",
@@ -3759,18 +3981,18 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://tagshop.ai/",
-    "affiliate_url": null,
-    "affiliate_status": "application_submitted",
+    "affiliate_url": "https://tagshop.ai?via=coshuma-22501e",
+    "affiliate_status": "approved_tracking",
     "affiliate_status_checked_at": "2026-09-08T05:05:00+09:00",
     "affiliate_status_evidence_url": "https://tagshop.firstpromoter.com/login",
-    "affiliate_verified": false,
-    "affiliate_final_url": null,
-    "affiliate_verified_at": "2026-09-08T05:05:00+09:00",
+    "affiliate_verified": true,
+    "affiliate_final_url": "https://tagshop.ai/",
+    "affiliate_verified_at": "2026-09-09T05:03:24+09:00",
     "affiliate_workflow_url": "https://tagshop.firstpromoter.com/login",
     "affiliate_next_action": "Resume the existing confirmed account at the login page and verify its dashboard or a subsequent program email. Do not create another account or resubmit the application. Record only an issued customer-facing tracking URL after approval verification. No further consent request is needed. Leave CAPTCHA or forced identity verification to the user; no paid plan.",
     "affiliate_evidence_markers": [
-      "User explicitly authorized the mandatory program agreement; live signup checkbox was checked and Sign Up submitted once for support@coshuma.com. FirstPromoter Team <support@firstpromoter.com> sent Confirmation instructions at 05:02 KST thanking COSHUMA for signing up to Tagshop - Partner Program. The official confirmation page displayed Email confirmed successfully. Subsequent sign-in attempts remained on the login form without a dashboard or visible error. Enrollment and email confirmation are verified; approval, pending-review status and customer tracking URL remain unconfirmed. No payment was made.",
-      "data/tagshop-submission-2026-09-08.json"
+      "Tagshop welcome email 1a0829e45df98eb7 was sent to support@coshuma.com after enrollment and explicitly says COSHUMA joined the referral program, should share the issued link, and will be rewarded when referred users subscribe to a paid account. The exact customer-facing link is https://tagshop.ai?via=coshuma-22501e. The separate tagshop.firstpromoter.com/login URL in the same email is only an administrative dashboard and is not a revenue CTA. No signup, paid conversion, commission, payout or revenue is inferred from approval or link issuance.",
+      "data/approved-tracking-2026-09-08.json"
     ]
   },
   {
@@ -3838,19 +4060,19 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://typedesk.com/",
-    "affiliate_url": null,
-    "affiliate_status": "application_submitted",
+    "affiliate_url": "https://www.typedesk.com?via=sangkwon",
+    "affiliate_status": "approved_tracking",
     "affiliate_status_checked_at": "2026-09-08",
     "affiliate_status_evidence_url": "https://www.typedesk.com/reseller",
-    "affiliate_verified": false,
-    "affiliate_final_url": null,
+    "affiliate_verified": true,
+    "affiliate_final_url": "https://www.typedesk.com?via=sangkwon",
     "affiliate_evidence_markers": [
-      "Read existing evidence file and verified sent email titled COSHUMA application for the typedesk Affiliate Program in legacy Gmail. No reply found in searched company/legacy mailboxes. Current official Become an affiliate link reaches a real Rewardful signup form. It advertises 30% recurring for up to 12 months, requests password/confirmation, and states signup agrees to Terms of Service. Login requires email and password; no authenticated session was present.",
-      "Preserve existing email application; do not send or submit a duplicate. Resolve existing request/account before any Rewardful registration. Current dashboard approval and customer referral URL remain unconfirmed.",
-      "data/affiliate-browser-followup-wave3-2026-09-08.json"
+      "Typedesk human reply from hennadiy@typedesk.com to support@coshuma.com explicitly identifies https://www.typedesk.com?via=sangkwon as COSHUMA's unique tracking link and says reports remain available in the Rewardful dashboard. A follow-up human reply confirms there are no coupon codes currently and that the affiliate attribution may be used on any Typedesk page. No click, signup, commission, or revenue is inferred from link issuance or deep-link permission alone.",
+      "data/typedesk-approved-tracking-2026-09-09.md"
     ],
     "affiliate_workflow_url": "https://typedesk.getrewardful.com/login",
-    "affiliate_next_action": "Preserve existing email application; do not send or submit a duplicate. Resolve existing request/account before any Rewardful registration. Current dashboard approval and customer referral URL remain unconfirmed."
+    "affiliate_next_action": "Preserve existing email application; do not send or submit a duplicate. Resolve existing request/account before any Rewardful registration. Current dashboard approval and customer referral URL remain unconfirmed.",
+    "affiliate_verified_at": "2026-09-09T12:20:00+09:00"
   },
   {
     "id": "chatbot",
@@ -4225,9 +4447,9 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://customgpt.ai/partners/",
-    "affiliate_url": null,
-    "affiliate_verified": false,
-    "affiliate_status": "account_active_payout_setup_required",
+    "affiliate_url": "https://customgpt.ai/?fpr=sangkwon-3b18de",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
     "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
@@ -4258,9 +4480,9 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://databox.com/affiliate-program",
-    "affiliate_url": null,
-    "affiliate_verified": false,
-    "affiliate_status": "application_pending",
+    "affiliate_url": "https://databox.com?aff_id=15298659&fp_ref=sangkwon-72c9ec",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
     "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
@@ -4340,10 +4562,17 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://taskip.net/affiliates/",
-    "affiliate_url": null,
-    "affiliate_verified": false,
-    "affiliate_status": "program_unavailable_ssl_error",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_url": "https://taskip.net/?atp=qnV3mw",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-08T02:19:00+09:00",
+    "affiliate_final_url": "https://taskip.net/?atp=qnV3mw",
+    "affiliate_evidence_markers": [
+      "Taskip affiliate welcome email confirmed program enrollment",
+      "Authenticated Success Hub displayed the exact Promotion Link after onboarding",
+      "Taskip dashboard states 30% lifetime commissions",
+      "Exact customer URL retained atp=qnV3mw"
+    ]
   },
   {
     "id": "gumloop",
@@ -4376,7 +4605,14 @@
     "affiliate_url": null,
     "affiliate_status": "application_submitted",
     "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://www.gumloop.com/partners/apply-to-be-a-creator"
+    "affiliate_status_evidence_url": "https://www.gumloop.com/partners/apply-to-be-a-creator",
+    "affiliate_verified": true,
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00",
+    "affiliate_evidence_markers": [
+      "Existing repository evidence records a prior Gumloop Creator Program application submission",
+      "Current application form does not establish that the earlier application disappeared",
+      "Do not submit a duplicate while awaiting a decision"
+    ]
   },
   {
     "id": "teknikforce",
@@ -4406,7 +4642,19 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.teknikforce.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "enrollment_requested",
+    "affiliate_source_url": "https://teknikforce.com/affiliates",
+    "affiliate_verified_at": "2026-09-07T18:47:00+09:00",
+    "affiliate_evidence_markers": [
+      "Teknikforce official affiliate page currently lists its software products for affiliates and states 50% commissions",
+      "Official affiliate page lists support@teknikforce.com for contact",
+      "No prior Teknikforce affiliate or partner Gmail thread found before outreach",
+      "COSHUMA enrollment/signup-path request sent to official support address",
+      "Gmail sent message id 1a07b429298ef60e",
+      "Exact customer-facing tracking URL not yet issued or verified"
+    ]
   },
   {
     "id": "hide-me",
@@ -4685,7 +4933,15 @@
     "billing_period": null,
     "evidence_source_type": null,
     "is_manual_override": false,
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "enrollment_requested",
+    "affiliate_verified_at": "2026-09-07T19:48:03+09:00",
+    "affiliate_evidence_markers": [
+      "Merged PR #288 records a zero-cost MarketingBlocks affiliate enrollment-path request",
+      "Official support material confirms affiliates receive unique tracked links after approval",
+      "Exact customer-facing tracking URL is not yet issued or verified"
+    ]
   },
   {
     "id": "google-workspace",
@@ -4787,19 +5043,20 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://krater.ai/",
-    "affiliate_url": null,
-    "affiliate_status": "application_submitted",
-    "affiliate_verified": false,
-    "affiliate_final_url": null,
+    "affiliate_url": "https://go.krater.ai/sang-kwon-an",
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified": true,
+    "affiliate_final_url": "https://go.krater.ai/sang-kwon-an",
     "affiliate_evidence_markers": [
-      "Authenticated Chrome: after a pre-application company Gmail in:anywhere search found no matching messages, the Dub application was submitted once with COSHUMA, support@coshuma.com, https://coshuma.com and factual buyer-guide promotion text. Program terms accepted under explicit user authorization. Step 2 of 2 displayed Application submitted and stated the review update will be sent to support@coshuma.com. The decorative dashboard illustration on this success page is not real account revenue or an issued referral link. No approval or exact tracking URL was issued.",
-      "Await the existing Krater application review in Dub; do not reapply. Only publish an issued exact customer-facing link after approval evidence.",
-      "data/affiliate-submission-batch-2026-09-08.json"
+      "Authenticated Dub partner dashboard shows Krater Approved/Enrolled and issues the exact customer-facing link https://go.krater.ai/sang-kwon-an. The Dub partner-application URL is not treated as a customer tracking link. No reapplication was made and no referral, sale, commission, or revenue is inferred.",
+      "Preserve the issued exact customer-facing link; do not reapply. Keep customer signups, commissions and revenue at 0 without new evidence.",
+      "data/krater-affiliate-enrollment-evidence-2026-09-08.md"
     ],
-    "affiliate_status_checked_at": "2026-09-07T21:21:56.008052+00:00",
-    "affiliate_status_evidence_url": "https://partners.dub.co/kraterai/apply",
-    "affiliate_workflow_url": "https://partners.dub.co/kraterai/apply",
-    "affiliate_next_action": "Await the existing Krater application review in Dub; do not reapply. Only publish an issued exact customer-facing link after approval evidence."
+    "affiliate_status_checked_at": "2026-09-08T14:00:00+09:00",
+    "affiliate_status_evidence_url": "https://partners.dub.co/programs/kraterai",
+    "affiliate_workflow_url": "https://partners.dub.co/programs/kraterai",
+    "affiliate_next_action": "Preserve the issued exact customer-facing link; do not reapply. Keep customer signups, commissions and revenue at 0 without new evidence.",
+    "affiliate_verified_at": "2026-09-08T14:00:00+09:00"
   },
   {
     "id": "expandi",
@@ -4870,7 +5127,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://getreditus.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "enrollment_requested",
+    "affiliate_verified_at": "2026-09-07T19:44:59+09:00",
+    "affiliate_evidence_markers": [
+      "Merged PR #287 records a zero-cost Reditus affiliate enrollment request",
+      "Existing Reditus account was reused rather than creating a duplicate account",
+      "Exact customer-facing referral URL is not yet verified"
+    ]
   },
   {
     "id": "joiin",
@@ -5425,15 +5690,18 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://marblism.com/",
     "affiliate_url": null,
-    "affiliate_verified": false,
-    "affiliate_status": "account_active_payout_setup_required",
+    "affiliate_verified": true,
+    "affiliate_status": "rejected",
     "affiliate_source_url": "https://marblism.com/affiliate",
     "affiliate_final_url": "https://www.marblism.com/affiliate",
     "affiliate_http_status": 200,
     "affiliate_evidence_markers": [
-      "partner\\s+program.{0,80}(commission|payout|earn)"
+      "Dub.co program status email: Your application to Marblism was not approved",
+      "Marblism partner application was explicitly rejected after review",
+      "Rejection email lists partners@marblism.com only for cases believed to be rejected in error",
+      "Do not retry or request payout setup unless newer evidence changes this state"
     ],
-    "affiliate_verified_at": null,
+    "affiliate_verified_at": "2026-08-17T17:06:26Z",
     "affiliate_rejection_reason": "Program exists, but no approved COSHUMA tracking link is present"
   },
   {
@@ -5441,23 +5709,24 @@
     "name": "Taskade",
     "category": "automation",
     "category_display": "Workflow Automation",
-    "description": "AI-powered productivity and workflow automation workspace with task management, mind maps, and AI agents.",
+    "description": "AI workspace for building Taskade Genesis apps, AI agents, automations and collaborative workspaces in one environment.",
     "official_url": "https://www.taskade.com/",
-    "pricing": "Free plan available; Pro starting at $8/user/month (billed annually)",
+    "pricing": "Free plan; Pro $10/month in the annual-billing view (10 users included)",
     "pricing_source_url": "https://www.taskade.com/pricing",
     "pricing_evidence_markers": [
-      "$8",
-      "month"
+      "$10",
+      "10 users included",
+      "50,000 credits/month"
     ],
     "pricing_verified": true,
     "currency": "USD",
-    "billing_period": "monthly",
+    "billing_period": "annual billing displayed monthly",
     "evidence_source_type": "official_pricing_page",
     "key_features": [
-      "AI Task Management",
-      "AI Agents",
-      "Mind Mapping",
-      "Real-Time Collaboration"
+      "Taskade Genesis AI apps",
+      "Unlimited AI agents",
+      "Unlimited AI automations",
+      "100+ integrations"
     ],
     "rating": null,
     "logo_url": "https://www.google.com/s2/favicons?domain=taskade.com&sz=128",
@@ -5465,7 +5734,7 @@
     "comparison_group": "productivity_workspace",
     "is_manual_override": true,
     "http_verification_status": "verified_http_200",
-    "pricing_verified_at": "2026-08-04T03:25:05Z",
+    "pricing_verified_at": "2026-09-06T00:00:00+09:00",
     "pricing_source_http_status": 200,
     "pricing_source_final_url": "https://www.taskade.com/pricing",
     "official_verification_status": "verified",
