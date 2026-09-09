@@ -7,6 +7,17 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_DIR = path.resolve(SCRIPT_DIR, '..');
 const TOOL_DIR = path.join(PROJECT_DIR, 'public', 'tool');
 
+const aweberDeepLinkConfig = {
+  id: 'aweber',
+  authoritativeUrl: 'https://www.aweber.com/easy-email.htm?id=561868',
+  allowedCtaUrls: [
+    'https://www.aweber.com/easy-email.htm?id=561868',
+    'https://www.aweber.com/pricing.htm?id=561868',
+  ],
+  deepUrl: 'https://www.aweber.com/pricing.htm?id=561868',
+  evidenceFile: 'data/aweber-buyer-deeplink-evidence-2026-09-09.md',
+};
+
 const routes = [
   {
     id: 'typedesk',
@@ -16,16 +27,22 @@ const routes = [
     evidenceFile: 'data/typedesk-approved-tracking-2026-09-09.md',
   },
   {
-    id: 'aweber',
+    ...aweberDeepLinkConfig,
     filename: 'aweber.html',
     sources: ['aweber-pricing-hero', 'aweber-pricing-bottom'],
-    authoritativeUrl: 'https://www.aweber.com/easy-email.htm?id=561868',
-    allowedCtaUrls: [
-      'https://www.aweber.com/easy-email.htm?id=561868',
-      'https://www.aweber.com/pricing.htm?id=561868',
+  },
+  {
+    ...aweberDeepLinkConfig,
+    filename: 'beefree.html',
+    sources: [
+      'beefree_hero_email_marketing_alternative',
+      'beefree_decision_email_marketing_alternative',
     ],
-    deepUrl: 'https://www.aweber.com/pricing.htm?id=561868',
-    evidenceFile: 'data/aweber-buyer-deeplink-evidence-2026-09-09.md',
+  },
+  {
+    ...aweberDeepLinkConfig,
+    filename: 'sanebox.html',
+    sources: ['sanebox-intent-aweber'],
   },
 ];
 
@@ -63,14 +80,14 @@ for (const route of routes) {
     );
     const matches = [...html.matchAll(anchorPattern)];
     if (matches.length === 0) {
-      throw new Error(`${route.id}: missing expected ${source} affiliate CTA`);
+      throw new Error(`${route.id}: missing expected ${source} affiliate CTA in ${route.filename}`);
     }
 
     for (const match of matches) {
       const anchor = match[0];
       const href = anchor.match(/href="([^"]+)"/)?.[1]?.replaceAll('&amp;', '&');
       if (!href || !allowed.has(href)) {
-        throw new Error(`${route.id}: refusing to rewrite unapproved href for ${source}: ${href}`);
+        throw new Error(`${route.id}: refusing to rewrite unapproved href for ${source} in ${route.filename}: ${href}`);
       }
       if (href === route.deepUrl) continue;
       html = html.replace(anchor, anchor.replace(/href="[^"]+"/, `href="${route.deepUrl}"`));
