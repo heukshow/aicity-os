@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-09-09T15:27:00Z",
+  "checked_at_utc": "2026-09-09T17:24:53Z",
   "sender_account": "support@coshuma.com",
   "claap": {
     "status": "approved_tracking",
@@ -18,17 +18,20 @@
     "status": "approved_tracking",
     "approval_gmail_message_id": "1a08653d9c3bd9f8",
     "tracking_reply_gmail_message_id": "1a086aa6ef5a4d98",
+    "extended_trial_reply_gmail_message_id": "1a087337fdf3bdd1",
     "received_at_utc": "2026-09-09T14:55:10Z",
+    "extended_trial_received_at_utc": "2026-09-09T17:24:53Z",
     "manager": "Camila Gouveia",
     "commission_from_prior_direct_program_reply": "30% recurring commission on subscription fees from each new customer during their first year",
     "tracking_url": "https://partnerstack.teachable.com/ce4muoxdj46j",
     "verification": "Teachable manager Camila Gouveia pasted COSHUMA's unique PartnerStack customer-facing link directly into the support@coshuma.com mailbox and said it is the unique link shown under Links in the PartnerStack dashboard.",
-    "welcome_email_instruction": "The affiliate-only 30-day extended-trial landing page must be wrapped with the account tracking link to earn commission.",
+    "welcome_email_instruction": "The affiliate-only 30-day extended-trial landing page must use the COSHUMA PartnerStack route to preserve attribution.",
     "untracked_extended_trial_url": "https://www.teachable.com/welcome/partner30",
-    "tracked_extended_trial_url": null,
+    "tracked_extended_trial_url": "https://partnerstack.teachable.com/COSHUMA",
+    "tracked_extended_trial_verification": "Camila Gouveia replied in Gmail message 1a087337fdf3bdd1 that the 30-day Free Trial is available under Links in the PartnerStack dashboard and pasted the exact route https://partnerstack.teachable.com/COSHUMA in the email body.",
     "extended_trial_followup_sent_message_id": "1a086ca80689bbbf",
-    "extended_trial_followup": "Asked Camila to paste the exact customer-facing tracked 30-day extended free-trial URL if one is available, rather than constructing or guessing a wrapper.",
-    "safety": "Use https://partnerstack.teachable.com/ce4muoxdj46j as the authoritative default Teachable affiliate CTA. Do not use the generic partners page, PartnerStack dashboard/login, the unwrapped partner30 landing page, onboarding URLs, or guessed tracking wrappers as affiliate CTAs.",
+    "extended_trial_followup": "Resolved by vendor reply; browser recovery and URL guessing are no longer required for the extended trial route.",
+    "safety": "Use https://partnerstack.teachable.com/ce4muoxdj46j as the authoritative default Teachable affiliate route and https://partnerstack.teachable.com/COSHUMA only for the vendor-confirmed 30-day Free Trial CTA. Do not use the generic partners page, PartnerStack dashboard/login, the unwrapped partner30 landing page, onboarding URLs, or guessed tracking wrappers as affiliate CTAs.",
     "actual_click_attribution_verified": false,
     "revenue_claim": "Approval and link issuance are not signup, commission, or revenue events."
   }
