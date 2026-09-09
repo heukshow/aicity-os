@@ -105,6 +105,17 @@ text = text.replace(
     "The approval email did not contain an account-specific customer tracking URL, so Omnisend buttons intentionally remain ordinary official links until the exact Impact-issued URL is copied and verified.",
     "Omnisend's Senior Affiliate Marketing Manager supplied COSHUMA's exact customer tracking URL and a separate direct pricing tracking URL. Pricing-intent buttons use the vendor-issued pricing destination; COSHUMA may earn a commission on an eligible purchase at no extra cost to you."
 )
+
+# This finalizer runs after generic page generation. Normalize the visible verification date here
+# so an older generated date cannot be reintroduced after the affiliate evidence has been refreshed.
+for stale_date in (
+    "Last verified: Sep 1, 2026",
+    "Last verified: September 1, 2026",
+):
+    text = text.replace(stale_date, "Last verified: Sep 9, 2026")
+if "Last verified: Sep 1, 2026" in text or "Last verified: September 1, 2026" in text:
+    raise SystemExit("Stale Omnisend verification date survived finalizer")
+
 if TRACKING_URL not in text:
     raise SystemExit("Omnisend general tracking URL was not installed in buyer page")
 if PRICING_TRACKING_URL not in text:
