@@ -4,7 +4,7 @@ import { FormEvent, useMemo, useState } from "react";
 
 type Issue = {
   severity?: string;
-  type?: string;
+  check?: string;
   message?: string;
   sheet?: string;
   row?: number;
@@ -16,18 +16,19 @@ type AnalysisResult = {
   high?: number;
   medium?: number;
   low?: number;
-  issues?: Issue[];
+  preview?: Issue[];
+  locked_count?: number;
   [key: string]: unknown;
 };
 
 export default function SheetProofUploader() {
-  const apiUrl = process.env.NEXT_PUBLIC_SHEETPROOF_API_URL?.replace(/\/$/, "") ?? "";
+  const apiUrl = process.env.NEXT_PUBLIC_SHEETPROOF_API_URL?.trim().replace(/\/+$/, "") ?? "";
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [result, setResult] = useState<AnalysisResult | null>(null);
 
-  const previewIssues = useMemo(() => result?.issues?.slice(0, 5) ?? [], [result]);
+  const previewIssues = useMemo(() => result?.preview ?? [], [result]);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -120,15 +121,18 @@ export default function SheetProofUploader() {
               {previewIssues.map((issue, index) => (
                 <div key={`${issue.sheet}-${issue.row}-${index}`} className="p-4 border-b last:border-b-0 border-white/10 bg-black/10">
                   <div className="flex flex-wrap gap-2 items-center text-xs text-gray-500 mb-2">
-                    <span className="font-bold text-brand">{issue.severity ?? "CHECK"}</span>
+                    <span className="font-bold text-brand">{issue.severity?.toUpperCase() ?? "CHECK"}</span>
                     {issue.sheet && <span>{issue.sheet}</span>}
                     {issue.row != null && <span>{issue.row}행</span>}
                     {issue.column && <span>{issue.column}열</span>}
                   </div>
-                  <p className="text-sm text-gray-200">{issue.message ?? issue.type ?? "검토가 필요한 항목입니다."}</p>
+                  <p className="text-sm text-gray-200">{issue.message ?? issue.check ?? "검토가 필요한 항목입니다."}</p>
                 </div>
               ))}
             </div>
+          )}
+          {(result.locked_count ?? 0) > 0 && (
+            <p className="text-sm text-gray-400">현재 화면에는 {previewIssues.length}건의 미리보기를 표시합니다. 나머지 {result.locked_count}건은 이 화면에 표시되지 않습니다.</p>
           )}
         </div>
       )}
