@@ -9,7 +9,7 @@
     "check:buyer-deeplinks": "node scripts/apply_verified_buyer_deeplinks.mjs && echo buyer-deeplink-safety-v2",
     "check:search-ux": "python scripts/fix_search_focus_scroll.py && echo search-ux-v2",
     "check:home-cards": "python scripts/simplify_home_tool_cards.py",
-    "check:home-affiliate-state": "python scripts/guard_home_affiliate_state.py && echo home-affiliate-state-v1",
+    "check:home-affiliate-state": "python scripts/guard_home_affiliate_state.py && echo home-affiliate-state-v2",
     "check:mobile-home": "python scripts/fix_search_focus_scroll.py && python scripts/simplify_home_tool_cards.py && python scripts/improve_mobile_home_ux.py",
     "check:mobile-touch": "python scripts/fix_search_focus_scroll.py && python scripts/simplify_home_tool_cards.py && python scripts/improve_mobile_home_ux.py && echo mobile-touch-targets-44px-v3",
     "check:revenue-home": "python scripts/align_home_revenue_metadata.py && python scripts/fix_search_focus_scroll.py && python scripts/simplify_home_tool_cards.py && python scripts/improve_mobile_home_ux.py && python scripts/apply_revenue_first_home_hook.py && python scripts/harden_money_navigation.py && python scripts/add_fillout_search_shortcut.py && echo revenue-home-v7",
