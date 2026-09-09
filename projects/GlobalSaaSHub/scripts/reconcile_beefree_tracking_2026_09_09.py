@@ -137,12 +137,27 @@ def patch_tool_page(evidence: dict) -> None:
     path.write_text(html, encoding="utf-8")
 
 
+def patch_compare_copy(evidence: dict) -> None:
+    path = PUBLIC_DIR / "compare" / "beefree-vs-aweber.html"
+    if not path.exists():
+        return
+    html = path.read_text(encoding="utf-8")
+    old_disclosure = "Affiliate disclosure: COSHUMA may earn a commission if you sign up or purchase through the AWeber partner link, at no extra cost beyond the offer AWeber shows you."
+    new_disclosure = "Affiliate disclosure: COSHUMA may earn a commission if you become a paying Beefree/RGE Studio or AWeber customer after using the verified partner links, at no extra cost beyond the offer each vendor shows you."
+    html = html.replace(old_disclosure, new_disclosure)
+    old_note = "The AWeber outbound revenue URL is the same account-specific affiliate route already verified in COSHUMA's repository; Beefree remains an ordinary official link because no verified COSHUMA Beefree tracking URL is being claimed here."
+    new_note = f"The AWeber outbound revenue URL is the same account-specific route already verified in COSHUMA's repository. Beefree/RGE Studio is also monetized with the exact PartnerStack referral URL supplied by the vendor on Sep 9, 2026: {evidence['exact_tracking_url']}. Link issuance is not counted as a sale or revenue."
+    html = html.replace(old_note, new_note)
+    path.write_text(html, encoding="utf-8")
+
+
 def main() -> None:
     evidence = load_json(EVIDENCE_PATH)
     reconcile_tools(evidence)
     reconcile_outreach(evidence)
     reconcile_queue(evidence)
     patch_tool_page(evidence)
+    patch_compare_copy(evidence)
     print("reconcile_beefree_tracking_2026_09_09: approved_tracking + buyer CTAs applied")
 
 
