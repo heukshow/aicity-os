@@ -9,9 +9,20 @@
 
 Source snapshot: `public/ops/traffic-revenue-data.json`, generated through the COSHUMA Analytics Snapshot workflow.
 
-## Partner-side status already confirmed
+## Partner-side attribution confirmed
 
-Pictory Affiliate Manager Ashutosh Dhamija previously confirmed by email that:
+On 2026-09-09, Pictory Affiliate Manager Ashutosh Dhamija replied directly to `support@coshuma.com` and confirmed that the click is recorded on Pictory's side.
+
+- Gmail message ID: `1a08596f9b30d2a4`
+- Sender: `ashutosh@pictory.ai`
+- Partner statement: the click has been recorded on Pictory's side.
+- Counting clarification: repeated clicks by the same person are recorded only once.
+
+This closes the attribution-verification gap for the September 6 click: COSHUMA GA4 and Pictory both independently show that the referral click registered. It still does **not** prove a signup, paid conversion, commission, or payout.
+
+## Existing partner conditions
+
+Pictory Affiliate Manager Ashutosh Dhamija has also confirmed by email that:
 
 - the existing affiliate link remains active while payout setup is pending;
 - `COSHUMA20` remains active;
@@ -19,9 +30,9 @@ Pictory Affiliate Manager Ashutosh Dhamija previously confirmed by email that:
 - the verified affiliate link should remain the primary tracking method, with the promo code shown alongside it;
 - missing payout details prevent payout but do not stop referral tracking.
 
-## Verification request sent
+## Verification request history
 
-On 2026-09-09, `support@coshuma.com` replied in the existing Pictory thread asking Ash to verify whether the September 6 click/referral is also registering on Pictory's affiliate side.
+On 2026-09-09, `support@coshuma.com` replied in the existing Pictory thread asking Ash to verify whether the September 6 click/referral was also registering on Pictory's affiliate side.
 
 - Sent Gmail message ID: `1a0832897ff65683`
 - Placement supplied: `https://coshuma.com/tool/pictory.html`
@@ -31,7 +42,8 @@ On 2026-09-09, `support@coshuma.com` replied in the existing Pictory thread aski
 ## State / next action
 
 - Affiliate state remains `approved_tracking`.
+- End-to-end click attribution for the September 6 event is now confirmed.
 - Do not reapply.
 - Do not replace the verified referral URL with a homepage, dashboard, login, onboarding, or promo-code-only route.
-- Wait for partner-side confirmation before claiming end-to-end referral tracking.
+- Keep browser-only follow-up limited to dashboard promotional assets and exact conversion/revenue totals if shown.
 - Do not claim a signup, commission, sale, or revenue until direct evidence exists.
