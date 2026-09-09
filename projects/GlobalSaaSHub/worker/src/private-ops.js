@@ -1,4 +1,6 @@
 import { authorized, loginPage, privateLogin, PRIVATE_HEADERS } from './admin.js';
+import { decorateOpsHtml } from './ops-dashboard-view.js';
+import { fetchPartnerStackMetrics } from './partnerstack.js';
 
 const ISSUER = 'https://token.actions.githubusercontent.com';
 const AUDIENCE = 'coshuma-private-analytics';
@@ -111,10 +113,18 @@ export async function handlePrivateOps(request, env) {
   }
   if (!['GET', 'HEAD'].includes(request.method)) return response('{"error":"Method not allowed"}', 405);
   const name = ['/ops', '/ops/'].includes(path) ? 'traffic-revenue.html' : path.slice('/ops/'.length);
+  if (name === 'partnerstack-summary.json') {
+    if (request.method === 'HEAD') return response(null, 200);
+    try {
+      const p = await fetchPartnerStackMetrics(env);
+      return response(JSON.stringify({ connected: p.connected, reason: p.reason, checkedAt: p.checkedAt,
+        rewardCount: p.rewardCount, partnershipCount: p.partnershipCount, scope: 'first_page_max_250_each' }), 200);
+    } catch { return response(JSON.stringify({ connected: false, reason: 'PartnerStack API 조회 실패', checkedAt: new Date().toISOString() }), 200); }
+  }
   if (!['traffic-revenue.html', 'traffic-revenue-data.json', 'revenue-seo-refresh.json', 'admin-affiliate-audit.json'].includes(name))
     return response('{"error":"Not found"}', 404);
   if (!env.ORDERS) return response('{"error":"Storage unavailable"}', 503);
   const doc = await env.ORDERS.prepare('SELECT content, content_type FROM private_ops_documents WHERE name = ?').bind(name).first();
   if (!doc) return response('{"error":"Not available"}', 503);
-  return response(request.method === 'HEAD' ? null : doc.content, 200, doc.content_type);
+  return response(request.method === 'HEAD' ? null : name === 'traffic-revenue.html' ? decorateOpsHtml(doc.content) : doc.content, 200, doc.content_type);
 }
