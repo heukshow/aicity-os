@@ -69,11 +69,10 @@ approvedTracking.set('claap', {
 });
 
 // Teachable manager Camila Gouveia pasted COSHUMA's exact unique PartnerStack
-// customer-facing URL into the support@coshuma.com mailbox. Use it as the default
-// tracked CTA. The separate 30-day trial deeplink remains unverified until the
-// vendor supplies an exact wrapped customer-facing URL. The reconcile step also
-// creates the outreach-registry entry when older state files do not contain one,
-// so deployment verification cannot silently fail on a newly approved program.
+// customer-facing URL and then the separate COSHUMA 30-day free-trial route into
+// the support@coshuma.com mailbox. Keep the first as the default pricing-capable
+// tracked route and permit the exact vendor-supplied 30-day route as a lower-friction
+// conversion CTA. Never construct or guess a PartnerStack wrapper.
 approvedTracking.set('teachable', {
   id: 'teachable',
   status: 'approved_tracking',
@@ -81,11 +80,14 @@ approvedTracking.set('teachable', {
   destination: 'https://partnerstack.teachable.com/ce4muoxdj46j',
   allowed_cta_urls: [
     'https://partnerstack.teachable.com/ce4muoxdj46j',
+    'https://partnerstack.teachable.com/COSHUMA',
   ],
   company_mailbox: 'support@coshuma.com',
   vendor_reply_message_id: '1a086aa6ef5a4d98',
-  evidence: 'Teachable manager Camila Gouveia replied through PartnerStack to support@coshuma.com in Gmail message 1a086aa6ef5a4d98 and pasted COSHUMA\'s unique link https://partnerstack.teachable.com/ce4muoxdj46j, explicitly saying it is the unique link found under Links in the PartnerStack dashboard. Do not infer or construct the separate tracked 30-day extended-trial URL; COSHUMA requested that exact URL from the vendor in Gmail message 1a086ca80689bbbf. No click, signup, commission, or revenue is inferred from link issuance.',
-  checked_at: '2026-09-09T23:55:10+09:00',
+  vendor_extended_trial_reply_message_id: '1a087337fdf3bdd1',
+  extended_trial_tracking_url: 'https://partnerstack.teachable.com/COSHUMA',
+  evidence: 'Teachable manager Camila Gouveia replied through PartnerStack to support@coshuma.com in Gmail message 1a086aa6ef5a4d98 and pasted COSHUMA\'s unique link https://partnerstack.teachable.com/ce4muoxdj46j, explicitly saying it is the unique link found under Links in the PartnerStack dashboard. In Gmail message 1a087337fdf3bdd1 she then supplied the exact COSHUMA 30-day Free Trial route https://partnerstack.teachable.com/COSHUMA and said it is also available under Links in the PartnerStack dashboard. Both routes are vendor-issued customer-facing PartnerStack URLs. No click, signup, commission, or revenue is inferred from link issuance.',
+  checked_at: '2026-09-10T02:24:53+09:00',
   evidence_file: 'data/claap-teachable-tracking-update-2026-09-09.json',
 });
 
