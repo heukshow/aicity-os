@@ -23,7 +23,10 @@ test('anonymous HTML and JSON fail closed without reading storage; spoofed heade
 });
 test('only configured owner password permits content; expired and forged sessions are denied', async () => {
   const state = await setup();
-  const login = await worker.fetch(new Request(url, { method: 'POST', body: new URLSearchParams({ username: 'support@coshuma.com', password }) }), state.env);
+  const page = await worker.fetch(new Request(url), state.env);
+  const loginCookie = page.headers.get('set-cookie').split(';')[0];
+  const csrf = (await page.text()).match(/name="csrf" value="([^"]+)"/)[1];
+  const login = await worker.fetch(new Request(url, { method: 'POST', headers: { cookie: loginCookie, origin: 'null' }, body: new URLSearchParams({ username: 'support@coshuma.com', password, csrf }) }), state.env);
   assert.equal(login.status, 303);
   const cookie = login.headers.get('set-cookie').split(';')[0];
   assert.match(login.headers.get('set-cookie'), /HttpOnly; Secure; SameSite=Strict/);
@@ -34,7 +37,7 @@ test('only configured owner password permits content; expired and forged session
   for (const badCookie of [cookie.replace(/=\d+\./, '=1.'), cookie + 'x']) {
     assert.equal((await worker.fetch(new Request(url, { headers: { cookie: badCookie } }), state.env)).status, 401);
   }
-  const wrongUser = await worker.fetch(new Request(url, { method: 'POST', body: new URLSearchParams({ username: 'outsider@example.com', password }) }), state.env);
+  const wrongUser = await worker.fetch(new Request(url, { method: 'POST', headers: { cookie: loginCookie }, body: new URLSearchParams({ username: 'outsider@example.com', password, csrf }) }), state.env);
   assert.equal(wrongUser.status, 401);
   const crossOrigin = await worker.fetch(new Request(url, { method: 'POST', headers: { origin: 'https://evil.example' }, body: new URLSearchParams({ username: 'support@coshuma.com', password }) }), state.env);
   assert.equal(crossOrigin.status, 403);
