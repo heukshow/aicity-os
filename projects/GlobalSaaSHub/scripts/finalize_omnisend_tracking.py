@@ -135,6 +135,7 @@ page.write_text(text, encoding="utf-8")
 # pricing links get the dedicated pricing tracker; all other explicit Omnisend decision CTAs
 # get the canonical general tracker. Source links and unrelated vendor links remain untouched.
 comparison_changes = 0
+pricing_comparison_ctas = 0
 for compare_page in sorted((ROOT / "public/compare").glob("*.html")):
     compare_text = compare_page.read_text(encoding="utf-8")
     if 'data-tool-id="omnisend"' not in compare_text:
@@ -156,6 +157,25 @@ for compare_page in sorted((ROOT / "public/compare").glob("*.html")):
         return tag
 
     updated = re.sub(r'<a\b[^>]*data-tool-id="omnisend"[^>]*>', convert_compare_anchor, compare_text)
+
+    # Generic monetization runs earlier and may have already replaced a validated pricing
+    # destination with the canonical general tracker. Restore only anchors whose explicit
+    # CTA source is pricing-intent; this URL is vendor-issued, not synthesized.
+    def restore_pricing_tracker(match):
+        nonlocal_tag = match.group(0)
+        return re.sub(
+            rf'href="{re.escape(TRACKING_URL)}"',
+            f'href="{PRICING_TRACKING_URL}"',
+            nonlocal_tag,
+            count=1,
+        )
+
+    pricing_pattern = re.compile(
+        r'<a\b(?=[^>]*data-cta="affiliate")(?=[^>]*data-tool-id="omnisend")(?=[^>]*data-cta-source="[^"]*pricing[^"]*")(?=[^>]*href="https://your\.omnisend\.com/4aA5k9")[^>]*>'
+    )
+    updated, restored = pricing_pattern.subn(restore_pricing_tracker, updated)
+    pricing_comparison_ctas += restored
+
     if updated != compare_text:
         compare_page.write_text(updated, encoding="utf-8")
         comparison_changes += 1
@@ -165,4 +185,12 @@ for compare_page in sorted((ROOT / "public/compare").glob("*.html")):
     ):
         raise SystemExit(f"Omnisend comparison CTA was not monetized safely: {compare_page}")
 
-print(f"Omnisend approved_tracking state finalized with dedicated pricing tracker; comparison_pages_monetized={comparison_changes}")
+# The known Search Console opportunity page must keep the vendor-issued pricing tracker.
+privy_compare = (ROOT / "public/compare/privy-vs-omnisend.html").read_text(encoding="utf-8")
+if 'data-cta-source="privy-vs-omnisend-pricing"' not in privy_compare or f'href="{PRICING_TRACKING_URL}"' not in privy_compare:
+    raise SystemExit("Privy vs Omnisend pricing CTA lost the vendor-issued pricing tracker")
+
+print(
+    "Omnisend approved_tracking state finalized with dedicated pricing tracker; "
+    f"comparison_pages_monetized={comparison_changes} pricing_comparison_ctas={pricing_comparison_ctas}"
+)
