@@ -1,27 +1,30 @@
 {
   "tool_id": "fillout",
   "checked_at_kst": "2026-09-10T01:25:00+09:00",
-  "program_status": "approved",
-  "tracking_status": "recovery_requested_by_email",
-  "exact_tracking_url": null,
+  "program_status": "approved_tracking",
+  "tracking_status": "verified_existing_evidence",
+  "exact_tracking_url": "https://try.fillout.com/sang-kwon-an-hxwn",
+  "verified_at_kst": "2026-09-08T14:00:00+09:00",
+  "verification_source": "projects/GlobalSaaSHub/data/fillout-affiliate-enrollment-evidence-2026-09-08.md and authenticated Dub partner dashboard evidence already committed to the repository",
   "approval_source": {
     "provider": "Dub.co",
     "gmail_message_id": "1a07ce0382f005f9",
     "approved_account_email": "qmfforfhem@gmail.com",
     "reward_terms_from_approval": "30% per sale for 1 year"
   },
-  "recovery_action": {
+  "email_recovery_action": {
     "sender_account": "support@coshuma.com",
     "recipient": "support@fillout.com",
     "gmail_message_id": "1a086ff71d11b8fa",
-    "request": "Paste COSHUMA's exact vendor-issued customer-facing Fillout referral URL in the reply; include a separately issued tracked pricing-page link if available."
+    "status": "superseded_by_newer_existing_repository_evidence",
+    "note": "The email was sent before a newer authenticated Dub verification already present in the repository was discovered during this run. No further recovery request or browser login is required."
   },
   "safety_rules": [
-    "Do not reapply while approved.",
-    "Do not use the Dub dashboard/Links page as a revenue CTA.",
-    "Do not guess or construct a referral URL.",
-    "Keep existing COSHUMA Fillout revenue CTA unchanged until an exact vendor-issued customer-facing URL is verified."
+    "Do not reapply while approved_tracking.",
+    "Preserve the exact verified URL https://try.fillout.com/sang-kwon-an-hxwn.",
+    "Do not replace it with a generic Fillout homepage, Dub dashboard, or guessed deep link.",
+    "Do not claim clicks, signups, commissions, or revenue without separate evidence."
   ],
-  "browser_fallback": "https://partners.dub.co/programs/fillout/links",
-  "browser_fallback_rule": "Use only if vendor email does not provide the exact URL; login/dashboard manipulation remains browser-required."
+  "browser_fallback": null,
+  "browser_fallback_rule": "Resolved: no browser work is required for Fillout tracking-link recovery."
 }
