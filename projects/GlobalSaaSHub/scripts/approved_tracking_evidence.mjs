@@ -2,6 +2,20 @@ import fs from 'node:fs';
 
 export const approvedTracking = new Map(JSON.parse(fs.readFileSync(new URL('../data/approved-tracking-2026-09-08.json', import.meta.url), 'utf8')).items.map(item => [item.id, item]));
 
+// AWeber's official Advocate Program documentation says the assigned referral ID
+// may be appended to any AWeber page while preserving the referral cookie. Keep
+// the originally issued easy-email URL as the authoritative account tracking URL,
+// but explicitly permit the pricing-page variant for buyer-intent CTAs.
+const aweber = approvedTracking.get('aweber');
+if (aweber) {
+  aweber.allowed_cta_urls = [
+    aweber.exact_tracking_url,
+    'https://www.aweber.com/pricing.htm?id=561868',
+  ];
+  aweber.deep_link_evidence =
+    'AWeber official Advocate Program documentation verified 2026-09-09: the referral id may be appended to any AWeber page and the referral cookie remains attributable. The issued easy-email URL remains the authoritative account tracking URL.';
+}
+
 // Newer authenticated Dub follow-up for a tool that already exists in the public catalog.
 // Fillout approval remains valid operational evidence, but Fillout is not yet a catalog tool,
 // so it must not enter this map because deployment verification requires a real tool page.
@@ -22,10 +36,15 @@ approvedTracking.set('typedesk', {
   status: 'approved_tracking',
   exact_tracking_url: 'https://www.typedesk.com?via=sangkwon',
   destination: 'https://www.typedesk.com?via=sangkwon',
+  allowed_cta_urls: [
+    'https://www.typedesk.com?via=sangkwon',
+    'https://www.typedesk.com/pricing?via=sangkwon',
+  ],
   company_mailbox: 'support@coshuma.com',
   vendor_reply_message_id: '1a083d37fcdad998',
-  evidence: 'Typedesk human reply from hennadiy@typedesk.com to support@coshuma.com explicitly identifies https://www.typedesk.com?via=sangkwon as COSHUMA\'s unique tracking link and says reports remain available in the Rewardful dashboard. No click, signup, commission, or revenue is inferred from link issuance alone.',
-  checked_at: '2026-09-09T10:40:59+09:00',
+  vendor_deeplink_reply_message_id: '1a0841c6e959ea36',
+  evidence: 'Typedesk human reply from hennadiy@typedesk.com to support@coshuma.com explicitly identifies https://www.typedesk.com?via=sangkwon as COSHUMA\'s unique tracking link and says reports remain available in the Rewardful dashboard. A follow-up human reply confirms there are no coupon codes currently and that the affiliate attribution may be used on any Typedesk page. No click, signup, commission, or revenue is inferred from link issuance or deep-link permission alone.',
+  checked_at: '2026-09-09T12:20:00+09:00',
   evidence_file: 'data/typedesk-approved-tracking-2026-09-09.md',
 });
 
