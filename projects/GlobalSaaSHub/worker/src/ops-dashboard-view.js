@@ -64,6 +64,9 @@ export function dashboardClient() {
 export function decorateOpsHtml(html) {
   const pattern = /<script>\s*\(\(\)\s*=>\s*\{[\s\S]*?<\/script>/;
   if (!pattern.test(html)) throw new Error('Dashboard script marker not found');
-  return html.replace(pattern, () => `<script>(${dashboardClient.toString()})();</script>`)
+  // Wrangler preserves function names with __name calls inside serialized functions.
+  // Supply the identity helper in the browser scope rather than leaking a Worker-only dependency.
+  return html.replace(pattern, () => `<script>(()=>{const __name=fn=>fn;(${dashboardClient.toString()})();})();</script>`)
     .replace(/<tbody id="opportunities">[\s\S]*?<\/tbody>/, '<tbody id="opportunities"><tr><td colspan="5">실데이터 확인 중</td></tr></tbody>');
 }
+
