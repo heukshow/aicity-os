@@ -1,0 +1,23 @@
+{
+  "id": "claap-approved-link-recovery-2026-09-09",
+  "tool_id": "claap",
+  "program_name": "Claap Affiliate Program",
+  "priority": "high",
+  "status": "browser_required",
+  "affiliate_status": "approved_account",
+  "exact_tracking_url": null,
+  "cost": "0",
+  "verified_at": "2026-09-09T08:31:35Z",
+  "gmail_message_id": "1a0854b42ac1cc9a",
+  "approval_gmail_message_id": "1a08009379826dfd",
+  "reason": "Claap affiliate manager Lamia Karmaly reviewed COSHUMA's Claap page and explicitly said the current CTAs still point to claap.io rather than COSHUMA's affiliate link. She instructed COSHUMA to grab the exact link in the existing PartnerStack account and swap the buttons. Approval is already verified; only exact customer-facing tracking-link recovery remains.",
+  "next_action": "Reuse the existing authenticated PartnerStack Claap partnership. Open Claap -> Links and copy the exact customer-facing affiliate URL issued to COSHUMA. Do not reapply. Do not use a PartnerStack dashboard/login/email redirect or construct tracking parameters. After exact link verification, replace Claap revenue CTAs and validate attribution.",
+  "constraints": [
+    "Do not submit another Claap affiliate application.",
+    "Do not treat claap.io, PartnerStack dashboard/login URLs, onboarding URLs, or email redirects as the affiliate URL.",
+    "Do not guess or construct a referral parameter.",
+    "Keep current official Claap links until the exact issued customer-facing tracking URL is verified.",
+    "No revenue, signup, or commission is inferred from approval alone."
+  ],
+  "user_action_required": false
+}
