@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -70,7 +72,7 @@ def main() -> None:
         status = str(item.get("status", "")).strip().lower()
         if status in TERMINAL_OR_PROTECTED:
             print(f"Manychat queue task already protected by newer state: {status}; leaving unchanged")
-            return
+            break
         queue[index] = {**item, **TASK}
         break
     else:
@@ -78,6 +80,14 @@ def main() -> None:
 
     QUEUE_PATH.write_text(json.dumps(queue, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("Manychat direct PartnerStack application recorded as browser-required; no application submitted")
+
+    # Keep the build-time mailbox reconciliation chain current without requiring
+    # a duplicate application or a new browser handoff. This helper only records
+    # the human Fathom eligibility decision and never submits or purchases anything.
+    subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "reconcile_fathom_not_fit_2026_09_10.py")],
+        check=True,
+    )
 
 
 if __name__ == "__main__":
