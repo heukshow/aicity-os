@@ -36,11 +36,12 @@ const approvalFollowups = [
 ];
 for (const item of approvalFollowups) browserFollowups.set(item.id, item);
 
-// Typedesk and Omnisend now have newer human vendor-issued exact tracking URLs.
+// Typedesk, Omnisend and Claap now have newer human vendor-issued exact tracking URLs.
 // Remove older browser/status snapshots so the authoritative approved-tracking
 // evidence can apply during both sync passes instead of being masked by stale state.
 browserFollowups.delete('typedesk');
 browserFollowups.delete('omnisend');
+browserFollowups.delete('claap');
 
 // Operational approvals keep duplicate-prevention state and the browser queue current
 // without requiring the browser-followup validator to reinterpret vendor-issued email links.
@@ -70,6 +71,15 @@ const operationalApprovals = [
     checked_at: '2026-09-09T17:50:34+09:00',
     evidence: 'Omnisend Senior Affiliate Marketing Manager Deimantė Vaitkevičiūtė replied to support@coshuma.com in Gmail message 1a0855caf8f6dee2 and explicitly instructed COSHUMA to use https://your.omnisend.com/4aA5k9 for tracking, confirming the tracking link is in Impact Assets. No click, signup, commission, payout, or revenue is inferred.',
     next_action: 'Preserve and publish the exact Omnisend-issued customer tracking URL on buyer-facing COSHUMA pages; do not reapply and do not substitute a generic Omnisend or Impact operational URL. Measure actual downstream events separately.',
+    application_state: 'submitted',
+  },
+  {
+    id: 'claap',
+    status: 'approved_tracking',
+    affiliate_url: 'https://get.claap.io/rc9nqme16a9q-gfvrqk',
+    checked_at: '2026-09-09T21:45:09+09:00',
+    evidence: 'Claap affiliate manager Lamia Karmaly replied to support@coshuma.com in Gmail message 1a08633651c79db9 and explicitly said she copied COSHUMA\'s two affiliate URLs directly from the existing PartnerStack dashboard. The first issued customer-facing URL is https://get.claap.io/rc9nqme16a9q-gfvrqk; the second verified alternate is https://get.claap.io/ssb7dex1109s. No click, signup, commission, payout, or revenue is inferred from issuance.',
+    next_action: 'Preserve the first exact vendor-issued Claap URL as the default buyer-facing tracking CTA and do not reapply. Await Lamia\'s destination/custom-label mapping before using the second verified URL for destination-specific routing. Measure actual downstream events separately.',
     application_state: 'submitted',
   },
 ];
