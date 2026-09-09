@@ -48,6 +48,22 @@ approvedTracking.set('typedesk', {
   evidence_file: 'data/typedesk-approved-tracking-2026-09-09.md',
 });
 
+// Omnisend's Senior Affiliate Marketing Manager sent the exact account tracking
+// URL directly to support@coshuma.com and confirmed it is the link stored in
+// Impact Assets. This newer evidence supersedes the earlier approval-only state.
+approvedTracking.set('omnisend', {
+  id: 'omnisend',
+  status: 'approved_tracking',
+  exact_tracking_url: 'https://your.omnisend.com/4aA5k9',
+  destination: 'https://your.omnisend.com/4aA5k9',
+  company_mailbox: 'support@coshuma.com',
+  approval_message_id: '1a084b27a331668b',
+  vendor_tracking_message_id: '1a0855caf8f6dee2',
+  evidence: 'Omnisend Senior Affiliate Marketing Manager Deimantė Vaitkevičiūtė explicitly instructed COSHUMA to use https://your.omnisend.com/4aA5k9 for tracking and confirmed the tracking link is in Impact Assets. This is the vendor-issued customer-facing route; no homepage, pricing page, Impact dashboard, onboarding URL, or email redirect is substituted. No click, signup, commission, payout, or revenue is inferred from approval or link issuance.',
+  checked_at: '2026-09-09T17:50:34+09:00',
+  evidence_file: 'data/omnisend-affiliate-approved-2026-09-09.md',
+});
+
 export function applyApprovedTracking(tool) {
   const item = approvedTracking.get(tool.id);
   if (!item) return false;
