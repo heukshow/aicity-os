@@ -49,7 +49,7 @@ replace_once(
     "primary heading",
 )
 replace_once(
-    r'<p class="text-sm text-slate-400 mt-1">Official annual-billing prices checked .*? Monthly billing is higher(?:; annual billing currently saves 20%)?\.</p>',
+    r'<p class="text-sm text-slate-400 mt-1">Official annual-billing prices (?:re)?checked .*? Monthly billing is higher(?:; annual billing currently saves 20%)?\.</p>',
     '<p class="text-sm text-slate-400 mt-1">Official annual-billing prices rechecked September 9, 2026. Monthly billing is higher; annual billing currently saves 20%.</p>',
     "pricing verification date",
 )
