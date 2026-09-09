@@ -1813,13 +1813,18 @@
     "official_evidence_url": "https://affiliate.gravity.com/",
     "affiliate_url": null,
     "affiliate_verified": true,
-    "affiliate_status": "application_submitted",
-    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_status": "approved",
+    "affiliate_verified_at": "2026-09-08T20:48:27Z",
     "affiliate_evidence_markers": [
-      "Authenticated PartnerStack displays Gravity / Application pending",
-      "Application was already submitted; do not submit another application",
-      "Exact customer-facing tracking URL is not available before approval"
-    ]
+      "Gravity Affiliate welcome email 1a082c784399b2c3 verifies COSHUMA program acceptance.",
+      "The welcome email states a 30-day attribution window and 20% commission on a qualifying sale.",
+      "No exact customer-facing Gravity tracking URL has been issued or verified yet.",
+      "Do not reapply, do not reuse a PartnerStack/dashboard/email redirect as a revenue URL, and do not guess tracking parameters."
+    ],
+    "affiliate_final_url": null,
+    "affiliate_status_checked_at": "2026-09-08T20:48:27Z",
+    "affiliate_status_evidence_url": "gmail:1a082c784399b2c3",
+    "affiliate_next_action": "Reuse the existing authenticated Gravity/PartnerStack account in the COSHUMA Work browser when available. Open the approved program dashboard and copy the exact customer-facing affiliate/referral link issued to COSHUMA. Verify the destination and tracking parameter before updating any public CTA."
   },
   {
     "id": "sendcloud",
