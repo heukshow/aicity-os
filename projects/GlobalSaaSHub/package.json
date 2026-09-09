@@ -15,7 +15,7 @@
     "check:revenue-home": "python scripts/align_home_revenue_metadata.py && python scripts/fix_search_focus_scroll.py && python scripts/simplify_home_tool_cards.py && python scripts/improve_mobile_home_ux.py && python scripts/apply_revenue_first_home_hook.py && python scripts/harden_money_navigation.py && python scripts/add_fillout_search_shortcut.py && echo revenue-home-v7",
     "check:tool-value": "python scripts/inject_tool_value_playbooks.py && python scripts/audit_tool_value_playbook_coverage.py && echo tool-value-recommendation-policy-v3-wave11",
     "check:tool-value-policy": "python scripts/audit_tool_value_playbook_coverage.py",
-    "check:docsbot-partner": "python scripts/apply_docsbot_partner_guidance.py",
+    "check:docsbot-partner": "python scripts/apply_docsbot_partner_guidance.py && echo docsbot-partner-v2",
     "check:omnisend-revenue": "python scripts/apply_omnisend_revenue_patch.py && python scripts/apply_search_console_ctr_patches.py && echo omnisend-search-monetization-v2",
     "check:unbounce-revenue": "python scripts/apply_search_console_ctr_patches.py && python scripts/apply_unbounce_search_revenue_patch.py && echo unbounce-search-revenue-v1",
     "check:databox-ctr": "python scripts/apply_databox_ctr_patch.py && echo databox-search-ctr-v3",
@@ -38,6 +38,6 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
     "oxlint": "^1.71.0",
-    "vite": "^8.1.1"
+    "preview": "vite preview"
   }
 }
