@@ -36,10 +36,11 @@ const approvalFollowups = [
 ];
 for (const item of approvalFollowups) browserFollowups.set(item.id, item);
 
-// Typedesk now has a newer vendor-issued exact tracking URL from a human reply.
-// Remove the older browser-required snapshot so the authoritative approved-tracking
+// Typedesk and Omnisend now have newer human vendor-issued exact tracking URLs.
+// Remove older browser/status snapshots so the authoritative approved-tracking
 // evidence can apply during both sync passes instead of being masked by stale state.
 browserFollowups.delete('typedesk');
+browserFollowups.delete('omnisend');
 
 // Operational approvals keep duplicate-prevention state and the browser queue current
 // without requiring the browser-followup validator to reinterpret vendor-issued email links.
@@ -60,6 +61,15 @@ const operationalApprovals = [
     checked_at: '2026-09-09T10:40:59+09:00',
     evidence: 'Typedesk human reply from hennadiy@typedesk.com to support@coshuma.com explicitly supplied https://www.typedesk.com?via=sangkwon as COSHUMA\'s unique customer-facing tracking link. Rewardful login/dashboard URLs remain operational only and are not revenue links. No click, signup, commission, or revenue is inferred.',
     next_action: 'Preserve and publish the verified Typedesk tracking URL on buyer-facing COSHUMA pages; do not reapply or request another tracking account. Measure actual outbound clicks and only claim downstream revenue when separately evidenced.',
+    application_state: 'submitted',
+  },
+  {
+    id: 'omnisend',
+    status: 'approved_tracking',
+    affiliate_url: 'https://your.omnisend.com/4aA5k9',
+    checked_at: '2026-09-09T17:50:34+09:00',
+    evidence: 'Omnisend Senior Affiliate Marketing Manager Deimantė Vaitkevičiūtė replied to support@coshuma.com in Gmail message 1a0855caf8f6dee2 and explicitly instructed COSHUMA to use https://your.omnisend.com/4aA5k9 for tracking, confirming the tracking link is in Impact Assets. No click, signup, commission, payout, or revenue is inferred.',
+    next_action: 'Preserve and publish the exact Omnisend-issued customer tracking URL on buyer-facing COSHUMA pages; do not reapply and do not substitute a generic Omnisend or Impact operational URL. Measure actual downstream events separately.',
     application_state: 'submitted',
   },
 ];
