@@ -145,7 +145,7 @@ jobs:
 
       - name: Verify COSHUMA bundle identity
         run: |
-          set -e
+          set -ex
           test -f projects/GlobalSaaSHub/dist/index.html
           test -f projects/GlobalSaaSHub/dist/admin-affiliate-audit.json
           grep -q 'COSHUMA' projects/GlobalSaaSHub/dist/index.html
