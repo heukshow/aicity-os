@@ -106,15 +106,24 @@ text = text.replace(
     "Omnisend's Senior Affiliate Marketing Manager supplied COSHUMA's exact customer tracking URL and a separate direct pricing tracking URL. Pricing-intent buttons use the vendor-issued pricing destination; COSHUMA may earn a commission on an eligible purchase at no extra cost to you."
 )
 
-# This finalizer runs after generic page generation. Normalize the visible verification date here
-# so an older generated date cannot be reintroduced after the affiliate evidence has been refreshed.
-for stale_date in (
-    "Last verified: Sep 1, 2026",
-    "Last verified: September 1, 2026",
-):
-    text = text.replace(stale_date, "Last verified: Sep 9, 2026")
-if "Last verified: Sep 1, 2026" in text or "Last verified: September 1, 2026" in text:
-    raise SystemExit("Stale Omnisend verification date survived finalizer")
+# This finalizer runs after generic page generation. Normalize the visible trust-block
+# verification date here so stale source metadata cannot survive the final production pass.
+trust_marker = "<!-- COSHUMA_TRUST_BLOCK -->"
+if trust_marker not in text:
+    raise SystemExit("Omnisend trust block missing; cannot normalize verification date safely")
+prefix, trust_tail = text.split(trust_marker, 1)
+trust_tail, trust_date_changes = re.subn(
+    r'(<div[^>]*>Last verified</div>\s*<div[^>]*>)(?:September 1, 2026|Sep 1, 2026)(</div>)',
+    r'\1September 9, 2026\2',
+    trust_tail,
+    count=1,
+)
+text = prefix + trust_marker + trust_tail
+if trust_date_changes != 1:
+    if not re.search(r'<div[^>]*>Last verified</div>\s*<div[^>]*>September 9, 2026</div>', trust_tail):
+        raise SystemExit("Omnisend trust-block verification date was not normalized")
+if re.search(r'<div[^>]*>Last verified</div>\s*<div[^>]*>(?:September 1, 2026|Sep 1, 2026)</div>', trust_tail):
+    raise SystemExit("Stale Omnisend trust-block verification date survived finalizer")
 
 if TRACKING_URL not in text:
     raise SystemExit("Omnisend general tracking URL was not installed in buyer page")
