@@ -131,14 +131,15 @@
       "note": "Existing repository evidence already records a submitted application dated 2026-09-01. The current Airtable form cannot prove that no prior submission exists. Do not submit again while awaiting a decision."
     },
     "beefree": {
-      "status": "application_submitted",
+      "status": "approved_tracking",
       "contact": "samantha.hoffmann@beefree.io",
       "gmail_message_id": "1a07cd33372b8a88",
       "sender": "support@coshuma.com",
-      "tracking_url": null,
+      "tracking_url": "https://partners.beefree.io/kqi520hezix2",
       "official_program_url": "https://beefree.io/ambassador-program",
       "verified_at": "2026-09-08T02:03:30+09:00",
-      "note": "Really Good Emails (RGE Studio) / Beefree application was submitted once through the existing PartnerStack account. Fresh PartnerStack receipt confirms submission for review. No tracking URL is verified yet. Do not reapply."
+      "note": "Beefree/RGE Studio Ambassador approval is verified and the vendor email supplied COSHUMA's exact PartnerStack referral URL. Do not reapply. No sale or revenue is inferred.",
+      "updated_at": "2026-09-09T14:02:11Z"
     },
     "fill": {
       "status": "approved_tracking",

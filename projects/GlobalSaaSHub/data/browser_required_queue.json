@@ -283,13 +283,17 @@
   {
     "id": "beefree-browser-followup-20260908",
     "priority": "medium",
-    "status": "application_submitted",
+    "status": "resolved",
     "cost": "0",
     "verified_at": "2026-09-07T17:06:13Z",
     "reason": "Existing-account PartnerStack all-status search for RGE returned No data to display; both mailboxes had outreach but no prior program receipt. Official B2B/B2C directory route opened application as existing Sangkwon An / COSHUMA account. Filled truthful non-consent fields, selected Korea, Republic of, submitted once. Dashboard now shows Really Good Emails (RGE Studio) / Application pending. Fresh receipt 1a07cd33372b8a88 at 2026-09-07T17:03:30Z.",
     "next_action": "One free application; no legal checkbox, payment, or subscription.",
-    "exact_tracking_url": null,
-    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+    "exact_tracking_url": "https://partners.beefree.io/kqi520hezix2",
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json",
+    "affiliate_status": "approved_tracking",
+    "tracking_url": "https://partners.beefree.io/kqi520hezix2",
+    "resolved_at": "2026-09-09T14:02:11Z",
+    "resolution": "Exact customer-facing PartnerStack referral URL arrived by vendor email; no browser dashboard action or duplicate application is required."
   },
   {
     "id": "brand24-approved-referral-link",

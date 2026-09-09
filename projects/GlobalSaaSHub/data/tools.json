@@ -3236,7 +3236,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Beefree is a drag-and-drop editor for creating beautiful, responsive emails and landing pages quickly and without coding, ideal for marketers and designers.",
-    "affiliate_url": null,
+    "affiliate_url": "https://partners.beefree.io/kqi520hezix2",
     "pricing": "See official pricing",
     "key_features": [
       "Drag-and-drop editor",
@@ -3260,13 +3260,22 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://beefree.io/ambassador-program",
     "affiliate_verified": true,
-    "affiliate_status": "application_submitted",
-    "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-09T14:02:11Z",
     "affiliate_evidence_markers": [
-      "PartnerStack receipt confirms Really Good Emails (RGE Studio) / Beefree application submitted for review",
-      "The existing PartnerStack account was reused",
-      "No exact customer-facing tracking URL is available yet"
-    ]
+      "Vendor/PartnerStack welcome email 1a08679f9fe66388 to support@coshuma.com explicitly identifies https://partners.beefree.io/kqi520hezix2 as COSHUMA's unique referral link to share.",
+      "Beefree's official Ambassador page states ambassadors earn 20% of first-year customer revenue and referrals use a 90-day cookie.",
+      "Generic Beefree/RGE Studio home, pricing, dashboard, onboarding and login URLs are not treated as affiliate links.",
+      "Approval and link issuance do not prove a customer click, signup, commission, or revenue.",
+      "data/beefree-approved-tracking-2026-09-09.json"
+    ],
+    "affiliate_final_url": "https://partners.beefree.io/kqi520hezix2",
+    "affiliate_status_checked_at": "2026-09-09T14:02:11Z",
+    "affiliate_status_evidence_url": "gmail:1a08679f9fe66388",
+    "affiliate_tracking_url_verified": true,
+    "affiliate_tracking_attribution_currently_verified": false,
+    "affiliate_dashboard_status": "Approved; vendor email supplied exact PartnerStack customer referral URL",
+    "affiliate_next_action": "Use the exact vendor-issued referral URL on buyer-intent Beefree/RGE Studio CTAs. Keep official pricing links for price verification. Do not reapply or infer revenue. A destination-specific pricing referral link may be requested separately without blocking the current verified route."
   },
   {
     "id": "apollo",
