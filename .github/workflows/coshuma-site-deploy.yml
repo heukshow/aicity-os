@@ -11,6 +11,7 @@ on:
       - 'projects/GlobalSaaSHub/scripts/apply_verified_buyer_deeplinks.mjs'
       - 'projects/GlobalSaaSHub/scripts/browser_followup_evidence.mjs'
       - 'projects/GlobalSaaSHub/scripts/reconcile_tagshop_approved_tracking.mjs'
+      - 'projects/GlobalSaaSHub/scripts/reconcile_promoted_affiliate_states_2026_09_10.mjs'
       - 'projects/GlobalSaaSHub/data/affiliate-browser-followup-wave3-2026-09-08.json'
       - 'projects/GlobalSaaSHub/data/affiliate-submission-batch-2026-09-08.json'
       - 'projects/GlobalSaaSHub/data/standalone_tool_pages.json'
@@ -71,6 +72,7 @@ jobs:
           node scripts/sync_verified_affiliates.mjs
           node scripts/sync_latest_affiliate_states.mjs
           node scripts/reconcile_tagshop_approved_tracking.mjs
+          node scripts/reconcile_promoted_affiliate_states_2026_09_10.mjs
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
           const tools = JSON.parse(fs.readFileSync('data/tools.json', 'utf8'));
@@ -91,12 +93,12 @@ jobs:
             }
           }
           const expectedStates = new Map([
-            ['gravity-forms', 'application_submitted'],
+            ['gravity-forms', 'approved'],
             ['sendcloud', 'application_submitted'],
             ['apollo', 'rejected'],
             ['ai-video-cut', 'application_submitted'],
-            ['fillout', 'application_submitted'],
-            ['beefree', 'application_submitted'],
+            ['fillout', 'approved_tracking'],
+            ['beefree', 'approved_tracking'],
             ['gumloop', 'application_submitted'],
             ['pipedrive', 'pending'],
             ['monday-com', 'pending'],
@@ -145,9 +147,10 @@ jobs:
 
       - name: Verify COSHUMA bundle identity
         run: |
-          set -ex
+          set -e
           test -f projects/GlobalSaaSHub/dist/index.html
-          test -f projects/GlobalSaaSHub/dist/admin-affiliate-audit.json
+          test -f projects/GlobalSaaSHub/.private-ops/admin-affiliate-audit.json
+          test ! -e projects/GlobalSaaSHub/dist/admin-affiliate-audit.json
           grep -q 'COSHUMA' projects/GlobalSaaSHub/dist/index.html
           if grep -R -q 'GlobalSaaSHub' projects/GlobalSaaSHub/dist/tool projects/GlobalSaaSHub/dist/compare 2>/dev/null; then
             echo 'Legacy GlobalSaaSHub branding detected in generated production pages.'
