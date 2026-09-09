@@ -19,7 +19,7 @@
     "check:omnisend-revenue": "python scripts/apply_search_console_ctr_patches.py && python scripts/apply_omnisend_revenue_patch.py && python scripts/finalize_omnisend_tracking.py && echo omnisend-search-monetization-v8",
     "check:gravity-approval": "node scripts/reconcile_gravity_approval_state.mjs && echo gravity-approved-link-pending-v1",
     "check:claap-partner": "python scripts/apply_claap_partner_feedback.py && python scripts/reconcile_claap_teachable_tracking_2026_09_09.py && python scripts/ensure_claap_verified_queue.py && node scripts/monetize_verified_compare_links.mjs && echo claap-approved-tracking-v8",
-    "check:beefree-partner": "python scripts/reconcile_beefree_tracking_2026_09_09.py && node scripts/monetize_verified_compare_links.mjs && echo beefree-approved-tracking-v1",
+    "check:beefree-partner": "python scripts/reconcile_beefree_tracking_2026_09_09.py && node scripts/monetize_verified_compare_links.mjs && echo beefree-approved-tracking-v2",
     "check:unbounce-revenue": "python scripts/apply_search_console_ctr_patches.py && python scripts/apply_unbounce_search_revenue_patch.py && echo unbounce-search-revenue-v1",
     "check:databox-ctr": "python scripts/apply_databox_ctr_patch.py && echo databox-search-ctr-v3",
     "check:databox-partner": "python scripts/apply_databox_partner_ai_stack.py && echo databox-partner-ai-stack-v1",
@@ -34,7 +34,7 @@
     "@tailwindcss/vite": "^4.3.2",
     "lucide-react": "^1.24.0",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7",
+    "react-dom": "^19.2.3",
     "tailwindcss": "^4.3.2"
   },
   "devDependencies": {
