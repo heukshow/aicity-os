@@ -15,6 +15,18 @@ approvedTracking.set('krater', {
   evidence_file: 'data/krater-affiliate-enrollment-evidence-2026-09-08.md',
 });
 
+// Vendor-confirmed Rewardful tracking URL received in the COSHUMA company mailbox.
+// Keep Rewardful login/dashboard/onboarding URLs out of buyer-facing CTAs.
+approvedTracking.set('typedesk', {
+  id: 'typedesk',
+  status: 'approved_tracking',
+  exact_tracking_url: 'https://www.typedesk.com?via=sangkwon',
+  destination: 'https://www.typedesk.com?via=sangkwon',
+  evidence: 'Typedesk human reply from hennadiy@typedesk.com to support@coshuma.com explicitly identifies https://www.typedesk.com?via=sangkwon as COSHUMA\'s unique tracking link and says reports remain available in the Rewardful dashboard. No click, signup, commission, or revenue is inferred from link issuance alone.',
+  checked_at: '2026-09-09T10:40:59+09:00',
+  evidence_file: 'data/typedesk-approved-tracking-2026-09-09.md',
+});
+
 export function applyApprovedTracking(tool) {
   const item = approvedTracking.get(tool.id);
   if (!item) return false;
