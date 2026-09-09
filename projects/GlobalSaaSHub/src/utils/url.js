@@ -1,12 +1,19 @@
 /**
  * Validates and extracts a clean HTTP/HTTPS external URL from a tool object.
- * Uses affiliate_url only after explicit verification, then falls back to official_url.
+ * Uses affiliate_url only when a customer-facing tracking route is explicitly approved,
+ * then falls back to official_url. Application/pending/closed program states must never
+ * be treated as revenue-ready affiliate destinations.
  * Returns null if no valid URL is found (rejects null, undefined, none, #, empty strings).
  */
 export const getValidExternalUrl = (tool) => {
   if (!tool) return null;
 
-  const candidates = tool.affiliate_verified === true
+  // Keep this predicate aligned with homepage card labeling so program-state evidence
+  // cannot be presented as a buyer-ready tracking route.
+  const approvedAffiliate =
+    tool.affiliate_verified === true && tool.affiliate_status === "approved_tracking";
+
+  const candidates = approvedAffiliate
     ? [tool.affiliate_url, tool.official_url]
     : [tool.official_url];
 

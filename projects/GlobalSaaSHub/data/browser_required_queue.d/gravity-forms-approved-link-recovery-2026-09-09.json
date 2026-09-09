@@ -1,0 +1,22 @@
+{
+  "id": "gravity-forms-approved-link-recovery-2026-09-09",
+  "tool_id": "gravity-forms",
+  "priority": "high",
+  "status": "approved_account_exact_link_email_pending",
+  "affiliate_status": "approved_account",
+  "cost": 0,
+  "verified_at": "2026-09-09T15:24:56Z",
+  "gmail_message_id": "1a082c784399b2c3",
+  "gmail_thread_id": "1a082c784399b2c3",
+  "latest_vendor_message_id": "1a086c5b09d76105",
+  "outbound_exact_link_request_message_id": "1a086cebfdc650f5",
+  "reason": "Gravity Affiliate first welcomed COSHUMA to the approved program. On Sep 9, 2026 the team additionally confirmed that COSHUMA's profile contains an individual affiliate link usable across gravityforms.com, but still did not paste the exact customer-facing URL. COSHUMA replied from support@coshuma.com asking them to paste the exact default link and, if available, a vendor-issued tracked pricing-page link. This direct email path is preferred over browser recovery.",
+  "exact_tracking_url": null,
+  "next_action": "Wait for the direct vendor reply with the exact customer-facing URL. If Gravity supplies it, verify and activate only that exact URL. Use the authenticated PartnerStack browser only as fallback if the vendor does not paste the link. Do not reapply.",
+  "do_not": [
+    "Do not submit another Gravity affiliate application; the welcome email verifies program acceptance.",
+    "Do not use SendGrid email redirects, PartnerStack login/dashboard routes, profile URLs, help pages, notification pages, or the generic gravityforms.com homepage as affiliate/revenue URLs.",
+    "Do not guess or construct a referral parameter or pricing deeplink.",
+    "Do not infer clicks, sales, conversions, commissions, or revenue from approval or link availability alone."
+  ]
+}

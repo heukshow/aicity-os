@@ -12,12 +12,51 @@
     "paid_brand_bidding": "prohibited on Claap and close brand variants"
   },
   "tracking_url": null,
-  "tracking_url_rule": "Do not use the dashboard/login URL or SendGrid redirect as a revenue CTA. Recover and verify the exact customer-facing PartnerStack affiliate link from the authenticated dashboard before changing COSHUMA CTAs.",
-  "next_action": "browser_required: open existing Claap PartnerStack dashboard and copy the exact customer-facing affiliate link only; no reapplication.",
+  "tracking_url_rule": "Do not use the dashboard/login URL, email redirect, generic claap.io URL, or a guessed parameter as a revenue CTA. Recover and verify the exact customer-facing PartnerStack affiliate link from the authenticated existing account before changing COSHUMA revenue CTAs.",
+  "manager_guidance": {
+    "gmail_message_id": "1a0802b92ec36e61",
+    "received_at_utc": "2026-09-08T08:38:52Z",
+    "advice": "Start with a concise Claap review in COSHUMA's own editorial tone; Lamia said this is what converts best and invited COSHUMA to share the live review.",
+    "implemented": true,
+    "implemented_path": "/tool/claap.html",
+    "implemented_commit": "ac15763e5c2cef3549efd47d80a4173343c9281d"
+  },
+  "latest_manager_feedback": {
+    "gmail_message_id": "1a0854b42ac1cc9a",
+    "received_at_utc": "2026-09-09T08:31:35Z",
+    "manager": "Lamia Karmaly",
+    "reviewed_page": "/tool/claap.html",
+    "prototype_url": "https://claap-prototype.vercel.app/meetings",
+    "feedback": [
+      "Current COSHUMA Claap CTAs point to claap.io and are marked official, so they are not affiliate-tracked or commissionable.",
+      "Recover the exact issued Claap affiliate link from the existing PartnerStack account and swap the revenue buttons only after verification.",
+      "The official product domain is claap.io, not claap.ai.",
+      "Current US-facing plan guidance supplied by the manager is Free / Pro / Business / Enterprise.",
+      "US-facing pricing supplied by the manager is Pro $40/license/month ($32 annual) and Business $75/license/month ($60 annual), with Enterprise custom.",
+      "Do not describe asynchronous video as a reason not to choose Claap; async recording is part of the product.",
+      "Add integration and security context for buyer decision support."
+    ],
+    "implemented": true,
+    "implemented_path": "/tool/claap.html",
+    "implementation_commit": "68368d1ab27a05fbee81482550699eb898812ca9",
+    "build_idempotence_fix_commit": "fe70946acac44b46516cff20b6e5ddbfaceb6afc",
+    "deployment_retrigger_commit": "30b371ae8140c02cf5764b975d71b21de1973942"
+  },
+  "official_product_url": "https://www.claap.io/",
+  "official_pricing_reference": "https://www.claap.io/pricing",
+  "next_action": "Prefer direct recovery by email from Lamia first. If no exact issued customer-facing link is supplied, browser_required: reuse the existing Claap PartnerStack partnership and copy the exact customer-facing affiliate link only; no reapplication. Then replace Claap revenue CTAs after exact-link verification and validate attribution.",
+  "tracking_link_recovery_outreach": {
+    "sent": true,
+    "sender_account": "support@coshuma.com",
+    "reply_to_manager_message_id": "1a0854b42ac1cc9a",
+    "gmail_sent_message_id": "1a085ba317729c6e",
+    "request": "Send the exact customer-facing PartnerStack referral URL assigned to COSHUMA by email so the current official Claap CTAs can be replaced without dashboard work.",
+    "safety": "No dashboard/login/prototype URL or guessed parameter will be used as a revenue CTA."
+  },
   "outreach": {
     "sent": true,
     "gmail_sent_message_id": "1a080205fb2acd44",
     "purpose": "Asked Lamia for the single highest-converting approved angle/creative for COSHUMA's high-intent buyer pages."
   },
-  "revenue_claim": "No signup, commission, or revenue is inferred from approval alone."
+  "revenue_claim": "No signup, commission, or revenue is inferred from approval, manager feedback, or page publication alone."
 }

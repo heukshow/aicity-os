@@ -14,6 +14,37 @@ const terminalAffiliateStatuses = new Set([
   'rejected',
   'cooldown',
   'closed',
+  'program_inactive',
+  'application_blocked_region',
+  'application_blocked_vendor_site_paused',
+  'blocked_partnerstack_marketplace_limited',
+  'excluded_user_request',
+  'vendor-paused',
+  'vendor_paused',
+]);
+
+const noReapplyAffiliateStatuses = new Set([
+  'application_submitted',
+  'application_pending',
+  'approved',
+  'approved_account',
+  'approved_tracking',
+  'pending',
+  'email_verification_pending',
+  'email_confirmation_required',
+  'email_confirmed_login_required',
+  'outreach_sent',
+  'enrollment_requested',
+  'browser_required_otp',
+  'browser_required_portal_access',
+  'browser_required_application_form',
+  ...terminalAffiliateStatuses,
+]);
+
+const browserRequiredAffiliateStatuses = new Set([
+  'browser_required_otp',
+  'browser_required_portal_access',
+  'browser_required_application_form',
 ]);
 
 const genericRevenueReady = (tool) =>
@@ -38,6 +69,10 @@ const affiliateCoverage = tools
     const genericReady = genericRevenueReady(tool);
     const targetedReady = targetedRevenueReady(tool);
     const ready = genericReady || targetedReady;
+    const browserRequired = !ready && !terminal && browserRequiredAffiliateStatuses.has(status);
+    const doNotReapply = ready || terminal || noReapplyAffiliateStatuses.has(status);
+    const directActionableGap = !ready && !terminal && !browserRequired && !doNotReapply;
+    const watchOnlyGap = !ready && !terminal && !browserRequired && doNotReapply;
     let blocker = null;
     if (!ready && !terminal) {
       if (!tool.affiliate_status) blocker = 'affiliate_status_unclassified';
@@ -57,6 +92,10 @@ const affiliateCoverage = tools
       targetedRevenueReady: targetedReady,
       revenueReady: ready,
       terminal,
+      doNotReapply,
+      browserRequired,
+      directActionableGap,
+      watchOnlyGap,
       blocker,
     };
   })
@@ -68,12 +107,36 @@ const coverageCounts = affiliateCoverage.reduce((acc, item) => {
   acc.targetedRevenueReady += Number(item.targetedRevenueReady && !item.genericRevenueReady);
   acc.terminal += Number(item.terminal);
   acc.openMonetizationGaps += Number(!item.revenueReady && !item.terminal);
+  acc.directActionableGaps += Number(item.directActionableGap);
+  acc.browserRequiredGaps += Number(item.browserRequired);
+  acc.watchOnlyGaps += Number(item.watchOnlyGap);
+  acc.doNotReapply += Number(item.doNotReapply);
   acc.unclassifiedAffiliateStatus += Number(item.affiliateStatus === 'unclassified');
   acc.exactAffiliateUrlMissing += Number(!item.revenueReady && !item.terminal && !item.hasAffiliateUrl);
   acc.officialUnverified += Number(!item.officialVerified);
   acc.pricingUnverified += Number(!item.pricingVerified);
   return acc;
-}, { revenueReady: 0, genericRevenueReady: 0, targetedRevenueReady: 0, terminal: 0, openMonetizationGaps: 0, unclassifiedAffiliateStatus: 0, exactAffiliateUrlMissing: 0, officialUnverified: 0, pricingUnverified: 0 });
+}, {
+  revenueReady: 0,
+  genericRevenueReady: 0,
+  targetedRevenueReady: 0,
+  terminal: 0,
+  openMonetizationGaps: 0,
+  directActionableGaps: 0,
+  browserRequiredGaps: 0,
+  watchOnlyGaps: 0,
+  doNotReapply: 0,
+  unclassifiedAffiliateStatus: 0,
+  exactAffiliateUrlMissing: 0,
+  officialUnverified: 0,
+  pricingUnverified: 0,
+});
+
+for (const item of affiliateCoverage) {
+  if (noReapplyAffiliateStatuses.has(item.affiliateStatus) && item.directActionableGap) {
+    throw new Error(`Duplicate-application guard failed for ${item.id}: ${item.affiliateStatus}`);
+  }
+}
 
 const affiliates = tools.filter((tool) => tool.affiliate_verified === true)
   .sort((a, b) => Number(Boolean(b.affiliate_url)) - Number(Boolean(a.affiliate_url)) || a.name.localeCompare(b.name))
@@ -90,16 +153,20 @@ const snapshot = {
     genericRevenueReadyAffiliates: coverageCounts.genericRevenueReady,
     targetedRevenueReadyAffiliates: coverageCounts.targetedRevenueReady,
     openMonetizationGaps: coverageCounts.openMonetizationGaps,
+    directActionableGaps: coverageCounts.directActionableGaps,
+    browserRequiredGaps: coverageCounts.browserRequiredGaps,
+    watchOnlyGaps: coverageCounts.watchOnlyGaps,
+    doNotReapply: coverageCounts.doNotReapply,
     toolPages: files('tool').length,
     comparePages: files('compare').length,
     sitemapUrls: (sitemap.match(/<loc>/g) || []).length,
   },
   revenueFocus: {
-    policy: 'finish_existing_tool_affiliate_coverage_before_expansion',
-    allowNewTools: coverageCounts.openMonetizationGaps === 0,
-    reason: coverageCounts.openMonetizationGaps === 0
-      ? 'Existing-tool affiliate coverage has no open monetization gaps.'
-      : `${coverageCounts.openMonetizationGaps} existing tools still have open monetization gaps.`,
+    policy: 'prioritize_direct_existing_gaps_without_reapplying_waiting_states',
+    allowNewTools: coverageCounts.directActionableGaps === 0,
+    reason: coverageCounts.directActionableGaps === 0
+      ? 'No directly actionable existing affiliate gap remains; waiting and browser-only states are protected from duplicate enrollment.'
+      : `${coverageCounts.directActionableGaps} existing tools still have directly actionable affiliate gaps; ${coverageCounts.watchOnlyGaps} are watch-only and ${coverageCounts.browserRequiredGaps} require browser work.`,
   },
   affiliateCoverage: { counts: coverageCounts, records: affiliateCoverage },
   connections: { ga4: '수집 연결됨', searchConsole: '연결됨' },
@@ -118,4 +185,4 @@ const snapshot = {
   recentSeoChanges: [{ title: '공개 검색 최적화 무결성 계약 강화', date: '2026-09-01' }, { title: '사이트맵 및 정적 페이지 동기화', date: '2026-09-01' }],
 };
 fs.writeFileSync(path.join(root, 'worker/src/admin-snapshot.json'), `${JSON.stringify(snapshot, null, 2)}\n`);
-console.log(`Admin snapshot: ${tools.length} tools, ${coverageCounts.revenueReady} revenue-ready affiliates (${coverageCounts.targetedRevenueReady} targeted-only), ${coverageCounts.openMonetizationGaps} open monetization gaps`);
+console.log(`Admin snapshot: ${tools.length} tools, ${coverageCounts.revenueReady} revenue-ready affiliates (${coverageCounts.targetedRevenueReady} targeted-only), ${coverageCounts.directActionableGaps} direct gaps, ${coverageCounts.watchOnlyGaps} watch-only, ${coverageCounts.browserRequiredGaps} browser-required`);

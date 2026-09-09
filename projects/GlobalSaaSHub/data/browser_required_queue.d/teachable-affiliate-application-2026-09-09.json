@@ -1,0 +1,21 @@
+{
+  "id": "teachable-affiliate-application-2026-09-09",
+  "tool_id": "teachable",
+  "priority": "medium",
+  "status": "browser_required_application",
+  "affiliate_status": "application_route_confirmed",
+  "cost": 0,
+  "verified_at": "2026-09-08T20:48:05Z",
+  "gmail_message_id": "1a082c7b92c62994",
+  "gmail_thread_id": "1a07d1e9a83375a1",
+  "official_application_url": "https://www.teachable.com/partners",
+  "reason": "Teachable Affiliate Program replied directly to COSHUMA and confirmed the current affiliate program offers 30% recurring commission on subscription fees from each new referred customer during the first year. The reply directs COSHUMA to the official partners page to apply and says unique customer-facing tracking links become available only after review and approval. Repository state previously recorded outreach only, so there is no evidence of a submitted Teachable application yet.",
+  "exact_tracking_url": null,
+  "next_action": "When an authenticated browser session is available, open the official Teachable partners application and submit one free application using verified COSHUMA facts only. If any CAPTCHA, OTP, legal agreement acceptance, forced identity verification, or payment step appears, stop that item and leave it for the user. After approval, recover and verify the exact customer-facing tracking link before changing a public CTA.",
+  "do_not": [
+    "Do not treat https://www.teachable.com/partners, a dashboard/login URL, or onboarding URL as a customer affiliate/revenue link.",
+    "Do not claim approval before an explicit approval notice or authenticated program status confirms it.",
+    "Do not submit a duplicate application if newer evidence shows one was already submitted.",
+    "Do not invent traffic, revenue, conversion, audience-size, or performance figures in the application."
+  ]
+}

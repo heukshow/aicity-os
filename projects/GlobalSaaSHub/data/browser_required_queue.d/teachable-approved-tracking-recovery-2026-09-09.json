@@ -1,0 +1,26 @@
+{
+  "id": "teachable-approved-tracking-recovery-2026-09-09",
+  "tool_id": "teachable",
+  "program_name": "Teachable Affiliate Program",
+  "priority": "resolved",
+  "status": "resolved",
+  "affiliate_status": "approved_tracking",
+  "exact_tracking_url": "https://partnerstack.teachable.com/ce4muoxdj46j",
+  "exact_extended_trial_tracking_url": "https://partnerstack.teachable.com/COSHUMA",
+  "cost": "0",
+  "verified_at": "2026-09-09T17:24:53Z",
+  "approval_gmail_message_id": "1a08653d9c3bd9f8",
+  "tracking_reply_gmail_message_id": "1a086aa6ef5a4d98",
+  "outbound_extended_trial_request_message_id": "1a086ca80689bbbf",
+  "extended_trial_reply_gmail_message_id": "1a087337fdf3bdd1",
+  "reason": "Teachable manager Camila Gouveia supplied both COSHUMA's default customer-facing PartnerStack link and the exact COSHUMA 30-day Free Trial PartnerStack route directly to support@coshuma.com. Browser recovery is no longer required for either route.",
+  "next_action": "Use https://partnerstack.teachable.com/ce4muoxdj46j as the default verified Teachable affiliate route and https://partnerstack.teachable.com/COSHUMA only for the vendor-confirmed 30-day Free Trial CTA. Do not reapply or reopen browser recovery.",
+  "constraints": [
+    "Do not submit another Teachable affiliate application.",
+    "Do not treat https://www.teachable.com/partners, PartnerStack dashboard/login URLs, onboarding URLs, or the unwrapped https://www.teachable.com/welcome/partner30 page as affiliate/revenue links.",
+    "Do not guess or construct a referral parameter or trial wrapper.",
+    "No paid plan or subscription is required.",
+    "No revenue, signup, or commission is inferred from approval or link issuance alone."
+  ],
+  "user_action_required": false
+}

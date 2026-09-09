@@ -14,7 +14,7 @@ const list = (payload) => Array.isArray(payload?.data)
     ? payload.data.items
     : Array.isArray(payload?.items)
       ? payload.items
-      : [];
+      : (() => { throw new Error('PartnerStack response shape not recognized'); })();
 
 const cents = (value) => {
   const number = Number(value);

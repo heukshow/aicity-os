@@ -175,28 +175,17 @@
     "execution_evidence": "affiliate-browser-results-2026-09-08.json"
   },
   {
-    "id": "gravity-forms-browser-followup-20260908",
-    "priority": "medium",
-    "status": "application_submitted",
-    "cost": "0",
-    "verified_at": "2026-09-07T17:06:13Z",
-    "reason": "Authenticated PartnerStack home displays Gravity / Application pending.",
-    "next_action": "Read only; no reapplication.",
-    "exact_tracking_url": null,
-    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
-  },
-  {
     "id": "fillout-browser-followup-20260908",
     "priority": "medium",
-    "status": "application_submitted",
+    "status": "resolved",
     "cost": "0",
-    "verified_at": "2026-09-07T17:19:00Z",
-    "reason": "User explicitly authorized acceptance of the prepared Fillout Program Terms. Existing form preserved, checkbox selected and Continue clicked once. Step 2 of 2 shows Application submitted / submitted for review. Notification address shown by existing Dub account is qmfforfhem@gmail.com. Application ID pga_1M1YE0ANQP8BPWPGEW2BENNGR. Promotional dashboard illustration is not actual earnings or a personal referral link.",
-    "next_action": "Await decision; do not reapply.",
-    "exact_tracking_url": null,
+    "verified_at": "2026-09-08T14:00:00+09:00",
+    "reason": "User explicitly authorized acceptance of the prepared Fillout Program Terms. Existing form preserved, checkbox selected and Continue clicked once. Step 2 of 2 shows Application submitted / submitted for review. Notification address shown by existing Dub account is qmfforfhem@gmail.com. Application ID pga_1M1YE0ANQP8BPWPGEW2BENNGR. Promotional dashboard illustration is not actual earnings or a personal referral link. Follow-up: authenticated Dub partner dashboard at partners.dub.co/programs/fillout now shows Approved/Enrolled with issued exact customer-facing tracking link try.fillout.com/sang-kwon-an-hxwn.",
+    "next_action": "Preserve the issued exact customer-facing link; do not reapply. Add a public catalog entry separately before treating this as a site CTA.",
+    "exact_tracking_url": "https://try.fillout.com/sang-kwon-an-hxwn",
     "blocker": null,
-    "execution_evidence": "affiliate-browser-results-2026-09-08.json",
-    "affiliate_status": "application_submitted"
+    "execution_evidence": "data/fillout-affiliate-enrollment-evidence-2026-09-08.md",
+    "affiliate_status": "approved_tracking"
   },
   {
     "id": "time2book-browser-followup-20260908",
@@ -294,13 +283,17 @@
   {
     "id": "beefree-browser-followup-20260908",
     "priority": "medium",
-    "status": "application_submitted",
+    "status": "resolved",
     "cost": "0",
     "verified_at": "2026-09-07T17:06:13Z",
     "reason": "Existing-account PartnerStack all-status search for RGE returned No data to display; both mailboxes had outreach but no prior program receipt. Official B2B/B2C directory route opened application as existing Sangkwon An / COSHUMA account. Filled truthful non-consent fields, selected Korea, Republic of, submitted once. Dashboard now shows Really Good Emails (RGE Studio) / Application pending. Fresh receipt 1a07cd33372b8a88 at 2026-09-07T17:03:30Z.",
     "next_action": "One free application; no legal checkbox, payment, or subscription.",
-    "exact_tracking_url": null,
-    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+    "exact_tracking_url": "https://partners.beefree.io/kqi520hezix2",
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json",
+    "affiliate_status": "approved_tracking",
+    "tracking_url": "https://partners.beefree.io/kqi520hezix2",
+    "resolved_at": "2026-09-09T14:02:11Z",
+    "resolution": "Exact customer-facing PartnerStack referral URL arrived by vendor email; no browser dashboard action or duplicate application is required."
   },
   {
     "id": "brand24-approved-referral-link",
@@ -404,18 +397,19 @@
     "id": "n8n-affiliate-browser-followup",
     "tool_id": "n8n",
     "status": "resolved",
-    "affiliate_status": "application_submitted",
+    "affiliate_status": "rejected",
     "cost": "0",
     "exact_tracking_url": null,
     "workflow_url": "https://dash.partnerstack.com/home",
     "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
     "reason": "2026-09-08 authenticated browser: checked the prepared required I agree acknowledgement under explicit user authorization and submitted once. PartnerStack home then displayed n8n GmbH / Application pending. Clicks and signups 0; revenue, pending and paid commissions $0.00. No approval or customer tracking URL issued.",
-    "next_action": "Await program review in the existing account. Do not reapply. Recover only an issued customer-facing tracking URL after approval evidence.",
+    "next_action": "Do not reapply automatically. Keep n8n rejected and keep affiliate_url null unless a later vendor message explicitly reverses the decision or the user requests a future re-application after materially improved eligibility.",
     "do_not": [
       "Do not reapply or submit duplicate outreach.",
       "Do not pay or create a new account.",
       "Do not infer conversions, commissions or revenue from approval or public landing checks."
-    ]
+    ],
+    "blocker": null
   },
   {
     "id": "novita-ai-affiliate-browser-followup",
@@ -477,19 +471,20 @@
   {
     "id": "typedesk-affiliate-browser-followup",
     "tool_id": "typedesk",
-    "status": "application_submitted",
-    "affiliate_status": "application_submitted",
+    "status": "resolved",
+    "affiliate_status": "approved_tracking",
     "cost": "0",
-    "exact_tracking_url": null,
+    "exact_tracking_url": "https://www.typedesk.com?via=sangkwon",
     "workflow_url": "https://typedesk.getrewardful.com/login",
     "evidence_file": "data/affiliate-browser-followup-wave3-2026-09-08.json",
     "reason": "Read existing evidence file and verified sent email titled COSHUMA application for the typedesk Affiliate Program in legacy Gmail. No reply found in searched company/legacy mailboxes. Current official Become an affiliate link reaches a real Rewardful signup form. It advertises 30% recurring for up to 12 months, requests password/confirmation, and states signup agrees to Terms of Service. Login requires email and password; no authenticated session was present.",
-    "next_action": "Preserve existing email application; do not send or submit a duplicate. Resolve existing request/account before any Rewardful registration. Current dashboard approval and customer referral URL remain unconfirmed.",
+    "next_action": "Preserve and publish the verified Typedesk tracking URL on buyer-facing COSHUMA pages; do not reapply or request another tracking account. Measure actual outbound clicks and only claim downstream revenue when separately evidenced.",
     "do_not": [
       "Do not reapply or submit duplicate outreach.",
       "Do not pay or create a new account.",
       "Do not infer conversions, commissions or revenue from approval or public landing checks."
-    ]
+    ],
+    "blocker": null
   },
   {
     "id": "catalister-affiliate-followup",
@@ -514,23 +509,27 @@
     "id": "tagshop-ai-affiliate-followup",
     "tool_id": "tagshop-ai",
     "priority": "high",
-    "status": "application_submitted",
-    "affiliate_status": "application_submitted",
+    "status": "approved_tracking",
+    "affiliate_status": "approved_tracking",
     "cost": "0",
-    "verified_at": "2026-09-08T05:05:00+09:00",
-    "exact_tracking_url": null,
-    "reason": "User explicitly authorized the mandatory program agreement; live signup checkbox was checked and Sign Up submitted once for support@coshuma.com. FirstPromoter Team <support@firstpromoter.com> sent Confirmation instructions at 05:02 KST thanking COSHUMA for signing up to Tagshop - Partner Program. The official confirmation page displayed Email confirmed successfully. Subsequent sign-in attempts remained on the login form without a dashboard or visible error. Enrollment and email confirmation are verified; approval, pending-review status and customer tracking URL remain unconfirmed. No payment was made.",
-    "next_action": "Resume the existing confirmed account at the login page and verify its dashboard or a subsequent program email. Do not create another account or resubmit the application. Record only an issued customer-facing tracking URL after approval verification. No further consent request is needed. Leave CAPTCHA or forced identity verification to the user; no paid plan.",
+    "verified_at": "2026-09-09T05:03:24+09:00",
+    "exact_tracking_url": "https://tagshop.ai?via=coshuma-22501e",
+    "reason": "Resolved by Tagshop welcome email 1a0829e45df98eb7, which issued the exact customer-facing referral URL https://tagshop.ai?via=coshuma-22501e and states paid referred subscriptions are rewarded.",
+    "next_action": "No browser follow-up or reapplication. Preserve the exact issued customer URL and use it only on eligible customer CTAs.",
     "execution_evidence": "tagshop-submission-2026-09-08.json",
     "do_not": [
-      "Do not submit duplicate applications or outreach.",
-      "Do not substitute dashboard, homepage or empty tracking parameter for a revenue URL.",
-      "Do not infer conversions or revenue from link issuance or a verification visit.",
-      "No paid enrollment."
+      "Do not reapply to Tagshop or create another affiliate account.",
+      "Do not use tagshop.firstpromoter.com/login, an onboarding page, application page, or generic homepage as the affiliate/revenue URL.",
+      "Do not infer customer signup, paid conversion, commission, payout or revenue from link issuance or link verification."
     ],
     "application_submitted": true,
     "email_confirmed": true,
-    "program_consent_checked": true
+    "program_consent_checked": true,
+    "resolved_at": "2026-09-09T05:03:24+09:00",
+    "blocker": null,
+    "resolution_evidence": "data/tagshop-approved-tracking-2026-09-09.md",
+    "portal_enrollment_confirmed": true,
+    "do_not_reapply": true
   },
   {
     "id": "webflow-affiliate-browser-followup",
@@ -602,13 +601,14 @@
     "tool_id": "krater",
     "priority": "high",
     "status": "resolved",
-    "affiliate_status": "application_submitted",
-    "exact_tracking_url": null,
+    "affiliate_status": "approved_tracking",
+    "exact_tracking_url": "https://go.krater.ai/sang-kwon-an",
     "cost": "0",
-    "verified_at": "2026-09-07T21:21:56.008052+00:00",
-    "reason": "Authenticated Chrome: after a pre-application company Gmail in:anywhere search found no matching messages, the Dub application was submitted once with COSHUMA, support@coshuma.com, https://coshuma.com and factual buyer-guide promotion text. Program terms accepted under explicit user authorization. Step 2 of 2 displayed Application submitted and stated the review update will be sent to support@coshuma.com. The decorative dashboard illustration on this success page is not real account revenue or an issued referral link. No approval or exact tracking URL was issued.",
-    "next_action": "Await the existing Krater application review in Dub; do not reapply. Only publish an issued exact customer-facing link after approval evidence.",
-    "evidence_file": "data/affiliate-submission-batch-2026-09-08.json"
+    "verified_at": "2026-09-08T14:00:00+09:00",
+    "reason": "Authenticated Chrome: after a pre-application company Gmail in:anywhere search found no matching messages, the Dub application was submitted once with COSHUMA, support@coshuma.com, https://coshuma.com and factual buyer-guide promotion text. Program terms accepted under explicit user authorization. Step 2 of 2 displayed Application submitted and stated the review update will be sent to support@coshuma.com. The decorative dashboard illustration on this success page is not real account revenue or an issued referral link. No approval or exact tracking URL was issued. Follow-up: authenticated Dub partner dashboard at partners.dub.co/programs/kraterai now shows Approved/Enrolled with issued exact customer-facing tracking link go.krater.ai/sang-kwon-an.",
+    "next_action": "Preserve the issued exact customer-facing link; do not reapply. Keep customer signups, commissions and revenue at 0 without new evidence.",
+    "evidence_file": "data/krater-affiliate-enrollment-evidence-2026-09-08.md",
+    "blocker": null
   },
   {
     "id": "eprofessor-affiliate-batch-20260908",
@@ -681,19 +681,6 @@
     "user_action_required": false
   },
   {
-    "id": "claap-affiliate-batch-20260908-0650",
-    "tool_id": "claap",
-    "status": "resolved",
-    "affiliate_status": "application_submitted",
-    "exact_tracking_url": null,
-    "cost": "0",
-    "verified_at": "2026-09-07T21:44:39.241362+00:00",
-    "reason": "Current official page linked claap.partnerstack.com/?group=affiliates. Existing PartnerStack account reused with Sangkwon An, COSHUMA, support@coshuma.com, Korea Republic of and https://coshuma.com. Website promotion and factual early-stage audience description; explicitly Haven't used it yet, no invented traffic. Submitted once. Authenticated dashboard visibly displayed Claap / Application pending, 0 clicks, 0 signups, $0 revenue and $0 pending/paid commissions. No customer tracking link issued.",
-    "next_action": "Await review in the existing account. Do not reapply or send duplicate outreach. Publish only an issued exact customer-facing tracking URL after approval.",
-    "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
-    "user_action_required": false
-  },
-  {
     "id": "nudgera-affiliate-batch-20260908-0650",
     "tool_id": "nudgera",
     "status": "browser_required_otp",
@@ -762,13 +749,140 @@
     "id": "fathom-affiliate-batch-20260908-0650",
     "tool_id": "fathom",
     "status": "resolved",
-    "affiliate_status": "enrollment_path_requested",
+    "affiliate_status": "rejected",
     "exact_tracking_url": null,
     "cost": "0",
-    "verified_at": "2026-09-07T21:44:39.241362+00:00",
-    "reason": "Existing repository evidence preserved, not a new submission or newly verified email: data/affiliate-outreach-2026-09-07-1829.md. The current company mailbox search for MindStudio/CloudTalk/HappyScribe returned no results; absence does not reverse the prior recorded outreach. No duplicate sent.",
-    "next_action": "Await the already recorded request; do not reapply. Recover approval and an issued exact tracking URL only with new direct evidence.",
+    "verified_at": "2026-09-10T00:53:45+09:00",
+    "reason": "Fathom human support replied that the Growth Partner Program is for active Fathom users working with clients and that content/affiliate publishers without an active Fathom account are not a fit at this time.",
+    "next_action": "None under the current COSHUMA profile. Do not reapply. Revisit only if vendor eligibility changes or COSHUMA independently becomes an active Fathom user for a genuine operational reason.",
     "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
+    "user_action_required": false,
+    "source_evidence": "Gmail message 1a086e0111278d32; data/fathom-growth-partner-not-fit-2026-09-10.md",
+    "do_not": [
+      "Do not submit another Fathom Growth Partner application under the current COSHUMA profile.",
+      "Do not buy a Fathom subscription solely to unlock partner eligibility.",
+      "Do not treat the Fathom homepage, partner page, dashboard, or signup URL as an affiliate/revenue link.",
+      "Do not infer clicks, signups, commission, or revenue from this eligibility decision."
+    ]
+  },
+  {
+    "id": "omnisend-status-hotfix-2026-09-09",
+    "tool_id": "omnisend",
+    "priority": "high",
+    "status": "resolved",
+    "affiliate_status": "approved_tracking",
+    "cost": 0,
+    "exact_tracking_url": "https://your.omnisend.com/4aA5k9",
+    "blocker": null,
+    "next_action": "Preserve and publish the exact Omnisend-issued customer tracking URL on buyer-facing COSHUMA pages; do not reapply and do not substitute a generic Omnisend or Impact operational URL. Measure actual downstream events separately.",
+    "do_not_reapply": true,
+    "browser_required": false
+  },
+  {
+    "id": "manychat-partnerstack-direct-application-20260910",
+    "priority": "high",
+    "status": "open",
+    "type": "browser_required",
+    "cost": "0",
+    "verified_at": "2026-09-10T02:39:59+09:00",
+    "gmail_thread_id": "1a07b34ffaf04027",
+    "gmail_message_id": "1a086b6eabaeb524",
+    "reason": "The full Manychat PartnerStack support thread was reviewed. COSHUMA asked for a direct application path without creating a duplicate PartnerStack account, and human PartnerStack support agent Digna Rivas replied on 2026-09-09 with the exact Manychat application form. Repository evidence still shows application_available_partnerstack / direct_enrollment_path_requested, with no verified submitted, pending, approved, declined, closed, or cooldown state. Authenticated browser review is therefore required before any submission.",
+    "url": "https://dash.partnerstack.com/application?company=manychat&gref=page",
+    "next_action": "Reuse the existing authenticated PartnerStack session and open the exact Manychat application form. First verify that Manychat is not already submitted, pending, approved, declined, closed, or in cooldown. Only if there is no existing application state and the application is free and eligible, complete and submit it. Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment. After submission, record the actual resulting state; do not infer approval or a tracking URL.",
+    "do_not": [
+      "Do not treat the PartnerStack application URL as a customer-facing affiliate, referral, or revenue link.",
+      "Do not create another PartnerStack account.",
+      "Do not submit a duplicate application if the authenticated dashboard shows submitted, pending, approved, declined, closed, or cooldown status.",
+      "Do not guess or construct a Manychat tracking/referral URL before one is actually issued and verified.",
+      "Do not complete CAPTCHA, OTP, legal acceptance, identity verification, or any paid step on the user's behalf."
+    ],
+    "source_evidence": "Gmail thread 1a07b34ffaf04027 / human reply 1a086b6eabaeb524 from Digna Rivas (PartnerStack Support), plus repository affiliate-batch evidence showing the prior state as application_available_partnerstack / direct_enrollment_path_requested."
+  },
+  {
+    "id": "gravity-forms-approved-link-recovery-2026-09-09",
+    "tool_id": "gravity-forms",
+    "priority": "high",
+    "status": "approved_account_exact_link_email_pending",
+    "affiliate_status": "approved_account",
+    "cost": 0,
+    "verified_at": "2026-09-09T15:24:56Z",
+    "gmail_message_id": "1a082c784399b2c3",
+    "gmail_thread_id": "1a082c784399b2c3",
+    "latest_vendor_message_id": "1a086c5b09d76105",
+    "outbound_exact_link_request_message_id": "1a086cebfdc650f5",
+    "reason": "Gravity Affiliate first welcomed COSHUMA to the approved program. On Sep 9, 2026 the team additionally confirmed that COSHUMA's profile contains an individual affiliate link usable across gravityforms.com, but still did not paste the exact customer-facing URL. COSHUMA replied from support@coshuma.com asking them to paste the exact default link and, if available, a vendor-issued tracked pricing-page link. This direct email path is preferred over browser recovery.",
+    "exact_tracking_url": null,
+    "next_action": "Wait for the direct vendor reply with the exact customer-facing URL. If Gravity supplies it, verify and activate only that exact URL. Use the authenticated PartnerStack browser only as fallback if the vendor does not paste the link. Do not reapply.",
+    "do_not": [
+      "Do not submit another Gravity affiliate application; the welcome email verifies program acceptance.",
+      "Do not use SendGrid email redirects, PartnerStack login/dashboard routes, profile URLs, help pages, notification pages, or the generic gravityforms.com homepage as affiliate/revenue URLs.",
+      "Do not guess or construct a referral parameter or pricing deeplink.",
+      "Do not infer clicks, sales, conversions, commissions, or revenue from approval or link availability alone."
+    ]
+  },
+  {
+    "id": "claap-approved-tracking-2026-09-09",
+    "tool_id": "claap",
+    "priority": "resolved",
+    "status": "resolved",
+    "affiliate_status": "approved_tracking",
+    "exact_tracking_url": "https://get.claap.io/rc9nqme16a9q-gfvrqk",
+    "alternate_verified_urls": [
+      "https://get.claap.io/ssb7dex1109s"
+    ],
+    "cost": 0,
+    "blocker": null,
+    "user_action_required": false,
+    "next_action": "Preserve the first exact vendor-issued Claap URL as the default buyer-facing tracking CTA and do not reapply. Await Lamia's destination/custom-label mapping before using the second verified URL for destination-specific routing. Measure actual downstream events separately.",
+    "evidence": "Gmail 1a08633651c79db9: Lamia Karmaly copied both URLs from COSHUMA's PartnerStack dashboard."
+  },
+  {
+    "id": "teachable-approved-tracking-recovery-2026-09-09",
+    "tool_id": "teachable",
+    "program_name": "Teachable Affiliate Program",
+    "priority": "resolved",
+    "status": "resolved",
+    "affiliate_status": "approved_tracking",
+    "exact_tracking_url": "https://partnerstack.teachable.com/ce4muoxdj46j",
+    "exact_extended_trial_tracking_url": "https://partnerstack.teachable.com/COSHUMA",
+    "cost": "0",
+    "verified_at": "2026-09-09T17:24:53Z",
+    "approval_gmail_message_id": "1a08653d9c3bd9f8",
+    "tracking_reply_gmail_message_id": "1a086aa6ef5a4d98",
+    "outbound_extended_trial_request_message_id": "1a086ca80689bbbf",
+    "extended_trial_reply_gmail_message_id": "1a087337fdf3bdd1",
+    "reason": "Teachable manager Camila Gouveia supplied both COSHUMA's default customer-facing PartnerStack link and the exact COSHUMA 30-day Free Trial PartnerStack route directly to support@coshuma.com. Browser recovery is no longer required for either route.",
+    "next_action": "Use https://partnerstack.teachable.com/ce4muoxdj46j as the default verified Teachable affiliate route and https://partnerstack.teachable.com/COSHUMA only for the vendor-confirmed 30-day Free Trial CTA. Do not reapply or reopen browser recovery.",
+    "constraints": [
+      "Do not submit another Teachable affiliate application.",
+      "Do not treat https://www.teachable.com/partners, PartnerStack dashboard/login URLs, onboarding URLs, or the unwrapped https://www.teachable.com/welcome/partner30 page as affiliate/revenue links.",
+      "Do not guess or construct a referral parameter or trial wrapper.",
+      "No paid plan or subscription is required.",
+      "No revenue, signup, or commission is inferred from approval or link issuance alone."
+    ],
     "user_action_required": false
+  },
+  {
+    "id": "claap-approved-link-recovery-2026-09-09",
+    "tool_id": "claap",
+    "program_name": "Claap Affiliate Program",
+    "priority": "high",
+    "status": "resolved",
+    "affiliate_status": "approved_tracking",
+    "cost": 0,
+    "verified_at": "2026-09-09T12:45:09Z",
+    "exact_tracking_url": "https://get.claap.io/rc9nqme16a9q-gfvrqk",
+    "alternate_verified_url": "https://get.claap.io/ssb7dex1109s",
+    "reason": "Claap affiliate manager Lamia Karmaly copied both exact customer-facing PartnerStack URLs from COSHUMA's existing dashboard into Gmail message 1a08633651c79db9.",
+    "next_action": "Preserve the first exact vendor-issued Claap URL as the default buyer-facing tracking CTA and do not reapply. Await Lamia's destination/custom-label mapping before using the second verified URL for destination-specific routing. Measure actual downstream events separately.",
+    "do_not": [
+      "Do not reapply to Claap.",
+      "Do not replace the verified URLs with PartnerStack dashboard/login, a generic Claap homepage, prototype URL, email redirect, or guessed parameter.",
+      "Do not infer clicks, signups, commissions, or revenue from link issuance or CTA publication."
+    ],
+    "resolved_at": "2026-09-09T12:45:09Z",
+    "resolution_evidence": "Gmail message 1a08633651c79db9 from Claap affiliate manager Lamia Karmaly supplied both exact URLs; the first is the authoritative default CTA pending destination-label mapping for the second.",
+    "blocker": null
   }
 ]

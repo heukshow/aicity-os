@@ -16,6 +16,36 @@ const terminalStatuses = new Set([
   'application_blocked_region',
   'application_blocked_vendor_site_paused',
   'blocked_partnerstack_marketplace_limited',
+  'excluded_user_request',
+  'vendor-paused',
+  'vendor_paused',
+]);
+
+// These states must never be interpreted as permission to submit another
+// application. They may still need a reply check, dashboard/link recovery, or
+// other follow-up, but not duplicate enrollment.
+const noReapplyStatuses = new Set([
+  'application_submitted',
+  'application_pending',
+  'approved',
+  'approved_account',
+  'approved_tracking',
+  'pending',
+  'email_verification_pending',
+  'email_confirmation_required',
+  'email_confirmed_login_required',
+  'outreach_sent',
+  'enrollment_requested',
+  'browser_required_otp',
+  'browser_required_portal_access',
+  'browser_required_application_form',
+  ...terminalStatuses,
+]);
+
+const browserRequiredStatuses = new Set([
+  'browser_required_otp',
+  'browser_required_portal_access',
+  'browser_required_application_form',
 ]);
 
 const hasVerifiedTargetedAffiliateCta = (tool) => {
@@ -34,6 +64,10 @@ const records = tools.map((tool) => {
   const targetedRevenueReady = !genericRevenueReady && hasVerifiedTargetedAffiliateCta(tool);
   const revenueReady = genericRevenueReady || targetedRevenueReady;
   const terminal = terminalStatuses.has(status);
+  const browserRequired = !revenueReady && !terminal && browserRequiredStatuses.has(status);
+  const doNotReapply = revenueReady || terminal || noReapplyStatuses.has(status);
+  const directActionableGap = !revenueReady && !terminal && !browserRequired && !doNotReapply;
+  const watchOnlyGap = !revenueReady && !terminal && !browserRequired && doNotReapply;
   let blocker = null;
   if (!revenueReady && !terminal) {
     if (status === 'unclassified') blocker = 'affiliate_status_unclassified';
@@ -51,6 +85,10 @@ const records = tools.map((tool) => {
     targetedRevenueReady,
     revenueReady,
     terminal,
+    doNotReapply,
+    browserRequired,
+    directActionableGap,
+    watchOnlyGap,
     blocker,
     officialVerified: tool.official_verification_status === 'verified',
     pricingVerified: tool.pricing_verified === true,
@@ -65,6 +103,10 @@ const counts = records.reduce((acc, item) => {
   acc.targetedRevenueReady += Number(item.targetedRevenueReady);
   acc.terminal += Number(item.terminal);
   acc.openMonetizationGaps += Number(!item.revenueReady && !item.terminal);
+  acc.directActionableGaps += Number(item.directActionableGap);
+  acc.browserRequiredGaps += Number(item.browserRequired);
+  acc.watchOnlyGaps += Number(item.watchOnlyGap);
+  acc.doNotReapply += Number(item.doNotReapply);
   acc.exactAffiliateUrlMissing += Number(!item.revenueReady && !item.terminal && !item.hasAffiliateUrl);
   acc.unclassifiedAffiliateStatus += Number(item.affiliateStatus === 'unclassified');
   acc.officialUnverified += Number(!item.officialVerified);
@@ -78,6 +120,10 @@ const counts = records.reduce((acc, item) => {
   targetedRevenueReady: 0,
   terminal: 0,
   openMonetizationGaps: 0,
+  directActionableGaps: 0,
+  browserRequiredGaps: 0,
+  watchOnlyGaps: 0,
+  doNotReapply: 0,
   exactAffiliateUrlMissing: 0,
   unclassifiedAffiliateStatus: 0,
   officialUnverified: 0,
@@ -85,15 +131,26 @@ const counts = records.reduce((acc, item) => {
   payoutNeedsReview: 0,
 });
 
+for (const item of records) {
+  if (noReapplyStatuses.has(item.affiliateStatus) && item.directActionableGap) {
+    throw new Error(`Duplicate-application guard failed for ${item.id}: ${item.affiliateStatus}`);
+  }
+}
+
 const output = {
   generatedAt: new Date().toISOString(),
-  policy: 'finish_existing_tool_affiliate_coverage_before_expansion',
-  allowNewTools: counts.openMonetizationGaps === 0,
+  policy: 'prioritize_direct_existing_gaps_without_reapplying_waiting_states',
+  allowNewTools: counts.directActionableGaps === 0,
   counts,
   openGaps: records.filter((item) => !item.revenueReady && !item.terminal),
+  directActionableGaps: records.filter((item) => item.directActionableGap),
+  browserRequiredGaps: records.filter((item) => item.browserRequired),
+  watchOnlyGaps: records.filter((item) => item.watchOnlyGap),
+  doNotReapply: records.filter((item) => item.doNotReapply),
   revenueReady: records.filter((item) => item.revenueReady),
   terminal: records.filter((item) => item.terminal),
 };
 
-fs.writeFileSync(path.join(root, 'public/admin-affiliate-audit.json'), `${JSON.stringify(output, null, 2)}\n`);
+fs.mkdirSync(path.join(root, '.private-ops'), { recursive: true });
+fs.writeFileSync(path.join(root, '.private-ops/admin-affiliate-audit.json'), `${JSON.stringify(output, null, 2)}\n`);
 console.log(JSON.stringify(counts));

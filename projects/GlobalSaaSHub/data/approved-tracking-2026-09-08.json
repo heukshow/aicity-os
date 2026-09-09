@@ -149,6 +149,17 @@
       "source": "data/affiliate-submission-batch-2026-09-08.json",
       "payout_setup_complete": false,
       "earning_setup_complete": false
+    },
+    {
+      "id": "tagshop-ai",
+      "platform": "FirstPromoter",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://tagshop.ai?via=coshuma-22501e",
+      "destination": "https://tagshop.ai/",
+      "evidence": "Tagshop welcome email 1a0829e45df98eb7 was sent to support@coshuma.com after enrollment and explicitly says COSHUMA joined the referral program, should share the issued link, and will be rewarded when referred users subscribe to a paid account. The exact customer-facing link is https://tagshop.ai?via=coshuma-22501e. The separate tagshop.firstpromoter.com/login URL in the same email is only an administrative dashboard and is not a revenue CTA. No signup, paid conversion, commission, payout or revenue is inferred from approval or link issuance.",
+      "checked_at": "2026-09-09T05:03:24+09:00",
+      "status_origin": "support_mailbox_welcome_email_issued_tracking",
+      "source": "data/tagshop-approved-tracking-2026-09-09.md"
     }
   ]
 }

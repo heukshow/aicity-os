@@ -1,0 +1,87 @@
+{
+  "tubebuddy": {
+    "problems": [
+      "YouTube creators publish without a repeatable keyword and metadata optimization process.",
+      "Video titles, descriptions, tags and thumbnails are chosen without enough search or performance feedback.",
+      "Channel-growth work is fragmented across research, upload preparation and post-publish optimization."
+    ],
+    "monetization": [
+      {"title": "Offer YouTube SEO and upload optimization", "difficulty": "Beginner", "cost": "Free/paid", "output": "Keyword, title, description and upload optimization package"},
+      {"title": "Provide thumbnail and metadata review services", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Thumbnail and metadata improvement report"},
+      {"title": "Build repeatable channel publishing workflows", "difficulty": "Intermediate", "cost": "Paid", "output": "Research-to-upload YouTube operating checklist"}
+    ],
+    "pairs": [
+      {"id": "pictory", "why": "Produce video assets after topic and keyword planning is complete."},
+      {"id": "descript", "why": "Edit recordings and repurpose long videos before upload optimization."},
+      {"id": "kittl", "why": "Create thumbnail designs that can then be reviewed and optimized for YouTube publishing."}
+    ]
+  },
+  "jotform": {
+    "problems": [
+      "Leads, applications, orders or payments are collected through disconnected manual processes.",
+      "A business needs forms and payment collection without building a custom intake system.",
+      "Form submissions are not routed consistently into CRM, email or operational follow-up."
+    ],
+    "monetization": [
+      {"title": "Build intake and application systems for clients", "difficulty": "Beginner", "cost": "Free/paid", "output": "Branded lead, application or onboarding form"},
+      {"title": "Create payment and order forms", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Client-ready payment, order or subscription form"},
+      {"title": "Offer form-to-CRM workflow setup", "difficulty": "Intermediate", "cost": "Low-cost", "output": "Automated submission routing workflow"}
+    ],
+    "pairs": [
+      {"id": "gohighlevel", "why": "Manage leads and follow-up after a form submission."},
+      {"id": "make-com", "why": "Route submissions into CRM, email, sheets and other business apps."},
+      {"id": "unbounce", "why": "Use campaign landing pages to drive visitors into structured forms and payment flows."}
+    ]
+  },
+  "synthesia": {
+    "problems": [
+      "Business video production depends on cameras, presenters, recording sessions or repeated reshoots.",
+      "Training, product and marketing videos need localization across many languages.",
+      "Teams need a repeatable way to turn scripts into branded presenter-led videos at scale."
+    ],
+    "monetization": [
+      {"title": "Create AI presenter videos for businesses", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Training, product or explainer video"},
+      {"title": "Offer multilingual video localization", "difficulty": "Intermediate", "cost": "Paid", "output": "Localized video versions for multiple markets"},
+      {"title": "Build recurring training-video production workflows", "difficulty": "Advanced", "cost": "Paid", "output": "Reusable branded training video system"}
+    ],
+    "pairs": [
+      {"id": "writesonic", "why": "Draft scripts, outlines and supporting copy before video generation."},
+      {"id": "make-com", "why": "Connect script, approval and publishing steps into a repeatable workflow."},
+      {"id": "tubebuddy", "why": "Optimize YouTube metadata and thumbnails when finished videos are published to YouTube."}
+    ]
+  },
+  "murf-ai": {
+    "problems": [
+      "Voiceover production is slowed by recording, retakes and manual audio editing.",
+      "Creators need natural-sounding narration in multiple languages and voices.",
+      "Audio and video localization requires more repeatable dubbing and text-to-speech workflows."
+    ],
+    "monetization": [
+      {"title": "Offer AI voiceover production", "difficulty": "Beginner", "cost": "Free/paid", "output": "Narration for videos, courses, podcasts or ads"},
+      {"title": "Create multilingual dubbing packages", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Localized audio or video voice tracks"},
+      {"title": "Build recurring narration workflows for clients", "difficulty": "Intermediate", "cost": "Paid", "output": "Repeatable branded voice production system"}
+    ],
+    "pairs": [
+      {"id": "pictory", "why": "Combine generated narration with script-to-video production."},
+      {"id": "descript", "why": "Edit transcripts, recordings and final spoken-content assets."},
+      {"id": "make-com", "why": "Automate hand-offs between scripts, generated audio and downstream content workflows."}
+    ]
+  },
+  "kittl": {
+    "problems": [
+      "Creators and small teams need polished visual assets without a full professional design workflow.",
+      "Campaigns need consistent graphics, mockups and thumbnails across multiple formats.",
+      "Product and content ideas take too long to turn into presentation-ready visual concepts."
+    ],
+    "monetization": [
+      {"title": "Create social and campaign graphics for clients", "difficulty": "Beginner", "cost": "Free/paid", "output": "Branded social, ad or promotional graphic set"},
+      {"title": "Produce product mockups and merchandising visuals", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Client-ready product mockup package"},
+      {"title": "Offer thumbnail and creator-brand design packages", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Thumbnail, banner and visual identity asset set"}
+    ],
+    "pairs": [
+      {"id": "tubebuddy", "why": "Analyze and optimize YouTube thumbnails after the visual design is created."},
+      {"id": "unbounce", "why": "Use finished campaign graphics inside conversion-focused landing pages."},
+      {"id": "pictory", "why": "Use designed assets and branding elements in video-content workflows."}
+    ]
+  }
+}

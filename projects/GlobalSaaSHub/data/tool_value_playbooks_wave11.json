@@ -1,0 +1,86 @@
+{
+  "followr": {
+    "problems": [
+      "Small brands and agencies need one workflow to create, plan, schedule and review social content across multiple channels instead of managing each network separately.",
+      "Teams need AI-assisted images, videos, avatars and short-form content alongside ordinary post creation so they can produce more formats without a separate media tool for every asset type.",
+      "Social media operators need centralized analytics and calendar-based scheduling so they can review what was published and adjust future content from one workspace."
+    ],
+    "monetization": [
+      {"title": "Offer social content planning and scheduling", "difficulty": "Beginner", "cost": "Trial/paid", "output": "Client-approved monthly content calendar with drafted posts, scheduled publishing and a simple performance review"},
+      {"title": "Produce short-form social creative packages", "difficulty": "Intermediate", "cost": "Paid", "output": "Batch of reviewed images, short videos or avatar-led creative prepared for selected client social channels"},
+      {"title": "Run multi-brand social operations", "difficulty": "Intermediate", "cost": "Paid", "output": "Documented agency workflow for content intake, approval, scheduling and recurring analytics across multiple client brands"}
+    ]
+  },
+  "cartstack": {
+    "problems": [
+      "Ecommerce stores lose potential orders when shoppers abandon carts or browsing sessions and need automated recovery messages triggered from real visitor behavior.",
+      "Merchants need email, SMS, browser push, exit-intent offers and campaign testing/reporting in one recovery workflow instead of manually following up with every abandoned session.",
+      "Agencies managing several stores need multi-account access, multi-user controls, aggregate reporting and white-label reporting so abandonment recovery can be operated repeatedly for clients."
+    ],
+    "monetization": [
+      {"title": "Set up abandoned-cart recovery campaigns", "difficulty": "Intermediate", "cost": "Trial/paid", "output": "Configured recovery sequence with approved email/SMS timing, site tracking validation and baseline reporting for one store"},
+      {"title": "Offer conversion-recovery optimization", "difficulty": "Intermediate", "cost": "Paid", "output": "Recurring review of abandonment data, campaign variants and documented recommendations based on observed store behavior"},
+      {"title": "Operate recovery campaigns for ecommerce clients", "difficulty": "Advanced", "cost": "Agency plan", "output": "Multi-client operating process covering account setup, campaign QA, reporting and client handoff without revenue guarantees"}
+    ]
+  },
+  "eprofessor": {
+    "problems": [
+      "Educators, coaches and businesses need to create and deliver courses, assessments and digital downloads without building a custom learning platform from scratch.",
+      "Course sellers need student management and Stripe-connected selling while keeping lessons, exams and downloadable products inside the same learning environment.",
+      "Training teams need branded student portals, instructor accounts, reporting and higher-tier video delivery so programs can expand beyond a single instructor or small cohort."
+    ],
+    "monetization": [
+      {"title": "Build paid course portals for subject experts", "difficulty": "Intermediate", "cost": "Trial/paid", "output": "Configured course portal with client-provided lessons, student structure, branding and payment setup ready for client review"},
+      {"title": "Create assessment and certification workflows", "difficulty": "Intermediate", "cost": "Paid", "output": "Structured assessment flow with approved questions, scoring setup, learner instructions and reporting handoff"},
+      {"title": "Migrate training content into a branded LMS", "difficulty": "Advanced", "cost": "Paid", "output": "Organized migration of approved course/download assets into a branded student portal with instructor and access settings documented"}
+    ]
+  },
+  "text": {
+    "problems": [
+      "Support and sales teams need one customer-conversation workspace spanning AI agents, live chat, help desk tickets and business messaging channels instead of splitting customer context across separate systems.",
+      "Businesses need AI agents grounded in their own knowledge sources that can answer routine questions, personalize replies and hand conversations to humans with context when automation is not enough.",
+      "Ecommerce teams need proactive chat and support workflows that can answer product or order questions and support sales-oriented moments without forcing every visitor interaction into a human queue."
+    ],
+    "monetization": [
+      {"title": "Implement AI customer-service agents", "difficulty": "Intermediate", "cost": "14-day trial/paid", "output": "Configured knowledge sources, agent behavior, human-handoff rules and test-conversation report for a client support workflow"},
+      {"title": "Set up live-chat sales and support workflows", "difficulty": "Intermediate", "cost": "Trial/paid", "output": "Client-ready chat workflow with routing, proactive campaign rules, approved messaging and escalation documentation"},
+      {"title": "Consolidate customer conversations into one support workspace", "difficulty": "Advanced", "cost": "Paid", "output": "Migration and operating plan for inbox, ticketing, channels, workflows and team roles with post-launch QA checklist"}
+    ]
+  },
+  "catalister": {
+    "problems": [
+      "Ecommerce operators need to research products and turn supplier information into structured store listings without manually rewriting titles, descriptions and SEO fields one product at a time.",
+      "Stores with existing catalogs need bulk refresh and relisting workflows for descriptions, metadata, categories, tags and image naming so older product pages can be improved consistently.",
+      "Merchants running Google Ads need product-level insights and bulk campaign management alongside catalog work so listing quality and advertising decisions can be reviewed together."
+    ],
+    "monetization": [
+      {"title": "Deliver ecommerce listing optimization batches", "difficulty": "Beginner", "cost": "Free/paid", "output": "Reviewed batch of product titles, descriptions, metadata, categories and image-alt recommendations from client-approved source data"},
+      {"title": "Offer catalog refresh and relisting projects", "difficulty": "Intermediate", "cost": "Paid", "output": "Bulk-updated client catalog with agreed templates, SEO fields and a QA report documenting changed products"},
+      {"title": "Create product-and-ad catalog review services", "difficulty": "Intermediate", "cost": "Paid", "output": "Product-level review combining catalog quality checks with available Google Ads insights and prioritized action items"}
+    ]
+  },
+  "taskip": {
+    "problems": [
+      "Freelancers and agencies need CRM, projects, client communication, proposals, invoicing, support and document workflows in one operating system instead of maintaining many disconnected tools.",
+      "Service businesses need a client portal with files, conversations, onboarding, billing and support so customers can work through a branded shared space rather than scattered email threads.",
+      "Growing agencies need workflow automation, integrations, webhooks or API access and higher team limits so repeatable client operations can scale without rebuilding their process for each new account."
+    ],
+    "monetization": [
+      {"title": "Set up agency operating systems", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Configured CRM, project templates, client portal, billing flow and documented operating process for a service business"},
+      {"title": "Build branded client-portal workflows", "difficulty": "Intermediate", "cost": "Paid", "output": "Client-facing portal structure with onboarding, files, communication, support and billing steps configured to an approved process"},
+      {"title": "Implement service catalog and workflow automation", "difficulty": "Advanced", "cost": "Paid", "output": "Configured service packages, intake-to-delivery workflow, automation rules and handoff documentation for an agency or freelancer"}
+    ]
+  },
+  "omi-ai": {
+    "problems": [
+      "People who spend much of the day in conversations need searchable transcripts, summaries, memories and task extraction without manually converting every meeting or spoken note into written records.",
+      "Users need the same Omi memory and transcription workflow whether they start with the mobile or desktop app, an Omi wearable, or supported third-party recording hardware.",
+      "Developers need an extensible app and hardware ecosystem for building workflows on top of conversation data, memories and Omi's developer-oriented devices rather than treating the product only as a closed recorder."
+    ],
+    "monetization": [
+      {"title": "Set up meeting-memory workflows for professionals", "difficulty": "Beginner", "cost": "Free/paid", "output": "Configured recording, memory, summary and task-review workflow with privacy and usage guidance for a client's approved meetings"},
+      {"title": "Build conversation-to-action operating workflows", "difficulty": "Intermediate", "cost": "Paid", "output": "Documented process that turns approved recorded conversations into searchable notes, decisions and follow-up tasks for a small team"},
+      {"title": "Prototype Omi apps or developer integrations", "difficulty": "Advanced", "cost": "Developer effort", "output": "Working prototype using Omi's supported developer ecosystem for one documented conversation-data or memory workflow, with handoff notes"}
+    ]
+  }
+}

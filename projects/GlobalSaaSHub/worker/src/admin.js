@@ -2,7 +2,7 @@ import snapshot from './admin-snapshot.json' with { type: 'json' };
 import { fetchGoogleMetrics } from './google-analytics.js';
 import { fetchPartnerStackMetrics } from './partnerstack.js';
 
-const PRIVATE_HEADERS = {
+export const PRIVATE_HEADERS = {
   'content-type': 'text/html; charset=utf-8',
   'cache-control': 'no-store, private',
   'x-robots-tag': 'noindex, nofollow, noarchive, nosnippet',
@@ -29,17 +29,20 @@ function constantTimeEqual(left, right) {
   return mismatch === 0;
 }
 
-async function sessionToken(env) {
+async function sessionToken(env, expires = Math.floor(Date.now() / 1000) + 28800) {
   const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(env.ADMIN_PASSWORD_SHA256), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-  const signature = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`${env.ADMIN_USERNAME}:${env.ADMIN_PATH}`));
-  return [...new Uint8Array(signature)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
+  const signature = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`${env.ADMIN_USERNAME}:${env.ADMIN_PATH}:${expires}`));
+  return `${expires}.` + [...new Uint8Array(signature)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
 }
 
-async function authorized(request, env) {
+export async function authorized(request, env, allowBasic = true) {
   if (!env.ADMIN_USERNAME || !env.ADMIN_PASSWORD_SHA256) return false;
   const cookie = request.headers.get('cookie') || '';
   const session = cookie.split(';').map((part) => part.trim()).find((part) => part.startsWith('coshuma_ops='))?.slice(12);
-  if (session && constantTimeEqual(session, await sessionToken(env))) return true;
+  const expires = Number(session?.split('.')[0]);
+  if (Number.isInteger(expires) && expires > Date.now() / 1000 && expires <= Date.now() / 1000 + 28800
+    && constantTimeEqual(session, await sessionToken(env, expires))) return true;
+  if (!allowBasic) return false;
   const header = request.headers.get('authorization') || '';
   if (!header.startsWith('Basic ')) return false;
   try {
@@ -53,7 +56,7 @@ async function authorized(request, env) {
   } catch { return false; }
 }
 
-function loginPage(error = '') {
+export function loginPage(error = '') {
   return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>COSHUMA 비공개 로그인</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 80% 0,#272057,transparent 36%),#070b14;color:#eef4ff;font:14px system-ui}.box{width:min(420px,calc(100% - 32px));padding:30px;border:1px solid #293650;border-radius:22px;background:#101827;box-shadow:0 24px 70px #0008}.eyebrow{color:#22d3ee;font-size:11px;font-weight:800;letter-spacing:.15em}h1{margin:7px 0 5px;font-size:26px}p{color:#96a5bb;margin:0 0 22px}label{display:block;margin:13px 0 6px;color:#cbd5e1;font-weight:700}input{width:100%;box-sizing:border-box;padding:13px;border:1px solid #34425d;border-radius:12px;background:#09111e;color:white;font:inherit;outline:none}input:focus{border-color:#8b5cf6;box-shadow:0 0 0 3px #8b5cf625}button{width:100%;margin-top:20px;padding:13px;border:0;border-radius:12px;background:linear-gradient(90deg,#7c3aed,#2563eb);color:white;font-weight:800;cursor:pointer}.error{padding:10px;border-radius:10px;background:#421b28;color:#fda4af;margin:12px 0}.lock{margin-top:16px;text-align:center;color:#718096;font-size:11px}</style></head><body><main class="box"><div class="eyebrow">비공개 운영 화면</div><h1>COSHUMA 운영센터</h1><p>소유자 인증 후 운영 데이터를 확인할 수 있습니다.</p>${error ? `<div class="error">${escapeHtml(error)}</div>` : ''}<form method="post"><label for="username">아이디</label><input id="username" name="username" autocomplete="username" required><label for="password">비밀번호</label><input id="password" name="password" type="password" autocomplete="current-password" required><button type="submit">안전하게 로그인</button></form><div class="lock">검색 차단 · 임시 저장 금지 · 서버 인증</div></main></body></html>`;
 }
 
@@ -124,19 +127,7 @@ function render(data, money, partnerStack) {
 }
 
 export async function handleAdminRequest(request, env) {
-  if (request.method === 'POST') {
-    const form = await request.formData().catch(() => new FormData());
-    const username = String(form.get('username') || '');
-    const passwordHash = await sha256(String(form.get('password') || ''));
-    const valid = constantTimeEqual(username, env.ADMIN_USERNAME || '')
-      && constantTimeEqual(passwordHash, String(env.ADMIN_PASSWORD_SHA256 || '').toLowerCase());
-    if (!valid) return new Response(loginPage('아이디 또는 비밀번호가 맞지 않습니다.'), { status: 401, headers: PRIVATE_HEADERS });
-    const base = String(env.ADMIN_PATH).replace(/\/$/, '');
-    return new Response(null, { status: 303, headers: {
-      ...PRIVATE_HEADERS, location: base,
-      'set-cookie': `coshuma_ops=${await sessionToken(env)}; Path=${base}; Max-Age=28800; HttpOnly; Secure; SameSite=Strict`,
-    } });
-  }
+  if (request.method === 'POST') return privateLogin(request, env);
   if (!(await authorized(request, env))) {
     return new Response(loginPage(), { status: 200, headers: PRIVATE_HEADERS });
   }
@@ -156,4 +147,20 @@ export async function handleAdminRequest(request, env) {
   }
   const body = request.method === 'HEAD' ? null : render(data, await revenue(env), partnerStack);
   return new Response(body, { status: 200, headers: PRIVATE_HEADERS });
+}
+
+export async function privateLogin(request, env, destination, csrfValidated = false) {
+    const origin = request.headers.get('origin');
+    if (!csrfValidated && origin && origin !== new URL(request.url).origin) return new Response('Forbidden', { status: 403, headers: PRIVATE_HEADERS });
+    const form = await request.formData().catch(() => new FormData());
+    const username = String(form.get('username') || '');
+    const passwordHash = await sha256(String(form.get('password') || ''));
+    const valid = constantTimeEqual(username, env.ADMIN_USERNAME || '')
+      && constantTimeEqual(passwordHash, String(env.ADMIN_PASSWORD_SHA256 || '').toLowerCase());
+    if (!valid) return new Response(loginPage('아이디 또는 비밀번호가 맞지 않습니다.'), { status: 401, headers: PRIVATE_HEADERS });
+    const base = String(env.ADMIN_PATH).replace(/\/$/, '');
+    return new Response(null, { status: 303, headers: {
+      ...PRIVATE_HEADERS, location: destination || base,
+      'set-cookie': `coshuma_ops=${await sessionToken(env)}; Path=${base}; Max-Age=28800; HttpOnly; Secure; SameSite=Strict`,
+    } });
 }

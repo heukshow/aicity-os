@@ -1,7 +1,10 @@
+import { handlePrivateOps, handleSnapshotUpload } from './private-ops.js';
 import { captureIsVerifiedPaid, providerOrderIdFromWebhook, validatePaidWebhook, webhookTarget } from './domain.js';
 import { capturePayPalOrder, createPayPalOrder, getPayPalOrder, verifyPayPalWebhook } from './paypal.js';
 import { D1OrderRepository } from './repository.js';
 import { handleAdminRequest, isAdminPath } from './admin.js';
+
+const PUBLIC_ADMIN_PATH = '/ops-login';
 
 const json = (body, status = 200, extra = {}) => new Response(JSON.stringify(body), {
   status,
@@ -66,10 +69,16 @@ async function webhook(request, env, repo) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === '/internal/analytics-snapshot') return handleSnapshotUpload(request, env);
+    if (url.pathname === '/ops' || url.pathname.startsWith('/ops/')) return handlePrivateOps(request, env);
+    const fixedAdminRoute = url.pathname === PUBLIC_ADMIN_PATH || url.pathname.startsWith(`${PUBLIC_ADMIN_PATH}/`);
+    if (fixedAdminRoute) {
+      return handleAdminRequest(request, { ...env, ADMIN_PATH: PUBLIC_ADMIN_PATH });
+    }
     if (isAdminPath(url, env)) return handleAdminRequest(request, env);
     if (url.pathname === '/robots.txt') {
       const privatePath = String(env.ADMIN_PATH || '/ops-private').replace(/\/$/, '');
-      return new Response(`User-agent: *\nDisallow: ${privatePath}/\n`, {
+      return new Response(`User-agent: *\nDisallow: ${PUBLIC_ADMIN_PATH}/\nDisallow: ${privatePath}/\n`, {
         headers: { 'content-type': 'text/plain; charset=utf-8', 'x-robots-tag': 'noindex, nofollow' },
       });
     }

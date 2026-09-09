@@ -1,0 +1,169 @@
+{
+  "fillout": {
+    "path": "best/fillout-form-builder.html",
+    "problems": [
+      "You are losing enquiries because lead capture is scattered across email, chat or spreadsheets.",
+      "You need application, intake or payment forms without building a custom form system.",
+      "Your team spends time manually moving form responses into follow-up workflows."
+    ],
+    "monetization": [
+      {"title": "Build lead-capture systems for clients", "difficulty": "Beginner", "cost": "Free to start", "output": "Lead, quote or intake form setup"},
+      {"title": "Create paid booking or application flows", "difficulty": "Beginner", "cost": "Free/low-cost", "output": "Client-ready application or payment workflow"},
+      {"title": "Offer form-to-CRM automation setup", "difficulty": "Intermediate", "cost": "Low-cost", "output": "Automated lead routing workflow"}
+    ],
+    "pairs": [
+      {"id": "gohighlevel", "why": "Manage and follow up with leads after a form submission."},
+      {"id": "make-com", "why": "Move submissions into CRM, email, sheets or other apps automatically."}
+    ]
+  },
+  "gohighlevel": {
+    "problems": [
+      "Leads are spread across inboxes, spreadsheets and separate marketing tools.",
+      "Follow-up is inconsistent and potential customers are forgotten.",
+      "An agency needs one place for CRM, pipelines and automated client communication."
+    ],
+    "monetization": [
+      {"title": "Set up CRM and follow-up systems for businesses", "difficulty": "Intermediate", "cost": "Paid", "output": "Configured pipeline and follow-up workflow"},
+      {"title": "Offer lead-management automation as a service", "difficulty": "Intermediate", "cost": "Paid", "output": "Automated client acquisition workflow"},
+      {"title": "Build agency marketing operations for clients", "difficulty": "Advanced", "cost": "Paid", "output": "CRM, messaging and funnel operating system"}
+    ],
+    "pairs": [
+      {"id": "fillout", "why": "Capture leads and applications before they enter the CRM."},
+      {"id": "make-com", "why": "Connect the CRM with external apps and custom workflows."},
+      {"id": "bookyourdata", "why": "Supply prospect data for outbound lead-generation workflows."}
+    ]
+  },
+  "pictory": {
+    "problems": [
+      "Turning written or long-form material into publishable video takes too much editing time.",
+      "A team needs captions, B-roll and short clips without a full video-production workflow.",
+      "Existing articles, webinars or scripts are not being repurposed into enough video content."
+    ],
+    "monetization": [
+      {"title": "Offer blog-to-video production", "difficulty": "Beginner", "cost": "Trial/paid", "output": "Short-form or explainer video"},
+      {"title": "Repurpose long videos into social clips", "difficulty": "Intermediate", "cost": "Trial/paid", "output": "Short-video content package"},
+      {"title": "Create product or service explainer videos for clients", "difficulty": "Intermediate", "cost": "Paid", "output": "Branded promotional video"}
+    ],
+    "pairs": [
+      {"id": "descript", "why": "Polish transcripts, edits and clips after the first video draft."},
+      {"id": "vidiq", "why": "Research and optimize YouTube topics after video production."},
+      {"id": "elevenlabs", "why": "Add a broader voice-generation workflow when a project needs it."}
+    ]
+  },
+  "chatbase": {
+    "problems": [
+      "Teams repeatedly answer the same customer or product questions.",
+      "Website visitors cannot quickly find answers from existing company knowledge.",
+      "Support and sales teams need a first-line AI response layer before human escalation."
+    ],
+    "monetization": [
+      {"title": "Build website support bots for clients", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Configured AI support chatbot"},
+      {"title": "Create lead-qualification chat experiences", "difficulty": "Intermediate", "cost": "Paid", "output": "Website qualification assistant"},
+      {"title": "Offer knowledge-base chatbot setup", "difficulty": "Intermediate", "cost": "Paid", "output": "Business-specific FAQ assistant"}
+    ],
+    "pairs": [
+      {"id": "gohighlevel", "why": "Send qualified enquiries into a CRM and follow-up process."},
+      {"id": "make-com", "why": "Connect chatbot events to external business workflows."},
+      {"id": "fillout", "why": "Use structured forms when a conversation needs a formal application or payment step."}
+    ]
+  },
+  "make-com": {
+    "problems": [
+      "Staff repeatedly copy information between apps by hand.",
+      "A business has useful software tools that do not share data automatically.",
+      "Multi-step operational work is slowed down by manual triggers and hand-offs."
+    ],
+    "monetization": [
+      {"title": "Build workflow automations for small businesses", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Connected multi-app workflow"},
+      {"title": "Offer automation audits and implementation", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Documented and automated business process"},
+      {"title": "Create reusable automation templates", "difficulty": "Advanced", "cost": "Low-cost", "output": "Reusable scenario or workflow package"}
+    ],
+    "pairs": [
+      {"id": "fillout", "why": "Trigger workflows from structured form submissions."},
+      {"id": "gohighlevel", "why": "Automate CRM updates and client follow-up across other apps."},
+      {"id": "chatbase", "why": "Route chatbot events and captured information into downstream systems."}
+    ]
+  },
+  "bookyourdata": {
+    "problems": [
+      "A sales team does not have enough prospect data to start outbound campaigns.",
+      "Finding B2B contacts manually consumes time before outreach even begins.",
+      "Lead-generation work needs a repeatable prospect-data source before CRM follow-up."
+    ],
+    "monetization": [
+      {"title": "Offer prospect-list research as a service", "difficulty": "Beginner", "cost": "Usage-based", "output": "Targeted B2B prospect list"},
+      {"title": "Build outbound lead-generation workflows for clients", "difficulty": "Intermediate", "cost": "Usage-based", "output": "Prospect list plus outreach workflow"},
+      {"title": "Support niche market research projects", "difficulty": "Intermediate", "cost": "Usage-based", "output": "Segmented company/contact dataset"}
+    ],
+    "pairs": [
+      {"id": "gohighlevel", "why": "Store prospects, manage stages and run follow-up after sourcing contacts."},
+      {"id": "make-com", "why": "Automate prospect import and downstream routing."}
+    ]
+  },
+  "krater": {
+    "problems": [
+      "Creators switch between separate AI tools for text, images, voice and code.",
+      "A small team wants one workspace for several common generative tasks.",
+      "Content production slows down when ideation and asset generation happen in disconnected tools."
+    ],
+    "monetization": [
+      {"title": "Produce mixed content assets for clients", "difficulty": "Beginner", "cost": "Paid", "output": "Text, image or voice asset package"},
+      {"title": "Offer rapid content prototyping", "difficulty": "Intermediate", "cost": "Paid", "output": "Draft campaign or creative concept set"},
+      {"title": "Create reusable content-production workflows", "difficulty": "Intermediate", "cost": "Paid", "output": "Multi-format content workflow"}
+    ],
+    "pairs": [
+      {"id": "pictory", "why": "Turn generated scripts or ideas into finished video content."},
+      {"id": "make-com", "why": "Connect generated assets to repeatable downstream workflows."}
+    ]
+  },
+  "frase": {
+    "problems": [
+      "Writers spend too much time researching what a search-focused article should cover.",
+      "Content teams need a repeatable way to build briefs and optimize drafts around search intent.",
+      "SEO production is slowed by separate research, outlining and optimization steps."
+    ],
+    "monetization": [
+      {"title": "Offer SEO content briefs", "difficulty": "Beginner", "cost": "Paid", "output": "Client-ready SEO content brief"},
+      {"title": "Provide SEO article optimization services", "difficulty": "Intermediate", "cost": "Paid", "output": "Optimized article or refresh"},
+      {"title": "Run content-planning workflows for clients", "difficulty": "Intermediate", "cost": "Paid", "output": "Search-focused content plan"}
+    ],
+    "pairs": [
+      {"id": "brand24", "why": "Add brand and market monitoring signals around content planning."},
+      {"id": "vidiq", "why": "Extend topic research into YouTube when the same subject is used for video."},
+      {"id": "pictory", "why": "Repurpose completed written content into video."}
+    ]
+  },
+  "brand24": {
+    "problems": [
+      "A business cannot easily see where its brand, product or topic is being discussed online.",
+      "Marketing teams react slowly because monitoring is spread across many channels.",
+      "Content and campaign planning lacks a consolidated view of public mentions and sentiment signals."
+    ],
+    "monetization": [
+      {"title": "Offer brand-monitoring reports", "difficulty": "Beginner", "cost": "Trial/paid", "output": "Brand mention and monitoring report"},
+      {"title": "Provide reputation-monitoring support", "difficulty": "Intermediate", "cost": "Paid", "output": "Recurring monitoring workflow"},
+      {"title": "Support campaign and competitor research", "difficulty": "Intermediate", "cost": "Paid", "output": "Monitoring-backed research summary"}
+    ],
+    "pairs": [
+      {"id": "frase", "why": "Turn market and topic signals into search-focused content plans."},
+      {"id": "make-com", "why": "Route monitoring alerts into team workflows and reporting systems."}
+    ]
+  },
+  "vidiq": {
+    "problems": [
+      "YouTube creators struggle to choose topics and keywords with clear audience demand.",
+      "Existing videos are published without a consistent optimization workflow.",
+      "Channel growth work is fragmented across idea generation, research and performance review."
+    ],
+    "monetization": [
+      {"title": "Offer YouTube topic and keyword research", "difficulty": "Beginner", "cost": "Free/paid", "output": "Video topic and keyword plan"},
+      {"title": "Provide channel optimization services", "difficulty": "Intermediate", "cost": "Paid", "output": "Optimization checklist and content plan"},
+      {"title": "Build a repeatable YouTube content workflow", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Research-to-publishing workflow"}
+    ],
+    "pairs": [
+      {"id": "pictory", "why": "Produce videos after topic and keyword research."},
+      {"id": "descript", "why": "Edit and repurpose finished recordings into additional clips."},
+      {"id": "frase", "why": "Coordinate search-focused written and video content around related topics."}
+    ]
+  }
+}

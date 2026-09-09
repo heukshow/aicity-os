@@ -5,20 +5,29 @@
   "status": "resolved",
   "affiliate_status": "approved_tracking",
   "cost": "0",
-  "verified_at": "2026-09-08T06:23:15+09:00",
+  "verified_at": "2026-09-09T10:37:00+09:00",
   "exact_tracking_url": "https://eprofessor.com/invite/coshuma173",
   "workflow_url": "https://admin.eprofessor.com/referrals/",
-  "reason": "Superseded by confirmed referral issuance and published main evidence in data/affiliate-submission-batch-2026-09-08.json. The exact issued customer referral URL is https://eprofessor.com/invite/coshuma173. Account/link recovery is complete; do not follow the stale activation route or create another account.",
-  "next_action": "Preserve the verified referral URL. No further account or link recovery. PayPal and tax setup remain incomplete as separately recorded; no earning or revenue claim.",
+  "reason": "Referral issuance and customer-facing tracking are already complete. On 2026-09-09 the existing COSHUMA account submitted its payout method and W-8BEN documentation; the authenticated dashboard then showed documentation pending review. Do not reopen link recovery or payout setup while review is pending.",
+  "payout_setup_status": "pending_review",
+  "tax_document_status": "submitted_pending_review",
+  "dashboard_observed": {
+    "link_views": 18,
+    "total_signups": 0,
+    "active_subscribers": 0,
+    "net_earnings_usd": 0,
+    "unpaid_balance_usd": 0
+  },
+  "next_action": "No current user action. Preserve the verified referral URL and wait for an explicit eProfessor review result or correction request. If a new review message arrives, act only on that new evidence.",
   "do_not": [
-    "Do not create another eProfessor account because support@coshuma.com already has a verification email for an existing COSHUMA signup.",
-    "Do not construct or guess the /invite/ slug from the account name.",
-    "Do not treat the eProfessor homepage, account verification URL, dashboard, or referral-program settings page as a customer affiliate link.",
-    "Do not add paid subscription, Stripe/Paddle setup, PayPal payout setup, or tax documentation merely to recover the referral link.",
-    "Do not infer sign-ups, active subscribers, commissions, or revenue until dashboard evidence exists."
+    "Do not create another eProfessor account or referral application.",
+    "Do not construct or guess a different /invite/ slug.",
+    "Do not treat the eProfessor homepage, dashboard, onboarding, or referral settings page as a customer affiliate link.",
+    "Do not resubmit payout details or W-8BEN while documentation review is pending unless eProfessor explicitly requests a correction.",
+    "Do not infer signups, active subscribers, commissions, payouts, or revenue beyond authenticated dashboard counters."
   ],
   "gmail_message_id": "1a07dc143f8f79c2",
   "official_program_evidence_url": "https://examprofessor.com/page/help/settings-1/referral-program-1",
   "do_not_reapply": true,
-  "evidence_file": "data/affiliate-submission-batch-2026-09-08.json"
+  "evidence_file": "data/eprofessor-payout-review-2026-09-09.md"
 }

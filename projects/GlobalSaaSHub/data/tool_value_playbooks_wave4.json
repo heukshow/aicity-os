@@ -1,0 +1,87 @@
+{
+  "outlierkit": {
+    "problems": [
+      "YouTube creators struggle to identify topics with clear audience momentum before producing a video.",
+      "Content planning relies on guesswork instead of repeatable trend and outlier research.",
+      "Creators waste production time on ideas that are not validated against channel or niche signals."
+    ],
+    "monetization": [
+      {"title": "Offer YouTube topic research for creators", "difficulty": "Beginner", "cost": "Paid", "output": "Trend-backed video idea and topic shortlist"},
+      {"title": "Build channel content plans", "difficulty": "Intermediate", "cost": "Paid", "output": "Recurring YouTube content calendar and research pack"},
+      {"title": "Provide niche and competitor research", "difficulty": "Intermediate", "cost": "Paid", "output": "Channel opportunity and competitor research report"}
+    ],
+    "pairs": [
+      {"id": "pictory", "why": "Turn validated topic ideas and scripts into finished video content."},
+      {"id": "tubebuddy", "why": "Optimize metadata, thumbnails and channel workflow after topic selection."},
+      {"id": "vidiq", "why": "Add another layer of YouTube keyword, idea and channel-growth research."}
+    ]
+  },
+  "fliki": {
+    "problems": [
+      "Creators need to turn scripts and ideas into video without a full editing and voice-recording workflow.",
+      "Producing voiceover, captions and visual sequences separately slows down short-form and explainer production.",
+      "Teams need a repeatable way to create multilingual or avatar-led video content from written material."
+    ],
+    "monetization": [
+      {"title": "Offer script-to-video production", "difficulty": "Beginner", "cost": "Free/paid", "output": "Short-form, explainer or social video"},
+      {"title": "Create voiceover-led content packages", "difficulty": "Intermediate", "cost": "Paid", "output": "Video and narration package for a client campaign"},
+      {"title": "Produce localized video variants", "difficulty": "Intermediate", "cost": "Paid", "output": "Multilingual video versions for different audiences"}
+    ],
+    "pairs": [
+      {"id": "writesonic", "why": "Draft scripts and campaign copy before video generation."},
+      {"id": "kittl", "why": "Create thumbnails, graphics and supporting visual assets for finished videos."},
+      {"id": "tubebuddy", "why": "Optimize YouTube publishing and metadata after the video is complete."}
+    ]
+  },
+  "shopify": {
+    "problems": [
+      "A seller needs one place to build an online storefront, manage products and process orders.",
+      "Product, checkout and store operations are fragmented across separate tools or manual processes.",
+      "An online business needs a repeatable commerce foundation before adding marketing and automation."
+    ],
+    "monetization": [
+      {"title": "Build Shopify storefronts for clients", "difficulty": "Intermediate", "cost": "Paid", "output": "Configured online store and product catalog"},
+      {"title": "Offer product listing and store setup services", "difficulty": "Beginner", "cost": "Paid", "output": "Product pages, collections and store configuration"},
+      {"title": "Create commerce automation workflows", "difficulty": "Advanced", "cost": "Paid", "output": "Store-to-CRM, fulfillment or reporting automation"}
+    ],
+    "pairs": [
+      {"id": "catalister", "why": "Create and streamline product-listing workflows for Shopify-oriented commerce."},
+      {"id": "jotform", "why": "Add structured forms, applications or payment-related workflows around the store."},
+      {"id": "make-com", "why": "Connect store events to CRM, reporting, notifications and other operational apps."}
+    ]
+  },
+  "systeme-io": {
+    "problems": [
+      "Solo operators use separate tools for funnels, email, websites and online-course delivery.",
+      "Lead capture and follow-up are disconnected from the pages used to sell a product or service.",
+      "A small business needs a simpler all-in-one workflow for launching and operating an online offer."
+    ],
+    "monetization": [
+      {"title": "Build sales funnels for clients", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Lead or sales funnel with follow-up steps"},
+      {"title": "Set up digital-product or course sales systems", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Landing pages, email flow and product-delivery setup"},
+      {"title": "Offer small-business marketing-system setup", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Integrated website, funnel and email workflow"}
+    ],
+    "pairs": [
+      {"id": "jotform", "why": "Add structured intake, application or form workflows when a funnel needs more detailed data capture."},
+      {"id": "writesonic", "why": "Draft landing-page, email and offer copy for the funnel."},
+      {"id": "make-com", "why": "Connect funnel and customer events to external operational tools when needed."}
+    ]
+  },
+  "aweber": {
+    "problems": [
+      "Leads are collected but follow-up depends on one-off manual emails.",
+      "Creators and small businesses need a repeatable newsletter and subscriber-management workflow.",
+      "Marketing messages are not segmented or automated consistently across the customer journey."
+    ],
+    "monetization": [
+      {"title": "Set up newsletters and email campaigns for clients", "difficulty": "Beginner", "cost": "Trial/paid", "output": "Newsletter template and campaign setup"},
+      {"title": "Build automated welcome and nurture sequences", "difficulty": "Intermediate", "cost": "Paid", "output": "Subscriber onboarding and follow-up automation"},
+      {"title": "Offer email-list and landing-page setup", "difficulty": "Intermediate", "cost": "Paid", "output": "Lead capture and email marketing workflow"}
+    ],
+    "pairs": [
+      {"id": "jotform", "why": "Capture subscriber, lead or application data before email follow-up."},
+      {"id": "writesonic", "why": "Draft newsletter, campaign and landing-page copy."},
+      {"id": "make-com", "why": "Connect subscriber events and forms to other business systems."}
+    ]
+  }
+}

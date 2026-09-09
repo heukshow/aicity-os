@@ -1,0 +1,44 @@
+name: COSHUMA Analytics Snapshot
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/coshuma-analytics-snapshot.yml'
+      - 'projects/GlobalSaaSHub/scripts/generate_live_dashboard_data.mjs'
+      - 'projects/GlobalSaaSHub/scripts/upload_private_dashboard.mjs'
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: coshuma-analytics-snapshot
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Generate and privately store validated analytics
+        working-directory: projects/GlobalSaaSHub
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          GA_PROPERTY_ID: ${{ vars.GA_PROPERTY_ID }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+          DASHBOARD_OUTPUT_PATH: ${{ runner.temp }}/traffic-revenue-data.json
+        run: |
+          node scripts/generate_live_dashboard_data.mjs
+          node scripts/upload_private_dashboard.mjs
+      - name: Remove temporary private snapshot
+        if: always()
+        run: rm -f -- "${{ runner.temp }}/traffic-revenue-data.json"
