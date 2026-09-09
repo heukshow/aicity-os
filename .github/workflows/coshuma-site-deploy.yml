@@ -8,6 +8,7 @@ on:
       - 'projects/GlobalSaaSHub/public/**'
       - 'projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json'
       - 'projects/GlobalSaaSHub/scripts/approved_tracking_evidence.mjs'
+      - 'projects/GlobalSaaSHub/scripts/apply_verified_buyer_deeplinks.mjs'
       - 'projects/GlobalSaaSHub/scripts/browser_followup_evidence.mjs'
       - 'projects/GlobalSaaSHub/scripts/reconcile_tagshop_approved_tracking.mjs'
       - 'projects/GlobalSaaSHub/data/affiliate-browser-followup-wave3-2026-09-08.json'
