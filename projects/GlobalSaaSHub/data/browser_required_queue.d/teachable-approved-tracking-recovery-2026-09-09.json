@@ -1,0 +1,23 @@
+{
+  "id": "teachable-approved-tracking-recovery-2026-09-09",
+  "tool_id": "teachable",
+  "program_name": "Teachable Affiliate Program",
+  "priority": "high",
+  "status": "browser_required_fallback_email_recovery_pending",
+  "affiliate_status": "approved_account",
+  "exact_tracking_url": null,
+  "cost": "0",
+  "verified_at": "2026-09-09T13:20:35Z",
+  "approval_gmail_message_id": "1a08653d9c3bd9f8",
+  "outbound_exact_url_request_message_id": "1a0865d276cdd5c1",
+  "reason": "Teachable's welcome email explicitly confirms COSHUMA is in the affiliate program and says the personalized customer tracking link is in PartnerStack -> Links. The same email says the affiliate-only 30-day extended-trial landing page must be wrapped with the account tracking link to earn commission. COSHUMA asked from support@coshuma.com for the exact issued link by email first, so browser work is only a fallback.",
+  "next_action": "Prefer the direct email recovery already sent. If Teachable supplies the exact customer-facing PartnerStack link, verify and activate only that issued URL. If no link is supplied, reuse the existing approved Teachable PartnerStack relationship, open Links, and copy the personalized affiliate URL. Also recover the correctly tracked version of the 30-day extended-trial landing page if available. Do not reapply.",
+  "constraints": [
+    "Do not submit another Teachable affiliate application.",
+    "Do not treat https://www.teachable.com/partners, PartnerStack dashboard/login URLs, onboarding URLs, or the unwrapped https://www.teachable.com/welcome/partner30 page as affiliate/revenue links.",
+    "Do not guess or construct a referral parameter.",
+    "No paid plan or subscription is required for this recovery task.",
+    "No revenue, signup, or commission is inferred from approval alone."
+  ],
+  "user_action_required": false
+}
