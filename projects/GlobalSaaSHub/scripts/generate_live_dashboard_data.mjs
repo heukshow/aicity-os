@@ -108,7 +108,7 @@ try {
   const r30 = {...gr(2),affiliate_clicks:click30,...gscTotals(gsc30),verified_revenue:null};
   const r90 = {...gr(3),affiliate_clicks:null,...gscTotals(gsc90),verified_revenue:null};
   const data = {
-    generated_at:new Date().toISOString(), status:'live_google_connected',
+    generated_at:new Date().toISOString(), status:'live_google_connected', measurement_status:'live_connected',
     connections:{ga4:`연결됨 · property ${propertyId}`,search_console:`연결됨 · ${siteUrl}`,partner_revenue:'네트워크별 연결 필요'},
     metrics:{today_users:rToday.users,today_users_note:`GA4 property ${propertyId}`,sessions_7d:r7.sessions,sessions_7d_note:'GA4 Data API 실집계',affiliate_clicks_30d:click30,affiliate_clicks_30d_note:'GA4 affiliate_click 30일 실집계',verified_revenue:null,verified_revenue_currency:'USD',verified_revenue_note:'파트너별 실제 수익 통합 미연결'},
     ranges:{today:rToday,'7d':r7,'30d':r30,'90d':r90},
