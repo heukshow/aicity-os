@@ -7,8 +7,18 @@ export function dashboardClient() {
   const show = (id, v) => { $(id).textContent = v === null || v === undefined ? '—' : String(v); };
   const money = (v, currency = 'USD') => v === null ? '—' : `${currency} ${v.toFixed(2)}`;
   function connected() { return snapshot?.status === 'live_google_connected' && snapshot?.measurement_status === 'live_connected'; }
+  function pageLabel(value) {
+    const label = esc(value);
+    try {
+      const path = String(value || '').trim();
+      if (!path.startsWith('/') && !path.startsWith('https://')) return label;
+      const url = new URL(path, 'https://coshuma.com');
+      if (url.origin !== 'https://coshuma.com' || url.username || url.password) return label;
+      return `<a href="${esc(url.href)}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:3px" title="새 탭에서 페이지 열기">${label}</a>`;
+    } catch { return label; }
+  }
   function list(id, items, label = 'name', value = 'value', suffix = '') {
-    $(id).innerHTML = items?.length ? items.slice(0, 8).map(x => `<div class="row"><div><strong>${esc(x[label])}</strong>${x.note ? `<small>${esc(x.note)}</small>` : ''}</div><span>${esc(x[value])}${suffix}</span></div>`).join('')
+    $(id).innerHTML = items?.length ? items.slice(0, 8).map(x => `<div class="row"><div><strong>${id === 'pages' ? pageLabel(x[label]) : esc(x[label])}</strong>${x.note ? `<small>${esc(x.note)}</small>` : ''}</div><span>${esc(x[value])}${suffix}</span></div>`).join('')
       : `<div class="row"><strong>${connected() ? '조회 기간에 기록 없음' : '데이터 확인 필요'}</strong><span>—</span></div>`;
   }
   function opportunities() {
@@ -69,4 +79,3 @@ export function decorateOpsHtml(html) {
   return html.replace(pattern, () => `<script>(()=>{const __name=fn=>fn;(${dashboardClient.toString()})();})();</script>`)
     .replace(/<tbody id="opportunities">[\s\S]*?<\/tbody>/, '<tbody id="opportunities"><tr><td colspan="5">실데이터 확인 중</td></tr></tbody>');
 }
-
