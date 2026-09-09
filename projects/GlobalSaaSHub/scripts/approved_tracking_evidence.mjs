@@ -71,7 +71,9 @@ approvedTracking.set('claap', {
 // Teachable manager Camila Gouveia pasted COSHUMA's exact unique PartnerStack
 // customer-facing URL into the support@coshuma.com mailbox. Use it as the default
 // tracked CTA. The separate 30-day trial deeplink remains unverified until the
-// vendor supplies an exact wrapped customer-facing URL.
+// vendor supplies an exact wrapped customer-facing URL. The reconcile step also
+// creates the outreach-registry entry when older state files do not contain one,
+// so deployment verification cannot silently fail on a newly approved program.
 approvedTracking.set('teachable', {
   id: 'teachable',
   status: 'approved_tracking',
