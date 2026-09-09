@@ -51,9 +51,14 @@ def reconcile_data(evidence: dict, queue_evidence: dict) -> None:
                 "official_evidence_url": OFFICIAL_URL,
                 "affiliate_url": None,
                 "affiliate_final_url": None,
-                "affiliate_verified": True,
+                # `affiliate_verified` means an exact customer-facing tracking route
+                # has been verified, not merely that the program account is approved.
+                # Claap is approved, but Lamia explicitly confirmed the current CTAs
+                # are not affiliate-tracked yet, so this must stay false until the
+                # exact issued PartnerStack link is recovered.
+                "affiliate_verified": False,
                 "affiliate_status": "approved",
-                "affiliate_verified_at": evidence["received_at_utc"],
+                "affiliate_verified_at": None,
                 "affiliate_status_checked_at": checked_at,
                 "affiliate_status_evidence_url": f"gmail:{evidence['gmail_message_id']}",
                 "affiliate_next_action": evidence["next_action"],
@@ -67,7 +72,8 @@ def reconcile_data(evidence: dict, queue_evidence: dict) -> None:
     outreach_path = DATA_DIR / "affiliate_outreach_state.json"
     if outreach_path.exists():
         outreach = load_json(outreach_path)
-        claap = outreach.get("claap") if isinstance(outreach, dict) else None
+        programs = outreach.get("programs", {}) if isinstance(outreach, dict) else {}
+        claap = programs.get("claap") if isinstance(programs, dict) else None
         if isinstance(claap, dict):
             claap.update(
                 {
@@ -160,6 +166,8 @@ def validate_data() -> None:
     tool = next(item for item in tools if item.get("id") == "claap")
     if tool.get("affiliate_status") != "approved":
         raise RuntimeError("Claap did not remain approved")
+    if tool.get("affiliate_verified") is not False:
+        raise RuntimeError("Claap tracking must remain unverified until the exact issued link is recovered")
     if tool.get("affiliate_url") is not None or tool.get("affiliate_final_url") is not None:
         raise RuntimeError("Unverified Claap tracking URL was introduced")
     if tool.get("official_url") != OFFICIAL_URL:
