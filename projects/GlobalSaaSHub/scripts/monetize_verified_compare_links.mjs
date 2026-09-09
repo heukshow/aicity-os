@@ -213,9 +213,9 @@ console.log(
 );
 
 // Normalize existing hand-authored CTAs as well as newly monetized anchors.
-// Use the broader verified route set as a fallback so approved links recorded by
-// sync_verified_affiliates (not only approved-tracking-2026-09-08.json) still
-// receive click attribution and preserve their exact customer-facing URL.
+// Preserve vendor-approved buyer-intent deeplinks instead of forcing every CTA
+// back to the account's default tracking URL. This keeps exact pricing/trial routes
+// only when approved_tracking_evidence explicitly allowlists them.
 for (const [directory, type] of [[TOOL_DIR, 'tool'], [COMPARE_DIR, 'compare']]) {
   for (const filename of fs.readdirSync(directory).filter(name => name.endsWith('.html'))) {
     const file = path.join(directory, filename);
@@ -224,15 +224,24 @@ for (const [directory, type] of [[TOOL_DIR, 'tool'], [COMPARE_DIR, 'compare']]) 
     let updated = original.replace(/<a\b[^>]*>/g, anchor => {
       const href = anchor.match(/href="([^"]+)"/)?.[1]?.replaceAll('&amp;', '&');
       const id = anchor.match(/data-tool-id="([^"]+)"/)?.[1] ||
-        [...approvedTracking.values()].find(item => item.exact_tracking_url === href)?.id ||
+        [...approvedTracking.values()].find(item => item.exact_tracking_url === href || item.allowed_cta_urls?.includes(href))?.id ||
         verifiedRoutes.find(item => item.affiliate_url === href)?.id;
       const approvedItem = approvedTracking.get(id);
       const verifiedTool = verifiedById.get(id);
       const exactTrackingUrl = approvedItem?.exact_tracking_url || verifiedTool?.affiliate_url;
       if (!exactTrackingUrl || !anchor.includes('data-cta="affiliate"')) return anchor;
+
+      const allowedUrls = new Set(
+        Array.isArray(approvedItem?.allowed_cta_urls) && approvedItem.allowed_cta_urls.length
+          ? approvedItem.allowed_cta_urls
+          : [exactTrackingUrl]
+      );
+      allowedUrls.add(exactTrackingUrl);
+
       relevant = true;
       if (!anchor.includes('data-tool-id=')) anchor = anchor.replace('<a ', '<a data-tool-id="' + id + '" ');
-      anchor = anchor.replace(/href="[^"]*"/, () => 'href="' + exactTrackingUrl + '"');
+      const normalizedHref = href && allowedUrls.has(href) ? href : exactTrackingUrl;
+      anchor = anchor.replace(/href="[^"]*"/, () => 'href="' + normalizedHref + '"');
       if (!anchor.includes('data-cta-source=')) anchor = anchor.replace('<a ', '<a data-cta-source="' + type + '-existing-affiliate-auto" ');
       return anchor;
     });
