@@ -1,0 +1,62 @@
+{
+  "novita-ai": {
+    "problems": [
+      "Developers need access to text, image, audio, video and vision models without separately operating model-serving infrastructure for each modality.",
+      "Teams moving from prototypes to production need a path from serverless model APIs to dedicated endpoints, GPU capacity and isolated workloads without rebuilding the application around a new provider.",
+      "AI-agent builders need hosted model access and sandbox-style infrastructure so they can test and run agent workloads without maintaining their own GPU fleet."
+    ],
+    "monetization": [
+      {"title": "Build multimodal AI prototypes for clients", "difficulty": "Intermediate", "cost": "Usage-based", "output": "Working prototype that uses selected text, image, audio or video model APIs for one documented client workflow"},
+      {"title": "Implement production model-API backends", "difficulty": "Advanced", "cost": "Usage-based", "output": "API-backed application workflow with model selection, request handling, usage controls and deployment documentation"},
+      {"title": "Offer AI-agent infrastructure setup", "difficulty": "Advanced", "cost": "Usage-based", "output": "Configured agent workload using hosted models or sandbox infrastructure with monitoring and handoff notes"}
+    ]
+  },
+  "gojiberry": {
+    "problems": [
+      "Founders and sales teams need to identify prospects showing current buying intent instead of relying only on static cold-contact lists.",
+      "Outbound teams need coordinated LinkedIn and email follow-up, lead enrichment and personalized opening messages without manually researching and messaging every prospect.",
+      "Agencies managing prospecting for clients need a repeatable workflow for ICP definition, intent signals, campaign sequences and centralized conversation review."
+    ],
+    "monetization": [
+      {"title": "Set up intent-based outbound campaigns", "difficulty": "Intermediate", "cost": "Free trial/paid", "output": "Configured ICP, intent signals, campaign sequence and review workflow for a defined B2B offer"},
+      {"title": "Offer lead-enrichment and outreach operations", "difficulty": "Intermediate", "cost": "Paid", "output": "Managed prospecting workflow covering lead discovery, verified contact enrichment, personalized outreach and response triage"},
+      {"title": "Build client prospecting systems for agencies", "difficulty": "Advanced", "cost": "Paid", "output": "Documented multi-client outbound operating process with campaign settings, inbox handling and reporting handoff"}
+    ]
+  },
+  "voibe": {
+    "problems": [
+      "Professionals who write large amounts of email, documents, chat or code need faster system-wide text entry than manual typing.",
+      "Privacy-sensitive users need dictation workflows with zero-retention processing options and, on supported Macs, an on-device mode rather than storing voice recordings with a general consumer transcription service.",
+      "Teams need shared dictation access, custom vocabulary and centralized billing while keeping the same workflow across Mac and Windows."
+    ],
+    "monetization": [
+      {"title": "Set up voice-first documentation workflows", "difficulty": "Beginner", "cost": "7-day trial/paid", "output": "Configured dictation workflow with custom vocabulary, shortcuts and app-specific usage guidance for a professional"},
+      {"title": "Create voice-to-text productivity onboarding", "difficulty": "Intermediate", "cost": "7-day trial/paid", "output": "Team onboarding package covering installation, vocabulary setup, privacy mode choices and repeatable dictation practices"},
+      {"title": "Build private batch-transcription utilities", "difficulty": "Advanced", "cost": "Usage-based", "output": "Small internal tool using Voibe's batch speech-to-text API with upload, transcript retrieval and documented retention behavior"}
+    ]
+  },
+  "tagshop-ai": {
+    "problems": [
+      "Ecommerce brands need UGC-style product ads without coordinating a separate creator, shoot, scriptwriter and editor for every variation.",
+      "Marketers need to turn a product URL, image or brief into a finished short-form ad with script, avatar, voiceover, captions and editing in one workflow.",
+      "Stores with many products need a repeatable way to create and test multiple ad creatives for channels such as Meta and TikTok without rebuilding each video from scratch."
+    ],
+    "monetization": [
+      {"title": "Produce UGC-style ad packages for ecommerce clients", "difficulty": "Beginner", "cost": "Free trial/paid", "output": "Client-ready set of short product ads generated from approved product pages, briefs and brand guidance"},
+      {"title": "Offer product-catalog video repurposing", "difficulty": "Intermediate", "cost": "Paid", "output": "Repeatable workflow that converts selected product URLs into platform-ready video creative variants"},
+      {"title": "Run ad-creative testing production", "difficulty": "Intermediate", "cost": "Paid", "output": "Structured batch of hook, script, avatar and format variants prepared for a client's advertising tests"}
+    ]
+  },
+  "customgpt-ai": {
+    "problems": [
+      "Businesses need AI agents that answer from their own websites, documents and knowledge sources instead of relying only on a general model's training data.",
+      "Support and internal teams need repeatable retrieval-based assistants for customer questions, employee knowledge and research without manually searching large document collections.",
+      "Organizations deploying multiple knowledge agents need team access, API connectivity and higher-tier synchronization or branding controls as usage grows."
+    ],
+    "monetization": [
+      {"title": "Build business knowledge assistants", "difficulty": "Intermediate", "cost": "7-day trial/paid", "output": "Configured AI agent grounded in approved client websites and documents with test questions and handoff notes"},
+      {"title": "Implement customer-support knowledge agents", "difficulty": "Intermediate", "cost": "7-day trial/paid", "output": "Support assistant prototype with curated sources, response testing, escalation guidance and deployment instructions"},
+      {"title": "Offer RAG agent implementation and API setup", "difficulty": "Advanced", "cost": "Paid", "output": "Production-oriented agent workflow using approved data sources and RAG API access with integration and maintenance documentation"}
+    ]
+  }
+}
