@@ -1,0 +1,23 @@
+{
+  "id": "cloudflare-partnerstack-revenue-worker-deploy-2026-09-11",
+  "tool_id": "coshuma-private-ops",
+  "priority": "high",
+  "status": "browser_required_predeploy_verified",
+  "affiliate_status": null,
+  "cost": 0,
+  "verified_at": "2026-09-11T05:31:31+09:00",
+  "github_issue": 375,
+  "worker_name": "globalsaashub-payments",
+  "ci_run_id": 34526859326,
+  "ci_head_sha": "f49b83f33884ece774899887ac44ac583d65a361",
+  "ci_status": "success",
+  "reason": "PartnerStack revenue accounting source now separates reward status from payment status, excludes declined rewards from recognized earnings, paginates beyond the first 250 records, fails closed for mixed currencies, and exposes aggregate commission/payment availability metrics through authenticated private ops. The final Node 22 safety workflow passed both the full Worker test suite and wrangler deploy --dry-run. Production Cloudflare Worker deployment requires the existing authenticated Cloudflare environment and has not been claimed as completed.",
+  "next_action": "Reuse the existing authorized Cloudflare environment only. Deploy current main Worker after confirming the green CI run, then verify /health without payment transactions and authenticate as support@coshuma.com to read only aggregate /ops/partnerstack-summary.json fields. Record coverage and totals without exposing secrets or customer records.",
+  "do_not": [
+    "Do not create a new Worker, Cloudflare account, D1 database, DNS record, paid plan or secret.",
+    "Do not change PayPal, payout, affiliate, or Cloudflare secret values.",
+    "Do not create test purchases or payment transactions.",
+    "Do not treat PartnerStack aggregate totals as all-network COSHUMA revenue.",
+    "Do not expose API keys, customer identities, payout credentials, or other secrets."
+  ]
+}
