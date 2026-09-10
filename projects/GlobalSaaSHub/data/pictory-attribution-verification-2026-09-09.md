@@ -24,9 +24,21 @@ The same manager email includes a Pictory dashboard screenshot. The visible, non
 - Clicks: `6`
 - Cancellations: `0`
 
-The screenshot does **not** visibly provide referral/signup, paid-customer, earnings, commission, or payout totals in the captured area. Those remain unverified and must not be inferred from the six clicks or zero cancellations.
+The screenshot did not visibly provide referral/signup, paid-customer, earnings, commission, or payout totals in the captured area at that time.
 
-This closes the attribution-verification gap for the September 6 click: COSHUMA GA4 and Pictory both independently show that the referral click registered. It still does **not** prove a signup, paid conversion, commission, or payout.
+## Partner-side conversion totals confirmed — 2026-09-10
+
+On 2026-09-10, Ashutosh Dhamija checked COSHUMA's FirstPromoter account again and sent the aggregate totals directly to `support@coshuma.com`.
+
+- Gmail message ID: `1a08b7f1bb6ae4ff`
+- Account joined: `2026-08-23`
+- Clicks currently shown by Pictory/FirstPromoter: `6`
+- Referrals/signups: `0`
+- Paying customers: `0`
+- Earnings/commission: `$0.00`
+- Pictory explicitly instructed COSHUMA to continue using `https://pictory.ai?fpr=sangkwon-an23` together with `COSHUMA20`.
+
+This is the first direct partner-side confirmation of the downstream conversion totals. It proves that the current verified route has received clicks, but **no signup, paying customer, commission, or revenue has been attributed yet**. The correct optimization target is therefore click-to-signup conversion, not another affiliate application or an invented deep link.
 
 ## Existing partner conditions
 
@@ -50,9 +62,9 @@ On 2026-09-09, `support@coshuma.com` replied in the existing Pictory thread aski
 ## State / next action
 
 - Affiliate state remains `approved_tracking`.
-- End-to-end click attribution for the September 6 event is confirmed.
-- Pictory's attached partner-side snapshot reports 6 clicks over 2026-08-10 through 2026-09-09 under Pictory's own click-counting rules, with 0 cancellations visible.
+- End-to-end click attribution is confirmed.
+- Partner-side aggregate totals as of 2026-09-10 are 6 clicks, 0 referrals/signups, 0 paying customers, and $0.00 earnings/commission.
 - Do not reapply.
-- Do not replace the verified referral URL with a homepage, dashboard, login, onboarding, or promo-code-only route.
-- Keep browser-only follow-up limited to current promotional assets plus exact referral/signup, paid-customer, sale/revenue, commission and payout totals if shown.
+- Do not replace the verified referral URL with a homepage, dashboard, login, onboarding, or guessed deep link.
+- Keep the verified link and `COSHUMA20`, but optimize COSHUMA copy toward the vendor-confirmed 14-day free trial and no-card signup path to reduce commitment friction before paid conversion.
 - Do not claim a signup, commission, sale, or revenue until direct evidence exists.
