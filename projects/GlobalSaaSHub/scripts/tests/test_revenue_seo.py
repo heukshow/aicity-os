@@ -95,6 +95,21 @@ for path in PAGES[3:]:
     assert any("/" + path in p.links or BASE + "/" + path in p.links
                for other, p in parsed.items() if other != path), ("Missing internal inbound link", path)
 
+# Revenue-safety regression: buyer-intent CTA destinations must match the latest
+# direct vendor evidence, not stale candidates or guessed FirstPromoter variants.
+verified_deals = read("best/verified-software-free-trials-deals.html")
+UPLEAD_TRIAL = "https://app.uplead.com/trial-signup?fp_ref=sangkwon-3af7dc"
+UPLEAD_PRICING = "https://www.uplead.com/pricing/?fp_ref=sangkwon-3af7dc"
+JOTFORM_PRICING = "https://www.jotform.com/pricing/?partner=coshuma"
+for required in (UPLEAD_TRIAL, UPLEAD_PRICING, JOTFORM_PRICING,
+                 'data-cta-source="verified-deals-uplead-trial"',
+                 'data-cta-source="verified-deals-uplead-pricing"',
+                 'data-cta-source="verified-deals-jotform-pricing"'):
+    assert required in verified_deals, ("verified buyer route missing", required)
+for forbidden in ("sangkwon25", "affiliates.uplead.com/login"):
+    assert forbidden not in verified_deals, ("stale/admin UpLead route leaked into buyer hub", forbidden)
+print("PASS vendor-issued UpLead/Jotform buyer-route regression guard")
+
 if source != "live":
     # Exercise missing pages, canonical aliases, noindex and idempotence in isolation.
     with tempfile.TemporaryDirectory() as tmp:
