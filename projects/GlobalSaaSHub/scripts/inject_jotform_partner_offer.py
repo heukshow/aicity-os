@@ -40,6 +40,56 @@ def patch_tool_page():
           <p data-affiliate-disclosure="jotform-ai" class="mt-3 text-[11px] leading-relaxed text-slate-400">Affiliate disclosure: COSHUMA may earn a commission if you sign up through the Jotform AI Agents link. The standard Jotform site button remains a non-affiliate official link.</p>'''
         html = html[: match.start()] + replacement + html[match.end() :]
 
+    # Ayşe Dinçer, Jotform Team Lead / Affiliate Manager, directly supplied the
+    # exact pricing destination below on 2026-09-10 and said COSHUMA can publish it
+    # as provided. Convert pricing-intent CTAs only; do not synthesize deep links.
+    hero_pricing_pattern = re.compile(
+        r'<a data-cta="official" data-cta-source="jotform-hero-pricing" '
+        r'href="https://www\.jotform\.com/pricing/" target="_blank" rel="noopener noreferrer" '
+        r'class="(?P<class>[^"]+)">.*?</a>'
+    )
+    hero_pricing_replacement = (
+        f'<a data-cta="affiliate" data-tool-id="jotform" data-cta-source="jotform-hero-pricing" '
+        f'href="{PRICING_AFFILIATE_URL}" target="_blank" rel="sponsored noopener noreferrer" '
+        f'class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-slate-800 hover:bg-slate-700 text-white text-center border border-slate-600 transition-all">Compare Jotform plans →</a>'
+    )
+    html, hero_pricing_count = hero_pricing_pattern.subn(hero_pricing_replacement, html, count=1)
+
+    bottom_pricing_pattern = re.compile(
+        r'<a href="https://www\.jotform\.com/pricing/" target="_blank" rel="noopener noreferrer" '
+        r'class="(?P<class>[^"]+)">Compare official Jotform plans →</a>'
+    )
+    bottom_pricing_replacement = (
+        f'<a data-cta="affiliate" data-tool-id="jotform" data-cta-source="jotform-bottom-pricing" '
+        f'href="{PRICING_AFFILIATE_URL}" target="_blank" rel="sponsored noopener noreferrer" '
+        f'class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white text-sm font-extrabold text-center">Compare Jotform plans →</a>'
+    )
+    html, bottom_pricing_count = bottom_pricing_pattern.subn(bottom_pricing_replacement, html, count=1)
+
+    old_disclosure = (
+        "Affiliate disclosure: the Jotform AI Agents button uses a customer-facing partner link supplied in COSHUMA's Jotform affiliate onboarding. "
+        "COSHUMA may earn a commission from qualifying referrals. The pricing button is a non-affiliate official Jotform link."
+    )
+    new_disclosure = (
+        "Affiliate disclosure: the AI Agents and pricing buttons use customer-facing Jotform partner routes directly confirmed for COSHUMA. "
+        "COSHUMA may earn a commission from qualifying referrals at no extra cost to you."
+    )
+    html = html.replace(old_disclosure, new_disclosure)
+    html = html.replace("Updated September 7, 2026", "Updated September 10, 2026")
+    html = html.replace("shown on Jotform's official pricing page on September 7, 2026", "shown on Jotform's official pricing page on September 10, 2026")
+    html = html.replace("As of September 7, 2026, Jotform lists", "As of September 10, 2026, Jotform lists")
+
+    if LEGACY_AFFILIATE_URL in html:
+        raise SystemExit("Legacy Jotform onboarding redirect remained on the tool page")
+    if AI_AGENTS_URL not in html:
+        raise SystemExit("Verified Jotform AI Agents URL missing from tool page")
+    if PRICING_AFFILIATE_URL not in html:
+        raise SystemExit("Vendor-confirmed Jotform pricing URL missing from tool page")
+    if hero_pricing_count == 0 and 'data-cta-source="jotform-hero-pricing"' not in html:
+        raise SystemExit("Jotform hero pricing CTA missing after patch")
+    if bottom_pricing_count == 0 and 'data-cta-source="jotform-bottom-pricing"' not in html:
+        raise SystemExit("Jotform bottom pricing CTA missing after patch")
+
     if html != original:
         TOOL_PAGE.write_text(html, encoding="utf-8")
         updated.append(str(TOOL_PAGE.relative_to(PROJECT)))
