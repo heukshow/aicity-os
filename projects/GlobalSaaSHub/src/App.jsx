@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import toolsData from '../data/tools.json';
+import allToolsData from '../data/tools.json';
+const toolsData = allToolsData.filter(tool => !['convertkit', 'merlin-ai'].includes(tool.id));
 import CompareModal from './components/CompareModal';
 import SponsorshipCheckout from './components/SponsorshipCheckout';
 import { paymentConfig } from './config/payment.js';

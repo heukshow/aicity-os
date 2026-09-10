@@ -1,5 +1,5 @@
 """
-GlobalSaaSHub - Programmatic SEO Generator Script
+COSHUMA - Programmatic SEO Generator Script
 =================================================
 Generates individual SEO HTML pages for each AI tool in tools.json
 and generates an updated sitemap.xml with all individual tool URLs.
@@ -9,6 +9,7 @@ import os
 import json
 import re
 import argparse
+from guard_public_copy import clean, identity
 from datetime import datetime
 
 if hasattr(sys.stdout, 'reconfigure'):
@@ -79,14 +80,14 @@ html_template = """<!doctype html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{name} Pricing, Features & Review (2026) | GlobalSaaSHub</title>
-    <meta name="description" content="{description_short} Discover features, pricing ({pricing}), {rating_meta}and official links for {name} on GlobalSaaSHub." />
+    <title>{name} Pricing, Features & Review (2026) | COSHUMA</title>
+    <meta name="description" content="{description_short} Discover features, pricing ({pricing}), {rating_meta}and official links for {name} on COSHUMA." />
     <link rel="canonical" href="https://coshuma.com/tool/{slug}.html" />
     
     <!-- Open Graph SEO Tags -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://coshuma.com/tool/{slug}.html" />
-    <meta property="og:title" content="{name} Review & Pricing (2026) | GlobalSaaSHub" />
+    <meta property="og:title" content="{name} Review & Pricing (2026) | COSHUMA" />
     <meta property="og:description" content="{description_short} Check rating, pricing, and features." />
 
     <!-- JSON-LD Structured Data for Google Indexing -->
@@ -117,7 +118,7 @@ html_template = """<!doctype html>
       <div class="max-w-6xl mx-auto flex items-center justify-between">
         <a href="/" class="flex items-center gap-3">
           <div class="h-8 w-8 rounded-lg bg-purple-600 flex items-center justify-center font-extrabold text-white text-lg">G</div>
-          <span class="font-extrabold text-lg tracking-tight text-white">GlobalSaaSHub</span>
+          <span class="font-extrabold text-lg tracking-tight text-white">COSHUMA</span>
         </a>
         <a href="/" class="text-xs font-bold px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 hover:bg-purple-500/20 transition-all">
           ← Back to All Tools
@@ -220,7 +221,7 @@ html_template = """<!doctype html>
           </div>
           <div class="relative pt-2">
             <div class="text-[10px] font-bold text-slate-400 mb-1">Official Embed Badge Code:</div>
-            <textarea readonly class="w-full bg-[#0b0c10] border border-[#222538] text-[11px] font-mono text-slate-300 p-3 rounded-xl focus:outline-none resize-none h-16">&lt;a href="https://coshuma.com/tool/{slug}.html" target="_blank" title="Featured on GlobalSaaSHub TOP AI"&gt;&lt;img src="https://coshuma.com/assets/verified-badge.svg" alt="{name} Verified on GlobalSaaSHub" width="200" /&gt;&lt;/a&gt;</textarea>
+            <textarea readonly class="w-full bg-[#0b0c10] border border-[#222538] text-[11px] font-mono text-slate-300 p-3 rounded-xl focus:outline-none resize-none h-16">&lt;a href="https://coshuma.com/tool/{slug}.html" target="_blank" title="Featured on COSHUMA TOP AI"&gt;&lt;img src="https://coshuma.com/assets/verified-badge.svg" alt="{name} Verified on COSHUMA" width="200" /&gt;&lt;/a&gt;</textarea>
           </div>
         </div>
 
@@ -231,7 +232,7 @@ html_template = """<!doctype html>
     <!-- Footer -->
     <footer class="border-t border-[#222538] bg-[#07080c] py-8 text-center text-xs text-slate-500">
       <div class="max-w-6xl mx-auto px-4">
-        &copy; 2026 GlobalSaaSHub. Global AI SaaS Decision Platform. All rights reserved.
+        &copy; 2026 COSHUMA. Global AI SaaS Decision Platform. All rights reserved.
       </div>
     </footer>
   </body>
@@ -271,9 +272,9 @@ for tool in tools_data:
 
     # Generate dynamic alternatives html (3 same comparison_group competitors)
     group_cur = tool.get("comparison_group") or tool.get("category")
-    same_group_comp = [t for t in tools_data if t.get("id") != tool.get("id") and t.get("comparison_group") == group_cur]
+    same_group_comp = [t for t in tools_data if identity(t) != identity(tool) and t.get("comparison_group") == group_cur]
     if not same_group_comp:
-        same_group_comp = [t for t in tools_data if t.get("id") != tool.get("id") and t.get("category") == tool.get("category")]
+        same_group_comp = [t for t in tools_data if identity(t) != identity(tool) and t.get("category") == tool.get("category")]
     
     comp_tools = same_group_comp[:3]
 
@@ -339,6 +340,9 @@ for tool in tools_data:
         alternatives_html=alternatives_html
     )
 
+    if not alternatives_html.strip():
+        file_content = re.sub(r'<!-- Alternatives & Direct Competitors Section -->.*?(?=<!-- Pricing & Action -->)', '', file_content, flags=re.S)
+    file_content = clean(file_content)
     # Sanity check: Ensure generated HTML contains NO invalid hrefs
     invalid_href_matches = re.findall(r'href=["\'](None|null|undefined|#|javascript:|[^\s"\']*javascript:[^\s"\']*)["\']', file_content)
     if invalid_href_matches:
@@ -371,13 +375,13 @@ compare_template = """<!doctype html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{toolA_name} vs {toolB_name} Comparison, Pricing & Winner (2026) | GlobalSaaSHub</title>
+    <title>{toolA_name} vs {toolB_name} Comparison, Pricing & Winner (2026) | COSHUMA</title>
     <meta name="description" content="In-depth side-by-side comparison of {toolA_name} vs {toolB_name}. Compare pricing, features, ratings ({toolA_rating_badge} vs {toolB_rating_badge}), and find out which AI tool is best for your workflow." />
 
     <link rel="canonical" href="https://coshuma.com/compare/{slug_a}-vs-{slug_b}.html" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://coshuma.com/compare/{slug_a}-vs-{slug_b}.html" />
-    <meta property="og:title" content="{toolA_name} vs {toolB_name} Comparison (2026) | GlobalSaaSHub" />
+    <meta property="og:title" content="{toolA_name} vs {toolB_name} Comparison (2026) | COSHUMA" />
     <meta property="og:description" content="Compare {toolA_name} and {toolB_name} by pricing, features, and verified public information." />
 
     <script type="application/ld+json">
@@ -389,7 +393,7 @@ compare_template = """<!doctype html>
       "description": {comparison_description_json},
       "isPartOf": {{
         "@type": "WebSite",
-        "name": "GlobalSaaSHub",
+        "name": "COSHUMA",
         "url": "https://coshuma.com/"
       }},
       "about": [
@@ -413,7 +417,7 @@ compare_template = """<!doctype html>
       <div class="max-w-6xl mx-auto flex items-center justify-between">
         <a href="/" class="flex items-center gap-3">
           <div class="h-8 w-8 rounded-lg bg-purple-600 flex items-center justify-center font-extrabold text-white text-lg">G</div>
-          <span class="font-extrabold text-lg tracking-tight text-white">GlobalSaaSHub</span>
+          <span class="font-extrabold text-lg tracking-tight text-white">COSHUMA</span>
         </a>
         <a href="/" class="text-xs font-bold px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 hover:bg-purple-500/20 transition-all">
           ← Back to All Tools
@@ -446,7 +450,7 @@ compare_template = """<!doctype html>
           <div class="p-4 rounded-2xl bg-[#181a29] border border-purple-500/20 space-y-2">
             <div class="font-bold text-purple-300">Choose {toolA_name} if:</div>
             <p class="text-slate-300 leading-relaxed">
-              You prioritize {toolA_rating_badge}, specialized feature set, and reliable industry workflow integration.
+              Choose this option if its documented features match the workflow you need.
             </p>
             <div class="text-[10px] text-slate-400 font-mono pt-1 border-t border-[#222538]">
               Source: Official Documentation & Public Pricing Specs ({last_updated_date})
@@ -455,7 +459,7 @@ compare_template = """<!doctype html>
           <div class="p-4 rounded-2xl bg-[#181a29] border border-blue-500/20 space-y-2">
             <div class="font-bold text-blue-300">Choose {toolB_name} if:</div>
             <p class="text-slate-300 leading-relaxed">
-              You want an alternative approach with {toolB_pricing} pricing structure and {toolB_rating_badge}.
+              Compare its current pricing and features with your requirements.
             </p>
             <div class="text-[10px] text-slate-400 font-mono pt-1 border-t border-[#222538]">
               Source: Official Vendor Specifications & Benchmark Data ({last_updated_date})
@@ -481,11 +485,11 @@ compare_template = """<!doctype html>
 
         <div class="grid grid-cols-2 gap-4 p-4 rounded-2xl bg-[#181a29]/60 border border-[#222538] text-center">
           <div>
-            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">GlobalSaaSHub Editorial Rating</div>
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">COSHUMA Editorial Rating</div>
             <div class="text-lg font-black text-amber-400">{toolA_rating_badge}</div>
           </div>
           <div>
-            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">GlobalSaaSHub Editorial Rating</div>
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">COSHUMA Editorial Rating</div>
             <div class="text-lg font-black text-amber-400">{toolB_rating_badge}</div>
           </div>
         </div>
@@ -527,7 +531,7 @@ compare_template = """<!doctype html>
 
     <footer class="border-t border-[#222538] bg-[#07080c] py-8 text-center text-xs text-slate-500">
       <div class="max-w-6xl mx-auto px-4">
-        &copy; 2026 GlobalSaaSHub. Programmatic Compare Engine. All rights reserved.
+        &copy; 2026 COSHUMA. Programmatic Compare Engine. All rights reserved.
       </div>
     </footer>
   </body>
@@ -542,7 +546,7 @@ generated_compare_files = set()
 for tool_a in tools_data:
     slug_a = canonical_slug(tool_a)
     group_a = tool_a.get("comparison_group") or tool_a.get("category")
-    same_group = [t for t in tools_data if t.get("id") != tool_a.get("id") and t.get("comparison_group") == group_a]
+    same_group = [t for t in tools_data if identity(t) != identity(tool_a) and t.get("comparison_group") == group_a]
     
     for tool_b in same_group[:2]: # Top 2 direct competitors
         slug_b = canonical_slug(tool_b)
@@ -604,6 +608,7 @@ for tool_a in tools_data:
             last_updated_date=last_updated_date
         )
 
+        comp_content = clean(comp_content)
         # Sanity check: Ensure generated compare HTML contains NO invalid hrefs
         invalid_compare_matches = re.findall(r'href=["\'](None|null|undefined|#|javascript:|[^\s"\']*javascript:[^\s"\']*)["\']', comp_content)
         if invalid_compare_matches:
