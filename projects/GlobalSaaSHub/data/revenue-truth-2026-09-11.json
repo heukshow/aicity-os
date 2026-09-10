@@ -78,11 +78,31 @@
       "evidence_id": "gmail:1a08c594a05b4721",
       "evidence_timestamp": "2026-09-10T17:24:15Z",
       "note": "Vendor confirmed first 10 referral-link clicks. No downstream signup, paid-customer, commission, or payout totals were supplied, so those fields remain unknown."
+    },
+    {
+      "tool": "HighLevel",
+      "network": "FirstPromoter / HighLevel Affiliate Portal",
+      "period": "2026-09-09 observed outbound event",
+      "outbound_clicks": 1,
+      "signups_referrals": null,
+      "trials": null,
+      "paid_customers": null,
+      "commission_earned": null,
+      "commission_approved": null,
+      "commission_pending": null,
+      "payout_paid": null,
+      "payout_pending": null,
+      "currency": "USD",
+      "status": "partial_verified",
+      "evidence_source": "GA4-live-snapshot-and-repository-issue",
+      "evidence_id": "github:issue-337",
+      "evidence_timestamp": "2026-09-09T20:30:28Z",
+      "note": "GA4 recorded one outbound affiliate click to the exact verified HighLevel referral URL. Issue #337 remains open because partner-side signup, trial, paying-customer, commission and payout states are not yet verified. Never infer any downstream stage from this click."
     }
   ],
   "verified_totals": {
     "commission_earned_usd": null,
     "payout_paid_usd": null,
-    "note": "Do not sum partial networks into an all-network revenue total. Pictory and LiveChat verified $0 in their stated scopes, while other networks remain unchecked or partial."
+    "note": "Do not sum partial networks into an all-network revenue total. Pictory and LiveChat verified $0 in their stated scopes, while Brand24, HighLevel and other networks remain unchecked or partial."
   }
 }
