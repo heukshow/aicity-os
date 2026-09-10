@@ -24,6 +24,7 @@
     "check:unbounce-revenue": "python scripts/apply_search_console_ctr_patches.py && python scripts/apply_unbounce_search_revenue_patch.py && echo unbounce-search-revenue-v1",
     "check:databox-ctr": "python scripts/apply_databox_ctr_patch.py && echo databox-search-ctr-v3",
     "check:databox-partner": "python scripts/apply_databox_partner_ai_stack.py && echo databox-partner-ai-stack-v1",
+    "check:buyer-hub-surface": "python scripts/surface_verified_claap_guide.py && echo buyer-hub-revenue-surface-v5",
     "test:links": "python scripts/tests/test_link_integrity.py",
     "test:revenue-seo": "python scripts/tests/test_revenue_seo.py dist && node scripts/verify_approved_tracking.mjs",
     "test:category": "python scripts/refine_category_relevance.py",
