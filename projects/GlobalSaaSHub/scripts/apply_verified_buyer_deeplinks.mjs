@@ -172,8 +172,58 @@ if (teachable) {
   }
 }
 
+// Jotform's vendor-confirmed pricing route is more buyer-intent specific than the
+// generic account tracking homepage. The generic monetizer may normalize new
+// comparison CTAs back to the authoritative homepage, so restore the explicitly
+// allowlisted pricing route at the end of the build for every Jotform comparison.
+let jotformCompareFilesChanged = 0;
+let jotformCompareCtasChanged = 0;
+const jotform = approvedTracking.get('jotform');
+if (jotform) {
+  const authoritativeUrl = jotform.exact_tracking_url || jotformDeepLinkConfig.authoritativeUrl;
+  const pricingUrl = jotformDeepLinkConfig.deepUrl;
+  const allowed = new Set(jotform.allowed_cta_urls || jotformDeepLinkConfig.allowedCtaUrls);
+  const evidencePath = path.join(PROJECT_DIR, jotformDeepLinkConfig.evidenceFile);
+  if (!fs.existsSync(evidencePath)) {
+    throw new Error(`jotform: missing pricing deep-link evidence file ${jotformDeepLinkConfig.evidenceFile}`);
+  }
+  if (!authoritativeUrl || !allowed.has(authoritativeUrl) || !allowed.has(pricingUrl)) {
+    throw new Error('jotform: pricing URL is not explicitly allowlisted by vendor evidence');
+  }
+
+  for (const filename of fs.readdirSync(COMPARE_DIR).filter((name) => name.endsWith('.html'))) {
+    const file = path.join(COMPARE_DIR, filename);
+    let html = fs.readFileSync(file, 'utf8');
+    if (!html.includes('data-tool-id="jotform"') || !html.includes('data-cta="affiliate"')) continue;
+    const original = html;
+
+    html = html.replace(/<a\b[^>]*data-cta="affiliate"[^>]*data-tool-id="jotform"[^>]*>[^<]*<\/a>/g, (fullAnchor) => {
+      const href = fullAnchor.match(/href="([^"]+)"/)?.[1]?.replaceAll('&amp;', '&');
+      if (!href || !allowed.has(href)) {
+        throw new Error(`jotform: refusing unapproved comparison CTA in ${filename}: ${href}`);
+      }
+      if (href === pricingUrl) return fullAnchor;
+      jotformCompareCtasChanged += 1;
+      return fullAnchor.replace(/href="[^"]+"/, `href="${pricingUrl}"`);
+    });
+
+    if (html !== original) {
+      if (!html.includes('/affiliate-attribution.js')) {
+        throw new Error(`jotform: comparison attribution script missing in ${filename}`);
+      }
+      if (!/affiliate disclosure/i.test(html)) {
+        throw new Error(`jotform: affiliate disclosure missing in ${filename}`);
+      }
+      fs.writeFileSync(file, html, 'utf8');
+      jotformCompareFilesChanged += 1;
+    }
+  }
+}
+
 console.log(
   `apply_verified_buyer_deeplinks: changed=${changed} routes=${routes.length} ` +
   `teachable_compare_files_changed=${teachableCompareFilesChanged} ` +
-  `teachable_compare_ctas_changed=${teachableCompareCtasChanged}`
+  `teachable_compare_ctas_changed=${teachableCompareCtasChanged} ` +
+  `jotform_compare_files_changed=${jotformCompareFilesChanged} ` +
+  `jotform_compare_ctas_changed=${jotformCompareCtasChanged}`
 );
