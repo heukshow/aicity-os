@@ -1,0 +1,25 @@
+{
+  "id": "uplead-revenue-stats-2026-09-11",
+  "tool_id": "uplead",
+  "priority": "high",
+  "status": "approved_tracking_stats_browser_required",
+  "affiliate_status": "approved_tracking",
+  "cost": 0,
+  "verified_at": "2026-09-11T04:46:00+09:00",
+  "gmail_message_id": "1a08d9736524831d",
+  "gmail_thread_id": "1a08b7419d47b773",
+  "reason": "UpLead's Will Cannon confirmed that COSHUMA's clicks, referred sign-ups/leads, paying customers, commission and payout status are available only after logging into the existing affiliate dashboard. The same human reply separately confirmed the exact customer-facing pricing and 7-day trial tracking URLs for this existing account.",
+  "dashboard_login_url": "https://affiliates.uplead.com/login",
+  "verified_customer_urls": {
+    "homepage": "https://www.uplead.com?fp_ref=sangkwon-3af7dc",
+    "pricing": "https://www.uplead.com/pricing/?fp_ref=sangkwon-3af7dc",
+    "trial_7_day": "https://app.uplead.com/trial-signup?fp_ref=sangkwon-3af7dc"
+  },
+  "next_action": "In the existing authenticated UpLead affiliate browser session, read the current totals for clicks, referred sign-ups/leads, paying customers, earned/pending/paid commission, payout status and the dashboard's reporting period. Record only values visibly shown by UpLead. Do not create a second affiliate account or submit a new application.",
+  "do_not": [
+    "Do not publish or use the affiliate dashboard/login URL as a customer CTA.",
+    "Do not replace the vendor-issued sangkwon-3af7dc tracking URLs with stale or guessed FirstPromoter variants.",
+    "Do not infer a signup, paid customer, commission or revenue from a click or from successful link validation.",
+    "Do not pay for any plan or subscription to access statistics."
+  ]
+}
