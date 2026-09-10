@@ -1,0 +1,88 @@
+{
+  "generated_at": "2026-09-11T04:20:00+09:00",
+  "policy": {
+    "primary_kpi": "verified_revenue",
+    "unknown_is_zero": false,
+    "infer_downstream_from_upstream": false,
+    "generic_url_is_revenue_link": false,
+    "notes": "Every downstream revenue stage must be backed by API, dashboard, vendor email, or vendor-human evidence with timestamp. Missing coverage remains null/unknown, never zero."
+  },
+  "coverage": {
+    "all_networks_complete": false,
+    "partnerstack": "partial",
+    "firstpromoter": "vendor-email/dashboard evidence only where explicitly verified",
+    "livechat_partner_program": "vendor-report evidence",
+    "impact": "not centrally reconciled",
+    "rewardful": "not centrally reconciled",
+    "tapfiliate": "not centrally reconciled",
+    "affonso": "not centrally reconciled",
+    "vendor_native": "not centrally reconciled"
+  },
+  "records": [
+    {
+      "tool": "Pictory",
+      "network": "FirstPromoter",
+      "period": "account aggregate since 2026-08-23",
+      "outbound_clicks": 6,
+      "signups_referrals": 0,
+      "trials": null,
+      "paid_customers": 0,
+      "commission_earned": 0.0,
+      "commission_approved": null,
+      "commission_pending": null,
+      "payout_paid": null,
+      "payout_pending": null,
+      "currency": "USD",
+      "status": "verified",
+      "evidence_source": "vendor-human-email",
+      "evidence_id": "gmail:1a08b7f1bb6ae4ff",
+      "evidence_timestamp": "2026-09-10T18:55:40+05:30",
+      "note": "Vendor human confirmed 6 clicks, 0 referrals/signups, 0 paying customers, $0.00 earnings/commission. Trial count was not explicitly supplied, so it remains unknown."
+    },
+    {
+      "tool": "Text / LiveChat Partner Program",
+      "network": "LiveChat Partner Program",
+      "period": "2026-08-13 through 2026-09-10",
+      "outbound_clicks": 28,
+      "signups_referrals": null,
+      "trials": 0,
+      "paid_customers": 0,
+      "commission_earned": 0.0,
+      "commission_approved": null,
+      "commission_pending": null,
+      "payout_paid": null,
+      "payout_pending": null,
+      "currency": "USD",
+      "status": "verified",
+      "evidence_source": "vendor-report-email",
+      "evidence_id": "gmail:1a08c0544c56b5ac",
+      "evidence_timestamp": "2026-09-10T15:52:30Z",
+      "note": "Official four-week report confirmed 28 clicks, 0 trials, 0 paid accounts, $0 earnings. Signup/referral count was not supplied separately."
+    },
+    {
+      "tool": "Brand24",
+      "network": "PartnerStack",
+      "period": "cumulative as of vendor message",
+      "outbound_clicks": 10,
+      "signups_referrals": null,
+      "trials": null,
+      "paid_customers": null,
+      "commission_earned": null,
+      "commission_approved": null,
+      "commission_pending": null,
+      "payout_paid": null,
+      "payout_pending": null,
+      "currency": "USD",
+      "status": "partial_verified",
+      "evidence_source": "vendor-human-email",
+      "evidence_id": "gmail:1a08c594a05b4721",
+      "evidence_timestamp": "2026-09-10T17:24:15Z",
+      "note": "Vendor confirmed first 10 referral-link clicks. No downstream signup, paid-customer, commission, or payout totals were supplied, so those fields remain unknown."
+    }
+  ],
+  "verified_totals": {
+    "commission_earned_usd": null,
+    "payout_paid_usd": null,
+    "note": "Do not sum partial networks into an all-network revenue total. Pictory and LiveChat verified $0 in their stated scopes, while other networks remain unchecked or partial."
+  }
+}
