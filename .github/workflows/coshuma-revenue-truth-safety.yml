@@ -1,0 +1,33 @@
+name: COSHUMA Revenue Truth Safety
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'projects/GlobalSaaSHub/data/revenue-truth-*.json'
+      - 'projects/GlobalSaaSHub/scripts/validate_revenue_truth.mjs'
+      - '.github/workflows/coshuma-revenue-truth-safety.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: coshuma-revenue-truth-safety
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate-revenue-truth:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Validate current revenue truth ledger
+        working-directory: projects/GlobalSaaSHub
+        run: node scripts/validate_revenue_truth.mjs data/revenue-truth-2026-09-11.json
