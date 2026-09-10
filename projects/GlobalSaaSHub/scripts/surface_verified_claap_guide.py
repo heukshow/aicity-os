@@ -20,6 +20,11 @@ text = HUB.read_text(encoding="utf-8")
 #   7 clicks / 0 signups / $0. Its current first-party pricing page confirms a
 #   14-day free trial with no credit card required. Surface that concrete trial
 #   value from the buyer hub without changing Brand24's verified affiliate URL.
+# - HelpDesk has an existing verified customer-facing partner route, while the
+#   newly published HelpDesk vs Freshdesk comparison keeps Freshdesk on official
+#   non-affiliate URLs. Current first-party pages confirm both products advertise
+#   14-day no-card trials. Surface the comparison from the high-intent hub without
+#   creating or guessing any Freshdesk affiliate URL.
 # - Existing tool/buyer pages remain responsible for exact affiliate CTAs; this
 #   patch only improves internal discovery from the high-intent buyer hub.
 # - Do not construct pricing/deep-link wrappers or infer clicks, signups or revenue.
@@ -42,6 +47,13 @@ if 'https://coshuma.com/best/moosend-free-trial.html\",\"name\":\"Moosend 30-Day
     if moosend_item_marker not in text:
         raise SystemExit("Claap ItemList marker not found; refusing unsafe Moosend buyer-hub rewrite")
     text = text.replace(moosend_item_marker, moosend_item_marker + ',\n' + moosend_item, 1)
+
+helpdesk_item_marker = '          {"@type":"ListItem","position":23,"url":"https://coshuma.com/best/moosend-free-trial.html","name":"Moosend 30-Day Free Trial & Pricing Guide"}'
+helpdesk_item = '          {"@type":"ListItem","position":24,"url":"https://coshuma.com/best/helpdesk-vs-freshdesk.html","name":"HelpDesk vs Freshdesk Pricing & Free Trial Comparison"}'
+if 'https://coshuma.com/best/helpdesk-vs-freshdesk.html\",\"name\":\"HelpDesk vs Freshdesk Pricing & Free Trial Comparison\"' not in text:
+    if helpdesk_item_marker not in text:
+        raise SystemExit("Moosend ItemList marker not found; refusing unsafe HelpDesk comparison insertion")
+    text = text.replace(helpdesk_item_marker, helpdesk_item_marker + ',\n' + helpdesk_item, 1)
 
 # Keep Brand24's existing URL/position but make the structured name match the
 # concrete high-intent value already present on the destination page.
@@ -85,6 +97,18 @@ if moosend_card_heading not in text:
         raise SystemExit("Databox buyer-hub marker not found; refusing unsafe Moosend card insertion")
     text = text.replace(card_marker, moosend_card_block + card_marker, 1)
 
+helpdesk_card_block = '''          <a href="/best/helpdesk-vs-freshdesk.html" class="p-5 rounded-2xl bg-[#131520] border border-emerald-500/25 hover:border-emerald-400/60 transition-all">
+            <div class="text-xs uppercase tracking-wider font-bold text-emerald-300">Customer support · verified HelpDesk route</div>
+            <h3 class="text-lg font-extrabold text-white mt-2">HelpDesk vs Freshdesk</h3>
+            <p class="text-sm text-slate-300 mt-2 leading-relaxed">Compare current pricing, AI allowances and 14-day no-card trials. HelpDesk uses COSHUMA's verified customer partner route; Freshdesk remains on official non-affiliate links.</p>
+          </a>
+'''
+helpdesk_card_heading = '<h3 class="text-lg font-extrabold text-white mt-2">HelpDesk vs Freshdesk</h3>'
+if helpdesk_card_heading not in text:
+    if card_marker not in text:
+        raise SystemExit("Databox buyer-hub marker not found; refusing unsafe HelpDesk comparison card insertion")
+    text = text.replace(card_marker, helpdesk_card_block + card_marker, 1)
+
 brand24_old_card = '''          <a href="/best/brand24-ai-visibility.html" class="p-5 rounded-2xl bg-[#131520] border border-purple-500/25 hover:border-purple-400/60 transition-all">
             <div class="text-xs uppercase tracking-wider font-bold text-purple-300">AI visibility</div>
             <h3 class="text-lg font-extrabold text-white mt-2">Brand24 AI Visibility</h3>
@@ -109,6 +133,9 @@ required = [
     'https://coshuma.com/best/moosend-free-trial.html\",\"name\":\"Moosend 30-Day Free Trial & Pricing Guide\"',
     moosend_card_heading,
     '30-day no-card trial',
+    'https://coshuma.com/best/helpdesk-vs-freshdesk.html\",\"name\":\"HelpDesk vs Freshdesk Pricing & Free Trial Comparison\"',
+    helpdesk_card_heading,
+    'HelpDesk uses COSHUMA\'s verified customer partner route; Freshdesk remains on official non-affiliate links.',
     'https://coshuma.com/best/brand24-ai-visibility.html\",\"name\":\"Brand24 14-Day Free Trial & AI Visibility Guide\"',
     '<h3 class="text-lg font-extrabold text-white mt-2">Brand24 14-Day Trial & AI Visibility</h3>',
     'Test Brand24 for 14 days with no credit card',
@@ -122,4 +149,4 @@ for stale in ('30% off the first 2 months', '10% off the first year', 'Claap Pri
         raise SystemExit(f"Stale Claap buyer-discount claim remains in buyer hub: {stale}")
 
 HUB.write_text(text, encoding="utf-8")
-print("buyer-hub-claap-moosend-brand24-current-terms-v5")
+print("buyer-hub-claap-moosend-brand24-helpdesk-current-terms-v6")
