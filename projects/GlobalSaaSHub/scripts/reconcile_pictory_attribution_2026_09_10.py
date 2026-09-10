@@ -5,9 +5,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-CHECKED_AT = "2026-09-09T18:53:59+09:00"
+CHECKED_AT = "2026-09-10T23:27:39+09:00"
 TRACKING_URL = "https://pictory.ai?fpr=sangkwon-an23"
 ATTRIBUTION_EVIDENCE = "data/pictory-attribution-verification-2026-09-09.md"
+PARTNER_METRICS_MESSAGE_ID = "1a08b7f1bb6ae4ff"
+PARTNER_CLICKS = 6
+PARTNER_SIGNUPS = 0
+PARTNER_PAYING_CUSTOMERS = 0
+PARTNER_EARNINGS_USD = 0.0
 
 
 def load_json(path: Path):
@@ -23,7 +28,9 @@ def reconcile_tools() -> None:
         "Gmail message 1a080260af602adb from Pictory Affiliate Manager Ashutosh Dhamija confirms full affiliate-dashboard access was restored while payout setup remains pending.",
         "COSHUMA GA4 recorded the 2026-09-06 outbound affiliate_click from /tool/pictory.html to the verified Pictory referral destination.",
         "Gmail message 1a08596f9b30d2a4 from Pictory Affiliate Manager Ashutosh Dhamija explicitly confirms that the same click was recorded on Pictory's side.",
-        "End-to-end click attribution is therefore verified for that event. This does not prove a signup, sale, commission, payout, or revenue.",
+        "Gmail message 1a08b7f1bb6ae4ff from Pictory Affiliate Manager Ashutosh Dhamija reports FirstPromoter aggregate totals since 2026-08-23: 6 clicks, 0 referrals/signups, 0 paying customers, and $0.00 earnings/commission.",
+        "Pictory instructed COSHUMA to continue using https://pictory.ai?fpr=sangkwon-an23 together with COSHUMA20.",
+        "End-to-end click attribution is verified, but no signup, sale, commission, payout, or revenue is proven.",
         ATTRIBUTION_EVIDENCE,
     ]
 
@@ -51,10 +58,16 @@ def reconcile_tools() -> None:
                 "affiliate_tracking_attribution_verified_at": CHECKED_AT,
                 "affiliate_dashboard_status": "access_restored_payout_setup_pending",
                 "payout_status": "setup_pending",
+                "affiliate_partner_clicks": PARTNER_CLICKS,
+                "affiliate_partner_signups": PARTNER_SIGNUPS,
+                "affiliate_partner_paying_customers": PARTNER_PAYING_CUSTOMERS,
+                "affiliate_partner_earnings_usd": PARTNER_EARNINGS_USD,
+                "affiliate_partner_metrics_checked_at": CHECKED_AT,
+                "affiliate_partner_metrics_message_id": PARTNER_METRICS_MESSAGE_ID,
                 "affiliate_next_action": (
                     "Keep the exact verified Pictory referral URL as the primary tracking route and display COSHUMA20 alongside it. "
-                    "End-to-end click attribution is verified. Do not reapply or reopen the stale OTP task. "
-                    "Do not infer signup, sale, commission, payout, or revenue until direct evidence exists."
+                    "Partner-side FirstPromoter totals currently show 6 clicks but 0 signups, 0 paying customers and $0.00 earnings, so optimize click-to-signup conversion around Pictory's official 14-day no-card free trial. "
+                    "Do not reapply, invent a deep link, or reopen the stale OTP task. Do not infer sale, commission, payout, or revenue until direct evidence exists."
                 ),
                 "affiliate_evidence_markers": markers,
             }
@@ -79,9 +92,15 @@ def reconcile_outreach() -> None:
                 "tracking_attribution_currently_verified": True,
                 "tracking_attribution_verified_at": CHECKED_AT,
                 "current_dashboard_status": "access_restored_payout_setup_pending",
+                "partner_clicks": PARTNER_CLICKS,
+                "partner_signups": PARTNER_SIGNUPS,
+                "partner_paying_customers": PARTNER_PAYING_CUSTOMERS,
+                "partner_earnings_usd": PARTNER_EARNINGS_USD,
+                "partner_metrics_checked_at": CHECKED_AT,
+                "partner_metrics_message_id": PARTNER_METRICS_MESSAGE_ID,
                 "note": (
-                    "Pictory manager confirmed the Sep 6 COSHUMA referral click is recorded on Pictory's side, matching GA4. "
-                    "End-to-end click attribution is verified; no signup, sale, commission, payout, or revenue is inferred."
+                    "Pictory manager confirmed the verified route is registering clicks and reported FirstPromoter aggregate totals of 6 clicks, 0 referrals/signups, 0 paying customers and $0.00 earnings. "
+                    "Keep the exact referral URL plus COSHUMA20 and focus on click-to-signup conversion; no sale, commission, payout, or revenue is inferred."
                 ),
             }
         )
@@ -112,8 +131,8 @@ def reconcile_queue() -> None:
                     "tracking_url": TRACKING_URL,
                     "resolved_at": CHECKED_AT,
                     "resolution": (
-                        "Superseded by newer first-party evidence: Pictory restored dashboard access and later confirmed "
-                        "the COSHUMA referral click was recorded partner-side. No OTP follow-up is currently required for attribution verification."
+                        "Superseded by newer first-party evidence: Pictory restored dashboard access, confirmed partner-side click registration, and later emailed aggregate FirstPromoter totals. "
+                        "No OTP follow-up is currently required for attribution or conversion-total verification."
                     ),
                 }
             )
@@ -127,14 +146,21 @@ def main() -> None:
     if not evidence.exists():
         raise RuntimeError(f"Missing Pictory attribution evidence file: {evidence}")
     text = evidence.read_text(encoding="utf-8")
-    for marker in ("1a08596f9b30d2a4", "recorded on Pictory's side", "not** evidence of a signup"):
+    for marker in (
+        "1a08596f9b30d2a4",
+        PARTNER_METRICS_MESSAGE_ID,
+        "6 clicks",
+        "0 referrals/signups",
+        "0 paying customers",
+        "$0.00",
+    ):
         if marker not in text:
             raise RuntimeError(f"Pictory attribution evidence missing required marker: {marker}")
 
     reconcile_tools()
     reconcile_outreach()
     reconcile_queue()
-    print("Pictory end-to-end click attribution reconciled; stale OTP state cleared without inferring revenue")
+    print("Pictory attribution and partner conversion totals reconciled without inferring revenue")
 
 
 if __name__ == "__main__":
