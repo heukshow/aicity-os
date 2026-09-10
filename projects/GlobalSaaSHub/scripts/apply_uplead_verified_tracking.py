@@ -1,32 +1,64 @@
 from pathlib import Path
 
-PAGE = Path(__file__).resolve().parents[1] / "public" / "best" / "b2b-email-list-providers.html"
-TRACKING_URL = "https://www.uplead.com?fp_ref=sangkwon-3af7dc"
+ROOT = Path(__file__).resolve().parents[1]
+COMPARE_PAGE = ROOT / "public" / "best" / "b2b-email-list-providers.html"
+TRIAL_PAGE = ROOT / "public" / "best" / "uplead-free-trial-pricing.html"
+
+HOME_TRACKING_URL = "https://www.uplead.com?fp_ref=sangkwon-3af7dc"
+PRICING_TRACKING_URL = "https://www.uplead.com/pricing/?fp_ref=sangkwon-3af7dc"
+TRIAL_TRACKING_URL = "https://app.uplead.com/trial-signup?fp_ref=sangkwon-3af7dc"
 BUYER_GUIDE = "/best/uplead-free-trial-pricing.html"
+ATTRIBUTION_SCRIPT = '<script defer src="/affiliate-attribution.js"></script>'
 
-html = PAGE.read_text(encoding="utf-8")
+# Vendor evidence:
+# - Welcome email to support@coshuma.com (Gmail 1a08b7419d47b773) issued HOME_TRACKING_URL.
+# - Human reply from Will Cannon / UpLead (Gmail 1a08d9736524831d) explicitly issued
+#   PRICING_TRACKING_URL and TRIAL_TRACKING_URL for COSHUMA and separately directed
+#   account statistics to https://affiliates.uplead.com/login.
+# These two deep links are therefore vendor-approved customer-facing tracking routes,
+# not guessed URLs. Never publish the affiliate dashboard/login URL as a buyer CTA.
 
-# Vendor-issued evidence: UpLead's FirstPromoter welcome email to support@coshuma.com
-# (Gmail message 1a08b7419d47b773) explicitly says to share this exact link and that
-# COSHUMA is rewarded when a referred user subscribes to a paid account. Do not
-# construct pricing deep links or reuse the affiliate dashboard URL as a buyer CTA.
-# Current UpLead support guidance also says payment details are required to activate
-# full trial access and billing begins after the 7-day trial unless cancelled. Keep
-# that condition visible near the revenue CTA so clicks are qualified rather than
-# driven by an implied no-card trial.
+html = COMPARE_PAGE.read_text(encoding="utf-8")
 
+# Ensure affiliate clicks on this buyer-intent comparison are actually collected by
+# COSHUMA's first-party attribution script. The page already uses data-cta metadata.
+if ATTRIBUTION_SCRIPT not in html:
+    html = html.replace('</head>', f'  {ATTRIBUTION_SCRIPT}\n</head>', 1)
+
+# UpLead summary card: route trial intent directly to the vendor-issued trial signup.
 top_marker = '<div class="mt-4 text-sm font-bold text-white">7-day trial · 5 credits · Essentials from $99/mo monthly</div>'
-top_cta = top_marker + f'\n        <a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_top_uplead" href="{TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="mt-4 inline-flex rounded-lg bg-slate-700 px-4 py-2.5 text-sm font-black text-white hover:bg-slate-600">Start 7-Day UpLead Trial — 5 Credits →</a>\n        <div class="mt-2 text-xs leading-5 text-slate-400">UpLead support currently says payment details are required for full trial activation and billing begins after Day 7 unless cancelled.</div>'
+top_cta = top_marker + f'\n        <a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_top_uplead" href="{TRIAL_TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="mt-4 inline-flex rounded-lg bg-slate-700 px-4 py-2.5 text-sm font-black text-white hover:bg-slate-600">Start 7-Day UpLead Trial — 5 Credits →</a>\n        <div class="mt-2 text-xs leading-5 text-slate-400">UpLead support currently says payment details are required for full trial activation and billing begins after Day 7 unless cancelled.</div>'
 if top_marker in html and 'best_b2b_email_list_providers_top_uplead' not in html:
     html = html.replace(top_marker, top_cta, 1)
 
+# If an earlier build already inserted the homepage tracking route, upgrade it to the
+# exact vendor-issued trial deep link rather than constructing a URL ourselves.
+html = html.replace(
+    f'data-cta-source="best_b2b_email_list_providers_top_uplead" href="{HOME_TRACKING_URL}"',
+    f'data-cta-source="best_b2b_email_list_providers_top_uplead" href="{TRIAL_TRACKING_URL}"',
+)
+html = html.replace(
+    f'data-cta-source="best_b2b_email_list_providers_uplead" href="{HOME_TRACKING_URL}"',
+    f'data-cta-source="best_b2b_email_list_providers_uplead" href="{TRIAL_TRACKING_URL}"',
+)
+html = html.replace(
+    f'data-cta-source="best_b2b_email_list_providers_table_uplead" class="font-bold text-slate-300" href="{HOME_TRACKING_URL}"',
+    f'data-cta-source="best_b2b_email_list_providers_table_uplead" class="font-bold text-slate-300" href="{PRICING_TRACKING_URL}"',
+)
+
 old_detail = '<a href="https://www.uplead.com/pricing/" target="_blank" rel="noopener noreferrer" class="block rounded-xl bg-slate-700 px-5 py-4 text-center font-black text-white hover:bg-slate-600">Check UpLead pricing →</a>'
-new_detail = f'<a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_uplead" href="{TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="block rounded-xl bg-slate-700 px-5 py-4 text-center font-black text-white hover:bg-slate-600">Start 7-Day UpLead Trial — 5 Credits →</a>\n            <div class="rounded-lg border border-amber-400/15 bg-amber-400/[0.04] px-4 py-3 text-xs leading-5 text-amber-100/80">Full trial activation currently requires payment details according to UpLead support. Confirm the live checkout terms and cancel before the trial ends if you do not want the selected paid plan to begin.</div>\n            <a href="{BUYER_GUIDE}" class="block rounded-xl border border-emerald-400/20 bg-emerald-400/[0.05] px-5 py-3 text-center text-sm font-bold text-emerald-200 hover:bg-emerald-400/10">Read UpLead free-trial & pricing guide</a>\n            <a href="https://www.uplead.com/pricing/" target="_blank" rel="noopener noreferrer" class="block rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-slate-300 hover:bg-white/5">Check official pricing</a>'
+new_detail = f'<a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_uplead" href="{TRIAL_TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="block rounded-xl bg-slate-700 px-5 py-4 text-center font-black text-white hover:bg-slate-600">Start 7-Day UpLead Trial — 5 Credits →</a>\n            <div class="rounded-lg border border-amber-400/15 bg-amber-400/[0.04] px-4 py-3 text-xs leading-5 text-amber-100/80">Full trial activation currently requires payment details according to UpLead support. Confirm the live checkout terms and cancel before the trial ends if you do not want the selected paid plan to begin.</div>\n            <a href="{BUYER_GUIDE}" class="block rounded-xl border border-emerald-400/20 bg-emerald-400/[0.05] px-5 py-3 text-center text-sm font-bold text-emerald-200 hover:bg-emerald-400/10">Read UpLead free-trial & pricing guide</a>\n            <a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_pricing_uplead" href="{PRICING_TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="block rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-slate-300 hover:bg-white/5">Check UpLead pricing →</a>'
 if old_detail in html:
     html = html.replace(old_detail, new_detail, 1)
 
+# Upgrade an already-patched untracked pricing link to the vendor-approved tracked one.
+html = html.replace(
+    f'<a href="https://www.uplead.com/pricing/" target="_blank" rel="noopener noreferrer" class="block rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-slate-300 hover:bg-white/5">Check official pricing</a>',
+    f'<a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_pricing_uplead" href="{PRICING_TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="block rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-slate-300 hover:bg-white/5">Check UpLead pricing →</a>',
+)
+
 table_old = '<a class="font-bold text-slate-300" href="https://www.uplead.com/pricing/" target="_blank" rel="noopener noreferrer">Official pricing →</a>'
-table_new = f'<a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_table_uplead" class="font-bold text-slate-300" href="{TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer">Try UpLead via verified link →</a>'
+table_new = f'<a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_table_uplead" class="font-bold text-slate-300" href="{PRICING_TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer">UpLead pricing →</a>'
 if table_old in html:
     html = html.replace(table_old, table_new, 1)
 
@@ -36,8 +68,10 @@ if disclosure_old in html:
     html = html.replace(disclosure_old, disclosure_new, 1)
 
 required = [
-    TRACKING_URL,
+    TRIAL_TRACKING_URL,
+    PRICING_TRACKING_URL,
     BUYER_GUIDE,
+    ATTRIBUTION_SCRIPT,
     'best_b2b_email_list_providers_top_uplead',
     'best_b2b_email_list_providers_uplead',
     'best_b2b_email_list_providers_table_uplead',
@@ -48,10 +82,48 @@ required = [
 missing = [item for item in required if item not in html]
 if missing:
     raise SystemExit(f"UpLead verified tracking patch incomplete: {missing}")
-
-# The dashboard is operational-only and must never become a public revenue CTA.
 if 'affiliates.uplead.com/login' in html:
     raise SystemExit('UpLead affiliate dashboard URL leaked into public buyer page')
 
-PAGE.write_text(html, encoding="utf-8")
-print('uplead-approved-tracking-v3-qualified-trial')
+COMPARE_PAGE.write_text(html, encoding="utf-8")
+
+# Dedicated UpLead trial/pricing guide: use the vendor-issued destination that matches
+# each CTA's intent, while keeping the trial billing warning visible.
+trial = TRIAL_PAGE.read_text(encoding="utf-8")
+trial = trial.replace(
+    f'data-cta-source="uplead_free_trial_hero" href="{HOME_TRACKING_URL}"',
+    f'data-cta-source="uplead_free_trial_hero" href="{TRIAL_TRACKING_URL}"',
+)
+trial = trial.replace(
+    f'data-cta-source="uplead_free_trial_bottom" href="{HOME_TRACKING_URL}"',
+    f'data-cta-source="uplead_free_trial_bottom" href="{TRIAL_TRACKING_URL}"',
+)
+trial = trial.replace(
+    '<a href="https://www.uplead.com/pricing/" target="_blank" rel="noopener noreferrer" class="flex-1 rounded-xl border border-white/10 bg-white/[0.03] px-6 py-4 text-center text-sm font-bold text-slate-200 hover:bg-white/[0.06]">Check official pricing →</a>',
+    f'<a data-cta="affiliate" data-tool-id="uplead" data-cta-source="uplead_pricing_hero" href="{PRICING_TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="flex-1 rounded-xl border border-white/10 bg-white/[0.03] px-6 py-4 text-center text-sm font-bold text-slate-200 hover:bg-white/[0.06]">Check UpLead pricing →</a>',
+)
+trial = trial.replace(
+    'Affiliate disclosure: the green button uses the exact customer referral URL UpLead issued to COSHUMA.',
+    'Affiliate disclosure: the trial and pricing buttons use the exact customer tracking URLs UpLead issued to COSHUMA.',
+)
+trial = trial.replace(
+    "and UpLead's vendor-issued welcome email to COSHUMA for the exact referral URL. The dashboard/login URL is not used as a customer CTA.",
+    "and UpLead's vendor emails to COSHUMA for the exact homepage, pricing and trial tracking URLs. The dashboard/login URL is not used as a customer CTA.",
+)
+
+trial_required = [
+    TRIAL_TRACKING_URL,
+    PRICING_TRACKING_URL,
+    'uplead_free_trial_hero',
+    'uplead_free_trial_bottom',
+    'uplead_pricing_hero',
+    'payment details',
+]
+trial_missing = [item for item in trial_required if item not in trial]
+if trial_missing:
+    raise SystemExit(f"UpLead trial/pricing guide tracking patch incomplete: {trial_missing}")
+if 'affiliates.uplead.com/login' in trial:
+    raise SystemExit('UpLead affiliate dashboard URL leaked into public trial/pricing guide')
+
+TRIAL_PAGE.write_text(trial, encoding="utf-8")
+print('uplead-approved-vendor-deeplinks-v4')
