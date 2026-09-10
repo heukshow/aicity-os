@@ -2889,9 +2889,11 @@
     "affiliate_verified_at": "2026-09-08T00:00:00Z",
     "affiliate_evidence_markers": [
       "Approval email 1a05cb0bb6ebc623 reread. Existing Impact account 7670642 authenticated with the user-authorized password. Impact Create a link for Kittl displayed and copied the exact redirect; official Kittl page loaded with irclickid, impact campaign, and afsrc attribution parameters.",
-      "data/approved-tracking-2026-09-08.json"
+      "data/approved-tracking-2026-09-08.json",
+      "Newer authenticated Impact evidence verifies COSHUMA customer tracking URL https://kittl.pxf.io/0GMrXY and official Kittl attribution; do not regress to approved-without-link or reopen tracking recovery."
     ],
-    "affiliate_final_url": "https://www.kittl.com/"
+    "affiliate_final_url": "https://www.kittl.com/",
+    "affiliate_status_checked_at": "2026-09-10T08:26:43+09:00"
   },
   {
     "id": "koala-ai",
