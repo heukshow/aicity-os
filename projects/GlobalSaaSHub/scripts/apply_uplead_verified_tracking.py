@@ -2,6 +2,7 @@ from pathlib import Path
 
 PAGE = Path(__file__).resolve().parents[1] / "public" / "best" / "b2b-email-list-providers.html"
 TRACKING_URL = "https://www.uplead.com?fp_ref=sangkwon-3af7dc"
+BUYER_GUIDE = "/best/uplead-free-trial-pricing.html"
 
 html = PAGE.read_text(encoding="utf-8")
 
@@ -16,7 +17,7 @@ if top_marker in html and 'best_b2b_email_list_providers_top_uplead' not in html
     html = html.replace(top_marker, top_cta, 1)
 
 old_detail = '<a href="https://www.uplead.com/pricing/" target="_blank" rel="noopener noreferrer" class="block rounded-xl bg-slate-700 px-5 py-4 text-center font-black text-white hover:bg-slate-600">Check UpLead pricing →</a>'
-new_detail = f'<a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_uplead" href="{TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="block rounded-xl bg-slate-700 px-5 py-4 text-center font-black text-white hover:bg-slate-600">Start UpLead via COSHUMA →</a>\n            <a href="https://www.uplead.com/pricing/" target="_blank" rel="noopener noreferrer" class="block rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-slate-300 hover:bg-white/5">Check official pricing</a>'
+new_detail = f'<a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_uplead" href="{TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="block rounded-xl bg-slate-700 px-5 py-4 text-center font-black text-white hover:bg-slate-600">Start UpLead via COSHUMA →</a>\n            <a href="{BUYER_GUIDE}" class="block rounded-xl border border-emerald-400/20 bg-emerald-400/[0.05] px-5 py-3 text-center text-sm font-bold text-emerald-200 hover:bg-emerald-400/10">Read UpLead free-trial & pricing guide</a>\n            <a href="https://www.uplead.com/pricing/" target="_blank" rel="noopener noreferrer" class="block rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-slate-300 hover:bg-white/5">Check official pricing</a>'
 if old_detail in html:
     html = html.replace(old_detail, new_detail, 1)
 
@@ -32,6 +33,7 @@ if disclosure_old in html:
 
 required = [
     TRACKING_URL,
+    BUYER_GUIDE,
     'best_b2b_email_list_providers_top_uplead',
     'best_b2b_email_list_providers_uplead',
     'best_b2b_email_list_providers_table_uplead',
@@ -46,4 +48,4 @@ if 'affiliates.uplead.com/login' in html:
     raise SystemExit('UpLead affiliate dashboard URL leaked into public buyer page')
 
 PAGE.write_text(html, encoding="utf-8")
-print('uplead-approved-tracking-v1')
+print('uplead-approved-tracking-v2')
