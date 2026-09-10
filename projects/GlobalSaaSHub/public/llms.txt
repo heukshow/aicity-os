@@ -4,6 +4,8 @@
 
 COSHUMA separates editorial product information from affiliate destinations. Product prices, trial terms, and outbound destinations can change; use the linked vendor source on each guide to verify final terms before purchase.
 
+High-intent guides below prioritize concrete buying questions such as free trials, pricing, discounts and plan fit. A listed partner route means COSHUMA has evidence for that customer-facing route; it does not imply a signup, sale, commission or revenue event occurred.
+
 ## High-intent buyer guides
 
 - https://coshuma.com/best/index.html — Main AI & SaaS buyer-guide hub
