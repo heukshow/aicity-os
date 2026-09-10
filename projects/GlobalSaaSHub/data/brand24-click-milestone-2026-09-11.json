@@ -1,0 +1,32 @@
+{
+  "tool_id": "brand24",
+  "status": "approved_tracking",
+  "exact_tracking_url": "https://try.brand24.com/8xqrjxybmsbt",
+  "observed_at": "2026-09-11T02:24:15+09:00",
+  "source": {
+    "type": "vendor_partnerstack_email",
+    "sender": "Alicja Mekarska <alicja.mekarska@brand24.com>",
+    "recipient": "support@coshuma.com",
+    "message_id": "1a08c594a05b4721",
+    "subject": "You have received 10 clicks on your referral link!"
+  },
+  "verified_metrics": {
+    "referral_link_clicks_milestone": 10,
+    "signups_or_trials": null,
+    "paid_customers": null,
+    "commission_or_revenue": null
+  },
+  "previous_verified_snapshot": {
+    "checked_at": "2026-09-08T00:00:00Z",
+    "clicks": 7,
+    "signups": 0,
+    "revenue_usd": 0
+  },
+  "interpretation": "Brand24 directly confirmed that the COSHUMA referral link reached its first 10 clicks. The new email did not state trials/signups, paid customers, commission, or revenue, so none are inferred. The prior Sep 8 dashboard snapshot remains the latest direct evidence for 0 signups and $0 revenue until newer conversion metrics are supplied.",
+  "action_taken": {
+    "company_mailbox": "support@coshuma.com",
+    "reply_message_id": "1a08c5e17d66939d",
+    "request": "Asked Brand24 to confirm current trial/signup, paid-customer and commission metrics and to provide an exact direct free-trial/signup tracking URL if PartnerStack attribution can be preserved; no deep link was guessed.",
+    "site_conversion_patch": "scripts/optimize_brand24_10_click_conversion.py"
+  }
+}
