@@ -14,14 +14,14 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className="antialiased">
-        <header className="fixed top-0 w-full z-50 glass">
-          <div className="container mx-auto px-6 py-4 flex justify-between items-center gap-6">
+        <header className="fixed top-0 w-full z-50 glass border-b border-white/10">
+          <div className="container mx-auto px-5 md:px-6 py-4 flex justify-between items-center gap-6 max-w-6xl">
             <a href="#" className="flex flex-col">
               <span className="text-2xl font-black gradient-text tracking-tighter leading-none">SheetProof</span>
               <span className="text-[10px] font-bold text-black/40 uppercase tracking-widest pl-1">by COSHUMA</span>
             </a>
-            <nav>
-              <ul className="flex space-x-5 md:space-x-8 text-xs md:text-sm font-medium">
+            <nav aria-label="주요 메뉴">
+              <ul className="flex space-x-3 md:space-x-8 text-[11px] md:text-sm font-medium text-gray-300">
                 <li><a href="#analyze" className="hover:text-brand transition">무료 검사</a></li>
                 <li><a href="#features" className="hover:text-brand transition">검사 항목</a></li>
                 <li><a href="#limits" className="hover:text-brand transition">안내</a></li>
@@ -35,7 +35,7 @@ export default function RootLayout({
           <div className="container mx-auto px-6 text-center text-gray-500 text-sm space-y-2">
             <p className="font-bold text-gray-300">SheetProof by COSHUMA</p>
             <p>엑셀·CSV 데이터 검수 자동화 서비스</p>
-            <p className="text-xs">© 2026 COSHUMA. All rights reserved.</p>
+            <p className="text-xs">© 2026 COSHUMA · cosuma.co.kr</p>
           </div>
         </footer>
       </body>

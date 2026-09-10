@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { ChangeEvent, DragEvent, FormEvent, useMemo, useState } from "react";
 
 type Issue = {
   severity?: string;
@@ -12,6 +12,7 @@ type Issue = {
 };
 
 type AnalysisResult = {
+  filename?: string;
   issues_total?: number;
   high?: number;
   medium?: number;
@@ -27,8 +28,31 @@ export default function SheetProofUploader() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [result, setResult] = useState<AnalysisResult | null>(null);
+  const [dragging, setDragging] = useState(false);
 
   const previewIssues = useMemo(() => result?.preview ?? [], [result]);
+
+  function choose(next: File | undefined) {
+    if (!next) return;
+    const allowed = [".xlsx", ".xlsm", ".csv"];
+    const suffix = `.${next.name.split(".").pop()?.toLowerCase()}`;
+    if (!allowed.includes(suffix)) { setError("XLSX, XLSM 또는 CSV 파일만 선택할 수 있습니다."); return; }
+    if (next.size > 10 * 1024 * 1024) { setError("파일은 최대 10MB까지 지원합니다."); return; }
+    setError(""); setResult(null); setFile(next);
+  }
+
+  function onDrop(event: DragEvent<HTMLLabelElement>) {
+    event.preventDefault(); setDragging(false); choose(event.dataTransfer.files?.[0]);
+  }
+
+  async function downloadReport(format: "json" | "csv") {
+    if (!file || !apiUrl) return;
+    const response = await fetch(`${apiUrl}/api/report/${format}`, { method: "POST", body: (() => { const form = new FormData(); form.append("file", file); return form; })() });
+    if (!response.ok) { setError("리포트를 다운로드하지 못했습니다."); return; }
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob); const link = document.createElement("a");
+    link.href = url; link.download = `${file.name.replace(/\.[^.]+$/, "")}_sheetproof.${format}`; link.click(); URL.revokeObjectURL(url);
+  }
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -69,24 +93,24 @@ export default function SheetProofUploader() {
   return (
     <section id="analyze" className="glass rounded-[36px] p-6 md:p-10 border border-white/10">
       <div className="max-w-3xl mx-auto text-center mb-8">
-        <p className="text-xs font-bold tracking-[0.25em] text-brand uppercase mb-3">Free Spreadsheet Check</p>
-        <h2 className="text-3xl md:text-4xl font-black mb-4">엑셀·CSV 파일을 바로 검사하세요</h2>
+        <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-brand uppercase mb-3"><span className="h-2 w-2 rounded-full bg-brand" /> Free check</div>
+        <h2 className="text-3xl md:text-4xl font-black mb-4 tracking-tight">파일을 올리면, 검토할 곳이 보입니다</h2>
         <p className="text-gray-400 leading-relaxed">
           XLSX, XLSM, CSV 파일에서 누락값, 중복값, 형식 불일치, 계산 불일치 가능성을 자동으로 찾습니다.
         </p>
       </div>
 
       <form onSubmit={submit} className="max-w-2xl mx-auto space-y-5">
-        <label className="block rounded-3xl border border-dashed border-white/20 bg-white/[0.03] p-8 text-center cursor-pointer hover:border-brand/50 transition">
+        <label onDragOver={(event) => { event.preventDefault(); setDragging(true); }} onDragLeave={() => setDragging(false)} onDrop={onDrop} className={`block rounded-3xl border border-dashed ${dragging ? "border-brand bg-brand/10" : "border-white/20 bg-white/[0.03]"} p-8 md:p-12 text-center cursor-pointer hover:border-brand/50 transition`}>
           <input
             type="file"
             accept=".xlsx,.xlsm,.csv"
             className="hidden"
-            onChange={(event) => setFile(event.target.files?.[0] ?? null)}
+            onChange={(event: ChangeEvent<HTMLInputElement>) => choose(event.target.files?.[0])}
           />
-          <div className="text-4xl mb-4">📄</div>
-          <div className="font-bold text-lg mb-2">{file ? file.name : "파일을 선택하세요"}</div>
-          <div className="text-xs text-gray-500">지원 형식: XLSX · XLSM · CSV / 현재 최대 10MB</div>
+          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand/15 text-2xl">⇧</div>
+          <div className="font-bold text-lg mb-2">{file ? file.name : "파일을 끌어놓거나 선택하세요"}</div>
+          <div className="text-xs text-gray-500">지원 형식: XLSX · XLSM · CSV <span className="mx-1 text-white/20">·</span> 최대 10MB</div>
         </label>
 
         <button
@@ -94,7 +118,7 @@ export default function SheetProofUploader() {
           disabled={loading}
           className="w-full py-5 rounded-2xl bg-brand text-black font-black text-lg disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.01] transition-transform"
         >
-          {loading ? "분석 중..." : "무료로 파일 검사하기"}
+          {loading ? "파일을 분석하고 있습니다…" : file ? "이 파일 무료 검사하기" : "검사할 파일 선택하기"}
         </button>
 
         <p className="text-[11px] text-gray-500 text-center leading-relaxed">
@@ -110,6 +134,7 @@ export default function SheetProofUploader() {
 
       {result && (
         <div className="max-w-3xl mx-auto mt-8 space-y-5">
+          <div className="flex items-center justify-between gap-4 mb-3"><div><p className="text-xs uppercase tracking-[.18em] text-brand font-bold">Analysis result</p><p className="text-sm text-gray-400 mt-1">{result.filename ?? file?.name}</p></div><span className="rounded-full bg-emerald-400/10 px-3 py-1 text-xs text-emerald-300">검사 완료</span></div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <Metric label="전체 문제" value={result.issues_total ?? 0} />
             <Metric label="HIGH" value={result.high ?? 0} />
@@ -134,6 +159,7 @@ export default function SheetProofUploader() {
           {(result.locked_count ?? 0) > 0 && (
             <p className="text-sm text-gray-400">현재 화면에는 {previewIssues.length}건의 미리보기를 표시합니다. 나머지 {result.locked_count}건은 이 화면에 표시되지 않습니다.</p>
           )}
+          <div className="flex flex-col sm:flex-row gap-3 pt-2"><button type="button" onClick={() => downloadReport("csv")} className="flex-1 rounded-2xl border border-white/15 px-4 py-3 text-sm font-bold hover:bg-white/5 transition">CSV 전체 리포트 다운로드</button><button type="button" onClick={() => downloadReport("json")} className="flex-1 rounded-2xl border border-white/15 px-4 py-3 text-sm font-bold hover:bg-white/5 transition">JSON 전체 리포트 다운로드</button></div>
         </div>
       )}
     </section>

@@ -11,25 +11,25 @@ const features = [
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-6 max-w-6xl">
-      <section className="py-20 md:py-28 text-center">
-        <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-brand/10 border border-brand/20 text-brand text-xs font-bold tracking-widest uppercase">
-          Spreadsheet Quality Check
+    <div className="container mx-auto px-5 md:px-6 max-w-6xl">
+      <section className="relative py-20 md:py-28 text-center">
+        <div className="absolute inset-x-0 top-10 -z-10 mx-auto h-64 max-w-3xl rounded-full bg-brand/10 blur-3xl" />
+        <div className="inline-flex items-center gap-2 px-4 py-2 mb-7 rounded-full bg-brand/10 border border-brand/20 text-brand text-xs font-bold tracking-[.18em] uppercase">
+          <span className="h-1.5 w-1.5 rounded-full bg-brand" /> Spreadsheet quality check
         </div>
-        <h1 className="text-5xl md:text-7xl font-black mb-7 leading-[1.08]">
-          엑셀 오류를 눈으로 찾지 말고,<br />
-          <span className="gradient-text">SheetProof로 먼저 검사하세요.</span>
+        <h1 className="text-5xl md:text-7xl font-black mb-7 leading-[1.02] tracking-tight">
+          중요한 스프레드시트,<br /><span className="gradient-text">업로드 전에 한 번 더 증명하세요.</span>
         </h1>
-        <p className="text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed mb-10">
-          XLSX · XLSM · CSV 파일을 업로드하면 누락, 중복, 형식 불일치, 계산 오류 가능성을 자동으로 찾아
-          시트·행·열 위치와 함께 보여줍니다.
+        <p className="text-base md:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mb-10">
+          SheetProof는 XLSX · XLSM · CSV에서 누락, 중복, 형식과 계산의 이상 징후를 찾아 검토할 위치까지 정리합니다.
         </p>
-        <a
-          href="#analyze"
-          className="inline-flex items-center justify-center px-8 py-4 rounded-2xl bg-brand text-black font-black text-lg hover:scale-[1.02] transition-transform"
-        >
-          무료로 파일 검사하기
-        </a>
+        <div className="flex flex-col sm:flex-row justify-center gap-3 mb-10">
+          <a href="#analyze" className="inline-flex items-center justify-center px-7 py-4 rounded-2xl bg-brand text-black font-black hover:brightness-110 transition">무료로 파일 검사하기 <span className="ml-2">↓</span></a>
+          <a href="#features" className="inline-flex items-center justify-center px-7 py-4 rounded-2xl border border-white/15 text-white font-bold hover:bg-white/5 transition">무엇을 검사하나요?</a>
+        </div>
+        <div className="flex flex-wrap justify-center gap-2 text-xs text-gray-500">
+          {["XLSX · XLSM · CSV", "최대 10MB", "시트·행·열 위치", "서버 영구 저장 없음"].map((item) => <span key={item} className="rounded-full border border-white/10 bg-white/[.03] px-3 py-1.5">{item}</span>)}
+        </div>
       </section>
 
       <SheetProofUploader />
