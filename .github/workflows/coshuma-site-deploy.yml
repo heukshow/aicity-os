@@ -159,6 +159,12 @@ jobs:
           test -f projects/GlobalSaaSHub/.private-ops/admin-affiliate-audit.json
           test ! -e projects/GlobalSaaSHub/dist/admin-affiliate-audit.json
           grep -q 'COSHUMA' projects/GlobalSaaSHub/dist/index.html
+          if grep -R -I -i -q -F 'websilonsg@gmail.com' projects/GlobalSaaSHub/dist --include='*.html' 2>/dev/null; then
+            echo 'Private email address detected in the public production bundle.'
+            exit 1
+          fi
+          grep -q -F 'support@coshuma.com' projects/GlobalSaaSHub/dist/privacy.html
+          grep -q -F 'support@coshuma.com' projects/GlobalSaaSHub/dist/refund.html
           if grep -R -q 'GlobalSaaSHub' projects/GlobalSaaSHub/dist/tool projects/GlobalSaaSHub/dist/compare 2>/dev/null; then
             echo 'Legacy GlobalSaaSHub branding detected in generated production pages.'
             exit 1
