@@ -109,11 +109,17 @@
       "tracking_url": "https://pictory.ai?fpr=sangkwon-an23",
       "promo_code": "COSHUMA20",
       "payout_status": "setup_pending",
-      "note": "Pictory manager confirmed the Sep 6 COSHUMA referral click is recorded on Pictory's side, matching GA4. End-to-end click attribution is verified; no signup, sale, commission, payout, or revenue is inferred.",
-      "updated_at": "2026-09-09T18:53:59+09:00",
+      "note": "Pictory manager confirmed the verified route is registering clicks and reported FirstPromoter aggregate totals of 6 clicks, 0 referrals/signups, 0 paying customers and $0.00 earnings. Keep the exact referral URL plus COSHUMA20 and focus on click-to-signup conversion; no sale, commission, payout, or revenue is inferred.",
+      "updated_at": "2026-09-10T23:27:39+09:00",
       "tracking_attribution_currently_verified": true,
-      "tracking_attribution_verified_at": "2026-09-09T18:53:59+09:00",
-      "current_dashboard_status": "access_restored_payout_setup_pending"
+      "tracking_attribution_verified_at": "2026-09-10T23:27:39+09:00",
+      "current_dashboard_status": "access_restored_payout_setup_pending",
+      "partner_clicks": 6,
+      "partner_signups": 0,
+      "partner_paying_customers": 0,
+      "partner_earnings_usd": 0,
+      "partner_metrics_checked_at": "2026-09-10T23:27:39+09:00",
+      "partner_metrics_message_id": "1a08b7f1bb6ae4ff"
     },
     "taskip": {
       "status": "approved_tracking",
