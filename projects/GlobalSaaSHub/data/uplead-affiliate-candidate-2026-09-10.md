@@ -1,38 +1,36 @@
-# UpLead affiliate candidate — 2026-09-10
+# UpLead approved tracking — 2026-09-10
 
-## Revenue reason
+## Current operational status
 
-- COSHUMA already includes UpLead in `/best/b2b-email-list-providers.html`, so there is an existing buyer-intent surface that currently sends UpLead visitors only to UpLead's official non-affiliate pricing page.
-- UpLead's current official affiliate page explicitly lists bloggers/SEO content creators and review/directory sites in B2B/SaaS as intended affiliate types.
-- The program is free to apply to; UpLead states there is no initial or monthly affiliate fee.
-- Current official terms: 20% recurring commission on paid plans, 60-day default cookie, monthly PayPal payouts, $50 minimum payout, and worldwide eligibility subject to approval.
+- `affiliate_status`: `approved_tracking`
+- `affiliate_verified`: `true`
+- `exact_tracking_url`: `https://www.uplead.com?fp_ref=sangkwon-3af7dc`
+- Company mailbox used: `support@coshuma.com`
+- Vendor welcome Gmail message: `1a08b7419d47b773`
+- Browser/dashboard login URL is operational only and must not be published as a buyer CTA.
+- Do not reapply or create another UpLead affiliate account.
 
-## Duplicate / status check performed before any application
+## Vendor-issued evidence
 
-- `support@coshuma.com` Gmail search for `UpLead` / `uplead` returned no matching mail in the current mailbox search.
-- Repository code/state search found no existing UpLead affiliate application, approval, pending, rejection, cooldown, closed state, or exact tracking URL.
-- Repository issue search found no existing UpLead issue.
-- Therefore this is a new candidate, not evidence of an application or approval.
+On 2026-09-10 UpLead sent `support@coshuma.com` the subject `Welcome to UpLead referral program!`. The message explicitly says COSHUMA can get started by sharing `https://www.uplead.com?fp_ref=sangkwon-3af7dc` and that UpLead will reward the account each time a referred user subscribes to a paid account. The message separately identifies `https://affiliates.uplead.com/login` as the dashboard used to view stats. This separation is sufficient evidence that the `fp_ref` URL is the customer-facing referral route while the dashboard URL is not.
 
-## Official enrollment surface
+No click, signup, paid customer, commission, or revenue is inferred from the welcome email or link issuance alone.
 
-- Program information: `https://www.uplead.com/partners/affiliates/`
+## Official program terms rechecked 2026-09-10
+
+- Program page: `https://www.uplead.com/partners/affiliates/`
 - Program terms: `https://www.uplead.com/affiliate-program-terms/`
-- Official FirstPromoter application/sign-up surface: `https://affiliates.uplead.com/`
-- The official signup surface currently asks for first name, last name, email, password, and website. A unique customer tracking link is issued only after the program application is accepted; none is verified for COSHUMA yet.
+- UpLead currently advertises 20% recurring commission on paid plans and a 60-day default affiliate cookie.
+- Payments are described as monthly, subject to the program terms and payout threshold.
+- Self-referrals are prohibited.
 
-## Browser-required next action
+## Revenue action applied
 
-Reuse `support@coshuma.com` and the existing COSHUMA identity at the exact official UpLead affiliate signup surface. Re-check for an existing account/application before creating anything. If the flow is free and there is still no existing state, fill only factual COSHUMA details. Stop for CAPTCHA, OTP, payment, identity verification, or any explicit/implicit program-terms/legal-consent acceptance that requires the user's approval. After a real submission, record only the actual submitted/pending/approved/rejected state. If approved, copy and verify only the exact customer-facing URL issued by the authenticated dashboard/vendor.
+COSHUMA's existing `/best/b2b-email-list-providers.html` already contains UpLead buyer intent. Production build now runs `scripts/apply_uplead_verified_tracking.py`, which inserts only the exact vendor-issued customer URL into the UpLead CTA positions, adds explicit affiliate attribution metadata, retains the separate official pricing link where useful, and guards against accidentally publishing the affiliate dashboard URL.
 
 ## Do not
 
-- Do not publish `https://www.uplead.com/`, `/pricing/`, `https://affiliates.uplead.com/`, or any dashboard/onboarding URL as an affiliate/revenue CTA.
-- Do not guess or construct an UpLead referral parameter or tracking URL.
-- Do not claim an application, approval, click, signup, commission, or revenue from this candidate review.
-- Do not buy an UpLead subscription to qualify for the affiliate program.
+- Do not substitute `https://www.uplead.com/`, `/pricing/`, `https://affiliates.uplead.com/`, or the dashboard login URL for the verified referral URL.
+- Do not construct a new UpLead deep link by appending `fp_ref` to another path unless UpLead explicitly confirms that exact deep-link behavior.
 - Do not self-refer.
-
-## Public-site handling until approval
-
-Keep UpLead links non-affiliate until an exact customer-facing tracking URL is actually issued and verified. The existing Bookyourdata verified CTA remains the monetized path on the B2B comparison page.
+- Do not claim clicks, signups, commissions, payouts, or revenue without actual dashboard/vendor evidence.
