@@ -1,0 +1,21 @@
+{
+  "id": "highlevel-active-offer-links-2026-09-11",
+  "tool_id": "gohighlevel",
+  "priority": "medium",
+  "status": "approved_tracking_offer_specific_links_browser_required",
+  "affiliate_status": "approved_tracking",
+  "cost": 0,
+  "verified_at": "2026-09-11T00:41:33+09:00",
+  "gmail_message_id": "1a08bf0ff5769cf6",
+  "gmail_thread_id": "1a08bf0ff5769cf6",
+  "reason": "HighLevel emailed support@coshuma.com that the Affiliate Offers Page is live and that affiliates should log in and enter their referral code to unlock ready-to-share campaigns and promotions. Public HighLevel pages verify that multiple active offers exist, including a current Voice AI Sales System workshop, but this run did not obtain a COSHUMA-specific customer-facing tracked URL for any individual offer.",
+  "exact_tracking_url": "https://www.gohighlevel.com/?fp_ref=sangkwon56",
+  "offer_specific_tracking_url": null,
+  "next_action": "In an authenticated HighLevel affiliate browser session, open the Affiliate Offers Page, use the existing COSHUMA referral identity, and recover the exact customer-facing tracked URL for any active offer only if the portal explicitly exposes it. Verify destination and retained attribution before replacing any general HighLevel CTA. Do not reapply to the affiliate program.",
+  "do_not": [
+    "Do not create or guess offer-specific referral URLs by adding fp_ref or other parameters to public offer pages.",
+    "Do not use affiliate portal, dashboard, login, email-redirect or onboarding URLs as public revenue links.",
+    "Do not change the existing verified account-level HighLevel referral URL unless newer authoritative account evidence supersedes it.",
+    "Do not infer clicks, trials, sales, commissions or revenue from the offer email or public offer page."
+  ]
+}
