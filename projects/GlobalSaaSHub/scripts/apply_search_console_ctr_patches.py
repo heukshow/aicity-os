@@ -70,11 +70,11 @@ PATCHES = {
     "aweber.html": [
         (
             "<title>AWeber Pricing, 14-Day Trial & Best Fit (2026) | COSHUMA</title>",
-            "<title>AWeber Review & Pricing 2026: 14-Day Free Trial, $15 Lite & Best Fit | COSHUMA</title>",
+            "<title>AWeber Review & Pricing 2026: 14-Day Free Trial, $15/month Lite & Best Fit | COSHUMA</title>",
         ),
         (
             '<meta name="description" content="AWeber buyer guide for 2026: compare current Lite and Plus pricing, the 14-day trial, email automation features, best-fit use cases and a verified affiliate link." />',
-            '<meta name="description" content="AWeber review and pricing for 2026: Lite starts at $15/mo or $12.49/mo billed annually, Plus from $19.99/mo billed annually, with a 14-day trial and COSHUMA\'s verified affiliate link." />',
+            '<meta name="description" content="AWeber pricing for up to 500 subscribers: Lite $15 monthly or $150 annually; Plus $30 monthly or $240 annually. Compare features and the 14-day trial." />',
         ),
         (
             '<meta property="og:title" content="AWeber Pricing, 14-Day Trial & Best Fit (2026)" />',
@@ -86,7 +86,7 @@ PATCHES = {
         ),
         (
             '<p class="text-slate-400 text-sm mt-2">Checked against AWeber\'s official pricing and Advocate Program documentation on September 2, 2026.</p>',
-            '<p class="text-slate-400 text-sm mt-2">Checked against AWeber\'s official pricing and Advocate Program documentation on September 9, 2026.</p>',
+            '<p class="text-slate-400 text-sm mt-2">Checked against AWeber\'s official pricing and Advocate Program documentation on September 10, 2026.</p>',
         ),
         (
             '<span class="font-extrabold text-lg tracking-tight text-white">GlobalSaaSHub</span>',

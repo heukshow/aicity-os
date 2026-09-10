@@ -69,9 +69,11 @@ def main():
     sitemap_urls = {node.text for node in root.findall("sm:url/sm:loc", namespace)}
     sitemap_tool_paths = {urlparse(url).path for url in sitemap_urls if url and "/tool/" in urlparse(url).path}
 
-    if len(sitemap_tool_paths) != len(actual_files):
-        fail(errors, f"Sitemap tool count {len(sitemap_tool_paths)} != detail page count {len(actual_files)}")
-    if sitemap_tool_paths != expected_paths:
+    noindex_paths = {path for path in actual_files if re.search(r'<meta\s+name=["\']robots["\']\s+content=["\'][^"\']*noindex', (PUBLIC / path.removeprefix('/')).read_text(encoding='utf-8'))}
+    indexable_paths = expected_paths - noindex_paths
+    if len(sitemap_tool_paths) != len(indexable_paths):
+        fail(errors, f"Sitemap tool count {len(sitemap_tool_paths)} != indexable page count {len(indexable_paths)}")
+    if sitemap_tool_paths != indexable_paths:
         fail(errors, "Sitemap tool URLs do not exactly match tools.json ids")
 
     # Audit every root-relative HTML buyer path, not just /tool/ links. This catches
@@ -94,7 +96,7 @@ def main():
         expected_url = f"{BASE_URL}{path}"
         if not canonical or canonical.group(1) != expected_url:
             fail(errors, f"Canonical mismatch for {tool_id}: expected {expected_url}")
-        if expected_url not in sitemap_urls:
+        if path not in noindex_paths and expected_url not in sitemap_urls:
             fail(errors, f"Canonical missing from sitemap: {expected_url}")
 
     for regression_id in ("notion-ai", "make-com", "copy-ai", "relevance-ai"):
