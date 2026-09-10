@@ -19,6 +19,17 @@ const aweberDeepLinkConfig = {
   evidenceFile: 'data/aweber-buyer-deeplink-evidence-2026-09-09.md',
 };
 
+const jotformDeepLinkConfig = {
+  id: 'jotform',
+  authoritativeUrl: 'https://www.jotform.com/?partner=coshuma',
+  allowedCtaUrls: [
+    'https://www.jotform.com/?partner=coshuma',
+    'https://www.jotform.com/pricing/?partner=coshuma',
+  ],
+  deepUrl: 'https://www.jotform.com/pricing/?partner=coshuma',
+  evidenceFile: 'data/jotform-pricing-tracking-request-2026-09-10.md',
+};
+
 const routes = [
   {
     id: 'typedesk',
@@ -44,6 +55,11 @@ const routes = [
     ...aweberDeepLinkConfig,
     filename: 'sanebox.html',
     sources: ['sanebox-intent-aweber'],
+  },
+  {
+    ...jotformDeepLinkConfig,
+    filename: 'jotform.html',
+    sources: ['jotform-hero-pricing', 'jotform-bottom-pricing'],
   },
 ];
 
