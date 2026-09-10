@@ -63,7 +63,11 @@ moosend_card_block = '''          <a href="/best/moosend-free-trial.html" class=
           </a>
 '''
 
-if 'href="/best/moosend-free-trial.html" class="p-5 rounded-2xl' not in text:
+# A link to the Moosend guide already exists in the lower "specialized guides"
+# section, so checking only for the href can produce a false positive. Require the
+# actual high-intent card heading before skipping insertion.
+moosend_card_heading = '<h3 class="text-lg font-extrabold text-white mt-2">Moosend 30-Day Free Trial</h3>'
+if moosend_card_heading not in text:
     if card_marker not in text:
         raise SystemExit("Databox buyer-hub marker not found; refusing unsafe Moosend card insertion")
     text = text.replace(card_marker, moosend_card_block + card_marker, 1)
@@ -73,7 +77,7 @@ required = [
     'href="/tool/claap.html"',
     'vendor-verified customer tracking route',
     'https://coshuma.com/best/moosend-free-trial.html\",\"name\":\"Moosend 30-Day Free Trial & Pricing Guide\"',
-    'href="/best/moosend-free-trial.html"',
+    moosend_card_heading,
     '30-day no-card trial',
 ]
 for marker in required:
@@ -85,4 +89,4 @@ for stale in ('30% off the first 2 months', '10% off the first year', 'Claap Pri
         raise SystemExit(f"Stale Claap buyer-discount claim remains in buyer hub: {stale}")
 
 HUB.write_text(text, encoding="utf-8")
-print("buyer-hub-claap-moosend-current-terms-v3")
+print("buyer-hub-claap-moosend-current-terms-v4")
