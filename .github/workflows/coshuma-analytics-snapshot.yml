@@ -9,6 +9,7 @@ on:
     paths:
       - '.github/workflows/coshuma-analytics-snapshot.yml'
       - 'projects/GlobalSaaSHub/scripts/generate_live_dashboard_data.mjs'
+      - 'projects/GlobalSaaSHub/scripts/dashboard-series.mjs'
       - 'projects/GlobalSaaSHub/scripts/upload_private_dashboard.mjs'
 
 permissions:
