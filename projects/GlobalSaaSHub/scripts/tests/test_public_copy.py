@@ -2,6 +2,8 @@
 from html.parser import HTMLParser
 from pathlib import Path
 import re,sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from guard_public_copy import clean
 
 class Page(HTMLParser):
     def __init__(self):
@@ -27,6 +29,8 @@ def main():
     assert violations('<p>You prioritize <b>Not rated</b></p>')
     assert violations('<meta name="description" content="GlobalSaaSHub">')
     assert not violations('<p>Connect your internal database.</p><a data-affiliate-status="approved_tracking" href="https://example.com/?ref=ok">Try</a>')
+    urls = '<meta property="og:url" content="https://coshuma.com/tool/vidiq.html"><script type="application/ld+json">{"url":"https://coshuma.com/tool/vidiq.html"}</script><a href="https://example.com/?via=GlobalSaaSHub">Text Cortex</a>'
+    assert clean(urls) == urls.replace('>Text Cortex<', '>TextCortex<')
     root=Path(sys.argv[1] if len(sys.argv)>1 else 'dist')
     files=list(root.rglob('*.html'))
     assert len(files)>400, f'Incomplete build: {len(files)} HTML files'
@@ -34,6 +38,7 @@ def main():
     for path in files:
         html=path.read_text(encoding='utf-8');bad=violations(html)
         if bad:errors.append(f'{path}: {sorted(set(bad))}')
+        if re.search(r'\bText Cortex\b', html):errors.append(f'{path}: inconsistent TextCortex brand')
         if re.search(r'<h([1-6])\b[^>]*>\s*</h\1>',html):errors.append(f'{path}: empty heading')
     explanation=(root/'compare/kit-vs-convertkit.html').read_text(encoding='utf-8')
     assert 'same email marketing platform' in explanation

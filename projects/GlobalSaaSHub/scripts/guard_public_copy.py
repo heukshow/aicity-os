@@ -10,14 +10,20 @@ def identity(tool):
 def clean(text):
     # Only text nodes and textual metadata; URLs and attribution attributes stay intact.
     def wording(s):
+        # JSON-LD and displayed source URLs are text nodes too. Protect their exact bytes.
+        urls = []
+        def protect(m):
+            urls.append(m[0])
+            return f'__URL_{len(urls)-1}__'
+        s = re.sub(r'https?://[^\s"\'<>]+|/(?:tool|compare|best)/[^\s"\'<>]+', protect, s)
         s = s.replace('COSHUMA GlobalSaaSHub', 'COSHUMA').replace('GlobalSaaSHub', 'COSHUMA')
         s = re.sub(r'\bvidiq\b', 'vidIQ', s, flags=re.I)
-        s = re.sub(r'\btextcortex\b', 'TextCortex', s, flags=re.I)
+        s = re.sub(r'\btext\s*cortex\b', 'TextCortex', s, flags=re.I)
         s = re.sub(r'You prioritize [^<.]+, specialized feature set, and reliable industry workflow integration\.',
                    'Choose this option if its documented features match the workflow you need.', s)
         s = re.sub(r'You want an alternative approach with [^<]+? pricing structure and (?:Not rated|Review pending)\.',
                    'Compare its current pricing and features with your requirements.', s)
-        return s
+        return re.sub(r'__URL_(\d+)__', lambda m: urls[int(m[1])], s)
     text = re.sub(r'(?<=>)[^<]+(?=<)', lambda m: wording(m[0]), text)
     text = re.sub(r'(<meta\b[^>]*\bcontent=")([^"]*)(")', lambda m: m[1]+wording(m[2])+m[3], text)
     text = text.replace('>G</div><span', '>C</div><span')
