@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T07:30:00+09:00",
+  "generated_at": "2026-09-11T08:11:19+09:00",
   "policy": {
     "primary_kpi": "verified_revenue",
     "unknown_is_zero": false,
@@ -124,7 +124,7 @@
     {
       "tool": "UpLead",
       "network": "FirstPromoter",
-      "period": "affiliate account active as of 2026-09-10; downstream metrics not yet verified",
+      "period": "affiliate account active; vendor-confirmed homepage, pricing and 7-day-trial tracking routes as of 2026-09-11; downstream metrics still require dashboard evidence",
       "outbound_clicks": null,
       "signups_referrals": null,
       "trials": null,
@@ -136,10 +136,10 @@
       "payout_pending": null,
       "currency": "USD",
       "status": "tracking_verified_metrics_unknown",
-      "evidence_source": "vendor-welcome-email",
-      "evidence_id": "gmail:1a08b7419d47b773",
-      "evidence_timestamp": "2026-09-10T13:13:56Z",
-      "note": "UpLead explicitly issued the customer-facing referral URL https://www.uplead.com?fp_ref=sangkwon-3af7dc to support@coshuma.com and separately identified the affiliate dashboard login. Approval/link issuance proves tracking eligibility only; clicks, signups, paid customers, commission and payouts remain unknown until dashboard or vendor evidence supplies totals."
+      "evidence_source": "vendor-human-email",
+      "evidence_id": "gmail:1a08d9736524831d",
+      "evidence_timestamp": "2026-09-10T23:11:19Z",
+      "note": "Will Cannon / UpLead explicitly confirmed the customer-facing pricing tracking URL https://www.uplead.com/pricing/?fp_ref=sangkwon-3af7dc and 7-day trial tracking URL https://app.uplead.com/trial-signup?fp_ref=sangkwon-3af7dc for COSHUMA's existing affiliate account. The earlier welcome email issued https://www.uplead.com?fp_ref=sangkwon-3af7dc. The same human reply directed clicks, referred sign-ups/leads, paying customers, commission and payout statistics to the existing affiliate dashboard, so every downstream metric remains unknown until authenticated dashboard evidence is captured."
     },
     {
       "tool": "BoldSign",
