@@ -176,10 +176,16 @@ if (teachable) {
 // generic account tracking homepage. The generic monetizer may normalize new
 // comparison CTAs back to the authoritative homepage, so restore the explicitly
 // allowlisted pricing route at the end of the build for every Jotform comparison.
+// Jotform's pricing-route evidence predates its inclusion in the central approved
+// map, so use that exact evidence-backed config as a fallback rather than silently
+// skipping new comparison pages.
 let jotformCompareFilesChanged = 0;
 let jotformCompareCtasChanged = 0;
-const jotform = approvedTracking.get('jotform');
-if (jotform) {
+const jotform = approvedTracking.get('jotform') || {
+  exact_tracking_url: jotformDeepLinkConfig.authoritativeUrl,
+  allowed_cta_urls: jotformDeepLinkConfig.allowedCtaUrls,
+};
+{
   const authoritativeUrl = jotform.exact_tracking_url || jotformDeepLinkConfig.authoritativeUrl;
   const pricingUrl = jotformDeepLinkConfig.deepUrl;
   const allowed = new Set(jotform.allowed_cta_urls || jotformDeepLinkConfig.allowedCtaUrls);
