@@ -1,25 +1,26 @@
-# Jotform pricing tracking URL request — 2026-09-10
+# Jotform pricing tracking URL — resolved 2026-09-10
 
 ## Revenue reason
 - Last known healthy Search Console snapshot (`public/ops/traffic-revenue-data.json`, generated 2026-09-08T22:38:47Z) shows query `jotform pricing` with 34 impressions and 0 clicks, and `/tool/jotform.html` with 69 impressions and 0 clicks.
-- COSHUMA already has verified Jotform affiliate attribution, but the current buyer guide keeps the pricing button on the official non-affiliate pricing URL until a vendor-confirmed customer-facing pricing tracking route is available.
+- COSHUMA already had verified Jotform affiliate attribution, but the pricing buyer guide deliberately kept its pricing button non-affiliate until Jotform supplied an exact customer-facing tracked pricing route.
 
-## Existing verified routes — preserve
+## Verified routes — preserve
 - Generic Jotform account-specific partner route: `https://www.jotform.com/?partner=coshuma`
-- Jotform AI Agents customer route used by the production build: `https://www.jotform.com/ai/agents/?partner=coshuma`
+- Jotform AI Agents customer route: `https://www.jotform.com/ai/agents/?partner=coshuma`
+- Vendor-confirmed pricing route: `https://www.jotform.com/pricing/?partner=coshuma`
 - Do not use the legacy onboarding redirect `https://link.jotform.com/17STYVOunG?username=AnSangkwon` as a production revenue CTA.
 
-## Direct action taken
+## Vendor confirmation
 - Company mailbox: `support@coshuma.com`
-- Human contact: Ayşe Dinçer, Affiliate Manager, Jotform
-- Original Gmail message: `1a08624649fff94f`
-- COSHUMA reply sent: `1a0876d840d8a0a8`
-- Request: provide the exact customer-facing tracked URL that should be used for visitors going directly to Jotform's official pricing page.
+- Human contact: Ayşe Dinçer, Team Lead / Affiliate Manager, Jotform
+- COSHUMA request message: `1a0876d840d8a0a8`
+- Jotform reply message: `1a08a037dece876d`
+- Reply received: 2026-09-10
+- Jotform explicitly wrote that `https://www.jotform.com/pricing/?partner=coshuma` is the exact tracked URL COSHUMA can use in its pricing guide to send visitors to Jotform's pricing page with COSHUMA partner attribution, and said it can be published as provided.
 
 ## State / guardrails
-- Status: `pricing_tracking_url_requested`
+- Status: `approved_tracking_pricing`
 - No new application was submitted.
-- Do not construct `pricing/?partner=coshuma`, append parameters, or infer a deep link from the generic affiliate URL.
-- Keep the current official non-affiliate pricing CTA until Jotform explicitly confirms the exact customer-facing tracked pricing URL.
-- A vendor reply that contains a dashboard/login/onboarding URL is not sufficient evidence for a revenue link.
-- Do not infer clicks, signups, commission, or revenue from this request.
+- The pricing deep link was not constructed or inferred by COSHUMA; it was supplied verbatim by Jotform's affiliate manager.
+- Keep official pricing-source citations separate from revenue CTA attribution.
+- Do not infer clicks, signups, commission, or revenue from approval or publication of this link.

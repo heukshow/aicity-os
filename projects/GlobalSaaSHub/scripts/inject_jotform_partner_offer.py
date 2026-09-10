@@ -4,8 +4,10 @@ import re
 PROJECT = Path(__file__).resolve().parents[1]
 TOOL_PAGE = PROJECT / "public" / "tool" / "jotform.html"
 COMPARE_PAGE = PROJECT / "public" / "compare" / "unbounce-vs-jotform.html"
+BEST_PRICING_PAGE = PROJECT / "public" / "best" / "jotform-pricing-free-plan.html"
 AI_AGENTS_URL = "https://www.jotform.com/ai/agents/?partner=coshuma"
 HOMEPAGE_AFFILIATE_URL = "https://www.jotform.com/?partner=coshuma"
+PRICING_AFFILIATE_URL = "https://www.jotform.com/pricing/?partner=coshuma"
 LEGACY_AFFILIATE_URL = "https://link.jotform.com/17STYVOunG?username=AnSangkwon"
 
 updated = []
@@ -20,8 +22,6 @@ def patch_tool_page():
 
     # Jotform Affiliate Marketing Specialist Anna Scheucher directly confirmed on
     # 2026-09-07 that this is COSHUMA's customer-facing AI Agents partner link.
-    # If an older onboarding-email redirect is already present, normalize it to the
-    # direct confirmed URL instead of creating a second CTA.
     html = html.replace(LEGACY_AFFILIATE_URL, AI_AGENTS_URL)
 
     if AI_AGENTS_URL not in html:
@@ -52,9 +52,6 @@ def patch_unbounce_comparison():
     html = COMPARE_PAGE.read_text(encoding="utf-8")
     original = html
 
-    # Anna Scheucher also directly confirmed COSHUMA's customer-facing homepage
-    # partner URL. Use that verified route for generic "try Jotform" purchase-intent
-    # CTAs while keeping the precise pricing-source button on the official pricing URL.
     hero_pattern = re.compile(
         r'<a data-cta="(?:official|affiliate)" data-tool-id="jotform" '
         r'data-cta-source="compare-unbounce-jotform-hero-jotform" '
@@ -98,14 +95,6 @@ def patch_unbounce_comparison():
         )
         html = html[: match.end()] + jotform_bottom + html[match.end() :]
 
-    html = html.replace('"dateModified": "2026-09-07"', '"dateModified": "2026-09-09"')
-    html = html.replace(
-        'Buyer guide · Updated September 7, 2026',
-        'Buyer guide · Updated September 9, 2026',
-    )
-
-    # Guardrails: the official pricing source remains non-affiliate, while generic
-    # conversion CTAs use only the two direct partner URLs issued by Jotform.
     if HOMEPAGE_AFFILIATE_URL not in html:
         raise SystemExit("Verified Jotform homepage affiliate URL missing after comparison patch")
     if 'href="https://www.jotform.com/pricing/"' not in html:
@@ -118,8 +107,61 @@ def patch_unbounce_comparison():
         updated.append(str(COMPARE_PAGE.relative_to(PROJECT)))
 
 
+def patch_pricing_guide():
+    if not BEST_PRICING_PAGE.exists():
+        raise SystemExit(f"Missing expected Jotform pricing guide: {BEST_PRICING_PAGE}")
+
+    html = BEST_PRICING_PAGE.read_text(encoding="utf-8")
+    original = html
+
+    # Ayşe Dinçer, Jotform Team Lead / Affiliate Manager, explicitly supplied this
+    # exact customer-facing tracked pricing URL to COSHUMA on 2026-09-10 and said it
+    # can be published as provided. Do not construct alternate pricing deep links.
+    pricing_pattern = re.compile(
+        r'<a data-cta="(?:official|affiliate)" data-tool-id="jotform" '
+        r'data-cta-source="best-jotform-pricing-hero-(?:official|pricing)" '
+        r'href="[^"]+" target="_blank" rel="[^"]+" '
+        r'class="(?P<class>[^"]+)">.*?</a>'
+    )
+    pricing_replacement = (
+        f'<a data-cta="affiliate" data-tool-id="jotform" '
+        f'data-cta-source="best-jotform-pricing-hero-pricing" '
+        f'href="{PRICING_AFFILIATE_URL}" target="_blank" '
+        f'rel="sponsored noopener noreferrer" class="px-7 py-4 rounded-xl bg-slate-800 border border-slate-600 text-white font-bold text-center">Compare Jotform plans →</a>'
+    )
+    html, count = pricing_pattern.subn(pricing_replacement, html, count=1)
+    if count == 0 and PRICING_AFFILIATE_URL not in html:
+        raise SystemExit("Could not locate the Jotform pricing-guide CTA; refusing to guess")
+
+    old_disclosure = (
+        "Affiliate disclosure: the AI Agents button uses COSHUMA's verified customer-facing Jotform partner path. "
+        "COSHUMA may earn a commission from qualifying referrals. The normal pricing button is an official non-affiliate link."
+    )
+    new_disclosure = (
+        "Affiliate disclosure: both buttons use customer-facing Jotform partner routes that Jotform directly confirmed for COSHUMA. "
+        "COSHUMA may earn a commission from qualifying referrals at no extra cost to you."
+    )
+    html = html.replace(old_disclosure, new_disclosure)
+    html = html.replace('"dateModified":"2026-09-09"', '"dateModified":"2026-09-10"')
+    html = html.replace('Pricing buyer guide · updated September 9, 2026', 'Pricing buyer guide · updated September 10, 2026')
+    html = html.replace('shown on Jotform\'s official pricing page on September 9, 2026', 'shown on Jotform\'s official pricing page on September 10, 2026')
+    html = html.replace('Sources checked September 9, 2026:', 'Sources checked September 10, 2026:')
+
+    if PRICING_AFFILIATE_URL not in html:
+        raise SystemExit("Vendor-confirmed Jotform pricing affiliate URL missing after pricing-guide patch")
+    if 'data-cta-source="best-jotform-pricing-hero-pricing"' not in html:
+        raise SystemExit("Tracked Jotform pricing CTA source marker missing")
+    if 'href="https://www.jotform.com/pricing/" target="_blank" rel="noopener noreferrer">Jotform official pricing</a>' not in html:
+        raise SystemExit("Non-affiliate official pricing source citation disappeared")
+
+    if html != original:
+        BEST_PRICING_PAGE.write_text(html, encoding="utf-8")
+        updated.append(str(BEST_PRICING_PAGE.relative_to(PROJECT)))
+
+
 patch_tool_page()
 patch_unbounce_comparison()
+patch_pricing_guide()
 
 if updated:
     print("Updated verified Jotform affiliate placements:")
