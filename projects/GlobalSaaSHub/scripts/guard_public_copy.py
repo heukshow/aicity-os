@@ -26,6 +26,7 @@ def clean(text):
         return re.sub(r'__URL_(\d+)__', lambda m: urls[int(m[1])], s)
     text = re.sub(r'(?<=>)[^<]+(?=<)', lambda m: wording(m[0]), text)
     text = re.sub(r'(<meta\b[^>]*\bcontent=")([^"]*)(")', lambda m: m[1]+wording(m[2])+m[3], text)
+    text = re.sub(r'(\b(?:alt|title|aria-label)=")([^"]*)(")', lambda m: m[1]+wording(m[2])+m[3], text)
     text = text.replace('>G</div><span', '>C</div><span')
     text = re.sub(r'(<div[^>]*>)G(</div>\s*<span[^>]*>COSHUMA)', r'\1C\2', text)
     # Known implementation commentary, not legitimate product database features.
