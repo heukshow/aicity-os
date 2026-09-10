@@ -2,26 +2,23 @@
   "id": "getgenie-approved-link-recovery-2026-09-10",
   "tool_id": "getgenie",
   "priority": "high",
-  "status": "approved_account_password_changed_exact_link_pending",
-  "affiliate_status": "approved_tracking_reconfirmation_pending",
+  "status": "resolved_vendor_human_confirmed_no_browser_needed",
+  "affiliate_status": "approved_tracking",
   "cost": 0,
-  "verified_at": "2026-09-10T05:28:00Z",
+  "verified_at": "2026-09-10T05:49:37Z",
   "registered_email": "support@coshuma.com",
-  "vendor_human_message_id": "1a0899d5517c9204",
+  "vendor_human_message_id": "1a089dd50b6495b5",
   "password_changed_notice_message_id": "1a089a2dc5d81c86",
   "outbound_exact_link_followup_message_id": "1a089c9ef50b397e",
   "existing_published_url": "https://getgenie.ai?rui=3921",
-  "exact_tracking_url": null,
-  "reason": "GetGenie support confirmed the accepted affiliate account exists under support@coshuma.com and forwarded the registered-mailbox request for password reset. A subsequent vendor notice confirms the password was changed, but it supplied neither a reset link/temporary password nor the exact customer-facing referral URL. COSHUMA therefore asked GetGenie to paste the exact URL or provide a secure self-service reset path. The existing ?rui=3921 route remains published because it was previously verified, but its current association to the recovered support@coshuma.com account is still being reconfirmed.",
-  "next_action": "Prefer the vendor email response. If GetGenie supplies the exact customer-facing URL, verify and reconcile only that exact URL. If instead GetGenie supplies a secure reset path, browser-login to the registered support@coshuma.com Affiliate Area and copy the issued customer referral URL. Do not submit a new affiliate application.",
-  "browser_required_only_if": [
-    "GetGenie provides a secure password-reset/login path but does not paste the customer-facing referral URL",
-    "The registered support@coshuma.com account can be accessed without purchasing anything or accepting new paid terms"
-  ],
+  "exact_tracking_url": "https://getgenie.ai?rui=3921",
+  "reason": "GetGenie support replied directly to the registered support@coshuma.com mailbox and explicitly pasted https://getgenie.ai?rui=3921 as the account's affiliate link. The existing published URL therefore matches the newly reconfirmed vendor-issued customer-facing tracking URL. No browser login or duplicate application is required to recover the link.",
+  "next_action": "Keep the verified URL unchanged. Measure real affiliate clicks and partner-side referrals/conversions separately; only claim revenue when paying-customer or commission evidence exists.",
+  "browser_required_only_if": [],
   "do_not": [
-    "Do not submit another GetGenie affiliate application; the accepted support@coshuma.com account is confirmed to exist.",
-    "Do not treat https://app.getgenie.ai, Affiliate Area, login, onboarding, dashboard, password-reset, or generic getgenie.ai URLs as customer affiliate links.",
-    "Do not guess that ?rui=3921 is tied to the recovered business account until GetGenie or the authenticated Affiliate Area confirms it.",
-    "Do not infer clicks, signups, paid customers, commissions, payouts, or revenue from account recovery or URL-format evidence alone."
+    "Do not submit another GetGenie affiliate application; the accepted support@coshuma.com account and exact customer link are confirmed.",
+    "Do not replace the verified URL with https://app.getgenie.ai, Affiliate Area, login, onboarding, dashboard, password-reset, or a generic getgenie.ai URL.",
+    "Do not store or expose vendor-supplied login credentials in repository evidence.",
+    "Do not infer clicks, signups, paid customers, commissions, payouts, or revenue from account recovery or link confirmation alone."
   ]
 }
