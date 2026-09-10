@@ -29,6 +29,7 @@ on:
       - 'projects/GlobalSaaSHub/scripts/public-copy-templates/**'
       - 'projects/GlobalSaaSHub/scripts/tests/test_public_copy.py'
       - 'projects/GlobalSaaSHub/scripts/ensure_best_pages_in_sitemap.py'
+      - 'projects/GlobalSaaSHub/scripts/surface_verified_kittl_commercial_guide.py'
       - 'projects/GlobalSaaSHub/scripts/sync_revenue_seo.py'
       - 'projects/GlobalSaaSHub/scripts/tests/test_revenue_seo.py'
       - 'projects/GlobalSaaSHub/scripts/inject_pictory_partner_offer.py'
