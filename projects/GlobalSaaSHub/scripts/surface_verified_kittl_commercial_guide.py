@@ -22,7 +22,8 @@ hub = HUB.read_text(encoding="utf-8")
 
 item_marker = '          {"@type":"ListItem","position":24,"url":"https://coshuma.com/best/helpdesk-vs-freshdesk.html","name":"HelpDesk vs Freshdesk Pricing & Free Trial Comparison"}'
 item = '          {"@type":"ListItem","position":25,"url":"https://coshuma.com/best/kittl-commercial-use-license.html","name":"Kittl Commercial Use & License Guide"}'
-if 'https://coshuma.com/best/kittl-commercial-use-license.html\",\"name\":\"Kittl Commercial Use & License Guide\"' not in hub:
+item_identity = 'https://coshuma.com/best/kittl-commercial-use-license.html","name":"Kittl Commercial Use & License Guide"'
+if item_identity not in hub:
     if item_marker not in hub:
         raise SystemExit("HelpDesk ItemList marker not found; refusing unsafe Kittl buyer-hub rewrite")
     hub = hub.replace(item_marker, item_marker + ',\n' + item, 1)
@@ -40,20 +41,15 @@ if card_heading not in hub:
         raise SystemExit("Databox buyer-hub marker not found; refusing unsafe Kittl card insertion")
     hub = hub.replace(card_marker, card + card_marker, 1)
 
-for marker in (
-    'https://coshuma.com/best/kittl-commercial-use-license.html\",\"name\":\"Kittl Commercial Use & License Guide\"',
-    card_heading,
-    'Design licensing · verified partner route',
-):
+for marker in (item_identity, card_heading, 'Design licensing · verified partner route'):
     if marker not in hub:
         raise SystemExit(f"Missing expected Kittl buyer-hub marker: {marker}")
 HUB.write_text(hub, encoding="utf-8")
 
 tool = TOOL.read_text(encoding="utf-8")
-internal_heading = '<h2 class="text-2xl font-black text-white">Need Kittl for client work, POD or products?</h2>'
-if SLUG not in tool:
-    faq_marker = '''  <section class="p-8 rounded-3xl bg-[#131520] border border-[#222538]">
-    <h2 class="text-2xl font-black text-white mb-5">Kittl pricing FAQ</h2>'''
+internal_heading = '<h2 class="text-2xl font-black text-white mt-2">Need Kittl for client work, POD or products?</h2>'
+if internal_heading not in tool:
+    faq_heading = '<h2 class="text-2xl font-black text-white mb-5">Kittl pricing FAQ</h2>'
     internal_block = '''  <section class="p-7 rounded-3xl border border-emerald-500/20 bg-emerald-500/[0.05]">
     <div class="text-xs uppercase tracking-wider font-bold text-emerald-300">Commercial-use decision guide</div>
     <h2 class="text-2xl font-black text-white mt-2">Need Kittl for client work, POD or products?</h2>
@@ -62,9 +58,13 @@ if SLUG not in tool:
   </section>
 
 '''
-    if faq_marker not in tool:
-        raise SystemExit("Kittl pricing FAQ marker not found; refusing unsafe internal-link insertion")
-    tool = tool.replace(faq_marker, internal_block + faq_marker, 1)
+    faq_at = tool.find(faq_heading)
+    if faq_at < 0:
+        raise SystemExit("Kittl pricing FAQ heading not found; refusing unsafe internal-link insertion")
+    section_at = tool.rfind('<section', 0, faq_at)
+    if section_at < 0:
+        raise SystemExit("Kittl pricing FAQ section boundary not found; refusing unsafe internal-link insertion")
+    tool = tool[:section_at] + internal_block + tool[section_at:]
 if SLUG not in tool or internal_heading not in tool:
     raise SystemExit("Kittl tool page missing expected commercial-guide internal link")
 TOOL.write_text(tool, encoding="utf-8")
@@ -80,4 +80,4 @@ if llms_line not in llms:
     raise SystemExit("llms.txt missing Kittl commercial-use guide")
 LLMS.write_text(llms, encoding="utf-8")
 
-print("buyer-hub-kittl-commercial-discovery-v1")
+print("buyer-hub-kittl-commercial-discovery-v2")
