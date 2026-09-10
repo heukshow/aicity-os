@@ -74,13 +74,18 @@ def main():
     if sitemap_tool_paths != expected_paths:
         fail(errors, "Sitemap tool URLs do not exactly match tools.json ids")
 
-    internal_link_pattern = re.compile(r'href=["\'](/tool/[^"\'#?]+\.html)["\']')
+    # Audit every root-relative HTML buyer path, not just /tool/ links. This catches
+    # broken comparison, /best buyer-guide, and root revenue-page links before they
+    # can strand search visitors or leak purchase-intent traffic into a 404.
+    internal_html_link_pattern = re.compile(r'href=["\'](/[^"\']+?\.html(?:[?#][^"\']*)?)["\']')
     canonical_pattern = re.compile(r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']')
     for html_file in PUBLIC.rglob("*.html"):
         html = html_file.read_text(encoding="utf-8")
-        for link in internal_link_pattern.findall(html):
-            if link not in actual_files:
-                fail(errors, f"Broken internal link in {html_file.relative_to(PUBLIC)}: {link}")
+        for link in internal_html_link_pattern.findall(html):
+            link_path = urlparse(link).path
+            target = PROJECT / "index.html" if link_path == "/index.html" else PUBLIC / link_path.removeprefix("/")
+            if not target.is_file():
+                fail(errors, f"Broken internal HTML link in {html_file.relative_to(PUBLIC)}: {link}")
 
     for tool_id in [*ids, *standalone]:
         path = f"/tool/{tool_id}.html"
@@ -134,5 +139,3 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
-
-
