@@ -38,3 +38,26 @@ test('dashboard transformation replaces obsolete initial instructions, and fails
   assert.match(output, /partnerstack-summary.json/);
   assert.throws(() => decorateOpsHtml('<html>unexpected template</html>'));
 });
+
+
+test('new charts use calendar windows, render a single day, and retain missing search gaps', async () => {
+  const nodes=new Map();
+  const get=id=>{if(!nodes.has(id))nodes.set(id,{textContent:'',innerHTML:'',style:{},className:'',closest:()=>({})});return nodes.get(id);};
+  const tabs=['7d','today'].map(key=>({dataset:{range:key},classList:{add(){},remove(){}}}));
+  const window={start:'2026-09-04',end:'2026-09-10'},today={start:'2026-09-10',end:'2026-09-10'};
+  const data={status:'live_google_connected',measurement_status:'live_connected',connections:{},metrics:{},ranges:{'7d':{users:2,affiliate_clicks:3},today:{users:1,affiliate_clicks:1}},windows:{'7d':{ga:window,search:window},'30d':{ga:window,search:window},today:{ga:today,search:today}},
+    daily:[{date:'2026-08-01',users:999,views:999},{date:'2026-09-04',users:2,views:4},{date:'2026-09-10',users:1,views:2}],
+    affiliate_daily:[{date:'2026-09-04',clicks:2},{date:'2026-09-10',clicks:1}],
+    search_daily:[{date:'2026-09-04',clicks:0,impressions:5},{date:'2026-09-10',clicks:null,impressions:null}],
+    top_sources:[{name:'google',value:2},{name:'direct',value:1}],sources_daily:{google:[{date:'2026-09-04',users:2}]},snapshot:[]};
+  vm.runInNewContext(`(${dashboardClient.toString()})();`,{URL,document:{getElementById:get,querySelectorAll:()=>tabs},fetch:async url=>({ok:true,json:async()=>url.includes('partnerstack')?{}:data})});
+  await new Promise(r=>setImmediate(r));tabs[0].onclick();
+  assert.doesNotMatch(get('spark-users').innerHTML,/999/);
+  assert.match(get('spark-users').innerHTML,/일별 값: 2, 미확정, 미확정, 미확정, 미확정, 미확정, 1/);
+  assert.match(get('miniClicksChart').innerHTML,/일별 값: 0, 미확정/);
+  assert.equal(get('clicks').textContent,'3');
+  tabs[1].onclick();assert.match(get('spark-users').innerHTML,/<circle/);assert.match(get('miniAffiliateChart').innerHTML,/<svg/);
+  assert.match(get('miniClicksChart').innerHTML,/확정 기록 미제공/);
+  assert.match(get('sources').innerHTML,/조회된 2개 경로 내/);
+  assert.doesNotMatch(get('sources').innerHTML,/NaN|Infinity|undefined/);
+});
