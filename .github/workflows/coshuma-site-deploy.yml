@@ -7,6 +7,7 @@ on:
       - 'projects/GlobalSaaSHub/src/**'
       - 'projects/GlobalSaaSHub/public/**'
       - 'projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json'
+      - 'projects/GlobalSaaSHub/data/pictory-attribution-verification-2026-09-09.md'
       - 'projects/GlobalSaaSHub/scripts/approved_tracking_evidence.mjs'
       - 'projects/GlobalSaaSHub/scripts/apply_verified_buyer_deeplinks.mjs'
       - 'projects/GlobalSaaSHub/scripts/browser_followup_evidence.mjs'
@@ -33,6 +34,8 @@ on:
       - 'projects/GlobalSaaSHub/scripts/sync_revenue_seo.py'
       - 'projects/GlobalSaaSHub/scripts/tests/test_revenue_seo.py'
       - 'projects/GlobalSaaSHub/scripts/inject_pictory_partner_offer.py'
+      - 'projects/GlobalSaaSHub/scripts/reconcile_pictory_attribution_2026_09_10.py'
+      - 'projects/GlobalSaaSHub/scripts/optimize_pictory_trial_conversion.py'
       - 'projects/GlobalSaaSHub/scripts/inject_jotform_partner_offer.py'
       - 'projects/GlobalSaaSHub/scripts/apply_omnisend_revenue_patch.py'
       - 'projects/GlobalSaaSHub/scripts/finalize_omnisend_tracking.py'
@@ -170,6 +173,13 @@ jobs:
               exit 1
             fi
           done < <(grep -R -l -F 'https://pictory.ai?fpr=sangkwon-an23' projects/GlobalSaaSHub/dist --include='*.html' || true)
+          test -f projects/GlobalSaaSHub/dist/tool/pictory.html
+          test -f projects/GlobalSaaSHub/dist/best/pictory-free-trial-pricing.html
+          grep -q -F 'https://pictory.ai?fpr=sangkwon-an23' projects/GlobalSaaSHub/dist/tool/pictory.html
+          grep -q -F 'Start 14-day free trial' projects/GlobalSaaSHub/dist/tool/pictory.html
+          grep -q -F 'no credit card' projects/GlobalSaaSHub/dist/tool/pictory.html
+          grep -q -F 'Start 14-day free trial' projects/GlobalSaaSHub/dist/best/pictory-free-trial-pricing.html
+          grep -q -F 'no credit card' projects/GlobalSaaSHub/dist/best/pictory-free-trial-pricing.html
           if grep -R -q -F 'href="https://unbounce.com/"' projects/GlobalSaaSHub/dist/compare 2>/dev/null; then
             echo 'Unbounce comparison CTA still points to the non-revenue homepage.'
             exit 1
