@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T05:34:36+09:00",
+  "generated_at": "2026-09-11T06:30:53+09:00",
   "policy": {
     "primary_kpi": "verified_revenue",
     "unknown_is_zero": false,
@@ -120,11 +120,31 @@
       "evidence_id": "github:affiliate-browser-results-2026-09-08:clickfunnels",
       "evidence_timestamp": "2026-09-07T17:19:00Z",
       "note": "Authenticated existing ClickFunnels affiliate dashboard displayed $0 commissions and 0 conversions. Because the dashboard evidence did not define conversions as signups, trials or paying customers, those specific downstream fields remain unknown rather than being forced to zero."
+    },
+    {
+      "tool": "UpLead",
+      "network": "FirstPromoter",
+      "period": "affiliate account active as of 2026-09-10; downstream metrics not yet verified",
+      "outbound_clicks": null,
+      "signups_referrals": null,
+      "trials": null,
+      "paid_customers": null,
+      "commission_earned": null,
+      "commission_approved": null,
+      "commission_pending": null,
+      "payout_paid": null,
+      "payout_pending": null,
+      "currency": "USD",
+      "status": "tracking_verified_metrics_unknown",
+      "evidence_source": "vendor-welcome-email",
+      "evidence_id": "gmail:1a08b7419d47b773",
+      "evidence_timestamp": "2026-09-10T13:13:56Z",
+      "note": "UpLead explicitly issued the customer-facing referral URL https://www.uplead.com?fp_ref=sangkwon-3af7dc to support@coshuma.com and separately identified the affiliate dashboard login. Approval/link issuance proves tracking eligibility only; clicks, signups, paid customers, commission and payouts remain unknown until dashboard or vendor evidence supplies totals."
     }
   ],
   "verified_totals": {
     "commission_earned_usd": null,
     "payout_paid_usd": null,
-    "note": "Do not sum partial networks into an all-network revenue total. Pictory, LiveChat and ClickFunnels have verified $0 commission only in their stated scopes, while Brand24, HighLevel and other networks remain unchecked or partial."
+    "note": "Do not sum partial networks into an all-network revenue total. Pictory, LiveChat and ClickFunnels have verified $0 commission only in their stated scopes, while Brand24, HighLevel, UpLead and other networks remain unchecked or partial."
   }
 }
