@@ -117,8 +117,31 @@ export async function handlePrivateOps(request, env) {
     if (request.method === 'HEAD') return response(null, 200);
     try {
       const p = await fetchPartnerStackMetrics(env);
-      return response(JSON.stringify({ connected: p.connected, reason: p.reason, checkedAt: p.checkedAt,
-        rewardCount: p.rewardCount, partnershipCount: p.partnershipCount, scope: 'first_page_max_250_each' }), 200);
+      return response(JSON.stringify({
+        connected: p.connected,
+        reason: p.reason,
+        source: p.source,
+        checkedAt: p.checkedAt,
+        rewardCount: p.rewardCount,
+        partnershipCount: p.partnershipCount,
+        currency: p.currency,
+        mixedCurrency: p.mixedCurrency,
+        total: p.total,
+        pending: p.pending,
+        paid: p.paid,
+        available: p.available,
+        withdrawn: p.withdrawn,
+        declined: p.declined,
+        unknownRewardStatus: p.unknownRewardStatus,
+        invalidAmountCount: p.invalidAmountCount,
+        amountsByCurrency: p.amountsByCurrency,
+        rewardStatusCounts: p.rewardStatusCounts,
+        paymentStatusCounts: p.paymentStatusCounts,
+        statusCounts: p.statusCounts,
+        coverage: p.coverage,
+        semantics: p.semantics,
+        scope: 'partnerstack_only_not_all_network_revenue',
+      }), 200);
     } catch { return response(JSON.stringify({ connected: false, reason: 'PartnerStack API 조회 실패', checkedAt: new Date().toISOString() }), 200); }
   }
   if (!['traffic-revenue.html', 'traffic-revenue-data.json', 'revenue-seo-refresh.json', 'admin-affiliate-audit.json'].includes(name))
