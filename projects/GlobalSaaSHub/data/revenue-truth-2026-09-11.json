@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T06:30:53+09:00",
+  "generated_at": "2026-09-11T07:30:00+09:00",
   "policy": {
     "primary_kpi": "verified_revenue",
     "unknown_is_zero": false,
@@ -140,11 +140,31 @@
       "evidence_id": "gmail:1a08b7419d47b773",
       "evidence_timestamp": "2026-09-10T13:13:56Z",
       "note": "UpLead explicitly issued the customer-facing referral URL https://www.uplead.com?fp_ref=sangkwon-3af7dc to support@coshuma.com and separately identified the affiliate dashboard login. Approval/link issuance proves tracking eligibility only; clicks, signups, paid customers, commission and payouts remain unknown until dashboard or vendor evidence supplies totals."
+    },
+    {
+      "tool": "BoldSign",
+      "network": "BoldSign Affiliate Portal",
+      "period": "approved tracking route active; downstream metrics not yet verified as of 2026-09-11",
+      "outbound_clicks": null,
+      "signups_referrals": null,
+      "trials": null,
+      "paid_customers": null,
+      "commission_earned": null,
+      "commission_approved": null,
+      "commission_pending": null,
+      "payout_paid": null,
+      "payout_pending": null,
+      "currency": "USD",
+      "status": "tracking_verified_metrics_unknown",
+      "evidence_source": "repository-approved-tracking-plus-vendor-program",
+      "evidence_id": "github:tools.next:boldsign",
+      "evidence_timestamp": "2026-09-11T07:29:21+09:00",
+      "note": "COSHUMA repository records the exact approved tracking route https://boldsign.com?via=sangkwon. BoldSign's current official affiliate page states its tracking software records clicks, referrals and conversions, but COSHUMA has not yet received account-specific downstream totals. support@coshuma.com requested exact clicks, referrals/signups, paid conversions, commission and payout totals from affiliates@boldsign.com in Gmail message 1a08d7096ef485cf. All downstream values stay unknown until vendor or authenticated-dashboard evidence arrives."
     }
   ],
   "verified_totals": {
     "commission_earned_usd": null,
     "payout_paid_usd": null,
-    "note": "Do not sum partial networks into an all-network revenue total. Pictory, LiveChat and ClickFunnels have verified $0 commission only in their stated scopes, while Brand24, HighLevel, UpLead and other networks remain unchecked or partial."
+    "note": "Do not sum partial networks into an all-network revenue total. Pictory, LiveChat and ClickFunnels have verified $0 commission only in their stated scopes, while Brand24, HighLevel, UpLead, BoldSign and other networks remain unchecked or partial."
   }
 }
