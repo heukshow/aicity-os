@@ -30,6 +30,24 @@ const promoted = new Map([
     affiliate_verified_at: observedAt,
     marker: 'Newer vendor correspondence confirms the COSHUMA Gravity Forms affiliate account is approved, but the exact customer-facing tracking URL is still unresolved; do not regress to application_submitted or invent a link.',
   }],
+  ['kittl', {
+    affiliate_status: 'approved_tracking',
+    affiliate_verified: true,
+    affiliate_url: 'https://kittl.pxf.io/0GMrXY',
+    affiliate_final_url: 'https://www.kittl.com/',
+    affiliate_status_checked_at: observedAt,
+    affiliate_verified_at: '2026-09-08T00:00:00Z',
+    marker: 'Newer authenticated Impact evidence verifies COSHUMA customer tracking URL https://kittl.pxf.io/0GMrXY and official Kittl attribution; do not regress to approved-without-link or reopen tracking recovery.',
+  }],
+  ['teachable', {
+    affiliate_status: 'approved_tracking',
+    affiliate_verified: true,
+    affiliate_url: 'https://partnerstack.teachable.com/ce4muoxdj46j',
+    affiliate_final_url: 'https://partnerstack.teachable.com/ce4muoxdj46j',
+    affiliate_status_checked_at: observedAt,
+    affiliate_verified_at: '2026-09-10T02:24:53+09:00',
+    marker: 'Newer Teachable manager correspondence to support@coshuma.com verifies COSHUMA customer tracking URL https://partnerstack.teachable.com/ce4muoxdj46j; preserve the separately vendor-issued 30-day trial route and do not regress to outreach_sent.',
+  }],
 ]);
 
 function mergeMarkers(existing, marker) {
