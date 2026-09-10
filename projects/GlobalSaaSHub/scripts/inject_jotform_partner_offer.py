@@ -75,9 +75,6 @@ def patch_tool_page():
         "COSHUMA may earn a commission from qualifying referrals at no extra cost to you."
     )
     html = html.replace(old_disclosure, new_disclosure)
-    html = html.replace("Updated September 7, 2026", "Updated September 10, 2026")
-    html = html.replace("shown on Jotform's official pricing page on September 7, 2026", "shown on Jotform's official pricing page on September 10, 2026")
-    html = html.replace("As of September 7, 2026, Jotform lists", "As of September 10, 2026, Jotform lists")
 
     if LEGACY_AFFILIATE_URL in html:
         raise SystemExit("Legacy Jotform onboarding redirect remained on the tool page")
