@@ -19,6 +19,12 @@
 - Do not substitute `https://app.getgenie.ai`, Affiliate Area, dashboard, login, onboarding, password-reset, or a generic GetGenie URL as the revenue link.
 - Do not submit another affiliate application.
 
+## Conversion optimization follow-up
+
+- COSHUMA updated the GetGenie buyer page to foreground the vendor-confirmed Free plan / no-credit-card entry path while keeping the exact verified affiliate URL unchanged.
+- On 2026-09-10, COSHUMA replied from `support@coshuma.com` asking whether GetGenie can provide a **vendor-approved customer-facing affiliate deep link to Pricing or another recommended conversion landing page** while preserving COSHUMA attribution. Sent Gmail message id: `1a08a002baf4479f`.
+- Until GetGenie supplies or explicitly approves an exact deep link, do **not** construct `/pricing/?rui=3921` or any other guessed variant. Keep `https://getgenie.ai?rui=3921` as the revenue CTA.
+
 ## Revenue evidence boundary
 
 - This evidence proves account ownership/association and the exact affiliate tracking URL only.
