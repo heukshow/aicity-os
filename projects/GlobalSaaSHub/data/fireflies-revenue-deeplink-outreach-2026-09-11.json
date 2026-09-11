@@ -1,0 +1,40 @@
+{
+  "tool_id": "fireflies-ai",
+  "tool_name": "Fireflies.ai",
+  "company_mailbox": "support@coshuma.com",
+  "status": "approved_tracking",
+  "verified_customer_url": "https://fireflies.ai/?fpr=sangkwon53",
+  "vendor_evidence_message_id": "1a0883df05fde6cf",
+  "vendor_account_specific_commission": "10% recurring commission for each attributed paying customer, per Fireflies Partnerships check-in email",
+  "outreach": {
+    "sent": true,
+    "sent_message_id": "1a08f5e48dc82da9",
+    "reply_to": "partners@fireflies.ai",
+    "requested": [
+      "vendor-issued customer-facing tracked deep link for pricing, Free plan, or 7-day Business trial while preserving COSHUMA attribution",
+      "current clicks",
+      "current referred sign-ups",
+      "current paying customers",
+      "earned commission",
+      "pending commission",
+      "paid commission",
+      "payout status"
+    ]
+  },
+  "revenue_truth": {
+    "clicks": null,
+    "signups": null,
+    "paying_customers": null,
+    "earned_commission": null,
+    "pending_commission": null,
+    "paid_commission": null,
+    "payout_status": null,
+    "rule": "Do not infer a click, signup, paid customer, commission, payout, or revenue from approval, link issuance, or email outreach."
+  },
+  "do_not": [
+    "Do not reapply to the Fireflies affiliate program.",
+    "Do not replace the verified referral URL with a generic homepage, pricing, dashboard, onboarding, or login URL.",
+    "Do not invent a pricing/trial deep link by appending parameters; activate a deep link only if Fireflies explicitly issues or confirms it."
+  ],
+  "recorded_at": "2026-09-11T16:26:53+09:00"
+}
