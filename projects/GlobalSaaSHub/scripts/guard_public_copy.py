@@ -45,6 +45,42 @@ def clean(text):
     text = re.sub(r'<h([1-6])\b[^>]*>\s*</h\1>', '', text)
     return text
 
+PUBLIC_COPY_REPLACEMENTS = {
+    'tool/tally.html': {
+        'COSHUMA has not verified a paid referral tracking URL, so this page intentionally keeps Tally buttons non-affiliate.':
+            "Use the official Tally buttons above to start free or check pricing. COSHUMA's partner referral option is still being verified.",
+        'COSHUMA is not labeling Tally as an affiliate conversion target until a customer-facing tracked URL is actually verified.':
+            "If Tally issues a verified COSHUMA referral offer, we'll update this guide with the exact customer link.",
+    },
+    'tool/docusign.html': {
+        'COSHUMA has not verified a current account-specific Docusign affiliate URL. These buttons are official non-affiliate links.':
+            "Use the official Docusign buttons above to start a trial or check current pricing. COSHUMA's partner referral option is still being verified.",
+    },
+    'tool/invideo-ai.html': {
+        'InVideo currently operates as an official non-affiliate route.':
+            "Use InVideo's official site to compare plans and try the product.",
+        'COSHUMA has no verified InVideo affiliate URL yet. Choosing Pictory below can generate revenue for COSHUMA when a qualifying paid conversion is attributed.':
+            'If you want another AI video option, Pictory is a verified COSHUMA partner.',
+        'Affiliate disclosure: COSHUMA may earn a commission if you later buy Pictory through the link above, at no extra cost to you. The InVideo link is an official non-affiliate URL.':
+            "COSHUMA may earn a commission if you choose Pictory through the partner link above, at no extra cost to you. The InVideo button goes to InVideo's official site.",
+    },
+    'tool/pipedrive.html': {
+        'Official-only Pipedrive path': 'Pipedrive pricing & CRM trial guide',
+        'COSHUMA does not currently have a verified Pipedrive customer affiliate URL, so the primary Pipedrive button below remains an official vendor link.':
+            "Use Pipedrive's official site to start the trial and check current pricing.",
+        'Pipedrive is not currently using a COSHUMA affiliate URL on this page. The alternative cards below link to vendor-issued COSHUMA partner URLs and are labeled as affiliate CTAs.':
+            "The Pipedrive button goes to Pipedrive's official site. Some alternative tools below are COSHUMA partners.",
+        'Revenue-aware alternatives': 'Other CRM options to compare',
+    },
+    'tool/beefree.html': {
+        'Affiliate link verified': 'COSHUMA partner',
+        'Start Beefree via verified partner link': 'Try Beefree',
+        'Verified revenue alternative': 'Another option to compare',
+        'Verified monetization path': 'RGE Studio',
+        'Try RGE Studio via verified COSHUMA link': 'Try RGE Studio',
+    },
+}
+
 def page_copy(path, text):
     if path.parent.name == 'tool' and path.stem in ('kit', 'convertkit'):
         other = 'convertkit' if path.stem == 'kit' else 'kit'
@@ -54,6 +90,10 @@ def page_copy(path, text):
         text = re.sub(r'<!-- Alternatives & Direct Competitors Section -->.*?(?=<!-- Pricing & Action -->)', '', text, flags=re.S)
     if path.name == 'liftmycv.html':
         text = text.replace('pay-as-you-go, Basic or Unlimited', 'the available credit bundles or subscription plans')
+    if path.is_relative_to(ROOT / 'public'):
+        rel = path.relative_to(ROOT / 'public').as_posix()
+        for source, replacement in PUBLIC_COPY_REPLACEMENTS.get(rel, {}).items():
+            text = text.replace(source, replacement)
     return text
 
 def main():
