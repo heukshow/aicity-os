@@ -627,6 +627,16 @@
       "note": "Resolved: Teachable manager supplied both COSHUMA's default unique PartnerStack tracking URL and the separate exact 30-day Free Trial PartnerStack route. Use only those vendor-issued routes for their intended CTA types; do not reapply or request the trial link again. Actual attribution and revenue remain unverified until observed.",
       "trial_tracking_url": "https://partnerstack.teachable.com/COSHUMA",
       "trial_gmail_message_id": "1a087337fdf3bdd1"
+    },
+    "scalenut": {
+      "status": "rejected",
+      "tracking_url": null,
+      "application_state": "submitted",
+      "review_state": "declined",
+      "next_action": "Do not reapply automatically. Keep Scalenut rejected and keep affiliate_url null unless Scalenut explicitly reverses the decision or the user later requests reapplication after materially improved eligibility. Continue using only non-affiliate Scalenut links and monetize relevant buyer intent with separately verified approved alternatives.",
+      "do_not_reapply": true,
+      "checked_at": "2026-09-11T19:32:16+09:00",
+      "evidence": "Scalenut's FirstPromoter program sent Gmail message 1a090067413635a3 to support@coshuma.com with subject 'Unfortunately we had to reject your affiliate request' and states that COSHUMA's Affiliate Program - New Starter Tier application was rejected. This is newer than the repository's application_submitted state."
     }
   }
 }

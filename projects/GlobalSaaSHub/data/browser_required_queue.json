@@ -800,6 +800,18 @@
     "source_evidence": "Gmail thread 1a07b34ffaf04027 / human reply 1a086b6eabaeb524 from Digna Rivas (PartnerStack Support), plus repository affiliate-batch evidence showing the prior state as application_available_partnerstack / direct_enrollment_path_requested."
   },
   {
+    "id": "scalenut-status-hotfix-2026-09-11",
+    "tool_id": "scalenut",
+    "priority": "medium",
+    "status": "resolved",
+    "affiliate_status": "rejected",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "blocker": null,
+    "next_action": "Do not reapply automatically. Keep Scalenut rejected and keep affiliate_url null unless Scalenut explicitly reverses the decision or the user later requests reapplication after materially improved eligibility. Continue using only non-affiliate Scalenut links and monetize relevant buyer intent with separately verified approved alternatives.",
+    "do_not_reapply": true
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",
