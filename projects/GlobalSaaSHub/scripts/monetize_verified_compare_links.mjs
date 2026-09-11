@@ -49,11 +49,17 @@ const verifiedRoutes = tools.filter((tool) =>
 );
 const verifiedById = new Map(verifiedRoutes.map((tool) => [tool.id, tool]));
 
-// Later vendor-human evidence can authorize an exact buyer-intent deeplink even
-// when the program predates or sits outside the legacy approved-tracking baseline.
-// Never generate variants from these entries; only preserve the exact URLs listed.
+// Later first-party or vendor-human evidence can authorize exact buyer-intent
+// deeplinks/traffic tags even when the program predates or sits outside the
+// legacy approved-tracking baseline. Never generate arbitrary variants here;
+// preserve only the exact URLs backed by that evidence.
 const vendorApprovedDeepLinks = new Map([
   ['getgenie', new Set(['https://getgenie.ai/pricing/?rui=3921'])],
+  ['systeme-io', new Set([
+    'https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca&tk=coshuma-tool-free',
+    'https://systeme.io/pricing?sa=sa0279779913657b281b5d2c1fed58680413f14dca&tk=coshuma-tool-pricing',
+    'https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca&tk=coshuma-tool-bottom-free',
+  ])],
 ]);
 
 let filesChanged = 0;
