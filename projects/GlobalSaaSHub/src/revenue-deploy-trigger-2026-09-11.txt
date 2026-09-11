@@ -1,3 +1,5 @@
 COSHUMA production deploy trigger for the verified free-trials/deals homepage route merged in commit cefcf5e2626aae8dde0dc1b49d17e9822748f979.
 
 This file is intentionally not imported by the application. It exists only because the current COSHUMA Site Build & Deploy path filter does not include scripts/apply_revenue_first_home_hook.py; touching src/** safely triggers the existing zero-cost GitHub Pages production build without changing runtime behavior.
+
+2026-09-12: trigger production rebuild after enabling live PayPal sponsorship checkout with the existing configured Worker and public Live Client ID. No PayPal client secret is stored in the frontend repository.
