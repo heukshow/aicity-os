@@ -1,0 +1,54 @@
+{
+  "id": "boldsign-revenue-audit-2026-09-11",
+  "tool_id": "boldsign",
+  "issue": 373,
+  "priority": "high",
+  "status": "browser_required_revenue_audit",
+  "affiliate_status": "approved_tracking",
+  "cost": 0,
+  "registered_email": "support@coshuma.com",
+  "verified_tracking_url": "https://boldsign.com?via=sangkwon",
+  "affiliate_dashboard_url": "https://affiliates.boldsign.com/login",
+  "vendor_human_message_id": "1a090620f4e498b3",
+  "vendor_ticket": "#872941",
+  "objective": "Read only evidence-backed downstream BoldSign affiliate metrics from the existing authenticated affiliate dashboard and reconcile them into revenue truth without changing the verified customer tracking URL.",
+  "vendor_confirmed_dashboard_fields": [
+    "clicks",
+    "referrals_or_signups",
+    "conversions",
+    "commission_earned",
+    "commission_pending",
+    "commission_paid",
+    "payout_details"
+  ],
+  "fields": [
+    "clicks",
+    "referrals_or_signups_or_leads",
+    "trials_if_explicitly_defined",
+    "paid_conversions_or_customers_if_explicitly_defined",
+    "gross_sales_or_revenue_if_shown",
+    "commission_earned",
+    "commission_pending_or_approved",
+    "commission_paid",
+    "payout_pending_or_status",
+    "currency",
+    "reporting_period_or_as_of"
+  ],
+  "unknown_policy": "Any field not explicitly shown or defined remains unknown; never map a generic conversion count to paid customers unless the BoldSign dashboard explicitly defines it that way, and never convert blank or missing values to zero.",
+  "stop_for_user_only": [
+    "CAPTCHA",
+    "OTP",
+    "new legal consent",
+    "payment approval",
+    "forced identity verification"
+  ],
+  "do_not": [
+    "Do not create another BoldSign account or affiliate application.",
+    "Do not replace https://boldsign.com?via=sangkwon with the dashboard/login URL or any generic homepage URL.",
+    "Do not self-refer, purchase, start a paid plan, or change payout details.",
+    "Do not expose credentials or account-security information in GitHub, files, or chat.",
+    "Do not infer signup, paid customer, commission, payout, or revenue from link issuance, HTTP success, or approval alone."
+  ],
+  "evidence_note": "BoldSign Support ticket #872941 stated that the existing affiliate dashboard exposes clicks, referrals/signups, conversions, commissions earned, pending commissions, paid commissions, and payout details for the account. No actual account totals were supplied in the email, so all downstream metrics remain unknown until authenticated dashboard evidence is read.",
+  "done_when": "Exact current downstream totals are recorded in projects/GlobalSaaSHub/data/revenue-truth-2026-09-11.json with source and timestamp, or every unavailable field is explicitly unknown."
+}
