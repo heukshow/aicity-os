@@ -2,7 +2,9 @@
 
 Runs at the very end of the production public-copy pipeline so hand-authored and
 generated tool pages cannot keep stale wording that says payment does not buy a
-placement. It does not alter editorial rankings, affiliate URLs, or payment state.
+placement. It also keeps the advertiser offer discoverable from the homepage even
+when direct checkout is disabled. It does not alter editorial rankings, affiliate
+URLs, or payment state.
 """
 from pathlib import Path
 import re
@@ -10,6 +12,7 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 TOOL_DIR = PUBLIC / "tool"
+APP = ROOT / "src" / "App.jsx"
 
 SPONSORSHIP_COPY = (
     "Sponsored placement starts at USD 49. Approved sponsorships receive a clearly "
@@ -29,6 +32,13 @@ OPTIONS_LINK = (
     'class="inline-flex items-center justify-center px-5 py-3 rounded-xl border border-violet-500/30 '
     'bg-violet-500/5 text-violet-200 text-xs font-extrabold hover:bg-violet-500/10 transition-all">'
     'See sponsorship options →</a>'
+)
+
+HOME_ADVERTISE_LINK = (
+    '            <a href="/advertise.html" className="rounded-full border border-violet-400/30 '
+    'bg-violet-500/10 px-4 py-2 text-xs font-bold text-violet-200 hover:bg-violet-500/20 sm:text-sm">\n'
+    '              Advertise\n'
+    '            </a>\n'
 )
 
 
@@ -63,6 +73,22 @@ def normalize_page(text: str) -> str:
     return pattern.sub(lambda m: normalize_section(m.group(0)), text)
 
 
+def ensure_home_advertise_link() -> bool:
+    if not APP.exists():
+        return False
+    text = APP.read_text(encoding="utf-8")
+    if 'href="/advertise.html"' in text:
+        return False
+
+    anchor = '            {paymentConfig.checkoutEnabled && (\n'
+    if anchor not in text:
+        raise SystemExit("Could not find the homepage sponsorship navigation anchor")
+
+    updated = text.replace(anchor, HOME_ADVERTISE_LINK + anchor, 1)
+    APP.write_text(updated, encoding="utf-8")
+    return True
+
+
 def ensure_sitemap() -> None:
     sitemap = PUBLIC / "sitemap.xml"
     if not sitemap.exists():
@@ -85,8 +111,9 @@ def main() -> None:
             if updated != original:
                 page.write_text(updated, encoding="utf-8")
                 changed += 1
+    home_changed = ensure_home_advertise_link()
     ensure_sitemap()
-    print(f"normalize_sponsorship_offer: scanned={scanned} changed={changed}")
+    print(f"normalize_sponsorship_offer: scanned={scanned} changed={changed} homepage_link_added={home_changed}")
 
 
 if __name__ == "__main__":
