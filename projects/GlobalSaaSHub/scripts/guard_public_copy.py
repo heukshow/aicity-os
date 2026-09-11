@@ -43,6 +43,18 @@ def clean(text):
     text = re.sub(r'<p\b[^>]*>The authenticated Text Partner App records[^<]*</p>', '<p>COSHUMA may earn a commission on eligible HelpDesk purchases through the partner links on this page, at no extra cost to you.</p>', text)
     text = re.sub(r"<p\b[^>]*>COSHUMA's Make partner code is <code>pc=coshuma</code>[^<]*</p>", '<p>Make links may earn COSHUMA a commission; n8n links go directly to its official site.</p>', text)
     text = re.sub(r'<h([1-6])\b[^>]*>\s*</h\1>', '', text)
+    text = text.replace(
+        'A one-time sponsored placement is USD 49. Sponsorship is reviewed separately from editorial coverage; payment does not guarantee acceptance, ranking, or an editorial rating.',
+        'A one-time sponsored placement is USD 49. Approved sponsorships receive a clearly labeled promotional placement in designated high-visibility areas. Sponsorship does not change independent editorial ratings or organic rankings.'
+    )
+    text = text.replace(
+        'A one-time sponsored placement is USD 49. Sponsorship is reviewed separately from editorial coverage; payment does not guarantee acceptance, ranking or an editorial rating.',
+        'A one-time sponsored placement is USD 49. Approved sponsorships receive a clearly labeled promotional placement in designated high-visibility areas. Sponsorship does not change independent editorial ratings or organic rankings.'
+    )
+    text = text.replace(
+        'Sponsorship is reviewed separately from editorial coverage. Payment does not guarantee acceptance, ranking, or an editorial rating.',
+        'Approved sponsorships receive a clearly labeled promotional placement in designated high-visibility areas. Sponsorship does not change independent editorial ratings or organic rankings.'
+    )
     return text
 
 PUBLIC_COPY_REPLACEMENTS = {
