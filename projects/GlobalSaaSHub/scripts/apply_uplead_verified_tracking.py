@@ -129,21 +129,24 @@ if 'affiliates.uplead.com/login' in trial:
 
 TRIAL_PAGE.write_text(trial, encoding="utf-8")
 
-# The verified-offers hub previously pointed its structured UpLead entity to
-# /tool/uplead.html, which does not exist. Keep Google and buyers on the dedicated
-# revenue page instead, and add a visible crawlable internal link from the hub.
+# The verified-offers hub previously pointed its structured UpLead entity and visible
+# guide link to /tool/uplead.html, which does not exist. Keep Google and buyers on the
+# dedicated revenue page. Match the stable href rather than marketing copy because the
+# public-copy polishing step may legitimately rewrite the surrounding sentence.
 deals = DEALS_PAGE.read_text(encoding="utf-8")
 deals = deals.replace('https://coshuma.com/tool/uplead.html', BUYER_GUIDE_URL)
 if ATTRIBUTION_SCRIPT not in deals:
     deals = deals.replace('</head>', f'  {ATTRIBUTION_SCRIPT}\n</head>', 1)
 
-uplead_copy = """          <p class="text-sm leading-6 text-slate-300">UpLead's Will Cannon confirmed COSHUMA's exact tracked 7-day trial destination and a separate tracked pricing destination for the existing affiliate account. These links are used exactly as supplied; no referral parameter has been invented.</p>"""
-uplead_guide_link = f"""
-          <a data-cta-source="verified-deals-uplead-guide" href="{BUYER_GUIDE}" class="inline-flex text-sm font-bold text-cyan-200 hover:text-cyan-100">Read the full UpLead trial & pricing guide →</a>"""
 if 'verified-deals-uplead-guide' not in deals:
-    if uplead_copy not in deals:
-        raise SystemExit('UpLead verified-offers card copy not found for internal-link patch')
-    deals = deals.replace(uplead_copy, uplead_copy + uplead_guide_link, 1)
+    legacy_visible_link = 'href="/tool/uplead.html"'
+    if legacy_visible_link not in deals:
+        raise SystemExit('UpLead verified-offers visible guide link not found for internal-link patch')
+    deals = deals.replace(
+        legacy_visible_link,
+        f'data-cta-source="verified-deals-uplead-guide" href="{BUYER_GUIDE}"',
+        1,
+    )
 
 deals_required = [
     BUYER_GUIDE_URL,
@@ -157,8 +160,8 @@ deals_required = [
 deals_missing = [item for item in deals_required if item not in deals]
 if deals_missing:
     raise SystemExit(f"UpLead verified-offers SEO patch incomplete: {deals_missing}")
-if 'https://coshuma.com/tool/uplead.html' in deals:
+if 'https://coshuma.com/tool/uplead.html' in deals or 'href="/tool/uplead.html"' in deals:
     raise SystemExit('Nonexistent UpLead tool URL survived verified-offers structured-data patch')
 
 DEALS_PAGE.write_text(deals, encoding="utf-8")
-print('uplead-approved-vendor-deeplinks-v5')
+print('uplead-approved-vendor-deeplinks-v6')
