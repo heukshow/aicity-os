@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 STANDARD_AFFILIATE_DISCLOSURE = (
     '<p data-affiliate-disclosure="standard" class="text-[11px] leading-relaxed text-slate-500">'
-    'COSHUMA may earn an affiliate commission when you purchase through partner links on this page, at no extra cost to you. '
+    'Affiliate disclosure: COSHUMA may earn an affiliate commission when you purchase through partner links on this page, at no extra cost to you. '
     '<a href="/affiliate-disclosure.html" class="underline hover:text-slate-300">How this works</a>.'
     '</p>'
 )
