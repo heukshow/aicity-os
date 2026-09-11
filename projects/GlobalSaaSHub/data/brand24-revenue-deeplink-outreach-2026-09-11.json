@@ -1,0 +1,43 @@
+{
+  "tool_id": "brand24",
+  "tool_name": "Brand24",
+  "company_mailbox": "support@coshuma.com",
+  "affiliate_status": "approved_tracking",
+  "verified_customer_url": "https://try.brand24.com/8xqrjxybmsbt",
+  "vendor_click_evidence": {
+    "message_id": "1a08c594a05b4721",
+    "reported_clicks": 10,
+    "reported_at": "2026-09-10T17:24:15Z",
+    "source": "vendor-human-email"
+  },
+  "revenue_truth": {
+    "clicks": 10,
+    "signups_referrals": null,
+    "trials": null,
+    "paying_customers": null,
+    "earned_commission": null,
+    "pending_commission": null,
+    "paid_commission": null,
+    "payout_status": null,
+    "rule": "Do not infer downstream conversion or revenue from the 10 verified clicks. Preserve unknown for fields not explicitly reported by Brand24 or the authenticated partner dashboard."
+  },
+  "outreach": {
+    "sent": true,
+    "sent_message_id": "1a08f6d30e0904d3",
+    "reply_thread_id": "1a08c594a05b4721",
+    "requested": [
+      "current referrals/signups or trials",
+      "current paying customers",
+      "earned, pending and paid commission",
+      "payout status",
+      "vendor-issued customer-facing tracked deep link for the 14-day free trial or pricing page while preserving COSHUMA attribution"
+    ]
+  },
+  "guardrails": [
+    "Do not reapply to the Brand24 affiliate program.",
+    "Do not construct or guess a Brand24 pricing/trial affiliate URL.",
+    "Do not replace the verified base referral URL unless Brand24 explicitly supplies a replacement or destination-specific tracked URL.",
+    "Do not treat clicks, link validation, signup, trial, paid customer, commission and payout as interchangeable states."
+  ],
+  "recorded_at": "2026-09-11T16:39:46+09:00"
+}
