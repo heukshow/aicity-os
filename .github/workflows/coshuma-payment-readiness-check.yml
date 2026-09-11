@@ -1,0 +1,51 @@
+name: COSHUMA Payment Readiness Check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/coshuma-payment-readiness-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  readiness:
+    runs-on: ubuntu-latest
+    env:
+      PAYMENT_API_BASE_URL: https://globalsaashub-payments.qmfforfhem.workers.dev
+      PAYPAL_CLIENT_ID: ${{ secrets.PAYPAL_CLIENT_ID }}
+    steps:
+      - name: Check live payment Worker health
+        shell: bash
+        run: |
+          set -euo pipefail
+          body=$(curl --fail --silent --show-error --max-time 15 "$PAYMENT_API_BASE_URL/health")
+          echo "Worker health response: $body"
+          python - "$body" <<'PY'
+          import json, sys
+          data = json.loads(sys.argv[1])
+          if data.get('ok') is not True:
+              raise SystemExit('Worker health check failed')
+          if data.get('checkoutConfigured') is not True:
+              raise SystemExit('Worker checkout is not configured')
+          print('worker_checkout_configured=true')
+          PY
+
+      - name: Check frontend public PayPal client ID availability
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${PAYPAL_CLIENT_ID:-}" ]; then
+            echo 'github_paypal_client_id_available=true'
+          else
+            echo 'github_paypal_client_id_available=false'
+            echo 'The frontend cannot be safely enabled until a public PayPal client ID is supplied to GitHub Actions.'
+            exit 2
+          fi
+
+      - name: Readiness result
+        run: |
+          echo 'COSHUMA payment readiness: Worker configured and frontend public PayPal client ID available.'
+          echo 'No order was created, approved, captured, or charged by this workflow.'
