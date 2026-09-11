@@ -12,8 +12,8 @@ async function post(path, body = {}) {
   return data;
 }
 
-export function createSponsorshipOrder() {
-  return post('/v1/orders');
+export function createSponsorshipOrder(productId) {
+  return post('/v1/orders', { productId });
 }
 
 export async function captureVerifiedSponsorshipOrder(orderId) {
