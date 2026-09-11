@@ -1,0 +1,48 @@
+{
+  "id": "invideo-impact-affiliate-2026-09-11",
+  "tool_id": "invideo-ai",
+  "issue": 391,
+  "priority": "high",
+  "status": "browser_required_existing_impact_check_then_application",
+  "affiliate_status": "application_available_impact",
+  "cost": 0,
+  "registered_email": "support@coshuma.com",
+  "official_program_url": "https://invideo.io/make/affiliate-program/",
+  "network": "Impact.com",
+  "evidence_checked_at": "2026-09-11T05:26:00Z",
+  "official_terms": {
+    "join_cost": "free",
+    "monthly_plan_commission": "50% first billing cycle",
+    "annual_plan_commission": "25% first billing cycle",
+    "click_referral_window_days": 120,
+    "free_signup_commission": false,
+    "paid_upgrade_attribution_after_attributed_signup": "official InVideo help says attributed signup remains eligible when later upgrading",
+    "payout_network": "Impact.com"
+  },
+  "preflight": [
+    "Reuse the existing COSHUMA Impact account if available.",
+    "Before submitting, search the Impact account for an existing InVideo partnership or application.",
+    "If an existing partnership/application is found, do not reapply; recover its exact status and issued customer-facing tracking URL instead.",
+    "support@coshuma.com Gmail search found no prior InVideo application/approval/rejection/tracking/commission/payout email in the last 180 days as of 2026-09-11."
+  ],
+  "allowed_actions": [
+    "Open the official InVideo affiliate page.",
+    "Use the free official enrollment path only if the existing Impact account shows no prior InVideo application or partnership.",
+    "After approval, copy only the exact customer-facing tracking URL issued by InVideo/Impact.",
+    "Read authenticated Impact click, signup, paid-customer, commission and payout metrics without inferring missing values."
+  ],
+  "stop_conditions": [
+    "CAPTCHA",
+    "OTP",
+    "payment or paid subscription",
+    "account-holder legal/terms acceptance",
+    "forced identity verification"
+  ],
+  "forbidden": [
+    "Do not create a duplicate Impact account.",
+    "Do not reapply if InVideo is already present in the existing Impact account.",
+    "Do not treat a generic InVideo homepage, Impact dashboard, onboarding URL or guessed query parameter as an affiliate link.",
+    "Do not treat application submission, approval, link issuance, or a validation visit as a click, signup, paid customer, commission, payout, or revenue event."
+  ],
+  "completion_rule": "Complete only after an existing InVideo state is recovered or a single valid application is submitted, and later move to approved_tracking only when the exact issued customer-facing tracking URL is independently verified."
+}
