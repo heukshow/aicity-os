@@ -109,6 +109,16 @@ def main():
         "fliki": "https://fliki.ai?via=sangkwon",
         "relevance-ai": "https://relevanceai.com?via=sangkwon",
     }
+    approved_cta_urls = {tool_id: {url} for tool_id, url in approved_tracking_urls.items()}
+    # Systeme.io's current first-party affiliate help explicitly allows an affiliate
+    # ID on any systeme.io page and supports &tk= traffic-source tags. These exact
+    # COSHUMA variants are therefore permitted while the stored authoritative URL
+    # remains unchanged and must still be verified in tools.json.
+    approved_cta_urls["systeme-io"].update({
+        "https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca&tk=coshuma-tool-free",
+        "https://systeme.io/pricing?sa=sa0279779913657b281b5d2c1fed58680413f14dca&tk=coshuma-tool-pricing",
+        "https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca&tk=coshuma-tool-bottom-free",
+    })
     for tool_id, tracking_url in approved_tracking_urls.items():
         tool = next((item for item in tools if item["id"] == tool_id), None)
         if not tool or tool.get("affiliate_url") != tracking_url or tool.get("affiliate_verified") is not True:
@@ -116,8 +126,9 @@ def main():
             continue
         html = (PUBLIC / "tool" / f"{tool_id}.html").read_text(encoding="utf-8")
         affiliate_ctas = AffiliateLinks(html).links
-        if not affiliate_ctas or any(a.get("href") != tracking_url for a in affiliate_ctas):
-            fail(errors, f"{tool_id} generated affiliate CTA does not use its approved tracking URL")
+        allowed_ctas = approved_cta_urls[tool_id]
+        if not affiliate_ctas or any(a.get("href") not in allowed_ctas for a in affiliate_ctas):
+            fail(errors, f"{tool_id} generated affiliate CTA does not use an approved tracking URL")
         if not affiliate_ctas or any(not {"sponsored", "noopener", "noreferrer"} <= set(a.get("rel", "").split()) for a in affiliate_ctas):
             fail(errors, f"{tool_id} affiliate CTA is missing the sponsored safety relation")
         if not ("via Verified Affiliate Link" in html or re.search(r"Affiliate disclosure:.*?commission", html, re.I | re.S)):
