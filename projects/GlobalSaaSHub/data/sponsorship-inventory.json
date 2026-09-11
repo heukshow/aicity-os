@@ -1,30 +1,61 @@
 {
   "enabled": false,
   "currency": "USD",
+  "default_duration_days": 30,
+  "duration_options": [7, 30, 90],
   "placements": {
     "tool-primary": {
       "status": "reserved_hidden",
-      "starting_price": 49,
+      "package_name": "Tool Page Sponsored",
       "position": "after the primary CTA section on tool pages",
-      "public_label": "Sponsored"
+      "public_label": "Sponsored",
+      "pricing": {
+        "7_days": 19,
+        "30_days": 49,
+        "90_days": 129,
+        "180_plus_days": "custom"
+      }
     },
     "buyer-intent-top": {
       "status": "reserved_hidden",
-      "starting_price": 99,
+      "package_name": "Buyer-Intent Featured",
       "position": "immediately after the opening section on Best / buyer-intent pages",
-      "public_label": "Sponsored"
+      "public_label": "Sponsored",
+      "pricing": {
+        "7_days": 39,
+        "30_days": 99,
+        "90_days": 269,
+        "180_plus_days": "custom"
+      }
     },
     "compare-decision-premium": {
       "status": "reserved_hidden",
-      "starting_price": 149,
+      "package_name": "Comparison Premium",
       "position": "immediately before the final decision / verdict area on comparison pages",
-      "public_label": "Sponsored"
+      "public_label": "Sponsored",
+      "pricing": {
+        "7_days": 59,
+        "30_days": 149,
+        "90_days": 399,
+        "180_plus_days": "custom"
+      }
     }
+  },
+  "measurement": {
+    "site_side_events": [
+      "sponsored_impression",
+      "sponsored_click"
+    ],
+    "conversion_policy": "Do not infer advertiser signups, paid customers, sales or revenue from COSHUMA-side impressions or clicks. Vendor-side conversion evidence remains separate."
   },
   "rules": [
     "Do not display any reserved placement while enabled is false.",
     "A campaign must be explicitly enabled and have a destination URL before a slot can render.",
+    "The campaign period begins when the placement is actually activated, not when an inquiry or payment is received.",
+    "Campaigns must include startAt and endAt when activated; the runtime fails closed on invalid dates and stops rendering at endAt.",
+    "Extensions require a new approved campaign period rather than silently running past the contracted end date.",
     "Paid placement may buy visibility in a labeled sponsored area but must not change independent editorial ratings or organic rankings.",
-    "All public sponsored placements must be labeled Sponsored."
+    "All public sponsored placements must be labeled Sponsored.",
+    "Tracked impressions and outbound clicks are measurement signals, not guarantees of leads, signups, sales or revenue."
   ]
 }
