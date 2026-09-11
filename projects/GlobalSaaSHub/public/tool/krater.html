@@ -30,6 +30,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script defer src="/affiliate-attribution.js"></script>
     <style>
       body { font-family: 'Inter', sans-serif; background-color: #0b0c10; color: #f1f5f9; }
       h1, h2, h3 { font-family: 'Outfit', sans-serif; }
@@ -125,8 +126,12 @@
             <div class="text-xs uppercase font-bold text-slate-400 tracking-wider">Pricing Plan</div>
             <div class="text-xl font-extrabold text-emerald-400 mt-0.5">Pro plan starting at $200/year (billed annually)</div>
           </div>
-          <a data-cta="official" href="https://krater.ai/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-slate-800 text-white text-center border border-slate-600 hover:bg-slate-700 transition-all flex items-center justify-center gap-2"><span>Visit Official Krater Site</span><span>→</span></a>
+          <div class="flex flex-col gap-2 sm:min-w-[270px]">
+            <a data-cta="affiliate" data-tool-id="krater" data-cta-source="krater-pricing-primary" href="https://go.krater.ai/sang-kwon-an" target="_blank" rel="sponsored noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-purple-600 text-white text-center border border-purple-500 hover:bg-purple-500 transition-all flex items-center justify-center gap-2"><span>Explore Krater via COSHUMA</span><span>→</span></a>
+            <a data-cta="official" data-tool-id="krater" data-cta-source="krater-official-secondary" href="https://krater.ai/" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl font-bold text-xs bg-slate-800 text-slate-200 text-center border border-slate-600 hover:bg-slate-700 transition-all">Check official Krater site →</a>
+          </div>
         </div>
+        <p data-affiliate-disclosure="tool" class="text-xs leading-5 text-slate-500">Affiliate disclosure: COSHUMA may earn a commission if you become a qualifying Krater customer after using the verified partner link above. The exact customer-facing link was issued in COSHUMA's authenticated Krater partner dashboard; clicking it is not itself evidence of a signup, sale, or commission.</p>
 
         <!-- Claim Profile & Official Founder Badge Section -->
         <div class="p-6 rounded-2xl bg-[#181a29]/80 border border-purple-500/30 space-y-4">
@@ -165,4 +170,3 @@
     </footer>
   </body>
 </html>
-
