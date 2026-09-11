@@ -1,26 +1,11 @@
 (() => {
-  // Master switch. Keep false until COSHUMA explicitly opens sponsored inventory.
-  // Reserved slot markup is injected during the production build and stays hidden while this is false.
-  const CONFIG = {
-    enabled: false,
-    // Placement objects may include:
-    // enabled, campaignId, label, title, body, button, url,
-    // startAt, endAt (ISO 8601 timestamps, UTC recommended).
-    placements: {}
-  };
-
+  const API_BASE = 'https://globalsaashub-payments.qmfforfhem.workers.dev';
   const path = window.location.pathname;
-
-  function placementFor(slot) {
-    return CONFIG.placements[`${path}::${slot}`] || CONFIG.placements[`*::${slot}`] || null;
-  }
 
   function isActiveFlight(creative) {
     const now = Date.now();
     const start = creative.startAt ? Date.parse(creative.startAt) : null;
     const end = creative.endAt ? Date.parse(creative.endAt) : null;
-
-    // Invalid dates fail closed so a malformed campaign never shows indefinitely.
     if (creative.startAt && Number.isNaN(start)) return false;
     if (creative.endAt && Number.isNaN(end)) return false;
     if (start !== null && now < start) return false;
@@ -29,25 +14,37 @@
   }
 
   function hostnameFromUrl(url) {
-    try {
-      return new URL(url, window.location.href).hostname || 'unknown';
-    } catch (error) {
-      return 'unknown';
-    }
+    try { return new URL(url, window.location.href).hostname || 'unknown'; }
+    catch { return 'unknown'; }
   }
 
   function emit(eventName, creative, slot) {
-    if (typeof window.gtag !== 'function') return;
-    window.gtag('event', eventName, {
-      sponsor_campaign_id: creative.campaignId || 'unspecified',
-      sponsored_slot: slot || 'unspecified',
-      sponsor_title: creative.title || '',
-      link_url: creative.url || '',
-      outbound_domain: hostnameFromUrl(creative.url || ''),
-      page_path: window.location.pathname + window.location.search,
-      page_location: window.location.href,
-      transport_type: 'beacon'
-    });
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, {
+        sponsor_campaign_id: creative.campaignId || 'unspecified',
+        sponsored_slot: slot || 'unspecified',
+        sponsor_title: creative.title || '',
+        link_url: creative.url || '',
+        outbound_domain: hostnameFromUrl(creative.url || ''),
+        page_path: window.location.pathname + window.location.search,
+        page_location: window.location.href,
+        transport_type: 'beacon'
+      });
+    }
+    if (!creative.campaignId) return;
+    fetch(`${API_BASE}/v1/advertiser/events`, {
+      method: 'POST',
+      mode: 'cors',
+      keepalive: true,
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        campaignId: creative.campaignId,
+        eventType: eventName,
+        page: window.location.pathname,
+        placement: creative.placement || slot || '',
+        destinationUrl: creative.url || ''
+      })
+    }).catch(() => {});
   }
 
   function render(slotEl, creative) {
@@ -68,18 +65,28 @@
       button.dataset.sponsorCampaignId = creative.campaignId || 'unspecified';
       button.addEventListener('click', () => emit('sponsored_click', creative, slot), { capture: true });
     }
-
     slotEl.hidden = false;
     emit('sponsored_impression', creative, slot);
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('[data-sponsored-slot]').forEach((slotEl) => {
-      slotEl.hidden = true;
-      if (!CONFIG.enabled) return;
-      const creative = placementFor(slotEl.dataset.sponsoredSlot || '');
-      if (!creative || creative.enabled !== true || !creative.url || !isActiveFlight(creative)) return;
-      render(slotEl, creative);
-    });
-  });
+  async function loadPlacements() {
+    const slots = [...document.querySelectorAll('[data-sponsored-slot]')];
+    slots.forEach((slotEl) => { slotEl.hidden = true; });
+    if (!slots.length) return;
+    try {
+      const response = await fetch(`${API_BASE}/v1/sponsored/placements?path=${encodeURIComponent(path)}`, { mode: 'cors' });
+      if (!response.ok) return;
+      const data = await response.json();
+      const placements = Array.isArray(data.placements) ? data.placements : [];
+      const bySlot = new Map(placements.filter((creative) => creative && creative.slot && creative.url && isActiveFlight(creative)).map((creative) => [creative.slot, creative]));
+      slots.forEach((slotEl) => {
+        const creative = bySlot.get(slotEl.dataset.sponsoredSlot || '');
+        if (creative) render(slotEl, creative);
+      });
+    } catch {
+      // Fail closed: sponsored inventory stays hidden when campaign API is unavailable.
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadPlacements);
 })();

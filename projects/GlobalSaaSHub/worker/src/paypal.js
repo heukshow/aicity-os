@@ -1,4 +1,4 @@
-import { orderCreatePayload } from './domain.js';
+import { DEFAULT_PRODUCT_ID, orderCreatePayload } from './domain.js';
 
 function apiBase(env) {
   return env.PAYPAL_ENVIRONMENT === 'live'
@@ -35,11 +35,16 @@ async function paypalRequest(env, path, options = {}, fetchImpl = fetch) {
   return data;
 }
 
-export function createPayPalOrder(env, requestId, fetchImpl) {
+export function createPayPalOrder(env, requestId, productId = DEFAULT_PRODUCT_ID, fetchImpl) {
+  // Backward compatibility for existing tests/callers that passed fetchImpl as argument 3.
+  if (typeof productId === 'function') {
+    fetchImpl = productId;
+    productId = DEFAULT_PRODUCT_ID;
+  }
   return paypalRequest(env, '/v2/checkout/orders', {
     method: 'POST',
     headers: { 'PayPal-Request-Id': requestId },
-    body: JSON.stringify(orderCreatePayload()),
+    body: JSON.stringify(orderCreatePayload(productId)),
   }, fetchImpl);
 }
 
