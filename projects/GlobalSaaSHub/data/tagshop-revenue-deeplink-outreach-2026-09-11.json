@@ -1,0 +1,38 @@
+{
+  "tool_id": "tagshop-ai",
+  "checked_at": "2026-09-11T20:31:00+09:00",
+  "company_mailbox": "support@coshuma.com",
+  "affiliate_status": "approved_tracking",
+  "exact_tracking_url": "https://tagshop.ai?via=coshuma-22501e",
+  "source_welcome_message_id": "1a0829e45df98eb7",
+  "followup_message_id": "1a0903bc94a825e1",
+  "followup_recipient": "priyanka@tagshop.ai",
+  "requested": [
+    "vendor-issued customer-facing 14-day trial or pricing deep link that preserves COSHUMA attribution",
+    "current clicks",
+    "current referred signups or trials",
+    "current paying customers",
+    "current earned, pending and paid commission",
+    "current payout status"
+  ],
+  "official_public_terms_rechecked": {
+    "trial": "14-day free trial with no credit card required, per Tagshop AI Help Center",
+    "affiliate_commission": "30% recurring commission for 6 months, per Tagshop AI official affiliate page",
+    "cookie_window": "90 days, per Tagshop AI official affiliate page",
+    "payout_cycle": "monthly Net-10 with $35 minimum payout, per Tagshop AI official affiliate page"
+  },
+  "revenue_evidence": {
+    "clicks": null,
+    "signups_or_trials": null,
+    "paying_customers": null,
+    "earned_commission": null,
+    "pending_commission": null,
+    "paid_commission": null,
+    "payout_status": null
+  },
+  "guardrails": [
+    "Do not invent a trial or pricing deep link.",
+    "Keep the issued homepage referral URL as authoritative until Tagshop supplies another customer-facing URL.",
+    "Do not infer signup, paid conversion, commission or revenue from a click, trial-page visit, link issuance or outreach reply."
+  ]
+}
