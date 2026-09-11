@@ -43,6 +43,15 @@ const queue = JSON.parse(fs.readFileSync('data/browser_required_queue.json', 'ut
 const dir = process.argv[2] || 'dist';
 const decode = (value) => value.replaceAll('&amp;', '&');
 
+function matchingHtmlPages(subdir, id, allowedCtaUrls) {
+  const root = `${dir}/${subdir}`;
+  if (!fs.existsSync(root)) return [];
+  return fs.readdirSync(root)
+    .filter((f) => f.endsWith('.html'))
+    .map((f) => [`${subdir}/${f}`, fs.readFileSync(`${root}/${f}`, 'utf8')])
+    .filter(([, html]) => html.includes(`data-tool-id="${id}"`) || [...allowedCtaUrls].some((url) => decode(html).includes(url)));
+}
+
 for (const [id, evidence] of approvedTracking) {
   assert.equal(outreach[id].status, 'approved_tracking');
   assert.equal(outreach[id].tracking_url, evidence.exact_tracking_url);
@@ -58,10 +67,8 @@ for (const [id, evidence] of approvedTracking) {
   const toolPage = fs.readFileSync(`${dir}/tool/${id}.html`, 'utf8');
   const pages = [
     [`tool/${id}.html`, toolPage],
-    ...fs.readdirSync(`${dir}/compare`)
-      .filter((f) => f.endsWith('.html'))
-      .map((f) => [`compare/${f}`, fs.readFileSync(`${dir}/compare/${f}`, 'utf8')])
-      .filter(([, html]) => html.includes(`data-tool-id="${id}"`) || [...allowedCtaUrls].some((url) => decode(html).includes(url))),
+    ...matchingHtmlPages('compare', id, allowedCtaUrls),
+    ...matchingHtmlPages('best', id, allowedCtaUrls),
   ];
 
   let count = 0;
@@ -87,11 +94,11 @@ for (const [id, evidence] of approvedTracking) {
       assert.ok(anchor.includes('sponsored'), file);
       count += 1;
     }
-    assert.ok(html.includes('/affiliate-attribution.js'), file);
-    assert.ok(/affiliate disclosure/i.test(html), file);
+    assert.ok(html.includes('/affiliate-attribution.js'), `${file}: missing affiliate attribution collector`);
+    assert.ok(/affiliate disclosure/i.test(html), `${file}: missing affiliate disclosure`);
   }
 
-  console.log(`${id}: ${count} attributed CTAs across ${pages.length} pages`);
+  console.log(`${id}: ${count} attributed CTAs across ${pages.length} pages (tool + compare + best)`);
 }
 
-console.log('PASS: authoritative exact state is preserved; built CTAs use only exact or explicitly evidence-backed URLs.');
+console.log('PASS: authoritative exact state is preserved; built tool, comparison, and buyer-guide CTAs use only exact or explicitly evidence-backed URLs with attribution.');
