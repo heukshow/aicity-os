@@ -10,7 +10,8 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 
-SCRIPT_TAG = '<script defer src="/sponsored-inventory.js"></script>'
+ATTRIBUTION_SCRIPT_TAG = '<script defer src="/affiliate-attribution.js"></script>'
+SPONSORED_SCRIPT_TAG = '<script defer src="/sponsored-inventory.js"></script>'
 
 SLOTS = {
     "tool": (
@@ -47,11 +48,17 @@ def slot_html(kind: str) -> str:
     )
 
 
-def ensure_script(text: str) -> str:
-    if '/sponsored-inventory.js' in text:
+def ensure_scripts(text: str) -> str:
+    tags = []
+    if '/affiliate-attribution.js' not in text:
+        tags.append(ATTRIBUTION_SCRIPT_TAG)
+    if '/sponsored-inventory.js' not in text:
+        tags.append(SPONSORED_SCRIPT_TAG)
+    if not tags:
         return text
+    payload = '\n'.join(tags)
     if '</body>' in text:
-        return text.replace('</body>', SCRIPT_TAG + '\n</body>', 1)
+        return text.replace('</body>', payload + '\n</body>', 1)
     return text
 
 
@@ -104,7 +111,7 @@ def insert_compare_slot(text: str, html: str) -> str:
 def prepare(path: Path, kind: str) -> bool:
     original = path.read_text(encoding='utf-8')
     if 'data-sponsored-slot=' in original:
-        updated = ensure_script(original)
+        updated = ensure_scripts(original)
     else:
         html = slot_html(kind)
         if kind == 'tool':
@@ -113,7 +120,7 @@ def prepare(path: Path, kind: str) -> bool:
             updated = insert_after_first_section(original, html)
         else:
             updated = insert_compare_slot(original, html)
-        updated = ensure_script(updated)
+        updated = ensure_scripts(updated)
     if updated != original:
         path.write_text(updated, encoding='utf-8')
         return True
