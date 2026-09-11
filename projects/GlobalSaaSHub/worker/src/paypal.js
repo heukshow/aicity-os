@@ -35,11 +35,11 @@ async function paypalRequest(env, path, options = {}, fetchImpl = fetch) {
   return data;
 }
 
-export function createPayPalOrder(env, requestId, fetchImpl) {
+export function createPayPalOrder(env, requestId, productId, fetchImpl) {
   return paypalRequest(env, '/v2/checkout/orders', {
     method: 'POST',
     headers: { 'PayPal-Request-Id': requestId },
-    body: JSON.stringify(orderCreatePayload()),
+    body: JSON.stringify(orderCreatePayload(productId)),
   }, fetchImpl);
 }
 
