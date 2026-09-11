@@ -14,7 +14,7 @@ async function setup() {
 const url = 'https://worker.example/ops/traffic-revenue.html';
 test('anonymous HTML and JSON fail closed without reading storage; spoofed headers do not authorize', async () => {
   const state = await setup();
-  for (const path of ['traffic-revenue.html', 'traffic-revenue-data.json', 'revenue-seo-refresh.json', 'admin-affiliate-audit.json', 'partnerstack-summary.json']) {
+  for (const path of ['traffic-revenue.html', 'traffic-revenue-data.json', 'revenue-seo-refresh.json', 'admin-affiliate-audit.json', 'partnerstack-summary.json', 'revenue.html', 'revenue-summary.json']) {
     const r = await worker.fetch(new Request(`https://worker.example/ops/${path}`, { headers: { 'cf-access-authenticated-user-email': 'support@coshuma.com', cookie: 'coshuma_ops=forged' } }), state.env);
     assert.equal(r.status, 401); assert.doesNotMatch(await r.text(), /private_metric|Private dashboard marker/);
     assert.equal(r.headers.get('cache-control'), 'no-store, private');

@@ -1,0 +1,1068 @@
+{
+  "scope": "현재 검증된 제휴 경로 + 기존 수익 근거에 등장하는 계정",
+  "programs": [
+    {
+      "id": "gohighlevel",
+      "name": "GoHighLevel",
+      "network": "FirstPromoter / HighLevel Affiliate Portal",
+      "portal_url": "https://affiliate.gohighlevel.com/login",
+      "inventory_source": "data/tools.json",
+      "account_id": "gohighlevel",
+      "evidence": [
+        {
+          "tool_id": "gohighlevel",
+          "tool": "HighLevel",
+          "network": "FirstPromoter / HighLevel Affiliate Portal",
+          "period": "2026-09-09 observed outbound event",
+          "checked_at": "2026-09-09T20:30:28Z",
+          "source": "GA4-live-snapshot-and-repository-issue",
+          "evidence_id": "github:issue-337",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 1,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": null,
+            "commission_earned": null,
+            "commission_approved": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_conversions": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "make-com",
+      "name": "Make.com",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "make-com",
+      "evidence": []
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "elevenlabs",
+      "evidence": []
+    },
+    {
+      "id": "tubebuddy",
+      "name": "TubeBuddy",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "tubebuddy",
+      "evidence": []
+    },
+    {
+      "id": "outlierkit",
+      "name": "OutlierKit",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "outlierkit",
+      "evidence": []
+    },
+    {
+      "id": "pictory",
+      "name": "Pictory",
+      "network": "FirstPromoter",
+      "portal_url": "https://pictory.firstpromoter.com/login",
+      "inventory_source": "data/tools.json",
+      "account_id": "pictory",
+      "evidence": [
+        {
+          "tool_id": "pictory",
+          "tool": "Pictory",
+          "network": "FirstPromoter",
+          "period": "account aggregate since 2026-08-23",
+          "checked_at": "2026-09-10T18:55:40+05:30",
+          "source": "vendor-human-email",
+          "evidence_id": "gmail:1a08b7f1bb6ae4ff",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 6,
+            "signups_referrals": 0,
+            "trials": null,
+            "paid_customers": 0,
+            "gross_sales_revenue": null,
+            "commission_earned": 0,
+            "commission_approved": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_conversions": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "fliki",
+      "name": "Fliki",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "fliki",
+      "evidence": []
+    },
+    {
+      "id": "inkfluence-ai",
+      "name": "Inkfluence AI",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "inkfluence-ai",
+      "evidence": []
+    },
+    {
+      "id": "writesonic",
+      "name": "Writesonic",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "writesonic",
+      "evidence": []
+    },
+    {
+      "id": "sudowrite",
+      "name": "Sudowrite",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "sudowrite",
+      "evidence": []
+    },
+    {
+      "id": "vidiq",
+      "name": "vidIQ",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "vidiq",
+      "evidence": []
+    },
+    {
+      "id": "bolddesk",
+      "name": "BoldDesk",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "bolddesk",
+      "evidence": []
+    },
+    {
+      "id": "brand24",
+      "name": "Brand24",
+      "network": "PartnerStack",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "inventory_source": "data/tools.json",
+      "account_id": "partnerstack-account",
+      "evidence": [
+        {
+          "tool_id": "brand24",
+          "tool": "Brand24",
+          "network": "PartnerStack",
+          "period": "cumulative as of vendor message",
+          "checked_at": "2026-09-10T17:24:15Z",
+          "source": "vendor-human-email",
+          "evidence_id": "gmail:1a08c594a05b4721",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 10,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": null,
+            "commission_earned": null,
+            "commission_approved": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_conversions": null
+          }
+        },
+        {
+          "tool_id": "brand24",
+          "tool": "Brand24",
+          "network": "PartnerStack",
+          "period": "당시 대시보드 누적",
+          "checked_at": "2026-09-08T00:00:00Z",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 7,
+            "signups_referrals": 0,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": 0,
+            "commission_earned": null,
+            "commission_approved": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_conversions": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "boldsign",
+      "name": "BoldSign",
+      "network": "BoldSign Affiliate Portal",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "boldsign",
+      "evidence": [
+        {
+          "tool_id": "boldsign",
+          "tool": "BoldSign",
+          "network": "BoldSign Affiliate Portal",
+          "period": "approved tracking route active; downstream metrics not yet verified as of 2026-09-11",
+          "checked_at": "2026-09-11T07:29:21+09:00",
+          "source": "repository-approved-tracking-plus-vendor-program",
+          "evidence_id": "github:tools.next:boldsign",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": null,
+            "commission_earned": null,
+            "commission_approved": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_conversions": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "aweber",
+      "name": "AWeber",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "aweber",
+      "evidence": []
+    },
+    {
+      "id": "unbounce",
+      "name": "Unbounce",
+      "network": "PartnerStack",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "inventory_source": "data/tools.json",
+      "account_id": "partnerstack-account",
+      "evidence": [
+        {
+          "tool_id": "unbounce",
+          "tool": "Unbounce",
+          "network": "PartnerStack",
+          "period": "당시 대시보드 누적",
+          "checked_at": "2026-09-08T00:00:00Z",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 8,
+            "signups_referrals": 0,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": 0,
+            "commission_earned": null,
+            "commission_approved": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_conversions": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "moosend",
+      "name": "Moosend",
+      "network": "PartnerStack",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "inventory_source": "data/tools.json",
+      "account_id": "partnerstack-account",
+      "evidence": [
+        {
+          "tool_id": "moosend",
+          "tool": "Moosend",
+          "network": "PartnerStack",
+          "period": "당시 대시보드 누적",
+          "checked_at": "2026-09-08T00:00:00Z",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 2,
+            "signups_referrals": 0,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": 0,
+            "commission_earned": null,
+            "commission_approved": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_conversions": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "omnisend",
+      "name": "Omnisend",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "omnisend",
+      "evidence": []
+    },
+    {
+      "id": "time2book",
+      "name": "Time2book",
+      "network": "개별 제휴 포털",
+      "portal_url": "https://time2book.me/affiliates",
+      "inventory_source": "data/tools.json",
+      "portal_source": "data/affiliate-browser-results-2026-09-08.json",
+      "account_id": "time2book",
+      "evidence": []
+    },
+    {
+      "id": "shopify",
+      "name": "Shopify",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "shopify",
+      "evidence": []
+    },
+    {
+      "id": "systeme-io",
+      "name": "Systeme.io",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "systeme-io",
+      "evidence": []
+    },
+    {
+      "id": "jotform",
+      "name": "Jotform",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "jotform",
+      "evidence": []
+    },
+    {
+      "id": "synthesia",
+      "name": "Synthesia",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "synthesia",
+      "evidence": []
+    },
+    {
+      "id": "liftmycv",
+      "name": "LiftmyCV",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "liftmycv",
+      "evidence": []
+    },
+    {
+      "id": "aiassistworks",
+      "name": "AiAssistWorks",
+      "network": "Affonso",
+      "portal_url": "https://aiassistworks.affonso.io/",
+      "inventory_source": "data/tools.json",
+      "account_id": "aiassistworks",
+      "evidence": [
+        {
+          "tool_id": "aiassistworks",
+          "tool": "AiAssistWorks",
+          "network": "Affonso",
+          "period": "당시 대시보드 누적",
+          "checked_at": "2026-09-07T20:29:50Z",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 0,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": null,
+            "commission_earned": 0,
+            "commission_approved": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_conversions": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "vista-social",
+      "name": "Vista Social",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "vista-social",
+      "evidence": []
+    },
+    {
+      "id": "merlin",
+      "name": "Merlin AI",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "merlin",
+      "evidence": []
+    },
+    {
+      "id": "decktopus",
+      "name": "Decktopus",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "decktopus",
+      "evidence": []
+    },
+    {
+      "id": "dorik",
+      "name": "Dorik",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "dorik",
+      "evidence": []
+    },
+    {
+      "id": "rytr",
+      "name": "Rytr",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "rytr",
+      "evidence": []
+    },
+    {
+      "id": "frase",
+      "name": "Frase",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "frase",
+      "evidence": []
+    },
+    {
+      "id": "descript",
+      "name": "Descript",
+      "network": "PartnerStack",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "inventory_source": "data/tools.json",
+      "account_id": "partnerstack-account",
+      "evidence": []
+    },
+    {
+      "id": "panda-video",
+      "name": "Panda Video",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "panda-video",
+      "evidence": []
+    },
+    {
+      "id": "murf-ai",
+      "name": "Murf AI",
+      "network": "PartnerStack",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "inventory_source": "data/tools.json",
+      "account_id": "partnerstack-account",
+      "evidence": [
+        {
+          "tool_id": "murf-ai",
+          "tool": "Murf AI",
+          "network": "PartnerStack",
+          "period": "당시 대시보드 누적",
+          "checked_at": "2026-09-08T00:00:00Z",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 4,
+            "signups_referrals": 0,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": 0,
+            "commission_earned": null,
+            "commission_approved": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_conversions": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "castmagic",
+      "name": "Castmagic",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "castmagic",
+      "evidence": []
+    },
+    {
+      "id": "loopcv",
+      "name": "LoopCV",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "loopcv",
+      "evidence": []
+    },
+    {
+      "id": "clickfunnels",
+      "name": "ClickFunnels",
+      "network": "ClickFunnels Affiliate Portal",
+      "portal_url": "https://www.clickfunnels.com/customers/profiles/kMXlLGaZ/affiliates/dashboard",
+      "inventory_source": "data/tools.json",
+      "portal_source": "data/affiliate-browser-results-2026-09-08.json",
+      "account_id": "clickfunnels",
+      "evidence": [
+        {
+          "tool_id": "clickfunnels",
+          "tool": "ClickFunnels",
+          "network": "ClickFunnels Affiliate Portal",
+          "period": "authenticated dashboard snapshot at 2026-09-07T17:19:00Z",
+          "checked_at": "2026-09-07T17:19:00Z",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "github:affiliate-browser-results-2026-09-08:clickfunnels",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": null,
+            "commission_earned": 0,
+            "commission_approved": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_conversions": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "teachable",
+      "name": "Teachable",
+      "network": "PartnerStack",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "inventory_source": "data/tools.json",
+      "account_id": "partnerstack-account",
+      "evidence": []
+    },
+    {
+      "id": "kittl",
+      "name": "Kittl",
+      "network": "Impact",
+      "portal_url": "https://app.impact.com/login.user",
+      "inventory_source": "data/tools.json",
+      "account_id": "impact-account",
+      "evidence": []
+    },
+    {
+      "id": "novita-ai",
+      "name": "Novita AI",
+      "network": "Tapfiliate",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "novita-ai",
+      "evidence": []
+    },
+    {
+      "id": "followr",
+      "name": "Followr",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "followr",
+      "evidence": []
+    },
+    {
+      "id": "beefree",
+      "name": "Beefree",
+      "network": "개별 제휴 포털",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "inventory_source": "data/tools.json",
+      "portal_source": "data/affiliate-browser-results-2026-09-08.json",
+      "account_id": "beefree",
+      "evidence": []
+    },
+    {
+      "id": "getgenie",
+      "name": "GetGenie",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "getgenie",
+      "evidence": []
+    },
+    {
+      "id": "cartstack",
+      "name": "CartStack",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "cartstack",
+      "evidence": []
+    },
+    {
+      "id": "eprofessor",
+      "name": "eProfessor",
+      "network": "eProfessor native referrals",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "eprofessor",
+      "evidence": [
+        {
+          "tool_id": "eprofessor",
+          "tool": "eProfessor",
+          "network": "eProfessor native referrals",
+          "period": "당시 대시보드 누적",
+          "checked_at": "2026-09-07T21:24:29.148094Z",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": 0,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": null,
+            "commission_earned": 0,
+            "commission_approved": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "payout_pending": 0,
+            "network_reported_conversions": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "docsbot",
+      "name": "DocsBot",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "docsbot",
+      "evidence": []
+    },
+    {
+      "id": "helpdesk",
+      "name": "HelpDesk",
+      "network": "LiveChat Partner Program",
+      "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
+      "inventory_source": "data/tools.json",
+      "account_id": "text-account",
+      "evidence": []
+    },
+    {
+      "id": "tagshop-ai",
+      "name": "Tagshop AI",
+      "network": "FirstPromoter",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "tagshop-ai",
+      "evidence": []
+    },
+    {
+      "id": "text",
+      "name": "Text",
+      "network": "LiveChat Partner Program",
+      "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
+      "inventory_source": "data/tools.json",
+      "account_id": "text-account",
+      "evidence": [
+        {
+          "tool_id": "text",
+          "tool": "Text / LiveChat Partner Program",
+          "network": "LiveChat Partner Program",
+          "period": "2026-08-13 through 2026-09-10",
+          "checked_at": "2026-09-10T15:52:30Z",
+          "source": "vendor-report-email",
+          "evidence_id": "gmail:1a08c0544c56b5ac",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 28,
+            "signups_referrals": null,
+            "trials": 0,
+            "paid_customers": 0,
+            "gross_sales_revenue": null,
+            "commission_earned": 0,
+            "commission_approved": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_conversions": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "typedesk",
+      "name": "Typedesk",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "typedesk",
+      "evidence": []
+    },
+    {
+      "id": "gojiberry",
+      "name": "Gojiberry",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "gojiberry",
+      "evidence": []
+    },
+    {
+      "id": "catalister",
+      "name": "Catalister",
+      "network": "Catalister native affiliate dashboard",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "catalister",
+      "evidence": [
+        {
+          "tool_id": "catalister",
+          "tool": "Catalister",
+          "network": "Catalister native affiliate dashboard",
+          "period": "당시 대시보드 누적",
+          "checked_at": "2026-09-07T19:55:00Z",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
+          "currency": "EUR",
+          "metrics": {
+            "outbound_clicks": 0,
+            "signups_referrals": null,
+            "trials": 0,
+            "paid_customers": 0,
+            "gross_sales_revenue": 0,
+            "commission_earned": 0,
+            "commission_approved": null,
+            "commission_pending": 0,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_conversions": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "bookyourdata",
+      "name": "Bookyourdata",
+      "network": "PartnerStack",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "inventory_source": "data/tools.json",
+      "account_id": "partnerstack-account",
+      "evidence": [
+        {
+          "tool_id": "bookyourdata",
+          "tool": "Bookyourdata",
+          "network": "PartnerStack",
+          "period": "당시 대시보드 누적",
+          "checked_at": "2026-09-08T00:00:00Z",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 7,
+            "signups_referrals": 0,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": 0,
+            "commission_earned": null,
+            "commission_approved": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_conversions": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "customgpt-ai",
+      "name": "CustomGPT.ai",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "customgpt-ai",
+      "evidence": []
+    },
+    {
+      "id": "databox",
+      "name": "Databox",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "databox",
+      "evidence": []
+    },
+    {
+      "id": "taskip",
+      "name": "Taskip",
+      "network": "개별 제휴 포털",
+      "portal_url": "https://taskip.affonso.io/success-hub",
+      "inventory_source": "data/tools.json",
+      "portal_source": "data/affiliate-browser-results-2026-09-08.json",
+      "account_id": "taskip",
+      "evidence": []
+    },
+    {
+      "id": "claap",
+      "name": "Claap",
+      "network": "PartnerStack",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "inventory_source": "data/tools.json",
+      "account_id": "partnerstack-account",
+      "evidence": []
+    },
+    {
+      "id": "chatbase",
+      "name": "Chatbase",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "chatbase",
+      "evidence": []
+    },
+    {
+      "id": "krater",
+      "name": "Krater",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "krater",
+      "evidence": []
+    },
+    {
+      "id": "omi-ai",
+      "name": "Omi AI",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "omi-ai",
+      "evidence": []
+    },
+    {
+      "id": "fireflies-ai",
+      "name": "Fireflies.ai",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "fireflies-ai",
+      "evidence": []
+    },
+    {
+      "id": "gamma",
+      "name": "Gamma",
+      "network": "PartnerStack",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "inventory_source": "data/tools.json",
+      "account_id": "partnerstack-account",
+      "evidence": [
+        {
+          "tool_id": "gamma",
+          "tool": "Gamma",
+          "network": "PartnerStack",
+          "period": "당시 대시보드 누적",
+          "checked_at": "2026-09-08T00:00:00Z",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 3,
+            "signups_referrals": 0,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": 0,
+            "commission_earned": null,
+            "commission_approved": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_conversions": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "voibe",
+      "name": "Voibe",
+      "network": "Lemon Squeezy",
+      "portal_url": "https://affiliates.lemonsqueezy.com/programs/voibe",
+      "inventory_source": "data/tools.json",
+      "account_id": "lemonsqueezy-account",
+      "evidence": []
+    },
+    {
+      "id": "taskade",
+      "name": "Taskade",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "taskade",
+      "evidence": []
+    },
+    {
+      "id": "relevance-ai",
+      "name": "Relevance AI",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "account_id": "relevance-ai",
+      "evidence": []
+    },
+    {
+      "id": "uplead",
+      "name": "UpLead",
+      "network": "FirstPromoter",
+      "portal_url": "https://affiliates.uplead.com/login",
+      "inventory_source": "data/revenue-truth-2026-09-11.json",
+      "account_id": "uplead",
+      "evidence": [
+        {
+          "tool_id": "uplead",
+          "tool": "UpLead",
+          "network": "FirstPromoter",
+          "period": "affiliate account active; vendor-confirmed homepage, pricing and 7-day-trial tracking routes as of 2026-09-11; downstream metrics still require dashboard evidence",
+          "checked_at": "2026-09-10T23:11:19Z",
+          "source": "vendor-human-email",
+          "evidence_id": "gmail:1a08d9736524831d",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": null,
+            "commission_earned": null,
+            "commission_approved": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_conversions": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "fillout",
+      "name": "Fillout",
+      "network": "Dub",
+      "portal_url": "https://partners.dub.co/fillout/apply",
+      "inventory_source": "data/fillout-tracking-link-recovery-2026-09-10.json",
+      "portal_source": "data/affiliate-browser-results-2026-09-08.json",
+      "account_id": "fillout",
+      "evidence": []
+    },
+    {
+      "id": "really-good-emails",
+      "name": "Really Good Emails / RGE Studio",
+      "inventory_source": "authenticated PartnerStack membership list 2026-09-11",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "evidence": []
+    },
+    {
+      "id": "partnerstack-gravity",
+      "name": "Gravity",
+      "inventory_source": "authenticated PartnerStack membership list 2026-09-11",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "evidence": []
+    },
+    {
+      "id": "monday-com",
+      "name": "monday.com",
+      "inventory_source": "authenticated PartnerStack membership list 2026-09-11",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "evidence": []
+    },
+    {
+      "id": "sendcloud",
+      "name": "Sendcloud",
+      "inventory_source": "authenticated PartnerStack membership list 2026-09-11",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "evidence": []
+    },
+    {
+      "id": "airia",
+      "name": "Airia",
+      "inventory_source": "authenticated PartnerStack membership list 2026-09-11",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "evidence": []
+    },
+    {
+      "id": "triple-whale",
+      "name": "Triple Whale",
+      "inventory_source": "authenticated PartnerStack membership list 2026-09-11",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "evidence": []
+    },
+    {
+      "id": "pipedrive",
+      "name": "Pipedrive",
+      "inventory_source": "authenticated PartnerStack membership list 2026-09-11",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "evidence": []
+    },
+    {
+      "id": "bidx",
+      "name": "BidX",
+      "inventory_source": "authenticated PartnerStack membership list 2026-09-11",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "evidence": []
+    }
+  ]
+}

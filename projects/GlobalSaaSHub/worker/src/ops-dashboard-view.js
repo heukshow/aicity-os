@@ -118,7 +118,7 @@ export function dashboardClient() {
         add(link.name, `제휴 클릭 ${link.value}회 · ${link.date || ''}`, '해당 제휴 포털에서 가입·구매·커미션 발생 여부 확인', '전환 확인 필요');
     } else add('GA4 / Search Console', snapshot ? '실데이터 수집 상태 확인 필요' : '데이터를 불러오는 중', '최근 수집 작업과 인증 상태 확인', '확인 필요');
     if (partner && !partner.connected) add('PartnerStack', partner.reason || 'API 조회 실패', '기존 PartnerStack API 연결 상태 확인', '확인 필요');
-    add('전체 제휴 수익 통합', '네트워크 전체·선택 기간 기준 합계는 아직 미확인', '다른 네트워크의 검증된 전환·수익 자료를 연결한 뒤 합산', '통합 미완료');
+    add('/ops/revenue.html', '전체 계정별 수익·지급·확인 시점을 통합 조회', '상단 전체 수익에서 계정별 확인 결과와 보고서 보기', '수익판 연결');
     $('opportunities').innerHTML = rows.join('') || '<tr><td colspan="5">검색 조건에 맞는 액션 없음</td></tr>';
   }
   function render() {
@@ -193,6 +193,7 @@ export function dashboardClient() {
 
 export function decorateOpsHtml(html) {
   html = agencyLayout(html);
+  html = html.replace('</header>', '<a class="btn" href="/ops/revenue.html">전체 수익 확인 →</a></header>');
   const pattern = /<script>\s*\(\(\)\s*=>\s*\{[\s\S]*?<\/script>/;
   if (!pattern.test(html)) throw new Error('Dashboard script marker not found');
   // Wrangler preserves function names with __name calls inside serialized functions.

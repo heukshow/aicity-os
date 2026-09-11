@@ -1,6 +1,8 @@
 import { authorized, loginPage, privateLogin, PRIVATE_HEADERS } from './admin.js';
 import { decorateOpsHtml } from './ops-dashboard-view.js';
 import { fetchPartnerStackMetrics } from './partnerstack.js';
+import { getRevenueSummary } from './revenue-summary.js';
+import { revenuePage } from './revenue-view.js';
 
 const ISSUER = 'https://token.actions.githubusercontent.com';
 const AUDIENCE = 'coshuma-private-analytics';
@@ -94,7 +96,7 @@ export async function handleSnapshotUpload(request, env) {
 export async function handlePrivateOps(request, env) {
   const path = new URL(request.url).pathname;
   const authEnv = { ...env, ADMIN_PATH: '/ops', ADMIN_USERNAME: 'support@coshuma.com', ADMIN_PASSWORD_SHA256: env.OPS_PASSWORD_SHA256 };
-  if (request.method === 'POST' && ['/ops', '/ops/', '/ops/traffic-revenue.html'].includes(path)) {
+  if (request.method === 'POST' && ['/ops', '/ops/', '/ops/traffic-revenue.html', '/ops/revenue.html'].includes(path)) {
     if (!env.ORDERS || !env.OPS_PASSWORD_SHA256) return response('{"error":"Authentication unavailable"}', 503);
     if (!await validCsrf(request, env)) return response('Login session expired. Reload this page and try again.', 403, 'text/plain; charset=utf-8');
     const ip = request.headers.get('cf-connecting-ip') || 'unknown';
@@ -104,7 +106,7 @@ export async function handlePrivateOps(request, env) {
       ON CONFLICT(client) DO UPDATE SET bucket=excluded.bucket, attempts=CASE WHEN bucket=excluded.bucket THEN attempts+1 ELSE 1 END RETURNING attempts`)
       .bind(digest, bucket).first();
     if (!attempt || attempt.attempts > 10) return response('{"error":"Too many login attempts; try again later"}', 429);
-    const login = await privateLogin(request, authEnv, '/ops/traffic-revenue.html', true);
+    const login = await privateLogin(request, authEnv, path === '/ops/traffic-revenue.html' ? path : '/ops/revenue.html', true);
     return login.status === 401 ? ownerLoginPage(env, '아이디 또는 비밀번호가 맞지 않습니다.') : login;
   }
   if (!await authorized(request, authEnv, false)) {
@@ -112,7 +114,9 @@ export async function handlePrivateOps(request, env) {
       : ownerLoginPage(env);
   }
   if (!['GET', 'HEAD'].includes(request.method)) return response('{"error":"Method not allowed"}', 405);
-  const name = ['/ops', '/ops/'].includes(path) ? 'traffic-revenue.html' : path.slice('/ops/'.length);
+  const name = ['/ops', '/ops/'].includes(path) ? 'revenue.html' : path.slice('/ops/'.length);
+  if (name === 'revenue.html') return response(request.method === 'HEAD' ? null : revenuePage(), 200, 'text/html; charset=utf-8');
+  if (name === 'revenue-summary.json') return response(request.method === 'HEAD' ? null : JSON.stringify(await getRevenueSummary(env)), 200);
   if (name === 'partnerstack-summary.json') {
     if (request.method === 'HEAD') return response(null, 200);
     try {

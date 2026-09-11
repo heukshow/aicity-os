@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "snapshot": "node ../scripts/generate_admin_snapshot.mjs",
+    "snapshot": "node ../scripts/generate_admin_snapshot.mjs && node ../scripts/generate_revenue_inventory.mjs",
     "pretest": "npm run snapshot",
     "test": "node --test test/*.test.js",
     "predeploy:check": "npm run snapshot",
