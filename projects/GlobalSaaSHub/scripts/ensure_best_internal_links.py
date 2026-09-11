@@ -7,8 +7,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BEST_DIR = ROOT / "public" / "best"
 INDEX = BEST_DIR / "index.html"
+B2B_GUIDE = BEST_DIR / "b2b-email-list-providers.html"
 START = "<!-- COSHUMA_BEST_DISCOVERY_LINKS_START -->"
 END = "<!-- COSHUMA_BEST_DISCOVERY_LINKS_END -->"
+B2B_COMPARE_START = "<!-- COSHUMA_B2B_COMPARE_LINK_START -->"
+B2B_COMPARE_END = "<!-- COSHUMA_B2B_COMPARE_LINK_END -->"
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.I | re.S)
 H1_RE = re.compile(r"<h1[^>]*>(.*?)</h1>", re.I | re.S)
@@ -29,9 +32,38 @@ def page_title(path: Path) -> str:
     return title
 
 
+def ensure_b2b_comparison_link() -> bool:
+    """Give the new high-intent UpLead/Apollo comparison a contextual crawl path."""
+    if not B2B_GUIDE.exists():
+        return False
+
+    source = B2B_GUIDE.read_text(encoding="utf-8")
+    source = re.sub(
+        re.escape(B2B_COMPARE_START) + r".*?" + re.escape(B2B_COMPARE_END),
+        "",
+        source,
+        flags=re.S,
+    )
+
+    block = f'''\n    {B2B_COMPARE_START}\n    <section class="mt-8 rounded-2xl border border-emerald-400/20 bg-emerald-400/[0.05] p-6 sm:p-7">\n      <div class="text-xs font-black uppercase tracking-[0.16em] text-emerald-300">Direct comparison</div>\n      <h2 class="mt-2 text-2xl font-black text-white">Choosing between UpLead and Apollo?</h2>\n      <p class="mt-3 max-w-3xl text-sm leading-7 text-slate-300">Use the dedicated comparison to check current pricing, credits, free access and the workflow difference between focused B2B contact data and a broader outbound sales platform.</p>\n      <a href="/compare/uplead-vs-apollo.html" class="mt-4 inline-flex rounded-xl border border-emerald-400/25 bg-emerald-400/10 px-5 py-3 text-sm font-black text-emerald-100 hover:bg-emerald-400/15">Compare UpLead vs Apollo →</a>\n    </section>\n    {B2B_COMPARE_END}\n'''
+
+    fast_comparison = '<section class="mt-14 overflow-hidden'
+    if fast_comparison in source:
+        source = source.replace(fast_comparison, block + "\n    " + fast_comparison, 1)
+    elif "</main>" in source:
+        source = source.replace("</main>", block + "\n  </main>", 1)
+    else:
+        raise SystemExit("b2b-email-list-providers.html has no insertion point")
+
+    B2B_GUIDE.write_text(source, encoding="utf-8")
+    return True
+
+
 def main() -> None:
     if not INDEX.exists():
         raise SystemExit("best/index.html is missing")
+
+    b2b_linked = ensure_b2b_comparison_link()
 
     source = INDEX.read_text(encoding="utf-8")
     # Remove the previously generated discovery block so each build is deterministic.
@@ -57,7 +89,8 @@ def main() -> None:
     candidates.sort(key=lambda item: item[0].lower())
     if not candidates:
         INDEX.write_text(source, encoding="utf-8")
-        print("BEST INTERNAL LINKS: PASS (no orphan buyer guides)")
+        suffix = "; UpLead vs Apollo context link current" if b2b_linked else ""
+        print(f"BEST INTERNAL LINKS: PASS (no orphan buyer guides{suffix})")
         return
 
     links = "".join(
@@ -70,7 +103,8 @@ def main() -> None:
         raise SystemExit("best/index.html has no </main> insertion point")
     source = source.replace("</main>", block + "    </main>", 1)
     INDEX.write_text(source, encoding="utf-8")
-    print(f"BEST INTERNAL LINKS: PASS ({len(candidates)} orphan buyer guides linked)")
+    suffix = "; UpLead vs Apollo context link current" if b2b_linked else ""
+    print(f"BEST INTERNAL LINKS: PASS ({len(candidates)} orphan buyer guides linked{suffix})")
 
 
 if __name__ == "__main__":
