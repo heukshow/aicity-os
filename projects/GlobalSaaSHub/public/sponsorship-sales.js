@@ -16,8 +16,14 @@
   }
 
   document.addEventListener('click', (event) => {
-    const link = event.target.closest('a[data-cta="sponsorship-inquiry"]');
-    if (!link) return;
-    emit('sponsorship_inquiry_click', link);
+    const checkoutLink = event.target.closest('a[data-cta="sponsorship-checkout"]');
+    if (checkoutLink) {
+      emit('sponsorship_checkout_click', checkoutLink);
+      return;
+    }
+
+    const inquiryLink = event.target.closest('a[data-cta="sponsorship-inquiry"]');
+    if (!inquiryLink) return;
+    emit('sponsorship_inquiry_click', inquiryLink);
   }, true);
 })();
