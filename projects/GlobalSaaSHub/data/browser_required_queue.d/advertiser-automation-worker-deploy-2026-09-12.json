@@ -1,0 +1,26 @@
+{
+  "id": "advertiser-automation-worker-deploy-2026-09-12",
+  "priority": "revenue_critical",
+  "status": "browser_required_predeploy_verified",
+  "cost": 0,
+  "worker_name": "globalsaashub-payments",
+  "github_pr": 397,
+  "ci_run_id": 34656128303,
+  "ci_status": "success",
+  "reason": "PR #397 implements server-owned 9-tier sponsorship pricing, verified payer capture, campaign creation, advertiser intake, safe auto-publication, live placement delivery, D1 impression/click tracking, private reports, report/renewal/final-report generation and automatic expiry. Worker tests and wrangler deploy --dry-run passed. Production must not merge/deploy the new frontend before the D1 migration and compatible Worker are deployed because the currently live Worker still uses the legacy fixed-$49 order schema.",
+  "required_actions": [
+    "In the existing authenticated Cloudflare environment, apply D1 migration projects/GlobalSaaSHub/worker/migrations/0002_advertiser_automation.sql to globalsaashub-orders.",
+    "Deploy the Worker revision from PR #397 or its final merged equivalent without changing existing PayPal or Cloudflare secrets.",
+    "Verify GET /health returns ok=true and checkoutConfigured=true without creating a payment.",
+    "Verify GET /v1/sponsored/placements?path=/ returns HTTP 200 with an empty placements array when no campaign is active.",
+    "Only after those checks, merge/deploy the matching COSHUMA frontend changes."
+  ],
+  "email_delivery_note": "Advertiser emails/reports are safely queued in D1 notification_outbox. No external sender was invented or purchased. Connect an existing authorized support@coshuma.com mail sender later; until then delivery_status must not be marked sent.",
+  "do_not": [
+    "Do not create a new Cloudflare account, Worker, D1 database, paid service or PayPal app.",
+    "Do not rotate or expose PayPal/Cloudflare secrets.",
+    "Do not run a real payment for verification.",
+    "Do not merge frontend tier checkout before the D1 migration and compatible Worker are live.",
+    "Do not claim queued advertiser email as delivered."
+  ]
+}
