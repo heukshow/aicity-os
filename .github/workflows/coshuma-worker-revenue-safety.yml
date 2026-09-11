@@ -1,6 +1,11 @@
 name: COSHUMA Worker Revenue Safety
 
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'projects/GlobalSaaSHub/worker/**'
+      - '.github/workflows/coshuma-worker-revenue-safety.yml'
   push:
     branches: [main]
     paths:
@@ -9,7 +14,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: coshuma-worker-revenue-safety
+  group: coshuma-worker-revenue-safety-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
@@ -22,7 +27,7 @@ jobs:
       run:
         working-directory: projects/GlobalSaaSHub/worker
     steps:
-      - name: Checkout main
+      - name: Checkout code
         uses: actions/checkout@v5
 
       - name: Set up Node.js 22
