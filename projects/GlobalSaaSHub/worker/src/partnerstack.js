@@ -37,8 +37,9 @@ async function listAll(path, apiKey) {
 }
 
 const cents = (value) => {
+  if (value === null || value === undefined || typeof value === 'boolean' || (typeof value === 'string' && value.trim() === '')) return null;
   const number = Number(value);
-  return Number.isFinite(number) ? number : null;
+  return Number.isFinite(number) && number >= 0 ? number : null;
 };
 const lower = (value) => String(value ?? '').trim().toLowerCase();
 

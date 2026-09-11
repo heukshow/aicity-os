@@ -1,0 +1,22 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import vm from 'node:vm';
+import { revenuePage } from '../src/revenue-view.js';
+import { summarizeRevenue } from '../src/revenue-summary.js';
+test('private revenue UI loads once, distinguishes unknown from zero, filters and escapes evidence',async()=>{
+  const nodes=new Map();
+  const html=revenuePage();
+  for(const match of html.matchAll(/id="([^"]+)"/g)) nodes.set(match[1],{textContent:'',innerHTML:'',value:match[1]==='status'?'all':'',disabled:false});
+  const s=summarizeRevenue([{id:'p',name:'Example',account_id:'a',network:'Example',evidence:[{tool:'<script>unsafe</script>',checked_at:'2026-09-10',metrics:{commission_earned:0},currency:'USD'}]}],[]);
+  s.direct_sales={connection:'connected',empty:true,note:'ledger'};
+  let calls=0;
+  const context={document:{getElementById:id=>nodes.get(id)},fetch:async url=>{calls++;assert.equal(url,'/ops/revenue-summary.json');return {ok:true,json:async()=>s}},URL,Blob,setTimeout};
+  vm.runInNewContext(html.match(/<script>([\s\S]+)<\/script>/)[1],context);
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(calls,1);assert.match(nodes.get('rows').innerHTML,/USD 0.00/);
+  assert.match(nodes.get('rows').innerHTML,/&lt;script&gt;/);assert.doesNotMatch(nodes.get('rows').innerHTML,/<script>unsafe/);
+  assert.match(nodes.get('totals').innerHTML,/집계 가능한 기록 없음/);
+  nodes.get('query').value='absent';nodes.get('query').oninput();
+  assert.match(nodes.get('rows').innerHTML,/검색 결과 없음/);
+  assert.match(nodes.get('direct').innerHTML,/결제 장부 0건/);
+});

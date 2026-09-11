@@ -4,6 +4,12 @@ import { fetchPartnerStackMetrics } from '../src/partnerstack.js';
 
 const originalFetch = globalThis.fetch;
 
+test('missing reward amounts are invalid rather than verified zero', async () => {
+  globalThis.fetch = async url => new Response(JSON.stringify({data:String(url).includes('/rewards')?[{key:'missing',amount:null,status:'approved',currency:'USD'}]:[]}),{status:200});
+  const result=await fetchPartnerStackMetrics({PARTNERSTACK_API_KEY:'test'});
+  assert.equal(result.invalidAmountCount,1);
+});
+
 test.afterEach(() => { globalThis.fetch = originalFetch; });
 
 function json(data, status = 200) {
