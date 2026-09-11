@@ -48,6 +48,12 @@ const browserRequiredStatuses = new Set([
   'browser_required_application_form',
 ]);
 
+// Payout states must not all be treated as immediately actionable. A pending
+// tax/payout review or a deliberately deferred setup is a waiting state, while
+// an explicitly incomplete setup is something that still needs attention.
+const payoutActionableStatuses = new Set(['incomplete']);
+const payoutWaitingStatuses = new Set(['pending_review', 'deferred_until_payout_threshold']);
+
 const hasVerifiedTargetedAffiliateCta = (tool) => {
   if (tool.affiliate_verified !== true) return false;
   const toolPage = path.join(root, 'public', 'tool', `${tool.id}.html`);
@@ -75,6 +81,7 @@ const records = tools.map((tool) => {
     else if (tool.affiliate_verified !== true) blocker = 'affiliate_evidence_not_verified';
     else blocker = `affiliate_status_${status}`;
   }
+  const payoutSetupStatus = tool.payout_setup_status || null;
   return {
     id: tool.id,
     name: tool.name,
@@ -92,7 +99,9 @@ const records = tools.map((tool) => {
     blocker,
     officialVerified: tool.official_verification_status === 'verified',
     pricingVerified: tool.pricing_verified === true,
-    payoutSetupStatus: tool.payout_setup_status || null,
+    payoutSetupStatus,
+    payoutNeedsReview: revenueReady && payoutActionableStatuses.has(payoutSetupStatus),
+    payoutWaiting: revenueReady && payoutWaitingStatuses.has(payoutSetupStatus),
   };
 });
 
@@ -111,7 +120,8 @@ const counts = records.reduce((acc, item) => {
   acc.unclassifiedAffiliateStatus += Number(item.affiliateStatus === 'unclassified');
   acc.officialUnverified += Number(!item.officialVerified);
   acc.pricingUnverified += Number(!item.pricingVerified);
-  acc.payoutNeedsReview += Number(item.revenueReady && item.payoutSetupStatus && item.payoutSetupStatus !== 'complete');
+  acc.payoutNeedsReview += Number(item.payoutNeedsReview);
+  acc.payoutWaiting += Number(item.payoutWaiting);
   return acc;
 }, {
   totalTools: 0,
@@ -129,6 +139,7 @@ const counts = records.reduce((acc, item) => {
   officialUnverified: 0,
   pricingUnverified: 0,
   payoutNeedsReview: 0,
+  payoutWaiting: 0,
 });
 
 for (const item of records) {
@@ -146,6 +157,8 @@ const output = {
   directActionableGaps: records.filter((item) => item.directActionableGap),
   browserRequiredGaps: records.filter((item) => item.browserRequired),
   watchOnlyGaps: records.filter((item) => item.watchOnlyGap),
+  payoutNeedsReview: records.filter((item) => item.payoutNeedsReview),
+  payoutWaiting: records.filter((item) => item.payoutWaiting),
   doNotReapply: records.filter((item) => item.doNotReapply),
   revenueReady: records.filter((item) => item.revenueReady),
   terminal: records.filter((item) => item.terminal),
