@@ -1,0 +1,62 @@
+{
+  "tool_id": "beefree",
+  "display_name": "RGE Studio (formerly Beefree App)",
+  "company_mailbox": "support@coshuma.com",
+  "affiliate_status": "approved_tracking",
+  "existing_verified_customer_url": "https://partners.beefree.io/kqi520hezix2",
+  "do_not_reapply": true,
+  "do_not_construct_tracking_urls": true,
+  "vendor_resource_message": {
+    "gmail_message_id": "1a090e0550146933",
+    "received_at": "2026-09-11T14:30:14Z",
+    "subject": "Open this to drive more referrals - Beefree Ambassador program",
+    "notes": [
+      "Vendor/PartnerStack resource email confirms the existing Ambassador program remains active.",
+      "Resource guidance emphasizes co-editing, commenting/review, branding controls, ESP/CRM connectors and AI assistance.",
+      "The email's three-tier pricing summary conflicts with the current live RGE Studio pricing page, so public buyer-facing pricing must follow the current official live pricing/help sources rather than the email summary."
+    ]
+  },
+  "current_official_sources_checked_at": "2026-09-12T00:30:00+09:00",
+  "official_sources": {
+    "pricing": "https://reallygoodemails.com/pricing",
+    "trial_help": "https://support.reallygoodemails.com/hc/en-us/articles/25984424038034-How-do-I-trial-or-purchase-a-RGE-Studio-plan",
+    "rename_announcement": "https://beefree.io/blog/beefree-to-rge-studio",
+    "ambassador_program": "https://beefree.io/ambassador-program"
+  },
+  "official_public_pricing_snapshot": {
+    "starter": "$0",
+    "professional_monthly": "$30/mo",
+    "professional_annual_equivalent": "$25/mo billed yearly",
+    "business_monthly": "$160/mo",
+    "business_annual_equivalent": "$134/mo billed yearly",
+    "enterprise": "custom",
+    "trial": "15-day free trial; official help says eligible Professional/Business trials can start without payment details"
+  },
+  "outreach": {
+    "sent_gmail_message_id": "1a09115f5e1d2ffd",
+    "thread_id": "1a090e0550146933",
+    "sent_from": "support@coshuma.com",
+    "purpose": [
+      "Request a vendor-issued customer-facing pricing/trial deep link that preserves COSHUMA attribution, if one exists.",
+      "Request current clicks, referred sign-ups/trials, paid customers, earned/pending/paid commission and payout status."
+    ]
+  },
+  "revenue_truth": {
+    "clicks": null,
+    "referred_signups_or_trials": null,
+    "paid_customers": null,
+    "earned_commission": null,
+    "pending_commission": null,
+    "paid_commission": null,
+    "payout_status": null,
+    "currency": null,
+    "rule": "Keep all downstream revenue metrics unknown until vendor or authenticated dashboard evidence proves them."
+  },
+  "buyer_page": {
+    "url": "https://coshuma.com/best/rge-studio-pricing-free-trial.html",
+    "source_commit": "2d5484794f23aa65fd5ef98587e58fe06c8df202",
+    "llms_index_commit": "bf9149cd4118f027dacc189dd21d1d5f35809017"
+  },
+  "github_issue": 395,
+  "next_action": "When Beefree/PartnerStack replies, update only explicitly proven deep-link or revenue metrics. If stats are dashboard-only, queue only the authenticated stats read; do not reapply."
+}
