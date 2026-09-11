@@ -1,0 +1,31 @@
+{
+  "id": "boldsign-revenue-stats-2026-09-11",
+  "tool_id": "boldsign",
+  "priority": "high",
+  "status": "approved_tracking_stats_browser_required",
+  "affiliate_status": "approved_tracking",
+  "cost": 0,
+  "verified_at": "2026-09-11T21:12:19+09:00",
+  "gmail_message_id": "1a090620f4e498b3",
+  "gmail_thread_id": "1a090620f4e498b3",
+  "reason": "BoldSign support confirmed to support@coshuma.com that current clicks, referrals/signups, conversions, earned/pending/paid commissions and payout details are available in the existing authenticated affiliate dashboard. The same human reply confirmed that COSHUMA should keep using its existing verified referral URL rather than inventing a separate pricing or 30-day-trial deep link; attribution is cookie-based when the visitor continues on the same browser.",
+  "dashboard_login_url": "https://affiliates.boldsign.com/login",
+  "verified_customer_url": "https://boldsign.com?via=sangkwon",
+  "tracking_behavior": {
+    "method": "browser_cookie",
+    "separate_pricing_or_trial_affiliate_url_required": false,
+    "same_browser_navigation_preserves_attribution": true,
+    "known_loss_cases": [
+      "visitor switches browser or device",
+      "visitor uses incognito/private browsing",
+      "visitor clears cookies before signup or purchase"
+    ]
+  },
+  "next_action": "In the existing authenticated BoldSign affiliate dashboard, read the current totals for clicks, referrals/signups, conversions or paying customers, earned/pending/paid commission, payout details and the dashboard reporting period. Record only values visibly shown by BoldSign. Do not create a second account or submit another application.",
+  "do_not": [
+    "Do not publish or use the affiliate dashboard/login URL as a customer CTA.",
+    "Do not invent a pricing-page or 30-day-trial referral deep link.",
+    "Do not infer a signup, conversion, commission, payout or revenue from a click or from successful cookie/link validation.",
+    "Do not pay for a plan or subscription to access statistics."
+  ]
+}
