@@ -1,0 +1,41 @@
+{
+  "id": "getgenie-revenue-audit-2026-09-11",
+  "tool_id": "getgenie",
+  "issue": 388,
+  "priority": "high",
+  "status": "browser_required_revenue_audit",
+  "affiliate_status": "approved_tracking",
+  "cost": 0,
+  "registered_email": "support@coshuma.com",
+  "verified_tracking_url": "https://getgenie.ai?rui=3921",
+  "vendor_human_message_id": "1a089dd50b6495b5",
+  "objective": "Read only evidence-backed downstream affiliate metrics from the existing GetGenie affiliate area and reconcile them into revenue truth without changing the verified tracking URL.",
+  "fields": [
+    "clicks",
+    "referrals_or_signups_or_leads",
+    "paid_conversions_or_customers",
+    "gross_sales_or_revenue",
+    "commission_earned",
+    "commission_pending_or_approved",
+    "commission_paid",
+    "payout_pending_or_status",
+    "currency",
+    "reporting_period_or_as_of"
+  ],
+  "unknown_policy": "Any field not explicitly shown remains unknown; never convert blank or missing values to zero.",
+  "stop_for_user_only": [
+    "CAPTCHA",
+    "OTP",
+    "new legal consent",
+    "payment approval",
+    "forced identity verification"
+  ],
+  "do_not": [
+    "Do not create another GetGenie account or affiliate application.",
+    "Do not replace the verified customer-facing URL with a dashboard, login, onboarding, or generic homepage URL.",
+    "Do not self-refer, purchase, start a paid plan, or change payout details.",
+    "Do not expose credentials or account-security information in GitHub, files, or chat.",
+    "Do not infer signup, paid customer, commission, payout, or revenue from link issuance or HTTP success alone."
+  ],
+  "done_when": "Exact current downstream totals are recorded in projects/GlobalSaaSHub/data/revenue-truth-2026-09-11.json with source and timestamp, or every unavailable field is explicitly unknown."
+}
