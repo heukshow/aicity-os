@@ -30,12 +30,14 @@ const tally = {
   official_verified_at: '2026-09-10T15:21:00Z',
   official_evidence_url: 'https://tally.so/',
   affiliate_verified: false,
-  affiliate_status: 'unverified',
-  affiliate_source_url: null,
+  affiliate_status: 'pending',
+  affiliate_source_url: 'https://tally.so/help/referral-program',
   affiliate_verified_at: null,
   affiliate_evidence_markers: [
-    'No current COSHUMA-specific customer-facing tracking URL verified as of 2026-09-10',
-    'Use official non-affiliate links only until account-specific tracking is proven',
+    'Existing COSHUMA Tally account confirmed under support@coshuma.com; do not create or submit another account.',
+    'Tally Support confirmed on 2026-09-11 that the account-specific referral URL is visible only in Dashboard → Rewards and cannot be supplied from the support side.',
+    'No current COSHUMA-specific customer-facing tracking URL has been copied from Rewards yet, so affiliate_url must remain null.',
+    'Use official non-affiliate links only until the exact Rewards referral URL is recovered and verified.',
   ],
 };
 
