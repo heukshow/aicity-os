@@ -16,6 +16,7 @@ export function loadPayPalSdk() {
       components: 'buttons',
       currency: 'USD',
       intent: 'capture',
+      'enable-funding': 'card',
     });
     script.src = `https://www.paypal.com/sdk/js?${params}`;
     script.async = true;
