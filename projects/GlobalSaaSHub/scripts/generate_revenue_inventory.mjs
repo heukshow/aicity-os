@@ -30,6 +30,7 @@ for (const id of ['helpdesk','text']) Object.assign(rows.get(id),{network:'LiveC
 Object.assign(rows.get('kittl'),{network:'Impact',account_id:'impact-account',portal_url:'https://app.impact.com/login.user'});
 Object.assign(rows.get('voibe'),{network:'Lemon Squeezy',account_id:'lemonsqueezy-account',portal_url:'https://affiliates.lemonsqueezy.com/programs/voibe'});
 Object.assign(rows.get('uplead'),{network:'FirstPromoter',portal_url:read('data/browser_required_queue.d/uplead-revenue-stats-2026-09-11.json').dashboard_login_url});
+Object.assign(rows.get('boldsign'),{network:'BoldSign Affiliate',portal_url:read('data/browser_required_queue.d/boldsign-revenue-stats-2026-09-11.json').dashboard_login_url});
 const fillout = read('data/fillout-tracking-link-recovery-2026-09-10.json');
 rows.set('fillout',{id:'fillout',name:'Fillout',network:'Dub',portal_url:null,inventory_source:'data/fillout-tracking-link-recovery-2026-09-10.json'});
 // Full membership list observed in the existing PartnerStack account on Sep 11.
