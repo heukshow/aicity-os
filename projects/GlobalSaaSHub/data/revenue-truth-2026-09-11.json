@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T08:11:19+09:00",
+  "generated_at": "2026-09-12T00:30:00+09:00",
   "policy": {
     "primary_kpi": "verified_revenue",
     "unknown_is_zero": false,
@@ -144,22 +144,25 @@
     {
       "tool": "BoldSign",
       "network": "BoldSign Affiliate Portal",
-      "period": "approved tracking route active; downstream metrics not yet verified as of 2026-09-11",
+      "period": "existing approved affiliate account; account-specific downstream totals still require authenticated dashboard evidence as of 2026-09-12",
       "outbound_clicks": null,
       "signups_referrals": null,
       "trials": null,
+      "network_reported_conversions": null,
       "paid_customers": null,
       "commission_earned": null,
       "commission_approved": null,
       "commission_pending": null,
+      "commission_paid": null,
       "payout_paid": null,
       "payout_pending": null,
-      "currency": "USD",
+      "payout_status": null,
+      "currency": null,
       "status": "tracking_verified_metrics_unknown",
-      "evidence_source": "repository-approved-tracking-plus-vendor-program",
-      "evidence_id": "github:tools.next:boldsign",
-      "evidence_timestamp": "2026-09-11T07:29:21+09:00",
-      "note": "COSHUMA repository records the exact approved tracking route https://boldsign.com?via=sangkwon. BoldSign's current official affiliate page states its tracking software records clicks, referrals and conversions, but COSHUMA has not yet received account-specific downstream totals. support@coshuma.com requested exact clicks, referrals/signups, paid conversions, commission and payout totals from affiliates@boldsign.com in Gmail message 1a08d7096ef485cf. All downstream values stay unknown until vendor or authenticated-dashboard evidence arrives."
+      "evidence_source": "vendor-human-support-email",
+      "evidence_id": "gmail:1a090620f4e498b3;ticket:872941;github:issue-380",
+      "evidence_timestamp": "2026-09-11T12:12:19Z",
+      "note": "BoldSign human support confirmed that COSHUMA's existing affiliate dashboard exposes clicks, referrals/signups, conversions, commissions earned, pending commissions, paid commissions, and payout details. The support reply did not provide any account-specific numeric totals, reporting period, currency, paid-customer count, or payout state. Therefore every downstream metric remains null/unknown rather than zero until the authenticated dashboard is read. Support also confirmed no separate pricing/trial affiliate URL is required; keep the existing verified customer route https://boldsign.com?via=sangkwon and same-browser cookie attribution."
     }
   ],
   "verified_totals": {
