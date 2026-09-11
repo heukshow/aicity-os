@@ -4,8 +4,9 @@ Runs at the very end of the production public-copy pipeline so hand-authored and
 generated tool pages cannot keep stale sponsorship wording. When the live standard
 USD 49 checkout is available on the homepage, tool-page sponsorship sections get a
 direct checkout CTA while preserving the advertiser-options page and company-email
-inquiry route for higher-priced/custom placements. It does not alter editorial
-rankings, affiliate URLs, or payment state.
+inquiry route for higher-priced/custom placements. It also loads sponsorship intent
+measurement on those pages. It does not alter editorial rankings, affiliate URLs,
+or payment state.
 """
 from pathlib import Path
 import re
@@ -87,7 +88,10 @@ def normalize_page(text: str) -> str:
         r'<section\b[^>]*data-sponsorship-inquiry="tool"[^>]*>.*?</section>',
         flags=re.I | re.S,
     )
-    return pattern.sub(lambda m: normalize_section(m.group(0)), text)
+    updated = pattern.sub(lambda m: normalize_section(m.group(0)), text)
+    if 'data-sponsorship-inquiry="tool"' in updated and '/sponsorship-sales.js' not in updated:
+        updated = updated.replace('</head>', '  <script defer src="/sponsorship-sales.js"></script>\n</head>', 1)
+    return updated
 
 
 def ensure_home_advertise_link() -> bool:
