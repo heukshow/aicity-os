@@ -1,7 +1,7 @@
 {
   "tool_id": "tally",
   "company_account": "support@coshuma.com",
-  "status": "existing_account_referral_link_browser_only",
+  "status": "approved_tracking_stats_pending",
   "cost": 0,
   "gmail_message_id": "1a08e03b11706541",
   "gmail_thread_id": "1a08cabddbf91e88",
@@ -25,13 +25,24 @@
     "self_referrals_allowed": false,
     "paid_ads_with_referral_link_allowed": false
   },
+  "issued_referral_evidence": {
+    "gmail_message_id": "1a0918839bda8d0f",
+    "sender": "Tally referral program - powered by Cello <tally-referrals@cello.so>",
+    "received_at": "2026-09-11T17:33:38Z",
+    "exact_customer_referral_url": "https://tally.cello.so/ub0qUbuKk2f",
+    "vendor_label": "Your personal invite link",
+    "platform": "Cello",
+    "platform_reported_link_views": 1,
+    "link_view_evidence": "The Tally/Cello email says COSHUMA has a first view of the invite link. This proves the issued referral link is active in the referral platform, but it does not prove a signup, paid customer, commission, payout, or COSHUMA-attributable sale."
+  },
   "revenue_truth": {
     "outbound_clicks": null,
+    "platform_link_views": 1,
     "signups_referrals": null,
     "paid_customers": null,
     "commission_earned": null,
     "commission_paid": null,
-    "note": "No revenue-stage number is inferred from account creation, vendor reply, referral-program availability, or future link recovery. Current values remain unknown until the authenticated Rewards view supplies evidence."
+    "note": "The one platform-reported link view is kept separate from COSHUMA outbound-click analytics because the email does not identify its source. No downstream revenue stage is inferred. Current signup, paid-customer and commission values remain unknown until the authenticated Rewards view supplies evidence."
   },
-  "next_action": "Reuse the existing support@coshuma.com Tally account. Open Dashboard -> Rewards, copy the exact unique customer-facing referral URL, and separately record the visible referral signup, paid-plan, and commission values. Stop only for CAPTCHA, OTP, payment approval, legal consent, or forced identity verification."
+  "next_action": "Keep the exact issued Cello referral URL in production CTAs. Reuse the existing support@coshuma.com Tally account only to read current Rewards metrics: referral signups, paid-plan conversions and commission. Preserve unknown for fields not shown. No new account, no self-referral, no paid plan."
 }
