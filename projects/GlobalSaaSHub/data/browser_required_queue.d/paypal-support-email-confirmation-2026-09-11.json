@@ -1,0 +1,30 @@
+{
+  "id": "paypal-support-email-confirmation-2026-09-11",
+  "issue": 390,
+  "priority": "critical",
+  "status": "user_security_confirmation_required",
+  "cost": 0,
+  "account_email_to_confirm": "support@coshuma.com",
+  "evidence": {
+    "provider": "PayPal",
+    "gmail_message_id": "1a08c2ede2dc3a5d",
+    "subject": "이메일 주소 확인",
+    "received_at": "2026-09-10",
+    "security_note": "The email contains a sensitive confirmation URL/token. Never store or reproduce that URL/token in GitHub, logs, or chat."
+  },
+  "objective": "Confirm inside authentic PayPal that support@coshuma.com is a confirmed email address before any affiliate payout configuration relies on it.",
+  "safe_method": [
+    "Open the authentic PayPal message in support@coshuma.com or sign directly into paypal.com.",
+    "Complete the email-ownership confirmation only on PayPal.",
+    "Verify PayPal shows support@coshuma.com as confirmed/usable.",
+    "After confirmation, review each affiliate platform payout setting separately; do not assume confirmation means a commission was paid."
+  ],
+  "do_not": [
+    "Do not store or paste the PayPal confirmation token anywhere.",
+    "Do not expose a private PayPal login email on COSHUMA public pages.",
+    "Do not make test payments, purchases, transfers, or withdrawals.",
+    "Do not change affiliate payout destinations until PayPal confirmation is proven.",
+    "Do not infer payout or revenue from email confirmation alone."
+  ],
+  "done_when": "PayPal itself shows support@coshuma.com as confirmed and the evidence is recorded without any secret or private account identifier."
+}
