@@ -1,0 +1,37 @@
+{
+  "tool_id": "tally",
+  "company_account": "support@coshuma.com",
+  "status": "existing_account_referral_link_browser_only",
+  "cost": 0,
+  "gmail_message_id": "1a08e03b11706541",
+  "gmail_thread_id": "1a08cabddbf91e88",
+  "vendor": "Tally Support",
+  "vendor_reply": {
+    "referral_url_visibility": "Tally support stated that the account-specific referral URL is visible in the Rewards pop-up in the existing dashboard and that support cannot see/copy that URL from their side.",
+    "rewards_metrics_visible": [
+      "whether a user signed up using the referral link",
+      "whether the referred user subscribed to a paid plan",
+      "whether commission has been recorded"
+    ],
+    "commission_terms": "20% of monthly or yearly subscription payments for each successful paid referral, capped at USD 150 per referred user",
+    "eligibility": "new users who sign up through the unique referral link and later become paying customers",
+    "duplicate_account_required": false
+  },
+  "official_program_url": "https://tally.so/help/referral-program",
+  "official_program_cross_check": {
+    "referee_benefit": "50% off subscription for 3 months",
+    "referrer_reward": "20% of subscription cost, up to USD 150 per referred user",
+    "paid_tally_plan_required_for_referrer": false,
+    "self_referrals_allowed": false,
+    "paid_ads_with_referral_link_allowed": false
+  },
+  "revenue_truth": {
+    "outbound_clicks": null,
+    "signups_referrals": null,
+    "paid_customers": null,
+    "commission_earned": null,
+    "commission_paid": null,
+    "note": "No revenue-stage number is inferred from account creation, vendor reply, referral-program availability, or future link recovery. Current values remain unknown until the authenticated Rewards view supplies evidence."
+  },
+  "next_action": "Reuse the existing support@coshuma.com Tally account. Open Dashboard -> Rewards, copy the exact unique customer-facing referral URL, and separately record the visible referral signup, paid-plan, and commission values. Stop only for CAPTCHA, OTP, payment approval, legal consent, or forced identity verification."
+}
