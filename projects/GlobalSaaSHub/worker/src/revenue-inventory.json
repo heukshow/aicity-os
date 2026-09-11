@@ -986,9 +986,8 @@
       "id": "fillout",
       "name": "Fillout",
       "network": "Dub",
-      "portal_url": "https://partners.dub.co/fillout/apply",
+      "portal_url": null,
       "inventory_source": "data/fillout-tracking-link-recovery-2026-09-10.json",
-      "portal_source": "data/affiliate-browser-results-2026-09-08.json",
       "account_id": "fillout",
       "evidence": []
     },

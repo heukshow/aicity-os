@@ -47,7 +47,7 @@ function portals(value,source){
   const row=rows.get(value.tool_id || value.id);
   const candidate=value.portal_url || value.dashboard_login_url || value.dashboard_url;
   if(row && !row.portal_url && typeof candidate==='string'){
-    try {const u=new URL(candidate);if(u.protocol==='https:' && !u.username && !u.password && !u.search && !u.hash){row.portal_url=u.href;row.portal_source=source;}}catch{}
+    try {const u=new URL(candidate);if(u.protocol==='https:' && !u.username && !u.password && !u.search && !u.hash && !/(?:^|\/)(?:apply|signup|sign-up)(?:\/|$)/i.test(u.pathname)){row.portal_url=u.href;row.portal_source=source;}}catch{}
   }
   for(const child of Object.values(value)) if(typeof child==='object')portals(child,source);
 }
