@@ -1,0 +1,25 @@
+{
+  "id": "paypal-public-client-id-restore-2026-09-12",
+  "status": "browser_required",
+  "priority": "revenue_critical",
+  "created_at": "2026-09-12",
+  "scope": "COSHUMA sponsorship checkout",
+  "verified_state": {
+    "payment_worker_url": "https://globalsaashub-payments.qmfforfhem.workers.dev",
+    "worker_health": {"ok": true, "checkoutConfigured": true},
+    "paypal_environment": "live",
+    "github_actions_paypal_client_id_available": false,
+    "frontend_card_checkout_code_deployed": true
+  },
+  "required_action": "Open the existing PayPal Developer Live app used by COSHUMA and copy only the public Live Client ID. Do not expose or copy the Client Secret. Supply the public Client ID to the COSHUMA GitHub Pages production build configuration (preferred secret/variable name: PAYPAL_CLIENT_ID or VITE_PAYPAL_CLIENT_ID as wired by the deployment workflow). Then rebuild and verify that the card funding button is eligible in a logged-out buyer session without completing a payment.",
+  "do_not": [
+    "Do not create a new PayPal app if the existing Live app is available.",
+    "Do not rotate or expose PAYPAL_CLIENT_SECRET.",
+    "Do not perform a real payment merely to test rendering.",
+    "Do not claim card checkout is live until a production buyer session shows the card option."
+  ],
+  "evidence": [
+    "GitHub Actions COSHUMA Payment Readiness Check run 34650765303: live Worker health succeeded; frontend PAYPAL_CLIENT_ID check failed because the value was absent.",
+    "Historical PR #3 verified PayPal Live production /health with checkoutConfigured=true on 2026-08-16."
+  ]
+}
