@@ -1,10 +1,11 @@
-"""Normalize COSHUMA paid sponsorship copy and route inquiries to the ad landing page.
+"""Normalize COSHUMA paid sponsorship copy and conversion routes.
 
 Runs at the very end of the production public-copy pipeline so hand-authored and
-generated tool pages cannot keep stale wording that says payment does not buy a
-placement. It also keeps the advertiser offer discoverable from the homepage even
-when direct checkout is disabled. It does not alter editorial rankings, affiliate
-URLs, or payment state.
+generated tool pages cannot keep stale sponsorship wording. When the live standard
+USD 49 checkout is available on the homepage, tool-page sponsorship sections get a
+direct checkout CTA while preserving the advertiser-options page and company-email
+inquiry route for higher-priced/custom placements. It does not alter editorial
+rankings, affiliate URLs, or payment state.
 """
 from pathlib import Path
 import re
@@ -28,6 +29,13 @@ LEGACY_COPY_PATTERNS = [
     r"Sponsorship is reviewed separately from editorial coverage\.\s*Payment does not guarantee acceptance, ranking,? or an editorial rating\.",
 ]
 
+CHECKOUT_LINK = (
+    '<a data-cta="sponsorship-checkout" data-cta-source="tool-sponsorship-standard" href="/#submit" '
+    'class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-violet-600 '
+    'hover:bg-violet-500 text-white text-xs font-extrabold transition-all">'
+    'Buy the $49 standard placement →</a>'
+)
+
 OPTIONS_LINK = (
     '<a data-cta="sponsorship-options" href="/advertise.html" '
     'class="inline-flex items-center justify-center px-5 py-3 rounded-xl border border-violet-500/30 '
@@ -49,19 +57,27 @@ def normalize_copy(text: str) -> str:
     return text
 
 
-def normalize_section(section: str) -> str:
-    section = normalize_copy(section)
-    if '/advertise.html' in section:
-        return section
-
+def insert_before_mailto_or_after_copy(section: str, link_html: str) -> str:
     mailto = re.search(r'<a\b[^>]*href="mailto:support@coshuma\.com[^>]*>', section, flags=re.I)
     if mailto:
-        return section[:mailto.start()] + OPTIONS_LINK + "\n        " + section[mailto.start():]
+        return section[:mailto.start()] + link_html + "\n        " + section[mailto.start():]
 
     first_paragraph_end = section.find("</p>")
     if first_paragraph_end >= 0:
         first_paragraph_end += len("</p>")
-        return section[:first_paragraph_end] + "\n        " + OPTIONS_LINK + section[first_paragraph_end:]
+        return section[:first_paragraph_end] + "\n        " + link_html + section[first_paragraph_end:]
+    return section
+
+
+def normalize_section(section: str) -> str:
+    section = normalize_copy(section)
+
+    if 'data-cta="sponsorship-checkout"' not in section:
+        section = insert_before_mailto_or_after_copy(section, CHECKOUT_LINK)
+
+    if '/advertise.html' not in section:
+        section = insert_before_mailto_or_after_copy(section, OPTIONS_LINK)
+
     return section
 
 
