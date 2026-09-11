@@ -1,0 +1,17 @@
+{
+  "tool_id": "getgenie",
+  "status": "approved_tracking",
+  "verified_at": "2026-09-11T05:49:53Z",
+  "evidence_source": "vendor_human_email",
+  "gmail_message_id": "1a08f03ee3235e3c",
+  "registered_email": "support@coshuma.com",
+  "default_affiliate_url": "https://getgenie.ai?rui=3921",
+  "pricing_affiliate_url": "https://getgenie.ai/pricing/?rui=3921",
+  "vendor_statement": "GetGenie support explicitly confirmed this exact Pricing-page URL preserves COSHUMA affiliate attribution and is the recommended affiliate link for the Pricing page.",
+  "allowed_use": "Use the vendor-issued pricing affiliate URL on pricing and purchase-intent GetGenie CTAs. Keep neutral official-source links separate when they are intended only for factual price verification.",
+  "do_not": [
+    "Do not invent other GetGenie deep-link paths by copying the rui parameter.",
+    "Do not treat link validation or clicks as signups, paid customers, commission, payout, or revenue.",
+    "Do not expose or store account login credentials in repository evidence."
+  ]
+}
