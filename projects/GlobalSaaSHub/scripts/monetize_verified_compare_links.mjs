@@ -49,6 +49,13 @@ const verifiedRoutes = tools.filter((tool) =>
 );
 const verifiedById = new Map(verifiedRoutes.map((tool) => [tool.id, tool]));
 
+// Later vendor-human evidence can authorize an exact buyer-intent deeplink even
+// when the program predates or sits outside the legacy approved-tracking baseline.
+// Never generate variants from these entries; only preserve the exact URLs listed.
+const vendorApprovedDeepLinks = new Map([
+  ['getgenie', new Set(['https://getgenie.ai/pricing/?rui=3921'])],
+]);
+
 let filesChanged = 0;
 let linksMonetized = 0;
 let linksAttributed = 0;
@@ -215,7 +222,7 @@ console.log(
 // Normalize existing hand-authored CTAs as well as newly monetized anchors.
 // Preserve vendor-approved buyer-intent deeplinks instead of forcing every CTA
 // back to the account's default tracking URL. This keeps exact pricing/trial routes
-// only when approved_tracking_evidence explicitly allowlists them.
+// only when first-party or vendor-human evidence explicitly allowlists them.
 for (const [directory, type] of [[TOOL_DIR, 'tool'], [COMPARE_DIR, 'compare']]) {
   for (const filename of fs.readdirSync(directory).filter(name => name.endsWith('.html'))) {
     const file = path.join(directory, filename);
@@ -237,6 +244,7 @@ for (const [directory, type] of [[TOOL_DIR, 'tool'], [COMPARE_DIR, 'compare']]) 
           : [exactTrackingUrl]
       );
       allowedUrls.add(exactTrackingUrl);
+      for (const approvedUrl of vendorApprovedDeepLinks.get(id) || []) allowedUrls.add(approvedUrl);
 
       relevant = true;
       if (!anchor.includes('data-tool-id=')) anchor = anchor.replace('<a ', '<a data-tool-id="' + id + '" ');
