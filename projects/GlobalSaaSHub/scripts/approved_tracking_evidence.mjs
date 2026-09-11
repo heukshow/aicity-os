@@ -16,6 +16,21 @@ if (aweber) {
     'AWeber official Advocate Program documentation verified 2026-09-09: the referral id may be appended to any AWeber page and the referral cookie remains attributable. The issued easy-email URL remains the authoritative account tracking URL.';
 }
 
+// GetGenie support replied directly to the registered COSHUMA mailbox on
+// 2026-09-11 and explicitly confirmed the exact Pricing-page URL below preserves
+// COSHUMA attribution and is the recommended affiliate link for that destination.
+// Keep the original homepage link as the account's default exact tracking URL,
+// but allow the vendor-issued Pricing-page route on pricing/purchase-intent CTAs.
+const getgenie = approvedTracking.get('getgenie');
+if (getgenie) {
+  getgenie.allowed_cta_urls = [
+    getgenie.exact_tracking_url,
+    'https://getgenie.ai/pricing/?rui=3921',
+  ];
+  getgenie.deep_link_evidence =
+    'GetGenie human support reply to support@coshuma.com in Gmail message 1a08f03ee3235e3c on 2026-09-11 explicitly states https://getgenie.ai/pricing/?rui=3921 preserves COSHUMA affiliate attribution and is the recommended affiliate link for the Pricing page. No click, signup, commission, payout, or revenue is inferred from link issuance.';
+}
+
 // Newer authenticated Dub follow-up for a tool that already exists in the public catalog.
 // Fillout approval remains valid operational evidence, but Fillout is not yet a catalog tool,
 // so it must not enter this map because deployment verification requires a real tool page.
