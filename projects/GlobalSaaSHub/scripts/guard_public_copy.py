@@ -4,6 +4,13 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 
+STANDARD_AFFILIATE_DISCLOSURE = (
+    '<p data-affiliate-disclosure="standard" class="text-[11px] leading-relaxed text-slate-500">'
+    'COSHUMA may earn an affiliate commission when you purchase through partner links on this page, at no extra cost to you. '
+    '<a href="/affiliate-disclosure.html" class="underline hover:text-slate-300">How this works</a>.'
+    '</p>'
+)
+
 def identity(tool):
     return {'convertkit': 'kit'}.get(tool.get('id'), tool.get('id'))
 
@@ -47,52 +54,36 @@ def clean(text):
 
 PUBLIC_COPY_REPLACEMENTS = {
     'tool/tally.html': {
-        'COSHUMA has not verified a paid referral tracking URL, so this page intentionally keeps Tally buttons non-affiliate.':
-            "Use the official Tally buttons above to start free or check pricing. COSHUMA's partner referral option is still being verified.",
-        'COSHUMA is not labeling Tally as an affiliate conversion target until a customer-facing tracked URL is actually verified.':
-            "If Tally issues a verified COSHUMA referral offer, we'll update this guide with the exact customer link.",
-        'COSHUMA has not verified a current account-specific Tally affiliate URL. These buttons are official non-affiliate links.':
-            "Use Tally's official site to start free or check current pricing. COSHUMA's partner referral option is still being verified.",
+        'COSHUMA has not verified a paid referral tracking URL, so this page intentionally keeps Tally buttons non-affiliate.': '',
+        'COSHUMA is not labeling Tally as an affiliate conversion target until a customer-facing tracked URL is actually verified.': '',
+        'COSHUMA has not verified a current account-specific Tally affiliate URL. These buttons are official non-affiliate links.': '',
+        "Use Tally's official site to start free or check current pricing. COSHUMA's partner referral option is still being verified.": '',
     },
     'tool/docusign.html': {
-        'COSHUMA has not verified a current account-specific Docusign affiliate URL. These buttons are official non-affiliate links.':
-            "Use Docusign's official site to start a trial or check current pricing. COSHUMA's partner referral option is still being verified.",
-        'COSHUMA has not verified a Docusign account-specific affiliate URL. These Docusign buttons are official non-affiliate links.':
-            "Use Docusign's official site to start a trial or check current pricing. COSHUMA's partner referral option is still being verified.",
+        'COSHUMA has not verified a current account-specific Docusign affiliate URL. These buttons are official non-affiliate links.': '',
+        'COSHUMA has not verified a Docusign account-specific affiliate URL. These Docusign buttons are official non-affiliate links.': '',
+        "Use Docusign's official site to start a trial or check current pricing. COSHUMA's partner referral option is still being verified.": '',
         'Verified alternative': 'Another option to compare',
         'Compare BoldSign via verified partner link': 'Compare BoldSign',
-        "Affiliate disclosure: the BoldSign button uses COSHUMA's verified customer-facing partner URL. COSHUMA may earn a commission from qualifying purchases at no extra cost to you.":
-            'COSHUMA may earn a commission from qualifying BoldSign purchases through the partner link above, at no extra cost to you.',
     },
     'tool/invideo-ai.html': {
-        'InVideo currently operates as an official non-affiliate route.':
-            "Use InVideo's official site to compare plans and try the product.",
-        'COSHUMA has no verified InVideo affiliate URL yet. Choosing Pictory below can generate revenue for COSHUMA when a qualifying paid conversion is attributed.':
-            'If you want another AI video option, Pictory is a verified COSHUMA partner.',
-        'Affiliate disclosure: COSHUMA may earn a commission if you later buy Pictory through the link above, at no extra cost to you. The InVideo link is an official non-affiliate URL.':
-            "COSHUMA may earn a commission if you choose Pictory through the partner link above, at no extra cost to you. The InVideo button goes to InVideo's official site.",
-        'InVideo currently operates an affiliate program through Impact, but COSHUMA has not yet verified an account-specific customer tracking URL. Until that exact issued URL is recovered, these InVideo buttons intentionally remain official non-affiliate links.':
-            "Use InVideo's official buttons above to try the product or compare plans. COSHUMA's partner referral option is still being verified.",
+        'InVideo currently operates as an official non-affiliate route.': "Use InVideo's official site to compare plans and try the product.",
+        'COSHUMA has no verified InVideo affiliate URL yet. Choosing Pictory below can generate revenue for COSHUMA when a qualifying paid conversion is attributed.': 'If you want another AI video option, compare Pictory below.',
+        'InVideo currently operates an affiliate program through Impact, but COSHUMA has not yet verified an account-specific customer tracking URL. Until that exact issued URL is recovered, these InVideo buttons intentionally remain official non-affiliate links.': '',
+        "Use InVideo's official buttons above to try the product or compare plans. COSHUMA's partner referral option is still being verified.": '',
         'Alternative with a verified COSHUMA offer': 'Another AI video option to compare',
-        "COSHUMA's exact Pictory affiliate link has been confirmed by Pictory's affiliate manager, and code <strong>COSHUMA20</strong> remains the vendor-confirmed promotion code.":
-            'COSHUMA partners with Pictory, and code <strong>COSHUMA20</strong> is the current partner promotion code.',
+        "COSHUMA's exact Pictory affiliate link has been confirmed by Pictory's affiliate manager, and code <strong>COSHUMA20</strong> remains the vendor-confirmed promotion code.": 'Code <strong>COSHUMA20</strong> is the current Pictory partner promotion code.',
     },
     'tool/pipedrive.html': {
         'Official-only Pipedrive path': 'Pipedrive pricing & CRM trial guide',
-        'COSHUMA does not currently have a verified Pipedrive customer affiliate URL, so the primary Pipedrive button below remains an official vendor link.':
-            "Use Pipedrive's official site to start the trial and check current pricing.",
-        'Pipedrive is not currently using a COSHUMA affiliate URL on this page. The alternative cards below link to vendor-issued COSHUMA partner URLs and are labeled as affiliate CTAs.':
-            "The Pipedrive button goes to Pipedrive's official site. Some alternative tools below are COSHUMA partners.",
+        'COSHUMA does not currently have a verified Pipedrive customer affiliate URL, so the primary Pipedrive button below remains an official vendor link.': "Use Pipedrive's official site to start the trial and check current pricing.",
+        'Pipedrive is not currently using a COSHUMA affiliate URL on this page. The alternative cards below link to vendor-issued COSHUMA partner URLs and are labeled as affiliate CTAs.': "The Pipedrive button goes to Pipedrive's official site. Some alternative tools below are COSHUMA partners.",
         'Revenue-aware alternatives': 'Other CRM options to compare',
-        "This guide keeps Pipedrive on official non-affiliate links and uses COSHUMA's separately verified HighLevel partner link only for visitors who need a broader agency stack.":
-            'Use Pipedrive for a focused sales CRM. Compare HighLevel if you need a broader agency stack with funnels, messaging, calendars and automation.',
-        "Affiliate disclosure: COSHUMA may earn a commission if you sign up for HighLevel through the partner link. Pipedrive links on this page are standard official links because COSHUMA does not currently publish a verified Pipedrive customer tracking URL.":
-            "COSHUMA may earn a commission if you choose HighLevel through the partner link above. Pipedrive buttons go directly to Pipedrive's official site.",
+        "This guide keeps Pipedrive on official non-affiliate links and uses COSHUMA's separately verified HighLevel partner link only for visitors who need a broader agency stack.": 'Use Pipedrive for a focused sales CRM. Compare HighLevel if you need a broader agency stack with funnels, messaging, calendars and automation.',
         'Verified revenue alternative': 'Agency-focused alternative',
         'Try HighLevel via verified COSHUMA link': 'Try HighLevel',
         'HighLevel verified partner link →': 'HighLevel pricing & trial →',
-        "Source check: Pipedrive official pricing and plan documentation, plus HighLevel official pricing, verified Sep 10, 2026. COSHUMA's Pipedrive affiliate application remains separate from this page; no Pipedrive revenue attribution is claimed until an exact customer-facing tracking link is verified.":
-            'Source check: Pipedrive and HighLevel official pricing and plan documentation, verified Sep 10, 2026. Check each vendor for current terms before purchasing.',
+        "Source check: Pipedrive official pricing and plan documentation, plus HighLevel official pricing, verified Sep 10, 2026. COSHUMA's Pipedrive affiliate application remains separate from this page; no Pipedrive revenue attribution is claimed until an exact customer-facing tracking link is verified.": 'Source check: Pipedrive and HighLevel official pricing and plan documentation, verified Sep 10, 2026. Check each vendor for current terms before purchasing.',
     },
     'tool/beefree.html': {
         'Affiliate link verified': 'COSHUMA partner',
@@ -104,10 +95,44 @@ PUBLIC_COPY_REPLACEMENTS = {
         'Start RGE Studio via verified partner link →': 'Try RGE Studio →',
         'Start RGE Studio via verified COSHUMA link →': 'Try RGE Studio →',
         'Try AWeber via verified COSHUMA link →': 'Try AWeber →',
-        'Affiliate disclosure: COSHUMA may earn a commission if you sign up through the verified Beefree/RGE Studio or AWeber partner links, at no extra cost to you. The RGE Studio pricing link below remains a direct vendor link for independent price verification.':
-            'COSHUMA may earn a commission if you choose RGE Studio or AWeber through the partner links above, at no extra cost to you. Use the official pricing link below to confirm current RGE Studio prices.',
     },
 }
+
+def normalize_affiliate_disclosure(text):
+    """Use one concise, customer-facing disclosure near the first monetized CTA."""
+    if 'Affiliate Disclosure | COSHUMA' in text:
+        return text
+
+    has_affiliate = 'data-cta="affiliate"' in text
+
+    # Remove legacy tagged disclosure paragraphs and older disclosure copy.
+    text = re.sub(r'<p\b[^>]*data-affiliate-disclosure="[^"]*"[^>]*>.*?</p>', '', text, flags=re.S)
+    text = re.sub(r'<p\b[^>]*>\s*Affiliate disclosure:.*?</p>', '', text, flags=re.S | re.I)
+    text = re.sub(
+        r'<p\b[^>]*>(?:(?!</p>).)*COSHUMA may earn (?:an affiliate )?commission(?:(?!</p>).)*</p>',
+        '', text, flags=re.S | re.I,
+    )
+    text = re.sub(
+        r'<p\b[^>]*>(?:(?!</p>).)*may earn COSHUMA a commission(?:(?!</p>).)*</p>',
+        '', text, flags=re.S | re.I,
+    )
+    text = re.sub(
+        r'<div><div class="text-\[10px\] uppercase tracking-wider text-slate-500">Affiliate disclosure</div>'
+        r'<div class="mt-1 text-sm text-slate-300">Affiliate destination verified separately from editorial product sources\.'</n        r'</div></div>',
+        '', text, flags=re.S,
+    )
+
+    if not has_affiliate:
+        return text
+
+    # Put the disclosure directly after the first affiliate CTA so it is hard to miss.
+    return re.sub(
+        r'(<a\b[^>]*data-cta="affiliate"[^>]*>.*?</a>)',
+        r'\1\n' + STANDARD_AFFILIATE_DISCLOSURE,
+        text,
+        count=1,
+        flags=re.S,
+    )
 
 def page_copy(path, text):
     if path.parent.name == 'tool' and path.stem in ('kit', 'convertkit'):
@@ -122,6 +147,8 @@ def page_copy(path, text):
         rel = path.relative_to(ROOT / 'public').as_posix()
         for source, replacement in PUBLIC_COPY_REPLACEMENTS.get(rel, {}).items():
             text = text.replace(source, replacement)
+    if path.name != 'affiliate-disclosure.html':
+        text = normalize_affiliate_disclosure(text)
     return text
 
 def main():
@@ -139,6 +166,9 @@ def main():
     if sitemap.exists():
         text = sitemap.read_text(encoding='utf-8')
         text = re.sub(r'\s*<url>\s*<loc>https://coshuma.com/(?:tool/merlin-ai|compare/kit-vs-convertkit)\.html</loc>.*?</url>', '', text, flags=re.S)
+        disclosure_url = '<url><loc>https://coshuma.com/affiliate-disclosure.html</loc></url>'
+        if 'https://coshuma.com/affiliate-disclosure.html' not in text and '</urlset>' in text:
+            text = text.replace('</urlset>', f'  {disclosure_url}\n</urlset>')
         sitemap.write_text(text, encoding='utf-8')
     print(f'Customer copy normalized: {changed} HTML files')
 
