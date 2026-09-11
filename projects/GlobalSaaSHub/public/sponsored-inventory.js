@@ -4,7 +4,7 @@
   const CONFIG = {
     enabled: false,
     // Placement objects may include:
-    // enabled, label, title, body, button, url,
+    // enabled, campaignId, label, title, body, button, url,
     // startAt, endAt (ISO 8601 timestamps, UTC recommended).
     placements: {}
   };
@@ -28,7 +28,30 @@
     return true;
   }
 
+  function hostnameFromUrl(url) {
+    try {
+      return new URL(url, window.location.href).hostname || 'unknown';
+    } catch (error) {
+      return 'unknown';
+    }
+  }
+
+  function emit(eventName, creative, slot) {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', eventName, {
+      sponsor_campaign_id: creative.campaignId || 'unspecified',
+      sponsored_slot: slot || 'unspecified',
+      sponsor_title: creative.title || '',
+      link_url: creative.url || '',
+      outbound_domain: hostnameFromUrl(creative.url || ''),
+      page_path: window.location.pathname + window.location.search,
+      page_location: window.location.href,
+      transport_type: 'beacon'
+    });
+  }
+
   function render(slotEl, creative) {
+    const slot = slotEl.dataset.sponsoredSlot || '';
     const label = slotEl.querySelector('[data-sponsored-label]');
     const title = slotEl.querySelector('[data-sponsored-title]');
     const body = slotEl.querySelector('[data-sponsored-body]');
@@ -42,9 +65,12 @@
       button.href = creative.url || '#';
       button.setAttribute('rel', 'sponsored noopener noreferrer');
       button.setAttribute('target', '_blank');
+      button.dataset.sponsorCampaignId = creative.campaignId || 'unspecified';
+      button.addEventListener('click', () => emit('sponsored_click', creative, slot), { capture: true });
     }
 
     slotEl.hidden = false;
+    emit('sponsored_impression', creative, slot);
   }
 
   document.addEventListener('DOMContentLoaded', () => {
