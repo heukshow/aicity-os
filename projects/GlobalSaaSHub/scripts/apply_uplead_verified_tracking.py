@@ -3,11 +3,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 COMPARE_PAGE = ROOT / "public" / "best" / "b2b-email-list-providers.html"
 TRIAL_PAGE = ROOT / "public" / "best" / "uplead-free-trial-pricing.html"
+DEALS_PAGE = ROOT / "public" / "best" / "verified-software-free-trials-deals.html"
 
 HOME_TRACKING_URL = "https://www.uplead.com?fp_ref=sangkwon-3af7dc"
 PRICING_TRACKING_URL = "https://www.uplead.com/pricing/?fp_ref=sangkwon-3af7dc"
 TRIAL_TRACKING_URL = "https://app.uplead.com/trial-signup?fp_ref=sangkwon-3af7dc"
 BUYER_GUIDE = "/best/uplead-free-trial-pricing.html"
+BUYER_GUIDE_URL = f"https://coshuma.com{BUYER_GUIDE}"
 ATTRIBUTION_SCRIPT = '<script defer src="/affiliate-attribution.js"></script>'
 
 # Vendor evidence:
@@ -53,7 +55,7 @@ if old_detail in html:
 
 # Upgrade an already-patched untracked pricing link to the vendor-approved tracked one.
 html = html.replace(
-    f'<a href="https://www.uplead.com/pricing/" target="_blank" rel="noopener noreferrer" class="block rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-slate-300 hover:bg-white/5">Check official pricing</a>',
+    '<a href="https://www.uplead.com/pricing/" target="_blank" rel="noopener noreferrer" class="block rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-slate-300 hover:bg-white/5">Check official pricing</a>',
     f'<a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_pricing_uplead" href="{PRICING_TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="block rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-slate-300 hover:bg-white/5">Check UpLead pricing →</a>',
 )
 
@@ -126,4 +128,37 @@ if 'affiliates.uplead.com/login' in trial:
     raise SystemExit('UpLead affiliate dashboard URL leaked into public trial/pricing guide')
 
 TRIAL_PAGE.write_text(trial, encoding="utf-8")
-print('uplead-approved-vendor-deeplinks-v4')
+
+# The verified-offers hub previously pointed its structured UpLead entity to
+# /tool/uplead.html, which does not exist. Keep Google and buyers on the dedicated
+# revenue page instead, and add a visible crawlable internal link from the hub.
+deals = DEALS_PAGE.read_text(encoding="utf-8")
+deals = deals.replace('https://coshuma.com/tool/uplead.html', BUYER_GUIDE_URL)
+if ATTRIBUTION_SCRIPT not in deals:
+    deals = deals.replace('</head>', f'  {ATTRIBUTION_SCRIPT}\n</head>', 1)
+
+uplead_copy = """          <p class="text-sm leading-6 text-slate-300">UpLead's Will Cannon confirmed COSHUMA's exact tracked 7-day trial destination and a separate tracked pricing destination for the existing affiliate account. These links are used exactly as supplied; no referral parameter has been invented.</p>"""
+uplead_guide_link = f"""
+          <a data-cta-source="verified-deals-uplead-guide" href="{BUYER_GUIDE}" class="inline-flex text-sm font-bold text-cyan-200 hover:text-cyan-100">Read the full UpLead trial & pricing guide →</a>"""
+if 'verified-deals-uplead-guide' not in deals:
+    if uplead_copy not in deals:
+        raise SystemExit('UpLead verified-offers card copy not found for internal-link patch')
+    deals = deals.replace(uplead_copy, uplead_copy + uplead_guide_link, 1)
+
+deals_required = [
+    BUYER_GUIDE_URL,
+    f'href="{BUYER_GUIDE}"',
+    'verified-deals-uplead-guide',
+    TRIAL_TRACKING_URL,
+    PRICING_TRACKING_URL,
+    ATTRIBUTION_SCRIPT,
+    'Affiliate disclosure',
+]
+deals_missing = [item for item in deals_required if item not in deals]
+if deals_missing:
+    raise SystemExit(f"UpLead verified-offers SEO patch incomplete: {deals_missing}")
+if 'https://coshuma.com/tool/uplead.html' in deals:
+    raise SystemExit('Nonexistent UpLead tool URL survived verified-offers structured-data patch')
+
+DEALS_PAGE.write_text(deals, encoding="utf-8")
+print('uplead-approved-vendor-deeplinks-v5')
