@@ -116,11 +116,11 @@ def normalize_affiliate_disclosure(text):
         r'<p\b[^>]*>(?:(?!</p>).)*may earn COSHUMA a commission(?:(?!</p>).)*</p>',
         '', text, flags=re.S | re.I,
     )
-    text = re.sub(
-        r'<div><div class="text-\[10px\] uppercase tracking-wider text-slate-500">Affiliate disclosure</div>'
-        r'<div class="mt-1 text-sm text-slate-300">Affiliate destination verified separately from editorial product sources\.'</n        r'</div></div>',
-        '', text, flags=re.S,
+    legacy_trust_disclosure = (
+        '<div><div class="text-[10px] uppercase tracking-wider text-slate-500">Affiliate disclosure</div>'
+        '<div class="mt-1 text-sm text-slate-300">Affiliate destination verified separately from editorial product sources.</div></div>'
     )
+    text = text.replace(legacy_trust_disclosure, '')
 
     if not has_affiliate:
         return text
