@@ -51,10 +51,18 @@ PUBLIC_COPY_REPLACEMENTS = {
             "Use the official Tally buttons above to start free or check pricing. COSHUMA's partner referral option is still being verified.",
         'COSHUMA is not labeling Tally as an affiliate conversion target until a customer-facing tracked URL is actually verified.':
             "If Tally issues a verified COSHUMA referral offer, we'll update this guide with the exact customer link.",
+        'COSHUMA has not verified a current account-specific Tally affiliate URL. These buttons are official non-affiliate links.':
+            "Use Tally's official site to start free or check current pricing. COSHUMA's partner referral option is still being verified.",
     },
     'tool/docusign.html': {
         'COSHUMA has not verified a current account-specific Docusign affiliate URL. These buttons are official non-affiliate links.':
-            "Use the official Docusign buttons above to start a trial or check current pricing. COSHUMA's partner referral option is still being verified.",
+            "Use Docusign's official site to start a trial or check current pricing. COSHUMA's partner referral option is still being verified.",
+        'COSHUMA has not verified a Docusign account-specific affiliate URL. These Docusign buttons are official non-affiliate links.':
+            "Use Docusign's official site to start a trial or check current pricing. COSHUMA's partner referral option is still being verified.",
+        'Verified alternative': 'Another option to compare',
+        'Compare BoldSign via verified partner link': 'Compare BoldSign',
+        "Affiliate disclosure: the BoldSign button uses COSHUMA's verified customer-facing partner URL. COSHUMA may earn a commission from qualifying purchases at no extra cost to you.":
+            'COSHUMA may earn a commission from qualifying BoldSign purchases through the partner link above, at no extra cost to you.',
     },
     'tool/invideo-ai.html': {
         'InVideo currently operates as an official non-affiliate route.':
@@ -63,6 +71,11 @@ PUBLIC_COPY_REPLACEMENTS = {
             'If you want another AI video option, Pictory is a verified COSHUMA partner.',
         'Affiliate disclosure: COSHUMA may earn a commission if you later buy Pictory through the link above, at no extra cost to you. The InVideo link is an official non-affiliate URL.':
             "COSHUMA may earn a commission if you choose Pictory through the partner link above, at no extra cost to you. The InVideo button goes to InVideo's official site.",
+        'InVideo currently operates an affiliate program through Impact, but COSHUMA has not yet verified an account-specific customer tracking URL. Until that exact issued URL is recovered, these InVideo buttons intentionally remain official non-affiliate links.':
+            "Use InVideo's official buttons above to try the product or compare plans. COSHUMA's partner referral option is still being verified.",
+        'Alternative with a verified COSHUMA offer': 'Another AI video option to compare',
+        "COSHUMA's exact Pictory affiliate link has been confirmed by Pictory's affiliate manager, and code <strong>COSHUMA20</strong> remains the vendor-confirmed promotion code.":
+            'COSHUMA partners with Pictory, and code <strong>COSHUMA20</strong> is the current partner promotion code.',
     },
     'tool/pipedrive.html': {
         'Official-only Pipedrive path': 'Pipedrive pricing & CRM trial guide',
@@ -71,6 +84,15 @@ PUBLIC_COPY_REPLACEMENTS = {
         'Pipedrive is not currently using a COSHUMA affiliate URL on this page. The alternative cards below link to vendor-issued COSHUMA partner URLs and are labeled as affiliate CTAs.':
             "The Pipedrive button goes to Pipedrive's official site. Some alternative tools below are COSHUMA partners.",
         'Revenue-aware alternatives': 'Other CRM options to compare',
+        "This guide keeps Pipedrive on official non-affiliate links and uses COSHUMA's separately verified HighLevel partner link only for visitors who need a broader agency stack.":
+            'Use Pipedrive for a focused sales CRM. Compare HighLevel if you need a broader agency stack with funnels, messaging, calendars and automation.',
+        "Affiliate disclosure: COSHUMA may earn a commission if you sign up for HighLevel through the partner link. Pipedrive links on this page are standard official links because COSHUMA does not currently publish a verified Pipedrive customer tracking URL.":
+            "COSHUMA may earn a commission if you choose HighLevel through the partner link above. Pipedrive buttons go directly to Pipedrive's official site.",
+        'Verified revenue alternative': 'Agency-focused alternative',
+        'Try HighLevel via verified COSHUMA link': 'Try HighLevel',
+        'HighLevel verified partner link →': 'HighLevel pricing & trial →',
+        "Source check: Pipedrive official pricing and plan documentation, plus HighLevel official pricing, verified Sep 10, 2026. COSHUMA's Pipedrive affiliate application remains separate from this page; no Pipedrive revenue attribution is claimed until an exact customer-facing tracking link is verified.":
+            'Source check: Pipedrive and HighLevel official pricing and plan documentation, verified Sep 10, 2026. Check each vendor for current terms before purchasing.',
     },
     'tool/beefree.html': {
         'Affiliate link verified': 'COSHUMA partner',
@@ -78,6 +100,12 @@ PUBLIC_COPY_REPLACEMENTS = {
         'Verified revenue alternative': 'Another option to compare',
         'Verified monetization path': 'RGE Studio',
         'Try RGE Studio via verified COSHUMA link': 'Try RGE Studio',
+        'COSHUMA partner Sep 9, 2026': 'RGE Studio partner guide',
+        'Start RGE Studio via verified partner link →': 'Try RGE Studio →',
+        'Start RGE Studio via verified COSHUMA link →': 'Try RGE Studio →',
+        'Try AWeber via verified COSHUMA link →': 'Try AWeber →',
+        'Affiliate disclosure: COSHUMA may earn a commission if you sign up through the verified Beefree/RGE Studio or AWeber partner links, at no extra cost to you. The RGE Studio pricing link below remains a direct vendor link for independent price verification.':
+            'COSHUMA may earn a commission if you choose RGE Studio or AWeber through the partner links above, at no extra cost to you. Use the official pricing link below to confirm current RGE Studio prices.',
     },
 }
 
