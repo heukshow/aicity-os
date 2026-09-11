@@ -5,7 +5,7 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 
 STANDARD_AFFILIATE_DISCLOSURE = (
-    '<p data-affiliate-disclosure="standard" class="text-[11px] leading-relaxed text-slate-500">'
+    '<p data-affiliate-disclosure="compare" class="text-[11px] leading-relaxed text-slate-500">'
     'Affiliate disclosure: COSHUMA may earn an affiliate commission when you purchase through partner links on this page, at no extra cost to you. '
     '<a href="/affiliate-disclosure.html" class="underline hover:text-slate-300">How this works</a>.'
     '</p>'
@@ -15,9 +15,7 @@ def identity(tool):
     return {'convertkit': 'kit'}.get(tool.get('id'), tool.get('id'))
 
 def clean(text):
-    # Only text nodes and textual metadata; URLs and attribution attributes stay intact.
     def wording(s):
-        # JSON-LD and displayed source URLs are text nodes too. Protect their exact bytes.
         urls = []
         def protect(m):
             urls.append(m[0])
@@ -26,17 +24,14 @@ def clean(text):
         s = s.replace('COSHUMA GlobalSaaSHub', 'COSHUMA').replace('GlobalSaaSHub', 'COSHUMA')
         s = re.sub(r'\bvidiq\b', 'vidIQ', s, flags=re.I)
         s = re.sub(r'\btext\s*cortex\b', 'TextCortex', s, flags=re.I)
-        s = re.sub(r'You prioritize [^<.]+, specialized feature set, and reliable industry workflow integration\.',
-                   'Choose this option if its documented features match the workflow you need.', s)
-        s = re.sub(r'You want an alternative approach with [^<]+? pricing structure and (?:Not rated|Review pending)\.',
-                   'Compare its current pricing and features with your requirements.', s)
+        s = re.sub(r'You prioritize [^<.]+, specialized feature set, and reliable industry workflow integration\.', 'Choose this option if its documented features match the workflow you need.', s)
+        s = re.sub(r'You want an alternative approach with [^<]+? pricing structure and (?:Not rated|Review pending)\.', 'Compare its current pricing and features with your requirements.', s)
         return re.sub(r'__URL_(\d+)__', lambda m: urls[int(m[1])], s)
     text = re.sub(r'(?<=>)[^<]+(?=<)', lambda m: wording(m[0]), text)
     text = re.sub(r'(<meta\b[^>]*\bcontent=")([^"]*)(")', lambda m: m[1]+wording(m[2])+m[3], text)
     text = re.sub(r'(\b(?:alt|title|aria-label)=")([^"]*)(")', lambda m: m[1]+wording(m[2])+m[3], text)
     text = text.replace('>G</div><span', '>C</div><span')
     text = re.sub(r'(<div[^>]*>)G(</div>\s*<span[^>]*>COSHUMA)', r'\1C\2', text)
-    # Known implementation commentary, not legitimate product database features.
     text = re.sub(r"COSHUMA's repository currently marks [^<]*?final customer-facing referral URL\.", '', text)
     text = re.sub(r"COSHUMA's repository records a primary-source Pictory affiliate-manager email confirming", 'The Pictory partner offer lists', text)
     text = re.sub(r"COSHUMA's repository records[^<]*?\. (?=Followr)", '', text)
@@ -45,10 +40,8 @@ def clean(text):
     text = re.sub(r"COSHUMA's customer-facing partner destination is[^<]*?ldc2xmh2x2t5\.", '', text)
     text = re.sub(r"The AWeber outbound revenue URL[^<]*?claimed here\.", 'COSHUMA may earn a commission on qualifying purchases through partner links.', text)
     text = re.sub(r"COSHUMA's Unbounce tracking URL[^<]*?in the repository\.", '', text)
-    text = re.sub(r'<p\b[^>]*>The authenticated Text Partner App records[^<]*</p>',
-                  '<p>COSHUMA may earn a commission on eligible HelpDesk purchases through the partner links on this page, at no extra cost to you.</p>', text)
-    text = re.sub(r"<p\b[^>]*>COSHUMA's Make partner code is <code>pc=coshuma</code>[^<]*</p>",
-                  '<p>Make links may earn COSHUMA a commission; n8n links go directly to its official site.</p>', text)
+    text = re.sub(r'<p\b[^>]*>The authenticated Text Partner App records[^<]*</p>', '<p>COSHUMA may earn a commission on eligible HelpDesk purchases through the partner links on this page, at no extra cost to you.</p>', text)
+    text = re.sub(r"<p\b[^>]*>COSHUMA's Make partner code is <code>pc=coshuma</code>[^<]*</p>", '<p>Make links may earn COSHUMA a commission; n8n links go directly to its official site.</p>', text)
     text = re.sub(r'<h([1-6])\b[^>]*>\s*</h\1>', '', text)
     return text
 
@@ -99,40 +92,18 @@ PUBLIC_COPY_REPLACEMENTS = {
 }
 
 def normalize_affiliate_disclosure(text):
-    """Use one concise, customer-facing disclosure near the first monetized CTA."""
     if 'Affiliate Disclosure | COSHUMA' in text:
         return text
-
     has_affiliate = 'data-cta="affiliate"' in text
-
-    # Remove legacy tagged disclosure paragraphs and older disclosure copy.
     text = re.sub(r'<p\b[^>]*data-affiliate-disclosure="[^"]*"[^>]*>.*?</p>', '', text, flags=re.S)
     text = re.sub(r'<p\b[^>]*>\s*Affiliate disclosure:.*?</p>', '', text, flags=re.S | re.I)
-    text = re.sub(
-        r'<p\b[^>]*>(?:(?!</p>).)*COSHUMA may earn (?:an affiliate )?commission(?:(?!</p>).)*</p>',
-        '', text, flags=re.S | re.I,
-    )
-    text = re.sub(
-        r'<p\b[^>]*>(?:(?!</p>).)*may earn COSHUMA a commission(?:(?!</p>).)*</p>',
-        '', text, flags=re.S | re.I,
-    )
-    legacy_trust_disclosure = (
-        '<div><div class="text-[10px] uppercase tracking-wider text-slate-500">Affiliate disclosure</div>'
-        '<div class="mt-1 text-sm text-slate-300">Affiliate destination verified separately from editorial product sources.</div></div>'
-    )
+    text = re.sub(r'<p\b[^>]*>(?:(?!</p>).)*COSHUMA may earn (?:an affiliate )?commission(?:(?!</p>).)*</p>', '', text, flags=re.S | re.I)
+    text = re.sub(r'<p\b[^>]*>(?:(?!</p>).)*may earn COSHUMA a commission(?:(?!</p>).)*</p>', '', text, flags=re.S | re.I)
+    legacy_trust_disclosure = ('<div><div class="text-[10px] uppercase tracking-wider text-slate-500">Affiliate disclosure</div>' '<div class="mt-1 text-sm text-slate-300">Affiliate destination verified separately from editorial product sources.</div></div>')
     text = text.replace(legacy_trust_disclosure, '')
-
     if not has_affiliate:
         return text
-
-    # Put the disclosure directly after the first affiliate CTA so it is hard to miss.
-    return re.sub(
-        r'(<a\b[^>]*data-cta="affiliate"[^>]*>.*?</a>)',
-        r'\1\n' + STANDARD_AFFILIATE_DISCLOSURE,
-        text,
-        count=1,
-        flags=re.S,
-    )
+    return re.sub(r'(<a\b[^>]*data-cta="affiliate"[^>]*>.*?</a>)', r'\1\n' + STANDARD_AFFILIATE_DISCLOSURE, text, count=1, flags=re.S)
 
 def page_copy(path, text):
     if path.parent.name == 'tool' and path.stem in ('kit', 'convertkit'):
