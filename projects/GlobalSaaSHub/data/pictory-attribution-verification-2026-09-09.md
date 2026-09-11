@@ -40,6 +40,17 @@ On 2026-09-10, Ashutosh Dhamija checked COSHUMA's FirstPromoter account again an
 
 This is the first direct partner-side confirmation of the downstream conversion totals. It proves that the current verified route has received clicks, but **no signup, paying customer, commission, or revenue has been attributed yet**. The correct optimization target is therefore click-to-signup conversion, not another affiliate application or an invented deep link.
 
+## Deep-link safety confirmation — 2026-09-11
+
+On 2026-09-11, Ashutosh Dhamija replied again to `support@coshuma.com` after COSHUMA asked for a conversion-ready 14-day-trial/pricing landing route.
+
+- Gmail message ID: `1a0905bd1c4613e1`
+- Pictory explicitly said to continue using the existing tracked link `https://pictory.ai?fpr=sangkwon-an23` together with `COSHUMA20`.
+- The affiliate manager specifically declined to recommend an unverified deep link because it could affect FirstPromoter attribution.
+- Pictory said it will check internally for an approved 14-day-trial or pricing-page deep link, landing page, or proven creative and will share only a confirmed URL/asset once verified.
+
+Until that vendor follow-up arrives, COSHUMA must treat the existing tracked homepage route plus `COSHUMA20` as the only approved Pictory customer acquisition path. A guessed `/pricing`, `/signup`, app URL, or copied generic landing page must not replace it.
+
 ## Existing partner conditions
 
 Pictory Affiliate Manager Ashutosh Dhamija has also confirmed by email that:
@@ -65,6 +76,6 @@ On 2026-09-09, `support@coshuma.com` replied in the existing Pictory thread aski
 - End-to-end click attribution is confirmed.
 - Partner-side aggregate totals as of 2026-09-10 are 6 clicks, 0 referrals/signups, 0 paying customers, and $0.00 earnings/commission.
 - Do not reapply.
-- Do not replace the verified referral URL with a homepage, dashboard, login, onboarding, or guessed deep link.
-- Keep the verified link and `COSHUMA20`, but optimize COSHUMA copy toward the vendor-confirmed 14-day free trial and no-card signup path to reduce commitment friction before paid conversion.
+- Do not replace the verified referral URL with a homepage, dashboard, login, onboarding, pricing, signup, or other guessed deep link.
+- Keep the verified link and `COSHUMA20`; optimize COSHUMA copy toward the vendor-confirmed 14-day free trial while waiting for Pictory's internally verified deep-link/creative follow-up.
 - Do not claim a signup, commission, sale, or revenue until direct evidence exists.
