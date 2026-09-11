@@ -35,6 +35,9 @@ for old in subtitle_variants:
         break
 
 # 2) Replace the hero category row with AI-tool revenue paths.
+# Put the verified free-trials/deals hub in the prime hero navigation because it
+# already contains vendor-issued customer tracking routes and lower-friction
+# trial/pricing CTAs. This is an internal route only; no affiliate URL is guessed.
 category_row = re.compile(
     r'''\n\s*<div className="mt-3 flex flex-wrap justify-center gap-2">\n\s*\{categories\.slice\(1, 7\)\.map\(\(cat\) => \{.*?\n\s*</div>''',
     re.S,
@@ -43,6 +46,9 @@ intent_row = '''
           <div className="mt-3 flex flex-wrap justify-center gap-2">
             <a href="/best/ai-tools-to-make-money.html" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-violet-400/20 bg-violet-400/10 px-3 py-2 text-xs font-bold text-violet-200 hover:bg-violet-400/20">
               <TrendingUp className="h-3.5 w-3.5" /> Make money with AI
+            </a>
+            <a href="/best/verified-software-free-trials-deals.html" data-cta-source="home-verified-trials-deals" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3 py-2 text-xs font-bold text-emerald-100 hover:bg-emerald-400/20">
+              <ShieldCheck className="h-3.5 w-3.5" /> Verified free trials & deals
             </a>
             <button onClick={() => { setSearchTerm('lead'); setSelectedCategory('all'); setSelectedPricing('all'); document.getElementById('directory')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="inline-flex min-h-11 items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-2 text-xs font-bold text-amber-200 hover:bg-amber-400/20">
               <CreditCard className="h-3.5 w-3.5" /> Get leads
@@ -73,6 +79,9 @@ if count != 1:
 if count != 1 and "Make money with AI" not in text:
     raise SystemExit("Hero revenue path row changed; refusing unsafe AI-money patch")
 
+if "/best/verified-software-free-trials-deals.html" not in text:
+    raise SystemExit("Verified trials/deals revenue hub was not surfaced on the homepage")
+
 # 3) Remove vanity-count block from the hero. It consumes prime space without helping a buyer decide.
 stats_block = re.compile(
     r'''\n\s*<div className="mx-auto mt-10 grid max-w-4xl grid-cols-3 gap-3 rounded-2xl border border-white/10 bg-white/\[0\.03\] p-3 sm:p-4">.*?\n\s*</div>\n\s*</header>''',
@@ -83,4 +92,4 @@ if count != 1 and "Tool profiles" in text:
     raise SystemExit("Hero stats block changed; refusing unsafe revenue-hook patch")
 
 app.write_text(text, encoding="utf-8")
-print("AI-money homepage applied: tool-first money hook, six revenue paths, vanity stats removed")
+print("AI-money homepage applied: tool-first money hook, verified trials/deals hub, seven revenue paths, vanity stats removed")
