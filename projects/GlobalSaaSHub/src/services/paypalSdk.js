@@ -13,7 +13,7 @@ export function loadPayPalSdk() {
     const script = document.createElement('script');
     const params = new URLSearchParams({
       'client-id': paymentConfig.paypalClientId,
-      components: 'buttons',
+      components: 'buttons,funding-eligibility',
       currency: 'USD',
       intent: 'capture',
       'enable-funding': 'card',
