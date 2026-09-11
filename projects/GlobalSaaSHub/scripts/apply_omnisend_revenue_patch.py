@@ -1,16 +1,33 @@
 """Patch the high-impression Omnisend page with current buyer-intent copy.
 
 Search Console snapshot: /tool/omnisend.html had 114 impressions and 0 clicks in
-30 days. COSHUMA is now approved and has an exact vendor-issued tracking URL.
-This content patch remains idempotent when the generic affiliate sync has already
-monetized the primary Omnisend anchor; final tracking enforcement is handled by
-finalize_omnisend_tracking.py later in the build.
+30 days. COSHUMA is now approved and has exact vendor-issued general + pricing
+tracking URLs. This patch remains idempotent when a newer, stronger buyer page is
+already present.
 """
 from pathlib import Path
 
 PAGE = Path(__file__).resolve().parents[1] / "public" / "tool" / "omnisend.html"
 TRACKING_URL = "https://your.omnisend.com/4aA5k9"
 text = PAGE.read_text(encoding="utf-8")
+
+# A newer revenue-first page can intentionally supersede the older generated template.
+# Do not force that stronger source back through brittle legacy-string replacements.
+# The later finalize_omnisend_tracking.py pass remains authoritative for converting
+# pricing-intent anchors to the vendor-issued pricing tracker and validating attribution.
+if 'data-omnisend-revenue-v3="2026-09-11"' in text:
+    required = [
+        "Omnisend Pricing 2026",
+        TRACKING_URL,
+        'data-tool-id="omnisend"',
+        'data-cta="affiliate"',
+        "30% off the first three months",
+    ]
+    missing = [item for item in required if item not in text]
+    if missing:
+        raise SystemExit(f"Refusing incomplete Omnisend v3 page; missing: {missing}")
+    print("Omnisend revenue v3 page already present; legacy content patch skipped")
+    raise SystemExit(0)
 
 replacements = [
     (
