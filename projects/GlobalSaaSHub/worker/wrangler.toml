@@ -10,6 +10,9 @@ enabled = true
 [observability.logs]
 enabled = true
 
+[triggers]
+crons = ["17 * * * *"]
+
 [vars]
 PAYPAL_ENVIRONMENT = "live"
 ALLOWED_ORIGIN = "https://coshuma.com"
