@@ -1,0 +1,39 @@
+{
+  "id": "tidio-affiliate-application-2026-09-11",
+  "tool_id": "tidio",
+  "issue": 389,
+  "priority": "high",
+  "status": "browser_required",
+  "affiliate_status": "application_available",
+  "cost": 0,
+  "registered_email": "support@coshuma.com",
+  "official_program_url": "https://www.tidio.com/partners/affiliate/",
+  "checked_at": "2026-09-11T03:32:18Z",
+  "duplicate_check": {
+    "gmail": "No Tidio application, approval, rejection, referral-link, commission, or payout mail found in support@coshuma.com during the checked 180-day window.",
+    "github_issue": "No prior Tidio-specific issue found before issue #389.",
+    "repository_state": "application_available; no verified customer tracking URL"
+  },
+  "official_program_evidence": {
+    "free_registration": true,
+    "approval_required": true,
+    "commission_summary": "up to 30% commission",
+    "payment_summary": "monthly payments"
+  },
+  "objective": "Submit the existing official free Tidio affiliate application only if the authenticated flow shows no prior application or membership, then recover the exact issued customer-facing tracking URL after approval.",
+  "stop_for_user_only": [
+    "CAPTCHA",
+    "OTP",
+    "new legal consent",
+    "payment approval",
+    "forced identity verification"
+  ],
+  "do_not": [
+    "Do not create a duplicate Tidio affiliate application or account.",
+    "Do not use a generic homepage, dashboard, login, onboarding, or application URL as an affiliate link.",
+    "Do not pay for a subscription or application fee.",
+    "Do not self-refer or make a paid test purchase.",
+    "Do not infer clicks, signups, paid customers, commission, payout, or revenue from application submission or approval."
+  ],
+  "done_when": "The application state is evidence-backed; if approved, the exact Tidio-issued customer tracking URL is verified and stored, while downstream revenue remains unknown until explicitly proven."
+}
