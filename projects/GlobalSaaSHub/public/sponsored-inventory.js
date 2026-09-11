@@ -1,5 +1,6 @@
 (() => {
   // Master switch. Keep false until COSHUMA explicitly opens sponsored inventory.
+  // Reserved slot markup is injected during the production build and stays hidden while this is false.
   const CONFIG = {
     enabled: false,
     placements: {}
