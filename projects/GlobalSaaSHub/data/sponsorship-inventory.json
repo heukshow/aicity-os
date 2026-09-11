@@ -1,0 +1,30 @@
+{
+  "enabled": false,
+  "currency": "USD",
+  "placements": {
+    "tool-primary": {
+      "status": "reserved_hidden",
+      "starting_price": 49,
+      "position": "after the primary CTA section on tool pages",
+      "public_label": "Sponsored"
+    },
+    "buyer-intent-top": {
+      "status": "reserved_hidden",
+      "starting_price": 99,
+      "position": "immediately after the opening section on Best / buyer-intent pages",
+      "public_label": "Sponsored"
+    },
+    "compare-decision-premium": {
+      "status": "reserved_hidden",
+      "starting_price": 149,
+      "position": "immediately before the final decision / verdict area on comparison pages",
+      "public_label": "Sponsored"
+    }
+  },
+  "rules": [
+    "Do not display any reserved placement while enabled is false.",
+    "A campaign must be explicitly enabled and have a destination URL before a slot can render.",
+    "Paid placement may buy visibility in a labeled sponsored area but must not change independent editorial ratings or organic rankings.",
+    "All public sponsored placements must be labeled Sponsored."
+  ]
+}
