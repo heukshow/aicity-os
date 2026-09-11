@@ -8,6 +8,7 @@ URLs, or payment state.
 """
 from pathlib import Path
 import re
+from prepare_sponsored_inventory import main as prepare_sponsored_inventory
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
@@ -113,6 +114,7 @@ def main() -> None:
                 changed += 1
     home_changed = ensure_home_advertise_link()
     ensure_sitemap()
+    prepare_sponsored_inventory()
     print(f"normalize_sponsorship_offer: scanned={scanned} changed={changed} homepage_link_added={home_changed}")
 
 
