@@ -3,6 +3,9 @@
   // Reserved slot markup is injected during the production build and stays hidden while this is false.
   const CONFIG = {
     enabled: false,
+    // Placement objects may include:
+    // enabled, label, title, body, button, url,
+    // startAt, endAt (ISO 8601 timestamps, UTC recommended).
     placements: {}
   };
 
@@ -10,6 +13,19 @@
 
   function placementFor(slot) {
     return CONFIG.placements[`${path}::${slot}`] || CONFIG.placements[`*::${slot}`] || null;
+  }
+
+  function isActiveFlight(creative) {
+    const now = Date.now();
+    const start = creative.startAt ? Date.parse(creative.startAt) : null;
+    const end = creative.endAt ? Date.parse(creative.endAt) : null;
+
+    // Invalid dates fail closed so a malformed campaign never shows indefinitely.
+    if (creative.startAt && Number.isNaN(start)) return false;
+    if (creative.endAt && Number.isNaN(end)) return false;
+    if (start !== null && now < start) return false;
+    if (end !== null && now >= end) return false;
+    return true;
   }
 
   function render(slotEl, creative) {
@@ -36,7 +52,7 @@
       slotEl.hidden = true;
       if (!CONFIG.enabled) return;
       const creative = placementFor(slotEl.dataset.sponsoredSlot || '');
-      if (!creative || creative.enabled !== true || !creative.url) return;
+      if (!creative || creative.enabled !== true || !creative.url || !isActiveFlight(creative)) return;
       render(slotEl, creative);
     });
   });
