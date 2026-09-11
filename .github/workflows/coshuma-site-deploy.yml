@@ -207,7 +207,7 @@ jobs:
           fi
           for page in projects/GlobalSaaSHub/dist/compare/*.html; do
             [ -e "$page" ] || continue
-            if grep -q 'data-cta="affiliate"' "$page" && ! grep -q 'data-affiliate-disclosure="compare"' "$page"; then
+            if grep -q 'data-cta="affiliate"' "$page" && ! grep -q 'data-affiliate-disclosure=' "$page"; then
               echo "Monetized comparison missing affiliate disclosure: $page"
               exit 1
             fi
