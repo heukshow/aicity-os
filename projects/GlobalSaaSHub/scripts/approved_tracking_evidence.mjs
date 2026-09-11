@@ -16,20 +16,26 @@ if (aweber) {
     'AWeber official Advocate Program documentation verified 2026-09-09: the referral id may be appended to any AWeber page and the referral cookie remains attributable. The issued easy-email URL remains the authoritative account tracking URL.';
 }
 
-// GetGenie support replied directly to the registered COSHUMA mailbox on
-// 2026-09-11 and explicitly confirmed the exact Pricing-page URL below preserves
-// COSHUMA attribution and is the recommended affiliate link for that destination.
-// Keep the original homepage link as the account's default exact tracking URL,
-// but allow the vendor-issued Pricing-page route on pricing/purchase-intent CTAs.
-const getgenie = approvedTracking.get('getgenie');
-if (getgenie) {
-  getgenie.allowed_cta_urls = [
-    getgenie.exact_tracking_url,
+// GetGenie was promoted to approved_tracking after the 2026-09-08 baseline file
+// was created, so add the later vendor-human evidence directly to this authoritative
+// normalization map. GetGenie support explicitly confirmed that the Pricing-page
+// URL preserves COSHUMA attribution and is the recommended affiliate link there.
+approvedTracking.set('getgenie', {
+  id: 'getgenie',
+  status: 'approved_tracking',
+  exact_tracking_url: 'https://getgenie.ai?rui=3921',
+  destination: 'https://getgenie.ai/',
+  allowed_cta_urls: [
+    'https://getgenie.ai?rui=3921',
     'https://getgenie.ai/pricing/?rui=3921',
-  ];
-  getgenie.deep_link_evidence =
-    'GetGenie human support reply to support@coshuma.com in Gmail message 1a08f03ee3235e3c on 2026-09-11 explicitly states https://getgenie.ai/pricing/?rui=3921 preserves COSHUMA affiliate attribution and is the recommended affiliate link for the Pricing page. No click, signup, commission, payout, or revenue is inferred from link issuance.';
-}
+  ],
+  company_mailbox: 'support@coshuma.com',
+  vendor_reply_message_id: '1a089dd50b6495b5',
+  vendor_pricing_deeplink_reply_message_id: '1a08f03ee3235e3c',
+  evidence: 'GetGenie human support directly confirmed https://getgenie.ai?rui=3921 as the support@coshuma.com account affiliate URL, then confirmed in Gmail message 1a08f03ee3235e3c that https://getgenie.ai/pricing/?rui=3921 preserves COSHUMA affiliate attribution and is the recommended Pricing-page affiliate link. No click, signup, paid customer, commission, payout, or revenue is inferred from link issuance.',
+  checked_at: '2026-09-11T05:49:53Z',
+  evidence_file: 'data/getgenie-pricing-affiliate-deeplink-2026-09-11.json',
+});
 
 // Newer authenticated Dub follow-up for a tool that already exists in the public catalog.
 // Fillout approval remains valid operational evidence, but Fillout is not yet a catalog tool,
