@@ -1,0 +1,21 @@
+{
+  "id": "kittl-impact-revenue-deeplink-2026-09-11",
+  "tool_id": "kittl",
+  "priority": "high",
+  "status": "approved_tracking_stats_browser_required",
+  "affiliate_status": "approved_tracking",
+  "cost": 0,
+  "verified_at": "2026-09-11T22:28:11+09:00",
+  "network": "Impact",
+  "dashboard_login_url": "https://app.impact.com/login.user",
+  "verified_customer_url": "https://kittl.pxf.io/0GMrXY",
+  "reason": "COSHUMA already has an approved Kittl Impact account and the exact customer-facing tracking URL https://kittl.pxf.io/0GMrXY. Revenue truth currently marks Impact as not centrally reconciled, so Kittl click, signup/action, paid-sale, commission and payout totals remain an avoidable revenue blind spot. Kittl also has a high-intent commercial-license buyer guide; an Impact-issued pricing/commercial-use destination could reduce friction, but no deep link may be invented.",
+  "next_action": "Reuse the existing authenticated Impact account. First read Kittl's current account-specific clicks, actions/conversions, sales or paid customers if explicitly defined, commission/earnings, pending/approved/paid amounts, payout status and reporting period. Then inspect Kittl's existing Impact 'Create a link' capability for the official https://www.kittl.com/pricing destination. Only if Impact itself issues a customer-facing Kittl tracking URL for that exact destination, copy it and verify that the final customer page is Kittl pricing while attribution parameters/redirect tracking are preserved. Record the issued URL as evidence; do not publish it automatically until repository verification accepts it.",
+  "do_not": [
+    "Do not create a second Impact or Kittl affiliate account and do not reapply.",
+    "Do not treat https://app.impact.com/login.user or any dashboard URL as a customer CTA.",
+    "Do not append Impact parameters, pxf.io paths or destination parameters by guesswork.",
+    "Do not infer a signup, sale, commission or revenue from link issuance, redirect validation or an outbound click.",
+    "Do not purchase a Kittl plan or pay for any feature to obtain statistics or a tracking link."
+  ]
+}
