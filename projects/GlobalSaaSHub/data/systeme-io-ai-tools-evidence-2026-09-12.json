@@ -1,0 +1,54 @@
+{
+  "tool_id": "systeme-io",
+  "checked_at": "2026-09-12T05:27:00+09:00",
+  "status": "approved_tracking",
+  "purpose": "Record current official-source evidence supporting COSHUMA's buyer-intent page for Systeme.io AI/page tools without treating traffic as revenue.",
+  "official_sources": [
+    {
+      "url": "https://systeme.io/free-tools/ai-prompt-generator",
+      "fact": "Systeme.io offers a free AI prompt generator that creates a tailored prompt for ChatGPT, Claude, Gemini or another AI; the public page says it is free and requires no signup."
+    },
+    {
+      "url": "https://systeme.io/free-tools/html-text-editor/",
+      "fact": "Systeme.io offers a browser-based HTML text editor; the public page says pasted HTML is not sent to Systeme.io, stored or logged."
+    },
+    {
+      "url": "https://systeme.io/ai-mcp-server",
+      "fact": "Systeme.io publishes a native MCP server page for AI assistants and describes the feature as free on all plans."
+    },
+    {
+      "url": "https://help.systeme.io/article/9489-how-to-use-systeme-ios-mcp",
+      "fact": "Systeme.io help documentation describes the MCP connection and supported account actions."
+    },
+    {
+      "url": "https://systeme.io/pricing",
+      "fact": "Current public pricing page lists Free at $0, Startup at $17/month, Webinar at $47/month and Unlimited at $97/month."
+    },
+    {
+      "url": "https://systeme.io/affiliate-program",
+      "fact": "Official affiliate page says affiliates can promote any page on systeme.io by adding ?sa=YOURID to the URL."
+    },
+    {
+      "url": "https://help.systeme.io/article/1508-how-to-tag-an-affiliate-link",
+      "fact": "Official help says &tk= can be added after the affiliate ID to identify a traffic source, and warns to use systeme.io without www for Systeme.io affiliate links."
+    }
+  ],
+  "published_page": "https://coshuma.com/best/systeme-io-ai-tools.html",
+  "tracked_routes": [
+    "https://systeme.io/free-tools/ai-prompt-generator?sa=sa0279779913657b281b5d2c1fed58680413f14dca&tk=coshuma-ai-tools-prompt",
+    "https://systeme.io/free-tools/html-text-editor?sa=sa0279779913657b281b5d2c1fed58680413f14dca&tk=coshuma-ai-tools-html-editor",
+    "https://systeme.io/ai-mcp-server?sa=sa0279779913657b281b5d2c1fed58680413f14dca&tk=coshuma-ai-tools-mcp",
+    "https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca&tk=coshuma-ai-tools-free-plan",
+    "https://systeme.io/pricing?sa=sa0279779913657b281b5d2c1fed58680413f14dca&tk=coshuma-ai-tools-pricing"
+  ],
+  "revenue_truth": {
+    "clicks": "unknown",
+    "signups": "unknown",
+    "paying_customers": "unknown",
+    "commission": "unknown",
+    "payout": "unknown",
+    "note": "Publishing or testing a tracked route is not evidence of a click, signup, customer, commission or revenue event."
+  },
+  "duplicate_application": false,
+  "paid_action_taken": false
+}
