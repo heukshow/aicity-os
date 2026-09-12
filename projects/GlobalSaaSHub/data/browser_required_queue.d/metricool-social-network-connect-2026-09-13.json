@@ -1,0 +1,18 @@
+{
+  "id": "metricool-social-network-connect-2026-09-13",
+  "tool_id": "coshuma-social-distribution",
+  "priority": "high",
+  "status": "browser_required",
+  "cost": 0,
+  "verified_at": "2026-09-13T00:24:00+09:00",
+  "reason": "Metricool is connected to ChatGPT and the COSHUMA brand/blog id 6940199 is visible in timezone Asia/Seoul, but Metricool reports networksData as an empty object. Threads, X and LinkedIn therefore cannot yet be scheduled or auto-published through Metricool until those social accounts are connected inside Metricool.",
+  "metricool_brand_id": "6940199",
+  "next_action": "Open the existing COSHUMA Metricool brand and connect any existing COSHUMA-owned Threads, X and LinkedIn accounts. Complete only provider authentication/consent that is required for the selected network. After each connection, re-read Metricool brand settings and schedule the prepared platform-native COSHUMA posts with distinct UTM sources. Do not create duplicate social accounts merely to satisfy this task.",
+  "do_not": [
+    "Do not purchase or upgrade a Metricool plan.",
+    "Do not create fake identities or duplicate social accounts.",
+    "Do not publish identical copy across networks.",
+    "Do not claim a post is scheduled or published until Metricool returns a scheduled/published record.",
+    "Do not treat social clicks as signups, paid customers, commission or revenue without downstream evidence."
+  ]
+}
