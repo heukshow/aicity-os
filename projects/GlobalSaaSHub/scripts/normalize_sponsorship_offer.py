@@ -140,6 +140,7 @@ def main() -> None:
         "surface_voibe_verified_offer.py",
         "surface_catalister_verified_offer.py",
         "surface_chatbase_verified_offer.py",
+        "surface_gojiberry_verified_offer.py",
     ):
         try:
             runpy.run_path(str(ROOT / "scripts" / script_name), run_name="__main__")
