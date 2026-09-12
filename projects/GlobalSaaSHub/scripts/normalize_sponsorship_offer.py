@@ -130,6 +130,7 @@ def main() -> None:
     for script_name in (
         "surface_murf_verified_offer.py",
         "surface_claap_verified_offer.py",
+        "surface_writesonic_verified_offer.py",
     ):
         try:
             runpy.run_path(str(ROOT / "scripts" / script_name), run_name="__main__")
