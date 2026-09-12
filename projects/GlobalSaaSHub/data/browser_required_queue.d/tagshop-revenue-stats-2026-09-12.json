@@ -1,0 +1,25 @@
+{
+  "id": "tagshop-revenue-stats-2026-09-12",
+  "tool_id": "tagshop-ai",
+  "priority": "high",
+  "status": "approved_tracking_stats_browser_required",
+  "affiliate_status": "approved_tracking",
+  "cost": 0,
+  "verified_at": "2026-09-12T17:42:40+09:00",
+  "gmail_message_id": "1a094c8ab5fa3379",
+  "gmail_thread_id": "1a0829e45df98eb7",
+  "reason": "Tagshop's Priyanka Sain directly confirmed that COSHUMA's exact issued referral URL https://tagshop.ai?via=coshuma-22501e automatically tracks referrals and conversions across the site. She also confirmed that the existing FirstPromoter dashboard contains real-time totals for clicks, referred signups, paying customers, pending/earned commissions and payout status. The email contains no numeric totals, so the revenue metrics remain unknown until the authenticated dashboard is read.",
+  "dashboard_login_url": "https://tagshop.firstpromoter.com/login",
+  "verified_customer_urls": {
+    "issued_referral_entry": "https://tagshop.ai?via=coshuma-22501e"
+  },
+  "separate_pricing_or_trial_deeplink": null,
+  "next_action": "Reuse the existing authenticated Tagshop/FirstPromoter session and read the current totals for clicks, referred signups, paying customers, pending/earned commission, payout status and the visible reporting period. Record only values actually shown by the dashboard. If no authenticated session is available, keep this item queued rather than creating another account or application.",
+  "do_not": [
+    "Do not publish or use the FirstPromoter dashboard/login URL as a customer CTA.",
+    "Do not construct Tagshop pricing or trial affiliate deep links by appending via=coshuma-22501e to arbitrary paths; the vendor did not issue a separate deep link.",
+    "Do not reapply to Tagshop or create a second affiliate account.",
+    "Do not infer clicks, signups, paying customers, commission, payout or revenue from the vendor's site-wide attribution confirmation.",
+    "Do not pay for any plan or subscription to access statistics."
+  ]
+}
