@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 HUB = ROOT / "public" / "best" / "index.html"
@@ -20,12 +21,19 @@ SLUG = "/best/kittl-commercial-use-license.html"
 
 hub = HUB.read_text(encoding="utf-8")
 
-item_marker = '          {"@type":"ListItem","position":24,"url":"https://coshuma.com/best/helpdesk-vs-freshdesk.html","name":"HelpDesk vs Freshdesk Pricing & Free Trial Comparison"}'
-item = '          {"@type":"ListItem","position":25,"url":"https://coshuma.com/best/kittl-commercial-use-license.html","name":"Kittl Commercial Use & License Guide"}'
 item_identity = 'https://coshuma.com/best/kittl-commercial-use-license.html","name":"Kittl Commercial Use & License Guide"'
 if item_identity not in hub:
-    if item_marker not in hub:
+    helpdesk_pattern = re.compile(
+        r'(?P<indent>[ \t]*)\{"@type":"ListItem","position":(?P<position>\d+),"url":"https://coshuma.com/best/helpdesk-vs-freshdesk.html","name":"HelpDesk vs Freshdesk Pricing & Free Trial Comparison"\}'
+    )
+    match = helpdesk_pattern.search(hub)
+    if not match:
         raise SystemExit("HelpDesk ItemList marker not found; refusing unsafe Kittl buyer-hub rewrite")
+    positions = [int(value) for value in re.findall(r'"position":(\d+)', hub)]
+    next_position = max(positions, default=0) + 1
+    item_marker = match.group(0)
+    indent = match.group('indent')
+    item = f'{indent}{{"@type":"ListItem","position":{next_position},"url":"https://coshuma.com/best/kittl-commercial-use-license.html","name":"Kittl Commercial Use & License Guide"}}'
     hub = hub.replace(item_marker, item_marker + ',\n' + item, 1)
 
 card_marker = '''          <a href="/best/databox-genie-ai-analyst.html" class="p-5 rounded-2xl bg-[#131520] border border-purple-500/25 hover:border-purple-400/60 transition-all">'''
@@ -80,4 +88,4 @@ if llms_line not in llms:
     raise SystemExit("llms.txt missing Kittl commercial-use guide")
 LLMS.write_text(llms, encoding="utf-8")
 
-print("buyer-hub-kittl-commercial-discovery-v2")
+print("buyer-hub-kittl-commercial-discovery-v3")
