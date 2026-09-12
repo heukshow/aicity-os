@@ -6,6 +6,7 @@ on:
     paths:
       - 'projects/GlobalSaaSHub/src/**'
       - 'projects/GlobalSaaSHub/public/**'
+      - 'projects/GlobalSaaSHub/scripts/**'
       - 'projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json'
       - 'projects/GlobalSaaSHub/data/pictory-attribution-verification-2026-09-09.md'
       - 'projects/GlobalSaaSHub/scripts/approved_tracking_evidence.mjs'
