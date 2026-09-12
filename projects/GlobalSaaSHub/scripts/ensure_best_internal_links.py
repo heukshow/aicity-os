@@ -8,10 +8,13 @@ ROOT = Path(__file__).resolve().parents[1]
 BEST_DIR = ROOT / "public" / "best"
 INDEX = BEST_DIR / "index.html"
 B2B_GUIDE = BEST_DIR / "b2b-email-list-providers.html"
+GAMMA_GUIDE = BEST_DIR / "gamma-free-plan-pricing.html"
 START = "<!-- COSHUMA_BEST_DISCOVERY_LINKS_START -->"
 END = "<!-- COSHUMA_BEST_DISCOVERY_LINKS_END -->"
 B2B_COMPARE_START = "<!-- COSHUMA_B2B_COMPARE_LINK_START -->"
 B2B_COMPARE_END = "<!-- COSHUMA_B2B_COMPARE_LINK_END -->"
+GAMMA_COMPARE_START = "<!-- COSHUMA_GAMMA_CANVA_COMPARE_LINK_START -->"
+GAMMA_COMPARE_END = "<!-- COSHUMA_GAMMA_CANVA_COMPARE_LINK_END -->"
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.I | re.S)
 H1_RE = re.compile(r"<h1[^>]*>(.*?)</h1>", re.I | re.S)
@@ -33,7 +36,7 @@ def page_title(path: Path) -> str:
 
 
 def ensure_b2b_comparison_link() -> bool:
-    """Give the new high-intent UpLead/Apollo comparison a contextual crawl path."""
+    """Give the high-intent UpLead/Apollo comparison a contextual crawl path."""
     if not B2B_GUIDE.exists():
         return False
 
@@ -59,11 +62,34 @@ def ensure_b2b_comparison_link() -> bool:
     return True
 
 
+def ensure_gamma_canva_comparison_link() -> bool:
+    """Give the new Gamma/Canva revenue comparison a contextual buyer-guide path."""
+    if not GAMMA_GUIDE.exists():
+        return False
+
+    source = GAMMA_GUIDE.read_text(encoding="utf-8")
+    source = re.sub(
+        re.escape(GAMMA_COMPARE_START) + r".*?" + re.escape(GAMMA_COMPARE_END),
+        "",
+        source,
+        flags=re.S,
+    )
+
+    block = f'''\n    {GAMMA_COMPARE_START}\n    <section class="mt-10 rounded-2xl border border-violet-400/20 bg-violet-400/[0.05] p-6 sm:p-7">\n      <div class="text-xs font-black uppercase tracking-[0.16em] text-violet-300">Compare before upgrading</div>\n      <h2 class="mt-2 text-2xl font-black text-white">Gamma or Canva for your next presentation?</h2>\n      <p class="mt-3 max-w-3xl text-sm leading-7 text-slate-300">Use the dedicated comparison to test the same presentation workflow across Gamma and Canva before paying. Gamma keeps COSHUMA's verified PartnerStack route; Canva remains an official non-affiliate comparison destination.</p>\n      <a href="/compare/gamma-vs-canva.html" class="mt-4 inline-flex rounded-xl border border-violet-400/25 bg-violet-400/10 px-5 py-3 text-sm font-black text-violet-100 hover:bg-violet-400/15">Compare Gamma vs Canva →</a>\n    </section>\n    {GAMMA_COMPARE_END}\n'''
+
+    if "</main>" not in source:
+        raise SystemExit("gamma-free-plan-pricing.html has no </main> insertion point")
+    source = source.replace("</main>", block + "\n  </main>", 1)
+    GAMMA_GUIDE.write_text(source, encoding="utf-8")
+    return True
+
+
 def main() -> None:
     if not INDEX.exists():
         raise SystemExit("best/index.html is missing")
 
     b2b_linked = ensure_b2b_comparison_link()
+    gamma_linked = ensure_gamma_canva_comparison_link()
 
     source = INDEX.read_text(encoding="utf-8")
     # Remove the previously generated discovery block so each build is deterministic.
@@ -87,9 +113,15 @@ def main() -> None:
         candidates.append((page_title(path), href))
 
     candidates.sort(key=lambda item: item[0].lower())
+    status_parts = []
+    if b2b_linked:
+        status_parts.append("UpLead vs Apollo context link current")
+    if gamma_linked:
+        status_parts.append("Gamma vs Canva context link current")
+    suffix = "; " + "; ".join(status_parts) if status_parts else ""
+
     if not candidates:
         INDEX.write_text(source, encoding="utf-8")
-        suffix = "; UpLead vs Apollo context link current" if b2b_linked else ""
         print(f"BEST INTERNAL LINKS: PASS (no orphan buyer guides{suffix})")
         return
 
@@ -103,7 +135,6 @@ def main() -> None:
         raise SystemExit("best/index.html has no </main> insertion point")
     source = source.replace("</main>", block + "    </main>", 1)
     INDEX.write_text(source, encoding="utf-8")
-    suffix = "; UpLead vs Apollo context link current" if b2b_linked else ""
     print(f"BEST INTERNAL LINKS: PASS ({len(candidates)} orphan buyer guides linked{suffix})")
 
 
