@@ -75,7 +75,7 @@ else:
 
 # Typedesk extends the generated ItemList from position 9 to 10. On repeated
 # builds its idempotence guard exits with code 0, so catch only that normal stop
-# and continue to the Tagshop step. Any non-zero safety failure still aborts.
+# and continue to later verified-offer steps. Any non-zero safety failure aborts.
 try:
     runpy.run_path(str(ROOT / "scripts" / "surface_typedesk_verified_offer.py"), run_name="__main__")
 except SystemExit as exc:
@@ -84,4 +84,13 @@ except SystemExit as exc:
 
 # Tagshop runs after Typedesk because it extends the generated ItemList from 10
 # to 11 and must see the exact verified Typedesk state first.
-runpy.run_path(str(ROOT / "scripts" / "surface_tagshop_verified_offer.py"), run_name="__main__")
+try:
+    runpy.run_path(str(ROOT / "scripts" / "surface_tagshop_verified_offer.py"), run_name="__main__")
+except SystemExit as exc:
+    if exc.code not in (None, 0):
+        raise
+
+# RGE Studio / Beefree runs last because it extends the generated ItemList from
+# 11 to 12 and uses only the exact referral URL issued to COSHUMA's existing
+# Beefree Ambassador account.
+runpy.run_path(str(ROOT / "scripts" / "surface_beefree_verified_offer.py"), run_name="__main__")
