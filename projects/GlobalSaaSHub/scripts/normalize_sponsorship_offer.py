@@ -145,6 +145,7 @@ def main() -> None:
         "surface_followr_verified_offer.py",
         "surface_novita_verified_offer.py",
         "surface_aiassistworks_verified_offer.py",
+        "improve_verified_offer_discovery.py",
     ):
         try:
             runpy.run_path(str(ROOT / "scripts" / script_name), run_name="__main__")
