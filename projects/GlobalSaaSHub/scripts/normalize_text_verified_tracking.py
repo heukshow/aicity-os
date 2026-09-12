@@ -19,6 +19,10 @@ EXACT_URL = "https://www.text.com/?a=8IetMhQvR&utm_campaign=pp_text-wins-martech
 
 ANCHOR_RE = re.compile(r"<a\b[^>]*>", re.I)
 HREF_RE = re.compile(r'href="([^"]+)"', re.I)
+HERO_CTA_RE = re.compile(
+    r'(<a\b[^>]*data-cta-source="text-hero-trial"[^>]*>.*?</a>)',
+    re.I | re.S,
+)
 
 MISLEADING_LABELS = {
     "Start Text Free for 14 Days — No Card →": "Open Text.com → Start 14-day trial",
@@ -71,14 +75,13 @@ for path in PUBLIC.rglob("*.html"):
                 updated = updated.replace(old, new)
                 changed_copy += occurrences
 
-    # Add the vendor-confirmed routing rule to the primary Text buyer page. This
-    # is intentionally idempotent and prevents future copy from implying a
-    # vendor-supplied deep trial URL that does not exist.
+    # Add the vendor-confirmed routing rule directly after the primary Text CTA.
+    # Other build scripts may rewrite the disclosure copy, so the stable CTA
+    # source marker is the resilient insertion point.
     if path.as_posix().endswith("public/tool/text.html") and ROUTING_NOTE_MARKER not in updated:
-        disclosure = '<p class="text-[11px] text-slate-400">Affiliate disclosure: COSHUMA may earn a commission if you become a paying customer through this verified link, at no extra cost to you.</p>'
-        if disclosure not in updated:
-            raise SystemExit("Text hero disclosure anchor not found; routing note was not inserted")
-        updated = updated.replace(disclosure, disclosure + "\n          " + ROUTING_NOTE, 1)
+        if not HERO_CTA_RE.search(updated):
+            raise SystemExit("Text hero CTA anchor not found; routing note was not inserted")
+        updated = HERO_CTA_RE.sub(r"\1\n          " + ROUTING_NOTE, updated, count=1)
         changed_copy += 1
 
     if updated != original:
