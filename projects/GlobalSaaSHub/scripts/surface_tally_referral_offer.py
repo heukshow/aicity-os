@@ -90,7 +90,12 @@ except SystemExit as exc:
     if exc.code not in (None, 0):
         raise
 
-# RGE Studio / Beefree runs last because it extends the generated ItemList from
-# 11 to 12 and uses only the exact referral URL issued to COSHUMA's existing
-# Beefree Ambassador account.
+# RGE Studio / Beefree runs after Tagshop because it extends the generated
+# ItemList from 11 to 12 and uses only the exact referral URL issued to COSHUMA's
+# existing Beefree Ambassador account.
 runpy.run_path(str(ROOT / "scripts" / "surface_beefree_verified_offer.py"), run_name="__main__")
+
+# BoldSign runs last. Vendor support confirmed the existing referral URL remains
+# the supported entry point and that same-browser cookie attribution covers later
+# navigation to pricing or the 30-day trial, so no deep link is manufactured.
+runpy.run_path(str(ROOT / "scripts" / "surface_boldsign_verified_offer.py"), run_name="__main__")
