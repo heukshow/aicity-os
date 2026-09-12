@@ -812,6 +812,31 @@
     "do_not_reapply": true
   },
   {
+    "id": "creatify-affiliate-application-20260912",
+    "priority": "high",
+    "status": "browser_required",
+    "cost": "0",
+    "verified_at": "2026-09-12T04:36:00Z",
+    "affiliate_status": "candidate",
+    "reason": "Creatify official affiliate page was rechecked on 2026-09-12. The program is free to join, advertises 25% recurring commission on qualifying purchases, and states that Creatify uses Rewardful. Repository search found no existing Creatify affiliate state or tracking URL, and support@coshuma.com Gmail search found no prior Creatify relationship. The application and any issued unique link require authenticated browser/dashboard handling.",
+    "official_program_url": "https://creatify.ai/affiliate",
+    "platform": "Rewardful",
+    "next_action": "Open the official Creatify affiliate page in an authenticated browser and use the existing COSHUMA company identity/support@coshuma.com. Before submission, recheck for an existing account/application. If none exists, complete the free application. Stop for CAPTCHA, OTP, legal/terms consent, payment approval, or forced identity verification. After approval, copy only the exact customer-facing unique referral URL issued by Creatify/Rewardful and verify its destination and attribution before changing any COSHUMA CTA.",
+    "do_not": [
+      "Do not submit a duplicate application if an existing Creatify account, pending application, approval, rejection, cooldown, closure, or vendor-paused state is found.",
+      "Do not treat https://creatify.ai/affiliate, a Rewardful dashboard, login page, onboarding URL, or generic Creatify homepage as a customer affiliate/revenue link.",
+      "Do not guess or construct a Creatify referral parameter or tracking URL.",
+      "Do not infer a click, signup, paid customer, commission, payout, or revenue from application submission, approval, link issuance, publication, or test visits."
+    ],
+    "evidence": {
+      "official_program": "https://creatify.ai/affiliate",
+      "official_terms_observed": "Free to join; 25% recurring commission for qualifying purchases; Rewardful is the stated affiliate platform.",
+      "gmail_account_checked": "support@coshuma.com",
+      "gmail_existing_relationship_found": false,
+      "repository_existing_relationship_found": false
+    }
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",
