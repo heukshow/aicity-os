@@ -133,6 +133,7 @@ def main() -> None:
         "surface_writesonic_verified_offer.py",
         "surface_moosend_verified_offer.py",
         "surface_kittl_verified_offer.py",
+        "surface_helpdesk_verified_offer.py",
     ):
         try:
             runpy.run_path(str(ROOT / "scripts" / script_name), run_name="__main__")
