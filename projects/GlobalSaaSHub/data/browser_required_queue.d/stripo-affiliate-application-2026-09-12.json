@@ -1,0 +1,23 @@
+{
+  "id": "stripo-affiliate-application-20260912",
+  "tool_id": "stripo",
+  "priority": "high",
+  "status": "browser_required_user_consent",
+  "affiliate_status": "candidate_vendor_inquiry_sent",
+  "cost": "0",
+  "verified_at": "2026-09-12T17:26:00+09:00",
+  "exact_tracking_url": null,
+  "official_program_url": "https://stripo.email/en/affiliate-program/",
+  "workflow_url": "https://stripo.email/affiliate/registration/",
+  "reason": "COSHUMA duplicate-risk checks found no prior Stripo application, approval, rejection, pending relationship, or account-specific customer referral URL in support@coshuma.com Gmail or the repository. Stripo publicly offers an affiliate program, but its registration flow requires agreement to affiliate terms. That legal consent is reserved for the user, so this run sent a company-mail eligibility/tracking inquiry instead of submitting the application.",
+  "next_action": "When the user is available, first check support@coshuma.com for Stripo's reply. If Stripo confirms eligibility and no existing application, open the official Stripo affiliate registration flow, let the user personally accept any required legal/affiliate terms, submit once, and then wait for approval. After approval, recover only the exact account-specific customer referral URL issued by Stripo and verify its destination/attribution before changing COSHUMA CTA status.",
+  "do_not": [
+    "Do not submit the legal/affiliate terms acceptance without the user's personal consent.",
+    "Do not create a second application if Stripo reveals an existing submitted, pending, approved, rejected, cooldown, closed, or vendor-paused state.",
+    "Do not use the Stripo homepage, pricing page, dashboard, login, registration page, application URL, or an invented query parameter as an affiliate/revenue link.",
+    "Do not infer clicks, signups, paying customers, commissions, payouts, or revenue from outreach, application availability, submission, approval, or publication alone.",
+    "Do not pay for Stripo or any related service to qualify for the affiliate program."
+  ],
+  "evidence_file": "data/stripo-affiliate-candidate-2026-09-12.md",
+  "do_not_reapply": false
+}
