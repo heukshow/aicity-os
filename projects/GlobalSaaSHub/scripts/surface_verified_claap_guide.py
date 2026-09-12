@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 HUB = ROOT / "public" / "best" / "index.html"
@@ -29,31 +30,52 @@ text = HUB.read_text(encoding="utf-8")
 #   patch only improves internal discovery from the high-intent buyer hub.
 # - Do not construct pricing/deep-link wrappers or infer clicks, signups or revenue.
 
-item_marker = '          {"@type":"ListItem","position":21,"url":"https://coshuma.com/tool/murf-ai.html","name":"Murf AI Free Plan & Pricing Guide"}'
-item = '          {"@type":"ListItem","position":22,"url":"https://coshuma.com/tool/claap.html","name":"Claap Pricing & Verified Partner Guide"}'
+
+def ensure_item_after(anchor_url, target_url, target_name, error_label):
+    global text
+    identity = f'{target_url}\",\"name\":\"{target_name}\"'
+    if identity in text:
+        return
+
+    pattern = re.compile(
+        r'(?P<indent>[ \t]*)\{"@type":"ListItem","position":(?P<position>\d+),"url":"'
+        + re.escape(anchor_url)
+        + r'","name":"[^"]+"\}'
+    )
+    match = pattern.search(text)
+    if not match:
+        raise SystemExit(f"{error_label} ItemList marker not found; refusing unsafe buyer-hub rewrite")
+
+    positions = [int(value) for value in re.findall(r'"position":(\d+)', text)]
+    next_position = max(positions, default=0) + 1
+    item_marker = match.group(0)
+    indent = match.group('indent')
+    item = f'{indent}{{"@type":"ListItem","position":{next_position},"url":"{target_url}","name":"{target_name}"}}'
+    text = text.replace(item_marker, item_marker + ',\n' + item, 1)
+
 
 old_item_name = 'Claap Pricing & Referral Discount Guide'
 if old_item_name in text:
     text = text.replace(old_item_name, 'Claap Pricing & Verified Partner Guide')
 
-if 'https://coshuma.com/tool/claap.html\",\"name\":\"Claap Pricing & Verified Partner Guide\"' not in text:
-    if item_marker not in text:
-        raise SystemExit("Murf ItemList marker not found; refusing unsafe Claap buyer-hub rewrite")
-    text = text.replace(item_marker, item_marker + ',\n' + item, 1)
-
-moosend_item_marker = '          {"@type":"ListItem","position":22,"url":"https://coshuma.com/tool/claap.html","name":"Claap Pricing & Verified Partner Guide"}'
-moosend_item = '          {"@type":"ListItem","position":23,"url":"https://coshuma.com/best/moosend-free-trial.html","name":"Moosend 30-Day Free Trial & Pricing Guide"}'
-if 'https://coshuma.com/best/moosend-free-trial.html\",\"name\":\"Moosend 30-Day Free Trial & Pricing Guide\"' not in text:
-    if moosend_item_marker not in text:
-        raise SystemExit("Claap ItemList marker not found; refusing unsafe Moosend buyer-hub rewrite")
-    text = text.replace(moosend_item_marker, moosend_item_marker + ',\n' + moosend_item, 1)
-
-helpdesk_item_marker = '          {"@type":"ListItem","position":23,"url":"https://coshuma.com/best/moosend-free-trial.html","name":"Moosend 30-Day Free Trial & Pricing Guide"}'
-helpdesk_item = '          {"@type":"ListItem","position":24,"url":"https://coshuma.com/best/helpdesk-vs-freshdesk.html","name":"HelpDesk vs Freshdesk Pricing & Free Trial Comparison"}'
-if 'https://coshuma.com/best/helpdesk-vs-freshdesk.html\",\"name\":\"HelpDesk vs Freshdesk Pricing & Free Trial Comparison\"' not in text:
-    if helpdesk_item_marker not in text:
-        raise SystemExit("Moosend ItemList marker not found; refusing unsafe HelpDesk comparison insertion")
-    text = text.replace(helpdesk_item_marker, helpdesk_item_marker + ',\n' + helpdesk_item, 1)
+ensure_item_after(
+    'https://coshuma.com/tool/murf-ai.html',
+    'https://coshuma.com/tool/claap.html',
+    'Claap Pricing & Verified Partner Guide',
+    'Murf',
+)
+ensure_item_after(
+    'https://coshuma.com/tool/claap.html',
+    'https://coshuma.com/best/moosend-free-trial.html',
+    'Moosend 30-Day Free Trial & Pricing Guide',
+    'Claap',
+)
+ensure_item_after(
+    'https://coshuma.com/best/moosend-free-trial.html',
+    'https://coshuma.com/best/helpdesk-vs-freshdesk.html',
+    'HelpDesk vs Freshdesk Pricing & Free Trial Comparison',
+    'Moosend',
+)
 
 # Keep Brand24's existing URL/position but make the structured name match the
 # concrete high-intent value already present on the destination page.
@@ -149,4 +171,4 @@ for stale in ('30% off the first 2 months', '10% off the first year', 'Claap Pri
         raise SystemExit(f"Stale Claap buyer-discount claim remains in buyer hub: {stale}")
 
 HUB.write_text(text, encoding="utf-8")
-print("buyer-hub-claap-moosend-brand24-helpdesk-current-terms-v6")
+print("buyer-hub-claap-moosend-brand24-helpdesk-current-terms-v7")
