@@ -102,17 +102,54 @@
   }
 
   function enhanceVerifiedPartnerOffers() {
-    if (!/\/tool\/make-com\.html$/.test(window.location.pathname)) return;
-    if (document.querySelector('[data-partner-offer="make-pro-welcome"]')) return;
+    if (/\/tool\/make-com\.html$/.test(window.location.pathname)) {
+      if (!document.querySelector('[data-partner-offer="make-pro-welcome"]')) {
+        const primaryCta = document.querySelector('a[data-cta="affiliate"][data-tool-id="make-com"]');
+        if (primaryCta && primaryCta.href.includes('pc=coshuma')) {
+          const offer = document.createElement('div');
+          offer.dataset.partnerOffer = 'make-pro-welcome';
+          offer.className = 'mt-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-xs leading-relaxed text-emerald-100';
+          offer.innerHTML = '<strong>Partner welcome offer:</strong> Make says new users who sign up through this verified partner link automatically receive their first month of Pro (10,000 operations) free. Confirm the offer is shown during signup before relying on it.';
+          primaryCta.insertAdjacentElement('afterend', offer);
+        }
+      }
+    }
 
-    const primaryCta = document.querySelector('a[data-cta="affiliate"][data-tool-id="make-com"]');
-    if (!primaryCta || !primaryCta.href.includes('pc=coshuma')) return;
+    if (/\/tool\/unbounce\.html$/.test(window.location.pathname)) {
+      if (!document.querySelector('[data-partner-offer="unbounce-conversion-fit"]')) {
+        const verifiedUrl = 'https://unbounce.partnerlinks.io/5ubjnt8lluqi';
+        const primaryCta = document.querySelector('a[data-cta="affiliate"][data-tool-id="unbounce"]');
+        const sections = Array.from(document.querySelectorAll('main > section'));
+        const attributionSection = sections.find(function (section) {
+          const heading = section.querySelector('h2');
+          return heading && /verified link before starting your trial/i.test(heading.textContent || '');
+        });
 
-    const offer = document.createElement('div');
-    offer.dataset.partnerOffer = 'make-pro-welcome';
-    offer.className = 'mt-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-xs leading-relaxed text-emerald-100';
-    offer.innerHTML = '<strong>Partner welcome offer:</strong> Make says new users who sign up through this verified partner link automatically receive their first month of Pro (10,000 operations) free. Confirm the offer is shown during signup before relying on it.';
-    primaryCta.insertAdjacentElement('afterend', offer);
+        if (primaryCta && primaryCta.href.startsWith(verifiedUrl) && attributionSection) {
+          const guide = document.createElement('section');
+          guide.dataset.partnerOffer = 'unbounce-conversion-fit';
+          guide.className = 'rounded-3xl border border-cyan-500/20 bg-cyan-500/5 p-6 md:p-8 space-y-5';
+          guide.innerHTML = [
+            '<div>',
+            '<div class="text-xs uppercase tracking-widest text-cyan-300 font-bold">Before you pay</div>',
+            '<h2 class="text-3xl font-black text-white mt-1">Test what happens after the form submit</h2>',
+            '<p class="text-sm text-slate-300 leading-relaxed mt-2">A fresh Unbounce Affiliate Team message to COSHUMA emphasized lead handoff as a retention use case. That makes integrations a practical buying test: confirm that captured leads can reach the CRM, email or automation stack you already use before choosing a paid plan.</p>',
+            '</div>',
+            '<div class="grid md:grid-cols-3 gap-3">',
+            '<div class="rounded-2xl border border-[#2a2e42] bg-[#0d1018] p-5"><div class="text-xs uppercase tracking-wider text-cyan-300 font-bold">Direct handoff</div><div class="mt-2 text-sm text-slate-300 leading-relaxed">Unbounce lists native connections including Mailchimp, Marketo and Salesforce; its current Build plan also advertises 1000+ integrations.</div></div>',
+            '<div class="rounded-2xl border border-[#2a2e42] bg-[#0d1018] p-5"><div class="text-xs uppercase tracking-wider text-cyan-300 font-bold">Automation bridge</div><div class="mt-2 text-sm text-slate-300 leading-relaxed">If your app is not a direct integration, Unbounce supports Zapier and Webhooks for moving captured lead data into other systems.</div></div>',
+            '<div class="rounded-2xl border border-[#2a2e42] bg-[#0d1018] p-5"><div class="text-xs uppercase tracking-wider text-cyan-300 font-bold">Optimization fit</div><div class="mt-2 text-sm text-slate-300 leading-relaxed">Smart Traffic routes visitors toward the page variant it predicts is more likely to convert. Unbounce currently positions Smart Traffic on Optimize and higher.</div></div>',
+            '</div>',
+            '<p class="text-xs text-slate-500 leading-relaxed">These are product-fit checks, not promised results. COSHUMA does not claim a conversion lift, signup or commission unless first-party reporting verifies it.</p>',
+            '<div class="flex flex-col sm:flex-row gap-3">',
+            '<a data-cta="affiliate" data-tool-id="unbounce" data-cta-source="unbounce-integration-fit" href="' + verifiedUrl + '" target="_blank" rel="sponsored noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-extrabold text-center">Test Unbounce through the verified partner route →</a>',
+            '<a href="https://unbounce.com/product/integrations/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl border border-cyan-500/30 bg-cyan-500/5 text-cyan-100 font-bold text-center hover:bg-cyan-500/10">Check Unbounce integrations →</a>',
+            '</div>'
+          ].join('');
+          attributionSection.insertAdjacentElement('beforebegin', guide);
+        }
+      }
+    }
   }
 
   const attribution = sessionAttribution();
