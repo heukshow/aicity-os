@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 HUB = ROOT / "public" / "best" / "index.html"
@@ -11,15 +12,22 @@ text = HUB.read_text(encoding="utf-8")
 # Both existing tool pages already use exact verified customer-facing tracking URLs.
 # This patch only improves internal discovery from the high-intent buyer-guide hub.
 
-item_marker = '          {"@type":"ListItem","position":19,"url":"https://coshuma.com/tool/getgenie.html","name":"GetGenie Pricing & Free Plan Guide"}'
-item_replacement = item_marker + ',\n' + '\n'.join([
-    '          {"@type":"ListItem","position":20,"url":"https://coshuma.com/tool/gamma.html","name":"Gamma AI Free Plan & Pricing Guide"},',
-    '          {"@type":"ListItem","position":21,"url":"https://coshuma.com/tool/murf-ai.html","name":"Murf AI Free Plan & Pricing Guide"}',
-])
-
 if 'https://coshuma.com/tool/gamma.html","name":"Gamma AI Free Plan & Pricing Guide"' not in text:
-    if item_marker not in text:
+    getgenie_pattern = re.compile(
+        r'(?P<indent>\s*)\{"@type":"ListItem","position":(?P<position>\d+),"url":"https://coshuma.com/tool/getgenie.html","name":"GetGenie Pricing & Free Plan Guide"\}'
+    )
+    match = getgenie_pattern.search(text)
+    if not match:
         raise SystemExit("GetGenie ItemList marker not found; refusing unsafe buyer-hub rewrite")
+
+    positions = [int(value) for value in re.findall(r'"position":(\d+)', text)]
+    next_position = max(positions, default=0) + 1
+    indent = match.group('indent')
+    item_marker = match.group(0)
+    item_replacement = item_marker + ',\n' + '\n'.join([
+        f'{indent}{{"@type":"ListItem","position":{next_position},"url":"https://coshuma.com/tool/gamma.html","name":"Gamma AI Free Plan & Pricing Guide"}},',
+        f'{indent}{{"@type":"ListItem","position":{next_position + 1},"url":"https://coshuma.com/tool/murf-ai.html","name":"Murf AI Free Plan & Pricing Guide"}}',
+    ])
     text = text.replace(item_marker, item_replacement, 1)
 
 card_marker = '''          <a href="/best/databox-genie-ai-analyst.html" class="p-5 rounded-2xl bg-[#131520] border border-purple-500/25 hover:border-purple-400/60 transition-all">'''
@@ -51,4 +59,4 @@ for marker in required:
         raise SystemExit(f"Missing expected buyer-hub marker: {marker}")
 
 HUB.write_text(text, encoding="utf-8")
-print("buyer-hub-gamma-murf-v1")
+print("buyer-hub-gamma-murf-v2")
