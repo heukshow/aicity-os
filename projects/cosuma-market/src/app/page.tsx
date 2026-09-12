@@ -1,103 +1,103 @@
-import tools from "../data/tools.json";
+import SheetProofUploader from "./SheetProofUploader";
+
+const features = [
+  ["누락값 검사", "필수값으로 보이는 컬럼에서 비어 있는 셀을 찾아 검토 대상으로 표시합니다."],
+  ["중복값 검사", "주문번호·품목코드처럼 식별자로 추정되는 컬럼의 중복을 찾아냅니다."],
+  ["형식 불일치", "같은 컬럼 안에서 숫자·문자·날짜 형식이 어긋난 값을 찾아냅니다."],
+  ["계산 불일치", "수량·단가·금액 관계를 추정해 계산이 맞지 않는 행을 확인합니다."],
+  ["멀티시트 분석", "여러 시트를 한 번에 검사하고 시트·행·열 위치를 함께 보여줍니다."],
+  ["리포트 확장", "현재 엔진은 CSV·JSON 전체 리포트를 생성할 수 있도록 준비되어 있습니다."],
+];
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-6 max-w-6xl">
-      {/* FTC Disclosure - Legal Compliance */}
-      <div className="mt-4 p-3 bg-white/5 border border-white/10 rounded-lg text-[11px] text-gray-500 text-center">
-        <span className="font-bold text-brand mr-2">[법적 고지]</span> 
-        본 사이트는 기업용 AI 도구의 객관적인 정보를 제공하며, 추천 링크를 통한 서비스 가입 시 파트너사로부터 소정의 수수료를 지급받을 수 있습니다. 
-        이는 이용자의 결제 금액에 영향을 미치지 않으며, 모든 서비스 계약 및 책임은 해당 솔루션 제공업체와 이용자 간의 계약에 따릅니다.
-      </div>
-
-      {/* Hero: B2B Focus */}
-      <section className="py-24 text-center">
-        <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-brand/10 border border-brand/20 text-brand text-xs font-bold tracking-widest uppercase">
-          Enterprise Efficiency Suite 2026
+    <div className="container mx-auto px-5 md:px-6 max-w-6xl">
+      <section className="relative py-20 md:py-28 text-center">
+        <div className="absolute inset-x-0 top-10 -z-10 mx-auto h-64 max-w-3xl rounded-full bg-brand/10 blur-3xl" />
+        <div className="inline-flex items-center gap-2 px-4 py-2 mb-7 rounded-full bg-brand/10 border border-brand/20 text-brand text-xs font-bold tracking-[.18em] uppercase">
+          <span className="h-1.5 w-1.5 rounded-full bg-brand" /> Spreadsheet quality check
         </div>
-        <h1 className="text-6xl md:text-7xl font-black mb-8 leading-[1.1]">
-          AI로 귀사의 <br /><span className="gradient-text">운영 비용을 절감하십시오.</span>
+        <h1 className="text-5xl md:text-7xl font-black mb-7 leading-[1.02] tracking-tight">
+          중요한 스프레드시트,<br /><span className="gradient-text">업로드 전에 한 번 더 증명하세요.</span>
         </h1>
-        <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed mb-12">
-          검증된 데이터와 법적 가이드라인을 바탕으로 <br />
-          최적의 <strong>AI 에이전트 도입</strong>을 지원합니다.
+        <p className="text-base md:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mb-10">
+          SheetProof는 XLSX · XLSM · CSV에서 누락, 중복, 형식과 계산의 이상 징후를 찾아 검토할 위치까지 정리합니다.
         </p>
+        <div className="flex flex-col sm:flex-row justify-center gap-3 mb-10">
+          <a href="#analyze" className="inline-flex items-center justify-center px-7 py-4 rounded-2xl bg-brand text-black font-black hover:brightness-110 transition">무료로 파일 검사하기 <span className="ml-2">↓</span></a>
+          <a href="#features" className="inline-flex items-center justify-center px-7 py-4 rounded-2xl border border-white/15 text-white font-bold hover:bg-white/5 transition">무엇을 검사하나요?</a>
+        </div>
+        <div className="flex flex-wrap justify-center gap-2 text-xs text-gray-500">
+          {["XLSX · XLSM · CSV", "최대 10MB", "시트·행·열 위치", "서버 영구 저장 없음"].map((item) => <span key={item} className="rounded-full border border-white/10 bg-white/[.03] px-3 py-1.5">{item}</span>)}
+        </div>
       </section>
 
-      {/* Consultation Form with Legal Consent */}
-      <section className="py-16 glass rounded-[40px] p-10 mb-20">
-        <h2 className="text-3xl font-bold mb-8 text-center">AI 도입 무료 진단 신청</h2>
-        <form className="max-w-2xl mx-auto space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input type="text" placeholder="성함/담당자명" className="bg-white/5 border border-white/10 rounded-xl p-4 outline-none focus:border-brand transition" required />
-            <input type="email" placeholder="회사 이메일 (@coshuma.com 추천)" className="bg-white/5 border border-white/10 rounded-xl p-4 outline-none focus:border-brand transition" required />
-          </div>
-          <textarea placeholder="현재 고민 중인 업무 자동화 영역을 적어주세요." className="w-full bg-white/5 border border-white/10 rounded-xl p-4 h-32 outline-none focus:border-brand transition" required></textarea>
-          
-          {/* Legal Consent Checkboxes - PIPA Compliance */}
-          <div className="bg-black/20 p-6 rounded-2xl border border-white/5 space-y-4">
-            <label className="flex items-start space-x-3 cursor-pointer">
-              <input type="checkbox" className="mt-1 accent-brand" required />
-              <span className="text-xs text-gray-400 leading-relaxed">
-                [필수] 개인정보 수집 및 이용 동의: 이름, 연락처, 이메일 주소를 상담 목적 및 서비스 안내를 위해 수집하며, 목적 달성 후 지체 없이 파기합니다.
-              </span>
-            </label>
-            <label className="flex items-start space-x-3 cursor-pointer">
-              <input type="checkbox" className="mt-1 accent-brand" required />
-              <span className="text-xs text-gray-400 leading-relaxed">
-                [필수] 개인정보 제3자 제공 동의: 효율적인 AI 솔루션 매칭 및 상담 진행을 위해 수집된 정보를 협력 파트너사(AI 구축 전문업체)에 제공하는 것에 동의합니다.
-              </span>
-            </label>
-          </div>
+      <SheetProofUploader />
 
-          <button className="w-full py-5 rounded-2xl bg-brand text-black font-black text-xl hover:scale-[1.02] transition-transform">
-            무료 진단 리포트 신청하기
-          </button>
-        </form>
-      </section>
-
-      {/* Profitability Index (B2B Specialized Tools) */}
-      <section className="py-16">
-        <h2 className="text-4xl font-bold mb-16 text-center">검증된 <span className="text-brand">AI 에이전트</span> 리스트</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {tools.map((tool) => (
-            <div key={tool.id} className="group relative glass p-10 rounded-[40px] hover:border-brand/30 transition-all">
-              <div className="flex justify-between items-start mb-8">
-                <div>
-                  <h3 className="text-3xl font-black mb-2">{tool.name}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {tool.tags.map(tag => (
-                      <span key={tag} className="text-[10px] font-bold text-brand uppercase tracking-tighter">#{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <p className="text-gray-400 text-sm mb-8 leading-relaxed">{tool.korean_desc}</p>
-              <a 
-                href={tool.url}
-                target="_blank"
-                className="flex items-center justify-center space-x-3 w-full py-5 rounded-3xl bg-white text-black font-black hover:bg-brand transition-colors text-lg"
-              >
-                <span>솔루션 상세 보기</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-              </a>
+      <section id="features" className="py-24">
+        <div className="text-center mb-14">
+          <p className="text-xs font-bold tracking-[0.25em] text-brand uppercase mb-3">What it checks</p>
+          <h2 className="text-4xl font-black">지금 SheetProof가 확인하는 것</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {features.map(([title, description]) => (
+            <div key={title} className="glass rounded-3xl p-7 border border-white/10">
+              <h3 className="text-xl font-black mb-3">{title}</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">{description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Legal Footer */}
-      <footer className="py-20 border-t border-white/10 mt-20 text-center">
-        <div className="flex flex-wrap justify-center gap-8 mb-8 text-xs font-bold text-gray-500">
-          <a href="#" className="hover:text-white transition">이용약관</a>
-          <a href="#" className="text-white hover:text-brand transition">개인정보처리방침</a>
-          <a href="#" className="hover:text-white transition">제휴문의</a>
+      <section id="how" className="py-10 pb-24">
+        <div className="glass rounded-[36px] p-8 md:p-12 border border-white/10">
+          <h2 className="text-3xl md:text-4xl font-black mb-8 text-center">사용 방법은 세 단계입니다</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              ["01", "파일 업로드", "검사할 XLSX, XLSM 또는 CSV 파일을 선택합니다."],
+              ["02", "자동 분석", "SheetProof가 여러 검사 규칙을 적용해 문제 후보를 찾습니다."],
+              ["03", "위치 확인", "시트·행·열 위치를 보고 원본 파일에서 바로 확인합니다."],
+            ].map(([number, title, description]) => (
+              <div key={number} className="rounded-3xl bg-black/15 p-6 border border-white/5">
+                <div className="text-brand font-black text-sm mb-4">{number}</div>
+                <h3 className="font-black text-xl mb-2">{title}</h3>
+                <p className="text-sm text-gray-400 leading-relaxed">{description}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <p className="text-[10px] text-gray-600">
-          &copy; 2026 COSUMA Market. All Rights Reserved. <br />
-          본 사이트는 지식 서비스 제공을 목적으로 하며, 특정 AI 솔루션의 직접적인 판매 주체가 아닙니다.
-        </p>
-      </footer>
+      </section>
+
+      <section id="limits" className="py-10 pb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="glass rounded-3xl p-8 border border-white/10">
+            <h2 className="text-2xl font-black mb-4">파일 처리 안내</h2>
+            <div className="space-y-3 text-sm text-gray-400 leading-relaxed">
+              <p>업로드 파일은 분석을 위해 서버에서 처리됩니다.</p>
+              <p>현재 SheetProof 애플리케이션은 업로드 파일을 별도의 사용자 저장소나 데이터베이스에 영구 보관하도록 설계되어 있지 않습니다.</p>
+              <p>비밀번호, 주민등록번호, 금융·의료정보 등 민감한 개인정보가 포함된 파일은 업로드하지 않는 것을 권장합니다.</p>
+            </div>
+          </div>
+          <div className="glass rounded-3xl p-8 border border-white/10">
+            <h2 className="text-2xl font-black mb-4">분석 결과의 한계</h2>
+            <div className="space-y-3 text-sm text-gray-400 leading-relaxed">
+              <p>SheetProof는 자동 규칙과 휴리스틱으로 잠재적인 데이터 문제를 찾는 검토 보조 도구입니다.</p>
+              <p>제목행, 복잡한 헤더, 세금·할인·배송비가 포함된 계산식, 회사별 업무 규칙 등에서는 오탐이나 미탐이 발생할 수 있습니다.</p>
+              <p>문제가 발견되지 않았다는 결과가 파일에 오류가 전혀 없다는 의미는 아닙니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" className="pb-24">
+        <div className="glass rounded-[36px] p-8 md:p-12 border border-white/10 text-center">
+          <p className="text-xs font-bold tracking-[0.25em] text-brand uppercase mb-3">Pricing direction</p>
+          <h2 className="text-3xl md:text-4xl font-black mb-4">기본 검사는 무료로 시작합니다</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            현재 공개 단계에서는 사용성과 검사 정확도를 먼저 검증합니다. 이후 전체 상세 리포트, 자동 수정, 업종별 검사팩을 유료 기능으로 확장할 예정입니다.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }

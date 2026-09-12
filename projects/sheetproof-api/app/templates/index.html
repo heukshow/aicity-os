@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SheetProof — 스프레드시트 오류 검사</title>
+  <meta name="description" content="CSV/XLSX 파일을 업로드하면 중복, 누락, 형식 혼용, 산술 오류를 빠르게 찾아드립니다." />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="badge">v0.3 PRE · 로컬 분석</div>
+      <h1>SheetProof</h1>
+      <p class="lead">CSV/XLSX를 올리면 사람이 놓치기 쉬운 <strong>중복·누락·형식 혼용·산술 오류</strong>를 자동 검사합니다.</p>
+    </header>
+
+    <section class="card upload-card">
+      <div id="dropzone" class="dropzone" tabindex="0">
+        <input id="fileInput" type="file" accept=".csv,.xlsx,.xlsm" hidden />
+        <div class="icon">⇧</div>
+        <h2>파일을 끌어놓거나 클릭하세요</h2>
+        <p>CSV, XLSX, XLSM · 최대 10MB · 전체 시트 합산 최대 100,000행</p>
+        <button id="chooseBtn" class="primary">파일 선택</button>
+      </div>
+      <div class="privacy">🔒 파일을 서버 디스크에 저장하지 않고 요청 처리 중 메모리에서만 분석합니다.</div>
+    </section>
+
+    <section class="checks">
+      <h3>현재 검사하는 6가지</h3>
+      <div class="check-grid">
+        <span>필수값 누락</span><span>중복 행 / ID / SKU</span><span>열 타입 불일치</span>
+        <span>숫자 형식 오류</span><span>날짜 형식 혼용</span><span>수량 × 단가 ≠ 금액</span>
+      </div>
+    </section>
+
+    <section id="status" class="status hidden"></section>
+
+    <section id="results" class="card hidden">
+      <div class="summary-row">
+        <div><div class="label">파일</div><div id="filename" class="value small"></div></div>
+        <div><div class="label">시트</div><div id="sheets" class="value"></div></div>
+        <div><div class="label">행</div><div id="rows" class="value"></div></div>
+        <div><div class="label">발견 오류</div><div id="total" class="value danger"></div></div>
+      </div>
+
+      <div class="severity-row">
+        <span class="pill high">높음 <b id="high">0</b></span>
+        <span class="pill medium">중간 <b id="medium">0</b></span>
+        <span class="pill low">낮음 <b id="low">0</b></span>
+      </div>
+
+      <h3>주요 발견 항목</h3>
+      <div id="issueList"></div>
+
+      <div id="reportBox" class="locked hidden">
+        <div class="lock-icon">📄</div>
+        <h3><span id="lockedCount">0</span>개 추가 항목이 있습니다</h3>
+        <p>외부 검증 단계인 v0.3에서는 전체 검사 결과를 무료로 내려받을 수 있습니다.</p>
+        <div class="report-actions">
+          <button id="csvBtn" class="primary">전체 리포트 CSV</button>
+          <button id="jsonBtn" class="secondary active">전체 리포트 JSON</button>
+        </div>
+      </div>
+
+      <button id="againBtn" class="text-btn">다른 파일 검사</button>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
