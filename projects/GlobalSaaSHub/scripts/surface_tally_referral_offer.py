@@ -95,7 +95,12 @@ except SystemExit as exc:
 # existing Beefree Ambassador account.
 runpy.run_path(str(ROOT / "scripts" / "surface_beefree_verified_offer.py"), run_name="__main__")
 
-# BoldSign runs last. Vendor support confirmed the existing referral URL remains
-# the supported entry point and that same-browser cookie attribution covers later
-# navigation to pricing or the 30-day trial, so no deep link is manufactured.
+# BoldSign runs after Beefree. Vendor support confirmed the existing referral URL
+# remains the supported entry point and that same-browser cookie attribution covers
+# later navigation to pricing or the 30-day trial, so no deep link is manufactured.
 runpy.run_path(str(ROOT / "scripts" / "surface_boldsign_verified_offer.py"), run_name="__main__")
+
+# Teachable runs last. Its affiliate manager supplied COSHUMA an exact 30-day
+# customer trial route that is distinct from Teachable's public 7-day trial, so
+# surface only that vendor-issued PartnerStack URL and never guess a trial parameter.
+runpy.run_path(str(ROOT / "scripts" / "surface_teachable_verified_offer.py"), run_name="__main__")
