@@ -55,12 +55,13 @@ for (const file of ['data/tools.json', 'data/tools.next.json']) {
     supademo.affiliate_verified = false;
     supademo.affiliate_status = 'outreach_sent';
     supademo.affiliate_verified_at = checkedAt;
-    supademo.affiliate_evidence_markers = [
+    const supademoMarkers = [
       ...(Array.isArray(supademo.affiliate_evidence_markers) ? supademo.affiliate_evidence_markers : []),
       '2026-09-13: COSHUMA affiliate inquiry sent to support@supademo.com (Gmail 1a09b43356bc3947).',
       'Supademo Intercom acknowledged receipt (Gmail 1a09b43b5ba55b97); human vendor response remains pending.',
       'No exact customer tracking URL, approval, signup, paid customer, commission or revenue is verified.',
     ];
+    supademo.affiliate_evidence_markers = [...new Set(supademoMarkers)];
   }
   fs.writeFileSync(file, `${JSON.stringify(tools, null, 2)}\n`);
 }
