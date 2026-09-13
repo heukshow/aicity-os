@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import './ensure_compare_hub_seo.mjs';
 
 const urls = [
   'https://coshuma.com/tool/creatify.html',

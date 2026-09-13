@@ -1,4 +1,4 @@
-﻿"""Deterministic integrity audit for every generated tool URL."""
+"""Deterministic integrity audit for every generated tool URL."""
 import argparse
 import json
 import re
@@ -76,10 +76,11 @@ def main():
     if sitemap_tool_paths != indexable_paths:
         fail(errors, "Sitemap tool URLs do not exactly match tools.json ids")
 
-    # Audit every root-relative HTML buyer path, not just /tool/ links. This catches
-    # broken comparison, /best buyer-guide, and root revenue-page links before they
-    # can strand search visitors or leak purchase-intent traffic into a 404.
+    # Audit root-relative buyer links, including directory-style routes such as
+    # /compare/. This catches broken comparison, /best buyer-guide, and root
+    # revenue-page navigation before it strands search visitors in a 404.
     internal_html_link_pattern = re.compile(r'href=["\'](/[^"\']+?\.html(?:[?#][^"\']*)?)["\']')
+    internal_directory_link_pattern = re.compile(r'href=["\'](/(?!/)[^"\']+/)(?:[?#][^"\']*)?["\']')
     canonical_pattern = re.compile(r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']')
     for html_file in PUBLIC.rglob("*.html"):
         html = html_file.read_text(encoding="utf-8")
@@ -88,6 +89,11 @@ def main():
             target = PROJECT / "index.html" if link_path == "/index.html" else PUBLIC / link_path.removeprefix("/")
             if not target.is_file():
                 fail(errors, f"Broken internal HTML link in {html_file.relative_to(PUBLIC)}: {link}")
+        for link in internal_directory_link_pattern.findall(html):
+            link_path = urlparse(link).path
+            target = PUBLIC / link_path.removeprefix("/") / "index.html"
+            if not target.is_file():
+                fail(errors, f"Broken internal directory link in {html_file.relative_to(PUBLIC)}: {link}")
 
     for tool_id in [*ids, *standalone]:
         path = f"/tool/{tool_id}.html"
