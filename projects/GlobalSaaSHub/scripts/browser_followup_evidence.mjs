@@ -37,13 +37,15 @@ const approvalFollowups = [
 for (const item of approvalFollowups) browserFollowups.set(item.id, item);
 
 // Typedesk, Omnisend and Claap now have newer human vendor-issued exact tracking URLs.
-// Fathom has a newer human vendor eligibility decision that explicitly says the current
-// COSHUMA publisher profile is not a fit. Remove these older browser/submission snapshots
-// so the newer authoritative reconciliation can apply instead of being masked by stale state.
+// Fathom has a newer human vendor eligibility decision, and Supademo has newer Gmail
+// outreach/receipt evidence that supersedes its old embedded-form technical failure.
+// Remove these older browser/submission snapshots so newer authoritative reconciliation
+// can apply instead of being masked by stale state.
 browserFollowups.delete('typedesk');
 browserFollowups.delete('omnisend');
 browserFollowups.delete('claap');
 browserFollowups.delete('fathom');
+browserFollowups.delete('supademo');
 
 // Operational approvals keep duplicate-prevention state and the browser queue current
 // without requiring the browser-followup validator to reinterpret vendor-issued email links.
