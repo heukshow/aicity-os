@@ -91,7 +91,7 @@ required = [
     "Agency $99/month",
     "40% commission on the first purchase",
     "90-day cookie",
-    "does not specify a renewal percentage",
+    "do not specify a renewal percentage",
     "does not prove a click, signup, paid customer, commission, payout or revenue",
 ]
 for token in required:
