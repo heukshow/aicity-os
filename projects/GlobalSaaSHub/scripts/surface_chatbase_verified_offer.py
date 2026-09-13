@@ -39,12 +39,12 @@ html = html.replace(old_meta, new_meta, 1)
 
 item25 = (
     '      {"@type":"ListItem","position":25,"name":"Catalister",'
-    '"url":"https://coshuma.com/tool/catalister.html"}\n'
+    '"url":"https://coshuma.com/best/catalister-free-trial-pricing.html"}\n'
     "    ]"
 )
 item26 = (
     '      {"@type":"ListItem","position":25,"name":"Catalister",'
-    '"url":"https://coshuma.com/tool/catalister.html"},\n'
+    '"url":"https://coshuma.com/best/catalister-free-trial-pricing.html"},\n'
     '      {"@type":"ListItem","position":26,"name":"Chatbase",'
     '"url":"https://coshuma.com/tool/chatbase.html"}\n'
     "    ]"
