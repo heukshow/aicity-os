@@ -1,7 +1,21 @@
 .env
+.env.*
+!.env.example
 .env.bak
 credentials.json
+client_secret*.json
+client-secret*.json
+token.json
+token*.json
+token.pickle
+*.pickle
 google_token.pickle
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
 api_error.log
 __pycache__/
 *.pyc
@@ -17,4 +31,4 @@ __pycache__/
 admin_commission_rates.*
 projects/GlobalSaaSHub/admin_commission_rates.*
 projects/GlobalSaaSHub/data/manual_candidates_verified.json
-
+projects/GlobalSaaSHub/.private-ops/

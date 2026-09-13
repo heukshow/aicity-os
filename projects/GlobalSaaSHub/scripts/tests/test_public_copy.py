@@ -1,9 +1,10 @@
-"""Fail the build for customer-visible legacy branding, state leaks or false comparisons."""
+"""Fail the build for customer-visible legacy branding, state leaks, secrets or false comparisons."""
 from html.parser import HTMLParser
 from pathlib import Path
 import re,sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from guard_public_copy import clean
+from security_guard import main as security_main
 
 class Page(HTMLParser):
     def __init__(self):
@@ -25,7 +26,6 @@ def violations(html):
     return BAD.findall(' '.join(p.parts+p.metadata))
 
 def main():
-    # Test split-node leaks and keep valid product terminology / attribution intact.
     assert violations('<p>You prioritize <b>Not rated</b></p>')
     assert violations('<meta name="description" content="GlobalSaaSHub">')
     assert not violations('<p>Connect your internal database.</p><a data-affiliate-status="approved_tracking" href="https://example.com/?ref=ok">Try</a>')
@@ -47,6 +47,7 @@ def main():
     assert 'href="/tool/convertkit.html"' not in kit
     assert 'Top Alternatives to Nudgera' not in (root/'tool/nudgera.html').read_text(encoding='utf-8')
     assert not errors, '\n'.join(errors)
-    print(f'PASS: {len(files)} built HTML files; legacy brand=0, broken rating copy=0, internal-state copy=0, empty headings=0')
+    security_main()
+    print(f'PASS: {len(files)} built HTML files; legacy brand=0, broken rating copy=0, internal-state copy=0, empty headings=0, security guard=pass')
 
 if __name__=='__main__':main()
