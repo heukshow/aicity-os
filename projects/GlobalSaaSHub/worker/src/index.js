@@ -4,11 +4,19 @@ import { capturePayPalOrder, createPayPalOrder, getPayPalOrder, verifyPayPalWebh
 import { D1OrderRepository } from './repository.js';
 import { handleAdminRequest, isAdminPath } from './admin.js';
 
-const PUBLIC_ADMIN_PATH = '/ops-login';
+const SECURITY_HEADERS = {
+  'cache-control': 'no-store',
+  'x-content-type-options': 'nosniff',
+  'referrer-policy': 'no-referrer',
+  'x-frame-options': 'DENY',
+  'cross-origin-resource-policy': 'same-origin',
+  'permissions-policy': 'camera=(), microphone=(), geolocation=(), payment=()',
+  'content-security-policy': "default-src 'none'; frame-ancestors 'none'; base-uri 'none'",
+};
 
 const json = (body, status = 200, extra = {}) => new Response(JSON.stringify(body), {
   status,
-  headers: { 'content-type': 'application/json; charset=utf-8', ...extra },
+  headers: { 'content-type': 'application/json; charset=utf-8', ...SECURITY_HEADERS, ...extra },
 });
 
 function corsHeaders(request, env) {
@@ -17,11 +25,27 @@ function corsHeaders(request, env) {
   return { 'access-control-allow-origin': origin, vary: 'Origin' };
 }
 
+function isAllowedBrowserRequest(request, env) {
+  return Boolean(env.ALLOWED_ORIGIN && request.headers.get('origin') === env.ALLOWED_ORIGIN);
+}
+
+function hasSafeJsonBody(request) {
+  const contentType = request.headers.get('content-type') || '';
+  const contentLength = Number(request.headers.get('content-length') || 0);
+  return contentType.toLowerCase().startsWith('application/json')
+    && Number.isFinite(contentLength)
+    && contentLength >= 0
+    && contentLength <= 4096;
+}
+
 function configured(env) {
-  return Boolean(env.ORDERS && env.ALLOWED_ORIGIN && env.PAYPAL_CLIENT_ID && env.PAYPAL_CLIENT_SECRET && env.PAYPAL_WEBHOOK_ID);
+  return env.CHECKOUT_ENABLED === 'true'
+    && Boolean(env.ORDERS && env.ALLOWED_ORIGIN && env.PAYPAL_CLIENT_ID && env.PAYPAL_CLIENT_SECRET && env.PAYPAL_WEBHOOK_ID);
 }
 
 async function createOrder(request, env, repo) {
+  if (!isAllowedBrowserRequest(request, env)) return json({ error: 'Forbidden' }, 403);
+  if (!hasSafeJsonBody(request)) return json({ error: 'Invalid request' }, 415, corsHeaders(request, env));
   // The request body is intentionally ignored: price and currency are server-owned constants.
   await request.json().catch(() => ({}));
   const internalId = crypto.randomUUID();
@@ -32,8 +56,10 @@ async function createOrder(request, env, repo) {
 }
 
 async function captureOrder(request, env, repo) {
+  if (!isAllowedBrowserRequest(request, env)) return json({ error: 'Forbidden' }, 403);
+  if (!hasSafeJsonBody(request)) return json({ error: 'Invalid request' }, 415, corsHeaders(request, env));
   const { orderId } = await request.json();
-  if (typeof orderId !== 'string' || !orderId) return json({ error: 'orderId is required' }, 400, corsHeaders(request, env));
+  if (typeof orderId !== 'string' || !orderId || orderId.length > 128) return json({ error: 'orderId is required' }, 400, corsHeaders(request, env));
   const local = await repo.getByProviderOrderId(orderId);
   if (!local) return json({ error: 'Order not found' }, 404, corsHeaders(request, env));
   await capturePayPalOrder(env, orderId, `capture-${local.id}`);
@@ -46,6 +72,7 @@ async function captureOrder(request, env, repo) {
 }
 
 async function webhook(request, env, repo) {
+  if (!hasSafeJsonBody(request)) return json({ error: 'Invalid request' }, 415);
   const event = await request.json();
   if (!event?.id) return json({ error: 'Invalid webhook event' }, 400);
   const verification = await verifyPayPalWebhook(env, request.headers, event);
@@ -71,26 +98,25 @@ export default {
     const url = new URL(request.url);
     if (url.pathname === '/internal/analytics-snapshot') return handleSnapshotUpload(request, env);
     if (url.pathname === '/ops' || url.pathname.startsWith('/ops/')) return handlePrivateOps(request, env);
-    const fixedAdminRoute = url.pathname === PUBLIC_ADMIN_PATH || url.pathname.startsWith(`${PUBLIC_ADMIN_PATH}/`);
-    if (fixedAdminRoute) {
-      return handleAdminRequest(request, { ...env, ADMIN_PATH: PUBLIC_ADMIN_PATH });
-    }
     if (isAdminPath(url, env)) return handleAdminRequest(request, env);
     if (url.pathname === '/robots.txt') {
       const privatePath = String(env.ADMIN_PATH || '/ops-private').replace(/\/$/, '');
-      return new Response(`User-agent: *\nDisallow: ${PUBLIC_ADMIN_PATH}/\nDisallow: ${privatePath}/\n`, {
-        headers: { 'content-type': 'text/plain; charset=utf-8', 'x-robots-tag': 'noindex, nofollow' },
+      return new Response(`User-agent: *\nDisallow: ${privatePath}/\n`, {
+        headers: { 'content-type': 'text/plain; charset=utf-8', 'x-robots-tag': 'noindex, nofollow', ...SECURITY_HEADERS },
       });
     }
     if (request.method === 'OPTIONS') {
+      if (!isAllowedBrowserRequest(request, env)) return new Response(null, { status: 403, headers: SECURITY_HEADERS });
       return new Response(null, { status: 204, headers: {
+        ...SECURITY_HEADERS,
         ...corsHeaders(request, env),
         'access-control-allow-methods': 'POST, OPTIONS',
         'access-control-allow-headers': 'content-type',
+        'access-control-max-age': '600',
       } });
     }
-    if (url.pathname === '/health') return json({ ok: true, checkoutConfigured: configured(env) });
-    if (!configured(env)) return json({ error: 'Checkout is not configured' }, 503, corsHeaders(request, env));
+    if (url.pathname === '/health') return json({ ok: true });
+    if (!configured(env)) return json({ error: 'Checkout is unavailable' }, 503, corsHeaders(request, env));
     const repo = new D1OrderRepository(env.ORDERS);
     try {
       if (request.method === 'POST' && url.pathname === '/v1/orders') return await createOrder(request, env, repo);
@@ -98,7 +124,7 @@ export default {
       if (request.method === 'POST' && url.pathname === '/v1/webhooks/paypal') return await webhook(request, env, repo);
       return json({ error: 'Not found' }, 404, corsHeaders(request, env));
     } catch (error) {
-      console.error('Payment request failed', error?.message);
+      console.error('Payment request failed safely', error?.name || 'Error');
       return json({ error: 'Payment request failed safely' }, 502, corsHeaders(request, env));
     }
   },

@@ -10,6 +10,7 @@ def test_worker_security_contract():
     domain = (WORKER / "src" / "domain.js").read_text(encoding="utf-8")
     worker = (WORKER / "src" / "index.js").read_text(encoding="utf-8")
     paypal = (WORKER / "src" / "paypal.js").read_text(encoding="utf-8")
+    wrangler = (WORKER / "wrangler.toml").read_text(encoding="utf-8")
     migration = (WORKER / "migrations" / "0001_orders.sql").read_text(encoding="utf-8")
 
     assert "SPONSORSHIP_AMOUNT = '49.00'" in domain
@@ -21,6 +22,18 @@ def test_worker_security_contract():
     assert "PRIMARY KEY" in migration
     assert "UNIQUE" in migration
     assert "client-provided amount" not in worker.lower()
+
+    # Security posture: checkout must fail closed server-side and admin access must
+    # depend on the secret ADMIN_PATH rather than a fixed public login route.
+    assert "env.CHECKOUT_ENABLED === 'true'" in worker
+    assert 'CHECKOUT_ENABLED = "false"' in wrangler
+    assert "PUBLIC_ADMIN_PATH" not in worker
+    assert "'/ops-login'" not in worker
+    assert "isAllowedBrowserRequest(request, env)" in worker
+    assert "contentLength <= 4096" in worker
+    assert "x-content-type-options" in worker
+    assert "content-security-policy" in worker
+    assert "checkoutConfigured" not in worker
 
 
 def test_frontend_has_no_secret_and_is_disabled_by_default():
