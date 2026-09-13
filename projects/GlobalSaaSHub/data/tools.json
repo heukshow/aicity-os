@@ -6107,5 +6107,46 @@
       "No COSHUMA-specific customer-facing InVideo tracking URL is verified yet; do not publish a generic or guessed affiliate URL",
       "GitHub issue #391 holds the browser-only existing-Impact-account check and enrollment guard"
     ]
+  },
+  {
+    "id": "beehiiv",
+    "name": "beehiiv",
+    "category": "email_outreach",
+    "category_display": "Email & Outreach",
+    "description": "A newsletter platform for creators and publishers with website hosting, unlimited email sends, audience growth tools, monetization features and paid subscriptions.",
+    "affiliate_url": null,
+    "pricing": "Launch $0/month for up to 2,500 subscribers; paid plans vary by subscriber tier and billing cadence",
+    "key_features": [
+      "Newsletter publishing and website hosting",
+      "Unlimited email sends on the free Launch plan",
+      "Recommendation network and audience growth tools",
+      "Paid subscriptions, ads and digital products on eligible paid plans"
+    ],
+    "rating": null,
+    "logo_url": "https://www.google.com/s2/favicons?domain=beehiiv.com&sz=128",
+    "primary_category": "email_outreach",
+    "comparison_group": "email_marketing",
+    "official_url": "https://www.beehiiv.com/",
+    "pricing_source_url": "https://www.beehiiv.com/pricing",
+    "pricing_verified_at": "2026-09-14T00:00:00+09:00",
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "monthly or annual depending on plan",
+    "evidence_source_type": "official_pricing_page",
+    "is_manual_override": true,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-09-14T00:00:00+09:00",
+    "official_evidence_url": "https://www.beehiiv.com/pricing",
+    "affiliate_verified": true,
+    "affiliate_status": "application_available_account_required",
+    "affiliate_source_url": "https://www.beehiiv.com/partners",
+    "affiliate_verified_at": "2026-09-14T00:00:00+09:00",
+    "affiliate_evidence_markers": [
+      "Official beehiiv partner page states partners can earn up to 60% commission every month for each paying customer for one year",
+      "Official partner page says applicants create a beehiiv account to unlock the partner dashboard and custom tracking link",
+      "COSHUMA support@coshuma.com Gmail in:anywhere search returned no beehiiv messages before this registration cycle",
+      "No COSHUMA-specific beehiiv customer tracking URL is verified yet; official non-affiliate customer URLs must remain in use until an issued tracking URL is observed"
+    ],
+    "affiliate_next_action": "Use the official beehiiv partner application/account flow once account-holder consent steps can be completed. Do not invent a tracking parameter or publish the partner application URL as a customer CTA."
   }
 ]
