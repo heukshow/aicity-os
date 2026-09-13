@@ -26,19 +26,22 @@ SEARCH_PANEL = r'''<!-- COSHUMA_VERIFIED_OFFER_SEARCH_V1 -->
         <div class="max-w-2xl">
           <div class="text-xs font-black uppercase tracking-[0.18em] text-cyan-300">Find the right verified route</div>
           <h2 id="verified-offer-search-heading" class="mt-2 text-2xl font-black text-white md:text-3xl">Filter by tool, use case or trial condition</h2>
-          <p class="mt-2 text-sm leading-6 text-slate-400">Search only narrows the verified offers already on this page. Affiliate destinations, vendor terms and revenue evidence are not changed.</p>
+          <p class="mt-2 text-sm leading-6 text-slate-400">Search only narrows the verified offers already on this page. Affiliate destinations, vendor terms and revenue evidence are not changed. Filters can be shared with the page URL.</p>
         </div>
         <div class="w-full lg:max-w-xl">
           <label for="verified-offer-search" class="sr-only">Search verified software offers</label>
           <div class="flex gap-2">
-            <input id="verified-offer-search" type="search" autocomplete="off" inputmode="search" placeholder="Try: AI, forms, B2B, video, no card..." class="min-h-12 w-full rounded-xl border border-white/10 bg-[#090b10] px-4 py-3 text-sm text-white outline-none placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/20" />
+            <input id="verified-offer-search" type="search" autocomplete="off" inputmode="search" placeholder="Try: no card, free plan, CRM, email, video..." class="min-h-12 w-full rounded-xl border border-white/10 bg-[#090b10] px-4 py-3 text-sm text-white outline-none placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/20" />
             <button id="verified-offer-reset" type="button" class="min-h-12 shrink-0 rounded-xl border border-white/10 px-4 py-3 text-sm font-bold text-slate-300 hover:bg-white/5">Reset</button>
           </div>
           <div class="mt-3 flex flex-wrap gap-2" aria-label="Quick filters">
             <button type="button" data-offer-query="no card" class="rounded-full border border-white/10 px-3 py-1.5 text-xs font-bold text-slate-300 hover:border-cyan-400/30 hover:text-white">No card</button>
+            <button type="button" data-offer-query="free" class="rounded-full border border-white/10 px-3 py-1.5 text-xs font-bold text-slate-300 hover:border-cyan-400/30 hover:text-white">Free</button>
+            <button type="button" data-offer-query="trial" class="rounded-full border border-white/10 px-3 py-1.5 text-xs font-bold text-slate-300 hover:border-cyan-400/30 hover:text-white">Trial</button>
             <button type="button" data-offer-query="AI" class="rounded-full border border-white/10 px-3 py-1.5 text-xs font-bold text-slate-300 hover:border-cyan-400/30 hover:text-white">AI</button>
-            <button type="button" data-offer-query="forms" class="rounded-full border border-white/10 px-3 py-1.5 text-xs font-bold text-slate-300 hover:border-cyan-400/30 hover:text-white">Forms</button>
+            <button type="button" data-offer-query="CRM" class="rounded-full border border-white/10 px-3 py-1.5 text-xs font-bold text-slate-300 hover:border-cyan-400/30 hover:text-white">CRM</button>
             <button type="button" data-offer-query="B2B" class="rounded-full border border-white/10 px-3 py-1.5 text-xs font-bold text-slate-300 hover:border-cyan-400/30 hover:text-white">B2B</button>
+            <button type="button" data-offer-query="email" class="rounded-full border border-white/10 px-3 py-1.5 text-xs font-bold text-slate-300 hover:border-cyan-400/30 hover:text-white">Email</button>
             <button type="button" data-offer-query="video" class="rounded-full border border-white/10 px-3 py-1.5 text-xs font-bold text-slate-300 hover:border-cyan-400/30 hover:text-white">Video</button>
           </div>
           <p id="verified-offer-search-status" class="mt-3 text-xs font-bold text-cyan-200" aria-live="polite"></p>
@@ -62,8 +65,18 @@ SEARCH_SCRIPT = r'''  <script>
       );
       const groups = Array.from(new Set(cards.map((card) => card.closest('section')).filter(Boolean)));
       const searchable = new Map(cards.map((card) => [card, card.textContent.toLowerCase().replace(/\s+/g, ' ')]));
+      const pageUrl = new URL(window.location.href);
+      const initialOfferQuery = (pageUrl.searchParams.get('offer') || '').trim();
+      if (initialOfferQuery) input.value = initialOfferQuery;
 
-      const apply = () => {
+      const syncOfferParam = (query) => {
+        const url = new URL(window.location.href);
+        if (query) url.searchParams.set('offer', query);
+        else url.searchParams.delete('offer');
+        window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+      };
+
+      const apply = ({ syncUrl = true } = {}) => {
         const query = input.value.trim().toLowerCase();
         const tokens = query.split(/\s+/).filter(Boolean);
         let visible = 0;
@@ -84,9 +97,10 @@ SEARCH_SCRIPT = r'''  <script>
           ? `${visible} of ${cards.length} verified offers match`
           : `${cards.length} verified offers available`;
         empty.classList.toggle('hidden', visible !== 0 || tokens.length === 0);
+        if (syncUrl) syncOfferParam(query);
       };
 
-      input.addEventListener('input', apply);
+      input.addEventListener('input', () => apply());
       input.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
           input.value = '';
@@ -107,7 +121,7 @@ SEARCH_SCRIPT = r'''  <script>
         });
       });
 
-      apply();
+      apply({ syncUrl: false });
     };
 
     if (document.readyState === 'loading') {
@@ -140,6 +154,17 @@ def main() -> None:
         if script_anchor not in html:
             raise SystemExit("Affiliate attribution anchor missing; refusing discovery patch")
         html = html.replace(script_anchor, SEARCH_SCRIPT + script_anchor, 1)
+    else:
+        # Replace the generated discovery panel/script on repeat builds so filter
+        # improvements are durable without touching vendor cards or affiliate URLs.
+        panel_pattern = re.compile(r'<!-- COSHUMA_VERIFIED_OFFER_SEARCH_V1 -->.*?</section>', re.S)
+        html, panel_count = panel_pattern.subn(SEARCH_PANEL.strip(), html, count=1)
+        if panel_count != 1:
+            raise SystemExit("Verified-offer search panel missing or duplicated")
+        script_pattern = re.compile(r'  <script>\n  \(\(\) => \{\n    const initOfferSearch = \(\) => \{.*?\n  </script>\n', re.S)
+        html, script_count = script_pattern.subn(SEARCH_SCRIPT, html, count=1)
+        if script_count != 1:
+            raise SystemExit("Verified-offer discovery script missing or duplicated")
 
     # Run after every verified-offer surfacing script so legacy scripts can keep
     # their fail-closed metadata guards while the final production page receives
@@ -165,6 +190,10 @@ def main() -> None:
         'id="verified-offer-search"',
         'id="verified-offer-search-status"',
         'data-offer-query="no card"',
+        'data-offer-query="free"',
+        'data-offer-query="CRM"',
+        "searchParams.get('offer')",
+        "searchParams.set('offer', query)",
         "initOfferSearch",
         "card.querySelector('[data-cta=\"affiliate\"]')",
         'script defer src="/affiliate-attribution.js"',
@@ -176,7 +205,7 @@ def main() -> None:
             raise SystemExit(f"Verified-offer discovery patch lost required token: {token}")
 
     PAGE.write_text(html, encoding="utf-8")
-    print("verified-offer-discovery-search-v2-seo")
+    print("verified-offer-discovery-search-v3-shareable-intent")
 
 
 if __name__ == "__main__":
