@@ -4,7 +4,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "public" / "best" / "verified-software-free-trials-deals.html"
 MARKER = "<!-- COSHUMA_CATALISTER_VERIFIED_OFFER -->"
 TRACKING_URL = "https://app.catalister.com/signup?via=coshuma"
-GUIDE_URL = "/tool/catalister.html"
+GUIDE_URL = "/best/catalister-free-trial-pricing.html"
 OFFICIAL_URL = "https://catalister.com/"
 
 if not PAGE.exists():
@@ -47,7 +47,7 @@ item25 = (
     '      {"@type":"ListItem","position":24,"name":"Voibe",'
     '"url":"https://coshuma.com/tool/voibe.html"},\n'
     '      {"@type":"ListItem","position":25,"name":"Catalister",'
-    '"url":"https://coshuma.com/tool/catalister.html"}\n'
+    '"url":"https://coshuma.com/best/catalister-free-trial-pricing.html"}\n'
     "    ]"
 )
 if item24 not in html:
