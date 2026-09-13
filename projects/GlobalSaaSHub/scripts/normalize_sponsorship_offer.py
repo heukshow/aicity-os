@@ -150,6 +150,7 @@ def main() -> None:
         "surface_omi_verified_offer.py",
         "surface_eprofessor_verified_offer.py",
         "surface_omnisend_verified_offer.py",
+        "surface_cartstack_verified_offer.py",
         "improve_verified_offer_discovery.py",
     ):
         try:
