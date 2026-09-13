@@ -1,3 +1,4 @@
+import './ensure_beehiiv_tool_cycle.mjs';
 import fs from 'node:fs';
 
 const invideo = {
