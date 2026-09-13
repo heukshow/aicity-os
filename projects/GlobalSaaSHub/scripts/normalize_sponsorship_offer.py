@@ -9,6 +9,7 @@ affiliate URLs, or payment state.
 from pathlib import Path
 import re
 import runpy
+import subprocess
 from prepare_sponsored_inventory import main as prepare_sponsored_inventory
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -129,6 +130,26 @@ def ensure_sitemap() -> None:
         sitemap.write_text(text, encoding="utf-8")
 
 
+def run_fastlane_state_finalizers() -> None:
+    """Reapply new-tool authoritative state after older build scripts have run.
+
+    Several legacy reconciliation scripts still rewrite the shared affiliate-state
+    JSON from older snapshots. The fast-lane finalizers are idempotent and must run
+    at the end so Scribe/Supademo, Landingi and Leadpages survive into the source
+    files persisted by the deploy workflow. This changes no customer tracking URL.
+    """
+    for script_name in (
+        "ensure_scribe_fastlane.mjs",
+        "ensure_landingi_fastlane.mjs",
+        "ensure_leadpages_fastlane.mjs",
+    ):
+        subprocess.run(
+            ["node", str(ROOT / "scripts" / script_name)],
+            cwd=ROOT,
+            check=True,
+        )
+
+
 def main() -> None:
     for script_name in (
         "surface_murf_verified_offer.py",
@@ -177,6 +198,7 @@ def main() -> None:
     home_changed = ensure_home_advertise_link()
     ensure_sitemap()
     prepare_sponsored_inventory()
+    run_fastlane_state_finalizers()
     print(f"normalize_sponsorship_offer: scanned={scanned} changed={changed} homepage_link_added={home_changed} checkout_cta=disabled")
 
 
