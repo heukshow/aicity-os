@@ -854,6 +854,23 @@
     "github_issue": 474
   },
   {
+    "id": "leadpages-partnerstack-2026-09-14",
+    "tool_id": "leadpages",
+    "priority": "medium",
+    "status": "browser_required_portal_access",
+    "affiliate_status": "browser_required_portal_access",
+    "application_state": "not_submitted",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "user_action_required": false,
+    "blocker": "The official Leadpages affiliate application is an authenticated JavaScript PartnerStack flow. This automation run has no authenticated interactive PartnerStack session.",
+    "reason": "GitHub and Gmail duplicate checks were clear, but application submission has not occurred and no customer tracking URL is verified.",
+    "next_action": "Reuse the existing COSHUMA PartnerStack identity in browser/Work. If an existing Leadpages relationship is present, recover the issued exact customer link; otherwise submit the free application once. Stop for CAPTCHA, OTP, legal agreement, forced identity verification, or payment approval.",
+    "do_not_reapply": true,
+    "verified_at": "2026-09-14T06:15:00+09:00",
+    "github_issue": 477
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",
