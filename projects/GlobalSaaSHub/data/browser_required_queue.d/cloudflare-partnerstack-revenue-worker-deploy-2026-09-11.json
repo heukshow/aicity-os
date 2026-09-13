@@ -1,23 +1,23 @@
 {
   "id": "cloudflare-partnerstack-revenue-worker-deploy-2026-09-11",
   "tool_id": "coshuma-private-ops",
-  "priority": "high",
+  "priority": "critical",
   "status": "browser_required_predeploy_verified",
   "affiliate_status": null,
   "cost": 0,
-  "verified_at": "2026-09-11T05:37:04+09:00",
+  "verified_at": "2026-09-13T21:14:00+09:00",
   "github_issue": 375,
   "worker_name": "globalsaashub-payments",
-  "ci_run_id": 34527415466,
-  "ci_head_sha": "4a8c2363638afcf27231f11e6d153934233f377e",
+  "ci_run_id": 34756517681,
+  "ci_head_sha": "57ff9a0d915f8148acbf16aa13170a47b8e1843e",
   "ci_status": "success",
-  "reason": "Final PartnerStack revenue-accounting source separates reward status from payment status, excludes declined rewards from recognized earnings, paginates beyond the first 250 records, fails closed for mixed currencies, queries payout coverage independently, exposes aggregate commission/payment availability metrics through authenticated private ops, and adds a private dashboard panel for recognized rewards, unpaid status, paid rewards, currently available funds and withdrawn funds. COSHUMA Worker Revenue Safety run 34527415466 passed the full Worker test suite and wrangler deploy --dry-run for commit 4a8c2363638afcf27231f11e6d153934233f377e. Production Cloudflare Worker deployment still requires the existing authenticated Cloudflare environment and has not been claimed as completed.",
-  "next_action": "Reuse the existing authorized Cloudflare environment only. Deploy current main Worker only while it contains verified Worker commit 4a8c2363638afcf27231f11e6d153934233f377e or an equivalent later green Worker revision, then verify /health without payment transactions and authenticate as support@coshuma.com to read only aggregate /ops/partnerstack-summary.json and the private revenue panel. Record coverage and totals without exposing secrets or customer records.",
+  "reason": "Security hardening is merged and predeploy-verified. The current Worker revision removes the fixed public /ops-login route, requires the secret ADMIN_PATH for admin access, defaults server-side checkout to CHECKOUT_ENABLED=false, requires the exact allowed Origin plus JSON for browser payment mutations, constrains request sizes, reduces health endpoint disclosure, adds restrictive response security headers, and preserves PayPal webhook signature verification. COSHUMA Worker Revenue Safety run 34756517681 passed Worker tests and wrangler deploy --dry-run for commit 57ff9a0d915f8148acbf16aa13170a47b8e1843e. Production Cloudflare Worker deployment still requires the existing authenticated Cloudflare environment and has not been claimed as completed.",
+  "next_action": "Reuse the existing authorized Cloudflare environment only and deploy current main Worker at commit 57ff9a0d915f8148acbf16aa13170a47b8e1843e or a later equivalent green revision. Do not create new infrastructure. After deploy, verify only that /health returns a minimal ok response, the former fixed /ops-login route is not available, the secret ADMIN_PATH still authenticates correctly, and payment create/capture remain unavailable while CHECKOUT_ENABLED=false. Do not make a payment transaction.",
   "do_not": [
     "Do not create a new Worker, Cloudflare account, D1 database, DNS record, paid plan or secret.",
     "Do not change PayPal, payout, affiliate, or Cloudflare secret values.",
+    "Do not enable CHECKOUT_ENABLED until payment readiness is explicitly reverified.",
     "Do not create test purchases or payment transactions.",
-    "Do not treat PartnerStack aggregate totals as all-network COSHUMA revenue.",
-    "Do not expose API keys, customer identities, payout credentials, or other secrets."
+    "Do not expose ADMIN_PATH, API keys, customer identities, payout credentials, or other secrets."
   ]
 }
