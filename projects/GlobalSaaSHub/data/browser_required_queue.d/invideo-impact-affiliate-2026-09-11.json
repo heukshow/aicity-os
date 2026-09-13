@@ -9,7 +9,7 @@
   "registered_email": "support@coshuma.com",
   "official_program_url": "https://invideo.io/make/affiliate-program/",
   "network": "Impact.com",
-  "evidence_checked_at": "2026-09-11T05:26:00Z",
+  "evidence_checked_at": "2026-09-13T14:26:00Z",
   "official_terms": {
     "join_cost": "free",
     "monthly_plan_commission": "50% first billing cycle",
@@ -19,11 +19,28 @@
     "paid_upgrade_attribution_after_attributed_signup": "official InVideo help says attributed signup remains eligible when later upgrading",
     "payout_network": "Impact.com"
   },
+  "vendor_confirmation": {
+    "confirmed_at": "2026-09-13T14:21:33Z",
+    "gmail_message_id": "1a09b2519d5a6701",
+    "sender": "Eva / InVideo Customer Success Team <support.eva@invideo.io>",
+    "confirmed_program": "InVideo Affiliate Program through Impact",
+    "confirmed_join_cost": "zero-cost official enrollment route through Impact",
+    "confirmed_commission": "up to 50% on monthly plans and 25% on annual plans",
+    "confirmed_tracking": "a unique referral link is issued after signup/approval through the program",
+    "duplicate_guidance": "If no existing application or tracking link is found for support@coshuma.com, InVideo says applying through Impact is the correct authorized path. If an existing record exists, status and exact customer-facing tracking link should be recovered from the Impact dashboard instead of reapplying."
+  },
+  "gmail_cross_check": {
+    "checked_at": "2026-09-13T14:26:00Z",
+    "query": "in:anywhere (invideo OR \"invideo.io\")",
+    "coverage": "Inbox, Sent, Spam and Trash via in:anywhere",
+    "result": "Only the September 13 COSHUMA inquiry and Eva's reply were found. No older InVideo application, approval, rejection, tracking-link, commission or payout mail was found in the connected support@coshuma.com mailbox."
+  },
   "preflight": [
     "Reuse the existing COSHUMA Impact account if available.",
     "Before submitting, search the Impact account for an existing InVideo partnership or application.",
     "If an existing partnership/application is found, do not reapply; recover its exact status and issued customer-facing tracking URL instead.",
-    "support@coshuma.com Gmail search found no prior InVideo application/approval/rejection/tracking/commission/payout email in the last 180 days as of 2026-09-11."
+    "Vendor support explicitly confirmed on 2026-09-13 that Impact is the correct zero-cost route and that a new application is authorized only when no existing InVideo record is present.",
+    "support@coshuma.com Gmail in:anywhere cross-check found no older InVideo application/approval/rejection/tracking/commission/payout email as of 2026-09-13."
   ],
   "allowed_actions": [
     "Open the official InVideo affiliate page.",
