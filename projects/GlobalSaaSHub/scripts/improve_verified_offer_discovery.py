@@ -4,11 +4,21 @@ The buyer hub now contains many vendor-verified customer routes. This patch redu
 choice friction without changing affiliate destinations, pricing claims, ranking,
 or revenue state. It only filters offer cards already present in the final page.
 """
+from html import escape
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "public" / "best" / "verified-software-free-trials-deals.html"
 MARKER = "<!-- COSHUMA_VERIFIED_OFFER_SEARCH_V1 -->"
+HUB_DESCRIPTION = (
+    "Compare verified SaaS free trials and partner offers across AI, CRM, email, forms, "
+    "video and sales tools, with pricing context and disclosed referral links."
+)
+HUB_OG_DESCRIPTION = (
+    "Compare low-risk SaaS trials and verified COSHUMA partner routes across AI, CRM, "
+    "email, forms, video and sales tools before you subscribe."
+)
 
 SEARCH_PANEL = r'''<!-- COSHUMA_VERIFIED_OFFER_SEARCH_V1 -->
     <section data-offer-search-panel class="rounded-3xl border border-cyan-400/20 bg-[#11131a] p-6 md:p-7" aria-labelledby="verified-offer-search-heading">
@@ -131,6 +141,25 @@ def main() -> None:
             raise SystemExit("Affiliate attribution anchor missing; refusing discovery patch")
         html = html.replace(script_anchor, SEARCH_SCRIPT + script_anchor, 1)
 
+    # Run after every verified-offer surfacing script so legacy scripts can keep
+    # their fail-closed metadata guards while the final production page receives
+    # durable search/social copy that does not become stale as vendors are added.
+    head, body = html.split("</head>", 1)
+    for pattern, replacement in (
+        (
+            r'<meta name="description" content="[^"]*"\s*/?>',
+            f'<meta name="description" content="{escape(HUB_DESCRIPTION)}" />',
+        ),
+        (
+            r'<meta property="og:description" content="[^"]*"\s*/?>',
+            f'<meta property="og:description" content="{escape(HUB_OG_DESCRIPTION)}" />',
+        ),
+    ):
+        head, count = re.subn(pattern, lambda _: replacement, head, flags=re.S)
+        if count != 1:
+            raise SystemExit(f"Verified-offer metadata field missing or duplicated: {pattern}")
+    html = head + "</head>" + body
+
     required = (
         MARKER,
         'id="verified-offer-search"',
@@ -139,13 +168,15 @@ def main() -> None:
         "initOfferSearch",
         "card.querySelector('[data-cta=\"affiliate\"]')",
         'script defer src="/affiliate-attribution.js"',
+        f'<meta name="description" content="{escape(HUB_DESCRIPTION)}"',
+        f'<meta property="og:description" content="{escape(HUB_OG_DESCRIPTION)}"',
     )
     for token in required:
         if token not in html:
             raise SystemExit(f"Verified-offer discovery patch lost required token: {token}")
 
     PAGE.write_text(html, encoding="utf-8")
-    print("verified-offer-discovery-search-v1")
+    print("verified-offer-discovery-search-v2-seo")
 
 
 if __name__ == "__main__":
