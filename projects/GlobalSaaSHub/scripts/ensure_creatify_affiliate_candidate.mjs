@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import './ensure_creatify_seo_discovery.mjs';
 
 const dataDir = new URL('../data/', import.meta.url);
 const queuePath = new URL('browser_required_queue.json', dataDir);
