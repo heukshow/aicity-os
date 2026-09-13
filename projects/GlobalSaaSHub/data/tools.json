@@ -3344,6 +3344,46 @@
     "affiliate_rejection_reason": "Application page returned 'This deployment is temporarily paused' in the live browser on 2026-09-01."
   },
   {
+    "id": "mailerlite",
+    "name": "MailerLite",
+    "category": "marketing_auto",
+    "category_display": "Marketing Automation",
+    "description": "Email marketing platform for campaigns, automation, landing pages, forms, websites, and digital products, with a permanent free plan for small lists.",
+    "affiliate_url": null,
+    "pricing": "Free $0/month for up to 250 subscribers and 2,500 monthly emails; Comfort from $12/month; 14-day premium-feature trial for new accounts",
+    "key_features": [
+      "Email campaigns and newsletter editors",
+      "Visual automations",
+      "Landing pages, websites, forms and pop-ups",
+      "Digital products and booking features"
+    ],
+    "rating": null,
+    "logo_url": "https://www.google.com/s2/favicons?domain=mailerlite.com&sz=128",
+    "primary_category": "marketing_auto",
+    "comparison_group": "marketing_auto",
+    "official_url": "https://www.mailerlite.com/",
+    "pricing_source_url": "https://www.mailerlite.com/pricing",
+    "pricing_verified_at": "2026-09-14T04:40:00+09:00",
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "current official monthly pricing and free-plan limits",
+    "evidence_source_type": "official_pricing_and_affiliate_pages",
+    "is_manual_override": true,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-09-14T04:40:00+09:00",
+    "official_evidence_url": "https://www.mailerlite.com/affiliate",
+    "affiliate_verified": false,
+    "affiliate_status": "browser_required_trackdesk_application",
+    "affiliate_source_url": "https://www.mailerlite.com/affiliate",
+    "affiliate_verified_at": null,
+    "affiliate_evidence_markers": [
+      "MailerLite official affiliate page advertises 30% recurring lifetime commission and a 45-day referral cookie through Trackdesk",
+      "Exact official application route verified as https://mailerlite.trackdesk.com/sign-up",
+      "No prior MailerLite application, approval, rejection, vendor thread, or customer tracking URL was found in support@coshuma.com Gmail on 2026-09-14",
+      "Application remains unsubmitted because the Trackdesk form requires an interactive browser flow; do not use generic MailerLite pages as referral URLs"
+    ]
+  },
+  {
     "id": "make-com",
     "name": "Make.com",
     "category": "dev_coding",
