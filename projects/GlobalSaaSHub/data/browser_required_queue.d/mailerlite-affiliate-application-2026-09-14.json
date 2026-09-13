@@ -1,0 +1,23 @@
+{
+  "tool": "mailerlite",
+  "task": "affiliate_application",
+  "status": "browser_required_trackdesk_application",
+  "application_url": "https://mailerlite.trackdesk.com/sign-up",
+  "affiliate_program_url": "https://www.mailerlite.com/affiliate",
+  "cost": 0,
+  "duplicate_check": {
+    "github": "no_existing_mailerlite_record_found_before_cycle",
+    "gmail": "no_prior_mailerlite_application_approval_rejection_or_tracking_record_found"
+  },
+  "user_action_required": "Interactive Trackdesk account/application form completion; CAPTCHA, OTP, legal consent, or forced identity verification must be handed to the user if encountered.",
+  "do_not_claim": [
+    "application_submitted",
+    "approved",
+    "affiliate_tracking_url_verified",
+    "signup",
+    "paid_customer",
+    "commission",
+    "revenue"
+  ],
+  "checked_at": "2026-09-14T04:40:00+09:00"
+}
