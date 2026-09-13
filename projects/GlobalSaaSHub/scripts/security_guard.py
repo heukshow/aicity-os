@@ -2,7 +2,6 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-REPO = ROOT.parents[1]
 PUBLIC = ROOT / "public"
 DIST = ROOT / "dist"
 
@@ -36,13 +35,19 @@ def walk_files(base: Path):
 def main() -> None:
     errors = []
 
-    for path in walk_files(REPO):
-        rel = path.relative_to(REPO)
+    # COSHUMA must not track credential-shaped files anywhere in its own project.
+    # Scope this check to GlobalSaaSHub so unrelated repository projects cannot
+    # break the COSHUMA production pipeline because of their own fixtures/assets.
+    for path in walk_files(ROOT):
+        rel = path.relative_to(ROOT)
         if any(part in {"node_modules", ".git", "dist"} for part in rel.parts):
             continue
         if path.name in FORBIDDEN_FILENAMES or path.suffix.lower() in FORBIDDEN_SUFFIXES:
-            errors.append(f"credential-shaped file must not be tracked: {rel}")
+            errors.append(f"credential-shaped file must not be tracked in COSHUMA: {rel}")
 
+    # Public output receives stricter content checks. Environment-variable names
+    # are allowed in server/source code, but values/assignments and private account
+    # addresses must never reach public/ or the built production bundle.
     for base in (PUBLIC, DIST):
         for path in walk_files(base):
             if path.suffix.lower() not in {".html", ".js", ".json", ".txt", ".xml", ".css"}:
@@ -63,7 +68,7 @@ def main() -> None:
             print(f" - {error}")
         raise SystemExit(1)
 
-    print("SECURITY GUARD: PASS — no tracked credential-shaped files or public secret markers detected")
+    print("SECURITY GUARD: PASS — COSHUMA contains no tracked credential-shaped files or public secret markers")
 
 
 if __name__ == "__main__":
