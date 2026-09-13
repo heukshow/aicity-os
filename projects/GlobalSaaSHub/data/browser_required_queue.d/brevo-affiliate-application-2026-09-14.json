@@ -1,0 +1,23 @@
+{
+  "id": "brevo-affiliate-application-20260914",
+  "tool_id": "brevo",
+  "priority": "medium",
+  "status": "browser_required_partnerstack_application",
+  "affiliate_status": "application_available_partnerstack_review_required",
+  "cost": 0,
+  "registered_email": "support@coshuma.com",
+  "official_program_url": "https://www.brevo.com/partners/affiliates/",
+  "requirements": [
+    "primary website",
+    "professional website-domain email",
+    "application review by Brevo"
+  ],
+  "duplicate_check": "GitHub search and support@coshuma.com Gmail in:anywhere search found no prior Brevo application, approval, rejection, or issued tracking URL before this cycle.",
+  "next_action": "Use the existing COSHUMA identity and support@coshuma.com to submit the official Brevo affiliate application when direct browser interaction is available. Stop only for CAPTCHA, OTP, legal consent, or forced identity verification. After approval, recover only the exact Brevo/PartnerStack-issued customer tracking URL before changing public CTA state.",
+  "guardrails": [
+    "Do not create a duplicate application",
+    "Do not treat the PartnerStack dashboard, onboarding URL, or generic Brevo homepage as an affiliate link",
+    "Do not infer clicks, signups, paid customers, commission, payout, or revenue from application submission or approval alone",
+    "No paid subscription or checkout"
+  ]
+}
