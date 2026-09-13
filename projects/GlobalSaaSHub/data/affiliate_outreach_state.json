@@ -683,6 +683,17 @@
       "github_issue": 480,
       "checked_at": "2026-09-14T06:29:00+09:00",
       "note": "Official Instapage affiliate program and exact PartnerStack route are confirmed, but no existing COSHUMA Instapage application or issued customer tracking URL was found in GitHub/Gmail. Authenticated PartnerStack access is required before one-time submission or exact-link recovery. Do not use the PartnerStack URL as a customer CTA."
+    },
+    "popupsmart": {
+      "status": "browser_required_account_registration",
+      "tracking_url": null,
+      "application_state": "not_submitted",
+      "account": "support@coshuma.com",
+      "official_program_url": "https://popupsmart.com/affiliate-program",
+      "workflow_url": "https://app.popupsmart.com/",
+      "github_issue": 482,
+      "checked_at": "2026-09-14T07:31:00+09:00",
+      "note": "Official Popupsmart affiliate program is active, free-account entry is available without a credit card, and the vendor says approval is not required. No existing COSHUMA Popupsmart application/account-specific referral URL was found in GitHub or Gmail. Do not use the app URL as a customer CTA."
     }
   }
 }

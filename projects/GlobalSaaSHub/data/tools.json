@@ -5293,6 +5293,12 @@
       "No exact customer tracking URL, approval, signup, paid customer, commission or revenue is verified.",
       "2026-09-13: COSHUMA affiliate inquiry sent to support@supademo.com (Gmail 1a09b43356bc3947).",
       "Supademo Intercom acknowledged receipt (Gmail 1a09b43b5ba55b97); human vendor response remains pending.",
+      "No exact customer tracking URL, approval, signup, paid customer, commission or revenue is verified.",
+      "2026-09-13: COSHUMA affiliate inquiry sent to support@supademo.com (Gmail 1a09b43356bc3947).",
+      "Supademo Intercom acknowledged receipt (Gmail 1a09b43b5ba55b97); human vendor response remains pending.",
+      "No exact customer tracking URL, approval, signup, paid customer, commission or revenue is verified.",
+      "2026-09-13: COSHUMA affiliate inquiry sent to support@supademo.com (Gmail 1a09b43356bc3947).",
+      "Supademo Intercom acknowledged receipt (Gmail 1a09b43b5ba55b97); human vendor response remains pending.",
       "No exact customer tracking URL, approval, signup, paid customer, commission or revenue is verified."
     ],
     "affiliate_status_checked_at": "2026-09-07T21:35:04.579403+00:00",
@@ -6430,5 +6436,53 @@
       "35% recurring",
       "approved the same day"
     ]
+  },
+  {
+    "id": "popupsmart",
+    "name": "Popupsmart",
+    "category": "dev_coding",
+    "category_display": "Coding & Dev Tools",
+    "description": "Conversion-focused popup and onsite messaging platform for lead capture, announcements, ecommerce offers, gamification, targeting and campaign analytics.",
+    "affiliate_url": null,
+    "pricing": "Forever-free plan; monthly list prices: Basic $39, Advanced $69, Pro $99, Expert $159; annual billing offers lower effective pricing",
+    "key_features": [
+      "Popup and onsite campaign builder",
+      "Lead-capture forms and ecommerce offers",
+      "Audience targeting and trigger rules",
+      "Gamification and announcement campaigns",
+      "Campaign analytics and integrations"
+    ],
+    "rating": null,
+    "logo_url": "https://www.google.com/s2/favicons?domain=popupsmart.com&sz=128",
+    "primary_category": "dev_coding",
+    "comparison_group": "conversion_optimization",
+    "official_url": "https://popupsmart.com/",
+    "pricing_source_url": "https://popupsmart.com/pricing",
+    "pricing_verified_at": "2026-09-14T07:31:00+09:00",
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "monthly or annual depending on plan",
+    "evidence_source_type": "official_pricing_home_and_affiliate_pages",
+    "is_manual_override": true,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-09-14T07:31:00+09:00",
+    "official_evidence_url": "https://popupsmart.com/affiliate-program",
+    "affiliate_verified": false,
+    "affiliate_status": "browser_required_account_registration",
+    "affiliate_source_url": "https://popupsmart.com/affiliate-program",
+    "affiliate_workflow_url": "https://app.popupsmart.com/",
+    "affiliate_status_checked_at": "2026-09-14T07:31:00+09:00",
+    "application_state": "not_submitted",
+    "affiliate_evidence_markers": [
+      "Official Popupsmart affiliate page states no approval is required and a unique referral link is available after registering a Popupsmart account.",
+      "Official current affiliate terms advertise 30% recurring commission on eligible paid subscriptions, a 30-day cookie and 50% off for referred customers for their first 3 months.",
+      "Official Popupsmart pages advertise a forever-free plan and no credit card required to get started.",
+      "Official affiliate calculator currently shows monthly list prices Basic $39, Advanced $69, Pro $99 and Expert $159; annual billing can be lower.",
+      "GitHub search found no pre-existing COSHUMA Popupsmart record before this fast-lane cycle.",
+      "support@coshuma.com Gmail in:anywhere search found no prior Popupsmart application, approval, rejection, tracking-link, commission or payout message.",
+      "Exact account-specific customer tracking URL is unknown; app/dashboard/onboarding/homepage URLs must not be used as customer revenue links.",
+      "GitHub issue #482 tracks the free account registration and exact vendor-issued referral-link recovery step."
+    ],
+    "affiliate_next_action": "Use the official Popupsmart free registration flow with the COSHUMA company account, avoid duplicate account creation, then recover and validate only the exact vendor-issued customer referral URL. Stop for CAPTCHA, OTP, legal consent, forced identity verification or payment approval."
   }
 ]
