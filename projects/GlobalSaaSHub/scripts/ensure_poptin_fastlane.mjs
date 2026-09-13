@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import './ensure_creatify_fastlane.mjs';
 
 const checkedAt='2026-09-14T07:38:00+09:00';
 const poptin={
