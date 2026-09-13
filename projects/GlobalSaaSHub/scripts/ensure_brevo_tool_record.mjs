@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import './ensure_mailerlite_tool_record.mjs';
 
 const brevo = {
   id: 'brevo',
