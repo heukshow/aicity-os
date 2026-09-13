@@ -6460,5 +6460,53 @@
       "35% recurring",
       "approved the same day"
     ]
+  },
+  {
+    "id": "poptin",
+    "name": "Poptin",
+    "category": "dev_coding",
+    "category_display": "Coding & Dev Tools",
+    "description": "Popup, form and onsite conversion platform with targeting, triggers, A/B testing, coupons, integrations and built-in email marketing automation.",
+    "affiliate_url": null,
+    "pricing": "Free Forever for up to 1,000 visitors/month; Basic, Pro and Agency paid tiers available with monthly/annual billing options",
+    "key_features": [
+      "Popup and form builder",
+      "Exit-intent and behavior triggers",
+      "Advanced targeting rules",
+      "A/B testing and campaign analytics",
+      "Email campaigns, automation and 70+ native integrations"
+    ],
+    "rating": null,
+    "logo_url": "https://www.google.com/s2/favicons?domain=poptin.com&sz=128",
+    "primary_category": "dev_coding",
+    "comparison_group": "conversion_optimization",
+    "official_url": "https://www.poptin.com/",
+    "pricing_source_url": "https://www.poptin.com/pricing/",
+    "pricing_verified_at": "2026-09-14T07:38:00+09:00",
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "monthly or annual depending on plan",
+    "evidence_source_type": "official_pricing_and_affiliate_pages",
+    "is_manual_override": true,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-09-14T07:38:00+09:00",
+    "official_evidence_url": "https://www.poptin.com/affiliate/",
+    "affiliate_verified": false,
+    "affiliate_status": "browser_required_account_registration",
+    "affiliate_source_url": "https://www.poptin.com/affiliate/",
+    "affiliate_workflow_url": "https://app.popt.in/",
+    "affiliate_status_checked_at": "2026-09-14T07:38:00+09:00",
+    "application_state": "not_submitted",
+    "affiliate_evidence_markers": [
+      "Official Poptin affiliate page states the program is open to all and registration is free.",
+      "Official program says the unique affiliate link is provided in the authenticated control panel.",
+      "Official current program advertises a 90-day cookie window and lifetime 25% monthly commission for each new paying member recruited.",
+      "Official pricing and affiliate pages advertise a Free Forever account for 1,000 visitors per month and no credit card required.",
+      "GitHub search found no pre-existing COSHUMA Poptin record before this fast-lane cycle.",
+      "support@coshuma.com Gmail in:anywhere search found no prior Poptin application, approval, rejection, tracking-link, commission or payout message.",
+      "Exact account-specific customer referral URL is unknown; app/dashboard/login/onboarding/homepage URLs must not be used as affiliate CTAs.",
+      "GitHub issue #485 tracks the free account registration and exact control-panel referral URL recovery."
+    ],
+    "affiliate_next_action": "Use the official Poptin free registration with the COSHUMA company account, avoid duplicate account creation, then recover and validate only the unique vendor-issued customer referral URL from the authenticated control panel. Stop for CAPTCHA, OTP, legal consent, forced identity verification or payment approval."
   }
 ]
