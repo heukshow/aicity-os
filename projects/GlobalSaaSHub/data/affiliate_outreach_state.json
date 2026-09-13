@@ -650,6 +650,17 @@
       "official_program_url": "https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program",
       "checked_at": "2026-09-14T05:40:00+09:00",
       "note": "Official Scribe support confirms an affiliate program, but the exact signup destination is still being vendor-verified because unrelated products share the Scribe name. One verification inquiry was sent; do not duplicate outreach. No customer tracking URL is verified."
+    },
+    "landingi": {
+      "status": "browser_required_portal_access",
+      "tracking_url": null,
+      "application_state": "not_submitted",
+      "account": "support@coshuma.com",
+      "official_program_url": "https://landingi.com/help/affiliate-program-faq/",
+      "workflow_url": "https://landingi.partnerstack.com/",
+      "github_issue": 474,
+      "checked_at": "2026-09-14T06:05:00+09:00",
+      "note": "Official program is confirmed, but no existing COSHUMA Landingi application or issued customer tracking URL was found in GitHub/Gmail. Authenticated PartnerStack access is required before a one-time application or exact-link recovery. Do not use the portal URL as a customer CTA."
     }
   }
 }
