@@ -9,6 +9,10 @@ Evidence used:
   14-day free trial with no credit card.
 - Unbounce partner program: referred customers receive 20% off first 3 months or
   35% off first annual subscription; 90-day tracking cookie.
+- Unbounce Affiliate Team email 1a09606cd37312f7, received 2026-09-12, says
+  referrals can connect Unbounce directly with Mailchimp, Marketo and Salesforce,
+  use Zapier templates, or send captured lead data through webhooks. The email also
+  reconfirms COSHUMA's exact existing referral URL.
 
 This patch is intentionally exact-match and idempotent. It does not change the
 verified referral URL or infer signups, commission, or revenue.
@@ -59,6 +63,37 @@ for before, after in replacements:
     if before in html:
         html = html.replace(before, after, 1)
         changed += 1
+
+marker = '<!-- COSHUMA_UNBOUNCE_INTEGRATION_FIT_20260913 -->'
+anchor = '''      <section class="rounded-3xl border border-[#262a3d] bg-[#121520] p-6 md:p-8 space-y-5">
+        <div>
+          <div class="text-xs uppercase tracking-widest text-purple-300 font-bold">Why the partner route matters</div>'''
+integration_block = '''      <!-- COSHUMA_UNBOUNCE_INTEGRATION_FIT_20260913 -->
+      <section class="rounded-3xl border border-cyan-500/20 bg-cyan-500/5 p-6 md:p-8 space-y-5">
+        <div>
+          <div class="text-xs uppercase tracking-widest text-cyan-300 font-bold">Fit check before you start</div>
+          <h2 class="text-3xl font-black text-white mt-1">Unbounce fits best when your leads already need somewhere to go</h2>
+          <p class="text-sm text-slate-300 leading-relaxed mt-3">Unbounce's Affiliate Team specifically highlighted connected marketing stacks as a retention driver for referred customers. Before starting the trial, check whether your workflow already depends on one of the integration paths below.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="rounded-2xl border border-cyan-400/15 bg-black/20 p-5"><div class="text-sm font-extrabold text-white">Native integrations</div><div class="mt-2 text-sm leading-6 text-slate-300">Unbounce's partner guidance names Mailchimp, Marketo and Salesforce as examples that can connect directly from the Unbounce dashboard.</div></div>
+          <div class="rounded-2xl border border-cyan-400/15 bg-black/20 p-5"><div class="text-sm font-extrabold text-white">Zapier workflows</div><div class="mt-2 text-sm leading-6 text-slate-300">Use Zapier when your captured leads need to move into other apps without building a custom integration from scratch.</div></div>
+          <div class="rounded-2xl border border-cyan-400/15 bg-black/20 p-5"><div class="text-sm font-extrabold text-white">Webhooks</div><div class="mt-2 text-sm leading-6 text-slate-300">Use webhooks when you need custom lead-data routing, transformation or delivery into another system.</div></div>
+        </div>
+        <div class="rounded-2xl border border-amber-500/20 bg-amber-500/5 p-5 text-sm leading-6 text-slate-300">This is buyer-fit guidance from Unbounce's affiliate team, not a COSHUMA performance claim. Your actual retention and conversion results depend on your traffic, offer and implementation.</div>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a data-cta="affiliate" data-tool-id="unbounce" data-cta-source="tool-integration-fit" href="https://unbounce.partnerlinks.io/5ubjnt8lluqi" target="_blank" rel="sponsored noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-extrabold text-center">Start the verified 14-day Unbounce route →</a>
+          <a href="/best/unbounce-discount.html" class="px-6 py-3.5 rounded-xl border border-cyan-400/20 bg-black/20 text-cyan-100 font-bold text-center hover:bg-black/30">Review the partner discount first →</a>
+        </div>
+      </section>
+
+'''
+
+if marker not in html:
+    if anchor not in html:
+        raise SystemExit("Unbounce partner-route section anchor changed; refusing blind integration-fit patch")
+    html = html.replace(anchor, integration_block + anchor, 1)
+    changed += 1
 
 if html != original:
     PAGE.write_text(html, encoding="utf-8")
