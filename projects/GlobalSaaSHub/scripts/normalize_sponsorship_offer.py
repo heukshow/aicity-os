@@ -135,13 +135,14 @@ def run_fastlane_state_finalizers() -> None:
 
     Several legacy reconciliation scripts still rewrite the shared affiliate-state
     JSON from older snapshots. The fast-lane finalizers are idempotent and must run
-    at the end so Scribe/Supademo, Landingi and Leadpages survive into the source
-    files persisted by the deploy workflow. This changes no customer tracking URL.
+    at the end so Scribe/Supademo, Landingi, Leadpages and Instapage survive into the
+    source files persisted by the deploy workflow. This changes no customer tracking URL.
     """
     for script_name in (
         "ensure_scribe_fastlane.mjs",
         "ensure_landingi_fastlane.mjs",
         "ensure_leadpages_fastlane.mjs",
+        "ensure_instapage_fastlane.mjs",
     ):
         subprocess.run(
             ["node", str(ROOT / "scripts" / script_name)],
