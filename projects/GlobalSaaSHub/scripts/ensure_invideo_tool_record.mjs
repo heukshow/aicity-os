@@ -1,5 +1,6 @@
 import './ensure_scribe_fastlane.mjs';
 import './ensure_landingi_fastlane.mjs';
+import './ensure_leadpages_fastlane.mjs';
 import './ensure_beehiiv_tool_cycle.mjs';
 import fs from 'node:fs';
 
