@@ -147,6 +147,7 @@ def main() -> None:
         "surface_aiassistworks_verified_offer.py",
         "surface_taskip_verified_offer.py",
         "surface_clickfunnels_verified_offer.py",
+        "surface_omi_verified_offer.py",
         "improve_verified_offer_discovery.py",
     ):
         try:
