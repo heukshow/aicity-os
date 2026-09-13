@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /ops-private/
+
+Sitemap: https://coshuma.com/sitemap.xml
+# Reviewed 2026-09-11: public buyer guides and comparison pages are intentionally crawlable.

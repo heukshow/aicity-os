@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="50" viewBox="0 0 220 50" fill="none">
+  <rect width="220" height="50" rx="12" fill="#131520" stroke="#8b5cf6" stroke-width="2"/>
+  <rect x="2" y="2" width="216" height="46" rx="10" fill="url(#paint0_linear)"/>
+  <path d="M16 25L21 16H27L22 25L27 34H21L16 25Z" fill="#a855f7"/>
+  <text x="32" y="22" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="11" letter-spacing="0.5">FEATURED ON</text>
+  <text x="32" y="36" fill="#10b981" font-family="sans-serif" font-weight="800" font-size="12">GlobalSaaSHub TOP AI</text>
+  <circle cx="195" cy="25" r="14" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1.5"/>
+  <path d="M190 25L193.5 28.5L200 21.5" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="220" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#181a29"/>
+      <stop offset="1" stop-color="#0f111a"/>
+    </linearGradient>
+  </defs>
+</svg>
