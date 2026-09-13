@@ -705,6 +705,17 @@
       "github_issue": 485,
       "checked_at": "2026-09-14T07:38:00+09:00",
       "note": "Official Poptin affiliate program is open/free and issues a unique link in the control panel. No existing COSHUMA Poptin application or account-specific referral URL was found in GitHub/Gmail. Do not use the app URL as a customer CTA."
+    },
+    "creatify": {
+      "status": "browser_required_affiliate_application",
+      "tracking_url": null,
+      "application_state": "not_submitted",
+      "account": "support@coshuma.com",
+      "official_program_url": "https://creatify.ai/affiliate",
+      "workflow_url": "https://creatify.ai/affiliate",
+      "github_issue": 487,
+      "checked_at": "2026-09-14T08:31:00+09:00",
+      "note": "Official program is free and advertises 25% recurring commission. Fresh Gmail duplicate check is clear. No COSHUMA application submission, approval or account-specific referral URL is proven; customer CTAs remain official non-affiliate URLs."
     }
   }
 }

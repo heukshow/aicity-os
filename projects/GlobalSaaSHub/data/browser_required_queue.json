@@ -814,14 +814,14 @@
   {
     "id": "creatify-affiliate-application-20260912",
     "priority": "high",
-    "status": "browser_required",
-    "cost": "0",
-    "verified_at": "2026-09-12T04:36:00Z",
-    "affiliate_status": "candidate",
-    "reason": "Creatify official affiliate page was rechecked on 2026-09-12. The program is free to join, advertises 25% recurring commission on qualifying purchases, and states that Creatify uses Rewardful. Repository search found no existing Creatify affiliate state or tracking URL, and support@coshuma.com Gmail search found no prior Creatify relationship. The application and any issued unique link require authenticated browser/dashboard handling.",
+    "status": "browser_required_affiliate_application",
+    "cost": 0,
+    "verified_at": "2026-09-14T08:31:00+09:00",
+    "affiliate_status": "browser_required_affiliate_application",
+    "reason": "Fresh repository/Gmail duplicate checks are clear and the official program is free, but no application submission or issued account-specific link is verified.",
     "official_program_url": "https://creatify.ai/affiliate",
     "platform": "Rewardful",
-    "next_action": "Open the official Creatify affiliate page in an authenticated browser and use the existing COSHUMA company identity/support@coshuma.com. Before submission, recheck for an existing account/application. If none exists, complete the free application. Stop for CAPTCHA, OTP, legal/terms consent, payment approval, or forced identity verification. After approval, copy only the exact customer-facing unique referral URL issued by Creatify/Rewardful and verify its destination and attribution before changing any COSHUMA CTA.",
+    "next_action": "Use the official Creatify affiliate route with support@coshuma.com, check for an existing account/application first, and submit once only if absent. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification or payment approval. Recover only the exact vendor-issued referral URL after approval.",
     "do_not": [
       "Do not submit a duplicate application if an existing Creatify account, pending application, approval, rejection, cooldown, closure, or vendor-paused state is found.",
       "Do not treat https://creatify.ai/affiliate, a Rewardful dashboard, login page, onboarding URL, or generic Creatify homepage as a customer affiliate/revenue link.",
@@ -834,7 +834,14 @@
       "gmail_account_checked": "support@coshuma.com",
       "gmail_existing_relationship_found": false,
       "repository_existing_relationship_found": false
-    }
+    },
+    "tool_id": "creatify",
+    "application_state": "not_submitted",
+    "exact_tracking_url": null,
+    "user_action_required": false,
+    "blocker": "Creatify affiliate signup and any unique link require an authenticated vendor/Rewardful flow that is not available in the current direct connector set.",
+    "do_not_reapply": true,
+    "github_issue": 487
   },
   {
     "id": "landingi-partnerstack-2026-09-14",
@@ -903,6 +910,23 @@
     "do_not_reapply": true,
     "verified_at": "2026-09-14T07:31:00+09:00",
     "github_issue": 482
+  },
+  {
+    "id": "poptin-affiliate-2026-09-14",
+    "tool_id": "poptin",
+    "priority": "high",
+    "status": "browser_required_account_registration",
+    "affiliate_status": "browser_required_account_registration",
+    "application_state": "not_submitted",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "user_action_required": false,
+    "blocker": "Poptin provides the unique affiliate link inside its authenticated control panel; this run has no authenticated Poptin UI session.",
+    "reason": "Repository and Gmail duplicate checks are clear and official registration is free, but the account/control-panel step is not complete.",
+    "next_action": "Use the official Poptin free registration with support@coshuma.com, checking for an existing account first. If absent, register once and recover the exact vendor-issued referral URL. Stop for CAPTCHA, OTP, legal agreement, forced identity verification or payment approval.",
+    "do_not_reapply": true,
+    "verified_at": "2026-09-14T07:38:00+09:00",
+    "github_issue": 485
   },
   {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
@@ -989,22 +1013,5 @@
     "resolved_at": "2026-09-09T12:45:09Z",
     "resolution_evidence": "Gmail message 1a08633651c79db9 from Claap affiliate manager Lamia Karmaly supplied both exact URLs; the first is the authoritative default CTA pending destination-label mapping for the second.",
     "blocker": null
-  },
-  {
-    "id": "poptin-affiliate-2026-09-14",
-    "tool_id": "poptin",
-    "priority": "high",
-    "status": "browser_required_account_registration",
-    "affiliate_status": "browser_required_account_registration",
-    "application_state": "not_submitted",
-    "cost": 0,
-    "exact_tracking_url": null,
-    "user_action_required": false,
-    "blocker": "Poptin provides the unique affiliate link inside its authenticated control panel; this run has no authenticated Poptin UI session.",
-    "reason": "Repository and Gmail duplicate checks are clear and official registration is free, but the account/control-panel step is not complete.",
-    "next_action": "Use the official Poptin free registration with support@coshuma.com, checking for an existing account first. If absent, register once and recover the exact vendor-issued referral URL. Stop for CAPTCHA, OTP, legal agreement, forced identity verification or payment approval.",
-    "do_not_reapply": true,
-    "verified_at": "2026-09-14T07:38:00+09:00",
-    "github_issue": 485
   }
 ]
