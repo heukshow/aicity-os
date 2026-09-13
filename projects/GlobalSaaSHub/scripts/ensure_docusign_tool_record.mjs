@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import './ensure_brevo_tool_record.mjs';
 
 const docusign = {
   id: 'docusign',
