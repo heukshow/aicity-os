@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" role="img" aria-labelledby="title desc">
+  <title id="title">COSHUMA brand mark</title>
+  <desc id="desc">Two forward-facing forms representing many options resolving into a clearer next move.</desc>
+  <defs>
+    <linearGradient id="coshumaBlue" x1="10" y1="8" x2="58" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="coshumaLight" x1="44" y1="20" x2="76" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#DCE8F8"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#coshumaBlue)" d="M10 12C10 7.6 13.6 4 18 4h14.5c3.8 0 6.4 1.1 9.2 3.7l19.8 17.8c4.1 3.7 4.1 9.3 0 13L41.7 56.3C39 58.9 36.3 60 32.5 60H18c-4.4 0-8-3.6-8-8V12Z"/>
+  <path fill="#07111F" opacity=".32" d="M38.3 17.1 56.6 29c2.4 1.6 2.4 4.4 0 6L38.3 46.9c-3.5 2.3-7.8-.2-7.8-4.4v-21c0-4.2 4.3-6.7 7.8-4.4Z"/>
+  <path fill="url(#coshumaLight)" d="M47.4 20.4c1.8-1.7 4.4-2 6.5-.7l18.5 10.8c2.3 1.4 2.3 4.6 0 6L53.9 47.3c-2.1 1.3-4.7 1-6.5-.7L36.6 36.5a6.2 6.2 0 0 1 0-9l10.8-7.1Z"/>
+</svg>
