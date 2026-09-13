@@ -3,6 +3,7 @@
 ## Duplicate-state check
 - Repository search for `beehiiv`: no existing COSHUMA tool or affiliate record before this cycle.
 - Company Gmail `support@coshuma.com` search `in:anywhere beehiiv`: no matching received, sent, spam, or trash messages before this cycle.
+- After the signup attempt, Gmail received a beehiiv email-verification message addressed to `support@coshuma.com`. This proves the signup flow reached email verification, but does **not** prove account creation, partner-program enrollment, tracking-link issuance, approval, referral, paid conversion, commission, or revenue.
 
 ## Official product evidence
 - Pricing: https://www.beehiiv.com/pricing
@@ -21,9 +22,10 @@
 
 ## COSHUMA state
 - `affiliate_status`: `application_available_account_required`
+- Signup progress: **email verification / OTP required from the user**.
 - `affiliate_url`: null
 - Exact account-specific customer tracking URL: **not issued / not verified**.
-- Application submission: **not claimed**. The public apply route is a JavaScript app and requires an authenticated beehiiv account/partner session.
+- Application submission: **not claimed**. No authenticated evidence yet shows that the partner enrollment itself was submitted.
 - Customer signups, paid customers, commission and revenue: **unknown / not verified**.
 - Browser/application blocker is tracked in GitHub issue #465.
 
@@ -40,4 +42,4 @@ Verified after the merged deployment on 2026-09-14 KST from an external client:
 - `https://coshuma.com/robots.txt` → HTTP 200; `Allow: /`; sitemap declared; no beehiiv path block.
 
 ## Publishing guard
-Until beehiiv itself issues an account-specific customer tracking link, COSHUMA must use only official non-affiliate beehiiv customer URLs and must not invent referral parameters. Do not claim signup, conversion, commission, or revenue from deployment or link issuance alone.
+Until beehiiv itself issues an account-specific customer tracking link, COSHUMA must use only official non-affiliate beehiiv customer URLs and must not invent referral parameters. Do not claim signup, conversion, commission, or revenue from deployment, an email-verification message, or link issuance alone.
