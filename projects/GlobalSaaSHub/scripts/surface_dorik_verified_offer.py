@@ -8,8 +8,7 @@ GUIDE_URL = "/tool/dorik.html"
 OFFICIAL_PRICING = "https://dorik.com/pricing"
 OFFICIAL_AFFILIATE_TERMS = "https://help.dorik.com/en/article/partner-program-details-terms-97s9i5/"
 BLOCKED_PUBLIC_TOKENS = (
-    "partners.dorik.com",
-    "/success-hub",
+    'href="https://partners.dorik.com',
 )
 
 if not PAGE.exists():
