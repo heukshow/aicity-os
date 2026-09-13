@@ -4734,6 +4734,47 @@
     "affiliate_next_action": "Do not reapply automatically. Keep Scalenut rejected and keep affiliate_url null unless Scalenut explicitly reverses the decision or the user later requests reapplication after materially improved eligibility. Continue using only non-affiliate Scalenut links and monetize relevant buyer intent with separately verified approved alternatives."
   },
   {
+    "id": "scribe",
+    "name": "Scribe",
+    "category": "workflow_auto",
+    "category_display": "Workflow Automation",
+    "description": "Process documentation software that captures workflows and turns them into step-by-step visual guides with screenshots and text.",
+    "affiliate_url": null,
+    "pricing": "Free plan available; Pro Personal, Pro Team and Enterprise plans available",
+    "key_features": [
+      "Automatic step-by-step workflow capture",
+      "Browser capture on all plans",
+      "Desktop capture on Pro",
+      "Screenshot editing and redaction",
+      "Link sharing, embeds and exports"
+    ],
+    "rating": null,
+    "logo_url": "https://www.google.com/s2/favicons?domain=scribehow.com&sz=128",
+    "primary_category": "workflow_auto",
+    "comparison_group": "process_documentation",
+    "official_url": "https://scribehow.com/",
+    "pricing_source_url": "https://scribehow.com/pricing",
+    "pricing_verified_at": "2026-09-14T05:40:00+09:00",
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "monthly or annual depending on plan",
+    "evidence_source_type": "official_product_and_support_pages",
+    "is_manual_override": true,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-09-14T05:40:00+09:00",
+    "official_evidence_url": "https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program",
+    "affiliate_verified": false,
+    "affiliate_status": "outreach_sent",
+    "affiliate_source_url": "https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program",
+    "affiliate_verified_at": "2026-09-14T05:40:00+09:00",
+    "affiliate_evidence_markers": [
+      "Official Scribe Support Portal confirms an affiliate program exists and is open to everyone.",
+      "Gmail all-mail search found no prior COSHUMA Scribe application, approval, rejection or issued customer tracking URL before outreach.",
+      "COSHUMA sent one verification inquiry to support@scribehow.com on 2026-09-14; Gmail message id 1a09c7a8e9029ff0.",
+      "Exact affiliate application destination and account-specific customer tracking URL remain unverified; do not publish a guessed Rewardful or generic signup URL."
+    ]
+  },
+  {
     "id": "seamless",
     "name": "Seamless",
     "category": "sales_crm",
@@ -5084,13 +5125,16 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://supademo.com/affiliates",
     "affiliate_verified": false,
-    "affiliate_status": "application_embed_unavailable",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00",
+    "affiliate_status": "outreach_sent",
+    "affiliate_verified_at": "2026-09-14T05:40:00+09:00",
     "affiliate_final_url": null,
     "affiliate_evidence_markers": [
       "2026-09-08: company Gmail in:anywhere search including supademo returned no existing messages. Official Supademo page explicitly states affiliate signup is completely free, no customer subscription or sales minimum is required, and advertises 30% recurring commission. Join the affiliate program exposed an eu.makeforms.io frame with connection reset. Its exact official form https://eu.makeforms.io/k1ibmll/ also returned net::ERR_CONNECTION_RESET when opened directly in Chrome and the in-app browser. No form fields or submission confirmation were available. Technical connectivity failure, not CAPTCHA or a user-consent blocker. No account, application, payment or referral link created.",
       "Resume this exact official form when its connection recovers. Recheck mailbox before a first submission. No user action currently required; do not publish the form or homepage as an affiliate URL.",
-      "data/affiliate-submission-batch-2026-09-08.json"
+      "data/affiliate-submission-batch-2026-09-08.json",
+      "2026-09-13: COSHUMA affiliate inquiry sent to support@supademo.com (Gmail 1a09b43356bc3947).",
+      "Supademo Intercom acknowledged receipt (Gmail 1a09b43b5ba55b97); human vendor response remains pending.",
+      "No exact customer tracking URL, approval, signup, paid customer, commission or revenue is verified."
     ],
     "affiliate_status_checked_at": "2026-09-07T21:35:04.579403+00:00",
     "affiliate_status_evidence_url": "https://supademo.com/affiliates",

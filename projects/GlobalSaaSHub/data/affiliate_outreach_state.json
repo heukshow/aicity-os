@@ -483,12 +483,12 @@
       "blockers": []
     },
     "supademo": {
-      "status": "application_embed_unavailable",
+      "status": "outreach_sent",
       "tracking_url": null,
       "account": "support@coshuma.com",
       "sender": null,
       "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
-      "note": "2026-09-08: company Gmail in:anywhere search including supademo returned no existing messages. Official Supademo page explicitly states affiliate signup is completely free, no customer subscription or sales minimum is required, and advertises 30% recurring commission. Join the affiliate program exposed an eu.makeforms.io frame with connection reset. Its exact official form https://eu.makeforms.io/k1ibmll/ also returned net::ERR_CONNECTION_RESET when opened directly in Chrome and the in-app browser. No form fields or submission confirmation were available. Technical connectivity failure, not CAPTCHA or a user-consent blocker. No account, application, payment or referral link created.",
+      "note": "Supademo received the 2026-09-13 COSHUMA affiliate inquiry and acknowledged receipt via Intercom. Human vendor response is pending. Do not resend or infer formal approval/tracking/revenue.",
       "next_action": "Resume this exact official form when its connection recovers. Recheck mailbox before a first submission. No user action currently required; do not publish the form or homepage as an affiliate URL.",
       "checked_date_kst": "2026-09-08",
       "application_state": "not_submitted",
@@ -497,7 +497,10 @@
       "workflow_url": "https://eu.makeforms.io/k1ibmll/",
       "blockers": [
         "official_application_form_connection_reset"
-      ]
+      ],
+      "gmail_message_id": "1a09b43356bc3947",
+      "acknowledgement_message_id": "1a09b43b5ba55b97",
+      "checked_at": "2026-09-14T05:40:00+09:00"
     },
     "claap": {
       "status": "approved_tracking",
@@ -637,6 +640,16 @@
       "do_not_reapply": true,
       "checked_at": "2026-09-11T19:32:16+09:00",
       "evidence": "Scalenut's FirstPromoter program sent Gmail message 1a090067413635a3 to support@coshuma.com with subject 'Unfortunately we had to reject your affiliate request' and states that COSHUMA's Affiliate Program - New Starter Tier application was rejected. This is newer than the repository's application_submitted state."
+    },
+    "scribe": {
+      "status": "outreach_sent",
+      "contact": "support@scribehow.com",
+      "gmail_message_id": "1a09c7a8e9029ff0",
+      "sender": "support@coshuma.com",
+      "tracking_url": null,
+      "official_program_url": "https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program",
+      "checked_at": "2026-09-14T05:40:00+09:00",
+      "note": "Official Scribe support confirms an affiliate program, but the exact signup destination is still being vendor-verified because unrelated products share the Scribe name. One verification inquiry was sent; do not duplicate outreach. No customer tracking URL is verified."
     }
   }
 }
