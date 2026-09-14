@@ -738,6 +738,18 @@
       "github_issue": 493,
       "checked_at": "2026-09-14T09:38:00+09:00",
       "note": "Official PartnerStack affiliate program advertises 30% of eligible new-customer plan cost for up to one year. No COSHUMA Justuno application submission, approval or account-specific referral URL is proven; public CTAs remain official non-affiliate URLs."
+    },
+    "sleeknote": {
+      "status": "waiting_vendor_response",
+      "tracking_url": null,
+      "application_state": "contact_sent_waiting_application_path",
+      "account": "support@coshuma.com",
+      "official_program_url": "https://sleeknote.com/partner-program",
+      "workflow_url": "https://sleeknote.com/partner-program",
+      "contact_email": "mail@sleeknote.com",
+      "github_issue": 495,
+      "checked_at": "2026-09-14T10:25:00+09:00",
+      "note": "Fresh duplicate checks were clear. One first-contact partner-program email was sent on 2026-09-14 asking for the correct application path under support@coshuma.com. No approval or account-issued customer referral URL is proven; public Sleeknote CTAs remain official non-affiliate URLs. Do not resend while waiting."
     }
   }
 }
