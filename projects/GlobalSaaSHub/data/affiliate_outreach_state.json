@@ -862,6 +862,17 @@
       "github_issue": 520,
       "checked_at": "2026-09-14T19:30:00+09:00",
       "note": "No prior relationship found. Account creation is not completed unattended, and no customer tracking URL is verified."
+    },
+    "sendpulse": {
+      "status": "browser_required_phone_captcha",
+      "tracking_url": null,
+      "application_state": "not_submitted",
+      "account": "support@coshuma.com",
+      "official_program_url": "https://sendpulse.com/partners/affiliates",
+      "workflow_url": "https://sendpulse.com/partners/affiliates",
+      "github_issue": 523,
+      "checked_at": "2026-09-14T20:28:00+09:00",
+      "note": "No prior relationship found. The public application requires phone details and robot confirmation; no customer tracking URL is verified."
     }
   }
 }

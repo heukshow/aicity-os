@@ -1118,6 +1118,23 @@
     "github_issue": 520
   },
   {
+    "id": "sendpulse-phone-captcha-2026-09-14",
+    "tool_id": "sendpulse",
+    "priority": "medium",
+    "status": "browser_required_phone_captcha",
+    "affiliate_status": "browser_required_phone_captcha",
+    "application_state": "not_submitted",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "user_action_required": true,
+    "blocker": "The official application requests a phone number and robot confirmation.",
+    "reason": "Duplicate checks are clear, but the application cannot be completed unattended and no customer tracking URL exists.",
+    "next_action": "Account owner submits the official form once; stop for phone verification, CAPTCHA, OTP, legal consent or identity verification. Recover only a vendor-issued customer-facing referral URL.",
+    "do_not_reapply": true,
+    "verified_at": "2026-09-14T20:28:00+09:00",
+    "github_issue": 523
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",
