@@ -10,6 +10,7 @@ import './scripts/ensure_adoric_fastlane.mjs'
 import './scripts/ensure_plerdy_fastlane.mjs'
 import './scripts/ensure_claspo_fastlane.mjs'
 import './scripts/ensure_picreel_fastlane.mjs'
+import './scripts/ensure_privy_revenue_refresh.mjs'
 
 function coshumaBrandIdentity() {
   return {
