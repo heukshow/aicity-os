@@ -752,16 +752,16 @@
       "note": "Fresh duplicate checks were clear. One first-contact partner-program email was sent on 2026-09-14 asking for the correct application path under support@coshuma.com. No approval or account-issued customer referral URL is proven; public Sleeknote CTAs remain official non-affiliate URLs. Do not resend while waiting."
     },
     "convertflow": {
-      "status": "waiting_vendor_response",
+      "status": "support_waiting_upgrade_gate",
       "tracking_url": null,
-      "application_state": "contact_sent_waiting_enrollment_path",
+      "application_state": "account_created_blocked_upgrade_gate",
       "account": "support@coshuma.com",
       "official_program_url": "https://help.convertflow.com/article/154-how-to-join-the-convertflow-referral-program",
       "workflow_url": "https://help.convertflow.com/article/154-how-to-join-the-convertflow-referral-program",
       "contact_email": "support@convertflow.com",
       "github_issue": 497,
-      "checked_at": "2026-09-14T10:33:00+09:00",
-      "note": "Fresh duplicate checks were clear. One first-contact enrollment-path email was sent on 2026-09-14. No approval or account-issued customer referral URL is proven; public ConvertFlow CTAs remain official non-affiliate URLs. Do not resend while waiting."
+      "checked_at": "2026-09-15T08:28:00+09:00",
+      "note": "ConvertFlow support confirmed the free-account-first referral enrollment path. One support@coshuma.com account now exists, but the authenticated workspace is stuck on the Upgrade to ConvertFlow Pro gate and Continue on free plan does not advance. COSHUMA replied once in the existing support thread. Do not resend, create another account, upgrade, or pay while waiting. No approval or account-issued customer referral URL is proven; public ConvertFlow CTAs remain official non-affiliate URLs."
     },
     "adoric": {
       "status": "browser_required_account_registration",
