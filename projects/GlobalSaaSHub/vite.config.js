@@ -5,6 +5,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import './scripts/ensure_sleeknote_fastlane.mjs'
+import './scripts/ensure_convertflow_fastlane.mjs'
 
 function coshumaBrandIdentity() {
   return {
