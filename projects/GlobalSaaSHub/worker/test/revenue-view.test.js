@@ -6,6 +6,9 @@ import { summarizeRevenue } from '../src/revenue-summary.js';
 test('private revenue UI loads once, distinguishes unknown from zero, filters and escapes evidence',async()=>{
   const nodes=new Map();
   const html=revenuePage();
+  assert.equal((html.match(/<th>/g)||[]).length,12);
+  assert.doesNotMatch(html,/colspan=\"8\"/);
+  assert.match(html,/colspan=\"12\"/);
   for(const match of html.matchAll(/id="([^"]+)"/g)) nodes.set(match[1],{textContent:'',innerHTML:'',value:match[1]==='status'?'all':'',disabled:false});
   const s=summarizeRevenue([{id:'p',name:'Example',account_id:'a',network:'Example',evidence:[{tool:'<script>unsafe</script>',checked_at:'2026-09-10',metrics:{commission_earned:0},currency:'USD'}]}],[]);
   s.direct_sales={connection:'connected',empty:true,note:'ledger'};
