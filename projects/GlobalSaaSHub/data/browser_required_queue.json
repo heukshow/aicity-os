@@ -982,6 +982,23 @@
     "github_issue": 499
   },
   {
+    "id": "plerdy-affiliate-2026-09-14",
+    "tool_id": "plerdy",
+    "priority": "high",
+    "status": "browser_required_account_registration",
+    "affiliate_status": "browser_required_account_registration",
+    "application_state": "not_submitted",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "user_action_required": false,
+    "blocker": "Plerdy referral-link issuance requires an authenticated account UI session.",
+    "reason": "Official program is free and duplicate checks are clear, but account registration/referral-link recovery is not complete.",
+    "next_action": "Check for an existing support@coshuma.com Plerdy account; if absent create one free account, then recover the exact issued referral URL. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification or payment approval.",
+    "do_not_reapply": true,
+    "verified_at": "2026-09-14T11:32:00+09:00",
+    "github_issue": 501
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",
@@ -1068,20 +1085,20 @@
     "blocker": null
   },
   {
-    "id": "plerdy-affiliate-2026-09-14",
-    "tool_id": "plerdy",
+    "id": "claspo-affiliate-2026-09-14",
+    "tool_id": "claspo",
     "priority": "high",
-    "status": "browser_required_account_registration",
-    "affiliate_status": "browser_required_account_registration",
-    "application_state": "not_submitted",
+    "status": "browser_required_legal_program_consent",
+    "affiliate_status": "browser_required_legal_program_consent",
+    "application_state": "not_submitted_legal_consent_required",
     "cost": 0,
     "exact_tracking_url": null,
-    "user_action_required": false,
-    "blocker": "Plerdy referral-link issuance requires an authenticated account UI session.",
-    "reason": "Official program is free and duplicate checks are clear, but account registration/referral-link recovery is not complete.",
-    "next_action": "Check for an existing support@coshuma.com Plerdy account; if absent create one free account, then recover the exact issued referral URL. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification or payment approval.",
+    "user_action_required": true,
+    "blocker": "Submitting the official FirstPromoter application constitutes acceptance of Claspo affiliate legal terms and applicant/business/site representations.",
+    "reason": "Repository and Gmail duplicate checks are clear and the program is free, but legal/program consent belongs to the account holder.",
+    "next_action": "Open the official Claspo FirstPromoter application, review and accept the linked Affiliate Program terms only if the account holder agrees, submit once, then recover only the exact vendor-issued customer referral URL. Stop for CAPTCHA, OTP, additional legal consent, forced identity verification or payment approval.",
     "do_not_reapply": true,
-    "verified_at": "2026-09-14T11:32:00+09:00",
-    "github_issue": 501
+    "verified_at": "2026-09-14T12:34:00+09:00",
+    "github_issue": 503
   }
 ]
