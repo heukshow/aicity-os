@@ -1084,6 +1084,23 @@
     "github_issue": 513
   },
   {
+    "id": "benchmark-email-legal-consent-2026-09-14",
+    "tool_id": "benchmark-email",
+    "priority": "medium",
+    "status": "browser_required_legal_program_consent",
+    "affiliate_status": "browser_required_legal_program_consent",
+    "application_state": "not_submitted",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "user_action_required": true,
+    "blocker": "Benchmark Email affiliate application requires explicit acceptance of Affiliate Terms & Conditions and Privacy Policy.",
+    "reason": "Duplicate checks are clear and the free public application is available, but legal-program consent must be made by the account owner. No tracking URL has been issued or verified.",
+    "next_action": "Account owner reviews the affiliate terms/privacy policy and decides whether to consent. If submitted and approved, recover only the exact TrackDesk/vendor-issued customer-facing tracking URL. Stop for CAPTCHA, OTP, forced identity verification, payment approval, or any additional legal consent.",
+    "do_not_reapply": true,
+    "verified_at": "2026-09-14T16:40:00+09:00",
+    "github_issue": 516
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",

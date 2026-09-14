@@ -840,6 +840,17 @@
       "github_issue": 513,
       "checked_at": "2026-09-14T15:39:00+09:00",
       "note": "Official PartnerStack application route is confirmed, but no existing COSHUMA Sender.net enrollment or issued customer tracking URL was found in GitHub/Gmail. Reuse the existing PartnerStack identity and do not treat the application/dashboard route as a customer affiliate CTA."
+    },
+    "benchmark-email": {
+      "status": "browser_required_legal_program_consent",
+      "tracking_url": null,
+      "application_state": "not_submitted",
+      "account": "support@coshuma.com",
+      "official_program_url": "https://www.benchmarkemail.com/partners/affiliates/",
+      "workflow_url": "https://www.benchmarkemail.com/partners/affiliates/",
+      "github_issue": 516,
+      "checked_at": "2026-09-14T16:40:00+09:00",
+      "note": "The public application requires explicit acceptance of Affiliate Terms & Conditions and Privacy Policy. No COSHUMA-specific tracking URL exists yet. Keep customer CTAs on official non-affiliate Benchmark Email pages until a vendor-issued URL is verified."
     }
   }
 }
