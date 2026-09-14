@@ -25,5 +25,32 @@
         "output": "Monthly review of observed campaign, automation and list metrics with prioritized tests and implementation notes, without revenue guarantees"
       }
     ]
+  },
+  "teachable": {
+    "problems": [
+      "Creators and subject-matter experts need one place to package and sell courses, coaching, digital downloads and memberships without building a custom learning and payment system.",
+      "Education businesses need product delivery, student access, payments, tax handling and sales pages connected so launching a paid offer does not require a separate tool for every step.",
+      "Growing schools need bundles, learning paths, analytics and reporting so they can organize several products and review enrollment and learner activity from one operating workflow."
+    ],
+    "monetization": [
+      {
+        "title": "Build and launch an online course",
+        "difficulty": "Intermediate",
+        "cost": "30-day partner trial/paid",
+        "output": "Client-ready course structure with uploaded client-owned lessons, pricing, checkout, student access and a documented launch checklist"
+      },
+      {
+        "title": "Package coaching and digital products",
+        "difficulty": "Intermediate",
+        "cost": "Trial/paid",
+        "output": "Configured coaching or digital-download offer with intake, delivery, pricing and client-approved sales-page copy"
+      },
+      {
+        "title": "Migrate and organize a creator school",
+        "difficulty": "Advanced",
+        "cost": "Paid",
+        "output": "Structured migration of approved products and learner content into courses, bundles or memberships with QA and administrator handoff notes"
+      }
+    ]
   }
 }
