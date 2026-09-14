@@ -750,6 +750,18 @@
       "github_issue": 495,
       "checked_at": "2026-09-14T10:25:00+09:00",
       "note": "Fresh duplicate checks were clear. One first-contact partner-program email was sent on 2026-09-14 asking for the correct application path under support@coshuma.com. No approval or account-issued customer referral URL is proven; public Sleeknote CTAs remain official non-affiliate URLs. Do not resend while waiting."
+    },
+    "convertflow": {
+      "status": "waiting_vendor_response",
+      "tracking_url": null,
+      "application_state": "contact_sent_waiting_enrollment_path",
+      "account": "support@coshuma.com",
+      "official_program_url": "https://help.convertflow.com/article/154-how-to-join-the-convertflow-referral-program",
+      "workflow_url": "https://help.convertflow.com/article/154-how-to-join-the-convertflow-referral-program",
+      "contact_email": "support@convertflow.com",
+      "github_issue": 497,
+      "checked_at": "2026-09-14T10:33:00+09:00",
+      "note": "Fresh duplicate checks were clear. One first-contact enrollment-path email was sent on 2026-09-14. No approval or account-issued customer referral URL is proven; public ConvertFlow CTAs remain official non-affiliate URLs. Do not resend while waiting."
     }
   }
 }
