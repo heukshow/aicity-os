@@ -9,6 +9,7 @@ import './scripts/ensure_convertflow_fastlane.mjs'
 import './scripts/ensure_adoric_fastlane.mjs'
 import './scripts/ensure_plerdy_fastlane.mjs'
 import './scripts/ensure_claspo_fastlane.mjs'
+import './scripts/ensure_picreel_fastlane.mjs'
 
 function coshumaBrandIdentity() {
   return {
