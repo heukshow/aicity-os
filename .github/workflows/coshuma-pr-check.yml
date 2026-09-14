@@ -33,6 +33,10 @@ jobs:
         working-directory: projects/GlobalSaaSHub
         run: npm ci
 
+      - name: Apply vendor-confirmed Jotform partner links
+        working-directory: projects/GlobalSaaSHub
+        run: python scripts/inject_jotform_partner_offer.py
+
       - name: Build COSHUMA preview bundle
         working-directory: projects/GlobalSaaSHub
         run: npm run build
