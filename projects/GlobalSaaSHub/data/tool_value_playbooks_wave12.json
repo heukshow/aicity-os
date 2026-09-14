@@ -1,0 +1,29 @@
+{
+  "omnisend": {
+    "problems": [
+      "Ecommerce stores need email, SMS and web-push campaigns tied to customer behavior instead of sending the same message to every subscriber.",
+      "Merchants need repeatable welcome, abandoned-cart and post-purchase automations so routine lifecycle follow-up does not depend on manual sends.",
+      "Growing stores need forms, segmentation, campaign reporting and store integrations in one workflow so list growth, targeting and performance review stay connected."
+    ],
+    "monetization": [
+      {
+        "title": "Set up ecommerce lifecycle automations",
+        "difficulty": "Intermediate",
+        "cost": "Free/paid",
+        "output": "Configured welcome, abandoned-cart and post-purchase workflows using client-approved copy, timing and store events, plus a QA checklist"
+      },
+      {
+        "title": "Deliver campaign and segmentation setup",
+        "difficulty": "Intermediate",
+        "cost": "Free/paid",
+        "output": "Client-ready audience segments, signup forms and an email campaign template with consent, brand and deliverability checks documented"
+      },
+      {
+        "title": "Offer recurring ecommerce messaging optimization",
+        "difficulty": "Advanced",
+        "cost": "Paid",
+        "output": "Monthly review of observed campaign, automation and list metrics with prioritized tests and implementation notes, without revenue guarantees"
+      }
+    ]
+  }
+}
