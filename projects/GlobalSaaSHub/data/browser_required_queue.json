@@ -1135,6 +1135,22 @@
     "github_issue": 523
   },
   {
+    "id": "constant-contact-affiliate-application-2026-09-14",
+    "tool_id": "constant-contact",
+    "priority": "medium",
+    "status": "browser_required_affiliate_application",
+    "affiliate_status": "browser_required_affiliate_application",
+    "application_state": "not_submitted",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "user_action_required": false,
+    "blocker": "Interactive affiliate application must be completed in the official browser flow; stop only for CAPTCHA, OTP, legal consent or identity verification.",
+    "reason": "Duplicate checks are clear and the public program is free, but no account-specific customer tracking URL exists yet.",
+    "next_action": "Submit once through the official affiliate application when direct browser interaction is available; then recover only the vendor-issued customer referral URL.",
+    "do_not_reapply": true,
+    "verified_at": "2026-09-14T21:10:00+09:00"
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",
