@@ -1101,6 +1101,23 @@
     "github_issue": 516
   },
   {
+    "id": "engagebay-account-registration-2026-09-14",
+    "tool_id": "engagebay",
+    "priority": "medium",
+    "status": "browser_required_account_registration",
+    "affiliate_status": "browser_required_account_registration",
+    "application_state": "not_submitted",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "user_action_required": true,
+    "blocker": "The official referral route requires creating an EngageBay account.",
+    "reason": "Duplicate checks are clear, but account creation is not completed and no customer tracking URL exists.",
+    "next_action": "Account owner uses the official signup route once; stop for CAPTCHA, OTP, legal consent or identity verification. Recover only a vendor-issued customer-facing referral URL.",
+    "do_not_reapply": true,
+    "verified_at": "2026-09-14T19:30:00+09:00",
+    "github_issue": 520
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",
