@@ -33,6 +33,20 @@ jobs:
         working-directory: projects/GlobalSaaSHub
         run: npm ci
 
+      - name: Prepare the same revenue-safe source state as production
+        working-directory: projects/GlobalSaaSHub
+        run: |
+          node scripts/sync_verified_affiliates.mjs
+          node scripts/sync_latest_affiliate_states.mjs
+          node scripts/reconcile_tagshop_approved_tracking.mjs
+          node scripts/reconcile_promoted_affiliate_states_2026_09_10.mjs
+          node scripts/monetize_verified_compare_links.mjs
+          python scripts/polish_public_copy.py
+          python scripts/inject_pictory_partner_offer.py
+          python scripts/inject_jotform_partner_offer.py
+          python scripts/ensure_best_pages_in_sitemap.py
+          node scripts/publish_affiliate_audit.mjs
+
       - name: Build COSHUMA preview bundle
         working-directory: projects/GlobalSaaSHub
         run: npm run build
@@ -42,6 +56,8 @@ jobs:
         run: |
           npm run test:links
           npm run test:revenue-seo
+          node scripts/tests/browser-followup.test.mjs
+          node scripts/tests/tagshop-consent.test.mjs
 
       - name: Verify public bundle safety
         run: |
@@ -77,5 +93,5 @@ jobs:
             echo '- Production deployment: **not performed**'
             echo '- Vercel deployment: **not required**'
             echo '- Build artifact: uploaded for 3 days'
-            echo '- Checks: build, internal links, revenue SEO, approved tracking, public bundle safety'
+            echo '- Checks: production-equivalent preparation, build, internal links, revenue SEO, approved tracking, public bundle safety'
           } >> "$GITHUB_STEP_SUMMARY"
