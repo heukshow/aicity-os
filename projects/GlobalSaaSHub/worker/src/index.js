@@ -43,6 +43,59 @@ function configured(env) {
     && Boolean(env.ORDERS && env.ALLOWED_ORIGIN && env.PAYPAL_CLIENT_ID && env.PAYPAL_CLIENT_SECRET && env.PAYPAL_WEBHOOK_ID);
 }
 
+const SPONSORED_SLOT_BY_PLACEMENT = Object.freeze({
+  tool_page: 'tool-primary',
+  buyer_intent: 'buyer-intent-top',
+  comparison: 'compare-decision-premium',
+});
+
+async function publicSponsoredPlacements(request, env) {
+  const url = new URL(request.url);
+  const path = url.searchParams.get('path') || '/';
+  if (!path.startsWith('/') || path.startsWith('//') || path.length > 300) {
+    return json({ error: 'Invalid path' }, 400, corsHeaders(request, env));
+  }
+  if (!env.ORDERS) {
+    return json({ placements: [], ready: false }, 200, {
+      ...corsHeaders(request, env),
+      'cache-control': 'public, max-age=60',
+    });
+  }
+  try {
+    const now = new Date().toISOString();
+    const result = await env.ORDERS.prepare(`
+      SELECT c.id AS campaign_id, c.placement, c.starts_at, c.ends_at,
+        a.product_name, a.destination_url, a.logo_url, a.headline, a.description, a.cta_text
+      FROM campaigns c JOIN campaign_assets a ON a.campaign_id = c.id
+      WHERE c.status = 'published' AND a.target_page = ? AND c.starts_at <= ? AND c.ends_at > ?
+    `).bind(path, now, now).all();
+    const placements = (result.results || []).map((row) => ({
+      campaignId: row.campaign_id,
+      slot: SPONSORED_SLOT_BY_PLACEMENT[row.placement],
+      placement: row.placement,
+      label: 'Sponsored',
+      title: row.headline,
+      body: row.description,
+      button: row.cta_text,
+      url: row.destination_url,
+      logoUrl: row.logo_url,
+      productName: row.product_name,
+      startAt: row.starts_at,
+      endAt: row.ends_at,
+    })).filter((item) => item.slot);
+    return json({ placements, ready: true }, 200, {
+      ...corsHeaders(request, env),
+      'cache-control': 'public, max-age=60',
+    });
+  } catch {
+    // The public read endpoint must remain safe before advertiser migration 0002 is applied.
+    return json({ placements: [], ready: false }, 200, {
+      ...corsHeaders(request, env),
+      'cache-control': 'public, max-age=60',
+    });
+  }
+}
+
 async function createOrder(request, env, repo) {
   if (!isAllowedBrowserRequest(request, env)) return json({ error: 'Forbidden' }, 403);
   if (!hasSafeJsonBody(request)) return json({ error: 'Invalid request' }, 415, corsHeaders(request, env));
@@ -110,12 +163,15 @@ export default {
       return new Response(null, { status: 204, headers: {
         ...SECURITY_HEADERS,
         ...corsHeaders(request, env),
-        'access-control-allow-methods': 'POST, OPTIONS',
+        'access-control-allow-methods': 'GET, POST, OPTIONS',
         'access-control-allow-headers': 'content-type',
         'access-control-max-age': '600',
       } });
     }
     if (url.pathname === '/health') return json({ ok: true });
+    if (request.method === 'GET' && url.pathname === '/v1/sponsored/placements') {
+      return publicSponsoredPlacements(request, env);
+    }
     if (!configured(env)) return json({ error: 'Checkout is unavailable' }, 503, corsHeaders(request, env));
     const repo = new D1OrderRepository(env.ORDERS);
     try {
