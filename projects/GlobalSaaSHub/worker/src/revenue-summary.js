@@ -4,6 +4,24 @@ import { fetchPartnerStackMetrics } from './partnerstack.js';
 
 const valid = n => typeof n === 'number' && Number.isFinite(n) && n >= 0;
 const moneyKeys = ['commission_earned','commission_pending','reward_paid','available','withdrawn','declined','payout_paid'];
+const funnelKeys = ['outbound_clicks','signups_referrals','trials','paid_customers'];
+const allMetricKeys = [...funnelKeys, ...moneyKeys];
+const sumEvidence = (accounts, key) => {
+  const rows = accounts.flatMap(a => (a.evidence || []).map(e => ({...e, account_id:a.account_id})));
+  const validRows = rows.filter(e => valid(e.metrics?.[key]));
+  const byCurrency = {};
+  let total = 0;
+  for (const e of validRows) {
+    const value = e.metrics[key];
+    if (moneyKeys.includes(key)) {
+      const currency = /^[A-Z]{3}$/.test(e.currency || '') ? e.currency : null;
+      if (!currency) continue;
+      byCurrency[currency] = (byCurrency[currency] || 0) + Math.round(value * 100);
+    } else total += value;
+  }
+  return {value: moneyKeys.includes(key) ? Object.fromEntries(Object.entries(byCurrency).map(([c,v]) => [c, v/100])) : total,
+    observed_records: validRows.length, latest_checked_at: validRows.map(e=>e.checked_at).filter(Boolean).sort().at(-1) || null};
+};
 export function summarizeRevenue(programs, liveAccounts, now = new Date().toISOString()) {
   const accounts = [...new Set(programs.map(p=>p.account_id))].map(id => {
     const members=programs.filter(p=>p.account_id===id), live=liveAccounts.find(a=>a.account_id===id);
@@ -20,13 +38,14 @@ export function summarizeRevenue(programs, liveAccounts, now = new Date().toISOS
     for(const a of included) byCurrency[a.currency]=(byCurrency[a.currency]||0)+Math.round(a.metrics[key]*100);
     totals[key]={by_currency:Object.fromEntries(Object.entries(byCurrency).map(([k,v])=>[k,v/100])),account_ids:included.map(a=>a.account_id),checked_accounts:included.length,total_accounts:accounts.length,complete:included.length===accounts.length && accounts.length>0};
   }
+  const historical = Object.fromEntries(allMetricKeys.map(key => [key, sumEvidence(accounts, key)]));
   const rank=a=>a.connection==='connected'?0:a.connection==='verified_snapshot'?1:a.connection==='blocked'?2:a.evidence.length?3:4;
   accounts.sort((a,b)=>rank(a)-rank(b)||a.name.localeCompare(b.name));
   return {generated_at:now,scope:inventory.scope,program_count:programs.length,account_count:accounts.length,
-    connected_accounts:accounts.filter(a=>a.connection==='connected').length,totals,accounts,
+    connected_accounts:accounts.filter(a=>a.connection==='connected').length,totals,historical,accounts,
     snapshot_accounts:accounts.filter(a=>a.connection==='verified_snapshot').length,
     blocked_accounts:accounts.filter(a=>a.connection==='blocked').length,
-    definitions:{commission_earned:'수익으로 기록된 커미션. 미지급 보상을 포함하며 매출/출금액과 더하지 않습니다.',reward_paid:'네트워크가 보상에 표시한 paid 상태. 은행 입금과 별개입니다.',withdrawn:'네트워크의 출금 처리 상태. 은행 입금 대조 결과가 아닙니다.',payout_paid:'지급 보고서가 명시한 지급액. 보상 paid에서 추정하지 않습니다.',totals:'24시간 내 확인한 누적·전체 조회 계정만 통화별 소계에 포함. 기간 보고서·과거 기록은 근거 표에 별도 표시.'}};
+    definitions:{commission_earned:'수익으로 기록된 커미션. 미지급 보상을 포함하며 매출/출금액과 더하지 않습니다.',reward_paid:'네트워크가 보상에 표시한 paid 상태. 은행 입금과 별개입니다.',withdrawn:'네트워크의 출금 처리 상태. 은행 입금 대조 결과가 아닙니다.',payout_paid:'지급 보고서가 명시한 지급액. 보상 paid에서 추정하지 않습니다.',totals:'최근 24시간 내 확인한 누적 계정 소계와 과거 검증 근거를 분리합니다. 0은 실제 0, —는 해당 수치가 확인되지 않음을 뜻합니다.'}};
 }
 
 export async function getRevenueSummary(env) {
