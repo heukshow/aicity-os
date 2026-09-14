@@ -106,5 +106,32 @@
         "output": "Documented design-review, approval and export process for the client's chosen ESP or CRM, including link, alt-text, responsive and handoff checks"
       }
     ]
+  },
+  "claap": {
+    "problems": [
+      "Sales teams need customer conversations captured across meetings, calls and email without losing context to scattered notes or leaving CRM fields incomplete.",
+      "Revenue leaders need objections, buying signals, next steps and qualification evidence turned into structured deal data so coaching and pipeline reviews are grounded in actual conversations.",
+      "Teams using AI agents need reusable, permission-aware conversation context for follow-ups, competitive research and internal workflows instead of repeatedly reading raw transcripts."
+    ],
+    "monetization": [
+      {
+        "title": "Implement a call-to-CRM workflow",
+        "difficulty": "Intermediate",
+        "cost": "Free trial/paid",
+        "output": "Client-ready capture, transcription, summary and CRM-field workflow with approved templates, field mapping, consent requirements and end-to-end QA documented"
+      },
+      {
+        "title": "Build sales coaching and qualification scorecards",
+        "difficulty": "Intermediate",
+        "cost": "Paid",
+        "output": "Configured scorecards for the client's chosen sales framework, reviewed example calls and a manager handoff guide without promising a win-rate improvement"
+      },
+      {
+        "title": "Create a voice-of-customer intelligence workflow",
+        "difficulty": "Advanced",
+        "cost": "Paid",
+        "output": "Structured process for extracting approved objections, feature requests and competitive themes from conversations into a recurring evidence-based report or AI-agent workflow"
+      }
+    ]
   }
 }
