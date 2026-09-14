@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import './ensure_justuno_fastlane.mjs';
 
 const checkedAt='2026-09-14T09:33:00+09:00';
 const optimonk={
