@@ -79,5 +79,32 @@
         "output": "Mapped form fields and a tested integration or signed webhook handoff with retry, privacy and access notes documented"
       }
     ]
+  },
+  "beefree": {
+    "problems": [
+      "Marketing teams need a dedicated place to design responsive emails and landing pages without giving every contributor access to the sending platform.",
+      "Agencies and multi-brand teams need reusable templates, content blocks and brand controls so frequent campaigns stay consistent across clients and channels.",
+      "Teams need comments, approvals, quality checks and dependable export paths so a reviewed design reaches the chosen email service provider without last-minute manual rebuilding."
+    ],
+    "monetization": [
+      {
+        "title": "Build a responsive email and landing-page starter kit",
+        "difficulty": "Beginner",
+        "cost": "Free/paid",
+        "output": "Client-ready set of responsive email and landing-page designs using client-approved copy, images and links, plus mobile and accessibility QA notes"
+      },
+      {
+        "title": "Create a reusable brand template system",
+        "difficulty": "Intermediate",
+        "cost": "Paid for expanded reusable assets and brand controls",
+        "output": "Structured template library with reusable content blocks, approved typography, colors and usage guidance for future campaigns"
+      },
+      {
+        "title": "Set up a review and export workflow",
+        "difficulty": "Intermediate",
+        "cost": "Free/paid; depends on export volume and destination",
+        "output": "Documented design-review, approval and export process for the client's chosen ESP or CRM, including link, alt-text, responsive and handoff checks"
+      }
+    ]
   }
 }
