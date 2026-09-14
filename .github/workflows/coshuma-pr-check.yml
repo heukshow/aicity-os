@@ -1,0 +1,81 @@
+name: COSHUMA PR Build Check
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'projects/GlobalSaaSHub/**'
+      - '.github/workflows/coshuma-pr-check.yml'
+
+concurrency:
+  group: coshuma-pr-check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate-preview:
+    name: Build, SEO and revenue safety
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout pull request
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: projects/GlobalSaaSHub/package-lock.json
+
+      - name: Install dependencies
+        working-directory: projects/GlobalSaaSHub
+        run: npm ci
+
+      - name: Build COSHUMA preview bundle
+        working-directory: projects/GlobalSaaSHub
+        run: npm run build
+
+      - name: Verify SEO, links and approved tracking
+        working-directory: projects/GlobalSaaSHub
+        run: |
+          npm run test:links
+          npm run test:revenue-seo
+
+      - name: Verify public bundle safety
+        run: |
+          set -e
+          test -f projects/GlobalSaaSHub/dist/index.html
+          test -f projects/GlobalSaaSHub/dist/sitemap.xml
+          test -f projects/GlobalSaaSHub/dist/robots.txt
+          test -f projects/GlobalSaaSHub/dist/CNAME
+          grep -q -F 'coshuma.com' projects/GlobalSaaSHub/dist/CNAME
+          grep -q -F 'COSHUMA' projects/GlobalSaaSHub/dist/index.html
+          if grep -R -I -i -q -F 'websilonsg@gmail.com' projects/GlobalSaaSHub/dist --include='*.html' 2>/dev/null; then
+            echo 'Private email address detected in the public preview bundle.'
+            exit 1
+          fi
+          if grep -R -q 'GlobalSaaSHub' projects/GlobalSaaSHub/dist/tool projects/GlobalSaaSHub/dist/compare 2>/dev/null; then
+            echo 'Legacy GlobalSaaSHub branding detected in generated preview pages.'
+            exit 1
+          fi
+
+      - name: Upload preview bundle artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coshuma-pr-preview-${{ github.event.pull_request.number }}-${{ github.sha }}
+          path: projects/GlobalSaaSHub/dist
+          if-no-files-found: error
+          retention-days: 3
+
+      - name: Write check summary
+        run: |
+          {
+            echo '## COSHUMA PR preview validation'
+            echo
+            echo '- Production deployment: **not performed**'
+            echo '- Vercel deployment: **not required**'
+            echo '- Build artifact: uploaded for 3 days'
+            echo '- Checks: build, internal links, revenue SEO, approved tracking, public bundle safety'
+          } >> "$GITHUB_STEP_SUMMARY"
