@@ -6,6 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TRACKING_URL = "https://your.omnisend.com/4aA5k9"
 PRICING_TRACKING_URL = "https://your.omnisend.com/VOKyAj"
 CHECKED_AT = "2026-09-09T19:56:33+09:00"
+PRICING_VERIFIED_LABEL = "September 11, 2026"
 EVIDENCE = (
     "Omnisend Senior Affiliate Marketing Manager Deimantė Vaitkevičiūtė replied to "
     "support@coshuma.com in Gmail message 1a0855caf8f6dee2 with COSHUMA's exact general customer tracking URL "
@@ -113,16 +114,16 @@ if trust_marker not in text:
     raise SystemExit("Omnisend trust block missing; cannot normalize verification date safely")
 prefix, trust_tail = text.split(trust_marker, 1)
 trust_tail, trust_date_changes = re.subn(
-    r'(<div[^>]*>Last verified</div>\s*<div[^>]*>)(?:September 1, 2026|Sep 1, 2026)(</div>)',
-    r'\1September 9, 2026\2',
+    r'(<div[^>]*>Last verified</div>\s*<div[^>]*>)(?:September 1, 2026|Sep 1, 2026|September 9, 2026)(</div>)',
+    rf'\1{PRICING_VERIFIED_LABEL}\2',
     trust_tail,
     count=1,
 )
 text = prefix + trust_marker + trust_tail
 if trust_date_changes != 1:
-    if not re.search(r'<div[^>]*>Last verified</div>\s*<div[^>]*>September 9, 2026</div>', trust_tail):
+    if not re.search(rf'<div[^>]*>Last verified</div>\s*<div[^>]*>{re.escape(PRICING_VERIFIED_LABEL)}</div>', trust_tail):
         raise SystemExit("Omnisend trust-block verification date was not normalized")
-if re.search(r'<div[^>]*>Last verified</div>\s*<div[^>]*>(?:September 1, 2026|Sep 1, 2026)</div>', trust_tail):
+if re.search(r'<div[^>]*>Last verified</div>\s*<div[^>]*>(?:September 1, 2026|Sep 1, 2026|September 9, 2026)</div>', trust_tail):
     raise SystemExit("Stale Omnisend trust-block verification date survived finalizer")
 
 if TRACKING_URL not in text:
