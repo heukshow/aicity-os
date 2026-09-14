@@ -133,5 +133,32 @@
         "output": "Structured process for extracting approved objections, feature requests and competitive themes from conversations into a recurring evidence-based report or AI-agent workflow"
       }
     ]
+  },
+  "typedesk": {
+    "problems": [
+      "Support, sales and operations teams repeatedly type the same replies, links and instructions across email, help desks and other apps, which wastes time and makes wording inconsistent.",
+      "Teams need reusable responses and documents to stay standardized while still accepting customer-specific variables, forms or approved AI assistance instead of copying and editing a master document by hand.",
+      "Growing organizations need shared template libraries, usage governance and workflow connections so approved language can be maintained centrally rather than living in individual employees' private snippets."
+    ],
+    "monetization": [
+      {
+        "title": "Build a customer-response template library",
+        "difficulty": "Beginner",
+        "cost": "Free/paid",
+        "output": "Organized set of client-approved support, sales or onboarding responses with naming rules, variables, shortcuts and a tested usage guide across the client's chosen apps"
+      },
+      {
+        "title": "Create personalized document workflows",
+        "difficulty": "Intermediate",
+        "cost": "Paid",
+        "output": "Reusable proposal, intake, follow-up or reporting templates using client-supplied language, dynamic fields and documented review rules; no legal or performance guarantees"
+      },
+      {
+        "title": "Roll out a governed team text-expansion system",
+        "difficulty": "Intermediate",
+        "cost": "Paid",
+        "output": "Shared team library with permissions, ownership, update process, import plan, usage guidance and a handoff report for administrators"
+      }
+    ]
   }
 }
