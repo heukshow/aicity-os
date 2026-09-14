@@ -773,6 +773,17 @@
       "github_issue": 499,
       "checked_at": "2026-09-14T11:26:00+09:00",
       "note": "Official Adoric affiliate program is free and issues the referral link from the authenticated account affiliate area. Fresh GitHub/Gmail duplicate checks are clear. No approval or customer tracking URL is proven; public Adoric CTAs remain official non-affiliate URLs."
+    },
+    "plerdy": {
+      "status": "browser_required_account_registration",
+      "tracking_url": null,
+      "application_state": "not_submitted",
+      "account": "support@coshuma.com",
+      "official_program_url": "https://www.plerdy.com/referral-program/",
+      "workflow_url": "https://www.plerdy.com/referral-program/",
+      "github_issue": 501,
+      "checked_at": "2026-09-14T11:32:00+09:00",
+      "note": "Official Plerdy referral program is active and issues a unique link after registration. Fresh GitHub/Gmail duplicate checks are clear. No approval, customer tracking URL or revenue is proven."
     }
   }
 }

@@ -965,6 +965,23 @@
     "github_issue": 493
   },
   {
+    "id": "adoric-affiliate-2026-09-14",
+    "tool_id": "adoric",
+    "priority": "high",
+    "status": "browser_required_account_registration",
+    "affiliate_status": "browser_required_account_registration",
+    "application_state": "not_submitted",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "user_action_required": false,
+    "blocker": "Adoric issues the unique referral link from its authenticated account affiliate area; this chat run has no authenticated Adoric UI session.",
+    "reason": "Repository and Gmail duplicate checks are clear and the official program is free, but account registration/referral-link recovery is not complete.",
+    "next_action": "Use the official Adoric free-account route with support@coshuma.com, checking for an existing account first. If absent, register once and recover the exact vendor-issued customer referral URL. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification or payment approval.",
+    "do_not_reapply": true,
+    "verified_at": "2026-09-14T11:26:00+09:00",
+    "github_issue": 499
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",
@@ -1051,8 +1068,8 @@
     "blocker": null
   },
   {
-    "id": "adoric-affiliate-2026-09-14",
-    "tool_id": "adoric",
+    "id": "plerdy-affiliate-2026-09-14",
+    "tool_id": "plerdy",
     "priority": "high",
     "status": "browser_required_account_registration",
     "affiliate_status": "browser_required_account_registration",
@@ -1060,11 +1077,11 @@
     "cost": 0,
     "exact_tracking_url": null,
     "user_action_required": false,
-    "blocker": "Adoric issues the unique referral link from its authenticated account affiliate area; this chat run has no authenticated Adoric UI session.",
-    "reason": "Repository and Gmail duplicate checks are clear and the official program is free, but account registration/referral-link recovery is not complete.",
-    "next_action": "Use the official Adoric free-account route with support@coshuma.com, checking for an existing account first. If absent, register once and recover the exact vendor-issued customer referral URL. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification or payment approval.",
+    "blocker": "Plerdy referral-link issuance requires an authenticated account UI session.",
+    "reason": "Official program is free and duplicate checks are clear, but account registration/referral-link recovery is not complete.",
+    "next_action": "Check for an existing support@coshuma.com Plerdy account; if absent create one free account, then recover the exact issued referral URL. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification or payment approval.",
     "do_not_reapply": true,
-    "verified_at": "2026-09-14T11:26:00+09:00",
-    "github_issue": 499
+    "verified_at": "2026-09-14T11:32:00+09:00",
+    "github_issue": 501
   }
 ]
