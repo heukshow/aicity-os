@@ -716,6 +716,17 @@
       "github_issue": 487,
       "checked_at": "2026-09-14T08:31:00+09:00",
       "note": "Official program is free and advertises 25% recurring commission. Fresh Gmail duplicate check is clear. No COSHUMA application submission, approval or account-specific referral URL is proven; customer CTAs remain official non-affiliate URLs."
+    },
+    "optimonk": {
+      "status": "browser_required_affiliate_application",
+      "tracking_url": null,
+      "application_state": "not_submitted",
+      "account": "support@coshuma.com",
+      "official_program_url": "https://www.optimonk.com/partners-program",
+      "workflow_url": "https://www.optimonk.com/partners-program",
+      "github_issue": 491,
+      "checked_at": "2026-09-14T09:33:00+09:00",
+      "note": "Official affiliate option is free to apply and current partner-page wording advertises 20% revenue share for 2 years. No COSHUMA application submission, approval or account-specific customer referral URL is proven; public CTAs remain official non-affiliate URLs."
     }
   }
 }

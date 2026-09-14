@@ -6555,5 +6555,53 @@
       "35% recurring",
       "approved the same day"
     ]
+  },
+  {
+    "id": "optimonk",
+    "name": "OptiMonk",
+    "category": "dev_coding",
+    "category_display": "Coding & Dev Tools",
+    "description": "Conversion-rate optimization platform for popups, embedded campaigns, targeting, personalization and experimentation.",
+    "affiliate_url": null,
+    "pricing": "Free plan at $0 for up to 10,000 pageviews/month on one domain with unlimited campaigns and all features; paid tiers scale by traffic and billing period",
+    "key_features": [
+      "Popup and embedded campaigns",
+      "Behavioral targeting",
+      "Personalization",
+      "A/B and conversion experimentation",
+      "Ecommerce conversion optimization"
+    ],
+    "rating": null,
+    "logo_url": "https://www.google.com/s2/favicons?domain=optimonk.com&sz=128",
+    "primary_category": "dev_coding",
+    "comparison_group": "conversion_optimization",
+    "official_url": "https://www.optimonk.com/",
+    "pricing_source_url": "https://www.optimonk.com/pricing",
+    "pricing_verified_at": "2026-09-14T09:33:00+09:00",
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "monthly or annual depending on plan and traffic",
+    "evidence_source_type": "official_pricing_partner_and_help_pages",
+    "is_manual_override": true,
+    "official_verification_status": "verified",
+    "official_verified_at": "2026-09-14T09:33:00+09:00",
+    "official_evidence_url": "https://www.optimonk.com/partners-program",
+    "affiliate_verified": false,
+    "affiliate_status": "browser_required_affiliate_application",
+    "affiliate_source_url": "https://www.optimonk.com/partners-program",
+    "affiliate_workflow_url": "https://www.optimonk.com/partners-program",
+    "affiliate_status_checked_at": "2026-09-14T09:33:00+09:00",
+    "application_state": "not_submitted",
+    "affiliate_evidence_markers": [
+      "Official OptiMonk pricing page shows a permanent $0 Free plan with 10,000 pageviews/month, max 1 domain, unlimited campaigns and all features.",
+      "Official OptiMonk partner page says the Affiliate option has no membership fees, everyone can apply, and advertises 20% revenue share for 2 years.",
+      "Some official OptiMonk help-center pages use broader lifetime/up-to-20% wording, so COSHUMA uses the more conservative current partner-page terms until the vendor clarifies.",
+      "Fresh GitHub code search on 2026-09-14 found no pre-existing OptiMonk tool/state/page record before this cycle.",
+      "Fresh support@coshuma.com Gmail searches found no OptiMonk received, sent or spam record.",
+      "No COSHUMA application submission, approval, rejection, account-specific referral URL, referral, paid customer, commission, payout or revenue is verified.",
+      "Generic homepage, signup, login, onboarding and dashboard URLs must not be treated as affiliate links.",
+      "GitHub issue #491 tracks the free application and exact account-issued customer referral URL recovery."
+    ],
+    "affiliate_next_action": "Use the official OptiMonk affiliate route with the COSHUMA company identity, recheck for an existing account/application in the authenticated flow, and submit exactly once only if absent. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification or payment approval. After approval, recover and validate only the exact vendor-issued customer-facing referral URL."
   }
 ]
