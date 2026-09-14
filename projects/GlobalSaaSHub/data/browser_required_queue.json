@@ -999,6 +999,23 @@
     "github_issue": 501
   },
   {
+    "id": "claspo-affiliate-2026-09-14",
+    "tool_id": "claspo",
+    "priority": "high",
+    "status": "browser_required_legal_program_consent",
+    "affiliate_status": "browser_required_legal_program_consent",
+    "application_state": "not_submitted_legal_consent_required",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "user_action_required": true,
+    "blocker": "Submitting the official FirstPromoter application constitutes acceptance of Claspo affiliate legal terms and applicant/business/site representations.",
+    "reason": "Repository and Gmail duplicate checks are clear and the program is free, but legal/program consent belongs to the account holder.",
+    "next_action": "Open the official Claspo FirstPromoter application, review and accept the linked Affiliate Program terms only if the account holder agrees, submit once, then recover only the exact vendor-issued customer referral URL. Stop for CAPTCHA, OTP, additional legal consent, forced identity verification or payment approval.",
+    "do_not_reapply": true,
+    "verified_at": "2026-09-14T12:34:00+09:00",
+    "github_issue": 503
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",
@@ -1085,8 +1102,8 @@
     "blocker": null
   },
   {
-    "id": "claspo-affiliate-2026-09-14",
-    "tool_id": "claspo",
+    "id": "picreel-proprofs-affiliate-2026-09-14",
+    "tool_id": "picreel",
     "priority": "high",
     "status": "browser_required_legal_program_consent",
     "affiliate_status": "browser_required_legal_program_consent",
@@ -1094,11 +1111,11 @@
     "cost": 0,
     "exact_tracking_url": null,
     "user_action_required": true,
-    "blocker": "Submitting the official FirstPromoter application constitutes acceptance of Claspo affiliate legal terms and applicant/business/site representations.",
-    "reason": "Repository and Gmail duplicate checks are clear and the program is free, but legal/program consent belongs to the account holder.",
-    "next_action": "Open the official Claspo FirstPromoter application, review and accept the linked Affiliate Program terms only if the account holder agrees, submit once, then recover only the exact vendor-issued customer referral URL. Stop for CAPTCHA, OTP, additional legal consent, forced identity verification or payment approval.",
+    "blocker": "Submitting the ProProfs FirstPromoter application is express acceptance of the ProProfs Affiliate Program legal agreement.",
+    "reason": "Duplicate checks are clear and Picreel is an explicitly covered ProProfs site, but legal/program consent belongs to the account holder and multiple affiliate accounts are prohibited.",
+    "next_action": "Open the official ProProfs FirstPromoter application, review and accept the linked Affiliate Program terms only if the account holder agrees, submit once, then recover only the exact portal-issued customer referral link applicable to Picreel. Stop for CAPTCHA, OTP, additional legal consent, forced identity verification or payment approval.",
     "do_not_reapply": true,
-    "verified_at": "2026-09-14T12:34:00+09:00",
-    "github_issue": 503
+    "verified_at": "2026-09-14T12:38:00+09:00",
+    "github_issue": 505
   }
 ]

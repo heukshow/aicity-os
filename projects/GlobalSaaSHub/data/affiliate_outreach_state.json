@@ -795,6 +795,17 @@
       "github_issue": 503,
       "checked_at": "2026-09-14T12:34:00+09:00",
       "note": "Direct FirstPromoter program found with a unique referral link and 120-day tracking, but the application itself is legal program consent. No application was submitted unattended. Exact tracking URL and all revenue stages remain unknown."
+    },
+    "picreel": {
+      "status": "browser_required_legal_program_consent",
+      "tracking_url": null,
+      "application_state": "not_submitted_legal_consent_required",
+      "account": "support@coshuma.com",
+      "official_program_url": "https://www.proprofs.com/affiliates/",
+      "workflow_url": "https://proprofs.firstpromoter.com/",
+      "github_issue": 505,
+      "checked_at": "2026-09-14T12:38:00+09:00",
+      "note": "Picreel is explicitly covered by ProProfs Affiliate Program terms. Enrollment is free but application submission is express legal agreement acceptance. No application was submitted unattended; exact customer referral URL and all revenue stages remain unknown."
     }
   }
 }
