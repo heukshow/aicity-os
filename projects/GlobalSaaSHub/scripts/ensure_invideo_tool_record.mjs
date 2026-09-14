@@ -6,6 +6,7 @@ import './ensure_beehiiv_tool_cycle.mjs';
 import './ensure_emailoctopus_fastlane.mjs';
 import './ensure_sendernet_fastlane.mjs';
 import './ensure_benchmarkemail_fastlane.mjs';
+import './ensure_engagebay_fastlane.mjs';
 import fs from 'node:fs';
 
 const invideo = {
