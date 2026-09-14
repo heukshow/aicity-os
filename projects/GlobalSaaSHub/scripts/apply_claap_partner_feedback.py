@@ -52,8 +52,12 @@ def validate_current_tracking() -> None:
         raise RuntimeError("Claap verified revenue CTA is missing from the public page")
     if "Affiliate disclosure:" not in page:
         raise RuntimeError("Claap affiliate disclosure is missing")
-    if "30% off the first 2 months" not in page or "10% off the first year" not in page:
-        raise RuntimeError("Claap vendor-confirmed referral discount is missing")
+    unsupported_buyer_claims = ("30% off the first 2 months", "10% off the first year", "partner discount →", "referral discount →")
+    for claim in unsupported_buyer_claims:
+        if claim in page:
+            raise RuntimeError(f"Unsupported current Claap buyer-discount claim remains: {claim}")
+    if 'href="https://www.claap.io/pricing"' not in page:
+        raise RuntimeError("Claap official pricing evidence link is missing")
     if "claap.ai" in page:
         raise RuntimeError("Stale claap.ai domain remains in Claap page")
 
