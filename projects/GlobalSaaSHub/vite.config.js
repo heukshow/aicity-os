@@ -4,6 +4,7 @@ import { privateOpsBuildGuard } from './scripts/private_ops_build_guard.mjs'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+import './scripts/ensure_sleeknote_fastlane.mjs'
 
 function coshumaBrandIdentity() {
   return {
