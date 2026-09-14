@@ -1050,6 +1050,23 @@
     "github_issue": 507
   },
   {
+    "id": "emailoctopus-tolt-2026-09-14",
+    "tool_id": "emailoctopus",
+    "priority": "medium",
+    "status": "browser_required_tolt_application",
+    "affiliate_status": "browser_required_tolt_application",
+    "application_state": "not_submitted",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "user_action_required": false,
+    "blocker": "The official EmailOctopus affiliate enrollment route is an interactive Tolt flow and this run has no authenticated interactive Tolt session.",
+    "reason": "GitHub and Gmail duplicate checks were clear, but application submission has not occurred and no customer tracking URL is verified.",
+    "next_action": "Open the official Tolt route in browser/Work, check for an existing COSHUMA/support@coshuma.com affiliate identity, and submit once only if absent. Stop for CAPTCHA, OTP, legal agreement, forced identity verification, or payment approval.",
+    "do_not_reapply": true,
+    "verified_at": "2026-09-14T15:34:00+09:00",
+    "github_issue": 511
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",
