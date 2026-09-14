@@ -52,5 +52,32 @@
         "output": "Structured migration of approved products and learner content into courses, bundles or memberships with QA and administrator handoff notes"
       }
     ]
+  },
+  "tally": {
+    "problems": [
+      "Small businesses and creators need lead, application and intake forms that adapt to answers without paying before the workflow is proven.",
+      "Service teams need to qualify requests, calculate an estimate and route each respondent to the right next step instead of manually triaging every submission.",
+      "Operators need form submissions to reach another system quickly through integrations or signed webhooks while keeping the respondent experience simple."
+    ],
+    "monetization": [
+      {
+        "title": "Build a qualified lead or client intake flow",
+        "difficulty": "Beginner",
+        "cost": "Free",
+        "output": "Branded client-ready form with conditional questions, qualification rules, required consent text supplied by the client, confirmation routing and a tested response checklist"
+      },
+      {
+        "title": "Create a quote or one-time payment form",
+        "difficulty": "Intermediate",
+        "cost": "Free Tally account; Stripe processing fees apply",
+        "output": "Configured calculation and one-time payment flow using a client-owned Stripe account, documented pricing inputs and end-to-end QA; no recurring-payment claim"
+      },
+      {
+        "title": "Connect submissions to an operating workflow",
+        "difficulty": "Intermediate",
+        "cost": "Free/varies by connected service",
+        "output": "Mapped form fields and a tested integration or signed webhook handoff with retry, privacy and access notes documented"
+      }
+    ]
   }
 }
