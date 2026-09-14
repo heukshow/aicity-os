@@ -1,0 +1,36 @@
+name: SheetProof API tests
+
+on:
+  pull_request:
+    paths:
+      - 'projects/sheetproof-api/**'
+      - '.github/workflows/sheetproof-api-tests.yml'
+  push:
+    branches: [main, sheetproof-site-conversion]
+    paths:
+      - 'projects/sheetproof-api/**'
+      - '.github/workflows/sheetproof-api-tests.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sheetproof-api-tests-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: projects/sheetproof-api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: projects/sheetproof-api/requirements.txt
+      - run: python -m pip install -r requirements.txt
+      - run: python -m pytest -q
