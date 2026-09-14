@@ -929,6 +929,24 @@
     "github_issue": 485
   },
   {
+    "id": "optimonk-affiliate-application-20260914",
+    "tool_id": "optimonk",
+    "priority": "high",
+    "status": "browser_required_affiliate_application",
+    "affiliate_status": "browser_required_affiliate_application",
+    "application_state": "not_submitted",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "user_action_required": false,
+    "blocker": "OptiMonk affiliate application and any account-issued referral URL require an authenticated vendor flow that is not available in the current direct connector set.",
+    "reason": "Fresh repository and Gmail duplicate checks are clear and the official affiliate option is free, but no application submission or issued customer referral URL is verified.",
+    "official_program_url": "https://www.optimonk.com/partners-program",
+    "next_action": "Use the official OptiMonk affiliate route with support@coshuma.com, check for an existing account/application first, and submit once only if absent. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification or payment approval. Recover only the exact vendor-issued customer referral URL after approval.",
+    "do_not_reapply": true,
+    "verified_at": "2026-09-14T09:33:00+09:00",
+    "github_issue": 491
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",
@@ -1015,21 +1033,21 @@
     "blocker": null
   },
   {
-    "id": "optimonk-affiliate-application-20260914",
-    "tool_id": "optimonk",
+    "id": "justuno-affiliate-application-20260914",
+    "tool_id": "justuno",
     "priority": "high",
-    "status": "browser_required_affiliate_application",
-    "affiliate_status": "browser_required_affiliate_application",
+    "status": "browser_required_partnerstack_application",
+    "affiliate_status": "browser_required_partnerstack_application",
     "application_state": "not_submitted",
     "cost": 0,
     "exact_tracking_url": null,
     "user_action_required": false,
-    "blocker": "OptiMonk affiliate application and any account-issued referral URL require an authenticated vendor flow that is not available in the current direct connector set.",
-    "reason": "Fresh repository and Gmail duplicate checks are clear and the official affiliate option is free, but no application submission or issued customer referral URL is verified.",
-    "official_program_url": "https://www.optimonk.com/partners-program",
-    "next_action": "Use the official OptiMonk affiliate route with support@coshuma.com, check for an existing account/application first, and submit once only if absent. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification or payment approval. Recover only the exact vendor-issued customer referral URL after approval.",
+    "blocker": "Justuno uses an authenticated PartnerStack application flow; the current direct connector set cannot inspect or submit that authenticated relationship safely.",
+    "reason": "Fresh repository and Gmail duplicate checks are clear and the official affiliate application path is known, but no submission or issued customer referral URL is verified.",
+    "official_program_url": "https://www.justuno.com/affiliate",
+    "next_action": "Reuse the existing COSHUMA PartnerStack account, check for an existing Justuno relationship first, and submit once only if absent. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification or payment approval. Recover only the exact vendor-issued customer referral URL after approval.",
     "do_not_reapply": true,
-    "verified_at": "2026-09-14T09:33:00+09:00",
-    "github_issue": 491
+    "verified_at": "2026-09-14T09:38:00+09:00",
+    "github_issue": 493
   }
 ]
