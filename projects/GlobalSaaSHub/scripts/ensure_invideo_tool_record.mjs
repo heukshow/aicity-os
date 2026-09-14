@@ -3,6 +3,7 @@ import './ensure_landingi_fastlane.mjs';
 import './ensure_leadpages_fastlane.mjs';
 import './ensure_instapage_fastlane.mjs';
 import './ensure_beehiiv_tool_cycle.mjs';
+import './ensure_emailoctopus_fastlane.mjs';
 import fs from 'node:fs';
 
 const invideo = {
