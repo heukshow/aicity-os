@@ -2066,7 +2066,7 @@
     "category": "marketing_auto",
     "category_display": "Marketing Automation",
     "description": "Email marketing platform for campaigns, automations, forms and landing pages, with a permanent free Starter plan for small and growing lists.",
-    "affiliate_url": null,
+    "affiliate_url": "https://emailoctopus.com/?ref=sangkwon",
     "pricing": "Starter Free $0 for up to 2,500 subscribers and 10,000 emails/month; Pro from $9/month billed yearly for the displayed base configuration",
     "key_features": [
       "Email campaigns and drag-and-drop editor",
@@ -2090,21 +2090,21 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-09-14T15:34:00+09:00",
     "official_evidence_url": "https://emailoctopus.com/affiliates",
-    "affiliate_verified": false,
-    "affiliate_status": "browser_required_tolt_application",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking_url_verified",
     "affiliate_source_url": "https://emailoctopus.com/affiliates",
     "affiliate_workflow_url": "https://emailoctopus.tolt.io/",
-    "affiliate_status_checked_at": "2026-09-14T15:34:00+09:00",
-    "application_state": "not_submitted",
+    "affiliate_status_checked_at": "2026-09-16T19:22:00+09:00",
+    "application_state": "submitted",
     "affiliate_evidence_markers": [
       "Official EmailOctopus affiliate page says the affiliate account is free and provides a unique link after enrollment.",
       "Official affiliate page states 30% of referral revenue for one year with a 31-day cookie.",
       "GitHub search found no pre-existing COSHUMA EmailOctopus tool/application/tracking record before this fast-lane cycle.",
       "support@coshuma.com Gmail search for emailoctopus found no prior application, approval, rejection, tracking-link, commission, or payout message.",
-      "Exact account-specific customer tracking URL is unknown; Tolt portal/application URLs and generic vendor URLs must not be treated as affiliate revenue links.",
-      "GitHub issue #511 tracks the authenticated Tolt duplicate check and one-time application/recovery step."
+      "Tolt success screen confirmed setup complete and issued exact customer-facing partner link: https://emailoctopus.com/?ref=sangkwon.",
+      "GitHub issue #511 records the authenticated Tolt onboarding submission and exact URL verification."
     ],
-    "affiliate_next_action": "Open the official EmailOctopus Tolt route in an authenticated browser/Work session, check for an existing COSHUMA identity, then submit once only if absent or recover the exact issued customer tracking URL if already enrolled."
+    "affiliate_next_action": "Await vendor program review if applicable; do not infer clicks, signups, revenue, commissions, or payout."
   },
   {
     "id": "engagebay",
