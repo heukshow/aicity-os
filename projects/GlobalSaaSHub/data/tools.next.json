@@ -1581,7 +1581,8 @@
       "Generic homepage, signup, Partners navigation and affiliate dashboard URLs must not be treated as affiliate links.",
       "GitHub issue #497 tracks vendor response, exact enrollment path and future customer referral URL recovery."
     ],
-    "affiliate_next_action": "Preserve the exact account-issued Home Page referral URL and do not create another account. Complete W-8BEN only through account-owner legal review. Recheck clicks, referrals, customers, unpaid and paid commission from the authenticated dashboard without inferring revenue."
+    "affiliate_next_action": "Preserve the exact account-issued Home Page referral URL and do not create another account. Complete W-8BEN only through account-owner legal review. Recheck clicks, referrals, customers, unpaid and paid commission from the authenticated dashboard without inferring revenue.",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "convertkit",
@@ -5565,14 +5566,14 @@
     "comparison_group": "process_documentation",
     "official_url": "https://scribehow.com/",
     "pricing_source_url": "https://scribehow.com/pricing",
-    "pricing_verified_at": "2026-09-14T05:40:00+09:00",
+    "pricing_verified_at": "2026-09-15T04:12:19+09:00",
     "pricing_verified": true,
     "currency": "USD",
     "billing_period": "monthly or annual depending on plan",
     "evidence_source_type": "official_product_and_support_pages",
     "is_manual_override": true,
     "official_verification_status": "verified",
-    "official_verified_at": "2026-09-14T05:40:00+09:00",
+    "official_verified_at": "2026-09-15T04:12:19+09:00",
     "official_evidence_url": "https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program",
     "affiliate_verified": false,
     "affiliate_status": "temporarily_closed",
@@ -6076,7 +6077,7 @@
     "affiliate_url": null,
     "affiliate_verified": false,
     "affiliate_status": "outreach_sent",
-    "affiliate_verified_at": "2026-09-14T05:40:00+09:00",
+    "affiliate_verified_at": "2026-09-15T04:12:19+09:00",
     "affiliate_final_url": null,
     "affiliate_evidence_markers": [
       "2026-09-08: company Gmail in:anywhere search including supademo returned no existing messages. Official Supademo page explicitly states affiliate signup is completely free, no customer subscription or sales minimum is required, and advertises 30% recurring commission. Join the affiliate program exposed an eu.makeforms.io frame with connection reset. Its exact official form https://eu.makeforms.io/k1ibmll/ also returned net::ERR_CONNECTION_RESET when opened directly in Chrome and the in-app browser. No form fields or submission confirmation were available. Technical connectivity failure, not CAPTCHA or a user-consent blocker. No account, application, payment or referral link created.",

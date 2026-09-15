@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-15",
+  "updated_at": "2026-09-14",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -500,7 +500,7 @@
       ],
       "gmail_message_id": "1a09b43356bc3947",
       "acknowledgement_message_id": "1a09b43b5ba55b97",
-      "checked_at": "2026-09-14T05:40:00+09:00"
+      "checked_at": "2026-09-15T04:12:19+09:00"
     },
     "claap": {
       "status": "approved_tracking",

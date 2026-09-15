@@ -674,7 +674,7 @@
     "affiliate_status": "application_embed_unavailable",
     "exact_tracking_url": null,
     "cost": "0",
-    "verified_at": "2026-09-14T05:40:00+09:00",
+    "verified_at": "2026-09-15T04:12:19+09:00",
     "reason": "Supademo received COSHUMA affiliate outreach and acknowledged receipt. The old embedded-form technical failure is superseded; the next dependency is a human vendor response, not browser/user action.",
     "next_action": "Wait for a human Supademo reply, then re-check the full Gmail thread, sent mail, spam and repository state before any follow-up.",
     "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
