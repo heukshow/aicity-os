@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14",
+  "updated_at": "2026-09-15",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -642,14 +642,20 @@
       "evidence": "Scalenut's FirstPromoter program sent Gmail message 1a090067413635a3 to support@coshuma.com with subject 'Unfortunately we had to reject your affiliate request' and states that COSHUMA's Affiliate Program - New Starter Tier application was rejected. This is newer than the repository's application_submitted state."
     },
     "scribe": {
-      "status": "outreach_sent",
+      "status": "temporarily_closed",
+      "application_state": "vendor_not_accepting_new_affiliate_applications",
       "contact": "support@scribehow.com",
       "gmail_message_id": "1a09c7a8e9029ff0",
+      "vendor_response_message_id": "1a0a155a6b7de938",
       "sender": "support@coshuma.com",
       "tracking_url": null,
       "official_program_url": "https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program",
-      "checked_at": "2026-09-14T05:40:00+09:00",
-      "note": "Official Scribe support confirms an affiliate program, but the exact signup destination is still being vendor-verified because unrelated products share the Scribe name. One verification inquiry was sent; do not duplicate outreach. No customer tracking URL is verified."
+      "github_issue": 525,
+      "checked_at": "2026-09-15T04:12:19+09:00",
+      "do_not_reapply": true,
+      "user_action_required": false,
+      "next_action": "Wait for a new human message from Scribe explicitly announcing that affiliate applications have reopened. Do not submit or send another inquiry before then.",
+      "note": "Scribe Support agent Matt Sanz confirmed on 2026-09-14 that Scribe is not accepting new affiliate applications while the program is being refreshed and restructured. Inquiry is complete; no approval or customer tracking URL was issued. Keep official non-affiliate CTAs and suppress duplicate outreach."
     },
     "landingi": {
       "status": "browser_required_portal_access",
