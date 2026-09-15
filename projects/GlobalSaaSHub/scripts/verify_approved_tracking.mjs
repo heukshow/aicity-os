@@ -1,3 +1,4 @@
+import './reconcile_sanebox_approved_tracking.mjs';
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
@@ -25,6 +26,7 @@ try {
   for (let n = 0; n < 2; n += 1) {
     execFileSync(process.execPath, ['scripts/sync_verified_affiliates.mjs']);
     execFileSync(process.execPath, ['scripts/sync_latest_affiliate_states.mjs']);
+    execFileSync(process.execPath, ['scripts/reconcile_sanebox_approved_tracking.mjs']);
     checkStoredState();
     for (let j = 0; j < files.length; j += 1) {
       const before = JSON.parse(originals[j]);
