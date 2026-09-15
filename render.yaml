@@ -1,8 +1,11 @@
-# AI City OS: Imperial Cloud Blueprint
+# Legacy AI City OS service retained temporarily for safe Render shutdown.
+# Automatic deploys are disabled so unrelated COSHUMA commits do not consume
+# the team's free Build Pipeline minutes.
 services:
   - type: web
     name: aicity-os
     env: python
+    autoDeploy: false
     buildCommand: pip install -r requirements.txt
     startCommand: python AI_City_Project/execution/api_bridge.py
     envVars:
