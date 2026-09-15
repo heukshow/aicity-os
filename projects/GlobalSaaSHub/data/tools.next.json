@@ -5575,14 +5575,13 @@
     "official_verified_at": "2026-09-14T05:40:00+09:00",
     "official_evidence_url": "https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program",
     "affiliate_verified": false,
-    "affiliate_status": "outreach_sent",
+    "affiliate_status": "temporarily_closed",
     "affiliate_source_url": "https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program",
-    "affiliate_verified_at": "2026-09-14T05:40:00+09:00",
+    "affiliate_verified_at": "2026-09-15T04:12:19+09:00",
     "affiliate_evidence_markers": [
-      "Official Scribe Support Portal confirms an affiliate program exists and is open to everyone.",
-      "Gmail all-mail search found no prior COSHUMA Scribe application, approval, rejection or issued customer tracking URL before outreach.",
-      "COSHUMA sent one verification inquiry to support@scribehow.com on 2026-09-14; Gmail message id 1a09c7a8e9029ff0.",
-      "Exact affiliate application destination and account-specific customer tracking URL remain unverified; do not publish a guessed Rewardful or generic signup URL."
+      "2026-09-14: Scribe Support agent Matt Sanz confirmed that Scribe is not accepting new affiliate applications while its affiliate program is being refreshed and restructured.",
+      "The prior COSHUMA inquiry is complete. Do not reapply or send another inquiry unless Scribe itself sends a new human update that applications have reopened.",
+      "No COSHUMA approval or account-specific customer tracking URL was issued. Keep affiliate_url null and do not infer clicks, signups, customers, commissions, payouts or revenue."
     ]
   },
   {
