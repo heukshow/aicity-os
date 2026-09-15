@@ -185,6 +185,26 @@
       "evidence_id": "gmail:1a0918839bda8d0f",
       "evidence_timestamp": "2026-09-11T17:33:38Z",
       "note": "Tally's Cello-powered referral system explicitly reported the first view of COSHUMA's personal invite link https://tally.cello.so/ub0qUbuKk2f. The vendor called this a link view, so it is stored separately instead of being relabeled as an outbound click. No signup, paid customer, commission, reward or payout was reported; every downstream field therefore remains unknown."
+    },
+    {
+      "tool": "GetGenie",
+      "network": "GetGenie Affiliate Area",
+      "period": null,
+      "outbound_clicks": 4,
+      "signups_referrals": 0,
+      "trials": null,
+      "paid_customers": 0,
+      "commission_earned": 0,
+      "commission_approved": null,
+      "commission_pending": null,
+      "payout_paid": 0,
+      "payout_pending": null,
+      "currency": "USD",
+      "status": "verified",
+      "evidence_source": "authenticated-browser-dashboard",
+      "evidence_id": "github:issue-388",
+      "evidence_timestamp": "2026-09-15T00:00:00Z",
+      "note": "Authenticated GetGenie Affiliate Area evidence recorded in GitHub issue #388: visits/clicks 4, referrals/signups/leads 0, paid conversions/customers 0, commission earned $0.00 USD, commission paid $0.00 USD, and no referrals paid out. Gross sales/revenue, commission approved/pending breakdown, payout pending/detail, and reporting period were not reported and remain unknown. Vendor-issued URLs remain https://getgenie.ai?rui=3921 and https://getgenie.ai/pricing/?rui=3921."
     }
   ],
   "verified_totals": {
