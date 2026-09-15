@@ -25,14 +25,14 @@
   },
   "gamma": {
     "problems": [
-      "Professionals need to turn prompts, documents or source material into presentable visual drafts without manually designing every slide or page.",
-      "Teams need consistent branded presentations, documents and shareable visual content while still being able to export common formats such as PPTX and PDF.",
-      "Consultants, marketers and operators need to repurpose the same source material into presentations, documents, websites or social-ready visual assets faster."
+      "Professionals need to turn a real brief, document or source pack into a clear visual draft without spending the whole preparation cycle designing slides manually.",
+      "Teams need a repeatable brief-to-presentation workflow that can improve preparation time and message clarity while keeping human review in the loop.",
+      "Consultants, marketers and operators need to reuse the same source material across presentations, documents, websites or social-ready visual assets without rebuilding every format from scratch."
     ],
     "monetization": [
-      {"title": "Produce client presentations and pitch decks", "difficulty": "Beginner", "cost": "Free/paid", "output": "Edited presentation deck built from a client brief, source document or outline"},
-      {"title": "Create branded proposal and report packages", "difficulty": "Intermediate", "cost": "Paid", "output": "Reusable branded proposal, report or visual-document template with exported deliverables"},
-      {"title": "Offer visual content repurposing", "difficulty": "Intermediate", "cost": "Free/paid", "output": "Source material converted into a presentation, visual document and additional shareable assets"}
+      {"title": "Run a one-brief workflow test", "difficulty": "Beginner", "cost": "Free", "output": "Shareable draft from one real brief, scored for preparation time, message clarity and manual design effort"},
+      {"title": "Produce client presentations and pitch decks", "difficulty": "Beginner", "cost": "Free/paid", "output": "Reviewed presentation deck built from a client brief, source document or outline"},
+      {"title": "Create branded proposal and report packages", "difficulty": "Intermediate", "cost": "Paid", "output": "Reusable branded proposal or report workflow with exported deliverables and a documented review step"}
     ]
   },
   "taskade": {
