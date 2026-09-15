@@ -205,6 +205,27 @@
       "evidence_id": "github:issue-388",
       "evidence_timestamp": "2026-09-15T00:00:00Z",
       "note": "Authenticated GetGenie Affiliate Area evidence recorded in GitHub issue #388: visits/clicks 4, referrals/signups/leads 0, paid conversions/customers 0, commission earned $0.00 USD, commission paid $0.00 USD, and no referrals paid out. Gross sales/revenue, commission approved/pending breakdown, payout pending/detail, and reporting period were not reported and remain unknown. Vendor-issued URLs remain https://getgenie.ai?rui=3921 and https://getgenie.ai/pricing/?rui=3921."
+    },
+    {
+      "tool": "Gravity Forms",
+      "network": "PartnerStack",
+      "period": "Last 30 days dashboard snapshot as of 2026-09-16",
+      "outbound_clicks": 0,
+      "signups_referrals": 0,
+      "trials": null,
+      "paid_customers": 0,
+      "commission_earned": 0.0,
+      "commission_approved": null,
+      "commission_pending": 0.0,
+      "payout_paid": 0.0,
+      "payout_pending": null,
+      "currency": "USD",
+      "status": "approved_tracking_metrics_verified",
+      "evidence_source": "authenticated-partnerstack-dashboard",
+      "evidence_id": "browser:dash.partnerstack.com/gravity:2026-09-16",
+      "evidence_timestamp": "2026-09-16T00:00:00Z",
+      "tracking_url": "https://try.gravity.com/8bd4r655ttws",
+      "note": "Authenticated Gravity PartnerStack dashboard displayed Last 30 days: Clicks 0, Signups 0, Paid signups 0, Revenue $0.00, Pending commissions $0.00, Paid commissions $0.00, Earnings per click $0.00. PartnerStack issued https://try.gravity.com/8bd4r655ttws and stated it redirects to https://gravityforms.com/; browser verification resolved to Gravity Forms while retaining attribution parameters. Trials, approved commission breakdown, payout pending detail and reporting period beyond Last 30 days remain unknown."
     }
   ],
   "verified_totals": {
