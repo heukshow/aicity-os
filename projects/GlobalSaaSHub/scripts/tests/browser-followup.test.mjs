@@ -1,16 +1,20 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import '../reconcile_sanebox_approved_tracking.mjs';
 import { browserFollowups, applyBrowserFollowup } from '../browser_followup_evidence.mjs';
 
 const paths = ['data/tools.json', 'data/tools.next.json'];
 const originals = paths.map(p => fs.readFileSync(p, 'utf8'));
 const state = JSON.parse(fs.readFileSync('data/affiliate_outreach_state.json')).programs;
 const queue = JSON.parse(fs.readFileSync('data/browser_required_queue.json'));
+const supersededByApprovedTracking = new Set(['sanebox']);
+
 function check() {
   for (const p of paths) {
     const tools = JSON.parse(fs.readFileSync(p));
     for (const [id, evidence] of browserFollowups) {
+      if (supersededByApprovedTracking.has(id)) continue;
       const t = tools.find(t => t.id === id);
       // Browser evidence may include operational programs that are intentionally
       // not part of the public 151-tool catalog. Validate catalog records only.
@@ -40,6 +44,7 @@ try {
   for (let n = 0; n < 2; n++) {
     for (const s of ['sync_verified_affiliates', 'sync_latest_affiliate_states']) {
       execFileSync(process.execPath, [`scripts/${s}.mjs`]);
+      execFileSync(process.execPath, ['scripts/reconcile_sanebox_approved_tracking.mjs']);
       check();
     }
     const snapshot = paths.map(p => JSON.parse(fs.readFileSync(p)));
@@ -49,6 +54,7 @@ try {
     }
     for (let i = 0; i < paths.length; i++) {
       for (const id of browserFollowups.keys()) {
+        if (supersededByApprovedTracking.has(id)) continue;
         assert.deepEqual(
           snapshot[i].find(t => t.id === id),
           normalized[i].find(t => t.id === id),
