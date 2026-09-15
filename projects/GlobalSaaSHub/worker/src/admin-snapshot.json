@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T04:28:41.171Z",
+  "generatedAt": "2026-09-15T05:22:15.860Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 112,
@@ -34,7 +34,7 @@
       "unclassifiedAffiliateStatus": 7,
       "exactAffiliateUrlMissing": 87,
       "officialUnverified": 1,
-      "pricingUnverified": 133
+      "pricingUnverified": 132
     },
     "records": [
       {
@@ -2345,7 +2345,7 @@
         "id": "livechat",
         "name": "LiveChat",
         "officialVerified": true,
-        "pricingVerified": false,
+        "pricingVerified": true,
         "affiliateStatus": "referral_link_requested",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
