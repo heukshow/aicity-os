@@ -1357,7 +1357,22 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://clickup.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "rejected",
+    "affiliate_source_url": "https://clickup.com/partners/affiliates",
+    "affiliate_verified_at": "2026-08-25T13:01:14Z",
+    "affiliate_status_checked_at": "2026-08-25T13:01:14Z",
+    "affiliate_status_evidence_url": "data/clickup-affiliate-rejection-evidence-2026-08-25.md",
+    "affiliate_rejection_reason": "PartnerStack decision email declined COSHUMA's ClickUp affiliate application on 2026-08-25.",
+    "affiliate_evidence_markers": [
+      "PartnerStack application-received email: Gmail message 1a0335635b16ee8a on 2026-08-24",
+      "Newer PartnerStack decision email: Gmail message 1a03902e9683c1b0 on 2026-08-25",
+      "The newer decision explicitly states that ClickUp declined COSHUMA's application",
+      "No account-specific customer referral URL was issued or verified",
+      "data/clickup-affiliate-rejection-evidence-2026-08-25.md"
+    ],
+    "affiliate_next_action": "Do not reapply automatically. Keep ClickUp customer CTAs non-affiliate unless newer first-party or PartnerStack evidence explicitly reverses the rejection and issues an exact customer-facing tracking URL."
   },
   {
     "id": "cloudtalk",

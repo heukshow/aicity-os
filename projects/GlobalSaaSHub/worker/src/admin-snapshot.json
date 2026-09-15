@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-09-15T01:27:24.936Z",
+  "generatedAt": "2026-09-15T02:29:51.409Z",
   "counts": {
     "totalTools": 179,
-    "verifiedAffiliates": 111,
+    "verifiedAffiliates": 112,
     "revenueReadyAffiliates": 69,
     "genericRevenueReadyAffiliates": 66,
     "targetedRevenueReadyAffiliates": 3,
-    "openMonetizationGaps": 88,
-    "directActionableGaps": 14,
+    "openMonetizationGaps": 87,
+    "directActionableGaps": 13,
     "browserRequiredGaps": 25,
     "watchOnlyGaps": 49,
-    "doNotReapply": 165,
+    "doNotReapply": 166,
     "toolPages": 179,
     "comparePages": 275,
     "sitemapUrls": 400
@@ -18,21 +18,21 @@
   "revenueFocus": {
     "policy": "prioritize_direct_existing_gaps_without_reapplying_waiting_states",
     "allowNewTools": false,
-    "reason": "14 existing tools still have directly actionable affiliate gaps; 49 are watch-only and 25 require browser work."
+    "reason": "13 existing tools still have directly actionable affiliate gaps; 49 are watch-only and 25 require browser work."
   },
   "affiliateCoverage": {
     "counts": {
       "revenueReady": 69,
       "genericRevenueReady": 66,
       "targetedRevenueReady": 3,
-      "terminal": 23,
-      "openMonetizationGaps": 88,
-      "directActionableGaps": 14,
+      "terminal": 24,
+      "openMonetizationGaps": 87,
+      "directActionableGaps": 13,
       "browserRequiredGaps": 25,
       "watchOnlyGaps": 49,
-      "doNotReapply": 165,
-      "unclassifiedAffiliateStatus": 9,
-      "exactAffiliateUrlMissing": 88,
+      "doNotReapply": 166,
+      "unclassifiedAffiliateStatus": 8,
+      "exactAffiliateUrlMissing": 87,
       "officialUnverified": 1,
       "pricingUnverified": 134
     },
@@ -1662,18 +1662,18 @@
         "name": "ClickUp",
         "officialVerified": true,
         "pricingVerified": false,
-        "affiliateStatus": "unclassified",
-        "affiliateVerified": false,
+        "affiliateStatus": "rejected",
+        "affiliateVerified": true,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
         "targetedRevenueReady": false,
         "revenueReady": false,
-        "terminal": false,
-        "doNotReapply": false,
+        "terminal": true,
+        "doNotReapply": true,
         "browserRequired": false,
-        "directActionableGap": true,
+        "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "affiliate_status_unclassified"
+        "blocker": null
       },
       {
         "id": "cloudtalk",
@@ -3874,6 +3874,14 @@
       "verified": true,
       "url": null,
       "verifiedAt": "2026-09-08T03:27:00+09:00"
+    },
+    {
+      "id": "clickup",
+      "name": "ClickUp",
+      "status": "rejected",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-08-25T13:01:14Z"
     },
     {
       "id": "cloudways",
