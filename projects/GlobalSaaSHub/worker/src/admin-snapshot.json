@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T19:48:43.538Z",
+  "generatedAt": "2026-09-15T20:34:43.530Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 113,
@@ -13,7 +13,7 @@
     "doNotReapply": 166,
     "toolPages": 179,
     "comparePages": 275,
-    "sitemapUrls": 400
+    "sitemapUrls": 403
   },
   "revenueFocus": {
     "policy": "prioritize_direct_existing_gaps_without_reapplying_waiting_states",
