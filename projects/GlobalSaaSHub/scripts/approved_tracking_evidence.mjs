@@ -97,6 +97,24 @@ approvedTracking.set('teachable', {
   evidence_file: 'data/claap-teachable-tracking-update-2026-09-09.json',
 });
 
+// SaneBox Partner Program welcome email issued COSHUMA's exact customer-facing
+// referral link after the PartnerStack application. Keep the public 7-day trial
+// separate from the partner welcome email's stated 14-day referred-customer trial.
+approvedTracking.set('sanebox', {
+  id: 'sanebox',
+  status: 'approved_tracking',
+  exact_tracking_url: 'https://try.sanebox.com/s1ooqjj73rpz',
+  destination: 'https://try.sanebox.com/s1ooqjj73rpz',
+  allowed_cta_urls: [
+    'https://try.sanebox.com/s1ooqjj73rpz',
+  ],
+  company_mailbox: 'support@coshuma.com',
+  vendor_reply_message_id: '1a0a6da406db7ad2',
+  evidence: 'SaneBox Partner Program welcome email from Tony Bass to support@coshuma.com explicitly welcomes COSHUMA to the program and identifies https://try.sanebox.com/s1ooqjj73rpz as the SaneBox referral link. The email states 20% recurring commission on referred revenue with a 30% tier after $500 in completed sales. No click, trial, paying customer, commission, or payout is inferred from approval/link issuance.',
+  checked_at: '2026-09-16T06:20:00+09:00',
+  evidence_file: 'data/sanebox-approved-tracking-2026-09-16.md',
+});
+
 export function applyApprovedTracking(tool) {
   const item = approvedTracking.get(tool.id);
   if (!item) return false;
