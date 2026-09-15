@@ -3847,7 +3847,21 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.livechat.com/"
+    "official_evidence_url": "https://www.livechat.com/",
+    "affiliate_verified": false,
+    "affiliate_status": "referral_link_requested",
+    "affiliate_status_checked_at": "2026-09-15T04:24:03Z",
+    "affiliate_status_evidence_url": "https://www.text.com/partners/affiliate/",
+    "affiliate_source_url": "https://www.text.com/partners/affiliate/",
+    "affiliate_final_url": null,
+    "affiliate_evidence_markers": [
+      "An existing Text Partner Program account is confirmed; exact Text and HelpDesk campaign URLs are maintained on their separate tool records.",
+      "Text Support confirmed on 2026-09-12 that the available customer campaigns are those shown in the authenticated Partner Program panel.",
+      "COSHUMA requested a LiveChat-specific customer campaign URL once from Text Support on 2026-09-12; no reply or exact LiveChat customer tracking URL was present in either connected Gmail account as of 2026-09-15 13:24 KST.",
+      "The vendor report for 2026-08-13 through 2026-09-10 records 28 account-wide clicks, 0 trials, 0 paid accounts and $0 earnings; it does not prove a LiveChat-specific tracked route.",
+      "Do not reapply, send duplicate outreach, or treat the LiveChat homepage, dashboard, or generic signup URL as an affiliate link. GitHub issue #310 tracks the outstanding exact-link request."
+    ],
+    "affiliate_next_action": "Wait for Text Support's reply to the existing one-time LiveChat-specific campaign request. If an exact customer-facing tracking URL is issued, validate and activate it; otherwise keep LiveChat official CTAs non-affiliate. Do not send duplicate outreach."
   },
   {
     "id": "loopcv",
