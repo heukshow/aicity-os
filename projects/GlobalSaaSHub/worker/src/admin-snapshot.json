@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T04:19:40.774Z",
+  "generatedAt": "2026-09-15T04:22:37.591Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 112,
@@ -34,7 +34,7 @@
       "unclassifiedAffiliateStatus": 8,
       "exactAffiliateUrlMissing": 87,
       "officialUnverified": 1,
-      "pricingUnverified": 134
+      "pricingUnverified": 133
     },
     "records": [
       {
@@ -491,7 +491,7 @@
         "id": "gamma",
         "name": "Gamma",
         "officialVerified": true,
-        "pricingVerified": false,
+        "pricingVerified": true,
         "affiliateStatus": "approved_tracking",
         "affiliateVerified": true,
         "hasAffiliateUrl": true,
