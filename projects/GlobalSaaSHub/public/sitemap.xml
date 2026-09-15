@@ -2000,4 +2000,16 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://coshuma.com/tool/benchmark-email.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://coshuma.com/best/benchmark-email-free-plan-pricing.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://coshuma.com/compare/benchmark-email-vs-emailoctopus.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>
