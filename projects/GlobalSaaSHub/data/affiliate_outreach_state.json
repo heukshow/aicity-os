@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16",
+  "updated_at": "2026-09-14",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -826,15 +826,15 @@
       "note": "Existing 2026-09-07 outreach has no reply. A current official signup path is now public, but Privy Partner Program participation is governed by a binding agreement, so application submission requires account-holder legal/program consent. Exact customer tracking URL and downstream revenue metrics remain unknown."
     },
     "emailoctopus": {
-      "status": "approved_tracking_url_verified",
-      "tracking_url": "https://emailoctopus.com/?ref=sangkwon",
-      "application_state": "submitted",
+      "status": "browser_required_tolt_application",
+      "tracking_url": null,
+      "application_state": "not_submitted",
       "account": "support@coshuma.com",
       "official_program_url": "https://emailoctopus.com/affiliates",
       "workflow_url": "https://emailoctopus.tolt.io/",
       "github_issue": 511,
-      "checked_at": "2026-09-16T19:22:00+09:00",
-      "note": "Tolt onboarding success screen confirmed setup complete and issued the exact customer-facing partner link. No clicks, signups, revenue, commissions, or payout inferred."
+      "checked_at": "2026-09-14T15:34:00+09:00",
+      "note": "Official free affiliate program and Tolt application route are confirmed, but no existing COSHUMA enrollment or issued customer tracking URL was found in GitHub/Gmail. Do not use the Tolt route or generic vendor pages as customer affiliate CTAs."
     },
     "sender-net": {
       "status": "browser_required_partnerstack_application",
