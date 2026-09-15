@@ -68,6 +68,13 @@ const dataOverrides = {
       '100+ integrations',
     ],
   },
+  gamma: {
+    pricing_source_url: 'https://gamma.app/pricing',
+    pricing_evidence_markers: ['No credit card required', 'Create up to 10 slides per prompt', 'Create up to 75 slides per prompt', 'API access'],
+    pricing_verified: true,
+    pricing_verified_at: '2026-09-15T13:14:27+09:00',
+    evidence_source_type: 'official_pricing_page',
+  },
 };
 
 // Account-state evidence recovered from connected Gmail and authenticated vendor
