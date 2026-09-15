@@ -68,6 +68,23 @@ const dataOverrides = {
       '100+ integrations',
     ],
   },
+  livechat: {
+    description: 'LiveChat is website chat software for customer support and sales, with campaigns, visitor tracking, chat history, reporting and AI-assisted agent tools.',
+    pricing: '14-day free trial; Starter $19, Team $49, Business $79 per person/month billed annually; Enterprise custom',
+    pricing_source_url: 'https://www.livechat.com/pricing/',
+    pricing_evidence_markers: ['Free 14-day trial', 'No credit card required', 'Starter $19', 'Team $49', 'Business $79', 'billed annually'],
+    pricing_verified: true,
+    pricing_verified_at: '2026-09-15T14:15:21+09:00',
+    currency: 'USD',
+    billing_period: 'per person/month billed annually',
+    evidence_source_type: 'official_pricing_page',
+    key_features: [
+      'Website live chat for support and sales',
+      'Visitor tracking and recurring campaigns',
+      'Chat history and performance reporting',
+      'AI-assisted text intelligence',
+    ],
+  },
   gamma: {
     pricing_source_url: 'https://gamma.app/pricing',
     pricing_evidence_markers: ['No credit card required', 'Create up to 10 slides per prompt', 'Create up to 75 slides per prompt', 'API access'],
@@ -80,6 +97,23 @@ const dataOverrides = {
 // Account-state evidence recovered from connected Gmail and authenticated vendor
 // dashboards. These overrides prevent stale records from reopening duplicate work.
 const statusOverrides = {
+  livechat: {
+    affiliate_url: null,
+    affiliate_verified: false,
+    affiliate_status: 'referral_link_requested',
+    affiliate_status_checked_at: '2026-09-15T04:24:03Z',
+    affiliate_status_evidence_url: 'https://www.text.com/partners/affiliate/',
+    affiliate_source_url: 'https://www.text.com/partners/affiliate/',
+    affiliate_final_url: null,
+    affiliate_evidence_markers: [
+      'An existing Text Partner Program account is confirmed; exact Text and HelpDesk campaign URLs are maintained on their separate tool records.',
+      'Text Support confirmed on 2026-09-12 that the available customer campaigns are those shown in the authenticated Partner Program panel.',
+      'COSHUMA requested a LiveChat-specific customer campaign URL once from Text Support on 2026-09-12; no reply or exact LiveChat customer tracking URL was present in either connected Gmail account as of 2026-09-15 13:24 KST.',
+      'The vendor report for 2026-08-13 through 2026-09-10 records 28 account-wide clicks, 0 trials, 0 paid accounts and $0 earnings; it does not prove a LiveChat-specific tracked route.',
+      'Do not reapply, send duplicate outreach, or treat the LiveChat homepage, dashboard, or generic signup URL as an affiliate link. GitHub issue #310 tracks the outstanding exact-link request.',
+    ],
+    affiliate_next_action: "Wait for Text Support's reply to the existing one-time LiveChat-specific campaign request. If an exact customer-facing tracking URL is issued, validate and activate it; otherwise keep LiveChat official CTAs non-affiliate. Do not send duplicate outreach.",
+  },
   writesonic: {
     affiliate_url: 'https://writesonic.com?fp_ref=sang-kwon-f5452a',
     affiliate_verified: true,
