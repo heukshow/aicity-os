@@ -36,10 +36,10 @@
       "payout_pending": null,
       "currency": "USD",
       "status": "verified",
-      "evidence_source": "vendor-human-email",
-      "evidence_id": "gmail:1a08b7f1bb6ae4ff",
-      "evidence_timestamp": "2026-09-10T18:55:40+05:30",
-      "note": "Vendor human confirmed 6 clicks, 0 referrals/signups, 0 paying customers, $0.00 earnings/commission. Trial count was not explicitly supplied, so it remains unknown."
+      "evidence_source": "authenticated-browser-dashboard",
+      "evidence_id": "browser:pictory-partners-home;github:issue-315",
+      "evidence_timestamp": "2026-09-16T00:00:00Z",
+      "note": "Authenticated Pictory Partner dashboard showed 6 clicks, 0 referrals, 0 customers, total unpaid $0 and total paid $0. The dashboard did not expose a separate reporting period, paid-customer definition, or detailed commission/payout breakdown in the captured view; those remain unknown. Existing customer URL https://pictory.ai?fpr=sangkwon-an23 and coupon COSHUMA20 remain unchanged."
     },
     {
       "tool": "Text / LiveChat Partner Program",
