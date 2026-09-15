@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 
-const checkedAt = '2026-09-14T05:40:00+09:00';
+const checkedAt = '2026-09-15T04:12:19+09:00';
 const scribe = {
   id: 'scribe',
   name: 'Scribe',
@@ -32,14 +32,13 @@ const scribe = {
   official_verified_at: checkedAt,
   official_evidence_url: 'https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program',
   affiliate_verified: false,
-  affiliate_status: 'outreach_sent',
+  affiliate_status: 'temporarily_closed',
   affiliate_source_url: 'https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program',
   affiliate_verified_at: checkedAt,
   affiliate_evidence_markers: [
-    'Official Scribe Support Portal confirms an affiliate program exists and is open to everyone.',
-    'Gmail all-mail search found no prior COSHUMA Scribe application, approval, rejection or issued customer tracking URL before outreach.',
-    'COSHUMA sent one verification inquiry to support@scribehow.com on 2026-09-14; Gmail message id 1a09c7a8e9029ff0.',
-    'Exact affiliate application destination and account-specific customer tracking URL remain unverified; do not publish a guessed Rewardful or generic signup URL.',
+    '2026-09-14: Scribe Support agent Matt Sanz confirmed that Scribe is not accepting new affiliate applications while its affiliate program is being refreshed and restructured.',
+    'The prior COSHUMA inquiry is complete. Do not reapply or send another inquiry unless Scribe itself sends a new human update that applications have reopened.',
+    'No COSHUMA approval or account-specific customer tracking URL was issued. Keep affiliate_url null and do not infer clicks, signups, customers, commissions, payouts or revenue.',
   ],
 };
 
@@ -68,17 +67,23 @@ for (const file of ['data/tools.json', 'data/tools.next.json']) {
 
 const outreachPath = 'data/affiliate_outreach_state.json';
 const outreach = JSON.parse(fs.readFileSync(outreachPath, 'utf8'));
-outreach.updated_at = '2026-09-14';
+outreach.updated_at = '2026-09-15';
 outreach.programs ||= {};
 outreach.programs.scribe = {
-  status: 'outreach_sent',
+  status: 'temporarily_closed',
+  application_state: 'vendor_not_accepting_new_affiliate_applications',
   contact: 'support@scribehow.com',
   gmail_message_id: '1a09c7a8e9029ff0',
+  vendor_response_message_id: '1a0a155a6b7de938',
   sender: 'support@coshuma.com',
   tracking_url: null,
   official_program_url: 'https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program',
+  github_issue: 525,
   checked_at: checkedAt,
-  note: 'Official Scribe support confirms an affiliate program, but the exact signup destination is still being vendor-verified because unrelated products share the Scribe name. One verification inquiry was sent; do not duplicate outreach. No customer tracking URL is verified.',
+  do_not_reapply: true,
+  user_action_required: false,
+  next_action: 'Wait for a new human message from Scribe explicitly announcing that affiliate applications have reopened. Do not submit or send another inquiry before then.',
+  note: 'Scribe Support agent Matt Sanz confirmed on 2026-09-14 that Scribe is not accepting new affiliate applications while the program is being refreshed and restructured. Inquiry is complete; no approval or customer tracking URL was issued. Keep official non-affiliate CTAs and suppress duplicate outreach.',
 };
 if (outreach.programs.supademo) {
   Object.assign(outreach.programs.supademo, {
