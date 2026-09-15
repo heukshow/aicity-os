@@ -309,10 +309,14 @@ const statusOverrides = {
 for (const file of ['data/tools.json', 'data/tools.next.json']) {
   const tools = JSON.parse(fs.readFileSync(file, 'utf8'));
   for (const tool of tools) {
-    if (applyBrowserFollowup(tool)) continue;
-    if (applyApprovedTracking(tool)) continue;
+    // Product/pricing facts are independent from affiliate-state reconciliation.
+    // Apply them first so an approved tracking record cannot bypass a verified
+    // pricing correction or restore a stale public source.
     const dataOverride = dataOverrides[tool.id];
     if (dataOverride) Object.assign(tool, dataOverride);
+
+    if (applyBrowserFollowup(tool)) continue;
+    if (applyApprovedTracking(tool)) continue;
 
     const override = statusOverrides[tool.id];
     if (override) Object.assign(tool, override);
