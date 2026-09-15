@@ -21,7 +21,11 @@ const terminalAffiliateStatuses = new Set([
   'excluded_user_request',
   'vendor-paused',
   'vendor_paused',
+  'duplicate_do_not_apply',
 ]);
+
+const isTerminalAffiliateStatus = (status) =>
+  terminalAffiliateStatuses.has(status) || status.startsWith('program_unavailable_');
 
 const noReapplyAffiliateStatuses = new Set([
   'application_submitted',
@@ -45,7 +49,30 @@ const browserRequiredAffiliateStatuses = new Set([
   'browser_required_otp',
   'browser_required_portal_access',
   'browser_required_application_form',
+  'application_available_account_required',
+  'application_available_impact',
+  'application_available_partnerstack',
+  'application_blocked_existing_reditus_onboarding',
+  'application_blocked_tax_id_captcha',
 ]);
+
+const watchOnlyAffiliateStatuses = new Set([
+  'application_page_unavailable',
+  'application_blocked_affiliate_domain_ssl_error',
+  'referral_link_requested',
+  'support_waiting_upgrade_gate',
+  'waiting_vendor_response',
+]);
+
+const isBrowserRequiredAffiliateStatus = (status) =>
+  browserRequiredAffiliateStatuses.has(status) || status.startsWith('browser_required_');
+
+const isWatchOnlyAffiliateStatus = (status) =>
+  noReapplyAffiliateStatuses.has(status) ||
+  watchOnlyAffiliateStatuses.has(status) ||
+  status.endsWith('_requested') ||
+  status.startsWith('waiting_') ||
+  status.includes('_waiting_');
 
 const genericRevenueReady = (tool) =>
   tool.affiliate_verified === true &&
@@ -65,14 +92,14 @@ const targetedRevenueReady = (tool) => {
 const affiliateCoverage = tools
   .map((tool) => {
     const status = tool.affiliate_status || 'unclassified';
-    const terminal = terminalAffiliateStatuses.has(status);
+    const terminal = isTerminalAffiliateStatus(status);
     const genericReady = genericRevenueReady(tool);
     const targetedReady = targetedRevenueReady(tool);
     const ready = genericReady || targetedReady;
-    const browserRequired = !ready && !terminal && browserRequiredAffiliateStatuses.has(status);
-    const doNotReapply = ready || terminal || noReapplyAffiliateStatuses.has(status);
-    const directActionableGap = !ready && !terminal && !browserRequired && !doNotReapply;
-    const watchOnlyGap = !ready && !terminal && !browserRequired && doNotReapply;
+    const browserRequired = !ready && !terminal && isBrowserRequiredAffiliateStatus(status);
+    const watchOnlyGap = !ready && !terminal && !browserRequired && isWatchOnlyAffiliateStatus(status);
+    const doNotReapply = ready || terminal || browserRequired || watchOnlyGap;
+    const directActionableGap = !ready && !terminal && !browserRequired && !watchOnlyGap;
     let blocker = null;
     if (!ready && !terminal) {
       if (!tool.affiliate_status) blocker = 'affiliate_status_unclassified';
@@ -133,8 +160,13 @@ const coverageCounts = affiliateCoverage.reduce((acc, item) => {
 });
 
 for (const item of affiliateCoverage) {
-  if (noReapplyAffiliateStatuses.has(item.affiliateStatus) && item.directActionableGap) {
-    throw new Error(`Duplicate-application guard failed for ${item.id}: ${item.affiliateStatus}`);
+  if (
+    (isBrowserRequiredAffiliateStatus(item.affiliateStatus) ||
+      isWatchOnlyAffiliateStatus(item.affiliateStatus) ||
+      isTerminalAffiliateStatus(item.affiliateStatus)) &&
+    item.directActionableGap
+  ) {
+    throw new Error(`Affiliate hold-state guard failed for ${item.id}: ${item.affiliateStatus}`);
   }
 }
 
