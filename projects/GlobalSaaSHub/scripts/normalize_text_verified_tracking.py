@@ -68,8 +68,6 @@ for path in PUBLIC.rglob("*.html"):
 
     updated = ANCHOR_RE.sub(normalize, original)
 
-    # The verified campaign is not a direct trial deeplink. Keep trial intent in
-    # the button, but make the required intermediate Text.com step explicit.
     if EXACT_URL in updated:
         for old, new in MISLEADING_LABELS.items():
             occurrences = updated.count(old)
@@ -77,9 +75,6 @@ for path in PUBLIC.rglob("*.html"):
                 updated = updated.replace(old, new)
                 changed_copy += occurrences
 
-    # Add the vendor-confirmed routing rule directly after the primary Text CTA.
-    # Other build scripts may rewrite the disclosure copy, so the stable CTA
-    # source marker is the resilient insertion point.
     if path.as_posix().endswith("public/tool/text.html") and ROUTING_NOTE_MARKER not in updated:
         if not HERO_CTA_RE.search(updated):
             raise SystemExit("Text hero CTA anchor not found; routing note was not inserted")
@@ -93,8 +88,6 @@ for path in PUBLIC.rglob("*.html"):
 if seen == 0:
     raise SystemExit("No Text affiliate CTAs found; expected at least one")
 
-# Fail closed after normalization so later edits cannot silently publish a
-# dashboard, homepage-only, or locally-extended partner URL.
 for path in PUBLIC.rglob("*.html"):
     html = path.read_text(encoding="utf-8")
     for anchor in ANCHOR_RE.findall(html):
@@ -105,7 +98,6 @@ for path in PUBLIC.rglob("*.html"):
         if href != EXACT_URL:
             raise SystemExit(f"Text affiliate CTA is not exact vendor route in {path}: {href}")
 
-# Guard the primary buyer page against the old misleading direct-trial labels.
 text_page = PUBLIC / "tool" / "text.html"
 if text_page.exists():
     text_html = text_page.read_text(encoding="utf-8")
@@ -195,8 +187,6 @@ def internal_ops_text(text: str) -> bool:
 def strip_block(match: re.Match[str]) -> str:
     block = match.group(0)
     text = visible_text(block)
-    # Keep the actual legal disclosure even when adjacent wording mentions a
-    # partner link. It is useful to buyers and should remain transparent.
     if re.search(r"may earn (?:an affiliate )?commission|at no extra cost", text, re.I) and not re.search(
         r"non-affiliate|not submitted|pending|declined|rejected|has not verified", text, re.I
     ):
@@ -211,7 +201,10 @@ def sanitize_jsonld(html: str) -> str:
         except Exception:
             return match.group(0)
 
+        changed = False
+
         def walk(node):
+            nonlocal changed
             if isinstance(node, list):
                 for item in node:
                     walk(item)
@@ -221,8 +214,9 @@ def sanitize_jsonld(html: str) -> str:
             types = node.get("@type")
             types = types if isinstance(types, list) else [types]
             if "FAQPage" in types and isinstance(node.get("mainEntity"), list):
+                original_items = node["mainEntity"]
                 kept = []
-                for item in node["mainEntity"]:
+                for item in original_items:
                     question = str(item.get("name", "")) if isinstance(item, dict) else ""
                     answer_obj = item.get("acceptedAnswer", {}) if isinstance(item, dict) else {}
                     answer = str(answer_obj.get("text", "")) if isinstance(answer_obj, dict) else ""
@@ -231,13 +225,17 @@ def sanitize_jsonld(html: str) -> str:
                         re.search(r"COSHUMA|affiliate link|referral link|tracking URL", question, re.I)
                     )
                     if (admin_question and internal_ops_text(combined)) or internal_ops_text(combined):
+                        changed = True
                         continue
                     kept.append(item)
-                node["mainEntity"] = kept
+                if len(kept) != len(original_items):
+                    node["mainEntity"] = kept
             for value in node.values():
                 walk(value)
 
         walk(data)
+        if not changed:
+            return match.group(0)
         return match.group(1) + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + match.group(3)
 
     return JSONLD_RE.sub(rewrite, html)
@@ -245,20 +243,15 @@ def sanitize_jsonld(html: str) -> str:
 
 def strip_internal_ops_html(source: str) -> str:
     updated = source
-    # Entire status rows are internal workflow data, not comparison criteria.
     updated = re.sub(
         r"<tr\b[^>]*>(?:(?!</tr>).)*?(?:COSHUMA\s+)?(?:affiliate status|CTA state)(?:(?!</tr>).)*?</tr>",
         "",
         updated,
         flags=re.I | re.S,
     )
-    # Most leaks are explanatory paragraphs/list items/small-print notes.
     for tag in ("p", "li", "small"):
         updated = re.sub(rf"<{tag}\b[^>]*>.*?</{tag}>", strip_block, updated, flags=re.I | re.S)
-    # Remove leaf operational callouts without touching layout containers that
-    # contain product cards or CTAs.
     updated = re.sub(r"<div\b[^>]*>(?:(?!<div\b).)*?</div>", strip_block, updated, flags=re.I | re.S)
-    # Dedicated internal methodology/status sections are not buyer content.
     updated = re.sub(
         r"<section\b[^>]*>(?:(?!</section>).)*?<h[1-3]\b[^>]*>\s*How this list is gated\s*</h[1-3]>(?:(?!</section>).)*?</section>",
         "",
