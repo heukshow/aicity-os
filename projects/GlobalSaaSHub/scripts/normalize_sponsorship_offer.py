@@ -49,6 +49,10 @@ INQUIRY_ANCHOR_RE = re.compile(
     r'<a\b[^>]*data-cta="sponsorship-inquiry"[^>]*>.*?</a>',
     flags=re.I | re.S,
 )
+SUPPORT_MAILTO_ANCHOR_RE = re.compile(
+    r'<a\b[^>]*href="mailto:support@coshuma\.com[^\"]*"[^>]*>.*?</a>',
+    flags=re.I | re.S,
+)
 
 OPTIONS_LINK = (
     '<a data-cta="sponsorship-options" href="/advertise.html" '
@@ -85,14 +89,22 @@ def insert_before_mailto_or_after_copy(section: str, link_html: str) -> str:
 
 def normalize_section(section: str) -> str:
     section = normalize_copy(section)
-    # While checkout is paused, replace both old checkout buttons and stale
-    # $49 inquiry buttons with one neutral inquiry route. This prevents old
-    # cached product copy from implying that every placement costs $49.
+    section = re.sub(r"\bOne-time\s+USD\s+49\b", "Packages from USD 19", section, flags=re.I)
+    section = re.sub(r"\$49\s+standard\s+placement", "sponsorship options", section, flags=re.I)
+    # While checkout is paused, replace old checkout buttons and every support
+    # mailbox CTA inside the sponsorship block with one canonical inquiry route.
+    # This removes stale $49 mailto subjects/labels regardless of legacy data-cta names.
     section = CHECKOUT_ANCHOR_RE.sub(INQUIRY_LINK, section)
     section = INQUIRY_ANCHOR_RE.sub(INQUIRY_LINK, section)
+    section = SUPPORT_MAILTO_ANCHOR_RE.sub(INQUIRY_LINK, section)
 
     if 'data-cta="sponsorship-inquiry"' not in section:
         section = insert_before_mailto_or_after_copy(section, INQUIRY_LINK)
+
+    # Multiple legacy inquiry links can collapse to the same canonical link.
+    # Keep the section readable by deduplicating adjacent copies.
+    escaped = re.escape(INQUIRY_LINK)
+    section = re.sub(rf'(?:{escaped}\s*){{2,}}', INQUIRY_LINK + '\n        ', section)
 
     if '/advertise.html' not in section:
         section = insert_before_mailto_or_after_copy(section, OPTIONS_LINK)
