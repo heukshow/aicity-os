@@ -18,16 +18,17 @@ TOOL_DIR = PUBLIC / "tool"
 APP = ROOT / "src" / "App.jsx"
 
 SPONSORSHIP_COPY = (
-    "Sponsored placement starts at USD 49. Approved sponsorships receive a clearly "
-    "labeled promotional placement in designated high-visibility areas. Premium "
-    "positions are priced separately based on placement and availability. Sponsorship "
-    "does not change independent editorial ratings or organic rankings."
+    "Sponsored placements start at USD 19 for 7 days. Tool Page Sponsored, "
+    "Buyer-Intent Featured, and Comparison Premium are priced by placement and "
+    "duration. Every paid placement is clearly labeled Sponsored and remains "
+    "separate from COSHUMA editorial ratings, reviews, comparisons, and organic rankings."
 )
 
 LEGACY_COPY_PATTERNS = [
     r"A one-time sponsored placement is USD 49\.\s*Sponsorship is reviewed separately from editorial coverage;\s*payment does not guarantee acceptance, ranking,? or an editorial rating\.",
     r"A one-time sponsored placement is USD 49\.\s*Approved sponsorships receive a clearly labeled promotional placement in designated high-visibility areas\.\s*Sponsorship does not change independent editorial ratings or organic rankings\.",
     r"Sponsorship is reviewed separately from editorial coverage\.\s*Payment does not guarantee acceptance, ranking,? or an editorial rating\.",
+    r"Sponsored placement starts at USD 49\.\s*Approved sponsorships receive a clearly labeled promotional placement in designated high-visibility areas\.\s*Premium positions are priced separately based on placement and availability\.\s*Sponsorship does not change independent editorial ratings or organic rankings\.",
 ]
 
 INQUIRY_URL = (
@@ -35,13 +36,17 @@ INQUIRY_URL = (
     "Product%20name%3A%0AWebsite%3A%0APreferred%20placement%3A%0APreferred%20duration%3A%0A"
 )
 INQUIRY_LINK = (
-    f'<a data-cta="sponsorship-inquiry" data-cta-source="tool-sponsorship-standard" href="{INQUIRY_URL}" '
+    f'<a data-cta="sponsorship-inquiry" data-cta-source="tool-sponsorship-options" href="{INQUIRY_URL}" '
     'class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-violet-600 '
     'hover:bg-violet-500 text-white text-xs font-extrabold transition-all">'
-    'Ask about the $49 standard placement →</a>'
+    'Ask about sponsorship →</a>'
 )
 CHECKOUT_ANCHOR_RE = re.compile(
     r'<a\b[^>]*data-cta="sponsorship-checkout"[^>]*>.*?</a>',
+    flags=re.I | re.S,
+)
+INQUIRY_ANCHOR_RE = re.compile(
+    r'<a\b[^>]*data-cta="sponsorship-inquiry"[^>]*>.*?</a>',
     flags=re.I | re.S,
 )
 
@@ -80,7 +85,11 @@ def insert_before_mailto_or_after_copy(section: str, link_html: str) -> str:
 
 def normalize_section(section: str) -> str:
     section = normalize_copy(section)
+    # While checkout is paused, replace both old checkout buttons and stale
+    # $49 inquiry buttons with one neutral inquiry route. This prevents old
+    # cached product copy from implying that every placement costs $49.
     section = CHECKOUT_ANCHOR_RE.sub(INQUIRY_LINK, section)
+    section = INQUIRY_ANCHOR_RE.sub(INQUIRY_LINK, section)
 
     if 'data-cta="sponsorship-inquiry"' not in section:
         section = insert_before_mailto_or_after_copy(section, INQUIRY_LINK)
