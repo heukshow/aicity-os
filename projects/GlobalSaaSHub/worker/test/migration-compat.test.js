@@ -7,7 +7,7 @@ function migration(name) {
   return readFileSync(new URL(`../migrations/${name}`, import.meta.url), 'utf8');
 }
 
-test('0004 adds variable-price sponsorship orders without mutating legacy fixed-price data', () => {
+test('0004 preserves legacy orders, supports variable prices, and stops refunded campaigns', () => {
   const db = new DatabaseSync(':memory:');
   db.exec('PRAGMA foreign_keys = ON;');
   db.exec(migration('0001_orders.sql'));
@@ -27,11 +27,29 @@ test('0004 adds variable-price sponsorship orders without mutating legacy fixed-
   db.prepare(`
     INSERT INTO sponsorship_orders (
       id, provider_order_id, provider, status, product_id, amount, currency, created_at, updated_at
-    ) VALUES (?, ?, 'paypal', 'created', ?, ?, 'USD', ?, ?)
+    ) VALUES (?, ?, 'paypal', 'paid', ?, ?, 'USD', ?, ?)
   `).run('new-19', 'PAYPAL-NEW-19', 'tool_page_7', '19.00', '2026-09-17T00:00:00.000Z', '2026-09-17T00:00:00.000Z');
 
   const newOrder = db.prepare('SELECT product_id, amount FROM sponsorship_orders WHERE id = ?').get('new-19');
   assert.deepEqual({ ...newOrder }, { product_id: 'tool_page_7', amount: '19.00' });
+
+  db.prepare(`
+    INSERT INTO campaigns (
+      id, order_id, provider_order_id, product_id, placement, duration_days, price_usd,
+      status, advertiser_name, contact_email, intake_token, report_token,
+      starts_at, ends_at, created_at, updated_at
+    ) VALUES (?, NULL, ?, ?, 'tool_page', 7, '19.00', 'published', ?, ?, ?, ?, ?, ?, ?, ?)
+  `).run(
+    'campaign-refund', 'PAYPAL-NEW-19', 'tool_page_7', 'Example Co', 'ads@example.com',
+    'a'.repeat(64), 'b'.repeat(64),
+    '2026-09-17T00:00:00.000Z', '2026-09-24T00:00:00.000Z',
+    '2026-09-17T00:00:00.000Z', '2026-09-17T00:00:00.000Z',
+  );
+
+  db.prepare(`UPDATE sponsorship_orders SET status='refunded', updated_at=? WHERE id=?`)
+    .run('2026-09-18T00:00:00.000Z', 'new-19');
+  const refundedCampaign = db.prepare('SELECT status FROM campaigns WHERE id=?').get('campaign-refund');
+  assert.equal(refundedCampaign.status, 'refunded');
 
   assert.throws(() => {
     db.prepare(`
