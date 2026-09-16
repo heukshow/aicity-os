@@ -7,7 +7,7 @@ function migration(name) {
   return readFileSync(new URL(`../migrations/${name}`, import.meta.url), 'utf8');
 }
 
-test('0004 preserves legacy orders, supports variable prices, and stops refunded campaigns', () => {
+test('0004 preserves legacy orders, enforces variable prices, and stops refunded campaigns', () => {
   const db = new DatabaseSync(':memory:');
   db.exec('PRAGMA foreign_keys = ON;');
   db.exec(migration('0001_orders.sql'));
@@ -32,6 +32,22 @@ test('0004 preserves legacy orders, supports variable prices, and stops refunded
 
   const newOrder = db.prepare('SELECT product_id, amount FROM sponsorship_orders WHERE id = ?').get('new-19');
   assert.deepEqual({ ...newOrder }, { product_id: 'tool_page_7', amount: '19.00' });
+
+  assert.throws(() => {
+    db.prepare(`
+      INSERT INTO sponsorship_orders (
+        id, provider_order_id, provider, status, product_id, amount, currency, created_at, updated_at
+      ) VALUES (?, ?, 'paypal', 'created', ?, ?, 'USD', ?, ?)
+    `).run('bad-pair', 'PAYPAL-BAD-PAIR', 'comparison_90', '19.00', '2026-09-17T00:00:00.000Z', '2026-09-17T00:00:00.000Z');
+  });
+
+  assert.throws(() => {
+    db.prepare(`
+      INSERT INTO sponsorship_orders (
+        id, provider_order_id, provider, status, product_id, amount, currency, created_at, updated_at
+      ) VALUES (?, ?, 'paypal', 'created', ?, ?, 'USD', ?, ?)
+    `).run('bad-product', 'PAYPAL-BAD-PRODUCT', 'invented_package', '19.00', '2026-09-17T00:00:00.000Z', '2026-09-17T00:00:00.000Z');
+  });
 
   db.prepare(`
     INSERT INTO campaigns (
