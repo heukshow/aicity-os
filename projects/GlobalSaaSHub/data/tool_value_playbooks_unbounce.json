@@ -1,0 +1,53 @@
+{
+  "unbounce": {
+    "situations": [
+      {
+        "label": "Paid-campaign marketer",
+        "guidance": "Consider Unbounce when you need campaign-specific landing pages and want to test page variants instead of sending every visitor to one static page."
+      },
+      {
+        "label": "Team that needs controlled experiments",
+        "guidance": "A stronger fit when A/B testing is part of the workflow and you need to compare landing-page variants using conversion goals."
+      },
+      {
+        "label": "Team that wants automated traffic optimization",
+        "guidance": "Consider the Smart Traffic workflow when routing visitors across multiple page variants is more useful than choosing one universal page for everyone."
+      },
+      {
+        "label": "Lowest-cost landing page is the main priority",
+        "guidance": "Compare alternatives before committing. COSHUMA should not treat Unbounce as the default choice when entry price matters more than experimentation and optimization features."
+      }
+    ],
+    "problems": [
+      "Campaign teams need dedicated landing pages without depending on developers for every page change.",
+      "Marketers need to compare landing-page variants instead of relying on one untested campaign page.",
+      "A team wants a repeatable landing-page optimization workflow with conversion goals, testing and reporting."
+    ],
+    "monetization": [
+      {
+        "title": "Build campaign landing pages for clients",
+        "difficulty": "Intermediate",
+        "cost": "14-day trial / paid",
+        "output": "Client-ready campaign landing page"
+      },
+      {
+        "title": "Set up landing-page experiments",
+        "difficulty": "Intermediate",
+        "cost": "14-day trial / paid",
+        "output": "A/B test plan with page variants and conversion goals"
+      },
+      {
+        "title": "Offer landing-page optimization support",
+        "difficulty": "Intermediate",
+        "cost": "Paid",
+        "output": "Campaign page testing and optimization workflow"
+      }
+    ],
+    "pairs": [
+      {
+        "id": "gohighlevel",
+        "why": "Use a CRM for lead follow-up and pipeline work after a landing-page conversion; this recommendation does not imply a native integration."
+      }
+    ]
+  }
+}
