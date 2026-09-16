@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T18:19:20.859Z",
+  "generatedAt": "2026-09-16T18:40:34.151Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 115,
@@ -12,7 +12,7 @@
     "watchOnlyGaps": 47,
     "doNotReapply": 166,
     "toolPages": 179,
-    "comparePages": 275,
+    "comparePages": 276,
     "sitemapUrls": 403
   },
   "revenueFocus": {
