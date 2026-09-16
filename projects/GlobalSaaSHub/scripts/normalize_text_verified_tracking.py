@@ -261,9 +261,18 @@ def strip_internal_ops_html(source: str) -> str:
     return sanitize_jsonld(updated)
 
 
+# This buyer hub is intentionally assembled by several strict, fail-closed
+# partner-offer scripts that run after this step. Leave its source structure
+# intact; brand-runtime.js applies the same customer-facing cleanup after load.
+# Other pages are statically cleaned before Vite so non-JS crawlers also receive
+# the simplified copy.
+OPS_STATIC_SKIP = {
+    PUBLIC / "best" / "verified-software-free-trials-deals.html",
+}
+
 ops_changed = []
 for ops_path in [ROOT / "index.html", *PUBLIC.rglob("*.html")]:
-    if not ops_path.exists():
+    if not ops_path.exists() or ops_path in OPS_STATIC_SKIP:
         continue
     before = ops_path.read_text(encoding="utf-8")
     after = strip_internal_ops_html(before)
