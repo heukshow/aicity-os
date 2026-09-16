@@ -8,7 +8,8 @@
     "pretest": "npm run snapshot",
     "test": "node --test test/*.test.js",
     "predeploy:check": "npm run snapshot && npm run migrations:check",
-    "deploy:check": "wrangler deploy --dry-run"
+    "deploy:check": "wrangler deploy --dry-run",
+    "verify:checkout-v2-prelaunch": "node scripts/verify-checkout-v2-prelaunch.mjs"
   },
   "devDependencies": {
     "wrangler": "^4.131.1"
