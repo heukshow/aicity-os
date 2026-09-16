@@ -69,6 +69,12 @@
     ]
   },
   "moosend": {
+    "situations": [
+      {"label": "Small business replacing manual follow-up", "guidance": "Consider Moosend when leads or subscribers are already being collected but welcome, promotional or follow-up emails are still sent manually."},
+      {"label": "Team that needs recurring email automation", "guidance": "A stronger fit when the same lifecycle messages need to run repeatedly, such as welcome, nurture, re-engagement or campaign sequences."},
+      {"label": "Freelancer or agency delivering email setup", "guidance": "Useful when the paid deliverable is a configured newsletter, automation sequence or lead-to-email workflow rather than one-off copywriting alone."},
+      {"label": "Very small list with only occasional sends", "guidance": "Compare simpler or lower-cost options first when you do not need recurring automation, segmentation or a repeatable email-marketing workflow."}
+    ],
     "problems": [
       "A business collects leads but follow-up depends on manual emails.",
       "Newsletter and lifecycle messages are inconsistent or sent too late.",
@@ -80,9 +86,9 @@
       {"title": "Offer email funnel implementation", "difficulty": "Intermediate", "cost": "Paid", "output": "Lead-to-email conversion workflow"}
     ],
     "pairs": [
-      {"id": "fillout", "why": "Collect subscribers or enquiries before they enter an email sequence."},
-      {"id": "make-com", "why": "Connect lead sources and business apps to email automation."},
-      {"id": "writesonic", "why": "Draft campaign and newsletter copy before scheduling it."}
+      {"id": "fillout", "why": "Collect subscribers or enquiries before they enter an email sequence; this is a workflow recommendation, not a claim of native integration."},
+      {"id": "make-com", "why": "Connect supported lead sources and business apps to an email workflow when the required integration or automation is configured."},
+      {"id": "writesonic", "why": "Draft campaign and newsletter copy before a human reviews it and schedules the email workflow."}
     ]
   },
   "descript": {
