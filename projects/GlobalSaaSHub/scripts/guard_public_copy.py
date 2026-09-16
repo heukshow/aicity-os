@@ -26,6 +26,12 @@ def clean(text):
         s = re.sub(r'\btext\s*cortex\b', 'TextCortex', s, flags=re.I)
         s = re.sub(r'You prioritize [^<.]+, specialized feature set, and reliable industry workflow integration\.', 'Choose this option if its documented features match the workflow you need.', s)
         s = re.sub(r'You want an alternative approach with [^<]+? pricing structure and (?:Not rated|Review pending)\.', 'Compare its current pricing and features with your requirements.', s)
+        # Buyer-facing labels should describe the action or benefit, not COSHUMA's
+        # internal affiliate verification/routing mechanics.
+        s = re.sub(r'\s+via\s+verified\s+COSHUMA\s+link\b', '', s, flags=re.I)
+        s = re.sub(r'\bVerified\s+revenue\s+alternative\b', 'Another option to compare', s, flags=re.I)
+        s = re.sub(r'\bVerified\s+monetization\s+path\b', 'Another option to compare', s, flags=re.I)
+        s = re.sub(r'\bVerified\s+partner\s+link\b', 'partner link', s, flags=re.I)
         return re.sub(r'__URL_(\d+)__', lambda m: urls[int(m[1])], s)
     text = re.sub(r'(?<=>)[^<]+(?=<)', lambda m: wording(m[0]), text)
     text = re.sub(r'(<meta\b[^>]*\bcontent=")([^"]*)(")', lambda m: m[1]+wording(m[2])+m[3], text)
