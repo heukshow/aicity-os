@@ -30,6 +30,8 @@ BAD=re.compile(
     r'customer-facing destinations were supplied directly by the partner programs|'
     r'COSHUMA does not invent referral parameters|'
     r'Verified revenue alternative|via verified COSHUMA link|'
+    r'Separate link verification|Recently verified partner buyer guides|'
+    r'Fill eSignature pricing & verified partner offer|'
     r'COSHUMA[^.]{0,80}affiliate application remains separate|'
     r'no Pipedrive revenue attribution is claimed',
     re.I,
@@ -42,6 +44,7 @@ def main():
     assert violations('<p>You prioritize <b>Not rated</b></p>')
     assert violations('<meta name="description" content="GlobalSaaSHub">')
     assert violations('<p>Affiliate link verified in our records · disclosure applies</p>')
+    assert violations('<p>Recently verified partner buyer guides</p>')
     assert not violations('<p>Affiliate disclosure: COSHUMA may earn a commission from some links at no extra cost to you.</p>')
     assert not violations('<p>Connect your internal database.</p><a data-affiliate-status="approved_tracking" href="https://example.com/?ref=ok">Try</a>')
     urls = '<meta property="og:url" content="https://coshuma.com/tool/vidiq.html"><script type="application/ld+json">{"url":"https://coshuma.com/tool/vidiq.html"}</script><a href="https://example.com/?via=GlobalSaaSHub">Text Cortex</a>'
