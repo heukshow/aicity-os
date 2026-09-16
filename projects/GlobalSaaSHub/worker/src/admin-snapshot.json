@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-09-15T21:22:07.994Z",
+  "generatedAt": "2026-09-16T02:45:02.861Z",
   "counts": {
     "totalTools": 179,
-    "verifiedAffiliates": 113,
-    "revenueReadyAffiliates": 70,
-    "genericRevenueReadyAffiliates": 67,
+    "verifiedAffiliates": 114,
+    "revenueReadyAffiliates": 71,
+    "genericRevenueReadyAffiliates": 68,
     "targetedRevenueReadyAffiliates": 3,
-    "openMonetizationGaps": 86,
+    "openMonetizationGaps": 85,
     "directActionableGaps": 13,
     "browserRequiredGaps": 25,
-    "watchOnlyGaps": 48,
+    "watchOnlyGaps": 47,
     "doNotReapply": 166,
     "toolPages": 179,
     "comparePages": 275,
@@ -18,21 +18,21 @@
   "revenueFocus": {
     "policy": "prioritize_direct_existing_gaps_without_reapplying_waiting_states",
     "allowNewTools": false,
-    "reason": "13 existing tools still have directly actionable affiliate gaps; 48 are watch-only and 25 require browser work."
+    "reason": "13 existing tools still have directly actionable affiliate gaps; 47 are watch-only and 25 require browser work."
   },
   "affiliateCoverage": {
     "counts": {
-      "revenueReady": 70,
-      "genericRevenueReady": 67,
+      "revenueReady": 71,
+      "genericRevenueReady": 68,
       "targetedRevenueReady": 3,
       "terminal": 24,
-      "openMonetizationGaps": 86,
+      "openMonetizationGaps": 85,
       "directActionableGaps": 13,
       "browserRequiredGaps": 25,
-      "watchOnlyGaps": 48,
+      "watchOnlyGaps": 47,
       "doNotReapply": 166,
       "unclassifiedAffiliateStatus": 7,
-      "exactAffiliateUrlMissing": 86,
+      "exactAffiliateUrlMissing": 85,
       "officialUnverified": 1,
       "pricingUnverified": 132
     },
@@ -280,7 +280,7 @@
         "affiliateVerified": true,
         "hasAffiliateUrl": true,
         "genericRevenueReady": true,
-        "targetedRevenueReady": false,
+        "targetedRevenueReady": true,
         "revenueReady": true,
         "terminal": false,
         "doNotReapply": true,
@@ -958,6 +958,24 @@
       {
         "id": "rytr",
         "name": "Rytr",
+        "officialVerified": true,
+        "pricingVerified": false,
+        "affiliateStatus": "approved_tracking",
+        "affiliateVerified": true,
+        "hasAffiliateUrl": true,
+        "genericRevenueReady": true,
+        "targetedRevenueReady": true,
+        "revenueReady": true,
+        "terminal": false,
+        "doNotReapply": true,
+        "browserRequired": false,
+        "directActionableGap": false,
+        "watchOnlyGap": false,
+        "blocker": null
+      },
+      {
+        "id": "sanebox",
+        "name": "Sanebox",
         "officialVerified": true,
         "pricingVerified": false,
         "affiliateStatus": "approved_tracking",
@@ -2810,24 +2828,6 @@
         "blocker": "exact_customer_affiliate_url_missing"
       },
       {
-        "id": "sanebox",
-        "name": "Sanebox",
-        "officialVerified": true,
-        "pricingVerified": false,
-        "affiliateStatus": "application_page_unavailable",
-        "affiliateVerified": false,
-        "hasAffiliateUrl": false,
-        "genericRevenueReady": false,
-        "targetedRevenueReady": false,
-        "revenueReady": false,
-        "terminal": false,
-        "doNotReapply": true,
-        "browserRequired": false,
-        "directActionableGap": false,
-        "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
-      },
-      {
         "id": "scalenut",
         "name": "Scalenut",
         "officialVerified": true,
@@ -3698,6 +3698,14 @@
       "verified": true,
       "url": "https://rytr.me?via=sangkwon",
       "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "sanebox",
+      "name": "Sanebox",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://try.sanebox.com/s1ooqjj73rpz",
+      "verifiedAt": "2026-09-16T06:20:00+09:00"
     },
     {
       "id": "shopify",

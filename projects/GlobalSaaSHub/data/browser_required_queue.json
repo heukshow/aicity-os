@@ -1235,5 +1235,21 @@
     "resolved_at": "2026-09-09T12:45:09Z",
     "resolution_evidence": "Gmail message 1a08633651c79db9 from Claap affiliate manager Lamia Karmaly supplied both exact URLs; the first is the authoritative default CTA pending destination-label mapping for the second.",
     "blocker": null
+  },
+  {
+    "id": "sanebox-approved-tracking-2026-09-16",
+    "tool_id": "sanebox",
+    "priority": "high",
+    "status": "resolved",
+    "cost": "0",
+    "affiliate_status": "approved_tracking",
+    "exact_tracking_url": "https://try.sanebox.com/s1ooqjj73rpz",
+    "tracking_url": "https://try.sanebox.com/s1ooqjj73rpz",
+    "evidence_file": "data/sanebox-approved-tracking-2026-09-16.md",
+    "evidence_message_id": "gmail:1a0a6da406db7ad2",
+    "updated_at": "2026-09-16T06:20:00+09:00",
+    "blocker": null,
+    "reason": "SaneBox Partner Program welcome email from Tony Bass to support@coshuma.com explicitly welcomed COSHUMA to the program and identified https://try.sanebox.com/s1ooqjj73rpz as the SaneBox referral link. No click, trial, paying customer, commission, payout, or revenue is inferred from approval/link issuance.",
+    "next_action": "Verify PartnerStack/SaneBox dashboard metrics separately; do not infer clicks, trials, customers, commission, payout, or revenue from link issuance."
   }
 ]

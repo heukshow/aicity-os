@@ -1573,7 +1573,7 @@
       "Current referral documentation states 30% commission on eligible self-service subscription renewals for up to 12 months and that self-referrals are not commissionable.",
       "Official pricing page currently says users can start free without a credit card; current Personal display starts at $29/month monthly or $25/month annual-billing equivalent with up to 10K monthly funnel views.",
       "Fresh GitHub code/open-issue and support@coshuma.com Gmail checks found no pre-existing ConvertFlow application or relationship before this cycle.",
-      "On 2026-09-14 ConvertFlow support confirmed the free-account-first path: create one account, open Partners, add a PayPal payout email and then use only the unique link issued in the Affiliate Dashboard.",
+      "ConvertFlow support corrected its earlier guidance on 2026-09-15: the Referral Program is separate from the Pro-only Partner Program, requires no paid plan, and is reached from profile icon → Referrals.",
       "COSHUMA created the single support@coshuma.com account and received the ConvertFlow welcome email on 2026-09-15.",
       "On 2026-09-15 the authenticated support@coshuma.com account reached the free dashboard, completed the separate FirstPromoter referral enrollment, and displayed the account-issued Home Page customer referral URL.",
       "Authenticated FirstPromoter displayed 0 clicks, 0 referrals, 0 customers, $0 total unpaid and $0 total paid at verification time; no signup, sale, commission, payout or revenue is inferred.",
@@ -1581,7 +1581,7 @@
       "Generic homepage, signup, Partners navigation and affiliate dashboard URLs must not be treated as affiliate links.",
       "GitHub issue #497 tracks vendor response, exact enrollment path and future customer referral URL recovery."
     ],
-    "affiliate_next_action": "Preserve the exact account-issued Home Page referral URL and do not create another account. Complete W-8BEN only through account-owner legal review. Recheck clicks, referrals, customers, unpaid and paid commission from the authenticated dashboard without inferring revenue.",
+    "affiliate_next_action": "Preserve the exact account-issued Referral Program URL and do not create another account or pursue the separate Pro-only Partner Program for referral tracking. Complete W-8BEN only through account-owner legal review. Recheck clicks, referrals, customers, unpaid and paid commission from the authenticated dashboard without inferring revenue.",
     "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
@@ -5499,10 +5499,19 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.sanebox.com/partners",
-    "affiliate_url": null,
-    "affiliate_verified": false,
-    "affiliate_status": "application_page_unavailable",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_url": "https://try.sanebox.com/s1ooqjj73rpz",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-16T06:20:00+09:00",
+    "affiliate_final_url": "https://try.sanebox.com/s1ooqjj73rpz",
+    "affiliate_evidence_markers": [
+      "SaneBox Partner Program welcome email from Tony Bass to support@coshuma.com explicitly welcomes COSHUMA to the program and identifies https://try.sanebox.com/s1ooqjj73rpz as the SaneBox referral link. The email states 20% recurring commission on referred revenue with a 30% tier after $500 in completed sales. No click, trial, paying customer, commission, or payout is inferred from approval/link issuance.",
+      "data/sanebox-approved-tracking-2026-09-16.md",
+      "SaneBox Partner Program welcome email from Tony Bass to support@coshuma.com explicitly welcomed COSHUMA to the program and identified https://try.sanebox.com/s1ooqjj73rpz as the SaneBox referral link. No click, trial, paying customer, commission, payout, or revenue is inferred from approval/link issuance."
+    ],
+    "affiliate_status_checked_at": "2026-09-16T06:20:00+09:00",
+    "affiliate_status_evidence_url": "data/sanebox-approved-tracking-2026-09-16.md",
+    "affiliate_next_action": "Use the exact SaneBox-issued customer referral URL. Do not reapply or replace it with a dashboard, PartnerStack, or generic URL. Verify downstream metrics only from dashboard/vendor evidence."
   },
   {
     "id": "scalenut",
