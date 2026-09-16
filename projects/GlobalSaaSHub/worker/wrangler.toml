@@ -1,5 +1,5 @@
 name = "globalsaashub-payments"
-main = "src/index.js"
+main = "src/entry.js"
 compatibility_date = "2026-08-09"
 workers_dev = true
 preview_urls = false
@@ -9,6 +9,9 @@ enabled = true
 
 [observability.logs]
 enabled = true
+
+[triggers]
+crons = ["0 * * * *"]
 
 [vars]
 PAYPAL_ENVIRONMENT = "live"
