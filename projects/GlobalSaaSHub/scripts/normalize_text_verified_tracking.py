@@ -11,6 +11,8 @@ or signup deep link. The trial still exists, but visitors first open the tracked
 campaign and then choose Text's Start free trial action on text.com.
 """
 from pathlib import Path
+import html as html_lib
+import json
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -118,4 +120,164 @@ print(
     f"changed_copy={changed_copy} files_changed={len(changed_files)}"
 )
 for item in changed_files:
+    print(f" - {item}")
+
+# ---------------------------------------------------------------------------
+# Public-copy privacy pass
+# ---------------------------------------------------------------------------
+# Affiliate operations, application state, tracking verification mechanics and
+# account troubleshooting belong in private/admin records, not buyer-facing
+# pages. Keep product facts and the short legal commission disclosure, but strip
+# internal workflow commentary from static HTML and FAQ JSON-LD before Vite
+# copies public/ into dist. This also makes the cleanup durable for non-JS
+# crawlers instead of relying only on brand-runtime.js.
+
+INTERNAL_OPS_PATTERNS = [
+    re.compile(p, re.I) for p in [
+        r"^Affiliate status:",
+        r"COSHUMA affiliate status",
+        r"COSHUMA CTA state",
+        r"PartnerStack application not submitted",
+        r"Waiting vendor response",
+        r"outreach thread pending",
+        r"COSHUMA (?:currently )?has not (?:submitted|verified|yet recovered|recovered|received)",
+        r"COSHUMA's? account .*?(?:pending|blocked|awaiting|upgrade|support)",
+        r"no verified (?:account[- ]specific |customer[- ]facing )?(?:referral|tracking) URL",
+        r"no .* customer referral URL .* verified",
+        r"Official non-affiliate link",
+        r"official non-affiliate (?:links|destinations)",
+        r"These buttons (?:intentionally )?remain official non-affiliate",
+        r"Tracking verification:",
+        r"exact customer-facing .* referral URL .* (?:issued|confirmed|dashboard)",
+        r"customer-facing destinations were supplied directly by the partner programs",
+        r"COSHUMA does not invent referral parameters",
+        r"uses only the exact .* (?:referral|invite) URL issued",
+        r"A click (?:does not imply|is never treated as) a (?:signup|sale)",
+        r"No clicks?, signups?, paid customers?, commissions? or revenue (?:are|is) inferred",
+        r"approval .* unknown",
+        r"application .* pending",
+        r"application .* declined",
+        r"application .* rejected",
+        r"application .* not submitted",
+        r"support resolving",
+        r"awaiting help for an upgrade",
+        r"upgrade-screen loop",
+        r"account-access evidence",
+        r"affiliate dashboard rather than a generic homepage",
+        r"Affiliate link verified in our records",
+        r"Use the exact tracked .* confirmed for COSHUMA",
+        r"partner-tagged .* approved for COSHUMA",
+        r"COSHUMA uses only the exact personal .* (?:referral|invite)",
+        r"COSHUMA (?:currently )?has a verified .* (?:route|referral|tracking)",
+        r"dashboard, onboarding page or generic homepage is never treated as an affiliate link",
+        r"Text partner routing note",
+        r"This verified COSHUMA link therefore opens the tracked Text\.com campaign first",
+    ]
+]
+
+TAG_RE = re.compile(r"<[^>]+>")
+JSONLD_RE = re.compile(
+    r'(<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>)(.*?)(</script>)',
+    re.I | re.S,
+)
+
+
+def visible_text(fragment: str) -> str:
+    text = TAG_RE.sub(" ", fragment)
+    return re.sub(r"\s+", " ", html_lib.unescape(text)).strip()
+
+
+def internal_ops_text(text: str) -> bool:
+    normalized = re.sub(r"\s+", " ", html_lib.unescape(text)).strip()
+    return bool(normalized) and any(pattern.search(normalized) for pattern in INTERNAL_OPS_PATTERNS)
+
+
+def strip_block(match: re.Match[str]) -> str:
+    block = match.group(0)
+    text = visible_text(block)
+    # Keep the actual legal disclosure even when adjacent wording mentions a
+    # partner link. It is useful to buyers and should remain transparent.
+    if re.search(r"may earn (?:an affiliate )?commission|at no extra cost", text, re.I) and not re.search(
+        r"non-affiliate|not submitted|pending|declined|rejected|has not verified", text, re.I
+    ):
+        return block
+    return "" if internal_ops_text(text) else block
+
+
+def sanitize_jsonld(html: str) -> str:
+    def rewrite(match: re.Match[str]) -> str:
+        try:
+            data = json.loads(match.group(2))
+        except Exception:
+            return match.group(0)
+
+        def walk(node):
+            if isinstance(node, list):
+                for item in node:
+                    walk(item)
+                return
+            if not isinstance(node, dict):
+                return
+            types = node.get("@type")
+            types = types if isinstance(types, list) else [types]
+            if "FAQPage" in types and isinstance(node.get("mainEntity"), list):
+                kept = []
+                for item in node["mainEntity"]:
+                    question = str(item.get("name", "")) if isinstance(item, dict) else ""
+                    answer_obj = item.get("acceptedAnswer", {}) if isinstance(item, dict) else {}
+                    answer = str(answer_obj.get("text", "")) if isinstance(answer_obj, dict) else ""
+                    combined = f"{question} {answer}".strip()
+                    admin_question = bool(
+                        re.search(r"COSHUMA|affiliate link|referral link|tracking URL", question, re.I)
+                    )
+                    if (admin_question and internal_ops_text(combined)) or internal_ops_text(combined):
+                        continue
+                    kept.append(item)
+                node["mainEntity"] = kept
+            for value in node.values():
+                walk(value)
+
+        walk(data)
+        return match.group(1) + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + match.group(3)
+
+    return JSONLD_RE.sub(rewrite, html)
+
+
+def strip_internal_ops_html(source: str) -> str:
+    updated = source
+    # Entire status rows are internal workflow data, not comparison criteria.
+    updated = re.sub(
+        r"<tr\b[^>]*>(?:(?!</tr>).)*?(?:COSHUMA\s+)?(?:affiliate status|CTA state)(?:(?!</tr>).)*?</tr>",
+        "",
+        updated,
+        flags=re.I | re.S,
+    )
+    # Most leaks are explanatory paragraphs/list items/small-print notes.
+    for tag in ("p", "li", "small"):
+        updated = re.sub(rf"<{tag}\b[^>]*>.*?</{tag}>", strip_block, updated, flags=re.I | re.S)
+    # Remove leaf operational callouts without touching layout containers that
+    # contain product cards or CTAs.
+    updated = re.sub(r"<div\b[^>]*>(?:(?!<div\b).)*?</div>", strip_block, updated, flags=re.I | re.S)
+    # Dedicated internal methodology/status sections are not buyer content.
+    updated = re.sub(
+        r"<section\b[^>]*>(?:(?!</section>).)*?<h[1-3]\b[^>]*>\s*How this list is gated\s*</h[1-3]>(?:(?!</section>).)*?</section>",
+        "",
+        updated,
+        flags=re.I | re.S,
+    )
+    return sanitize_jsonld(updated)
+
+
+ops_changed = []
+for ops_path in [ROOT / "index.html", *PUBLIC.rglob("*.html")]:
+    if not ops_path.exists():
+        continue
+    before = ops_path.read_text(encoding="utf-8")
+    after = strip_internal_ops_html(before)
+    if after != before:
+        ops_path.write_text(after, encoding="utf-8")
+        ops_changed.append(ops_path.relative_to(ROOT).as_posix())
+
+print(f"public_ops_copy_cleanup: files_changed={len(ops_changed)}")
+for item in ops_changed:
     print(f" - {item}")
