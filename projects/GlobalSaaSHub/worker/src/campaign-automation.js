@@ -72,7 +72,7 @@ async function metrics(db, campaignId) {
 export async function publishCampaignIfEligible(db, campaignId, now = new Date().toISOString()) {
   const row = await db.prepare(`
     SELECT c.*, a.contact_email AS asset_contact_email,
-      a.target_page, a.validation_status
+      a.target_page, a.desired_start_date, a.validation_status
     FROM campaigns c JOIN campaign_assets a ON a.campaign_id = c.id
     WHERE c.id = ?
   `).bind(campaignId).first();
