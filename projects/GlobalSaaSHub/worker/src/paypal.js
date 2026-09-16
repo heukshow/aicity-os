@@ -43,12 +43,35 @@ export function createPayPalOrder(env, requestId, productId, fetchImpl) {
   }, fetchImpl);
 }
 
-export function capturePayPalOrder(env, providerOrderId, requestId, fetchImpl) {
-  return paypalRequest(env, `/v2/checkout/orders/${encodeURIComponent(providerOrderId)}/capture`, {
-    method: 'POST',
-    headers: { 'PayPal-Request-Id': requestId },
-    body: '{}',
-  }, fetchImpl);
+export async function capturePayPalOrder(env, providerOrderId, requestId, fetchImpl) {
+  // Browser callbacks can be retried after a network interruption, and PayPal
+  // webhooks can race the browser response. If the provider already shows a
+  // completed order, do not issue a second capture request.
+  try {
+    const existing = await getPayPalOrder(env, providerOrderId, fetchImpl);
+    if (existing?.status === 'COMPLETED') return existing;
+  } catch {
+    // A transient read failure must not prevent the first legitimate capture.
+  }
+
+  try {
+    return await paypalRequest(env, `/v2/checkout/orders/${encodeURIComponent(providerOrderId)}/capture`, {
+      method: 'POST',
+      headers: { 'PayPal-Request-Id': requestId },
+      body: '{}',
+    }, fetchImpl);
+  } catch (captureError) {
+    // PayPal may have completed the capture even if the browser lost the
+    // response. Recover only when a fresh provider read confirms COMPLETED;
+    // amount/product verification still happens in the Worker before paid state.
+    try {
+      const recovered = await getPayPalOrder(env, providerOrderId, fetchImpl);
+      if (recovered?.status === 'COMPLETED') return recovered;
+    } catch {
+      // Keep the original capture failure as the authoritative error.
+    }
+    throw captureError;
+  }
 }
 
 export function getPayPalOrder(env, providerOrderId, fetchImpl) {
