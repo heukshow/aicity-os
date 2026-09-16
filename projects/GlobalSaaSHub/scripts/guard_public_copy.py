@@ -103,6 +103,14 @@ PUBLIC_COPY_REPLACEMENTS = {
     },
 }
 
+def remove_empty_disclosure_sections(text):
+    return re.sub(
+        r'<section\b[^>]*>\s*<h([1-6])\b[^>]*>\s*Affiliate disclosure\s*</h\1>\s*</section>',
+        '',
+        text,
+        flags=re.I | re.S,
+    )
+
 def normalize_affiliate_disclosure(text):
     if 'Affiliate Disclosure | COSHUMA' in text:
         return text
@@ -113,9 +121,11 @@ def normalize_affiliate_disclosure(text):
     text = re.sub(r'<p\b[^>]*>(?:(?!</p>).)*may earn COSHUMA a commission(?:(?!</p>).)*</p>', '', text, flags=re.S | re.I)
     legacy_trust_disclosure = ('<div><div class="text-[10px] uppercase tracking-wider text-slate-500">Affiliate disclosure</div>' '<div class="mt-1 text-sm text-slate-300">Affiliate destination verified separately from editorial product sources.</div></div>')
     text = text.replace(legacy_trust_disclosure, '')
+    text = remove_empty_disclosure_sections(text)
     if not has_affiliate:
         return text
-    return re.sub(r'(<a\b[^>]*data-cta="affiliate"[^>]*>.*?</a>)', r'\1\n' + STANDARD_AFFILIATE_DISCLOSURE, text, count=1, flags=re.S)
+    text = re.sub(r'(<a\b[^>]*data-cta="affiliate"[^>]*>.*?</a>)', r'\1\n' + STANDARD_AFFILIATE_DISCLOSURE, text, count=1, flags=re.S)
+    return remove_empty_disclosure_sections(text)
 
 def page_copy(path, text):
     if path.parent.name == 'tool' and path.stem in ('kit', 'convertkit'):
