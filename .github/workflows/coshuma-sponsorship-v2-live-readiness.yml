@@ -1,0 +1,31 @@
+name: COSHUMA Sponsorship v2 Live Readiness
+
+on:
+  pull_request:
+    paths:
+      - 'projects/GlobalSaaSHub/worker/**'
+      - '.github/workflows/coshuma-sponsorship-v2-live-readiness.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-no-payment-readiness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout pull request
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Verify live Worker without creating a payment
+        working-directory: projects/GlobalSaaSHub/worker
+        env:
+          COSHUMA_PAYMENT_API_BASE_URL: https://globalsaashub-payments.qmfforfhem.workers.dev
+          COSHUMA_ALLOWED_ORIGIN: https://coshuma.com
+        run: node scripts/verify-checkout-v2-prelaunch.mjs
