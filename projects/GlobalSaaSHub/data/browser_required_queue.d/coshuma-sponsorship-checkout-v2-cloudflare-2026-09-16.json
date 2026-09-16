@@ -1,0 +1,24 @@
+{
+  "id": "coshuma-sponsorship-checkout-v2-cloudflare-2026-09-16",
+  "status": "blocked",
+  "priority": "revenue_critical",
+  "task": "Safely stage COSHUMA sponsorship checkout v2 without opening payments early.",
+  "required_order": [
+    "Finish and verify current-main-compatible Worker changes in feat/sponsorship-checkout-v2-20260916",
+    "Run Worker tests and wrangler deploy dry-run in PR CI",
+    "Apply additive D1 migration 0004_sponsorship_order_metadata.sql to existing globalsaashub-orders database",
+    "Deploy the compatible Worker revision to the existing authenticated Cloudflare Worker without changing secrets",
+    "Verify /health and /v1/sponsored/placements without a payment transaction",
+    "Verify the nine server-owned product IDs and create-order responses without capturing a real payment",
+    "Only after backend verification, enable the matching frontend checkout and remove maintenance mode",
+    "Keep CHECKOUT_ENABLED=false until final launch verification"
+  ],
+  "do_not": [
+    "Do not merge or reuse stale PR #397 directly",
+    "Do not apply 0002_advertiser_automation.sql from the stale branch",
+    "Do not create a new Worker, D1 database, or paid service",
+    "Do not change PayPal secrets",
+    "Do not perform a real purchase while staging",
+    "Do not enable checkout before Worker and database compatibility are verified"
+  ]
+}
