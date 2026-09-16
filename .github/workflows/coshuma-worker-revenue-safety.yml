@@ -6,10 +6,14 @@ on:
     paths:
       - 'projects/GlobalSaaSHub/worker/**'
       - '.github/workflows/coshuma-worker-revenue-safety.yml'
+  pull_request:
+    paths:
+      - 'projects/GlobalSaaSHub/worker/**'
+      - '.github/workflows/coshuma-worker-revenue-safety.yml'
   workflow_dispatch:
 
 concurrency:
-  group: coshuma-worker-revenue-safety
+  group: coshuma-worker-revenue-safety-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 permissions:
@@ -22,7 +26,7 @@ jobs:
       run:
         working-directory: projects/GlobalSaaSHub/worker
     steps:
-      - name: Checkout main
+      - name: Checkout repository
         uses: actions/checkout@v5
 
       - name: Set up Node.js 22
