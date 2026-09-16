@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T00:00:00Z",
+  "generated_at": "2026-09-16T16:43:26Z",
   "policy": {
     "primary_kpi": "verified_revenue",
     "unknown_is_zero": false,
@@ -230,6 +230,32 @@
       "evidence_timestamp": "2026-09-16T00:00:00Z",
       "tracking_url": "https://try.gravity.com/8bd4r655ttws",
       "note": "Authenticated Gravity PartnerStack dashboard displayed Last 30 days: Clicks 0, Signups 0, Paid signups 0, Revenue $0.00, Pending commissions $0.00, Paid commissions $0.00, Earnings per click $0.00. PartnerStack issued https://try.gravity.com/8bd4r655ttws and stated it redirects to https://gravityforms.com/; browser verification resolved to Gravity Forms while retaining attribution parameters. Trials, approved commission breakdown, payout pending detail and reporting period beyond Last 30 days remain unknown."
+    },
+    {
+      "tool": "Teachable",
+      "network": "PartnerStack",
+      "period": "current account activity confirmed by vendor on 2026-09-16; reporting period not stated",
+      "outbound_clicks": 11,
+      "signups_referrals": null,
+      "trials": null,
+      "network_reported_conversions": 0,
+      "paid_customers": null,
+      "gross_sales_revenue": null,
+      "commission_earned": null,
+      "commission_approved": null,
+      "commission_pending": null,
+      "commission_paid": null,
+      "payout_paid": null,
+      "payout_pending": null,
+      "payout_status": null,
+      "currency": null,
+      "status": "vendor_verified_partial",
+      "evidence_source": "vendor-human-email",
+      "evidence_id": "gmail:1a0ab1a9d37ec857;github:issue-373-comment-5701583790",
+      "evidence_timestamp": "2026-09-16T16:43:26Z",
+      "tracking_url": "https://partnerstack.teachable.com/ce4muoxdj46j",
+      "trial_url": "https://partnerstack.teachable.com/COSHUMA",
+      "note": "Teachable Affiliate Program confirmed 11 clicks and no conversions associated with those clicks. The reply said commissions and payout information are available in PartnerStack but did not state amounts, so signup/trial/paid-customer, revenue, commission, payout, currency and reporting-period fields remain unknown rather than zero. Existing vendor-issued default and 30-day trial URLs remain unchanged."
     }
   ],
   "verified_totals": {
