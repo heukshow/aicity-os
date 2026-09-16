@@ -1,17 +1,27 @@
 {
   "id": "coshuma-sponsorship-checkout-v2-cloudflare-2026-09-16",
-  "status": "blocked",
+  "status": "browser_required_predeploy_verified",
   "priority": "revenue_critical",
   "task": "Safely stage COSHUMA sponsorship checkout v2 without opening payments early.",
+  "verified_before_browser": [
+    "branch reconciled with latest main",
+    "Worker Revenue Safety CI passed 53 tests",
+    "local D1 migrations 0001-0004 applied successfully in an isolated migration check database",
+    "wrangler deploy --dry-run succeeded with CHECKOUT_ENABLED=false",
+    "COSHUMA PR Build Check passed build, SEO, links, tracking and public bundle safety",
+    "frontend maintenance remains enabled",
+    "sponsored inventory runtime remains disabled"
+  ],
   "required_order": [
-    "Finish and verify current-main-compatible Worker changes in feat/sponsorship-checkout-v2-20260916",
-    "Run Worker tests and wrangler deploy dry-run in PR CI",
+    "Use only the existing authenticated Cloudflare environment",
     "Apply additive D1 migration 0004_sponsorship_order_metadata.sql to existing globalsaashub-orders database",
-    "Deploy the compatible Worker revision to the existing authenticated Cloudflare Worker without changing secrets",
-    "Verify /health and /v1/sponsored/placements without a payment transaction",
-    "Verify the nine server-owned product IDs and create-order responses without capturing a real payment",
-    "Only after backend verification, enable the matching frontend checkout and remove maintenance mode",
-    "Keep CHECKOUT_ENABLED=false until final launch verification"
+    "Deploy the compatible Worker revision from feat/sponsorship-checkout-v2-20260916 without changing existing secrets and with CHECKOUT_ENABLED=false",
+    "Verify /health reports checkoutConfigured=false",
+    "Verify /v1/sponsored/placements returns a safe response against the migrated schema without publishing an advertiser",
+    "Verify advertiser/report/event fail-closed behavior and CORS without a payment transaction",
+    "Verify POST /v1/orders still returns checkout unavailable while CHECKOUT_ENABLED=false",
+    "Verify production frontend remains in maintenance and sponsored inventory remains disabled",
+    "Only after these checks pass, perform a separate final enablement review"
   ],
   "do_not": [
     "Do not merge or reuse stale PR #397 directly",
@@ -19,6 +29,7 @@
     "Do not create a new Worker, D1 database, or paid service",
     "Do not change PayPal secrets",
     "Do not perform a real purchase while staging",
-    "Do not enable checkout before Worker and database compatibility are verified"
+    "Do not enable CHECKOUT_ENABLED or sponsored inventory during this predeploy verification",
+    "Do not remove frontend maintenance mode before final launch approval"
   ]
 }
