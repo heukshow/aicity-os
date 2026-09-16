@@ -77,6 +77,44 @@ class Statement {
       return { meta: { changes: 1 } };
     }
 
+    if (this.sql.includes('INSERT INTO campaign_assets')) {
+      const [
+        campaignId, companyName, productName, contactEmail, destinationUrl, logoUrl,
+        headline, description, ctaText, desiredStartDate, targetPage, comparisonTarget,
+        sellerAttestation, validationStatus, validationNotes, submittedAt, updatedAt,
+      ] = this.args;
+      this.db.assets.set(campaignId, {
+        campaign_id: campaignId,
+        company_name: companyName,
+        product_name: productName,
+        contact_email: contactEmail,
+        destination_url: destinationUrl,
+        logo_url: logoUrl,
+        headline,
+        description,
+        cta_text: ctaText,
+        desired_start_date: desiredStartDate,
+        target_page: targetPage,
+        comparison_target: comparisonTarget,
+        seller_attestation: sellerAttestation,
+        validation_status: validationStatus,
+        validation_notes: validationNotes,
+        submitted_at: submittedAt,
+        updated_at: updatedAt,
+      });
+      return { meta: { changes: 1 } };
+    }
+
+    if (this.sql.includes('UPDATE campaigns') && this.sql.includes('SET advertiser_name')) {
+      const [advertiserName, contactEmail, status, updatedAt, campaignId] = this.args;
+      const campaign = [...this.db.campaigns.values()].find((item) => item.id === campaignId);
+      campaign.advertiser_name = advertiserName;
+      campaign.contact_email = contactEmail;
+      campaign.status = status;
+      campaign.updated_at = updatedAt;
+      return { meta: { changes: 1 } };
+    }
+
     if (this.sql.includes('INSERT INTO notification_outbox')) {
       this.db.notifications.push(this.args);
       return { meta: { changes: 1 } };
@@ -95,6 +133,9 @@ class Statement {
     if (this.sql.includes('FROM campaigns WHERE id')) {
       return [...this.db.campaigns.values()].find((campaign) => campaign.id === this.args[0]) || null;
     }
+    if (this.sql.includes('FROM campaign_assets WHERE campaign_id')) {
+      return this.db.assets.get(this.args[0]) || null;
+    }
     return null;
   }
 }
@@ -104,10 +145,28 @@ class FakeD1 {
     this.events = new Set();
     this.orders = new Map();
     this.campaigns = new Map();
+    this.assets = new Map();
     this.notifications = [];
   }
 
   prepare(sql) { return new Statement(this, sql); }
+}
+
+function exampleAsset() {
+  return {
+    companyName: 'Example Co',
+    productName: 'Example Product',
+    contactEmail: 'ads@example.com',
+    destinationUrl: 'https://example.com',
+    logoUrl: 'https://example.com/logo.png',
+    headline: 'Useful product',
+    description: 'A factual description.',
+    ctaText: 'Learn more',
+    desiredStartDate: '',
+    targetPage: '/tool/example.html',
+    comparisonTarget: '',
+    sellerAttestation: true,
+  };
 }
 
 test('duplicate webhook event is claimed exactly once', async () => {
@@ -152,4 +211,27 @@ test('selected product persists through paid order and creates one campaign', as
   assert.equal(duplicate.id, campaign.id);
   assert.equal(db.campaigns.size, 1);
   assert.equal(db.notifications.length, 1);
+});
+
+test('invalid campaign materials stay retryable instead of rejecting a paid campaign', async () => {
+  const db = new FakeD1();
+  const repo = new D1OrderRepository(db);
+  const created = await repo.create({
+    id: 'local-2', providerOrderId: 'PAYPAL-2', productId: 'tool_page_7', now: 'now',
+  });
+  await repo.transition('PAYPAL-2', 'pending', 'later');
+  await repo.transition('PAYPAL-2', 'paid', 'paid');
+  const campaign = await repo.ensureCampaign(created, 'paid');
+
+  const afterInvalid = await repo.saveAssets(
+    campaign.id, exampleAsset(), 'invalid', 'Target page is invalid.', 'submitted-1',
+  );
+  assert.equal(afterInvalid.status, 'awaiting_assets');
+  assert.equal((await repo.getAssets(campaign.id)).validation_status, 'invalid');
+
+  const afterCorrection = await repo.saveAssets(
+    campaign.id, exampleAsset(), 'valid', null, 'submitted-2',
+  );
+  assert.equal(afterCorrection.status, 'ready_to_publish');
+  assert.equal((await repo.getAssets(campaign.id)).validation_status, 'valid');
 });
