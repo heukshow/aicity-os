@@ -842,15 +842,16 @@
       "note": "Official free affiliate program and Tolt application route are confirmed, but no existing COSHUMA enrollment or issued customer tracking URL was found in GitHub/Gmail. Do not use the Tolt route or generic vendor pages as customer affiliate CTAs."
     },
     "sender-net": {
-      "status": "browser_required_partnerstack_application",
+      "status": "rejected",
       "tracking_url": null,
-      "application_state": "not_submitted",
+      "application_state": "submitted_then_declined",
       "account": "support@coshuma.com",
       "official_program_url": "https://www.sender.net/affiliate-program/",
       "workflow_url": "https://dash.partnerstack.com/application?company=sendernet&gref=page",
       "github_issue": 513,
-      "checked_at": "2026-09-14T15:39:00+09:00",
-      "note": "Official PartnerStack application route is confirmed, but no existing COSHUMA Sender.net enrollment or issued customer tracking URL was found in GitHub/Gmail. Reuse the existing PartnerStack identity and do not treat the application/dashboard route as a customer affiliate CTA."
+      "checked_at": "2026-09-16T00:57:42Z",
+      "do_not_reapply": true,
+      "note": "PartnerStack explicitly declined the Sender.net application on 2026-09-16. Preserve the existing PartnerStack identity, do not reapply or send rejection follow-up unless Sender explicitly invites a new application, and keep the exact customer tracking URL/KPIs unknown."
     },
     "benchmark-email": {
       "status": "browser_required_legal_program_consent",

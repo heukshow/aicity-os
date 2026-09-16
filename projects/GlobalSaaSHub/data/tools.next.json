@@ -5740,22 +5740,22 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-09-14T15:39:00+09:00",
     "official_evidence_url": "https://www.sender.net/affiliate-program/",
-    "affiliate_verified": false,
-    "affiliate_status": "browser_required_partnerstack_application",
+    "affiliate_verified": true,
+    "affiliate_status": "rejected",
     "affiliate_source_url": "https://www.sender.net/affiliate-program/",
     "affiliate_workflow_url": "https://dash.partnerstack.com/application?company=sendernet&gref=page",
-    "affiliate_status_checked_at": "2026-09-14T15:39:00+09:00",
-    "application_state": "not_submitted",
+    "affiliate_status_checked_at": "2026-09-16T00:57:42Z",
+    "application_state": "submitted_then_declined",
     "affiliate_evidence_markers": [
-      "Official Sender.net partner page exposes an exact PartnerStack application route.",
-      "Current base partner tier states 30% lifetime recurring commission for up to 20 sales/month; higher performance tiers advertise 35% and 40%.",
-      "Official FAQ states a 90-day cookie and recurring monthly commissions while the customer remains active and subscribed.",
-      "GitHub search found no pre-existing COSHUMA Sender.net tool/application/tracking record before this fast-lane cycle.",
-      "support@coshuma.com Gmail search for sender.net found no prior application, approval, rejection, tracking-link, commission, or payout message.",
-      "Exact account-specific customer tracking URL is unknown; PartnerStack portal/application URLs and generic vendor URLs must not be used as affiliate revenue links.",
-      "GitHub issue #513 tracks the authenticated PartnerStack duplicate check and one-time application/recovery step."
+      "Existing COSHUMA PartnerStack identity was reused for the Sender.net application; no duplicate network account was created.",
+      "PartnerStack email received at support@coshuma.com on 2026-09-16 explicitly states that Sender declined the application (Gmail message 1a0a7b83dfb8ecda).",
+      "The decline supersedes the earlier submitted/waiting state.",
+      "No account-specific Sender customer tracking URL was issued or verified.",
+      "Do not reapply or send rejection follow-up unless Sender explicitly invites a new application later.",
+      "Clicks, signups/referrals, trials, paid customers, commission, payout and revenue remain unknown without separate first-party evidence."
     ],
-    "affiliate_next_action": "Reuse the existing COSHUMA PartnerStack identity in an authenticated browser/Work session, check for an existing Sender.net relationship, then submit once only if absent or recover the exact issued customer tracking URL if already enrolled."
+    "affiliate_next_action": "No automatic action. Keep Sender in rejected/do-not-reapply state unless Sender explicitly invites a new application with newer first-party evidence.",
+    "affiliate_verified_at": "2026-09-16T00:57:42Z"
   },
   {
     "id": "sendpulse",
