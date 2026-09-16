@@ -43,6 +43,32 @@ def detail_path(tool_id: str) -> str:
     return SPECIAL_DETAIL_PATHS.get(tool_id, f"/tool/{tool_id}.html")
 
 
+def render_situations(entry: dict) -> str:
+    situations = entry.get("situations") or []
+    if not situations:
+        return ""
+
+    cards = "".join(
+        (
+            '<article class="rounded-2xl border border-amber-500/20 bg-amber-500/[0.05] p-4">'
+            f'<h3 class="font-bold text-amber-100">{esc(item["label"])}</h3>'
+            f'<p class="mt-2 text-sm leading-6 text-slate-300">{esc(item["guidance"])}</p>'
+            '</article>'
+        )
+        for item in situations
+    )
+
+    return f'''
+      <section class="p-6 rounded-3xl bg-[#131520] border border-amber-500/20 space-y-5" aria-label="Which customer situations fit this tool">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-[0.18em] text-amber-300">Choose by situation</div>
+          <h2 class="mt-2 text-2xl font-black text-white">Is this a fit for your situation?</h2>
+          <p class="mt-2 text-sm leading-6 text-slate-400">Start with your actual constraint, not a generic winner label. COSHUMA separates budget, workflow and capability needs so you can compare alternatives when another tool may fit better.</p>
+        </div>
+        <div class="grid gap-3 md:grid-cols-2">{cards}</div>
+      </section>'''
+
+
 def render_recommendations(entry: dict) -> str:
     pairs = entry.get("pairs") or []
     if not pairs:
@@ -86,9 +112,10 @@ def render(tool_id: str, entry: dict) -> str:
         for item in entry.get("monetization", [])
     )
 
+    situations = render_situations(entry)
     recommendations = render_recommendations(entry)
 
-    return f'''{START}
+    return f'''{START}{situations}
       <section class="p-6 rounded-3xl bg-[#131520] border border-emerald-500/20 space-y-5" aria-label="Problems this tool can help solve">
         <div>
           <div class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-300">Practical value</div>
