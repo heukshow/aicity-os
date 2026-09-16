@@ -29,7 +29,10 @@ function pass(name, detail = '') {
   const { response, body } = await request('/health');
   assert.equal(response.status, 200);
   assert.equal(body?.ok, true);
-  assert.equal(body?.checkoutConfigured, false, 'checkout must remain disabled during prelaunch verification');
+  if (body?.checkoutConfigured === undefined) {
+    throw new Error('Production Worker is still the legacy/incompatible revision: /health does not expose checkoutConfigured. Deploy the compatible sponsorship-v2 Worker with CHECKOUT_ENABLED=false before rerunning live readiness.');
+  }
+  assert.equal(body.checkoutConfigured, false, 'checkout must remain disabled during prelaunch verification');
   pass('health', 'checkoutConfigured=false');
 }
 
