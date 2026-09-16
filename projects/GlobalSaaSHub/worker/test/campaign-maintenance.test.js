@@ -64,7 +64,7 @@ test('maintenance creates a final verified-metrics report and expires an ended c
 
   const outboxInsert = db.executed.find((entry) => entry.sql.includes('INSERT INTO notification_outbox'));
   assert.ok(outboxInsert, 'final report notification should be queued');
-  assert.equal(outboxInsert.args[1], 'ads@example.com');
+  assert.equal(outboxInsert.args[2], 'ads@example.com');
 
   const expiryUpdate = db.executed.find((entry) => entry.sql.includes("SET status='ended'"));
   assert.ok(expiryUpdate, 'campaign should be marked ended');
