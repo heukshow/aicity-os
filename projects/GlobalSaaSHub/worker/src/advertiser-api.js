@@ -46,9 +46,36 @@ const TARGET_PREFIX_BY_PLACEMENT = Object.freeze({
   comparison: '/compare/',
 });
 
+const SLOT_BY_PLACEMENT = Object.freeze({
+  tool_page: 'tool-primary',
+  buyer_intent: 'buyer-intent-top',
+  comparison: 'compare-decision-premium',
+});
+
 export function targetPageMatchesPlacement(placement, targetPage) {
   const prefix = TARGET_PREFIX_BY_PLACEMENT[placement];
   return Boolean(prefix && typeof targetPage === 'string' && targetPage.startsWith(prefix));
+}
+
+export async function targetInventoryAvailable(placement, targetPage, origin, fetchImpl = fetch) {
+  if (!targetPageMatchesPlacement(placement, targetPage)) return false;
+  const slot = SLOT_BY_PLACEMENT[placement];
+  if (!slot || typeof origin !== 'string' || !origin.startsWith('https://')) return false;
+  try {
+    const originUrl = new URL(origin);
+    const targetUrl = new URL(targetPage, originUrl);
+    if (targetUrl.origin !== originUrl.origin) return false;
+    const response = await fetchImpl(targetUrl.href, {
+      method: 'GET',
+      redirect: 'error',
+      headers: { accept: 'text/html' },
+    });
+    if (!response.ok) return false;
+    const html = await response.text();
+    return html.includes(`data-sponsored-slot="${slot}"`);
+  } catch {
+    return false;
+  }
 }
 
 async function submitAssets(request, env, repo) {
@@ -69,15 +96,25 @@ async function submitAssets(request, env, repo) {
       notes: 'Target page does not match the purchased sponsorship placement type.',
     };
   }
+  if (validation.status === 'valid'
+    && !await targetInventoryAvailable(campaign.placement, asset.targetPage, env.ALLOWED_ORIGIN)) {
+    validation = {
+      status: 'needs_review',
+      notes: 'The requested COSHUMA page or its reserved sponsorship slot could not be verified. No campaign was auto-published.',
+    };
+  }
   let updated = await repo.saveAssets(campaign.id, asset, validation.status, validation.notes, now);
   if (updated.status === 'ready_to_publish') {
     updated = await publishCampaignIfEligible(env.ORDERS, campaign.id, now);
   }
+  const storedAssets = await repo.getAssets(campaign.id);
   return json({
     campaignId: updated.id,
     status: updated.status,
     validation: validation.status,
+    validationNotes: storedAssets?.validation_notes || validation.notes || null,
     requiresManualReview: updated.status === 'pending_review',
+    canResubmit: ['awaiting_assets', 'pending_review', 'ready_to_publish'].includes(updated.status),
   }, 200, corsHeaders(request, env));
 }
 
