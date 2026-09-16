@@ -10,13 +10,19 @@ headline_variants = [
         """            Find the right AI & SaaS tool
             <span className=\"block bg-gradient-to-r from-violet-300 via-white to-cyan-300 bg-clip-text text-transparent\">without wasting money.</span>""",
         """            Find AI tools you can use
-            <span className=\"block bg-gradient-to-r from-violet-300 via-white to-cyan-300 bg-clip-text text-transparent\">to make money.</span>""",
+            <span className=\"block bg-gradient-to-r from-lime-300 via-emerald-200 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(110,231,183,0.22)]\">to make money.</span>""",
     ),
     (
         """            Find AI & SaaS tools that help you
             <span className=\"block bg-gradient-to-r from-violet-300 via-white to-cyan-300 bg-clip-text text-transparent\">earn, sell and grow.</span>""",
         """            Find AI tools you can use
+            <span className=\"block bg-gradient-to-r from-lime-300 via-emerald-200 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(110,231,183,0.22)]\">to make money.</span>""",
+    ),
+    (
+        """            Find AI tools you can use
             <span className=\"block bg-gradient-to-r from-violet-300 via-white to-cyan-300 bg-clip-text text-transparent\">to make money.</span>""",
+        """            Find AI tools you can use
+            <span className=\"block bg-gradient-to-r from-lime-300 via-emerald-200 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(110,231,183,0.22)]\">to make money.</span>""",
     ),
 ]
 for old, new in headline_variants:
@@ -92,4 +98,4 @@ if count != 1 and "Tool profiles" in text:
     raise SystemExit("Hero stats block changed; refusing unsafe revenue-hook patch")
 
 app.write_text(text, encoding="utf-8")
-print("AI-money homepage applied: tool-first money hook, verified trials/deals hub, seven revenue paths, vanity stats removed")
+print("AI-money homepage applied: tool-first money hook, bright mobile hero accent, verified trials/deals hub, seven revenue paths, vanity stats removed")
