@@ -40,6 +40,17 @@ function validToken(value) {
   return typeof value === 'string' && /^[a-f0-9]{64}$/i.test(value);
 }
 
+const TARGET_PREFIX_BY_PLACEMENT = Object.freeze({
+  tool_page: '/tool/',
+  buyer_intent: '/best/',
+  comparison: '/compare/',
+});
+
+export function targetPageMatchesPlacement(placement, targetPage) {
+  const prefix = TARGET_PREFIX_BY_PLACEMENT[placement];
+  return Boolean(prefix && typeof targetPage === 'string' && targetPage.startsWith(prefix));
+}
+
 async function submitAssets(request, env, repo) {
   if (!allowedBrowserRequest(request, env)) return json({ error: 'Forbidden' }, 403);
   if (!safeJsonRequest(request)) return json({ error: 'Invalid request' }, 415, corsHeaders(request, env));
@@ -51,7 +62,13 @@ async function submitAssets(request, env, repo) {
     return json({ error: 'Campaign is not accepting asset submissions' }, 409, corsHeaders(request, env));
   }
   const now = new Date().toISOString();
-  const validation = validateCampaignAssets(asset);
+  let validation = validateCampaignAssets(asset);
+  if (validation.status === 'valid' && !targetPageMatchesPlacement(campaign.placement, asset.targetPage)) {
+    validation = {
+      status: 'invalid',
+      notes: 'Target page does not match the purchased sponsorship placement type.',
+    };
+  }
   let updated = await repo.saveAssets(campaign.id, asset, validation.status, validation.notes, now);
   if (updated.status === 'ready_to_publish') {
     updated = await publishCampaignIfEligible(env.ORDERS, campaign.id, now);
