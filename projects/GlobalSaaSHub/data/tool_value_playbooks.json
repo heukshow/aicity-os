@@ -134,6 +134,12 @@
     ]
   },
   "brand24": {
+    "situations": [
+      {"label": "Brand or reputation monitoring team", "guidance": "A stronger fit when you need recurring monitoring of public mentions, sentiment signals and alerts instead of checking channels manually."},
+      {"label": "Agency or consultant preparing client reports", "guidance": "Consider Brand24 when the deliverable is a repeatable monitoring or reputation report built from public mention data rather than a one-off manual search."},
+      {"label": "Marketing team researching competitors or campaigns", "guidance": "Useful when competitor, campaign or topic mentions need to be collected continuously and reviewed in one workflow before planning content or responses."},
+      {"label": "Team that only needs occasional manual searches", "guidance": "Compare lower-cost or manual alternatives first. COSHUMA should not treat a paid monitoring platform as the default when continuous tracking and reporting are not needed."}
+    ],
     "problems": [
       "A business cannot easily see where its brand, product or topic is being discussed online.",
       "Marketing teams react slowly because monitoring is spread across many channels.",
@@ -146,7 +152,7 @@
     ],
     "pairs": [
       {"id": "frase", "why": "Turn market and topic signals into search-focused content plans."},
-      {"id": "make-com", "why": "Route monitoring alerts into team workflows and reporting systems."}
+      {"id": "make-com", "why": "Route monitoring alerts into team workflows and reporting systems when a supported connection is configured; this does not imply a native integration by default."}
     ]
   },
   "vidiq": {
