@@ -6,7 +6,7 @@ text = APP.read_text(encoding="utf-8")
 changes = 0
 
 
-def replace_first(options, new: str, label: str) -> None:
+def replace_first(options, new: str, label: str, required: bool = True) -> None:
     global text, changes
     if new in text:
         return
@@ -15,11 +15,13 @@ def replace_first(options, new: str, label: str) -> None:
             text = text.replace(old, new, 1)
             changes += 1
             return
-    raise SystemExit(f"home link guard could not find expected {label} pattern")
+    if required:
+        raise SystemExit(f"home link guard could not find expected {label} pattern")
 
 
-# The homepage metric should help shoppers rather than expose affiliate state.
-# Keep affiliate eligibility as internal CTA metadata only.
+# Some earlier homepage passes intentionally remove vanity stats altogether.
+# If the old affiliate-count stat still exists, convert it to a shopper-facing
+# link count; otherwise do not recreate a stat just for affiliate operations.
 customer_link_count = "const verified = toolsData.filter((t) => Boolean(getValidExternalUrl(t))).length;"
 replace_first(
     [
@@ -29,6 +31,7 @@ replace_first(
     ],
     customer_link_count,
     "homepage link count",
+    required=False,
 )
 
 if 'Verified affiliate paths' in text:
@@ -97,8 +100,6 @@ elif tracked_anchor not in text:
     raise SystemExit("home link guard could not find expected homepage outbound CTA")
 
 required = [
-    "const verified = toolsData.filter((t) => Boolean(getValidExternalUrl(t))).length;",
-    "Live vendor links",
     "tool.affiliate_status === 'approved_tracking'",
     "validUrl === tool.affiliate_url.trim()",
     "trackToolClick(tool.id, tool.name, validUrl, isApprovedAffiliate)",
