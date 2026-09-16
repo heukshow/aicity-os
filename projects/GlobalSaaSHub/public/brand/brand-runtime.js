@@ -45,6 +45,8 @@
       /COSHUMA affiliate status/i,
       /COSHUMA CTA state/i,
       /PartnerStack application not submitted/i,
+      /PartnerStack application declined/i,
+      /application (?:was )?declined/i,
       /Waiting vendor response/i,
       /outreach thread pending/i,
       /COSHUMA (?:currently )?has not (?:submitted|verified|yet recovered|recovered|received)/i,

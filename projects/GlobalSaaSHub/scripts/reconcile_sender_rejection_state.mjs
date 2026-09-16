@@ -78,43 +78,6 @@ if (fs.existsSync(queuePath)) {
   fs.writeFileSync(queuePath, `${JSON.stringify(queue, null, 2)}\n`);
 }
 
-const replacements = [
-  {
-    path: 'public/tool/sender-net.html',
-    changes: [
-      [
-        "COSHUMA verified Sender.net's official PartnerStack application route, but has not submitted the application or verified a COSHUMA-specific customer referral URL. The button above intentionally uses the official non-affiliate pricing page.",
-        "COSHUMA submitted Sender.net's PartnerStack application, and PartnerStack declined it on September 16, 2026. No account-specific Sender tracking URL is verified, so the button above intentionally uses the official non-affiliate pricing page."
-      ],
-      [
-        "Sender.net's public partner page currently starts at 30% lifetime recurring commission for its base partner tier, with a 90-day cookie and higher performance tiers. COSHUMA does not yet have a verified account-specific customer tracking URL, so no Sender affiliate revenue is claimed from the official links on this page.",
-        "Sender.net's public partner page currently starts at 30% lifetime recurring commission for its base partner tier, with a 90-day cookie and higher performance tiers. COSHUMA's PartnerStack application was declined on September 16, 2026, and no account-specific customer tracking URL was issued, so no Sender affiliate revenue is claimed from the official links on this page."
-      ],
-    ],
-  },
-  {
-    path: 'public/best/sender-net-free-plan-pricing.html',
-    changes: [[
-      "COSHUMA has not submitted Sender.net's PartnerStack application and no account-specific Sender tracking URL is verified. This page therefore uses the official non-affiliate pricing route.",
-      "COSHUMA submitted Sender.net's PartnerStack application, but it was declined on September 16, 2026. No account-specific Sender tracking URL is verified, so this page uses the official non-affiliate pricing route."
-    ]],
-  },
-  {
-    path: 'public/compare/sender-net-vs-emailoctopus.html',
-    changes: [[
-      'PartnerStack application not submitted; exact tracking URL unknown',
-      'PartnerStack application declined; exact tracking URL unknown'
-    ]],
-  },
-];
-
-for (const entry of replacements) {
-  if (!fs.existsSync(entry.path)) continue;
-  let html = fs.readFileSync(entry.path, 'utf8');
-  for (const [before, after] of entry.changes) {
-    if (html.includes(before)) html = html.replace(before, after);
-  }
-  fs.writeFileSync(entry.path, html);
-}
+// Public buyer pages intentionally omit COSHUMA's internal application, rejection,\n// tracking-verification and revenue-operations state. Keep that truth in data files only.
 
 console.log('Sender.net rejection truth reconciled');
