@@ -28,3 +28,16 @@ CREATE INDEX IF NOT EXISTS idx_sponsorship_orders_status_updated
   ON sponsorship_orders(status, updated_at);
 CREATE INDEX IF NOT EXISTS idx_sponsorship_orders_product
   ON sponsorship_orders(product_id, status);
+
+-- A verified PayPal refund/reversal changes sponsorship_orders.status through
+-- the existing webhook path. Stop any associated campaign in the same D1
+-- transaction boundary so refunded inventory cannot continue to render.
+CREATE TRIGGER IF NOT EXISTS trg_sponsorship_order_refund_campaign
+AFTER UPDATE OF status ON sponsorship_orders
+WHEN NEW.status = 'refunded'
+BEGIN
+  UPDATE campaigns
+  SET status = 'refunded', updated_at = NEW.updated_at
+  WHERE provider_order_id = NEW.provider_order_id
+    AND status IN ('awaiting_assets','pending_review','ready_to_publish','published');
+END;
