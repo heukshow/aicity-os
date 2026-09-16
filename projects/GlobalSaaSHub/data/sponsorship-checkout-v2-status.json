@@ -1,0 +1,29 @@
+{
+  "branch": "feat/sponsorship-checkout-v2-20260916",
+  "checkout_open": false,
+  "worker_checkout_enabled": false,
+  "frontend_maintenance": true,
+  "stage": "backend_foundation",
+  "completed": [
+    "created fresh branch from current main",
+    "added additive 0004 sponsorship order metadata migration",
+    "added nine server-owned sponsorship products",
+    "added fail-closed product amount tests",
+    "enabled Worker revenue-safety CI for pull requests",
+    "recorded authenticated Cloudflare deployment gates"
+  ],
+  "remaining_before_launch": [
+    "persist product_id on orders",
+    "verify capture and webhook against stored product_id",
+    "create campaign after verified payment",
+    "connect asset intake and campaign automation to current main schema",
+    "connect dynamic sponsored inventory and event collection",
+    "verify reporting and notification outbox",
+    "run CI and dry-run deploy",
+    "apply D1 migration 0004",
+    "deploy compatible Worker while checkout remains disabled",
+    "no-payment endpoint verification",
+    "wire frontend product selector",
+    "final launch verification"
+  ]
+}
