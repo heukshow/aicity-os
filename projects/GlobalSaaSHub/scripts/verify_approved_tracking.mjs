@@ -51,7 +51,14 @@ function matchingHtmlPages(subdir, id, allowedCtaUrls) {
   return fs.readdirSync(root)
     .filter((f) => f.endsWith('.html'))
     .map((f) => [`${subdir}/${f}`, fs.readFileSync(`${root}/${f}`, 'utf8')])
-    .filter(([, html]) => html.includes(`data-tool-id="${id}"`) || [...allowedCtaUrls].some((url) => decode(html).includes(url)));
+    .filter(([, html]) => {
+      const hasAffiliateAnchor = [...html.matchAll(/<a\b[^>]*>/g)].some((match) => {
+        const anchor = match[0];
+        return anchor.includes(`data-tool-id="${id}"`) && anchor.includes('data-cta="affiliate"');
+      });
+      const hasAllowedUrl = [...allowedCtaUrls].some((url) => decode(html).includes(url));
+      return hasAffiliateAnchor || hasAllowedUrl;
+    });
 }
 
 for (const [id, evidence] of approvedTracking) {
