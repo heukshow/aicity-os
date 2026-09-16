@@ -51,11 +51,12 @@ class Statement {
       return { meta: { changes: 1 } };
     }
 
-    if (this.sql.includes('INSERT INTO campaigns')) {
+    if (this.sql.includes('INSERT OR IGNORE INTO campaigns') || this.sql.includes('INSERT INTO campaigns')) {
       const [
         id, providerOrderId, productId, placement, durationDays, priceUsd,
         advertiserName, contactEmail, intakeToken, reportToken, createdAt, updatedAt,
       ] = this.args;
+      if (this.db.campaigns.has(providerOrderId)) return { meta: { changes: 0 } };
       this.db.campaigns.set(providerOrderId, {
         id,
         order_id: null,
@@ -128,6 +129,10 @@ class Statement {
       return this.db.orders.get(this.args[0]) || null;
     }
     if (this.sql.includes('FROM campaigns WHERE provider_order_id')) {
+      if (this.db.forceCampaignReadMisses > 0) {
+        this.db.forceCampaignReadMisses -= 1;
+        return null;
+      }
       return this.db.campaigns.get(this.args[0]) || null;
     }
     if (this.sql.includes('FROM campaigns WHERE id')) {
@@ -147,6 +152,7 @@ class FakeD1 {
     this.campaigns = new Map();
     this.assets = new Map();
     this.notifications = [];
+    this.forceCampaignReadMisses = 0;
   }
 
   prepare(sql) { return new Statement(this, sql); }
@@ -209,6 +215,36 @@ test('selected product persists through paid order and creates one campaign', as
 
   const duplicate = await repo.ensureCampaign(paid, '2026-09-17T00:03:00.000Z');
   assert.equal(duplicate.id, campaign.id);
+  assert.equal(db.campaigns.size, 1);
+  assert.equal(db.notifications.length, 1);
+});
+
+test('capture and webhook race still creates one campaign and one initial notification', async () => {
+  const db = new FakeD1();
+  const repo = new D1OrderRepository(db);
+  const created = await repo.create({
+    id: 'local-race',
+    providerOrderId: 'PAYPAL-RACE',
+    productId: 'comparison_30',
+    now: '2026-09-17T00:00:00.000Z',
+  });
+  await repo.transition('PAYPAL-RACE', 'pending', '2026-09-17T00:01:00.000Z');
+  await repo.transition('PAYPAL-RACE', 'paid', '2026-09-17T00:02:00.000Z');
+  const paid = await repo.recordPayer(
+    'PAYPAL-RACE',
+    'Verified Buyer',
+    'buyer@example.com',
+    '2026-09-17T00:02:00.000Z',
+  );
+
+  // Simulate both requests reading before either insert becomes visible.
+  db.forceCampaignReadMisses = 2;
+  const [fromCapture, fromWebhook] = await Promise.all([
+    repo.ensureCampaign(paid, '2026-09-17T00:02:01.000Z'),
+    repo.ensureCampaign(paid, '2026-09-17T00:02:01.000Z'),
+  ]);
+
+  assert.equal(fromCapture.id, fromWebhook.id);
   assert.equal(db.campaigns.size, 1);
   assert.equal(db.notifications.length, 1);
 });
