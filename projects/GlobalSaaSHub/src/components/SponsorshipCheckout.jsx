@@ -56,12 +56,15 @@ function CampaignSetup({ fulfillment }) {
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data.error || 'Campaign materials could not be submitted.');
+      const detail = data.validationNotes ? ` ${data.validationNotes}` : '';
       const message = data.status === 'published'
         ? 'Materials accepted. Your sponsored placement has been scheduled.'
-        : data.status === 'pending_review'
-          ? 'Materials received. This campaign requires review before publication.'
-          : `Materials received. Campaign status: ${data.status}.`;
-      setSubmission({ state: 'success', message });
+        : data.validation === 'invalid' && data.canResubmit
+          ? `Some materials need to be corrected before publication.${detail}`
+          : data.status === 'pending_review'
+            ? `Materials received. This campaign needs changes or review before publication.${detail}`
+            : `Materials received. Campaign status: ${data.status}.${detail}`;
+      setSubmission({ state: data.status === 'published' ? 'success' : 'neutral', message });
     } catch (error) {
       setSubmission({ state: 'error', message: error.message || 'Campaign materials could not be submitted.' });
     }
@@ -98,7 +101,7 @@ function CampaignSetup({ fulfillment }) {
         </div>
         <label className="block text-sm font-bold text-slate-200">Official destination URL<input required type="url" placeholder="https://" value={form.destinationUrl} onChange={(e) => setField('destinationUrl', e.target.value)} className="mt-2 w-full rounded-xl border border-white/10 bg-[#0b0d12] px-3 py-3 text-white" /></label>
         <label className="block text-sm font-bold text-slate-200">Logo URL<input required type="url" placeholder="https://" value={form.logoUrl} onChange={(e) => setField('logoUrl', e.target.value)} className="mt-2 w-full rounded-xl border border-white/10 bg-[#0b0d12] px-3 py-3 text-white" /></label>
-        <label className="block text-sm font-bold text-slate-200">COSHUMA target page path<input required placeholder="/tool/example.html" value={form.targetPage} onChange={(e) => setField('targetPage', e.target.value)} className="mt-2 w-full rounded-xl border border-white/10 bg-[#0b0d12] px-3 py-3 text-white" /><span className="mt-1 block text-xs font-normal text-slate-500">Use the exact COSHUMA page where the sponsored placement should appear.</span></label>
+        <label className="block text-sm font-bold text-slate-200">COSHUMA target page path<input required placeholder="/tool/example.html" value={form.targetPage} onChange={(e) => setField('targetPage', e.target.value)} className="mt-2 w-full rounded-xl border border-white/10 bg-[#0b0d12] px-3 py-3 text-white" /><span className="mt-1 block text-xs font-normal text-slate-500">Use the exact COSHUMA page where the sponsored placement should appear. The page and its reserved sponsorship slot are verified before automatic publication.</span></label>
         <label className="block text-sm font-bold text-slate-200">Headline<input required maxLength={100} value={form.headline} onChange={(e) => setField('headline', e.target.value)} className="mt-2 w-full rounded-xl border border-white/10 bg-[#0b0d12] px-3 py-3 text-white" /></label>
         <label className="block text-sm font-bold text-slate-200">Description<textarea required maxLength={500} rows={4} value={form.description} onChange={(e) => setField('description', e.target.value)} className="mt-2 w-full rounded-xl border border-white/10 bg-[#0b0d12] px-3 py-3 text-white" /></label>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -107,7 +110,7 @@ function CampaignSetup({ fulfillment }) {
         </div>
         <label className="flex items-start gap-3 text-sm leading-6 text-slate-300"><input required type="checkbox" checked={form.sellerAttestation} onChange={(e) => setField('sellerAttestation', e.target.checked)} className="mt-1" /><span>I confirm these materials are accurate and understand that sponsorship does not control COSHUMA editorial ratings, reviews, or organic rankings.</span></label>
         <button type="submit" disabled={submission.state === 'loading'} className="w-full rounded-xl bg-violet-500 px-4 py-3 text-sm font-black text-white hover:bg-violet-400 disabled:opacity-50">Submit campaign materials</button>
-        {submission.message && <p className={`text-xs ${submission.state === 'error' ? 'text-rose-300' : 'text-slate-400'}`}>{submission.message}</p>}
+        {submission.message && <p className={`text-xs ${submission.state === 'error' ? 'text-rose-300' : submission.state === 'success' ? 'text-emerald-300' : 'text-amber-200'}`}>{submission.message}</p>}
       </form>
 
       <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-5">
