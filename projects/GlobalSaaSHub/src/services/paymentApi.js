@@ -12,14 +12,18 @@ async function post(path, body = {}) {
   return data;
 }
 
-export function createSponsorshipOrder() {
-  return post('/v1/orders');
+export function createSponsorshipOrder(productId) {
+  if (typeof productId !== 'string' || !productId) throw new Error('Sponsorship product is required');
+  return post('/v1/orders', { productId });
 }
 
 export async function captureVerifiedSponsorshipOrder(orderId) {
   const result = await post('/v1/orders/capture', { orderId });
   if (result.status !== 'paid' || result.verified !== true) {
     throw new Error('Payment has not been verified by the server');
+  }
+  if (!result.campaignId || !result.intakeToken || !result.reportToken) {
+    throw new Error('Verified payment did not create a complete campaign record');
   }
   return result;
 }
