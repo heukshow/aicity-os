@@ -11,6 +11,7 @@ import './scripts/ensure_plerdy_fastlane.mjs'
 import './scripts/ensure_claspo_fastlane.mjs'
 import './scripts/ensure_picreel_fastlane.mjs'
 import './scripts/ensure_privy_revenue_refresh.mjs'
+import './scripts/reconcile_sender_rejection_state.mjs'
 
 function coshumaBrandIdentity() {
   return {
