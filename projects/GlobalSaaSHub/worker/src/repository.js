@@ -86,11 +86,16 @@ export class D1OrderRepository {
     const intakeToken = crypto.randomUUID().replaceAll('-', '') + crypto.randomUUID().replaceAll('-', '');
     const reportToken = crypto.randomUUID().replaceAll('-', '') + crypto.randomUUID().replaceAll('-', '');
 
+    // Capture completion and the verified PayPal webhook can arrive at nearly
+    // the same time. provider_order_id is uniquely indexed, so INSERT OR IGNORE
+    // makes campaign creation idempotent even when both requests pass the
+    // initial read before either insert commits.
+    //
     // `campaigns.order_id` references the legacy fixed-$49 orders table.
     // Checkout v2 deliberately leaves it NULL and uses provider_order_id as the
     // stable unique relationship to sponsorship_orders.
-    await this.db.prepare(`
-      INSERT INTO campaigns (
+    const inserted = await this.db.prepare(`
+      INSERT OR IGNORE INTO campaigns (
         id, order_id, provider_order_id, product_id, placement, duration_days, price_usd,
         status, advertiser_name, contact_email, intake_token, report_token,
         starts_at, ends_at, created_at, updated_at
@@ -110,8 +115,16 @@ export class D1OrderRepository {
       now,
     ).run();
 
-    const campaign = await this.getCampaignById(campaignId);
-    if (campaign?.contact_email) {
+    const campaign = inserted.meta?.changes === 1
+      ? await this.getCampaignById(campaignId)
+      : await this.db.prepare('SELECT * FROM campaigns WHERE provider_order_id = ?')
+        .bind(order.provider_order_id).first();
+    if (!campaign) throw new Error('Campaign creation failed');
+
+    // Only the request that actually inserted the campaign queues the initial
+    // notification. A racing capture/webhook request reuses the existing row
+    // without creating a duplicate message.
+    if (inserted.meta?.changes === 1 && campaign.contact_email) {
       await this.queueNotification(
         campaign.id,
         campaign.contact_email,
