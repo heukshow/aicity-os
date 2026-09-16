@@ -14,8 +14,22 @@ CREATE TABLE IF NOT EXISTS sponsorship_orders (
   provider_order_id TEXT NOT NULL UNIQUE,
   provider TEXT NOT NULL CHECK (provider = 'paypal'),
   status TEXT NOT NULL CHECK (status IN ('created','pending','paid','failed','cancelled','refunded')),
-  product_id TEXT NOT NULL,
-  amount TEXT NOT NULL,
+  product_id TEXT NOT NULL CHECK (product_id IN (
+    'tool_page_7','tool_page_30','tool_page_90',
+    'buyer_intent_7','buyer_intent_30','buyer_intent_90',
+    'comparison_7','comparison_30','comparison_90'
+  )),
+  amount TEXT NOT NULL CHECK (
+    (product_id = 'tool_page_7' AND amount = '19.00') OR
+    (product_id = 'tool_page_30' AND amount = '49.00') OR
+    (product_id = 'tool_page_90' AND amount = '129.00') OR
+    (product_id = 'buyer_intent_7' AND amount = '39.00') OR
+    (product_id = 'buyer_intent_30' AND amount = '99.00') OR
+    (product_id = 'buyer_intent_90' AND amount = '269.00') OR
+    (product_id = 'comparison_7' AND amount = '59.00') OR
+    (product_id = 'comparison_30' AND amount = '149.00') OR
+    (product_id = 'comparison_90' AND amount = '399.00')
+  ),
   currency TEXT NOT NULL CHECK (currency = 'USD'),
   payer_name TEXT,
   payer_email TEXT,
