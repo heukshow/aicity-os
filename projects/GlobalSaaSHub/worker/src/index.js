@@ -9,6 +9,7 @@ import {
 import { capturePayPalOrder, createPayPalOrder, getPayPalOrder, verifyPayPalWebhook } from './paypal.js';
 import { D1OrderRepository } from './repository.js';
 import { handleAdminRequest, isAdminPath } from './admin.js';
+import { handleAdvertiserApi } from './advertiser-api.js';
 
 const SECURITY_HEADERS = {
   'cache-control': 'no-store',
@@ -275,6 +276,17 @@ export default {
       } catch (error) {
         console.error('Payment webhook failed safely', error?.name || 'Error');
         return json({ error: 'Payment webhook failed safely' }, 502);
+      }
+    }
+
+    if (env.ORDERS) {
+      const advertiserRepo = new D1OrderRepository(env.ORDERS);
+      try {
+        const advertiserResponse = await handleAdvertiserApi(request, env, advertiserRepo);
+        if (advertiserResponse) return advertiserResponse;
+      } catch (error) {
+        console.error('Advertiser API failed safely', error?.name || 'Error');
+        return json({ error: 'Advertiser request failed safely' }, 502, corsHeaders(request, env));
       }
     }
 
