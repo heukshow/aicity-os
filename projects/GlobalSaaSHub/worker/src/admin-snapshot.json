@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-16T13:25:57.270Z",
+  "generatedAt": "2026-09-16T14:23:42.457Z",
   "counts": {
     "totalTools": 179,
-    "verifiedAffiliates": 114,
+    "verifiedAffiliates": 115,
     "revenueReadyAffiliates": 71,
     "genericRevenueReadyAffiliates": 68,
     "targetedRevenueReadyAffiliates": 3,
-    "openMonetizationGaps": 85,
+    "openMonetizationGaps": 84,
     "directActionableGaps": 13,
-    "browserRequiredGaps": 25,
+    "browserRequiredGaps": 24,
     "watchOnlyGaps": 47,
     "doNotReapply": 166,
     "toolPages": 179,
@@ -18,21 +18,21 @@
   "revenueFocus": {
     "policy": "prioritize_direct_existing_gaps_without_reapplying_waiting_states",
     "allowNewTools": false,
-    "reason": "13 existing tools still have directly actionable affiliate gaps; 47 are watch-only and 25 require browser work."
+    "reason": "13 existing tools still have directly actionable affiliate gaps; 47 are watch-only and 24 require browser work."
   },
   "affiliateCoverage": {
     "counts": {
       "revenueReady": 71,
       "genericRevenueReady": 68,
       "targetedRevenueReady": 3,
-      "terminal": 24,
-      "openMonetizationGaps": 85,
+      "terminal": 25,
+      "openMonetizationGaps": 84,
       "directActionableGaps": 13,
-      "browserRequiredGaps": 25,
+      "browserRequiredGaps": 24,
       "watchOnlyGaps": 47,
       "doNotReapply": 166,
       "unclassifiedAffiliateStatus": 7,
-      "exactAffiliateUrlMissing": 85,
+      "exactAffiliateUrlMissing": 84,
       "officialUnverified": 1,
       "pricingUnverified": 132
     },
@@ -2922,18 +2922,18 @@
         "name": "Sender.net",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "browser_required_partnerstack_application",
-        "affiliateVerified": false,
+        "affiliateStatus": "rejected",
+        "affiliateVerified": true,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
         "targetedRevenueReady": false,
         "revenueReady": false,
-        "terminal": false,
+        "terminal": true,
         "doNotReapply": true,
-        "browserRequired": true,
+        "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": null
       },
       {
         "id": "sendpulse",
@@ -4146,6 +4146,14 @@
       "verified": true,
       "url": null,
       "verifiedAt": "2026-09-08T03:27:00+09:00"
+    },
+    {
+      "id": "sender-net",
+      "name": "Sender.net",
+      "status": "rejected",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-16T00:57:42Z"
     },
     {
       "id": "socialchamp-io",
