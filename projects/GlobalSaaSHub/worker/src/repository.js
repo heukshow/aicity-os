@@ -187,10 +187,14 @@ export class D1OrderRepository {
       now,
     ).run();
 
+    // A malformed submission is correctable and must not permanently reject a
+    // paid campaign. Keep it awaiting assets so the advertiser can fix and
+    // resubmit. Only an explicit owner decision or a verified refund should end
+    // the campaign permanently.
     const campaignStatus = validationStatus === 'valid'
       ? 'ready_to_publish'
       : validationStatus === 'invalid'
-        ? 'rejected'
+        ? 'awaiting_assets'
         : 'pending_review';
 
     await this.db.prepare(`
