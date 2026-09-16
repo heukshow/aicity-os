@@ -32,6 +32,13 @@ def clean(text):
         s = re.sub(r'\bVerified\s+revenue\s+alternative\b', 'Another option to compare', s, flags=re.I)
         s = re.sub(r'\bVerified\s+monetization\s+path\b', 'Another option to compare', s, flags=re.I)
         s = re.sub(r'\bVerified\s+partner\s+link\b', 'partner link', s, flags=re.I)
+        # The static homepage fallback is public too (search/AI crawlers and
+        # no-JS visitors). Keep methodology and guide labels useful to buyers,
+        # without exposing affiliate verification workflow language.
+        s = s.replace('Separate link verification:', 'Direct vendor links:')
+        s = s.replace('affiliate destinations are verified independently from editorial pricing sources.', 'outbound destinations are checked before publication.')
+        s = s.replace('Recently verified partner buyer guides:', 'Popular buyer guides:')
+        s = s.replace('Fill eSignature pricing & verified partner offer', 'Fill eSignature pricing & offer')
         return re.sub(r'__URL_(\d+)__', lambda m: urls[int(m[1])], s)
     text = re.sub(r'(?<=>)[^<]+(?=<)', lambda m: wording(m[0]), text)
     text = re.sub(r'(<meta\b[^>]*\bcontent=")([^"]*)(")', lambda m: m[1]+wording(m[2])+m[3], text)
