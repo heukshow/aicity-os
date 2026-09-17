@@ -1,0 +1,85 @@
+name: Permanent affiliate disclosure source fix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/permanent-affiliate-disclosure-source-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix-source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Permanently remove page-level disclosure generation
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path('projects/GlobalSaaSHub')
+
+          # 1) guard_public_copy.py: cleanup-only, never insert a disclosure.
+          path = root / 'scripts/guard_public_copy.py'
+          text = path.read_text(encoding='utf-8')
+          text = re.sub(r"\nSTANDARD_AFFILIATE_DISCLOSURE = \(.*?\n\)\n", "\n", text, flags=re.S)
+          text = text.replace("    has_affiliate = 'data-cta=\"affiliate\"' in text\n", "")
+          text = text.replace(
+              "    if not has_affiliate:\n        return text\n    text = re.sub(r'(<a\\b[^>]*data-cta=\"affiliate\"[^>]*>.*?</a>)', r'\\1\\n' + STANDARD_AFFILIATE_DISCLOSURE, text, count=1, flags=re.S)\n    return remove_empty_disclosure_sections(text)\n",
+              "    return remove_empty_disclosure_sections(text)\n",
+          )
+          # Remove legacy rewrites that create new commission notices.
+          text = re.sub(r"\n\s*text = re\.sub\(r\"The AWeber outbound revenue URL.*?\n", "\n", text)
+          text = re.sub(r"\n\s*text = re\.sub\(r'<p\\b\[\^>\]\*>The authenticated Text Partner App records.*?\n", "\n", text)
+          text = re.sub(r"\n\s*text = re\.sub\(r\"<p\\b\[\^>\]\*>COSHUMA's Make partner code.*?\n", "\n", text)
+          path.write_text(text, encoding='utf-8')
+
+          # 2) polish_public_copy.py: keep monetization, never generate disclosure blocks.
+          path = root / 'scripts/polish_public_copy.py'
+          text = path.read_text(encoding='utf-8')
+          text = re.sub(r"\nCOMPARE_AFFILIATE_DISCLOSURE = \(.*?\n\)\n", "\n", text, flags=re.S)
+          text = re.sub(r"\ndef tag_existing_compare_disclosure\(.*?\n(?=def ensure_tool_revenue_alternative)", "\n", text, flags=re.S)
+          text = re.sub(
+              r"\n\s*'        <p class=\"text-\[10px\] text-slate-500\">Affiliate disclosure:.*?</p>\\n'",
+              "",
+              text,
+              flags=re.S,
+          )
+          text = text.replace(
+              "            if folder.name == \"compare\":\n                updated = monetize_verified_compare_links(updated)\n                updated = ensure_compare_affiliate_disclosure(updated)\n",
+              "            if folder.name == \"compare\":\n                updated = monetize_verified_compare_links(updated)\n",
+          )
+          path.write_text(text, encoding='utf-8')
+
+          # 3) Remove the temporary runtime source patch from the normal build.
+          package = root / 'package.json'
+          text = package.read_text(encoding='utf-8')
+          text = text.replace('python scripts/disable_page_level_affiliate_disclosure_generation.py && ', '')
+          package.write_text(text, encoding='utf-8')
+
+          # 4) Permanently clean currently committed public HTML once.
+          import subprocess
+          subprocess.run(['python', str(root / 'scripts/self_heal_source_affiliate_disclosures.py')], check=True)
+
+          # 5) Temporary runtime patch is no longer needed after permanent edits.
+          temp = root / 'scripts/disable_page_level_affiliate_disclosure_generation.py'
+          if temp.exists():
+              temp.unlink()
+          PY
+      - name: Commit permanent source fix
+        run: |
+          if git diff --quiet; then
+            echo 'No source changes needed.'
+            exit 0
+          fi
+          git config user.name 'COSHUMA automation'
+          git config user.email 'support@coshuma.com'
+          git add projects/GlobalSaaSHub
+          git commit -m 'Permanently remove page-level affiliate disclosure generation'
+          git push origin HEAD:main
