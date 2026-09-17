@@ -2,6 +2,7 @@
 from pathlib import Path
 import re
 from guard_customer_only_copy import clean_html, clean_public_js, clean_llms
+from sanitize_public_editorial_copy import clean_llms as clean_editorial_llms
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
@@ -72,7 +73,9 @@ def main() -> None:
     llms = DIST / "llms.txt"
     if llms.exists():
         before = llms.read_text(encoding="utf-8")
-        after = clean_llms(before)
+        # Vite config-time generators can append new buyer-guide rows after the
+        # source sanitizer runs, so apply both guards to the final artifact.
+        after = clean_editorial_llms(clean_llms(before))
         if after != before:
             llms.write_text(after, encoding="utf-8")
             changed.append(llms.relative_to(DIST).as_posix())
