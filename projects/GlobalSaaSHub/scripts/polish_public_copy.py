@@ -12,6 +12,7 @@ PROJECT_DIR = Path(__file__).resolve().parents[1]
 PUBLIC_DIR = PROJECT_DIR / "public"
 
 TEXT_REPLACEMENTS = {
+    "Global AI SaaS Decision Platform": "",
     "GlobalSaaSHub Editorial Rating": "COSHUMA review status",
     "GlobalSaaSHub": "COSHUMA",
     "Side-by-Side Head-to-Head Comparison": "Side-by-Side Comparison",

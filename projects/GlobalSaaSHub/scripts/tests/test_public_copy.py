@@ -120,3 +120,10 @@ def main():
     print(f'PASS: {len(files)} built HTML files; legacy brand=0, broken rating copy=0, internal-state copy=0, internal-affiliate-copy=0, llms-internal-copy=0, empty headings=0, security guard=pass')
 
 if __name__=='__main__':main()
+
+
+# Legacy customer-facing brand copy must never return.
+for _page in dist.rglob("*.html"):
+    _html = _page.read_text(encoding="utf-8")
+    assert "Global AI SaaS Decision Platform" not in _html, f"legacy Global SaaS copy in {_page}"
+    assert "GlobalSaaSHub" not in _html, f"legacy GlobalSaaSHub brand in {_page}"
