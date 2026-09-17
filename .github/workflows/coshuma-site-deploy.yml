@@ -225,13 +225,21 @@ jobs:
             echo 'Jotform production page still contains the legacy onboarding redirect instead of the confirmed customer-facing partner URL.'
             exit 1
           fi
-          for page in projects/GlobalSaaSHub/dist/compare/*.html; do
-            [ -e "$page" ] || continue
-            if grep -q 'data-cta="affiliate"' "$page" && ! grep -q 'data-affiliate-disclosure=' "$page"; then
-              echo "Monetized comparison missing affiliate disclosure: $page"
+          test "$(grep -o 'data-site-affiliate-disclosure="global"' projects/GlobalSaaSHub/dist/index.html | wc -l)" -eq 1
+          test "$(grep -io 'Affiliate disclosure:' projects/GlobalSaaSHub/dist/index.html | wc -l)" -eq 1
+          for dir in tool compare best category; do
+            target="projects/GlobalSaaSHub/dist/$dir"
+            [ -d "$target" ] || continue
+            if grep -R -I -i -q -E 'Affiliate[[:space:]]+disclosure[[:space:]]*:' "$target" --include='*.html' 2>/dev/null; then
+              echo "Repeated page-level affiliate disclosure detected in $dir pages."
+              exit 1
+            fi
+            if grep -R -I -q -F 'data-affiliate-disclosure=' "$target" --include='*.html' 2>/dev/null; then
+              echo "Repeated page-level affiliate disclosure marker detected in $dir pages."
               exit 1
             fi
           done
+          test -f projects/GlobalSaaSHub/dist/affiliate-disclosure.html
           for page in projects/GlobalSaaSHub/dist/best/*.html; do
             [ -e "$page" ] || continue
             slug=$(basename "$page")
