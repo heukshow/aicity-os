@@ -10,7 +10,9 @@ Policy:
 Normal steady state is changed=0 because content generators must not create page-level
 affiliate disclosures in the first place. This pass exists only as a last-resort
 repair and safety stop for a future regression, not as part of the normal content
-production path. It raises if a prohibited notice still remains after repair.
+production path. A nonzero repair count is treated as a generator regression and
+fails the build so the source generator must be corrected instead of relying on
+repeated cleanup.
 """
 from pathlib import Path
 import re
