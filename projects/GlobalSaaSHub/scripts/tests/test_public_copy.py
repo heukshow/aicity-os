@@ -34,6 +34,11 @@ BAD=re.compile(
     r'Fill eSignature pricing & verified partner offer|'
     r'\b(?:affiliate|partner|referral)-status\b|'
     r'\bverified\s+(?:Impact|PartnerStack|Dub|Cello)\b[^.]{0,60}\b(?:route|link|status)\b|'
+    r'\bPartnerStack\b|\bFirstPromoter\b|'
+    r'Impact\s+(?:affiliate|partner|program|route|link)|'
+    r'partner-side evidence|not treated as revenue|partner correspondence|guessing referral parameters|'
+    r'existing affiliate account|affiliate team supplied|exact tracked [^.]{0,80} destination|'
+    r'COSHUMA[^.]{0,100}customer-facing (?:route|destination|link)|'
     r'COSHUMA[^.]{0,80}affiliate application remains separate|'
     r'no Pipedrive revenue attribution is claimed',
     re.I,
@@ -56,6 +61,9 @@ def main():
     assert violations('<p>Affiliate link verified in our records · disclosure applies</p>')
     assert violations('<p>Recently verified partner buyer guides</p>')
     assert violations('<p>Pricing and affiliate-status buyer guide</p>')
+    assert violations('<p>The first button uses the exact customer-facing PartnerStack route previously verified for COSHUMA.</p>')
+    assert violations('<p>A click or signup is not treated as revenue without partner-side evidence.</p>')
+    assert violations('<p>Jotform affiliate team supplied this route in partner correspondence.</p>')
     assert not violations('<p>Affiliate disclosure: COSHUMA may earn a commission from some links at no extra cost to you.</p>')
     assert not violations('<p>Connect your internal database.</p><a data-affiliate-status="approved_tracking" href="https://example.com/?ref=ok">Try</a>')
     urls = '<meta property="og:url" content="https://coshuma.com/tool/vidiq.html"><script type="application/ld+json">{"url":"https://coshuma.com/tool/vidiq.html"}</script><a href="https://example.com/?via=GlobalSaaSHub">Text Cortex</a>'
@@ -79,6 +87,11 @@ def main():
     kit=(root/'tool/kit.html').read_text(encoding='utf-8')
     assert 'href="/tool/convertkit.html"' not in kit
     assert 'Top Alternatives to Nudgera' not in (root/'tool/nudgera.html').read_text(encoding='utf-8')
+    deals=(root/'best/verified-software-free-trials-deals.html').read_text(encoding='utf-8')
+    assert 'SaaS Free Trials & Current Offers' in deals
+    assert 'customer-facing PartnerStack route' not in deals
+    assert 'partner-side evidence' not in deals
+    assert 'partner correspondence' not in deals
     assert not errors, '\n'.join(errors)
     security_main()
     print(f'PASS: {len(files)} built HTML files; legacy brand=0, broken rating copy=0, internal-state copy=0, internal-affiliate-copy=0, llms-internal-copy=0, empty headings=0, security guard=pass')
