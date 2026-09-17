@@ -1,0 +1,91 @@
+name: Migrate homepage-only affiliate disclosure policy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/migrate-home-only-disclosure-policy.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Remove legacy page-disclosure generators and requirements
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path('projects/GlobalSaaSHub')
+          s = root / 'scripts'
+
+          # Claap/Teachable reconciliation: keep exact URLs and sponsored CTAs,
+          # but never inject or require a page-level affiliate disclosure.
+          p = s / 'reconcile_claap_teachable_tracking_2026_09_09.py'
+          t = p.read_text(encoding='utf-8')
+          t = re.sub(
+              r'\n    if "Affiliate disclosure:" not in html:\n.*?\n\n    marker =',
+              '\n\n    marker =', t, flags=re.S
+          )
+          t = t.replace(
+              '    if "Affiliate disclosure:" not in page:\n        raise RuntimeError("Claap affiliate disclosure is missing")\n',
+              '    if "Affiliate disclosure:" in page or \'data-affiliate-disclosure=\' in page:\n        raise RuntimeError("Claap page-level affiliate disclosure must not be regenerated")\n'
+          )
+          p.write_text(t, encoding='utf-8')
+
+          # UpLead: deep links and attribution remain; repeated page disclosure
+          # text and disclosure-presence assertions are removed.
+          p = s / 'apply_uplead_verified_tracking.py'
+          t = p.read_text(encoding='utf-8')
+          t = re.sub(r'\ndisclosure_old = .*?\n\nrequired =', '\n\nrequired =', t, flags=re.S)
+          t = t.replace("    'Bookyourdata or UpLead partner links',\n", '')
+          t = re.sub(
+              r"\ntrial = trial\.replace\(\n    'Affiliate disclosure:.*?\n\)\n",
+              '\n', t, flags=re.S
+          )
+          t = t.replace("    'Affiliate disclosure',\n", '')
+          p.write_text(t, encoding='utf-8')
+
+          # Jotform: retain exact vendor-confirmed URLs and sponsored relations,
+          # but do not create disclosure paragraphs or rewrite them.
+          p = s / 'inject_jotform_partner_offer.py'
+          t = p.read_text(encoding='utf-8')
+          t = re.sub(r'\n\s*<p data-affiliate-disclosure="jotform-ai".*?</p>', '', t, flags=re.S)
+          t = re.sub(
+              r'\n    old_disclosure = \(.*?\n    html = html\.replace\(old_disclosure, new_disclosure\)\n',
+              '\n', t, flags=re.S
+          )
+          p.write_text(t, encoding='utf-8')
+
+          # The migration workflow is one-shot; remove it from the commit itself.
+          wf = Path('.github/workflows/migrate-home-only-disclosure-policy.yml')
+          if wf.exists(): wf.unlink()
+
+          # Sanity checks on the migrated sources.
+          checks = {
+              'reconcile_claap_teachable_tracking_2026_09_09.py': ['Claap affiliate disclosure is missing'],
+              'apply_uplead_verified_tracking.py': ["'Affiliate disclosure',", 'Bookyourdata or UpLead partner links'],
+              'inject_jotform_partner_offer.py': ['data-affiliate-disclosure="jotform-ai"', 'new_disclosure ='],
+          }
+          bad=[]
+          for name, needles in checks.items():
+              text=(s/name).read_text(encoding='utf-8')
+              for needle in needles:
+                  if needle in text: bad.append(f'{name}:{needle}')
+          if bad: raise SystemExit('Migration incomplete: ' + ', '.join(bad))
+          print('Legacy disclosure policy migration: PASS')
+          PY
+      - name: Commit migration
+        run: |
+          git config user.name 'COSHUMA automation'
+          git config user.email 'support@coshuma.com'
+          git add -A
+          git commit -m 'Remove legacy page-level disclosure requirements'
+          git push origin HEAD:main
