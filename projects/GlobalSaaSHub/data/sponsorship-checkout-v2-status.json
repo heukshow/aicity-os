@@ -5,10 +5,11 @@
   "frontend_maintenance": true,
   "sponsored_inventory_enabled": false,
   "stage": "predeploy_verified_remote_worker_legacy",
-  "latest_main_sha": "f707573a3c1958843b9211284e0938c14e198f7e",
-  "staging_head_sha": "6d19bcd531a1cb23125a0197dbcb0c7324b210f8",
+  "latest_main_sha": "c0a5c844c3efd7fcd23dc6771eb8b21b6bf98a11",
+  "staging_head_sha": "d94181cc97bf9bffd5f410703982ecf2f8664c56",
+  "current_verification_pr": 611,
   "completed": [
-    "staging branch was reconciled with latest main through sync PR 607",
+    "latest main was merged into the staging branch through sync PR 610 with no main mutation",
     "nine server-owned sponsorship products and prices are defined and fail-closed",
     "variable-price sponsorship_orders migration preserves the legacy fixed-$49 orders table",
     "local migration replay applies 0001 through 0004 successfully",
@@ -24,9 +25,9 @@
     "campaign maintenance creates interim, renewal and final reports and ends expired campaigns",
     "refund/reversal state stops associated active campaign inventory",
     "frontend nine-product selector, campaign intake and report UI are staged behind maintenance mode",
-    "Worker Revenue Safety passed after latest-main sync, including Worker tests and wrangler deploy --dry-run",
-    "COSHUMA PR Build Check passed after latest-main sync, including build, SEO, links, tracking and public-bundle safety",
-    "live no-payment readiness correctly fails closed because the production Worker is still the legacy revision"
+    "Worker Revenue Safety run 35183569276 passed after latest-main sync, including Worker tests and wrangler deploy --dry-run",
+    "COSHUMA PR Build Check run 35183569282 passed after latest-main sync, including build, SEO, links, tracking and public-bundle safety",
+    "live no-payment readiness run 35183569277 correctly fails closed because the production Worker is still the legacy revision"
   ],
   "remaining_before_launch": [
     "apply D1 migration 0004_sponsorship_order_metadata.sql to the existing remote globalsaashub-orders database using the existing authenticated Cloudflare environment",
