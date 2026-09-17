@@ -4,20 +4,38 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = file => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
 const truth = read('data/revenue-truth-2026-09-11.json');
+const supplementPath = path.join(root, 'data/revenue-truth-supplement-2026-09-18.json');
+const supplement = fs.existsSync(supplementPath) ? JSON.parse(fs.readFileSync(supplementPath, 'utf8')) : {records:[]};
 const baseline = read('data/revenue-browser-baseline-2026-09-08.json');
 const approved = read('data/approved-tracking-2026-09-08.json').items;
 const tools = read('data/tools.json').filter(t => t.affiliate_verified && t.affiliate_url && ['approved_tracking','approved','approved_account'].includes(t.affiliate_status));
 const alias = { HighLevel:'gohighlevel', 'Text / LiveChat Partner Program':'text', 'Murf AI':'murf-ai' };
 const idFor = name => alias[name] || tools.find(t => t.name.toLowerCase() === name.toLowerCase())?.id || name.toLowerCase().replace(/[^a-z0-9]+/g,'-');
 const metrics = ['outbound_clicks','signups_referrals','trials','paid_customers','gross_sales_revenue','commission_earned','commission_approved','commission_pending','payout_paid','payout_pending','network_reported_conversions'];
-const evidence = [...baseline.records.map(r => ({...r, period:'당시 대시보드 누적', evidence_source:'authenticated-browser-dashboard', evidence_id:baseline.source_file})), ...truth.records].map(r => ({
+
+if (supplement?.policy?.unknown_is_zero !== false || supplement?.policy?.infer_downstream_from_upstream !== false) {
+  throw new Error('Revenue truth supplement safety policy missing or invalid');
+}
+for (const [index, record] of (supplement.records || []).entries()) {
+  if (!record?.tool || !record?.network || !record?.evidence_source || !record?.evidence_id || !Number.isFinite(Date.parse(record?.evidence_timestamp))) {
+    throw new Error(`Revenue truth supplement record ${index + 1} missing required evidence fields`);
+  }
+  for (const field of metrics) {
+    const value = record[field];
+    if (value === undefined || value === null) continue;
+    if (!Number.isFinite(Number(value)) || Number(value) < 0) throw new Error(`Revenue truth supplement ${record.tool}: invalid ${field}`);
+  }
+}
+
+const truthRecords = [...truth.records, ...(supplement.records || [])];
+const evidence = [...baseline.records.map(r => ({...r, period:'당시 대시보드 누적', evidence_source:'authenticated-browser-dashboard', evidence_id:baseline.source_file})), ...truthRecords].map(r => ({
   tool_id:idFor(r.tool), tool:r.tool, network:r.network, period:r.period,
   checked_at:r.evidence_timestamp, source:r.evidence_source, evidence_id:r.evidence_id,
   currency:r.currency, metrics:Object.fromEntries(metrics.map(k => [k, typeof r[k] === 'number' ? r[k] : null])),
 }));
 const rows = new Map(tools.map(t => [t.id, {id:t.id,name:t.name,network:null,portal_url:null,inventory_source:'data/tools.json'}]));
 for (const e of evidence) {
-  if (!rows.has(e.tool_id)) rows.set(e.tool_id,{id:e.tool_id,name:e.tool,network:null,portal_url:null,inventory_source:'data/revenue-truth-2026-09-11.json'});
+  if (!rows.has(e.tool_id)) rows.set(e.tool_id,{id:e.tool_id,name:e.tool,network:null,portal_url:null,inventory_source:'revenue truth evidence'});
   rows.get(e.tool_id).network = e.network;
 }
 // These portals and account groupings are from existing authenticated evidence.
@@ -59,6 +77,6 @@ for(const file of fs.readdirSync(path.join(root,'data/browser_required_queue.d')
   try {portals(read('data/browser_required_queue.d/'+file),'data/browser_required_queue.d/'+file);}catch{}
 }
 const programs = [...rows.values()].map(r=>({...r,account_id:r.account_id || (r.network==='PartnerStack' ? 'partnerstack-account' : r.id), network:r.network || '개별 제휴 포털', evidence:evidence.filter(e=>e.tool_id===r.id).sort((a,b)=>Date.parse(b.checked_at)-Date.parse(a.checked_at))}));
-const output = {scope:'현재 검증된 제휴 경로 + 기존 수익 근거에 등장하는 계정',programs};
+const output = {scope:'현재 검증된 제휴 경로 + 기존 수익 근거 + 검증된 보충 수익 근거',programs};
 fs.writeFileSync(path.join(root,'worker/src/revenue-inventory.json'),JSON.stringify(output,null,2)+'\n');
-console.log(`Revenue inventory: ${programs.length} programs / ${new Set(programs.map(p=>p.account_id)).size} account groups`);
+console.log(`Revenue inventory: ${programs.length} programs / ${new Set(programs.map(p=>p.account_id)).size} account groups / supplement=${(supplement.records || []).length}`);
