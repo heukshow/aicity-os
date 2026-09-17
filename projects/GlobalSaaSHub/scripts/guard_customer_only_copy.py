@@ -1,8 +1,8 @@
 """Final customer-only public copy pass.
 
 This script intentionally runs last, after affiliate/revenue generators and before
-Vite. It keeps exact outbound URLs and required disclosures intact while removing
-internal affiliate, attribution, KPI and workflow language from buyer-facing copy.
+Vite. It keeps exact outbound URLs intact while removing page-level affiliate disclosures,
+internal attribution, KPI and workflow language from buyer-facing copy.
 """
 from pathlib import Path
 import html as html_lib
@@ -35,7 +35,7 @@ EXACT = {
     "Attribution is ultimately controlled by Unbounce and PartnerStack. COSHUMA does not claim a referral or commission until the partner system confirms it.": "Final eligibility and checkout pricing are controlled by Unbounce.",
     "Unbounce's official Partner Program FAQ says referral tracking uses a 90-day cookie. If the referral link is clicked again, Unbounce says the 90-day window restarts. COSHUMA therefore uses the verified PartnerStack URL rather than a generic Unbounce homepage link for revenue CTAs.": "The current offer provides 20% off the first three months or 35% off the first annual subscription for eligible customers. Check final eligibility and checkout pricing on Unbounce before purchasing.",
     "Tip: complete the trial signup from the same browser session after using the partner link when practical. Attribution is ultimately controlled by Unbounce and PartnerStack, so COSHUMA does not claim a referral until the partner dashboard confirms it.": "Tip: check the final discount and plan price at checkout because promotions and eligibility can change.",
-    "Affiliate disclosure: COSHUMA may earn a commission if you become a paying Unbounce customer through this verified partner link, at no extra cost to you. Unbounce's welcome email to COSHUMA states a minimum 25% commission for the first year and a 90-day tracking cookie.": "Affiliate disclosure: COSHUMA may earn a commission from eligible purchases made through the marked Unbounce link, at no extra cost to you.",
+    "Affiliate disclosure: COSHUMA may earn a commission if you become a paying Unbounce customer through this verified partner link, at no extra cost to you. Unbounce's welcome email to COSHUMA states a minimum 25% commission for the first year and a 90-day tracking cookie.": "",
 
     # SaneBox
     "Verified SaneBox Partner · referral route verified Sep 16, 2026": "Pricing & trial terms checked Sep 16, 2026",
