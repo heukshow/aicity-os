@@ -77,6 +77,25 @@ INTERNAL_HTML_COMMENT = re.compile(
     re.I | re.S,
 )
 
+# COSHUMA policy: the short general affiliate notice appears once on the homepage.
+# Individual tool/compare/best/category pages must not repeat it. The dedicated
+# affiliate-disclosure.html policy page remains available for readers who want details.
+AFFILIATE_DISCLOSURE_DATA = re.compile(
+    r'<p\b[^>]*\bdata-affiliate-disclosure\s*=\s*["\'][^"\']*["\'][^>]*>.*?</p>',
+    re.I | re.S,
+)
+AFFILIATE_DISCLOSURE_PARAGRAPH = re.compile(
+    r'<p\b[^>]*>(?:(?!</p>).)*(?:Affiliate\s+disclosure\s*:|COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+)?commission)(?:(?!</p>).)*</p>',
+    re.I | re.S,
+)
+HOME_AFFILIATE_DISCLOSURE = (
+    '<p data-site-affiliate-disclosure="global" '
+    'style="max-width:72rem;margin:0 auto;padding:0 1.5rem 1.5rem;color:#94a3b8;font-size:12px;line-height:1.6">'
+    'Affiliate disclosure: COSHUMA may earn a commission from some links, at no extra cost to you. '
+    '<a href="/affiliate-disclosure.html" style="text-decoration:underline">Details</a>.'
+    '</p>'
+)
+
 
 def final_polish(text: str) -> str:
     for old, new in POST_EXACT.items():
@@ -89,6 +108,45 @@ def final_polish(text: str) -> str:
     return text
 
 
+def strip_general_affiliate_disclosures(text: str) -> str:
+    text = AFFILIATE_DISCLOSURE_DATA.sub("", text)
+    text = AFFILIATE_DISCLOSURE_PARAGRAPH.sub("", text)
+    return text
+
+
+def enforce_disclosure_policy(rel: str, text: str) -> str:
+    # Keep the dedicated legal/details page intact; it is not a repeated page notice.
+    if rel == "affiliate-disclosure.html":
+        return text
+
+    text = strip_general_affiliate_disclosures(text)
+    # Remove a previous post-build homepage notice if this function is ever run twice.
+    text = re.sub(
+        r'<p\b[^>]*\bdata-site-affiliate-disclosure=["\']global["\'][^>]*>.*?</p>',
+        '',
+        text,
+        flags=re.I | re.S,
+    )
+
+    if rel == "index.html":
+        if "</body>" not in text:
+            raise RuntimeError("Homepage closing body tag missing; refusing to place global affiliate disclosure")
+        text = text.replace("</body>", HOME_AFFILIATE_DISCLOSURE + "\n</body>", 1)
+        if text.count('data-site-affiliate-disclosure="global"') != 1:
+            raise RuntimeError("Homepage must contain exactly one global affiliate disclosure")
+        if text.lower().count("affiliate disclosure:") != 1:
+            raise RuntimeError("Homepage must contain exactly one visible affiliate disclosure notice")
+        return text
+
+    if 'data-affiliate-disclosure=' in text.lower():
+        raise RuntimeError(f"Repeated affiliate disclosure attribute remains in {rel}")
+    if re.search(r"Affiliate\s+disclosure\s*:", text, re.I):
+        raise RuntimeError(f"Repeated affiliate disclosure notice remains in {rel}")
+    if re.search(r"COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+)?commission", text, re.I):
+        raise RuntimeError(f"Repeated affiliate commission notice remains in {rel}")
+    return text
+
+
 def main() -> None:
     if not DIST.exists():
         raise RuntimeError("dist/ does not exist; run vite build first")
@@ -96,10 +154,11 @@ def main() -> None:
     changed = []
     for path in DIST.rglob("*.html"):
         before = path.read_text(encoding="utf-8")
-        after = final_polish(clean_html(before))
+        rel = path.relative_to(DIST).as_posix()
+        after = enforce_disclosure_policy(rel, final_polish(clean_html(before)))
         if after != before:
             path.write_text(after, encoding="utf-8")
-            changed.append(path.relative_to(DIST).as_posix())
+            changed.append(rel)
 
     js = DIST / "affiliate-attribution.js"
     if js.exists():
@@ -117,7 +176,7 @@ def main() -> None:
             llms.write_text(after, encoding="utf-8")
             changed.append(llms.relative_to(DIST).as_posix())
 
-    print(f"Built customer-only copy guard: {len(changed)} files normalized")
+    print(f"Built customer-only copy guard: {len(changed)} files normalized; homepage disclosure=1; repeated page disclosures=0")
 
 
 if __name__ == "__main__":
