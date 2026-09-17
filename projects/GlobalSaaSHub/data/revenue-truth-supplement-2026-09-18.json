@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-09-18T05:15:00+09:00",
+  "policy": {
+    "unknown_is_zero": false,
+    "infer_downstream_from_upstream": false,
+    "scope": "Evidence-backed additions not yet folded into the historical base truth file."
+  },
+  "records": [
+    {
+      "tool": "HelpDesk",
+      "network": "LiveChat Partner Program",
+      "period": "2026-08-13 through 2026-09-10",
+      "outbound_clicks": 11,
+      "signups_referrals": null,
+      "trials": 0,
+      "paid_customers": 0,
+      "commission_earned": 0,
+      "commission_approved": null,
+      "commission_pending": null,
+      "payout_paid": null,
+      "payout_pending": null,
+      "currency": "USD",
+      "status": "vendor_report_verified_partial",
+      "evidence_source": "vendor-report-email",
+      "evidence_id": "gmail:1a08c0544c56b5ac:helpdesk-default",
+      "evidence_timestamp": "2026-09-10T15:52:30Z",
+      "note": "Official LiveChat Partner Program report listed HelpDesk - default with 11 clicks and 0 trials for 2026-08-13 through 2026-09-10. The same account-wide report showed 0 paid accounts and $0 earnings for the entire account in that period, which safely bounds the HelpDesk campaign to 0 paid accounts and $0 earnings. Signup/referral count, commission approved/pending detail, and payout fields were not exposed and remain unknown."
+    }
+  ]
+}
