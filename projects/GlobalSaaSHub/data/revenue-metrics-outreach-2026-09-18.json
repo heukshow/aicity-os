@@ -1,0 +1,23 @@
+{
+  "generated_at_kst": "2026-09-18T05:11:00+09:00",
+  "purpose": "Prevent duplicate revenue-metrics outreach while COSHUMA reconciles approved tracked affiliate routes.",
+  "policy": {
+    "do_not_reapply": true,
+    "do_not_change_tracking_links": true,
+    "do_not_send_duplicate_followup_before_reply": true,
+    "do_not_infer_metrics_from_approval_or_link_issuance": true,
+    "public_output": false
+  },
+  "requests": [
+    {"tool_id":"fireflies-ai","vendor":"Fireflies.ai","status":"sent_waiting_reply","gmail_message_id":"1a0b1006dcace7a9","recipient":"partners@fireflies.ai"},
+    {"tool_id":"docsbot","vendor":"DocsBot","status":"sent_waiting_reply","gmail_message_id":"1a0b100a5df2eb6d","recipient":"human@docsbot.ai"},
+    {"tool_id":"convertflow","vendor":"ConvertFlow","status":"sent_waiting_reply","gmail_message_id":"1a0b100df772cefb","recipient":"support@convertflow.com"},
+    {"tool_id":"tagshop-ai","vendor":"Tagshop AI","status":"sent_waiting_reply","gmail_message_id":"1a0b100f848b015b","recipient":"priyanka@tagshop.ai"},
+    {"tool_id":"jotform","vendor":"Jotform","status":"sent_waiting_reply","gmail_message_id":"1a0b1010d4501e3f","recipient":"affiliates@jotform.com"},
+    {"tool_id":"omi-ai","vendor":"Omi AI","status":"sent_waiting_reply","gmail_message_id":"1a0b1018d5b8143b","recipient":"nik@basedhardware.com"},
+    {"tool_id":"customgpt-ai","vendor":"CustomGPT.ai","status":"sent_waiting_reply","gmail_message_id":"1a0b1019f2727710","recipient":"affiliate@customgpt.ai"},
+    {"tool_id":"cartstack","vendor":"CartStack","status":"sent_waiting_reply","gmail_message_id":"1a0b101b08e23e5f","recipient":"referrals@cartstack.com"},
+    {"tool_id":"databox","vendor":"Databox","status":"sent_waiting_reply","gmail_message_id":"1a0b101d9818c020","recipient":"help@databox.com"},
+    {"tool_id":"make-com","vendor":"Make.com","status":"sent_waiting_reply","gmail_message_id":"1a0b101ee5191bac","recipient":"info@make.com"}
+  ]
+}
