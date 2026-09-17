@@ -30,6 +30,17 @@ OLD_GLOBAL = re.compile(
     r'<p\b[^>]*\bdata-site-affiliate-disclosure=["\']global["\'][^>]*>.*?</p>',
     re.I | re.S,
 )
+# Some legacy templates append the disclosure to an otherwise useful text node,
+# e.g. "Product sources: ... Affiliate disclosure: ...". Remove only the
+# disclosure clause and preserve the useful buyer/source copy before it.
+INLINE_DISCLOSURE_TEXT = re.compile(
+    r'\s*Affiliate\s+disclosure\s*:\s*[^<]*',
+    re.I,
+)
+INLINE_COMMISSION_TEXT = re.compile(
+    r'\s*COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+)?commission[^<]*',
+    re.I,
+)
 HOME_NOTICE = (
     '<p data-site-affiliate-disclosure="global" '
     'style="max-width:72rem;margin:0 auto;padding:0 1.5rem 1.5rem;color:#94a3b8;font-size:12px;line-height:1.6">'
@@ -44,6 +55,8 @@ def strip_notice_blocks(html: str) -> str:
         html = pattern.sub('', html)
     html = DISCLOSURE_ATTR.sub('', html)
     html = OLD_GLOBAL.sub('', html)
+    html = INLINE_DISCLOSURE_TEXT.sub('', html)
+    html = INLINE_COMMISSION_TEXT.sub('', html)
     return html
 
 
