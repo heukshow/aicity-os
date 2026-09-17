@@ -6,20 +6,18 @@ ROOT = Path(__file__).resolve().parents[1]
 TRACKING_URL = "https://your.omnisend.com/4aA5k9"
 PRICING_TRACKING_URL = "https://your.omnisend.com/VOKyAj"
 CHECKED_AT = "2026-09-09T19:56:33+09:00"
-PRICING_VERIFIED_LABEL = "September 11, 2026"
+PRICING_VERIFIED_LABEL = "September 18, 2026"
 EVIDENCE = (
     "Omnisend Senior Affiliate Marketing Manager Deimantė Vaitkevičiūtė replied to "
     "support@coshuma.com in Gmail message 1a0855caf8f6dee2 with COSHUMA's exact general customer tracking URL "
     "https://your.omnisend.com/4aA5k9. In Gmail message 1a085d0074ddb3a0, replying to COSHUMA's request for a "
     "pricing-destination link, she supplied the exact direct pricing tracking URL https://your.omnisend.com/VOKyAj. "
-    "Omnisend's official affiliate documentation states approved affiliates must use the exact links supplied through "
-    "Impact Content > Assets; tracking/reporting are handled through Impact with a 60-day attribution window."
+    "Omnisend's official affiliate documentation says supplied affiliate links must be used as issued."
 )
 NEXT_ACTION = (
     "Preserve the vendor-issued general URL as the canonical Omnisend affiliate_url. Use the separate vendor-issued "
     "https://your.omnisend.com/VOKyAj only for pricing-intent Omnisend CTAs. Do not synthesize deep links or substitute "
-    "the homepage, Impact dashboard, onboarding URL, or email redirect. Track real clicks/signups/commissions separately; "
-    "no revenue is inferred from approval or link issuance."
+    "the homepage, dashboard, onboarding URL, or email redirect. Track clicks/signups/commissions separately."
 )
 
 for url in (TRACKING_URL, PRICING_TRACKING_URL):
@@ -70,71 +68,86 @@ queue_path.write_text(json.dumps(queue, indent=2, ensure_ascii=False) + "\n", en
 page = ROOT / "public/tool/omnisend.html"
 text = page.read_text(encoding="utf-8")
 
-# Pricing-intent Omnisend CTAs receive the vendor-issued direct pricing tracking URL.
+# Pricing-intent links use the exact vendor-issued pricing route. Keep independent
+# source links (`data-cta="source"`) pointed at Omnisend itself for buyer verification.
 text = re.sub(
     r'<a data-cta="official"(?P<attrs>[^>]*?)href="https://www\.omnisend\.com/pricing/"(?P<tail>[^>]*)>',
     lambda m: '<a data-cta="affiliate"' + m.group('attrs') + f'href="{PRICING_TRACKING_URL}"' +
               re.sub(r'rel="[^"]*"', 'rel="sponsored noopener noreferrer"', m.group('tail')) + '>',
     text,
 )
-# If an earlier generic sync already monetized a pricing-intent anchor with the general URL,
-# upgrade only explicit Omnisend pricing CTA sources to the vendor-issued pricing destination.
 text = re.sub(
     rf'(<a\b[^>]*data-cta="affiliate"[^>]*data-tool-id="omnisend"[^>]*data-cta-source="[^"]*pricing[^"]*"[^>]*href="){re.escape(TRACKING_URL)}("[^>]*>)',
     rf'\1{PRICING_TRACKING_URL}\2',
     text,
 )
-
-# General Omnisend CTAs keep the canonical vendor-issued general tracking URL.
 text = re.sub(
     r'<a data-cta="official"(?P<attrs>[^>]*?)href="https://www\.omnisend\.com/"(?P<tail>[^>]*)>',
     lambda m: '<a data-cta="affiliate"' + m.group('attrs') + f'href="{TRACKING_URL}"' +
               re.sub(r'rel="[^"]*"', 'rel="sponsored noopener noreferrer"', m.group('tail')) + '>',
     text,
 )
-text = text.replace(
-    '<a data-cta="official" href="https://www.omnisend.com/" target="_blank" rel="noopener noreferrer"',
-    f'<a data-cta="affiliate" data-tool-id="omnisend" data-cta-source="omnisend_primary" href="{TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer"',
-)
-text = text.replace("Affiliate approved · exact tracking link pending verification", "Affiliate approved · tracking links verified")
-text = text.replace("Affiliate approved · tracking link verified", "Affiliate approved · tracking links verified")
-text = text.replace(
-    "Omnisend's Senior Affiliate Marketing Manager supplied COSHUMA's exact customer tracking URL and confirmed it is the link in Impact Assets. Omnisend buttons now use that verified link; COSHUMA may earn a commission on an eligible purchase at no extra cost to you.",
-    "Omnisend's Senior Affiliate Marketing Manager supplied COSHUMA's exact customer tracking URL and a separate direct pricing tracking URL. Pricing-intent buttons use the vendor-issued pricing destination; COSHUMA may earn a commission on an eligible purchase at no extra cost to you."
-)
-text = text.replace(
+
+# Remove legacy public operations language while keeping the commercial facts and disclosure.
+for old in (
+    "Affiliate approved · exact customer tracking URL verified",
+    "Affiliate approved · tracking links verified",
+    "Affiliate approved · tracking link verified",
+    "Affiliate approved · exact tracking link pending verification",
+):
+    text = text.replace(old, "ECOMMERCE EMAIL · PRICING CHECKED SEP 18, 2026")
+
+legacy_paragraphs = [
+    "The first button uses the exact customer-facing Omnisend tracking URL issued to COSHUMA and verified against the existing affiliate relationship. It is not a dashboard, onboarding page or guessed tracking parameter. COSHUMA may earn a commission on an eligible purchase at no extra cost to you.",
+    "Omnisend's Senior Affiliate Marketing Manager supplied COSHUMA's exact customer tracking URL and a separate direct pricing tracking URL. Pricing-intent buttons use the vendor-issued pricing destination; COSHUMA may earn a commission on an eligible purchase at no extra cost to you.",
     "The approval email did not contain an account-specific customer tracking URL, so Omnisend buttons intentionally remain ordinary official links until the exact Impact-issued URL is copied and verified.",
-    "Omnisend's Senior Affiliate Marketing Manager supplied COSHUMA's exact customer tracking URL and a separate direct pricing tracking URL. Pricing-intent buttons use the vendor-issued pricing destination; COSHUMA may earn a commission on an eligible purchase at no extra cost to you."
-)
+]
+for old in legacy_paragraphs:
+    text = text.replace(old, "Affiliate disclosure: COSHUMA may earn a commission from qualifying purchases made through some links, at no extra cost to you.")
 
-# This finalizer runs after generic page generation. Normalize the visible trust-block
-# verification date here so stale source metadata cannot survive the final production pass.
+text = text.replace(
+    '<div class="text-slate-500">Affiliate state</div><div class="mt-1 font-bold text-white">Approved tracking · exact customer URL verified</div>',
+    '<div class="text-slate-500">Pricing check</div><div class="mt-1 font-bold text-white">Official Omnisend pricing and help documentation</div>',
+)
+text = text.replace(
+    "Pricing, limits and promotions can change. Verify final terms on Omnisend before purchase. A click or account signup is not treated by COSHUMA as proof of a paid customer, commission or revenue.",
+    "Pricing, limits and promotions can change. Verify final terms on Omnisend before purchase.",
+)
+text = text.replace("September 11, 2026", PRICING_VERIFIED_LABEL)
+text = text.replace("Try Omnisend →", "Check Omnisend plans & start free →")
+
+# Normalize a generated trust block date when present, but do not expose internal state.
 trust_marker = "<!-- COSHUMA_TRUST_BLOCK -->"
-if trust_marker not in text:
-    raise SystemExit("Omnisend trust block missing; cannot normalize verification date safely")
-prefix, trust_tail = text.split(trust_marker, 1)
-trust_tail, trust_date_changes = re.subn(
-    r'(<div[^>]*>Last verified</div>\s*<div[^>]*>)(?:September 1, 2026|Sep 1, 2026|September 9, 2026)(</div>)',
-    rf'\1{PRICING_VERIFIED_LABEL}\2',
-    trust_tail,
-    count=1,
-)
-text = prefix + trust_marker + trust_tail
-if trust_date_changes != 1:
-    if not re.search(rf'<div[^>]*>Last verified</div>\s*<div[^>]*>{re.escape(PRICING_VERIFIED_LABEL)}</div>', trust_tail):
-        raise SystemExit("Omnisend trust-block verification date was not normalized")
-if re.search(r'<div[^>]*>Last verified</div>\s*<div[^>]*>(?:September 1, 2026|Sep 1, 2026|September 9, 2026)</div>', trust_tail):
-    raise SystemExit("Stale Omnisend trust-block verification date survived finalizer")
+if trust_marker in text:
+    prefix, trust_tail = text.split(trust_marker, 1)
+    trust_tail = re.sub(
+        r'(<div[^>]*>Last verified</div>\s*<div[^>]*>)(?:September 1, 2026|Sep 1, 2026|September 9, 2026|September 11, 2026)(</div>)',
+        rf'\1{PRICING_VERIFIED_LABEL}\2',
+        trust_tail,
+        count=1,
+    )
+    text = prefix + trust_marker + trust_tail
 
-if TRACKING_URL not in text:
-    raise SystemExit("Omnisend general tracking URL was not installed in buyer page")
+for forbidden in (
+    "exact customer tracking url verified",
+    "approved tracking · exact customer url verified",
+    "exact customer-facing omnisend tracking url",
+    "dashboard, onboarding page or guessed tracking parameter",
+    "proof of a paid customer, commission or revenue",
+):
+    if forbidden in text.lower():
+        raise SystemExit(f"Omnisend public copy still exposes internal tracking language: {forbidden}")
+
 if PRICING_TRACKING_URL not in text:
     raise SystemExit("Omnisend pricing tracking URL was not installed in buyer page")
+if 'data-cta-source="omnisend_pricing_hero"' not in text:
+    raise SystemExit("Omnisend pricing hero CTA is missing")
+if "Affiliate disclosure:" not in text:
+    raise SystemExit("Omnisend affiliate disclosure was lost")
 page.write_text(text, encoding="utf-8")
 
-# Search-comparison pages are generated before this finalizer. Preserve destination intent:
-# pricing links get the dedicated pricing tracker; all other explicit Omnisend decision CTAs
-# get the canonical general tracker. Source links and unrelated vendor links remain untouched.
+# Comparison pages keep destination intent: explicit pricing CTAs get the dedicated
+# pricing tracker; other Omnisend decision CTAs use the canonical general tracker.
 comparison_changes = 0
 pricing_comparison_ctas = 0
 for compare_page in sorted((ROOT / "public/compare").glob("*.html")):
@@ -159,15 +172,11 @@ for compare_page in sorted((ROOT / "public/compare").glob("*.html")):
 
     updated = re.sub(r'<a\b[^>]*data-tool-id="omnisend"[^>]*>', convert_compare_anchor, compare_text)
 
-    # Generic monetization runs earlier and may have already replaced a validated pricing
-    # destination with the canonical general tracker. Restore only anchors whose explicit
-    # CTA source is pricing-intent; this URL is vendor-issued, not synthesized.
     def restore_pricing_tracker(match):
-        nonlocal_tag = match.group(0)
         return re.sub(
             rf'href="{re.escape(TRACKING_URL)}"',
             f'href="{PRICING_TRACKING_URL}"',
-            nonlocal_tag,
+            match.group(0),
             count=1,
         )
 
@@ -186,12 +195,13 @@ for compare_page in sorted((ROOT / "public/compare").glob("*.html")):
     ):
         raise SystemExit(f"Omnisend comparison CTA was not monetized safely: {compare_page}")
 
-# The known Search Console opportunity page must keep the vendor-issued pricing tracker.
-privy_compare = (ROOT / "public/compare/privy-vs-omnisend.html").read_text(encoding="utf-8")
-if 'data-cta-source="privy-vs-omnisend-pricing"' not in privy_compare or f'href="{PRICING_TRACKING_URL}"' not in privy_compare:
-    raise SystemExit("Privy vs Omnisend pricing CTA lost the vendor-issued pricing tracker")
+privy_compare = ROOT / "public/compare/privy-vs-omnisend.html"
+if privy_compare.exists():
+    privy_text = privy_compare.read_text(encoding="utf-8")
+    if 'data-cta-source="privy-vs-omnisend-pricing"' in privy_text and f'href="{PRICING_TRACKING_URL}"' not in privy_text:
+        raise SystemExit("Privy vs Omnisend pricing CTA lost the vendor-issued pricing tracker")
 
 print(
-    "Omnisend approved_tracking state finalized with dedicated pricing tracker; "
+    "Omnisend approved_tracking state finalized with customer-facing pricing copy; "
     f"comparison_pages_monetized={comparison_changes} pricing_comparison_ctas={pricing_comparison_ctas}"
 )
