@@ -33,6 +33,13 @@ BAD=re.compile(
     r'Separate link verification|Recently verified partner buyer guides|'
     r'Fill eSignature pricing & verified partner offer|'
     r'\b(?:affiliate|partner|referral)-status\b|'
+    r'\bAffiliate status\b|'
+    r'\bOfficial pricing and affiliate pages checked\b|'
+    r'\bFind the right verified route\b|'
+    r'Affiliate destinations, vendor terms and revenue evidence|'
+    r'\bVerified SaaS Free Trials & Partner Offers\b|'
+    r'\bSoftware free trials and partner offers worth testing before you pay\b|'
+    r'\bCurrent Pictory partner offer\b|'
     r'\bverified\s+(?:Impact|PartnerStack|Dub|Cello)\b[^.]{0,60}\b(?:route|link|status)\b|'
     r'COSHUMA[^.]{0,80}affiliate application remains separate|'
     r'no Pipedrive revenue attribution is claimed',
@@ -56,6 +63,8 @@ def main():
     assert violations('<p>Affiliate link verified in our records · disclosure applies</p>')
     assert violations('<p>Recently verified partner buyer guides</p>')
     assert violations('<p>Pricing and affiliate-status buyer guide</p>')
+    assert violations('<h2>Affiliate status</h2>')
+    assert violations('<p>Find the right verified route</p>')
     assert not violations('<p>Affiliate disclosure: COSHUMA may earn a commission from some links at no extra cost to you.</p>')
     assert not violations('<p>Connect your internal database.</p><a data-affiliate-status="approved_tracking" href="https://example.com/?ref=ok">Try</a>')
     urls = '<meta property="og:url" content="https://coshuma.com/tool/vidiq.html"><script type="application/ld+json">{"url":"https://coshuma.com/tool/vidiq.html"}</script><a href="https://example.com/?via=GlobalSaaSHub">Text Cortex</a>'
