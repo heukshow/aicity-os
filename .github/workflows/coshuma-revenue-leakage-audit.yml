@@ -1,0 +1,64 @@
+name: COSHUMA Revenue Leakage Audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'projects/GlobalSaaSHub/data/revenue-truth-2026-09-11.json'
+      - 'projects/GlobalSaaSHub/data/tools.json'
+      - 'projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json'
+      - 'projects/GlobalSaaSHub/scripts/generate_revenue_inventory.mjs'
+      - 'projects/GlobalSaaSHub/scripts/generate_revenue_leakage_audit.mjs'
+      - 'projects/GlobalSaaSHub/scripts/validate_revenue_truth.mjs'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: coshuma-revenue-leakage-audit
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      - name: Validate evidence-backed revenue truth
+        working-directory: projects/GlobalSaaSHub
+        run: node scripts/validate_revenue_truth.mjs
+      - name: Rebuild private revenue inventory
+        working-directory: projects/GlobalSaaSHub
+        run: node scripts/generate_revenue_inventory.mjs
+      - name: Generate revenue leakage audit
+        working-directory: projects/GlobalSaaSHub
+        run: node scripts/generate_revenue_leakage_audit.mjs
+      - name: Verify leakage audit invariants
+        working-directory: projects/GlobalSaaSHub
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const audit = JSON.parse(fs.readFileSync('data/revenue-leakage-audit.json','utf8'));
+          if (audit.policy?.unknown_is_zero !== false) throw new Error('unknown must remain unknown');
+          if (audit.policy?.public_output !== false) throw new Error('revenue leakage audit must remain private/internal');
+          if (!Array.isArray(audit.rows) || !audit.rows.length) throw new Error('audit rows missing');
+          for (const row of audit.rows) {
+            if (!row.tracking_url) throw new Error(`approved row missing tracking URL: ${row.id}`);
+            if (!['P0_UNCHECKED','P1_STALE','P1_PARTIAL','P2_COVERED'].includes(row.priority)) throw new Error(`bad priority: ${row.id}`);
+          }
+          console.log(`PASS revenue leakage audit: ${audit.summary.approved_tracked_tools} approved routes; ${audit.summary.unchecked_or_stale_or_partial} need metric reconciliation across ${audit.summary.account_groups_to_check} account groups.`);
+          NODE
+      - name: Persist current leakage audit
+        run: |
+          if git diff --quiet -- projects/GlobalSaaSHub/data/revenue-leakage-audit.json; then
+            echo 'Revenue leakage audit already current.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add projects/GlobalSaaSHub/data/revenue-leakage-audit.json
+          git commit -m 'data: refresh COSHUMA revenue leakage audit [skip ci]'
+          git push origin HEAD:main
