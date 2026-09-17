@@ -5,6 +5,7 @@ on:
   push:
     branches: [main]
     paths:
+      - '.github/workflows/coshuma-revenue-leakage-audit.yml'
       - 'projects/GlobalSaaSHub/data/revenue-truth-2026-09-11.json'
       - 'projects/GlobalSaaSHub/data/tools.json'
       - 'projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json'
