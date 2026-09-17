@@ -6,6 +6,8 @@ included Brand24 review/pricing variants, "moosend review", "omnisend pricing",
 "aweber pricing" and "jotform pricing". Omnisend is now handled by its dedicated,
 approval-aware patch so a stale submitted-state exact match cannot overwrite newer
 vendor evidence. Keep this script exact-match and idempotent for the remaining pages.
+Brand24 also keeps its public buyer copy customer-facing while preserving the exact
+issued customer referral URL, sponsored attribution and affiliate disclosure.
 """
 from pathlib import Path
 
@@ -117,6 +119,32 @@ PATCHES = {
     ],
 }
 
+BRAND24_TRACKING_URL = "https://try.brand24.com/8xqrjxybmsbt"
+BRAND24_CUSTOMER_COPY = [
+    (
+        '<meta name="description" content="Brand24 review and pricing for 2026: plans start at $249/mo ($199/mo billed annually), with a 14-day free trial and no credit card. Compare limits, AI Visibility, who it fits, and try it through COSHUMA\'s verified partner link." />',
+        '<meta name="description" content="Brand24 review and pricing for 2026: plans start at $249/mo ($199/mo billed annually), with a 14-day free trial and no credit card. Compare limits, AI Visibility, who it fits, and test Brand24 before paying." />',
+    ),
+    (
+        'Verified partner tracking',
+        'AI Visibility available',
+    ),
+    (
+        'Affiliate disclosure: COSHUMA may earn a commission if an eligible purchase is attributed through the verified Brand24 partner link, at no extra cost to you.',
+        'Affiliate disclosure: COSHUMA may earn a commission from qualifying purchases made through some links, at no extra cost to you.',
+    ),
+    (
+        'COSHUMA buyer guides use official product information and verified partner tracking where available. Brand24 pricing and trial terms were rechecked September 9, 2026; product details can change, so verify with the vendor before purchasing.',
+        'COSHUMA buyer guides use official product information and disclose affiliate relationships where relevant. Brand24 pricing and trial terms were rechecked September 9, 2026; product details can change, so verify with the vendor before purchasing.',
+    ),
+]
+BRAND24_FORBIDDEN_PUBLIC_COPY = (
+    "verified partner tracking",
+    "verified brand24 partner link",
+    "coshuma's verified partner link",
+    "verified partner tracking where available",
+)
+
 changed = 0
 for filename, replacements in PATCHES.items():
     path = TOOL_DIR / filename
@@ -129,6 +157,20 @@ for filename, replacements in PATCHES.items():
         if old not in text:
             raise SystemExit(f"Refusing uncertain CTR patch: exact source text missing in {filename}: {old[:80]}")
         text = text.replace(old, new, 1)
+
+    if filename == "brand24.html":
+        for old, new in BRAND24_CUSTOMER_COPY:
+            if new in text:
+                continue
+            if old not in text:
+                raise SystemExit(f"Refusing uncertain Brand24 customer-copy patch: exact source text missing: {old[:80]}")
+            text = text.replace(old, new, 1)
+        if BRAND24_TRACKING_URL not in text:
+            raise SystemExit("Brand24 customer-copy patch failed: exact verified customer referral URL was lost")
+        lowered = text.lower()
+        for phrase in BRAND24_FORBIDDEN_PUBLIC_COPY:
+            if phrase in lowered:
+                raise SystemExit(f"Brand24 customer-copy guard failed: internal tracking language remains: {phrase}")
 
     if text != original:
         path.write_text(text, encoding="utf-8")
