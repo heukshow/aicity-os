@@ -1,5 +1,5 @@
 {
-  "generated_at_kst": "2026-09-18T06:27:00+09:00",
+  "generated_at_kst": "2026-09-18T06:31:00+09:00",
   "purpose": "Prevent duplicate revenue-metrics outreach while COSHUMA reconciles approved tracked affiliate routes.",
   "policy": {
     "do_not_reapply": true,
@@ -24,6 +24,7 @@
     {"tool_id":"aweber","vendor":"AWeber","status":"blocked_security_verification_user_action","gmail_message_id":"1a0b1099f426db77","response_message_id":"1a0b10f42fa1b3e4","recipient":"help@aweber.com","note":"AWeber Support requires the current mailing/postal address on file as a security verification before disclosing account totals. Do not provide or guess this verification data automatically. User action is required; do not send duplicate metrics follow-ups while blocked."},
     {"tool_id":"castmagic","vendor":"Castmagic","status":"sent_waiting_reply","gmail_message_id":"1a0b1466bb8397f9","recipient":"promoter@firstpromoter.com","note":"Existing Castmagic FirstPromoter thread reused; requested current metrics only, no tracking-link or enrollment change."},
     {"tool_id":"vista-social","vendor":"Vista Social","status":"sent_waiting_reply","gmail_message_id":"1a0b146886a2ddec","recipient":"promoter@firstpromoter.com","note":"Existing Vista Social FirstPromoter thread reused; requested current metrics only, no tracking-link or enrollment change."},
+    {"tool_id":"chatbase","vendor":"Chatbase","status":"sent_waiting_reply","gmail_message_id":"1a0b147a5e60e66e","recipient":"support@chatbase.co","mailbox":"qmfforfhem@gmail.com","note":"Existing Chatbase human support thread reused; requested current partner metrics only, no link or enrollment changes."},
     {"tool_id":"make-com","vendor":"Make.com","status":"blocked_no_email_channel","gmail_message_id":"1a0b101ee5191bac","recipient":"info@make.com","failure_message_id":"1a0b10211d4c562b","note":"Make Cares replied that the address does not accept messages or create tickets. Do not retry the same address; use an authenticated vendor support/affiliate channel if one becomes available."}
   ]
 }
