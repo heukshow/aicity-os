@@ -20,6 +20,8 @@ if MARKER in html:
         raise SystemExit("Tagshop verified block exists but exact issued referral URL is missing")
     if ADMIN_URL in html:
         raise SystemExit("Tagshop admin dashboard URL leaked into the public buyer hub")
+    if "Affiliate disclosure:" in html or 'data-affiliate-disclosure=' in html:
+        raise SystemExit("Tagshop buyer hub must not contain page-level affiliate disclosure")
     print("Tagshop verified buyer offer already surfaced")
     raise SystemExit(0)
 
@@ -47,7 +49,7 @@ closing = '''    </section>\n\n    <section class="rounded-3xl border border-whi
 if closing not in html:
     raise SystemExit("Buyer-hub final grid boundary changed; refusing blind Tagshop patch")
 
-card = f'''      {MARKER}\n      <article class="rounded-3xl border border-fuchsia-400/25 bg-[#11131a] p-7 space-y-5">\n        <div class="flex items-start justify-between gap-4"><div><div class="text-xs font-black uppercase tracking-wider text-fuchsia-300">AI UGC video ads</div><h2 class="mt-1 text-3xl font-black text-white">Tagshop AI</h2></div><span class="rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-bold text-emerald-200">14-day trial · no card</span></div>\n        <p class="text-sm leading-6 text-slate-300">Tagshop's current official help center lists a <strong class="text-white">14-day free trial with full platform access and no credit card required</strong>. Check the current product and pricing terms before upgrading.</p>\n        <div class="grid gap-3 sm:grid-cols-2"><a data-cta="affiliate" data-tool-id="tagshop-ai" data-cta-source="verified-deals-tagshop-issued-referral" data-cta-page="verified-software-free-trials-deals" href="{TRACKING_URL}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="rounded-xl bg-fuchsia-600 px-5 py-3.5 text-center text-sm font-black text-white hover:bg-fuchsia-500">Start Tagshop trial →</a><a href="/best/tagshop-ai-free-trial-pricing.html" class="rounded-xl border border-white/10 px-5 py-3.5 text-center text-sm font-bold text-slate-200 hover:bg-white/5">Read trial & pricing guide</a></div>\n        <p data-affiliate-disclosure="tagshop" class="text-[11px] leading-5 text-slate-500">Affiliate disclosure: COSHUMA may earn a commission from eligible purchases made through the marked Tagshop link, at no extra cost to you. <a href="/affiliate-disclosure.html" class="underline hover:text-slate-300">How this works</a>.</p>\n      </article>\n'''
+card = f'''      {MARKER}\n      <article class="rounded-3xl border border-fuchsia-400/25 bg-[#11131a] p-7 space-y-5">\n        <div class="flex items-start justify-between gap-4"><div><div class="text-xs font-black uppercase tracking-wider text-fuchsia-300">AI UGC video ads</div><h2 class="mt-1 text-3xl font-black text-white">Tagshop AI</h2></div><span class="rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-bold text-emerald-200">14-day trial · no card</span></div>\n        <p class="text-sm leading-6 text-slate-300">Tagshop's current official help center lists a <strong class="text-white">14-day free trial with full platform access and no credit card required</strong>. Check the current product and pricing terms before upgrading.</p>\n        <div class="grid gap-3 sm:grid-cols-2"><a data-cta="affiliate" data-tool-id="tagshop-ai" data-cta-source="verified-deals-tagshop-issued-referral" data-cta-page="verified-software-free-trials-deals" href="{TRACKING_URL}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="rounded-xl bg-fuchsia-600 px-5 py-3.5 text-center text-sm font-black text-white hover:bg-fuchsia-500">Start Tagshop trial →</a><a href="/best/tagshop-ai-free-trial-pricing.html" class="rounded-xl border border-white/10 px-5 py-3.5 text-center text-sm font-bold text-slate-200 hover:bg-white/5">Read trial & pricing guide</a></div>\n      </article>\n'''
 
 html = html.replace(closing, card + closing, 1)
 
@@ -61,6 +63,8 @@ for token in required:
         raise SystemExit(f"Tagshop buyer-hub patch lost required token: {token}")
 if ADMIN_URL in html:
     raise SystemExit("Tagshop admin dashboard URL leaked into the public buyer hub")
+if "Affiliate disclosure:" in html or 'data-affiliate-disclosure=' in html:
+    raise SystemExit("Tagshop buyer hub generator must not create page-level affiliate disclosure")
 
 # Older downstream offer injectors still use the buyer-hub meta string as an
 # internal sequencing handoff. Keep that handoff accurate in the build workspace;
@@ -79,4 +83,4 @@ html = re.sub(
 )
 
 PAGE.write_text(html, encoding="utf-8")
-print("Surfaced Tagshop trial offer on buyer hub")
+print("Surfaced Tagshop trial offer on buyer hub without page-level disclosure")
