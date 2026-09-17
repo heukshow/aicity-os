@@ -22,19 +22,9 @@ if MARKER in html:
     print("Tagshop verified buyer offer already surfaced")
     raise SystemExit(0)
 
-old_meta = (
-    "Compare verified SaaS free trials and partner offers from Gamma, Time2book, "
-    "UpLead, Jotform, Unbounce, Pictory, Brand24, Bookyourdata, Tally and Typedesk. "
-    "COSHUMA separates customer-facing tracking links from product claims."
-)
-new_meta = (
-    "Compare verified SaaS free trials and partner offers from Gamma, Time2book, "
-    "UpLead, Jotform, Unbounce, Pictory, Brand24, Bookyourdata, Tally, Typedesk and "
-    "Tagshop AI. COSHUMA separates customer-facing tracking links from product claims."
-)
-if old_meta not in html:
-    raise SystemExit("Buyer-hub meta description changed; refusing blind Tagshop patch")
-html = html.replace(old_meta, new_meta, 1)
+# Keep this revenue patch independent of buyer-facing meta wording. Public copy
+# is normalized before this step, so mutable editorial copy must not block the
+# exact vendor-confirmed Tagshop referral route from being added.
 
 item10 = (
     '      {"@type":"ListItem","position":10,"name":"Typedesk",'
