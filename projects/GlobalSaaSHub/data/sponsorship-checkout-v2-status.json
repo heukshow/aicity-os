@@ -4,9 +4,11 @@
   "worker_checkout_enabled": false,
   "frontend_maintenance": true,
   "sponsored_inventory_enabled": false,
-  "stage": "predeploy_verified",
+  "stage": "predeploy_verified_remote_worker_legacy",
+  "latest_main_sha": "f707573a3c1958843b9211284e0938c14e198f7e",
+  "staging_head_sha": "6d19bcd531a1cb23125a0197dbcb0c7324b210f8",
   "completed": [
-    "branch is reconciled with latest main and is not behind",
+    "staging branch was reconciled with latest main through sync PR 607",
     "nine server-owned sponsorship products and prices are defined and fail-closed",
     "variable-price sponsorship_orders migration preserves the legacy fixed-$49 orders table",
     "local migration replay applies 0001 through 0004 successfully",
@@ -22,18 +24,20 @@
     "campaign maintenance creates interim, renewal and final reports and ends expired campaigns",
     "refund/reversal state stops associated active campaign inventory",
     "frontend nine-product selector, campaign intake and report UI are staged behind maintenance mode",
-    "Worker Revenue Safety CI passed 53 tests and wrangler deploy --dry-run",
-    "COSHUMA PR Build Check passed build, SEO, links, tracking and public-bundle safety"
+    "Worker Revenue Safety passed after latest-main sync, including Worker tests and wrangler deploy --dry-run",
+    "COSHUMA PR Build Check passed after latest-main sync, including build, SEO, links, tracking and public-bundle safety",
+    "live no-payment readiness correctly fails closed because the production Worker is still the legacy revision"
   ],
   "remaining_before_launch": [
     "apply D1 migration 0004_sponsorship_order_metadata.sql to the existing remote globalsaashub-orders database using the existing authenticated Cloudflare environment",
     "deploy the compatible Worker revision to the existing Cloudflare Worker while CHECKOUT_ENABLED remains false",
-    "verify remote /health returns checkoutConfigured=false",
+    "verify remote /health exposes checkoutConfigured=false",
     "verify remote /v1/sponsored/placements is safe and ready against the migrated schema without publishing an advertiser",
     "verify advertiser/report/event fail-closed behavior and CORS on the deployed Worker without a payment transaction",
     "confirm no-payment create-order route remains unavailable while CHECKOUT_ENABLED=false",
     "verify the production frontend still shows maintenance and sponsored inventory stays disabled",
     "only after all remote checks pass, perform a separate deliberate final enablement review"
   ],
+  "current_blocker": "Production Worker is still the legacy/incompatible revision; live readiness reports that /health does not expose checkoutConfigured.",
   "do_not_open_until_remaining_is_empty": true
 }
