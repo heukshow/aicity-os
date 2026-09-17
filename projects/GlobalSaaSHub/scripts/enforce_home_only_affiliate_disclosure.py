@@ -41,6 +41,17 @@ INLINE_COMMISSION_TEXT = re.compile(
     r'\s*COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+)?commission[^<]*',
     re.I,
 )
+# Legacy homepage fallback copy used a second, semantically identical disclosure
+# sentence in the methodology list. Replace it with a buyer-safety check so the
+# homepage has one—and only one—commission disclosure.
+HOME_SEMANTIC_DISCLOSURE = re.compile(
+    r'<li><strong([^>]*)>Clear disclosure:</strong>\s*some outbound links may earn COSHUMA a commission, without changing the buyer\'s price\.</li>',
+    re.I,
+)
+HOME_INTERNAL_LINK_COPY = re.compile(
+    r'<li><strong([^>]*)>Separate link verification:</strong>\s*affiliate destinations are verified independently from editorial pricing sources\.</li>',
+    re.I,
+)
 HOME_NOTICE = (
     '<p data-site-affiliate-disclosure="global" '
     'style="max-width:72rem;margin:0 auto;padding:0 1.5rem 1.5rem;color:#94a3b8;font-size:12px;line-height:1.6">'
@@ -60,6 +71,18 @@ def strip_notice_blocks(html: str) -> str:
     return html
 
 
+def normalize_homepage_support_copy(html: str) -> str:
+    html = HOME_SEMANTIC_DISCLOSURE.sub(
+        r'<li><strong\1>Final-term check:</strong> pricing, eligibility and vendor terms can change, so confirm them before purchasing.</li>',
+        html,
+    )
+    html = HOME_INTERNAL_LINK_COPY.sub(
+        r'<li><strong\1>Direct vendor links:</strong> outbound destinations are checked before publication.</li>',
+        html,
+    )
+    return html
+
+
 def main() -> None:
     if not DIST.exists():
         raise RuntimeError('dist/ missing; run vite build first')
@@ -76,6 +99,7 @@ def main() -> None:
             html = strip_notice_blocks(html)
 
         if rel == 'index.html':
+            html = normalize_homepage_support_copy(html)
             if '</body>' not in html:
                 raise RuntimeError('Homepage closing body tag missing')
             html = html.replace('</body>', HOME_NOTICE + '\n</body>', 1)
@@ -83,6 +107,17 @@ def main() -> None:
                 raise RuntimeError('Homepage must contain exactly one global affiliate disclosure')
             if html.lower().count('affiliate disclosure:') != 1:
                 raise RuntimeError('Homepage must contain exactly one affiliate disclosure notice')
+            semantic_commission_mentions = len(re.findall(
+                r'(?:COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+)?commission|may\s+earn\s+COSHUMA\s+a\s+commission)',
+                html,
+                re.I,
+            ))
+            if semantic_commission_mentions != 1:
+                raise RuntimeError(
+                    f'Homepage must contain exactly one commission disclosure; found {semantic_commission_mentions}'
+                )
+            if re.search(r'Separate\s+link\s+verification|affiliate\s+destinations\s+are\s+verified\s+independently', html, re.I):
+                raise RuntimeError('Homepage contains customer-visible internal link-verification wording')
         elif rel != 'affiliate-disclosure.html':
             if re.search(r'Affiliate\s+disclosure\s*:', html, re.I):
                 raise RuntimeError(f'Repeated affiliate disclosure remains in {rel}')
@@ -95,7 +130,7 @@ def main() -> None:
             path.write_text(html, encoding='utf-8')
             changed += 1
 
-    print(f'Homepage-only affiliate disclosure policy: checked={checked} changed={changed} homepage_notice=1 repeated_page_notices=0')
+    print(f'Homepage-only affiliate disclosure policy: checked={checked} changed={changed} homepage_notice=1 semantic_commission_notice=1 repeated_page_notices=0')
 
 
 if __name__ == '__main__':
