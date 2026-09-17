@@ -61,16 +61,15 @@ else:
 
     print("Surfaced Tally referral benefit on buyer hub")
 
-# The older offer injectors use the meta description as an internal build handoff.
-# guard_public_copy.py deliberately makes that text customer-friendly earlier in
-# the build, so restore the handoff string only inside the build workspace before
-# running those injectors. sanitize_public_editorial_copy.py replaces it again
-# immediately before Vite, so this operational wording is never intended for the
-# published bundle.
+# Some older offer injectors use the meta description as an internal build handoff.
+# Typedesk and Tagshop no longer mutate that editorial field, so seed the exact
+# state expected by the first remaining strict injector (Beefree/RGE Studio).
+# sanitize_public_editorial_copy.py replaces this internal wording again before
+# Vite, so it is not intended for the published customer-facing bundle.
 HANDOFF_META = (
     "Compare verified SaaS free trials and partner offers from Gamma, Time2book, "
-    "UpLead, Jotform, Unbounce, Pictory, Brand24, Bookyourdata and Tally. COSHUMA "
-    "separates customer-facing tracking links from product claims."
+    "UpLead, Jotform, Unbounce, Pictory, Brand24, Bookyourdata, Tally, Typedesk and "
+    "Tagshop AI. COSHUMA separates customer-facing tracking links from product claims."
 )
 html = re.sub(
     r'(<meta\s+name="description"\s+content=")[^"]*("\s*/?>)',
