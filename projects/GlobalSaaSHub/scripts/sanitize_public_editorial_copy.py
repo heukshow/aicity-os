@@ -102,6 +102,18 @@ def clean_buyer_hub(text: str) -> str:
         flags=re.I | re.S,
     )
 
+    # Offer injectors can add vendor-specific commission notices to this collection
+    # after the broader customer-copy guard has already run. The site policy keeps
+    # the general disclosure on the homepage (plus the dedicated policy page), not
+    # on individual best/tool/compare/category pages. Remove those generated hub
+    # paragraphs here, while leaving outbound href/rel/data attribution untouched.
+    text = re.sub(
+        r'\s*<p\b[^>]*>(?:(?!</p>).)*Affiliate\s+disclosure\s*:(?:(?!</p>).)*</p>\s*',
+        '\n',
+        text,
+        flags=re.I | re.S,
+    )
+
     # Remove operations-only paragraphs even when they contain inline <strong>,
     # <code> or <a> tags. The tempered pattern never crosses a closing </p>, so
     # buyer-fact paragraphs next to them are preserved.
@@ -192,6 +204,7 @@ def assert_customer_only(methodology: str, categories: list[str], llms: str, buy
         re.I,
     )
     forbidden_hub = re.compile(
+        r'Affiliate\s+disclosure\s*:|'
         r'customer-facing PartnerStack route|partner-side evidence|partner correspondence|'
         r'guessing referral parameters|existing affiliate account|'
         r"Jotform's affiliate team supplied|COSHUMA separates customer-facing tracking links",
