@@ -1,0 +1,27 @@
+{
+  "account_id": "partnerstack-account",
+  "network": "PartnerStack",
+  "scope": "account-wide commission and payout state only; not per-program signup/trial/customer counts",
+  "checked_at": "2026-09-11T00:37:57.968Z",
+  "evidence_source": "authenticated-private-ops-dashboard",
+  "evidence_id": "github:issue-375-comment-5627576507",
+  "currency": "USD",
+  "mixed_currency": false,
+  "reward_count": 0,
+  "commission_total": 0,
+  "commission_pending": 0,
+  "commission_paid": 0,
+  "payout_available": 0,
+  "payout_withdrawn": 0,
+  "coverage": {
+    "rewards_complete": true,
+    "payouts_connected": true,
+    "payouts_complete": true
+  },
+  "unknown_fields": [
+    "per_program_signups_referrals",
+    "per_program_trials",
+    "per_program_paid_customers"
+  ],
+  "note": "Authenticated private ops dashboard verified PartnerStack reward_count=0 and USD 0.00 total/pending/paid/available/withdrawn with complete reward and payout coverage. This proves no PartnerStack commission or payout was present in that account snapshot, but does not assign zero signups, trials, or paying customers to individual programs."
+}
