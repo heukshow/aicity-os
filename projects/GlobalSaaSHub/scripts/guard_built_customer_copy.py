@@ -21,6 +21,7 @@ POST_EXACT = {
     "COSHUMA's verified 20%/35% customer offer": "the current 20%/35% offer",
     ">Partner offer<": ">Current discount<",
     "Verified SaaS Free Trials & Partner Offers": "SaaS Free Trials & Current Offers",
+    "Verified SaaS Free Trials &amp; Partner Offers": "SaaS Free Trials &amp; Current Offers",
     "Compare verified SaaS free trials and partner offers across AI, CRM, email, forms, video and sales tools, with pricing context and disclosed referral links.": "Compare SaaS free trials and current offers across AI, CRM, email, forms, video and sales tools, with pricing and plan-fit context.",
     "Compare low-risk SaaS trials and verified COSHUMA partner routes across AI, CRM, email, forms, video and sales tools before you subscribe.": "Compare low-risk SaaS trials and current offers across AI, CRM, email, forms, video and sales tools before you subscribe.",
     "Current Pictory partner offer": "Current Pictory offer",
@@ -55,7 +56,7 @@ UNBOUNCE_TRACKING_CARD = re.compile(
     re.I | re.S,
 )
 AFFILIATE_STATUS_SECTION = re.compile(
-    r'<section\b[^>]*>\s*<h2\b[^>]*>\s*Affiliate status\s*</h2>.*?</section>',
+    r'<section\b[^>]*>\s*<h2\b[^>]*>\s*(?:Current\s+)?Affiliate status\s*</h2>.*?</section>',
     re.I | re.S,
 )
 INTERNAL_HTML_COMMENT = re.compile(
