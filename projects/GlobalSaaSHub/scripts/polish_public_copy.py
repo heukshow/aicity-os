@@ -44,12 +44,6 @@ VERIFIED_COMPARE_LINK_REPLACEMENTS = {
         '<a data-cta="affiliate" data-tool-id="brand24" data-cta-source="compare-generated" href="https://try.brand24.com/8xqrjxybmsbt" target="_blank" rel="sponsored noopener noreferrer"',
 }
 
-COMPARE_AFFILIATE_DISCLOSURE = (
-    '      <p data-affiliate-disclosure="compare" class="text-[11px] leading-relaxed text-slate-500">'
-    'Affiliate disclosure: Some buttons on this comparison use verified COSHUMA partner links. '
-    'COSHUMA may earn a commission if you become a paying customer after using them, at no extra cost to you.'
-    '</p>'
-)
 
 TOOL_SPONSORSHIP_INQUIRY = (
     '      <section data-sponsorship-inquiry="tool" class="mt-8 p-5 rounded-2xl bg-violet-500/5 border border-violet-500/20 space-y-3">\n'
@@ -185,47 +179,6 @@ def monetize_verified_compare_links(text: str) -> str:
     return text
 
 
-def tag_existing_compare_disclosure(text: str) -> str:
-    """Tag an existing human-written disclosure without rewriting its claims."""
-    marker = text.find("Affiliate disclosure:")
-    if marker < 0:
-        return text
-
-    candidates = [text.rfind(f"<{tag}", 0, marker) for tag in ("p", "section", "div")]
-    start = max(candidates)
-    if start < 0:
-        return text
-
-    end = text.find(">", start, marker)
-    if end < 0:
-        return text
-
-    opening = text[start:end]
-    if 'data-affiliate-disclosure="compare"' in opening:
-        return text
-    return text[:end] + ' data-affiliate-disclosure="compare"' + text[end:]
-
-
-def ensure_compare_affiliate_disclosure(text: str) -> str:
-    """Ensure every monetized comparison has one clearly tagged disclosure."""
-    if 'data-cta="affiliate"' not in text:
-        return text
-    if 'data-affiliate-disclosure="compare"' in text:
-        return text
-
-    tagged = tag_existing_compare_disclosure(text)
-    if tagged != text:
-        return tagged
-
-    # Generated pages may use different indentation; insert before the first closing main tag.
-    return re.sub(
-        r"(?=\s*</main>)",
-        COMPARE_AFFILIATE_DISCLOSURE + "\n",
-        text,
-        count=1,
-    )
-
-
 def ensure_tool_revenue_alternative(text: str, filename: str) -> str:
     """Add one honest verified affiliate alternative to selected untracked vendor pages."""
     offer = TOOL_REVENUE_ALTERNATIVES.get(filename)
@@ -238,7 +191,6 @@ def ensure_tool_revenue_alternative(text: str, filename: str) -> str:
         f'        <h2 class="text-lg font-extrabold text-white">{offer["headline"]}</h2>\n'
         f'        <p class="text-xs text-slate-300 leading-relaxed">{offer["copy"]}</p>\n'
         f'        <a data-cta="affiliate" data-tool-id="{offer["tool_id"]}" data-cta-source="{offer["source"]}" href="{offer["href"]}" target="_blank" rel="sponsored noopener noreferrer" class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold transition-all">{offer["label"]}</a>\n'
-        '        <p class="text-[10px] text-slate-500">Affiliate disclosure: This alternative button uses a verified COSHUMA partner link. COSHUMA may earn a commission if you become a paying customer after using it, at no extra cost to you.</p>\n'
         '      </section>'
     )
     return re.sub(r"(?=\s*</main>)", section + "\n", text, count=1)
@@ -273,7 +225,6 @@ def main() -> None:
                 updated = ensure_tool_sponsorship_inquiry(updated)
             if folder.name == "compare":
                 updated = monetize_verified_compare_links(updated)
-                updated = ensure_compare_affiliate_disclosure(updated)
             if updated != original:
                 path.write_text(updated, encoding="utf-8")
                 changed += 1

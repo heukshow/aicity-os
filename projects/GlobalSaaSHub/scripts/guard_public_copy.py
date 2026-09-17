@@ -4,12 +4,6 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 
-STANDARD_AFFILIATE_DISCLOSURE = (
-    '<p data-affiliate-disclosure="compare" class="text-[11px] leading-relaxed text-slate-500">'
-    'Affiliate disclosure: COSHUMA may earn an affiliate commission when you purchase through partner links on this page, at no extra cost to you. '
-    '<a href="/affiliate-disclosure.html" class="underline hover:text-slate-300">How this works</a>.'
-    '</p>'
-)
 
 def identity(tool):
     return {'convertkit': 'kit'}.get(tool.get('id'), tool.get('id'))
@@ -54,10 +48,7 @@ def clean(text):
     text = re.sub(r"COSHUMA's repository records this exact[^<]*?affiliate route\.", '', text)
     text = re.sub(r"COSHUMA's affiliate route was preserved[^<]*?affiliate CTAs\.", '', text)
     text = re.sub(r"COSHUMA's customer-facing partner destination is[^<]*?ldc2xmh2x2t5\.", '', text)
-    text = re.sub(r"The AWeber outbound revenue URL[^<]*?claimed here\.", 'COSHUMA may earn a commission on qualifying purchases through partner links.', text)
     text = re.sub(r"COSHUMA's Unbounce tracking URL[^<]*?in the repository\.", '', text)
-    text = re.sub(r'<p\b[^>]*>The authenticated Text Partner App records[^<]*</p>', '<p>COSHUMA may earn a commission on eligible HelpDesk purchases through the partner links on this page, at no extra cost to you.</p>', text)
-    text = re.sub(r"<p\b[^>]*>COSHUMA's Make partner code is <code>pc=coshuma</code>[^<]*</p>", '<p>Make links may earn COSHUMA a commission; n8n links go directly to its official site.</p>', text)
     text = re.sub(r'<h([1-6])\b[^>]*>\s*</h\1>', '', text)
     text = text.replace(
         'A one-time sponsored placement is USD 49. Sponsorship is reviewed separately from editorial coverage; payment does not guarantee acceptance, ranking, or an editorial rating.',
@@ -149,7 +140,6 @@ def remove_empty_disclosure_sections(text):
 def normalize_affiliate_disclosure(text):
     if 'Affiliate Disclosure | COSHUMA' in text:
         return text
-    has_affiliate = 'data-cta="affiliate"' in text
     text = re.sub(r'<p\b[^>]*data-affiliate-disclosure="[^"]*"[^>]*>.*?</p>', '', text, flags=re.S)
     text = re.sub(r'<p\b[^>]*>\s*Affiliate disclosure:.*?</p>', '', text, flags=re.S | re.I)
     text = re.sub(r'<p\b[^>]*>(?:(?!</p>).)*COSHUMA may earn (?:an affiliate )?commission(?:(?!</p>).)*</p>', '', text, flags=re.S | re.I)
@@ -157,9 +147,6 @@ def normalize_affiliate_disclosure(text):
     legacy_trust_disclosure = ('<div><div class="text-[10px] uppercase tracking-wider text-slate-500">Affiliate disclosure</div>' '<div class="mt-1 text-sm text-slate-300">Affiliate destination verified separately from editorial product sources.</div></div>')
     text = text.replace(legacy_trust_disclosure, '')
     text = remove_empty_disclosure_sections(text)
-    if not has_affiliate:
-        return text
-    text = re.sub(r'(<a\b[^>]*data-cta="affiliate"[^>]*>.*?</a>)', r'\1\n' + STANDARD_AFFILIATE_DISCLOSURE, text, count=1, flags=re.S)
     return remove_empty_disclosure_sections(text)
 
 def page_copy(path, text):
