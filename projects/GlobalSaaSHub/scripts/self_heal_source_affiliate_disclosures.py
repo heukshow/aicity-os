@@ -7,9 +7,10 @@ Policy:
 - the homepage source must not carry a second semantic commission notice;
 - the final production-bundle guard adds exactly one global homepage notice.
 
-This pass repairs known generated variants first. It raises only if a prohibited
-notice still remains after repair, so CI is a last-resort safety stop rather than
-the primary remediation mechanism.
+Normal steady state is changed=0 because content generators must not create page-level
+affiliate disclosures in the first place. This pass exists only as a last-resort
+repair and safety stop for a future regression, not as part of the normal content
+production path. It raises if a prohibited notice still remains after repair.
 """
 from pathlib import Path
 import re
