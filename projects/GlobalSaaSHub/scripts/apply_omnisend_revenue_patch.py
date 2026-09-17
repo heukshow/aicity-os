@@ -1,7 +1,7 @@
 """Patch the high-impression Omnisend page with current buyer-intent copy.
 
 Search Console snapshot: /tool/omnisend.html had 114 impressions and 0 clicks in
-30 days. COSHUMA is now approved and has exact vendor-issued general + pricing
+30 days. COSHUMA is approved and has exact vendor-issued general + pricing
 tracking URLs. This patch remains idempotent when a newer, stronger buyer page is
 already present.
 """
@@ -9,12 +9,21 @@ from pathlib import Path
 
 PAGE = Path(__file__).resolve().parents[1] / "public" / "tool" / "omnisend.html"
 TRACKING_URL = "https://your.omnisend.com/4aA5k9"
+PRICING_TRACKING_URL = "https://your.omnisend.com/VOKyAj"
 text = PAGE.read_text(encoding="utf-8")
 
-# A newer revenue-first page can intentionally supersede the older generated template.
-# Do not force that stronger source back through brittle legacy-string replacements.
-# The later finalize_omnisend_tracking.py pass remains authoritative for converting
-# pricing-intent anchors to the vendor-issued pricing tracker and validating attribution.
+# A current buyer-first page supersedes the legacy generated template. Keep this
+# recognition based on customer-facing content rather than a public internal-state marker.
+if (
+    "Omnisend Review & Pricing 2026" in text
+    and PRICING_TRACKING_URL in text
+    and 'data-cta-source="omnisend_pricing_hero"' in text
+    and "30% off the first three months" in text
+):
+    print("Omnisend current buyer page already present; legacy content patch skipped")
+    raise SystemExit(0)
+
+# Backward-compatible recognition for the previous revenue-first source while it ages out.
 if 'data-omnisend-revenue-v3="2026-09-11"' in text:
     required = [
         "Omnisend Pricing 2026",
@@ -72,10 +81,6 @@ for old, new in replacements:
     if new in text:
         continue
     if old not in text:
-        # The generic revenue sync may already have converted the original bottom
-        # Omnisend anchor to the exact verified affiliate URL before this content
-        # patch runs. Preserve that stronger revenue state rather than downgrading
-        # it merely to satisfy an obsolete official-link intermediate state.
         if (
             old.startswith('<a data-cta="official" href="https://www.omnisend.com/"')
             and TRACKING_URL in text
@@ -96,7 +101,7 @@ if marker not in text:
           <div>
             <div class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-cyan-300">2026 buyer decision · verified against Omnisend Help Center</div>
             <h2 class="mt-2 text-2xl font-black text-white">Start with contact count and channel needs, not the plan name</h2>
-            <p class="mt-2 text-sm leading-relaxed text-slate-300">Omnisend pricing changes with billable contacts. The current Free plan supports up to 250 billable contacts and 500 emails per month. Standard starts at $16/month and includes email credits equal to 12× billable contacts. Pro starts at $59/month with unlimited email; for new paid subscriptions on or after May 4, 2026, SMS is a Pro add-on with volume pricing starting at $0.007 per SMS for US/Canada recipients.</p>
+            <p class="mt-2 text-sm leading-relaxed text-slate-300">Omnisend pricing changes with billable contacts. The current Free plan supports up to 250 billable contacts and 500 emails per month. Standard starts at $16/month and includes email credits equal to 12× billable contacts. Pro starts at $59/month with unlimited email; for new paid subscriptions on or after May 4, 2026, SMS is a Pro add-on with volume pricing.</p>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div class="rounded-xl border border-white/10 bg-[#0d1018] p-4"><div class="text-xs font-bold text-slate-400">Free</div><div class="mt-1 text-xl font-black text-white">$0</div><p class="mt-2 text-xs leading-5 text-slate-400">Up to 250 billable contacts · 500 emails/month.</p></div>
@@ -108,15 +113,12 @@ if marker not in text:
             <a data-cta="official" data-tool-id="omnisend" data-cta-source="omnisend_2026_pricing" href="https://www.omnisend.com/pricing/" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl bg-slate-800 border border-slate-600 text-white font-extrabold text-center">Check current Omnisend pricing →</a>
             <a data-cta="affiliate" data-tool-id="moosend" data-cta-source="omnisend_verified_alternative" href="https://trymoo.moosend.com/6eappdpw04pw" target="_blank" rel="sponsored noopener noreferrer" class="px-5 py-3.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-extrabold text-center">Prefer a 30-day trial? Compare Moosend →</a>
           </div>
-          <p class="text-[11px] leading-5 text-slate-500">COSHUMA was approved for the Omnisend Affiliate Program on September 9, 2026. The approval email did not contain an account-specific customer tracking URL, so Omnisend buttons intentionally remain ordinary official links until the exact Impact-issued URL is copied and verified. The Moosend button uses COSHUMA's separately verified customer-facing partner URL; COSHUMA may earn a commission on an eligible Moosend purchase at no extra cost to you.</p>
+          <p class="text-[11px] leading-5 text-slate-500">Affiliate disclosure: COSHUMA may earn a commission from qualifying purchases made through some links, at no extra cost to you.</p>
         </section>
 
 '''
     text = text.replace(anchor, block + anchor, 1)
 
-# The generic copy polisher intentionally removes weak boilerplate. On Omnisend that left
-# nearly empty Pros/Cons cards in production. Replace only those exact post-polish
-# placeholders with facts supported by Omnisend's current 2026 pricing documentation.
 pros_placeholder = '''              <li>Review pending</li>
 
               
@@ -139,11 +141,9 @@ cons_verified = '''            <ul class="text-xs text-slate-300 space-y-1.5 lis
 if cons_placeholder in text:
     text = text.replace(cons_placeholder, cons_verified, 1)
 
-# Keep the visible trust date aligned with this same official-source refresh when the
-# generic trust block has already been generated by polish_public_copy.py.
 text = text.replace(
     '<div class="mt-1 text-sm font-bold text-slate-200">September 1, 2026</div>',
-    '<div class="mt-1 text-sm font-bold text-slate-200">September 9, 2026</div>',
+    '<div class="mt-1 text-sm font-bold text-slate-200">September 18, 2026</div>',
     1,
 )
 
