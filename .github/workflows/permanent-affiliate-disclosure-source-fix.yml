@@ -17,16 +17,17 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
-      - name: Permanently remove page-level disclosure generation
+      - name: Permanently remove every known page-level disclosure generator
         run: |
           python - <<'PY'
           from pathlib import Path
-          import re
+          import re, subprocess
 
           root = Path('projects/GlobalSaaSHub')
+          scripts = root / 'scripts'
 
-          # 1) guard_public_copy.py: cleanup-only, never insert a disclosure.
-          path = root / 'scripts/guard_public_copy.py'
+          # guard_public_copy: cleanup-only; never insert a page disclosure.
+          path = scripts / 'guard_public_copy.py'
           text = path.read_text(encoding='utf-8')
           text = re.sub(r"\nSTANDARD_AFFILIATE_DISCLOSURE = \(.*?\n\)\n", "\n", text, flags=re.S)
           text = text.replace("    has_affiliate = 'data-cta=\"affiliate\"' in text\n", "")
@@ -34,43 +35,83 @@ jobs:
               "    if not has_affiliate:\n        return text\n    text = re.sub(r'(<a\\b[^>]*data-cta=\"affiliate\"[^>]*>.*?</a>)', r'\\1\\n' + STANDARD_AFFILIATE_DISCLOSURE, text, count=1, flags=re.S)\n    return remove_empty_disclosure_sections(text)\n",
               "    return remove_empty_disclosure_sections(text)\n",
           )
-          # Remove legacy rewrites that create new commission notices.
           text = re.sub(r"\n\s*text = re\.sub\(r\"The AWeber outbound revenue URL.*?\n", "\n", text)
           text = re.sub(r"\n\s*text = re\.sub\(r'<p\\b\[\^>\]\*>The authenticated Text Partner App records.*?\n", "\n", text)
           text = re.sub(r"\n\s*text = re\.sub\(r\"<p\\b\[\^>\]\*>COSHUMA's Make partner code.*?\n", "\n", text)
           path.write_text(text, encoding='utf-8')
 
-          # 2) polish_public_copy.py: keep monetization, never generate disclosure blocks.
-          path = root / 'scripts/polish_public_copy.py'
+          # polish_public_copy: monetize URLs but never add disclosure blocks.
+          path = scripts / 'polish_public_copy.py'
           text = path.read_text(encoding='utf-8')
           text = re.sub(r"\nCOMPARE_AFFILIATE_DISCLOSURE = \(.*?\n\)\n", "\n", text, flags=re.S)
           text = re.sub(r"\ndef tag_existing_compare_disclosure\(.*?\n(?=def ensure_tool_revenue_alternative)", "\n", text, flags=re.S)
-          text = re.sub(
-              r"\n\s*'        <p class=\"text-\[10px\] text-slate-500\">Affiliate disclosure:.*?</p>\\n'",
-              "",
-              text,
-              flags=re.S,
-          )
+          text = re.sub(r"\n\s*'        <p class=\"text-\[10px\] text-slate-500\">Affiliate disclosure:.*?</p>\\n'", "", text, flags=re.S)
           text = text.replace(
               "            if folder.name == \"compare\":\n                updated = monetize_verified_compare_links(updated)\n                updated = ensure_compare_affiliate_disclosure(updated)\n",
               "            if folder.name == \"compare\":\n                updated = monetize_verified_compare_links(updated)\n",
           )
           path.write_text(text, encoding='utf-8')
 
-          # 3) Remove the temporary runtime source patch from the normal build.
+          # monetize_verified_compare_links: never append compare/tool disclosures.
+          path = scripts / 'monetize_verified_compare_links.mjs'
+          text = path.read_text(encoding='utf-8')
+          text = re.sub(r"\nconst DISCLOSURE =.*?\n\s*'</p>';\n", "\n", text, flags=re.S)
+          text = re.sub(r"\nconst TOOL_DISCLOSURE =.*?\n\s*'</p>';\n", "\n", text, flags=re.S)
+          text = re.sub(r"\n\s*if \(!updated\.includes\('data-affiliate-disclosure=\\\"compare\\\"'\)\) \{\n\s*updated = updated\.replace\(/\(\?=\\s\*<\\/main>\)/, `\$\{DISCLOSURE\}\\n`\);\n\s*\}\n", "\n", text)
+          text = re.sub(r"\n\s*if \(affiliateChangesInFile && !updated\.includes\('data-affiliate-disclosure=\\\"tool\\\"'\)\) \{\n\s*updated = updated\.replace\(/\(\?=\\s\*<\\/main>\)/, `\$\{TOOL_DISCLOSURE\}\\n`\);\n\s*\}\n", "\n", text)
+          path.write_text(text, encoding='utf-8')
+
+          # build_search_comparisons: generated comparison pages contain no per-page disclosure.
+          path = scripts / 'build_search_comparisons.mjs'
+          text = path.read_text(encoding='utf-8')
+          text = re.sub(
+              r'<section><h2>Check your preferred option</h2><nav class="ctas" aria-label="Product destinations">\$\{ctas\}</nav><p data-affiliate-disclosure="compare" class="muted">.*?</p></section>',
+              '<section><h2>Check your preferred option</h2><nav class="ctas" aria-label="Product destinations">${ctas}</nav></section>',
+              text,
+          )
+          path.write_text(text, encoding='utf-8')
+
+          # Buyer-box generator: links stay sponsored, page-level commission notices do not exist.
+          path = scripts / 'fix_boldsign_buyer_box.py'
+          text = path.read_text(encoding='utf-8')
+          text = re.sub(r'\n<p data-affiliate-disclosure="buyer-box"[^>]*>.*?</p>', '', text)
+          path.write_text(text, encoding='utf-8')
+
+          # Tool trust guard must remove the old affiliate-disclosure trust row for every tool,
+          # not only tools that lack approved tracking.
+          path = scripts / 'guard_tool_trust_disclosures.py'
+          text = path.read_text(encoding='utf-8')
+          text = text.replace('    elif not exact_tracking_verified(tool):\n', '    else:\n')
+          path.write_text(text, encoding='utf-8')
+
+          # Temporary runtime patch is obsolete after permanent source edits.
           package = root / 'package.json'
           text = package.read_text(encoding='utf-8')
           text = text.replace('python scripts/disable_page_level_affiliate_disclosure_generation.py && ', '')
           package.write_text(text, encoding='utf-8')
+          temp = scripts / 'disable_page_level_affiliate_disclosure_generation.py'
+          if temp.exists(): temp.unlink()
 
-          # 4) Permanently clean currently committed public HTML once.
-          import subprocess
-          subprocess.run(['python', str(root / 'scripts/self_heal_source_affiliate_disclosures.py')], check=True)
+          # Clean currently committed public HTML once. Future normal builds should need no mass repair.
+          subprocess.run(['python', str(scripts / 'self_heal_source_affiliate_disclosures.py')], check=True)
 
-          # 5) Temporary runtime patch is no longer needed after permanent edits.
-          temp = root / 'scripts/disable_page_level_affiliate_disclosure_generation.py'
-          if temp.exists():
-              temp.unlink()
+          # Audit generator source. Cleanup/guard/test files are allowed to mention the marker;
+          # content-producing scripts are not.
+          allow = {
+              'guard_public_copy.py', 'self_heal_source_affiliate_disclosures.py',
+              'enforce_home_only_affiliate_disclosure.py', 'guard_built_customer_copy.py',
+              'sanitize_claap_public_copy.mjs',
+          }
+          offenders = []
+          for p in scripts.rglob('*'):
+              if not p.is_file() or p.suffix not in {'.py','.mjs','.js'} or p.name in allow or 'tests' in p.parts:
+                  continue
+              s = p.read_text(encoding='utf-8', errors='ignore')
+              if 'data-affiliate-disclosure=' in s or 'Affiliate disclosure:' in s:
+                  offenders.append(p.relative_to(root).as_posix())
+          if offenders:
+              raise SystemExit('Remaining page-disclosure generator candidates: ' + ', '.join(offenders))
+          print('Generator audit: PASS — no page-level disclosure generator remains')
           PY
       - name: Commit permanent source fix
         run: |
@@ -81,5 +122,5 @@ jobs:
           git config user.name 'COSHUMA automation'
           git config user.email 'support@coshuma.com'
           git add projects/GlobalSaaSHub
-          git commit -m 'Permanently remove page-level affiliate disclosure generation'
+          git commit -m 'Remove remaining page-level affiliate disclosure generators'
           git push origin HEAD:main
