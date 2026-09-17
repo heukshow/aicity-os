@@ -104,10 +104,16 @@ for (const [id, evidence] of approvedTracking) {
       count += 1;
     }
     assert.ok(html.includes('/affiliate-attribution.js'), `${file}: missing affiliate attribution collector`);
-    assert.ok(/affiliate disclosure/i.test(html), `${file}: missing affiliate disclosure`);
+    assert.ok(!/Affiliate\s+disclosure\s*:/i.test(html), `${file}: repeated page-level affiliate disclosure`);
+    assert.ok(!html.includes('data-affiliate-disclosure='), `${file}: repeated page-level disclosure marker`);
   }
 
   console.log(`${id}: ${count} attributed CTAs across ${pages.length} pages (tool + compare + best)`);
 }
 
-console.log('PASS: authoritative exact state is preserved; built tool, comparison, and buyer-guide CTAs use only exact or explicitly evidence-backed URLs with attribution.');
+const home = fs.readFileSync(`${dir}/index.html`, 'utf8');
+assert.equal((home.match(/data-site-affiliate-disclosure="global"/g) || []).length, 1, 'homepage must contain exactly one global affiliate disclosure marker');
+assert.equal((home.match(/Affiliate\s+disclosure\s*:/gi) || []).length, 1, 'homepage must contain exactly one general affiliate disclosure');
+assert.ok(fs.existsSync(`${dir}/affiliate-disclosure.html`), 'dedicated affiliate disclosure policy page must remain available');
+
+console.log('PASS: authoritative exact state is preserved; built tool, comparison, and buyer-guide CTAs use only exact or explicitly evidence-backed URLs with attribution; general affiliate disclosure appears once on the homepage.');

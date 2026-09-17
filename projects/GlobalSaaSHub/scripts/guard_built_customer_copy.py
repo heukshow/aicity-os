@@ -38,6 +38,7 @@ POST_EXACT = {
     "Verified Referral Route": "Current offer",
     "Verified Referral Link": "current offer",
     "verified referral link": "current offer",
+    "verified partner trial links": "current trial links",
     "Affiliate disclosure: COSHUMA may earn a commission if an eligible paid signup is attributed through this verified customer-facing referral URL, at no extra cost to the buyer.": "Affiliate disclosure: COSHUMA may earn a commission from some links on this page, at no extra cost to you.",
     "COSHUMA may earn a commission if an eligible paid signup is attributed through this current offer link, at no extra cost to the buyer.": "COSHUMA may earn a commission from some links on this page, at no extra cost to you.",
     "COSHUMA does not currently publish a Framer affiliate/revenue link on this page. These buttons go to Framer's official site while Creator Program enrollment is being verified.": "These buttons go to Framer's official site. Verify current pricing and terms with Framer before purchasing.",
@@ -50,6 +51,7 @@ POST_PATTERNS = (
     (re.compile(r"\bverified\s+(?:Dub|Impact|PartnerStack|Cello)\s+(?:partner[- ]?)?route\b", re.I), "current offer"),
     (re.compile(r"\bvendor-confirmed\s+(?:[0-9]+-day\s+)?partner\s+route\b", re.I), "current offer"),
     (re.compile(r"\bCOSHUMA's\s+verified\s+[A-Za-z0-9 ._/%-]{1,50}\s+(?:partner\s+)?(?:route|offer|link)\b", re.I), "the current offer"),
+    (re.compile(r"\bCOSHUMA's\s+[A-Za-z0-9 ._-]{1,40}\s+PartnerStack\s+route\b", re.I), "the current offer"),
     (re.compile(r"\bverified\s+(?:customer-facing\s+)?referral\s+(?:route|link)\b", re.I), "current offer"),
     (re.compile(r"\b(?:exact\s+)?verified\s+customer-facing\s+(?:tracking|referral)\s+URL\s*:\s*[^<\n]+", re.I), ""),
     (re.compile(r"\bverified\s+customer-facing\s+(?:tracking|referral)\s+URL\b", re.I), "current offer link"),
@@ -76,6 +78,37 @@ INTERNAL_HTML_COMMENT = re.compile(
     r'<!--(?:(?!-->).)*(?:COSHUMA_[A-Z0-9_]+|affiliate|revenue[_ -]?truth|tracking[_ -]?verification|partnerstack)(?:(?!-->).)*-->',
     re.I | re.S,
 )
+INTERNAL_VERIFICATION_NOTE = re.compile(
+    r'<div\b[^>]*>\s*<strong\b[^>]*>\s*Verification note:\s*</strong>[^<]*(?:verified customer-facing affiliate URLs|previously verified customer-facing affiliate URLs)[^<]*</div>',
+    re.I | re.S,
+)
+
+# COSHUMA policy: the short general affiliate notice appears once on the homepage.
+# Individual tool/compare/best/category pages must not repeat it. The dedicated
+# affiliate-disclosure.html policy page remains available for readers who want details.
+AFFILIATE_DISCLOSURE_DATA = re.compile(
+    r'<p\b[^>]*\bdata-affiliate-disclosure\s*=\s*["\'][^"\']*["\'][^>]*>.*?</p>',
+    re.I | re.S,
+)
+AFFILIATE_DISCLOSURE_ATTR = re.compile(
+    r'\s+data-affiliate-disclosure\s*=\s*["\'][^"\']*["\']',
+    re.I,
+)
+AFFILIATE_DISCLOSURE_PARAGRAPH = re.compile(
+    r'<p\b[^>]*>(?:(?!</p>).)*(?:Affiliate\s+disclosure\s*:|COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+)?commission)(?:(?!</p>).)*</p>',
+    re.I | re.S,
+)
+AFFILIATE_DISCLOSURE_DIV = re.compile(
+    r'<div\b[^>]*>\s*(?:<strong\b[^>]*>)?\s*Affiliate\s+disclosure\s*:.*?</div>',
+    re.I | re.S,
+)
+HOME_AFFILIATE_DISCLOSURE = (
+    '<p data-site-affiliate-disclosure="global" '
+    'style="max-width:72rem;margin:0 auto;padding:0 1.5rem 1.5rem;color:#94a3b8;font-size:12px;line-height:1.6">'
+    'Affiliate disclosure: COSHUMA may earn a commission from some links, at no extra cost to you. '
+    '<a href="/affiliate-disclosure.html" style="text-decoration:underline">Details</a>.'
+    '</p>'
+)
 
 
 def final_polish(text: str) -> str:
@@ -86,6 +119,51 @@ def final_polish(text: str) -> str:
     text = UNBOUNCE_TRACKING_CARD.sub("", text)
     text = AFFILIATE_STATUS_SECTION.sub("", text)
     text = INTERNAL_HTML_COMMENT.sub("", text)
+    text = INTERNAL_VERIFICATION_NOTE.sub("", text)
+    return text
+
+
+def strip_general_affiliate_disclosures(text: str) -> str:
+    text = AFFILIATE_DISCLOSURE_DATA.sub("", text)
+    text = AFFILIATE_DISCLOSURE_PARAGRAPH.sub("", text)
+    text = AFFILIATE_DISCLOSURE_DIV.sub("", text)
+    # Some older buyer sections used this attribute on the entire offer card rather
+    # than on a disclosure paragraph. Keep the useful buyer content, drop only the
+    # obsolete disclosure marker.
+    text = AFFILIATE_DISCLOSURE_ATTR.sub("", text)
+    return text
+
+
+def enforce_disclosure_policy(rel: str, text: str) -> str:
+    # Keep the dedicated legal/details page intact; it is not a repeated page notice.
+    if rel == "affiliate-disclosure.html":
+        return text
+
+    text = strip_general_affiliate_disclosures(text)
+    # Remove a previous post-build homepage notice if this function is ever run twice.
+    text = re.sub(
+        r'<p\b[^>]*\bdata-site-affiliate-disclosure=["\']global["\'][^>]*>.*?</p>',
+        '',
+        text,
+        flags=re.I | re.S,
+    )
+
+    if rel == "index.html":
+        if "</body>" not in text:
+            raise RuntimeError("Homepage closing body tag missing; refusing to place global affiliate disclosure")
+        text = text.replace("</body>", HOME_AFFILIATE_DISCLOSURE + "\n</body>", 1)
+        if text.count('data-site-affiliate-disclosure="global"') != 1:
+            raise RuntimeError("Homepage must contain exactly one global affiliate disclosure")
+        if text.lower().count("affiliate disclosure:") != 1:
+            raise RuntimeError("Homepage must contain exactly one visible affiliate disclosure notice")
+        return text
+
+    if 'data-affiliate-disclosure=' in text.lower():
+        raise RuntimeError(f"Repeated affiliate disclosure attribute remains in {rel}")
+    if re.search(r"Affiliate\s+disclosure\s*:", text, re.I):
+        raise RuntimeError(f"Repeated affiliate disclosure notice remains in {rel}")
+    if re.search(r"COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+)?commission", text, re.I):
+        raise RuntimeError(f"Repeated affiliate commission notice remains in {rel}")
     return text
 
 
@@ -96,10 +174,11 @@ def main() -> None:
     changed = []
     for path in DIST.rglob("*.html"):
         before = path.read_text(encoding="utf-8")
-        after = final_polish(clean_html(before))
+        rel = path.relative_to(DIST).as_posix()
+        after = enforce_disclosure_policy(rel, final_polish(clean_html(before)))
         if after != before:
             path.write_text(after, encoding="utf-8")
-            changed.append(path.relative_to(DIST).as_posix())
+            changed.append(rel)
 
     js = DIST / "affiliate-attribution.js"
     if js.exists():
@@ -117,7 +196,7 @@ def main() -> None:
             llms.write_text(after, encoding="utf-8")
             changed.append(llms.relative_to(DIST).as_posix())
 
-    print(f"Built customer-only copy guard: {len(changed)} files normalized")
+    print(f"Built customer-only copy guard: {len(changed)} files normalized; homepage disclosure=1; repeated page disclosures=0")
 
 
 if __name__ == "__main__":
