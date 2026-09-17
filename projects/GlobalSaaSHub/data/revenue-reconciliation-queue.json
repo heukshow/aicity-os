@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-17T20:08:01.215Z",
+  "generated_at": "2026-09-17T20:19:17.997Z",
   "source": "data/revenue-leakage-audit.json",
   "scope": "Internal COSHUMA revenue reconciliation only",
   "queue_status": "active",
-  "task_count": 55,
+  "task_count": 54,
   "priority_order": [
     "P0_UNCHECKED",
     "P1_STALE",
@@ -72,32 +72,6 @@
         {
           "id": "voibe",
           "name": "Voibe",
-          "priority": "P0_UNCHECKED",
-          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
-        }
-      ],
-      "execution": "browser_read_only",
-      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
-      "safety": [
-        "Do not create a new account or reapply.",
-        "Do not change any customer tracking URL.",
-        "Do not start a paid plan or authorize payment.",
-        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
-        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
-        "Never expose this internal revenue audit on public COSHUMA pages."
-      ],
-      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
-    },
-    {
-      "account_id": "text-account",
-      "network": "LiveChat Partner Program",
-      "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
-      "priority": "P0_UNCHECKED",
-      "tool_count": 1,
-      "tools": [
-        {
-          "id": "helpdesk",
-          "name": "HelpDesk",
           "priority": "P0_UNCHECKED",
           "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
         }
