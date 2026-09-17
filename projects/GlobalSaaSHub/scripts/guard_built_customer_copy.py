@@ -39,10 +39,12 @@ POST_EXACT = {
     "Verified Referral Link": "current offer",
     "verified referral link": "current offer",
     "Affiliate disclosure: COSHUMA may earn a commission if an eligible paid signup is attributed through this verified customer-facing referral URL, at no extra cost to the buyer.": "Affiliate disclosure: COSHUMA may earn a commission from some links on this page, at no extra cost to you.",
+    "COSHUMA may earn a commission if an eligible paid signup is attributed through this current offer link, at no extra cost to the buyer.": "COSHUMA may earn a commission from some links on this page, at no extra cost to you.",
     "COSHUMA does not currently publish a Framer affiliate/revenue link on this page. These buttons go to Framer's official site while Creator Program enrollment is being verified.": "These buttons go to Framer's official site. Verify current pricing and terms with Framer before purchasing.",
 }
 
 POST_PATTERNS = (
+    (re.compile(r"\bCOSHUMA may earn a commission if an eligible paid signup is attributed through this (?:verified customer-facing referral URL|current offer link), at no extra cost to the buyer\.", re.I), "COSHUMA may earn a commission from some links on this page, at no extra cost to you."),
     (re.compile(r"\bverified\s+COSHUMA\s+partner\s+offer\b", re.I), "current offer"),
     (re.compile(r"\bverified\s+[A-Za-z0-9 ._-]{1,40}\s+partner\s+route\b", re.I), "current offer"),
     (re.compile(r"\bverified\s+(?:Dub|Impact|PartnerStack|Cello)\s+(?:partner[- ]?)?route\b", re.I), "current offer"),

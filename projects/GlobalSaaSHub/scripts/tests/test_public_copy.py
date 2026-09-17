@@ -47,6 +47,7 @@ BAD=re.compile(
     r'\baffiliate/revenue link\b|'
     r'\bCreator Program enrollment is being verified\b|'
     r'\b(?:affiliate|partner|referral|tracking|revenue)\b[^.]{0,100}\b(?:verification pending|pending verification|being verified)\b|'
+    r'\beligible paid signup\b[^.]{0,100}\battributed\b|'
     r'COSHUMA[^.]{0,80}affiliate application remains separate|'
     r'no Pipedrive revenue attribution is claimed',
     re.I,
@@ -77,6 +78,7 @@ def main():
     assert violations('<p>Start via Verified Referral Link</p>')
     assert violations('<p>Verified customer-facing referral URL: example.com/?ref=x</p>')
     assert violations('<p>COSHUMA does not currently publish a Framer affiliate/revenue link on this page. Creator Program enrollment is being verified.</p>')
+    assert violations('<p>COSHUMA may earn a commission if an eligible paid signup is attributed through this current offer link.</p>')
     assert not violations('<p>Affiliate disclosure: COSHUMA may earn a commission from some links at no extra cost to you.</p>')
     assert not violations('<p>Connect your internal database.</p><a data-affiliate-status="approved_tracking" href="https://example.com/?ref=ok">Try</a>')
     urls = '<meta property="og:url" content="https://coshuma.com/tool/vidiq.html"><script type="application/ld+json">{"url":"https://coshuma.com/tool/vidiq.html"}</script><a href="https://example.com/?via=GlobalSaaSHub">Text Cortex</a>'
