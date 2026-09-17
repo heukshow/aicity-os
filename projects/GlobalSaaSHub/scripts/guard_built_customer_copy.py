@@ -2,6 +2,7 @@
 from pathlib import Path
 import re
 from guard_customer_only_copy import clean_html, clean_public_js, clean_llms
+from sanitize_public_editorial_copy import clean_llms as clean_editorial_llms
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
@@ -24,8 +25,16 @@ POST_EXACT = {
 POST_PATTERNS = (
     (re.compile(r"\bverified\s+COSHUMA\s+partner\s+offer\b", re.I), "current offer"),
     (re.compile(r"\bverified\s+[A-Za-z0-9 ._-]{1,40}\s+partner\s+route\b", re.I), "current offer"),
+    (re.compile(r"\bverified\s+(?:Dub|Impact|PartnerStack|Cello)\s+(?:partner[- ]?)?route\b", re.I), "current offer"),
     (re.compile(r"\bvendor-confirmed\s+(?:[0-9]+-day\s+)?partner\s+route\b", re.I), "current offer"),
     (re.compile(r"\bCOSHUMA's\s+verified\s+[A-Za-z0-9 ._/%-]{1,50}\s+(?:partner\s+)?(?:route|offer|link)\b", re.I), "the current offer"),
+    # These are visible editorial labels, not the data-affiliate-status tracking attribute.
+    (re.compile(r"\s+and\s+(?<!data-)(?:affiliate|partner|referral)-status\s+buyer guide\b", re.I), " buyer guide"),
+    (re.compile(r"\s+(?:and|with)\s+(?:current\s+)?(?<!data-)(?:affiliate|partner|referral)-status\s+facts\b", re.I), ""),
+    (re.compile(r"\bverified\s+(?<!data-)affiliate-status\s+disclosure\b", re.I), "current product details"),
+    (re.compile(r"(?<!data-)\b(?:affiliate|partner|referral)-status\s+buyer guide\b", re.I), "buyer guide"),
+    (re.compile(r"(?<!data-)\b(?:affiliate|partner|referral)-status\s+facts\b", re.I), "product details"),
+    (re.compile(r"(?<!data-)\b(?:affiliate|partner|referral)-status\b", re.I), "program details"),
 )
 
 UNBOUNCE_TRACKING_CARD = re.compile(
@@ -72,7 +81,9 @@ def main() -> None:
     llms = DIST / "llms.txt"
     if llms.exists():
         before = llms.read_text(encoding="utf-8")
-        after = clean_llms(before)
+        # Vite config-time generators can append new buyer-guide rows after the
+        # source sanitizer runs, so apply both guards to the final artifact.
+        after = clean_editorial_llms(clean_llms(before))
         if after != before:
             llms.write_text(after, encoding="utf-8")
             changed.append(llms.relative_to(DIST).as_posix())
