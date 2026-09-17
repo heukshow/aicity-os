@@ -131,7 +131,7 @@ BRAND24_CUSTOMER_COPY = [
     ),
     (
         'Affiliate disclosure: COSHUMA may earn a commission if an eligible purchase is attributed through the verified Brand24 partner link, at no extra cost to you.',
-        'Affiliate disclosure: COSHUMA may earn a commission from qualifying purchases made through some links, at no extra cost to you.',
+        '',
     ),
     (
         'COSHUMA buyer guides use official product information and verified partner tracking where available. Brand24 pricing and trial terms were rechecked September 9, 2026; product details can change, so verify with the vendor before purchasing.',
@@ -161,7 +161,7 @@ MOOSEND_CUSTOMER_COPY = [
     ),
     (
         'Affiliate disclosure: COSHUMA may earn a commission if you become a paying Moosend customer after using the verified partner link, at no extra cost to you.',
-        'Affiliate disclosure: COSHUMA may earn a commission from qualifying purchases made through some links, at no extra cost to you.',
+        '',
     ),
     (
         "Checked against Moosend's official pricing page on September 7, 2026. Exact subscription price depends on contact count; verify the live selector before checkout.",
@@ -228,8 +228,8 @@ for filename, replacements in PATCHES.items():
             raise SystemExit("Moosend customer-copy patch failed: expected verified customer referral CTAs were lost")
         if 'rel="sponsored noopener noreferrer"' not in text:
             raise SystemExit("Moosend customer-copy patch failed: sponsored attribution was lost")
-        if 'Affiliate disclosure:' not in text:
-            raise SystemExit("Moosend customer-copy patch failed: affiliate disclosure was lost")
+        if 'Affiliate disclosure:' in text or 'data-affiliate-disclosure=' in text:
+            raise SystemExit("Moosend customer-copy patch failed: page-level affiliate disclosure was regenerated")
         lowered = text.lower()
         for phrase in MOOSEND_FORBIDDEN_PUBLIC_COPY:
             if phrase in lowered:
