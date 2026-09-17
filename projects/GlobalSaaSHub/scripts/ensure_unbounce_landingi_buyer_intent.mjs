@@ -60,7 +60,7 @@ function ensureToolCrosslink(file, tool) {
   const title = tool === 'Unbounce' ? 'Compare Unbounce with a direct landing-page alternative' : 'Compare Landingi with a direct CRO alternative';
   const copy = tool === 'Unbounce'
     ? 'Landingi competes more directly on landing-page creation, testing and agency-scale workflows. Compare page limits, traffic allowances and experiment tiers before committing.'
-    : 'Unbounce competes directly on landing-page creation and conversion optimization. Compare entry limits, testing tiers and COSHUMA’s verified Unbounce partner offer before choosing.';
+    : 'Unbounce competes directly on landing-page creation and conversion optimization. Compare entry limits, testing tiers and the current Unbounce offer before choosing.';
   const block = `\n<section data-buyer-intent-crosslink="unbounce-landingi" class="rounded-3xl border border-purple-500/20 bg-purple-500/5 p-6 md:p-7">\n  <div class="text-xs font-bold uppercase tracking-wider text-purple-300">Direct competitor comparison</div>\n  <h2 class="mt-2 text-2xl font-black text-white">${title}</h2>\n  <p class="mt-3 text-sm leading-6 text-slate-300">${copy}</p>\n  <a href="/compare/unbounce-vs-landingi.html" class="mt-5 inline-flex rounded-xl border border-purple-400/30 bg-purple-500/10 px-5 py-3 text-sm font-extrabold text-purple-100 hover:bg-purple-500/20">Unbounce vs Landingi buyer guide →</a>\n</section>\n`;
   html = html.replace('</main>', `${block}</main>`);
   writeIfChanged(file, html);
