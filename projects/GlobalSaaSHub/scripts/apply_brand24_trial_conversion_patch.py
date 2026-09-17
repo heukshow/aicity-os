@@ -27,15 +27,14 @@ BLOCK = '''      <section data-brand24-trial-proof="2026-09-09" class="rounded-3
           <div class="rounded-2xl border border-emerald-500/15 bg-[#0d1018] p-4"><strong class="text-white">Before checkout</strong><p class="mt-2 text-slate-400">Brand24's pricing FAQ currently states a 30-day money-back guarantee after purchase, excluding custom plans and negotiated deals.</p></div>
         </div>
         <a data-cta="affiliate" data-tool-id="brand24" data-cta-source="brand24-trial-proof" href="https://try.brand24.com/8xqrjxybmsbt" target="_blank" rel="sponsored noopener noreferrer" class="block sm:inline-flex px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-center">Start the 14-Day Brand24 Trial →</a>
-        <p class="text-[11px] text-slate-500 leading-relaxed">Affiliate disclosure: COSHUMA may earn a commission from qualifying purchases made through some links, at no extra cost to you.</p>
       </section>
 
 '''
 
 if TRACKING_URL not in BLOCK:
     raise SystemExit("Brand24 trial block lost the exact verified customer referral URL")
-if "verified Brand24 partner link" in BLOCK or "Trial access does not prove" in BLOCK:
-    raise SystemExit("Brand24 trial block contains internal tracking or KPI-status language")
+if "verified Brand24 partner link" in BLOCK or "Trial access does not prove" in BLOCK or "Affiliate disclosure:" in BLOCK:
+    raise SystemExit("Brand24 trial block contains internal tracking, KPI-status, or repeated disclosure language")
 
 text = PAGE.read_text(encoding="utf-8")
 if MARKER in text:
@@ -47,4 +46,4 @@ text = text.replace(ANCHOR, BLOCK + ANCHOR, 1)
 if TRACKING_URL not in text:
     raise SystemExit("Brand24 trial conversion patch failed: exact verified customer referral URL was lost")
 PAGE.write_text(text, encoding="utf-8")
-print("Brand24 trial conversion proof added with customer-facing disclosure.")
+print("Brand24 trial conversion proof added without page-level affiliate disclosure.")
