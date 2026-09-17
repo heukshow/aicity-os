@@ -1,6 +1,10 @@
 name: COSHUMA Affiliate Disclosure Publish Guard
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/coshuma-affiliate-disclosure-publish.yml'
   workflow_run:
     workflows: ["COSHUMA Site Build & Deploy"]
     types: [completed]
@@ -14,7 +18,7 @@ concurrency:
 
 jobs:
   disclose-and-publish:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name == 'push' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout deployed gh-pages bundle
@@ -72,8 +76,7 @@ jobs:
               html = path.read_text(encoding='utf-8')
               before = html
 
-              # Remove old site-wide or verbose repeated notices first so every
-              # monetized page ends with one predictable, plain-language notice.
+              # Normalize any previous generic/verbose disclosure to one plain notice.
               html = old_marked.sub('', html)
               html = old_generic.sub('', html)
 
