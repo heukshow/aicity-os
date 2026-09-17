@@ -38,6 +38,7 @@ POST_EXACT = {
     "Verified Referral Route": "Current offer",
     "Verified Referral Link": "current offer",
     "verified referral link": "current offer",
+    "verified partner trial links": "current trial links",
     "Affiliate disclosure: COSHUMA may earn a commission if an eligible paid signup is attributed through this verified customer-facing referral URL, at no extra cost to the buyer.": "Affiliate disclosure: COSHUMA may earn a commission from some links on this page, at no extra cost to you.",
     "COSHUMA may earn a commission if an eligible paid signup is attributed through this current offer link, at no extra cost to the buyer.": "COSHUMA may earn a commission from some links on this page, at no extra cost to you.",
     "COSHUMA does not currently publish a Framer affiliate/revenue link on this page. These buttons go to Framer's official site while Creator Program enrollment is being verified.": "These buttons go to Framer's official site. Verify current pricing and terms with Framer before purchasing.",
@@ -77,6 +78,10 @@ INTERNAL_HTML_COMMENT = re.compile(
     r'<!--(?:(?!-->).)*(?:COSHUMA_[A-Z0-9_]+|affiliate|revenue[_ -]?truth|tracking[_ -]?verification|partnerstack)(?:(?!-->).)*-->',
     re.I | re.S,
 )
+INTERNAL_VERIFICATION_NOTE = re.compile(
+    r'<div\b[^>]*>\s*<strong\b[^>]*>\s*Verification note:\s*</strong>[^<]*(?:verified customer-facing affiliate URLs|previously verified customer-facing affiliate URLs)[^<]*</div>',
+    re.I | re.S,
+)
 
 # COSHUMA policy: the short general affiliate notice appears once on the homepage.
 # Individual tool/compare/best/category pages must not repeat it. The dedicated
@@ -91,6 +96,10 @@ AFFILIATE_DISCLOSURE_ATTR = re.compile(
 )
 AFFILIATE_DISCLOSURE_PARAGRAPH = re.compile(
     r'<p\b[^>]*>(?:(?!</p>).)*(?:Affiliate\s+disclosure\s*:|COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+)?commission)(?:(?!</p>).)*</p>',
+    re.I | re.S,
+)
+AFFILIATE_DISCLOSURE_DIV = re.compile(
+    r'<div\b[^>]*>\s*(?:<strong\b[^>]*>)?\s*Affiliate\s+disclosure\s*:.*?</div>',
     re.I | re.S,
 )
 HOME_AFFILIATE_DISCLOSURE = (
@@ -110,12 +119,14 @@ def final_polish(text: str) -> str:
     text = UNBOUNCE_TRACKING_CARD.sub("", text)
     text = AFFILIATE_STATUS_SECTION.sub("", text)
     text = INTERNAL_HTML_COMMENT.sub("", text)
+    text = INTERNAL_VERIFICATION_NOTE.sub("", text)
     return text
 
 
 def strip_general_affiliate_disclosures(text: str) -> str:
     text = AFFILIATE_DISCLOSURE_DATA.sub("", text)
     text = AFFILIATE_DISCLOSURE_PARAGRAPH.sub("", text)
+    text = AFFILIATE_DISCLOSURE_DIV.sub("", text)
     # Some older buyer sections used this attribute on the entire offer card rather
     # than on a disclosure paragraph. Keep the useful buyer content, drop only the
     # obsolete disclosure marker.
