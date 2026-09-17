@@ -13,6 +13,7 @@ import './scripts/ensure_picreel_fastlane.mjs'
 import './scripts/ensure_privy_revenue_refresh.mjs'
 import './scripts/reconcile_sender_rejection_state.mjs'
 import './scripts/ensure_unbounce_landingi_buyer_intent.mjs'
+import './scripts/sanitize_claap_public_copy.mjs'
 
 function coshumaBrandIdentity() {
   return {
