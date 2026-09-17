@@ -1,10 +1,12 @@
 {
-  "generated_at_kst": "2026-09-18T06:31:00+09:00",
+  "generated_at_kst": "2026-09-18T07:17:50+09:00",
   "purpose": "Prevent duplicate revenue-metrics outreach while COSHUMA reconciles approved tracked affiliate routes.",
   "policy": {
     "do_not_reapply": true,
     "do_not_change_tracking_links": true,
     "do_not_send_duplicate_followup_before_reply": true,
+    "do_not_start_unsolicited_metrics_outreach": true,
+    "outbound_partner_mailbox": "support@coshuma.com_only",
     "do_not_infer_metrics_from_approval_or_link_issuance": true,
     "public_output": false
   },
@@ -18,13 +20,13 @@
     {"tool_id":"customgpt-ai","vendor":"CustomGPT.ai","status":"sent_waiting_reply","gmail_message_id":"1a0b1019f2727710","recipient":"affiliate@customgpt.ai"},
     {"tool_id":"cartstack","vendor":"CartStack","status":"sent_waiting_reply","gmail_message_id":"1a0b101b08e23e5f","recipient":"referrals@cartstack.com"},
     {"tool_id":"databox","vendor":"Databox","status":"sent_waiting_reply","gmail_message_id":"1a0b101d9818c020","recipient":"help@databox.com"},
-    {"tool_id":"kittl","vendor":"Kittl","status":"sent_waiting_reply","gmail_message_id":"1a0b10820b50b3b9","recipient":"marketing@kittl.com","mailbox":"qmfforfhem@gmail.com","note":"Existing Kittl Impact approval thread reused; metrics only, no tracking-link change request."},
-    {"tool_id":"voibe","vendor":"Voibe / Lemon Squeezy","status":"sent_waiting_reply","gmail_message_id":"1a0b10850fb0cc83","recipient":"hello@lemonsqueezy.com","mailbox":"qmfforfhem@gmail.com","note":"Existing Lemon Squeezy affiliate approval thread reused; requested Voibe program totals only."},
+    {"tool_id":"kittl","vendor":"Kittl","status":"sent_waiting_reply","gmail_message_id":"1a0b10820b50b3b9","recipient":"marketing@kittl.com","mailbox":"qmfforfhem@gmail.com","note":"Existing Kittl Impact approval thread reused; metrics only, no tracking-link change request. This was sent before the support@coshuma.com-only outbound-mail rule was applied. Do not continue the thread from the personal mailbox."},
+    {"tool_id":"voibe","vendor":"Voibe / Lemon Squeezy","status":"sent_waiting_reply","gmail_message_id":"1a0b10850fb0cc83","recipient":"hello@lemonsqueezy.com","mailbox":"qmfforfhem@gmail.com","note":"Existing Lemon Squeezy affiliate approval thread reused; requested Voibe program totals only. This was sent before the support@coshuma.com-only outbound-mail rule was applied. Do not continue the thread from the personal mailbox."},
     {"tool_id":"omnisend","vendor":"Omnisend","status":"sent_waiting_reply","gmail_message_id":"1a0b108f38e5d997","recipient":"deimante@omnisend.com","note":"Existing Omnisend affiliate-manager thread reused; metrics only, no link change requested."},
     {"tool_id":"aweber","vendor":"AWeber","status":"blocked_security_verification_user_action","gmail_message_id":"1a0b1099f426db77","response_message_id":"1a0b10f42fa1b3e4","recipient":"help@aweber.com","note":"AWeber Support requires the current mailing/postal address on file as a security verification before disclosing account totals. Do not provide or guess this verification data automatically. User action is required; do not send duplicate metrics follow-ups while blocked."},
-    {"tool_id":"castmagic","vendor":"Castmagic","status":"sent_waiting_reply","gmail_message_id":"1a0b1466bb8397f9","recipient":"promoter@firstpromoter.com","note":"Existing Castmagic FirstPromoter thread reused; requested current metrics only, no tracking-link or enrollment change."},
-    {"tool_id":"vista-social","vendor":"Vista Social","status":"sent_waiting_reply","gmail_message_id":"1a0b146886a2ddec","recipient":"promoter@firstpromoter.com","note":"Existing Vista Social FirstPromoter thread reused; requested current metrics only, no tracking-link or enrollment change."},
-    {"tool_id":"chatbase","vendor":"Chatbase","status":"sent_waiting_reply","gmail_message_id":"1a0b147a5e60e66e","recipient":"support@chatbase.co","mailbox":"qmfforfhem@gmail.com","note":"Existing Chatbase human support thread reused; requested current partner metrics only, no link or enrollment changes."},
+    {"tool_id":"castmagic","vendor":"Castmagic","status":"delivery_failed_invalid_recipient_no_retry","gmail_message_id":"1a0b1466bb8397f9","failure_message_id":"1a0b1467e2f53020","recipient":"promoter@firstpromoter.com","note":"Gmail returned NoSuchUser for promoter@firstpromoter.com. The metrics request was not delivered. A prior Castmagic conversation used john@castmagic.io, but current policy forbids automatically restarting unsolicited metrics outreach through another address. Metrics remain unknown; do not retry unless the vendor requests a reply or the user explicitly directs a metrics inquiry."},
+    {"tool_id":"vista-social","vendor":"Vista Social","status":"delivery_failed_invalid_recipient_no_retry","gmail_message_id":"1a0b146886a2ddec","failure_message_id":"1a0b1468e2718b2c","recipient":"promoter@firstpromoter.com","note":"Gmail returned NoSuchUser for promoter@firstpromoter.com. The metrics request was not delivered. Prior history already showed this sender address can bounce and a vendor reply channel existed at partners@vistasocial.com, but current policy forbids automatically restarting unsolicited metrics outreach through another address. Metrics remain unknown; do not retry unless the vendor requests a reply or the user explicitly directs a metrics inquiry."},
+    {"tool_id":"chatbase","vendor":"Chatbase","status":"sent_waiting_reply","gmail_message_id":"1a0b147a5e60e66e","recipient":"support@chatbase.co","mailbox":"qmfforfhem@gmail.com","note":"Existing Chatbase human support thread reused; requested current partner metrics only, no link or enrollment changes. This was sent before the support@coshuma.com-only outbound-mail rule was applied. Do not continue the thread from the personal mailbox."},
     {"tool_id":"make-com","vendor":"Make.com","status":"blocked_no_email_channel","gmail_message_id":"1a0b101ee5191bac","recipient":"info@make.com","failure_message_id":"1a0b10211d4c562b","note":"Make Cares replied that the address does not accept messages or create tickets. Do not retry the same address; use an authenticated vendor support/affiliate channel if one becomes available."}
   ]
 }
