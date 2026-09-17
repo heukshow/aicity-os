@@ -19,9 +19,6 @@ if MARKER in html:
         raise SystemExit("Tally referral block exists but exact verified URL is missing")
     print("Tally customer offer already surfaced")
 else:
-    # Do not couple this revenue patch to buyer-facing meta wording. Public copy
-    # is intentionally normalized earlier and again after all offer injectors.
-
     item8 = (
         '      {"@type":"ListItem","position":8,"name":"Brand24",'
         '"url":"https://coshuma.com/best/brand24-free-trial.html"}\n'
@@ -44,11 +41,10 @@ else:
     if closing not in html:
         raise SystemExit("Buyer-hub final grid boundary changed; refusing blind patch")
 
-    card = f'''      {MARKER}\n      <article class="rounded-3xl border border-sky-400/25 bg-[#11131a] p-7 space-y-5">\n        <div class="flex items-start justify-between gap-4"><div><div class="text-xs font-black uppercase tracking-wider text-sky-300">Forms & surveys</div><h2 class="mt-1 text-3xl font-black text-white">Tally</h2></div><span class="rounded-full bg-sky-400/10 px-3 py-1 text-xs font-bold text-sky-200">50% referral benefit</span></div>\n        <p class="text-sm leading-6 text-slate-300">Eligible new users who sign up through this Tally invitation and later become paying customers can receive <strong class="text-white">50% off their subscription for 3 months</strong>. This is a referral benefit, not a public sale. Confirm the final discount and billing terms on Tally before paying.</p>\n        <div class="grid gap-3 sm:grid-cols-2"><a data-cta="affiliate" data-tool-id="tally" data-cta-source="verified-deals-tally-referral" data-cta-page="verified-software-free-trials-deals" href="{REFERRAL_URL}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="rounded-xl bg-sky-600 px-5 py-3.5 text-center text-sm font-black text-white hover:bg-sky-500">Start Tally with referral benefit →</a><a href="/tool/tally.html" class="rounded-xl border border-white/10 px-5 py-3.5 text-center text-sm font-bold text-slate-200 hover:bg-white/5">Read Tally guide</a></div>\n        <p data-affiliate-disclosure="tally" class="text-[11px] leading-5 text-slate-500">Affiliate disclosure: COSHUMA may earn a commission from eligible purchases made through the marked Tally link, at no extra cost to you. <a href="/affiliate-disclosure.html" class="underline hover:text-slate-300">How this works</a>.</p>\n      </article>\n'''
+    card = f'''      {MARKER}\n      <article class="rounded-3xl border border-sky-400/25 bg-[#11131a] p-7 space-y-5">\n        <div class="flex items-start justify-between gap-4"><div><div class="text-xs font-black uppercase tracking-wider text-sky-300">Forms & surveys</div><h2 class="mt-1 text-3xl font-black text-white">Tally</h2></div><span class="rounded-full bg-sky-400/10 px-3 py-1 text-xs font-bold text-sky-200">50% referral benefit</span></div>\n        <p class="text-sm leading-6 text-slate-300">Eligible new users who sign up through this Tally invitation and later become paying customers can receive <strong class="text-white">50% off their subscription for 3 months</strong>. This is a referral benefit, not a public sale. Confirm the final discount and billing terms on Tally before paying.</p>\n        <div class="grid gap-3 sm:grid-cols-2"><a data-cta="affiliate" data-tool-id="tally" data-cta-source="verified-deals-tally-referral" data-cta-page="verified-software-free-trials-deals" href="{REFERRAL_URL}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="rounded-xl bg-sky-600 px-5 py-3.5 text-center text-sm font-black text-white hover:bg-sky-500">Start Tally with referral benefit →</a><a href="/tool/tally.html" class="rounded-xl border border-white/10 px-5 py-3.5 text-center text-sm font-bold text-slate-200 hover:bg-white/5">Read Tally guide</a></div>\n      </article>\n'''
 
     html = html.replace(closing, card + closing, 1)
 
-    # Final hard guards: the exact URL and customer benefit must survive.
     required = [
         REFERRAL_URL,
         'data-cta-source="verified-deals-tally-referral"',
@@ -59,13 +55,11 @@ else:
         if token not in html:
             raise SystemExit(f"Tally buyer-hub patch lost required token: {token}")
 
-    print("Surfaced Tally referral benefit on buyer hub")
+    print("Surfaced Tally referral benefit on buyer hub without page-level disclosure")
 
-# Some older offer injectors use the meta description as an internal build handoff.
-# Typedesk and Tagshop no longer mutate that editorial field, so seed the exact
-# state expected by the first remaining strict injector (Beefree/RGE Studio).
-# sanitize_public_editorial_copy.py replaces this internal wording again before
-# Vite, so it is not intended for the published customer-facing bundle.
+if "Affiliate disclosure:" in html or 'data-affiliate-disclosure=' in html:
+    raise SystemExit("Tally buyer-hub generator must not create page-level affiliate disclosure")
+
 HANDOFF_META = (
     "Compare verified SaaS free trials and partner offers from Gamma, Time2book, "
     "UpLead, Jotform, Unbounce, Pictory, Brand24, Bookyourdata, Tally, Typedesk and "
@@ -80,43 +74,25 @@ html = re.sub(
 )
 PAGE.write_text(html, encoding="utf-8")
 
-# Typedesk extends the generated ItemList from position 9 to 10. On repeated
-# builds its idempotence guard exits with code 0, so catch only that normal stop
-# and continue to later offer steps. Any non-zero safety failure aborts.
 try:
     runpy.run_path(str(ROOT / "scripts" / "surface_typedesk_verified_offer.py"), run_name="__main__")
 except SystemExit as exc:
     if exc.code not in (None, 0):
         raise
 
-# Tagshop runs after Typedesk because it extends the generated ItemList from 10
-# to 11 and must see the exact Typedesk state first.
 try:
     runpy.run_path(str(ROOT / "scripts" / "surface_tagshop_verified_offer.py"), run_name="__main__")
 except SystemExit as exc:
     if exc.code not in (None, 0):
         raise
 
-# RGE Studio / Beefree runs after Tagshop because it extends the generated
-# ItemList from 11 to 12 and uses only the exact referral URL issued to COSHUMA's
-# existing Beefree Ambassador account.
 runpy.run_path(str(ROOT / "scripts" / "surface_beefree_verified_offer.py"), run_name="__main__")
-
-# BoldSign runs after Beefree. Vendor support confirmed the existing referral URL
-# remains the supported entry point and that same-browser cookie attribution covers
-# later navigation to pricing or the 30-day trial, so no deep link is manufactured.
 runpy.run_path(str(ROOT / "scripts" / "surface_boldsign_verified_offer.py"), run_name="__main__")
 
-# Teachable can exit 0 from its idempotence guard. Catch only that normal stop so
-# newer offer steps can continue on repeated builds; any safety failure
-# still aborts the build.
 try:
     runpy.run_path(str(ROOT / "scripts" / "surface_teachable_verified_offer.py"), run_name="__main__")
 except SystemExit as exc:
     if exc.code not in (None, 0):
         raise
 
-# Frase is already approved_tracking in repository evidence. Surface only the
-# exact existing FirstPromoter customer route and current official no-card trial;
-# never manufacture a pricing/trial deep link.
 runpy.run_path(str(ROOT / "scripts" / "surface_frase_verified_offer.py"), run_name="__main__")
