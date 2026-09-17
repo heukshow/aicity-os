@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "public" / "best" / "verified-software-free-trials-deals.html"
@@ -46,7 +47,7 @@ closing = '''    </section>\n\n    <section class="rounded-3xl border border-whi
 if closing not in html:
     raise SystemExit("Buyer-hub final grid boundary changed; refusing blind Tagshop patch")
 
-card = f'''      {MARKER}\n      <article class="rounded-3xl border border-fuchsia-400/25 bg-[#11131a] p-7 space-y-5">\n        <div class="flex items-start justify-between gap-4"><div><div class="text-xs font-black uppercase tracking-wider text-fuchsia-300">AI UGC video ads</div><h2 class="mt-1 text-3xl font-black text-white">Tagshop AI</h2></div><span class="rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-bold text-emerald-200">14-day trial · no card</span></div>\n        <p class="text-sm leading-6 text-slate-300">Tagshop's current official help center lists a <strong class="text-white">14-day free trial with full platform access and no credit card required</strong>. Tagshop also directly confirmed to COSHUMA on September 12, 2026 that the exact issued referral URL below automatically tracks referrals and conversions across the site.</p>\n        <div class="grid gap-3 sm:grid-cols-2"><a data-cta="affiliate" data-tool-id="tagshop-ai" data-cta-source="verified-deals-tagshop-issued-referral" data-cta-page="verified-software-free-trials-deals" href="{TRACKING_URL}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="rounded-xl bg-fuchsia-600 px-5 py-3.5 text-center text-sm font-black text-white hover:bg-fuchsia-500">Start Tagshop trial via verified referral →</a><a href="/best/tagshop-ai-free-trial-pricing.html" class="rounded-xl border border-white/10 px-5 py-3.5 text-center text-sm font-bold text-slate-200 hover:bg-white/5">Read trial & pricing guide</a></div>\n        <p class="text-[11px] leading-5 text-slate-500">COSHUMA uses only Tagshop's exact issued referral entry URL; no separate pricing/trial affiliate deep link has been issued or inferred. A click, referred signup, paying customer, commission or payout is not counted without partner-side evidence.</p>\n      </article>\n'''
+card = f'''      {MARKER}\n      <article class="rounded-3xl border border-fuchsia-400/25 bg-[#11131a] p-7 space-y-5">\n        <div class="flex items-start justify-between gap-4"><div><div class="text-xs font-black uppercase tracking-wider text-fuchsia-300">AI UGC video ads</div><h2 class="mt-1 text-3xl font-black text-white">Tagshop AI</h2></div><span class="rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-bold text-emerald-200">14-day trial · no card</span></div>\n        <p class="text-sm leading-6 text-slate-300">Tagshop's current official help center lists a <strong class="text-white">14-day free trial with full platform access and no credit card required</strong>. Check the current product and pricing terms before upgrading.</p>\n        <div class="grid gap-3 sm:grid-cols-2"><a data-cta="affiliate" data-tool-id="tagshop-ai" data-cta-source="verified-deals-tagshop-issued-referral" data-cta-page="verified-software-free-trials-deals" href="{TRACKING_URL}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="rounded-xl bg-fuchsia-600 px-5 py-3.5 text-center text-sm font-black text-white hover:bg-fuchsia-500">Start Tagshop trial →</a><a href="/best/tagshop-ai-free-trial-pricing.html" class="rounded-xl border border-white/10 px-5 py-3.5 text-center text-sm font-bold text-slate-200 hover:bg-white/5">Read trial & pricing guide</a></div>\n        <p data-affiliate-disclosure="tagshop" class="text-[11px] leading-5 text-slate-500">Affiliate disclosure: COSHUMA may earn a commission from eligible purchases made through the marked Tagshop link, at no extra cost to you. <a href="/affiliate-disclosure.html" class="underline hover:text-slate-300">How this works</a>.</p>\n      </article>\n'''
 
 html = html.replace(closing, card + closing, 1)
 
@@ -54,8 +55,6 @@ required = [
     TRACKING_URL,
     'data-cta-source="verified-deals-tagshop-issued-referral"',
     "14-day free trial with full platform access and no credit card required",
-    "no separate pricing/trial affiliate deep link has been issued or inferred",
-    "not counted without partner-side evidence",
 ]
 for token in required:
     if token not in html:
@@ -63,5 +62,21 @@ for token in required:
 if ADMIN_URL in html:
     raise SystemExit("Tagshop admin dashboard URL leaked into the public buyer hub")
 
+# Older downstream offer injectors still use the buyer-hub meta string as an
+# internal sequencing handoff. Keep that handoff accurate in the build workspace;
+# the final editorial sanitizer replaces it with customer-only wording before Vite.
+HANDOFF_META = (
+    "Compare verified SaaS free trials and partner offers from Gamma, Time2book, "
+    "UpLead, Jotform, Unbounce, Pictory, Brand24, Bookyourdata, Tally, Typedesk and "
+    "Tagshop AI. COSHUMA separates customer-facing tracking links from product claims."
+)
+html = re.sub(
+    r'(<meta\s+name="description"\s+content=")[^"]*("\s*/?>)',
+    lambda m: m.group(1) + HANDOFF_META + m.group(2),
+    html,
+    count=1,
+    flags=re.I,
+)
+
 PAGE.write_text(html, encoding="utf-8")
-print("Surfaced verified Tagshop referral route on buyer hub")
+print("Surfaced Tagshop trial offer on buyer hub")
