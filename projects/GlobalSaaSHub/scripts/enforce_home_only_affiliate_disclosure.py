@@ -7,7 +7,7 @@ DIST = ROOT / "dist"
 
 BLOCK_PATTERNS = [
     re.compile(
-        r'<p\b[^>]*>(?:(?!</p>).)*(?:Affiliate\s+disclosure\s*:|COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+)?commission)(?:(?!</p>).)*</p>',
+        r'<p\b[^>]*>(?:(?!</p>).)*(?:Affiliate\s+disclosure\s*:|COSHUMA\s+may\s+earn\s+(?:(?:an\s+affiliate|a)\s+)?commission)(?:(?!</p>).)*</p>',
         re.I | re.S,
     ),
     re.compile(
@@ -38,7 +38,7 @@ INLINE_DISCLOSURE_TEXT = re.compile(
     re.I,
 )
 INLINE_COMMISSION_TEXT = re.compile(
-    r'\s*COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+)?commission[^<]*',
+    r'\s*COSHUMA\s+may\s+earn\s+(?:(?:an\s+affiliate|a)\s+)?commission[^<]*',
     re.I,
 )
 # Legacy homepage fallback copy used a second, semantically identical disclosure
@@ -108,7 +108,7 @@ def main() -> None:
             if html.lower().count('affiliate disclosure:') != 1:
                 raise RuntimeError('Homepage must contain exactly one affiliate disclosure notice')
             semantic_commission_mentions = len(re.findall(
-                r'(?:COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+)?commission|may\s+earn\s+COSHUMA\s+a\s+commission)',
+                r'(?:COSHUMA\s+may\s+earn\s+(?:(?:an\s+affiliate|a)\s+)?commission|may\s+earn\s+COSHUMA\s+a\s+commission)',
                 html,
                 re.I,
             ))
@@ -121,7 +121,7 @@ def main() -> None:
         elif rel != 'affiliate-disclosure.html':
             if re.search(r'Affiliate\s+disclosure\s*:', html, re.I):
                 raise RuntimeError(f'Repeated affiliate disclosure remains in {rel}')
-            if re.search(r'COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+)?commission', html, re.I):
+            if re.search(r'COSHUMA\s+may\s+earn\s+(?:(?:an\s+affiliate|a)\s+)?commission', html, re.I):
                 raise RuntimeError(f'Repeated commission disclosure remains in {rel}')
             if 'data-affiliate-disclosure=' in html.lower():
                 raise RuntimeError(f'Repeated disclosure marker remains in {rel}')
