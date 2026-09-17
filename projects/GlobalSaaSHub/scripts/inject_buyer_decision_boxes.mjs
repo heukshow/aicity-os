@@ -147,7 +147,6 @@ for (const t of selected) {
 <dl><dt class="font-bold">Free plan</dt><dd>${esc(cfg.freePlan)}</dd><dt class="font-bold">Free trial</dt><dd>${esc(cfg.trial)}</dd></dl>
 <p>${esc(cfg.risk)}</p>
 <p class="text-sm text-slate-400">Official/public source: <a data-cta-source="buyer-box-source" href="${esc(cfg.source)}" target="_blank" rel="noopener noreferrer" class="underline">check current product or pricing details</a>. Editorial fit guidance, not a hands-on performance test.</p>
-<p data-affiliate-disclosure="buyer-box" class="text-sm text-slate-300">COSHUMA may earn a commission on qualifying purchases through this partner link, at no extra cost to you.</p>
 <div class="flex flex-wrap gap-3"><a data-cta="affiliate" data-cta-source="buyer-box-primary" data-tool-id="${t.id}" href="${esc(t.affiliate_url)}" target="_blank" rel="sponsored noopener noreferrer" class="rounded-xl bg-purple-600 px-5 py-3 font-bold">Explore ${esc(t.name)} →</a><a data-cta="official" data-cta-source="buyer-box-official" href="${esc(t.official_url)}" target="_blank" rel="noopener noreferrer" class="rounded-xl border border-slate-500 px-5 py-3">Official website</a></div>
 <p>Compare alternatives: ${alternatives}</p>
 </section>

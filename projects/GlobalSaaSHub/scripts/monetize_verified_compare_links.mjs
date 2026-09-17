@@ -9,17 +9,7 @@ const TOOLS_PATH = path.join(PROJECT_DIR, 'data', 'tools.json');
 const COMPARE_DIR = path.join(PROJECT_DIR, 'public', 'compare');
 const TOOL_DIR = path.join(PROJECT_DIR, 'public', 'tool');
 
-const DISCLOSURE =
-  '      <p data-affiliate-disclosure="compare" class="text-[11px] leading-relaxed text-slate-500">' +
-  'Affiliate disclosure: Some buttons on this comparison use verified COSHUMA partner links. ' +
-  'COSHUMA may earn a commission if you become a paying customer after using them, at no extra cost to you.' +
-  '</p>';
 
-const TOOL_DISCLOSURE =
-  '      <p data-affiliate-disclosure="tool" class="text-[11px] leading-relaxed text-slate-500">' +
-  'Affiliate disclosure: This page may use a verified COSHUMA partner link. ' +
-  'COSHUMA may earn a commission if you become a paying customer after using it, at no extra cost to you.' +
-  '</p>';
 
 const SPONSORSHIP_MAILTO =
   'mailto:support@coshuma.com?subject=COSHUMA%20%2449%20sponsorship%20inquiry&amp;' +
@@ -120,10 +110,6 @@ for (const filename of fs.readdirSync(COMPARE_DIR)) {
     );
   }
 
-  if (!updated.includes('data-affiliate-disclosure="compare"')) {
-    updated = updated.replace(/(?=\s*<\/main>)/, `${DISCLOSURE}\n`);
-  }
-
   fs.writeFileSync(filePath, updated, 'utf8');
   filesChanged += 1;
 }
@@ -188,10 +174,6 @@ for (const filename of fs.readdirSync(TOOL_DIR)) {
         /\s*<\/head>/,
         '\n    <script defer src="/affiliate-attribution.js"></script>\n  </head>'
       );
-    }
-
-    if (affiliateChangesInFile && !updated.includes('data-affiliate-disclosure="tool"')) {
-      updated = updated.replace(/(?=\s*<\/main>)/, `${TOOL_DISCLOSURE}\n`);
     }
   }
 

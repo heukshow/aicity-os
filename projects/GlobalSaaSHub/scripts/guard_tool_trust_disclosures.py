@@ -61,7 +61,7 @@ for tool_id, tool in by_id.items():
     # remains pending, so remove the generic block completely.
     if tool_id == "sendcloud":
         text = TRUST_RE.sub("", text, count=1)
-    elif not exact_tracking_verified(tool):
+    else:
         body = match.group(1)
         body = AFFILIATE_DISCLOSURE_RE.sub("", body)
         text = text[: match.start(1)] + body + text[match.end(1) :]
