@@ -102,13 +102,19 @@ def clean_buyer_hub(text: str) -> str:
         flags=re.I | re.S,
     )
 
-    # Remove common operations-only sentences that may be injected late in the
-    # build. These describe COSHUMA's attribution workflow, not a buyer benefit.
+    # Remove operations-only paragraphs even when they contain inline <strong>,
+    # <code> or <a> tags. The tempered pattern never crosses a closing </p>, so
+    # buyer-fact paragraphs next to them are preserved.
+    ops_phrase = (
+        r'customer-facing PartnerStack route|partner-side evidence|partner correspondence|'
+        r'guessing referral parameters|existing affiliate account|'
+        r"Jotform's affiliate team supplied|COSHUMA separates customer-facing tracking links"
+    )
     text = re.sub(
-        r'<p[^>]*>[^<]*(?:partner-side evidence|existing affiliate account|guessing referral parameters)[^<]*</p>',
+        rf'<p\b[^>]*>(?:(?!</p>).)*(?:{ops_phrase})(?:(?!</p>).)*</p>',
         '',
         text,
-        flags=re.I,
+        flags=re.I | re.S,
     )
     text = re.sub(
         r'\s*A (?:visit|click|signup|trial)[^.]*?(?:commission|revenue|payout)[^.]*?partner-side evidence\.',
