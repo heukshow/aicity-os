@@ -9,8 +9,6 @@ const TOOLS_PATH = path.join(PROJECT_DIR, 'data', 'tools.json');
 const COMPARE_DIR = path.join(PROJECT_DIR, 'public', 'compare');
 const TOOL_DIR = path.join(PROJECT_DIR, 'public', 'tool');
 
-
-
 const SPONSORSHIP_MAILTO =
   'mailto:support@coshuma.com?subject=COSHUMA%20%2449%20sponsorship%20inquiry&amp;' +
   'body=Product%20name%3A%0AWebsite%3A%0APlacement%20goal%3A%0A';
@@ -241,10 +239,8 @@ for (const [directory, type] of [[TOOL_DIR, 'tool'], [COMPARE_DIR, 'compare']]) 
       if (!anchor.includes('data-cta-source=')) anchor = anchor.replace('<a ', '<a data-cta-source="' + type + '-existing-affiliate-auto" ');
       return anchor;
     });
-    if (relevant && !updated.includes('/affiliate-attribution.js')) updated = updated.replace('</head>', '<script defer src="/affiliate-attribution.js"></script>\n</head>');
-    if (relevant && !updated.includes('data-affiliate-disclosure="' + type + '"')) {
-      if (/Affiliate disclosure:/i.test(updated)) updated = updated.replace(/<p([^>]*)>(\s*Affiliate disclosure:)/i, '<p data-affiliate-disclosure="' + type + '"$1>$2');
-      else updated = updated.replace('</main>', (type === 'tool' ? TOOL_DISCLOSURE : DISCLOSURE) + '\n</main>');
+    if (relevant && !updated.includes('/affiliate-attribution.js')) {
+      updated = updated.replace('</head>', '<script defer src="/affiliate-attribution.js"></script>\n</head>');
     }
     if (updated !== original) fs.writeFileSync(file, updated);
   }
