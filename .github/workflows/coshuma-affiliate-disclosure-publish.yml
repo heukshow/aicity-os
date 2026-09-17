@@ -1,0 +1,147 @@
+name: COSHUMA Affiliate Disclosure Publish Guard
+
+on:
+  workflow_run:
+    workflows: ["COSHUMA Site Build & Deploy"]
+    types: [completed]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: coshuma-affiliate-disclosure-publish
+  cancel-in-progress: true
+
+jobs:
+  disclose-and-publish:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout deployed gh-pages bundle
+        uses: actions/checkout@v5
+        with:
+          ref: gh-pages
+          fetch-depth: 1
+
+      - name: Place one clear disclosure next to affiliate CTAs
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          ROOT = Path('.')
+          POLICY_PAGE = 'affiliate-disclosure.html'
+          TEXT = 'Affiliate disclosure: COSHUMA may earn a commission if you purchase through eligible links on this page, at no extra cost to you.'
+          NOTICE = (
+              '<span data-affiliate-disclosure="page" role="note" '
+              'style="display:block;margin:0 0 12px;color:#94a3b8;font-size:12px;line-height:1.6">'
+              + TEXT +
+              ' <a href="/affiliate-disclosure.html" style="text-decoration:underline">Details</a>.'
+              '</span>'
+          )
+
+          affiliate_anchor = re.compile(
+              r'<a\b(?=[^>]*\bdata-cta=["\']affiliate["\'])[^>]*>',
+              re.I | re.S,
+          )
+          sponsored_anchor = re.compile(
+              r'<a\b(?=[^>]*\brel=["\'][^"\']*\bsponsored\b[^"\']*["\'])[^>]*>',
+              re.I | re.S,
+          )
+          old_marked = re.compile(
+              r'<(?:p|span|div|aside)\b[^>]*(?:data-affiliate-disclosure|data-site-affiliate-disclosure)=["\'][^"\']*["\'][^>]*>.*?</(?:p|span|div|aside)>',
+              re.I | re.S,
+          )
+          old_generic = re.compile(
+              r'<(?:p|span|div|aside)\b[^>]*>(?:(?!</(?:p|span|div|aside)>).)*(?:Affiliate\s+disclosure\s*:|COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+|a\s+)?commission)(?:(?!</(?:p|span|div|aside)>).)*</(?:p|span|div|aside)>',
+              re.I | re.S,
+          )
+          internal_mechanics = re.compile(
+              r'(PartnerStack|FirstPromoter|Cello|Impact\s+(?:route|tracking)|verified\s+(?:customer-facing\s+)?(?:tracking|referral)\s+(?:URL|link)|clicks?\s*[≠!=]+\s*signups?|commission\s+evidence|payout\s+evidence)',
+              re.I,
+          )
+
+          changed = 0
+          monetized = 0
+          plain = 0
+
+          for path in ROOT.rglob('*.html'):
+              rel = path.as_posix()
+              if rel == POLICY_PAGE:
+                  continue
+              html = path.read_text(encoding='utf-8')
+              before = html
+
+              # Remove old site-wide or verbose repeated notices first so every
+              # monetized page ends with one predictable, plain-language notice.
+              html = old_marked.sub('', html)
+              html = old_generic.sub('', html)
+
+              first = affiliate_anchor.search(html) or sponsored_anchor.search(html)
+              if first:
+                  monetized += 1
+                  html = html[:first.start()] + NOTICE + html[first.start():]
+              else:
+                  plain += 1
+
+              if internal_mechanics.search(NOTICE):
+                  raise RuntimeError('Standard disclosure unexpectedly contains internal affiliate mechanics')
+
+              marker_count = html.count('data-affiliate-disclosure="page"')
+              if first and marker_count != 1:
+                  raise RuntimeError(f'{rel}: monetized page must contain exactly one disclosure; found {marker_count}')
+              if not first and marker_count != 0:
+                  raise RuntimeError(f'{rel}: non-monetized page must not contain a disclosure')
+              if first:
+                  marker_pos = html.find('data-affiliate-disclosure="page"')
+                  anchor_pos = (affiliate_anchor.search(html) or sponsored_anchor.search(html)).start()
+                  if not (0 <= marker_pos < anchor_pos and anchor_pos - marker_pos < 1500):
+                      raise RuntimeError(f'{rel}: disclosure is not close enough to the first affiliate CTA')
+
+              if html != before:
+                  path.write_text(html, encoding='utf-8')
+                  changed += 1
+
+          if monetized == 0:
+              raise RuntimeError('No monetized pages detected; refusing to publish an unverified disclosure pass')
+
+          print(f'Affiliate disclosure publish guard: monetized_pages={monetized} non_monetized_pages={plain} files_changed={changed} disclosure_per_monetized_page=1')
+          PY
+
+      - name: Verify public disclosure policy
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          affiliate_anchor = re.compile(r'<a\b(?=[^>]*\bdata-cta=["\']affiliate["\'])[^>]*>|<a\b(?=[^>]*\brel=["\'][^"\']*\bsponsored\b[^"\']*["\'])[^>]*>', re.I | re.S)
+          exact = 'Affiliate disclosure: COSHUMA may earn a commission if you purchase through eligible links on this page, at no extra cost to you.'
+          checked = monetized = 0
+          for path in Path('.').rglob('*.html'):
+              if path.as_posix() == 'affiliate-disclosure.html':
+                  continue
+              html = path.read_text(encoding='utf-8')
+              checked += 1
+              has_affiliate = bool(affiliate_anchor.search(html))
+              count = html.count('data-affiliate-disclosure="page"')
+              text_count = html.count(exact)
+              if has_affiliate:
+                  monetized += 1
+                  if count != 1 or text_count != 1:
+                      raise RuntimeError(f'{path}: expected exactly one clear affiliate disclosure')
+              elif count or text_count:
+                  raise RuntimeError(f'{path}: disclosure present without an affiliate CTA')
+          print(f'PASS disclosure verification: checked={checked} monetized={monetized} each_monetized_page=1 each_non_monetized_page=0')
+          PY
+
+      - name: Commit disclosure-compliant production bundle
+        run: |
+          if git diff --quiet; then
+            echo 'Disclosure-compliant bundle already current.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --all
+          git commit -m 'deploy: add clear affiliate disclosures near monetized links'
+          git push origin HEAD:gh-pages
