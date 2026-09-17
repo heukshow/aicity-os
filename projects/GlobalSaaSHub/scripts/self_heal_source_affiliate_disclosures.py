@@ -75,11 +75,28 @@ def prohibited(html: str) -> bool:
     )
 
 
+def regression_snippets(html: str) -> list[str]:
+    snippets = []
+    patterns = [
+        r'<p\b[^>]*>(?:(?!</p>).)*(?:Affiliate\s+disclosure\s*:|COSHUMA\s+may\s+earn\s+(?:(?:an\s+affiliate|a)\s+)?commission|may\s+earn\s+COSHUMA\s+a\s+commission)(?:(?!</p>).)*</p>',
+        r'<(?:div|section|aside)\b[^>]*>\s*(?:<strong\b[^>]*>)?\s*Affiliate\s+disclosure\s*:.*?</(?:div|section|aside)>',
+        r'[^<]{0,120}Affiliate\s+disclosure\s*:[^<]{0,280}',
+        r'[^<]{0,120}COSHUMA\s+may\s+earn\s+(?:(?:an\s+affiliate|a)\s+)?commission[^<]{0,280}',
+    ]
+    for pattern in patterns:
+        for match in re.finditer(pattern, html, re.I | re.S):
+            snippet = re.sub(r'\s+', ' ', match.group(0)).strip()
+            if snippet not in snippets:
+                snippets.append(snippet[:700])
+    return snippets[:8]
+
+
 def main() -> None:
     targets = [ROOT / 'index.html', *PUBLIC.rglob('*.html')]
     changed = 0
     checked = 0
     repaired = []
+    diagnostics = []
 
     for path in targets:
         if path.name == 'affiliate-disclosure.html':
@@ -88,9 +105,11 @@ def main() -> None:
         before = path.read_text(encoding='utf-8')
         after = normalize_home(before) if path == ROOT / 'index.html' else strip_general_notice(before)
         if after != before:
+            rel = path.relative_to(ROOT).as_posix()
+            diagnostics.append((rel, regression_snippets(before)))
             path.write_text(after, encoding='utf-8')
             changed += 1
-            repaired.append(path.relative_to(ROOT).as_posix())
+            repaired.append(rel)
         if prohibited(after):
             raise RuntimeError(f'Unable to self-heal repeated affiliate disclosure in {path.relative_to(ROOT)}')
 
@@ -100,6 +119,10 @@ def main() -> None:
     )
     if repaired:
         print('Repaired source pages:', ', '.join(repaired[:20]) + (' ...' if len(repaired) > 20 else ''))
+        for rel, snippets in diagnostics:
+            print(f'DISCLOSURE_REGRESSION_FILE: {rel}')
+            for snippet in snippets:
+                print(f'DISCLOSURE_REGRESSION_SNIPPET: {snippet}')
         raise RuntimeError(
             'Page-level affiliate disclosure generation regressed: normal steady state must be changed=0'
         )
