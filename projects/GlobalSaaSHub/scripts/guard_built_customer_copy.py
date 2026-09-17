@@ -1,15 +1,38 @@
-"""Sanitize the built Vite output after config-time generators have finished.
-
-Vite imports project config modules during the build, and some of those modules
-write public buyer pages. That means a source-only cleanup can be reintroduced
-during `vite build`. This pass runs against `dist/` immediately before public-copy
-tests and deployment.
-"""
+"""Sanitize built Vite output after config-time generators have finished."""
 from pathlib import Path
+import re
 from guard_customer_only_copy import clean_html, clean_public_js, clean_llms
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
+
+POST_EXACT = {
+    "including pricing, discounts, trials, comparisons and current offer.": "including pricing, discounts, trials, comparisons and current offers.",
+    "pricing, free plans, trials, buyer fit and current offer before choosing a product.": "pricing, free plans, trials, buyer fit and current offers before choosing a product.",
+    "COSHUMA separates editorial comparisons from partner links and labels monetized CTAs inside each guide.": "COSHUMA focuses on pricing, trials, discounts and practical product fit so you can compare options more quickly.",
+    "Compare current free limits, paid entry prices and usage models, then start Make through COSHUMA's current offer only if it fits your workflow.": "Compare current free limits, paid entry prices and usage models, then check the current Make offer only if it fits your workflow.",
+    "Checkout-focused guide for the verified COSHUMA partner offer and current Pictory plans.": "Checkout-focused guide for the current Pictory offer and current plans.",
+    "COSHUMA focuses on pricing, free access, buyer fit and current offer without treating clicks as revenue.": "COSHUMA focuses on pricing, free access, buyer fit and practical product differences.",
+    "Entry pricing, 14-day trials, traffic limits, A/B testing and agency fit—plus COSHUMA's verified Unbounce partner offer.": "Entry pricing, 14-day trials, traffic limits, A/B testing, agency fit and the current Unbounce discount.",
+    "A current offer is kept separate from editorial product fit, and publication or test clicks are not treated as signups, customers or revenue.": "Use the comparison to narrow your shortlist, then confirm current pricing and terms on the vendor's site before purchasing.",
+    "Unbounce Pricing 2026: Monthly vs Annual + Partner Discount": "Unbounce Pricing 2026: Monthly vs Annual + Discount",
+    "COSHUMA's verified 20%/35% customer offer": "the current 20%/35% offer",
+}
+
+POST_PATTERNS = (
+    (re.compile(r"\bverified\s+COSHUMA\s+partner\s+offer\b", re.I), "current offer"),
+    (re.compile(r"\bverified\s+[A-Za-z0-9 ._-]{1,40}\s+partner\s+route\b", re.I), "current offer"),
+    (re.compile(r"\bvendor-confirmed\s+(?:[0-9]+-day\s+)?partner\s+route\b", re.I), "current offer"),
+    (re.compile(r"\bCOSHUMA's\s+verified\s+[A-Za-z0-9 ._/%-]{1,50}\s+(?:partner\s+)?(?:route|offer|link)\b", re.I), "the current offer"),
+)
+
+
+def final_polish(text: str) -> str:
+    for old, new in POST_EXACT.items():
+        text = text.replace(old, new)
+    for pattern, replacement in POST_PATTERNS:
+        text = pattern.sub(replacement, text)
+    return text
 
 
 def main() -> None:
@@ -19,7 +42,7 @@ def main() -> None:
     changed = []
     for path in DIST.rglob("*.html"):
         before = path.read_text(encoding="utf-8")
-        after = clean_html(before)
+        after = final_polish(clean_html(before))
         if after != before:
             path.write_text(after, encoding="utf-8")
             changed.append(path.relative_to(DIST).as_posix())
