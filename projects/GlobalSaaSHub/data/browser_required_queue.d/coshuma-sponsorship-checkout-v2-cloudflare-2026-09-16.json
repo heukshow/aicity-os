@@ -3,18 +3,31 @@
   "status": "blocked_requires_authenticated_cloudflare_deploy",
   "priority": "revenue_critical",
   "task": "Safely stage COSHUMA sponsorship checkout v2 without opening payments early.",
+  "latest_verification": {
+    "date": "2026-09-17",
+    "branch_head": "da1ad32538fa22d100da81ee39c44fa730169dff",
+    "main_head_at_sync": "fb5d43a12496ef350b0eebcf2c484cd67bb9ee4a",
+    "sync_pr": 617,
+    "verification_pr": 618,
+    "worker_revenue_safety_run": 35201223840,
+    "worker_revenue_safety": "success",
+    "pr_build_check_run": 35201223711,
+    "pr_build_check": "success",
+    "live_readiness_run": 35201223639,
+    "live_readiness": "blocked_expected_legacy_worker"
+  },
   "verified_before_browser": [
-    "branch reconciled with latest main",
-    "Worker Revenue Safety CI passed on the latest verification head",
+    "branch reconciled with latest main and was 0 commits behind at verification",
+    "Worker Revenue Safety passed Worker tests and wrangler deploy --dry-run on the latest verification head",
     "local D1 migrations 0001-0004 applied successfully in an isolated migration check database",
-    "wrangler deploy --dry-run succeeded with CHECKOUT_ENABLED=false",
     "COSHUMA PR Build Check passed build, SEO, links, tracking and public bundle safety",
     "frontend maintenance remains enabled",
     "sponsored inventory runtime remains disabled",
+    "public sponsorship policy still states checkout is temporarily unavailable",
     "live readiness gate reached the production Worker and confirmed it is still the legacy/incompatible revision because /health does not expose checkoutConfigured"
   ],
   "blocking_evidence": {
-    "source": "COSHUMA Sponsorship v2 Live Readiness",
+    "source": "COSHUMA Sponsorship v2 Live Readiness run 35201223639",
     "latest_failure": "Production Worker /health returned ok=true but no checkoutConfigured field; compatible sponsorship-v2 Worker has not been deployed yet.",
     "safety_effect": "Checkout remains closed and no payment creation test proceeds past the health safety gate."
   },
