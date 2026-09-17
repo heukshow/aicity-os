@@ -26,6 +26,16 @@ function sanitizeClaap(html) {
     '',
   );
 
+  // The customer-only guard already inserts one standard disclosure when an
+  // affiliate CTA exists. Remove Claap's old manual disclosure so customers do
+  // not see the same legal notice twice.
+  if (html.includes('data-affiliate-disclosure=')) {
+    html = html.replace(
+      /\s*<p class="text-\[11px\] text-slate-500 leading-relaxed"><strong class="text-slate-300">Affiliate disclosure:<\/strong> COSHUMA may earn a commission from eligible purchases through links on this page, at no extra cost to you\. This does not affect our editorial assessment\.<\/p>/gi,
+      '',
+    );
+  }
+
   return html;
 }
 
@@ -61,4 +71,4 @@ if (fs.existsSync(HUB)) {
   fs.writeFileSync(HUB, after);
 }
 
-console.log('claap-final-public-copy-v1');
+console.log('claap-final-public-copy-v2');
