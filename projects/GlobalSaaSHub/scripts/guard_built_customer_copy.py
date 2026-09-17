@@ -50,6 +50,7 @@ POST_PATTERNS = (
     (re.compile(r"\bverified\s+(?:Dub|Impact|PartnerStack|Cello)\s+(?:partner[- ]?)?route\b", re.I), "current offer"),
     (re.compile(r"\bvendor-confirmed\s+(?:[0-9]+-day\s+)?partner\s+route\b", re.I), "current offer"),
     (re.compile(r"\bCOSHUMA's\s+verified\s+[A-Za-z0-9 ._/%-]{1,50}\s+(?:partner\s+)?(?:route|offer|link)\b", re.I), "the current offer"),
+    (re.compile(r"\bCOSHUMA's\s+[A-Za-z0-9 ._-]{1,40}\s+PartnerStack\s+route\b", re.I), "the current offer"),
     (re.compile(r"\bverified\s+(?:customer-facing\s+)?referral\s+(?:route|link)\b", re.I), "current offer"),
     (re.compile(r"\b(?:exact\s+)?verified\s+customer-facing\s+(?:tracking|referral)\s+URL\s*:\s*[^<\n]+", re.I), ""),
     (re.compile(r"\bverified\s+customer-facing\s+(?:tracking|referral)\s+URL\b", re.I), "current offer link"),
@@ -84,6 +85,10 @@ AFFILIATE_DISCLOSURE_DATA = re.compile(
     r'<p\b[^>]*\bdata-affiliate-disclosure\s*=\s*["\'][^"\']*["\'][^>]*>.*?</p>',
     re.I | re.S,
 )
+AFFILIATE_DISCLOSURE_ATTR = re.compile(
+    r'\s+data-affiliate-disclosure\s*=\s*["\'][^"\']*["\']',
+    re.I,
+)
 AFFILIATE_DISCLOSURE_PARAGRAPH = re.compile(
     r'<p\b[^>]*>(?:(?!</p>).)*(?:Affiliate\s+disclosure\s*:|COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+)?commission)(?:(?!</p>).)*</p>',
     re.I | re.S,
@@ -111,6 +116,10 @@ def final_polish(text: str) -> str:
 def strip_general_affiliate_disclosures(text: str) -> str:
     text = AFFILIATE_DISCLOSURE_DATA.sub("", text)
     text = AFFILIATE_DISCLOSURE_PARAGRAPH.sub("", text)
+    # Some older buyer sections used this attribute on the entire offer card rather
+    # than on a disclosure paragraph. Keep the useful buyer content, drop only the
+    # obsolete disclosure marker.
+    text = AFFILIATE_DISCLOSURE_ATTR.sub("", text)
     return text
 
 
