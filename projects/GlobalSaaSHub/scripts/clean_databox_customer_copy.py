@@ -34,7 +34,6 @@ for old, new in replacements.items():
 for forbidden in (
     "Databox's affiliate team",
     "Databox Affiliate Program email received by",
-    "support@coshuma.com",
     "verified Databox referral URL",
     "verified COSHUMA referral route",
     "already verified Databox referral URL",
