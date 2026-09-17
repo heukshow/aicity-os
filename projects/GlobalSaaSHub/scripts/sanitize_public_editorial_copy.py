@@ -2,7 +2,7 @@
 
 Runs after the existing customer-only guards and immediately before Vite.
 It removes internal affiliate/network/workflow language from public category,
-methodology, buyer-hub and llms.txt copy without touching outbound URLs,
+methodology, buyer-hub and selected buyer-page copy without touching outbound URLs,
 attribution attributes, required disclosure files, prices, trial terms or product facts.
 """
 from pathlib import Path
@@ -41,6 +41,19 @@ BUYER_HUB_META = (
     "tools before you pay. Check current terms, trial lengths and plan details."
 )
 
+JOTFORM_PATHS = (
+    PUBLIC / 'tool' / 'jotform.html',
+    PUBLIC / 'best' / 'jotform-pricing-free-plan.html',
+)
+
+JOTFORM_REPLACEMENTS = {
+    "plus a verified Jotform AI Agents partner path for customer-support automation.":
+        "plus Jotform AI Agents for customer-support automation.",
+    "Revenue-ready partner path": "AI support use case",
+    "See limits, buyer fit and verified Jotform partner paths.":
+        "See limits, buyer fit and current Jotform options for forms and AI Agents.",
+}
+
 
 def clean_html(text: str) -> str:
     for old, new in EXACT_HTML.items():
@@ -51,6 +64,13 @@ def clean_html(text: str) -> str:
     text = text.replace('>4. Update dates</h2>', '>3. Update dates</h2>')
     text = text.replace('>5. Ratings and claims</h2>', '>4. Ratings and claims</h2>')
     text = text.replace('>6. Corrections</h2>', '>5. Corrections</h2>')
+    return text
+
+
+def clean_jotform(text: str) -> str:
+    """Keep Jotform buyer pages focused on buyer decisions, not COSHUMA operations."""
+    for old, new in JOTFORM_REPLACEMENTS.items():
+        text = text.replace(old, new)
     return text
 
 
@@ -175,7 +195,7 @@ def clean_llms(text: str) -> str:
     return "\n".join(cleaned) + ("\n" if text.endswith("\n") else "")
 
 
-def assert_customer_only(methodology: str, categories: list[str], llms: str, buyer_hub: str) -> None:
+def assert_customer_only(methodology: str, categories: list[str], llms: str, buyer_hub: str, jotform_pages: list[str]) -> None:
     public_editorial = " ".join([methodology, *categories])
     forbidden_html = re.compile(
         r'Affiliate-link separation|affiliate tracking|affiliate verification dates|'
@@ -197,12 +217,18 @@ def assert_customer_only(methodology: str, categories: list[str], llms: str, buy
         r"Jotform's affiliate team supplied|COSHUMA separates customer-facing tracking links",
         re.I,
     )
+    forbidden_jotform = re.compile(
+        r'verified Jotform (?:AI Agents )?partner path|Revenue-ready partner path|verified Jotform partner paths',
+        re.I,
+    )
     if forbidden_html.search(public_editorial):
         raise RuntimeError('Internal affiliate/workflow copy remains in public editorial HTML')
     if forbidden_llms.search(llms):
         raise RuntimeError('Internal affiliate/network/status copy remains in public llms.txt')
     if forbidden_hub.search(buyer_hub):
         raise RuntimeError('Internal affiliate/network workflow copy remains in public buyer hub')
+    if forbidden_jotform.search(' '.join(jotform_pages)):
+        raise RuntimeError('Internal affiliate/partner copy remains in public Jotform buyer pages')
 
 
 def main() -> None:
@@ -227,6 +253,15 @@ def main() -> None:
             buyer_hub_path.write_text(after, encoding='utf-8')
             changed.append(buyer_hub_path.relative_to(ROOT).as_posix())
 
+    for path in JOTFORM_PATHS:
+        if not path.exists():
+            continue
+        before = path.read_text(encoding='utf-8')
+        after = clean_jotform(before)
+        if after != before:
+            path.write_text(after, encoding='utf-8')
+            changed.append(path.relative_to(ROOT).as_posix())
+
     llms_path = PUBLIC / 'llms.txt'
     if llms_path.exists():
         before = llms_path.read_text(encoding='utf-8')
@@ -238,8 +273,9 @@ def main() -> None:
     methodology = methodology_path.read_text(encoding='utf-8') if methodology_path.exists() else ''
     categories = [p.read_text(encoding='utf-8') for p in category_paths]
     buyer_hub = buyer_hub_path.read_text(encoding='utf-8') if buyer_hub_path.exists() else ''
+    jotform_pages = [p.read_text(encoding='utf-8') for p in JOTFORM_PATHS if p.exists()]
     llms = llms_path.read_text(encoding='utf-8') if llms_path.exists() else ''
-    assert_customer_only(methodology, categories, llms, buyer_hub)
+    assert_customer_only(methodology, categories, llms, buyer_hub, jotform_pages)
     print(f'Editorial customer-only copy: {len(changed)} files normalized')
 
 
