@@ -38,6 +38,14 @@ BAD=re.compile(
     r'no Pipedrive revenue attribution is claimed',
     re.I,
 )
+LLMS_BAD=re.compile(
+    r'PartnerStack|Cello referral route|Impact (?:partner-)?route|Dub partner route|'
+    r'\b(?:affiliate|partner|referral)-status\b|'
+    r'verified partner route|verified affiliate route|verified customer referral route|'
+    r'non-affiliate|signup, sale, commission or revenue event|'
+    r'How COSHUMA verifies public sources, affiliate links',
+    re.I,
+)
 def violations(html):
     p=Page();p.feed(html)
     return BAD.findall(' '.join(p.parts+p.metadata))
@@ -61,6 +69,10 @@ def main():
         if bad:errors.append(f'{path}: {sorted(set(bad))}')
         if re.search(r'\bText Cortex\b', html):errors.append(f'{path}: inconsistent TextCortex brand')
         if re.search(r'<h([1-6])\b[^>]*>\s*</h\1>',html):errors.append(f'{path}: empty heading')
+    llms_path=root/'llms.txt'
+    assert llms_path.exists(), 'Missing dist/llms.txt'
+    llms=llms_path.read_text(encoding='utf-8')
+    assert not LLMS_BAD.search(llms), 'Internal affiliate/network/status copy remains in dist/llms.txt'
     explanation=(root/'compare/kit-vs-convertkit.html').read_text(encoding='utf-8')
     assert 'same email marketing platform' in explanation
     assert 'href="https://coshuma.com/tool/kit.html"' in explanation
@@ -69,6 +81,6 @@ def main():
     assert 'Top Alternatives to Nudgera' not in (root/'tool/nudgera.html').read_text(encoding='utf-8')
     assert not errors, '\n'.join(errors)
     security_main()
-    print(f'PASS: {len(files)} built HTML files; legacy brand=0, broken rating copy=0, internal-state copy=0, internal-affiliate-copy=0, empty headings=0, security guard=pass')
+    print(f'PASS: {len(files)} built HTML files; legacy brand=0, broken rating copy=0, internal-state copy=0, internal-affiliate-copy=0, llms-internal-copy=0, empty headings=0, security guard=pass')
 
 if __name__=='__main__':main()
