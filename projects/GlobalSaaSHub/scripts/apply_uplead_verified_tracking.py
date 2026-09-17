@@ -64,10 +64,6 @@ table_new = f'<a data-cta="affiliate" data-tool-id="uplead" data-cta-source="bes
 if table_old in html:
     html = html.replace(table_old, table_new, 1)
 
-disclosure_old = 'COSHUMA may earn a commission if you use the Bookyourdata partner link on this page, at no extra cost to you. That relationship does not guarantee a positive recommendation or affect the other providers\' placement.'
-disclosure_new = 'COSHUMA may earn a commission if you use the Bookyourdata or UpLead partner links on this page, at no extra cost to you. Those relationships do not guarantee a positive recommendation or affect the providers\' placement.'
-if disclosure_old in html:
-    html = html.replace(disclosure_old, disclosure_new, 1)
 
 required = [
     TRIAL_TRACKING_URL,
@@ -77,7 +73,6 @@ required = [
     'best_b2b_email_list_providers_top_uplead',
     'best_b2b_email_list_providers_uplead',
     'best_b2b_email_list_providers_table_uplead',
-    'Bookyourdata or UpLead partner links',
     'Start 7-Day UpLead Trial — 5 Credits',
     'payment details are required',
 ]
@@ -103,10 +98,6 @@ trial = trial.replace(
 trial = trial.replace(
     '<a href="https://www.uplead.com/pricing/" target="_blank" rel="noopener noreferrer" class="flex-1 rounded-xl border border-white/10 bg-white/[0.03] px-6 py-4 text-center text-sm font-bold text-slate-200 hover:bg-white/[0.06]">Check official pricing →</a>',
     f'<a data-cta="affiliate" data-tool-id="uplead" data-cta-source="uplead_pricing_hero" href="{PRICING_TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="flex-1 rounded-xl border border-white/10 bg-white/[0.03] px-6 py-4 text-center text-sm font-bold text-slate-200 hover:bg-white/[0.06]">Check UpLead pricing →</a>',
-)
-trial = trial.replace(
-    'Affiliate disclosure: the green button uses the exact customer referral URL UpLead issued to COSHUMA.',
-    'Affiliate disclosure: the trial and pricing buttons use the exact customer tracking URLs UpLead issued to COSHUMA.',
 )
 trial = trial.replace(
     "and UpLead's vendor-issued welcome email to COSHUMA for the exact referral URL. The dashboard/login URL is not used as a customer CTA.",
@@ -155,7 +146,6 @@ deals_required = [
     TRIAL_TRACKING_URL,
     PRICING_TRACKING_URL,
     ATTRIBUTION_SCRIPT,
-    'Affiliate disclosure',
 ]
 deals_missing = [item for item in deals_required if item not in deals]
 if deals_missing:

@@ -194,17 +194,6 @@ def patch_claap_page(evidence: dict) -> None:
     new_bottom = f'<a data-cta="affiliate" data-tool-id="claap" data-cta-source="claap_partnerstack_verified" href="{primary}" target="_blank" rel="sponsored noopener noreferrer" class="inline-flex px-7 py-4 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:brightness-110">Try Claap with referral discount →</a>'
     html = html.replace(old_bottom, new_bottom)
 
-    if "Affiliate disclosure:" not in html:
-        disclosure = '<p class="text-[11px] text-slate-500 leading-relaxed"><strong class="text-slate-300">Affiliate disclosure:</strong> COSHUMA may earn a commission if you purchase through a verified Claap affiliate link, at no extra cost to you. This does not affect our editorial assessment.</p>'
-        anchor = '<p class="text-[11px] text-slate-500 leading-relaxed">Affiliate status:'
-        pos = html.find(anchor)
-        if pos != -1:
-            end = html.find('</p>', pos)
-            if end != -1:
-                end += 4
-                html = html[:end] + "\n    " + disclosure + html[end:]
-        else:
-            html = html.replace('</main>', f'  {disclosure}\n</main>', 1)
 
     marker = "<!-- claap-partner-feedback-v6 -->"
     html = html.replace(marker, "<!-- claap-partner-feedback-v6 --><!-- claap-approved-tracking-v2 -->")
@@ -233,8 +222,8 @@ def validate(evidence: dict) -> None:
         raise RuntimeError("Claap verified tracking CTA was not activated")
     if 'data-cta="affiliate" data-tool-id="claap" href="https://www.claap.io/' in page:
         raise RuntimeError("Generic Claap official URL was incorrectly marked as affiliate")
-    if "Affiliate disclosure:" not in page:
-        raise RuntimeError("Claap affiliate disclosure is missing")
+    if "Affiliate disclosure:" in page or 'data-affiliate-disclosure=' in page:
+        raise RuntimeError("Claap page-level affiliate disclosure must not be regenerated")
     if "Claap referral discount:" not in page or "30% off the first 2 months" not in page or "10% off the first year" not in page:
         raise RuntimeError("Claap referral discount buyer-benefit note is missing")
 

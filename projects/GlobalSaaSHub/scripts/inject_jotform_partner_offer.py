@@ -36,8 +36,7 @@ def patch_tool_page():
         replacement = f'''<div class="flex flex-col sm:flex-row gap-3">
             <a data-cta="affiliate" href="{AI_AGENTS_URL}" target="_blank" rel="sponsored noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-purple-600 text-white text-center border border-purple-500 hover:bg-purple-500 transition-all flex items-center justify-center gap-2"><span>Try Jotform AI Agents</span><span>→</span></a>
             {match.group("anchor")}
-          </div>
-          <p data-affiliate-disclosure="jotform-ai" class="mt-3 text-[11px] leading-relaxed text-slate-400">Affiliate disclosure: COSHUMA may earn a commission if you sign up through the Jotform AI Agents link. The standard Jotform site button remains a non-affiliate official link.</p>'''
+          </div>'''
         html = html[: match.start()] + replacement + html[match.end() :]
 
     # Ayşe Dinçer, Jotform Team Lead / Affiliate Manager, directly supplied the
@@ -66,15 +65,6 @@ def patch_tool_page():
     )
     html, bottom_pricing_count = bottom_pricing_pattern.subn(bottom_pricing_replacement, html, count=1)
 
-    old_disclosure = (
-        "Affiliate disclosure: the Jotform AI Agents button uses a customer-facing partner link supplied in COSHUMA's Jotform affiliate onboarding. "
-        "COSHUMA may earn a commission from qualifying referrals. The pricing button is a non-affiliate official Jotform link."
-    )
-    new_disclosure = (
-        "Affiliate disclosure: the AI Agents and pricing buttons use customer-facing Jotform partner routes directly confirmed for COSHUMA. "
-        "COSHUMA may earn a commission from qualifying referrals at no extra cost to you."
-    )
-    html = html.replace(old_disclosure, new_disclosure)
 
     if LEGACY_AFFILIATE_URL in html:
         raise SystemExit("Legacy Jotform onboarding redirect remained on the tool page")
@@ -115,15 +105,6 @@ def patch_unbounce_comparison():
     if hero_count == 0 and 'data-cta-source="compare-unbounce-jotform-hero-jotform"' not in html:
         raise SystemExit("Could not locate the Jotform hero CTA on Unbounce vs Jotform; refusing to guess")
 
-    old_disclosure = (
-        "Affiliate disclosure: COSHUMA may earn a commission if an eligible Unbounce purchase is attributed "
-        "through the partner link, at no extra cost to you."
-    )
-    new_disclosure = (
-        "Affiliate disclosure: COSHUMA may earn a commission if an eligible Unbounce or Jotform signup/purchase "
-        "is attributed through the partner links, at no extra cost to you."
-    )
-    html = html.replace(old_disclosure, new_disclosure)
 
     bottom_source = 'data-cta-source="compare-unbounce-jotform-bottom-jotform"'
     if bottom_source not in html:
@@ -180,15 +161,6 @@ def patch_pricing_guide():
     if count == 0 and PRICING_AFFILIATE_URL not in html:
         raise SystemExit("Could not locate the Jotform pricing-guide CTA; refusing to guess")
 
-    old_disclosure = (
-        "Affiliate disclosure: the AI Agents button uses COSHUMA's verified customer-facing Jotform partner path. "
-        "COSHUMA may earn a commission from qualifying referrals. The normal pricing button is an official non-affiliate link."
-    )
-    new_disclosure = (
-        "Affiliate disclosure: both buttons use customer-facing Jotform partner routes that Jotform directly confirmed for COSHUMA. "
-        "COSHUMA may earn a commission from qualifying referrals at no extra cost to you."
-    )
-    html = html.replace(old_disclosure, new_disclosure)
     html = html.replace('"dateModified":"2026-09-09"', '"dateModified":"2026-09-10"')
     html = html.replace('Pricing buyer guide · updated September 9, 2026', 'Pricing buyer guide · updated September 10, 2026')
     html = html.replace('shown on Jotform\'s official pricing page on September 9, 2026', 'shown on Jotform\'s official pricing page on September 10, 2026')
