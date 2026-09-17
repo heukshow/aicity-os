@@ -1,5 +1,5 @@
 {
-  "generated_at_kst": "2026-09-18T05:11:00+09:00",
+  "generated_at_kst": "2026-09-18T05:20:00+09:00",
   "purpose": "Prevent duplicate revenue-metrics outreach while COSHUMA reconciles approved tracked affiliate routes.",
   "policy": {
     "do_not_reapply": true,
@@ -18,6 +18,8 @@
     {"tool_id":"customgpt-ai","vendor":"CustomGPT.ai","status":"sent_waiting_reply","gmail_message_id":"1a0b1019f2727710","recipient":"affiliate@customgpt.ai"},
     {"tool_id":"cartstack","vendor":"CartStack","status":"sent_waiting_reply","gmail_message_id":"1a0b101b08e23e5f","recipient":"referrals@cartstack.com"},
     {"tool_id":"databox","vendor":"Databox","status":"sent_waiting_reply","gmail_message_id":"1a0b101d9818c020","recipient":"help@databox.com"},
+    {"tool_id":"kittl","vendor":"Kittl","status":"sent_waiting_reply","gmail_message_id":"1a0b10820b50b3b9","recipient":"marketing@kittl.com","mailbox":"qmfforfhem@gmail.com","note":"Existing Kittl Impact approval thread reused; metrics only, no tracking-link change request."},
+    {"tool_id":"voibe","vendor":"Voibe / Lemon Squeezy","status":"sent_waiting_reply","gmail_message_id":"1a0b10850fb0cc83","recipient":"hello@lemonsqueezy.com","mailbox":"qmfforfhem@gmail.com","note":"Existing Lemon Squeezy affiliate approval thread reused; requested Voibe program totals only."},
     {"tool_id":"make-com","vendor":"Make.com","status":"blocked_no_email_channel","gmail_message_id":"1a0b101ee5191bac","recipient":"info@make.com","failure_message_id":"1a0b10211d4c562b","note":"Make Cares replied that the address does not accept messages or create tickets. Do not retry the same address; use an authenticated vendor support/affiliate channel if one becomes available."}
   ]
 }
