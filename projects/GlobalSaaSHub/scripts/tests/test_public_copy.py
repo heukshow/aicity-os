@@ -21,7 +21,7 @@ class Page(HTMLParser):
         if not self.hidden:self.parts.append(data)
 
 BAD=re.compile(
-    r'GlobalSaaSHub|'
+    r'GlobalSaaSHub|Global AI SaaS Decision Platform|'
     r'You prioritize\s+(?:Not rated|Review pending)|'
     r'pricing structure and\s+(?:Not rated|Review pending)|'
     r'affiliate_verified|affiliate_status|tools\.next\.json|\brepository\b|tracking_pending|pending_review|'
@@ -68,6 +68,7 @@ def violations(html):
 def main():
     assert violations('<p>You prioritize <b>Not rated</b></p>')
     assert violations('<meta name="description" content="GlobalSaaSHub">')
+    assert violations('<footer>Global AI SaaS Decision Platform</footer>')
     assert violations('<p>Affiliate link verified in our records · disclosure applies</p>')
     assert violations('<p>Recently verified partner buyer guides</p>')
     assert violations('<p>Pricing and affiliate-status buyer guide</p>')
@@ -120,10 +121,3 @@ def main():
     print(f'PASS: {len(files)} built HTML files; legacy brand=0, broken rating copy=0, internal-state copy=0, internal-affiliate-copy=0, llms-internal-copy=0, empty headings=0, security guard=pass')
 
 if __name__=='__main__':main()
-
-
-# Legacy customer-facing brand copy must never return.
-for _page in dist.rglob("*.html"):
-    _html = _page.read_text(encoding="utf-8")
-    assert "Global AI SaaS Decision Platform" not in _html, f"legacy Global SaaS copy in {_page}"
-    assert "GlobalSaaSHub" not in _html, f"legacy GlobalSaaSHub brand in {_page}"
