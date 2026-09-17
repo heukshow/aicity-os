@@ -12,25 +12,15 @@ if not PAGE.exists():
 html = PAGE.read_text(encoding="utf-8")
 
 # Idempotence + safety: if the block already exists, only accept the exact
-# vendor-issued Cello/Tally customer route. Never rewrite it to a guessed URL.
+# vendor-issued customer URL. Never rewrite it to a guessed URL.
 if MARKER in html:
     if REFERRAL_URL not in html:
         raise SystemExit("Tally referral block exists but exact verified URL is missing")
-    print("Tally verified referral offer already surfaced")
+    print("Tally customer offer already surfaced")
 else:
-    old_meta = (
-        "Compare verified SaaS free trials and partner offers from Gamma, Time2book, "
-        "UpLead, Jotform, Unbounce, Pictory, Brand24 and Bookyourdata. COSHUMA separates "
-        "customer-facing tracking links from product claims."
-    )
-    new_meta = (
-        "Compare verified SaaS free trials and partner offers from Gamma, Time2book, "
-        "UpLead, Jotform, Unbounce, Pictory, Brand24, Bookyourdata and Tally. COSHUMA "
-        "separates customer-facing tracking links from product claims."
-    )
-    if old_meta not in html:
-        raise SystemExit("Buyer-hub meta description changed; refusing blind patch")
-    html = html.replace(old_meta, new_meta, 1)
+    # Do not couple this revenue patch to buyer-facing meta wording. Public copy
+    # is intentionally normalized by guard_public_copy.py before this script runs.
+    # The Tally card is additive and its exact outbound URL is guarded below.
 
     item8 = (
         '      {"@type":"ListItem","position":8,"name":"Brand24",'
@@ -54,28 +44,27 @@ else:
     if closing not in html:
         raise SystemExit("Buyer-hub final grid boundary changed; refusing blind patch")
 
-    card = f'''      {MARKER}\n      <article class="rounded-3xl border border-sky-400/25 bg-[#11131a] p-7 space-y-5">\n        <div class="flex items-start justify-between gap-4"><div><div class="text-xs font-black uppercase tracking-wider text-sky-300">Forms & surveys</div><h2 class="mt-1 text-3xl font-black text-white">Tally</h2></div><span class="rounded-full bg-sky-400/10 px-3 py-1 text-xs font-bold text-sky-200">Verified referral benefit</span></div>\n        <p class="text-sm leading-6 text-slate-300">Tally's current referral program says new users who sign up through a referral link and later become paying customers receive <strong class="text-white">50% off their subscription for 3 months</strong>. This is a referral benefit, not a public sale. COSHUMA uses only the exact personal invite URL issued through Tally's Cello-powered referral system.</p>\n        <div class="grid gap-3 sm:grid-cols-2"><a data-cta="affiliate" data-tool-id="tally" data-cta-source="verified-deals-tally-referral" data-cta-page="verified-software-free-trials-deals" href="{REFERRAL_URL}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="rounded-xl bg-sky-600 px-5 py-3.5 text-center text-sm font-black text-white hover:bg-sky-500">Start Tally via verified referral →</a><a href="/tool/tally.html" class="rounded-xl border border-white/10 px-5 py-3.5 text-center text-sm font-bold text-slate-200 hover:bg-white/5">Read Tally guide</a></div>\n        <p class="text-[11px] leading-5 text-slate-500">Tally prohibits self-referrals and paid ads using the referral link. COSHUMA may earn 20% of eligible subscription payments, up to $150 per referred paid user. A link view is not treated as a signup, paid customer, commission or revenue event.</p>\n      </article>\n'''
+    card = f'''      {MARKER}\n      <article class="rounded-3xl border border-sky-400/25 bg-[#11131a] p-7 space-y-5">\n        <div class="flex items-start justify-between gap-4"><div><div class="text-xs font-black uppercase tracking-wider text-sky-300">Forms & surveys</div><h2 class="mt-1 text-3xl font-black text-white">Tally</h2></div><span class="rounded-full bg-sky-400/10 px-3 py-1 text-xs font-bold text-sky-200">50% referral benefit</span></div>\n        <p class="text-sm leading-6 text-slate-300">Eligible new users who sign up through this Tally invitation and later become paying customers can receive <strong class="text-white">50% off their subscription for 3 months</strong>. This is a referral benefit, not a public sale. Confirm the final discount and billing terms on Tally before paying.</p>\n        <div class="grid gap-3 sm:grid-cols-2"><a data-cta="affiliate" data-tool-id="tally" data-cta-source="verified-deals-tally-referral" data-cta-page="verified-software-free-trials-deals" href="{REFERRAL_URL}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="rounded-xl bg-sky-600 px-5 py-3.5 text-center text-sm font-black text-white hover:bg-sky-500">Start Tally with referral benefit →</a><a href="/tool/tally.html" class="rounded-xl border border-white/10 px-5 py-3.5 text-center text-sm font-bold text-slate-200 hover:bg-white/5">Read Tally guide</a></div>\n        <p data-affiliate-disclosure="tally" class="text-[11px] leading-5 text-slate-500">Affiliate disclosure: COSHUMA may earn a commission from eligible purchases made through the marked Tally link, at no extra cost to you. <a href="/affiliate-disclosure.html" class="underline hover:text-slate-300">How this works</a>.</p>\n      </article>\n'''
 
     html = html.replace(closing, card + closing, 1)
 
-    # Final hard guards: the exact URL and disclosure semantics must survive.
+    # Final hard guards: the exact URL and customer benefit must survive.
     required = [
         REFERRAL_URL,
         'data-cta-source="verified-deals-tally-referral"',
         "50% off their subscription for 3 months",
         "not a public sale",
-        "A link view is not treated as a signup",
     ]
     for token in required:
         if token not in html:
             raise SystemExit(f"Tally buyer-hub patch lost required token: {token}")
 
     PAGE.write_text(html, encoding="utf-8")
-    print("Surfaced verified Tally referral offer on buyer hub")
+    print("Surfaced Tally referral benefit on buyer hub")
 
 # Typedesk extends the generated ItemList from position 9 to 10. On repeated
 # builds its idempotence guard exits with code 0, so catch only that normal stop
-# and continue to later verified-offer steps. Any non-zero safety failure aborts.
+# and continue to later offer steps. Any non-zero safety failure aborts.
 try:
     runpy.run_path(str(ROOT / "scripts" / "surface_typedesk_verified_offer.py"), run_name="__main__")
 except SystemExit as exc:
@@ -83,7 +72,7 @@ except SystemExit as exc:
         raise
 
 # Tagshop runs after Typedesk because it extends the generated ItemList from 10
-# to 11 and must see the exact verified Typedesk state first.
+# to 11 and must see the exact Typedesk state first.
 try:
     runpy.run_path(str(ROOT / "scripts" / "surface_tagshop_verified_offer.py"), run_name="__main__")
 except SystemExit as exc:
@@ -101,7 +90,7 @@ runpy.run_path(str(ROOT / "scripts" / "surface_beefree_verified_offer.py"), run_
 runpy.run_path(str(ROOT / "scripts" / "surface_boldsign_verified_offer.py"), run_name="__main__")
 
 # Teachable can exit 0 from its idempotence guard. Catch only that normal stop so
-# newer verified-offer steps can continue on repeated builds; any safety failure
+# newer offer steps can continue on repeated builds; any safety failure
 # still aborts the build.
 try:
     runpy.run_path(str(ROOT / "scripts" / "surface_teachable_verified_offer.py"), run_name="__main__")
