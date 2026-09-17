@@ -7,6 +7,7 @@ on:
     paths:
       - '.github/workflows/coshuma-revenue-leakage-audit.yml'
       - 'projects/GlobalSaaSHub/data/revenue-truth-2026-09-11.json'
+      - 'projects/GlobalSaaSHub/data/revenue-truth-supplement-2026-09-18.json'
       - 'projects/GlobalSaaSHub/data/tools.json'
       - 'projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json'
       - 'projects/GlobalSaaSHub/scripts/generate_revenue_inventory.mjs'
@@ -26,6 +27,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v5
         with:
           node-version: '20'
@@ -60,6 +63,7 @@ jobs:
           NODE
       - name: Persist current leakage audit and reconciliation queue
         run: |
+          set -e
           audit='projects/GlobalSaaSHub/data/revenue-leakage-audit.json'
           queue='projects/GlobalSaaSHub/data/revenue-reconciliation-queue.json'
           if [ -z "$(git status --porcelain -- "$audit" "$queue")" ]; then
@@ -70,4 +74,13 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add "$audit" "$queue"
           git commit -m 'data: refresh COSHUMA revenue leakage audit queue [skip ci]'
-          git push origin HEAD:main
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push race on attempt $attempt; retrying against latest main."
+          done
+          echo 'Failed to persist revenue audit after bounded retries.'
+          exit 1
