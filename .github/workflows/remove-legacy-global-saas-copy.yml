@@ -1,0 +1,82 @@
+name: Remove legacy Global SaaS public copy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/remove-legacy-global-saas-copy.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Remove legacy customer-facing brand copy
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          root = Path('projects/GlobalSaaSHub')
+          targets = [root / 'index.html', *list((root / 'public').rglob('*.html'))]
+          replacements = [
+              ('Global AI SaaS Decision Platform. All rights reserved.', 'All rights reserved.'),
+              ('Global AI SaaS Decision Platform.', ''),
+              (' · Global AI SaaS Decision Platform', ''),
+              ('· Global AI SaaS Decision Platform', ''),
+              ('Global AI SaaS Decision Platform', ''),
+              ('COSHUMA GlobalSaaSHub', 'COSHUMA'),
+              ('Global SaaS Hub', 'COSHUMA'),
+              ('GlobalSaaSHub', 'COSHUMA'),
+          ]
+          changed = []
+          for path in targets:
+              if not path.exists():
+                  continue
+              before = path.read_text(encoding='utf-8')
+              after = before
+              for old, new in replacements:
+                  after = after.replace(old, new)
+              after = after.replace('COSHUMA.  All rights reserved.', 'COSHUMA. All rights reserved.')
+              after = after.replace('COSHUMA ·  ', 'COSHUMA · ')
+              after = after.replace('COSHUMA · </', 'COSHUMA</')
+              if after != before:
+                  path.write_text(after, encoding='utf-8')
+                  changed.append(path.as_posix())
+          print(f'legacy public copy removed from {len(changed)} files')
+          for p in changed[:30]:
+              print(' -', p)
+
+          polish = root / 'scripts' / 'polish_public_copy.py'
+          text = polish.read_text(encoding='utf-8')
+          needle = 'TEXT_REPLACEMENTS = {\n'
+          rule = '    "Global AI SaaS Decision Platform": "",\n'
+          if rule not in text:
+              text = text.replace(needle, needle + rule, 1)
+              polish.write_text(text, encoding='utf-8')
+
+          test = root / 'scripts' / 'tests' / 'test_public_copy.py'
+          t = test.read_text(encoding='utf-8')
+          marker = 'Global AI SaaS Decision Platform'
+          if marker not in t:
+              t += '\n\n# Legacy customer-facing brand copy must never return.\nfor _page in dist.rglob("*.html"):\n    _html = _page.read_text(encoding="utf-8")\n    assert "Global AI SaaS Decision Platform" not in _html, f"legacy Global SaaS copy in {_page}"\n    assert "GlobalSaaSHub" not in _html, f"legacy GlobalSaaSHub brand in {_page}"\n'
+              test.write_text(t, encoding='utf-8')
+          PY
+      - name: Remove one-time migration workflow
+        run: rm -f .github/workflows/remove-legacy-global-saas-copy.yml
+      - name: Commit permanent cleanup
+        run: |
+          git config user.name 'COSHUMA automation'
+          git config user.email 'support@coshuma.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No changes required.'
+            exit 0
+          fi
+          git commit -m 'COSHUMA: remove legacy Global SaaS customer copy'
+          git push origin HEAD:main
