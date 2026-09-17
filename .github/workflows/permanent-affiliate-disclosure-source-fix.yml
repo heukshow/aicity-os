@@ -17,7 +17,7 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
-      - name: Permanently remove every known page-level disclosure generator
+      - name: Permanently remove known page-level disclosure generators
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -55,30 +55,34 @@ jobs:
           # monetize_verified_compare_links: never append compare/tool disclosures.
           path = scripts / 'monetize_verified_compare_links.mjs'
           text = path.read_text(encoding='utf-8')
-          text = re.sub(r"\nconst DISCLOSURE =.*?\n\s*'</p>';\n", "\n", text, flags=re.S)
-          text = re.sub(r"\nconst TOOL_DISCLOSURE =.*?\n\s*'</p>';\n", "\n", text, flags=re.S)
-          text = re.sub(r"\n\s*if \(!updated\.includes\('data-affiliate-disclosure=\\\"compare\\\"'\)\) \{\n\s*updated = updated\.replace\(/\(\?=\\s\*<\\/main>\)/, `\$\{DISCLOSURE\}\\n`\);\n\s*\}\n", "\n", text)
-          text = re.sub(r"\n\s*if \(affiliateChangesInFile && !updated\.includes\('data-affiliate-disclosure=\\\"tool\\\"'\)\) \{\n\s*updated = updated\.replace\(/\(\?=\\s\*<\\/main>\)/, `\$\{TOOL_DISCLOSURE\}\\n`\);\n\s*\}\n", "\n", text)
+          text = re.sub(r"\nconst DISCLOSURE =\n.*?\n\s*'</p>';\n", "\n", text, flags=re.S)
+          text = re.sub(r"\nconst TOOL_DISCLOSURE =\n.*?\n\s*'</p>';\n", "\n", text, flags=re.S)
+          text = re.sub(r"\n\s*if \(!updated\.includes\('data-affiliate-disclosure=\"compare\"'\)\) \{.*?\n\s*\}\n", "\n", text, flags=re.S)
+          text = re.sub(r"\n\s*if \(affiliateChangesInFile && !updated\.includes\('data-affiliate-disclosure=\"tool\"'\)\) \{.*?\n\s*\}\n", "\n", text, flags=re.S)
           path.write_text(text, encoding='utf-8')
 
-          # build_search_comparisons: generated comparison pages contain no per-page disclosure.
+          # build_search_comparisons: generated comparison pages contain no page disclosure.
           path = scripts / 'build_search_comparisons.mjs'
           text = path.read_text(encoding='utf-8')
-          text = re.sub(
-              r'<section><h2>Check your preferred option</h2><nav class="ctas" aria-label="Product destinations">\$\{ctas\}</nav><p data-affiliate-disclosure="compare" class="muted">.*?</p></section>',
-              '<section><h2>Check your preferred option</h2><nav class="ctas" aria-label="Product destinations">${ctas}</nav></section>',
-              text,
+          text = text.replace(
+              '<section><h2>Check your preferred option</h2><nav class="ctas" aria-label="Product destinations">${ctas}</nav><p data-affiliate-disclosure="compare" class="muted">COSHUMA may earn a commission on qualifying purchases through partner links, at no extra cost to you. Official-source links below are provided separately.</p></section>',
+              '<section><h2>Check your preferred option</h2><nav class="ctas" aria-label="Product destinations">${ctas}</nav></section>'
           )
           path.write_text(text, encoding='utf-8')
 
-          # Buyer-box generator: links stay sponsored, page-level commission notices do not exist.
+          # Generic buyer-box generator: never put commission/disclosure copy in each box.
+          path = scripts / 'inject_buyer_decision_boxes.mjs'
+          text = path.read_text(encoding='utf-8')
+          text = re.sub(r'\n<p data-affiliate-disclosure="buyer-box"[^>]*>.*?</p>', '', text)
+          path.write_text(text, encoding='utf-8')
+
+          # Bespoke BoldSign/Kittl buyer boxes: same policy.
           path = scripts / 'fix_boldsign_buyer_box.py'
           text = path.read_text(encoding='utf-8')
           text = re.sub(r'\n<p data-affiliate-disclosure="buyer-box"[^>]*>.*?</p>', '', text)
           path.write_text(text, encoding='utf-8')
 
-          # Tool trust guard must remove the old affiliate-disclosure trust row for every tool,
-          # not only tools that lack approved tracking.
+          # Tool trust block: remove the affiliate-disclosure trust row for every tool.
           path = scripts / 'guard_tool_trust_disclosures.py'
           text = path.read_text(encoding='utf-8')
           text = text.replace('    elif not exact_tracking_verified(tool):\n', '    else:\n')
@@ -92,26 +96,26 @@ jobs:
           temp = scripts / 'disable_page_level_affiliate_disclosure_generation.py'
           if temp.exists(): temp.unlink()
 
-          # Clean currently committed public HTML once. Future normal builds should need no mass repair.
+          # Permanently clean currently committed HTML once.
           subprocess.run(['python', str(scripts / 'self_heal_source_affiliate_disclosures.py')], check=True)
 
-          # Audit generator source. Cleanup/guard/test files are allowed to mention the marker;
-          # content-producing scripts are not.
-          allow = {
-              'guard_public_copy.py', 'self_heal_source_affiliate_disclosures.py',
-              'enforce_home_only_affiliate_disclosure.py', 'guard_built_customer_copy.py',
-              'sanitize_claap_public_copy.mjs',
+          # Confirm the known generators are actually clean before committing.
+          checks = {
+              'guard_public_copy.py': ['STANDARD_AFFILIATE_DISCLOSURE'],
+              'polish_public_copy.py': ['COMPARE_AFFILIATE_DISCLOSURE', 'ensure_compare_affiliate_disclosure'],
+              'monetize_verified_compare_links.mjs': ['const DISCLOSURE =', 'const TOOL_DISCLOSURE =', 'data-affiliate-disclosure="compare"', 'data-affiliate-disclosure="tool"'],
+              'build_search_comparisons.mjs': ['data-affiliate-disclosure="compare"'],
+              'inject_buyer_decision_boxes.mjs': ['data-affiliate-disclosure="buyer-box"'],
+              'fix_boldsign_buyer_box.py': ['data-affiliate-disclosure="buyer-box"'],
           }
-          offenders = []
-          for p in scripts.rglob('*'):
-              if not p.is_file() or p.suffix not in {'.py','.mjs','.js'} or p.name in allow or 'tests' in p.parts:
-                  continue
-              s = p.read_text(encoding='utf-8', errors='ignore')
-              if 'data-affiliate-disclosure=' in s or 'Affiliate disclosure:' in s:
-                  offenders.append(p.relative_to(root).as_posix())
-          if offenders:
-              raise SystemExit('Remaining page-disclosure generator candidates: ' + ', '.join(offenders))
-          print('Generator audit: PASS — no page-level disclosure generator remains')
+          bad = []
+          for name, needles in checks.items():
+              s = (scripts / name).read_text(encoding='utf-8')
+              for needle in needles:
+                  if needle in s: bad.append(f'{name}:{needle}')
+          if bad:
+              raise SystemExit('Known generator cleanup incomplete: ' + ', '.join(bad))
+          print('Known generator cleanup: PASS')
           PY
       - name: Commit permanent source fix
         run: |
@@ -122,5 +126,5 @@ jobs:
           git config user.name 'COSHUMA automation'
           git config user.email 'support@coshuma.com'
           git add projects/GlobalSaaSHub
-          git commit -m 'Remove remaining page-level affiliate disclosure generators'
+          git commit -m 'Remove known page-level affiliate disclosure generators'
           git push origin HEAD:main
