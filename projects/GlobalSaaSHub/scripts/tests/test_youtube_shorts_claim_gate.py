@@ -29,10 +29,8 @@ def test_pictory_partner_email_claims_are_allowed_only_by_structured_verified_ev
 def test_verified_claim_without_checkable_reference_is_not_trusted(monkeypatch, tmp_path):
     """claim_status alone is self-certification; it must not be trusted unless
     it also carries a concrete, re-checkable reference (e.g. a Gmail message
-    id) to the primary source. This is a regression test for a real gap: an
-    earlier version of the evidence file only had a claim_status label and a
-    prose 'note', which anyone (or any future automated run) could set to
-    'verified_external_primary_source' without any way to audit it."""
+    id) to the primary source. Isolate the campaign evidence path from the
+    legitimate tool-page fallback so this test checks only that contract."""
     campaigns_path = tmp_path / "youtube_shorts_campaigns.json"
     campaigns_path.write_text(
         """
@@ -50,7 +48,10 @@ def test_verified_claim_without_checkable_reference_is_not_trusted(monkeypatch, 
         """,
         encoding="utf-8",
     )
+    public_dir = tmp_path / "public"
+    public_dir.mkdir()
     monkeypatch.setattr(quality_gate, "CAMPAIGNS_JSON", campaigns_path)
+    monkeypatch.setattr(quality_gate, "PUBLIC_DIR", public_dir)
 
     report = _report()
     quality_gate.check_price_and_discount_claims(
@@ -85,7 +86,14 @@ def test_unverified_percentage_fails_closed_even_when_campaign_has_other_verifie
     assert any("73%" in failure for failure in report["failures"])
 
 
-def test_wrong_campaign_slug_does_not_inherit_pictory_primary_source_evidence():
+def test_wrong_campaign_slug_does_not_inherit_pictory_primary_source_evidence(monkeypatch, tmp_path):
+    # The real Pictory tool page currently contains COSHUMA20/20%, which is a
+    # separate valid evidence source. Remove that fallback here so this test
+    # verifies only that campaign-scoped primary-source evidence does not leak.
+    public_dir = tmp_path / "public"
+    public_dir.mkdir()
+    monkeypatch.setattr(quality_gate, "PUBLIC_DIR", public_dir)
+
     report = _report()
     quality_gate.check_price_and_discount_claims(
         "Use code COSHUMA20 for 20% off.",
