@@ -12,7 +12,7 @@ affiliate disclosures in the first place. This pass exists only as a last-resort
 repair and safety stop for a future regression, not as part of the normal content
 production path. A nonzero repair count is treated as a generator regression and
 fails the build so the source generator must be corrected instead of relying on
-repeated cleanup.
+repeated cleanup. The current policy verification intentionally requires zero repairs.
 """
 from pathlib import Path
 import re
