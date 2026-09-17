@@ -34,6 +34,12 @@ POST_EXACT = {
     "Software free trials and partner offers worth testing before you pay": "Software free trials and current offers worth testing before you pay",
     "current ProProfs affiliate status.": "current ProProfs affiliate program availability.",
     "Editorial information is kept separate from affiliate status.": "",
+    "Verified referral route": "Current offer",
+    "Verified Referral Route": "Current offer",
+    "Verified Referral Link": "current offer",
+    "verified referral link": "current offer",
+    "Affiliate disclosure: COSHUMA may earn a commission if an eligible paid signup is attributed through this verified customer-facing referral URL, at no extra cost to the buyer.": "Affiliate disclosure: COSHUMA may earn a commission from some links on this page, at no extra cost to you.",
+    "COSHUMA does not currently publish a Framer affiliate/revenue link on this page. These buttons go to Framer's official site while Creator Program enrollment is being verified.": "These buttons go to Framer's official site. Verify current pricing and terms with Framer before purchasing.",
 }
 
 POST_PATTERNS = (
@@ -42,7 +48,10 @@ POST_PATTERNS = (
     (re.compile(r"\bverified\s+(?:Dub|Impact|PartnerStack|Cello)\s+(?:partner[- ]?)?route\b", re.I), "current offer"),
     (re.compile(r"\bvendor-confirmed\s+(?:[0-9]+-day\s+)?partner\s+route\b", re.I), "current offer"),
     (re.compile(r"\bCOSHUMA's\s+verified\s+[A-Za-z0-9 ._/%-]{1,50}\s+(?:partner\s+)?(?:route|offer|link)\b", re.I), "the current offer"),
-    # These are visible editorial labels, not the data-affiliate-status tracking attribute.
+    (re.compile(r"\bverified\s+(?:customer-facing\s+)?referral\s+(?:route|link)\b", re.I), "current offer"),
+    (re.compile(r"\b(?:exact\s+)?verified\s+customer-facing\s+(?:tracking|referral)\s+URL\s*:\s*[^<\n]+", re.I), ""),
+    (re.compile(r"\bverified\s+customer-facing\s+(?:tracking|referral)\s+URL\b", re.I), "current offer link"),
+    (re.compile(r"\bCOSHUMA[^.<\n]{0,100}(?:affiliate|referral|partner|revenue)[^.<\n]{0,100}(?:being verified|verification pending|pending verification|enrollment is being verified)\.?", re.I), "Verify current terms on the vendor site before purchasing."),
     (re.compile(r"\s+and\s+(?<!data-)(?:affiliate|partner|referral)-status\s+buyer guide\b", re.I), " buyer guide"),
     (re.compile(r"\s+(?:and|with)\s+(?:current\s+)?(?<!data-)(?:affiliate|partner|referral)-status\s+facts\b", re.I), ""),
     (re.compile(r"\bverified\s+(?<!data-)affiliate-status\s+disclosure\b", re.I), "current product details"),
@@ -101,8 +110,6 @@ def main() -> None:
     llms = DIST / "llms.txt"
     if llms.exists():
         before = llms.read_text(encoding="utf-8")
-        # Vite config-time generators can append new buyer-guide rows after the
-        # source sanitizer runs, so apply both guards to the final artifact.
         after = clean_editorial_llms(clean_llms(before))
         if after != before:
             llms.write_text(after, encoding="utf-8")

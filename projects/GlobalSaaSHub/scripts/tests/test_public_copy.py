@@ -42,6 +42,11 @@ BAD=re.compile(
     r'\bSoftware free trials and partner offers worth testing before you pay\b|'
     r'\bCurrent Pictory partner offer\b|'
     r'\bverified\s+(?:Impact|PartnerStack|Dub|Cello)\b[^.]{0,60}\b(?:route|link|status)\b|'
+    r'\bverified\s+(?:customer-facing\s+)?referral\s+(?:route|link)\b|'
+    r'\bverified\s+customer-facing\s+(?:tracking|referral)\s+URL\b|'
+    r'\baffiliate/revenue link\b|'
+    r'\bCreator Program enrollment is being verified\b|'
+    r'\b(?:affiliate|partner|referral|tracking|revenue)\b[^.]{0,100}\b(?:verification pending|pending verification|being verified)\b|'
     r'COSHUMA[^.]{0,80}affiliate application remains separate|'
     r'no Pipedrive revenue attribution is claimed',
     re.I,
@@ -50,6 +55,7 @@ LLMS_BAD=re.compile(
     r'PartnerStack|Cello referral route|Impact (?:partner-)?route|Dub partner route|'
     r'\b(?:affiliate|partner|referral)-status\b|'
     r'verified partner route|verified affiliate route|verified customer referral route|'
+    r'verified referral route|verified referral link|verified customer-facing referral URL|'
     r'non-affiliate|signup, sale, commission or revenue event|'
     r'How COSHUMA verifies public sources, affiliate links',
     re.I,
@@ -67,6 +73,10 @@ def main():
     assert violations('<h2>Affiliate status</h2>')
     assert violations('<p>Find the right verified route</p>')
     assert violations('<p>COSHUMA does not append guessed affiliate parameters to pricing pages.</p>')
+    assert violations('<p>Verified referral route</p>')
+    assert violations('<p>Start via Verified Referral Link</p>')
+    assert violations('<p>Verified customer-facing referral URL: example.com/?ref=x</p>')
+    assert violations('<p>COSHUMA does not currently publish a Framer affiliate/revenue link on this page. Creator Program enrollment is being verified.</p>')
     assert not violations('<p>Affiliate disclosure: COSHUMA may earn a commission from some links at no extra cost to you.</p>')
     assert not violations('<p>Connect your internal database.</p><a data-affiliate-status="approved_tracking" href="https://example.com/?ref=ok">Try</a>')
     urls = '<meta property="og:url" content="https://coshuma.com/tool/vidiq.html"><script type="application/ld+json">{"url":"https://coshuma.com/tool/vidiq.html"}</script><a href="https://example.com/?via=GlobalSaaSHub">Text Cortex</a>'
@@ -98,8 +108,11 @@ def main():
         'guessing referral parameters',
         'existing affiliate account',
         "Jotform's affiliate team supplied",
+        'verified referral route',
+        'verified referral link',
+        'verified customer-facing referral URL',
     ):
-        assert leaked not in deals, f'Internal buyer-hub copy remains: {leaked}'
+        assert leaked.lower() not in deals.lower(), f'Internal buyer-hub copy remains: {leaked}'
     assert not errors, '\n'.join(errors)
     security_main()
     print(f'PASS: {len(files)} built HTML files; legacy brand=0, broken rating copy=0, internal-state copy=0, internal-affiliate-copy=0, llms-internal-copy=0, empty headings=0, security guard=pass')
