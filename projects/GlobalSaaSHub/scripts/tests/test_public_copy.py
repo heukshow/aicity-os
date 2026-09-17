@@ -34,8 +34,6 @@ BAD=re.compile(
     r'Fill eSignature pricing & verified partner offer|'
     r'\b(?:affiliate|partner|referral)-status\b|'
     r'\bverified\s+(?:Impact|PartnerStack|Dub|Cello)\b[^.]{0,60}\b(?:route|link|status)\b|'
-    r'\bPartnerStack\b|\bFirstPromoter\b|'
-    r'Impact\s+(?:affiliate|partner|program|route|link)|'
     r'partner-side evidence|not treated as revenue|partner correspondence|guessing referral parameters|'
     r'existing affiliate account|affiliate team supplied|exact tracked [^.]{0,80} destination|'
     r'COSHUMA[^.]{0,100}customer-facing (?:route|destination|link)|'
