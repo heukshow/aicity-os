@@ -20,6 +20,20 @@ POST_EXACT = {
     "Unbounce Pricing 2026: $22/mo Annual + 14-Day Trial + Partner Discount": "Unbounce Pricing 2026: $22/mo Annual + 14-Day Trial + Discount",
     "COSHUMA's verified 20%/35% customer offer": "the current 20%/35% offer",
     ">Partner offer<": ">Current discount<",
+    "Verified SaaS Free Trials & Partner Offers": "SaaS Free Trials & Current Offers",
+    "Verified SaaS Free Trials &amp; Partner Offers": "SaaS Free Trials &amp; Current Offers",
+    "Compare verified SaaS free trials and partner offers across AI, CRM, email, forms, video and sales tools, with pricing context and disclosed referral links.": "Compare SaaS free trials and current offers across AI, CRM, email, forms, video and sales tools, with pricing and plan-fit context.",
+    "Compare low-risk SaaS trials and verified COSHUMA partner routes across AI, CRM, email, forms, video and sales tools before you subscribe.": "Compare low-risk SaaS trials and current offers across AI, CRM, email, forms, video and sales tools before you subscribe.",
+    "Current Pictory partner offer": "Current Pictory offer",
+    "Find the right verified route": "Find the right offer",
+    "Search only narrows the verified offers already on this page. Affiliate destinations, vendor terms and revenue evidence are not changed. Filters can be shared with the page URL.": "Search filters the offers and trial options shown on this page. Final pricing and eligibility should be confirmed on the vendor site. Filters can be shared with the page URL.",
+    "Search verified software offers": "Search software offers",
+    "No verified offer on this page matches that search. Reset the filter to see every route.": "No offer on this page matches that search. Reset the filter to see all options.",
+    "verified offers match": "offers match",
+    "verified offers available": "offers available",
+    "Software free trials and partner offers worth testing before you pay": "Software free trials and current offers worth testing before you pay",
+    "current ProProfs affiliate status.": "current ProProfs affiliate program availability.",
+    "Editorial information is kept separate from affiliate status.": "",
 }
 
 POST_PATTERNS = (
@@ -35,11 +49,16 @@ POST_PATTERNS = (
     (re.compile(r"(?<!data-)\b(?:affiliate|partner|referral)-status\s+buyer guide\b", re.I), "buyer guide"),
     (re.compile(r"(?<!data-)\b(?:affiliate|partner|referral)-status\s+facts\b", re.I), "product details"),
     (re.compile(r"(?<!data-)\b(?:affiliate|partner|referral)-status\b", re.I), "program details"),
+    (re.compile(r"\bOfficial\s+pricing\s+and\s+affiliate\s+pages\s+checked\b", re.I), "Official pricing sources checked"),
 )
 
 UNBOUNCE_TRACKING_CARD = re.compile(
     r'<div class="rounded-2xl border border-blue-500/20 bg-blue-500/5 p-4">\s*'
     r'<div[^>]*>Tracking</div>\s*<div[^>]*>90-day cookie</div>\s*</div>',
+    re.I | re.S,
+)
+AFFILIATE_STATUS_SECTION = re.compile(
+    r'<section\b[^>]*>\s*<h2\b[^>]*>\s*(?:Current\s+)?Affiliate status\s*</h2>.*?</section>',
     re.I | re.S,
 )
 INTERNAL_HTML_COMMENT = re.compile(
@@ -54,6 +73,7 @@ def final_polish(text: str) -> str:
     for pattern, replacement in POST_PATTERNS:
         text = pattern.sub(replacement, text)
     text = UNBOUNCE_TRACKING_CARD.sub("", text)
+    text = AFFILIATE_STATUS_SECTION.sub("", text)
     text = INTERNAL_HTML_COMMENT.sub("", text)
     return text
 
