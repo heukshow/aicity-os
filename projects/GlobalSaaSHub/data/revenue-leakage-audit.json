@@ -1,0 +1,1897 @@
+{
+  "generated_at": "2026-09-17T19:49:23.576Z",
+  "policy": {
+    "purpose": "Detect approved monetized routes that can leak revenue because downstream affiliate metrics are missing or stale.",
+    "unknown_is_zero": false,
+    "public_output": false,
+    "no_reapplication": true,
+    "no_link_changes": true
+  },
+  "summary": {
+    "approved_tracked_tools": 69,
+    "P0_UNCHECKED": 60,
+    "P1_STALE": 1,
+    "P1_PARTIAL": 2,
+    "P2_COVERED": 6,
+    "unchecked_or_stale_or_partial": 63,
+    "account_groups_to_check": 56
+  },
+  "account_groups": [
+    {
+      "account_id": "aiassistworks",
+      "network": "Affonso",
+      "portal_url": "https://aiassistworks.affonso.io/",
+      "tools": [
+        {
+          "id": "aiassistworks",
+          "name": "AiAssistWorks",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "catalister",
+      "network": "Catalister native affiliate dashboard",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "catalister",
+          "name": "Catalister",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "eprofessor",
+      "network": "eProfessor native referrals",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "eprofessor",
+          "name": "eProfessor",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "tagshop-ai",
+      "network": "FirstPromoter",
+      "portal_url": "https://tagshop.firstpromoter.com/login",
+      "tools": [
+        {
+          "id": "tagshop-ai",
+          "name": "Tagshop AI",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "impact-account",
+      "network": "Impact",
+      "portal_url": "https://app.impact.com/login.user",
+      "tools": [
+        {
+          "id": "kittl",
+          "name": "Kittl",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "lemonsqueezy-account",
+      "network": "Lemon Squeezy",
+      "portal_url": "https://affiliates.lemonsqueezy.com/programs/voibe",
+      "tools": [
+        {
+          "id": "voibe",
+          "name": "Voibe",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "text-account",
+      "network": "LiveChat Partner Program",
+      "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
+      "tools": [
+        {
+          "id": "helpdesk",
+          "name": "HelpDesk",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "partnerstack-account",
+      "network": "PartnerStack",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "tools": [
+        {
+          "id": "bookyourdata",
+          "name": "Bookyourdata",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        },
+        {
+          "id": "claap",
+          "name": "Claap",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        },
+        {
+          "id": "descript",
+          "name": "Descript",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        },
+        {
+          "id": "gamma",
+          "name": "Gamma",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        },
+        {
+          "id": "moosend",
+          "name": "Moosend",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        },
+        {
+          "id": "murf-ai",
+          "name": "Murf AI",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        },
+        {
+          "id": "unbounce",
+          "name": "Unbounce",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        },
+        {
+          "id": "teachable",
+          "name": "Teachable",
+          "priority": "P1_PARTIAL",
+          "reason": "Evidence exists but downstream signup/trial/customer/commission/payout fields are all unknown."
+        }
+      ]
+    },
+    {
+      "account_id": "novita-ai",
+      "network": "Tapfiliate",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "novita-ai",
+          "name": "Novita AI",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "aweber",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "aweber",
+          "name": "AWeber",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "beefree",
+      "network": "개별 제휴 포털",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "tools": [
+        {
+          "id": "beefree",
+          "name": "Beefree",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "bolddesk",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "bolddesk",
+          "name": "BoldDesk",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "cartstack",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "cartstack",
+          "name": "CartStack",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "castmagic",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "castmagic",
+          "name": "Castmagic",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "chatbase",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "chatbase",
+          "name": "Chatbase",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "convertflow",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "convertflow",
+          "name": "ConvertFlow",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "customgpt-ai",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "customgpt-ai",
+          "name": "CustomGPT.ai",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "databox",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "databox",
+          "name": "Databox",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "decktopus",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "decktopus",
+          "name": "Decktopus",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "docsbot",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "docsbot",
+          "name": "DocsBot",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "dorik",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "dorik",
+          "name": "Dorik",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "elevenlabs",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "elevenlabs",
+          "name": "ElevenLabs",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "emailoctopus",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "emailoctopus",
+          "name": "EmailOctopus",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "fireflies-ai",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "fireflies-ai",
+          "name": "Fireflies.ai",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "fliki",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "fliki",
+          "name": "Fliki",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "followr",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "followr",
+          "name": "Followr",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "frase",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "frase",
+          "name": "Frase",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "gojiberry",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "gojiberry",
+          "name": "Gojiberry",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "inkfluence-ai",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "inkfluence-ai",
+          "name": "Inkfluence AI",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "jotform",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "jotform",
+          "name": "Jotform",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "krater",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "krater",
+          "name": "Krater",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "liftmycv",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "liftmycv",
+          "name": "LiftmyCV",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "loopcv",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "loopcv",
+          "name": "LoopCV",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "make-com",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "make-com",
+          "name": "Make.com",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "merlin",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "merlin",
+          "name": "Merlin AI",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "omi-ai",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "omi-ai",
+          "name": "Omi AI",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "omnisend",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "omnisend",
+          "name": "Omnisend",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "outlierkit",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "outlierkit",
+          "name": "OutlierKit",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "panda-video",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "panda-video",
+          "name": "Panda Video",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "relevance-ai",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "relevance-ai",
+          "name": "Relevance AI",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "rytr",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "rytr",
+          "name": "Rytr",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "sanebox",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "sanebox",
+          "name": "Sanebox",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "shopify",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "shopify",
+          "name": "Shopify",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "sudowrite",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "sudowrite",
+          "name": "Sudowrite",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "synthesia",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "synthesia",
+          "name": "Synthesia",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "systeme-io",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "systeme-io",
+          "name": "Systeme.io",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "taskade",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "taskade",
+          "name": "Taskade",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "taskip",
+      "network": "개별 제휴 포털",
+      "portal_url": "https://taskip.affonso.io/success-hub",
+      "tools": [
+        {
+          "id": "taskip",
+          "name": "Taskip",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "time2book",
+      "network": "개별 제휴 포털",
+      "portal_url": "https://time2book.me/affiliates",
+      "tools": [
+        {
+          "id": "time2book",
+          "name": "Time2book",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "tubebuddy",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "tubebuddy",
+          "name": "TubeBuddy",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "typedesk",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "typedesk",
+          "name": "Typedesk",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "vidiq",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "vidiq",
+          "name": "vidIQ",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "vista-social",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "vista-social",
+          "name": "Vista Social",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "writesonic",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "writesonic",
+          "name": "Writesonic",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no revenue-truth evidence record."
+        }
+      ]
+    },
+    {
+      "account_id": "clickfunnels",
+      "network": "ClickFunnels Affiliate Portal",
+      "portal_url": "https://www.clickfunnels.com/customers/profiles/kMXlLGaZ/affiliates/dashboard",
+      "tools": [
+        {
+          "id": "clickfunnels",
+          "name": "ClickFunnels",
+          "priority": "P1_STALE",
+          "reason": "Latest revenue evidence is 10 days old."
+        }
+      ]
+    },
+    {
+      "account_id": "tally",
+      "network": "Cello / Tally Rewards",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "tally",
+          "name": "Tally",
+          "priority": "P1_PARTIAL",
+          "reason": "Evidence exists but downstream signup/trial/customer/commission/payout fields are all unknown."
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "aiassistworks",
+      "name": "AiAssistWorks",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.aiassistworks.com/?via=coshuma",
+      "network": "Affonso",
+      "account_id": "aiassistworks",
+      "portal_url": "https://aiassistworks.affonso.io/",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "catalister",
+      "name": "Catalister",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://app.catalister.com/signup?via=coshuma",
+      "network": "Catalister native affiliate dashboard",
+      "account_id": "catalister",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "eprofessor",
+      "name": "eProfessor",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://eprofessor.com/invite/coshuma173",
+      "network": "eProfessor native referrals",
+      "account_id": "eprofessor",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "tagshop-ai",
+      "name": "Tagshop AI",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://tagshop.ai?via=coshuma-22501e",
+      "network": "FirstPromoter",
+      "account_id": "tagshop-ai",
+      "portal_url": "https://tagshop.firstpromoter.com/login",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "kittl",
+      "name": "Kittl",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://kittl.pxf.io/0GMrXY",
+      "network": "Impact",
+      "account_id": "impact-account",
+      "portal_url": "https://app.impact.com/login.user",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "voibe",
+      "name": "Voibe",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.getvoibe.com/?aff=G5Yr5D",
+      "network": "Lemon Squeezy",
+      "account_id": "lemonsqueezy-account",
+      "portal_url": "https://affiliates.lemonsqueezy.com/programs/voibe",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "helpdesk",
+      "name": "HelpDesk",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.helpdesk.com/?a=8IetMhQvR&utm_campaign=pp_helpdesk-default&utm_source=PP&d=14",
+      "network": "LiveChat Partner Program",
+      "account_id": "text-account",
+      "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "bookyourdata",
+      "name": "Bookyourdata",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://join.bookyourdata.com/swcyqmumr3s5",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "claap",
+      "name": "Claap",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://get.claap.io/rc9nqme16a9q-gfvrqk",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "descript",
+      "name": "Descript",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://get.descript.com/ole5fu20j5sq",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "gamma",
+      "name": "Gamma",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://try.gamma.app/pu20lusdpn1j",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "moosend",
+      "name": "Moosend",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://trymoo.moosend.com/6eappdpw04pw",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "murf-ai",
+      "name": "Murf AI",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://get.murf.ai/fqac0vixj0qs",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "unbounce",
+      "name": "Unbounce",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://unbounce.partnerlinks.io/5ubjnt8lluqi",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "novita-ai",
+      "name": "Novita AI",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://novita.ai/?ref=mwjmyjy&utm_source=affiliate",
+      "network": "Tapfiliate",
+      "account_id": "novita-ai",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "aweber",
+      "name": "AWeber",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.aweber.com/easy-email.htm?id=561868",
+      "network": "개별 제휴 포털",
+      "account_id": "aweber",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "beefree",
+      "name": "Beefree",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://partners.beefree.io/kqi520hezix2",
+      "network": "개별 제휴 포털",
+      "account_id": "beefree",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "bolddesk",
+      "name": "BoldDesk",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.bolddesk.com/?via=sangkwon",
+      "network": "개별 제휴 포털",
+      "account_id": "bolddesk",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "cartstack",
+      "name": "CartStack",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "http://www.cartstack.com/?afmc=wb",
+      "network": "개별 제휴 포털",
+      "account_id": "cartstack",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "castmagic",
+      "name": "Castmagic",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://castmagic.io?fpr=sangkwon-an54",
+      "network": "개별 제휴 포털",
+      "account_id": "castmagic",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "chatbase",
+      "name": "Chatbase",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://link.chatbase.co/sang-kwon-an",
+      "network": "개별 제휴 포털",
+      "account_id": "chatbase",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "convertflow",
+      "name": "ConvertFlow",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://app.convertflow.com/refer?fpr=sangkwon-an-334dcb",
+      "network": "개별 제휴 포털",
+      "account_id": "convertflow",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "customgpt-ai",
+      "name": "CustomGPT.ai",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://customgpt.ai/?fpr=sangkwon-3b18de",
+      "network": "개별 제휴 포털",
+      "account_id": "customgpt-ai",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "databox",
+      "name": "Databox",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://databox.com?aff_id=15298659&fp_ref=sangkwon-72c9ec",
+      "network": "개별 제휴 포털",
+      "account_id": "databox",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "decktopus",
+      "name": "Decktopus",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.decktopus.com?via=sangkwon",
+      "network": "개별 제휴 포털",
+      "account_id": "decktopus",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "docsbot",
+      "name": "DocsBot",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://docsbot.ai?via=31kq9q",
+      "network": "개별 제휴 포털",
+      "account_id": "docsbot",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "dorik",
+      "name": "Dorik",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://dorik.com/?ref=coshuma",
+      "network": "개별 제휴 포털",
+      "account_id": "dorik",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://try.elevenlabs.io/ldc2xmh2x2t5",
+      "network": "개별 제휴 포털",
+      "account_id": "elevenlabs",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "emailoctopus",
+      "name": "EmailOctopus",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://emailoctopus.com/?ref=sangkwon",
+      "network": "개별 제휴 포털",
+      "account_id": "emailoctopus",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "fireflies-ai",
+      "name": "Fireflies.ai",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://fireflies.ai/?fpr=sangkwon53",
+      "network": "개별 제휴 포털",
+      "account_id": "fireflies-ai",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "fliki",
+      "name": "Fliki",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://fliki.ai?via=sangkwon",
+      "network": "개별 제휴 포털",
+      "account_id": "fliki",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "followr",
+      "name": "Followr",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://followr.ai/?ref=support22",
+      "network": "개별 제휴 포털",
+      "account_id": "followr",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "frase",
+      "name": "Frase",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.frase.io/?utm_source=firstpromoter&utm_medium=affiliate&utm_campaign=affiliate_program&via=sangkwon12",
+      "network": "개별 제휴 포털",
+      "account_id": "frase",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "gojiberry",
+      "name": "Gojiberry",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://gojiberry.ai/?ref=sangkwon",
+      "network": "개별 제휴 포털",
+      "account_id": "gojiberry",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "inkfluence-ai",
+      "name": "Inkfluence AI",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.inkfluenceai.com/?ref=sangkwon",
+      "network": "개별 제휴 포털",
+      "account_id": "inkfluence-ai",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "jotform",
+      "name": "Jotform",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.jotform.com/?partner=coshuma",
+      "network": "개별 제휴 포털",
+      "account_id": "jotform",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "krater",
+      "name": "Krater",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://go.krater.ai/sang-kwon-an",
+      "network": "개별 제휴 포털",
+      "account_id": "krater",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "liftmycv",
+      "name": "LiftmyCV",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.liftmycv.com/?via=sangkwon",
+      "network": "개별 제휴 포털",
+      "account_id": "liftmycv",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "loopcv",
+      "name": "LoopCV",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://loopcv.pro?via=sang-kwon",
+      "network": "개별 제휴 포털",
+      "account_id": "loopcv",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "make-com",
+      "name": "Make.com",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.make.com/?pc=coshuma",
+      "network": "개별 제휴 포털",
+      "account_id": "make-com",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "merlin",
+      "name": "Merlin AI",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.getmerlin.in/chat?ref=yjeyytn",
+      "network": "개별 제휴 포털",
+      "account_id": "merlin",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "omi-ai",
+      "name": "Omi AI",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.omi.me/?ref=SANGKWONAN",
+      "network": "개별 제휴 포털",
+      "account_id": "omi-ai",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "omnisend",
+      "name": "Omnisend",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://your.omnisend.com/4aA5k9",
+      "network": "개별 제휴 포털",
+      "account_id": "omnisend",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "outlierkit",
+      "name": "OutlierKit",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://outlierkit.com/?ref=sangkwon",
+      "network": "개별 제휴 포털",
+      "account_id": "outlierkit",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "panda-video",
+      "name": "Panda Video",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://pandavideo.com?ref=wds66lmt&refc=usd",
+      "network": "개별 제휴 포털",
+      "account_id": "panda-video",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "relevance-ai",
+      "name": "Relevance AI",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://relevanceai.com?via=sangkwon",
+      "network": "개별 제휴 포털",
+      "account_id": "relevance-ai",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "rytr",
+      "name": "Rytr",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://rytr.me?via=sangkwon",
+      "network": "개별 제휴 포털",
+      "account_id": "rytr",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "sanebox",
+      "name": "Sanebox",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://try.sanebox.com/s1ooqjj73rpz",
+      "network": "개별 제휴 포털",
+      "account_id": "sanebox",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "shopify",
+      "name": "Shopify",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://shopify.pxf.io/7670642-link?sharedid=7670642",
+      "network": "개별 제휴 포털",
+      "account_id": "shopify",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "sudowrite",
+      "name": "Sudowrite",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.sudowrite.com?via=sangkwon",
+      "network": "개별 제휴 포털",
+      "account_id": "sudowrite",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "synthesia",
+      "name": "Synthesia",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.synthesia.io?via=sangkwon",
+      "network": "개별 제휴 포털",
+      "account_id": "synthesia",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "systeme-io",
+      "name": "Systeme.io",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca",
+      "network": "개별 제휴 포털",
+      "account_id": "systeme-io",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "taskade",
+      "name": "Taskade",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.taskade.com/?via=7zzjo7",
+      "network": "개별 제휴 포털",
+      "account_id": "taskade",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "taskip",
+      "name": "Taskip",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://taskip.net/?atp=qnV3mw",
+      "network": "개별 제휴 포털",
+      "account_id": "taskip",
+      "portal_url": "https://taskip.affonso.io/success-hub",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "time2book",
+      "name": "Time2book",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://time2book.me?aff=9TzesqKi",
+      "network": "개별 제휴 포털",
+      "account_id": "time2book",
+      "portal_url": "https://time2book.me/affiliates",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "tubebuddy",
+      "name": "TubeBuddy",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.tubebuddy.com/pricing?a=coshuma",
+      "network": "개별 제휴 포털",
+      "account_id": "tubebuddy",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "typedesk",
+      "name": "Typedesk",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.typedesk.com?via=sangkwon",
+      "network": "개별 제휴 포털",
+      "account_id": "typedesk",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "vidiq",
+      "name": "vidIQ",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://vidiq.com/coshuma",
+      "network": "개별 제휴 포털",
+      "account_id": "vidiq",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "vista-social",
+      "name": "Vista Social",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://vistasocial.com?fpr=sangkwon14",
+      "network": "개별 제휴 포털",
+      "account_id": "vista-social",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "writesonic",
+      "name": "Writesonic",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://writesonic.com?fp_ref=sang-kwon-f5452a",
+      "network": "개별 제휴 포털",
+      "account_id": "writesonic",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no revenue-truth evidence record.",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_status": null
+    },
+    {
+      "id": "clickfunnels",
+      "name": "ClickFunnels",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.clickfunnels.com/signup-flow?aff=b57f3056884d05b842f607e32347df542821875bbe3209a214141aa32a210532",
+      "network": "ClickFunnels Affiliate Portal",
+      "account_id": "clickfunnels",
+      "portal_url": "https://www.clickfunnels.com/customers/profiles/kMXlLGaZ/affiliates/dashboard",
+      "priority": "P1_STALE",
+      "reason": "Latest revenue evidence is 10 days old.",
+      "latest_evidence_at": "2026-09-07T17:19:00Z",
+      "evidence_age_days": 10,
+      "evidence_source": "authenticated-browser-dashboard",
+      "evidence_id": "github:affiliate-browser-results-2026-09-08:clickfunnels",
+      "latest_status": "partial_verified"
+    },
+    {
+      "id": "tally",
+      "name": "Tally",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://tally.cello.so/ub0qUbuKk2f",
+      "network": "Cello / Tally Rewards",
+      "account_id": "tally",
+      "portal_url": null,
+      "priority": "P1_PARTIAL",
+      "reason": "Evidence exists but downstream signup/trial/customer/commission/payout fields are all unknown.",
+      "latest_evidence_at": "2026-09-11T17:33:38Z",
+      "evidence_age_days": 6,
+      "evidence_source": "vendor-system-email",
+      "evidence_id": "gmail:1a0918839bda8d0f",
+      "latest_status": "partial_verified"
+    },
+    {
+      "id": "teachable",
+      "name": "Teachable",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://partnerstack.teachable.com/ce4muoxdj46j",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P1_PARTIAL",
+      "reason": "Evidence exists but downstream signup/trial/customer/commission/payout fields are all unknown.",
+      "latest_evidence_at": "2026-09-16T16:43:26Z",
+      "evidence_age_days": 1,
+      "evidence_source": "vendor-human-email",
+      "evidence_id": "gmail:1a0ab1a9d37ec857;github:issue-373-comment-5701583790",
+      "latest_status": "vendor_verified_partial"
+    },
+    {
+      "id": "boldsign",
+      "name": "BoldSign",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://boldsign.com?via=sangkwon",
+      "network": "BoldSign Affiliate",
+      "account_id": "boldsign",
+      "portal_url": "https://affiliates.boldsign.com/login",
+      "priority": "P2_COVERED",
+      "reason": "Recent evidence-backed downstream revenue state exists.",
+      "latest_evidence_at": "2026-09-16T00:00:00Z",
+      "evidence_age_days": 1,
+      "evidence_source": "authenticated-browser-dashboard",
+      "evidence_id": "browser:boldsign-affiliate-dashboard;github:issue-380",
+      "latest_status": "partial_verified"
+    },
+    {
+      "id": "pictory",
+      "name": "Pictory",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://pictory.ai?fpr=sangkwon-an23",
+      "network": "FirstPromoter",
+      "account_id": "pictory",
+      "portal_url": "https://pictory.firstpromoter.com/login",
+      "priority": "P2_COVERED",
+      "reason": "Recent evidence-backed downstream revenue state exists.",
+      "latest_evidence_at": "2026-09-16T00:00:00Z",
+      "evidence_age_days": 1,
+      "evidence_source": "authenticated-browser-dashboard",
+      "evidence_id": "browser:pictory-partners-home;github:issue-315",
+      "latest_status": "verified"
+    },
+    {
+      "id": "gohighlevel",
+      "name": "GoHighLevel",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.gohighlevel.com/?fp_ref=sangkwon56",
+      "network": "FirstPromoter / HighLevel Affiliate Portal",
+      "account_id": "gohighlevel",
+      "portal_url": "https://affiliate.gohighlevel.com/login",
+      "priority": "P2_COVERED",
+      "reason": "Recent evidence-backed downstream revenue state exists.",
+      "latest_evidence_at": "2026-09-16T00:00:00Z",
+      "evidence_age_days": 1,
+      "evidence_source": "authenticated-browser-dashboard",
+      "evidence_id": "browser:highlevel-affiliate-home;github:issue-337",
+      "latest_status": "partial_verified"
+    },
+    {
+      "id": "getgenie",
+      "name": "GetGenie",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://getgenie.ai?rui=3921",
+      "network": "GetGenie Affiliate Area",
+      "account_id": "getgenie",
+      "portal_url": null,
+      "priority": "P2_COVERED",
+      "reason": "Recent evidence-backed downstream revenue state exists.",
+      "latest_evidence_at": "2026-09-15T00:00:00Z",
+      "evidence_age_days": 2,
+      "evidence_source": "authenticated-browser-dashboard",
+      "evidence_id": "github:issue-388",
+      "latest_status": "verified"
+    },
+    {
+      "id": "text",
+      "name": "Text",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.text.com/?a=8IetMhQvR&utm_campaign=pp_text-wins-martech-awards&utm_source=PP",
+      "network": "LiveChat Partner Program",
+      "account_id": "text-account",
+      "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
+      "priority": "P2_COVERED",
+      "reason": "Recent evidence-backed downstream revenue state exists.",
+      "latest_evidence_at": "2026-09-16T00:00:00Z",
+      "evidence_age_days": 1,
+      "evidence_source": "vendor-report-email+authenticated-partner-app",
+      "evidence_id": "gmail:1a08c0544c56b5ac;browser:partners.livechat.com/app/affiliate:2026-09-16",
+      "latest_status": "approved_tracking_metrics_verified"
+    },
+    {
+      "id": "brand24",
+      "name": "Brand24",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://try.brand24.com/8xqrjxybmsbt",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P2_COVERED",
+      "reason": "Recent evidence-backed downstream revenue state exists.",
+      "latest_evidence_at": "2026-09-15T11:55:21Z",
+      "evidence_age_days": 2,
+      "evidence_source": "authenticated-partnerstack-dashboard+vendor-human-email",
+      "evidence_id": "browser:partnerstack-brand24-home-and-links:2026-09-15;gmail:1a0a4ebf43d40e98;github:issue-373-comment-5680067918",
+      "latest_status": "dashboard_verified_partial"
+    }
+  ]
+}
