@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 import runpy
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,8 +20,7 @@ if MARKER in html:
     print("Tally customer offer already surfaced")
 else:
     # Do not couple this revenue patch to buyer-facing meta wording. Public copy
-    # is intentionally normalized by guard_public_copy.py before this script runs.
-    # The Tally card is additive and its exact outbound URL is guarded below.
+    # is intentionally normalized earlier and again after all offer injectors.
 
     item8 = (
         '      {"@type":"ListItem","position":8,"name":"Brand24",'
@@ -59,8 +59,27 @@ else:
         if token not in html:
             raise SystemExit(f"Tally buyer-hub patch lost required token: {token}")
 
-    PAGE.write_text(html, encoding="utf-8")
     print("Surfaced Tally referral benefit on buyer hub")
+
+# The older offer injectors use the meta description as an internal build handoff.
+# guard_public_copy.py deliberately makes that text customer-friendly earlier in
+# the build, so restore the handoff string only inside the build workspace before
+# running those injectors. sanitize_public_editorial_copy.py replaces it again
+# immediately before Vite, so this operational wording is never intended for the
+# published bundle.
+HANDOFF_META = (
+    "Compare verified SaaS free trials and partner offers from Gamma, Time2book, "
+    "UpLead, Jotform, Unbounce, Pictory, Brand24, Bookyourdata and Tally. COSHUMA "
+    "separates customer-facing tracking links from product claims."
+)
+html = re.sub(
+    r'(<meta\s+name="description"\s+content=")[^"]*("\s*/?>)',
+    lambda m: m.group(1) + HANDOFF_META + m.group(2),
+    html,
+    count=1,
+    flags=re.I,
+)
+PAGE.write_text(html, encoding="utf-8")
 
 # Typedesk extends the generated ItemList from position 9 to 10. On repeated
 # builds its idempotence guard exits with code 0, so catch only that normal stop
