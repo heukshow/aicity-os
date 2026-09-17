@@ -84,12 +84,33 @@ for path in PAGES:
             assert "data-cta=\"affiliate\"" in text
             assert "data-tool-id=\"tagshop-ai\"" in text
             assert "/affiliate-attribution.js" in text
-            assert "affiliate disclosure" in text.lower()
+            # COSHUMA policy keeps the generic affiliate notice on the homepage only.
+            # Revenue pages retain sponsored-link attributes and exact approved URLs,
+            # but must not repeat the general disclosure block.
+            assert "affiliate disclosure:" not in text.lower()
+            assert "data-affiliate-disclosure=" not in text.lower()
             assert "href=\"https://tagshop.firstpromoter.com/login\"" not in text
         assert "UGC-style video ads" in page.meta["description"][0]
         assert "Discover features, pricing (" not in page.meta["description"][0]
         assert not re.search(r"[$€£]\s*\d", page.meta["description"][0])
     print("PASS", source, path)
+
+# Global disclosure policy regression: in built output, the homepage contains
+# exactly one general notice. Individual customer pages contain none. The
+# dedicated disclosure page remains available for details.
+if source == "dist":
+    home = read("index.html")
+    assert home.count('data-site-affiliate-disclosure="global"') == 1
+    assert home.lower().count("affiliate disclosure:") == 1
+    assert (PROJECT / source / "affiliate-disclosure.html").is_file()
+    for page_path in (PROJECT / source).rglob("*.html"):
+        rel = page_path.relative_to(PROJECT / source).as_posix()
+        if rel in ("index.html", "affiliate-disclosure.html"):
+            continue
+        html = page_path.read_text(encoding="utf-8")
+        assert "affiliate disclosure:" not in html.lower(), rel
+        assert "data-affiliate-disclosure=" not in html.lower(), rel
+    print("PASS homepage-only affiliate disclosure policy")
 
 for path in PAGES[3:]:
     assert any("/" + path in p.links or BASE + "/" + path in p.links
