@@ -6,8 +6,8 @@ included Brand24 review/pricing variants, "moosend review", "omnisend pricing",
 "aweber pricing" and "jotform pricing". Omnisend is now handled by its dedicated,
 approval-aware patch so a stale submitted-state exact match cannot overwrite newer
 vendor evidence. Keep this script exact-match and idempotent for the remaining pages.
-Brand24 also keeps its public buyer copy customer-facing while preserving the exact
-issued customer referral URL, sponsored attribution and affiliate disclosure.
+Brand24 and Moosend also keep public buyer copy customer-facing while preserving
+the exact issued customer referral URLs, sponsored attribution and affiliate disclosure.
 """
 from pathlib import Path
 
@@ -145,6 +145,51 @@ BRAND24_FORBIDDEN_PUBLIC_COPY = (
     "verified partner tracking where available",
 )
 
+MOOSEND_TRACKING_URL = "https://trymoo.moosend.com/6eappdpw04pw"
+MOOSEND_CUSTOMER_COPY = [
+    (
+        '<meta name="description" content="Moosend review and pricing for 2026: 30-day no-card trial, Pro, Moosend+ and Enterprise plans, email credits, automation features, and COSHUMA\'s verified affiliate link." />',
+        '<meta name="description" content="Moosend review and pricing for 2026: compare the 30-day no-card trial, Pro, Moosend+ and Enterprise plans, 15% biannual and 20% annual savings, email credits and automation features." />',
+    ),
+    (
+        'EMAIL MARKETING · AUTOMATION · VERIFIED SEP 7, 2026',
+        'EMAIL MARKETING · AUTOMATION · PRICING CHECKED SEP 18, 2026',
+    ),
+    (
+        'Start Moosend via verified COSHUMA link →',
+        'Start the 30-day Moosend trial →',
+    ),
+    (
+        'Affiliate disclosure: COSHUMA may earn a commission if you become a paying Moosend customer after using the verified partner link, at no extra cost to you.',
+        'Affiliate disclosure: COSHUMA may earn a commission from qualifying purchases made through some links, at no extra cost to you.',
+    ),
+    (
+        "Checked against Moosend's official pricing page on September 7, 2026. Exact subscription price depends on contact count; verify the live selector before checkout.",
+        "Checked against Moosend's official pricing page on September 18, 2026. Exact subscription price depends on contact count; verify the live selector before checkout.",
+    ),
+    (
+        "Moosend's affiliate team specifically recommends sending prospects to trial and pricing-oriented destinations instead of relying only on a generic homepage. COSHUMA therefore keeps the exact verified referral URL as the monetized route while linking separately to Moosend's official pricing page for independent price verification.",
+        "Use the 30-day no-card trial to build a real campaign and automation, then compare the paid price at your actual contact count. Moosend's official pricing page currently lists 15% savings for biannual billing and 20% for annual billing.",
+    ),
+    (
+        'Try Moosend via verified referral link →',
+        'Try Moosend free for 30 days →',
+    ),
+    (
+        '<a href="/tool/aweber.html" class="px-5 py-3 rounded-xl bg-[#181a29] border border-[#2a2d42] font-bold text-purple-300 text-center">Compare AWeber →</a>',
+        '<a href="/best/moosend-vs-mailchimp-free-trial.html" class="px-5 py-3 rounded-xl bg-[#181a29] border border-[#2a2d42] font-bold text-purple-300 text-center">Moosend vs Mailchimp free trial →</a>',
+    ),
+]
+MOOSEND_FORBIDDEN_PUBLIC_COPY = (
+    "verified coshuma link",
+    "verified partner link",
+    "verified referral url",
+    "verified referral link",
+    "affiliate team specifically recommends",
+    "monetized route",
+    "coshuma's verified affiliate link",
+)
+
 changed = 0
 for filename, replacements in PATCHES.items():
     path = TOOL_DIR / filename
@@ -171,6 +216,24 @@ for filename, replacements in PATCHES.items():
         for phrase in BRAND24_FORBIDDEN_PUBLIC_COPY:
             if phrase in lowered:
                 raise SystemExit(f"Brand24 customer-copy guard failed: internal tracking language remains: {phrase}")
+
+    if filename == "moosend.html":
+        for old, new in MOOSEND_CUSTOMER_COPY:
+            if new in text:
+                continue
+            if old not in text:
+                raise SystemExit(f"Refusing uncertain Moosend customer-copy patch: exact source text missing: {old[:80]}")
+            text = text.replace(old, new, 1)
+        if text.count(MOOSEND_TRACKING_URL) < 2:
+            raise SystemExit("Moosend customer-copy patch failed: expected verified customer referral CTAs were lost")
+        if 'rel="sponsored noopener noreferrer"' not in text:
+            raise SystemExit("Moosend customer-copy patch failed: sponsored attribution was lost")
+        if 'Affiliate disclosure:' not in text:
+            raise SystemExit("Moosend customer-copy patch failed: affiliate disclosure was lost")
+        lowered = text.lower()
+        for phrase in MOOSEND_FORBIDDEN_PUBLIC_COPY:
+            if phrase in lowered:
+                raise SystemExit(f"Moosend customer-copy guard failed: internal affiliate-routing language remains: {phrase}")
 
     if text != original:
         path.write_text(text, encoding="utf-8")
