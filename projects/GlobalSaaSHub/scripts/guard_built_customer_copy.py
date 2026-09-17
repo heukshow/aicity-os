@@ -32,6 +32,8 @@ POST_EXACT = {
     "verified offers match": "offers match",
     "verified offers available": "offers available",
     "Software free trials and partner offers worth testing before you pay": "Software free trials and current offers worth testing before you pay",
+    "current ProProfs affiliate status.": "current ProProfs affiliate program availability.",
+    "Editorial information is kept separate from affiliate status.": "",
 }
 
 POST_PATTERNS = (
