@@ -137,8 +137,10 @@ def main():
             fail(errors, f"{tool_id} generated affiliate CTA does not use an approved tracking URL")
         if not affiliate_ctas or any(not {"sponsored", "noopener", "noreferrer"} <= set(a.get("rel", "").split()) for a in affiliate_ctas):
             fail(errors, f"{tool_id} affiliate CTA is missing the sponsored safety relation")
-        if not ("via Verified Affiliate Link" in html or re.search(r"Affiliate disclosure:.*?commission", html, re.I | re.S)):
-            fail(errors, f"{tool_id} affiliate disclosure is missing")
+        # Disclosure policy is site-level: approved tracking must stay intact, but
+        # individual tool pages must not reintroduce a repeated general disclosure.
+        if re.search(r"Affiliate\s+disclosure\s*:", html, re.I) or 'data-affiliate-disclosure=' in html.lower():
+            fail(errors, f"{tool_id} repeats a page-level affiliate disclosure")
     for tool_id, record in standalone.items():
         evidence = json.loads((PROJECT / record["evidence_file"]).read_text(encoding="utf-8"))
         item = next(item for item in evidence["items"] if item["id"] == record["program_id"])
