@@ -79,6 +79,16 @@ def main():
     kit=(root/'tool/kit.html').read_text(encoding='utf-8')
     assert 'href="/tool/convertkit.html"' not in kit
     assert 'Top Alternatives to Nudgera' not in (root/'tool/nudgera.html').read_text(encoding='utf-8')
+    deals=(root/'best/verified-software-free-trials-deals.html').read_text(encoding='utf-8')
+    for leaked in (
+        'customer-facing PartnerStack route',
+        'partner-side evidence',
+        'partner correspondence',
+        'guessing referral parameters',
+        'existing affiliate account',
+        "Jotform's affiliate team supplied",
+    ):
+        assert leaked not in deals, f'Internal buyer-hub copy remains: {leaked}'
     assert not errors, '\n'.join(errors)
     security_main()
     print(f'PASS: {len(files)} built HTML files; legacy brand=0, broken rating copy=0, internal-state copy=0, internal-affiliate-copy=0, llms-internal-copy=0, empty headings=0, security guard=pass')

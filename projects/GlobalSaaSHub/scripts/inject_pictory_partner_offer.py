@@ -14,8 +14,8 @@ PROMO = rf'''
 <section data-pictory-promo="coshuma20" class="mx-auto mb-6 max-w-4xl rounded-2xl border border-amber-400/25 bg-amber-400/[0.07] p-4 sm:p-5">
   <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
     <div>
-      <div class="text-xs font-black uppercase tracking-[0.16em] text-amber-300">Current Pictory partner offer</div>
-      <p class="mt-1 text-sm leading-6 text-amber-50/90"><strong>Use code COSHUMA20 for 20% off.</strong> Pictory currently advertises annual plans at up to 40% off, and Pictory's affiliate manager confirmed that combining the annual promotion with this code can produce savings of more than 52%.</p>
+      <div class="text-xs font-black uppercase tracking-[0.16em] text-amber-300">Current Pictory offer</div>
+      <p class="mt-1 text-sm leading-6 text-amber-50/90"><strong>Use code COSHUMA20 for 20% off.</strong> Pictory currently advertises annual plans at up to 40% off. When both promotions are eligible, the combined savings can exceed 52%. Confirm the final price at checkout.</p>
     </div>
     <div class="shrink-0 rounded-xl border border-amber-300/20 bg-black/20 px-4 py-2 text-center">
       <div class="text-[10px] uppercase tracking-widest text-amber-200/70">Promo code</div>
@@ -26,15 +26,15 @@ PROMO = rf'''
     <a data-cta="affiliate" data-tool-id="pictory" data-cta-source="{PROMO_CTA_SOURCE}" href="{PICTORY_AFFILIATE_URL}" target="_blank" rel="sponsored noopener noreferrer" class="inline-flex flex-1 items-center justify-center rounded-xl bg-amber-300 px-5 py-3 text-sm font-black text-slate-950 transition hover:bg-amber-200">Use COSHUMA20 at Pictory →</a>
     <a href="/best/pictory-discount-code.html" class="inline-flex flex-1 items-center justify-center rounded-xl border border-amber-300/20 bg-black/20 px-5 py-3 text-sm font-bold text-amber-50 transition hover:border-amber-200/40 hover:bg-black/30">See discount details →</a>
   </div>
-  <p class="mt-2 text-[11px] leading-5 text-amber-100/60">Offer details verified September 5, 2026. Promotions can change, so confirm the final price and eligibility at checkout.</p>
+  <p class="mt-2 text-[11px] leading-5 text-amber-100/60">Offer details checked September 5, 2026. Promotions can change, so confirm the final price and eligibility at checkout.</p>
 </section>
 '''.strip()
 
 INVIDEO_DISCOVERY = '''
 <section data-invideo-discovery="pictory-comparison" class="mt-8 rounded-2xl border border-violet-400/20 bg-violet-500/[0.06] p-5 sm:p-6">
-  <div class="text-xs font-black uppercase tracking-[0.16em] text-violet-300">New buyer comparison</div>
+  <div class="text-xs font-black uppercase tracking-[0.16em] text-violet-300">Buyer comparison</div>
   <h2 class="mt-2 text-2xl font-black text-white">Pictory vs InVideo AI: compare the workflow before paying</h2>
-  <p class="mt-2 text-sm leading-6 text-slate-300">InVideo AI is now included as a free-first prompt-to-video alternative. Compare its credit-based model with Pictory's 14-day trial and plan allowances, then use the same script in both tools before choosing.</p>
+  <p class="mt-2 text-sm leading-6 text-slate-300">InVideo AI offers a free-first prompt-to-video option. Compare its credit-based model with Pictory's 14-day trial and plan allowances, then test the same script in both tools before choosing.</p>
   <div class="mt-4 flex flex-col gap-2 sm:flex-row">
     <a href="/compare/pictory-vs-invideo-ai.html" class="inline-flex flex-1 items-center justify-center rounded-xl bg-violet-600 px-5 py-3 text-sm font-black text-white hover:bg-violet-500">Compare Pictory vs InVideo AI →</a>
     <a href="/tool/invideo-ai.html" class="inline-flex flex-1 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3 text-sm font-bold text-slate-200 hover:bg-white/[0.06]">Read InVideo AI guide →</a>
@@ -75,7 +75,7 @@ if INVIDEO_DISCOVERY_MARKER not in hub_text:
 else:
     print("Pictory vs InVideo AI discovery links already present on AI video buyer hub")
 
-print(f"Injected Pictory partner offer into {len(updated)} pages")
+print(f"Injected Pictory offer into {len(updated)} pages")
 for item in updated:
     print(f" - {item}")
 

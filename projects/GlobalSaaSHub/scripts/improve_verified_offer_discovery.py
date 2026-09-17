@@ -1,8 +1,8 @@
-"""Add fast client-side discovery to the verified-offers revenue hub.
+"""Add fast client-side discovery to the software-offers buyer hub.
 
-The buyer hub now contains many vendor-verified customer routes. This patch reduces
-choice friction without changing affiliate destinations, pricing claims, ranking,
-or revenue state. It only filters offer cards already present in the final page.
+The buyer hub contains current software trial and offer options. This patch reduces
+choice friction without changing outbound destinations, pricing claims, ranking,
+or attribution state. It only filters offer cards already present in the final page.
 """
 from html import escape
 from pathlib import Path
@@ -12,24 +12,24 @@ ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "public" / "best" / "verified-software-free-trials-deals.html"
 MARKER = "<!-- COSHUMA_VERIFIED_OFFER_SEARCH_V1 -->"
 HUB_DESCRIPTION = (
-    "Compare verified SaaS free trials and partner offers across AI, CRM, email, forms, "
-    "video and sales tools, with pricing context and disclosed referral links."
+    "Compare SaaS free trials, pricing and current offers across AI, CRM, email, forms, "
+    "video and sales tools before you pay."
 )
 HUB_OG_DESCRIPTION = (
-    "Compare low-risk SaaS trials and verified COSHUMA partner routes across AI, CRM, "
-    "email, forms, video and sales tools before you subscribe."
+    "Compare low-risk SaaS trials, pricing and current offers across AI, CRM, email, "
+    "forms, video and sales tools before you subscribe."
 )
 
 SEARCH_PANEL = r'''<!-- COSHUMA_VERIFIED_OFFER_SEARCH_V1 -->
     <section data-offer-search-panel class="rounded-3xl border border-cyan-400/20 bg-[#11131a] p-6 md:p-7" aria-labelledby="verified-offer-search-heading">
       <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
         <div class="max-w-2xl">
-          <div class="text-xs font-black uppercase tracking-[0.18em] text-cyan-300">Find the right verified route</div>
+          <div class="text-xs font-black uppercase tracking-[0.18em] text-cyan-300">Find the right offer</div>
           <h2 id="verified-offer-search-heading" class="mt-2 text-2xl font-black text-white md:text-3xl">Filter by tool, use case or trial condition</h2>
-          <p class="mt-2 text-sm leading-6 text-slate-400">Search only narrows the verified offers already on this page. Affiliate destinations, vendor terms and revenue evidence are not changed. Filters can be shared with the page URL.</p>
+          <p class="mt-2 text-sm leading-6 text-slate-400">Search the offers on this page by product, use case or trial condition. You can share the filtered view using the page URL.</p>
         </div>
         <div class="w-full lg:max-w-xl">
-          <label for="verified-offer-search" class="sr-only">Search verified software offers</label>
+          <label for="verified-offer-search" class="sr-only">Search software offers</label>
           <div class="flex gap-2">
             <input id="verified-offer-search" type="search" autocomplete="off" inputmode="search" placeholder="Try: no card, free plan, CRM, email, video..." class="min-h-12 w-full rounded-xl border border-white/10 bg-[#090b10] px-4 py-3 text-sm text-white outline-none placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/20" />
             <button id="verified-offer-reset" type="button" class="min-h-12 shrink-0 rounded-xl border border-white/10 px-4 py-3 text-sm font-bold text-slate-300 hover:bg-white/5">Reset</button>
@@ -45,7 +45,7 @@ SEARCH_PANEL = r'''<!-- COSHUMA_VERIFIED_OFFER_SEARCH_V1 -->
             <button type="button" data-offer-query="video" class="rounded-full border border-white/10 px-3 py-1.5 text-xs font-bold text-slate-300 hover:border-cyan-400/30 hover:text-white">Video</button>
           </div>
           <p id="verified-offer-search-status" class="mt-3 text-xs font-bold text-cyan-200" aria-live="polite"></p>
-          <p id="verified-offer-no-results" class="mt-2 hidden text-sm text-amber-200">No verified offer on this page matches that search. Reset the filter to see every route.</p>
+          <p id="verified-offer-no-results" class="mt-2 hidden text-sm text-amber-200">No offer on this page matches that search. Reset the filter to see all options.</p>
         </div>
       </div>
     </section>
@@ -94,8 +94,8 @@ SEARCH_SCRIPT = r'''  <script>
         }
 
         status.textContent = tokens.length
-          ? `${visible} of ${cards.length} verified offers match`
-          : `${cards.length} verified offers available`;
+          ? `${visible} of ${cards.length} offers match`
+          : `${cards.length} offers available`;
         empty.classList.toggle('hidden', visible !== 0 || tokens.length === 0);
         if (syncUrl) syncOfferParam(query);
       };
@@ -136,39 +136,38 @@ SEARCH_SCRIPT = r'''  <script>
 
 def main() -> None:
     if not PAGE.exists():
-        raise SystemExit("Verified-offers hub missing; refusing discovery patch")
+        raise SystemExit("Software-offers hub missing; refusing discovery patch")
 
     html = PAGE.read_text(encoding="utf-8")
     if MARKER not in html:
         main_pos = html.find("<main")
         if main_pos < 0:
-            raise SystemExit("Verified-offers main element missing; refusing discovery patch")
+            raise SystemExit("Software-offers main element missing; refusing discovery patch")
         hero_end = html.find("</section>", main_pos)
         if hero_end < 0:
-            raise SystemExit("Verified-offers hero section missing; refusing discovery patch")
+            raise SystemExit("Software-offers hero section missing; refusing discovery patch")
         hero_end += len("</section>")
         html = html[:hero_end] + "\n\n" + SEARCH_PANEL + html[hero_end:]
 
     if "initOfferSearch" not in html:
         script_anchor = '  <script defer src="/affiliate-attribution.js"></script>'
         if script_anchor not in html:
-            raise SystemExit("Affiliate attribution anchor missing; refusing discovery patch")
+            raise SystemExit("Attribution script anchor missing; refusing discovery patch")
         html = html.replace(script_anchor, SEARCH_SCRIPT + script_anchor, 1)
     else:
         # Replace the generated discovery panel/script on repeat builds so filter
-        # improvements are durable without touching vendor cards or affiliate URLs.
+        # improvements are durable without touching vendor cards or outbound URLs.
         panel_pattern = re.compile(r'<!-- COSHUMA_VERIFIED_OFFER_SEARCH_V1 -->.*?</section>', re.S)
         html, panel_count = panel_pattern.subn(SEARCH_PANEL.strip(), html, count=1)
         if panel_count != 1:
-            raise SystemExit("Verified-offer search panel missing or duplicated")
+            raise SystemExit("Offer search panel missing or duplicated")
         script_pattern = re.compile(r'  <script>\n  \(\(\) => \{\n    const initOfferSearch = \(\) => \{.*?\n  </script>\n', re.S)
         html, script_count = script_pattern.subn(SEARCH_SCRIPT, html, count=1)
         if script_count != 1:
-            raise SystemExit("Verified-offer discovery script missing or duplicated")
+            raise SystemExit("Offer discovery script missing or duplicated")
 
-    # Run after every verified-offer surfacing script so legacy scripts can keep
-    # their fail-closed metadata guards while the final production page receives
-    # durable search/social copy that does not become stale as vendors are added.
+    # Refresh buyer-facing search/social copy without changing product facts or
+    # outbound destinations as vendors are added.
     head, body = html.split("</head>", 1)
     for pattern, replacement in (
         (
@@ -182,7 +181,7 @@ def main() -> None:
     ):
         head, count = re.subn(pattern, lambda _: replacement, head, flags=re.S)
         if count != 1:
-            raise SystemExit(f"Verified-offer metadata field missing or duplicated: {pattern}")
+            raise SystemExit(f"Offer metadata field missing or duplicated: {pattern}")
     html = head + "</head>" + body
 
     required = (
@@ -202,10 +201,10 @@ def main() -> None:
     )
     for token in required:
         if token not in html:
-            raise SystemExit(f"Verified-offer discovery patch lost required token: {token}")
+            raise SystemExit(f"Offer discovery patch lost required token: {token}")
 
     PAGE.write_text(html, encoding="utf-8")
-    print("verified-offer-discovery-search-v3-shareable-intent")
+    print("offer-discovery-search-v4-customer-copy")
 
 
 if __name__ == "__main__":

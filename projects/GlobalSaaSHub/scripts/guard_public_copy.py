@@ -32,6 +32,9 @@ def clean(text):
         s = re.sub(r'\bVerified\s+revenue\s+alternative\b', 'Another option to compare', s, flags=re.I)
         s = re.sub(r'\bVerified\s+monetization\s+path\b', 'Another option to compare', s, flags=re.I)
         s = re.sub(r'\bVerified\s+partner\s+link\b', 'partner link', s, flags=re.I)
+        s = re.sub(r'\bverified\s+COSHUMA\s+(?:partner|referral|campaign|customer-facing)\s+(?:route|link|links|path|paths)\b', 'direct vendor link', s, flags=re.I)
+        s = re.sub(r'\bverified\s+customer\s+links\b', 'Direct vendor links', s, flags=re.I)
+        s = re.sub(r'\s*A (?:click or signup|trial) is not treated as revenue without partner-side evidence\.', '', s, flags=re.I)
         # The static homepage fallback is public too (search/AI crawlers and
         # no-JS visitors). Keep methodology and guide labels useful to buyers,
         # without exposing affiliate verification workflow language.
@@ -71,6 +74,25 @@ def clean(text):
     return text
 
 PUBLIC_COPY_REPLACEMENTS = {
+    'best/verified-software-free-trials-deals.html': {
+        'Verified SaaS Free Trials & Partner Offers (2026) | COSHUMA': 'SaaS Free Trials & Current Offers (2026) | COSHUMA',
+        'Compare verified SaaS free trials and partner offers from Gamma, Time2book, UpLead, Jotform, Unbounce, Pictory, Brand24 and Bookyourdata. COSHUMA separates customer-facing tracking links from product claims.': 'Compare SaaS free trials, pricing and current offers from Gamma, Time2book, UpLead, Jotform, Unbounce, Pictory, Brand24 and Bookyourdata before you pay.',
+        'Low-risk software tests and verified COSHUMA partner paths, checked against current vendor information before you subscribe.': 'Low-risk software trials and current offers to compare before you subscribe.',
+        'Verified SaaS Free Trials & Partner Offers': 'SaaS Free Trials & Current Offers',
+        'Software free trials and partner offers worth testing before you pay': 'Software free trials and current offers worth testing before you pay',
+        'This page prioritizes low-risk first steps and customer-facing routes COSHUMA has actually verified. A dashboard, onboarding page or generic homepage is never treated as an affiliate link unless the program issued or confirmed it for customer referrals.': 'Compare low-risk ways to try each product before paying. Use the vendor links below to start a trial, check pricing or review the current offer details.',
+        'No invented discounts': 'Current offer terms',
+        'New low-risk routes surfaced September 11': 'Updated September 11',
+        'Gamma and Time2book now have dedicated buyer guides and verified COSHUMA referral routes. Their free entry points are exposed here so visitors do not need to discover them only through individual tool pages.': 'Gamma and Time2book both offer low-risk ways to test the product before paying. Use the options below to start free and compare the available plans.',
+        'The first button uses the exact customer-facing PartnerStack route previously verified for COSHUMA. A click or signup is not treated as revenue without partner-side evidence.': '',
+        'The first button uses the exact customer-facing Time2book referral route previously verified for COSHUMA. A trial is not treated as revenue without partner-side evidence.': '',
+        'Direct partner confirmation · September 11': 'Trial and pricing options · September 11',
+        'Exact partner-issued buyer routes': 'Compare before you pay',
+        'UpLead and Jotform supplied exact customer-facing destinations in partner correspondence. COSHUMA uses those URLs as provided rather than guessing referral parameters.': 'Use the options below to start a trial, compare pricing and review each product before choosing a paid plan.',
+        "UpLead confirmed COSHUMA's exact tracked 7-day trial destination and a separate tracked pricing destination for the existing affiliate account.": 'UpLead currently offers a 7-day trial and a separate pricing page. Use the options below to test the product and compare plans.',
+        "Jotform's affiliate team supplied the exact COSHUMA pricing-page affiliate URL below. COSHUMA does not append that partner tag to other Jotform pages without verification.": 'Use the pricing link below to compare Jotform plans, or read the COSHUMA guide for features and fit.',
+        "Unbounce currently offers a 14-day free trial with no credit card required. COSHUMA's issued partner route also carries the verified customer offer documented in our guide: 20% off the first 3 months or 35% off the first annual subscription. Confirm the invitation and final checkout before relying on the discount.": 'Unbounce currently offers a 14-day free trial with no credit card required. The current offer listed in our guide is 20% off the first 3 months or 35% off the first annual subscription. Confirm the final checkout terms before relying on the discount.',
+    },
     'tool/tally.html': {
         'COSHUMA has not verified a paid referral tracking URL, so this page intentionally keeps Tally buttons non-affiliate.': '',
         'COSHUMA is not labeling Tally as an affiliate conversion target until a customer-facing tracked URL is actually verified.': '',
