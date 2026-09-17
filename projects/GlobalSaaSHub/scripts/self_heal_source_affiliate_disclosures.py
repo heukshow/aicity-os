@@ -98,6 +98,9 @@ def main() -> None:
     )
     if repaired:
         print('Repaired source pages:', ', '.join(repaired[:20]) + (' ...' if len(repaired) > 20 else ''))
+        raise RuntimeError(
+            'Page-level affiliate disclosure generation regressed: normal steady state must be changed=0'
+        )
 
 
 if __name__ == '__main__':
