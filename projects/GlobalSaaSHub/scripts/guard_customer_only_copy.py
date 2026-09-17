@@ -1,7 +1,7 @@
 """Final public-copy guard for customer-only language.
 
 Runs after all revenue/affiliate generators and immediately before Vite build.
-It preserves URLs, data attributes and the standard affiliate disclosure while
+It preserves URLs, data attributes and required affiliate disclosures while
 removing operational wording customers do not need to see.
 """
 from pathlib import Path
@@ -33,7 +33,7 @@ EXACT = {
     "Use the verified COSHUMA partner route for the free-entry path, then confirm current plan availability and checkout terms directly with Relevance AI before upgrading.":
         "Start with the free-entry path, then confirm current plan availability and checkout terms directly with Relevance AI before upgrading.",
 
-    # Unbounce: retain the customer discount while hiding tracking/attribution operations.
+    # Unbounce tool: retain buyer-visible discount facts, hide tracking/attribution operations.
     "Unbounce Pricing 2026: $29 Starter + 20%/35% Partner Discount | COSHUMA":
         "Unbounce Pricing 2026: $29 Starter + 20%/35% Discount | COSHUMA",
     "Unbounce Pricing 2026: $29 Starter + 20%/35% Partner Discount":
@@ -61,6 +61,35 @@ EXACT = {
         "Final eligibility and checkout pricing are controlled by Unbounce.",
     "Partner discount, commission and cookie details were checked against the Unbounce partner welcome email sent to COSHUMA on September 3, 2026.":
         "The current Unbounce discount was checked against vendor-supplied terms on September 3, 2026.",
+
+    # Webflow vs Unbounce: keep the offer, remove PartnerStack/revenue routing details.
+    "Webflow vs Unbounce in 2026: compare current pricing, CMS/hosting vs landing-page optimization, A/B testing, AI features, and COSHUMA's verified Unbounce partner offer.":
+        "Webflow vs Unbounce in 2026: compare current pricing, CMS/hosting vs landing-page optimization, A/B testing, AI features and the current Unbounce discount.",
+    "Does COSHUMA have a verified Unbounce offer?":
+        "What Unbounce discount is currently available?",
+    "Yes. COSHUMA's verified Unbounce PartnerStack link is documented with a customer offer of 20% off the first three months or 35% off the first annual subscription. Final eligibility and checkout pricing are controlled by Unbounce.":
+        "The current Unbounce offer provides 20% off the first three months or 35% off the first annual subscription for eligible customers. Final eligibility and checkout pricing are controlled by Unbounce.",
+    "Start Unbounce trial + verified partner offer →":
+        "Start Unbounce trial + discount →",
+    "COSHUMA's verified Unbounce partner route documents 20% off the first 3 months or 35% off the first annual subscription. Final eligibility and checkout pricing are controlled by Unbounce.":
+        "The current Unbounce offer provides 20% off the first 3 months or 35% off the first annual subscription for eligible customers. Final eligibility and checkout pricing are controlled by Unbounce.",
+    "Build a page for an actual traffic source, measure editing speed and conversion workflow, and only keep the paid plan if the CRO features solve a real campaign bottleneck. COSHUMA keeps the revenue CTA on the exact verified PartnerStack customer link rather than a generic homepage.":
+        "Build a page for an actual traffic source, measure editing speed and conversion workflow, and only keep the paid plan if the CRO features solve a real campaign bottleneck.",
+    "Try Unbounce through COSHUMA →": "Try Unbounce →",
+
+    # Unbounce discount guide: buyers need the discount and current terms, not attribution plumbing.
+    "Unbounce's official Partner Program FAQ says referral tracking uses a 90-day cookie. If the referral link is clicked again, Unbounce says the 90-day window restarts. COSHUMA therefore uses the verified PartnerStack URL rather than a generic Unbounce homepage link for revenue CTAs.":
+        "The current offer provides 20% off the first three months or 35% off the first annual subscription for eligible customers. Check final eligibility and checkout pricing on Unbounce before purchasing.",
+    "Tip: complete the trial signup from the same browser session after using the partner link when practical. Attribution is ultimately controlled by Unbounce and PartnerStack, so COSHUMA does not claim a referral until the partner dashboard confirms it.":
+        "Tip: check the final discount and plan price at checkout because promotions and eligibility can change.",
+
+    # ClickFunnels: keep factual sources, remove authenticated affiliate-center operations.
+    "Sources checked: ClickFunnels official pricing page and ClickFunnels support documentation covering the 14-day trial, automatic billing after the trial, and 2026 pricing. COSHUMA independently verified the affiliate URL in the authenticated ClickFunnels Affiliate Center before using it as a revenue CTA.":
+        "Sources checked: ClickFunnels official pricing page and ClickFunnels support documentation covering the 14-day trial, automatic billing after the trial, and 2026 pricing.",
+
+    # Databox vs Brand24: keep source transparency, remove account-specific affiliate-state mechanics.
+    "Databox pricing and feature claims were rechecked against Databox's live pricing page on September 8, 2026. Brand24 prices, annual discounts and trial terms were rechecked against Brand24's live pricing page on September 8, 2026. The customer-facing Databox and Brand24 URLs used above are the account-specific links already marked verified in COSHUMA's affiliate state; generic dashboards or onboarding URLs are not used as revenue CTAs. Vendor pricing can change, so confirm checkout before paying.":
+        "Databox pricing and feature claims were rechecked against Databox's live pricing page on September 8, 2026. Brand24 prices, annual discounts and trial terms were rechecked against Brand24's live pricing page on September 8, 2026. Vendor pricing can change, so confirm checkout before paying.",
 }
 
 GENERIC = (
@@ -75,7 +104,10 @@ GENERIC = (
     (re.compile(r"\bverified\s+COSHUMA\s+partner\s+offers?\b", re.I), "current offer"),
     (re.compile(r"\bverified\s+COSHUMA\s+partner\s+links?\b", re.I), "vendor link"),
     (re.compile(r"\bverified\s+COSHUMA\s+offer\b", re.I), "current offer"),
+    (re.compile(r"\bverified\s+Unbounce\s+partner\s+offers?\b", re.I), "current Unbounce discount"),
+    (re.compile(r"\bverified\s+Unbounce\s+PartnerStack\s+link\b", re.I), "current Unbounce offer"),
     (re.compile(r"\bverified\s+CTA\s+status\b", re.I), "current trial and pricing details"),
+    (re.compile(r"\bTry\s+([A-Za-z0-9 ._-]+)\s+through\s+COSHUMA\s*→", re.I), r"Try \1 →"),
 )
 
 # This FAQ is pure attribution plumbing; customers only need the offer and final terms.
@@ -99,7 +131,9 @@ BANNED_CUSTOMER_COPY = re.compile(
     r'verified partner route|verified partner path|verified partner offer|verified partner link|'
     r'Verified COSHUMA affiliate terms|unique referral URL|partner welcome email|'
     r'revenue CTA|verified CTA status|without treating clicks as revenue|'
-    r'tracking cookie|first-party reporting verifies it|dashboard/login URL',
+    r'tracking cookie|first-party reporting verifies it|dashboard/login URL|'
+    r'account-specific links already marked verified|partner dashboard confirms it|'
+    r'exact verified PartnerStack customer link|authenticated ClickFunnels Affiliate Center',
     re.I,
 )
 
