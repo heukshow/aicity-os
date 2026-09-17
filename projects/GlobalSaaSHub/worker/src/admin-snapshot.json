@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-16T23:25:16.347Z",
+  "generatedAt": "2026-09-17T01:08:13.522Z",
   "counts": {
     "totalTools": 179,
-    "verifiedAffiliates": 115,
-    "revenueReadyAffiliates": 71,
-    "genericRevenueReadyAffiliates": 68,
+    "verifiedAffiliates": 116,
+    "revenueReadyAffiliates": 72,
+    "genericRevenueReadyAffiliates": 69,
     "targetedRevenueReadyAffiliates": 3,
-    "openMonetizationGaps": 84,
+    "openMonetizationGaps": 83,
     "directActionableGaps": 13,
-    "browserRequiredGaps": 24,
+    "browserRequiredGaps": 23,
     "watchOnlyGaps": 47,
     "doNotReapply": 166,
     "toolPages": 179,
@@ -18,21 +18,21 @@
   "revenueFocus": {
     "policy": "prioritize_direct_existing_gaps_without_reapplying_waiting_states",
     "allowNewTools": false,
-    "reason": "13 existing tools still have directly actionable affiliate gaps; 47 are watch-only and 24 require browser work."
+    "reason": "13 existing tools still have directly actionable affiliate gaps; 47 are watch-only and 23 require browser work."
   },
   "affiliateCoverage": {
     "counts": {
-      "revenueReady": 71,
-      "genericRevenueReady": 68,
+      "revenueReady": 72,
+      "genericRevenueReady": 69,
       "targetedRevenueReady": 3,
       "terminal": 25,
-      "openMonetizationGaps": 84,
+      "openMonetizationGaps": 83,
       "directActionableGaps": 13,
-      "browserRequiredGaps": 24,
+      "browserRequiredGaps": 23,
       "watchOnlyGaps": 47,
       "doNotReapply": 166,
       "unclassifiedAffiliateStatus": 7,
-      "exactAffiliateUrlMissing": 84,
+      "exactAffiliateUrlMissing": 83,
       "officialUnverified": 1,
       "pricingUnverified": 132
     },
@@ -402,6 +402,24 @@
         "name": "ElevenLabs",
         "officialVerified": true,
         "pricingVerified": false,
+        "affiliateStatus": "approved_tracking",
+        "affiliateVerified": true,
+        "hasAffiliateUrl": true,
+        "genericRevenueReady": true,
+        "targetedRevenueReady": true,
+        "revenueReady": true,
+        "terminal": false,
+        "doNotReapply": true,
+        "browserRequired": false,
+        "directActionableGap": false,
+        "watchOnlyGap": false,
+        "blocker": null
+      },
+      {
+        "id": "emailoctopus",
+        "name": "EmailOctopus",
+        "officialVerified": true,
+        "pricingVerified": true,
         "affiliateStatus": "approved_tracking",
         "affiliateVerified": true,
         "hasAffiliateUrl": true,
@@ -1852,24 +1870,6 @@
         "doNotReapply": false,
         "browserRequired": false,
         "directActionableGap": true,
-        "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
-      },
-      {
-        "id": "emailoctopus",
-        "name": "EmailOctopus",
-        "officialVerified": true,
-        "pricingVerified": true,
-        "affiliateStatus": "browser_required_tolt_application",
-        "affiliateVerified": false,
-        "hasAffiliateUrl": false,
-        "genericRevenueReady": false,
-        "targetedRevenueReady": false,
-        "revenueReady": false,
-        "terminal": false,
-        "doNotReapply": true,
-        "browserRequired": true,
-        "directActionableGap": false,
         "watchOnlyGap": false,
         "blocker": "exact_customer_affiliate_url_missing"
       },
@@ -3474,6 +3474,14 @@
       "verified": true,
       "url": "https://try.elevenlabs.io/ldc2xmh2x2t5",
       "verifiedAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "emailoctopus",
+      "name": "EmailOctopus",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://emailoctopus.com/?ref=sangkwon",
+      "verifiedAt": "2026-09-01T00:00:00+09:00"
     },
     {
       "id": "eprofessor",

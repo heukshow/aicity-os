@@ -32,8 +32,18 @@ BAD=re.compile(
     r'Verified revenue alternative|via verified COSHUMA link|'
     r'Separate link verification|Recently verified partner buyer guides|'
     r'Fill eSignature pricing & verified partner offer|'
+    r'\b(?:affiliate|partner|referral)-status\b|'
+    r'\bverified\s+(?:Impact|PartnerStack|Dub|Cello)\b[^.]{0,60}\b(?:route|link|status)\b|'
     r'COSHUMA[^.]{0,80}affiliate application remains separate|'
     r'no Pipedrive revenue attribution is claimed',
+    re.I,
+)
+LLMS_BAD=re.compile(
+    r'PartnerStack|Cello referral route|Impact (?:partner-)?route|Dub partner route|'
+    r'\b(?:affiliate|partner|referral)-status\b|'
+    r'verified partner route|verified affiliate route|verified customer referral route|'
+    r'non-affiliate|signup, sale, commission or revenue event|'
+    r'How COSHUMA verifies public sources, affiliate links',
     re.I,
 )
 def violations(html):
@@ -45,6 +55,7 @@ def main():
     assert violations('<meta name="description" content="GlobalSaaSHub">')
     assert violations('<p>Affiliate link verified in our records · disclosure applies</p>')
     assert violations('<p>Recently verified partner buyer guides</p>')
+    assert violations('<p>Pricing and affiliate-status buyer guide</p>')
     assert not violations('<p>Affiliate disclosure: COSHUMA may earn a commission from some links at no extra cost to you.</p>')
     assert not violations('<p>Connect your internal database.</p><a data-affiliate-status="approved_tracking" href="https://example.com/?ref=ok">Try</a>')
     urls = '<meta property="og:url" content="https://coshuma.com/tool/vidiq.html"><script type="application/ld+json">{"url":"https://coshuma.com/tool/vidiq.html"}</script><a href="https://example.com/?via=GlobalSaaSHub">Text Cortex</a>'
@@ -58,6 +69,10 @@ def main():
         if bad:errors.append(f'{path}: {sorted(set(bad))}')
         if re.search(r'\bText Cortex\b', html):errors.append(f'{path}: inconsistent TextCortex brand')
         if re.search(r'<h([1-6])\b[^>]*>\s*</h\1>',html):errors.append(f'{path}: empty heading')
+    llms_path=root/'llms.txt'
+    assert llms_path.exists(), 'Missing dist/llms.txt'
+    llms=llms_path.read_text(encoding='utf-8')
+    assert not LLMS_BAD.search(llms), 'Internal affiliate/network/status copy remains in dist/llms.txt'
     explanation=(root/'compare/kit-vs-convertkit.html').read_text(encoding='utf-8')
     assert 'same email marketing platform' in explanation
     assert 'href="https://coshuma.com/tool/kit.html"' in explanation
@@ -66,6 +81,6 @@ def main():
     assert 'Top Alternatives to Nudgera' not in (root/'tool/nudgera.html').read_text(encoding='utf-8')
     assert not errors, '\n'.join(errors)
     security_main()
-    print(f'PASS: {len(files)} built HTML files; legacy brand=0, broken rating copy=0, internal-state copy=0, internal-affiliate-copy=0, empty headings=0, security guard=pass')
+    print(f'PASS: {len(files)} built HTML files; legacy brand=0, broken rating copy=0, internal-state copy=0, internal-affiliate-copy=0, llms-internal-copy=0, empty headings=0, security guard=pass')
 
 if __name__=='__main__':main()
