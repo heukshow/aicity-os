@@ -73,18 +73,27 @@ def clean_llms(text: str) -> str:
     for raw in text.splitlines():
         line = raw
         if line.startswith('- https://'):
-            # Keep buyer facts; remove the internal network/routing explanation.
+            # Keep buyer facts; remove internal network/routing/status explanations.
             line = re.sub(r"\s+using COSHUMA's[^\n]*$", "", line, flags=re.I)
             line = re.sub(r"\s+using COSHUMA[^\n]*$", "", line, flags=re.I)
             line = re.sub(r"\s+using the vendor-confirmed[^\n]*$", "", line, flags=re.I)
             line = re.sub(r"\s+and COSHUMA's exact issued[^\n]*$", "", line, flags=re.I)
             line = re.sub(r";\s*[^;\n]*(?:COSHUMA|PartnerStack|Cello|Impact|Dub|non-affiliate|partner route|affiliate route|referral route)[^\n]*$", "", line, flags=re.I)
+            line = re.sub(r"\bverified\s+[A-Za-z0-9 ._-]{1,30}\s+partner[- ]route\s+guide\b", "buyer guide", line, flags=re.I)
             line = re.sub(r"\bverified\s+partner[- ]offer\b", "current offer", line, flags=re.I)
             line = re.sub(r"\bverified\s+COSHUMA20\s+offer\b", "COSHUMA20 offer", line, flags=re.I)
             line = re.sub(r"\bverified\s+Ambassador[- ]route\s+guide\b", "buyer guide", line, flags=re.I)
             line = re.sub(r"\bverified\s+partner[- ]route\s+guide\b", "buyer guide", line, flags=re.I)
             line = re.sub(r"\bverified\s+(?:customer\s+)?referral\s+route\b", "current offer", line, flags=re.I)
             line = re.sub(r"\bverified\s+affiliate\s+(?:ID|route|link)\b", "current vendor link", line, flags=re.I)
+            line = re.sub(r"\s+and\s+(?:affiliate|partner|referral)-status\s+buyer guide\b", " buyer guide", line, flags=re.I)
+            line = re.sub(r"\s+(?:and|with)\s+(?:current\s+)?(?:affiliate|partner|referral)-status\s+facts\b", "", line, flags=re.I)
+            line = re.sub(r"\b(?:affiliate|partner|referral)-status\s+buyer guide\b", "buyer guide", line, flags=re.I)
+            line = re.sub(r"\baffiliate-status\s+facts\b", "current product details", line, flags=re.I)
+            line = line.replace(
+                'How COSHUMA verifies public sources, affiliate links, pricing, and buyer-fit claims',
+                'How COSHUMA checks public sources, pricing and buyer-fit claims',
+            )
             line = re.sub(r"\s{2,}", " ", line).rstrip(' ;,')
         cleaned.append(line)
     return "\n".join(cleaned) + ("\n" if text.endswith("\n") else "")
@@ -99,15 +108,17 @@ def assert_customer_only(methodology: str, categories: list[str], llms: str) -> 
         re.I,
     )
     forbidden_llms = re.compile(
-        r'PartnerStack|Cello referral route|Impact route|Dub partner route|'
+        r'PartnerStack|Cello referral route|Impact (?:partner-)?route|Dub partner route|'
         r'verified partner route|verified affiliate route|verified customer referral route|'
-        r'non-affiliate|signup, sale, commission or revenue event',
+        r'(?:affiliate|partner|referral)-status|non-affiliate|'
+        r'signup, sale, commission or revenue event|'
+        r'How COSHUMA verifies public sources, affiliate links',
         re.I,
     )
     if forbidden_html.search(public_editorial):
         raise RuntimeError('Internal affiliate/workflow copy remains in public editorial HTML')
     if forbidden_llms.search(llms):
-        raise RuntimeError('Internal affiliate/network copy remains in public llms.txt')
+        raise RuntimeError('Internal affiliate/network/status copy remains in public llms.txt')
 
 
 def main() -> None:
