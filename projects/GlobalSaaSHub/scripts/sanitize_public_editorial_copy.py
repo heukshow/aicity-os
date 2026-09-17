@@ -2,7 +2,7 @@
 
 Runs after the existing customer-only guards and immediately before Vite.
 It removes internal affiliate/network/workflow language from public category,
-methodology, buyer-hub and llms.txt copy without touching outbound URLs,
+methodology, buyer-hub and selected buyer-page copy without touching outbound URLs,
 attribution attributes, required disclosure files, prices, trial terms or product facts.
 """
 from pathlib import Path
@@ -41,16 +41,45 @@ BUYER_HUB_META = (
     "tools before you pay. Check current terms, trial lengths and plan details."
 )
 
+JOTFORM_PATHS = (
+    PUBLIC / 'tool' / 'jotform.html',
+    PUBLIC / 'best' / 'jotform-pricing-free-plan.html',
+)
+
+JOTFORM_REPLACEMENTS = {
+    "plus a verified Jotform AI Agents partner path for customer-support automation.":
+        "plus Jotform AI Agents for customer-support automation.",
+    "Revenue-ready partner path": "AI support use case",
+    "See limits, buyer fit and verified Jotform partner paths.":
+        "See limits, buyer fit and current Jotform options for forms and AI Agents.",
+    "the verified Jotform AI Agents partner path": "Jotform AI Agents",
+    "the more relevant revenue-ready path": "the more relevant option",
+    "through the verified customer partner path": "on the Jotform AI Agents page",
+    " COSHUMA keeps pricing evidence separate from affiliate-link verification.": "",
+}
+
 
 def clean_html(text: str) -> str:
     for old, new in EXACT_HTML.items():
         text = text.replace(old, new)
     text = METHODOLOGY_AFFILIATE_BLOCK.sub("", text)
     text = METHODOLOGY_DISCLOSURE_BLOCK.sub("", text)
-    # Renumber the methodology cards after removing the internal affiliate card.
     text = text.replace('>4. Update dates</h2>', '>3. Update dates</h2>')
     text = text.replace('>5. Ratings and claims</h2>', '>4. Ratings and claims</h2>')
     text = text.replace('>6. Corrections</h2>', '>5. Corrections</h2>')
+    return text
+
+
+def clean_jotform(text: str) -> str:
+    """Keep Jotform buyer pages focused on buyer decisions, not COSHUMA operations."""
+    for old, new in JOTFORM_REPLACEMENTS.items():
+        text = text.replace(old, new)
+    text = re.sub(r'\b(?:the\s+)?verified\s+Jotform\s+AI Agents\s+partner\s+path\b', 'Jotform AI Agents', text, flags=re.I)
+    text = re.sub(r'\bverified\s+Jotform\s+partner\s+paths?\b', 'current Jotform options', text, flags=re.I)
+    text = re.sub(r'\brevenue-ready\s+partner\s+path\b', 'AI support use case', text, flags=re.I)
+    text = re.sub(r'\brevenue-ready\s+path\b', 'option', text, flags=re.I)
+    text = re.sub(r'\bverified\s+customer\s+partner\s+path\b', 'Jotform AI Agents page', text, flags=re.I)
+    text = re.sub(r'\s*COSHUMA keeps pricing evidence separate from affiliate-link verification\.', '', text, flags=re.I)
     return text
 
 
@@ -87,8 +116,6 @@ def clean_buyer_hub(text: str) -> str:
     text = text.replace('Direct partner confirmation · September 11', 'Trial and pricing options · September 11')
     text = text.replace('Exact partner-issued buyer routes', 'Compare before you pay')
 
-    # Typedesk is injected after the earlier public-copy guard, so normalize its
-    # buyer card here without changing the exact destination or Free-plan facts.
     text = re.sub(
         r'<p class="text-sm leading-6 text-slate-300">Typedesk\'s current official pricing page lists a Free plan for personal use with unlimited templates and up to 50 uses per week\..*?</p>',
         '<p class="text-sm leading-6 text-slate-300">Typedesk\'s current official pricing page lists a Free plan for personal use with unlimited templates and up to 50 uses per week. Compare the current plans and limits before upgrading.</p>',
@@ -102,9 +129,6 @@ def clean_buyer_hub(text: str) -> str:
         flags=re.I | re.S,
     )
 
-    # Remove operations-only paragraphs even when they contain inline <strong>,
-    # <code> or <a> tags. The tempered pattern never crosses a closing </p>, so
-    # buyer-fact paragraphs next to them are preserved.
     ops_phrase = (
         r'customer-facing PartnerStack route|partner-side evidence|partner correspondence|'
         r'guessing referral parameters|existing affiliate account|'
@@ -149,7 +173,6 @@ def clean_llms(text: str) -> str:
     for raw in text.splitlines():
         line = raw
         if line.startswith('- https://'):
-            # Keep buyer facts; remove internal network/routing/status explanations.
             line = re.sub(r"\s+using COSHUMA's[^\n]*$", "", line, flags=re.I)
             line = re.sub(r"\s+using COSHUMA[^\n]*$", "", line, flags=re.I)
             line = re.sub(r"\s+using the vendor-confirmed[^\n]*$", "", line, flags=re.I)
@@ -175,7 +198,7 @@ def clean_llms(text: str) -> str:
     return "\n".join(cleaned) + ("\n" if text.endswith("\n") else "")
 
 
-def assert_customer_only(methodology: str, categories: list[str], llms: str, buyer_hub: str) -> None:
+def assert_customer_only(methodology: str, categories: list[str], llms: str, buyer_hub: str, jotform_pages: list[str]) -> None:
     public_editorial = " ".join([methodology, *categories])
     forbidden_html = re.compile(
         r'Affiliate-link separation|affiliate tracking|affiliate verification dates|'
@@ -197,12 +220,20 @@ def assert_customer_only(methodology: str, categories: list[str], llms: str, buy
         r"Jotform's affiliate team supplied|COSHUMA separates customer-facing tracking links",
         re.I,
     )
+    forbidden_jotform = re.compile(
+        r'verified\s+Jotform\s+(?:AI Agents\s+)?partner\s+paths?|'
+        r'Revenue-ready\s+(?:partner\s+)?path|verified\s+customer\s+partner\s+path|'
+        r'affiliate-link verification',
+        re.I,
+    )
     if forbidden_html.search(public_editorial):
         raise RuntimeError('Internal affiliate/workflow copy remains in public editorial HTML')
     if forbidden_llms.search(llms):
         raise RuntimeError('Internal affiliate/network/status copy remains in public llms.txt')
     if forbidden_hub.search(buyer_hub):
         raise RuntimeError('Internal affiliate/network workflow copy remains in public buyer hub')
+    if forbidden_jotform.search(' '.join(jotform_pages)):
+        raise RuntimeError('Internal affiliate/partner copy remains in public Jotform buyer pages')
 
 
 def main() -> None:
@@ -227,6 +258,15 @@ def main() -> None:
             buyer_hub_path.write_text(after, encoding='utf-8')
             changed.append(buyer_hub_path.relative_to(ROOT).as_posix())
 
+    for path in JOTFORM_PATHS:
+        if not path.exists():
+            continue
+        before = path.read_text(encoding='utf-8')
+        after = clean_jotform(before)
+        if after != before:
+            path.write_text(after, encoding='utf-8')
+            changed.append(path.relative_to(ROOT).as_posix())
+
     llms_path = PUBLIC / 'llms.txt'
     if llms_path.exists():
         before = llms_path.read_text(encoding='utf-8')
@@ -238,8 +278,9 @@ def main() -> None:
     methodology = methodology_path.read_text(encoding='utf-8') if methodology_path.exists() else ''
     categories = [p.read_text(encoding='utf-8') for p in category_paths]
     buyer_hub = buyer_hub_path.read_text(encoding='utf-8') if buyer_hub_path.exists() else ''
+    jotform_pages = [p.read_text(encoding='utf-8') for p in JOTFORM_PATHS if p.exists()]
     llms = llms_path.read_text(encoding='utf-8') if llms_path.exists() else ''
-    assert_customer_only(methodology, categories, llms, buyer_hub)
+    assert_customer_only(methodology, categories, llms, buyer_hub, jotform_pages)
     print(f'Editorial customer-only copy: {len(changed)} files normalized')
 
 
