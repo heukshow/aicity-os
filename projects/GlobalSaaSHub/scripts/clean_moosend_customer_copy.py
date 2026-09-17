@@ -37,9 +37,6 @@ for old, new in replacements:
     if old in text:
         text = text.replace(old, new)
 
-# Remove the old paid listing-management/profile-claim block if it survives the
-# preceding normalization pass. Match the stable wrapper and /#submit action rather
-# than fragile labels that may already have been normalized.
 text, removed = re.subn(
     r'\n\s*<section class="rounded-3xl bg-\[#181a29\]/80 border border-purple-500/30 p-6 space-y-4">(?:(?!</section>).)*?<a href="/#submit"(?:(?!</section>).)*?</section>\n',
     "\n",
@@ -52,8 +49,8 @@ if text.count(TRACKING_URL) < 3:
     raise SystemExit("Moosend cleanup failed: verified customer referral CTAs were lost")
 if 'rel="sponsored noopener noreferrer"' not in text:
     raise SystemExit("Moosend cleanup failed: sponsored attribution was lost")
-if 'Affiliate disclosure:' not in text:
-    raise SystemExit("Moosend cleanup failed: affiliate disclosure was lost")
+if 'Affiliate disclosure:' in text or 'data-affiliate-disclosure=' in text:
+    raise SystemExit("Moosend cleanup failed: page-level affiliate disclosure must not be regenerated")
 
 for forbidden in (
     "exact referral url verified",
