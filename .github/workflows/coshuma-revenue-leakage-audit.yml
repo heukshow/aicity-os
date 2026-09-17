@@ -54,12 +54,13 @@ jobs:
           NODE
       - name: Persist current leakage audit
         run: |
-          if git diff --quiet -- projects/GlobalSaaSHub/data/revenue-leakage-audit.json; then
+          report='projects/GlobalSaaSHub/data/revenue-leakage-audit.json'
+          if [ -z "$(git status --porcelain -- "$report")" ]; then
             echo 'Revenue leakage audit already current.'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add projects/GlobalSaaSHub/data/revenue-leakage-audit.json
+          git add "$report"
           git commit -m 'data: refresh COSHUMA revenue leakage audit [skip ci]'
           git push origin HEAD:main
