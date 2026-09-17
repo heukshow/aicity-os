@@ -29,6 +29,7 @@ BAD=re.compile(
     r'Verified low-friction buyer routes|Start with a tracked trial|'
     r'customer-facing destinations were supplied directly by the partner programs|'
     r'COSHUMA does not invent referral parameters|'
+    r'guessed affiliate parameters|'
     r'Verified revenue alternative|via verified COSHUMA link|'
     r'Separate link verification|Recently verified partner buyer guides|'
     r'Fill eSignature pricing & verified partner offer|'
@@ -65,6 +66,7 @@ def main():
     assert violations('<p>Pricing and affiliate-status buyer guide</p>')
     assert violations('<h2>Affiliate status</h2>')
     assert violations('<p>Find the right verified route</p>')
+    assert violations('<p>COSHUMA does not append guessed affiliate parameters to pricing pages.</p>')
     assert not violations('<p>Affiliate disclosure: COSHUMA may earn a commission from some links at no extra cost to you.</p>')
     assert not violations('<p>Connect your internal database.</p><a data-affiliate-status="approved_tracking" href="https://example.com/?ref=ok">Try</a>')
     urls = '<meta property="og:url" content="https://coshuma.com/tool/vidiq.html"><script type="application/ld+json">{"url":"https://coshuma.com/tool/vidiq.html"}</script><a href="https://example.com/?via=GlobalSaaSHub">Text Cortex</a>'
