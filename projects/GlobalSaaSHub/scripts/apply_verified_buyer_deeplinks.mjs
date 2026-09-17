@@ -117,11 +117,6 @@ for (const route of routes) {
   }
 }
 
-// Teachable supplied COSHUMA with a separate PartnerStack route specifically for
-// the affiliate-only 30-day free trial. Once the normal comparison monetizer has
-// converted generated Teachable buttons into attributed affiliate CTAs, prefer
-// that lower-friction vendor-issued offer on comparison pages. The authoritative
-// default PartnerStack URL remains stored in tools.json and approvedTracking.
 let teachableCompareFilesChanged = 0;
 let teachableCompareCtasChanged = 0;
 const teachable = approvedTracking.get('teachable');
@@ -163,8 +158,8 @@ if (teachable) {
       if (!html.includes('/affiliate-attribution.js')) {
         throw new Error(`teachable: comparison attribution script missing in ${filename}`);
       }
-      if (!/affiliate disclosure/i.test(html)) {
-        throw new Error(`teachable: affiliate disclosure missing in ${filename}`);
+      if (/affiliate disclosure/i.test(html) || html.includes('data-affiliate-disclosure=')) {
+        throw new Error(`teachable: page-level affiliate disclosure must not be regenerated in ${filename}`);
       }
       fs.writeFileSync(file, html, 'utf8');
       teachableCompareFilesChanged += 1;
@@ -172,13 +167,6 @@ if (teachable) {
   }
 }
 
-// Jotform's vendor-confirmed pricing route is more buyer-intent specific than the
-// generic account tracking homepage. The generic monetizer may normalize new
-// comparison CTAs back to the authoritative homepage, so restore the explicitly
-// allowlisted pricing route at the end of the build for every Jotform comparison.
-// Jotform's pricing-route evidence predates its inclusion in the central approved
-// map, so use that exact evidence-backed config as a fallback rather than silently
-// skipping new comparison pages.
 let jotformCompareFilesChanged = 0;
 let jotformCompareCtasChanged = 0;
 const jotform = approvedTracking.get('jotform') || {
@@ -217,8 +205,8 @@ const jotform = approvedTracking.get('jotform') || {
       if (!html.includes('/affiliate-attribution.js')) {
         throw new Error(`jotform: comparison attribution script missing in ${filename}`);
       }
-      if (!/affiliate disclosure/i.test(html)) {
-        throw new Error(`jotform: affiliate disclosure missing in ${filename}`);
+      if (/affiliate disclosure/i.test(html) || html.includes('data-affiliate-disclosure=')) {
+        throw new Error(`jotform: page-level affiliate disclosure must not be regenerated in ${filename}`);
       }
       fs.writeFileSync(file, html, 'utf8');
       jotformCompareFilesChanged += 1;
