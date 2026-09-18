@@ -1,0 +1,137 @@
+"""Remove partner-correspondence mechanics from customer-facing HTML before build.
+
+Internal evidence stays in data/ops files. Customer pages may keep the resulting buyer
+fact (discount, product availability, trial or destination) but must not expose who
+emailed COSHUMA, what an affiliate manager confirmed, or how attribution is verified.
+This pass runs after content injectors and before the public-source fail-closed guard.
+"""
+from __future__ import annotations
+
+from pathlib import Path
+import re
+
+ROOT = Path(__file__).resolve().parents[1]
+PUBLIC = ROOT / "public"
+
+# Targeted buyer-safe rewrites for currently generated/source-backed copy. Keep factual
+# offer/product information while removing correspondence and tracking mechanics.
+RULES: tuple[tuple[re.Pattern[str], str], ...] = (
+    (
+        re.compile(
+            r"Taskade's affiliate team told COSHUMA that code AI provides 20% off subscriptions\.",
+            re.I,
+        ),
+        "Code AI currently provides 20% off subscriptions.",
+    ),
+    (
+        re.compile(
+            r"The message did not explicitly confirm a lifetime duration for the AI code",
+            re.I,
+        ),
+        "A lifetime duration is not confirmed for the AI code",
+    ),
+    (
+        re.compile(
+            r"the 20% code and combined-savings guidance come from Pictory's affiliate-manager messages to COSHUMA\.\s*"
+            r"On September 7, 2026, the affiliate manager separately reconfirmed that COSHUMA's existing affiliate link and COSHUMA20 remain active and that the affiliate link should remain the primary tracking method\.",
+            re.I,
+        ),
+        "code COSHUMA20 is currently presented as a 20% promotion. Check that the code applies and confirm the final price before paying.",
+    ),
+    (
+        re.compile(
+            r"Pictory's affiliate manager separately confirmed to COSHUMA that the verified referral URL and COSHUMA20 remain active and that COSHUMA20 gives 20% off, subject to current checkout eligibility\.",
+            re.I,
+        ),
+        "Code COSHUMA20 is currently presented as providing 20% off, subject to checkout eligibility.",
+    ),
+    (
+        re.compile(
+            r"Pictory's affiliate manager confirmed this code gives\s*",
+            re.I,
+        ),
+        "The current code gives ",
+    ),
+    (
+        re.compile(
+            r"\s*and reconfirmed that COSHUMA's verified referral link and the code remain active\.",
+            re.I,
+        ),
+        ".",
+    ),
+    (
+        re.compile(
+            r"Its affiliate manager separately reconfirmed to COSHUMA that the existing affiliate link and promo code\s*"
+            r"(<strong\b[^>]*>COSHUMA20</strong>)\s*remain active\.",
+            re.I,
+        ),
+        r"Promo code \1 is currently presented as active.",
+    ),
+    (
+        re.compile(
+            r"Jotform's Affiliate Team highlighted the wider suite to COSHUMA and has now directly confirmed tracked COSHUMA routes for Sign, Apps, Workflows, Tables and Report Builder in addition to previously verified pricing and AI Agents links\.",
+            re.I,
+        ),
+        "Jotform's suite includes Sign, Apps, Workflows, Tables, Report Builder, pricing tools and AI Agents alongside Forms.",
+    ),
+    (
+        re.compile(r"Free educational paths with affiliate attribution", re.I),
+        "Free educational paths",
+    ),
+    (
+        re.compile(
+            r"vidIQ's affiliate team supplied these exact article links to COSHUMA on September 6, 2026 and stated that the affiliate parameters are already inserted, so a reader who later signs up can still be credited to COSHUMA\.\s*"
+            r"These links go to educational content first rather than directly to checkout\.",
+            re.I,
+        ),
+        "These links go to vidIQ educational content first rather than directly to checkout. Choose the article that matches the YouTube milestone you are trying to reach.",
+    ),
+)
+
+CORRESPONDENCE = re.compile(
+    r"\b(?:affiliate|partner)[- ]?(?:team|manager)\b[^\n<>]{0,160}\b(?:message|email|reply|told|confirmed|reconfirmed|supplied|highlighted)\b"
+    r"|\b(?:message|email|reply)\b[^\n<>]{0,160}\b(?:affiliate|partner)[- ]?(?:team|manager)\b"
+    r"|\b(?:affiliate|partner)[- ]?(?:manager|team)\b[^\n<>]{0,160}\bCOSHUMA\b",
+    re.I,
+)
+
+
+def main() -> None:
+    changed_files = 0
+    replacements = 0
+
+    for path in sorted(PUBLIC.rglob("*.html")):
+        text = path.read_text(encoding="utf-8")
+        updated = text
+        file_replacements = 0
+        for pattern, replacement in RULES:
+            updated, count = pattern.subn(replacement, updated)
+            file_replacements += count
+
+        if updated != text:
+            path.write_text(updated, encoding="utf-8")
+            changed_files += 1
+            replacements += file_replacements
+
+    remaining: list[str] = []
+    for path in sorted(PUBLIC.rglob("*.html")):
+        text = path.read_text(encoding="utf-8")
+        match = CORRESPONDENCE.search(text)
+        if match:
+            snippet = re.sub(r"\s+", " ", text[max(0, match.start()-80):match.end()+100]).strip()
+            remaining.append(f"{path.relative_to(PUBLIC).as_posix()}: {snippet[:260]}")
+
+    if remaining:
+        print("ERROR: partner correspondence remains in customer-facing public HTML.")
+        for item in remaining[:50]:
+            print(f" - {item}")
+        raise SystemExit(1)
+
+    print(
+        f"PASS: public partner-correspondence sanitizer changed={changed_files} "
+        f"replacements={replacements} remaining=0"
+    )
+
+
+if __name__ == "__main__":
+    main()
