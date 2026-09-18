@@ -1,9 +1,10 @@
-"""Remove partner-correspondence mechanics from customer-facing HTML before build.
+"""Remove partner-correspondence and tracking-verification mechanics from public HTML.
 
 Internal evidence stays in data/ops files. Customer pages may keep the resulting buyer
 fact (discount, product availability, trial or destination) but must not expose who
-emailed COSHUMA, what an affiliate manager confirmed, or how attribution is verified.
-This pass runs after content injectors and before the public-source fail-closed guard.
+emailed COSHUMA, what an affiliate manager confirmed, how attribution is verified, or
+whether an internal tracking route is confirmed/unconfirmed. This pass runs after
+content injectors and before the public-source fail-closed guard.
 """
 from __future__ import annotations
 
@@ -89,6 +90,37 @@ RULES: tuple[tuple[re.Pattern[str], str], ...] = (
         r"<p\g<attrs>>Product scope and destinations are reviewed against current Jotform product pages. Check the current feature set, plan terms and destination before purchase.</p>",
     ),
     (
+        re.compile(
+            r"with vendor-confirmed COSHUMA partner routes for pricing, AI Agents and five product pages\.",
+            re.I,
+        ),
+        "with current product links for pricing, AI Agents and key product pages.",
+    ),
+    (
+        re.compile(r"using only vendor-confirmed monetized routes\.", re.I),
+        "with current product and pricing links.",
+    ),
+    (
+        re.compile(r"Open verified ([^<\n]+?) partner route →", re.I),
+        r"Open current \1 offer →",
+    ),
+    (
+        re.compile(r"Official Boards page\s*[—-]\s*tracking unconfirmed\s*→", re.I),
+        "Official Boards page →",
+    ),
+    (
+        re.compile(r"Use the vendor-confirmed pricing route to check current limits and billing before upgrading\.", re.I),
+        "Use the current pricing page to check current limits and billing before upgrading.",
+    ),
+    (
+        re.compile(r"How COSHUMA verified this guide", re.I),
+        "Guide notes",
+    ),
+    (
+        re.compile(r"vendor-confirmed product links", re.I),
+        "current product links",
+    ),
+    (
         re.compile(r"Free educational paths with affiliate attribution", re.I),
         "Free educational paths",
     ),
@@ -124,6 +156,15 @@ CORRESPONDENCE = re.compile(
     re.I,
 )
 
+PUBLIC_MECHANICS = re.compile(
+    r"\bvendor[- ]confirmed\b"
+    r"|\btracking\s+(?:unconfirmed|confirmed|verified|unknown)\b"
+    r"|\bHow\s+COSHUMA\s+verified\b"
+    r"|\bverified\s+(?:affiliate|partner|referral|tracking)\s+(?:link|route|URL|destination)\b"
+    r"|\b(?:affiliate|partner)\s+route\b",
+    re.I,
+)
+
 
 def main() -> None:
     changed_files = 0
@@ -145,19 +186,20 @@ def main() -> None:
     remaining: list[str] = []
     for path in sorted(PUBLIC.rglob("*.html")):
         text = path.read_text(encoding="utf-8")
-        match = CORRESPONDENCE.search(text)
-        if match:
-            snippet = re.sub(r"\s+", " ", text[max(0, match.start()-80):match.end()+100]).strip()
-            remaining.append(f"{path.relative_to(PUBLIC).as_posix()}: {snippet[:280]}")
+        for label, pattern in (("correspondence", CORRESPONDENCE), ("tracking-verification", PUBLIC_MECHANICS)):
+            match = pattern.search(text)
+            if match:
+                snippet = re.sub(r"\s+", " ", text[max(0, match.start()-80):match.end()+100]).strip()
+                remaining.append(f"{path.relative_to(PUBLIC).as_posix()}: {label}: {snippet[:280]}")
 
     if remaining:
-        print("ERROR: partner correspondence remains in customer-facing public HTML.")
+        print("ERROR: partner correspondence or tracking-verification mechanics remain in customer-facing public HTML.")
         for item in remaining[:50]:
             print(f" - {item}")
         raise SystemExit(1)
 
     print(
-        f"PASS: public partner-correspondence sanitizer changed={changed_files} "
+        f"PASS: public partner/tracking sanitizer changed={changed_files} "
         f"replacements={replacements} remaining=0"
     )
 
