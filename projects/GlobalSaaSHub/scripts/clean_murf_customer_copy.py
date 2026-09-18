@@ -18,13 +18,14 @@ replacements = {
     ">Open Murf through COSHUMA →<": ">Open Murf →<",
     "Pictory is a separate verified partner path for turning scripts and content into videos.":
         "Pictory is built for turning scripts and existing content into videos when you need more than voiceover generation.",
+    "Affiliate rate, duration, attribution window and discount policy come from Murf's official affiliate program page; COSHUMA's exact referral URL comes from Murf's PartnerStack welcome email.":
+        "Plan and product details can change, so confirm the current Murf pricing and product pages before checkout.",
 }
 for old, new in replacements.items():
     html = html.replace(old, new)
 
 # Shared sanitizers can rewrite apostrophes and nearby text. Replace the whole
-# paragraph that contains the internal network evidence, independent of its exact
-# punctuation, while keeping the rest of the buyer page intact.
+# customer-visible evidence paragraph if the internal network phrase survives.
 internal_evidence_paragraph = re.compile(
     r'<p\b[^>]*>(?:(?!</p>).)*PartnerStack\s+welcome\s+email(?:(?!</p>).)*</p>',
     re.I | re.S,
@@ -47,6 +48,14 @@ html = re.sub(
     '<p class="text-xs text-slate-400">Murf also has separate dubbing and API pricing surfaces, so confirm the exact product and billing cadence you need before checkout.</p>',
     html,
     count=1,
+    flags=re.I | re.S,
+)
+# Last-resort source-note cleanup: remove any remaining sentence that discloses
+# the internal partner-email evidence while leaving official product sourcing.
+html = re.sub(
+    r"Affiliate rate, duration, attribution window and discount policy[^<]*PartnerStack\s+welcome\s+email\.",
+    "Plan and product details can change, so confirm the current Murf pricing and product pages before checkout.",
+    html,
     flags=re.I | re.S,
 )
 
