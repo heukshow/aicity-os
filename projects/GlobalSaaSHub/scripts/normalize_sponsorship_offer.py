@@ -182,6 +182,7 @@ def main() -> None:
         "surface_cartstack_verified_offer.py",
         "surface_elevenlabs_verified_offer.py",
         "surface_dorik_verified_offer.py",
+        "surface_livechat_verified_offer.py",
         "improve_verified_offer_discovery.py",
     ):
         try:
