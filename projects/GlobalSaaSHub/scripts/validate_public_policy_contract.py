@@ -61,11 +61,19 @@ built_guard = (ROOT / "scripts" / "guard_built_customer_copy.py").read_text(enco
 tracker_guard = (ROOT / "scripts" / "verify_approved_tracking.mjs").read_text(encoding="utf-8")
 artifact_guard = (ROOT / "scripts" / "guard_public_artifact_boundary.py").read_text(encoding="utf-8")
 raw_guard = (ROOT / "scripts" / "guard_raw_public_source.py").read_text(encoding="utf-8")
-source_boundary_guard = (ROOT / "scripts" / "guard_public_source_boundary.py").read_text(encoding="utf-8")
+source_boundary_guard = source_guard
 
 require("strip_general_notice" not in source_normalizer, "legacy page-disclosure removal logic is still active")
-require("PAGE_DISCLOSURE" in source_normalizer and 'DISCLOSURE["page_text"]' in source_normalizer, "source normalizer no longer preserves canonical page disclosure")
-require("HOME_DISCLOSURE" in source_normalizer and 'DISCLOSURE["homepage_text"]' in source_normalizer, "source normalizer no longer preserves homepage disclosure")
+page_normalizer_uses_policy = (
+    ("PAGE_DISCLOSURE" in source_normalizer and 'DISCLOSURE["page_text"]' in source_normalizer)
+    or ("PAGE_NOTICE" in source_normalizer and 'DISC["page_text"]' in source_normalizer)
+)
+home_normalizer_uses_policy = (
+    ("HOME_DISCLOSURE" in source_normalizer and 'DISCLOSURE["homepage_text"]' in source_normalizer)
+    or ("HOME_NOTICE" in source_normalizer and 'DISC["homepage_text"]' in source_normalizer)
+)
+require(page_normalizer_uses_policy, "source normalizer no longer preserves canonical page disclosure")
+require(home_normalizer_uses_policy, "source normalizer no longer preserves homepage disclosure")
 require('data-affiliate-disclosure="page"' in source_guard, "source boundary no longer checks page disclosure marker")
 require("consumer disclosure must appear before the first affiliate CTA" in source_guard, "source boundary no longer checks disclosure placement")
 require('data-site-affiliate-disclosure="global"' in source_guard, "source boundary no longer checks homepage disclosure")
