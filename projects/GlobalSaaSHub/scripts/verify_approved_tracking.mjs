@@ -104,8 +104,13 @@ for (const [id, evidence] of approvedTracking) {
       count += 1;
     }
     assert.ok(html.includes('/affiliate-attribution.js'), `${file}: missing affiliate attribution collector`);
-    assert.ok(!/Affiliate\s+disclosure\s*:/i.test(html), `${file}: repeated page-level affiliate disclosure`);
-    assert.ok(!html.includes('data-affiliate-disclosure='), `${file}: repeated page-level disclosure marker`);
+    const pageDisclosureMarkers = html.match(/data-affiliate-disclosure="page"/g) || [];
+    const pageDisclosureText = html.match(/Affiliate\s+disclosure\s*:/gi) || [];
+    assert.equal(pageDisclosureMarkers.length, 1, `${file}: affiliate page must contain exactly one page-level disclosure marker`);
+    assert.equal(pageDisclosureText.length, 1, `${file}: affiliate page must contain exactly one visible affiliate disclosure`);
+    const firstDisclosure = html.indexOf('data-affiliate-disclosure="page"');
+    const firstAffiliateCta = html.search(/<a\b[^>]*data-cta="affiliate"/i);
+    assert.ok(firstDisclosure >= 0 && firstAffiliateCta >= 0 && firstDisclosure < firstAffiliateCta, `${file}: disclosure must appear before the first affiliate CTA`);
   }
 
   console.log(`${id}: ${count} attributed CTAs across ${pages.length} pages (tool + compare + best)`);
@@ -116,4 +121,4 @@ assert.equal((home.match(/data-site-affiliate-disclosure="global"/g) || []).leng
 assert.equal((home.match(/Affiliate\s+disclosure\s*:/gi) || []).length, 1, 'homepage must contain exactly one general affiliate disclosure');
 assert.ok(fs.existsSync(`${dir}/affiliate-disclosure.html`), 'dedicated affiliate disclosure policy page must remain available');
 
-console.log('PASS: authoritative exact state is preserved; built tool, comparison, and buyer-guide CTAs use only exact or explicitly evidence-backed URLs with attribution; general affiliate disclosure appears once on the homepage.');
+console.log('PASS: authoritative exact state is preserved; built affiliate CTAs use only exact or explicitly evidence-backed URLs with attribution; homepage has one global disclosure and every affiliate page has one disclosure before its first affiliate CTA.');
