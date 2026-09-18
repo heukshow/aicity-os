@@ -39,6 +39,12 @@ INTERNAL_DASHBOARD = re.compile(
     r"|\b(?:portal|dashboard)\b[^\n<>]{0,50}\b(?:affiliate|partner|referral|commission)\b",
     re.I,
 )
+INTERNAL_CORRESPONDENCE = re.compile(
+    r"\b(?:affiliate|partner)\s+(?:team|manager)\b[^\n<>]{0,120}\b(?:message|email|reply|told|confirmed|supplied|reconfirmed)\b"
+    r"|\b(?:message|email|reply)\b[^\n<>]{0,120}\b(?:affiliate|partner)\s+(?:team|manager)\b"
+    r"|\bfirst-party\s+reporting\s+(?:verifies|confirms)\b",
+    re.I,
+)
 INTERNAL_KEYS = re.compile(
     r"[\"'](?:affiliate_evidence_markers|affiliate_status|affiliate_verified|"
     r"affiliate_status_checked_at|affiliate_status_evidence_url|affiliate_next_action|"
@@ -51,6 +57,7 @@ PATTERNS = {
     "affiliate-network-context": CONTEXTUAL_NETWORK,
     "internal-affiliate-state": INTERNAL_STATE,
     "internal-affiliate-dashboard": INTERNAL_DASHBOARD,
+    "internal-affiliate-correspondence": INTERNAL_CORRESPONDENCE,
 }
 
 
@@ -112,15 +119,22 @@ def scan_file(path: Path) -> list[str]:
     if path.suffix.lower() == ".html":
         p = PublicHTML()
         p.feed(raw)
-        return scan_text(" ".join(p.parts + p.meta))
+        visible = scan_text(" ".join(p.parts + p.meta))
+        key = INTERNAL_KEYS.search(mask_urls(raw))
+        if key:
+            visible.append(f"internal-data-key: {key.group(0)}")
+        return visible
 
     if path.suffix.lower() == ".js":
-        # URLs and public product names are fine in JS. Internal source-state keys are not.
-        match = INTERNAL_KEYS.search(raw)
-        if not match:
-            return []
-        snippet = re.sub(r"\s+", " ", raw[max(0, match.start()-70):match.end()+70]).strip()
-        return [f"internal-data-key: {snippet[:220]}"]
+        # Scan executable public source too. URLs are masked so verified tracking
+        # domains/parameters remain allowed while explanatory ops copy fails closed.
+        masked = mask_urls(raw)
+        out = scan_text(raw)
+        key = INTERNAL_KEYS.search(masked)
+        if key:
+            snippet = re.sub(r"\s+", " ", masked[max(0, key.start()-70):key.end()+70]).strip()
+            out.insert(0, f"internal-data-key: {snippet[:220]}")
+        return out
 
     if path.suffix.lower() == ".json":
         try:
@@ -158,7 +172,7 @@ def main() -> None:
             print(f" - ... and {len(errors)-100} more")
         raise SystemExit(1)
 
-    print(f"PASS: public artifact boundary clean across {len(files)} text artifacts; network/status/dashboard leaks=0")
+    print(f"PASS: public artifact boundary clean across {len(files)} text artifacts; network/status/dashboard/correspondence leaks=0")
 
 
 if __name__ == "__main__":
