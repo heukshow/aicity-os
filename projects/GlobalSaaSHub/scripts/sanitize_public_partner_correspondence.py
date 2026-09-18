@@ -18,17 +18,17 @@ PUBLIC = ROOT / "public"
 RULES: tuple[tuple[re.Pattern[str], str], ...] = (
     (
         re.compile(
-            r"Taskade's affiliate team told COSHUMA that code AI provides 20% off subscriptions\.",
+            r"Taskade's affiliate team told COSHUMA that code\s*(?:<strong\b[^>]*>)?AI(?:</strong>)?\s*(?:provides|gives)\s*(?:<strong\b[^>]*>)?20% off subscriptions(?:</strong>)?\.",
             re.I,
         ),
-        "Code AI currently provides 20% off subscriptions.",
+        "Code <strong class=\"text-white\">AI</strong> currently gives <strong class=\"text-white\">20% off subscriptions</strong>.",
     ),
     (
         re.compile(
-            r"The message did not explicitly confirm a lifetime duration for the AI code",
+            r"The (?:message|email) does not explicitly (?:confirm|state) a lifetime duration for (?:the|this shared) AI code",
             re.I,
         ),
-        "A lifetime duration is not confirmed for the AI code",
+        "A lifetime duration is not confirmed for this shared AI code",
     ),
     (
         re.compile(
@@ -54,6 +54,13 @@ RULES: tuple[tuple[re.Pattern[str], str], ...] = (
     ),
     (
         re.compile(
+            r"COSHUMA's affiliate manager confirmed the offers can combine for savings above 52%, subject to checkout eligibility\.",
+            re.I,
+        ),
+        "The offers may combine for savings above 52%, subject to checkout eligibility.",
+    ),
+    (
+        re.compile(
             r"\s*and reconfirmed that COSHUMA's verified referral link and the code remain active\.",
             re.I,
         ),
@@ -75,6 +82,13 @@ RULES: tuple[tuple[re.Pattern[str], str], ...] = (
         "Jotform's suite includes Sign, Apps, Workflows, Tables, Report Builder, pricing tools and AI Agents alongside Forms.",
     ),
     (
+        re.compile(
+            r"<p(?P<attrs>\b[^>]*)>Jotform's Partner Team first highlighted the wider suite to .*?</p>",
+            re.I | re.S,
+        ),
+        r"<p\g<attrs>>Product scope and destinations are reviewed against current Jotform product pages. Check the current feature set, plan terms and destination before purchase.</p>",
+    ),
+    (
         re.compile(r"Free educational paths with affiliate attribution", re.I),
         "Free educational paths",
     ),
@@ -86,12 +100,27 @@ RULES: tuple[tuple[re.Pattern[str], str], ...] = (
         ),
         "These links go to vidIQ educational content first rather than directly to checkout. Choose the article that matches the YouTube milestone you are trying to reach.",
     ),
+    (
+        re.compile(
+            r"The educational deep links were supplied directly by the vidIQ Affiliate Team to COSHUMA on September 6, 2026 with affiliate parameters already inserted\.",
+            re.I,
+        ),
+        "The educational deep links lead to vidIQ articles organized around different YouTube milestones and topics.",
+    ),
+    (
+        re.compile(
+            r"Pictory official pricing page, COSHUMA's verified affiliate records, and Pictory affiliate-manager email evidence\.\s*No signup, sale, commission or revenue is inferred from publication or link verification\.",
+            re.I,
+        ),
+        "Pictory's official pricing page and current public product and offer information. Verify current pricing and eligibility at the destination before purchase.",
+    ),
 )
 
 CORRESPONDENCE = re.compile(
-    r"\b(?:affiliate|partner)[- ]?(?:team|manager)\b[^\n<>]{0,160}\b(?:message|email|reply|told|confirmed|reconfirmed|supplied|highlighted)\b"
-    r"|\b(?:message|email|reply)\b[^\n<>]{0,160}\b(?:affiliate|partner)[- ]?(?:team|manager)\b"
-    r"|\b(?:affiliate|partner)[- ]?(?:manager|team)\b[^\n<>]{0,160}\bCOSHUMA\b",
+    r"\b(?:affiliate|partner)[- ]?(?:team|manager)\b[^\n<>]{0,180}\b(?:message|email|reply|told|confirmed|reconfirmed|supplied|highlighted|evidence)\b"
+    r"|\b(?:message|email|reply)\b[^\n<>]{0,180}\b(?:affiliate|partner)[- ]?(?:team|manager)\b"
+    r"|\b(?:affiliate|partner)[- ]?(?:manager|team)\b[^\n<>]{0,180}\bCOSHUMA\b"
+    r"|\bCOSHUMA(?:'s)?\b[^\n<>]{0,120}\b(?:affiliate|partner)[- ]?(?:manager|team)\b",
     re.I,
 )
 
@@ -119,7 +148,7 @@ def main() -> None:
         match = CORRESPONDENCE.search(text)
         if match:
             snippet = re.sub(r"\s+", " ", text[max(0, match.start()-80):match.end()+100]).strip()
-            remaining.append(f"{path.relative_to(PUBLIC).as_posix()}: {snippet[:260]}")
+            remaining.append(f"{path.relative_to(PUBLIC).as_posix()}: {snippet[:280]}")
 
     if remaining:
         print("ERROR: partner correspondence remains in customer-facing public HTML.")
