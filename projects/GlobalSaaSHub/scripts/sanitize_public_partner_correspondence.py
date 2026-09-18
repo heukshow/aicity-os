@@ -29,6 +29,9 @@ PRIVATE_BLOCK_TEXT = re.compile(
     r"|\bvendor\s+welcome\s+email\b"
     r"|\baffiliate\s+state\b"
     r"|\bpartner\s+dashboard\b"
+    r"|\bCOSHUMA\s+tracking\b"
+    r"|\b(?:referral|tracking)\s+URL\s+not\s+yet\s+verified\b"
+    r"|\bverified\s+customer\s+partner\s+URL\b"
     r"|\baccount-specific\b[^.\n]{0,180}\b(?:affiliate|partner|referral|tracking|tracked|route|link)\b"
     r"|\b(?:affiliate|partner|referral|tracking|tracked|route|link)\b[^.\n]{0,180}\baccount-specific\b"
     r"|\bCOSHUMA(?:'s)?\b[^.\n]{0,220}\b(?:affiliate|partner|referral|tracking)\b[^.\n]{0,160}\b(?:verified|evidence|account|email|message|supplied|issued)\b"
@@ -104,7 +107,7 @@ PRIVATE_SENTENCES: tuple[re.Pattern[str], ...] = (
 
 # Operational explanation blocks can be deleted wholesale. Product-feature phrases such as
 # "revenue attribution" are intentionally NOT treated as leaks by themselves.
-BLOCK = re.compile(r"<(p|li|td|th|blockquote|figcaption|small)\b[^>]*>.*?</\1>", re.I | re.S)
+BLOCK = re.compile(r"<(tr|p|li|td|th|blockquote|figcaption|small)\b[^>]*>.*?</\1>", re.I | re.S)
 
 CORRESPONDENCE = re.compile(
     r"\b(?:affiliate|partner)[- ]?(?:team|manager)\b[^\n<>]{0,220}\b(?:message|email|reply|told|confirmed|reconfirmed|supplied|highlighted|evidence)\b"
@@ -119,6 +122,9 @@ PUBLIC_MECHANICS = re.compile(
     r"|\bHow\s+COSHUMA\s+verified\b"
     r"|\bverified\s+(?:affiliate|partner|referral|tracking)\s+(?:link|route|URL|destination|evidence)\b"
     r"|\b(?:affiliate|partner)\s+route\b"
+    r"|\bCOSHUMA\s+tracking\b"
+    r"|\b(?:referral|tracking)\s+URL\s+not\s+yet\s+verified\b"
+    r"|\bverified\s+customer\s+partner\s+URL\b"
     r"|\baccount-specific\b[^\n<>]{0,160}\b(?:tracking|tracked|affiliate|partner|referral|route|link)\b"
     r"|\b(?:tracking|tracked|affiliate|partner|referral|route|link)\b[^\n<>]{0,160}\baccount-specific\b"
     r"|\bauthenticated\s+partner\s+account\b"
