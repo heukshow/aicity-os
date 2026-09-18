@@ -91,6 +91,10 @@ for pattern in SENTENCE_PATTERNS:
 
 TAG_RE = re.compile(r"<[^>]+>")
 SCRIPT_STYLE_RE = re.compile(r"<(script|style)\b[^>]*>.*?</\1>", re.I | re.S)
+PAGE_DISCLOSURE_RE = re.compile(
+    r'<p\b[^>]*\bdata-affiliate-disclosure\s*=\s*["\']page["\'][^>]*>.*?</p>',
+    re.I | re.S,
+)
 
 def visible(fragment: str) -> str:
     fragment = SCRIPT_STYLE_RE.sub(" ", fragment)
@@ -99,6 +103,8 @@ def visible(fragment: str) -> str:
 # Paragraphs/small notes containing monetization mechanics are internal. Removing
 # the whole block is safer than leaving a half-sanitized sentence. Product,
 # pricing and trial paragraphs are left alone unless they contain these markers.
+# The canonical consumer disclosure is intentionally preserved: it is required
+# near the first affiliate CTA and is not internal affiliate-operations copy.
 INTERNAL_MARKERS = (
     "partnerstack",
     "firstpromoter",
@@ -138,13 +144,16 @@ INTERNAL_MARKERS = (
 )
 
 def internal_block(match: re.Match[str]) -> str:
-    body = visible(match.group(0)).lower()
+    raw = match.group(0)
+    if PAGE_DISCLOSURE_RE.fullmatch(raw):
+        return raw
+    body = visible(raw).lower()
     if any(marker in body for marker in INTERNAL_MARKERS):
         return ""
     # Internal stage accounting is also not buyer copy.
     if "coshuma" in body and any(word in body for word in ("signup", "paid customer", "payout", "revenue")):
         return ""
-    return match.group(0)
+    return raw
 
 for tag in ("p", "small"):
     pattern = re.compile(rf"<{tag}\b[^>]*>.*?</{tag}>", re.I | re.S)
@@ -175,8 +184,10 @@ def clean_li(match: re.Match[str]) -> str:
 text = LI_RE.sub(clean_li, text)
 
 # Final visible-text guard. URLs, rel=sponsored and data-cta attributes are not
-# part of this check and therefore remain byte-for-byte intact.
-check = visible(text).lower()
+# part of this check and therefore remain byte-for-byte intact. Exclude the
+# canonical consumer disclosure itself from the internal-ops vocabulary scan.
+check_text = PAGE_DISCLOSURE_RE.sub("", text)
+check = visible(check_text).lower()
 FORBIDDEN = (
     "partnerstack",
     "firstpromoter",

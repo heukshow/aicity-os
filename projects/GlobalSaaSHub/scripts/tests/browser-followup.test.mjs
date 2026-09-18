@@ -35,6 +35,18 @@ function check() {
     }
   }
 }
+
+function assertConsumerDisclosure(page, id) {
+  const markers = page.match(/data-affiliate-disclosure="page"/g) || [];
+  const visible = page.match(/affiliate\s+disclosure\s*:/gi) || [];
+  const firstDisclosure = page.indexOf('data-affiliate-disclosure="page"');
+  const firstAffiliateCta = page.search(/<a\b[^>]*data-cta="affiliate"/i);
+  assert.equal(markers.length, 1, `${id}: expected one page-level consumer affiliate disclosure`);
+  assert.equal(visible.length, 1, `${id}: expected one visible consumer affiliate disclosure`);
+  assert.ok(firstDisclosure >= 0 && firstAffiliateCta >= 0 && firstDisclosure < firstAffiliateCta,
+    `${id}: disclosure must appear before first affiliate CTA`);
+}
+
 check();
 try {
   // A first full sync may legitimately normalize evidence metadata when a newer
@@ -118,8 +130,7 @@ assert.ok(typedeskPage.includes(typedeskUrl));
 assert.ok(typedeskPage.includes('data-cta="affiliate"'));
 assert.ok(typedeskPage.includes('data-tool-id="typedesk"'));
 assert.ok(typedeskPage.includes('/affiliate-attribution.js'));
-assert.doesNotMatch(typedeskPage, /affiliate\s+disclosure\s*:/i);
-assert.ok(!typedeskPage.includes('data-affiliate-disclosure='));
+assertConsumerDisclosure(typedeskPage, 'typedesk');
 
 // Omnisend now has a newer exact vendor-issued tracking URL from its Senior Affiliate Marketing Manager.
 // The older approved-without-link snapshot must never downgrade the account or reopen link recovery.
@@ -137,8 +148,7 @@ assert.ok(omnisendPage.includes(omnisendUrl));
 assert.ok(omnisendPage.includes('data-cta="affiliate"'));
 assert.ok(omnisendPage.includes('data-tool-id="omnisend"'));
 assert.ok(omnisendPage.includes('/affiliate-attribution.js'));
-assert.doesNotMatch(omnisendPage, /affiliate\s+disclosure\s*:/i);
-assert.ok(!omnisendPage.includes('data-affiliate-disclosure='));
+assertConsumerDisclosure(omnisendPage, 'omnisend');
 
 assert.equal(state.framer.application_state, 'not_submitted');
 assert.equal(state.eprofessor.application_state, 'submitted');
@@ -184,4 +194,4 @@ for (const id of ['n8n', 'airia', 'joiin']) {
   const page = fs.readFileSync(`dist/tool/${id}.html`, 'utf8');
   assert.ok(!page.includes(`data-cta="affiliate" data-tool-id="${id}"`));
 }
-console.log('PASS: browser states, confirmed submissions, approved follow-ups, duplicate prevention, exact links, and repeat sync preservation');
+console.log('PASS: browser states, confirmed submissions, approved follow-ups, duplicate prevention, exact links, consumer disclosures, and repeat sync preservation');
