@@ -168,6 +168,13 @@ def patch_claap_page(evidence: dict) -> None:
         raise RuntimeError("Claap public page missing")
     primary = evidence["claap"]["primary_tracking_url"]
     html = path.read_text(encoding="utf-8")
+    html = html.replace('data-cta-source="claap_partnerstack_verified"', 'data-cta-source="claap_verified_offer"')
+    if 'data-cta="affiliate"' in html and "Affiliate disclosure:" not in html and 'data-affiliate-disclosure=' not in html:
+        disclosure = '<p data-affiliate-disclosure="true" class="text-[11px] text-slate-500 leading-relaxed"><strong>Affiliate disclosure:</strong> COSHUMA may earn a commission if you purchase through this link, at no extra cost to you.</p>'
+        first_cta = '<div class="flex flex-col sm:flex-row gap-3">'
+        if first_cta not in html:
+            raise RuntimeError("Could not locate Claap first CTA block for affiliate disclosure")
+        html = html.replace(first_cta, disclosure + "\n    " + first_cta, 1)
 
     old_top = '<a data-cta="official" data-tool-id="claap" href="https://www.claap.io/" target="_blank" rel="noopener noreferrer" class="flex-1 px-6 py-4 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center hover:brightness-110">Try Claap on the official site →</a>'
     new_top = f'<a data-cta="affiliate" data-tool-id="claap" data-cta-source="claap_verified_offer" href="{primary}" target="_blank" rel="sponsored noopener noreferrer" class="flex-1 px-6 py-4 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center hover:brightness-110">Start Claap with partner discount →</a>'
