@@ -83,9 +83,9 @@ INTERNAL_VERIFICATION_NOTE = re.compile(
     re.I | re.S,
 )
 
-# COSHUMA policy: the short general affiliate notice appears once on the homepage.
-# Individual tool/compare/best/category pages must not repeat it. The dedicated
-# affiliate-disclosure.html policy page remains available for readers who want details.
+# COSHUMA policy: keep the site-wide notice on the homepage and a short,
+# consumer-facing disclosure close to the first affiliate CTA on each page that
+# actually contains an affiliate CTA. Internal affiliate operations remain private.
 AFFILIATE_DISCLOSURE_DATA = re.compile(
     r'<p\b[^>]*\bdata-affiliate-disclosure\s*=\s*["\'][^"\']*["\'][^>]*>.*?</p>',
     re.I | re.S,
@@ -108,6 +108,16 @@ HOME_AFFILIATE_DISCLOSURE = (
     'Affiliate disclosure: COSHUMA may earn a commission from some links, at no extra cost to you. '
     '<a href="/affiliate-disclosure.html" style="text-decoration:underline">Details</a>.'
     '</p>'
+)
+PAGE_AFFILIATE_DISCLOSURE = (
+    '<p data-affiliate-disclosure="page" '
+    'style="margin:.75rem 0;color:#94a3b8;font-size:12px;line-height:1.6">'
+    'Affiliate disclosure: COSHUMA may earn a commission from some links on this page, at no extra cost to you.'
+    '</p>'
+)
+PAGE_AFFILIATE_CTA = re.compile(
+    r'<a\\b[^>]*\\bdata-cta\\s*=\\s*["\\\']affiliate["\\\'][^>]*>',
+    re.I,
 )
 
 
@@ -303,7 +313,7 @@ def main() -> None:
             llms.write_text(after, encoding="utf-8")
             changed.append(llms.relative_to(DIST).as_posix())
 
-    print(f"Built customer-only copy guard: {len(changed)} files normalized; homepage disclosure=1; repeated page disclosures=0")
+    print(f"Built customer-only copy guard: {len(changed)} files normalized; homepage disclosure=1; affiliate pages require one disclosure near the first CTA")
 
 
 if __name__ == "__main__":
