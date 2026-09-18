@@ -159,7 +159,12 @@ if (teachable) {
         throw new Error(`teachable: comparison attribution script missing in ${filename}`);
       }
       if (!/affiliate disclosure/i.test(html) && !html.includes('data-affiliate-disclosure=')) {
-        throw new Error(`teachable: affiliate CTA is missing the required customer-facing disclosure in ${filename}`);
+        const firstAffiliate = html.search(/<a\b[^>]*data-cta="affiliate"[^>]*data-tool-id="teachable"/i);
+        if (firstAffiliate < 0) {
+          throw new Error(`teachable: affiliate CTA disappeared before disclosure injection in ${filename}`);
+        }
+        const disclosure = '<p data-affiliate-disclosure="true" class="mb-3 text-[11px] leading-relaxed text-slate-500"><strong>Affiliate disclosure:</strong> COSHUMA may earn a commission if you purchase through this link, at no extra cost to you.</p> ';
+        html = html.slice(0, firstAffiliate) + disclosure + html.slice(firstAffiliate);
       }
       fs.writeFileSync(file, html, 'utf8');
       teachableCompareFilesChanged += 1;
@@ -206,7 +211,12 @@ const jotform = approvedTracking.get('jotform') || {
         throw new Error(`jotform: comparison attribution script missing in ${filename}`);
       }
       if (!/affiliate disclosure/i.test(html) && !html.includes('data-affiliate-disclosure=')) {
-        throw new Error(`jotform: affiliate CTA is missing the required customer-facing disclosure in ${filename}`);
+        const firstAffiliate = html.search(/<a\b[^>]*data-cta="affiliate"[^>]*data-tool-id="jotform"/i);
+        if (firstAffiliate < 0) {
+          throw new Error(`jotform: affiliate CTA disappeared before disclosure injection in ${filename}`);
+        }
+        const disclosure = '<p data-affiliate-disclosure="true" class="mb-3 text-[11px] leading-relaxed text-slate-500"><strong>Affiliate disclosure:</strong> COSHUMA may earn a commission if you purchase through this link, at no extra cost to you.</p> ';
+        html = html.slice(0, firstAffiliate) + disclosure + html.slice(firstAffiliate);
       }
       fs.writeFileSync(file, html, 'utf8');
       jotformCompareFilesChanged += 1;
