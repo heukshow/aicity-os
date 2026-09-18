@@ -109,7 +109,7 @@
         const sections = Array.from(document.querySelectorAll('main > section'));
         const attributionSection = sections.find(function (section) {
           const heading = section.querySelector('h2');
-          return heading && /verified link before starting your trial/i.test(heading.textContent || '');
+          return heading && /current offer before starting your trial/i.test(heading.textContent || '');
         });
 
         if (primaryCta && primaryCta.href.startsWith(verifiedUrl) && attributionSection) {

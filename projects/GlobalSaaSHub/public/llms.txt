@@ -1,10 +1,10 @@
 # COSHUMA
 
-> Independent AI and SaaS buyer guides focused on pricing, trials, comparisons, buyer fit, and practical buying decisions.
+> Independent AI and SaaS buyer guides focused on pricing, trials, comparisons, buyer fit, and source-backed product information.
 
 Product prices, trial terms, discounts, and outbound destinations can change; use the linked vendor source on each guide to verify final terms before purchase.
 
-High-intent guides below prioritize concrete buying questions such as free trials, pricing, discounts, alternatives, comparisons, and plan fit.
+High-intent guides below prioritize concrete buying questions such as free trials, pricing, discounts, alternatives and plan fit.
 
 ## High-intent buyer guides
 
