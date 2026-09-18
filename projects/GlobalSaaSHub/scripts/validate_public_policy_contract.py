@@ -1,11 +1,14 @@
 """Fail closed when COSHUMA's public affiliate policy drifts across build stages."""
 from pathlib import Path
 import json
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICY = json.loads((ROOT / "config" / "public_content_policy.json").read_text(encoding="utf-8"))
 PACKAGE = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
 BUILD = PACKAGE["scripts"]["build"]
+PUBLIC = ROOT / "public"
+PUBLIC_TEXT_EXTENSIONS = {".html", ".txt", ".xml", ".json", ".js", ".webmanifest"}
 
 
 def require(condition: bool, message: str) -> None:
@@ -51,5 +54,36 @@ require('data-site-affiliate-disclosure="global"' in tracker_guard, "tracking ve
 require("CONSUMER_AFFILIATE_DISCLOSURE" in artifact_guard, "artifact guard no longer distinguishes consumer disclosure from internal ops")
 for key in ("affiliate_status", "affiliate_verified", "affiliate_evidence_markers", "revenue_truth", "browser_required_queue"):
     require(key in artifact_guard, f"artifact guard no longer fails closed on internal key: {key}")
+
+# Prebuild is the earliest fail-closed checkpoint. Do not silently sanitize application
+# or verification state out of customer source: stop before the build and fix the source
+# or the generator that inserted it. This specifically prevents the historical pattern
+# where a public page explained that an affiliate/creator enrollment was still pending.
+raw_status_patterns = {
+    "affiliate-revenue-state-copy": re.compile(r"\baffiliate/revenue\s+link\b", re.I),
+    "application-verification-copy": re.compile(
+        r"\b(?:affiliate|partner|referral|creator)\b[^.\n<>]{0,120}"
+        r"\b(?:application|enrollment|link|tracking|program)\b[^.\n<>]{0,120}"
+        r"\b(?:being\s+verified|verification\s+pending|pending\s+verification|under\s+review)\b",
+        re.I,
+    ),
+}
+raw_errors = []
+for path in PUBLIC.rglob("*"):
+    if not path.is_file() or path.suffix.lower() not in PUBLIC_TEXT_EXTENSIONS:
+        continue
+    try:
+        text = path.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
+        continue
+    for label, pattern in raw_status_patterns.items():
+        match = pattern.search(text)
+        if match:
+            raw_errors.append(f"{path.relative_to(ROOT).as_posix()}: {label}: {match.group(0)}")
+if raw_errors:
+    raise SystemExit(
+        "Public policy contract violation: raw customer source contains internal application/verification state:\n"
+        + "\n".join(raw_errors[:50])
+    )
 
 print("PASS: central public policy contract is aligned across source hygiene, final disclosure injection, tracking verification, and artifact leak guards")
