@@ -45,6 +45,14 @@ INTERNAL_CORRESPONDENCE = re.compile(
     r"|\bfirst-party\s+reporting\s+(?:verifies|confirms)\b",
     re.I,
 )
+INTERNAL_VERIFICATION_COPY = re.compile(
+    r"\bvendor[- ]confirmed\b"
+    r"|\btracking\s+(?:unconfirmed|confirmed|verified|unknown)\b"
+    r"|\bHow\s+COSHUMA\s+verified\b"
+    r"|\bverified\s+(?:affiliate|partner|referral|tracking)\s+(?:link|route|URL|destination)\b"
+    r"|\b(?:affiliate|partner)\s+route\b",
+    re.I,
+)
 INTERNAL_KEYS = re.compile(
     r"[\"'](?:affiliate_evidence_markers|affiliate_status|affiliate_verified|"
     r"affiliate_status_checked_at|affiliate_status_evidence_url|affiliate_next_action|"
@@ -58,6 +66,7 @@ PATTERNS = {
     "internal-affiliate-state": INTERNAL_STATE,
     "internal-affiliate-dashboard": INTERNAL_DASHBOARD,
     "internal-affiliate-correspondence": INTERNAL_CORRESPONDENCE,
+    "internal-tracking-verification-copy": INTERNAL_VERIFICATION_COPY,
 }
 
 
@@ -172,7 +181,7 @@ def main() -> None:
             print(f" - ... and {len(errors)-100} more")
         raise SystemExit(1)
 
-    print(f"PASS: public artifact boundary clean across {len(files)} text artifacts; network/status/dashboard/correspondence leaks=0")
+    print(f"PASS: public artifact boundary clean across {len(files)} text artifacts; network/status/dashboard/correspondence/verification leaks=0")
 
 
 if __name__ == "__main__":
