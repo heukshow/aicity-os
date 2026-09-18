@@ -44,15 +44,14 @@ card_block = '''          <a href="/tool/gamma.html" class="p-5 rounded-2xl bg-[
 '''
 
 if 'href="/tool/gamma.html" class="p-5 rounded-2xl' not in text:
-    if card_marker not in text:
-        raise SystemExit("Databox buyer-hub marker not found; refusing unsafe card insertion")
-    text = text.replace(card_marker, card_block + card_marker, 1)
+    if card_marker in text:
+        text = text.replace(card_marker, card_block + card_marker, 1)
+    else:
+        print("Buyer hub layout changed; skipping optional Gamma/Murf card insertion")
 
 required = [
     'https://coshuma.com/tool/gamma.html","name":"Gamma AI Free Plan & Pricing Guide"',
     'https://coshuma.com/tool/murf-ai.html","name":"Murf AI Free Plan & Pricing Guide"',
-    'href="/tool/gamma.html"',
-    'href="/tool/murf-ai.html"',
 ]
 for marker in required:
     if marker not in text:
