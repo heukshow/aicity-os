@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 TOOLS = ROOT / "data" / "tools.json"
 DATA_DIR = ROOT / "data"
-OUT = ROOT / "public" / "ops" / "tool-value-playbook-audit.json"
+OUT = ROOT / "data" / "ops" / "tool-value-playbook-audit.json"
 
 # A useful tool analysis does not require another tool recommendation.
 # Requiring pairs would encourage forced or speculative stacks.
