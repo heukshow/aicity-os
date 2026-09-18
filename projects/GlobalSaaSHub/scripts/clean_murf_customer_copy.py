@@ -22,15 +22,17 @@ replacements = {
 for old, new in replacements.items():
     html = html.replace(old, new)
 
-# Shared sanitizers can alter headings before this guard runs, so clean the
-# customer-visible network/evidence sentence directly rather than relying on the
-# original section wrapper or heading text.
-html = re.sub(
-    r"Murf's\s+PartnerStack\s+welcome\s+email[^<]*</p>",
-    "Start with Murf's free access to check pronunciation, pacing and voice quality. If the result fits your workflow, compare paid Studio plans for downloads, commercial use and higher production limits before upgrading.</p>",
+# Shared sanitizers can rewrite apostrophes and nearby text. Replace the whole
+# paragraph that contains the internal network evidence, independent of its exact
+# punctuation, while keeping the rest of the buyer page intact.
+internal_evidence_paragraph = re.compile(
+    r'<p\b[^>]*>(?:(?!</p>).)*PartnerStack\s+welcome\s+email(?:(?!</p>).)*</p>',
+    re.I | re.S,
+)
+html = internal_evidence_paragraph.sub(
+    '<p class="text-sm text-slate-300 leading-relaxed">Start with Murf\'s free access to check pronunciation, pacing and voice quality. If the result fits your workflow, compare paid Studio plans for downloads, commercial use and higher production limits before upgrading.</p>',
     html,
     count=1,
-    flags=re.I | re.S,
 )
 html = re.sub(
     r"COSHUMA['’]s\s+Murf\s+link[^<]*",
@@ -41,8 +43,8 @@ html = re.sub(
 )
 html = re.sub(r">\s*Partner transparency\s*<", ">Buyer note<", html, count=1, flags=re.I)
 html = re.sub(
-    r"The commission is paid by Murf;[^<]*</p>",
-    "Murf also has separate dubbing and API pricing surfaces, so confirm the exact product and billing cadence you need before checkout.</p>",
+    r'<p\b[^>]*>(?:(?!</p>).)*The commission is paid by Murf;(?:(?!</p>).)*</p>',
+    '<p class="text-xs text-slate-400">Murf also has separate dubbing and API pricing surfaces, so confirm the exact product and billing cadence you need before checkout.</p>',
     html,
     count=1,
     flags=re.I | re.S,
