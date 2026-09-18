@@ -300,7 +300,7 @@ jobs:
             if git diff --quiet origin/main HEAD -- "${files[@]}"; then
               echo 'Affiliate source state was already persisted by a newer main commit.'
             else
-              git rebase origin/main
+              git rebase --autostash origin/main
               git push origin HEAD:main
             fi
           fi
