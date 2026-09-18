@@ -51,7 +51,10 @@ FORBIDDEN = [
 
 
 def masked(text: str) -> str:
-    return URL_RE.sub("https://TRACKING-URL", text)
+    # The mask itself must stay neutral. A token such as TRACKING-URL can create a
+    # false contextual-network match when a legitimate product name (for example
+    # Dub) appears nearby in JSON-LD or page copy.
+    return URL_RE.sub("https://PUBLIC-OUTBOUND-URL", text)
 
 
 def validate_policy_alignment() -> None:
