@@ -61,6 +61,7 @@ built_guard = (ROOT / "scripts" / "guard_built_customer_copy.py").read_text(enco
 tracker_guard = (ROOT / "scripts" / "verify_approved_tracking.mjs").read_text(encoding="utf-8")
 artifact_guard = (ROOT / "scripts" / "guard_public_artifact_boundary.py").read_text(encoding="utf-8")
 raw_guard = (ROOT / "scripts" / "guard_raw_public_source.py").read_text(encoding="utf-8")
+source_boundary_guard = (ROOT / "scripts" / "guard_public_source_boundary.py").read_text(encoding="utf-8")
 
 require("strip_general_notice" not in source_normalizer, "legacy page-disclosure removal logic is still active")
 require("PAGE_DISCLOSURE" in source_normalizer and 'DISCLOSURE["page_text"]' in source_normalizer, "source normalizer no longer preserves canonical page disclosure")
@@ -75,6 +76,9 @@ require(disclosure["homepage_marker"] in built_guard, "built guard homepage mark
 require(disclosure["page_marker"] in built_guard, "built guard page marker differs from central policy")
 require("PAGE_AFFILIATE_CTA" in built_guard and "count=1" in built_guard, "built guard no longer inserts once before first affiliate CTA")
 
+require(disclosure["page_marker"] in source_boundary_guard, "source boundary no longer checks page disclosure marker")
+require("consumer disclosure must appear before the first affiliate CTA" in source_boundary_guard, "source boundary no longer checks disclosure placement")
+require(disclosure["homepage_marker"] in source_boundary_guard, "source boundary no longer checks homepage disclosure")
 require('data-affiliate-disclosure="page"' in tracker_guard, "tracking verifier no longer checks page disclosure marker")
 require("disclosure must appear before the first affiliate CTA" in tracker_guard, "tracking verifier no longer checks disclosure placement")
 require('data-site-affiliate-disclosure="global"' in tracker_guard, "tracking verifier no longer checks homepage disclosure")
