@@ -22,7 +22,7 @@ PATCHES = {
         ),
         (
             '<meta name="description" content="Brand24 pricing starts at $249/mo ($199/mo billed annually). See the 14-day free trial, AI social listening features, $99 AI Visibility add-on, plan limits, and verified COSHUMA partner link." />',
-            '<meta name="description" content="Brand24 review and pricing for 2026: plans start at $249/mo ($199/mo billed annually), with a 14-day free trial and no credit card. Compare limits, AI Visibility, who it fits, and try it through COSHUMA\'s verified partner link." />',
+            '<meta name="description" content="Brand24 review and pricing for 2026: plans start at $249/mo ($199/mo billed annually), with a 14-day free trial and no credit card. Compare limits, AI Visibility, who it fits, and check the current offer before you subscribe." />',
         ),
         (
             '<meta property="og:title" content="Brand24 Pricing 2026: $249/mo + 14-Day Free Trial" />',
@@ -130,7 +130,7 @@ BRAND24_CUSTOMER_COPY = [
         'AI Visibility available',
     ),
     (
-        'Affiliate disclosure: COSHUMA may earn a commission if an eligible purchase is attributed through the verified Brand24 partner link, at no extra cost to you.',
+        'Affiliate disclosure: COSHUMA may earn a commission from some links on this page, at no extra cost to you.',
         '',
     ),
     (
