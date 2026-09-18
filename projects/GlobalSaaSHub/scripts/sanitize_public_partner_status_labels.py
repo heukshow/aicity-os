@@ -21,6 +21,16 @@ RULES = (
         ),
         "current offer link",
     ),
+    (
+        re.compile(
+            r"\baffiliate\s+link\s+verified(?:\s+[A-Z][a-z]{2}\s+\d{1,2},\s+\d{4})?",
+            re.I,
+        ),
+        "current offer link",
+    ),
+    (re.compile(r"\bvia\s+verified\s+COSHUMA\s+link\b", re.I), "through COSHUMA"),
+    (re.compile(r"\bverified\s+revenue\s+alternative\b", re.I), "relevant alternative"),
+    (re.compile(r"\bverified\s+monetization\s+path\b", re.I), "available option"),
     (re.compile(r"\bverified\s+customer-facing\b", re.I), "current"),
     (re.compile(r"\bverified\s+partner\s+(?:links?|routes?|URLs?|offers?)\b", re.I), "current offer"),
     (re.compile(r"\bverified\s+(?:affiliate|referral|tracking)\s+(?:links?|routes?|URLs?|destinations?)\b", re.I), "current offer"),
