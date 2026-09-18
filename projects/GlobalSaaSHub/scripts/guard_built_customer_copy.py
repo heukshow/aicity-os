@@ -244,6 +244,12 @@ def strip_general_affiliate_disclosures(text: str) -> str:
     text = AFFILIATE_DISCLOSURE_DATA.sub("", text)
     text = AFFILIATE_DISCLOSURE_PARAGRAPH.sub("", text)
     text = AFFILIATE_DISCLOSURE_DIV.sub("", text)
+    text = re.sub(
+        r'<p\b[^>]*>(?:(?!</p>).)*COSHUMA(?:(?!</p>).){0,180}(?:may\s+earn|may\s+receive)(?:(?!</p>).){0,180}(?:commission|compensation)(?:(?!</p>).)*</p>',
+        "",
+        text,
+        flags=re.I | re.S,
+    )
     # Some older buyer sections used this attribute on the entire offer card rather
     # than on a disclosure paragraph. Keep the useful buyer content, drop only the
     # obsolete disclosure marker.
@@ -256,7 +262,9 @@ def enforce_disclosure_policy(rel: str, text: str) -> str:
     if rel == "affiliate-disclosure.html":
         return text
 
+    # Normalize any older disclosure wording before applying one canonical notice.
     text = strip_general_affiliate_disclosures(text)
+
     # Remove a previous post-build homepage notice if this function is ever run twice.
     text = re.sub(
         r'<p\b[^>]*\bdata-site-affiliate-disclosure=["\']global["\'][^>]*>.*?</p>',
@@ -275,12 +283,20 @@ def enforce_disclosure_policy(rel: str, text: str) -> str:
             raise RuntimeError("Homepage must contain exactly one visible affiliate disclosure notice")
         return text
 
-    if 'data-affiliate-disclosure=' in text.lower():
-        raise RuntimeError(f"Repeated affiliate disclosure attribute remains in {rel}")
-    if re.search(r"Affiliate\s+disclosure\s*:", text, re.I):
-        raise RuntimeError(f"Repeated affiliate disclosure notice remains in {rel}")
-    if re.search(r"COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+)?commission", text, re.I):
-        raise RuntimeError(f"Repeated affiliate commission notice remains in {rel}")
+    # Affiliate buyer pages get one disclosure immediately before the first affiliate CTA.
+    # Pages with no affiliate CTA receive no page-level disclosure.
+    if PAGE_AFFILIATE_CTA.search(text):
+        text = PAGE_AFFILIATE_CTA.sub(
+            lambda match: PAGE_AFFILIATE_DISCLOSURE + "\n" + match.group(0),
+            text,
+            count=1,
+        )
+        if text.count('data-affiliate-disclosure="page"') != 1:
+            raise RuntimeError(f"{rel}: affiliate page must contain exactly one page-level disclosure")
+        if text.lower().count("affiliate disclosure:") != 1:
+            raise RuntimeError(f"{rel}: affiliate page must contain exactly one visible affiliate disclosure")
+    elif 'data-affiliate-disclosure=' in text.lower():
+        raise RuntimeError(f"{rel}: non-affiliate page must not contain a page-level affiliate disclosure")
     return text
 
 
