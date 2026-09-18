@@ -150,10 +150,21 @@ def main() -> None:
         html = html[:hero_end] + "\n\n" + SEARCH_PANEL + html[hero_end:]
 
     if "initOfferSearch" not in html:
-        script_anchor = '  <script defer src="/affiliate-attribution.js"></script>'
-        if script_anchor not in html:
-            raise SystemExit("Attribution script anchor missing; refusing discovery patch")
-        html = html.replace(script_anchor, SEARCH_SCRIPT + script_anchor, 1)
+        # Script attribute ordering/whitespace can change during customer-copy
+        # normalization. Insert before the existing attribution script when one
+        # is present, otherwise before </body>; never depend on one literal HTML
+        # spelling.
+        attribution_re = re.compile(
+            r'<script\\b(?=[^>]*\\bsrc=["\\\']/affiliate-attribution\\.js["\\\'])[^>]*>\\s*</script>',
+            re.I,
+        )
+        match = attribution_re.search(html)
+        if match:
+            html = html[:match.start()] + SEARCH_SCRIPT + html[match.start():]
+        elif "</body>" in html:
+            html = html.replace("</body>", SEARCH_SCRIPT + "</body>", 1)
+        else:
+            raise SystemExit("Offer page body boundary missing; refusing discovery patch")
     else:
         # Replace the generated discovery panel/script on repeat builds so filter
         # improvements are durable without touching vendor cards or outbound URLs.
@@ -195,7 +206,7 @@ def main() -> None:
         "searchParams.set('offer', query)",
         "initOfferSearch",
         "card.querySelector('[data-cta=\"affiliate\"]')",
-        'script defer src="/affiliate-attribution.js"',
+        "affiliate-attribution.js",
         f'<meta name="description" content="{escape(HUB_DESCRIPTION)}"',
         f'<meta property="og:description" content="{escape(HUB_OG_DESCRIPTION)}"',
     )
