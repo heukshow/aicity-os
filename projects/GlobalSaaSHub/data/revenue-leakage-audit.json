@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T06:22:07.780Z",
+  "generated_at": "2026-09-18T06:28:44.885Z",
   "evidence_scope": "Combined authenticated revenue-browser baseline, current revenue-truth records, and explicit account-wide commission/payout evidence.",
   "policy": {
     "purpose": "Detect approved monetized routes that can leak revenue because downstream affiliate metrics are missing or stale.",
@@ -1849,7 +1849,7 @@
       "name": "Jotform",
       "affiliate_status": "approved_tracking",
       "tracking_url": "https://www.jotform.com/?partner=coshuma",
-      "network": "Jotform Affiliate Program",
+      "network": "Jotform Partner Program",
       "account_id": "jotform",
       "portal_url": null,
       "priority": "P2_COVERED",
@@ -1872,7 +1872,7 @@
         "payout_pending": null,
         "network_reported_conversions": null
       },
-      "evidence_records": 1
+      "evidence_records": 2
     },
     {
       "id": "helpdesk",
