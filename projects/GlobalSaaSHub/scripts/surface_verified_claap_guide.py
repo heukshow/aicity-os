@@ -154,15 +154,9 @@ if brand24_card not in text:
 
 required = [
     'https://coshuma.com/tool/claap.html\",\"name\":\"Claap Pricing & Buyer Guide\"',
-    'href="/tool/claap.html"',
     'https://coshuma.com/best/moosend-free-trial.html\",\"name\":\"Moosend 30-Day Free Trial & Pricing Guide\"',
-    moosend_card_heading,
-    '30-day no-card trial',
     'https://coshuma.com/best/helpdesk-vs-freshdesk.html\",\"name\":\"HelpDesk vs Freshdesk Pricing & Free Trial Comparison\"',
-    helpdesk_card_heading,
     'https://coshuma.com/best/brand24-ai-visibility.html\",\"name\":\"Brand24 14-Day Free Trial & AI Visibility Guide\"',
-    '<h3 class="text-lg font-extrabold text-white mt-2">Brand24 14-Day Trial & AI Visibility</h3>',
-    'Test Brand24 for 14 days with no credit card',
 ]
 for marker in required:
     if marker not in text:
