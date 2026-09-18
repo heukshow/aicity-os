@@ -106,7 +106,7 @@ else:
 moosend_card_block = '''          <a href="/best/moosend-free-trial.html" class="p-5 rounded-2xl bg-[#131520] border border-emerald-500/25 hover:border-emerald-400/60 transition-all">
             <div class="text-xs uppercase tracking-wider font-bold text-emerald-300">Email marketing · current offer</div>
             <h3 class="text-lg font-extrabold text-white mt-2">Moosend 30-Day Free Trial</h3>
-            <p class="text-sm text-slate-300 mt-2 leading-relaxed">Use the 30-day no-card trial to test a real campaign and automation, then continue through COSHUMA's verified customer referral route only if the workflow fits.</p>
+            <p class="text-sm text-slate-300 mt-2 leading-relaxed">Use the 30-day no-card trial to test a real campaign and automation, then check the current offer only if the workflow fits.</p>
           </a>
 '''
 
@@ -120,9 +120,9 @@ if moosend_card_heading not in text:
     text = text.replace(card_marker, moosend_card_block + card_marker, 1)
 
 helpdesk_card_block = '''          <a href="/best/helpdesk-vs-freshdesk.html" class="p-5 rounded-2xl bg-[#131520] border border-emerald-500/25 hover:border-emerald-400/60 transition-all">
-            <div class="text-xs uppercase tracking-wider font-bold text-emerald-300">Customer support · verified HelpDesk route</div>
+            <div class="text-xs uppercase tracking-wider font-bold text-emerald-300">Customer support · current offer</div>
             <h3 class="text-lg font-extrabold text-white mt-2">HelpDesk vs Freshdesk</h3>
-            <p class="text-sm text-slate-300 mt-2 leading-relaxed">Compare current pricing, AI allowances and 14-day no-card trials. HelpDesk uses COSHUMA's verified customer partner route; Freshdesk remains on official non-affiliate links.</p>
+            <p class="text-sm text-slate-300 mt-2 leading-relaxed">Compare current pricing, AI allowances and 14-day no-card trials. Check the current HelpDesk offer and Freshdesk's official pricing before choosing.</p>
           </a>
 '''
 helpdesk_card_heading = '<h3 class="text-lg font-extrabold text-white mt-2">HelpDesk vs Freshdesk</h3>'
@@ -140,7 +140,7 @@ brand24_old_card = '''          <a href="/best/brand24-ai-visibility.html" class
 brand24_card = '''          <a href="/best/brand24-ai-visibility.html" class="p-5 rounded-2xl bg-[#131520] border border-emerald-500/25 hover:border-emerald-400/60 transition-all">
             <div class="text-xs uppercase tracking-wider font-bold text-emerald-300">AI visibility · current offer</div>
             <h3 class="text-lg font-extrabold text-white mt-2">Brand24 14-Day Trial & AI Visibility</h3>
-            <p class="text-sm text-slate-300 mt-2 leading-relaxed">Test Brand24 for 14 days with no credit card, then evaluate AI Visibility and continue through COSHUMA's verified customer referral route only if the monitoring workflow fits.</p>
+            <p class="text-sm text-slate-300 mt-2 leading-relaxed">Test Brand24 for 14 days with no credit card, then evaluate AI Visibility and check the current offer only if the monitoring workflow fits.</p>
           </a>
 '''
 if brand24_card not in text:
@@ -151,13 +151,11 @@ if brand24_card not in text:
 required = [
     'https://coshuma.com/tool/claap.html\",\"name\":\"Claap Pricing & Buyer Guide\"',
     'href="/tool/claap.html"',
-    'vendor-verified customer tracking route',
     'https://coshuma.com/best/moosend-free-trial.html\",\"name\":\"Moosend 30-Day Free Trial & Pricing Guide\"',
     moosend_card_heading,
     '30-day no-card trial',
     'https://coshuma.com/best/helpdesk-vs-freshdesk.html\",\"name\":\"HelpDesk vs Freshdesk Pricing & Free Trial Comparison\"',
     helpdesk_card_heading,
-    'HelpDesk uses COSHUMA\'s verified customer partner route; Freshdesk remains on official non-affiliate links.',
     'https://coshuma.com/best/brand24-ai-visibility.html\",\"name\":\"Brand24 14-Day Free Trial & AI Visibility Guide\"',
     '<h3 class="text-lg font-extrabold text-white mt-2">Brand24 14-Day Trial & AI Visibility</h3>',
     'Test Brand24 for 14 days with no credit card',
