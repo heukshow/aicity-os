@@ -41,19 +41,17 @@ if 'Verified affiliate paths' in text:
 strict_card = (
     "const validUrl = getValidExternalUrl(tool);\n"
     "              const isApprovedAffiliate = Boolean(\n"
-    "                tool.affiliate_verified === true &&\n"
-    "                tool.affiliate_status === 'approved_tracking' &&\n"
-    "                typeof tool.affiliate_url === 'string' &&\n"
-    "                validUrl === tool.affiliate_url.trim()\n"
+    "                tool.is_sponsored === true &&\n"
+    "                validUrl === tool.outbound_url\n"
     "              );"
 )
 replace_first(
     [
-        "const isApprovedAffiliate = tool.affiliate_verified === true && tool.affiliate_status === 'approved_tracking';\n              const validUrl = getValidExternalUrl(tool);",
+        "const isApprovedAffiliate = tool.is_sponsored === true;\n              const validUrl = getValidExternalUrl(tool);",
         "const validUrl = getValidExternalUrl(tool);",
     ],
     strict_card,
-    "per-card approved affiliate predicate",
+    "per-card sponsored predicate",
 )
 
 # Preserve tracking and sponsored-link semantics without exposing the mechanics
@@ -100,8 +98,8 @@ elif tracked_anchor not in text:
     raise SystemExit("home link guard could not find expected homepage outbound CTA")
 
 required = [
-    "tool.affiliate_status === 'approved_tracking'",
-    "validUrl === tool.affiliate_url.trim()",
+    "tool.is_sponsored === true",
+    "validUrl === tool.outbound_url",
     "trackToolClick(tool.id, tool.name, validUrl, isApprovedAffiliate)",
     "data-cta={isApprovedAffiliate ? 'affiliate' : 'official'}",
     "{isApprovedAffiliate ? 'View offer' : 'Visit official site'}",
