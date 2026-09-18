@@ -78,8 +78,8 @@ MECHANICAL_RULES: tuple[tuple[re.Pattern[str], str], ...] = (
 )
 
 # Remove private provenance anywhere it can be serialized (body text, meta descriptions or
-# JSON-LD strings). These patterns deliberately stop at markup/quote boundaries so they do
-# not delete href values or break surrounding HTML/JSON structure.
+# JSON-LD strings). The generic network rule explicitly refuses URL-adjacent network names
+# so verified outbound hrefs remain byte-for-byte intact.
 PRIVATE_SENTENCES: tuple[re.Pattern[str], ...] = (
     re.compile(r"Taskade's affiliate team told COSHUMA that code[^<\"\n]*?20% off subscriptions\.", re.I),
     re.compile(r"The (?:message|email) does not explicitly (?:confirm|state) a lifetime duration for (?:the|this shared) AI code\.?", re.I),
@@ -95,7 +95,7 @@ PRIVATE_SENTENCES: tuple[re.Pattern[str], ...] = (
     re.compile(r"(?:the|an) exact?\s*account-specific Novita AI referral URL issued in the affiliate approval email", re.I),
     # Generic sentence-level cleanup for legacy generator variants. A sentence that exposes
     # a network/account/correspondence mechanism is removed rather than rephrased.
-    re.compile(r"[^<>\"\n.!?]{0,260}\b(?:PartnerStack|FirstPromoter)\b[^<>\"\n.!?]{0,260}[.!?]", re.I),
+    re.compile(r"[^<>\"\n.!?]{0,260}(?<![A-Za-z0-9./:_-])(?:PartnerStack|FirstPromoter)\b[^<>\"\n.!?]{0,260}[.!?]", re.I),
     re.compile(r"[^<>\"\n.!?]{0,260}\b(?:affiliate|partner)[- ]?(?:team|manager)\b[^<>\"\n.!?]{0,260}[.!?]", re.I),
     re.compile(r"[^<>\"\n.!?]{0,260}\b(?:affiliate|partner)\s+(?:approval|welcome)\s+email\b[^<>\"\n.!?]{0,260}[.!?]", re.I),
     re.compile(r"[^<>\"\n.!?]{0,260}\bvendor\s+welcome\s+email\b[^<>\"\n.!?]{0,260}[.!?]", re.I),
