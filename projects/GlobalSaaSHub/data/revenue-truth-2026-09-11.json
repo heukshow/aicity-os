@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T16:43:26Z",
+  "generated_at": "2026-09-18T06:16:58Z",
   "policy": {
     "primary_kpi": "verified_revenue",
     "unknown_is_zero": false,
@@ -256,11 +256,34 @@
       "tracking_url": "https://partnerstack.teachable.com/ce4muoxdj46j",
       "trial_url": "https://partnerstack.teachable.com/COSHUMA",
       "note": "Teachable Affiliate Program confirmed 11 clicks and no conversions associated with those clicks. The reply said commissions and payout information are available in PartnerStack but did not state amounts, so signup/trial/paid-customer, revenue, commission, payout, currency and reporting-period fields remain unknown rather than zero. Existing vendor-issued default and 30-day trial URLs remain unchanged."
+    },
+    {
+      "tool": "Jotform",
+      "network": "Jotform Affiliate Program",
+      "period": "September 2026 month-to-date as confirmed on 2026-09-18",
+      "outbound_clicks": 34,
+      "signups_referrals": 0,
+      "trials": null,
+      "paid_customers": 0,
+      "gross_sales_revenue": null,
+      "commission_earned": null,
+      "commission_approved": null,
+      "commission_pending": null,
+      "commission_paid": null,
+      "payout_paid": null,
+      "payout_pending": null,
+      "payout_status": null,
+      "currency": null,
+      "status": "vendor_verified_partial",
+      "evidence_source": "vendor-human-email",
+      "evidence_id": "gmail:1a0b3265d5b2769f",
+      "evidence_timestamp": "2026-09-18T06:13:30Z",
+      "note": "Jotform Affiliate Marketing Specialist Anna Scheucher confirmed COSHUMA has 34 clicks this month with no signups or paid users. Trials, revenue, commission amounts/status and payout fields were not stated and remain unknown. The dashboard URL included in the reply is an administrative partner dashboard only and is not a customer-facing tracking/referral URL. Existing vendor-confirmed customer tracking routes remain unchanged."
     }
   ],
   "verified_totals": {
     "commission_earned_usd": null,
     "payout_paid_usd": null,
-    "note": "Do not sum partial networks into an all-network revenue total. Pictory, LiveChat and ClickFunnels have verified $0 commission only in their stated scopes; Tally has one verified referral-link view but no verified downstream conversion or reward; Brand24, HighLevel, UpLead, BoldSign and other networks remain unchecked or partial."
+    "note": "Do not sum partial networks into an all-network revenue total. Jotform now has vendor-confirmed September month-to-date clicks/signups/paid-user counts, but commission and payout remain unknown; other network-specific verified values remain scoped and must not be generalized to COSHUMA overall."
   }
 }
