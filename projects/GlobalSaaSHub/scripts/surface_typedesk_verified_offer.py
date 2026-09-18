@@ -10,17 +10,14 @@ if not PAGE.exists():
 
 html = PAGE.read_text(encoding="utf-8")
 
-# Idempotence + attribution safety: this buyer-hub card may only use the exact
-# vendor-confirmed Typedesk pricing deep link that preserves via=sangkwon.
+# Idempotence + attribution safety: keep only the exact customer-facing pricing
+# route. Internal approval, verification and partner correspondence never belong
+# in the generated public card.
 if MARKER in html:
     if TRACKING_URL not in html:
-        raise SystemExit("Typedesk verified block exists but exact tracking URL is missing")
-    print("Typedesk verified buyer offer already surfaced")
+        raise SystemExit("Typedesk buyer block exists but exact customer route is missing")
+    print("Typedesk buyer offer already surfaced")
     raise SystemExit(0)
-
-# Keep this revenue patch independent of buyer-facing meta wording. Public copy
-# is normalized before this step, so mutable editorial copy must not block the
-# exact vendor-confirmed Typedesk offer from being added.
 
 item9 = (
     '      {"@type":"ListItem","position":9,"name":"Tally",'
@@ -34,28 +31,40 @@ item10 = (
     '"url":"https://coshuma.com/best/typedesk-pricing-free-plan.html"}\n'
     "    ]"
 )
-if item9 not in html:
-    raise SystemExit("Tally ItemList tail missing; Typedesk patch requires the verified Tally build step first")
-html = html.replace(item9, item10, 1)
+if item9 in html:
+    html = html.replace(item9, item10, 1)
+elif '"name":"Typedesk"' not in html:
+    print("Buyer-hub ItemList layout changed; skipping optional Typedesk structured-list insertion")
 
 closing = '''    </section>\n\n    <section class="rounded-3xl border border-white/10 bg-[#11131a] p-7 md:p-9">\n      <h2 class="text-2xl font-black text-white">How this list is gated</h2>'''
-if closing not in html:
-    raise SystemExit("Buyer-hub final grid boundary changed; refusing blind patch")
 
-card = f'''      {MARKER}\n      <article class="rounded-3xl border border-indigo-400/25 bg-[#11131a] p-7 space-y-5">\n        <div class="flex items-start justify-between gap-4"><div><div class="text-xs font-black uppercase tracking-wider text-indigo-300">Text expansion & support workflows</div><h2 class="mt-1 text-3xl font-black text-white">Typedesk</h2></div><span class="rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-bold text-emerald-200">Free forever plan</span></div>\n        <p class="text-sm leading-6 text-slate-300">Typedesk's current official pricing page lists a Free plan for personal use with unlimited templates and up to 50 uses per week. The affiliate team also confirmed that COSHUMA may preserve its issued <code class="text-indigo-200">via=sangkwon</code> attribution on the pricing page, so the buyer-intent destination below is not a guessed deep link.</p>\n        <div class="grid gap-3 sm:grid-cols-2"><a data-cta="affiliate" data-tool-id="typedesk" data-cta-source="verified-deals-typedesk-pricing" data-cta-page="verified-software-free-trials-deals" href="{TRACKING_URL}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="rounded-xl bg-indigo-600 px-5 py-3.5 text-center text-sm font-black text-white hover:bg-indigo-500">Check Typedesk plans →</a><a href="/best/typedesk-pricing-free-plan.html" class="rounded-xl border border-white/10 px-5 py-3.5 text-center text-sm font-bold text-slate-200 hover:bg-white/5">Compare free vs paid</a></div>\n        <p class="text-[11px] leading-5 text-slate-500">Typedesk told COSHUMA it currently provides no affiliate coupon code. COSHUMA therefore makes no coupon or discount claim here. A visit, signup, upgrade, commission or payout is not counted without partner-side evidence.</p>\n      </article>\n'''
+card = f'''      {MARKER}\n      <article class="rounded-3xl border border-indigo-400/25 bg-[#11131a] p-7 space-y-5">\n        <div class="flex items-start justify-between gap-4"><div><div class="text-xs font-black uppercase tracking-wider text-indigo-300">Text expansion & support workflows</div><h2 class="mt-1 text-3xl font-black text-white">Typedesk</h2></div><span class="rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-bold text-emerald-200">Free plan available</span></div>\n        <p class="text-sm leading-6 text-slate-300">Typedesk's current pricing page lists a Free plan for personal use with unlimited templates and up to 50 uses per week. Check the current plan limits and pricing on Typedesk before choosing.</p>\n        <div class="grid gap-3 sm:grid-cols-2"><a data-cta="affiliate" data-tool-id="typedesk" data-cta-source="verified-deals-typedesk-pricing" data-cta-page="verified-software-free-trials-deals" href="{TRACKING_URL}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="rounded-xl bg-indigo-600 px-5 py-3.5 text-center text-sm font-black text-white hover:bg-indigo-500">Check Typedesk plans →</a><a href="/best/typedesk-pricing-free-plan.html" class="rounded-xl border border-white/10 px-5 py-3.5 text-center text-sm font-bold text-slate-200 hover:bg-white/5">Compare free vs paid</a></div>\n      </article>\n'''
 
-html = html.replace(closing, card + closing, 1)
+if closing in html:
+    html = html.replace(closing, card + closing, 1)
+elif "</main>" in html:
+    print("Buyer-hub final grid boundary changed; using current main boundary for Typedesk card")
+    html = html.replace("</main>", card + "</main>", 1)
+else:
+    raise SystemExit("Buyer-hub main boundary missing; cannot safely place Typedesk customer offer")
 
 required = [
     TRACKING_URL,
     'data-cta-source="verified-deals-typedesk-pricing"',
     "Free plan for personal use",
-    "no affiliate coupon code",
-    "not counted without partner-side evidence",
 ]
 for token in required:
     if token not in html:
         raise SystemExit(f"Typedesk buyer-hub patch lost required token: {token}")
 
+for forbidden in (
+    "affiliate team",
+    "partner-side evidence",
+    "not a guessed deep link",
+    "affiliate coupon code",
+):
+    if forbidden.lower() in card.lower():
+        raise SystemExit(f"Typedesk public card contains internal affiliate operations copy: {forbidden}")
+
 PAGE.write_text(html, encoding="utf-8")
-print("Surfaced verified Typedesk pricing route on buyer hub")
+print("Surfaced Typedesk pricing route with customer-only copy")
