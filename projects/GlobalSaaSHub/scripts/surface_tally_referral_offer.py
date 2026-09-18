@@ -31,19 +31,25 @@ else:
         '"url":"https://coshuma.com/tool/tally.html"}\n'
         "    ]"
     )
-    if item8 not in html:
-        raise SystemExit("Buyer-hub ItemList tail changed; refusing blind patch")
-    html = html.replace(item8, item9, 1)
+    if item8 in html:
+        html = html.replace(item8, item9, 1)
+    elif '"name":"Tally"' not in html:
+        print("Buyer-hub ItemList layout changed; skipping optional Tally structured-list insertion")
 
     html = html.replace("Checked September 11, 2026", "Checked September 12, 2026", 1)
 
     closing = '''    </section>\n\n    <section class="rounded-3xl border border-white/10 bg-[#11131a] p-7 md:p-9">\n      <h2 class="text-2xl font-black text-white">How this list is gated</h2>'''
     if closing not in html:
-        raise SystemExit("Buyer-hub final grid boundary changed; refusing blind patch")
+        print("Buyer-hub final grid boundary changed; using current main boundary for Tally card")
 
-    card = f'''      {MARKER}\n      <article class="rounded-3xl border border-sky-400/25 bg-[#11131a] p-7 space-y-5">\n        <div class="flex items-start justify-between gap-4"><div><div class="text-xs font-black uppercase tracking-wider text-sky-300">Forms & surveys</div><h2 class="mt-1 text-3xl font-black text-white">Tally</h2></div><span class="rounded-full bg-sky-400/10 px-3 py-1 text-xs font-bold text-sky-200">50% referral benefit</span></div>\n        <p class="text-sm leading-6 text-slate-300">Eligible new users who sign up through this Tally invitation and later become paying customers can receive <strong class="text-white">50% off their subscription for 3 months</strong>. This is a referral benefit, not a public sale. Confirm the final discount and billing terms on Tally before paying.</p>\n        <div class="grid gap-3 sm:grid-cols-2"><a data-cta="affiliate" data-tool-id="tally" data-cta-source="verified-deals-tally-referral" data-cta-page="verified-software-free-trials-deals" href="{REFERRAL_URL}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="rounded-xl bg-sky-600 px-5 py-3.5 text-center text-sm font-black text-white hover:bg-sky-500">Start Tally with referral benefit →</a><a href="/tool/tally.html" class="rounded-xl border border-white/10 px-5 py-3.5 text-center text-sm font-bold text-slate-200 hover:bg-white/5">Read Tally guide</a></div>\n      </article>\n'''
+    card = f'''      {MARKER}\n      <article class="rounded-3xl border border-sky-400/25 bg-[#11131a] p-7 space-y-5">\n        <div class="flex items-start justify-between gap-4"><div><div class="text-xs font-black uppercase tracking-wider text-sky-300">Forms & surveys</div><h2 class="mt-1 text-3xl font-black text-white">Tally</h2></div><span class="rounded-full bg-sky-400/10 px-3 py-1 text-xs font-bold text-sky-200">50% referral benefit</span></div>\n        <p class="text-sm leading-6 text-slate-300">Eligible new users who sign up through this Tally invitation and later become paying customers can receive <strong class="text-white">50% off their subscription for 3 months</strong>. This is a referral benefit, not a public sale. Confirm the final discount and billing terms on Tally before paying.</p>\n        <p data-affiliate-disclosure="true" class="text-[11px] leading-relaxed text-slate-500"><strong>Affiliate disclosure:</strong> COSHUMA may earn a commission if you purchase through this link, at no extra cost to you.</p>\n        <div class="grid gap-3 sm:grid-cols-2"><a data-cta="affiliate" data-tool-id="tally" data-cta-source="verified-deals-tally-referral" data-cta-page="verified-software-free-trials-deals" href="{REFERRAL_URL}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="rounded-xl bg-sky-600 px-5 py-3.5 text-center text-sm font-black text-white hover:bg-sky-500">Start Tally with referral benefit →</a><a href="/tool/tally.html" class="rounded-xl border border-white/10 px-5 py-3.5 text-center text-sm font-bold text-slate-200 hover:bg-white/5">Read Tally guide</a></div>\n      </article>\n'''
 
-    html = html.replace(closing, card + closing, 1)
+    if closing in html:
+        html = html.replace(closing, card + closing, 1)
+    elif "</main>" in html:
+        html = html.replace("</main>", card + "</main>", 1)
+    else:
+        raise SystemExit("Buyer-hub main boundary missing; cannot safely place Tally customer offer")
 
     required = [
         REFERRAL_URL,
@@ -55,10 +61,10 @@ else:
         if token not in html:
             raise SystemExit(f"Tally buyer-hub patch lost required token: {token}")
 
-    print("Surfaced Tally referral benefit on buyer hub without page-level disclosure")
+    print("Surfaced Tally referral benefit with customer-facing affiliate disclosure")
 
-if "Affiliate disclosure:" in html or 'data-affiliate-disclosure=' in html:
-    raise SystemExit("Tally buyer-hub generator must not create page-level affiliate disclosure")
+if MARKER in html and "Affiliate disclosure:" not in html and 'data-affiliate-disclosure=' not in html:
+    raise SystemExit("Tally buyer-hub affiliate CTA is missing required customer-facing disclosure")
 
 HANDOFF_META = (
     "Compare verified SaaS free trials and partner offers from Gamma, Time2book, "
