@@ -129,7 +129,10 @@ PUBLIC_OPS_MARKER = re.compile(
     re.I,
 )
 HTTP_URL = re.compile(r"https?://[^\s\"'<>]+", re.I)
-PUBLIC_TEXT_BLOCK = re.compile(r"<(?P<tag>p|li)\b(?P<attrs>[^>]*)>(?P<body>.*?)</(?P=tag)>", re.I | re.S)
+PUBLIC_TEXT_BLOCK = re.compile(r"<(?P<tag>p|li|small|figcaption)\b(?P<attrs>[^>]*)>(?P<body>.*?)</(?P=tag)>", re.I | re.S)
+PUBLIC_TABLE_ROW = re.compile(r"<tr\b(?P<attrs>[^>]*)>(?P<body>.*?)</tr>", re.I | re.S)
+PROTECTED_HTML = re.compile(r"<(?P<tag>script|style)\b[^>]*>.*?</(?P=tag)>", re.I | re.S)
+TEXT_NODE = re.compile(r">(?P<body>[^<>]+)<", re.S)
 PUBLIC_META = re.compile(r"<meta\b(?P<attrs>[^>]*\bcontent\s*=\s*[\"'])(?P<content>.*?)(?P<quote>[\"'])(?P<tail>[^>]*)>", re.I | re.S)
 PUBLIC_JSONLD = re.compile(
     r'(?P<open><script\b[^>]*type=["\']application/ld\+json["\'][^>]*>)(?P<body>.*?)(?P<close></script>)',
@@ -164,6 +167,7 @@ def _strip_internal_blocks(text: str) -> str:
         return "" if _has_public_ops(visible) else match.group(0)
 
     text = PUBLIC_TEXT_BLOCK.sub(block_repl, text)
+    text = PUBLIC_TABLE_ROW.sub(lambda m: "" if _has_public_ops(_plain(m.group("body"))) else m.group(0), text)
 
     def meta_repl(match: re.Match) -> str:
         content = match.group("content")
@@ -192,7 +196,25 @@ def _strip_internal_blocks(text: str) -> str:
         cleaned = __import__("json").dumps(clean_json(parsed), ensure_ascii=False, separators=(",", ":"))
         return match.group("open") + cleaned + match.group("close")
 
-    return PUBLIC_JSONLD.sub(jsonld_repl, text)
+    text = PUBLIC_JSONLD.sub(jsonld_repl, text)
+
+    protected = []
+    def protect(match: re.Match) -> str:
+        protected.append(match.group(0))
+        return f'<x-coshuma-protected data-i="{len(protected)-1}"></x-coshuma-protected>'
+
+    text = PROTECTED_HTML.sub(protect, text)
+
+    def text_node_repl(match: re.Match) -> str:
+        body = match.group("body")
+        if not _has_public_ops(body):
+            return match.group(0)
+        return ">" + _sanitize_text_value(body) + "<"
+
+    text = TEXT_NODE.sub(text_node_repl, text)
+    for i, original in enumerate(protected):
+        text = text.replace(f'<x-coshuma-protected data-i="{i}"></x-coshuma-protected>', original, 1)
+    return text
 
 
 def final_polish(text: str) -> str:
