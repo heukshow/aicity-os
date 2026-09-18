@@ -239,7 +239,7 @@ export default function App() {
         <div className="mx-auto mt-10 grid max-w-4xl grid-cols-3 gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-3 sm:p-4">
           <div className="rounded-xl bg-white/[0.03] p-4 text-center"><div className="text-2xl font-black text-white">{stats.total}</div><div className="mt-1 text-[10px] uppercase tracking-widest text-slate-500">Tool profiles</div></div>
           <div className="rounded-xl bg-white/[0.03] p-4 text-center"><div className="text-2xl font-black text-violet-300">{stats.categoriesCount}</div><div className="mt-1 text-[10px] uppercase tracking-widest text-slate-500">Categories</div></div>
-          <div className="rounded-xl bg-white/[0.03] p-4 text-center"><div className="text-2xl font-black text-cyan-300">{stats.verified}</div><div className="mt-1 text-[10px] uppercase tracking-widest text-slate-500">Verified affiliate paths</div></div>
+          <div className="rounded-xl bg-white/[0.03] p-4 text-center"><div className="text-2xl font-black text-cyan-300">{stats.verified}</div><div className="mt-1 text-[10px] uppercase tracking-widest text-slate-500">Current offers</div></div>
         </div>
       </header>
 
@@ -288,6 +288,7 @@ export default function App() {
         {filteredTools.length > 0 ? (
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {filteredTools.map((tool) => {
+              const isSponsored = tool.is_sponsored === true;
               const validUrl = getValidExternalUrl(tool);
               return (
                 <article key={tool.id} className="group flex flex-col rounded-2xl border border-white/10 bg-[#101218] p-5 transition hover:-translate-y-1 hover:border-violet-400/30 hover:shadow-2xl hover:shadow-violet-950/10">
@@ -311,13 +312,12 @@ export default function App() {
                       <button onClick={() => setCompareToolA(tool)} className="flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 text-slate-400 hover:text-white" title="Compare side-by-side"><Scale className="h-4 w-4" /></button>
                     </div>
                     {validUrl ? (
-                      <a href={validUrl} target="_blank" rel={tool.affiliate_verified === true ? 'sponsored noopener noreferrer' : 'noopener noreferrer'} onClick={() => trackToolClick(tool.id, tool.name, validUrl, tool.affiliate_verified === true)} className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-500 px-4 py-3 text-sm font-black text-white shadow-lg shadow-violet-950/20 hover:from-violet-400 hover:to-indigo-400">
-                        {tool.affiliate_verified === true ? 'Check verified offer' : 'Visit official site'} <ArrowUpRight className="h-4 w-4" />
+                      <a href={validUrl} target="_blank" rel={isSponsored ? 'sponsored noopener noreferrer' : 'noopener noreferrer'} onClick={() => trackToolClick(tool.id, tool.name, validUrl, isSponsored)} className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-500 px-4 py-3 text-sm font-black text-white shadow-lg shadow-violet-950/20 hover:from-violet-400 hover:to-indigo-400">
+                        {isSponsored ? 'View current offer' : 'Visit official site'} <ArrowUpRight className="h-4 w-4" />
                       </a>
                     ) : (
                       <div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center text-xs font-bold text-slate-600">Official link unavailable</div>
                     )}
-                    {tool.affiliate_verified === true && <div className="mt-2 flex items-center justify-center gap-1 text-[10px] text-slate-600"><CheckCircle2 className="h-3 w-3" /> Affiliate link verified in our records · disclosure applies</div>}
                   </div>
                 </article>
               );
