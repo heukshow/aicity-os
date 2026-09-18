@@ -33,6 +33,14 @@ require(raw_prebuild_at >= 0, "raw public source guard missing from prebuild")
 require(policy_prebuild_at >= 0, "public policy validator missing from prebuild")
 require(raw_prebuild_at < policy_prebuild_at, "raw public source guard must run before policy validation and all build sanitizers")
 
+# Generators in the build chain may also mutate public source. Their output must be
+# checked before the broad customer-copy sanitizer can hide a regression.
+raw_build_at = BUILD.find("guard_raw_public_source.py")
+customer_sanitizer_at = BUILD.find("guard_customer_only_copy.py")
+require(raw_build_at >= 0, "generated public-source guard missing from build")
+require(customer_sanitizer_at >= 0, "customer-copy sanitizer missing from build")
+require(raw_build_at < customer_sanitizer_at, "generated public source must fail closed before customer-copy sanitization")
+
 # The retired post-build cleaner caused the regression by removing legally required
 # page-level notices from the final bundle. It must never return to the build chain.
 require("enforce_home_only_affiliate_disclosure.py" not in BUILD, "deprecated home-only final-bundle cleaner is active")
@@ -72,9 +80,8 @@ for network in ("PartnerStack", "FirstPromoter", "Impact", "Dub", "Cello", "Tolt
     require(network in artifact_guard, f"artifact guard no longer covers central network label: {network}")
 require("URL_RE.sub" in raw_guard, "raw source guard no longer masks tracking URLs before scanning")
 
-# Prebuild is the earliest fail-closed checkpoint. Keep a second focused contract scan
-# here so obvious application/verification-state regressions are caught even if the raw
-# guard implementation itself is edited incorrectly.
+# Keep a second focused contract scan so obvious application/verification-state
+# regressions are caught even if the raw guard implementation itself is edited.
 raw_status_patterns = {
     "affiliate-revenue-state-copy": re.compile(r"\baffiliate/revenue\s+link\b", re.I),
     "application-verification-copy": re.compile(
@@ -102,4 +109,4 @@ if raw_errors:
         + "\n".join(raw_errors[:50])
     )
 
-print("PASS: central public policy contract is aligned across raw source fail-closed checks, source hygiene, final disclosure injection, tracking verification, and artifact leak guards")
+print("PASS: central public policy contract is aligned across raw source fail-closed checks, generated-source boundary ordering, source hygiene, final disclosure injection, tracking verification, and artifact leak guards")
