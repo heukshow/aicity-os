@@ -20,6 +20,8 @@ jobs:
         working-directory: projects/GlobalSaaSHub
         run: |
           set -e
+          python scripts/cleanup_legacy_public_affiliate_ops.py
+          python scripts/sanitize_public_partner_status_labels.py
           python scripts/sanitize_public_editorial_copy.py
           python scripts/clean_murf_customer_copy.py
           python scripts/clean_brand24_customer_copy.py
