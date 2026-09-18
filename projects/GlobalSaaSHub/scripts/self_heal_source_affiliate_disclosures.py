@@ -16,17 +16,20 @@ PUBLIC = ROOT / "public"
 POLICY = json.loads((ROOT / "config" / "public_content_policy.json").read_text(encoding="utf-8"))
 DISC = POLICY["affiliate_disclosure"]
 
-AFFILIATE_CTA = re.compile(r'<a\\b[^>]*\\bdata-cta\\s*=\\s*["\\']affiliate["\\'][^>]*>', re.I)
+AFFILIATE_CTA = re.compile(
+    r"""<a\b[^>]*\bdata-cta\s*=\s*["']affiliate["'][^>]*>""",
+    re.I,
+)
 PAGE_NOTICE_RE = re.compile(
-    r'<p\\b[^>]*\\bdata-affiliate-disclosure\\s*=\\s*["\\'][^"\\']*["\\'][^>]*>.*?</p>',
+    r"""<p\b[^>]*\bdata-affiliate-disclosure\s*=\s*["'][^"']*["'][^>]*>.*?</p>""",
     re.I | re.S,
 )
 GLOBAL_NOTICE_RE = re.compile(
-    r'<p\\b[^>]*\\bdata-site-affiliate-disclosure\\s*=\\s*["\\']global["\\'][^>]*>.*?</p>',
+    r"""<p\b[^>]*\bdata-site-affiliate-disclosure\s*=\s*["']global["'][^>]*>.*?</p>""",
     re.I | re.S,
 )
 LEGACY_DISCLOSURE_RE = re.compile(
-    r'<p\\b[^>]*>(?:(?!</p>).)*(?:Affiliate\\s+disclosure\\s*:|COSHUMA\\s+may\\s+earn\\s+(?:(?:an\\s+affiliate|a)\\s+)?commission)(?:(?!</p>).)*</p>',
+    r"""<p\b[^>]*>(?:(?!</p>).)*(?:Affiliate\s+disclosure\s*:|COSHUMA\s+may\s+earn\s+(?:(?:an\s+affiliate|a)\s+)?commission)(?:(?!</p>).)*</p>""",
     re.I | re.S,
 )
 
