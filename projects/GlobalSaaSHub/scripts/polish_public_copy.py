@@ -78,8 +78,8 @@ TOOL_REVENUE_ALTERNATIVES = {
         "label": "Compare HighLevel →",
     },
     "ai-video-cut.html": {
-        "headline": "Need a verified video-creation alternative now?",
-        "copy": "AI Video Cut is the short-form clipping tool on this page. If you also need text-to-video creation, captions, stock-media workflows and highlight reels, compare Pictory. COSHUMA's Pictory partner link below is verified; promo code COSHUMA20 is currently confirmed active and should be used alongside the link rather than instead of it.",
+        "headline": "Need a video-creation alternative now?",
+        "copy": "AI Video Cut is the short-form clipping tool on this page. If you also need text-to-video creation, captions, stock-media workflows and highlight reels, compare Pictory. The Pictory offer link below can be used with promo code COSHUMA20; confirm the final price and eligibility before checkout.",
         "tool_id": "pictory",
         "source": "ai-video-cut-pictory-alternative",
         "href": "https://pictory.ai?fpr=sangkwon-an23",
