@@ -143,11 +143,12 @@ def patch_compare_copy(evidence: dict) -> None:
         return
     html = path.read_text(encoding="utf-8")
     old_disclosure = "Affiliate disclosure: COSHUMA may earn a commission if you sign up or purchase through the AWeber partner link, at no extra cost beyond the offer AWeber shows you."
-    new_disclosure = "Affiliate disclosure: COSHUMA may earn a commission if you become a paying Beefree/RGE Studio or AWeber customer after using the verified partner links, at no extra cost beyond the offer each vendor shows you."
+    new_disclosure = "Affiliate disclosure: COSHUMA may earn a commission if you become a paying Beefree/RGE Studio or AWeber customer after using links on this page, at no extra cost beyond the offer each vendor shows you."
     html = html.replace(old_disclosure, new_disclosure)
     old_note = "The AWeber outbound revenue URL is the same account-specific affiliate route already verified in COSHUMA's repository; Beefree remains an ordinary official link because no verified COSHUMA Beefree tracking URL is being claimed here."
-    new_note = f"The AWeber outbound revenue URL is the same account-specific route already verified in COSHUMA's repository. Beefree/RGE Studio is also monetized with the exact PartnerStack referral URL supplied by the vendor on Sep 9, 2026: {evidence['exact_tracking_url']}. Link issuance is not counted as a sale or revenue."
+    new_note = "Use the current offer links above to compare Beefree/RGE Studio and AWeber. Final pricing and eligibility are controlled by each vendor."
     html = html.replace(old_note, new_note)
+    html = html.replace("Buyer decision guide · Affiliate link verified Sep 9, 2026", "Buyer decision guide · Pricing and offers checked Sep 9, 2026")
     path.write_text(html, encoding="utf-8")
 
 
