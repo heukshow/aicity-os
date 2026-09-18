@@ -312,7 +312,7 @@ export default function App() {
                       <button onClick={() => setCompareToolA(tool)} className="flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 text-slate-400 hover:text-white" title="Compare side-by-side"><Scale className="h-4 w-4" /></button>
                     </div>
                     {validUrl ? (
-                      <a href={validUrl} target="_blank" rel={isSponsored ? 'sponsored noopener noreferrer' : 'noopener noreferrer'} onClick={() => trackToolClick(tool.id, tool.name, validUrl, isSponsored)} className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-500 px-4 py-3 text-sm font-black text-white shadow-lg shadow-violet-950/20 hover:from-violet-400 hover:to-indigo-400">
+                      <a data-cta={isSponsored ? 'affiliate' : 'official'} data-tool-id={tool.id} data-cta-source="home-tool-card" href={validUrl} target="_blank" rel={isSponsored ? 'sponsored noopener noreferrer' : 'noopener noreferrer'} onClick={() => trackToolClick(tool.id, tool.name, validUrl, isSponsored)} className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-500 px-4 py-3 text-sm font-black text-white shadow-lg shadow-violet-950/20 hover:from-violet-400 hover:to-indigo-400">
                         {isSponsored ? 'View current offer' : 'Visit official site'} <ArrowUpRight className="h-4 w-4" />
                       </a>
                     ) : (
