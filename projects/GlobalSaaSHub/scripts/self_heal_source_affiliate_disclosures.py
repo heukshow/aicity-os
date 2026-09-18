@@ -1,11 +1,11 @@
-"""Normalize consumer affiliate disclosures in generated public source.
+"""Normalize canonical consumer affiliate disclosures in public source before the source boundary check.
 
-The public source is a customer-facing surface. This pass never removes a required
-page disclosure in favor of a homepage-only policy. Instead it keeps one canonical
-consumer disclosure before the first affiliate CTA on every affiliate page, keeps
-one general homepage disclosure, and removes stray page disclosures only from pages
-that do not contain an affiliate CTA. Internal affiliate operations data is handled
-by the separate fail-closed source boundary guards.
+This is not a privacy scrubber. Internal affiliate operations are handled by the raw/source
+boundary guards. This pass only makes the consumer-disclosure rule deterministic:
+- homepage: exactly one global disclosure;
+- affiliate CTA pages: exactly one page disclosure immediately before the first affiliate CTA;
+- pages without affiliate CTA: no page disclosure;
+- the dedicated affiliate-disclosure policy page is preserved.
 """
 from pathlib import Path
 import json
@@ -14,118 +14,94 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 POLICY = json.loads((ROOT / "config" / "public_content_policy.json").read_text(encoding="utf-8"))
-DISCLOSURE = POLICY["affiliate_disclosure"]
+DISC = POLICY["affiliate_disclosure"]
 
-PAGE_AFFILIATE_CTA = re.compile(
-    r'<a\b[^>]*\bdata-cta\s*=\s*["\']affiliate["\'][^>]*>',
-    re.I,
-)
-PAGE_MARKED_BLOCK = re.compile(
-    r'<p\b[^>]*\bdata-affiliate-disclosure\s*=\s*["\'][^"\']*["\'][^>]*>.*?</p>\s*',
+AFFILIATE_CTA = re.compile(r'<a\\b[^>]*\\bdata-cta\\s*=\\s*["\\']affiliate["\\'][^>]*>', re.I)
+PAGE_NOTICE_RE = re.compile(
+    r'<p\\b[^>]*\\bdata-affiliate-disclosure\\s*=\\s*["\\'][^"\\']*["\\'][^>]*>.*?</p>',
     re.I | re.S,
 )
-HOME_MARKED_BLOCK = re.compile(
-    r'<p\b[^>]*\bdata-site-affiliate-disclosure\s*=\s*["\'][^"\']*["\'][^>]*>.*?</p>\s*',
+GLOBAL_NOTICE_RE = re.compile(
+    r'<p\\b[^>]*\\bdata-site-affiliate-disclosure\\s*=\\s*["\\']global["\\'][^>]*>.*?</p>',
     re.I | re.S,
 )
-GENERIC_DISCLOSURE_PARAGRAPH = re.compile(
-    r'<p\b[^>]*>(?:(?!</p>).)*Affiliate\s+disclosure\s*:(?:(?!</p>).)*</p>\s*',
+LEGACY_DISCLOSURE_RE = re.compile(
+    r'<p\\b[^>]*>(?:(?!</p>).)*(?:Affiliate\\s+disclosure\\s*:|COSHUMA\\s+may\\s+earn\\s+(?:(?:an\\s+affiliate|a)\\s+)?commission)(?:(?!</p>).)*</p>',
     re.I | re.S,
 )
 
-PAGE_DISCLOSURE = (
+PAGE_NOTICE = (
     '<p data-affiliate-disclosure="page" '
     'style="margin:.75rem 0;color:#94a3b8;font-size:12px;line-height:1.6">'
-    f'{DISCLOSURE["page_text"]}'
-    '</p>\n'
+    + DISC["page_text"] +
+    '</p>'
 )
-HOME_DISCLOSURE = (
+HOME_NOTICE = (
     '<p data-site-affiliate-disclosure="global" '
     'style="max-width:72rem;margin:0 auto;padding:0 1.5rem 1.5rem;color:#94a3b8;font-size:12px;line-height:1.6">'
-    f'{DISCLOSURE["homepage_text"]} '
-    f'<a href="{DISCLOSURE["details_path"]}" style="text-decoration:underline">Details</a>.'
-    '</p>\n'
+    + DISC["homepage_text"] + ' '
+    '<a href="' + DISC["details_path"] + '" style="text-decoration:underline">Details</a>.'
+    '</p>'
 )
 
+def normalize_page(path: Path) -> bool:
+    rel = path.relative_to(ROOT).as_posix()
+    before = path.read_text(encoding="utf-8")
+    if rel.endswith("affiliate-disclosure.html"):
+        return False
 
-def strip_consumer_disclosures(html: str) -> str:
-    html = PAGE_MARKED_BLOCK.sub('', html)
-    html = HOME_MARKED_BLOCK.sub('', html)
-    html = GENERIC_DISCLOSURE_PARAGRAPH.sub('', html)
-    return html
+    text = PAGE_NOTICE_RE.sub("", before)
+    text = GLOBAL_NOTICE_RE.sub("", text)
+    text = LEGACY_DISCLOSURE_RE.sub("", text)
 
+    first = AFFILIATE_CTA.search(text)
+    if first:
+        text = text[:first.start()] + PAGE_NOTICE + "\\n" + text[first.start():]
+        marker_at = text.find('data-affiliate-disclosure="page"')
+        cta_at = AFFILIATE_CTA.search(text).start()
+        if text.count('data-affiliate-disclosure="page"') != 1 or marker_at > cta_at:
+            raise RuntimeError(f"{rel}: failed to normalize affiliate disclosure before first CTA")
+    elif 'data-affiliate-disclosure=' in text.lower():
+        raise RuntimeError(f"{rel}: disclosure marker remained on a page without affiliate CTA")
 
-def normalize_page(html: str) -> str:
-    html = strip_consumer_disclosures(html)
-    first_cta = PAGE_AFFILIATE_CTA.search(html)
-    if not first_cta:
-        return html
-    return html[:first_cta.start()] + PAGE_DISCLOSURE + html[first_cta.start():]
+    if text != before:
+        path.write_text(text, encoding="utf-8")
+        return True
+    return False
 
+def normalize_home() -> bool:
+    path = ROOT / "index.html"
+    before = path.read_text(encoding="utf-8")
+    text = PAGE_NOTICE_RE.sub("", before)
+    text = GLOBAL_NOTICE_RE.sub("", text)
+    text = LEGACY_DISCLOSURE_RE.sub("", text)
 
-def normalize_home(html: str) -> str:
-    html = strip_consumer_disclosures(html)
-    first_cta = PAGE_AFFILIATE_CTA.search(html)
-    if first_cta:
-        return html[:first_cta.start()] + HOME_DISCLOSURE + html[first_cta.start():]
-    body_end = html.lower().rfind('</body>')
-    if body_end >= 0:
-        return html[:body_end] + HOME_DISCLOSURE + html[body_end:]
-    return html + '\n' + HOME_DISCLOSURE
+    first = AFFILIATE_CTA.search(text)
+    if first:
+        text = text[:first.start()] + HOME_NOTICE + "\\n" + text[first.start():]
+    elif "</body>" in text:
+        text = text.replace("</body>", HOME_NOTICE + "\\n</body>", 1)
+    else:
+        raise RuntimeError("index.html: closing body missing for homepage disclosure")
 
+    if text.count('data-site-affiliate-disclosure="global"') != 1:
+        raise RuntimeError("index.html: homepage disclosure normalization failed")
+    if DISC["homepage_text"] not in text:
+        raise RuntimeError("index.html: homepage disclosure text drifted from central policy")
 
-def validate_page(path: Path, html: str) -> None:
-    cta = PAGE_AFFILIATE_CTA.search(html)
-    marker = 'data-affiliate-disclosure="page"'
-    count = html.count(marker)
-    if cta:
-        if count != 1:
-            raise RuntimeError(f'{path.relative_to(ROOT)}: affiliate CTA page must contain exactly one consumer disclosure')
-        if html.find(marker) > cta.start():
-            raise RuntimeError(f'{path.relative_to(ROOT)}: consumer disclosure must appear before the first affiliate CTA')
-    elif count:
-        raise RuntimeError(f'{path.relative_to(ROOT)}: page without affiliate CTA must not contain a page disclosure')
-
-
-def validate_home(html: str) -> None:
-    marker = 'data-site-affiliate-disclosure="global"'
-    if html.count(marker) != 1:
-        raise RuntimeError('index.html: homepage must contain exactly one general affiliate disclosure')
-
+    if text != before:
+        path.write_text(text, encoding="utf-8")
+        return True
+    return False
 
 def main() -> None:
-    changed = 0
-    affiliate_pages = 0
-    checked = 0
-
-    home = ROOT / 'index.html'
-    if home.exists():
-        before = home.read_text(encoding='utf-8')
-        after = normalize_home(before)
-        validate_home(after)
-        if after != before:
-            home.write_text(after, encoding='utf-8')
-            changed += 1
+    changed = 1 if normalize_home() else 0
+    checked = 1
+    for path in PUBLIC.rglob("*.html"):
         checked += 1
-
-    for path in PUBLIC.rglob('*.html'):
-        if path.name == 'affiliate-disclosure.html':
-            continue
-        checked += 1
-        before = path.read_text(encoding='utf-8')
-        after = normalize_page(before)
-        validate_page(path, after)
-        if PAGE_AFFILIATE_CTA.search(after):
-            affiliate_pages += 1
-        if after != before:
-            path.write_text(after, encoding='utf-8')
+        if normalize_page(path):
             changed += 1
+    print(f"Source affiliate disclosure normalization: checked={checked} changed={changed} affiliate_disclosure_gaps=0")
 
-    print(
-        f'Source affiliate disclosures normalized: checked={checked} '
-        f'affiliate_pages={affiliate_pages} changed={changed} missing=0 duplicates=0'
-    )
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
