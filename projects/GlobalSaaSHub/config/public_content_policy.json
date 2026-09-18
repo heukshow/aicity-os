@@ -1,0 +1,46 @@
+{
+  "version": 2,
+  "policy_owner": "config/public_content_policy.json",
+  "stages": {
+    "source": {
+      "page_disclosures_allowed": false,
+      "reason": "Source generators stay disclosure-neutral; the final production bundle adds the canonical consumer disclosure exactly once."
+    },
+    "final_dist": {
+      "page_disclosures_required_for_affiliate_cta": true,
+      "homepage_disclosure_required": true,
+      "fail_closed_on_internal_ops_leak": true
+    }
+  },
+  "affiliate_disclosure": {
+    "homepage_marker": "data-site-affiliate-disclosure=\"global\"",
+    "page_marker": "data-affiliate-disclosure=\"page\"",
+    "homepage_text": "Affiliate disclosure: COSHUMA may earn a commission from some links, at no extra cost to you.",
+    "page_text": "Affiliate disclosure: COSHUMA may earn a commission from some links on this page, at no extra cost to you.",
+    "details_path": "/affiliate-disclosure.html",
+    "require_page_disclosure_before_first_affiliate_cta": true,
+    "require_exactly_one_page_disclosure": true,
+    "require_homepage_disclosure": true,
+    "allow_policy_page": true
+  },
+  "public_internal_data": {
+    "default_private": true,
+    "forbidden_labels": [
+      "affiliate_status",
+      "affiliate_verified",
+      "affiliate_evidence_markers",
+      "application state",
+      "revenue truth",
+      "browser queue",
+      "PartnerStack",
+      "FirstPromoter",
+      "Impact",
+      "Dub",
+      "Cello",
+      "Tolt",
+      "Awin",
+      "CJ Affiliate"
+    ],
+    "allow_tracking_url_network_host_or_parameters": true
+  }
+}
