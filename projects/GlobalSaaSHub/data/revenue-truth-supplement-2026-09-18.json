@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T05:15:00+09:00",
+  "generated_at": "2026-09-18T15:27:20+09:00",
   "policy": {
     "unknown_is_zero": false,
     "infer_downstream_from_upstream": false,
@@ -25,6 +25,26 @@
       "evidence_id": "gmail:1a08c0544c56b5ac:helpdesk-default",
       "evidence_timestamp": "2026-09-10T15:52:30Z",
       "note": "Official LiveChat Partner Program report listed HelpDesk - default with 11 clicks and 0 trials for 2026-08-13 through 2026-09-10. The same account-wide report showed 0 paid accounts and $0 earnings for the entire account in that period, which safely bounds the HelpDesk campaign to 0 paid accounts and $0 earnings. Signup/referral count, commission approved/pending detail, and payout fields were not exposed and remain unknown."
+    },
+    {
+      "tool": "Jotform",
+      "network": "Jotform Partner Program",
+      "period": "2026-09 month-to-date as of 2026-09-18",
+      "outbound_clicks": 34,
+      "signups_referrals": 0,
+      "trials": null,
+      "paid_customers": 0,
+      "commission_earned": null,
+      "commission_approved": null,
+      "commission_pending": null,
+      "payout_paid": null,
+      "payout_pending": null,
+      "currency": null,
+      "status": "vendor_report_verified_partial",
+      "evidence_source": "vendor-human-email",
+      "evidence_id": "gmail:1a0b3265d5b2769f",
+      "evidence_timestamp": "2026-09-18T06:13:30Z",
+      "note": "Jotform affiliate manager Anna Scheucher directly confirmed that COSHUMA had 34 clicks this month with no signups or paid users. The reply did not state trial, commission earned/approved/pending, payout, or currency totals, so those fields remain unknown rather than zero."
     }
   ]
 }
