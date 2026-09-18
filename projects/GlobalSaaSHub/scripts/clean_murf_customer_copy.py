@@ -22,11 +22,11 @@ replacements = {
 for old, new in replacements.items():
     html = html.replace(old, new)
 
+# Earlier shared sanitizers may rewrite the section heading before this guard runs.
+# Anchor the replacement on the network/evidence sentence itself so the cleanup
+# remains stable regardless of those harmless heading changes.
 partner_section = re.compile(
-    r'<section class="p-7 rounded-3xl bg-\[#131520\] border border-purple-500/25 space-y-5">\s*'
-    r'<div class="text-xs uppercase tracking-widest text-purple-300 font-bold">Partner transparency</div>\s*'
-    r'<h2 class="text-2xl font-black text-white">COSHUMA\'s Murf link is an approved personal referral route</h2>.*?'
-    r'</section>',
+    r'<section\b[^>]*>(?:(?!</section>).)*Murf\'s\s+PartnerStack\s+welcome\s+email(?:(?!</section>).)*</section>',
     re.I | re.S,
 )
 replacement_section = '''<section class="p-7 rounded-3xl bg-[#131520] border border-purple-500/25 space-y-5">
