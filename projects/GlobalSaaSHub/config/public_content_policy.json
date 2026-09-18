@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "affiliate_disclosure": {
+    "homepage_marker": "data-site-affiliate-disclosure=\"global\"",
+    "page_marker": "data-affiliate-disclosure=\"page\"",
+    "homepage_text": "Affiliate disclosure: COSHUMA may earn a commission from some links, at no extra cost to you.",
+    "page_text": "Affiliate disclosure: COSHUMA may earn a commission from some links on this page, at no extra cost to you.",
+    "details_path": "/affiliate-disclosure.html",
+    "require_page_disclosure_before_first_affiliate_cta": true,
+    "require_exactly_one_page_disclosure": true,
+    "require_homepage_disclosure": true,
+    "allow_policy_page": true
+  },
+  "public_internal_data": {
+    "default_private": true,
+    "forbidden_labels": [
+      "affiliate_status",
+      "affiliate_verified",
+      "affiliate_evidence_markers",
+      "application state",
+      "revenue truth",
+      "browser queue",
+      "PartnerStack",
+      "FirstPromoter",
+      "Impact",
+      "Dub",
+      "Cello",
+      "Tolt",
+      "Awin",
+      "CJ Affiliate"
+    ],
+    "allow_tracking_url_network_host_or_parameters": true
+  }
+}
