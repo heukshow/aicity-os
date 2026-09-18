@@ -15,19 +15,19 @@ hub = HUB.read_text(encoding="utf-8")
 # first-party page over stale/conflicting search-index snippets. Keep COSHUMA's
 # vendor-issued tracking URL and remove only unsupported customer-benefit claims.
 
-claap = claap.replace("Start Claap with partner discount →", "Start Claap with verified tracking →")
-claap = claap.replace("Try Claap with referral discount →", "Try Claap with verified tracking →")
+claap = claap.replace("Start Claap with partner discount →", "Start Claap →")
+claap = claap.replace("Try Claap with referral discount →", "Try Claap →")
 
 stale_offer = '<div class="p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/20 text-sm text-slate-300 leading-relaxed"><strong class="text-emerald-300">Claap referral discount:</strong> Claap currently says referrals using an affiliate link get <strong class="text-white">30% off the first 2 months</strong> on a monthly plan or <strong class="text-white">10% off the first year</strong> on a yearly plan. Final eligibility and checkout terms are controlled by Claap.</div>'
 claap = claap.replace("\n    " + stale_offer, "")
 claap = claap.replace(stale_offer, "")
 
-hub = hub.replace("Claap Pricing & Referral Discount Guide", "Claap Pricing & Verified Partner Guide")
-hub = hub.replace("AI meetings · verified partner route + referral discount", "AI meetings · verified partner route")
-hub = hub.replace("Claap Pricing & Referral Discount", "Claap Pricing & Verified Partner Route")
+hub = hub.replace("Claap Pricing & Referral Discount Guide", "Claap Pricing & Buyer Guide")
+hub = hub.replace("AI meetings · verified partner route + referral discount", "AI meetings · current offer")
+hub = hub.replace("Claap Pricing & Referral Discount", "Claap Pricing & Buyer Guide")
 hub = hub.replace(
     "Compare Claap's free/trial entry and plan fit, then use COSHUMA's verified referral route if it suits your workflow. Claap's official affiliate terms currently state 30% off the first 2 months on monthly plans or 10% off the first year annually.",
-    "Compare Claap's free/trial entry and plan fit, then continue through COSHUMA's vendor-verified customer tracking route if the workflow fits. Confirm final pricing and any buyer offer on Claap before purchase.",
+    "Compare Claap's free/trial entry and plan fit, then check the current offer if the workflow fits. Confirm final pricing and terms on Claap before purchase.",
 )
 
 if claap.count(PRIMARY) < 2:
@@ -48,7 +48,7 @@ for stale in stale_claims:
     if stale in claap or stale in hub:
         raise SystemExit(f"Unsupported current Claap buyer-discount claim remains: {stale}")
 
-if 'href="/tool/claap.html"' not in hub or "Claap Pricing & Verified Partner Route" not in hub:
+if 'href="/tool/claap.html"' not in hub or "Claap Pricing & Buyer Guide" not in hub:
     raise SystemExit("Claap high-intent buyer-hub route is missing after current-terms cleanup")
 
 CLAAP.write_text(claap, encoding="utf-8")
