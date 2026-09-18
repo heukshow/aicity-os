@@ -885,6 +885,19 @@
       "github_issue": 523,
       "checked_at": "2026-09-14T20:28:00+09:00",
       "note": "No prior relationship found. The public application requires phone details and robot confirmation; no customer tracking URL is verified."
+    },
+    "livechat": {
+      "status": "approved_tracking",
+      "contact": "Text Support / LiveChat Partner Program",
+      "gmail_message_id": "1a0b418541063824",
+      "gmail_thread_id": "1a08c0544c56b5ac",
+      "sender": "support@coshuma.com",
+      "tracking_url": "https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP",
+      "vendor_supplied_alternate_url": "https://share.text.com/q8mL2psx",
+      "verified_at": "2026-09-18T19:38:07+09:00",
+      "note": "Text Support replied to support@coshuma.com in existing Gmail thread 1a08c0544c56b5ac (message 1a0b418541063824) and explicitly said the LiveChat affiliate URL is available under the existing Partner App Affiliate area, supplying https://share.text.com/q8mL2psx. Prior authenticated Partner App evidence had already issued https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP and verified that it resolves to the official LiveChat destination with attribution retained. Preserve that canonical verified URL; record the vendor-supplied short URL as corroborating alternate evidence. No new campaign, duplicate enrollment, signup, trial, paid account, commission, payout, or revenue is inferred.",
+      "do_not_reapply": true,
+      "do_not_repeat_exact_link_outreach": true
     }
   }
 }

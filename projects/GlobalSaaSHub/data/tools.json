@@ -3829,7 +3829,7 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "LiveChat is website chat software for customer support and sales, with campaigns, visitor tracking, chat history, reporting and AI-assisted agent tools.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP",
     "pricing": "14-day free trial; Starter $19, Team $49, Business $79 per person/month billed annually; Enterprise custom",
     "key_features": [
       "Website live chat for support and sales",
@@ -3852,20 +3852,21 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.livechat.com/",
-    "affiliate_verified": false,
-    "affiliate_status": "referral_link_requested",
-    "affiliate_status_checked_at": "2026-09-15T04:24:03Z",
-    "affiliate_status_evidence_url": "https://www.text.com/partners/affiliate/",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_status_checked_at": "2026-09-18T19:38:07+09:00",
+    "affiliate_status_evidence_url": "https://github.com/heukshow/aicity-os/issues/310",
     "affiliate_source_url": "https://www.text.com/partners/affiliate/",
-    "affiliate_final_url": null,
+    "affiliate_final_url": "https://www.livechat.com/",
     "affiliate_evidence_markers": [
       "An existing Text Partner Program account is confirmed; exact Text and HelpDesk campaign URLs are maintained on their separate tool records.",
       "Text Support confirmed on 2026-09-12 that the available customer campaigns are those shown in the authenticated Partner Program panel.",
       "COSHUMA requested a LiveChat-specific customer campaign URL once from Text Support on 2026-09-12; no reply or exact LiveChat customer tracking URL was present in either connected Gmail account as of 2026-09-15 13:24 KST.",
       "The vendor report for 2026-08-13 through 2026-09-10 records 28 account-wide clicks, 0 trials, 0 paid accounts and $0 earnings; it does not prove a LiveChat-specific tracked route.",
-      "Do not reapply, send duplicate outreach, or treat the LiveChat homepage, dashboard, or generic signup URL as an affiliate link. GitHub issue #310 tracks the outstanding exact-link request."
+      "Do not reapply, send duplicate outreach, or treat the LiveChat homepage, dashboard, or generic signup URL as an affiliate link. GitHub issue #310 tracks the outstanding exact-link request.",
+      "Text Support replied to support@coshuma.com in existing Gmail thread 1a08c0544c56b5ac (message 1a0b418541063824) and explicitly said the LiveChat affiliate URL is available under the existing Partner App Affiliate area, supplying https://share.text.com/q8mL2psx. Prior authenticated Partner App evidence had already issued https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP and verified that it resolves to the official LiveChat destination with attribution retained. Preserve that canonical verified URL; record the vendor-supplied short URL as corroborating alternate evidence. No new campaign, duplicate enrollment, signup, trial, paid account, commission, payout, or revenue is inferred."
     ],
-    "affiliate_next_action": "Wait for Text Support's reply to the existing one-time LiveChat-specific campaign request. If an exact customer-facing tracking URL is issued, validate and activate it; otherwise keep LiveChat official CTAs non-affiliate. Do not send duplicate outreach.",
+    "affiliate_next_action": "Preserve the already verified LiveChat customer tracking URL. Do not create another campaign or send another exact-link request. Keep the vendor-supplied share.text.com URL as corroborating alternate evidence unless it is separately chosen and validated for publication.",
     "pricing_evidence_markers": [
       "Free 14-day trial",
       "No credit card required",
@@ -3873,7 +3874,8 @@
       "Team $49",
       "Business $79",
       "billed annually"
-    ]
+    ],
+    "affiliate_verified_at": "2026-09-18T19:38:07+09:00"
   },
   {
     "id": "loopcv",
