@@ -40,9 +40,9 @@ INTERNAL_DASHBOARD = re.compile(
     re.I,
 )
 INTERNAL_KEYS = re.compile(
-    r"[\"'](?:affiliate_evidence_markers|affiliate_status|affiliate_verified|"
+    r"(?:[\"']|\b)(?:affiliate_evidence_markers|affiliate_status|affiliate_verified|"
     r"affiliate_status_checked_at|affiliate_status_evidence_url|affiliate_next_action|"
-    r"application_state|browser_required_queue|revenue_truth)[\"']\s*:",
+    r"application_state|browser_required_queue|revenue_truth)(?:[\"']|\b)\s*:",
     re.I,
 )
 
