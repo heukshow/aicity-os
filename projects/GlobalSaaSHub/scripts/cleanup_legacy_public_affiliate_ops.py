@@ -72,6 +72,23 @@ NON_URL_RULES: tuple[tuple[re.Pattern[str], str], ...] = (
         ),
         "current offer",
     ),
+    (
+        re.compile(r"\bcustomer-facing\s+(?:tracking|referral|partner)\s+(?:URL|route|link)\b", re.I),
+        "current offer link",
+    ),
+    (re.compile(r"\baffiliate[ _-]?status\b", re.I), "offer availability"),
+    (re.compile(r"\btracking\s+status\b", re.I), "offer availability"),
+    (
+        re.compile(r"\b(?:affiliate|partner|referral|commission)\s+(?:dashboard|portal)\b", re.I),
+        "offer page",
+    ),
+    (
+        re.compile(
+            r"\b(?:customer-facing\s+)?affiliate\s+URL\s+through\s+the\s+approved\s+Kittl\s+Impact\s+account\b",
+            re.I,
+        ),
+        "current offer link",
+    ),
     (re.compile(r"\bverified\s+link\b", re.I), "current offer link"),
     (re.compile(r"\b(?:affiliate|partner)\s+route\b", re.I), "offer link"),
     (re.compile(r"\baffiliate\s+tracking\b", re.I), "offer link"),
