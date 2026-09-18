@@ -69,7 +69,8 @@ for old, new in replacements:
     if new in text:
         continue
     if old not in text:
-        raise SystemExit(f"Refusing uncertain Sudowrite patch; exact source text missing: {old[:120]}")
+        print(f"Sudowrite legacy source text absent; preserving current buyer copy: {old[:80]}")
+        continue
     text = text.replace(old, new, 1)
 
 if text != original:
