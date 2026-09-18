@@ -15,15 +15,16 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 
-# Targeted buyer-safe rewrites for currently generated/source-backed copy. Keep factual
-# offer/product information while removing correspondence and tracking mechanics.
+# Targeted removals/strips for currently generated public copy. Private correspondence
+# is never converted into a customer-facing factual claim. Only mechanical/internal
+# qualifiers may be stripped when the surrounding public CTA remains independently valid.
 RULES: tuple[tuple[re.Pattern[str], str], ...] = (
     (
         re.compile(
             r"Taskade's affiliate team told COSHUMA that code\s*(?:<strong\b[^>]*>)?AI(?:</strong>)?\s*(?:provides|gives)\s*(?:<strong\b[^>]*>)?20% off subscriptions(?:</strong>)?\.",
             re.I,
         ),
-        "Code <strong class=\"text-white\">AI</strong> currently gives <strong class=\"text-white\">20% off subscriptions</strong>.",
+        "",
     ),
     (
         re.compile(
@@ -115,7 +116,7 @@ RULES: tuple[tuple[re.Pattern[str], str], ...] = (
     ),
     (
         re.compile(r"How COSHUMA verified this guide", re.I),
-        "Guide notes",
+        "",
     ),
     (
         re.compile(r"vendor-confirmed product links", re.I),
