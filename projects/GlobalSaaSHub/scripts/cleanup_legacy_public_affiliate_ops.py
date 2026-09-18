@@ -75,6 +75,7 @@ NON_URL_RULES: tuple[tuple[re.Pattern[str], str], ...] = (
     (re.compile(r"\bverified\s+link\b", re.I), "current offer link"),
     (re.compile(r"\b(?:affiliate|partner)\s+route\b", re.I), "offer link"),
     (re.compile(r"\baffiliate\s+tracking\b", re.I), "offer link"),
+    (re.compile(r"\brevenue[-_ ]?truth\b", re.I), "source-check"),
     (
         re.compile(r"\bofficial\s+or\s+verified\s+partner\s+destination\b", re.I),
         "official product or current offer destination",
