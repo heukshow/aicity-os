@@ -1,10 +1,11 @@
 """Remove partner-correspondence and tracking-verification mechanics from public HTML.
 
-Internal evidence stays in data/ops files. Customer pages may keep the resulting buyer
-fact (discount, product availability, trial or destination) but must not expose who
-emailed COSHUMA, what an affiliate manager confirmed, how attribution is verified, or
-whether an internal tracking route is confirmed/unconfirmed. This pass runs after
-content injectors and before the public-source fail-closed guard.
+Internal evidence stays in data/ops files. Customer pages must not republish, paraphrase,
+or reframe facts whose only stated basis is private partner correspondence. Any sentence
+or block that cites who emailed COSHUMA, what an affiliate/partner manager said, or email/
+message evidence is removed from public output rather than rewritten as customer copy.
+Independent facts may appear only through separate public/product-source content. This
+pass runs after content injectors and before the public-source fail-closed guard.
 """
 from __future__ import annotations
 
@@ -29,7 +30,7 @@ RULES: tuple[tuple[re.Pattern[str], str], ...] = (
             r"The (?:message|email) does not explicitly (?:confirm|state) a lifetime duration for (?:the|this shared) AI code",
             re.I,
         ),
-        "A lifetime duration is not confirmed for this shared AI code",
+        "",
     ),
     (
         re.compile(
@@ -37,28 +38,28 @@ RULES: tuple[tuple[re.Pattern[str], str], ...] = (
             r"On September 7, 2026, the affiliate manager separately reconfirmed that COSHUMA's existing affiliate link and COSHUMA20 remain active and that the affiliate link should remain the primary tracking method\.",
             re.I,
         ),
-        "code COSHUMA20 is currently presented as a 20% promotion. Check that the code applies and confirm the final price before paying.",
+        "",
     ),
     (
         re.compile(
             r"Pictory's affiliate manager separately confirmed to COSHUMA that the verified referral URL and COSHUMA20 remain active and that COSHUMA20 gives 20% off, subject to current checkout eligibility\.",
             re.I,
         ),
-        "Code COSHUMA20 is currently presented as providing 20% off, subject to checkout eligibility.",
+        "",
     ),
     (
         re.compile(
             r"Pictory's affiliate manager confirmed this code gives\s*",
             re.I,
         ),
-        "The current code gives ",
+        "",
     ),
     (
         re.compile(
             r"COSHUMA's affiliate manager confirmed the offers can combine for savings above 52%, subject to checkout eligibility\.",
             re.I,
         ),
-        "The offers may combine for savings above 52%, subject to checkout eligibility.",
+        "",
     ),
     (
         re.compile(
@@ -73,21 +74,21 @@ RULES: tuple[tuple[re.Pattern[str], str], ...] = (
             r"(<strong\b[^>]*>COSHUMA20</strong>)\s*remain active\.",
             re.I,
         ),
-        r"Promo code \1 is currently presented as active.",
+        "",
     ),
     (
         re.compile(
             r"Jotform's Affiliate Team highlighted the wider suite to COSHUMA and has now directly confirmed tracked COSHUMA routes for Sign, Apps, Workflows, Tables and Report Builder in addition to previously verified pricing and AI Agents links\.",
             re.I,
         ),
-        "Jotform's suite includes Sign, Apps, Workflows, Tables, Report Builder, pricing tools and AI Agents alongside Forms.",
+        "",
     ),
     (
         re.compile(
             r"<p(?P<attrs>\b[^>]*)>Jotform's Partner Team first highlighted the wider suite to .*?</p>",
             re.I | re.S,
         ),
-        r"<p\g<attrs>>Product scope and destinations are reviewed against current Jotform product pages. Check the current feature set, plan terms and destination before purchase.</p>",
+        "",
     ),
     (
         re.compile(
@@ -130,21 +131,21 @@ RULES: tuple[tuple[re.Pattern[str], str], ...] = (
             r"These links go to educational content first rather than directly to checkout\.",
             re.I,
         ),
-        "These links go to vidIQ educational content first rather than directly to checkout. Choose the article that matches the YouTube milestone you are trying to reach.",
+        "",
     ),
     (
         re.compile(
             r"The educational deep links were supplied directly by the vidIQ Affiliate Team to COSHUMA on September 6, 2026 with affiliate parameters already inserted\.",
             re.I,
         ),
-        "The educational deep links lead to vidIQ articles organized around different YouTube milestones and topics.",
+        "",
     ),
     (
         re.compile(
             r"Pictory official pricing page, COSHUMA's verified affiliate records, and Pictory affiliate-manager email evidence\.\s*No signup, sale, commission or revenue is inferred from publication or link verification\.",
             re.I,
         ),
-        "Pictory's official pricing page and current public product and offer information. Verify current pricing and eligibility at the destination before purchase.",
+        "",
     ),
 )
 
@@ -177,6 +178,11 @@ def main() -> None:
         for pattern, replacement in RULES:
             updated, count = pattern.subn(replacement, updated)
             file_replacements += count
+
+        # Correspondence-derived copy is deleted, not paraphrased. Clean empty blocks
+        # left by targeted removals without touching unrelated customer content.
+        updated = re.sub(r"<p\b[^>]*>\s*</p>", "", updated, flags=re.I)
+        updated = re.sub(r"<li\b[^>]*>\s*</li>", "", updated, flags=re.I)
 
         if updated != text:
             path.write_text(updated, encoding="utf-8")
