@@ -143,10 +143,13 @@ def remove_empty_disclosure_sections(text):
 def normalize_affiliate_disclosure(text):
     if 'Affiliate Disclosure | COSHUMA' in text:
         return text
-    text = re.sub(r'<p\b[^>]*data-affiliate-disclosure="[^"]*"[^>]*>.*?</p>', '', text, flags=re.S)
-    text = re.sub(r'<p\b[^>]*>\s*Affiliate disclosure:.*?</p>', '', text, flags=re.S | re.I)
-    text = re.sub(r'<p\b[^>]*>(?:(?!</p>).)*COSHUMA may earn (?:an affiliate )?commission(?:(?!</p>).)*</p>', '', text, flags=re.S | re.I)
-    text = re.sub(r'<p\b[^>]*>(?:(?!</p>).)*may earn COSHUMA a commission(?:(?!</p>).)*</p>', '', text, flags=re.S | re.I)
+    # Consumer-facing affiliate disclosures are required public content. Do not
+    # delete a marked disclosure here; the canonical disclosure normalizer later
+    # deduplicates and positions it before the first affiliate CTA.
+    if 'data-affiliate-disclosure=' not in text:
+        text = re.sub(r'<p\b[^>]*>\s*Affiliate disclosure:.*?</p>', '', text, flags=re.S | re.I)
+        text = re.sub(r'<p\b[^>]*>(?:(?!</p>).)*COSHUMA may earn (?:an affiliate )?commission(?:(?!</p>).)*</p>', '', text, flags=re.S | re.I)
+        text = re.sub(r'<p\b[^>]*>(?:(?!</p>).)*may earn COSHUMA a commission(?:(?!</p>).)*</p>', '', text, flags=re.S | re.I)
     legacy_trust_disclosure = ('<div><div class="text-[10px] uppercase tracking-wider text-slate-500">Affiliate disclosure</div>' '<div class="mt-1 text-sm text-slate-300">Affiliate destination verified separately from editorial product sources.</div></div>')
     text = text.replace(legacy_trust_disclosure, '')
     text = remove_empty_disclosure_sections(text)
