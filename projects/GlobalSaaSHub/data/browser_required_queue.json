@@ -1167,6 +1167,28 @@
     "next_action": "Verify PartnerStack/SaneBox dashboard metrics separately; do not infer clicks, trials, customers, commission, payout, or revenue from link issuance."
   },
   {
+    "id": "livechat-existing-partner-referral-link",
+    "tool_id": "livechat",
+    "priority": "high",
+    "status": "resolved",
+    "cost": "0",
+    "affiliate_status": "approved_tracking",
+    "exact_tracking_url": "https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP",
+    "tracking_url": "https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP",
+    "vendor_supplied_alternate_url": "https://share.text.com/q8mL2psx",
+    "evidence_message_id": "gmail:1a0b418541063824",
+    "gmail_thread_id": "1a08c0544c56b5ac",
+    "updated_at": "2026-09-18T19:38:07+09:00",
+    "blocker": null,
+    "reason": "Text Support replied to support@coshuma.com in existing Gmail thread 1a08c0544c56b5ac (message 1a0b418541063824) and explicitly said the LiveChat affiliate URL is available under the existing Partner App Affiliate area, supplying https://share.text.com/q8mL2psx. Prior authenticated Partner App evidence had already issued https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP and verified that it resolves to the official LiveChat destination with attribution retained. Preserve that canonical verified URL; record the vendor-supplied short URL as corroborating alternate evidence. No new campaign, duplicate enrollment, signup, trial, paid account, commission, payout, or revenue is inferred.",
+    "next_action": "No browser recovery or duplicate campaign creation is required. Preserve the verified LiveChat tracking URL and only update downstream KPI values from new dashboard or vendor evidence.",
+    "do_not": [
+      "Do not create a duplicate LiveChat affiliate campaign or Partner Program account.",
+      "Do not replace the verified customer tracking URL with a Partner App dashboard, onboarding URL, or generic untracked homepage.",
+      "Do not infer signups, trials, paid accounts, commission, payout, or revenue from link issuance or link validation."
+    ]
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",
@@ -1251,27 +1273,5 @@
     "resolved_at": "2026-09-09T12:45:09Z",
     "resolution_evidence": "Gmail message 1a08633651c79db9 from Claap affiliate manager Lamia Karmaly supplied both exact URLs; the first is the authoritative default CTA pending destination-label mapping for the second.",
     "blocker": null
-  },
-  {
-    "id": "livechat-existing-partner-referral-link",
-    "tool_id": "livechat",
-    "priority": "high",
-    "status": "resolved",
-    "cost": "0",
-    "affiliate_status": "approved_tracking",
-    "exact_tracking_url": "https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP",
-    "tracking_url": "https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP",
-    "vendor_supplied_alternate_url": "https://share.text.com/q8mL2psx",
-    "evidence_message_id": "gmail:1a0b418541063824",
-    "gmail_thread_id": "1a08c0544c56b5ac",
-    "updated_at": "2026-09-18T19:38:07+09:00",
-    "blocker": null,
-    "reason": "Text Support replied to support@coshuma.com in existing Gmail thread 1a08c0544c56b5ac (message 1a0b418541063824) and explicitly said the LiveChat affiliate URL is available under the existing Partner App Affiliate area, supplying https://share.text.com/q8mL2psx. Prior authenticated Partner App evidence had already issued https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP and verified that it resolves to the official LiveChat destination with attribution retained. Preserve that canonical verified URL; record the vendor-supplied short URL as corroborating alternate evidence. No new campaign, duplicate enrollment, signup, trial, paid account, commission, payout, or revenue is inferred.",
-    "next_action": "No browser recovery or duplicate campaign creation is required. Preserve the verified LiveChat tracking URL and only update downstream KPI values from new dashboard or vendor evidence.",
-    "do_not": [
-      "Do not create a duplicate LiveChat affiliate campaign or Partner Program account.",
-      "Do not replace the verified customer tracking URL with a Partner App dashboard, onboarding URL, or generic untracked homepage.",
-      "Do not infer signups, trials, paid accounts, commission, payout, or revenue from link issuance or link validation."
-    ]
   }
 ]
