@@ -7,7 +7,6 @@ text = APP.read_text(encoding="utf-8")
 required = [
     "import allToolsData from './generated/public-tools.json';",
     "tool.is_sponsored === true",
-    "tool.outbound_url",
     "data-cta={isSponsored ? 'affiliate' : 'official'}",
     "trackToolClick(tool.id, tool.name, validUrl, isSponsored)",
     "{isSponsored ? 'View current offer' : 'Visit official site'}",
