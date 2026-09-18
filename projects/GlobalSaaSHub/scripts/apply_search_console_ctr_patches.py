@@ -126,7 +126,7 @@ BRAND24_CUSTOMER_COPY = [
         '<meta name="description" content="Brand24 review and pricing for 2026: plans start at $249/mo ($199/mo billed annually), with a 14-day free trial and no credit card. Compare limits, AI Visibility, who it fits, and test Brand24 before paying." />',
     ),
     (
-        'Verified partner tracking',
+        'Current offer',
         'AI Visibility available',
     ),
     (
@@ -134,7 +134,7 @@ BRAND24_CUSTOMER_COPY = [
         '',
     ),
     (
-        'COSHUMA buyer guides use official product information and verified partner tracking where available. Brand24 pricing and trial terms were rechecked September 9, 2026; product details can change, so verify with the vendor before purchasing.',
+        'COSHUMA buyer guides use official product information and clearly marked outbound offers where available. Brand24 pricing and trial terms were rechecked September 9, 2026; product details can change, so verify with the vendor before purchasing.',
         'COSHUMA buyer guides use official product information and disclose affiliate relationships where relevant. Brand24 pricing and trial terms were rechecked September 9, 2026; product details can change, so verify with the vendor before purchasing.',
     ),
 ]
