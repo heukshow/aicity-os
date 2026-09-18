@@ -116,7 +116,7 @@ PAGE_AFFILIATE_DISCLOSURE = (
     '</p>'
 )
 PAGE_AFFILIATE_CTA = re.compile(
-    r'<a\\b[^>]*\\bdata-cta\\s*=\\s*["\\\']affiliate["\\\'][^>]*>',
+    r'<a\b[^>]*\bdata-cta\s*=\s*["\']affiliate["\'][^>]*>',
     re.I,
 )
 
