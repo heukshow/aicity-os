@@ -25,6 +25,11 @@ CONTEXTUAL_NETWORK = re.compile(
     r"[^\n<>]{0,80}\b(?:Impact(?:\.com|\s+Radius)?|Dub|Cello|Tolt|Awin|CJ\s+Affiliate)\b",
     re.I,
 )
+CONSUMER_AFFILIATE_DISCLOSURE = re.compile(
+    r"\bAffiliate\s+disclosure:\s*COSHUMA\s+may\s+earn\s+"
+    r"(?:(?:an\s+affiliate|a)\s+)?commission\b[^.\n<>]*(?:\.)?",
+    re.I,
+)
 INTERNAL_STATE = re.compile(
     r"\b(?:approved_tracking|tracking_pending|pending_review|affiliate_verified|"
     r"revenue[_ -]?truth|browser[_ -]?queue|customer-facing\s+(?:tracking|referral|partner)\s+(?:URL|route|link)|"
@@ -120,11 +125,18 @@ def mask_urls(text: str) -> str:
 
 def scan_text(text: str) -> list[str]:
     text = mask_urls(text)
+    # Consumer-facing affiliate disclosure is intentionally public and required on
+    # monetized pages. Mask only that standard disclosure while evaluating contextual
+    # network names so product names such as "Dub" do not become false positives merely
+    # because the legal disclosure sits next to the CTA. All other leak patterns still
+    # scan the original public text unchanged.
+    network_text = CONSUMER_AFFILIATE_DISCLOSURE.sub("CONSUMER-DISCLOSURE", text)
     violations: list[str] = []
     for label, pattern in PATTERNS.items():
-        match = pattern.search(text)
+        source = network_text if label == "affiliate-network-context" else text
+        match = pattern.search(source)
         if match:
-            snippet = re.sub(r"\s+", " ", text[max(0, match.start()-70):match.end()+70]).strip()
+            snippet = re.sub(r"\s+", " ", source[max(0, match.start()-70):match.end()+70]).strip()
             violations.append(f"{label}: {snippet[:220]}")
     return violations
 
