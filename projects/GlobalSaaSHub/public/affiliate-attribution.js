@@ -109,7 +109,7 @@
         const sections = Array.from(document.querySelectorAll('main > section'));
         const attributionSection = sections.find(function (section) {
           const heading = section.querySelector('h2');
-          return heading && /verified link before starting your trial/i.test(heading.textContent || '');
+          return heading && /partner link before starting your trial/i.test(heading.textContent || '');
         });
 
         if (primaryCta && primaryCta.href.startsWith(verifiedUrl) && attributionSection) {
@@ -129,7 +129,8 @@
             '</div>',
             '<p class="text-xs text-slate-500 leading-relaxed">These are product-fit checks, not promised results. Test the workflow with your own traffic and integrations before choosing a paid plan.</p>',
             '<div class="flex flex-col sm:flex-row gap-3">',
-            '<a data-cta="affiliate" data-tool-id="unbounce" data-cta-source="unbounce-integration-fit" href="' + verifiedUrl + '" target="_blank" rel="sponsored noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-extrabold text-center">Try Unbounce →</a>',
+            '<p class="text-xs text-slate-500 leading-relaxed"><strong>Affiliate disclosure:</strong> COSHUMA may earn a commission if you sign up or purchase through this partner link, at no extra cost to you.</p>
+<a data-cta="affiliate" data-tool-id="unbounce" data-cta-source="unbounce-integration-fit" href="' + verifiedUrl + '" target="_blank" rel="sponsored noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-extrabold text-center">Try Unbounce →</a>',
             '<a href="https://unbounce.com/product/integrations/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl border border-cyan-500/30 bg-cyan-500/5 text-cyan-100 font-bold text-center hover:bg-cyan-500/10">Check Unbounce integrations →</a>',
             '</div>'
           ].join('');
