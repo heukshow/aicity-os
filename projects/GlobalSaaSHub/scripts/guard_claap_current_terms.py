@@ -48,8 +48,8 @@ for stale in stale_claims:
     if stale in claap or stale in hub:
         raise SystemExit(f"Unsupported current Claap buyer-discount claim remains: {stale}")
 
-if 'href="/tool/claap.html"' not in hub or "Claap Pricing & Buyer Guide" not in hub:
-    raise SystemExit("Claap high-intent buyer-hub route is missing after current-terms cleanup")
+if "https://coshuma.com/tool/claap.html" not in hub or "Claap Pricing & Buyer Guide" not in hub:
+    raise SystemExit("Claap buyer-hub discovery entry is missing after current-terms cleanup")
 
 CLAAP.write_text(claap, encoding="utf-8")
 HUB.write_text(hub, encoding="utf-8")
