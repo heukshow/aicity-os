@@ -49,6 +49,7 @@ on:
       - 'projects/GlobalSaaSHub/package-lock.json'
       - 'projects/GlobalSaaSHub/vite.config.*'
       - '.github/workflows/coshuma-site-deploy.yml'
+      - '.github/workflows/coshuma-affiliate-disclosure-publish.yml'
   workflow_dispatch:
 
 concurrency:
