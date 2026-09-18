@@ -16,7 +16,7 @@ jobs:
       - name: Checkout main
         uses: actions/checkout@v5
 
-      - name: Remove legacy internal operations copy from public source (revision 3)
+      - name: Remove legacy internal operations copy from public source (revision 4)
         working-directory: projects/GlobalSaaSHub
         run: |
           set -e
