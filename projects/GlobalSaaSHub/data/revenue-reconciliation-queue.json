@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-18T06:29:44.506Z",
+  "generated_at": "2026-09-18T20:20:03.087Z",
   "source": "data/revenue-leakage-audit.json",
   "scope": "Internal COSHUMA revenue reconciliation only",
   "queue_status": "active",
-  "task_count": 53,
+  "task_count": 54,
   "priority_order": [
     "P0_UNCHECKED",
     "P1_STALE",
@@ -98,32 +98,6 @@
         {
           "id": "novita-ai",
           "name": "Novita AI",
-          "priority": "P0_UNCHECKED",
-          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
-        }
-      ],
-      "execution": "locate_existing_account_or_vendor_dashboard_first",
-      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
-      "safety": [
-        "Do not create a new account or reapply.",
-        "Do not change any customer tracking URL.",
-        "Do not start a paid plan or authorize payment.",
-        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
-        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
-        "Never expose this internal revenue audit on public COSHUMA pages."
-      ],
-      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
-    },
-    {
-      "account_id": "aweber",
-      "network": "개별 제휴 포털",
-      "portal_url": null,
-      "priority": "P0_UNCHECKED",
-      "tool_count": 1,
-      "tools": [
-        {
-          "id": "aweber",
-          "name": "AWeber",
           "priority": "P0_UNCHECKED",
           "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
         }
@@ -670,6 +644,32 @@
         {
           "id": "liftmycv",
           "name": "LiftmyCV",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
+        }
+      ],
+      "execution": "locate_existing_account_or_vendor_dashboard_first",
+      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
+      "safety": [
+        "Do not create a new account or reapply.",
+        "Do not change any customer tracking URL.",
+        "Do not start a paid plan or authorize payment.",
+        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
+        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
+        "Never expose this internal revenue audit on public COSHUMA pages."
+      ],
+      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
+    },
+    {
+      "account_id": "livechat",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "tool_count": 1,
+      "tools": [
+        {
+          "id": "livechat",
+          "name": "LiveChat",
           "priority": "P0_UNCHECKED",
           "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
         }
@@ -1295,7 +1295,7 @@
           "id": "catalister",
           "name": "Catalister",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 10 days old."
+          "reason": "Latest revenue evidence is 11 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1321,7 +1321,7 @@
           "id": "clickfunnels",
           "name": "ClickFunnels",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 10 days old."
+          "reason": "Latest revenue evidence is 11 days old."
         }
       ],
       "execution": "browser_read_only",
@@ -1351,6 +1351,32 @@
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
+      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
+      "safety": [
+        "Do not create a new account or reapply.",
+        "Do not change any customer tracking URL.",
+        "Do not start a paid plan or authorize payment.",
+        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
+        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
+        "Never expose this internal revenue audit on public COSHUMA pages."
+      ],
+      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
+    },
+    {
+      "account_id": "text-account",
+      "network": "LiveChat Partner Program",
+      "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
+      "priority": "P1_STALE",
+      "tool_count": 1,
+      "tools": [
+        {
+          "id": "helpdesk",
+          "name": "HelpDesk",
+          "priority": "P1_STALE",
+          "reason": "Latest revenue evidence is 8 days old."
+        }
+      ],
+      "execution": "browser_read_only",
       "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
       "safety": [
         "Do not create a new account or reapply.",

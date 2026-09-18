@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T06:29:44.450Z",
+  "generated_at": "2026-09-18T20:20:03.042Z",
   "evidence_scope": "Combined authenticated revenue-browser baseline, current revenue-truth records, and explicit account-wide commission/payout evidence.",
   "policy": {
     "purpose": "Detect approved monetized routes that can leak revenue because downstream affiliate metrics are missing or stale.",
@@ -10,13 +10,13 @@
     "account_level_zero_does_not_imply_per_program_zero_signups": true
   },
   "summary": {
-    "approved_tracked_tools": 69,
+    "approved_tracked_tools": 70,
     "P0_UNCHECKED": 48,
-    "P1_STALE": 4,
+    "P1_STALE": 5,
     "P1_PARTIAL": 1,
     "P2_COVERED": 16,
-    "unchecked_or_stale_or_partial": 53,
-    "account_groups_to_check": 53
+    "unchecked_or_stale_or_partial": 54,
+    "account_groups_to_check": 54
   },
   "account_groups": [
     {
@@ -66,19 +66,6 @@
         {
           "id": "novita-ai",
           "name": "Novita AI",
-          "priority": "P0_UNCHECKED",
-          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
-        }
-      ]
-    },
-    {
-      "account_id": "aweber",
-      "network": "개별 제휴 포털",
-      "portal_url": null,
-      "tools": [
-        {
-          "id": "aweber",
-          "name": "AWeber",
           "priority": "P0_UNCHECKED",
           "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
         }
@@ -352,6 +339,19 @@
         {
           "id": "liftmycv",
           "name": "LiftmyCV",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
+        }
+      ]
+    },
+    {
+      "account_id": "livechat",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "livechat",
+          "name": "LiveChat",
           "priority": "P0_UNCHECKED",
           "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
         }
@@ -665,7 +665,7 @@
           "id": "catalister",
           "name": "Catalister",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 10 days old."
+          "reason": "Latest revenue evidence is 11 days old."
         }
       ]
     },
@@ -678,7 +678,7 @@
           "id": "clickfunnels",
           "name": "ClickFunnels",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 10 days old."
+          "reason": "Latest revenue evidence is 11 days old."
         }
       ]
     },
@@ -692,6 +692,19 @@
           "name": "eProfessor",
           "priority": "P1_STALE",
           "reason": "Latest revenue evidence is 10 days old."
+        }
+      ]
+    },
+    {
+      "account_id": "text-account",
+      "network": "LiveChat Partner Program",
+      "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
+      "tools": [
+        {
+          "id": "helpdesk",
+          "name": "HelpDesk",
+          "priority": "P1_STALE",
+          "reason": "Latest revenue evidence is 8 days old."
         }
       ]
     },
@@ -771,24 +784,6 @@
       "tracking_url": "https://novita.ai/?ref=mwjmyjy&utm_source=affiliate",
       "network": "Tapfiliate",
       "account_id": "novita-ai",
-      "portal_url": null,
-      "priority": "P0_UNCHECKED",
-      "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
-      "coverage_type": "tool",
-      "latest_evidence_at": null,
-      "evidence_age_days": null,
-      "evidence_source": null,
-      "evidence_id": null,
-      "latest_metrics": null,
-      "evidence_records": 0
-    },
-    {
-      "id": "aweber",
-      "name": "AWeber",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://www.aweber.com/easy-email.htm?id=561868",
-      "network": "개별 제휴 포털",
-      "account_id": "aweber",
       "portal_url": null,
       "priority": "P0_UNCHECKED",
       "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
@@ -1167,6 +1162,24 @@
       "tracking_url": "https://www.liftmycv.com/?via=sangkwon",
       "network": "개별 제휴 포털",
       "account_id": "liftmycv",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
+      "coverage_type": "tool",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_metrics": null,
+      "evidence_records": 0
+    },
+    {
+      "id": "livechat",
+      "name": "LiveChat",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP",
+      "network": "개별 제휴 포털",
+      "account_id": "livechat",
       "portal_url": null,
       "priority": "P0_UNCHECKED",
       "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
@@ -1613,10 +1626,10 @@
       "account_id": "catalister",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 10 days old.",
+      "reason": "Latest revenue evidence is 11 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T19:55:00Z",
-      "evidence_age_days": 10,
+      "evidence_age_days": 11,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -1643,10 +1656,10 @@
       "account_id": "clickfunnels",
       "portal_url": "https://www.clickfunnels.com/customers/profiles/kMXlLGaZ/affiliates/dashboard",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 10 days old.",
+      "reason": "Latest revenue evidence is 11 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T17:19:00Z",
-      "evidence_age_days": 10,
+      "evidence_age_days": 11,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "github:affiliate-browser-results-2026-09-08:clickfunnels",
       "latest_metrics": {
@@ -1695,6 +1708,36 @@
       "evidence_records": 1
     },
     {
+      "id": "helpdesk",
+      "name": "HelpDesk",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.helpdesk.com/?a=8IetMhQvR&utm_campaign=pp_helpdesk-default&utm_source=PP&d=14",
+      "network": "LiveChat Partner Program",
+      "account_id": "text-account",
+      "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
+      "priority": "P1_STALE",
+      "reason": "Latest revenue evidence is 8 days old.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-10T15:52:30Z",
+      "evidence_age_days": 8,
+      "evidence_source": "vendor-report-email",
+      "evidence_id": "gmail:1a08c0544c56b5ac:helpdesk-default",
+      "latest_metrics": {
+        "outbound_clicks": 11,
+        "signups_referrals": null,
+        "trials": 0,
+        "paid_customers": 0,
+        "gross_sales_revenue": null,
+        "commission_earned": 0,
+        "commission_approved": null,
+        "commission_pending": null,
+        "payout_paid": null,
+        "payout_pending": null,
+        "network_reported_conversions": null
+      },
+      "evidence_records": 1
+    },
+    {
       "id": "tally",
       "name": "Tally",
       "affiliate_status": "approved_tracking",
@@ -1706,12 +1749,42 @@
       "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-11T17:33:38Z",
-      "evidence_age_days": 6,
+      "evidence_age_days": 7,
       "evidence_source": "vendor-system-email",
       "evidence_id": "gmail:1a0918839bda8d0f",
       "latest_metrics": {
         "outbound_clicks": null,
         "signups_referrals": null,
+        "trials": null,
+        "paid_customers": null,
+        "gross_sales_revenue": null,
+        "commission_earned": null,
+        "commission_approved": null,
+        "commission_pending": null,
+        "payout_paid": null,
+        "payout_pending": null,
+        "network_reported_conversions": null
+      },
+      "evidence_records": 1
+    },
+    {
+      "id": "aweber",
+      "name": "AWeber",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.aweber.com/easy-email.htm?id=561868",
+      "network": "AWeber Advocate Program",
+      "account_id": "aweber",
+      "portal_url": null,
+      "priority": "P2_COVERED",
+      "reason": "Recent evidence-backed downstream revenue state exists.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-18T20:00:33Z",
+      "evidence_age_days": 0,
+      "evidence_source": "vendor-human-email",
+      "evidence_id": "gmail:1a0b61b45d55df0e",
+      "latest_metrics": {
+        "outbound_clicks": null,
+        "signups_referrals": 0,
         "trials": null,
         "paid_customers": null,
         "gross_sales_revenue": null,
@@ -1866,36 +1939,6 @@
         "paid_customers": 0,
         "gross_sales_revenue": null,
         "commission_earned": null,
-        "commission_approved": null,
-        "commission_pending": null,
-        "payout_paid": null,
-        "payout_pending": null,
-        "network_reported_conversions": null
-      },
-      "evidence_records": 1
-    },
-    {
-      "id": "helpdesk",
-      "name": "HelpDesk",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://www.helpdesk.com/?a=8IetMhQvR&utm_campaign=pp_helpdesk-default&utm_source=PP&d=14",
-      "network": "LiveChat Partner Program",
-      "account_id": "text-account",
-      "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
-      "priority": "P2_COVERED",
-      "reason": "Recent evidence-backed downstream revenue state exists.",
-      "coverage_type": "tool",
-      "latest_evidence_at": "2026-09-10T15:52:30Z",
-      "evidence_age_days": 7,
-      "evidence_source": "vendor-report-email",
-      "evidence_id": "gmail:1a08c0544c56b5ac:helpdesk-default",
-      "latest_metrics": {
-        "outbound_clicks": 11,
-        "signups_referrals": null,
-        "trials": 0,
-        "paid_customers": 0,
-        "gross_sales_revenue": null,
-        "commission_earned": 0,
         "commission_approved": null,
         "commission_pending": null,
         "payout_paid": null,
