@@ -6,25 +6,28 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
 const source = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tools.json'), 'utf8'));
 
-const blockedExact = new Set([
-  'application_state',
-  'official_verification_status',
-  'official_verified_at',
-  'official_evidence_url',
-  'is_manual_override',
-  'evidence_source_type',
+// Fail closed: only these explicitly customer-safe fields may ever reach the browser.
+// New source fields are PRIVATE BY DEFAULT until intentionally reviewed and added here.
+const PUBLIC_FIELDS = Object.freeze([
+  'id',
+  'name',
+  'category',
+  'category_display',
+  'description',
+  'pricing',
+  'key_features',
+  'rating',
+  'rating_source_url',
+  'logo_url',
+  'primary_category',
+  'comparison_group',
+  'official_url',
+  'pricing_source_url',
+  'pricing_verified_at',
+  'pricing_verified',
+  'currency',
+  'billing_period',
 ]);
-
-function isBlockedKey(key) {
-  const k = key.toLowerCase();
-  return k.startsWith('affiliate_') ||
-    k.startsWith('application_') ||
-    k.includes('revenue_truth') ||
-    k.includes('browser_required') ||
-    k.includes('evidence_marker') ||
-    k.includes('verification_evidence') ||
-    blockedExact.has(k);
-}
 
 function validHttp(value) {
   if (typeof value !== 'string') return false;
@@ -41,15 +44,26 @@ const publicTools = source.map((tool) => {
     tool.affiliate_verified === true &&
     tool.affiliate_status === 'approved_tracking' &&
     validHttp(tool.affiliate_url);
+
   const out = {};
-  for (const [key, value] of Object.entries(tool)) {
-    if (!isBlockedKey(key)) out[key] = value;
+  for (const key of PUBLIC_FIELDS) {
+    if (Object.prototype.hasOwnProperty.call(tool, key)) out[key] = tool[key];
   }
-  delete out.affiliate_url;
-  out.outbound_url = sponsored ? tool.affiliate_url.trim() : (validHttp(tool.official_url) ? tool.official_url.trim() : null);
+
+  out.outbound_url = sponsored
+    ? tool.affiliate_url.trim()
+    : (validHttp(tool.official_url) ? tool.official_url.trim() : null);
   out.is_sponsored = sponsored;
   return out;
 });
+
+const ALLOWED_OUTPUT_KEYS = new Set([...PUBLIC_FIELDS, 'outbound_url', 'is_sponsored']);
+for (const tool of publicTools) {
+  const unexpected = Object.keys(tool).filter((key) => !ALLOWED_OUTPUT_KEYS.has(key));
+  if (unexpected.length) {
+    throw new Error(`Public dataset contains non-allowlisted fields for ${tool.id}: ${unexpected.join(', ')}`);
+  }
+}
 
 const dir = path.join(root, 'src', 'generated');
 fs.mkdirSync(dir, { recursive: true });
@@ -63,6 +77,7 @@ for (const forbidden of [
   'affiliate_next_action',
   'application_state',
   'revenue_truth',
+  'browser_required_queue',
   'PartnerStack',
   'FirstPromoter',
 ]) {
@@ -70,4 +85,4 @@ for (const forbidden of [
     throw new Error(`Public tool dataset still contains internal marker: ${forbidden}`);
   }
 }
-console.log(`Generated customer-only tool dataset: ${publicTools.length} tools`);
+console.log(`Generated allowlisted customer-only tool dataset: ${publicTools.length} tools / ${PUBLIC_FIELDS.length + 2} allowed fields max`);

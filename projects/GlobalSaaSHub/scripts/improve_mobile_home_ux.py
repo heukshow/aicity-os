@@ -58,7 +58,7 @@ replacements = [
     ),
     (
         '>Verified affiliate paths<',
-        '>Verified partner links<',
+        '>Current offers<',
     ),
 ]
 

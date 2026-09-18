@@ -8,7 +8,7 @@ if marker not in text:
     anchor = "import { trackPageView, trackToolClick } from './utils/analytics';\n"
     if anchor not in text:
         raise SystemExit("Analytics import changed; refusing unsafe Fillout search patch")
-    block = '''import { trackPageView, trackToolClick } from './utils/analytics';\n\nconst filloutSearchTool = {\n  id: 'fillout',\n  name: 'Fillout',\n  category: 'sales_crm',\n  category_display: 'Forms & Lead Capture',\n  description: 'A form builder for capturing leads, applications and payments with a free plan available.',\n  affiliate_url: 'https://try.fillout.com/sang-kwon-an-hxwn',\n  pricing: 'Free plan available',\n  key_features: ['Lead capture forms', 'Payment collection'],\n  logo_url: 'https://www.google.com/s2/favicons?domain=fillout.com&sz=128',\n  affiliate_verified: true,\n  affiliate_status: 'approved_tracking',\n  official_url: 'https://www.fillout.com/',\n  detail_url: '/best/fillout-form-builder.html'\n};\n\nconst searchableToolsData = toolsData.some((tool) => tool.id === 'fillout') ? toolsData : [...toolsData, filloutSearchTool];\n'''
+    block = '''import { trackPageView, trackToolClick } from './utils/analytics';\n\nconst filloutSearchTool = {\n  id: 'fillout',\n  name: 'Fillout',\n  category: 'sales_crm',\n  category_display: 'Forms & Lead Capture',\n  description: 'A form builder for capturing leads, applications and payments with a free plan available.',\n  outbound_url: 'https://try.fillout.com/sang-kwon-an-hxwn',\n  pricing: 'Free plan available',\n  key_features: ['Lead capture forms', 'Payment collection'],\n  logo_url: 'https://www.google.com/s2/favicons?domain=fillout.com&sz=128',\n  is_sponsored: true,\n  official_url: 'https://www.fillout.com/',\n  detail_url: '/best/fillout-form-builder.html'\n};\n\nconst searchableToolsData = toolsData.some((tool) => tool.id === 'fillout') ? toolsData : [...toolsData, filloutSearchTool];\n'''
     text = text.replace(anchor, block, 1)
 
 # Autocomplete should discover Fillout even though it is still maintained as a dedicated buyer guide.
@@ -52,4 +52,4 @@ if buyer_new not in text:
     text = text.replace(buyer_old, buyer_new, 1)
 
 APP.write_text(text, encoding="utf-8")
-print("Fillout search shortcut added: searchable by name/forms/leads with verified buyer-guide route")
+print("Fillout search shortcut added with customer-only sponsored routing")
