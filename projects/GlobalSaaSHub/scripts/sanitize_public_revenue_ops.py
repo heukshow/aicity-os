@@ -32,6 +32,7 @@ PRIVATE_BLOCK = re.compile(
 PRIVATE_REMAINDER = re.compile(
     r"\baffiliate\s+evidence\b"
     r"|\bverified\s+affiliate\s+records\b"
+    r"|\bverified\s+COSHUMA\s+partner\s+(?:links?|routes?|URLs?)\b"
     r"|\bWhat\s+COSHUMA\s+counts\s+as\s+revenue\b"
     r"|\bCOSHUMA\s+tracking\b"
     r"|\b(?:referral|tracking)\s+URL\s+(?:not\s+yet\s+verified|not\s+verified|unknown)\b"
@@ -47,6 +48,10 @@ VERIFIED_RECORD_SENTENCE = re.compile(
     r"[^.!?]{0,360}\bCOSHUMA(?:'s)?\s+verified\s+affiliate\s+records\b[^.!?]{0,360}[.!?]?",
     re.I,
 )
+VERIFIED_COSHUMA_SENTENCE = re.compile(
+    r"[^.!?]{0,360}\bverified\s+COSHUMA\s+partner\s+(?:links?|routes?|URLs?)\b[^.!?]{0,360}[.!?]?",
+    re.I,
+)
 
 
 def visible(fragment: str) -> str:
@@ -60,7 +65,7 @@ def clean_block(match: re.Match[str]) -> str:
 def clean_text_node(match: re.Match[str]) -> str:
     text = match.group(1)
     text = VERIFIED_RECORD_SENTENCE.sub("", text)
-    text = re.sub(r"\bverified\s+COSHUMA\s+partner\s+(?:links?|URLs?)\b", "current offer links", text, flags=re.I)
+    text = VERIFIED_COSHUMA_SENTENCE.sub("", text)
     text = re.sub(r"\bvia\s+(?:a\s+)?verified\s+(?:link|route)\b", "", text, flags=re.I)
     text = re.sub(r"\bthrough\s+(?:a\s+)?verified\s+(?:link|route)\b", "", text, flags=re.I)
     text = re.sub(r"\s{2,}", " ", text)
@@ -70,6 +75,8 @@ def clean_text_node(match: re.Match[str]) -> str:
 
 def clean_html(source: str) -> str:
     cleaned = BLOCK.sub(clean_block, source)
+    # Attribute/meta copy is customer-visible too; these substitutions do not touch URLs.
+    cleaned = re.sub(r"\bverified\s+COSHUMA\s+partner\s+(?:links?|routes?|URLs?)\b", "current offer links", cleaned, flags=re.I)
     cleaned = TEXT_NODE.sub(clean_text_node, cleaned)
     cleaned = re.sub(r"<p\b[^>]*>\s*</p>", "", cleaned, flags=re.I)
     cleaned = re.sub(r"<li\b[^>]*>\s*</li>", "", cleaned, flags=re.I)
