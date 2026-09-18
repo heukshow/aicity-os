@@ -7,8 +7,8 @@ second navigation step before a visitor can try a relevant tool. Each direct CTA
 below uses an already verified customer-facing tracking URL. The script is
 intentionally idempotent and only edits the dedicated make-money hub.
 
-No earnings, conversion, income claim, or page-level affiliate disclosure is made
-by this patch. The site-wide disclosure lives on the homepage only.
+No earnings, conversion or income claim is made by this patch. Canonical consumer
+affiliate disclosure is normalized later by the shared source policy pass.
 """
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -74,8 +74,5 @@ for section_id, item in paths.items():
     block = f'''\n      {marker}\n      <div class="mt-5 flex flex-col gap-4 rounded-2xl border border-violet-400/20 bg-violet-500/[0.07] p-5 sm:flex-row sm:items-center sm:justify-between">\n        <div class="max-w-3xl">\n          <div class="text-[10px] font-black uppercase tracking-[0.16em] text-violet-300">{item['eyebrow']}</div>\n          <div class="mt-1 font-black text-white">{item['headline']}</div>\n          <p class="mt-1 text-xs leading-5 text-slate-400">{item['body']}</p>\n        </div>\n        <a data-cta="affiliate" data-tool-id="{item['tool_id']}" data-cta-source="make_money_hub_{section_id}" href="{item['url']}" target="_blank" rel="sponsored noopener noreferrer" class="inline-flex min-h-11 shrink-0 items-center justify-center rounded-xl bg-violet-500 px-5 py-3 text-sm font-black text-white hover:bg-violet-400">{item['cta']}</a>\n      </div>\n'''
     text = text[:close] + block + text[close:]
 
-if "Partner disclosure:" in text or "Affiliate disclosure:" in text or "data-affiliate-disclosure=" in text:
-    raise SystemExit("Make-money hub generator must not create page-level affiliate disclosure")
-
 PAGE.write_text(text, encoding="utf-8")
-print("Make-money hub: direct revenue CTAs added without page-level disclosure")
+print("Make-money hub: direct revenue CTAs preserved; canonical disclosure handled by shared source policy")
