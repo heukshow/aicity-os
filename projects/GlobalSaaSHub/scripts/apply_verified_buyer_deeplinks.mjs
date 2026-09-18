@@ -158,8 +158,8 @@ if (teachable) {
       if (!html.includes('/affiliate-attribution.js')) {
         throw new Error(`teachable: comparison attribution script missing in ${filename}`);
       }
-      if (/affiliate disclosure/i.test(html) || html.includes('data-affiliate-disclosure=')) {
-        throw new Error(`teachable: page-level affiliate disclosure must not be regenerated in ${filename}`);
+      if (!/affiliate disclosure/i.test(html) && !html.includes('data-affiliate-disclosure=')) {
+        throw new Error(`teachable: affiliate CTA is missing the required customer-facing disclosure in ${filename}`);
       }
       fs.writeFileSync(file, html, 'utf8');
       teachableCompareFilesChanged += 1;
@@ -205,8 +205,8 @@ const jotform = approvedTracking.get('jotform') || {
       if (!html.includes('/affiliate-attribution.js')) {
         throw new Error(`jotform: comparison attribution script missing in ${filename}`);
       }
-      if (/affiliate disclosure/i.test(html) || html.includes('data-affiliate-disclosure=')) {
-        throw new Error(`jotform: page-level affiliate disclosure must not be regenerated in ${filename}`);
+      if (!/affiliate disclosure/i.test(html) && !html.includes('data-affiliate-disclosure=')) {
+        throw new Error(`jotform: affiliate CTA is missing the required customer-facing disclosure in ${filename}`);
       }
       fs.writeFileSync(file, html, 'utf8');
       jotformCompareFilesChanged += 1;
