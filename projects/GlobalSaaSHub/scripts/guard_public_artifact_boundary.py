@@ -49,7 +49,8 @@ INTERNAL_VERIFICATION_COPY = re.compile(
     r"\bvendor[- ]confirmed\b"
     r"|\btracking\s+(?:unconfirmed|confirmed|verified|unknown)\b"
     r"|\bHow\s+COSHUMA\s+verified\b"
-    r"|\bverified\s+(?:affiliate|partner|referral|tracking)\s+(?:link|route|URL|destination)\b"
+    r"|\bverified\s+(?:affiliate|partner|referral|tracking)\b"
+    r"|\bverified\s+link\b"
     r"|\b(?:affiliate|partner)\s+route\b",
     re.I,
 )
