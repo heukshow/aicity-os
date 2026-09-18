@@ -1,5 +1,5 @@
 {
-  "generated_at_kst": "2026-09-18T07:17:50+09:00",
+  "generated_at_kst": "2026-09-18T15:16:58+09:00",
   "purpose": "Prevent duplicate revenue-metrics outreach while COSHUMA reconciles approved tracked affiliate routes.",
   "policy": {
     "do_not_reapply": true,
@@ -15,7 +15,7 @@
     {"tool_id":"docsbot","vendor":"DocsBot","status":"replied_no_numeric_totals","gmail_message_id":"1a0b100a5df2eb6d","response_message_id":"1a0b10e63b05b8c2","recipient":"human@docsbot.ai","note":"DocsBot Support confirmed the existing account is properly created and explained payout handling: processed payouts show Paid with a paid date; unprocessed payouts remain Pending; eligibility requires commissions at least 45 days old and at least two paid referrals; eligible commissions are paid monthly by PayPal. The reply did not provide current click/signup/customer/commission/payout totals, so those metrics remain unknown. Do not send another automatic metrics follow-up."},
     {"tool_id":"convertflow","vendor":"ConvertFlow","status":"replied_no_numeric_totals","gmail_message_id":"1a0b100df772cefb","response_message_id":"1a0b13dea202872c","recipient":"support@convertflow.com","note":"Santiago replied to the metrics request but the message body contains no numeric totals. Preserve the previously verified account-issued referral URL and prior authenticated KPI snapshot; do not infer newer values and do not resend the same metrics request automatically."},
     {"tool_id":"tagshop-ai","vendor":"Tagshop AI","status":"sent_waiting_reply","gmail_message_id":"1a0b100f848b015b","recipient":"priyanka@tagshop.ai"},
-    {"tool_id":"jotform","vendor":"Jotform","status":"sent_waiting_reply","gmail_message_id":"1a0b1010d4501e3f","recipient":"affiliates@jotform.com"},
+    {"tool_id":"jotform","vendor":"Jotform","status":"replied_numeric_totals_recorded","gmail_message_id":"1a0b1010d4501e3f","response_message_id":"1a0b3265d5b2769f","recipient":"affiliates@jotform.com","note":"Anna Scheucher confirmed 34 clicks this month, 0 signups and 0 paid users. The reply did not state trials, commission or payout amounts/status, so those remain unknown. The partner dashboard URL in the reply is administrative only and must not be used as a customer-facing tracking URL. Reply sent from support@coshuma.com declining a walkthrough because the current totals are sufficient; do not send another metrics follow-up automatically."},
     {"tool_id":"omi-ai","vendor":"Omi AI","status":"sent_waiting_reply","gmail_message_id":"1a0b1018d5b8143b","recipient":"nik@basedhardware.com"},
     {"tool_id":"customgpt-ai","vendor":"CustomGPT.ai","status":"sent_waiting_reply","gmail_message_id":"1a0b1019f2727710","recipient":"affiliate@customgpt.ai"},
     {"tool_id":"cartstack","vendor":"CartStack","status":"sent_waiting_reply","gmail_message_id":"1a0b101b08e23e5f","recipient":"referrals@cartstack.com"},
