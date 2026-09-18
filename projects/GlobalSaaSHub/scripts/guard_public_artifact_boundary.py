@@ -35,8 +35,8 @@ INTERNAL_STATE = re.compile(
     re.I,
 )
 INTERNAL_DASHBOARD = re.compile(
-    r"\b(?:affiliate|partner|referral|commission|tracking)\s+(?:portal|dashboard)\b"
-    r"|\b(?:portal|dashboard)\b[^\n<>]{0,50}\b(?:affiliate|partner|referral|commission|tracking)\b",
+    r"\b(?:affiliate|partner|referral|commission)\s+(?:portal|dashboard)\b"
+    r"|\b(?:portal|dashboard)\b[^\n<>]{0,50}\b(?:affiliate|partner|referral|commission)\b",
     re.I,
 )
 INTERNAL_KEYS = re.compile(
