@@ -124,8 +124,8 @@ PUBLIC_OPS_MARKER = re.compile(
     r"partner\s+correspondence|verification\s+evidence|internal\s+verification|"
     r"affiliate\s+application\s+(?:status|pending|submitted)|partner\s+application\s+(?:status|pending|submitted)|"
     r"tracking\s+status|affiliate\s+status)\b|"
-    r"\b(?:affiliate|partner|referral|commission|tracking)\s+(?:portal|dashboard)\b|"
-    r"\b(?:portal|dashboard)\b[^\n<>]{0,50}\b(?:affiliate|partner|referral|commission|tracking)\b",
+    r"\b(?:affiliate|partner|referral|commission)\s+(?:portal|dashboard)\b|"
+    r"\b(?:portal|dashboard)\b[^\n<>]{0,50}\b(?:affiliate|partner|referral|commission)\b",
     re.I,
 )
 HTTP_URL = re.compile(r"https?://[^\s\"'<>]+", re.I)
