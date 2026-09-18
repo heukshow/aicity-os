@@ -181,24 +181,25 @@ def sanitize_jsonld(source: str) -> str:
 
 
 
-PUBLIC_URL_RE = re.compile(r"https?://[^\\s\\\"'<>]+", re.I)
+PUBLIC_URL_RE = re.compile(r"https?://[^\s\"'<>]+", re.I)
 PUBLIC_TERM_RULES = (
-    (re.compile(r"\\b(?:PartnerStack|FirstPromoter)\\b", re.I), "partner program"),
-    (re.compile(r"\\bcustomer-facing\\s+(?:tracking|referral|partner)\\s+(?:URL|route|link)\\b", re.I), "current offer link"),
-    (re.compile(r"\\bverified\\s+(?:COSHUMA\\s+)?partner\\s+(?:offer|route|link)\\b", re.I), "current offer"),
-    (re.compile(r"\\bverified\\s+tracking\\b", re.I), "current offer"),
-    (re.compile(r"\\baffiliate\\s+dashboard\\b", re.I), "vendor account"),
-    (re.compile(r"\\btracking\\s+status\\b", re.I), "offer details"),
-    (re.compile(r"\\brevenue[ _-]?truth\\b", re.I), "source note"),
-    (re.compile(r"\\bapproved_tracking\\b", re.I), "current offer"),
-    (re.compile(r"\\baffiliate_verified\\b", re.I), "current offer"),
-    (re.compile(r"\\baffiliate_evidence_markers\\b", re.I), "source references"),
+    (re.compile(r"\b(?:PartnerStack|FirstPromoter)\b", re.I), "partner program"),
+    (re.compile(r"\bcustomer-facing\s+(?:tracking|referral|partner)\s+(?:URL|route|link)\b", re.I), "current offer link"),
+    (re.compile(r"\bverified\s+(?:COSHUMA\s+)?partner\s+(?:offer|route|link)\b", re.I), "current offer"),
+    (re.compile(r"\bverified\s+tracking\b", re.I), "current offer"),
+    (re.compile(r"\baffiliate\s+dashboard\b", re.I), "vendor account"),
+    (re.compile(r"\btracking\s+status\b", re.I), "offer details"),
+    (re.compile(r"\brevenue[ _-]?truth\b", re.I), "source note"),
+    (re.compile(r"\bapproved_tracking\b", re.I), "current offer"),
+    (re.compile(r"\baffiliate_verified\b", re.I), "current offer"),
+    (re.compile(r"\baffiliate_evidence_markers\b", re.I), "source references"),
 )
 
 
 def scrub_forbidden_public_terms(text: str) -> str:
     """Normalize forbidden affiliate-operations wording without touching outbound URLs."""
     urls = []
+
     def protect(match: re.Match[str]) -> str:
         urls.append(match.group(0))
         return f"__COSHUMA_PUBLIC_URL_{len(urls)-1}__"
@@ -209,6 +210,7 @@ def scrub_forbidden_public_terms(text: str) -> str:
     for i, url in enumerate(urls):
         text = text.replace(f"__COSHUMA_PUBLIC_URL_{i}__", url)
     return text
+
 
 def clean_html(text: str) -> str:
     for old, new in EXACT.items():
