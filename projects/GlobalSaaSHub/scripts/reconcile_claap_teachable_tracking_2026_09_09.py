@@ -177,28 +177,15 @@ def patch_claap_page(evidence: dict) -> None:
         html = html.replace(first_cta, disclosure + "\n    " + first_cta, 1)
 
     old_top = '<a data-cta="official" data-tool-id="claap" href="https://www.claap.io/" target="_blank" rel="noopener noreferrer" class="flex-1 px-6 py-4 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center hover:brightness-110">Try Claap on the official site →</a>'
-    new_top = f'<a data-cta="affiliate" data-tool-id="claap" data-cta-source="claap_verified_offer" href="{primary}" target="_blank" rel="sponsored noopener noreferrer" class="flex-1 px-6 py-4 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center hover:brightness-110">Start Claap with partner discount →</a>'
+    new_top = f'<a data-cta="affiliate" data-tool-id="claap" data-cta-source="claap_verified_offer" href="{primary}" target="_blank" rel="sponsored noopener noreferrer" class="flex-1 px-6 py-4 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center hover:brightness-110">Start Claap →</a>'
     html = html.replace(old_top, new_top)
 
     old_status = "Affiliate status: COSHUMA's Claap partnership is approved, but the exact customer-facing PartnerStack referral URL has not yet been independently verified. These buttons intentionally remain official, non-affiliate links until the issued tracking URL is recovered; COSHUMA will not guess a referral parameter."
     new_status = "Offer note: the buttons above use the current customer offer link. Availability, eligibility and checkout terms can change, so confirm the final terms shown by Claap before purchasing."
     html = html.replace(old_status, new_status)
 
-    # Claap's first-party affiliate page, rechecked 2026-09-10, states that
-    # referrals who use an affiliate link receive 30% off the first two months on
-    # a monthly plan or 10% off the first year on an annual plan. Surface that
-    # customer benefit next to the verified CTA without inventing a deeper URL.
-    offer_marker = "Claap referral discount:"
-    if offer_marker not in html:
-        offer_note = '<div class="p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/20 text-sm text-slate-300 leading-relaxed"><strong class="text-emerald-300">Claap referral discount:</strong> Claap currently says referrals using an affiliate link get <strong class="text-white">30% off the first 2 months</strong> on a monthly plan or <strong class="text-white">10% off the first year</strong> on a yearly plan. Final eligibility and checkout terms are controlled by Claap.</div>'
-        status_anchor = f'<p class="text-[11px] text-slate-500 leading-relaxed">{new_status}</p>'
-        if status_anchor in html:
-            html = html.replace(status_anchor, status_anchor + "\n    " + offer_note, 1)
-        else:
-            raise RuntimeError("Could not locate verified Claap status paragraph for referral-discount placement")
-
     old_bottom = '<a data-cta="official" data-tool-id="claap" href="https://www.claap.io/" target="_blank" rel="noopener noreferrer" class="inline-flex px-7 py-4 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:brightness-110">Test Claap on the official site →</a>'
-    new_bottom = f'<a data-cta="affiliate" data-tool-id="claap" data-cta-source="claap_verified_offer" href="{primary}" target="_blank" rel="sponsored noopener noreferrer" class="inline-flex px-7 py-4 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:brightness-110">Try Claap with referral discount →</a>'
+    new_bottom = f'<a data-cta="affiliate" data-tool-id="claap" data-cta-source="claap_verified_offer" href="{primary}" target="_blank" rel="sponsored noopener noreferrer" class="inline-flex px-7 py-4 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:brightness-110">Try Claap →</a>'
     html = html.replace(old_bottom, new_bottom)
 
 
@@ -231,8 +218,9 @@ def validate(evidence: dict) -> None:
         raise RuntimeError("Generic Claap official URL was incorrectly marked as affiliate")
     if 'data-cta="affiliate"' in page and "Affiliate disclosure:" not in page and 'data-affiliate-disclosure=' not in page:
         raise RuntimeError("Claap affiliate CTA is missing the required customer-facing affiliate disclosure")
-    if "Claap referral discount:" not in page or "30% off the first 2 months" not in page or "10% off the first year" not in page:
-        raise RuntimeError("Claap referral discount buyer-benefit note is missing")
+    for stale in ("Claap referral discount:", "30% off the first 2 months", "10% off the first year"):
+        if stale in page:
+            raise RuntimeError(f"Stale Claap buyer-discount copy was reintroduced: {stale}")
 
 
 def main() -> None:
