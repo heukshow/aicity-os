@@ -6,7 +6,8 @@
       "page_disclosures_allowed": true,
       "page_disclosures_required_for_affiliate_cta": true,
       "homepage_disclosure_required": true,
-      "reason": "Generated public source must contain exactly one canonical consumer disclosure before the first affiliate CTA; pages without affiliate CTAs receive no page disclosure."
+      "reason": "Generated public source must contain exactly one canonical consumer disclosure before the first affiliate CTA; pages without affiliate CTAs receive no page disclosure.",
+      "fail_closed_on_internal_ops_leak": true
     },
     "final_dist": {
       "page_disclosures_required_for_affiliate_cta": true,
