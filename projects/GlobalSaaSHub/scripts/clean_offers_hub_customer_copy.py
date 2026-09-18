@@ -155,7 +155,11 @@ for tag in ("p", "small"):
 ANCHOR_RE = re.compile(r"<a\b[^>]*>.*?</a>", re.I | re.S)
 def clean_anchor(match: re.Match[str]) -> str:
     label = visible(match.group(0)).lower()
-    if label.startswith("verify ") and ("affiliate" in label or "partner terms" in label or "commission" in label):
+    if label.startswith("verify ") and (
+        "affiliate" in label
+        or "commission" in label
+        or ("partner" in label and any(term in label for term in ("terms", "rate", "program")))
+    ):
         return ""
     return match.group(0)
 text = ANCHOR_RE.sub(clean_anchor, text)
@@ -192,6 +196,7 @@ FORBIDDEN = (
     "affonso referral",
     "link validation",
     "verified referral",
+    "verify partner rate",
     "via coshuma",
     "revenue is separate",
     "partner system confirms",
