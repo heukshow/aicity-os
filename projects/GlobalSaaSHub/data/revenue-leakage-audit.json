@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T20:19:17.935Z",
+  "generated_at": "2026-09-18T06:22:07.780Z",
   "evidence_scope": "Combined authenticated revenue-browser baseline, current revenue-truth records, and explicit account-wide commission/payout evidence.",
   "policy": {
     "purpose": "Detect approved monetized routes that can leak revenue because downstream affiliate metrics are missing or stale.",
@@ -11,12 +11,12 @@
   },
   "summary": {
     "approved_tracked_tools": 69,
-    "P0_UNCHECKED": 49,
+    "P0_UNCHECKED": 48,
     "P1_STALE": 4,
     "P1_PARTIAL": 1,
-    "P2_COVERED": 15,
-    "unchecked_or_stale_or_partial": 54,
-    "account_groups_to_check": 54
+    "P2_COVERED": 16,
+    "unchecked_or_stale_or_partial": 53,
+    "account_groups_to_check": 53
   },
   "account_groups": [
     {
@@ -326,19 +326,6 @@
         {
           "id": "inkfluence-ai",
           "name": "Inkfluence AI",
-          "priority": "P0_UNCHECKED",
-          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
-        }
-      ]
-    },
-    {
-      "account_id": "jotform",
-      "network": "개별 제휴 포털",
-      "portal_url": null,
-      "tools": [
-        {
-          "id": "jotform",
-          "name": "Jotform",
           "priority": "P0_UNCHECKED",
           "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
         }
@@ -665,7 +652,7 @@
           "id": "aiassistworks",
           "name": "AiAssistWorks",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 9 days old."
+          "reason": "Latest revenue evidence is 10 days old."
         }
       ]
     },
@@ -704,7 +691,7 @@
           "id": "eprofessor",
           "name": "eProfessor",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 9 days old."
+          "reason": "Latest revenue evidence is 10 days old."
         }
       ]
     },
@@ -1144,24 +1131,6 @@
       "tracking_url": "https://www.inkfluenceai.com/?ref=sangkwon",
       "network": "개별 제휴 포털",
       "account_id": "inkfluence-ai",
-      "portal_url": null,
-      "priority": "P0_UNCHECKED",
-      "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
-      "coverage_type": "tool",
-      "latest_evidence_at": null,
-      "evidence_age_days": null,
-      "evidence_source": null,
-      "evidence_id": null,
-      "latest_metrics": null,
-      "evidence_records": 0
-    },
-    {
-      "id": "jotform",
-      "name": "Jotform",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://www.jotform.com/?partner=coshuma",
-      "network": "개별 제휴 포털",
-      "account_id": "jotform",
       "portal_url": null,
       "priority": "P0_UNCHECKED",
       "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
@@ -1614,10 +1583,10 @@
       "account_id": "aiassistworks",
       "portal_url": "https://aiassistworks.affonso.io/",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 9 days old.",
+      "reason": "Latest revenue evidence is 10 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T20:29:50Z",
-      "evidence_age_days": 9,
+      "evidence_age_days": 10,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -1704,10 +1673,10 @@
       "account_id": "eprofessor",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 9 days old.",
+      "reason": "Latest revenue evidence is 10 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T21:24:29.148094Z",
-      "evidence_age_days": 9,
+      "evidence_age_days": 10,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -1767,7 +1736,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 1,
+      "evidence_age_days": 2,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "browser:boldsign-affiliate-dashboard;github:issue-380",
       "latest_metrics": {
@@ -1797,7 +1766,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 1,
+      "evidence_age_days": 2,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "browser:pictory-partners-home;github:issue-315",
       "latest_metrics": {
@@ -1827,7 +1796,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 1,
+      "evidence_age_days": 2,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "browser:highlevel-affiliate-home;github:issue-337",
       "latest_metrics": {
@@ -1857,7 +1826,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-15T00:00:00Z",
-      "evidence_age_days": 2,
+      "evidence_age_days": 3,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "github:issue-388",
       "latest_metrics": {
@@ -1870,6 +1839,36 @@
         "commission_approved": null,
         "commission_pending": null,
         "payout_paid": 0,
+        "payout_pending": null,
+        "network_reported_conversions": null
+      },
+      "evidence_records": 1
+    },
+    {
+      "id": "jotform",
+      "name": "Jotform",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.jotform.com/?partner=coshuma",
+      "network": "Jotform Affiliate Program",
+      "account_id": "jotform",
+      "portal_url": null,
+      "priority": "P2_COVERED",
+      "reason": "Recent evidence-backed downstream revenue state exists.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-18T06:13:30Z",
+      "evidence_age_days": 0,
+      "evidence_source": "vendor-human-email",
+      "evidence_id": "gmail:1a0b3265d5b2769f",
+      "latest_metrics": {
+        "outbound_clicks": 34,
+        "signups_referrals": 0,
+        "trials": null,
+        "paid_customers": 0,
+        "gross_sales_revenue": null,
+        "commission_earned": null,
+        "commission_approved": null,
+        "commission_pending": null,
+        "payout_paid": null,
         "payout_pending": null,
         "network_reported_conversions": null
       },
@@ -1917,7 +1916,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 1,
+      "evidence_age_days": 2,
       "evidence_source": "vendor-report-email+authenticated-partner-app",
       "evidence_id": "gmail:1a08c0544c56b5ac;browser:partners.livechat.com/app/affiliate:2026-09-16",
       "latest_metrics": {
@@ -1947,7 +1946,7 @@
       "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
       "coverage_type": "account_revenue",
       "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 6,
+      "evidence_age_days": 7,
       "evidence_source": "authenticated-private-ops-dashboard",
       "evidence_id": "github:issue-375-comment-5627576507",
       "latest_metrics": {
@@ -1975,7 +1974,7 @@
       "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
       "coverage_type": "account_revenue",
       "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 6,
+      "evidence_age_days": 7,
       "evidence_source": "authenticated-private-ops-dashboard",
       "evidence_id": "github:issue-375-comment-5627576507",
       "latest_metrics": {
@@ -2003,7 +2002,7 @@
       "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
       "coverage_type": "account_revenue",
       "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 6,
+      "evidence_age_days": 7,
       "evidence_source": "authenticated-private-ops-dashboard",
       "evidence_id": "github:issue-375-comment-5627576507",
       "latest_metrics": {
@@ -2031,7 +2030,7 @@
       "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
       "coverage_type": "account_revenue",
       "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 6,
+      "evidence_age_days": 7,
       "evidence_source": "authenticated-private-ops-dashboard",
       "evidence_id": "github:issue-375-comment-5627576507",
       "latest_metrics": {
@@ -2059,7 +2058,7 @@
       "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
       "coverage_type": "account_revenue",
       "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 6,
+      "evidence_age_days": 7,
       "evidence_source": "authenticated-private-ops-dashboard",
       "evidence_id": "github:issue-375-comment-5627576507",
       "latest_metrics": {
@@ -2087,7 +2086,7 @@
       "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
       "coverage_type": "account_revenue",
       "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 6,
+      "evidence_age_days": 7,
       "evidence_source": "authenticated-private-ops-dashboard",
       "evidence_id": "github:issue-375-comment-5627576507",
       "latest_metrics": {
@@ -2115,7 +2114,7 @@
       "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
       "coverage_type": "account_revenue",
       "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 6,
+      "evidence_age_days": 7,
       "evidence_source": "authenticated-private-ops-dashboard",
       "evidence_id": "github:issue-375-comment-5627576507",
       "latest_metrics": {
@@ -2143,7 +2142,7 @@
       "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
       "coverage_type": "account_revenue",
       "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 6,
+      "evidence_age_days": 7,
       "evidence_source": "authenticated-private-ops-dashboard",
       "evidence_id": "github:issue-375-comment-5627576507",
       "latest_metrics": {
@@ -2171,7 +2170,7 @@
       "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
       "coverage_type": "account_revenue",
       "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 6,
+      "evidence_age_days": 7,
       "evidence_source": "authenticated-private-ops-dashboard",
       "evidence_id": "github:issue-375-comment-5627576507",
       "latest_metrics": {
