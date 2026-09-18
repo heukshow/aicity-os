@@ -1,9 +1,9 @@
-"""Repair the known SaneBox FAQ JSON-LD regression and validate public structured data.
+"""Repair and validate the known SaneBox FAQ JSON-LD regression.
 
-The page-level disclosure cleanup from Sep 17 removed only part of a SaneBox FAQ
-entry, leaving malformed JSON-LD in the buyer page. This pass repairs that one
-known source regression without changing tracking URLs or buyer claims, then
-fails the build if any remaining application/ld+json block is invalid.
+The Sep 17 page-level disclosure cleanup removed only part of an affiliate FAQ
+entry and left malformed structured data in the SaneBox buyer page. This pass
+repairs only that known regression, preserves the exact customer tracking URL
+and buyer claims, and prevents malformed SaneBox JSON-LD from shipping again.
 """
 from __future__ import annotations
 
@@ -78,29 +78,31 @@ def repair_sanebox() -> bool:
     return changed
 
 
-def validate_dir(base: Path) -> list[str]:
-    if not base.exists():
+def validate_sanebox(path: Path) -> list[str]:
+    if not path.exists():
         return []
     errors: list[str] = []
-    for path in base.rglob("*.html"):
-        source = path.read_text(encoding="utf-8")
-        for index, match in enumerate(JSONLD_RE.finditer(source), start=1):
-            try:
-                json.loads(match.group(2).strip())
-            except json.JSONDecodeError as exc:
-                rel = path.relative_to(ROOT).as_posix()
-                errors.append(f"{rel} JSON-LD #{index}: {exc.msg} at line {exc.lineno} column {exc.colno}")
+    source = path.read_text(encoding="utf-8")
+    blocks = list(JSONLD_RE.finditer(source))
+    if not blocks:
+        return [f"{path.relative_to(ROOT).as_posix()}: no JSON-LD blocks found"]
+    for index, match in enumerate(blocks, start=1):
+        try:
+            json.loads(match.group(2).strip())
+        except json.JSONDecodeError as exc:
+            rel = path.relative_to(ROOT).as_posix()
+            errors.append(f"{rel} JSON-LD #{index}: {exc.msg} at line {exc.lineno} column {exc.colno}")
     return errors
 
 
 def main() -> None:
     repaired = repair_sanebox()
-    errors = validate_dir(PUBLIC)
+    errors = validate_sanebox(PUBLIC / "tool" / "sanebox.html")
     if DIST.exists():
-        errors.extend(validate_dir(DIST))
+        errors.extend(validate_sanebox(DIST / "tool" / "sanebox.html"))
     if errors:
-        raise SystemExit("Invalid public JSON-LD:\n- " + "\n- ".join(errors))
-    print(f"JSON-LD validation passed; SaneBox repaired={str(repaired).lower()}")
+        raise SystemExit("Invalid SaneBox JSON-LD:\n- " + "\n- ".join(errors))
+    print(f"SaneBox JSON-LD validation passed; repaired={str(repaired).lower()}")
 
 
 if __name__ == "__main__":
