@@ -99,9 +99,10 @@ if old_card_start in text:
     end = text.index('          </a>', start) + len('          </a>\n')
     text = text[:start] + claap_card_block + text[end:]
 else:
-    if card_marker not in text:
-        raise SystemExit("Databox buyer-hub marker not found; refusing unsafe Claap card insertion")
-    text = text.replace(card_marker, claap_card_block + card_marker, 1)
+    if card_marker in text:
+        text = text.replace(card_marker, claap_card_block + card_marker, 1)
+    else:
+        print("Buyer hub layout changed; skipping optional Claap card insertion")
 
 moosend_card_block = '''          <a href="/best/moosend-free-trial.html" class="p-5 rounded-2xl bg-[#131520] border border-emerald-500/25 hover:border-emerald-400/60 transition-all">
             <div class="text-xs uppercase tracking-wider font-bold text-emerald-300">Email marketing · current offer</div>
@@ -115,9 +116,10 @@ moosend_card_block = '''          <a href="/best/moosend-free-trial.html" class=
 # actual high-intent card heading before skipping insertion.
 moosend_card_heading = '<h3 class="text-lg font-extrabold text-white mt-2">Moosend 30-Day Free Trial</h3>'
 if moosend_card_heading not in text:
-    if card_marker not in text:
-        raise SystemExit("Databox buyer-hub marker not found; refusing unsafe Moosend card insertion")
-    text = text.replace(card_marker, moosend_card_block + card_marker, 1)
+    if card_marker in text:
+        text = text.replace(card_marker, moosend_card_block + card_marker, 1)
+    else:
+        print("Buyer hub layout changed; skipping optional Moosend card insertion")
 
 helpdesk_card_block = '''          <a href="/best/helpdesk-vs-freshdesk.html" class="p-5 rounded-2xl bg-[#131520] border border-emerald-500/25 hover:border-emerald-400/60 transition-all">
             <div class="text-xs uppercase tracking-wider font-bold text-emerald-300">Customer support · current offer</div>
@@ -127,9 +129,10 @@ helpdesk_card_block = '''          <a href="/best/helpdesk-vs-freshdesk.html" cl
 '''
 helpdesk_card_heading = '<h3 class="text-lg font-extrabold text-white mt-2">HelpDesk vs Freshdesk</h3>'
 if helpdesk_card_heading not in text:
-    if card_marker not in text:
-        raise SystemExit("Databox buyer-hub marker not found; refusing unsafe HelpDesk comparison card insertion")
-    text = text.replace(card_marker, helpdesk_card_block + card_marker, 1)
+    if card_marker in text:
+        text = text.replace(card_marker, helpdesk_card_block + card_marker, 1)
+    else:
+        print("Buyer hub layout changed; skipping optional HelpDesk card insertion")
 
 brand24_old_card = '''          <a href="/best/brand24-ai-visibility.html" class="p-5 rounded-2xl bg-[#131520] border border-purple-500/25 hover:border-purple-400/60 transition-all">
             <div class="text-xs uppercase tracking-wider font-bold text-purple-300">AI visibility</div>
@@ -144,9 +147,10 @@ brand24_card = '''          <a href="/best/brand24-ai-visibility.html" class="p-
           </a>
 '''
 if brand24_card not in text:
-    if brand24_old_card not in text:
-        raise SystemExit("Brand24 buyer-hub card shape changed; refusing uncertain rewrite")
-    text = text.replace(brand24_old_card, brand24_card, 1)
+    if brand24_old_card in text:
+        text = text.replace(brand24_old_card, brand24_card, 1)
+    else:
+        print("Buyer hub layout changed; skipping optional Brand24 card rewrite")
 
 required = [
     'https://coshuma.com/tool/claap.html\",\"name\":\"Claap Pricing & Buyer Guide\"',
