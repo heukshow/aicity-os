@@ -50,7 +50,12 @@ if text.count(TRACKING_URL) < 3:
 if 'rel="sponsored noopener noreferrer"' not in text:
     raise SystemExit("Moosend cleanup failed: sponsored attribution was lost")
 if 'data-cta="affiliate"' in text and 'Affiliate disclosure:' not in text and 'data-affiliate-disclosure=' not in text:
-    raise SystemExit("Moosend cleanup failed: affiliate CTA is missing the required customer-facing disclosure")
+    first_cta = text.find('data-cta="affiliate"')
+    anchor_start = text.rfind("<a ", 0, first_cta)
+    if anchor_start < 0:
+        raise SystemExit("Moosend cleanup failed: could not locate first affiliate CTA for disclosure")
+    disclosure = '<p data-affiliate-disclosure="page" style="margin:.75rem 0;color:#94a3b8;font-size:12px;line-height:1.6">Affiliate disclosure: COSHUMA may earn a commission from some links on this page, at no extra cost to you.</p> '
+    text = text[:anchor_start] + disclosure + text[anchor_start:]
 
 for forbidden in (
     "exact referral url verified",

@@ -61,9 +61,18 @@ built_guard = (ROOT / "scripts" / "guard_built_customer_copy.py").read_text(enco
 tracker_guard = (ROOT / "scripts" / "verify_approved_tracking.mjs").read_text(encoding="utf-8")
 artifact_guard = (ROOT / "scripts" / "guard_public_artifact_boundary.py").read_text(encoding="utf-8")
 raw_guard = (ROOT / "scripts" / "guard_raw_public_source.py").read_text(encoding="utf-8")
+public_copy_guard = (ROOT / "scripts" / "guard_public_copy.py").read_text(encoding="utf-8")
 source_boundary_guard = source_guard
 
 require("strip_general_notice" not in source_normalizer, "legacy page-disclosure removal logic is still active")
+require(
+    "Consumer-facing affiliate disclosures are required public content" in public_copy_guard,
+    "public copy guard no longer preserves marked consumer affiliate disclosures",
+)
+require(
+    "re.sub(r'<p\\b[^>]*data-affiliate-disclosure" not in public_copy_guard,
+    "public copy guard still directly strips marked page affiliate disclosures",
+)
 page_normalizer_uses_policy = (
     ("PAGE_DISCLOSURE" in source_normalizer and 'DISCLOSURE["page_text"]' in source_normalizer)
     or ("PAGE_NOTICE" in source_normalizer and 'DISC["page_text"]' in source_normalizer)
