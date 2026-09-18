@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import allToolsData from '../data/tools.json';
+import allToolsData from './generated/public-tools.json';
 const toolsData = allToolsData.filter(tool => !['convertkit', 'merlin-ai'].includes(tool.id));
 import CompareModal from './components/CompareModal';
 import SponsorshipCheckout from './components/SponsorshipCheckout';
@@ -111,7 +111,7 @@ export default function App() {
   const stats = useMemo(() => {
     const total = toolsData.length;
     const categoriesCount = new Set(toolsData.map((t) => t.category)).size;
-    const verified = toolsData.filter((t) => t.affiliate_verified === true).length;
+    const verified = toolsData.filter((t) => t.is_sponsored === true).length;
     return { total, categoriesCount, verified };
   }, []);
 
