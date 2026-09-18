@@ -1,10 +1,12 @@
 {
-  "version": 2,
+  "version": 3,
   "policy_owner": "config/public_content_policy.json",
   "stages": {
     "source": {
-      "page_disclosures_allowed": false,
-      "reason": "Source generators stay disclosure-neutral; the final production bundle adds the canonical consumer disclosure exactly once."
+      "page_disclosures_required_for_affiliate_cta": true,
+      "homepage_disclosure_required": true,
+      "fail_closed_on_internal_ops_leak": true,
+      "reason": "Generated customer-facing source is itself a public surface. Pages with affiliate CTAs keep one canonical consumer disclosure before the first affiliate CTA; internal affiliate operations data remains private."
     },
     "final_dist": {
       "page_disclosures_required_for_affiliate_cta": true,

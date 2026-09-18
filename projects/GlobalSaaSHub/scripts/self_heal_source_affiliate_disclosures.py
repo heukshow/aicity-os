@@ -1,108 +1,130 @@
-"""Self-heal generated source HTML before the production bundle is built.
+"""Normalize consumer affiliate disclosures in generated public source.
 
-Policy:
-- the dedicated affiliate-disclosure policy page is preserved;
-- customer tool/compare/best/category/etc. pages must not carry repeated general
-  commission notices;
-- the homepage source must not carry a second semantic commission notice;
-- the final production-bundle guard adds exactly one global homepage notice.
-
-Normal steady state is changed=0 because content generators must not create page-level
-affiliate disclosures in the first place. This pass exists only as a last-resort
-repair and safety stop for a future regression, not as part of the normal content
-production path. A nonzero repair count is treated as a generator regression and
-fails the build so the source generator must be corrected instead of relying on
-repeated cleanup.
+The public source is a customer-facing surface. This pass never removes a required
+page disclosure in favor of a homepage-only policy. Instead it keeps one canonical
+consumer disclosure before the first affiliate CTA on every affiliate page, keeps
+one general homepage disclosure, and removes stray page disclosures only from pages
+that do not contain an affiliate CTA. Internal affiliate operations data is handled
+by the separate fail-closed source boundary guards.
 """
 from pathlib import Path
+import json
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
+POLICY = json.loads((ROOT / "config" / "public_content_policy.json").read_text(encoding="utf-8"))
+DISCLOSURE = POLICY["affiliate_disclosure"]
 
-BLOCK_PATTERNS = [
-    re.compile(
-        r'<p\b[^>]*>(?:(?!</p>).)*(?:Affiliate\s+disclosure\s*:|COSHUMA\s+may\s+earn\s+(?:(?:an\s+affiliate|a)\s+)?commission|may\s+earn\s+COSHUMA\s+a\s+commission)(?:(?!</p>).)*</p>',
-        re.I | re.S,
-    ),
-    re.compile(
-        r'<(?:div|section|aside)\b[^>]*>\s*(?:<strong\b[^>]*>)?\s*Affiliate\s+disclosure\s*:.*?</(?:div|section|aside)>',
-        re.I | re.S,
-    ),
-]
-MARKER_RE = re.compile(r'\s+data-affiliate-disclosure\s*=\s*["\'][^"\']*["\']', re.I)
-INLINE_DISCLOSURE_RE = re.compile(r'\s*Affiliate\s+disclosure\s*:\s*[^<]*', re.I)
-INLINE_COMMISSION_RE = re.compile(
-    r'\s*COSHUMA\s+may\s+earn\s+(?:(?:an\s+affiliate|a)\s+)?commission[^<]*', re.I
-)
-HOME_SEMANTIC_DISCLOSURE = re.compile(
-    r'<li><strong([^>]*)>Clear disclosure:</strong>\s*some outbound links may earn COSHUMA a commission, without changing the buyer\'s price\.</li>',
+PAGE_AFFILIATE_CTA = re.compile(
+    r'<a\b[^>]*\bdata-cta\s*=\s*["\']affiliate["\'][^>]*>',
     re.I,
 )
-HOME_INTERNAL_LINK_COPY = re.compile(
-    r'<li><strong([^>]*)>Separate link verification:</strong>\s*affiliate destinations are verified independently from editorial pricing sources\.</li>',
-    re.I,
+PAGE_MARKED_BLOCK = re.compile(
+    r'<p\b[^>]*\bdata-affiliate-disclosure\s*=\s*["\'][^"\']*["\'][^>]*>.*?</p>\s*',
+    re.I | re.S,
+)
+HOME_MARKED_BLOCK = re.compile(
+    r'<p\b[^>]*\bdata-site-affiliate-disclosure\s*=\s*["\'][^"\']*["\'][^>]*>.*?</p>\s*',
+    re.I | re.S,
+)
+GENERIC_DISCLOSURE_PARAGRAPH = re.compile(
+    r'<p\b[^>]*>(?:(?!</p>).)*Affiliate\s+disclosure\s*:(?:(?!</p>).)*</p>\s*',
+    re.I | re.S,
+)
+
+PAGE_DISCLOSURE = (
+    '<p data-affiliate-disclosure="page" '
+    'style="margin:.75rem 0;color:#94a3b8;font-size:12px;line-height:1.6">'
+    f'{DISCLOSURE["page_text"]}'
+    '</p>\n'
+)
+HOME_DISCLOSURE = (
+    '<p data-site-affiliate-disclosure="global" '
+    'style="max-width:72rem;margin:0 auto;padding:0 1.5rem 1.5rem;color:#94a3b8;font-size:12px;line-height:1.6">'
+    f'{DISCLOSURE["homepage_text"]} '
+    f'<a href="{DISCLOSURE["details_path"]}" style="text-decoration:underline">Details</a>.'
+    '</p>\n'
 )
 
 
-def strip_general_notice(html: str) -> str:
-    for pattern in BLOCK_PATTERNS:
-        html = pattern.sub('', html)
-    html = MARKER_RE.sub('', html)
-    html = INLINE_DISCLOSURE_RE.sub('', html)
-    html = INLINE_COMMISSION_RE.sub('', html)
+def strip_consumer_disclosures(html: str) -> str:
+    html = PAGE_MARKED_BLOCK.sub('', html)
+    html = HOME_MARKED_BLOCK.sub('', html)
+    html = GENERIC_DISCLOSURE_PARAGRAPH.sub('', html)
     return html
 
 
+def normalize_page(html: str) -> str:
+    html = strip_consumer_disclosures(html)
+    first_cta = PAGE_AFFILIATE_CTA.search(html)
+    if not first_cta:
+        return html
+    return html[:first_cta.start()] + PAGE_DISCLOSURE + html[first_cta.start():]
+
+
 def normalize_home(html: str) -> str:
-    html = HOME_SEMANTIC_DISCLOSURE.sub(
-        r'<li><strong\1>Final-term check:</strong> pricing, eligibility and vendor terms can change, so confirm them before purchasing.</li>',
-        html,
-    )
-    html = HOME_INTERNAL_LINK_COPY.sub(
-        r'<li><strong\1>Direct vendor links:</strong> outbound destinations are checked before publication.</li>',
-        html,
-    )
-    return strip_general_notice(html)
+    html = strip_consumer_disclosures(html)
+    first_cta = PAGE_AFFILIATE_CTA.search(html)
+    if first_cta:
+        return html[:first_cta.start()] + HOME_DISCLOSURE + html[first_cta.start():]
+    body_end = html.lower().rfind('</body>')
+    if body_end >= 0:
+        return html[:body_end] + HOME_DISCLOSURE + html[body_end:]
+    return html + '\n' + HOME_DISCLOSURE
 
 
-def prohibited(html: str) -> bool:
-    return bool(
-        re.search(r'Affiliate\s+disclosure\s*:', html, re.I)
-        or re.search(r'COSHUMA\s+may\s+earn\s+(?:(?:an\s+affiliate|a)\s+)?commission', html, re.I)
-        or re.search(r'may\s+earn\s+COSHUMA\s+a\s+commission', html, re.I)
-        or 'data-affiliate-disclosure=' in html.lower()
-    )
+def validate_page(path: Path, html: str) -> None:
+    cta = PAGE_AFFILIATE_CTA.search(html)
+    marker = 'data-affiliate-disclosure="page"'
+    count = html.count(marker)
+    if cta:
+        if count != 1:
+            raise RuntimeError(f'{path.relative_to(ROOT)}: affiliate CTA page must contain exactly one consumer disclosure')
+        if html.find(marker) > cta.start():
+            raise RuntimeError(f'{path.relative_to(ROOT)}: consumer disclosure must appear before the first affiliate CTA')
+    elif count:
+        raise RuntimeError(f'{path.relative_to(ROOT)}: page without affiliate CTA must not contain a page disclosure')
+
+
+def validate_home(html: str) -> None:
+    marker = 'data-site-affiliate-disclosure="global"'
+    if html.count(marker) != 1:
+        raise RuntimeError('index.html: homepage must contain exactly one general affiliate disclosure')
 
 
 def main() -> None:
-    targets = [ROOT / 'index.html', *PUBLIC.rglob('*.html')]
     changed = 0
+    affiliate_pages = 0
     checked = 0
-    repaired = []
 
-    for path in targets:
+    home = ROOT / 'index.html'
+    if home.exists():
+        before = home.read_text(encoding='utf-8')
+        after = normalize_home(before)
+        validate_home(after)
+        if after != before:
+            home.write_text(after, encoding='utf-8')
+            changed += 1
+        checked += 1
+
+    for path in PUBLIC.rglob('*.html'):
         if path.name == 'affiliate-disclosure.html':
             continue
         checked += 1
         before = path.read_text(encoding='utf-8')
-        after = normalize_home(before) if path == ROOT / 'index.html' else strip_general_notice(before)
+        after = normalize_page(before)
+        validate_page(path, after)
+        if PAGE_AFFILIATE_CTA.search(after):
+            affiliate_pages += 1
         if after != before:
             path.write_text(after, encoding='utf-8')
             changed += 1
-            repaired.append(path.relative_to(ROOT).as_posix())
-        if prohibited(after):
-            raise RuntimeError(f'Unable to self-heal repeated affiliate disclosure in {path.relative_to(ROOT)}')
 
     print(
-        f'Source affiliate disclosure self-heal: checked={checked} changed={changed} '
-        f'remaining_repeated_notices=0'
+        f'Source affiliate disclosures normalized: checked={checked} '
+        f'affiliate_pages={affiliate_pages} changed={changed} missing=0 duplicates=0'
     )
-    if repaired:
-        print('Repaired source pages:', ', '.join(repaired[:20]) + (' ...' if len(repaired) > 20 else ''))
-        raise RuntimeError(
-            'Page-level affiliate disclosure generation regressed: normal steady state must be changed=0'
-        )
 
 
 if __name__ == '__main__':
