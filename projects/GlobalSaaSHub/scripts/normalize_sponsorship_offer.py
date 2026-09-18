@@ -156,33 +156,16 @@ def run_fastlane_state_finalizers() -> None:
 
 
 def main() -> None:
+    # Legacy buyer-hub offer generators are intentionally quarantined from the
+    # production path. Many of them encode historical meta/layout assumptions
+    # and internal affiliate-network/evidence wording. Public offer cards are
+    # now allowed only after they have been converted to customer-only copy and
+    # aligned with the central disclosure/source-boundary policy.
+    #
+    # The earlier build stages preserve already verified tracking URLs on tool
+    # and comparison pages. Disabling these legacy hub injectors does not alter
+    # those verified customer routes or sponsored attribution.
     for script_name in (
-        "surface_murf_verified_offer.py",
-        "surface_claap_verified_offer.py",
-        "surface_writesonic_verified_offer.py",
-        "surface_moosend_verified_offer.py",
-        "surface_kittl_verified_offer.py",
-        "surface_helpdesk_verified_offer.py",
-        "surface_krater_verified_offer.py",
-        "surface_fireflies_verified_offer.py",
-        "surface_make_verified_offer.py",
-        "surface_voibe_verified_offer.py",
-        "surface_catalister_verified_offer.py",
-        "surface_chatbase_verified_offer.py",
-        "surface_gojiberry_verified_offer.py",
-        "surface_aweber_verified_offer.py",
-        "surface_followr_verified_offer.py",
-        "surface_novita_verified_offer.py",
-        "surface_aiassistworks_verified_offer.py",
-        "surface_taskip_verified_offer.py",
-        "surface_clickfunnels_verified_offer.py",
-        "surface_omi_verified_offer.py",
-        "surface_eprofessor_verified_offer.py",
-        "surface_omnisend_verified_offer.py",
-        "surface_cartstack_verified_offer.py",
-        "surface_elevenlabs_verified_offer.py",
-        "surface_dorik_verified_offer.py",
-        "surface_livechat_verified_offer.py",
         "improve_verified_offer_discovery.py",
     ):
         try:
