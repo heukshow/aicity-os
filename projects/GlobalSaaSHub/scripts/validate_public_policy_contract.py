@@ -6,6 +6,7 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 POLICY = json.loads((ROOT / "config" / "public_content_policy.json").read_text(encoding="utf-8"))
 PACKAGE = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
+PREBUILD = PACKAGE["scripts"].get("prebuild", "")
 BUILD = PACKAGE["scripts"]["build"]
 PUBLIC = ROOT / "public"
 PUBLIC_TEXT_EXTENSIONS = {".html", ".txt", ".xml", ".json", ".js", ".webmanifest"}
@@ -24,6 +25,14 @@ require(stages["source"]["page_disclosures_allowed"] is False, "source stage mus
 require(stages["final_dist"]["page_disclosures_required_for_affiliate_cta"] is True, "final affiliate pages must require disclosure")
 require(stages["final_dist"]["fail_closed_on_internal_ops_leak"] is True, "final internal-info guard must fail closed")
 
+# Raw committed/public source is itself a public surface. Check it before any fixer or
+# sanitizer is allowed to rewrite customer copy, then validate the rest of the policy.
+raw_prebuild_at = PREBUILD.find("guard_raw_public_source.py")
+policy_prebuild_at = PREBUILD.find("validate_public_policy_contract.py")
+require(raw_prebuild_at >= 0, "raw public source guard missing from prebuild")
+require(policy_prebuild_at >= 0, "public policy validator missing from prebuild")
+require(raw_prebuild_at < policy_prebuild_at, "raw public source guard must run before policy validation and all build sanitizers")
+
 # The retired post-build cleaner caused the regression by removing legally required
 # page-level notices from the final bundle. It must never return to the build chain.
 require("enforce_home_only_affiliate_disclosure.py" not in BUILD, "deprecated home-only final-bundle cleaner is active")
@@ -40,6 +49,7 @@ require(artifact_guard_at > final_guard_at, "final artifact boundary guard must 
 built_guard = (ROOT / "scripts" / "guard_built_customer_copy.py").read_text(encoding="utf-8")
 tracker_guard = (ROOT / "scripts" / "verify_approved_tracking.mjs").read_text(encoding="utf-8")
 artifact_guard = (ROOT / "scripts" / "guard_public_artifact_boundary.py").read_text(encoding="utf-8")
+raw_guard = (ROOT / "scripts" / "guard_raw_public_source.py").read_text(encoding="utf-8")
 
 require(disclosure["homepage_text"] in built_guard, "built guard homepage disclosure differs from central policy")
 require(disclosure["page_text"] in built_guard, "built guard page disclosure differs from central policy")
@@ -55,10 +65,16 @@ require("CONSUMER_AFFILIATE_DISCLOSURE" in artifact_guard, "artifact guard no lo
 for key in ("affiliate_status", "affiliate_verified", "affiliate_evidence_markers", "revenue_truth", "browser_required_queue"):
     require(key in artifact_guard, f"artifact guard no longer fails closed on internal key: {key}")
 
-# Prebuild is the earliest fail-closed checkpoint. Do not silently sanitize application
-# or verification state out of customer source: stop before the build and fix the source
-# or the generator that inserted it. This specifically prevents the historical pattern
-# where a public page explained that an affiliate/creator enrollment was still pending.
+# Source and final guards must cover every network family named by the central policy.
+# URL masking still permits those names when they exist only inside an outbound URL.
+for network in ("PartnerStack", "FirstPromoter", "Impact", "Dub", "Cello", "Tolt", "Awin", "CJ"):
+    require(network in raw_guard, f"raw source guard no longer covers central network label: {network}")
+    require(network in artifact_guard, f"artifact guard no longer covers central network label: {network}")
+require("URL_RE.sub" in raw_guard, "raw source guard no longer masks tracking URLs before scanning")
+
+# Prebuild is the earliest fail-closed checkpoint. Keep a second focused contract scan
+# here so obvious application/verification-state regressions are caught even if the raw
+# guard implementation itself is edited incorrectly.
 raw_status_patterns = {
     "affiliate-revenue-state-copy": re.compile(r"\baffiliate/revenue\s+link\b", re.I),
     "application-verification-copy": re.compile(
@@ -86,4 +102,4 @@ if raw_errors:
         + "\n".join(raw_errors[:50])
     )
 
-print("PASS: central public policy contract is aligned across source hygiene, final disclosure injection, tracking verification, and artifact leak guards")
+print("PASS: central public policy contract is aligned across raw source fail-closed checks, source hygiene, final disclosure injection, tracking verification, and artifact leak guards")
