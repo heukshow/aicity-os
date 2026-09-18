@@ -1,5 +1,17 @@
 {
-  "version": 1,
+  "version": 2,
+  "policy_owner": "config/public_content_policy.json",
+  "stages": {
+    "source": {
+      "page_disclosures_allowed": false,
+      "reason": "Source generators stay disclosure-neutral; the final production bundle adds the canonical consumer disclosure exactly once."
+    },
+    "final_dist": {
+      "page_disclosures_required_for_affiliate_cta": true,
+      "homepage_disclosure_required": true,
+      "fail_closed_on_internal_ops_leak": true
+    }
+  },
   "affiliate_disclosure": {
     "homepage_marker": "data-site-affiliate-disclosure=\"global\"",
     "page_marker": "data-affiliate-disclosure=\"page\"",
