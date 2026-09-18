@@ -82,3 +82,5 @@ for path in TARGETS:
 print(f"normalized public affiliate source files={len(changed)}")
 for p in changed:
     print(p)
+
+# One-time cleanup branch only; remove after source boundary reaches zero.
