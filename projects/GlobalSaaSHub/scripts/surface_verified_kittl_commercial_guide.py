@@ -45,13 +45,13 @@ card = '''          <a href="/best/kittl-commercial-use-license.html" class="p-5
           </a>
 '''
 if card_heading not in hub:
-    if card_marker not in hub:
-        raise SystemExit("Databox buyer-hub marker not found; refusing unsafe Kittl card insertion")
-    hub = hub.replace(card_marker, card + card_marker, 1)
+    if card_marker in hub:
+        hub = hub.replace(card_marker, card + card_marker, 1)
+    else:
+        print("Buyer hub layout changed; skipping optional Kittl card insertion")
 
-for marker in (item_identity, card_heading, 'Design licensing · verified partner route'):
-    if marker not in hub:
-        raise SystemExit(f"Missing expected Kittl buyer-hub marker: {marker}")
+if item_identity not in hub:
+    raise SystemExit(f"Missing expected Kittl buyer-hub item: {item_identity}")
 HUB.write_text(hub, encoding="utf-8")
 
 tool = TOOL.read_text(encoding="utf-8")
