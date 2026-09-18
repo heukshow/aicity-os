@@ -14,11 +14,11 @@ replacements = [
     ),
     (
         "const verified = toolsData.filter((t) => t.affiliate_verified === true).length;",
-        "const verified = toolsData.filter((t) => t.affiliate_verified === true && t.affiliate_status === 'approved_tracking').length;",
+        "const verified = toolsData.filter((t) => t.is_sponsored === true).length;",
     ),
     (
         "              const validUrl = getValidExternalUrl(tool);",
-        "              const isApprovedAffiliate = tool.affiliate_verified === true && tool.affiliate_status === 'approved_tracking';\n              const validUrl = getValidExternalUrl(tool);",
+        "              const isApprovedAffiliate = tool.is_sponsored === true;\n              const validUrl = getValidExternalUrl(tool);",
     ),
     (
         '<div className="text-right"><div className="text-[10px] uppercase tracking-wider text-slate-600">Rating</div><div className="mt-0.5 inline-flex items-center gap-1 text-sm font-bold text-slate-200">{tool.rating != null && tool.rating_source_url ? <><Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" /> {tool.rating}</> : \'Source-led\'}</div></div>',
