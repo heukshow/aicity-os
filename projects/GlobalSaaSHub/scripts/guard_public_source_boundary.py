@@ -2,8 +2,9 @@
 
 The browser app consumes only generated/public-tools.json, built from an explicit
 allowlist. Internal repository data and evidence files are never imported by src/.
-Tracking URLs may contain network domains; URL values are treated as routing data, not
-customer-visible explanatory copy.
+Public JavaScript is also a customer surface and must not carry partner correspondence,
+network names or verification mechanics. Tracking URLs may contain network domains;
+URL values are treated as routing data, not customer-visible explanatory copy.
 """
 from pathlib import Path
 import json
@@ -11,6 +12,8 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
+PUBLIC = ROOT / "public"
+URL = re.compile(r"https?://[^\s\"'<>]+", re.I)
 
 FORBIDDEN_SOURCE = {
     "raw-tool-data-import": re.compile(r"(?:\.\./|/)data/tools(?:\.next)?\.json", re.I),
@@ -22,6 +25,12 @@ FORBIDDEN_SOURCE = {
     "revenue-truth": re.compile(r"\brevenue[_ -]?truth\b", re.I),
     "partnerstack-name": re.compile(r"\bPartnerStack\b", re.I),
     "firstpromoter-name": re.compile(r"\bFirstPromoter\b", re.I),
+    "partner-correspondence": re.compile(
+        r"\b(?:affiliate|partner)\s+(?:team|manager)\b[^\n<>]{0,120}\b(?:message|email|reply|told|confirmed|supplied|reconfirmed)\b"
+        r"|\b(?:message|email|reply)\b[^\n<>]{0,120}\b(?:affiliate|partner)\s+(?:team|manager)\b"
+        r"|\bfirst-party\s+reporting\s+(?:verifies|confirms)\b",
+        re.I,
+    ),
 }
 
 FORBIDDEN_PUBLIC_COPY = {
@@ -43,11 +52,30 @@ ALLOWED_GENERATED_KEYS = {
 }
 URL_FIELDS = {"outbound_url", "official_url", "pricing_source_url", "rating_source_url", "logo_url"}
 
+
+def mask_urls(text: str) -> str:
+    return URL.sub("https://PUBLIC-OUTBOUND-URL", text)
+
+
 errors = []
+
+# React/browser source must never import or serialize raw internal state.
 for path in SRC.rglob("*"):
     if not path.is_file() or path.suffix.lower() not in {".js", ".jsx"}:
         continue
-    text = path.read_text(encoding="utf-8")
+    text = mask_urls(path.read_text(encoding="utf-8"))
+    rel = path.relative_to(ROOT).as_posix()
+    for label, pattern in FORBIDDEN_SOURCE.items():
+        m = pattern.search(text)
+        if m:
+            errors.append(f"{rel}: {label}: {m.group(0)}")
+
+# Files under public/ are copied directly into the customer bundle. Scan public JS
+# as source too, rather than relying on a later sanitizer to erase internal copy.
+for path in PUBLIC.rglob("*.js"):
+    if not path.is_file():
+        continue
+    text = mask_urls(path.read_text(encoding="utf-8"))
     rel = path.relative_to(ROOT).as_posix()
     for label, pattern in FORBIDDEN_SOURCE.items():
         m = pattern.search(text)
@@ -80,4 +108,4 @@ else:
 if errors:
     raise SystemExit("Public source boundary violation:\n" + "\n".join(errors[:100]))
 
-print("PASS: frontend source boundary is private-by-default; raw affiliate state imports=0")
+print("PASS: frontend source boundary is private-by-default; raw affiliate state imports=0; public JS ops leaks=0")
