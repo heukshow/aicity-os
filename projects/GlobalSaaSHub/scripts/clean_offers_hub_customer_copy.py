@@ -37,6 +37,7 @@ REPLACEMENTS = {
     "Verified customer links": "Direct vendor links",
     "New low-risk routes surfaced September 11": "Updated September 11",
     "Gamma and Time2book now have dedicated buyer guides and verified COSHUMA referral routes. Their free entry points are exposed here so visitors do not need to discover them only through individual tool pages.": "Gamma and Time2book both offer low-risk ways to test the product before paying. Use the options below to start free and compare the available plans.",
+    "The first button uses the exact customer-facing Time2book referral route previously verified for COSHUMA.": "",
     "Direct partner confirmation · September 11": "Trial and pricing options · September 11",
     "Exact partner-issued buyer routes": "Compare before you pay",
     "UpLead and Jotform supplied exact customer-facing destinations in partner correspondence. COSHUMA uses those URLs as provided rather than guessing referral parameters.": "Use the options below to start a trial, compare pricing and review each product before choosing a paid plan.",
@@ -49,6 +50,7 @@ REPLACEMENTS = {
     "Open RGE Studio via verified referral →": "Start RGE Studio trial →",
     "Open BoldSign via verified referral →": "Start BoldSign 30-day trial →",
     "Vendor-issued 30-day trial": "30-day trial offer",
+    "Teachable's current official affiliate program states 30% recurring commission for the first year on eligible referred subscriptions and a 30-day cookie window. Confirm the 30-day trial wording shown at the destination before completing signup because vendor offers can change.": "The offer linked here is currently described as a 30-day trial. Confirm the trial length and billing terms shown at the destination before completing signup because vendor offers can change.",
     "Open verified Teachable 30-day trial →": "Start Teachable 30-day trial →",
     "Open Krater via COSHUMA →": "Open Krater →",
     "Open Chatbase via verified route →": "Open Chatbase →",
@@ -68,6 +70,8 @@ for old, new in REPLACEMENTS.items():
 SENTENCE_PATTERNS = (
     # RGE Studio: keep live pricing/trial, remove partner-team commentary.
     r"\s*Beefree's partner team separately highlighted real-time co-editing, commenting/review, brand controls, connectors/HTML export and its AI Assistant as conversion points\.",
+    # BoldSign: keep the vendor's 30-day/no-card trial statement.
+    r"\s*Its affiliate program currently states 30% commission for the first 12 months on eligible paid referrals, a 90-day cookie window, and no minimum payout threshold\.",
     # Writesonic: the trial statement is buyer-useful; the source label is not.
     r"Writesonic's current first-party affiliate page says",
     # Gojiberry: keep free-trial/cancel-anytime sentence.
