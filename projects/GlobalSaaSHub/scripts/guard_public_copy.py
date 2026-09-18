@@ -116,6 +116,9 @@ PUBLIC_COPY_REPLACEMENTS = {
         'HighLevel verified partner link →': 'HighLevel pricing & trial →',
         "Source check: Pipedrive official pricing and plan documentation, plus HighLevel official pricing, verified Sep 10, 2026. COSHUMA's Pipedrive affiliate application remains separate from this page; no Pipedrive revenue attribution is claimed until an exact customer-facing tracking link is verified.": 'Source check: Pipedrive and HighLevel official pricing and plan documentation, verified Sep 10, 2026. Check each vendor for current terms before purchasing.',
     },
+    'compare/beefree-vs-aweber.html': {
+        'Affiliate link verified Sep 9, 2026': 'Pricing and offers checked Sep 9, 2026',
+    },
     'tool/beefree.html': {
         'Affiliate link verified': 'COSHUMA partner',
         'Start Beefree via verified partner link': 'Try Beefree',
