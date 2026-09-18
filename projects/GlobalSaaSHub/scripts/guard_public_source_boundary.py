@@ -2,9 +2,9 @@
 
 The browser app consumes only generated/public-tools.json, built from an explicit
 allowlist. Internal repository data and evidence files are never imported by src/.
-Public JavaScript is also a customer surface and must not carry partner correspondence,
-network names or verification mechanics. Tracking URLs may contain network domains;
-URL values are treated as routing data, not customer-visible explanatory copy.
+Files under public/ are customer surfaces and must not carry partner correspondence,
+network names, verification mechanics or affiliate status labels. Tracking URLs may
+contain network domains; URL values are treated as routing data, not explanatory copy.
 """
 from pathlib import Path
 import json
@@ -13,6 +13,7 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
 PUBLIC = ROOT / "public"
+TEXT_EXTENSIONS = {".html", ".txt", ".xml", ".json", ".js", ".webmanifest"}
 URL = re.compile(r"https?://[^\s\"'<>]+", re.I)
 
 FORBIDDEN_SOURCE = {
@@ -36,6 +37,11 @@ FORBIDDEN_SOURCE = {
 FORBIDDEN_PUBLIC_COPY = {
     "partnerstack-name": re.compile(r"\bPartnerStack\b", re.I),
     "firstpromoter-name": re.compile(r"\bFirstPromoter\b", re.I),
+    "public-partner-status": re.compile(
+        r"\bverified\s+(?:partner|affiliate|referral|tracking)\b"
+        r"|\bverified\s+link\b",
+        re.I,
+    ),
     "internal-state-language": re.compile(
         r"\b(?:approved_tracking|affiliate_verified|affiliate_status|affiliate_evidence|"
         r"application_state|revenue[_ -]?truth|browser[_ -]?queue|verified customer-facing|"
@@ -70,14 +76,18 @@ for path in SRC.rglob("*"):
         if m:
             errors.append(f"{rel}: {label}: {m.group(0)}")
 
-# Files under public/ are copied directly into the customer bundle. Scan public JS
-# as source too, rather than relying on a later sanitizer to erase internal copy.
-for path in PUBLIC.rglob("*.js"):
-    if not path.is_file():
+# public/ is copied into the customer bundle. Scan every public text surface after
+# the sanitizer so a new generator cannot silently reintroduce internal status copy.
+public_patterns = {**FORBIDDEN_SOURCE, **FORBIDDEN_PUBLIC_COPY}
+for path in PUBLIC.rglob("*"):
+    if not path.is_file() or path.suffix.lower() not in TEXT_EXTENSIONS:
         continue
-    text = mask_urls(path.read_text(encoding="utf-8"))
+    try:
+        text = mask_urls(path.read_text(encoding="utf-8"))
+    except UnicodeDecodeError:
+        continue
     rel = path.relative_to(ROOT).as_posix()
-    for label, pattern in FORBIDDEN_SOURCE.items():
+    for label, pattern in public_patterns.items():
         m = pattern.search(text)
         if m:
             errors.append(f"{rel}: {label}: {m.group(0)}")
@@ -108,4 +118,4 @@ else:
 if errors:
     raise SystemExit("Public source boundary violation:\n" + "\n".join(errors[:100]))
 
-print("PASS: frontend source boundary is private-by-default; raw affiliate state imports=0; public JS ops leaks=0")
+print("PASS: frontend source boundary is private-by-default; raw affiliate state imports=0; public text ops/status leaks=0")
