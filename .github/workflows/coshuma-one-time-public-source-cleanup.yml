@@ -1,0 +1,39 @@
+name: COSHUMA One-Time Public Source Cleanup
+
+on:
+  push:
+    branches:
+      - fix/coshuma-public-affiliate-boundary-20260919
+
+permissions:
+  contents: write
+
+jobs:
+  clean:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/coshuma-public-affiliate-boundary-20260919
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Normalize public affiliate source
+        working-directory: projects/GlobalSaaSHub
+        run: python scripts/normalize_public_affiliate_source_once.py
+      - name: Verify raw public source boundary
+        working-directory: projects/GlobalSaaSHub
+        run: python scripts/guard_raw_public_source.py
+      - name: Commit cleanup if needed
+        run: |
+          if git diff --quiet; then
+            echo "No cleanup changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add projects/GlobalSaaSHub/public projects/GlobalSaaSHub/index.html
+          git commit -m "Clean COSHUMA public affiliate source"
+          git push origin HEAD:fix/coshuma-public-affiliate-boundary-20260919
