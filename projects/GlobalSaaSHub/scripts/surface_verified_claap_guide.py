@@ -56,12 +56,12 @@ def ensure_item_after(anchor_url, target_url, target_name, error_label):
 
 old_item_name = 'Claap Pricing & Referral Discount Guide'
 if old_item_name in text:
-    text = text.replace(old_item_name, 'Claap Pricing & Verified Partner Guide')
+    text = text.replace(old_item_name, 'Claap Pricing & Buyer Guide')
 
 ensure_item_after(
     'https://coshuma.com/tool/murf-ai.html',
     'https://coshuma.com/tool/claap.html',
-    'Claap Pricing & Verified Partner Guide',
+    'Claap Pricing & Buyer Guide',
     'Murf',
 )
 ensure_item_after(
@@ -87,9 +87,9 @@ text = text.replace(
 
 card_marker = '''          <a href="/best/databox-genie-ai-analyst.html" class="p-5 rounded-2xl bg-[#131520] border border-purple-500/25 hover:border-purple-400/60 transition-all">'''
 claap_card_block = '''          <a href="/tool/claap.html" class="p-5 rounded-2xl bg-[#131520] border border-emerald-500/25 hover:border-emerald-400/60 transition-all">
-            <div class="text-xs uppercase tracking-wider font-bold text-emerald-300">AI meetings · verified partner route</div>
-            <h3 class="text-lg font-extrabold text-white mt-2">Claap Pricing & Verified Partner Route</h3>
-            <p class="text-sm text-slate-300 mt-2 leading-relaxed">Compare Claap's free/trial entry and plan fit, then continue through COSHUMA's vendor-verified customer tracking route if the workflow fits. Confirm final pricing and any buyer offer on Claap before purchase.</p>
+            <div class="text-xs uppercase tracking-wider font-bold text-emerald-300">AI meetings · current offer</div>
+            <h3 class="text-lg font-extrabold text-white mt-2">Claap Pricing & Buyer Guide</h3>
+            <p class="text-sm text-slate-300 mt-2 leading-relaxed">Compare Claap's free/trial entry and plan fit, then continue through the current offer if the workflow fits. Confirm final pricing and any buyer offer on Claap before purchase.</p>
           </a>
 '''
 
@@ -104,9 +104,9 @@ else:
     text = text.replace(card_marker, claap_card_block + card_marker, 1)
 
 moosend_card_block = '''          <a href="/best/moosend-free-trial.html" class="p-5 rounded-2xl bg-[#131520] border border-emerald-500/25 hover:border-emerald-400/60 transition-all">
-            <div class="text-xs uppercase tracking-wider font-bold text-emerald-300">Email marketing · verified partner route</div>
+            <div class="text-xs uppercase tracking-wider font-bold text-emerald-300">Email marketing · current offer</div>
             <h3 class="text-lg font-extrabold text-white mt-2">Moosend 30-Day Free Trial</h3>
-            <p class="text-sm text-slate-300 mt-2 leading-relaxed">Use the 30-day no-card trial to test a real campaign and automation, then continue through COSHUMA's verified customer referral route only if the workflow fits.</p>
+            <p class="text-sm text-slate-300 mt-2 leading-relaxed">Use the 30-day no-card trial to test a real campaign and automation, then check the current offer only if the workflow fits.</p>
           </a>
 '''
 
@@ -120,9 +120,9 @@ if moosend_card_heading not in text:
     text = text.replace(card_marker, moosend_card_block + card_marker, 1)
 
 helpdesk_card_block = '''          <a href="/best/helpdesk-vs-freshdesk.html" class="p-5 rounded-2xl bg-[#131520] border border-emerald-500/25 hover:border-emerald-400/60 transition-all">
-            <div class="text-xs uppercase tracking-wider font-bold text-emerald-300">Customer support · verified HelpDesk route</div>
+            <div class="text-xs uppercase tracking-wider font-bold text-emerald-300">Customer support · current offer</div>
             <h3 class="text-lg font-extrabold text-white mt-2">HelpDesk vs Freshdesk</h3>
-            <p class="text-sm text-slate-300 mt-2 leading-relaxed">Compare current pricing, AI allowances and 14-day no-card trials. HelpDesk uses COSHUMA's verified customer partner route; Freshdesk remains on official non-affiliate links.</p>
+            <p class="text-sm text-slate-300 mt-2 leading-relaxed">Compare current pricing, AI allowances and 14-day no-card trials. Check the current HelpDesk offer and Freshdesk's official pricing before choosing.</p>
           </a>
 '''
 helpdesk_card_heading = '<h3 class="text-lg font-extrabold text-white mt-2">HelpDesk vs Freshdesk</h3>'
@@ -138,9 +138,9 @@ brand24_old_card = '''          <a href="/best/brand24-ai-visibility.html" class
           </a>
 '''
 brand24_card = '''          <a href="/best/brand24-ai-visibility.html" class="p-5 rounded-2xl bg-[#131520] border border-emerald-500/25 hover:border-emerald-400/60 transition-all">
-            <div class="text-xs uppercase tracking-wider font-bold text-emerald-300">AI visibility · verified partner route</div>
+            <div class="text-xs uppercase tracking-wider font-bold text-emerald-300">AI visibility · current offer</div>
             <h3 class="text-lg font-extrabold text-white mt-2">Brand24 14-Day Trial & AI Visibility</h3>
-            <p class="text-sm text-slate-300 mt-2 leading-relaxed">Test Brand24 for 14 days with no credit card, then evaluate AI Visibility and continue through COSHUMA's verified customer referral route only if the monitoring workflow fits.</p>
+            <p class="text-sm text-slate-300 mt-2 leading-relaxed">Test Brand24 for 14 days with no credit card, then evaluate AI Visibility and check the current offer only if the monitoring workflow fits.</p>
           </a>
 '''
 if brand24_card not in text:
@@ -149,15 +149,13 @@ if brand24_card not in text:
     text = text.replace(brand24_old_card, brand24_card, 1)
 
 required = [
-    'https://coshuma.com/tool/claap.html\",\"name\":\"Claap Pricing & Verified Partner Guide\"',
+    'https://coshuma.com/tool/claap.html\",\"name\":\"Claap Pricing & Buyer Guide\"',
     'href="/tool/claap.html"',
-    'vendor-verified customer tracking route',
     'https://coshuma.com/best/moosend-free-trial.html\",\"name\":\"Moosend 30-Day Free Trial & Pricing Guide\"',
     moosend_card_heading,
     '30-day no-card trial',
     'https://coshuma.com/best/helpdesk-vs-freshdesk.html\",\"name\":\"HelpDesk vs Freshdesk Pricing & Free Trial Comparison\"',
     helpdesk_card_heading,
-    'HelpDesk uses COSHUMA\'s verified customer partner route; Freshdesk remains on official non-affiliate links.',
     'https://coshuma.com/best/brand24-ai-visibility.html\",\"name\":\"Brand24 14-Day Free Trial & AI Visibility Guide\"',
     '<h3 class="text-lg font-extrabold text-white mt-2">Brand24 14-Day Trial & AI Visibility</h3>',
     'Test Brand24 for 14 days with no credit card',

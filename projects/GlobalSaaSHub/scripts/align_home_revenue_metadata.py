@@ -79,7 +79,7 @@ for marker in required:
 # Give crawlers direct paths to the money-intent and lead/payment guides.
 money_link = '<a href="/best/ai-tools-to-make-money.html"><strong>AI tools to make money</strong></a> ·'
 fillout_link = '<a href="/best/fillout-form-builder.html">Fillout for lead & payment forms</a> ·'
-marker = '<strong>Recently verified partner buyer guides:</strong><br />'
+marker = '<strong>Recently updated buyer guides:</strong><br />'
 if marker not in text:
     raise SystemExit("Homepage fallback guide list changed; refusing unsafe discovery insertion")
 if money_link not in text:

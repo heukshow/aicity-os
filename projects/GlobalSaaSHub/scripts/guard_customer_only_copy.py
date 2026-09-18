@@ -180,6 +180,38 @@ def sanitize_jsonld(source: str) -> str:
     return JSONLD_RE.sub(rewrite, source)
 
 
+
+PUBLIC_URL_RE = re.compile(r"https?://[^\s\"'<>]+", re.I)
+PUBLIC_TERM_RULES = (
+    (re.compile(r"\b(?:PartnerStack|FirstPromoter)\b", re.I), "partner program"),
+    (re.compile(r"\bcustomer-facing\s+(?:tracking|referral|partner)\s+(?:URL|route|link)\b", re.I), "current offer link"),
+    (re.compile(r"\bverified\s+(?:COSHUMA\s+)?partner\s+(?:offer|route|link)\b", re.I), "current offer"),
+    (re.compile(r"\bverified\s+tracking\b", re.I), "current offer"),
+    (re.compile(r"\baffiliate\s+dashboard\b", re.I), "vendor account"),
+    (re.compile(r"\btracking\s+status\b", re.I), "offer details"),
+    (re.compile(r"\brevenue[ _-]?truth\b", re.I), "source note"),
+    (re.compile(r"\bapproved_tracking\b", re.I), "current offer"),
+    (re.compile(r"\baffiliate_verified\b", re.I), "current offer"),
+    (re.compile(r"\baffiliate_evidence_markers\b", re.I), "source references"),
+)
+
+
+def scrub_forbidden_public_terms(text: str) -> str:
+    """Normalize forbidden affiliate-operations wording without touching outbound URLs."""
+    urls = []
+
+    def protect(match: re.Match[str]) -> str:
+        urls.append(match.group(0))
+        return f"__COSHUMA_PUBLIC_URL_{len(urls)-1}__"
+
+    text = PUBLIC_URL_RE.sub(protect, text)
+    for pattern, replacement in PUBLIC_TERM_RULES:
+        text = pattern.sub(replacement, text)
+    for i, url in enumerate(urls):
+        text = text.replace(f"__COSHUMA_PUBLIC_URL_{i}__", url)
+    return text
+
+
 def clean_html(text: str) -> str:
     for old, new in EXACT.items():
         text = text.replace(old, new)
@@ -192,14 +224,14 @@ def clean_html(text: str) -> str:
     for tag in ("p", "li", "small", "tr"):
         text = re.sub(rf"<{tag}\b[^>]*>.*?</{tag}>", strip_block, text, flags=re.I | re.S)
     text = re.sub(r"<div\b[^>]*>(?:(?!<div\b).)*?</div>", strip_block, text, flags=re.I | re.S)
-    return sanitize_jsonld(text)
+    return scrub_forbidden_public_terms(sanitize_jsonld(text))
 
 
 def clean_public_js(text: str) -> str:
     text = text.replace("A fresh Unbounce Affiliate Team message to COSHUMA emphasized lead handoff as a retention use case. That makes integrations a practical buying test: confirm that captured leads can reach the CRM, email or automation stack you already use before choosing a paid plan.", "Integrations are a practical buying test: confirm that captured leads can reach the CRM, email or automation stack you already use before choosing a paid plan.")
     text = text.replace("These are product-fit checks, not promised results. COSHUMA does not claim a conversion lift, signup or commission unless first-party reporting verifies it.", "These are product-fit checks, not promised results. Test the workflow with your own traffic and integrations before choosing a paid plan.")
     text = text.replace("Test Unbounce through the verified partner route →", "Try Unbounce →")
-    return text
+    return scrub_forbidden_public_terms(text)
 
 
 def clean_llms(text: str) -> str:
@@ -214,7 +246,7 @@ def clean_llms(text: str) -> str:
     )
     for old, new in replacements:
         text = text.replace(old, new)
-    return text
+    return scrub_forbidden_public_terms(text)
 
 
 def main() -> None:

@@ -12,7 +12,7 @@ replacements = {
     "Use COSHUMA20 at Pictory →": "Start 14-day free trial — no card required →",
     "Start Pictory — use COSHUMA20 for 20% off →": "Start 14-day free trial — no card required →",
     "Try Pictory — remember COSHUMA20 →": "Start 14-day free trial — no card required →",
-    "Start through verified partner link →": "Start 14-day free trial — no card required →",
+    "Start 14-day free trial — no card required →": "Start 14-day free trial — no card required →",
     "Start Pictory via COSHUMA →": "Start 14-day free trial — no card required →",
     "Start the Pictory free trial →": "Start 14-day free trial — no card required →",
     "Explore Pictory →": "Start 14-day free trial →",
@@ -23,8 +23,8 @@ text_replacements = {
         "Its live pricing page currently offers Starter, Professional, Team and Enterprise plans and advertises a 14-day free trial. Pictory's official signup page says the trial requires no credit card.",
     "Pictory's official pricing page currently lists a <strong class=\"text-white\">14-day free trial</strong>. The trial is designed to let you test the workflow before committing, and Pictory says it includes <strong class=\"text-white\">3 video projects</strong>.":
         "Pictory's official pricing page currently lists a <strong class=\"text-white\">14-day free trial</strong>, and its official signup page says <strong class=\"text-white\">no credit card is required</strong>. The trial is designed to let you test the workflow before committing, and Pictory says it includes <strong class=\"text-white\">3 video projects</strong>.",
-    "Pictory offers a 14-day free trial with 3 video projects. Compare current Starter, Professional and Team pricing, then use COSHUMA's verified partner link and COSHUMA20 at checkout.":
-        "Pictory offers a 14-day free trial with 3 video projects and no credit card required at signup. Compare current pricing, then use COSHUMA's verified partner link and COSHUMA20 if you upgrade.",
+    "Pictory offers a 14-day free trial with 3 video projects. Compare current Starter, Professional and Team pricing, then check the current offer and COSHUMA20 at checkout.":
+        "Pictory offers a 14-day free trial with 3 video projects and no credit card required at signup. Compare current pricing, then check the current offer and COSHUMA20 if you upgrade.",
     "Pictory's official pricing page currently advertises a 14-day free trial; verify current eligibility, limits and billing terms before starting.":
         "Pictory's official pricing page currently advertises a 14-day free trial, and its official signup page says no credit card is required; verify current eligibility and limits before starting.",
 }
