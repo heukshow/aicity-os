@@ -48,12 +48,12 @@ def validate_current_tracking() -> None:
             raise RuntimeError(f"Claap official URL regressed in {name}")
 
     page = (PUBLIC_DIR / "tool" / "claap.html").read_text(encoding="utf-8")
-    if primary not in page or 'data-cta-source="claap_partnerstack_verified"' not in page:
+    if primary not in page or 'data-cta-source="claap_verified_offer"' not in page:
         raise RuntimeError("Claap verified revenue CTA is missing from the public page")
     if 'rel="sponsored noopener noreferrer"' not in page:
         raise RuntimeError("Claap affiliate CTA is missing the sponsored safety relation")
-    if "Affiliate disclosure:" in page or 'data-affiliate-disclosure=' in page:
-        raise RuntimeError("Claap page-level affiliate disclosure must not be regenerated")
+    if 'data-cta="affiliate"' in page and "Affiliate disclosure:" not in page and 'data-affiliate-disclosure=' not in page:
+        raise RuntimeError("Claap affiliate CTA is missing the required customer-facing affiliate disclosure")
     unsupported_buyer_claims = ("30% off the first 2 months", "10% off the first year", "partner discount →", "referral discount →")
     for claim in unsupported_buyer_claims:
         if claim in page:

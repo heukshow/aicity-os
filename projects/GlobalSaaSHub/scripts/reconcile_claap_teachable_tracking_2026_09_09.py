@@ -168,13 +168,20 @@ def patch_claap_page(evidence: dict) -> None:
         raise RuntimeError("Claap public page missing")
     primary = evidence["claap"]["primary_tracking_url"]
     html = path.read_text(encoding="utf-8")
+    html = html.replace('data-cta-source="claap_partnerstack_verified"', 'data-cta-source="claap_verified_offer"')
+    if 'data-cta="affiliate"' in html and "Affiliate disclosure:" not in html and 'data-affiliate-disclosure=' not in html:
+        disclosure = '<p data-affiliate-disclosure="true" class="text-[11px] text-slate-500 leading-relaxed"><strong>Affiliate disclosure:</strong> COSHUMA may earn a commission if you purchase through this link, at no extra cost to you.</p>'
+        first_cta = '<div class="flex flex-col sm:flex-row gap-3">'
+        if first_cta not in html:
+            raise RuntimeError("Could not locate Claap first CTA block for affiliate disclosure")
+        html = html.replace(first_cta, disclosure + "\n    " + first_cta, 1)
 
     old_top = '<a data-cta="official" data-tool-id="claap" href="https://www.claap.io/" target="_blank" rel="noopener noreferrer" class="flex-1 px-6 py-4 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center hover:brightness-110">Try Claap on the official site →</a>'
-    new_top = f'<a data-cta="affiliate" data-tool-id="claap" data-cta-source="claap_partnerstack_verified" href="{primary}" target="_blank" rel="sponsored noopener noreferrer" class="flex-1 px-6 py-4 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center hover:brightness-110">Start Claap with partner discount →</a>'
+    new_top = f'<a data-cta="affiliate" data-tool-id="claap" data-cta-source="claap_verified_offer" href="{primary}" target="_blank" rel="sponsored noopener noreferrer" class="flex-1 px-6 py-4 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center hover:brightness-110">Start Claap with partner discount →</a>'
     html = html.replace(old_top, new_top)
 
     old_status = "Affiliate status: COSHUMA's Claap partnership is approved, but the exact customer-facing PartnerStack referral URL has not yet been independently verified. These buttons intentionally remain official, non-affiliate links until the issued tracking URL is recovered; COSHUMA will not guess a referral parameter."
-    new_status = "Affiliate status: verified. Claap affiliate manager Lamia Karmaly supplied COSHUMA's exact customer-facing PartnerStack URLs directly by email on Sep 9, 2026. The primary Try Claap buttons use the first issued tracking URL; the pricing button remains the official live pricing page until the intended destination of the second issued URL is clarified. Link issuance does not imply a signup, commission, or sale."
+    new_status = "Offer note: the buttons above use the current customer offer link. Availability, eligibility and checkout terms can change, so confirm the final terms shown by Claap before purchasing."
     html = html.replace(old_status, new_status)
 
     # Claap's first-party affiliate page, rechecked 2026-09-10, states that
@@ -191,7 +198,7 @@ def patch_claap_page(evidence: dict) -> None:
             raise RuntimeError("Could not locate verified Claap status paragraph for referral-discount placement")
 
     old_bottom = '<a data-cta="official" data-tool-id="claap" href="https://www.claap.io/" target="_blank" rel="noopener noreferrer" class="inline-flex px-7 py-4 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:brightness-110">Test Claap on the official site →</a>'
-    new_bottom = f'<a data-cta="affiliate" data-tool-id="claap" data-cta-source="claap_partnerstack_verified" href="{primary}" target="_blank" rel="sponsored noopener noreferrer" class="inline-flex px-7 py-4 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:brightness-110">Try Claap with referral discount →</a>'
+    new_bottom = f'<a data-cta="affiliate" data-tool-id="claap" data-cta-source="claap_verified_offer" href="{primary}" target="_blank" rel="sponsored noopener noreferrer" class="inline-flex px-7 py-4 rounded-xl font-extrabold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:brightness-110">Try Claap with referral discount →</a>'
     html = html.replace(old_bottom, new_bottom)
 
 
@@ -218,12 +225,12 @@ def validate(evidence: dict) -> None:
         raise RuntimeError("Teachable approved tracking state was not preserved")
 
     page = (PUBLIC_DIR / "tool" / "claap.html").read_text(encoding="utf-8")
-    if page.count(primary) < 2 or 'data-cta-source="claap_partnerstack_verified"' not in page:
+    if page.count(primary) < 2 or 'data-cta-source="claap_verified_offer"' not in page:
         raise RuntimeError("Claap verified tracking CTA was not activated")
     if 'data-cta="affiliate" data-tool-id="claap" href="https://www.claap.io/' in page:
         raise RuntimeError("Generic Claap official URL was incorrectly marked as affiliate")
-    if "Affiliate disclosure:" in page or 'data-affiliate-disclosure=' in page:
-        raise RuntimeError("Claap page-level affiliate disclosure must not be regenerated")
+    if 'data-cta="affiliate"' in page and "Affiliate disclosure:" not in page and 'data-affiliate-disclosure=' not in page:
+        raise RuntimeError("Claap affiliate CTA is missing the required customer-facing affiliate disclosure")
     if "Claap referral discount:" not in page or "30% off the first 2 months" not in page or "10% off the first year" not in page:
         raise RuntimeError("Claap referral discount buyer-benefit note is missing")
 

@@ -49,8 +49,8 @@ if text.count(TRACKING_URL) < 3:
     raise SystemExit("Moosend cleanup failed: verified customer referral CTAs were lost")
 if 'rel="sponsored noopener noreferrer"' not in text:
     raise SystemExit("Moosend cleanup failed: sponsored attribution was lost")
-if 'Affiliate disclosure:' in text or 'data-affiliate-disclosure=' in text:
-    raise SystemExit("Moosend cleanup failed: page-level affiliate disclosure must not be regenerated")
+if 'data-cta="affiliate"' in text and 'Affiliate disclosure:' not in text and 'data-affiliate-disclosure=' not in text:
+    raise SystemExit("Moosend cleanup failed: affiliate CTA is missing the required customer-facing disclosure")
 
 for forbidden in (
     "exact referral url verified",
