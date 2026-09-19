@@ -256,6 +256,34 @@ PATCHES = {
             '<p class="text-sm text-slate-400 mt-2">Updated September 7, 2026</p>',
             '<p class="text-sm text-slate-400 mt-2">Updated September 9, 2026</p>',
         ),
+        (
+            "<title>Jotform Review & Pricing 2026: Free Plan, $34 Bronze, $39 Silver & AI Agents | COSHUMA</title>",
+            "<title>Jotform Pricing 2026: Free Plan, Bronze $34, Silver $39, Gold $99 | COSHUMA</title>",
+        ),
+        (
+            '<meta name="description" content="Jotform review and pricing for 2026: Starter is free, Bronze $34/mo, Silver $39/mo and Gold $99/mo billed annually. Compare plan limits and AI Agents for customer-support automation." />',
+            '<meta name="description" content="Jotform pricing 2026: Starter is free; Bronze $34/mo, Silver $39/mo and Gold $99/mo billed annually. Compare forms, submissions, storage, signed-document limits and when to upgrade." />',
+        ),
+        (
+            '<meta property="og:title" content="Jotform Review & Pricing 2026: Free Plan, Paid Tiers & AI Agents | COSHUMA" />',
+            '<meta property="og:title" content="Jotform Pricing 2026: Free Plan, Bronze $34, Silver $39 & Gold $99 | COSHUMA" />',
+        ),
+        (
+            '<meta property="og:description" content="Compare Jotform Starter, Bronze, Silver, Gold and Enterprise, then see when Jotform AI Agents is the better fit for 24/7 customer-support automation." />',
+            '<meta property="og:description" content="Compare Jotform Free, Bronze, Silver and Gold by price, forms, monthly submissions, storage and signed-document limits before upgrading." />',
+        ),
+        (
+            '<h1 class="text-4xl md:text-5xl font-black text-white tracking-tight">Jotform Review, Pricing & Buyer Guide</h1>',
+            '<h1 class="text-4xl md:text-5xl font-black text-white tracking-tight">Jotform Pricing 2026: Free, Bronze, Silver & Gold</h1>',
+        ),
+        (
+            '<p class="text-sm text-slate-400 mt-2">Updated September 9, 2026</p>',
+            '<p class="text-sm text-slate-400 mt-2">Pricing rechecked against Jotform official pages on September 19, 2026</p>',
+        ),
+        (
+            '<p class="text-lg leading-relaxed text-slate-300 max-w-4xl">Jotform is strongest when you want one no-code stack for forms, payments, e-signatures and workflow capture. The free Starter plan is enough to validate a use case; paid plans mainly raise limits and remove branding. If your goal is automated customer service rather than form building alone, Jotform AI Agents is the more relevant path.</p>',
+            '<p class="text-lg leading-relaxed text-slate-300 max-w-4xl"><strong class="text-white">Quick answer:</strong> use Starter for free if 5 forms and 100 monthly submissions are enough. Bronze raises capacity to 25 forms and 1,000 submissions, Silver to 50 forms and 2,500 submissions, and Gold to 100 forms and 10,000 submissions. Upgrade for real limit pressure, branding removal or HIPAA-enabled features—not just because a paid tier exists.</p>',
+        ),
     ],
 }
 
