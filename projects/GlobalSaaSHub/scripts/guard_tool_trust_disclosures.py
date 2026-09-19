@@ -1,14 +1,16 @@
-"""Prevent tool-page trust blocks from overstating affiliate verification.
+"""Keep tool-page trust blocks customer-only and prevent affiliate verification overclaims.
 
-`affiliate_verified` in the source dataset can mean that an affiliate *state* was
-verified (for example, application_submitted). A public disclosure saying an
-"affiliate destination" is verified is only valid when we have an exact,
-customer-facing URL and the state is approved_tracking.
+The public trust block may show buyer-relevant product/pricing sources, but internal
+operational evidence fields must never be rendered into customer pages. In particular,
+`official_evidence_url` is an internal evidence pointer and is private-by-default even
+when it happens to point to a public vendor page.
 
 This script runs late in the production build so earlier page generators cannot
-reintroduce an overclaim. It is intentionally idempotent and fails closed.
+reintroduce internal evidence links or affiliate-state copy. It is intentionally
+idempotent and fails closed.
 """
 from pathlib import Path
+from html import unescape
 import json
 import re
 
@@ -27,6 +29,7 @@ AFFILIATE_DISCLOSURE_RE = re.compile(
     r'</div></div>',
     re.S,
 )
+SOURCE_LINK_RE = re.compile(r'<a\b[^>]*href="([^"]+)"[^>]*>.*?</a>', re.S | re.I)
 FALSE_PHRASE = "Affiliate destination verified separately from editorial product sources."
 
 
@@ -40,6 +43,29 @@ def exact_tracking_verified(tool):
     )
 
 
+def strip_internal_evidence_links(body, tool):
+    """Remove private-by-default evidence pointers from the public Sources checked block."""
+    internal_urls = {
+        value.strip()
+        for key in ("official_evidence_url", "affiliate_source_url", "affiliate_workflow_url")
+        if isinstance((value := tool.get(key)), str) and value.strip()
+    }
+    if not internal_urls:
+        return body
+
+    def replace_link(match):
+        href = unescape(match.group(1)).strip()
+        return "" if href in internal_urls else match.group(0)
+
+    body = SOURCE_LINK_RE.sub(replace_link, body)
+    # The source list uses a middle-dot separator. Remove separators left behind
+    # when an internal evidence link was filtered out.
+    body = re.sub(r'(<div class="mt-1 text-sm">)\s*·\s*', r'\1', body)
+    body = re.sub(r'\s*·\s*(</div>)', r'\1', body)
+    body = re.sub(r'\s*·\s*·\s*', ' · ', body)
+    return body
+
+
 tools = json.loads(TOOLS_PATH.read_text(encoding="utf-8"))
 by_id = {item.get("id"): item for item in tools if item.get("id")}
 changed = 0
@@ -50,20 +76,21 @@ for tool_id, tool in by_id.items():
     if not page.exists():
         continue
 
-    text = page.read_text(encoding="utf-8")
+    original = page.read_text(encoding="utf-8")
+    text = original
     match = TRUST_RE.search(text)
     if not match:
         continue
     checked += 1
 
-    # Sendcloud now has a handcrafted, source-dated buyer guide. Its generic
-    # block is both redundant and misleading while the PartnerStack application
-    # remains pending, so remove the generic block completely.
+    # Sendcloud has a handcrafted, source-dated buyer guide. Its generic block
+    # is redundant while its customer-facing tracking route is unresolved.
     if tool_id == "sendcloud":
         text = TRUST_RE.sub("", text, count=1)
     else:
         body = match.group(1)
         body = AFFILIATE_DISCLOSURE_RE.sub("", body)
+        body = strip_internal_evidence_links(body, tool)
         text = text[: match.start(1)] + body + text[match.end(1) :]
 
     if not exact_tracking_verified(tool) and FALSE_PHRASE in text:
@@ -72,7 +99,13 @@ for tool_id, tool in by_id.items():
             "with an exact URL but still says its affiliate destination is verified"
         )
 
-    if text != page.read_text(encoding="utf-8"):
+    # Internal evidence pointers are never part of customer-facing trust blocks.
+    for key in ("official_evidence_url", "affiliate_source_url", "affiliate_workflow_url"):
+        value = tool.get(key)
+        if isinstance(value, str) and value.strip() and value.strip() in text:
+            raise SystemExit(f"Public trust block leaked internal evidence URL for {tool_id}: {key}")
+
+    if text != original:
         page.write_text(text, encoding="utf-8")
         changed += 1
 
