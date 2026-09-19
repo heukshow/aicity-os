@@ -67,6 +67,16 @@ INTERNAL_REVENUE_OPS = re.compile(
     r"|\bverified\s+affiliate\s+records\b",
     re.I,
 )
+INTERNAL_PAYMENT_OPS = re.compile(
+    r"\bpayment\s+system\s+update\s+in\s+progress\b"
+    r"|\bsponsorship\s+checkout\s+is\s+temporarily\s+unavailable\b"
+    r"|\bcheckout\s+is\s+temporarily\s+unavailable\b"
+    r"|\bpayments?\s+(?:are\s+)?temporarily\s+paused\b"
+    r"|\bpayment\s+handling\s+is\s+being\s+verified\b"
+    r"|\b(?:checkout|payment)\s+(?:and\s+)?campaign\s+reporting\s+system\b"
+    r"|\bduring\s+maintenance\b",
+    re.I,
+)
 INTERNAL_KEYS = re.compile(
     r"[\"'](?:affiliate_evidence_markers|affiliate_status|affiliate_verified|"
     r"affiliate_status_checked_at|affiliate_status_evidence_url|affiliate_next_action|"
@@ -82,6 +92,7 @@ PATTERNS = {
     "internal-affiliate-correspondence": INTERNAL_CORRESPONDENCE,
     "internal-tracking-verification-copy": INTERNAL_VERIFICATION_COPY,
     "internal-revenue-ops": INTERNAL_REVENUE_OPS,
+    "internal-payment-ops": INTERNAL_PAYMENT_OPS,
 }
 
 
@@ -203,7 +214,7 @@ def main() -> None:
             print(f" - ... and {len(errors)-100} more")
         raise SystemExit(1)
 
-    print(f"PASS: public artifact boundary clean across {len(files)} text artifacts; network/status/dashboard/correspondence/verification/revenue-ops leaks=0")
+    print(f"PASS: public artifact boundary clean across {len(files)} text artifacts; network/status/dashboard/correspondence/verification/revenue-ops/payment-ops leaks=0")
 
 
 if __name__ == "__main__":
