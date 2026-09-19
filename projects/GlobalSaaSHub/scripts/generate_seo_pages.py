@@ -296,9 +296,9 @@ for tool in tools_data:
         rating_meta = f'rating ({r_val}/5.0), '
         rating_pro = f'<li>Editorial rating ({r_val}/5.0)</li>'
     else:
-        rating_badge = 'Not yet editorially rated'
+        rating_badge = 'Product details'
         rating_meta = ''
-        rating_pro = '<li>Editorial review in progress</li>'
+        rating_pro = '<li>Compare documented features and pricing for your workflow</li>'
 
     # Helper to validate and clean HTTP/HTTPS URLs
     def clean_url(url_val):
