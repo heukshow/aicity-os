@@ -109,6 +109,40 @@ PATCHES = {
             '<h2 class="text-3xl font-black text-white mt-1">Unbounce plans checked September 9, 2026</h2>',
         ),
     ],
+    "cloudways.html": [
+        (
+            "<title>Cloudways Pricing, Features & Review (2026) | COSHUMA</title>",
+            "<title>Cloudways Pricing 2026: Managed Hosting from $11 + 3-Day Free Trial | COSHUMA</title>",
+        ),
+        (
+            '<meta name="description" content="Cloudways is a managed cloud hosting platform designed to simplify the deployment and management of web applications for businesses and developers.... Discover features, pricing (See official pricing), and official links for Cloudways on COSHUMA." />',
+            '<meta name="description" content="Cloudways pricing 2026: Flexible managed cloud hosting starts at $11/month with pay-as-you-go billing and a 3-day free trial without a credit card. Compare server sizes, bandwidth, backups and Autonomous WordPress plans." />',
+        ),
+        (
+            '<meta property="og:title" content="Cloudways Review & Pricing (2026) | COSHUMA" />',
+            '<meta property="og:title" content="Cloudways Pricing 2026: $11 Managed Hosting + 3-Day Trial | COSHUMA" />',
+        ),
+        (
+            '<meta property="og:description" content="Cloudways is a managed cloud hosting platform designed to simplify the deployment and management of web applications for businesses and developers.... Check rating, pricing, and features." />',
+            '<meta property="og:description" content="Compare Cloudways Flexible and Autonomous hosting, $11 entry pricing, hourly/pay-as-you-go billing, bandwidth, backups and the 3-day no-card trial." />',
+        ),
+        (
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">Cloudways</h1>',
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">Cloudways Pricing 2026: Flexible vs Autonomous Hosting</h1>',
+        ),
+        (
+            '<p class="text-slate-300 text-base leading-relaxed">Cloudways is a managed cloud hosting platform designed to simplify the deployment and management of web applications for businesses and developers.</p>',
+            '<p class="text-slate-300 text-base leading-relaxed"><strong class="text-white">Quick answer:</strong> Cloudways Flexible currently starts at $11/month on its entry managed cloud server and uses pay-as-you-go billing, including hourly calculation for supported infrastructure. New users can test Flexible for 3 days without a credit card. Compare Autonomous separately if you need hands-free WordPress autoscaling rather than direct server-size control.</p>',
+        ),
+        (
+            '<div class="text-xl font-extrabold text-emerald-400 mt-0.5">See official pricing</div>',
+            '<div class="text-xl font-extrabold text-emerald-400 mt-0.5">Flexible from $11/mo · 3-day no-card trial</div>',
+        ),
+        (
+            'href="https://www.cloudways.com/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-slate-800 text-white text-center border border-slate-600 hover:bg-slate-700 transition-all flex items-center justify-center gap-2"><span>Visit Official Cloudways Site</span><span>→</span></a>',
+            'href="https://www.cloudways.com/en/pricing.php" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-purple-600 text-white text-center border border-purple-500 hover:bg-purple-500 transition-all flex items-center justify-center gap-2"><span>Compare Cloudways pricing &amp; trial</span><span>→</span></a>',
+        ),
+    ],
     "alidropship.html": [
         (
             "<title>AliDropship Pricing, Features & Review (2026) | COSHUMA</title>",
