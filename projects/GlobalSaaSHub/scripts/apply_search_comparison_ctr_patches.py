@@ -13,23 +13,27 @@ PATCHES = {
     "semrush-vs-frase.html": [
         (
             "<title>Semrush vs Frase: SEO Research or Content Workflow? | COSHUMA</title>",
-            "<title>Frase vs Semrush 2026: Pricing, SEO Research, Content Optimization & Best Fit | COSHUMA</title>",
+            "<title>Frase vs Semrush (2026): $49 vs $139, SEO Research & Content | COSHUMA</title>",
         ),
         (
             '<meta name="description" content="Compare Semrush and Frase for keyword research, content production, AI visibility and pricing. Choose by the work you need to complete, with official sources.">',
-            '<meta name="description" content="Frase vs Semrush in 2026: compare current pricing, SEO research, content optimization, AI visibility and free-trial options. Frase starts at $49/mo with a 7-day no-card trial; Semrush SEO starts at $139/mo.">',
+            '<meta name="description" content="Frase vs Semrush (2026): Frase starts at $49/mo with a 7-day no-card trial; Semrush SEO starts at $139/mo. Compare content optimization, keyword research, backlinks, audits and AI visibility.">',
         ),
         (
             '<meta property="og:title" content="Semrush vs Frase: SEO Research or Content Workflow? | COSHUMA">',
-            '<meta property="og:title" content="Frase vs Semrush 2026: Pricing, SEO Research & Content Workflow | COSHUMA">',
+            '<meta property="og:title" content="Frase vs Semrush (2026): $49 vs $139, SEO Research & Content | COSHUMA">',
         ),
         (
             '<meta property="og:description" content="Compare Semrush and Frase for keyword research, content production, AI visibility and pricing. Choose by the work you need to complete, with official sources.">',
-            '<meta property="og:description" content="Compare Frase and Semrush by price, SEO research depth, content workflow, AI visibility and trial options before paying.">',
+            '<meta property="og:description" content="Frase starts at $49/mo with a 7-day no-card trial; Semrush SEO starts at $139/mo. Compare the exact SEO and content workflow before paying.">',
         ),
         (
             '<p class="muted">Buyer comparison · Official sources checked September 8, 2026</p><h1>Semrush vs Frase: SEO Research or Content Workflow?</h1>',
-            '<p class="muted">Buyer comparison · Official sources checked September 9, 2026</p><h1>Frase vs Semrush 2026: Content Workflow or SEO Research?</h1>',
+            '<p class="muted">Buyer comparison · Official sources checked September 9, 2026</p><h1>Frase vs Semrush: which is better for content vs full SEO research?</h1>',
+        ),
+        (
+            '<p class="muted">Buyer comparison · Official sources checked September 9, 2026</p><h1>Frase vs Semrush: which is better for content vs full SEO research?</h1><p>',
+            '<p class="muted">Buyer comparison · Official sources checked September 9, 2026</p><h1>Frase vs Semrush: which is better for content vs full SEO research?</h1><p><strong>Quick answer:</strong> Frase is the lower-cost, content-first option; Semrush is the broader SEO research suite. If your priority is briefs, drafting and optimization, start with Frase. If you also need backlinks, technical audits, rank tracking and wider competitive research, compare Semrush first.</p><p>',
         ),
         (
             '<td>Compare the exact SEO, content and AI toolkit combination, website limits and extra users on the official pricing page.</td><td>Starter lists $49 monthly or $39/month billed yearly, for one seat and one site. Article and audit allowances apply.</td>',
