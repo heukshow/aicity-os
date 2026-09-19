@@ -13,6 +13,19 @@ TEXT_EXTENSIONS = {".html", ".txt", ".xml", ".json", ".js", ".webmanifest"}
 URL = re.compile(r"https?://[^\s\"'<>]+", re.I)
 
 RULES = (
+    (re.compile(r"\bAffiliate Facts\b"), "Product Details"),
+    (re.compile(r"\bPartner Facts\b"), "Product Details"),
+    (
+        re.compile(
+            r"\b(?:verified\s+)?(?:current\s+)?(?:public\s+)?"
+            r"(?:affiliate|partner)[-\s]+program\s+(?:status|facts|terms)\b",
+            re.I,
+        ),
+        "current product details",
+    ),
+    (re.compile(r"\baffiliate\s+offer\s+facts\b", re.I), "product and offer details"),
+    (re.compile(r"\bcurrent\s+(?:public\s+)?(?:affiliate|partner)\s+(?:program\s+)?terms\b", re.I), "current product details"),
+    (re.compile(r"\b(?:affiliate|partner)\s+facts\b", re.I), "product details"),
     (
         re.compile(
             r"\bverified\s+customer-facing\s+(?:COSHUMA\s+)?"
