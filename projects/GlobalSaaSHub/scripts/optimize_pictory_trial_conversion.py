@@ -52,19 +52,6 @@ for path in sorted(PUBLIC.rglob("*.html")):
 if not changed:
     raise RuntimeError("Pictory trial-conversion patch changed no monetized page; refusing a silent no-op")
 
-# Guard the two highest-intent pages and the verified URL.
-for rel in ("public/tool/pictory.html", "public/best/pictory-free-trial-pricing.html"):
-    path = ROOT / rel
-    html = path.read_text(encoding="utf-8")
-    if AFFILIATE_URL not in html:
-        raise RuntimeError(f"Verified Pictory affiliate URL missing after conversion patch: {rel}")
-    if "no card required" not in html.lower() and "no credit card is required" not in html.lower():
-        raise RuntimeError(f"No-card trial message missing after conversion patch: {rel}")
-    if "COSHUMA20" not in html:
-        raise RuntimeError(f"Verified Pictory promo code missing after conversion patch: {rel}")
-    if rel.endswith("pictory-free-trial-pricing.html") and ("3 video projects" in html.lower() or ">3 projects<" in html.lower()):
-        raise RuntimeError(f"Stale Pictory project-count trial wording remains after conversion patch: {rel}")
-
 # Remove the remaining outdated project-count wording from the dedicated
 # Pictory trial buyer page. Current first-party pricing expresses the trial in
 # video minutes/credits rather than a 3-project allowance.
@@ -89,6 +76,19 @@ trial_guide = trial_guide.replace(
 if "3 video projects" in trial_guide.lower() or ">3 projects<" in trial_guide.lower():
     raise RuntimeError("Stale Pictory 3-project trial wording remains on the dedicated buyer guide")
 trial_guide_path.write_text(trial_guide, encoding="utf-8")
+
+# Guard the two highest-intent pages and the verified URL.
+for rel in ("public/tool/pictory.html", "public/best/pictory-free-trial-pricing.html"):
+    path = ROOT / rel
+    html = path.read_text(encoding="utf-8")
+    if AFFILIATE_URL not in html:
+        raise RuntimeError(f"Verified Pictory affiliate URL missing after conversion patch: {rel}")
+    if "no card required" not in html.lower() and "no credit card is required" not in html.lower():
+        raise RuntimeError(f"No-card trial message missing after conversion patch: {rel}")
+    if "COSHUMA20" not in html:
+        raise RuntimeError(f"Verified Pictory promo code missing after conversion patch: {rel}")
+    if rel.endswith("pictory-free-trial-pricing.html") and ("3 video projects" in html.lower() or ">3 projects<" in html.lower()):
+        raise RuntimeError(f"Stale Pictory project-count trial wording remains after conversion patch: {rel}")
 
 # Surface the current official free-trial allowance on the main Pictory buyer page.
 pictory_path = ROOT / "public/tool/pictory.html"
