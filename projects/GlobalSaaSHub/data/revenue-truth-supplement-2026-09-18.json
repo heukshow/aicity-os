@@ -25,6 +25,26 @@
       "evidence_id": "gmail:1a08c0544c56b5ac:helpdesk-default",
       "evidence_timestamp": "2026-09-10T15:52:30Z",
       "note": "Official LiveChat Partner Program report listed HelpDesk - default with 11 clicks and 0 trials for 2026-08-13 through 2026-09-10. The same account-wide report showed 0 paid accounts and $0 earnings for the entire account in that period, which safely bounds the HelpDesk campaign to 0 paid accounts and $0 earnings. Signup/referral count, commission approved/pending detail, and payout fields were not exposed and remain unknown."
+    },
+    {
+      "tool": "Omnisend",
+      "network": "Impact",
+      "period": "current account activity visible to vendor as of 2026-09-18; click occurred on 2026-09-09",
+      "outbound_clicks": 1,
+      "signups_referrals": null,
+      "trials": null,
+      "paid_customers": null,
+      "commission_earned": null,
+      "commission_approved": null,
+      "commission_pending": null,
+      "payout_paid": null,
+      "payout_pending": null,
+      "currency": null,
+      "status": "vendor_verified_partial",
+      "evidence_source": "vendor-human-email",
+      "evidence_id": "gmail:1a0b4ec7c76011ec",
+      "evidence_timestamp": "2026-09-18T14:29:47Z",
+      "note": "Omnisend Senior Affiliate Marketing Manager Deimantė Vaitkevičiūtė stated that all performance details are visible in Impact and that the only activity she could currently see was one click recorded on 2026-09-09. The reply did not explicitly state zero referrals, paid customers, commissions, or payouts, so every downstream field remains unknown rather than zero. Existing vendor-issued tracking URLs remain unchanged."
     }
   ]
 }
