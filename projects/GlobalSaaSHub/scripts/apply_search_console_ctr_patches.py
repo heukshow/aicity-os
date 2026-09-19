@@ -109,6 +109,74 @@ PATCHES = {
             '<h2 class="text-3xl font-black text-white mt-1">Unbounce plans checked September 9, 2026</h2>',
         ),
     ],
+    "alidropship.html": [
+        (
+            "<title>AliDropship Pricing, Features & Review (2026) | COSHUMA</title>",
+            "<title>AliDropship Pricing 2026: $89 Plugin vs $39/mo Pro + 14-Day Trial | COSHUMA</title>",
+        ),
+        (
+            '<meta name="description" content="AliDropship offers WordPress and WooCommerce solutions to automate AliExpress dropshipping store management and product fulfillment with ease.... Discover features, pricing (Varies by plan), and official links for AliDropship on COSHUMA." />',
+            '<meta name="description" content="AliDropship pricing 2026: the WordPress/WooCommerce plugin is $89 one-time; the turnkey Pro subscription starts at $39/month after a 14-day free trial. Compare ownership, hosting and automation before choosing." />',
+        ),
+        (
+            '<meta property="og:title" content="AliDropship Review & Pricing (2026) | COSHUMA" />',
+            '<meta property="og:title" content="AliDropship Pricing 2026: $89 Plugin vs $39/mo Pro | COSHUMA" />',
+        ),
+        (
+            '<meta property="og:description" content="AliDropship offers WordPress and WooCommerce solutions to automate AliExpress dropshipping store management and product fulfillment with ease.... Check rating, pricing, and features." />',
+            '<meta property="og:description" content="Compare AliDropship's $89 one-time plugin with the $39/month turnkey Pro subscription and its 14-day trial before choosing a dropshipping setup." />',
+        ),
+        (
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">AliDropship</h1>',
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">AliDropship Pricing 2026: Plugin vs Pro Subscription</h1>',
+        ),
+        (
+            '<p class="text-slate-300 text-base leading-relaxed">AliDropship offers WordPress and WooCommerce solutions to automate AliExpress dropshipping store management and product fulfillment with ease.</p>',
+            '<p class="text-slate-300 text-base leading-relaxed"><strong class="text-white">Quick answer:</strong> choose the $89 one-time AliDropship plugin if you want to run the software on your own WordPress or WooCommerce store with no recurring plugin fee. Choose the turnkey Pro subscription if you want a store built for you: it currently starts with a 14-day free trial, then $39/month for Basic, with higher Advanced and Ultimate tiers available.</p>',
+        ),
+        (
+            '<div class="text-xl font-extrabold text-emerald-400 mt-0.5">Varies by plan</div>',
+            '<div class="text-xl font-extrabold text-emerald-400 mt-0.5">$89 one-time plugin · Pro from $39/mo after 14-day trial</div>',
+        ),
+        (
+            'href="https://alidropship.com/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-slate-800 text-white text-center border border-slate-600 hover:bg-slate-700 transition-all flex items-center justify-center gap-2"><span>Visit Official AliDropship Site</span><span>→</span></a>',
+            'href="https://alidropship.com/plugin/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-purple-600 text-white text-center border border-purple-500 hover:bg-purple-500 transition-all flex items-center justify-center gap-2"><span>Compare the $89 AliDropship plugin</span><span>→</span></a>',
+        ),
+    ],
+    "pickaxe.html": [
+        (
+            "<title>Pickaxe Pricing, Features & Review (2026) | COSHUMA</title>",
+            "<title>Pickaxe Pricing 2026: Free, Gold $37, Pro $147 & AI Agent Monetization | COSHUMA</title>",
+        ),
+        (
+            '<meta name="description" content="A no-code platform to effortlessly build, deploy, and monetize custom AI agents and branded portals, accelerating your AI development.... Discover features, pricing (See official pricing), and official links for Pickaxe on COSHUMA." />',
+            '<meta name="description" content="Pickaxe pricing 2026: start free; Gold is $37/mo or $29/mo annually, Pro $147/mo or $116/mo annually, Business from $597/mo. Compare AI credits, workspaces, APIs and agent monetization." />',
+        ),
+        (
+            '<meta property="og:title" content="Pickaxe Review & Pricing (2026) | COSHUMA" />',
+            '<meta property="og:title" content="Pickaxe Pricing 2026: Free, Gold $37, Pro $147 | COSHUMA" />',
+        ),
+        (
+            '<meta property="og:description" content="A no-code platform to effortlessly build, deploy, and monetize custom AI agents and branded portals, accelerating your AI development.... Check rating, pricing, and features." />',
+            '<meta property="og:description" content="Compare Pickaxe Free, Gold, Pro and Business pricing, included AI credits, workspaces, APIs, white-labeling and built-in monetization for AI agents." />',
+        ),
+        (
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">Pickaxe</h1>',
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">Pickaxe Pricing 2026: Free, Gold, Pro &amp; Business</h1>',
+        ),
+        (
+            '<p class="text-slate-300 text-base leading-relaxed">A no-code platform to effortlessly build, deploy, and monetize custom AI agents and branded portals, accelerating your AI development.</p>',
+            '<p class="text-slate-300 text-base leading-relaxed"><strong class="text-white">Quick answer:</strong> start free to test an AI agent. Gold is currently $37/month or $29/month billed annually and includes $15/month in AI credits, white-labeling and up to 3 workspaces. Pro is $147/month or $116/month annually with $50/month in credits, unlimited workspaces and included API access. Business starts at $597/month with a 6-month minimum.</p>',
+        ),
+        (
+            '<div class="text-xl font-extrabold text-emerald-400 mt-0.5">See official pricing</div>',
+            '<div class="text-xl font-extrabold text-emerald-400 mt-0.5">Free entry · Gold $37 · Pro $147 · Business from $597</div>',
+        ),
+        (
+            'href="https://pickaxe.ai/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-slate-800 text-white text-center border border-slate-600 hover:bg-slate-700 transition-all flex items-center justify-center gap-2"><span>Visit Official Pickaxe Site</span><span>→</span></a>',
+            'href="https://pickaxe.co/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-purple-600 text-white text-center border border-purple-500 hover:bg-purple-500 transition-all flex items-center justify-center gap-2"><span>Compare Pickaxe plans &amp; start free</span><span>→</span></a>',
+        ),
+    ],
     "sendcloud.html": [
         (
             "<title>Sendcloud Pricing 2026: Free Plan, 14-Day Trial, €28 Lite & Label Fees | COSHUMA</title>",
