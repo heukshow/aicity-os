@@ -299,10 +299,9 @@ jobs:
             git fetch origin main
             remote_subject="$(git log -1 --format=%s origin/main)"
             remote_parent="$(git rev-parse origin/main^ 2>/dev/null || true)"
-            if [ "${GITHUB_RUN_ATTEMPT:-1}" -gt 1 ] \
-              && [ "$remote_subject" = 'data: persist reconciled affiliate source state [skip ci]' ] \
+            if [ "$remote_subject" = 'data: persist reconciled affiliate source state [skip ci]' ] \
               && [ "$remote_parent" = "$GITHUB_SHA" ]; then
-              echo 'Rerun detected the prior attempt state commit; preserving the newer persisted state.'
+              echo 'A state commit already exists on this exact content SHA; preserving the newer persisted state.'
             elif git diff --quiet origin/main HEAD -- "${files[@]}"; then
               echo 'Affiliate source state was already persisted by a newer main commit.'
             else
