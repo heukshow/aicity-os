@@ -120,9 +120,9 @@ for forbidden in ("data/tools.json", "affiliate_status", "affiliate_verified", "
 require("is_sponsored" in buyer_box_generator, "buyer-box generator no longer uses customer-safe sponsorship state")
 require("outbound_url" in buyer_box_generator, "buyer-box generator no longer uses customer-safe outbound URL")
 
-# Producer contract: customer-page generators must never contain copy that exposes
-# editorial queues or partner-program workflow state. Cleanup belongs only in the
-# central sanitizers so a later script cannot reintroduce these labels.
+# Producer contract: retain the existing status guard and add a separate narrow
+# provenance guard so private operational evidence can stay internal while customer-page
+# producers cannot reintroduce who supplied or verified a tracking route.
 PUBLIC_COPY_PRODUCERS = (
     ROOT / "scripts" / "generate_seo_pages.py",
     ROOT / "scripts" / "finalize_omnisend_tracking.py",
@@ -133,15 +133,25 @@ producer_forbidden = re.compile(
     r"(?:affiliate|partner|referral)[-\\s]+(?:status|facts|terms)",
     re.I,
 )
+producer_provenance_forbidden = re.compile(
+    r"(?:senior\s+)?affiliate\s+marketing\s+manager[^.\n<>]{0,180}(?:supplied|provided)|"
+    r"approval\s+email[^.\n<>]{0,220}(?:tracking|referral|affiliate)|"
+    r"Impact\s+Assets",
+    re.I,
+)
 producer_errors = []
 for path in PUBLIC_COPY_PRODUCERS:
-    match = producer_forbidden.search(path.read_text(encoding="utf-8"))
+    text = path.read_text(encoding="utf-8")
+    match = producer_forbidden.search(text)
     if match:
         producer_errors.append(f"{path.relative_to(ROOT).as_posix()}: {match.group(0)}")
+    provenance_match = producer_provenance_forbidden.search(text)
+    if provenance_match:
+        producer_errors.append(f"{path.relative_to(ROOT).as_posix()}: provenance: {provenance_match.group(0)}")
 if producer_errors:
     raise SystemExit(
-        "Public policy contract violation: a customer-page producer contains internal status copy:\\n"
-        + "\\n".join(producer_errors)
+        "Public policy contract violation: a customer-page producer contains internal status/provenance copy:\n"
+        + "\n".join(producer_errors)
     )
 
 raw_status_patterns = {

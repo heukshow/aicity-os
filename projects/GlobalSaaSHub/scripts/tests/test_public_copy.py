@@ -25,6 +25,10 @@ BAD=re.compile(
     r'Not yet editorially rated|Editorial review in progress|Review pending|'
     r'\\b(?:Affiliate|Partner) Facts\\b|'
     r'\\b(?:affiliate|partner|referral)[-\\s]+(?:program\\s+)?(?:status|facts|terms)\\b|'
+    r'\b(?:Senior\s+)?Affiliate Marketing Manager\b[^.<>]{0,180}\b(?:supplied|provided)\b|'
+    r'\bapproval email\b[^.<>]{0,220}\b(?:tracking|referral|affiliate)\b|'
+    r'\bImpact Assets\b|'
+    r'\bvendor-issued\s+(?:pricing\s+)?destination\b|'
     r'You prioritize\s+(?:Not rated|Review pending)|'
     r'pricing structure and\s+(?:Not rated|Review pending)|'
     r'affiliate_verified|affiliate_status|tools\.next\.json|\brepository\b|tracking_pending|pending_review|'
@@ -81,6 +85,10 @@ def main():
     assert violations('<p>Verified referral route</p>')
     assert violations('<p>Start via Verified Referral Link</p>')
     assert violations('<p>Verified customer-facing referral URL: example.com/?ref=x</p>')
+    assert violations('<p>Omnisend Senior Affiliate Marketing Manager supplied COSHUMA a tracked route.</p>')
+    assert violations('<p>The approval email contained an affiliate tracking link.</p>')
+    assert violations('<p>Use the link shown in Impact Assets.</p>')
+    assert violations('<p>Pricing uses the vendor-issued pricing destination.</p>')
     assert violations('<p>COSHUMA does not currently publish a Framer affiliate/revenue link on this page. Creator Program enrollment is being verified.</p>')
     assert violations('<p>COSHUMA may earn a commission if an eligible paid signup is attributed through this current offer link.</p>')
     assert not violations('<p>Affiliate disclosure: COSHUMA may earn a commission from some links at no extra cost to you.</p>')

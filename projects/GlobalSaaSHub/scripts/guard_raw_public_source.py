@@ -28,6 +28,10 @@ CONTEXTUAL_NETWORK = re.compile(
 FORBIDDEN = [
     ("affiliate manager", re.compile(r"\baffiliate\s+manager\b", re.I)),
     ("partner manager", re.compile(r"\bpartner\s+manager\b", re.I)),
+    ("affiliate-role provenance", re.compile(r"\b(?:senior\s+)?affiliate\s+marketing\s+manager\b[^.\n<>]{0,180}\b(?:supplied|provided)\b", re.I)),
+    ("approval-email route provenance", re.compile(r"\bapproval\s+email\b[^.\n<>]{0,220}\b(?:tracking|referral|affiliate)\b", re.I)),
+    ("network asset provenance", re.compile(r"\bImpact\s+Assets\b", re.I)),
+    ("vendor-issued destination provenance", re.compile(r"\bvendor-issued\s+(?:pricing\s+)?destination\b", re.I)),
     ("verified partner tracking", re.compile(r"\bverified\s+partner\s+tracking\b", re.I)),
     ("verified partner route", re.compile(r"\bverified\s+(?:COSHUMA\s+)?partner\s+(?:route|link|offer)\b", re.I)),
     ("verified tracking", re.compile(r"\bverified\s+tracking\b", re.I)),
