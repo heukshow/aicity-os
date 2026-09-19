@@ -20,9 +20,21 @@ def patch_tool_page():
     html = TOOL_PAGE.read_text(encoding="utf-8")
     original = html
 
-    # Jotform Affiliate Marketing Specialist Anna Scheucher directly confirmed on
-    # 2026-09-07 that this is COSHUMA's customer-facing AI Agents partner link.
+    # Keep the exact AI Agents route for the AI-specific section, but the
+    # general tool-guide hero should start from Jotform's vendor-confirmed homepage
+    # route so form buyers can use Starter Free before considering an upgrade.
     html = html.replace(LEGACY_AFFILIATE_URL, AI_AGENTS_URL)
+    hero_ai_pattern = re.compile(
+        r'<a data-cta="affiliate"[^>]*data-cta-source="jotform-hero-(?:ai-agents|free)"[^>]*>.*?</a>',
+        re.DOTALL,
+    )
+    hero_free = (
+        f'<a data-cta="affiliate" data-tool-id="jotform" data-cta-source="jotform-hero-free" '
+        f'href="{HOMEPAGE_AFFILIATE_URL}" target="_blank" rel="sponsored noopener noreferrer" '
+        f'class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-purple-600 hover:bg-purple-500 text-white text-center transition-all">'
+        'Open Jotform → Start Starter Free</a>'
+    )
+    html, hero_free_count = hero_ai_pattern.subn(hero_free, html, count=1)
 
     if AI_AGENTS_URL not in html:
         pattern = re.compile(
@@ -70,6 +82,8 @@ def patch_tool_page():
         raise SystemExit("Legacy Jotform onboarding redirect remained on the tool page")
     if AI_AGENTS_URL not in html:
         raise SystemExit("Verified Jotform AI Agents URL missing from tool page")
+    if HOMEPAGE_AFFILIATE_URL not in html or 'data-cta-source="jotform-hero-free"' not in html:
+        raise SystemExit("Verified Jotform free-start hero route missing from tool page")
     if PRICING_AFFILIATE_URL not in html:
         raise SystemExit("Vendor-confirmed Jotform pricing URL missing from tool page")
     if hero_pricing_count == 0 and 'data-cta-source="jotform-hero-pricing"' not in html:
