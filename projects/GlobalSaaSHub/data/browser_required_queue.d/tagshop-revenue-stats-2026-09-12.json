@@ -2,24 +2,27 @@
   "id": "tagshop-revenue-stats-2026-09-12",
   "tool_id": "tagshop-ai",
   "priority": "high",
-  "status": "approved_tracking_stats_browser_required",
+  "status": "vendor_clarification_waiting_reply",
   "affiliate_status": "approved_tracking",
   "cost": 0,
-  "verified_at": "2026-09-12T17:42:40+09:00",
-  "gmail_message_id": "1a094c8ab5fa3379",
+  "verified_at": "2026-09-18T22:39:08+09:00",
+  "gmail_message_id": "1a0b4be35d48f261",
   "gmail_thread_id": "1a0829e45df98eb7",
-  "reason": "Tagshop's Priyanka Sain directly confirmed that COSHUMA's exact issued referral URL https://tagshop.ai?via=coshuma-22501e automatically tracks referrals and conversions across the site. She also confirmed that the existing FirstPromoter dashboard contains real-time totals for clicks, referred signups, paying customers, pending/earned commissions and payout status. The email contains no numeric totals, so the revenue metrics remain unknown until the authenticated dashboard is read.",
+  "clarification_reply_message_id": "1a0b4e115d83ad19",
+  "reason": "Tagshop's Priyanka Sain supplied a dashboard screenshot after COSHUMA requested current totals. The screenshot visibly shows four values (0, 0, 0 and $0), but the crop does not include the column labels and does not visibly show payout status. COSHUMA therefore cannot safely map those values to clicks, referred signups, paying customers, commission or payout. A clarification reply was already sent from support@coshuma.com asking what the four values correspond to and whether payout status is separate. Until Priyanka replies or an authenticated dashboard view exposes labeled fields, metric-specific values remain unknown.",
   "dashboard_login_url": "https://tagshop.firstpromoter.com/login",
   "verified_customer_urls": {
     "issued_referral_entry": "https://tagshop.ai?via=coshuma-22501e"
   },
   "separate_pricing_or_trial_deeplink": null,
-  "next_action": "Reuse the existing authenticated Tagshop/FirstPromoter session and read the current totals for clicks, referred signups, paying customers, pending/earned commission, payout status and the visible reporting period. Record only values actually shown by the dashboard. If no authenticated session is available, keep this item queued rather than creating another account or application.",
+  "next_action": "Wait for Priyanka's clarification in the existing Gmail thread. Do not send another metrics follow-up while waiting. If the reply labels the figures, record only the explicitly mapped metrics and keep any omitted field unknown. If no clarification arrives and an authenticated Tagshop/FirstPromoter session becomes available, read the labeled dashboard fields directly without changing the referral URL or creating another account.",
   "do_not": [
     "Do not publish or use the FirstPromoter dashboard/login URL as a customer CTA.",
     "Do not construct Tagshop pricing or trial affiliate deep links by appending via=coshuma-22501e to arbitrary paths; the vendor did not issue a separate deep link.",
     "Do not reapply to Tagshop or create a second affiliate account.",
-    "Do not infer clicks, signups, paying customers, commission, payout or revenue from the vendor's site-wide attribution confirmation.",
+    "Do not infer which metric corresponds to any zero in the unlabeled screenshot.",
+    "Do not convert the screenshot's $0 into commission or payout evidence unless the vendor or labeled dashboard identifies the field.",
+    "Do not send a duplicate clarification or metrics request while the existing reply is pending.",
     "Do not pay for any plan or subscription to access statistics."
   ]
 }
