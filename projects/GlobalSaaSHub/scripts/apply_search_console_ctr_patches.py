@@ -109,6 +109,66 @@ PATCHES = {
             '<h2 class="text-3xl font-black text-white mt-1">Unbounce plans checked September 9, 2026</h2>',
         ),
     ],
+    "sendcloud.html": [
+        (
+            "<title>Sendcloud Pricing 2026: Free Plan, 14-Day Trial, €28 Lite & Label Fees | COSHUMA</title>",
+            "<title>Sendcloud Pricing 2026: Free, Lite €28, Growth €87 + 14-Day Trial | COSHUMA</title>",
+        ),
+        (
+            '<meta name="description" content="Sendcloud pricing for 2026: Free up to 20 parcels/month, Lite €28/mo, Growth €87/mo, Premium €175/mo, Pro €639/mo, plus label fees and a 14-day no-card trial. Compare the real cost before choosing a plan." />',
+            '<meta name="description" content="Sendcloud pricing 2026: Free for up to 20 parcels/month; Lite €28, Growth €87, Premium €175 and Pro €639 monthly, plus per-label fees. Compare the 14-day no-card trial and total shipping cost." />',
+        ),
+        (
+            '<meta property="og:title" content="Sendcloud Pricing 2026: Plans, Free Trial & Label Fees | COSHUMA" />',
+            '<meta property="og:title" content="Sendcloud Pricing 2026: Free, Lite €28, Growth €87 & 14-Day Trial | COSHUMA" />',
+        ),
+        (
+            '<h1 class="text-4xl md:text-5xl font-black tracking-tight mt-3">Sendcloud pricing 2026: plans, trial & label fees</h1>',
+            '<h1 class="text-4xl md:text-5xl font-black tracking-tight mt-3">Sendcloud Pricing 2026: Free, Lite, Growth & Label Fees</h1>',
+        ),
+        (
+            '<section class="rounded-3xl border border-[#222538] bg-[#131520] p-7 md:p-9"> <h2 class="text-2xl font-black">Affiliate-program status and link safety</h2> <p class="text-xs text-slate-500 mt-3">Publishing or verifying a tracking route would not by itself prove a signup, sale, commission or payout.</p> </section>',
+            '',
+        ),
+        (
+            '<strong class="text-slate-400">Sources checked September 10, 2026:</strong> Sendcloud official pricing page, Sendcloud official Affiliate Program page, and Sendcloud Help Center\'s 2026 regional subscription-pricing update.',
+            '<strong class="text-slate-400">Sources checked September 19, 2026:</strong> Sendcloud official pricing page and Sendcloud Help Center pricing documentation.',
+        ),
+    ],
+    "gallabox.html": [
+        (
+            "<title>Gallabox Pricing, Features & Review (2026) | COSHUMA</title>",
+            "<title>Gallabox Pricing 2026: 7-Day Trial, Basic $112, Essential $248 | COSHUMA</title>",
+        ),
+        (
+            '<meta name="description" content="An AI-powered B2B platform specializing in WhatsApp automation for marketing, sales, and customer support for businesses and agencies.... Discover features, pricing (See official pricing), and official links for Gallabox on COSHUMA." />',
+            '<meta name="description" content="Gallabox pricing 2026: 7-day no-card trial; annual plans currently show Basic $112/mo, Essential $248/mo and Advanced $474/mo. Compare users, AI credits, WhatsApp automation and AI-agent features." />',
+        ),
+        (
+            '<meta property="og:title" content="Gallabox Review & Pricing (2026) | COSHUMA" />',
+            '<meta property="og:title" content="Gallabox Pricing 2026: 7-Day Trial, Basic $112 & Essential $248 | COSHUMA" />',
+        ),
+        (
+            '<meta property="og:description" content="An AI-powered B2B platform specializing in WhatsApp automation for marketing, sales, and customer support for businesses and agencies.... Check rating, pricing, and features." />',
+            '<meta property="og:description" content="Compare Gallabox Basic, Essential and Advanced pricing, 7-day no-card trial, users, AI credits and WhatsApp/Instagram/web automation before choosing a plan." />',
+        ),
+        (
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">Gallabox</h1>',
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">Gallabox Pricing 2026: Basic, Essential &amp; Advanced</h1>',
+        ),
+        (
+            '<p class="text-slate-300 text-base leading-relaxed">An AI-powered B2B platform specializing in WhatsApp automation for marketing, sales, and customer support for businesses and agencies.</p>',
+            '<p class="text-slate-300 text-base leading-relaxed"><strong class="text-white">Quick answer:</strong> Gallabox offers a 7-day trial without a credit card. Current annual pricing shows Basic at $112/month for 3 users and 500 AI credits, Essential at $248/month for 6 users and 2,000 AI credits, and Advanced at $474/month for 10 users and 8,000 AI credits. Compare the same WhatsApp automation and AI-agent workflow before paying.</p>',
+        ),
+        (
+            '<div class="text-xl font-extrabold text-emerald-400 mt-0.5">See official pricing</div>',
+            '<div class="text-xl font-extrabold text-emerald-400 mt-0.5">7-day trial · Basic $112 · Essential $248 · Advanced $474</div>',
+        ),
+        (
+            'href="https://www.gallabox.com/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-slate-800 text-white text-center border border-slate-600 hover:bg-slate-700 transition-all flex items-center justify-center gap-2"><span>Visit Official Gallabox Site</span><span>→</span></a>',
+            'href="https://gallabox.com/pricing" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-purple-600 text-white text-center border border-purple-500 hover:bg-purple-500 transition-all flex items-center justify-center gap-2"><span>Compare Gallabox pricing &amp; trial</span><span>→</span></a>',
+        ),
+    ],
     "semrush.html": [
         (
             "<title>Semrush Pricing, Features & Review (2026) | COSHUMA</title>",
