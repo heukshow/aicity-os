@@ -9,6 +9,7 @@ on:
     paths:
       - '.github/workflows/coshuma-analytics-snapshot.yml'
       - 'projects/GlobalSaaSHub/scripts/generate_live_dashboard_data.mjs'
+      - 'projects/GlobalSaaSHub/scripts/audit_search_index.mjs'
       - 'projects/GlobalSaaSHub/scripts/dashboard-series.mjs'
       - 'projects/GlobalSaaSHub/scripts/upload_private_dashboard.mjs'
 
@@ -39,6 +40,7 @@ jobs:
           DASHBOARD_OUTPUT_PATH: ${{ runner.temp }}/traffic-revenue-data.json
         run: |
           node scripts/generate_live_dashboard_data.mjs
+          node scripts/audit_search_index.mjs
           node scripts/upload_private_dashboard.mjs
       - name: Remove temporary private snapshot
         if: always()
