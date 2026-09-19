@@ -32,6 +32,8 @@ FORBIDDEN = [
     ("verified partner route", re.compile(r"\bverified\s+(?:COSHUMA\s+)?partner\s+(?:route|link|offer)\b", re.I)),
     ("verified tracking", re.compile(r"\bverified\s+tracking\b", re.I)),
     ("verified link", re.compile(r"\bverified\s+(?:affiliate|referral|customer-facing\s+)?link\b", re.I)),
+    ("vendor-supplied route copy", re.compile(r"\b(?:vendor|provider)[- ]supplied\s+(?:tracked\s+)?(?:route|link|URL)\b", re.I)),
+    ("manager-supplied route copy", re.compile(r"\b(?:exact\s+)?(?:route|link|URL)\s+supplied\s+by\s+[A-Z][A-Za-z0-9 .&-]{1,40}\s+manager\b", re.I)),
     ("customer-facing tracking URL", re.compile(r"\bcustomer-facing\s+(?:tracking|referral|partner)\s+(?:URL|route|link)\b", re.I)),
     ("tracking verification", re.compile(r"\btracking\s+verification\b", re.I)),
     ("affiliate dashboard", re.compile(r"\b(?:affiliate|partner|referral|commission)\s+(?:dashboard|portal)\b", re.I)),
