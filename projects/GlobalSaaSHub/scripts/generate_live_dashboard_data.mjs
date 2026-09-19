@@ -168,6 +168,17 @@ try {
     snapshot:records
   };
   write(data);
+  console.log('COSHUMA_ANALYTICS_SUMMARY ' + JSON.stringify({
+    generated_at:data.generated_at,
+    ranges:data.ranges,
+    top_sources:data.top_sources,
+    top_pages:data.top_pages,
+    top_queries:data.top_queries,
+    affiliate_pages:data.affiliate_pages,
+    affiliate_links:data.affiliate_links,
+    search_pages:data.search_pages,
+    search_latest_record:confirmedSearchDate
+  }));
 } catch {
   console.error('Google analytics collection failed; prior private snapshot is preserved.');
   write(empty('google_api_error','Google API 연결 실패'));
