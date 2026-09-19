@@ -16,6 +16,22 @@ original = text
 
 replacements = [
     (
+        "<title>Moosend Pricing 2026: 30-Day Trial, Plans & Review | COSHUMA</title>",
+        "<title>Moosend Review 2026: 30-Day Free Trial, Pricing & Plans | COSHUMA</title>",
+    ),
+    (
+        '<meta name="description" content="Moosend pricing and review for 2026: 30-day no-card trial, Pro, Moosend+ and Enterprise plans, email credits, automation features, and a current offer link." />',
+        '<meta name="description" content="Moosend review for 2026: test the 30-day no-card trial, compare Pro, Moosend+ and Enterprise, subscriber-based pricing, automation, landing pages and email credits before paying." />',
+    ),
+    (
+        '<meta property="og:title" content="Moosend Pricing 2026: 30-Day Trial, Plans & Review | COSHUMA" />',
+        '<meta property="og:title" content="Moosend Review 2026: 30-Day Free Trial, Pricing & Plans | COSHUMA" />',
+    ),
+    (
+        '<h1 class="text-4xl md:text-5xl font-black tracking-tight mt-3">Moosend pricing & review: test the full workflow before paying</h1>',
+        '<h1 class="text-4xl md:text-5xl font-black tracking-tight mt-3">Moosend review 2026: pricing, 30-day trial & who it fits</h1>',
+    ),
+    (
         "Start Moosend via verified COSHUMA link →",
         "Start the 30-day Moosend trial →",
     ),
