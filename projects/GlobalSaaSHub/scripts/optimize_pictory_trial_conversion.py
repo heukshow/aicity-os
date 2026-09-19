@@ -62,6 +62,33 @@ for rel in ("public/tool/pictory.html", "public/best/pictory-free-trial-pricing.
         raise RuntimeError(f"No-card trial message missing after conversion patch: {rel}")
     if "COSHUMA20" not in html:
         raise RuntimeError(f"Verified Pictory promo code missing after conversion patch: {rel}")
+    if rel.endswith("pictory-free-trial-pricing.html") and ("3 video projects" in html.lower() or ">3 projects<" in html.lower()):
+        raise RuntimeError(f"Stale Pictory project-count trial wording remains after conversion patch: {rel}")
+
+# Remove the remaining outdated project-count wording from the dedicated
+# Pictory trial buyer page. Current first-party pricing expresses the trial in
+# video minutes/credits rather than a 3-project allowance.
+trial_guide_path = ROOT / "public/best/pictory-free-trial-pricing.html"
+trial_guide = trial_guide_path.read_text(encoding="utf-8")
+trial_guide = trial_guide.replace(
+    "Pictory offers a 14-day free trial with 3 video projects.",
+    "Pictory offers a 14-day free trial with 15 video minutes, a 5-minute maximum video length and 50 AI credits."
+)
+trial_guide = trial_guide.replace(
+    "Its pricing FAQ says the trial allows 3 video projects.",
+    "The current pricing comparison lists 15 video minutes, a 5-minute maximum video length and 50 AI credits for the trial."
+)
+trial_guide = trial_guide.replace(
+    "Its pricing FAQ says the trial lets you create 3 video projects.",
+    "The current pricing comparison lists 15 video minutes, a 5-minute maximum video length and 50 AI credits for the trial."
+)
+trial_guide = trial_guide.replace(
+    '<div class="text-xs font-black uppercase tracking-wider text-purple-300">Video projects</div><div class="mt-2 text-2xl font-black text-white">3 projects</div>',
+    '<div class="text-xs font-black uppercase tracking-wider text-purple-300">Trial allowance</div><div class="mt-2 text-2xl font-black text-white">15 video minutes</div>'
+)
+if "3 video projects" in trial_guide.lower() or ">3 projects<" in trial_guide.lower():
+    raise RuntimeError("Stale Pictory 3-project trial wording remains on the dedicated buyer guide")
+trial_guide_path.write_text(trial_guide, encoding="utf-8")
 
 # Surface the current official free-trial allowance on the main Pictory buyer page.
 pictory_path = ROOT / "public/tool/pictory.html"
