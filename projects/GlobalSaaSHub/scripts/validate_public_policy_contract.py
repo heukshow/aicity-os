@@ -62,6 +62,7 @@ tracker_guard = (ROOT / "scripts" / "verify_approved_tracking.mjs").read_text(en
 artifact_guard = (ROOT / "scripts" / "guard_public_artifact_boundary.py").read_text(encoding="utf-8")
 raw_guard = (ROOT / "scripts" / "guard_raw_public_source.py").read_text(encoding="utf-8")
 public_copy_guard = (ROOT / "scripts" / "guard_public_copy.py").read_text(encoding="utf-8")
+buyer_box_generator = (ROOT / "scripts" / "inject_buyer_decision_boxes.mjs").read_text(encoding="utf-8")
 source_boundary_guard = source_guard
 
 require("strip_general_notice" not in source_normalizer, "legacy page-disclosure removal logic is still active")
@@ -108,6 +109,16 @@ for network in ("PartnerStack", "FirstPromoter", "Impact", "Dub", "Cello", "Tolt
     require(network in raw_guard, f"raw source guard no longer covers central network label: {network}")
     require(network in artifact_guard, f"artifact guard no longer covers central network label: {network}")
 require("URL_RE.sub" in raw_guard, "raw source guard no longer masks tracking URLs before scanning")
+
+# Public HTML generators must consume the explicit customer-only projection rather than
+# reading raw private affiliate state. This catches architectural recurrence even when
+# downstream leak scanners happen to sanitize the final bytes successfully.
+require("build_public_tools.mjs" in buyer_box_generator, "buyer-box generator no longer refreshes the customer-only projection")
+require("public-tools.json" in buyer_box_generator, "buyer-box generator no longer consumes the customer-only projection")
+for forbidden in ("data/tools.json", "affiliate_status", "affiliate_verified", "affiliate_url", "official_evidence_url"):
+    require(forbidden not in buyer_box_generator, f"buyer-box public generator reads private field/path: {forbidden}")
+require("is_sponsored" in buyer_box_generator, "buyer-box generator no longer uses customer-safe sponsorship state")
+require("outbound_url" in buyer_box_generator, "buyer-box generator no longer uses customer-safe outbound URL")
 
 raw_status_patterns = {
     "affiliate-revenue-state-copy": re.compile(r"\baffiliate/revenue\s+link\b", re.I),
