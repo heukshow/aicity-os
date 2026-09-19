@@ -61,7 +61,10 @@ FORBIDDEN_PUBLIC_COPY = {
         r"application_state|revenue[_ -]?truth|browser[_ -]?queue|verified customer-facing|"
         r"partner-side evidence|verification evidence|review\s+pending|"
         r"not\s+yet\s+editorially\s+rated|editorial\s+review\s+in\s+progress)\b"
-        r"|\baffiliate\s+approved\b[^\n<>]{0,100}\bpending\s+verification\b",
+        r"|\baffiliate\s+approved\b[^\n<>]{0,100}\bpending\s+verification\b"
+        r"|\b(?:affiliate|partner)[-\s]+program\s+(?:status|facts|terms)\b"
+        r"|\bcurrent\s+(?:affiliate|partner)\s+(?:program\s+)?terms\b"
+        r"|\bpartner\s+facts\b",
         re.I,
     ),
 }
