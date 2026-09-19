@@ -13,7 +13,7 @@ PUBLIC_DIR = PROJECT_DIR / "public"
 
 TEXT_REPLACEMENTS = {
     "Global AI SaaS Decision Platform": "",
-    "GlobalSaaSHub Editorial Rating": "COSHUMA review status",
+    "GlobalSaaSHub Editorial Rating": "Product information",
     "GlobalSaaSHub": "COSHUMA",
     "Side-by-Side Head-to-Head Comparison": "Side-by-Side Comparison",
     "Decision Summary & Evidence": "Quick Take",
@@ -32,8 +32,9 @@ TEXT_REPLACEMENTS = {
         "Listing management or sponsorship does not influence COSHUMA recommendations or ranking decisions.",
     "Global AI SaaS Decision Platform. All rights reserved.":
         "Independent AI & SaaS buyer guides. All rights reserved.",
-    "Not yet editorially rated": "Review pending",
-    "Editorial review in progress": "Review pending",
+    "Not yet editorially rated": "Product details",
+    "Editorial review in progress": "Product details",
+    "Review pending": "Product details",
 }
 
 # Exact verified revenue routes that may safely replace a vendor homepage in
@@ -138,7 +139,7 @@ def polish(text: str) -> str:
     )
 
     text = re.sub(
-        r"You prioritize Review pending, specialized feature set, and reliable industry workflow integration\.",
+        r"You prioritize Product details, specialized feature set, and reliable industry workflow integration\.",
         "Its feature set looks closer to the workflow you need.",
         text,
     )
@@ -148,7 +149,7 @@ def polish(text: str) -> str:
         text,
     )
     text = re.sub(
-        r"You want an alternative approach with ([^.]+) pricing structure and Review pending\.",
+        r"You want an alternative approach with ([^.]+) pricing structure and Product details\.",
         r"Its pricing and workflow are the better fit for how you plan to use the product.",
         text,
     )
