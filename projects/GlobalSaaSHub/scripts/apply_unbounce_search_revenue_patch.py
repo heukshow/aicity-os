@@ -27,6 +27,22 @@ original = html
 
 replacements = [
     (
+        "<title>Unbounce Pricing 2026: $29 Starter + 20%/35% Partner Discount | COSHUMA</title>",
+        "<title>Unbounce Pricing 2026: $29/mo, 14-Day Free Trial & 35% Off | COSHUMA</title>",
+    ),
+    (
+        '<meta name="description" content="Unbounce pricing starts at $29/month. Compare current plans, the 14-day no-card trial, and COSHUMA\'s verified offer: 20% off 3 months or 35% off the first annual subscription." />',
+        '<meta name="description" content="Unbounce pricing starts at $29/month with a 14-day no-card trial. Compare Starter, Build, Experiment and Optimize, plus 20% off 3 months or 35% off the first annual subscription." />',
+    ),
+    (
+        '<meta property="og:title" content="Unbounce Pricing 2026: $29 Starter + 20%/35% Partner Discount" />',
+        '<meta property="og:title" content="Unbounce Pricing 2026: $29/mo + 14-Day Trial + 35% Off" />',
+    ),
+    (
+        '<h1 class="text-4xl md:text-5xl font-black text-white mt-1">Unbounce pricing, trial & current offer discount</h1>',
+        '<h1 class="text-4xl md:text-5xl font-black text-white mt-1">Unbounce pricing 2026: plans, 14-day trial & current discount</h1>',
+    ),
+    (
         "<title>Unbounce Review & Pricing 2026: 14-Day Free Trial, $29 Starter + 20%/35% Discount | COSHUMA</title>",
         "<title>Unbounce Pricing 2026: $22/mo Annual, 14-Day Trial + 20%/35% Off | COSHUMA</title>",
     ),
