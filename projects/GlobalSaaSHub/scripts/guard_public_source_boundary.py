@@ -59,7 +59,9 @@ FORBIDDEN_PUBLIC_COPY = {
     "internal-state-language": re.compile(
         r"\b(?:approved_tracking|affiliate_verified|affiliate_status|affiliate_evidence|"
         r"application_state|revenue[_ -]?truth|browser[_ -]?queue|verified customer-facing|"
-        r"partner-side evidence|verification evidence)\b",
+        r"partner-side evidence|verification evidence|review\s+pending|"
+        r"not\s+yet\s+editorially\s+rated|editorial\s+review\s+in\s+progress)\b"
+        r"|\baffiliate\s+approved\b[^\n<>]{0,100}\bpending\s+verification\b",
         re.I,
     ),
 }
