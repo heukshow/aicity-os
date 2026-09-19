@@ -109,6 +109,40 @@ PATCHES = {
             '<h2 class="text-3xl font-black text-white mt-1">Unbounce plans checked September 9, 2026</h2>',
         ),
     ],
+    "semrush.html": [
+        (
+            "<title>Semrush Pricing, Features & Review (2026) | COSHUMA</title>",
+            "<title>Semrush Pricing 2026: Free Plan, SEO $139, AI Search & 7-Day Trials | COSHUMA</title>",
+        ),
+        (
+            '<meta name="description" content="A leading all-in-one platform providing comprehensive SEO and marketing tools for bloggers, agencies, and B2B content creators.... Discover features, pricing (See official pricing), and official links for Semrush on COSHUMA." />',
+            '<meta name="description" content="Semrush pricing 2026: start free, SEO is $139/mo or $117.33/mo billed annually, and SEO + AI Search starts at $199/mo. Compare keyword research, Site Audit, rank tracking, AI visibility and trial options." />',
+        ),
+        (
+            '<meta property="og:title" content="Semrush Review & Pricing (2026) | COSHUMA" />',
+            '<meta property="og:title" content="Semrush Pricing 2026: Free, SEO $139 & AI Search Plans | COSHUMA" />',
+        ),
+        (
+            '<meta property="og:description" content="A leading all-in-one platform providing comprehensive SEO and marketing tools for bloggers, agencies, and B2B content creators.... Check rating, pricing, and features." />',
+            '<meta property="og:description" content="Compare Semrush Free, SEO and SEO + AI Search plans, current prices, keyword and competitor research, Site Audit, rank tracking and AI visibility." />',
+        ),
+        (
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">Semrush</h1>',
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">Semrush Pricing 2026: Free, SEO &amp; AI Search Plans</h1>',
+        ),
+        (
+            '<p class="text-slate-300 text-base leading-relaxed">A leading all-in-one platform providing comprehensive SEO and marketing tools for bloggers, agencies, and B2B content creators.</p>',
+            '<p class="text-slate-300 text-base leading-relaxed"><strong class="text-white">Quick answer:</strong> use Semrush Free to test the platform without a card. The current SEO plan is $139/month or $117.33/month billed annually and covers 5 websites, 500 tracked keywords, keyword/competitor research, Position Tracking, Site Audit and AI-search reporting. SEO + AI Search starts at $199/month for teams that need custom prompt tracking and deeper AI visibility.</p>',
+        ),
+        (
+            '<div class="text-xl font-extrabold text-emerald-400 mt-0.5">See official pricing</div>',
+            '<div class="text-xl font-extrabold text-emerald-400 mt-0.5">Free entry · SEO $139/mo · SEO + AI Search $199/mo</div>',
+        ),
+        (
+            'href="https://www.semrush.com/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-slate-800 text-white text-center border border-slate-600 hover:bg-slate-700 transition-all flex items-center justify-center gap-2"><span>Visit Official Semrush Site</span><span>→</span></a>',
+            'href="https://www.semrush.com/pricing/seo-ai-search/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-purple-600 text-white text-center border border-purple-500 hover:bg-purple-500 transition-all flex items-center justify-center gap-2"><span>Compare Semrush pricing &amp; free options</span><span>→</span></a>',
+        ),
+    ],
     "aweber.html": [
         (
             "<title>AWeber Review & Pricing 2026: 14-Day Free Trial, $15/month Lite & Best Fit | COSHUMA</title>",
