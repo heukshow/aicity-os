@@ -38,7 +38,10 @@ INTERNAL_STATE = re.compile(
     r"internal\s+verification|affiliate\s+application\s+(?:status|pending|submitted)|"
     r"partner\s+application\s+(?:status|pending|submitted)|tracking\s+status|affiliate\s+status|"
     r"review\s+pending|not\s+yet\s+editorially\s+rated|editorial\s+review\s+in\s+progress)\b"
-    r"|\baffiliate\s+approved\b[^\n<>]{0,100}\bpending\s+verification\b",
+    r"|\baffiliate\s+approved\b[^\n<>]{0,100}\bpending\s+verification\b"
+    r"|\b(?:affiliate|partner)[-\s]+program\s+(?:status|facts|terms)\b"
+    r"|\bcurrent\s+(?:affiliate|partner)\s+(?:program\s+)?terms\b"
+    r"|\bpartner\s+facts\b",
     re.I,
 )
 INTERNAL_DASHBOARD = re.compile(
