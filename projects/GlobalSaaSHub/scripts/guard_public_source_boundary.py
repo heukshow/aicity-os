@@ -67,6 +67,10 @@ FORBIDDEN_PUBLIC_COPY = {
         r"|\bpartner\s+facts\b",
         re.I,
     ),
+    "internal-revenue-mechanics": re.compile(
+        r"\bpublication\s+or\s+test\s+clicks?\s+are\s+not\s+treated\s+as\s+signups?,\s*customers?\s+or\s+revenue\b",
+        re.I,
+    ),
 }
 
 ALLOWED_GENERATED_KEYS = {
