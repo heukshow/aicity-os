@@ -23,8 +23,8 @@ class Page(HTMLParser):
 BAD=re.compile(
     r'GlobalSaaSHub|Global AI SaaS Decision Platform|'
     r'Not yet editorially rated|Editorial review in progress|Review pending|'
-    r'\b(?:Affiliate|Partner) Facts\b|'
-    r'\b(?:affiliate|partner|referral)[-\s]+(?:program\s+)?(?:status|facts|terms)\b|'
+    r'\\b(?:Affiliate|Partner) Facts\\b|'
+    r'\\b(?:affiliate|partner|referral)[-\\s]+(?:program\\s+)?(?:status|facts|terms)\\b|'
     r'\b(?:Senior\s+)?Affiliate Marketing Manager\b[^.<>]{0,180}\b(?:supplied|provided)\b|'
     r'\bapproval email\b[^.<>]{0,220}\b(?:tracking|referral|affiliate)\b|'
     r'\bImpact Assets\b|'
