@@ -111,6 +111,39 @@ PATCHES = {
     ],
     "aweber.html": [
         (
+            "<title>AWeber Review & Pricing 2026: 14-Day Free Trial, $15/month Lite & Best Fit | COSHUMA</title>",
+            "<title>AWeber Pricing 2026: Free Plan, 14-Day Trial, Lite $15 & Plus $30 | COSHUMA</title>",
+        ),
+        (
+            '<meta name="description" content="AWeber pricing for up to 500 subscribers: Lite $15 monthly or $150 annually; Plus $30 monthly or $240 annually. Compare features and the 14-day trial." />',
+            '<meta name="description" content="AWeber pricing 2026: Free supports up to 500 subscribers and 3,000 emails/month; Lite starts at $15/mo and Plus at $30/mo. Compare the 14-day paid-plan trial, limits and annual pricing." />',
+        ),
+        (
+            '<meta property="og:title" content="AWeber Review & Pricing 2026: 14-Day Trial + $15 Lite" />',
+            '<meta property="og:title" content="AWeber Pricing 2026: Free Plan, 14-Day Trial, Lite $15 & Plus $30" />',
+        ),
+        (
+            '<meta property="og:description" content="Compare AWeber\'s current Lite and Plus pricing, 14-day trial, automation capabilities and buyer fit before choosing a plan." />',
+            '<meta property="og:description" content="Compare AWeber Free, Lite and Plus: 500-subscriber free access, current paid pricing, 14-day trial terms, automation limits and annual savings." />',
+        ),
+        (
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">AWeber Review, Pricing &amp; Best-Fit Guide</h1>',
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">AWeber Pricing 2026: Free, Lite &amp; Plus Compared</h1>',
+        ),
+        (
+            '<p class="text-slate-400 text-sm mt-2">Checked against AWeber\'s official pricing and Advocate Program documentation on September 10, 2026.</p>',
+            '<p class="text-slate-400 text-sm mt-2">Pricing and trial terms rechecked against AWeber official pages on September 19, 2026.</p>',
+        ),
+        (
+            '<p class="text-slate-300 leading-relaxed mt-2">AWeber is a practical fit for creators and small businesses that want email campaigns, automations, landing pages, subscriber management and ecommerce tools in one established platform. For up to 500 subscribers, AWeber\'s official pricing tables list Lite at $15 monthly or $150 annually, and Plus at $30 monthly or $240 annually. Annual totals are charged for the year; a 14-day trial is advertised.</p>',
+            '<p class="text-slate-300 leading-relaxed mt-2"><strong class="text-white">Quick answer:</strong> start on AWeber Free if 500 subscribers and 3,000 emails per month cover your workflow. Move to Lite when you need more sending capacity and paid features, or Plus when unlimited lists, landing pages, automations and advanced reporting matter. AWeber also advertises a 14-day trial for paid plans.</p>',
+        ),
+        (
+            '>Compare AWeber plans →</a>',
+            '>Start with AWeber Free →</a>',
+        ),
+
+        (
             "<title>AWeber Pricing, 14-Day Trial & Best Fit (2026) | COSHUMA</title>",
             "<title>AWeber Review & Pricing 2026: 14-Day Free Trial, $15/month Lite & Best Fit | COSHUMA</title>",
         ),
@@ -136,6 +169,35 @@ PATCHES = {
         ),
     ],
     "jotform.html": [
+        (
+            "<title>Jotform Review & Pricing 2026: Free Plan, $34 Bronze, $39 Silver & AI Agents | COSHUMA</title>",
+            "<title>Jotform Pricing 2026: Free Plan, Bronze $34, Silver $39, Gold $99 | COSHUMA</title>",
+        ),
+        (
+            '<meta name="description" content="Jotform review and pricing for 2026: Starter is free, Bronze $34/mo, Silver $39/mo and Gold $99/mo billed annually. Compare plan limits and AI Agents for customer-support automation." />',
+            '<meta name="description" content="Jotform pricing 2026: Starter is free; Bronze $34/mo, Silver $39/mo and Gold $99/mo billed annually. Compare forms, submissions, storage, signed-document limits and when to upgrade." />',
+        ),
+        (
+            '<meta property="og:title" content="Jotform Review & Pricing 2026: Free Plan, Paid Tiers & AI Agents | COSHUMA" />',
+            '<meta property="og:title" content="Jotform Pricing 2026: Free Plan, Bronze $34, Silver $39 & Gold $99 | COSHUMA" />',
+        ),
+        (
+            '<meta property="og:description" content="Compare Jotform Starter, Bronze, Silver, Gold and Enterprise, then see when Jotform AI Agents is the better fit for 24/7 customer-support automation." />',
+            '<meta property="og:description" content="Compare Jotform Free, Bronze, Silver and Gold by price, forms, monthly submissions, storage and signed-document limits before upgrading." />',
+        ),
+        (
+            '<h1 class="text-4xl md:text-5xl font-black text-white tracking-tight">Jotform Review, Pricing & Buyer Guide</h1>',
+            '<h1 class="text-4xl md:text-5xl font-black text-white tracking-tight">Jotform Pricing 2026: Free, Bronze, Silver & Gold</h1>',
+        ),
+        (
+            '<p class="text-sm text-slate-400 mt-2">Updated September 9, 2026</p>',
+            '<p class="text-sm text-slate-400 mt-2">Pricing rechecked against Jotform official pages on September 19, 2026</p>',
+        ),
+        (
+            '<p class="text-lg leading-relaxed text-slate-300 max-w-4xl">Jotform is strongest when you want one no-code stack for forms, payments, e-signatures and workflow capture. The free Starter plan is enough to validate a use case; paid plans mainly raise limits and remove branding. If your goal is automated customer service rather than form building alone, Jotform AI Agents is the more relevant path.</p>',
+            '<p class="text-lg leading-relaxed text-slate-300 max-w-4xl"><strong class="text-white">Quick answer:</strong> use Starter for free if 5 forms and 100 monthly submissions are enough. Bronze raises capacity to 25 forms and 1,000 submissions, Silver to 50 forms and 2,500 submissions, and Gold to 100 forms and 10,000 submissions. Upgrade for real limit pressure, branding removal or HIPAA-enabled features—not just because a paid tier exists.</p>',
+        ),
+
         (
             "<title>Jotform Pricing 2026: Free, Bronze, Silver, Gold & AI Agents | COSHUMA</title>",
             "<title>Jotform Review & Pricing 2026: Free Plan, $34 Bronze, $39 Silver & AI Agents | COSHUMA</title>",
