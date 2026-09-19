@@ -31,9 +31,9 @@ const pages = [
   {
     slug: 'privy-vs-omnisend', ids: ['privy', 'omnisend'],
     checked: 'September 9, 2026',
-    title: 'Privy vs Omnisend Pricing 2026: $30 vs Free/$16/$59',
-    description: "Privy vs Omnisend pricing for 2026: compare Privy's $30/month email plan and 15-day no-card trial with Omnisend Free, Standard from $16 and Pro from $59, plus ecommerce email, SMS, pop-ups and automation.",
-    intro: 'Both products cover ecommerce retention, but the lowest-risk starting point differs. Omnisend offers a permanent Free tier for small lists, while Privy starts with a 15-day no-card trial and puts pop-up capture, email and SMS in one paid stack.',
+    title: 'Omnisend vs Privy 2026: Free Plan vs 15-Day Trial, Pricing & SMS',
+    description: "Omnisend vs Privy in 2026: Omnisend has a $0 Free plan, Standard from $16 and Pro from $59; Privy starts at $30/month with a 15-day no-card trial. Compare email, SMS, pop-ups and automation.",
+    intro: 'Quick answer: Omnisend is the lower-risk start because it has a permanent Free plan, while Privy is stronger when on-site pop-ups and displays are central to the workflow. Compare your contact count, SMS needs and capture strategy before paying.',
     fit: [
       "Shortlist Privy when your immediate problem is converting store traffic with pop-ups and displays and you want email/SMS plus on-site capture under one vendor. Privy's Email plan currently starts at $30/month; Pop-ups & Displays starts at $24/month.",
       "Shortlist Omnisend when you want to test ecommerce email and automation with no subscription cost first. Its Free plan supports up to 250 contacts and 500 emails/month; Standard starts at $16/month and Pro at $59/month."
@@ -53,7 +53,7 @@ const pages = [
     ],
     ctaOverrides: {
       privy: { url: 'https://www.privy.com/pricing', affiliate: false, source: 'privy-vs-omnisend-pricing', label: 'Check Privy pricing →' },
-      omnisend: { url: 'https://your.omnisend.com/VOKyAj', affiliate: true, source: 'privy-vs-omnisend-pricing', label: 'Compare Omnisend plans via COSHUMA →' }
+      omnisend: { url: 'https://your.omnisend.com/VOKyAj', affiliate: true, source: 'privy-vs-omnisend-pricing', label: 'Start with Omnisend Free →' }
     },
     sources: [['Privy official pricing', 'https://www.privy.com/pricing'], ['Omnisend 2026 pricing documentation', 'https://support.omnisend.com/en/articles/3533018-omnisend-pricing-plans-2026'], ['Omnisend official pricing', 'https://www.omnisend.com/pricing/']]
   }
