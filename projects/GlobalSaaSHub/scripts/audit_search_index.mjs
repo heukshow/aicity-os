@@ -23,7 +23,7 @@ async function inspect(access,url){
 }
 const sitemapText=await (await fetch('https://coshuma.com/sitemap.xml')).text();
 const sitemapUrls=[...sitemapText.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1]);
-const historicalRemoved=['https://coshuma.com/tool/merlin-ai.html','https://coshuma.com/compare/kit-vs-convertkit.html'];
+const historicalRemoved=["https://coshuma.com/tool/jasper-ai.html","https://coshuma.com/tool/make.html","https://coshuma.com/tool/synthflow.html","https://coshuma.com/compare/notion-ai-vs-boldsign.html","https://coshuma.com/compare/quillbot-vs-socialchamp-io.html","https://coshuma.com/compare/bolddesk-vs-boldsign.html","https://coshuma.com/compare/socialchamp-io-vs-kinsta.html","https://coshuma.com/compare/reactin-vs-quillbot.html","https://coshuma.com/compare/reactin-vs-socialchamp-io.html","https://coshuma.com/compare/octo-browser-vs-socialchamp-io.html","https://coshuma.com/compare/decktopus-vs-socialchamp-io.html","https://coshuma.com/compare/kit-vs-convertkit.html","https://coshuma.com/compare/kittl-vs-socialchamp-io.html","https://coshuma.com/compare/make-vs-make-com.html","https://coshuma.com/compare/make-vs-unbounce.html","https://coshuma.com/compare/surfeo-vs-socialchamp-io.html","https://coshuma.com/compare/catalister-vs-socialchamp-io.html","https://coshuma.com/compare/synthflow-vs-elevenlabs.html","https://coshuma.com/compare/synthflow-vs-murf-ai.html","https://coshuma.com/tool/merlin-ai.html"];
 const http=[];
 for(const url of [...historicalRemoved,...sitemapUrls]){
   try{
