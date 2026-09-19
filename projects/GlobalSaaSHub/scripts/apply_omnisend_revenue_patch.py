@@ -36,7 +36,7 @@ replacements = [
     ),
     (
         '<meta name="description" content="An advanced e-commerce marketing automation platform, integrating email, SMS, and push notifications to drive sales and customer retention.... Discover features, pricing (See official pricing), and official links for Omnisend on COSHUMA." />',
-        '<meta name="description" content="Omnisend review and pricing for 2026: Free up to 250 billable contacts, Standard from $16/mo and Pro from $59/mo. Compare current email/SMS limits, the first-upgrade discount, and a verified Moosend alternative." />',
+        '<meta name="description" content="Omnisend review and pricing for 2026: Free up to 250 billable contacts, Standard from $16/mo and Pro from $59/mo. Compare current email/SMS limits, the first-upgrade discount, and a Moosend alternative." />',
     ),
     (
         '<meta property="og:title" content="Omnisend Review & Pricing (2026) | COSHUMA" />',
@@ -51,8 +51,8 @@ replacements = [
         '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">Omnisend Review &amp; Pricing 2026</h1>',
     ),
     (
-        '<span>Review pending</span>',
-        '<span>Affiliate approved · exact tracking link pending verification</span>',
+        '<span>Product details</span>',
+        '<span>Product details</span>',
     ),
     (
         "    </style>\n  </head>",
@@ -94,7 +94,7 @@ if marker not in text:
     block = '''        <!-- COSHUMA_OMNISEND_2026_BUYER_DECISION -->
         <section class="rounded-2xl border border-cyan-500/25 bg-cyan-500/5 p-6 space-y-5">
           <div>
-            <div class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-cyan-300">2026 buyer decision · verified against Omnisend Help Center</div>
+            <div class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-cyan-300">2026 buyer decision</div>
             <h2 class="mt-2 text-2xl font-black text-white">Start with contact count and channel needs, not the plan name</h2>
             <p class="mt-2 text-sm leading-relaxed text-slate-300">Omnisend pricing changes with billable contacts. The current Free plan supports up to 250 billable contacts and 500 emails per month. Standard starts at $16/month and includes email credits equal to 12× billable contacts. Pro starts at $59/month with unlimited email; for new paid subscriptions on or after May 4, 2026, SMS is a Pro add-on with volume pricing starting at $0.007 per SMS for US/Canada recipients.</p>
           </div>
@@ -108,7 +108,7 @@ if marker not in text:
             <a data-cta="official" data-tool-id="omnisend" data-cta-source="omnisend_2026_pricing" href="https://www.omnisend.com/pricing/" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl bg-slate-800 border border-slate-600 text-white font-extrabold text-center">Check current Omnisend pricing →</a>
             <a data-cta="affiliate" data-tool-id="moosend" data-cta-source="omnisend_verified_alternative" href="https://trymoo.moosend.com/6eappdpw04pw" target="_blank" rel="sponsored noopener noreferrer" class="px-5 py-3.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-extrabold text-center">Prefer a 30-day trial? Compare Moosend →</a>
           </div>
-          <p class="text-[11px] leading-5 text-slate-500">COSHUMA was approved for the Omnisend Affiliate Program on September 9, 2026. The approval email did not contain an account-specific customer tracking URL, so Omnisend buttons intentionally remain ordinary official links until the exact Impact-issued URL is copied and verified. The Moosend button uses COSHUMA's separately verified customer-facing partner URL; COSHUMA may earn a commission on an eligible Moosend purchase at no extra cost to you.</p>
+          <p class="text-[11px] leading-5 text-slate-500">Plan terms and discounts can change. Confirm final pricing and eligibility on the vendor site before purchasing.</p>
         </section>
 
 '''
@@ -117,7 +117,7 @@ if marker not in text:
 # The generic copy polisher intentionally removes weak boilerplate. On Omnisend that left
 # nearly empty Pros/Cons cards in production. Replace only those exact post-polish
 # placeholders with facts supported by Omnisend's current 2026 pricing documentation.
-pros_placeholder = '''              <li>Review pending</li>
+pros_placeholder = '''              <li>Product details</li>
 
               
 '''
