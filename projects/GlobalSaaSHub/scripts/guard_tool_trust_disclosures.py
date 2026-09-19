@@ -30,6 +30,11 @@ AFFILIATE_DISCLOSURE_RE = re.compile(
     re.S,
 )
 SOURCE_LINK_RE = re.compile(r'<a\b[^>]*href="([^"]+)"[^>]*>.*?</a>', re.S | re.I)
+EMPTY_SOURCES_RE = re.compile(
+    r'<div><div class="text-\[10px\] uppercase tracking-wider text-slate-500">Sources checked</div>'
+    r'<div class="mt-1 text-sm">\s*</div></div>',
+    re.S,
+)
 FALSE_PHRASE = "Affiliate destination verified separately from editorial product sources."
 
 
@@ -63,6 +68,7 @@ def strip_internal_evidence_links(body, tool):
     body = re.sub(r'(<div class="mt-1 text-sm">)\s*·\s*', r'\1', body)
     body = re.sub(r'\s*·\s*(</div>)', r'\1', body)
     body = re.sub(r'\s*·\s*·\s*', ' · ', body)
+    body = EMPTY_SOURCES_RE.sub("", body)
     return body
 
 
@@ -99,11 +105,14 @@ for tool_id, tool in by_id.items():
             "with an exact URL but still says its affiliate destination is verified"
         )
 
-    # Internal evidence pointers are never part of customer-facing trust blocks.
-    for key in ("official_evidence_url", "affiliate_source_url", "affiliate_workflow_url"):
-        value = tool.get(key)
-        if isinstance(value, str) and value.strip() and value.strip() in text:
-            raise SystemExit(f"Public trust block leaked internal evidence URL for {tool_id}: {key}")
+    # Internal evidence pointers are never part of the generated public trust block.
+    public_trust = TRUST_RE.search(text)
+    if public_trust:
+        public_body = unescape(public_trust.group(1))
+        for key in ("official_evidence_url", "affiliate_source_url", "affiliate_workflow_url"):
+            value = tool.get(key)
+            if isinstance(value, str) and value.strip() and value.strip() in public_body:
+                raise SystemExit(f"Public trust block leaked internal evidence URL for {tool_id}: {key}")
 
     if text != original:
         page.write_text(text, encoding="utf-8")
