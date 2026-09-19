@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-09-19T13:24:40.328Z",
+  "generatedAt": "2026-09-19T13:41:33.727Z",
   "counts": {
     "totalTools": 179,
-    "verifiedAffiliates": 116,
-    "revenueReadyAffiliates": 72,
-    "genericRevenueReadyAffiliates": 69,
+    "verifiedAffiliates": 117,
+    "revenueReadyAffiliates": 73,
+    "genericRevenueReadyAffiliates": 70,
     "targetedRevenueReadyAffiliates": 3,
-    "openMonetizationGaps": 83,
+    "openMonetizationGaps": 82,
     "directActionableGaps": 13,
     "browserRequiredGaps": 23,
-    "watchOnlyGaps": 47,
+    "watchOnlyGaps": 46,
     "doNotReapply": 166,
     "toolPages": 179,
     "comparePages": 278,
@@ -18,21 +18,21 @@
   "revenueFocus": {
     "policy": "prioritize_direct_existing_gaps_without_reapplying_waiting_states",
     "allowNewTools": false,
-    "reason": "13 existing tools still have directly actionable affiliate gaps; 47 are watch-only and 23 require browser work."
+    "reason": "13 existing tools still have directly actionable affiliate gaps; 46 are watch-only and 23 require browser work."
   },
   "affiliateCoverage": {
     "counts": {
-      "revenueReady": 72,
-      "genericRevenueReady": 69,
+      "revenueReady": 73,
+      "genericRevenueReady": 70,
       "targetedRevenueReady": 3,
       "terminal": 25,
-      "openMonetizationGaps": 83,
+      "openMonetizationGaps": 82,
       "directActionableGaps": 13,
       "browserRequiredGaps": 23,
-      "watchOnlyGaps": 47,
+      "watchOnlyGaps": 46,
       "doNotReapply": 166,
       "unclassifiedAffiliateStatus": 7,
-      "exactAffiliateUrlMissing": 83,
+      "exactAffiliateUrlMissing": 82,
       "officialUnverified": 1,
       "pricingUnverified": 132
     },
@@ -726,6 +726,24 @@
         "name": "LiftmyCV",
         "officialVerified": true,
         "pricingVerified": false,
+        "affiliateStatus": "approved_tracking",
+        "affiliateVerified": true,
+        "hasAffiliateUrl": true,
+        "genericRevenueReady": true,
+        "targetedRevenueReady": true,
+        "revenueReady": true,
+        "terminal": false,
+        "doNotReapply": true,
+        "browserRequired": false,
+        "directActionableGap": false,
+        "watchOnlyGap": false,
+        "blocker": null
+      },
+      {
+        "id": "livechat",
+        "name": "LiveChat",
+        "officialVerified": true,
+        "pricingVerified": true,
         "affiliateStatus": "approved_tracking",
         "affiliateVerified": true,
         "hasAffiliateUrl": true,
@@ -2360,24 +2378,6 @@
         "blocker": "exact_customer_affiliate_url_missing"
       },
       {
-        "id": "livechat",
-        "name": "LiveChat",
-        "officialVerified": true,
-        "pricingVerified": true,
-        "affiliateStatus": "referral_link_requested",
-        "affiliateVerified": false,
-        "hasAffiliateUrl": false,
-        "genericRevenueReady": false,
-        "targetedRevenueReady": false,
-        "revenueReady": false,
-        "terminal": false,
-        "doNotReapply": true,
-        "browserRequired": false,
-        "directActionableGap": false,
-        "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
-      },
-      {
         "id": "lovo",
         "name": "Lovo",
         "officialVerified": true,
@@ -3602,6 +3602,14 @@
       "verified": true,
       "url": "https://www.liftmycv.com/?via=sangkwon",
       "verifiedAt": "2026-08-31T14:00:00Z"
+    },
+    {
+      "id": "livechat",
+      "name": "LiveChat",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP",
+      "verifiedAt": "2026-09-18T19:38:07+09:00"
     },
     {
       "id": "loopcv",
