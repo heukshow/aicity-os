@@ -1,9 +1,9 @@
 """Keep tool-page trust blocks customer-only and prevent affiliate verification overclaims.
 
 The public trust block may show buyer-relevant product/pricing sources, but internal
-operational evidence fields must never be rendered into customer pages. In particular,
-`official_evidence_url` is an internal evidence pointer and is private-by-default even
-when it happens to point to a public vendor page.
+operational evidence fields must never be rendered into customer pages. An internal
+evidence URL is private-by-default unless the same URL is also explicitly present in a
+customer-facing source field (`pricing_source_url` or `official_url`).
 
 This script runs late in the production build so earlier page generators cannot
 reintroduce internal evidence links or affiliate-state copy. It is intentionally
@@ -48,13 +48,27 @@ def exact_tracking_verified(tool):
     )
 
 
-def strip_internal_evidence_links(body, tool):
-    """Remove private-by-default evidence pointers from the public Sources checked block."""
+def customer_source_urls(tool):
+    """Explicit public-source allowlist used by the customer-facing trust block."""
+    return {
+        value.strip()
+        for key in ("pricing_source_url", "official_url")
+        if isinstance((value := tool.get(key)), str) and value.strip()
+    }
+
+
+def private_only_evidence_urls(tool):
     internal_urls = {
         value.strip()
         for key in ("official_evidence_url", "affiliate_source_url", "affiliate_workflow_url")
         if isinstance((value := tool.get(key)), str) and value.strip()
     }
+    return internal_urls - customer_source_urls(tool)
+
+
+def strip_internal_evidence_links(body, tool):
+    """Remove private-by-default evidence pointers from the public Sources checked block."""
+    internal_urls = private_only_evidence_urls(tool)
     if not internal_urls:
         return body
 
@@ -105,14 +119,13 @@ for tool_id, tool in by_id.items():
             "with an exact URL but still says its affiliate destination is verified"
         )
 
-    # Internal evidence pointers are never part of the generated public trust block.
+    # Private-only evidence pointers are never part of the generated public trust block.
     public_trust = TRUST_RE.search(text)
     if public_trust:
         public_body = unescape(public_trust.group(1))
-        for key in ("official_evidence_url", "affiliate_source_url", "affiliate_workflow_url"):
-            value = tool.get(key)
-            if isinstance(value, str) and value.strip() and value.strip() in public_body:
-                raise SystemExit(f"Public trust block leaked internal evidence URL for {tool_id}: {key}")
+        for value in private_only_evidence_urls(tool):
+            if value in public_body:
+                raise SystemExit(f"Public trust block leaked private-only evidence URL for {tool_id}")
 
     if text != original:
         page.write_text(text, encoding="utf-8")
