@@ -1,9 +1,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const tools = JSON.parse(fs.readFileSync(path.join(root, 'data/tools.json'), 'utf8'));
+const here = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(here, '..');
+
+// Public-page generators must consume only the explicit customer-safe projection.
+// Refresh it from the private source first, then never touch raw tools/state here.
+execFileSync(process.execPath, [path.join(here, 'build_public_tools.mjs')], { cwd: root, stdio: 'inherit' });
+const publicToolsPath = path.join(root, 'src', 'generated', 'public-tools.json');
+const tools = JSON.parse(fs.readFileSync(publicToolsPath, 'utf8'));
 const toolMap = new Map(tools.map((t) => [t.id, t]));
 const esc = (s) => String(s ?? '').replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 const cleanHttps = (value) => {
@@ -14,8 +21,8 @@ const cleanHttps = (value) => {
     return null;
   }
 };
-const approved = (t) => Boolean(t?.affiliate_verified === true && t?.affiliate_status === 'approved_tracking' && cleanHttps(t.affiliate_url));
-const publicSource = (t) => cleanHttps(t.pricing_source_url) || cleanHttps(t.official_evidence_url) || cleanHttps(t.official_url);
+const approved = (t) => Boolean(t?.is_sponsored === true && cleanHttps(t.outbound_url));
+const publicSource = (t) => cleanHttps(t.pricing_source_url) || cleanHttps(t.official_url);
 const features = (t) => Array.isArray(t.key_features) ? t.key_features.filter(Boolean) : [];
 const category = (t) => t.category_display || 'AI & SaaS software';
 
@@ -147,7 +154,7 @@ for (const t of selected) {
 <dl><dt class="font-bold">Free plan</dt><dd>${esc(cfg.freePlan)}</dd><dt class="font-bold">Free trial</dt><dd>${esc(cfg.trial)}</dd></dl>
 <p>${esc(cfg.risk)}</p>
 <p class="text-sm text-slate-400">Official/public source: <a data-cta-source="buyer-box-source" href="${esc(cfg.source)}" target="_blank" rel="noopener noreferrer" class="underline">check current product or pricing details</a>. Editorial fit guidance, not a hands-on performance test.</p>
-<div class="flex flex-wrap gap-3"><a data-cta="affiliate" data-cta-source="buyer-box-primary" data-tool-id="${t.id}" href="${esc(t.affiliate_url)}" target="_blank" rel="sponsored noopener noreferrer" class="rounded-xl bg-purple-600 px-5 py-3 font-bold">Explore ${esc(t.name)} →</a><a data-cta="official" data-cta-source="buyer-box-official" href="${esc(t.official_url)}" target="_blank" rel="noopener noreferrer" class="rounded-xl border border-slate-500 px-5 py-3">Official website</a></div>
+<div class="flex flex-wrap gap-3"><a data-cta="affiliate" data-cta-source="buyer-box-primary" data-tool-id="${t.id}" href="${esc(t.outbound_url)}" target="_blank" rel="sponsored noopener noreferrer" class="rounded-xl bg-purple-600 px-5 py-3 font-bold">Explore ${esc(t.name)} →</a><a data-cta="official" data-cta-source="buyer-box-official" href="${esc(t.official_url)}" target="_blank" rel="noopener noreferrer" class="rounded-xl border border-slate-500 px-5 py-3">Official website</a></div>
 <p>Compare alternatives: ${alternatives}</p>
 </section>
 <!-- buyer-box:end -->`;
