@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T20:20:03.042Z",
+  "generated_at": "2026-09-19T00:45:08.993Z",
   "evidence_scope": "Combined authenticated revenue-browser baseline, current revenue-truth records, and explicit account-wide commission/payout evidence.",
   "policy": {
     "purpose": "Detect approved monetized routes that can leak revenue because downstream affiliate metrics are missing or stale.",
@@ -11,12 +11,12 @@
   },
   "summary": {
     "approved_tracked_tools": 70,
-    "P0_UNCHECKED": 48,
-    "P1_STALE": 5,
-    "P1_PARTIAL": 1,
-    "P2_COVERED": 16,
-    "unchecked_or_stale_or_partial": 54,
-    "account_groups_to_check": 54
+    "P0_UNCHECKED": 49,
+    "P1_STALE": 10,
+    "P1_PARTIAL": 2,
+    "P2_COVERED": 9,
+    "unchecked_or_stale_or_partial": 61,
+    "account_groups_to_check": 55
   },
   "account_groups": [
     {
@@ -55,6 +55,55 @@
           "name": "Voibe",
           "priority": "P0_UNCHECKED",
           "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
+        }
+      ]
+    },
+    {
+      "account_id": "partnerstack-account",
+      "network": "PartnerStack",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "tools": [
+        {
+          "id": "claap",
+          "name": "Claap",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
+        },
+        {
+          "id": "descript",
+          "name": "Descript",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
+        },
+        {
+          "id": "bookyourdata",
+          "name": "Bookyourdata",
+          "priority": "P1_STALE",
+          "reason": "Latest revenue evidence is 11 days old."
+        },
+        {
+          "id": "gamma",
+          "name": "Gamma",
+          "priority": "P1_STALE",
+          "reason": "Latest revenue evidence is 11 days old."
+        },
+        {
+          "id": "moosend",
+          "name": "Moosend",
+          "priority": "P1_STALE",
+          "reason": "Latest revenue evidence is 11 days old."
+        },
+        {
+          "id": "murf-ai",
+          "name": "Murf AI",
+          "priority": "P1_STALE",
+          "reason": "Latest revenue evidence is 11 days old."
+        },
+        {
+          "id": "unbounce",
+          "name": "Unbounce",
+          "priority": "P1_STALE",
+          "reason": "Latest revenue evidence is 11 days old."
         }
       ]
     },
@@ -410,19 +459,6 @@
       ]
     },
     {
-      "account_id": "omnisend",
-      "network": "개별 제휴 포털",
-      "portal_url": null,
-      "tools": [
-        {
-          "id": "omnisend",
-          "name": "Omnisend",
-          "priority": "P0_UNCHECKED",
-          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
-        }
-      ]
-    },
-    {
       "account_id": "outlierkit",
       "network": "개별 제휴 포털",
       "portal_url": null,
@@ -652,7 +688,7 @@
           "id": "aiassistworks",
           "name": "AiAssistWorks",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 10 days old."
+          "reason": "Latest revenue evidence is 11 days old."
         }
       ]
     },
@@ -691,7 +727,7 @@
           "id": "eprofessor",
           "name": "eProfessor",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 10 days old."
+          "reason": "Latest revenue evidence is 11 days old."
         }
       ]
     },
@@ -716,6 +752,19 @@
         {
           "id": "tally",
           "name": "Tally",
+          "priority": "P1_PARTIAL",
+          "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown."
+        }
+      ]
+    },
+    {
+      "account_id": "omnisend",
+      "network": "Impact",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "omnisend",
+          "name": "Omnisend",
           "priority": "P1_PARTIAL",
           "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown."
         }
@@ -767,6 +816,42 @@
       "network": "Lemon Squeezy",
       "account_id": "lemonsqueezy-account",
       "portal_url": "https://affiliates.lemonsqueezy.com/programs/voibe",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
+      "coverage_type": "tool",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_metrics": null,
+      "evidence_records": 0
+    },
+    {
+      "id": "claap",
+      "name": "Claap",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://get.claap.io/rc9nqme16a9q-gfvrqk",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P0_UNCHECKED",
+      "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
+      "coverage_type": "tool",
+      "latest_evidence_at": null,
+      "evidence_age_days": null,
+      "evidence_source": null,
+      "evidence_id": null,
+      "latest_metrics": null,
+      "evidence_records": 0
+    },
+    {
+      "id": "descript",
+      "name": "Descript",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://get.descript.com/ole5fu20j5sq",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
       "priority": "P0_UNCHECKED",
       "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
       "coverage_type": "tool",
@@ -1264,24 +1349,6 @@
       "evidence_records": 0
     },
     {
-      "id": "omnisend",
-      "name": "Omnisend",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://your.omnisend.com/4aA5k9",
-      "network": "개별 제휴 포털",
-      "account_id": "omnisend",
-      "portal_url": null,
-      "priority": "P0_UNCHECKED",
-      "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
-      "coverage_type": "tool",
-      "latest_evidence_at": null,
-      "evidence_age_days": null,
-      "evidence_source": null,
-      "evidence_id": null,
-      "latest_metrics": null,
-      "evidence_records": 0
-    },
-    {
       "id": "outlierkit",
       "name": "OutlierKit",
       "affiliate_status": "approved_tracking",
@@ -1596,10 +1663,10 @@
       "account_id": "aiassistworks",
       "portal_url": "https://aiassistworks.affonso.io/",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 10 days old.",
+      "reason": "Latest revenue evidence is 11 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T20:29:50Z",
-      "evidence_age_days": 10,
+      "evidence_age_days": 11,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -1686,10 +1753,10 @@
       "account_id": "eprofessor",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 10 days old.",
+      "reason": "Latest revenue evidence is 11 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T21:24:29.148094Z",
-      "evidence_age_days": 10,
+      "evidence_age_days": 11,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -1738,6 +1805,156 @@
       "evidence_records": 1
     },
     {
+      "id": "bookyourdata",
+      "name": "Bookyourdata",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://join.bookyourdata.com/swcyqmumr3s5",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P1_STALE",
+      "reason": "Latest revenue evidence is 11 days old.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-08T00:00:00Z",
+      "evidence_age_days": 11,
+      "evidence_source": "authenticated-browser-dashboard",
+      "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
+      "latest_metrics": {
+        "outbound_clicks": 7,
+        "signups_referrals": 0,
+        "trials": null,
+        "paid_customers": null,
+        "gross_sales_revenue": 0,
+        "commission_earned": null,
+        "commission_approved": null,
+        "commission_pending": null,
+        "payout_paid": null,
+        "payout_pending": null,
+        "network_reported_conversions": null
+      },
+      "evidence_records": 1
+    },
+    {
+      "id": "gamma",
+      "name": "Gamma",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://try.gamma.app/pu20lusdpn1j",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P1_STALE",
+      "reason": "Latest revenue evidence is 11 days old.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-08T00:00:00Z",
+      "evidence_age_days": 11,
+      "evidence_source": "authenticated-browser-dashboard",
+      "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
+      "latest_metrics": {
+        "outbound_clicks": 3,
+        "signups_referrals": 0,
+        "trials": null,
+        "paid_customers": null,
+        "gross_sales_revenue": 0,
+        "commission_earned": null,
+        "commission_approved": null,
+        "commission_pending": null,
+        "payout_paid": null,
+        "payout_pending": null,
+        "network_reported_conversions": null
+      },
+      "evidence_records": 1
+    },
+    {
+      "id": "moosend",
+      "name": "Moosend",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://trymoo.moosend.com/6eappdpw04pw",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P1_STALE",
+      "reason": "Latest revenue evidence is 11 days old.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-08T00:00:00Z",
+      "evidence_age_days": 11,
+      "evidence_source": "authenticated-browser-dashboard",
+      "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
+      "latest_metrics": {
+        "outbound_clicks": 2,
+        "signups_referrals": 0,
+        "trials": null,
+        "paid_customers": null,
+        "gross_sales_revenue": 0,
+        "commission_earned": null,
+        "commission_approved": null,
+        "commission_pending": null,
+        "payout_paid": null,
+        "payout_pending": null,
+        "network_reported_conversions": null
+      },
+      "evidence_records": 1
+    },
+    {
+      "id": "murf-ai",
+      "name": "Murf AI",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://get.murf.ai/fqac0vixj0qs",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P1_STALE",
+      "reason": "Latest revenue evidence is 11 days old.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-08T00:00:00Z",
+      "evidence_age_days": 11,
+      "evidence_source": "authenticated-browser-dashboard",
+      "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
+      "latest_metrics": {
+        "outbound_clicks": 4,
+        "signups_referrals": 0,
+        "trials": null,
+        "paid_customers": null,
+        "gross_sales_revenue": 0,
+        "commission_earned": null,
+        "commission_approved": null,
+        "commission_pending": null,
+        "payout_paid": null,
+        "payout_pending": null,
+        "network_reported_conversions": null
+      },
+      "evidence_records": 1
+    },
+    {
+      "id": "unbounce",
+      "name": "Unbounce",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://unbounce.partnerlinks.io/5ubjnt8lluqi",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P1_STALE",
+      "reason": "Latest revenue evidence is 11 days old.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-08T00:00:00Z",
+      "evidence_age_days": 11,
+      "evidence_source": "authenticated-browser-dashboard",
+      "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
+      "latest_metrics": {
+        "outbound_clicks": 8,
+        "signups_referrals": 0,
+        "trials": null,
+        "paid_customers": null,
+        "gross_sales_revenue": 0,
+        "commission_earned": null,
+        "commission_approved": null,
+        "commission_pending": null,
+        "payout_paid": null,
+        "payout_pending": null,
+        "network_reported_conversions": null
+      },
+      "evidence_records": 1
+    },
+    {
       "id": "tally",
       "name": "Tally",
       "affiliate_status": "approved_tracking",
@@ -1754,6 +1971,36 @@
       "evidence_id": "gmail:1a0918839bda8d0f",
       "latest_metrics": {
         "outbound_clicks": null,
+        "signups_referrals": null,
+        "trials": null,
+        "paid_customers": null,
+        "gross_sales_revenue": null,
+        "commission_earned": null,
+        "commission_approved": null,
+        "commission_pending": null,
+        "payout_paid": null,
+        "payout_pending": null,
+        "network_reported_conversions": null
+      },
+      "evidence_records": 1
+    },
+    {
+      "id": "omnisend",
+      "name": "Omnisend",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://your.omnisend.com/4aA5k9",
+      "network": "Impact",
+      "account_id": "omnisend",
+      "portal_url": null,
+      "priority": "P1_PARTIAL",
+      "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-18T14:29:47Z",
+      "evidence_age_days": 0,
+      "evidence_source": "vendor-human-email",
+      "evidence_id": "gmail:1a0b4ec7c76011ec",
+      "latest_metrics": {
+        "outbound_clicks": 1,
         "signups_referrals": null,
         "trials": null,
         "paid_customers": null,
@@ -1809,7 +2056,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 2,
+      "evidence_age_days": 3,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "browser:boldsign-affiliate-dashboard;github:issue-380",
       "latest_metrics": {
@@ -1839,7 +2086,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 2,
+      "evidence_age_days": 3,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "browser:pictory-partners-home;github:issue-315",
       "latest_metrics": {
@@ -1869,7 +2116,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 2,
+      "evidence_age_days": 3,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "browser:highlevel-affiliate-home;github:issue-337",
       "latest_metrics": {
@@ -1899,7 +2146,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-15T00:00:00Z",
-      "evidence_age_days": 3,
+      "evidence_age_days": 4,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "github:issue-388",
       "latest_metrics": {
@@ -1959,7 +2206,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 2,
+      "evidence_age_days": 3,
       "evidence_source": "vendor-report-email+authenticated-partner-app",
       "evidence_id": "gmail:1a08c0544c56b5ac;browser:partners.livechat.com/app/affiliate:2026-09-16",
       "latest_metrics": {
@@ -1978,34 +2225,6 @@
       "evidence_records": 1
     },
     {
-      "id": "bookyourdata",
-      "name": "Bookyourdata",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://join.bookyourdata.com/swcyqmumr3s5",
-      "network": "PartnerStack",
-      "account_id": "partnerstack-account",
-      "portal_url": "https://dash.partnerstack.com/home",
-      "priority": "P2_COVERED",
-      "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
-      "coverage_type": "account_revenue",
-      "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 7,
-      "evidence_source": "authenticated-private-ops-dashboard",
-      "evidence_id": "github:issue-375-comment-5627576507",
-      "latest_metrics": {
-        "account_reward_count": 0,
-        "account_commission_total": 0,
-        "account_commission_pending": 0,
-        "account_commission_paid": 0,
-        "account_payout_available": 0,
-        "account_payout_withdrawn": 0,
-        "per_program_signups_referrals": null,
-        "per_program_trials": null,
-        "per_program_paid_customers": null
-      },
-      "evidence_records": 2
-    },
-    {
       "id": "brand24",
       "name": "Brand24",
       "affiliate_status": "approved_tracking",
@@ -2014,162 +2233,24 @@
       "account_id": "partnerstack-account",
       "portal_url": "https://dash.partnerstack.com/home",
       "priority": "P2_COVERED",
-      "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
-      "coverage_type": "account_revenue",
-      "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 7,
-      "evidence_source": "authenticated-private-ops-dashboard",
-      "evidence_id": "github:issue-375-comment-5627576507",
+      "reason": "Recent evidence-backed downstream revenue state exists.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-15T11:55:21Z",
+      "evidence_age_days": 3,
+      "evidence_source": "authenticated-partnerstack-dashboard+vendor-human-email",
+      "evidence_id": "browser:partnerstack-brand24-home-and-links:2026-09-15;gmail:1a0a4ebf43d40e98;github:issue-373-comment-5680067918",
       "latest_metrics": {
-        "account_reward_count": 0,
-        "account_commission_total": 0,
-        "account_commission_pending": 0,
-        "account_commission_paid": 0,
-        "account_payout_available": 0,
-        "account_payout_withdrawn": 0,
-        "per_program_signups_referrals": null,
-        "per_program_trials": null,
-        "per_program_paid_customers": null
-      },
-      "evidence_records": 3
-    },
-    {
-      "id": "claap",
-      "name": "Claap",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://get.claap.io/rc9nqme16a9q-gfvrqk",
-      "network": "PartnerStack",
-      "account_id": "partnerstack-account",
-      "portal_url": "https://dash.partnerstack.com/home",
-      "priority": "P2_COVERED",
-      "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
-      "coverage_type": "account_revenue",
-      "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 7,
-      "evidence_source": "authenticated-private-ops-dashboard",
-      "evidence_id": "github:issue-375-comment-5627576507",
-      "latest_metrics": {
-        "account_reward_count": 0,
-        "account_commission_total": 0,
-        "account_commission_pending": 0,
-        "account_commission_paid": 0,
-        "account_payout_available": 0,
-        "account_payout_withdrawn": 0,
-        "per_program_signups_referrals": null,
-        "per_program_trials": null,
-        "per_program_paid_customers": null
-      },
-      "evidence_records": 1
-    },
-    {
-      "id": "descript",
-      "name": "Descript",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://get.descript.com/ole5fu20j5sq",
-      "network": "PartnerStack",
-      "account_id": "partnerstack-account",
-      "portal_url": "https://dash.partnerstack.com/home",
-      "priority": "P2_COVERED",
-      "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
-      "coverage_type": "account_revenue",
-      "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 7,
-      "evidence_source": "authenticated-private-ops-dashboard",
-      "evidence_id": "github:issue-375-comment-5627576507",
-      "latest_metrics": {
-        "account_reward_count": 0,
-        "account_commission_total": 0,
-        "account_commission_pending": 0,
-        "account_commission_paid": 0,
-        "account_payout_available": 0,
-        "account_payout_withdrawn": 0,
-        "per_program_signups_referrals": null,
-        "per_program_trials": null,
-        "per_program_paid_customers": null
-      },
-      "evidence_records": 1
-    },
-    {
-      "id": "gamma",
-      "name": "Gamma",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://try.gamma.app/pu20lusdpn1j",
-      "network": "PartnerStack",
-      "account_id": "partnerstack-account",
-      "portal_url": "https://dash.partnerstack.com/home",
-      "priority": "P2_COVERED",
-      "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
-      "coverage_type": "account_revenue",
-      "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 7,
-      "evidence_source": "authenticated-private-ops-dashboard",
-      "evidence_id": "github:issue-375-comment-5627576507",
-      "latest_metrics": {
-        "account_reward_count": 0,
-        "account_commission_total": 0,
-        "account_commission_pending": 0,
-        "account_commission_paid": 0,
-        "account_payout_available": 0,
-        "account_payout_withdrawn": 0,
-        "per_program_signups_referrals": null,
-        "per_program_trials": null,
-        "per_program_paid_customers": null
-      },
-      "evidence_records": 2
-    },
-    {
-      "id": "moosend",
-      "name": "Moosend",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://trymoo.moosend.com/6eappdpw04pw",
-      "network": "PartnerStack",
-      "account_id": "partnerstack-account",
-      "portal_url": "https://dash.partnerstack.com/home",
-      "priority": "P2_COVERED",
-      "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
-      "coverage_type": "account_revenue",
-      "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 7,
-      "evidence_source": "authenticated-private-ops-dashboard",
-      "evidence_id": "github:issue-375-comment-5627576507",
-      "latest_metrics": {
-        "account_reward_count": 0,
-        "account_commission_total": 0,
-        "account_commission_pending": 0,
-        "account_commission_paid": 0,
-        "account_payout_available": 0,
-        "account_payout_withdrawn": 0,
-        "per_program_signups_referrals": null,
-        "per_program_trials": null,
-        "per_program_paid_customers": null
-      },
-      "evidence_records": 2
-    },
-    {
-      "id": "murf-ai",
-      "name": "Murf AI",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://get.murf.ai/fqac0vixj0qs",
-      "network": "PartnerStack",
-      "account_id": "partnerstack-account",
-      "portal_url": "https://dash.partnerstack.com/home",
-      "priority": "P2_COVERED",
-      "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
-      "coverage_type": "account_revenue",
-      "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 7,
-      "evidence_source": "authenticated-private-ops-dashboard",
-      "evidence_id": "github:issue-375-comment-5627576507",
-      "latest_metrics": {
-        "account_reward_count": 0,
-        "account_commission_total": 0,
-        "account_commission_pending": 0,
-        "account_commission_paid": 0,
-        "account_payout_available": 0,
-        "account_payout_withdrawn": 0,
-        "per_program_signups_referrals": null,
-        "per_program_trials": null,
-        "per_program_paid_customers": null
+        "outbound_clicks": 15,
+        "signups_referrals": 0,
+        "trials": 0,
+        "paid_customers": 0,
+        "gross_sales_revenue": 0,
+        "commission_earned": null,
+        "commission_approved": null,
+        "commission_pending": 0,
+        "payout_paid": null,
+        "payout_pending": null,
+        "network_reported_conversions": null
       },
       "evidence_records": 2
     },
@@ -2182,52 +2263,26 @@
       "account_id": "partnerstack-account",
       "portal_url": "https://dash.partnerstack.com/home",
       "priority": "P2_COVERED",
-      "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
-      "coverage_type": "account_revenue",
-      "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 7,
-      "evidence_source": "authenticated-private-ops-dashboard",
-      "evidence_id": "github:issue-375-comment-5627576507",
+      "reason": "Recent evidence-backed downstream revenue state exists.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-16T16:43:26Z",
+      "evidence_age_days": 2,
+      "evidence_source": "vendor-human-email",
+      "evidence_id": "gmail:1a0ab1a9d37ec857;github:issue-373-comment-5701583790",
       "latest_metrics": {
-        "account_reward_count": 0,
-        "account_commission_total": 0,
-        "account_commission_pending": 0,
-        "account_commission_paid": 0,
-        "account_payout_available": 0,
-        "account_payout_withdrawn": 0,
-        "per_program_signups_referrals": null,
-        "per_program_trials": null,
-        "per_program_paid_customers": null
+        "outbound_clicks": 11,
+        "signups_referrals": null,
+        "trials": null,
+        "paid_customers": null,
+        "gross_sales_revenue": null,
+        "commission_earned": null,
+        "commission_approved": null,
+        "commission_pending": null,
+        "payout_paid": null,
+        "payout_pending": null,
+        "network_reported_conversions": 0
       },
-      "evidence_records": 2
-    },
-    {
-      "id": "unbounce",
-      "name": "Unbounce",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://unbounce.partnerlinks.io/5ubjnt8lluqi",
-      "network": "PartnerStack",
-      "account_id": "partnerstack-account",
-      "portal_url": "https://dash.partnerstack.com/home",
-      "priority": "P2_COVERED",
-      "reason": "Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.",
-      "coverage_type": "account_revenue",
-      "latest_evidence_at": "2026-09-11T00:37:57.968Z",
-      "evidence_age_days": 7,
-      "evidence_source": "authenticated-private-ops-dashboard",
-      "evidence_id": "github:issue-375-comment-5627576507",
-      "latest_metrics": {
-        "account_reward_count": 0,
-        "account_commission_total": 0,
-        "account_commission_pending": 0,
-        "account_commission_paid": 0,
-        "account_payout_available": 0,
-        "account_payout_withdrawn": 0,
-        "per_program_signups_referrals": null,
-        "per_program_trials": null,
-        "per_program_paid_customers": null
-      },
-      "evidence_records": 2
+      "evidence_records": 1
     }
   ]
 }
