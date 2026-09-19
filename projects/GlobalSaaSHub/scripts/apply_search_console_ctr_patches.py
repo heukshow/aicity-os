@@ -124,7 +124,7 @@ PATCHES = {
         ),
         (
             '<meta property="og:description" content="AliDropship offers WordPress and WooCommerce solutions to automate AliExpress dropshipping store management and product fulfillment with ease.... Check rating, pricing, and features." />',
-            '<meta property="og:description" content="Compare AliDropship's $89 one-time plugin with the $39/month turnkey Pro subscription and its 14-day trial before choosing a dropshipping setup." />',
+            "<meta property=\"og:description\" content=\"Compare AliDropship's $89 one-time plugin with the $39/month turnkey Pro subscription and its 14-day trial before choosing a dropshipping setup.\" />",
         ),
         (
             '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">AliDropship</h1>',
