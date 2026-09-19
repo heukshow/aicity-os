@@ -120,6 +120,30 @@ for forbidden in ("data/tools.json", "affiliate_status", "affiliate_verified", "
 require("is_sponsored" in buyer_box_generator, "buyer-box generator no longer uses customer-safe sponsorship state")
 require("outbound_url" in buyer_box_generator, "buyer-box generator no longer uses customer-safe outbound URL")
 
+# Producer contract: customer-page generators must never contain copy that exposes
+# editorial queues or partner-program workflow state. Cleanup belongs only in the
+# central sanitizers so a later script cannot reintroduce these labels.
+PUBLIC_COPY_PRODUCERS = (
+    ROOT / "scripts" / "generate_seo_pages.py",
+    ROOT / "scripts" / "finalize_omnisend_tracking.py",
+)
+producer_forbidden = re.compile(
+    r"not\\s+yet\\s+editorially\\s+rated|editorial\\s+review\\s+in\\s+progress|"
+    r"review\\s+pending|affiliate\\s+approved|pending\\s+verification|"
+    r"(?:affiliate|partner|referral)[-\\s]+(?:status|facts|terms)",
+    re.I,
+)
+producer_errors = []
+for path in PUBLIC_COPY_PRODUCERS:
+    match = producer_forbidden.search(path.read_text(encoding="utf-8"))
+    if match:
+        producer_errors.append(f"{path.relative_to(ROOT).as_posix()}: {match.group(0)}")
+if producer_errors:
+    raise SystemExit(
+        "Public policy contract violation: a customer-page producer contains internal status copy:\\n"
+        + "\\n".join(producer_errors)
+    )
+
 raw_status_patterns = {
     "affiliate-revenue-state-copy": re.compile(r"\baffiliate/revenue\s+link\b", re.I),
     "application-verification-copy": re.compile(

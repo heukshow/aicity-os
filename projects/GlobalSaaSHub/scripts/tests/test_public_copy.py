@@ -22,6 +22,9 @@ class Page(HTMLParser):
 
 BAD=re.compile(
     r'GlobalSaaSHub|Global AI SaaS Decision Platform|'
+    r'Not yet editorially rated|Editorial review in progress|Review pending|'
+    r'\\b(?:Affiliate|Partner) Facts\\b|'
+    r'\\b(?:affiliate|partner|referral)[-\\s]+(?:program\\s+)?(?:status|facts|terms)\\b|'
     r'You prioritize\s+(?:Not rated|Review pending)|'
     r'pricing structure and\s+(?:Not rated|Review pending)|'
     r'affiliate_verified|affiliate_status|tools\.next\.json|\brepository\b|tracking_pending|pending_review|'
