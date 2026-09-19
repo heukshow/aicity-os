@@ -29,7 +29,7 @@ if ATTRIBUTION_SCRIPT not in html:
 
 # UpLead summary card: route trial intent directly to the vendor-issued trial signup.
 top_marker = '<div class="mt-4 text-sm font-bold text-white">7-day trial · 5 credits · Essentials from $99/mo monthly</div>'
-top_cta = top_marker + f'\n        <a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_top_uplead" href="{TRIAL_TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="mt-4 inline-flex rounded-lg bg-slate-700 px-4 py-2.5 text-sm font-black text-white hover:bg-slate-600">Start 7-Day UpLead Trial — 5 Credits →</a>\n        <div class="mt-2 text-xs leading-5 text-slate-400">UpLead support currently says payment details are required for full trial activation and billing begins after Day 7 unless cancelled.</div>'
+top_cta = top_marker + f'\n        <a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_top_uplead" href="{TRIAL_TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="mt-4 inline-flex rounded-lg bg-slate-700 px-4 py-2.5 text-sm font-black text-white hover:bg-slate-600">Open UpLead → Start 7-Day Trial — 5 Credits</a>\n        <div class="mt-2 text-xs leading-5 text-slate-400">UpLead support currently says payment details are required for full trial activation and billing begins after Day 7 unless cancelled.</div>'
 if top_marker in html and 'best_b2b_email_list_providers_top_uplead' not in html:
     html = html.replace(top_marker, top_cta, 1)
 
@@ -49,7 +49,7 @@ html = html.replace(
 )
 
 old_detail = '<a href="https://www.uplead.com/pricing/" target="_blank" rel="noopener noreferrer" class="block rounded-xl bg-slate-700 px-5 py-4 text-center font-black text-white hover:bg-slate-600">Check UpLead pricing →</a>'
-new_detail = f'<a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_uplead" href="{TRIAL_TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="block rounded-xl bg-slate-700 px-5 py-4 text-center font-black text-white hover:bg-slate-600">Start 7-Day UpLead Trial — 5 Credits →</a>\n            <div class="rounded-lg border border-amber-400/15 bg-amber-400/[0.04] px-4 py-3 text-xs leading-5 text-amber-100/80">Full trial activation currently requires payment details according to UpLead support. Confirm the live checkout terms and cancel before the trial ends if you do not want the selected paid plan to begin.</div>\n            <a href="{BUYER_GUIDE}" class="block rounded-xl border border-emerald-400/20 bg-emerald-400/[0.05] px-5 py-3 text-center text-sm font-bold text-emerald-200 hover:bg-emerald-400/10">Read UpLead free-trial & pricing guide</a>\n            <a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_pricing_uplead" href="{PRICING_TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="block rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-slate-300 hover:bg-white/5">Check UpLead pricing →</a>'
+new_detail = f'<a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_uplead" href="{TRIAL_TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="block rounded-xl bg-slate-700 px-5 py-4 text-center font-black text-white hover:bg-slate-600">Open UpLead → Start 7-Day Trial — 5 Credits</a>\n            <div class="rounded-lg border border-amber-400/15 bg-amber-400/[0.04] px-4 py-3 text-xs leading-5 text-amber-100/80">Full trial activation currently requires payment details according to UpLead support. Confirm the live checkout terms and cancel before the trial ends if you do not want the selected paid plan to begin.</div>\n            <a href="{BUYER_GUIDE}" class="block rounded-xl border border-emerald-400/20 bg-emerald-400/[0.05] px-5 py-3 text-center text-sm font-bold text-emerald-200 hover:bg-emerald-400/10">Read UpLead free-trial & pricing guide</a>\n            <a data-cta="affiliate" data-tool-id="uplead" data-cta-source="best_b2b_email_list_providers_pricing_uplead" href="{PRICING_TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer" class="block rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-slate-300 hover:bg-white/5">Check UpLead pricing →</a>'
 if old_detail in html:
     html = html.replace(old_detail, new_detail, 1)
 
@@ -73,7 +73,7 @@ required = [
     'best_b2b_email_list_providers_top_uplead',
     'best_b2b_email_list_providers_uplead',
     'best_b2b_email_list_providers_table_uplead',
-    'Start 7-Day UpLead Trial — 5 Credits',
+    'Open UpLead → Start 7-Day Trial — 5 Credits',
     'payment details are required',
 ]
 missing = [item for item in required if item not in html]
@@ -101,7 +101,7 @@ trial = trial.replace(
 )
 trial = trial.replace(
     "and UpLead's vendor-issued welcome email to COSHUMA for the exact referral URL. The dashboard/login URL is not used as a customer CTA.",
-    "and UpLead's vendor emails to COSHUMA for the exact homepage, pricing and trial tracking URLs. The dashboard/login URL is not used as a customer CTA.",
+    "and UpLead's support guidance for trial activation, cancellation and post-trial billing. Confirm the terms shown at checkout before entering payment details.",
 )
 
 trial_required = [
