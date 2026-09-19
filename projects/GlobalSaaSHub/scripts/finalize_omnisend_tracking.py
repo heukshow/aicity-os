@@ -96,8 +96,6 @@ text = text.replace(
     '<a data-cta="official" href="https://www.omnisend.com/" target="_blank" rel="noopener noreferrer"',
     f'<a data-cta="affiliate" data-tool-id="omnisend" data-cta-source="omnisend_primary" href="{TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer"',
 )
-text = text.replace("Affiliate approved · exact tracking link pending verification", "Affiliate approved · tracking links verified")
-text = text.replace("Affiliate approved · tracking link verified", "Affiliate approved · tracking links verified")
 text = text.replace(
     "Omnisend's Senior Affiliate Marketing Manager supplied COSHUMA's exact customer tracking URL and confirmed it is the link in Impact Assets. Omnisend buttons now use that verified link; COSHUMA may earn a commission on an eligible purchase at no extra cost to you.",
     "Omnisend's Senior Affiliate Marketing Manager supplied COSHUMA's exact customer tracking URL and a separate direct pricing tracking URL. Pricing-intent buttons use the vendor-issued pricing destination; COSHUMA may earn a commission on an eligible purchase at no extra cost to you."
