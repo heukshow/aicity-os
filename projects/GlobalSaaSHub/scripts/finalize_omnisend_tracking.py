@@ -96,13 +96,21 @@ text = text.replace(
     '<a data-cta="official" href="https://www.omnisend.com/" target="_blank" rel="noopener noreferrer"',
     f'<a data-cta="affiliate" data-tool-id="omnisend" data-cta-source="omnisend_primary" href="{TRACKING_URL}" target="_blank" rel="sponsored noopener noreferrer"',
 )
-text = text.replace(
-    "Omnisend's Senior Affiliate Marketing Manager supplied COSHUMA's exact customer tracking URL and confirmed it is the link in Impact Assets. Omnisend buttons now use that verified link; COSHUMA may earn a commission on an eligible purchase at no extra cost to you.",
-    "Omnisend's Senior Affiliate Marketing Manager supplied COSHUMA's exact customer tracking URL and a separate direct pricing tracking URL. Pricing-intent buttons use the vendor-issued pricing destination; COSHUMA may earn a commission on an eligible purchase at no extra cost to you."
+
+# Legacy public copy may still contain internal link-provenance wording. Rewrite it to
+# customer-only product guidance without exposing who supplied or verified the route.
+customer_pricing_guidance = (
+    "Use the Omnisend plan and pricing buttons below to compare current options and confirm the final terms before upgrading."
 )
-text = text.replace(
-    "The approval email did not contain an account-specific customer tracking URL, so Omnisend buttons intentionally remain ordinary official links until the exact Impact-issued URL is copied and verified.",
-    "Omnisend's Senior Affiliate Marketing Manager supplied COSHUMA's exact customer tracking URL and a separate direct pricing tracking URL. Pricing-intent buttons use the vendor-issued pricing destination; COSHUMA may earn a commission on an eligible purchase at no extra cost to you."
+text = re.sub(
+    r"Omnisend's [^.<]{0,240} customer tracking URL[^<]{0,480}?no extra cost to you\.",
+    customer_pricing_guidance,
+    text,
+)
+text = re.sub(
+    r"The approval email[^<]{0,480}?copied and verified\.",
+    customer_pricing_guidance,
+    text,
 )
 
 # This finalizer runs after generic page generation. Normalize the visible trust-block
