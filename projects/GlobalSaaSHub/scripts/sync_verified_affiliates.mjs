@@ -98,21 +98,20 @@ const dataOverrides = {
 // dashboards. These overrides prevent stale records from reopening duplicate work.
 const statusOverrides = {
   livechat: {
-    affiliate_url: null,
-    affiliate_verified: false,
-    affiliate_status: 'referral_link_requested',
-    affiliate_status_checked_at: '2026-09-15T04:24:03Z',
-    affiliate_status_evidence_url: 'https://www.text.com/partners/affiliate/',
+    affiliate_url: 'https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP',
+    affiliate_verified: true,
+    affiliate_status: 'approved_tracking',
+    affiliate_status_checked_at: '2026-09-18T19:38:07+09:00',
+    affiliate_verified_at: '2026-09-18T19:38:07+09:00',
+    affiliate_status_evidence_url: 'https://github.com/heukshow/aicity-os/issues/310',
     affiliate_source_url: 'https://www.text.com/partners/affiliate/',
-    affiliate_final_url: null,
+    affiliate_final_url: 'https://www.livechat.com/',
     affiliate_evidence_markers: [
-      'An existing Text Partner Program account is confirmed; exact Text and HelpDesk campaign URLs are maintained on their separate tool records.',
-      'Text Support confirmed on 2026-09-12 that the available customer campaigns are those shown in the authenticated Partner Program panel.',
-      'COSHUMA requested a LiveChat-specific customer campaign URL once from Text Support on 2026-09-12; no reply or exact LiveChat customer tracking URL was present in either connected Gmail account as of 2026-09-15 13:24 KST.',
-      'The vendor report for 2026-08-13 through 2026-09-10 records 28 account-wide clicks, 0 trials, 0 paid accounts and $0 earnings; it does not prove a LiveChat-specific tracked route.',
-      'Do not reapply, send duplicate outreach, or treat the LiveChat homepage, dashboard, or generic signup URL as an affiliate link. GitHub issue #310 tracks the outstanding exact-link request.',
+      'Text Support replied to support@coshuma.com on 2026-09-18 and explicitly supplied https://share.text.com/q8mL2psx as the LiveChat affiliate URL from the existing Partner App.',
+      'Prior authenticated Partner App evidence issued https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP as the exact LiveChat customer tracking URL and verified the official LiveChat destination with attribution retained.',
+      'No new campaign or duplicate enrollment is required. Link issuance does not prove signup, trial, paid account, commission, payout, or revenue.',
     ],
-    affiliate_next_action: "Wait for Text Support's reply to the existing one-time LiveChat-specific campaign request. If an exact customer-facing tracking URL is issued, validate and activate it; otherwise keep LiveChat official CTAs non-affiliate. Do not send duplicate outreach.",
+    affiliate_next_action: 'Preserve the verified LiveChat tracking URL. Do not create another campaign, reapply, or repeat exact-link outreach. Update KPI fields only from new dashboard or vendor evidence.',
   },
   writesonic: {
     affiliate_url: 'https://writesonic.com?fp_ref=sang-kwon-f5452a',
