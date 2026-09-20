@@ -31,10 +31,12 @@ require(final_dist.get("homepage_disclosure_required") is True, "final homepage 
 require(final_dist.get("fail_closed_on_internal_ops_leak") is True, "final internal-info guard must fail closed")
 
 raw_prebuild_at = PREBUILD.find("guard_raw_public_source.py")
+structure_prebuild_at = PREBUILD.find("validate_public_html_structure.py public")
 policy_prebuild_at = PREBUILD.find("validate_public_policy_contract.py")
 require(raw_prebuild_at >= 0, "raw public source guard missing from prebuild")
+require(structure_prebuild_at >= 0, "public HTML structure guard missing from prebuild")
 require(policy_prebuild_at >= 0, "public policy validator missing from prebuild")
-require(raw_prebuild_at < policy_prebuild_at, "raw public source guard must run before policy validation and build sanitizers")
+require(raw_prebuild_at < structure_prebuild_at < policy_prebuild_at, "raw source and HTML structure guards must run before policy validation")
 
 raw_build_at = BUILD.find("guard_raw_public_source.py")
 customer_sanitizer_at = BUILD.find("guard_customer_only_copy.py")
@@ -47,13 +49,19 @@ require("enforce_home_only_affiliate_disclosure.py" not in BUILD, "deprecated ho
 vite_at = BUILD.find("vite build")
 source_normalizer_at = BUILD.find("self_heal_source_affiliate_disclosures.py")
 source_boundary_at = BUILD.find("guard_public_source_boundary.py")
+source_structure_at = BUILD.find("validate_public_html_structure.py public")
+late_policy_at = BUILD.rfind("validate_public_policy_contract.py")
 final_guard_at = BUILD.find("guard_built_customer_copy.py")
+dist_structure_at = BUILD.find("validate_public_html_structure.py dist")
 artifact_guard_at = BUILD.find("guard_public_artifact_boundary.py dist")
 require(vite_at >= 0, "vite build missing")
 require(source_normalizer_at >= 0 and source_normalizer_at < source_boundary_at, "source disclosure normalizer must run before source boundary validation")
 require(source_boundary_at > source_normalizer_at and source_boundary_at < vite_at, "source disclosure boundary must run after source normalization and before Vite")
+require(source_structure_at > source_boundary_at and source_structure_at < vite_at, "public HTML structure guard must run after source mutators and before Vite")
+require(late_policy_at > source_structure_at and late_policy_at < vite_at, "public policy contract must be revalidated after source mutators and before Vite")
 require(final_guard_at > vite_at, "canonical final disclosure guard must run after Vite")
-require(artifact_guard_at > final_guard_at, "final artifact boundary guard must run after disclosure normalization")
+require(dist_structure_at > final_guard_at, "public HTML structure guard must recheck the final dist after post-build normalization")
+require(artifact_guard_at > dist_structure_at, "final artifact boundary guard must run after final HTML structure validation")
 
 source_normalizer = (ROOT / "scripts" / "self_heal_source_affiliate_disclosures.py").read_text(encoding="utf-8")
 source_guard = (ROOT / "scripts" / "guard_public_source_boundary.py").read_text(encoding="utf-8")
@@ -156,6 +164,8 @@ if producer_errors:
 
 raw_status_patterns = {
     "affiliate-revenue-state-copy": re.compile(r"\baffiliate/revenue\s+link\b", re.I),
+    "coshuma-internal-route-label": re.compile(r"\\bCOSHUMA\\s+(?:affiliate|partner|referral|revenue|tracking)\\s+(?:link|route|status|state)\\b", re.I),
+    "coshuma-verification-process-copy": re.compile(r"\\bCOSHUMA\\s+can\\s+verify\\b", re.I),
     "application-verification-copy": re.compile(
         r"\b(?:affiliate|partner|referral|creator)\b[^.\n<>]{0,120}"
         r"\b(?:application|enrollment|link|tracking|program)\b[^.\n<>]{0,120}"
