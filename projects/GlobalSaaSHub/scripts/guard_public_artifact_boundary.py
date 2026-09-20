@@ -99,6 +99,8 @@ PATTERNS = {
     "internal-tracking-verification-copy": INTERNAL_VERIFICATION_COPY,
     "internal-revenue-ops": INTERNAL_REVENUE_OPS,
     "internal-payment-ops": INTERNAL_PAYMENT_OPS,
+    "coshuma-internal-route-label": re.compile(r"\\bCOSHUMA\\s+(?:affiliate|partner|referral|revenue|tracking)\\s+(?:link|route|status|state)\\b", re.I),
+    "coshuma-verification-process-copy": re.compile(r"\\bCOSHUMA\\s+can\\s+verify\\b", re.I),
 }
 
 
