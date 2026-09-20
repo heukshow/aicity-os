@@ -71,6 +71,13 @@ FORBIDDEN_PUBLIC_COPY = {
         r"\bpublication\s+or\s+test\s+clicks?\s+are\s+not\s+treated\s+as\s+signups?,\s*customers?\s+or\s+revenue\b",
         re.I,
     ),
+    "internal-ops-prose": re.compile(
+        r"\bCOSHUMA\s+(?:CTA|revenue|tracking)\s+(?:state|link|route)\b"
+        r"|\bCOSHUMA(?:'s|’s)?\s+authenticated\s+account\b"
+        r"|\bauthenticated\s+(?:affiliate|partner|referral)?\s*(?:account|dashboard)\b"
+        r"|\b(?:clicks|signups|paid customers|commission|revenue)\b[^\n<>]{0,100}\bfor\s+COSHUMA\b",
+        re.I,
+    ),
 }
 
 ALLOWED_GENERATED_KEYS = {
