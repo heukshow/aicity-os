@@ -51,6 +51,8 @@ FORBIDDEN = [
     ("browser queue", re.compile(r"\bbrowser[ _-]?(?:required[ _-]?)?queue\b", re.I)),
     ("approved_tracking", re.compile(r"\bapproved_tracking\b", re.I)),
     ("internal verification", re.compile(r"\b(?:internal\s+verification|verification\s+evidence|partner-side\s+evidence|partner\s+correspondence)\b", re.I)),
+    ("COSHUMA internal route label", re.compile(r"\\bCOSHUMA\\s+(?:affiliate|partner|referral|revenue|tracking)\\s+(?:link|route|status|state)\\b", re.I)),
+    ("COSHUMA verification-process copy", re.compile(r"\\bCOSHUMA\\s+can\\s+verify\\b", re.I)),
     ("network name", UNIQUE_NETWORK),
     ("contextual network name", CONTEXTUAL_NETWORK),
 ]
