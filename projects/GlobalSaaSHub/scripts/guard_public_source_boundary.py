@@ -70,7 +70,12 @@ FORBIDDEN_PUBLIC_COPY = {
     "internal-revenue-mechanics": re.compile(
         r"\bpublication\s+or\s+test\s+clicks?\s+are\s+not\s+treated\s+as\s+signups?,\s*customers?\s+or\s+revenue\b",
         re.I,
+    ),    "coshuma-internal-route-label": re.compile(
+        r"\\bCOSHUMA\\s+(?:affiliate|partner|referral|revenue|tracking)\\s+(?:link|route|status|state)\\b",
+        re.I,
     ),
+    "coshuma-verification-process-copy": re.compile(r"\\bCOSHUMA\\s+can\\s+verify\\b", re.I),
+
 }
 
 ALLOWED_GENERATED_KEYS = {
