@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T20:16:36Z",
+  "generated_at": "2026-09-20T15:43:16Z",
   "policy": {
     "primary_kpi": "verified_revenue",
     "unknown_is_zero": false,
@@ -303,11 +303,37 @@
       "evidence_timestamp": "2026-09-18T20:00:33Z",
       "tracking_url": "https://www.aweber.com/easy-email.htm?id=561868",
       "note": "After account-security verification and confirmation of Advocate ID 561868, AWeber Customer Solutions confirmed there are currently no referrals. This supports signups_referrals = 0 only. The reply did not provide click totals, trial totals, paid-customer totals, commission amounts/status, payout amounts/status, currency, or a reporting period, so those remain unknown. AWeber also stated referral and commission history can be viewed in the Advocate dashboard; the generic aweber.com login route is administrative and is not treated as a customer-facing tracking URL. The existing issued referral URL remains unchanged."
+    },
+    {
+      "tool": "Chatbase",
+      "network": "Vendor-native / Chatbase",
+      "period": "current affiliate-link totals confirmed by vendor on 2026-09-20; reporting period not stated",
+      "outbound_clicks": 22,
+      "network_reported_leads": 0,
+      "signups_referrals": null,
+      "trials": null,
+      "network_reported_conversions": 0,
+      "paid_customers": null,
+      "gross_sales_revenue": null,
+      "commission_earned": null,
+      "commission_approved": null,
+      "commission_pending": null,
+      "commission_paid": null,
+      "payout_paid": null,
+      "payout_pending": null,
+      "payout_status": null,
+      "currency": null,
+      "status": "vendor_verified_partial",
+      "evidence_source": "vendor-human-email+existing-github-record",
+      "evidence_id": "gmail:1a0be35224e6e69d;github:issue-373-comment-5749189977",
+      "evidence_timestamp": "2026-09-20T10:19:21Z",
+      "tracking_url": "https://link.chatbase.co/sang-kwon-an",
+      "note": "Chatbase support stated that the COSHUMA affiliate link currently has 22 clicks and no leads or conversions yet. Preserve leads = 0 and generic conversions = 0 as vendor-reported fields only. Do not map generic conversions to signups/referrals, trials, paid customers, commission, or payout; those remain unknown. The existing verified customer referral URL remains unchanged."
     }
   ],
   "verified_totals": {
     "commission_earned_usd": null,
     "payout_paid_usd": null,
-    "note": "Do not sum partial networks into an all-network revenue total. Jotform has vendor-confirmed September month-to-date clicks/signups/paid-user counts, and AWeber has vendor-confirmed current referrals = 0, but unsupported downstream commission and payout fields remain unknown; other network-specific verified values remain scoped and must not be generalized to COSHUMA overall."
+    "note": "Do not sum partial networks into an all-network revenue total. Jotform has vendor-confirmed September month-to-date clicks/signups/paid-user counts, AWeber has vendor-confirmed current referrals = 0, and Chatbase has vendor-confirmed 22 clicks with 0 leads and 0 generic conversions. Chatbase signups/referrals, trials, paid customers, commission and payout remain unknown; other network-specific verified values remain scoped and must not be generalized to COSHUMA overall."
   }
 }
