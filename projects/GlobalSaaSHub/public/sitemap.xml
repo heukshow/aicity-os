@@ -2012,4 +2012,9 @@
     <loc>https://coshuma.com/compare/benchmark-email-vs-emailoctopus.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://coshuma.com/compare/teachable-vs-systeme-io.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
