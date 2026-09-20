@@ -133,6 +133,32 @@
       },
       "provenance": "auto-selected by prepare_next_short.py; not yet rendered or uploaded.",
       "notes": "See matching entry in browser_required_queue.json for the render+upload task."
+    },
+    {
+      "content_slug": "aiassistworks",
+      "source_page": "/tool/aiassistworks.html",
+      "affiliate_target": "aiassistworks",
+      "affiliate_url": "https://www.aiassistworks.com/?via=coshuma",
+      "campaign_slug": "aiassistworks",
+      "coshuma_url": "https://coshuma.com/tool/aiassistworks.html?utm_source=youtube&utm_medium=shorts&utm_campaign=aiassistworks",
+      "youtube_video_id": null,
+      "title": "Still doing Workflow Automation the slow way? Here's the AI shortcut - AiAssistWorks #Shorts",
+      "video_file_name": null,
+      "video_sha256": null,
+      "video_duration_seconds": null,
+      "resolution": null,
+      "script_hash": null,
+      "published_at": null,
+      "status": "topic_selected",
+      "character_system_id": "COSHUMA_DUO_V1",
+      "character_reference_path": "projects/GlobalSaaSHub/assets/characters/COSHUMA_DUO_MASTER.jpg",
+      "ga4": {
+        "source": "youtube",
+        "medium": "shorts",
+        "campaign": "aiassistworks"
+      },
+      "provenance": "auto-selected by prepare_next_short.py; not yet rendered or uploaded.",
+      "notes": "See matching entry in browser_required_queue.json for the render+upload task. Fixed-duo character system required."
     }
   ],
   "duplicate_prevention_rule": "Before selecting new content, select_content.py must skip any (affiliate_target, campaign_slug) pair already present in 'entries' with status in ['rendered','ready','uploaded'] unless explicitly forced. A new creative angle on an already-covered tool is allowed but must use a new, distinct content_slug (see the two gohighlevel entries above) and should be a deliberate exception, not the default."
