@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T00:45:08.993Z",
+  "generated_at": "2026-09-20T15:47:39.763Z",
   "evidence_scope": "Combined authenticated revenue-browser baseline, current revenue-truth records, and explicit account-wide commission/payout evidence.",
   "policy": {
     "purpose": "Detect approved monetized routes that can leak revenue because downstream affiliate metrics are missing or stale.",
@@ -11,12 +11,12 @@
   },
   "summary": {
     "approved_tracked_tools": 70,
-    "P0_UNCHECKED": 49,
-    "P1_STALE": 10,
-    "P1_PARTIAL": 2,
-    "P2_COVERED": 9,
-    "unchecked_or_stale_or_partial": 61,
-    "account_groups_to_check": 55
+    "P0_UNCHECKED": 48,
+    "P1_STALE": 11,
+    "P1_PARTIAL": 1,
+    "P2_COVERED": 10,
+    "unchecked_or_stale_or_partial": 60,
+    "account_groups_to_check": 54
   },
   "account_groups": [
     {
@@ -79,31 +79,31 @@
           "id": "bookyourdata",
           "name": "Bookyourdata",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 11 days old."
+          "reason": "Latest revenue evidence is 12 days old."
         },
         {
           "id": "gamma",
           "name": "Gamma",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 11 days old."
+          "reason": "Latest revenue evidence is 12 days old."
         },
         {
           "id": "moosend",
           "name": "Moosend",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 11 days old."
+          "reason": "Latest revenue evidence is 12 days old."
         },
         {
           "id": "murf-ai",
           "name": "Murf AI",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 11 days old."
+          "reason": "Latest revenue evidence is 12 days old."
         },
         {
           "id": "unbounce",
           "name": "Unbounce",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 11 days old."
+          "reason": "Latest revenue evidence is 12 days old."
         }
       ]
     },
@@ -167,19 +167,6 @@
         {
           "id": "castmagic",
           "name": "Castmagic",
-          "priority": "P0_UNCHECKED",
-          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
-        }
-      ]
-    },
-    {
-      "account_id": "chatbase",
-      "network": "개별 제휴 포털",
-      "portal_url": null,
-      "tools": [
-        {
-          "id": "chatbase",
-          "name": "Chatbase",
           "priority": "P0_UNCHECKED",
           "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
         }
@@ -688,7 +675,7 @@
           "id": "aiassistworks",
           "name": "AiAssistWorks",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 11 days old."
+          "reason": "Latest revenue evidence is 12 days old."
         }
       ]
     },
@@ -701,7 +688,20 @@
           "id": "catalister",
           "name": "Catalister",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 11 days old."
+          "reason": "Latest revenue evidence is 12 days old."
+        }
+      ]
+    },
+    {
+      "account_id": "tally",
+      "network": "Cello / Tally Rewards",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "tally",
+          "name": "Tally",
+          "priority": "P1_STALE",
+          "reason": "Latest revenue evidence is 8 days old."
         }
       ]
     },
@@ -714,7 +714,7 @@
           "id": "clickfunnels",
           "name": "ClickFunnels",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 11 days old."
+          "reason": "Latest revenue evidence is 12 days old."
         }
       ]
     },
@@ -727,7 +727,7 @@
           "id": "eprofessor",
           "name": "eProfessor",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 11 days old."
+          "reason": "Latest revenue evidence is 12 days old."
         }
       ]
     },
@@ -740,20 +740,7 @@
           "id": "helpdesk",
           "name": "HelpDesk",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 8 days old."
-        }
-      ]
-    },
-    {
-      "account_id": "tally",
-      "network": "Cello / Tally Rewards",
-      "portal_url": null,
-      "tools": [
-        {
-          "id": "tally",
-          "name": "Tally",
-          "priority": "P1_PARTIAL",
-          "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown."
+          "reason": "Latest revenue evidence is 9 days old."
         }
       ]
     },
@@ -941,24 +928,6 @@
       "tracking_url": "https://castmagic.io?fpr=sangkwon-an54",
       "network": "개별 제휴 포털",
       "account_id": "castmagic",
-      "portal_url": null,
-      "priority": "P0_UNCHECKED",
-      "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
-      "coverage_type": "tool",
-      "latest_evidence_at": null,
-      "evidence_age_days": null,
-      "evidence_source": null,
-      "evidence_id": null,
-      "latest_metrics": null,
-      "evidence_records": 0
-    },
-    {
-      "id": "chatbase",
-      "name": "Chatbase",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://link.chatbase.co/sang-kwon-an",
-      "network": "개별 제휴 포털",
-      "account_id": "chatbase",
       "portal_url": null,
       "priority": "P0_UNCHECKED",
       "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
@@ -1663,10 +1632,10 @@
       "account_id": "aiassistworks",
       "portal_url": "https://aiassistworks.affonso.io/",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 11 days old.",
+      "reason": "Latest revenue evidence is 12 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T20:29:50Z",
-      "evidence_age_days": 11,
+      "evidence_age_days": 12,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -1693,10 +1662,10 @@
       "account_id": "catalister",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 11 days old.",
+      "reason": "Latest revenue evidence is 12 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T19:55:00Z",
-      "evidence_age_days": 11,
+      "evidence_age_days": 12,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -1715,6 +1684,36 @@
       "evidence_records": 1
     },
     {
+      "id": "tally",
+      "name": "Tally",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://tally.cello.so/ub0qUbuKk2f",
+      "network": "Cello / Tally Rewards",
+      "account_id": "tally",
+      "portal_url": null,
+      "priority": "P1_STALE",
+      "reason": "Latest revenue evidence is 8 days old.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-11T17:33:38Z",
+      "evidence_age_days": 8,
+      "evidence_source": "vendor-system-email",
+      "evidence_id": "gmail:1a0918839bda8d0f",
+      "latest_metrics": {
+        "outbound_clicks": null,
+        "signups_referrals": null,
+        "trials": null,
+        "paid_customers": null,
+        "gross_sales_revenue": null,
+        "commission_earned": null,
+        "commission_approved": null,
+        "commission_pending": null,
+        "payout_paid": null,
+        "payout_pending": null,
+        "network_reported_conversions": null
+      },
+      "evidence_records": 1
+    },
+    {
       "id": "clickfunnels",
       "name": "ClickFunnels",
       "affiliate_status": "approved_tracking",
@@ -1723,10 +1722,10 @@
       "account_id": "clickfunnels",
       "portal_url": "https://www.clickfunnels.com/customers/profiles/kMXlLGaZ/affiliates/dashboard",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 11 days old.",
+      "reason": "Latest revenue evidence is 12 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T17:19:00Z",
-      "evidence_age_days": 11,
+      "evidence_age_days": 12,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "github:affiliate-browser-results-2026-09-08:clickfunnels",
       "latest_metrics": {
@@ -1753,10 +1752,10 @@
       "account_id": "eprofessor",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 11 days old.",
+      "reason": "Latest revenue evidence is 12 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T21:24:29.148094Z",
-      "evidence_age_days": 11,
+      "evidence_age_days": 12,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -1783,10 +1782,10 @@
       "account_id": "text-account",
       "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 8 days old.",
+      "reason": "Latest revenue evidence is 9 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-10T15:52:30Z",
-      "evidence_age_days": 8,
+      "evidence_age_days": 9,
       "evidence_source": "vendor-report-email",
       "evidence_id": "gmail:1a08c0544c56b5ac:helpdesk-default",
       "latest_metrics": {
@@ -1813,10 +1812,10 @@
       "account_id": "partnerstack-account",
       "portal_url": "https://dash.partnerstack.com/home",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 11 days old.",
+      "reason": "Latest revenue evidence is 12 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-08T00:00:00Z",
-      "evidence_age_days": 11,
+      "evidence_age_days": 12,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -1843,10 +1842,10 @@
       "account_id": "partnerstack-account",
       "portal_url": "https://dash.partnerstack.com/home",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 11 days old.",
+      "reason": "Latest revenue evidence is 12 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-08T00:00:00Z",
-      "evidence_age_days": 11,
+      "evidence_age_days": 12,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -1873,10 +1872,10 @@
       "account_id": "partnerstack-account",
       "portal_url": "https://dash.partnerstack.com/home",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 11 days old.",
+      "reason": "Latest revenue evidence is 12 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-08T00:00:00Z",
-      "evidence_age_days": 11,
+      "evidence_age_days": 12,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -1903,10 +1902,10 @@
       "account_id": "partnerstack-account",
       "portal_url": "https://dash.partnerstack.com/home",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 11 days old.",
+      "reason": "Latest revenue evidence is 12 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-08T00:00:00Z",
-      "evidence_age_days": 11,
+      "evidence_age_days": 12,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -1933,10 +1932,10 @@
       "account_id": "partnerstack-account",
       "portal_url": "https://dash.partnerstack.com/home",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 11 days old.",
+      "reason": "Latest revenue evidence is 12 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-08T00:00:00Z",
-      "evidence_age_days": 11,
+      "evidence_age_days": 12,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -1945,36 +1944,6 @@
         "trials": null,
         "paid_customers": null,
         "gross_sales_revenue": 0,
-        "commission_earned": null,
-        "commission_approved": null,
-        "commission_pending": null,
-        "payout_paid": null,
-        "payout_pending": null,
-        "network_reported_conversions": null
-      },
-      "evidence_records": 1
-    },
-    {
-      "id": "tally",
-      "name": "Tally",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://tally.cello.so/ub0qUbuKk2f",
-      "network": "Cello / Tally Rewards",
-      "account_id": "tally",
-      "portal_url": null,
-      "priority": "P1_PARTIAL",
-      "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown.",
-      "coverage_type": "tool",
-      "latest_evidence_at": "2026-09-11T17:33:38Z",
-      "evidence_age_days": 7,
-      "evidence_source": "vendor-system-email",
-      "evidence_id": "gmail:1a0918839bda8d0f",
-      "latest_metrics": {
-        "outbound_clicks": null,
-        "signups_referrals": null,
-        "trials": null,
-        "paid_customers": null,
-        "gross_sales_revenue": null,
         "commission_earned": null,
         "commission_approved": null,
         "commission_pending": null,
@@ -1996,7 +1965,7 @@
       "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-18T14:29:47Z",
-      "evidence_age_days": 0,
+      "evidence_age_days": 2,
       "evidence_source": "vendor-human-email",
       "evidence_id": "gmail:1a0b4ec7c76011ec",
       "latest_metrics": {
@@ -2026,7 +1995,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-18T20:00:33Z",
-      "evidence_age_days": 0,
+      "evidence_age_days": 1,
       "evidence_source": "vendor-human-email",
       "evidence_id": "gmail:1a0b61b45d55df0e",
       "latest_metrics": {
@@ -2056,7 +2025,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 3,
+      "evidence_age_days": 4,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "browser:boldsign-affiliate-dashboard;github:issue-380",
       "latest_metrics": {
@@ -2086,7 +2055,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 3,
+      "evidence_age_days": 4,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "browser:pictory-partners-home;github:issue-315",
       "latest_metrics": {
@@ -2116,7 +2085,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 3,
+      "evidence_age_days": 4,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "browser:highlevel-affiliate-home;github:issue-337",
       "latest_metrics": {
@@ -2146,7 +2115,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-15T00:00:00Z",
-      "evidence_age_days": 4,
+      "evidence_age_days": 5,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "github:issue-388",
       "latest_metrics": {
@@ -2176,7 +2145,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-18T06:13:30Z",
-      "evidence_age_days": 0,
+      "evidence_age_days": 2,
       "evidence_source": "vendor-human-email",
       "evidence_id": "gmail:1a0b3265d5b2769f",
       "latest_metrics": {
@@ -2206,7 +2175,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 3,
+      "evidence_age_days": 4,
       "evidence_source": "vendor-report-email+authenticated-partner-app",
       "evidence_id": "gmail:1a08c0544c56b5ac;browser:partners.livechat.com/app/affiliate:2026-09-16",
       "latest_metrics": {
@@ -2236,7 +2205,7 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-15T11:55:21Z",
-      "evidence_age_days": 3,
+      "evidence_age_days": 5,
       "evidence_source": "authenticated-partnerstack-dashboard+vendor-human-email",
       "evidence_id": "browser:partnerstack-brand24-home-and-links:2026-09-15;gmail:1a0a4ebf43d40e98;github:issue-373-comment-5680067918",
       "latest_metrics": {
@@ -2266,11 +2235,41 @@
       "reason": "Recent evidence-backed downstream revenue state exists.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T16:43:26Z",
-      "evidence_age_days": 2,
+      "evidence_age_days": 3,
       "evidence_source": "vendor-human-email",
       "evidence_id": "gmail:1a0ab1a9d37ec857;github:issue-373-comment-5701583790",
       "latest_metrics": {
         "outbound_clicks": 11,
+        "signups_referrals": null,
+        "trials": null,
+        "paid_customers": null,
+        "gross_sales_revenue": null,
+        "commission_earned": null,
+        "commission_approved": null,
+        "commission_pending": null,
+        "payout_paid": null,
+        "payout_pending": null,
+        "network_reported_conversions": 0
+      },
+      "evidence_records": 1
+    },
+    {
+      "id": "chatbase",
+      "name": "Chatbase",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://link.chatbase.co/sang-kwon-an",
+      "network": "Vendor-native / Chatbase",
+      "account_id": "chatbase",
+      "portal_url": null,
+      "priority": "P2_COVERED",
+      "reason": "Recent evidence-backed downstream revenue state exists.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-20T10:19:21Z",
+      "evidence_age_days": 0,
+      "evidence_source": "vendor-human-email+existing-github-record",
+      "evidence_id": "gmail:1a0be35224e6e69d;github:issue-373-comment-5749189977",
+      "latest_metrics": {
+        "outbound_clicks": 22,
         "signups_referrals": null,
         "trials": null,
         "paid_customers": null,
