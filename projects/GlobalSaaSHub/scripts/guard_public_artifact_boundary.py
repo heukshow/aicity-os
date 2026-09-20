@@ -67,6 +67,10 @@ INTERNAL_VERIFICATION_COPY = re.compile(
 INTERNAL_REVENUE_OPS = re.compile(
     r"\bWhat\s+COSHUMA\s+counts\s+as\s+revenue\b"
     r"|\bCOSHUMA\s+tracking\b"
+    r"|\bCOSHUMA\s+(?:CTA|revenue|tracking)\s+(?:state|link|route)\b"
+    r"|\bCOSHUMA(?:'s|’s)?\s+authenticated\s+account\b"
+    r"|\bauthenticated\s+(?:affiliate|partner|referral)?\s*(?:account|dashboard)\b"
+    r"|\b(?:clicks|signups|paid customers|commission|revenue)\b[^\n<>]{0,100}\bfor\s+COSHUMA\b"
     r"|\b(?:referral|tracking)\s+URL\s+(?:not\s+yet\s+verified|not\s+verified|unknown)\b"
     r"|\baffiliate\s+evidence\b"
     r"|\bverified\s+affiliate\s+records\b"
