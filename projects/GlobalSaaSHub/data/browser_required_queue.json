@@ -1189,6 +1189,36 @@
     ]
   },
   {
+    "id": "coshuma-short-render-aiassistworks",
+    "priority": "medium",
+    "status": "browser_required",
+    "cost": "0",
+    "verified_at": "2026-09-20T00:16:37.292803+00:00",
+    "reason": "Next Shorts candidate selected by prepare_next_short.py: 'AiAssistWorks' (affiliate_status=approved_tracking, best_hub_pages=['public/best/aiassistworks-coupon-code.html'], compare_pages=['public/compare/aiassistworks-vs-notion-ai.html', 'public/compare/aiassistworks-vs-bolddesk.html']). Rendering still requires official/verified UI capture or another reuse-permitted visual. Repository code does not yet contain unattended YouTube API upload wiring.",
+    "next_action": "Render a 9:16 1080x1920 Short (30-45s) for AiAssistWorks using the fixed COSHUMA male+female duo from projects/GlobalSaaSHub/assets/characters/COSHUMA_DUO_MASTER.jpg. Use a natural dialogue: one person operates the real SaaS UI while the other points out the next button/workflow step and explains the concrete business benefit; alternate roles when useful. Show official or authenticated real product UI when available. Emphasize credible work outcomes such as time saved, fewer repetitive tasks, faster lead/customer handling, or realistic service/revenue opportunities without guaranteed-income claims. Add COSHUMA intro/outro cards and safe-area captions. Run quality_gate.py before upload. Use this UTM-tagged metadata for campaign_slug=aiassistworks:\nTITLE: Still doing Workflow Automation the slow way? Here's the AI shortcut - AiAssistWorks #Shorts\nDESCRIPTION:\nStill doing Workflow Automation the slow way? Here's the AI shortcut.\n\nFull review, features, and current pricing on COSHUMA:\nhttps://coshuma.com/tool/aiassistworks.html?utm_source=youtube&utm_medium=shorts&utm_campaign=aiassistworks\n\n#AiAssistWorks #Shorts #SaaS #AITools",
+    "do_not": [
+      "Do not use a generic homepage URL as the CTA — use the coshuma_url below.",
+      "Do not fabricate pricing, discount codes, revenue numbers, product UI, or reuse permission.",
+      "Do not silently substitute new character faces if the canonical duo reference cannot be loaded; mark character_reference_missing instead.",
+      "Do not upload before quality_gate.py passes.",
+      "Do not re-render this same tool if a ready/uploaded manifest entry already covers the campaign."
+    ],
+    "character_system_id": "COSHUMA_DUO_V1",
+    "character_reference_path": "projects/GlobalSaaSHub/assets/characters/COSHUMA_DUO_MASTER.jpg",
+    "character_episode_rules": [
+      "Use both fixed characters by default; do not silently substitute new faces.",
+      "Use a natural two-person dialogue: one operates the real SaaS UI while the other points out the next button, workflow step, or business implication; alternate roles when useful.",
+      "Show official or authenticated real product UI whenever available; do not fabricate dashboard screens or unsupported features.",
+      "Weight the story toward concrete work outcomes: fewer repetitive tasks, faster execution, better lead handling, better customer support, or credible revenue opportunities. Do not promise guaranteed income or invent performance numbers.",
+      "For monetized episodes, send viewers to the UTM-tagged COSHUMA tool/comparison page and only rely on a verified customer-facing affiliate/referral route already recorded in repository data.",
+      "Default format: 9:16, 30-45 seconds, strong first-2-second hook, dialogue plus real UI demonstration, and a natural CTA in the final scene.",
+      "If the master reference cannot be loaded, mark character_reference_missing and do not generate replacement identities."
+    ],
+    "coshuma_url": "https://coshuma.com/tool/aiassistworks.html?utm_source=youtube&utm_medium=shorts&utm_campaign=aiassistworks",
+    "affiliate_target": "aiassistworks",
+    "campaign_slug": "aiassistworks"
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",
@@ -1273,35 +1303,5 @@
     "resolved_at": "2026-09-09T12:45:09Z",
     "resolution_evidence": "Gmail message 1a08633651c79db9 from Claap affiliate manager Lamia Karmaly supplied both exact URLs; the first is the authoritative default CTA pending destination-label mapping for the second.",
     "blocker": null
-  },
-  {
-    "id": "coshuma-short-render-aiassistworks",
-    "priority": "medium",
-    "status": "browser_required",
-    "cost": "0",
-    "verified_at": "2026-09-20T00:16:37.292803+00:00",
-    "reason": "Next Shorts candidate selected by prepare_next_short.py: 'AiAssistWorks' (affiliate_status=approved_tracking, best_hub_pages=['public/best/aiassistworks-coupon-code.html'], compare_pages=['public/compare/aiassistworks-vs-notion-ai.html', 'public/compare/aiassistworks-vs-bolddesk.html']). Rendering still requires official/verified UI capture or another reuse-permitted visual. Repository code does not yet contain unattended YouTube API upload wiring.",
-    "next_action": "Render a 9:16 1080x1920 Short (30-45s) for AiAssistWorks using the fixed COSHUMA male+female duo from projects/GlobalSaaSHub/assets/characters/COSHUMA_DUO_MASTER.jpg. Use a natural dialogue: one person operates the real SaaS UI while the other points out the next button/workflow step and explains the concrete business benefit; alternate roles when useful. Show official or authenticated real product UI when available. Emphasize credible work outcomes such as time saved, fewer repetitive tasks, faster lead/customer handling, or realistic service/revenue opportunities without guaranteed-income claims. Add COSHUMA intro/outro cards and safe-area captions. Run quality_gate.py before upload. Use this UTM-tagged metadata for campaign_slug=aiassistworks:\nTITLE: Still doing Workflow Automation the slow way? Here's the AI shortcut - AiAssistWorks #Shorts\nDESCRIPTION:\nStill doing Workflow Automation the slow way? Here's the AI shortcut.\n\nFull review, features, and current pricing on COSHUMA:\nhttps://coshuma.com/tool/aiassistworks.html?utm_source=youtube&utm_medium=shorts&utm_campaign=aiassistworks\n\n#AiAssistWorks #Shorts #SaaS #AITools",
-    "do_not": [
-      "Do not use a generic homepage URL as the CTA — use the coshuma_url below.",
-      "Do not fabricate pricing, discount codes, revenue numbers, product UI, or reuse permission.",
-      "Do not silently substitute new character faces if the canonical duo reference cannot be loaded; mark character_reference_missing instead.",
-      "Do not upload before quality_gate.py passes.",
-      "Do not re-render this same tool if a ready/uploaded manifest entry already covers the campaign."
-    ],
-    "character_system_id": "COSHUMA_DUO_V1",
-    "character_reference_path": "projects/GlobalSaaSHub/assets/characters/COSHUMA_DUO_MASTER.jpg",
-    "character_episode_rules": [
-      "Use both fixed characters by default; do not silently substitute new faces.",
-      "Use a natural two-person dialogue: one operates the real SaaS UI while the other points out the next button, workflow step, or business implication; alternate roles when useful.",
-      "Show official or authenticated real product UI whenever available; do not fabricate dashboard screens or unsupported features.",
-      "Weight the story toward concrete work outcomes: fewer repetitive tasks, faster execution, better lead handling, better customer support, or credible revenue opportunities. Do not promise guaranteed income or invent performance numbers.",
-      "For monetized episodes, send viewers to the UTM-tagged COSHUMA tool/comparison page and only rely on a verified customer-facing affiliate/referral route already recorded in repository data.",
-      "Default format: 9:16, 30-45 seconds, strong first-2-second hook, dialogue plus real UI demonstration, and a natural CTA in the final scene.",
-      "If the master reference cannot be loaded, mark character_reference_missing and do not generate replacement identities."
-    ],
-    "coshuma_url": "https://coshuma.com/tool/aiassistworks.html?utm_source=youtube&utm_medium=shorts&utm_campaign=aiassistworks",
-    "affiliate_target": "aiassistworks",
-    "campaign_slug": "aiassistworks"
   }
 ]
