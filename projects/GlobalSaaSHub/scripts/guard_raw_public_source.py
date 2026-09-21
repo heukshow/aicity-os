@@ -26,6 +26,9 @@ CONTEXTUAL_NETWORK = re.compile(
     re.I,
 )
 FORBIDDEN = [
+    ("editorial workflow state", re.compile(r"\b(?:not\s+yet\s+editorially\s+rated|editorial\s+review\s+in\s+progress|review\s+pending)\b", re.I)),
+    ("internal affiliate terms heading", re.compile(r"\bverified\s+COSHUMA\s+affiliate\s+terms\b", re.I)),
+    ("referral verification provenance", re.compile(r"\breferral\s+URL\s+verified\s+directly\b", re.I)),
     ("affiliate manager", re.compile(r"\baffiliate\s+manager\b", re.I)),
     ("partner manager", re.compile(r"\bpartner\s+manager\b", re.I)),
     ("affiliate-role provenance", re.compile(r"\b(?:senior\s+)?affiliate\s+marketing\s+manager\b[^.\n<>]{0,180}\b(?:supplied|provided)\b", re.I)),
