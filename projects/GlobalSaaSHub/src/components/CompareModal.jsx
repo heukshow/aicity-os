@@ -33,7 +33,7 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
         <div className="flex items-center justify-between border-b border-[#222538] pb-4">
           <div className="flex items-center gap-2">
             <span className="text-xl">⚔️</span>
-            <h2 className="text-lg font-black text-white">Side-by-Side Tool Comparison</h2>
+            <div><h2 className="text-lg font-black text-white">Side-by-Side Tool Comparison</h2><p className="mt-0.5 text-[11px] font-semibold text-slate-500">Compare up to 3 tools</p></div>
           </div>
           <button 
             onClick={onClose}
