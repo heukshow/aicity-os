@@ -32,9 +32,11 @@ require(final_dist.get("fail_closed_on_internal_ops_leak") is True, "final inter
 
 raw_prebuild_at = PREBUILD.find("guard_raw_public_source.py")
 policy_prebuild_at = PREBUILD.find("validate_public_policy_contract.py")
+jsonld_prebuild_at = PREBUILD.find("repair_and_validate_jsonld.py")
 require(raw_prebuild_at >= 0, "raw public source guard missing from prebuild")
+require(jsonld_prebuild_at >= 0, "public JSON-LD guard missing from prebuild")
 require(policy_prebuild_at >= 0, "public policy validator missing from prebuild")
-require(raw_prebuild_at < policy_prebuild_at, "raw public source guard must run before policy validation and build sanitizers")
+require(raw_prebuild_at < jsonld_prebuild_at < policy_prebuild_at, "raw source and JSON-LD guards must run before policy validation and build sanitizers")
 
 raw_build_at = BUILD.find("guard_raw_public_source.py")
 customer_sanitizer_at = BUILD.find("guard_customer_only_copy.py")
@@ -109,6 +111,15 @@ for network in ("PartnerStack", "FirstPromoter", "Impact", "Dub", "Cello", "Tolt
     require(network in raw_guard, f"raw source guard no longer covers central network label: {network}")
     require(network in artifact_guard, f"artifact guard no longer covers central network label: {network}")
 require("URL_RE.sub" in raw_guard, "raw source guard no longer masks tracking URLs before scanning")
+for phrase in (
+    "editorial workflow state",
+    "internal affiliate terms heading",
+    "referral verification provenance",
+):
+    require(phrase in raw_guard, f"raw source guard no longer covers {phrase}")
+jsonld_guard = (ROOT / "scripts" / "repair_and_validate_jsonld.py").read_text(encoding="utf-8")
+require("validate_tree(PUBLIC)" in jsonld_guard, "JSON-LD guard no longer validates every public HTML source")
+require("repair_sanebox" not in jsonld_guard, "JSON-LD build guard must fail closed instead of silently repairing source")
 
 # Public HTML generators must consume the explicit customer-only projection rather than
 # reading raw private affiliate state. This catches architectural recurrence even when
