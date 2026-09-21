@@ -327,7 +327,7 @@ PATCHES = {
             '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">AWeber Pricing 2026: Free, Lite &amp; Plus Compared</h1>',
         ),
         (
-            '<p class="text-slate-400 text-sm mt-2">Checked against AWeber\'s official pricing and Advocate Program documentation on September 10, 2026.</p>',
+            '<p class="text-slate-400 text-sm mt-2">Pricing and trial terms rechecked against AWeber official pages on September 19, 2026.</p>',
             '<p class="text-slate-400 text-sm mt-2">Pricing and trial terms rechecked against AWeber official pages on September 19, 2026.</p>',
         ),
         (
