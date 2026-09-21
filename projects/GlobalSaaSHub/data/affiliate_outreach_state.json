@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16",
+  "updated_at": "2026-09-21",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -99,12 +99,14 @@
       "evidence": "Authenticated Dub partner dashboard shows Fillout Approved/Enrolled and issues the exact customer-facing link https://try.fillout.com/sang-kwon-an-hxwn. No reapplication was made and no referral, sale, commission, or revenue is inferred."
     },
     "sendcloud": {
-      "status": "application_submitted",
-      "contact": "PartnerStack / Sendcloud",
-      "gmail_message_id": "1a07bc61a476b59e",
+      "status": "approved_tracking",
+      "contact": "Sendcloud Partner Program / Kate Makulova",
+      "gmail_message_id": "1a0c32113e2984a7",
       "sender": "support@coshuma.com",
-      "tracking_url": null,
-      "note": "PartnerStack confirms the application was received and authenticated PartnerStack currently shows Application pending. Do not reapply."
+      "tracking_url": "https://sendcloud.getsc.eu/bdwc8vxceqtt",
+      "verified_at": "2026-09-21T08:41:58Z",
+      "commission_terms": "100% of referred customer's first month on standard plans; EUR 200 one-off on Enterprise and custom plan referrals; payout after a 60-day sales verification period",
+      "note": "Sendcloud welcome email explicitly confirms program membership and supplies this exact customer-facing referral link. Do not reapply. No click, signup, paid customer, commission or payout is inferred from approval/link issuance."
     },
     "pictory": {
       "status": "approved_tracking",
