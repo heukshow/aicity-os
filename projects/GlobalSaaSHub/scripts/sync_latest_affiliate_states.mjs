@@ -169,14 +169,16 @@ const states = {
     ],
   },
   sendcloud: {
-    affiliate_url: null,
+    affiliate_url: 'https://sendcloud.getsc.eu/bdwc8vxceqtt',
     affiliate_verified: true,
-    affiliate_status: 'application_submitted',
-    affiliate_verified_at: observedAt,
+    affiliate_status: 'approved_tracking',
+    affiliate_verified_at: '2026-09-21T08:41:58Z',
+    affiliate_status_checked_at: '2026-09-21T08:41:58Z',
     affiliate_evidence_markers: [
-      'PartnerStack email confirms Sendcloud application received and submitted for review',
-      'Authenticated PartnerStack currently displays Application pending',
-      'Exact customer-facing tracking URL is not yet available',
+      'Sendcloud welcome email to support@coshuma.com confirms COSHUMA joined the partner program',
+      'Gmail message 1a0c32113e2984a7 explicitly supplies the customer-facing referral link https://sendcloud.getsc.eu/bdwc8vxceqtt',
+      'Vendor states standard-plan commission is 100% of the referred customer first month and Enterprise/custom referrals pay EUR 200 one-off, with a 60-day sales verification period before payout',
+      'No click, signup, paid customer, commission, or payout is inferred from approval or link issuance',
     ],
   },
   clickup: {
