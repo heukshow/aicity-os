@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-09-21T08:28:32.739Z",
+  "generatedAt": "2026-09-21T19:26:04.602Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
-    "revenueReadyAffiliates": 73,
-    "genericRevenueReadyAffiliates": 70,
+    "revenueReadyAffiliates": 74,
+    "genericRevenueReadyAffiliates": 71,
     "targetedRevenueReadyAffiliates": 3,
-    "openMonetizationGaps": 82,
+    "openMonetizationGaps": 81,
     "directActionableGaps": 13,
     "browserRequiredGaps": 23,
-    "watchOnlyGaps": 46,
+    "watchOnlyGaps": 45,
     "doNotReapply": 166,
     "toolPages": 179,
     "comparePages": 279,
@@ -18,21 +18,21 @@
   "revenueFocus": {
     "policy": "prioritize_direct_existing_gaps_without_reapplying_waiting_states",
     "allowNewTools": false,
-    "reason": "13 existing tools still have directly actionable affiliate gaps; 46 are watch-only and 23 require browser work."
+    "reason": "13 existing tools still have directly actionable affiliate gaps; 45 are watch-only and 23 require browser work."
   },
   "affiliateCoverage": {
     "counts": {
-      "revenueReady": 73,
-      "genericRevenueReady": 70,
+      "revenueReady": 74,
+      "genericRevenueReady": 71,
       "targetedRevenueReady": 3,
       "terminal": 25,
-      "openMonetizationGaps": 82,
+      "openMonetizationGaps": 81,
       "directActionableGaps": 13,
       "browserRequiredGaps": 23,
-      "watchOnlyGaps": 46,
+      "watchOnlyGaps": 45,
       "doNotReapply": 166,
       "unclassifiedAffiliateStatus": 7,
-      "exactAffiliateUrlMissing": 82,
+      "exactAffiliateUrlMissing": 81,
       "officialUnverified": 1,
       "pricingUnverified": 132
     },
@@ -1012,6 +1012,24 @@
       {
         "id": "sanebox",
         "name": "Sanebox",
+        "officialVerified": true,
+        "pricingVerified": false,
+        "affiliateStatus": "approved_tracking",
+        "affiliateVerified": true,
+        "hasAffiliateUrl": true,
+        "genericRevenueReady": true,
+        "targetedRevenueReady": true,
+        "revenueReady": true,
+        "terminal": false,
+        "doNotReapply": true,
+        "browserRequired": false,
+        "directActionableGap": false,
+        "watchOnlyGap": false,
+        "blocker": null
+      },
+      {
+        "id": "sendcloud",
+        "name": "Sendcloud",
         "officialVerified": true,
         "pricingVerified": false,
         "affiliateStatus": "approved_tracking",
@@ -2900,24 +2918,6 @@
         "blocker": null
       },
       {
-        "id": "sendcloud",
-        "name": "Sendcloud",
-        "officialVerified": true,
-        "pricingVerified": false,
-        "affiliateStatus": "application_submitted",
-        "affiliateVerified": true,
-        "hasAffiliateUrl": false,
-        "genericRevenueReady": false,
-        "targetedRevenueReady": false,
-        "revenueReady": false,
-        "terminal": false,
-        "doNotReapply": true,
-        "browserRequired": false,
-        "directActionableGap": false,
-        "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
-      },
-      {
         "id": "sender-net",
         "name": "Sender.net",
         "officialVerified": true,
@@ -3724,6 +3724,14 @@
       "verifiedAt": "2026-09-16T06:20:00+09:00"
     },
     {
+      "id": "sendcloud",
+      "name": "Sendcloud",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://sendcloud.getsc.eu/bdwc8vxceqtt",
+      "verifiedAt": "2026-09-21T08:41:58Z"
+    },
+    {
       "id": "shopify",
       "name": "Shopify",
       "status": "approved_tracking",
@@ -4154,14 +4162,6 @@
       "verified": true,
       "url": null,
       "verifiedAt": "2026-09-01T08:45:37Z"
-    },
-    {
-      "id": "sendcloud",
-      "name": "Sendcloud",
-      "status": "application_submitted",
-      "verified": true,
-      "url": null,
-      "verifiedAt": "2026-09-08T03:27:00+09:00"
     },
     {
       "id": "sender-net",
