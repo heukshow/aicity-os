@@ -40,12 +40,38 @@ def validate_tree(root: Path) -> list[str]:
             )
         for index, match in enumerate(blocks, start=1):
             try:
-                json.loads(match.group(2).strip())
+                payload = json.loads(match.group(2).strip())
             except json.JSONDecodeError as exc:
                 errors.append(
                     f"{rel}: JSON-LD #{index}: {exc.msg} "
                     f"at line {exc.lineno} column {exc.colno}"
                 )
+                continue
+
+            stack = [payload]
+            while stack:
+                node = stack.pop()
+                if isinstance(node, list):
+                    stack.extend(node)
+                    continue
+                if not isinstance(node, dict):
+                    continue
+                stack.extend(node.values())
+                if node.get("@type") != "FAQPage":
+                    continue
+                seen: set[str] = set()
+                for question in node.get("mainEntity", []):
+                    if not isinstance(question, dict):
+                        continue
+                    name = question.get("name")
+                    if not isinstance(name, str):
+                        continue
+                    normalized = " ".join(name.split()).casefold()
+                    if normalized in seen:
+                        errors.append(
+                            f'{rel}: JSON-LD #{index}: duplicate FAQ question "{name}"'
+                        )
+                    seen.add(normalized)
     return errors
 
 
