@@ -70,7 +70,8 @@ INTERNAL_REVENUE_OPS = re.compile(
     r"|\b(?:referral|tracking)\s+URL\s+(?:not\s+yet\s+verified|not\s+verified|unknown)\b"
     r"|\baffiliate\s+evidence\b"
     r"|\bverified\s+affiliate\s+records\b"
-    r"|\bpublication\s+or\s+test\s+clicks?\s+are\s+not\s+treated\s+as\s+signups?,\s*customers?\s+or\s+revenue\b",
+    r"|\bpublication\s+or\s+test\s+clicks?\s+are\s+not\s+treated\s+as\s+signups?,\s*customers?\s+or\s+revenue\b"
+    r"|\b(?:clicks?|signups?|paid\s+customers?|commission|revenue)\b[^.\n<>]{0,220}\bfor\s+COSHUMA\b[^.\n<>]{0,220}\b(?:account|partner(?:-side)?)\s+evidence\b",
     re.I,
 )
 INTERNAL_PAYMENT_OPS = re.compile(
