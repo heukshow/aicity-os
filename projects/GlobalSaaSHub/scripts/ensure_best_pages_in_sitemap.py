@@ -11,6 +11,7 @@ BASE_URL = "https://coshuma.com"
 PROJECT = Path(__file__).resolve().parents[1]
 PUBLIC = PROJECT / "public"
 SITEMAP = PUBLIC / "sitemap.xml"
+METHODOLOGY = PUBLIC / "methodology.html"
 BEST_DIR = PUBLIC / "best"
 CATEGORY_DIR = PUBLIC / "category"
 NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -51,38 +52,6 @@ def parse_date(value):
 
 def pretty_date(value):
     return value.strftime("%B %d, %Y").replace(" 0", " ")
-
-
-def render_methodology_page():
-    page = f'''<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>COSHUMA Methodology | How We Evaluate AI & SaaS Tools</title>
-  <meta name="description" content="How COSHUMA checks software pricing, public sources, buyer fit, affiliate links, comparisons, updates and corrections." />
-  <link rel="canonical" href="{BASE_URL}/methodology.html" />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="{BASE_URL}/methodology.html" />
-  <meta property="og:title" content="COSHUMA Methodology | How We Evaluate AI & SaaS Tools" />
-  <meta property="og:description" content="Our source, pricing, comparison, disclosure and correction standards for AI and SaaS buyer guides." />
-  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"WebPage","name":"COSHUMA Methodology","url":"{BASE_URL}/methodology.html","isPartOf":{{"@type":"WebSite","name":"COSHUMA","url":"{BASE_URL}/"}}}}</script>
-  <style>body{{margin:0;background:#08090d;color:#e2e8f0;font-family:Inter,Arial,sans-serif}}main{{max-width:900px;margin:auto;padding:48px 20px 80px}}a{{color:#c4b5fd}}.card{{border:1px solid #25293a;background:#101218;border-radius:18px;padding:22px;margin:16px 0}}h1,h2{{color:#fff}}p,li{{line-height:1.75;color:#aeb7c8}}.eyebrow{{color:#a78bfa;font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:12px}}</style>
-</head>
-<body><main>
-  <a href="/">← Back to COSHUMA</a>
-  <p class="eyebrow">Editorial methodology</p>
-  <h1>How COSHUMA evaluates AI & SaaS software</h1>
-  <p>COSHUMA is an independent software decision-support site. Our goal is to help buyers compare price, fit, trade-offs and public evidence before they subscribe.</p>
-  <section class="card"><h2>1. Official-source pricing checks</h2><p>When a pricing or trial source is available, we prefer the vendor's public pricing, product, help-center or documentation page. Pricing can change, so buyers should verify final terms on the vendor site before purchase.</p></section>
-  <section class="card"><h2>2. Buyer-fit comparisons</h2><p>We organize comparisons around practical purchase questions: what the product is for, who it fits, pricing, key capabilities, limitations and relevant alternatives. We do not invent customer counts, review volumes, traffic, conversions or performance claims.</p></section>
-  <section class="card"><h2>3. Commercial links and editorial content</h2><p>Editorial product information is evaluated separately from commercial relationships. Some outbound links may earn COSHUMA a commission, and those links are disclosed to readers without changing our product description or ranking.</p></section>
-  <section class="card"><h2>4. Category and comparison selection</h2><p>Tools are grouped by primary use case. Buyer-guide and comparison links prioritize useful decision paths, especially categories where visitors commonly compare pricing, alternatives or workflow fit.</p></section>
-  <section class="card"><h2>5. Updates and rechecks</h2><p>Where our dataset contains a real verification timestamp, tool pages may display a “Last verified” date and the public sources checked. Missing verification data is not replaced with a guessed date.</p></section>
-  <section class="card"><h2>6. Affiliate disclosure</h2><p>Some outbound links may earn COSHUMA a commission. This does not guarantee a positive recommendation and does not add to the price a buyer pays. Pages that contain these links include a clear consumer disclosure.</p></section>
-  <section class="card"><h2>7. Corrections</h2><p>If a public price, product fact or destination changes, we prefer correcting the affected guide and preserving evidence of the newer source rather than silently fabricating continuity.</p></section>
-</main></body></html>'''
-    (PUBLIC / "methodology.html").write_text(page, encoding="utf-8")
 
 
 def render_category_pages(tools):
@@ -183,9 +152,10 @@ def inject_tool_trust_blocks(tools):
     return injected
 
 
+methodology_source_before = METHODOLOGY.read_bytes() if FULL_PROJECT else None
+
 tools = json.loads((PROJECT / "data/tools.json").read_text(encoding="utf-8"))
 if FULL_PROJECT:
-    render_methodology_page()
     category_configs = render_category_pages(tools)
     trust_count = inject_tool_trust_blocks(tools)
 else:
@@ -262,6 +232,10 @@ for page in sorted(PUBLIC.glob("*.html")):
 
 ET.indent(tree, space="  ")
 tree.write(SITEMAP, encoding="utf-8", xml_declaration=True)
+
+if FULL_PROJECT and METHODOLOGY.read_bytes() != methodology_source_before:
+    raise RuntimeError("Sitemap generation must not rewrite the authoritative methodology page")
+
 print(
     "Sitemap buyer hubs: "
     f"best={len(best_pages)} categories={len(category_configs)} methodology={1 if FULL_PROJECT else 0} "
