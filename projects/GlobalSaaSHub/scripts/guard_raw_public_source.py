@@ -61,6 +61,13 @@ FORBIDDEN = [
     ("application state", re.compile(r"\bapplication[ _-]?state\b", re.I)),
     ("application status", re.compile(r"\b(?:affiliate|partner|referral|creator)\s+application\s+(?:status|pending|submitted|under\s+review)\b", re.I)),
     ("revenue truth", re.compile(r"\brevenue[ _-]?truth\b", re.I)),
+    ("COSHUMA performance evidence gate", re.compile(
+        r"\b(?:clicks?|signups?|paid\s+customers?|commission|revenue)\b"
+        r"[^.\n<>]{0,260}\bfor\s+COSHUMA\b"
+        r"[^.\n<>]{0,160}\b(?:account\s+)?evidence\b"
+        r"[^.\n<>]{0,80}\b(?:proves?|confirms?|shows?)\b",
+        re.I,
+    )),
     ("browser queue", re.compile(r"\bbrowser[ _-]?(?:required[ _-]?)?queue\b", re.I)),
     ("approved_tracking", re.compile(r"\bapproved_tracking\b", re.I)),
     ("internal verification", re.compile(r"\b(?:internal\s+verification|verification\s+evidence|partner-side\s+evidence|partner\s+correspondence)\b", re.I)),
