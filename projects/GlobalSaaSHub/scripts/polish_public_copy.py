@@ -21,6 +21,59 @@ LEGACY_LISTING_ADMIN_BLOCK = re.compile(
     r".*?</textarea>\s*</div>\s*</div>",
     re.S,
 )
+CONTAINER_TAG = re.compile(r"<(/?)(div|section)\b[^>]*>", re.I)
+FOUNDER_VERIFICATION = re.compile(r"Founder\s+Verification", re.I)
+LISTING_ADMIN_SIGNAL = re.compile(
+    r"Profile\s*\(\$49/yr\)"
+    r"|Claim\s+this\s+official\s+profile"
+    r"|Official\s+Embed\s+Badge\s+Code"
+    r"|verified-badge\.svg"
+    r"|manage\s+verified\s+business\s+information\s+and\s+badge\s+details",
+    re.I,
+)
+
+
+def _container_spans(text: str):
+    """Yield balanced div/section spans without trying to parse unrelated HTML."""
+    stack: list[tuple[str, int]] = []
+    for match in CONTAINER_TAG.finditer(text):
+        closing, tag = match.group(1), match.group(2).lower()
+        if not closing:
+            stack.append((tag, match.start()))
+            continue
+        for index in range(len(stack) - 1, -1, -1):
+            open_tag, start = stack[index]
+            if open_tag != tag:
+                continue
+            del stack[index:]
+            yield start, match.end()
+            break
+
+
+def remove_listing_admin_blocks(text: str) -> str:
+    """Remove legacy listing-management panels, including hand-tailored variants.
+
+    A block is removable only when one balanced div/section contains both the exact
+    Founder Verification marker and a second listing-admin signal. The smallest such
+    ancestor is removed, which avoids swallowing neighboring customer content.
+    """
+    text = LEGACY_LISTING_ADMIN_BLOCK.sub("", text)
+    while True:
+        marker = FOUNDER_VERIFICATION.search(text)
+        if not marker:
+            return text
+        candidates = []
+        for start, end in _container_spans(text):
+            if not (start <= marker.start() < end):
+                continue
+            block = text[start:end]
+            if FOUNDER_VERIFICATION.search(block) and LISTING_ADMIN_SIGNAL.search(block):
+                candidates.append((end - start, start, end))
+        if not candidates:
+            return text
+        _, start, end = min(candidates)
+        text = text[:start] + text[end:]
+
 
 TEXT_REPLACEMENTS = {
     "Global AI SaaS Decision Platform": "",
@@ -104,7 +157,7 @@ REMOVE_LINE_PATTERNS = [
 
 
 def polish(text: str) -> str:
-    text = LEGACY_LISTING_ADMIN_BLOCK.sub("", text)
+    text = remove_listing_admin_blocks(text)
 
     for old, new in TEXT_REPLACEMENTS.items():
         text = text.replace(old, new)
