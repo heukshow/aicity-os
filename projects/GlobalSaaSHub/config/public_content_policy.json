@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "policy_owner": "config/public_content_policy.json",
   "stages": {
     "source": {
@@ -42,7 +42,10 @@
       "Cello",
       "Tolt",
       "Awin",
-      "CJ Affiliate"
+      "CJ Affiliate",
+      "Founder Verification",
+      "Claim Profile ($49/yr)",
+      "Official Embed Badge Code"
     ],
     "allow_tracking_url_network_host_or_parameters": true
   }

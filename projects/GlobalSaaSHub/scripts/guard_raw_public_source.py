@@ -25,6 +25,16 @@ CONTEXTUAL_NETWORK = re.compile(
     r"[^\n<>]{0,80}\b(?:Impact(?:\.com|\s+Radius)?|Dub|Cello|Tolt|Awin|CJ\s+Affiliate)\b",
     re.I,
 )
+LISTING_ADMIN = re.compile(
+    r"\bFounder\s+Verification\b"
+    r"|\bClaim\s+this\s+official\s+profile\b"
+    r"|\b(?:Claim|Request\s+updates\s+for)\s+[^\n<>]{1,80}\s+Profile\s*\(\$49/yr\)"
+    r"|\bOfficial\s+Embed\s+Badge\s+Code\b"
+    r"|\bListing\s+badge\s+code\b"
+    r"|\bManage\s+the\s+listing\s+for\b"
+    r"|verified-badge\.svg",
+    re.I,
+)
 FORBIDDEN = [
     ("editorial workflow state", re.compile(r"\b(?:not\s+yet\s+editorially\s+rated|editorial\s+review\s+in\s+progress|review\s+pending)\b", re.I)),
     ("internal affiliate terms heading", re.compile(r"\bverified\s+COSHUMA\s+affiliate\s+terms\b", re.I)),
@@ -54,6 +64,7 @@ FORBIDDEN = [
     ("browser queue", re.compile(r"\bbrowser[ _-]?(?:required[ _-]?)?queue\b", re.I)),
     ("approved_tracking", re.compile(r"\bapproved_tracking\b", re.I)),
     ("internal verification", re.compile(r"\b(?:internal\s+verification|verification\s+evidence|partner-side\s+evidence|partner\s+correspondence)\b", re.I)),
+    ("listing administration", LISTING_ADMIN),
     ("network name", UNIQUE_NETWORK),
     ("contextual network name", CONTEXTUAL_NETWORK),
 ]
@@ -76,6 +87,7 @@ def validate_policy_alignment() -> None:
         "affiliate_status", "affiliate_verified", "affiliate_evidence_markers",
         "application state", "revenue truth", "browser queue",
         "PartnerStack", "FirstPromoter", "Impact", "Dub", "Cello", "Tolt", "Awin", "CJ Affiliate",
+        "Founder Verification", "Claim Profile ($49/yr)", "Official Embed Badge Code",
     }
     missing = sorted(expected - labels)
     if missing:

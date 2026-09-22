@@ -11,6 +11,84 @@ import re
 PROJECT_DIR = Path(__file__).resolve().parents[1]
 PUBLIC_DIR = PROJECT_DIR / "public"
 
+# Legacy programmatic tool pages used to embed a founder/listing administration
+# panel in customer-facing HTML. Remove the whole panel rather than renaming its
+# internal controls into softer public wording. The no-charge sponsorship inquiry
+# below is a separate customer-facing lead path and is intentionally preserved.
+LEGACY_LISTING_ADMIN_BLOCK = re.compile(
+    r"\s*<!-- Claim Profile & Official Founder Badge Section -->\s*"
+    r'<div class="p-6 rounded-2xl bg-\[#181a29\]/80 border border-purple-500/30 space-y-4">'
+    r".*?</textarea>\s*</div>\s*</div>",
+    re.S,
+)
+# A few hand-authored pages used a top-level section instead of the generic div.
+# Limit this removal to one section with no nested section, and require both the
+# exact admin marker and either the original paid profile-control CTA or the exact
+# legacy normalization emitted by monetize_verified_compare_links.mjs. Ordinary
+# customer-facing sponsorship inquiry sections cannot match because they do not
+# contain the Founder Verification marker.
+LEGACY_LISTING_ADMIN_SECTION = re.compile(
+    r"\s*<section\b(?:(?!<section\b).)*?Founder\s+Verification"
+    r"(?:(?!<section\b).)*?(?:Profile\s*\(\$49/yr\)|Request\s+\$49\s+sponsored\s+placement)"
+    r"(?:(?!<section\b).)*?</section>",
+    re.I | re.S,
+)
+CONTAINER_TAG = re.compile(r"<(/?)(div|section)\b[^>]*>", re.I)
+FOUNDER_VERIFICATION = re.compile(r"Founder\s+Verification", re.I)
+LISTING_ADMIN_SIGNAL = re.compile(
+    r"Profile\s*\(\$49/yr\)"
+    r"|Request\s+\$49\s+sponsored\s+placement"
+    r"|Claim\s+this\s+official\s+profile"
+    r"|Official\s+Embed\s+Badge\s+Code"
+    r"|verified-badge\.svg"
+    r"|manage\s+verified\s+business\s+information\s+and\s+badge\s+details",
+    re.I,
+)
+
+
+def _container_spans(text: str):
+    """Yield balanced div/section spans without trying to parse unrelated HTML."""
+    stack: list[tuple[str, int]] = []
+    for match in CONTAINER_TAG.finditer(text):
+        closing, tag = match.group(1), match.group(2).lower()
+        if not closing:
+            stack.append((tag, match.start()))
+            continue
+        for index in range(len(stack) - 1, -1, -1):
+            open_tag, start = stack[index]
+            if open_tag != tag:
+                continue
+            del stack[index:]
+            yield start, match.end()
+            break
+
+
+def remove_listing_admin_blocks(text: str) -> str:
+    """Remove legacy listing-management panels, including hand-tailored variants.
+
+    A block is removable only when one balanced div/section contains both the exact
+    Founder Verification marker and a second listing-admin signal. The smallest such
+    ancestor is removed, which avoids swallowing neighboring customer content.
+    """
+    text = LEGACY_LISTING_ADMIN_BLOCK.sub("", text)
+    text = LEGACY_LISTING_ADMIN_SECTION.sub("", text)
+    while True:
+        marker = FOUNDER_VERIFICATION.search(text)
+        if not marker:
+            return text
+        candidates = []
+        for start, end in _container_spans(text):
+            if not (start <= marker.start() < end):
+                continue
+            block = text[start:end]
+            if FOUNDER_VERIFICATION.search(block) and LISTING_ADMIN_SIGNAL.search(block):
+                candidates.append((end - start, start, end))
+        if not candidates:
+            return text
+        _, start, end = min(candidates)
+        text = text[:start] + text[end:]
+
+
 TEXT_REPLACEMENTS = {
     "Global AI SaaS Decision Platform": "",
     "GlobalSaaSHub Editorial Rating": "Product information",
@@ -24,12 +102,6 @@ TEXT_REPLACEMENTS = {
     "Pricing Plan": "Pricing",
     "Compare Alternatives": "See alternatives",
     "Back to All Tools": "Browse all tools",
-    "Founder Verification": "Listing management",
-    "Are you the founder of": "Manage the listing for",
-    "Claim this official profile to update tool information, manage pricing details, and embed the verified rating badge on your website:":
-        "If you represent this product, you can request listing updates and keep public product details accurate.",
-    "Claiming a profile or purchasing sponsorship does not guarantee or alter editorial ratings or ranking positions.":
-        "Listing management or sponsorship does not influence COSHUMA recommendations or ranking decisions.",
     "Global AI SaaS Decision Platform. All rights reserved.":
         "Independent AI & SaaS buyer guides. All rights reserved.",
     "Not yet editorially rated": "Product details",
@@ -99,6 +171,8 @@ REMOVE_LINE_PATTERNS = [
 
 
 def polish(text: str) -> str:
+    text = remove_listing_admin_blocks(text)
+
     for old, new in TEXT_REPLACEMENTS.items():
         text = text.replace(old, new)
 
@@ -164,10 +238,6 @@ def polish(text: str) -> str:
 
     text = text.replace("Official Documentation & Public Pricing Specs", "Official product and pricing pages")
     text = text.replace("Official Vendor Specifications & Benchmark Data", "Official product and pricing pages")
-    text = text.replace("Official Embed Badge Code:", "Listing badge code:")
-    text = text.replace("Verified on COSHUMA", "Listed on COSHUMA")
-    text = text.replace("Featured on COSHUMA TOP AI", "Listed on COSHUMA")
-    text = text.replace("⚡ Claim ", "Request updates for ")
 
     # Tidy whitespace left behind after conservative removals.
     text = re.sub(r"\n[ \t]+\n", "\n\n", text)

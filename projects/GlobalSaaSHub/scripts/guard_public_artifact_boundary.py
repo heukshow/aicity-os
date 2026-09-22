@@ -83,6 +83,16 @@ INTERNAL_PAYMENT_OPS = re.compile(
     r"|\bduring\s+maintenance\b",
     re.I,
 )
+LISTING_ADMIN = re.compile(
+    r"\bFounder\s+Verification\b"
+    r"|\bClaim\s+this\s+official\s+profile\b"
+    r"|\b(?:Claim|Request\s+updates\s+for)\s+[^\n<>]{1,80}\s+Profile\s*\(\$49/yr\)"
+    r"|\bOfficial\s+Embed\s+Badge\s+Code\b"
+    r"|\bListing\s+badge\s+code\b"
+    r"|\bManage\s+the\s+listing\s+for\b"
+    r"|verified-badge\.svg",
+    re.I,
+)
 INTERNAL_KEYS = re.compile(
     r"[\"'](?:affiliate_evidence_markers|affiliate_status|affiliate_verified|"
     r"affiliate_status_checked_at|affiliate_status_evidence_url|affiliate_next_action|"
@@ -99,6 +109,7 @@ PATTERNS = {
     "internal-tracking-verification-copy": INTERNAL_VERIFICATION_COPY,
     "internal-revenue-ops": INTERNAL_REVENUE_OPS,
     "internal-payment-ops": INTERNAL_PAYMENT_OPS,
+    "listing-administration": LISTING_ADMIN,
 }
 
 
@@ -220,7 +231,7 @@ def main() -> None:
             print(f" - ... and {len(errors)-100} more")
         raise SystemExit(1)
 
-    print(f"PASS: public artifact boundary clean across {len(files)} text artifacts; network/status/dashboard/correspondence/verification/revenue-ops/payment-ops leaks=0")
+    print(f"PASS: public artifact boundary clean across {len(files)} text artifacts; network/status/dashboard/correspondence/verification/revenue-ops/payment-ops/listing-admin leaks=0")
 
 
 if __name__ == "__main__":
