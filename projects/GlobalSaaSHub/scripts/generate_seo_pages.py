@@ -200,32 +200,6 @@ html_template = """<!doctype html>
           {cta_button_html}
         </div>
 
-        <!-- Claim Profile & Official Founder Badge Section -->
-        <div class="p-6 rounded-2xl bg-[#181a29]/80 border border-purple-500/30 space-y-4">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2 text-purple-300 font-bold text-sm">
-              <span>🏆 Are you the founder of {name}?</span>
-            </div>
-            <span class="text-[10px] uppercase tracking-wider font-extrabold bg-purple-500/20 text-purple-300 px-2.5 py-0.5 rounded-full border border-purple-500/30">Founder Verification</span>
-          </div>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Claim this official profile to update tool information, manage pricing details, and embed the verified rating badge on your website:
-          </p>
-          <div class="p-3 rounded-xl bg-[#0b0c10] border border-[#222538] text-[11px] text-slate-400 font-mono">
-            ⚖️ <strong class="text-slate-300">Editorial Independence Disclosure:</strong> Claiming a profile or purchasing sponsorship does not guarantee or alter editorial ratings or ranking positions.
-          </div>
-          <div class="flex flex-col sm:flex-row items-center gap-3">
-            <a href="/#submit" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs text-center transition-all shadow-md">
-              ⚡ Claim {name} Profile ($49/yr)
-            </a>
-          </div>
-          <div class="relative pt-2">
-            <div class="text-[10px] font-bold text-slate-400 mb-1">Official Embed Badge Code:</div>
-            <textarea readonly class="w-full bg-[#0b0c10] border border-[#222538] text-[11px] font-mono text-slate-300 p-3 rounded-xl focus:outline-none resize-none h-16">&lt;a href="https://coshuma.com/tool/{slug}.html" target="_blank" title="Featured on COSHUMA TOP AI"&gt;&lt;img src="https://coshuma.com/assets/verified-badge.svg" alt="{name} Verified on COSHUMA" width="200" /&gt;&lt;/a&gt;</textarea>
-          </div>
-        </div>
-
-
       </div>
     </main>
 
@@ -237,7 +211,6 @@ html_template = """<!doctype html>
     </footer>
   </body>
 </html>
-
 """
 
 sitemap_urls = [
@@ -644,4 +617,3 @@ with open(sitemap_path, "w", encoding="utf-8") as f:
     f.write(sitemap_content)
 
 print(f"✅ Successfully generated {generated_count} tool pages and {compare_generated_count} static compare pages (/compare/)! Updated sitemap.xml to {len(sitemap_urls)} URLs!")
-
