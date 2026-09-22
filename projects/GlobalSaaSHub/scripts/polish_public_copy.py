@@ -11,6 +11,17 @@ import re
 PROJECT_DIR = Path(__file__).resolve().parents[1]
 PUBLIC_DIR = PROJECT_DIR / "public"
 
+# Legacy programmatic tool pages used to embed a founder/listing administration
+# panel in customer-facing HTML. Remove the whole panel rather than renaming its
+# internal controls into softer public wording. The no-charge sponsorship inquiry
+# below is a separate customer-facing lead path and is intentionally preserved.
+LEGACY_LISTING_ADMIN_BLOCK = re.compile(
+    r"\s*<!-- Claim Profile & Official Founder Badge Section -->\s*"
+    r'<div class="p-6 rounded-2xl bg-\[#181a29\]/80 border border-purple-500/30 space-y-4">'
+    r".*?</textarea>\s*</div>\s*</div>",
+    re.S,
+)
+
 TEXT_REPLACEMENTS = {
     "Global AI SaaS Decision Platform": "",
     "GlobalSaaSHub Editorial Rating": "Product information",
@@ -24,12 +35,6 @@ TEXT_REPLACEMENTS = {
     "Pricing Plan": "Pricing",
     "Compare Alternatives": "See alternatives",
     "Back to All Tools": "Browse all tools",
-    "Founder Verification": "Listing management",
-    "Are you the founder of": "Manage the listing for",
-    "Claim this official profile to update tool information, manage pricing details, and embed the verified rating badge on your website:":
-        "If you represent this product, you can request listing updates and keep public product details accurate.",
-    "Claiming a profile or purchasing sponsorship does not guarantee or alter editorial ratings or ranking positions.":
-        "Listing management or sponsorship does not influence COSHUMA recommendations or ranking decisions.",
     "Global AI SaaS Decision Platform. All rights reserved.":
         "Independent AI & SaaS buyer guides. All rights reserved.",
     "Not yet editorially rated": "Product details",
@@ -99,6 +104,8 @@ REMOVE_LINE_PATTERNS = [
 
 
 def polish(text: str) -> str:
+    text = LEGACY_LISTING_ADMIN_BLOCK.sub("", text)
+
     for old, new in TEXT_REPLACEMENTS.items():
         text = text.replace(old, new)
 
@@ -164,10 +171,6 @@ def polish(text: str) -> str:
 
     text = text.replace("Official Documentation & Public Pricing Specs", "Official product and pricing pages")
     text = text.replace("Official Vendor Specifications & Benchmark Data", "Official product and pricing pages")
-    text = text.replace("Official Embed Badge Code:", "Listing badge code:")
-    text = text.replace("Verified on COSHUMA", "Listed on COSHUMA")
-    text = text.replace("Featured on COSHUMA TOP AI", "Listed on COSHUMA")
-    text = text.replace("⚡ Claim ", "Request updates for ")
 
     # Tidy whitespace left behind after conservative removals.
     text = re.sub(r"\n[ \t]+\n", "\n\n", text)
