@@ -8,13 +8,13 @@ const hash = async s => [...new Uint8Array(await crypto.subtle.digest('SHA-256',
 async function setup() {
   let reads = 0;
   return { get reads() { return reads; }, env: { OPS_PASSWORD_SHA256: await hash(password), ORDERS: {
-    prepare(sql) { return { bind(name) { return { async first() { if (sql.includes('login_limits')) return { attempts: 1 }; reads++; return { content: name.endsWith('.json') ? '{"private_metric":17}' : '<h1>Private dashboard marker</h1><script>(()=>{})();</script>', content_type: name.endsWith('.json') ? 'application/json' : 'text/html' }; } }; } }; },
+    prepare(sql) { return { bind(name) { return { async first() { if (sql.includes('login_limits')) return { attempts: 1 }; reads++; return { content: name.endsWith('.json') ? '{"private_metric":17,"revenue":{"paid":999},"audience_growth":{"status":"live_connected","scope":"first_party_direct_customer_asset_usage","events":["return_visit","saved_tool_change","saved_tools_view"],"ranges":{"7d":{"return_visit":{"events":7,"users":3},"saved_tool_change":{"events":5,"users":2},"saved_tools_view":{"events":4,"users":2}},"30d":{"return_visit":{"events":30,"users":12},"saved_tool_change":{"events":21,"users":8},"saved_tools_view":{"events":18,"users":7}}},"collected_at":"2026-09-23T00:00:00.000Z"}}' : '<h1>Private dashboard marker</h1><script>(()=>{})();</script>', content_type: name.endsWith('.json') ? 'application/json' : 'text/html' }; } }; } }; },
   } } };
 }
 const url = 'https://worker.example/ops/traffic-revenue.html';
 test('anonymous HTML and JSON fail closed without reading storage; spoofed headers do not authorize', async () => {
   const state = await setup();
-  for (const path of ['traffic-revenue.html', 'traffic-revenue-data.json', 'revenue-seo-refresh.json', 'admin-affiliate-audit.json', 'partnerstack-summary.json', 'revenue.html', 'revenue-summary.json']) {
+  for (const path of ['traffic-revenue.html', 'traffic-revenue-data.json', 'audience-growth.json', 'revenue-seo-refresh.json', 'admin-affiliate-audit.json', 'partnerstack-summary.json', 'revenue.html', 'revenue-summary.json']) {
     const r = await worker.fetch(new Request(`https://worker.example/ops/${path}`, { headers: { 'cf-access-authenticated-user-email': 'support@coshuma.com', cookie: 'coshuma_ops=forged' } }), state.env);
     assert.equal(r.status, 401); assert.doesNotMatch(await r.text(), /private_metric|Private dashboard marker/);
     assert.equal(r.headers.get('cache-control'), 'no-store, private');

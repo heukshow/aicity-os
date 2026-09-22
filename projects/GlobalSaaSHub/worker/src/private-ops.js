@@ -41,6 +41,30 @@ const response = (body, status, type = 'application/json; charset=utf-8') => new
   status, headers: { ...PRIVATE_HEADERS, 'content-type': type, 'content-security-policy': "default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'self'; img-src data:; base-uri 'none'; form-action 'self'; frame-ancestors 'none'" },
 });
 
+const AUDIENCE_EVENTS = ['return_visit', 'saved_tool_change', 'saved_tools_view'];
+function projectAudienceGrowth(snapshot) {
+  const source = snapshot?.audience_growth;
+  if (!source || typeof source !== 'object') return null;
+  const result = {
+    status: typeof source.status === 'string' ? source.status : 'unavailable',
+    scope: 'first_party_direct_customer_asset_usage',
+    events: AUDIENCE_EVENTS,
+    ranges: {},
+  };
+  for (const range of ['7d', '30d']) {
+    result.ranges[range] = {};
+    for (const event of AUDIENCE_EVENTS) {
+      const row = source.ranges?.[range]?.[event] || {};
+      result.ranges[range][event] = {
+        events: Number.isFinite(row.events) ? row.events : null,
+        users: Number.isFinite(row.users) ? row.users : null,
+      };
+    }
+  }
+  if (typeof source.collected_at === 'string') result.collected_at = source.collected_at;
+  return result;
+}
+
 async function csrfSignature(value, secret) {
   const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
   return [...new Uint8Array(await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`login:${value}`)))].map(b => b.toString(16).padStart(2, '0')).join('');
@@ -117,6 +141,16 @@ export async function handlePrivateOps(request, env) {
   const name = ['/ops', '/ops/'].includes(path) ? 'revenue.html' : path.slice('/ops/'.length);
   if (name === 'revenue.html') return response(request.method === 'HEAD' ? null : revenuePage(), 200, 'text/html; charset=utf-8');
   if (name === 'revenue-summary.json') return response(request.method === 'HEAD' ? null : JSON.stringify(await getRevenueSummary(env)), 200);
+  if (name === 'audience-growth.json') {
+    if (!env.ORDERS) return response('{"error":"Storage unavailable"}', 503);
+    const doc = await env.ORDERS.prepare('SELECT content, content_type FROM private_ops_documents WHERE name = ?').bind('traffic-revenue-data.json').first();
+    if (!doc) return response('{"error":"Not available"}', 503);
+    let snapshot;
+    try { snapshot = JSON.parse(doc.content); } catch { return response('{"error":"Not available"}', 503); }
+    const audience = projectAudienceGrowth(snapshot);
+    if (!audience) return response('{"error":"Not available"}', 503);
+    return response(request.method === 'HEAD' ? null : JSON.stringify(audience), 200);
+  }
   if (name === 'partnerstack-summary.json') {
     if (request.method === 'HEAD') return response(null, 200);
     try {
