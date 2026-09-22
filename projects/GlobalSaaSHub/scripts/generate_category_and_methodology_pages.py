@@ -94,11 +94,6 @@ def category_page(slug,cfg):
     schema={'@context':'https://schema.org','@graph':[{'@type':'CollectionPage','name':cfg['title'],'url':canonical,'dateModified':TODAY,'publisher':{'@type':'Organization','name':'COSHUMA'}},{'@type':'FAQPage','mainEntity':[{'@type':'Question','name':q,'acceptedAnswer':{'@type':'Answer','text':a}} for q,a in cfg['faq']]}]}
     return shell(cfg['title'],cfg['desc'],canonical,body,schema)
 
-def methodology():
-    title='COSHUMA Software Review & Verification Methodology'; canonical=f'{SITE}/methodology.html'
-    body=f'''<nav class="crumb"><a href="/">Home</a> / Methodology</nav><div class="badge">Editorial & verification policy · updated {TODAY}</div><h1>{title}</h1><p class="lead">COSHUMA is an AI and SaaS buyer-guide site. Our goal is to make software decisions faster by making pricing, product claims, trade-offs and source dates easier to check.</p><section class="grid"><div class="method"><h2 style="margin-top:0">1. Official-source checks</h2><p>Where a pricing or product claim is marked verified, COSHUMA records an official vendor source and a verification date when available. If the source or date is missing, the site should not invent one.</p></div><div class="method"><h2 style="margin-top:0">2. Buyer-fit comparisons</h2><p>Comparisons focus on use case, pricing model, strengths, limits and who should or should not buy. A longer feature list is not automatically treated as a better product.</p></div><div class="method"><h2 style="margin-top:0">3. Commercial links and editorial content</h2><p>Editorial product information is evaluated separately from commercial relationships. Some outbound links may earn COSHUMA a commission, and those links are disclosed to readers without changing our product description or ranking.</p></div><div class="method"><h2 style="margin-top:0">4. Update dates</h2><p>Pages may show pricing or official-source check dates when reliable evidence is available. COSHUMA does not invent a date when no evidence exists.</p></div><div class="method"><h2 style="margin-top:0">5. Ratings and claims</h2><p>COSHUMA does not publish invented review counts, ratings, traffic, conversions or revenue. Third-party ratings should only appear with an identifiable source.</p></div><div class="method"><h2 style="margin-top:0">6. Corrections</h2><p>Software pricing and partner programs change. Final terms should always be checked on the vendor site, and newer contradictory evidence should replace stale records instead of creating duplicate applications or links.</p></div></section><h2>What a strong COSHUMA buyer page should answer</h2><ul><li>Who is this product best for?</li><li>Who should skip it?</li><li>What pricing or trial information is currently recorded?</li><li>What are the practical trade-offs?</li><li>What alternatives should be compared?</li><li>When and where was the information checked?</li></ul><section class="method"><strong>Affiliate disclosure:</strong> Some outbound links may earn COSHUMA a commission without adding to the buyer's price. Commercial relationships do not guarantee a positive recommendation.</section>'''
-    schema={'@context':'https://schema.org','@type':'WebPage','name':title,'url':canonical,'dateModified':TODAY,'publisher':{'@type':'Organization','name':'COSHUMA'}}
-    return shell(title,'How COSHUMA checks pricing, public sources, comparisons and update dates.',canonical,body,schema)
 
 def ensure_sitemap(urls):
     if not SITEMAP.exists(): return
@@ -116,9 +111,8 @@ def main():
     for slug,cfg in CONFIG.items():
         (CATEGORY_DIR/f'{slug}.html').write_text(category_page(slug,cfg),encoding='utf-8')
         urls.append(f'{SITE}/category/{slug}.html')
-    (PUBLIC/'methodology.html').write_text(methodology(),encoding='utf-8')
     urls.append(f'{SITE}/methodology.html')
     ensure_sitemap(urls)
-    print(json.dumps({'category_pages':len(CONFIG),'methodology':True,'sitemap_urls':len(urls)}))
+    print(json.dumps({'category_pages':len(CONFIG),'methodology_preserved':True,'sitemap_urls':len(urls)}))
 
 if __name__=='__main__': main()
