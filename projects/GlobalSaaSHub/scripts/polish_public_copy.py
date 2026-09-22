@@ -23,11 +23,13 @@ LEGACY_LISTING_ADMIN_BLOCK = re.compile(
 )
 # A few hand-authored pages used a top-level section instead of the generic div.
 # Limit this removal to one section with no nested section, and require both the
-# exact admin marker and the paid profile-control CTA so ordinary product sections
-# cannot match accidentally.
+# exact admin marker and either the original paid profile-control CTA or the exact
+# legacy normalization emitted by monetize_verified_compare_links.mjs. Ordinary
+# customer-facing sponsorship inquiry sections cannot match because they do not
+# contain the Founder Verification marker.
 LEGACY_LISTING_ADMIN_SECTION = re.compile(
     r"\s*<section\b(?:(?!<section\b).)*?Founder\s+Verification"
-    r"(?:(?!<section\b).)*?Profile\s*\(\$49/yr\)"
+    r"(?:(?!<section\b).)*?(?:Profile\s*\(\$49/yr\)|Request\s+\$49\s+sponsored\s+placement)"
     r"(?:(?!<section\b).)*?</section>",
     re.I | re.S,
 )
@@ -35,6 +37,7 @@ CONTAINER_TAG = re.compile(r"<(/?)(div|section)\b[^>]*>", re.I)
 FOUNDER_VERIFICATION = re.compile(r"Founder\s+Verification", re.I)
 LISTING_ADMIN_SIGNAL = re.compile(
     r"Profile\s*\(\$49/yr\)"
+    r"|Request\s+\$49\s+sponsored\s+placement"
     r"|Claim\s+this\s+official\s+profile"
     r"|Official\s+Embed\s+Badge\s+Code"
     r"|verified-badge\.svg"
