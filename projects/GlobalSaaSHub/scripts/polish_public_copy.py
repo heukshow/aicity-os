@@ -21,6 +21,16 @@ LEGACY_LISTING_ADMIN_BLOCK = re.compile(
     r".*?</textarea>\s*</div>\s*</div>",
     re.S,
 )
+# A few hand-authored pages used a top-level section instead of the generic div.
+# Limit this removal to one section with no nested section, and require both the
+# exact admin marker and the paid profile-control CTA so ordinary product sections
+# cannot match accidentally.
+LEGACY_LISTING_ADMIN_SECTION = re.compile(
+    r"\s*<section\b(?:(?!<section\b).)*?Founder\s+Verification"
+    r"(?:(?!<section\b).)*?Profile\s*\(\$49/yr\)"
+    r"(?:(?!<section\b).)*?</section>",
+    re.I | re.S,
+)
 CONTAINER_TAG = re.compile(r"<(/?)(div|section)\b[^>]*>", re.I)
 FOUNDER_VERIFICATION = re.compile(r"Founder\s+Verification", re.I)
 LISTING_ADMIN_SIGNAL = re.compile(
@@ -58,6 +68,7 @@ def remove_listing_admin_blocks(text: str) -> str:
     ancestor is removed, which avoids swallowing neighboring customer content.
     """
     text = LEGACY_LISTING_ADMIN_BLOCK.sub("", text)
+    text = LEGACY_LISTING_ADMIN_SECTION.sub("", text)
     while True:
         marker = FOUNDER_VERIFICATION.search(text)
         if not marker:
