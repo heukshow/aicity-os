@@ -33,6 +33,7 @@ jobs:
         working-directory: projects/GlobalSaaSHub
         run: npm ci
 
+      # RECOVERY-006 invariant: committed customer source must be checked before any source-mutating preparation.
       - name: Fail closed on committed public source before preparation
         working-directory: projects/GlobalSaaSHub
         run: python scripts/guard_raw_public_source.py
