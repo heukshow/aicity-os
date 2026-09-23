@@ -10,19 +10,19 @@ headline_variants = [
         """            Find the right AI & SaaS tool
             <span className=\"block bg-gradient-to-r from-violet-300 via-white to-cyan-300 bg-clip-text text-transparent\">without wasting money.</span>""",
         """            Find AI tools you can use
-            <span className=\"block bg-gradient-to-r from-lime-300 via-emerald-200 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(110,231,183,0.22)]\">to make money.</span>""",
+            <span className=\"block text-emerald-200 drop-shadow-[0_0_18px_rgba(110,231,183,0.32)] sm:bg-gradient-to-r sm:from-lime-300 sm:via-emerald-200 sm:to-cyan-300 sm:bg-clip-text sm:text-transparent\">to make money.</span>""",
     ),
     (
         """            Find AI & SaaS tools that help you
             <span className=\"block bg-gradient-to-r from-violet-300 via-white to-cyan-300 bg-clip-text text-transparent\">earn, sell and grow.</span>""",
         """            Find AI tools you can use
-            <span className=\"block bg-gradient-to-r from-lime-300 via-emerald-200 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(110,231,183,0.22)]\">to make money.</span>""",
+            <span className=\"block text-emerald-200 drop-shadow-[0_0_18px_rgba(110,231,183,0.32)] sm:bg-gradient-to-r sm:from-lime-300 sm:via-emerald-200 sm:to-cyan-300 sm:bg-clip-text sm:text-transparent\">to make money.</span>""",
     ),
     (
         """            Find AI tools you can use
             <span className=\"block bg-gradient-to-r from-violet-300 via-white to-cyan-300 bg-clip-text text-transparent\">to make money.</span>""",
         """            Find AI tools you can use
-            <span className=\"block bg-gradient-to-r from-lime-300 via-emerald-200 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(110,231,183,0.22)]\">to make money.</span>""",
+            <span className=\"block text-emerald-200 drop-shadow-[0_0_18px_rgba(110,231,183,0.32)] sm:bg-gradient-to-r sm:from-lime-300 sm:via-emerald-200 sm:to-cyan-300 sm:bg-clip-text sm:text-transparent\">to make money.</span>""",
     ),
 ]
 for old, new in headline_variants:
