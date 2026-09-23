@@ -670,15 +670,16 @@
     "id": "supademo-affiliate-batch-20260908-0633",
     "tool_id": "supademo",
     "priority": "normal",
-    "status": "waiting_vendor_response",
-    "affiliate_status": "application_embed_unavailable",
+    "status": "browser_required_application_form",
+    "affiliate_status": "browser_required_application_form",
     "exact_tracking_url": null,
     "cost": "0",
-    "verified_at": "2026-09-15T04:12:19+09:00",
-    "reason": "Supademo received COSHUMA affiliate outreach and acknowledged receipt. The old embedded-form technical failure is superseded; the next dependency is a human vendor response, not browser/user action.",
-    "next_action": "Wait for a human Supademo reply, then re-check the full Gmail thread, sent mail, spam and repository state before any follow-up.",
-    "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
-    "user_action_required": false
+    "verified_at": "2026-09-23T21:29:54Z",
+    "reason": "Supademo support agent Mohit replied that support does not handle affiliate requests directly and instructed COSHUMA to use the formal request form. The earlier support outreach is not a formal application submission.",
+    "next_action": "Submit the official Supademo Affiliate Request form exactly once when an interactive form-capable execution path is available. Recheck the full Gmail thread and repository state before submission; stop only for CAPTCHA, OTP, legal consent, payment, or forced identity verification.",
+    "evidence_file": "data/supademo-form-route-2026-09-24.md",
+    "user_action_required": false,
+    "application_url": "https://eu.makeforms.io/k1ibmll/"
   },
   {
     "id": "nudgera-affiliate-batch-20260908-0650",

@@ -490,13 +490,13 @@
       "blockers": []
     },
     "supademo": {
-      "status": "outreach_sent",
+      "status": "browser_required_application_form",
       "tracking_url": null,
       "account": "support@coshuma.com",
       "sender": null,
-      "evidence_file": "data/affiliate-submission-batch-2026-09-08.json",
-      "note": "Supademo received the 2026-09-13 COSHUMA affiliate inquiry and acknowledged receipt via Intercom. Human vendor response is pending. Do not resend or infer formal approval/tracking/revenue.",
-      "next_action": "Resume this exact official form when its connection recovers. Recheck mailbox before a first submission. No user action currently required; do not publish the form or homepage as an affiliate URL.",
+      "evidence_file": "data/supademo-form-route-2026-09-24.md",
+      "note": "Supademo support agent Mohit confirmed that support does not handle affiliate requests directly and instructed COSHUMA to use the formal request form. The earlier support outreach was not a formal application. No approval or customer tracking URL is verified.",
+      "next_action": "Submit the official Supademo Affiliate Request form exactly once when an interactive form-capable execution path is available. Recheck the full Gmail thread and repository state immediately before submission. Stop only for CAPTCHA, OTP, legal consent, payment, or forced identity verification.",
       "checked_date_kst": "2026-09-08",
       "application_state": "not_submitted",
       "portal_enrollment_confirmed": false,
@@ -507,7 +507,11 @@
       ],
       "gmail_message_id": "1a09b43356bc3947",
       "acknowledgement_message_id": "1a09b43b5ba55b97",
-      "checked_at": "2026-09-15T04:12:19+09:00"
+      "checked_at": "2026-09-23T21:29:54Z",
+      "vendor_response_message_id": "1a0d02cddb650402",
+      "official_program_url": "https://supademo.com/affiliates",
+      "application_url": "https://eu.makeforms.io/k1ibmll/",
+      "user_action_required": false
     },
     "claap": {
       "status": "approved_tracking",
