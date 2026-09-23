@@ -23,14 +23,43 @@ jobs:
           set -e
           python - <<'PY'
           from pathlib import Path
+          import re
           import sys
           sys.path.insert(0, 'scripts')
-          from polish_public_copy import remove_listing_admin_blocks
+          from polish_public_copy import remove_listing_admin_blocks, _container_spans
+
+          PAID_PROFILE = re.compile(
+              r'(?:Claim|Request\s+updates\s+for)\s+[^\n<>]{1,80}\s+Profile\s*\(\$49/yr\)',
+              re.I,
+          )
+          ADMIN_CONTEXT = re.compile(
+              r'founder|claim(?:ing)?\s+(?:the|this)\s+(?:official\s+)?profile|'
+              r'profile[- ]claim|manage\s+(?:product|pricing|profile|listing)',
+              re.I,
+          )
+
+          def remove_paid_profile_controls(text: str) -> str:
+              while True:
+                  marker = PAID_PROFILE.search(text)
+                  if not marker:
+                      return text
+                  candidates = []
+                  for start, end in _container_spans(text):
+                      if not (start <= marker.start() < end):
+                          continue
+                      block = text[start:end]
+                      if PAID_PROFILE.search(block) and ADMIN_CONTEXT.search(block):
+                          candidates.append((end - start, start, end))
+                  if not candidates:
+                      return text
+                  _, start, end = min(candidates)
+                  text = text[:start] + text[end:]
 
           changed = []
           for path in sorted(Path('public/tool').glob('*.html')):
               before = path.read_text(encoding='utf-8')
               after = remove_listing_admin_blocks(before)
+              after = remove_paid_profile_controls(after)
               if after != before:
                   path.write_text(after, encoding='utf-8')
                   changed.append(path.as_posix())
