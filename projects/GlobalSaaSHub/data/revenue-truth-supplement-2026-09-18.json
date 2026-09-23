@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T05:15:00+09:00",
+  "generated_at": "2026-09-23T21:21:07Z",
   "policy": {
     "unknown_is_zero": false,
     "infer_downstream_from_upstream": false,
@@ -45,6 +45,29 @@
       "evidence_id": "gmail:1a0b4ec7c76011ec",
       "evidence_timestamp": "2026-09-18T14:29:47Z",
       "note": "Omnisend Senior Affiliate Marketing Manager Deimantė Vaitkevičiūtė stated that all performance details are visible in Impact and that the only activity she could currently see was one click recorded on 2026-09-09. The reply did not explicitly state zero referrals, paid customers, commissions, or payouts, so every downstream field remains unknown rather than zero. Existing vendor-issued tracking URLs remain unchanged."
+    },
+    {
+      "tool": "Castmagic",
+      "network": "FirstPromoter",
+      "period": "current unpaid balance stated in automated FirstPromoter program email on 2026-09-23; reporting period not stated",
+      "outbound_clicks": null,
+      "signups_referrals": null,
+      "trials": null,
+      "paid_customers": null,
+      "gross_sales_revenue": null,
+      "commission_earned": null,
+      "commission_approved": null,
+      "commission_pending": null,
+      "commission_paid": null,
+      "payout_paid": null,
+      "payout_pending": null,
+      "network_reported_unpaid_balance": 0,
+      "currency": null,
+      "status": "vendor_system_verified_partial",
+      "evidence_source": "vendor-system-email",
+      "evidence_id": "gmail:1a0cf8a8b7c21b67",
+      "evidence_timestamp": "2026-09-23T18:32:38Z",
+      "note": "Castmagic/FirstPromoter automated first-month review states that the current unpaid balance is 0. Because the message does not define whether this balance maps to earned, approved, pending or paid commission or to payout, and it does not state currency or reporting period, all standard commission and payout fields remain unknown. No click, referral/signup, trial, paid-customer or gross-sales value is inferred."
     }
   ]
 }
