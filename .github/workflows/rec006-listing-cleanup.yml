@@ -1,0 +1,55 @@
+name: RECOVERY-006 Listing Admin Cleanup
+
+on:
+  push:
+    branches:
+      - governance/recovery-006-getresponse-boundary
+    paths:
+      - '.github/workflows/rec006-listing-cleanup.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  clean-legacy-listing-admin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout recovery branch
+        uses: actions/checkout@v5
+
+      - name: Remove only legacy listing-admin containers
+        working-directory: projects/GlobalSaaSHub
+        run: |
+          set -e
+          python - <<'PY'
+          from pathlib import Path
+          import sys
+          sys.path.insert(0, 'scripts')
+          from polish_public_copy import remove_listing_admin_blocks
+
+          changed = []
+          for path in sorted(Path('public/tool').glob('*.html')):
+              before = path.read_text(encoding='utf-8')
+              after = remove_listing_admin_blocks(before)
+              if after != before:
+                  path.write_text(after, encoding='utf-8')
+                  changed.append(path.as_posix())
+
+          print(f'legacy listing-admin cleanup: changed_files={len(changed)}')
+          for item in changed:
+              print(item)
+          PY
+          python scripts/guard_raw_public_source.py
+
+      - name: Commit cleaned tool source to the recovery branch
+        run: |
+          set -e
+          if git diff --quiet -- projects/GlobalSaaSHub/public/tool; then
+            echo 'No listing-admin source changes were needed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add projects/GlobalSaaSHub/public/tool
+          git commit -m 'RECOVERY-006: remove legacy listing-admin blocks from tool source'
+          git push origin HEAD:governance/recovery-006-getresponse-boundary
