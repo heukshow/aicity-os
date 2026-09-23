@@ -33,6 +33,10 @@ jobs:
         working-directory: projects/GlobalSaaSHub
         run: npm ci
 
+      - name: Fail closed on committed public source before preparation
+        working-directory: projects/GlobalSaaSHub
+        run: python scripts/guard_raw_public_source.py
+
       - name: Prepare the same revenue-safe source state as production
         working-directory: projects/GlobalSaaSHub
         run: |
@@ -93,5 +97,5 @@ jobs:
             echo '- Production deployment: **not performed**'
             echo '- Vercel deployment: **not required**'
             echo '- Build artifact: uploaded for 3 days'
-            echo '- Checks: production-equivalent preparation, build, internal links, revenue SEO, approved tracking, public bundle safety'
+            echo '- Checks: committed raw-source boundary, production-equivalent preparation, build, internal links, revenue SEO, approved tracking, public bundle safety'
           } >> "$GITHUB_STEP_SUMMARY"
