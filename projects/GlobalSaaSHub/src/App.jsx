@@ -59,6 +59,7 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedPricing, setSelectedPricing] = useState('all');
+  const [mustHaveFeature, setMustHaveFeature] = useState('');
   const [compareToolA, setCompareToolA] = useState(null);
   const [showBookmarksOnly, setShowBookmarksOnly] = useState(false);
   const [bookmarkedIds, setBookmarkedIds] = useState(() => {
@@ -133,6 +134,7 @@ export default function App() {
 
   const filteredTools = useMemo(() => {
     const term = searchTerm.toLowerCase();
+    const requiredFeature = mustHaveFeature.trim().toLowerCase();
     return toolsData.filter((tool) => {
       const matchesBookmark = !showBookmarksOnly || bookmarkedIds.includes(tool.id);
       const matchesCategory = selectedCategory === 'all' || tool.category === selectedCategory;
@@ -152,9 +154,14 @@ export default function App() {
         (tool.category_display || '').toLowerCase().includes(term) ||
         (tool.key_features || []).some((f) => f.toLowerCase().includes(term));
 
-      return matchesBookmark && matchesCategory && matchesPricing && matchesSearch;
+      const matchesRequiredFeature =
+        !requiredFeature ||
+        (tool.description || '').toLowerCase().includes(requiredFeature) ||
+        (tool.key_features || []).some((f) => f.toLowerCase().includes(requiredFeature));
+
+      return matchesBookmark && matchesCategory && matchesPricing && matchesSearch && matchesRequiredFeature;
     });
-  }, [searchTerm, selectedCategory, selectedPricing, showBookmarksOnly, bookmarkedIds]);
+  }, [searchTerm, selectedCategory, selectedPricing, mustHaveFeature, showBookmarksOnly, bookmarkedIds]);
 
   const chooseCategory = (id) => {
     setSelectedCategory(id);
@@ -262,6 +269,43 @@ export default function App() {
       )}
 
       <main id="directory" className="relative z-10 mx-auto max-w-7xl scroll-mt-24 px-4 pb-24 sm:px-6 lg:px-8">
+        <section className="mb-6 rounded-2xl border border-violet-400/20 bg-violet-500/[0.05] p-4 sm:p-5">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-end">
+            <div className="flex-1">
+              <div className="text-xs font-bold uppercase tracking-[0.18em] text-violet-300">Narrow by what you need</div>
+              <h2 className="mt-1 text-lg font-black text-white">Start with your task and must-have capability</h2>
+              <p className="mt-1 text-xs leading-5 text-slate-500">This filters the directory by your inputs. It does not rank or declare a “best” product.</p>
+            </div>
+            <label className="min-w-0 lg:w-56">
+              <span className="mb-1.5 block text-[11px] font-bold uppercase tracking-wider text-slate-500">Primary task</span>
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="w-full rounded-xl border border-white/10 bg-[#101218] px-3 py-2.5 text-sm font-semibold text-slate-200 outline-none focus:border-violet-400/50"
+              >
+                {categories.map((cat) => <option key={cat.id} value={cat.id}>{cat.name}</option>)}
+              </select>
+            </label>
+            <label className="min-w-0 lg:w-72">
+              <span className="mb-1.5 block text-[11px] font-bold uppercase tracking-wider text-slate-500">Must-have capability</span>
+              <input
+                value={mustHaveFeature}
+                onChange={(e) => setMustHaveFeature(e.target.value)}
+                placeholder="e.g. voice cloning, CRM, subtitles"
+                className="w-full rounded-xl border border-white/10 bg-[#101218] px-3 py-2.5 text-sm text-white outline-none placeholder:text-slate-600 focus:border-violet-400/50"
+              />
+            </label>
+            {(selectedCategory !== 'all' || mustHaveFeature.trim()) && (
+              <button
+                onClick={() => { setSelectedCategory('all'); setMustHaveFeature(''); }}
+                className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-xs font-bold text-slate-400 hover:text-white"
+              >
+                Clear needs
+              </button>
+            )}
+          </div>
+        </section>
+
         <section className="mb-6 rounded-2xl border border-white/10 bg-white/[0.035] p-4 sm:p-5">
           <div className="mb-4 flex flex-wrap gap-2">
             {categories.map((cat) => {
