@@ -1,6 +1,10 @@
 import fs from 'node:fs';
 
 const checkedAt = '2026-09-15T04:12:19+09:00';
+const supademoCheckedAt = '2026-09-23T21:29:54Z';
+const supademoProgramUrl = 'https://supademo.com/affiliates';
+const supademoApplicationUrl = 'https://eu.makeforms.io/k1ibmll/';
+const supademoEvidenceFile = 'data/supademo-form-route-2026-09-24.md';
 const scribe = {
   id: 'scribe',
   name: 'Scribe',
@@ -52,13 +56,19 @@ for (const file of ['data/tools.json', 'data/tools.next.json']) {
   if (supademo) {
     supademo.affiliate_url = null;
     supademo.affiliate_verified = false;
-    supademo.affiliate_status = 'outreach_sent';
-    supademo.affiliate_verified_at = checkedAt;
+    supademo.affiliate_status = 'browser_required_application_form';
+    supademo.affiliate_source_url = supademoProgramUrl;
+    supademo.affiliate_workflow_url = supademoApplicationUrl;
+    supademo.affiliate_verified_at = supademoCheckedAt;
+    supademo.affiliate_next_action = 'Submit the official Supademo Affiliate Request form exactly once when an interactive form-capable execution path is available. Recheck the existing thread and repository state before submission; stop only for CAPTCHA, OTP, legal consent, payment, or forced identity verification.';
     const supademoMarkers = [
       ...(Array.isArray(supademo.affiliate_evidence_markers) ? supademo.affiliate_evidence_markers : []),
       '2026-09-13: COSHUMA affiliate inquiry sent to support@supademo.com (Gmail 1a09b43356bc3947).',
-      'Supademo Intercom acknowledged receipt (Gmail 1a09b43b5ba55b97); human vendor response remains pending.',
-      'No exact customer tracking URL, approval, signup, paid customer, commission or revenue is verified.',
+      'Supademo Intercom acknowledged receipt (Gmail 1a09b43b5ba55b97).',
+      '2026-09-23: Supademo support agent Mohit replied (Gmail 1a0d02cddb650402) that support does not handle affiliate requests directly and instructed COSHUMA to use the formal request form.',
+      `Current official Supademo affiliate page links to the Affiliate Request form at ${supademoApplicationUrl}.`,
+      'The prior support outreach is not a formal affiliate application submission. No exact customer tracking URL or approval is verified.',
+      supademoEvidenceFile,
     ];
     supademo.affiliate_evidence_markers = [...new Set(supademoMarkers)];
   }
@@ -67,7 +77,7 @@ for (const file of ['data/tools.json', 'data/tools.next.json']) {
 
 const outreachPath = 'data/affiliate_outreach_state.json';
 const outreach = JSON.parse(fs.readFileSync(outreachPath, 'utf8'));
-outreach.updated_at = '2026-09-15';
+outreach.updated_at = '2026-09-24';
 outreach.programs ||= {};
 outreach.programs.scribe = {
   status: 'temporarily_closed',
@@ -87,13 +97,21 @@ outreach.programs.scribe = {
 };
 if (outreach.programs.supademo) {
   Object.assign(outreach.programs.supademo, {
-    status: 'outreach_sent',
+    status: 'browser_required_application_form',
     tracking_url: null,
     account: 'support@coshuma.com',
     gmail_message_id: '1a09b43356bc3947',
     acknowledgement_message_id: '1a09b43b5ba55b97',
-    checked_at: checkedAt,
-    note: 'Supademo received the 2026-09-13 COSHUMA affiliate inquiry and acknowledged receipt via Intercom. Human vendor response is pending. Do not resend or infer formal approval/tracking/revenue.',
+    vendor_response_message_id: '1a0d02cddb650402',
+    checked_at: supademoCheckedAt,
+    application_state: 'not_submitted',
+    official_program_url: supademoProgramUrl,
+    application_url: supademoApplicationUrl,
+    evidence_file: supademoEvidenceFile,
+    user_action_required: false,
+    do_not_reapply: false,
+    note: 'Supademo support agent Mohit confirmed that support does not handle affiliate requests directly and instructed COSHUMA to use the formal request form. The earlier support outreach was not a formal application. No approval or customer tracking URL is verified.',
+    next_action: 'Submit the official Supademo Affiliate Request form exactly once when an interactive form-capable execution path is available. Recheck the full Gmail thread and repository state immediately before submission. Stop only for CAPTCHA, OTP, legal consent, payment, or forced identity verification.',
   });
 }
 fs.writeFileSync(outreachPath, `${JSON.stringify(outreach, null, 2)}\n`);
@@ -102,12 +120,16 @@ const queuePath = 'data/browser_required_queue.json';
 const queue = JSON.parse(fs.readFileSync(queuePath, 'utf8'));
 for (const item of queue) {
   if (item.tool_id === 'supademo' || String(item.id || '').startsWith('supademo-')) {
-    item.status = 'waiting_vendor_response';
+    item.status = 'browser_required_application_form';
+    item.affiliate_status = 'browser_required_application_form';
     item.priority = 'normal';
     item.user_action_required = false;
-    item.reason = 'Supademo received COSHUMA affiliate outreach and acknowledged receipt. The old embedded-form technical failure is superseded; the next dependency is a human vendor response, not browser/user action.';
-    item.next_action = 'Wait for a human Supademo reply, then re-check the full Gmail thread, sent mail, spam and repository state before any follow-up.';
-    item.verified_at = checkedAt;
+    item.exact_tracking_url = null;
+    item.application_url = supademoApplicationUrl;
+    item.reason = 'Supademo support agent Mohit replied that support does not handle affiliate requests directly and instructed COSHUMA to use the formal request form. The earlier support outreach is not a formal application submission.';
+    item.next_action = 'Submit the official Supademo Affiliate Request form exactly once when an interactive form-capable execution path is available. Recheck the full Gmail thread and repository state before submission; stop only for CAPTCHA, OTP, legal consent, payment, or forced identity verification.';
+    item.verified_at = supademoCheckedAt;
+    item.evidence_file = supademoEvidenceFile;
   }
 }
 fs.writeFileSync(queuePath, `${JSON.stringify(queue, null, 2)}\n`);
@@ -142,4 +164,4 @@ for (const file of ['public/best/index.html', 'index.html']) {
   }
 }
 
-console.log('Scribe fast-lane state/pages discoverability and Supademo waiting state ensured');
+console.log('Scribe fast-lane state/pages discoverability and Supademo formal application state ensured');
