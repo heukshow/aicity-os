@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "records": {
+    "RECOVERY-006:GETRESPONSE-PUBLIC-BOUNDARY-001": {
+      "mode": "public_boundary",
+      "source_glob": "projects/GlobalSaaSHub/public/tool/*.html",
+      "gh_pages_glob": "tool/*.html",
+      "live_url": "https://coshuma.com/tool/getresponse.html",
+      "forbidden_regex": [
+        "Founder Verification",
+        "Claim [^<\\n]{0,120}\\(\\$49/yr\\)",
+        "Official Embed Badge",
+        "verified-badge\\.svg",
+        "profile/listing claim",
+        "data-profile-claim"
+      ],
+      "live_required_substrings": [
+        "GetResponse",
+        "https://www.getresponse.com/"
+      ],
+      "verify_deployed_ancestry": true
+    }
+  }
+}

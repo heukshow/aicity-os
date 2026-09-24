@@ -1,0 +1,49 @@
+name: COSHUMA Release Verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'projects/GlobalSaaSHub/data/operations_registry.json'
+      - 'projects/GlobalSaaSHub/data/release_verification_specs.json'
+      - 'projects/GlobalSaaSHub/scripts/verify_release_queue.py'
+      - '.github/workflows/coshuma-release-verification.yml'
+  workflow_run:
+    workflows: ['COSHUMA Site Build & Deploy']
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: coshuma-release-verification
+  cancel-in-progress: true
+
+jobs:
+  verify-one:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out canonical main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Fetch production branch
+        run: git fetch origin gh-pages:refs/remotes/origin/gh-pages
+
+      - name: Validate control plane
+        working-directory: projects/GlobalSaaSHub
+        run: |
+          python scripts/validate_operations_registry.py
+          python scripts/verify_release_queue.py --validate-only
+
+      - name: Verify one deterministic release candidate
+        working-directory: projects/GlobalSaaSHub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python scripts/verify_release_queue.py
