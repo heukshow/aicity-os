@@ -50,6 +50,17 @@ const fallbackCopy = (text) => {
   return copied
 }
 
+const measureShortlistShare = (savedCount) => {
+  if (typeof window.gtag !== 'function') return
+  window.gtag('event', 'saved_shortlist_share', {
+    page_path: window.location.pathname,
+    page_location: window.location.href,
+    measurement_area: 'revisit_growth',
+    saved_count: savedCount,
+    share_method: 'copy_link',
+  })
+}
+
 export default function ShortlistShare() {
   const [savedIds, setSavedIds] = useState(readSavedIds)
   const [copied, setCopied] = useState(false)
@@ -91,6 +102,7 @@ export default function ShortlistShare() {
     }
 
     if (!didCopy) return
+    measureShortlistShare(savedIds.length)
     setCopied(true)
     window.setTimeout(() => setCopied(false), 1800)
   }
