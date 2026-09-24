@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-24T21:22:00Z",
+  "updated_at": "2026-09-24T21:35:01Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -303,6 +303,32 @@
       "completion_gate": "production_verified",
       "completion_gate_satisfied": true,
       "completed_at": "2026-09-24T21:22:00Z",
+      "user_action_required": false
+    },
+    {
+      "record_id": "REVENUE:RI-TRUTH-SYNC-001",
+      "incident_key": "revenue-truth-email-ingestion-gap-20260925",
+      "task_key": "RI-TRUTH-SYNC-001",
+      "target": "private-revenue-truth/jotform+aweber",
+      "owner_team": "Revenue Intelligence Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-24T21:35:01Z",
+      "evidence": {
+        "implementation_pr": 811,
+        "merge_commit": "fa874a8ca8c183cadd607c395c64114e1785eafe",
+        "pr_build_run": 36061983116,
+        "production_deploy_version": "eb7d64fd-89b1-48e5-b033-f63e1899a5ae",
+        "production_verification_comment_id": 5822637417,
+        "governance_evidence_comment_id": 5822637792,
+        "jotform_email_id": "1a0b3265d5b2769f",
+        "aweber_email_id": "1a0b61b45d55df0e"
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "completed_at": "2026-09-24T21:35:01Z",
       "user_action_required": false
     }
   ],
