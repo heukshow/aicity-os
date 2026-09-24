@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-24T21:21:05.934Z",
+  "generatedAt": "2026-09-24T22:35:35.803Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -8,8 +8,8 @@
     "targetedRevenueReadyAffiliates": 3,
     "openMonetizationGaps": 81,
     "directActionableGaps": 13,
-    "browserRequiredGaps": 24,
-    "watchOnlyGaps": 44,
+    "browserRequiredGaps": 23,
+    "watchOnlyGaps": 45,
     "doNotReapply": 166,
     "toolPages": 179,
     "comparePages": 279,
@@ -18,7 +18,7 @@
   "revenueFocus": {
     "policy": "prioritize_direct_existing_gaps_without_reapplying_waiting_states",
     "allowNewTools": false,
-    "reason": "13 existing tools still have directly actionable affiliate gaps; 44 are watch-only and 24 require browser work."
+    "reason": "13 existing tools still have directly actionable affiliate gaps; 45 are watch-only and 23 require browser work."
   },
   "affiliateCoverage": {
     "counts": {
@@ -28,8 +28,8 @@
       "terminal": 25,
       "openMonetizationGaps": 81,
       "directActionableGaps": 13,
-      "browserRequiredGaps": 24,
-      "watchOnlyGaps": 44,
+      "browserRequiredGaps": 23,
+      "watchOnlyGaps": 45,
       "doNotReapply": 166,
       "unclassifiedAffiliateStatus": 7,
       "exactAffiliateUrlMissing": 81,
@@ -2274,7 +2274,7 @@
         "name": "Justuno",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "browser_required_partnerstack_application",
+        "affiliateStatus": "application_submitted",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -2282,9 +2282,9 @@
         "revenueReady": false,
         "terminal": false,
         "doNotReapply": true,
-        "browserRequired": true,
+        "browserRequired": false,
         "directActionableGap": false,
-        "watchOnlyGap": false,
+        "watchOnlyGap": true,
         "blocker": "exact_customer_affiliate_url_missing"
       },
       {
