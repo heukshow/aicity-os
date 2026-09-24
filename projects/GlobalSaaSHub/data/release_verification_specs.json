@@ -19,6 +19,46 @@
         "https://www.getresponse.com/"
       ],
       "verify_deployed_ancestry": true
+    },
+    "EDITORIAL:EDITORIAL-BODY-002": {
+      "mode": "public_boundary",
+      "source_glob": "projects/GlobalSaaSHub/public/tool/kinsta.html",
+      "gh_pages_glob": "tool/kinsta.html",
+      "live_url": "https://coshuma.com/tool/kinsta.html",
+      "forbidden_regex": [
+        "<p class=\"text-slate-300 text-base leading-relaxed\">Premium managed WordPress hosting designed for speed, security, and scalability, ideal for agencies and businesses with high-traffic websites\\.</p>"
+      ],
+      "live_required_substrings": [
+        "<p class=\"text-slate-300 text-base leading-relaxed\">Kinsta provides managed WordPress hosting for agencies and businesses.</p>"
+      ],
+      "verify_deployed_ancestry": true
+    },
+    "EDITORIAL:FRESH-001D-SANEBOX-CORRECTION": {
+      "mode": "public_boundary",
+      "source_glob": "projects/GlobalSaaSHub/public/tool/sanebox.html",
+      "gh_pages_glob": "tool/sanebox.html",
+      "live_url": "https://coshuma.com/tool/sanebox.html",
+      "forbidden_regex": [
+        "\\$25 SaneBox credit",
+        "SaneBox has also confirmed"
+      ],
+      "live_required_substrings": [
+        "SaneBox's live public pricing page currently shows a 7-day standard trial, while the offer linked here currently states a 14-day free trial for eligible customers."
+      ],
+      "verify_deployed_ancestry": true
+    },
+    "EDITORIAL:EDITORIAL-BODY-003": {
+      "mode": "public_boundary",
+      "source_glob": "projects/GlobalSaaSHub/public/tool/tally.html",
+      "gh_pages_glob": "tool/tally.html",
+      "live_url": "https://coshuma.com/tool/tally.html",
+      "forbidden_regex": [
+        "Best first move"
+      ],
+      "live_required_substrings": [
+        "Practical first move"
+      ],
+      "verify_deployed_ancestry": true
     }
   }
 }
