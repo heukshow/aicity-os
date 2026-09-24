@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-24T09:30:00Z",
+  "updated_at": "2026-09-24T09:57:56Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -10,6 +10,16 @@
       "production read-only verification"
     ],
     "rule": "Evidence channels prove state changes; this registry is the machine-readable lifecycle authority after synchronization."
+  },
+  "control_plane_migration": {
+    "status": "deployed_and_active",
+    "implementation_pr": 792,
+    "merge_commit": "10c997b7bf98e672eb675ca7330752bf0b8e7b27",
+    "pr_build_run": 35982811216,
+    "site_deploy_run": 35983085021,
+    "site_deploy_run_number": 1028,
+    "site_deploy_conclusion": "success",
+    "evidence_comment_id": 5811751900
   },
   "lifecycle_order": [
     "discovered",
@@ -54,13 +64,57 @@
       "next_owner": "Release & Reliability Team",
       "priority": "critical",
       "blocker": null,
-      "last_evidence_at": "2026-09-24T07:03:48Z",
+      "last_evidence_at": "2026-09-23T16:16:31Z",
       "evidence": {
         "implementation_pr": 785,
         "merge_commit": "981e79d362926973b0dee14b0c554689601d9787",
         "pr_build_run": 35886834115,
         "site_deploy_run": 35887220492,
         "release_handoff_comment_id": 5798387836,
+        "production_verification_comment_id": null
+      },
+      "completion_gate": "production_verified",
+      "user_action_required": false
+    },
+    {
+      "record_id": "EDITORIAL:EDITORIAL-BODY-002",
+      "incident_key": null,
+      "task_key": "EDITORIAL-BODY-002",
+      "target": "public/tool/kinsta.html body correction",
+      "owner_team": "Editorial Quality Team",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
+      "priority": "normal",
+      "blocker": null,
+      "last_evidence_at": "2026-09-23T20:28:27Z",
+      "evidence": {
+        "implementation_pr": 786,
+        "merge_commit": "f15cc3a3bd23637b1e60065329f7e73aab49569d",
+        "pr_build_run": 35915867528,
+        "site_deploy_run": 35916153340,
+        "release_handoff_comment_id": 5802397143,
+        "production_verification_comment_id": null
+      },
+      "completion_gate": "production_verified",
+      "user_action_required": false
+    },
+    {
+      "record_id": "AFFILIATE:SUPADEMO-LIFECYCLE-CORRECTION",
+      "incident_key": null,
+      "task_key": "affiliate-supademo-formal-application-20260924",
+      "target": "generated affiliate lifecycle/supademo",
+      "owner_team": "Affiliate Partnerships Team",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-23T22:29:16Z",
+      "evidence": {
+        "implementation_pr": 787,
+        "merge_commit": "1d52683a6174bebc01a26141607f129ac2e98d65",
+        "pr_build_run": 35928367737,
+        "site_deploy_run": 35928581240,
+        "release_handoff_comment_id": 5804012229,
         "production_verification_comment_id": null
       },
       "completion_gate": "production_verified",
@@ -95,7 +149,7 @@
       "next_owner": "Release & Reliability Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-09-24T02:00:00Z",
+      "last_evidence_at": "2026-09-24T01:44:54Z",
       "evidence": {
         "implementation_pr": 788,
         "merge_commit": "d9d275118d12f1ae4543d29680ef4c4282fd0ac8",
@@ -108,19 +162,42 @@
       "user_action_required": false
     },
     {
+      "record_id": "EDITORIAL:FRESH-001D-SANEBOX-CORRECTION",
+      "incident_key": null,
+      "task_key": "FRESH-001D",
+      "target": "public/tool/sanebox.html supplier-confirmation correction",
+      "owner_team": "Editorial Quality Team",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-24T08:23:25Z",
+      "evidence": {
+        "implementation_pr": 790,
+        "supersedes_pr": 789,
+        "merge_commit": "e5d98b9ffd431695bda234114179eca16b3ddead",
+        "site_deploy_run": 35974693212,
+        "release_handoff_comment_id": 5810529414,
+        "production_verification_comment_id": null
+      },
+      "completion_gate": "production_verified",
+      "user_action_required": false
+    },
+    {
       "record_id": "EDITORIAL:EDITORIAL-BODY-003",
       "incident_key": null,
       "task_key": "EDITORIAL-BODY-003",
-      "target": "public editorial body correction",
+      "target": "public/tool/tally.html body correction",
       "owner_team": "Editorial Quality Team",
       "lifecycle": "production_verification_requested",
       "next_owner": "Release & Reliability Team",
       "priority": "normal",
       "blocker": null,
-      "last_evidence_at": "2026-09-24T09:00:00Z",
+      "last_evidence_at": "2026-09-24T08:31:23Z",
       "evidence": {
         "implementation_pr": 791,
         "merge_commit": "549a93fdcae05c74870967033b87a106ca8773e2",
+        "site_deploy_run": 35975553867,
         "release_handoff_comment_id": 5810655463,
         "production_verification_comment_id": null
       },
