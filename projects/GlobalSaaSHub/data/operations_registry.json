@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-24T21:35:01Z",
+  "updated_at": "2026-09-24T23:04:17Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -146,16 +146,20 @@
       "incident_key": "affiliate-supademo-form-submit-capability-20260924",
       "task_key": "affiliate-supademo-application-attempt-20260924",
       "target": "Supademo affiliate formal application",
-      "owner_team": "Operations Governance Team",
+      "owner_team": "Affiliate Partnerships Team",
       "lifecycle": "assigned_to_team",
-      "next_owner": "Operations Governance Team",
+      "next_owner": "Affiliate Partnerships Team",
       "priority": "high",
-      "blocker": "interactive_form_submit_capability_unavailable",
-      "last_evidence_at": "2026-09-24T01:00:00Z",
+      "blocker": null,
+      "last_evidence_at": "2026-09-24T23:01:56Z",
       "evidence": {
         "implementation_pr": 787,
         "merge_commit": "1d52683a6174bebc01a26141607f129ac2e98d65",
-        "production_verification_comment_id": null
+        "production_verification_comment_id": null,
+        "interactive_browser_capability_restored_evidence_comment_ids": [
+          5823321230,
+          5823621903
+        ]
       },
       "completion_gate": "formal_application_submission_evidence_or_rejected_with_evidence",
       "user_action_required": false
@@ -329,6 +333,76 @@
       "completion_gate": "production_verified",
       "completion_gate_satisfied": true,
       "completed_at": "2026-09-24T21:35:01Z",
+      "user_action_required": false
+    },
+    {
+      "record_id": "REVENUE:PARTNERSTACK-DASHBOARD-REFRESH-20260925",
+      "incident_key": "partnerstack-revenue-truth-refresh-20260925",
+      "task_key": "PARTNERSTACK-DASHBOARD-REFRESH-20260925",
+      "target": "private-revenue-truth/partnerstack-dashboard",
+      "owner_team": "Revenue Intelligence Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-24T21:58:08Z",
+      "evidence": {
+        "implementation_pr": 814,
+        "merge_commit": "3dfa2c14fe2ceb4efa6ad0d64502388f14783039",
+        "pr_build_run": 36064403197,
+        "worker_safety_run": 36064643216,
+        "production_deploy_version": "789e5146-479a-4aac-ae27-263a57abbcf5",
+        "production_verification_comment_id": 5822915633
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "completed_at": "2026-09-24T21:58:08Z",
+      "user_action_required": false
+    },
+    {
+      "record_id": "AFFILIATE:JUSTUNO-FORMAL-APPLICATION",
+      "incident_key": "affiliate-justuno-formal-application-20260925",
+      "task_key": "affiliate-justuno-formal-application-20260925",
+      "target": "Justuno affiliate formal application",
+      "owner_team": "Affiliate Partnerships Team",
+      "lifecycle": "in_progress",
+      "next_owner": "Affiliate Partnerships Team",
+      "priority": "normal",
+      "blocker": "awaiting_vendor_decision",
+      "last_evidence_at": "2026-09-24T22:35:14Z",
+      "evidence": {
+        "implementation_pr": 815,
+        "merge_commit": "58cef89f54a57e21db0c90d93c513161abcdfd8d",
+        "pr_build_run": 36068047776,
+        "site_deploy_run": 36068269766,
+        "application_evidence_comment_id": 5823321230,
+        "application_state": "submitted",
+        "exact_tracking_url": null
+      },
+      "completion_gate": "approved_tracking_url_or_rejected_with_evidence",
+      "user_action_required": false
+    },
+    {
+      "record_id": "AFFILIATE:CONSTANT-CONTACT-FORMAL-APPLICATION",
+      "incident_key": "affiliate-constant-contact-application-20260925",
+      "task_key": "affiliate-constant-contact-application-20260925",
+      "target": "Constant Contact affiliate formal application",
+      "owner_team": "Affiliate Partnerships Team",
+      "lifecycle": "in_progress",
+      "next_owner": "Affiliate Partnerships Team",
+      "priority": "normal",
+      "blocker": "awaiting_vendor_decision",
+      "last_evidence_at": "2026-09-24T23:01:56Z",
+      "evidence": {
+        "implementation_pr": 816,
+        "merge_commit": "1b12ad7913d056838716ba43c73889bfc79168ce",
+        "pr_build_run": 36070455622,
+        "site_deploy_run": 36070641111,
+        "application_evidence_comment_id": 5823621903,
+        "application_state": "submitted",
+        "exact_tracking_url": null
+      },
+      "completion_gate": "approved_tracking_url_or_rejected_with_evidence",
       "user_action_required": false
     }
   ],
