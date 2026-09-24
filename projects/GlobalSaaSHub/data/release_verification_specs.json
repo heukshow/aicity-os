@@ -26,10 +26,10 @@
       "gh_pages_glob": "tool/kinsta.html",
       "live_url": "https://coshuma.com/tool/kinsta.html",
       "forbidden_regex": [
-        "Premium managed WordPress hosting designed for speed, security, and scalability, ideal for agencies and businesses with high-traffic websites\\."
+        "<p class=\"text-slate-300 text-base leading-relaxed\">Premium managed WordPress hosting designed for speed, security, and scalability, ideal for agencies and businesses with high-traffic websites\\.</p>"
       ],
       "live_required_substrings": [
-        "Kinsta provides managed WordPress hosting for agencies and businesses."
+        "<p class=\"text-slate-300 text-base leading-relaxed\">Kinsta provides managed WordPress hosting for agencies and businesses.</p>"
       ],
       "verify_deployed_ancestry": true
     },
