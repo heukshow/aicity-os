@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-24T12:16:25Z",
+  "updated_at": "2026-09-24T12:35:15Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": ["GitHub issue #763", "GitHub issue #292", "GitHub PR/Actions", "production read-only verification"],
@@ -81,13 +81,15 @@
       "task_key": "affiliate-supademo-formal-application-20260924",
       "target": "generated affiliate lifecycle/supademo",
       "owner_team": "Affiliate Partnerships Team",
-      "lifecycle": "production_verification_requested",
-      "next_owner": "Release & Reliability Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-09-23T22:29:16Z",
-      "evidence": {"implementation_pr": 787, "merge_commit": "1d52683a6174bebc01a26141607f129ac2e98d65", "pr_build_run": 35928367737, "site_deploy_run": 35928581240, "release_handoff_comment_id": 5804012229, "production_verification_comment_id": null},
+      "last_evidence_at": "2026-09-24T12:35:15Z",
+      "evidence": {"implementation_pr": 787, "merge_commit": "1d52683a6174bebc01a26141607f129ac2e98d65", "pr_build_run": 35928367737, "site_deploy_run": 35928581240, "release_handoff_comment_id": 5804012229, "production_verification_comment_id": 5814218094, "deterministic_verification_run": 35999974047},
       "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "completed_at": "2026-09-24T12:35:15Z",
       "user_action_required": false
     },
     {
