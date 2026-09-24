@@ -18,6 +18,25 @@
             "commission_pending": 0,
             "reward_paid": 0
           }
+        },
+        {
+          "tool": "Teachable",
+          "observed_window": "cumulative as of 2026-09-16",
+          "checked_at": "2026-09-16T16:43:26Z",
+          "period": "cumulative as of vendor confirmation",
+          "source": "vendor-human-email",
+          "evidence_id": "gmail:1a0ab1a9d37ec857",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 11,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": 0,
+            "commission_earned": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "network_reported_conversions": 0
+          }
         }
       ]
     },
