@@ -38,6 +38,7 @@ jobs:
         run: |
           python scripts/validate_operations_registry.py
           python scripts/next_operations_task.py
+          python scripts/verify_release_queue.py --validate-only
 
       # RECOVERY-006 invariant: committed customer source must be checked before any source-mutating preparation.
       - name: Fail closed on committed public source before preparation
@@ -104,5 +105,5 @@ jobs:
             echo '- Production deployment: **not performed**'
             echo '- Vercel deployment: **not required**'
             echo '- Build artifact: uploaded for 3 days'
-            echo '- Checks: committed raw-source boundary, production-equivalent preparation, build, internal links, revenue SEO, approved tracking, public bundle safety'
+            echo '- Checks: operations control plane, deterministic release verifier contract, committed raw-source boundary, production-equivalent preparation, build, internal links, revenue SEO, approved tracking, public bundle safety'
           } >> "$GITHUB_STEP_SUMMARY"
