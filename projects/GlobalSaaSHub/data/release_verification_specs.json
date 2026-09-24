@@ -60,6 +60,19 @@
       ],
       "verify_deployed_ancestry": true
     },
+    "EDITORIAL:EDITORIAL-BODY-004": {
+      "mode": "public_boundary",
+      "source_glob": "projects/GlobalSaaSHub/public/tool/rytr.html",
+      "gh_pages_glob": "tool/rytr.html",
+      "live_url": "https://coshuma.com/tool/rytr.html",
+      "forbidden_regex": [
+        "Rytr is strongest for individuals and freelancers who want a low-cost AI writing assistant"
+      ],
+      "live_required_substrings": [
+        "Rytr can fit individuals and freelancers who want an AI writing assistant for short-form marketing copy, emails, rewrites and everyday drafting."
+      ],
+      "verify_deployed_ancestry": true
+    },
     "AFFILIATE:SUPADEMO-LIFECYCLE-CORRECTION": {
       "mode": "generated_json_state",
       "producer": ["node", "scripts/ensure_scribe_fastlane.mjs"],
