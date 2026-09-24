@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T22:35:31.494Z",
+  "generated_at": "2026-09-24T23:02:10.112Z",
   "evidence_scope": "Combined authenticated revenue-browser baseline, current revenue-truth records, and explicit account-wide commission/payout evidence.",
   "policy": {
     "purpose": "Detect approved monetized routes that can leak revenue because downstream affiliate metrics are missing or stale.",
