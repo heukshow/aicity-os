@@ -1535,20 +1535,18 @@
     "official_verified_at": "2026-09-14T21:10:00+09:00",
     "official_evidence_url": "https://www.constantcontact.com/partners/affiliate",
     "affiliate_verified": false,
-    "affiliate_status": "application_submitted",
+    "affiliate_status": "browser_required_affiliate_application",
     "affiliate_source_url": "https://www.constantcontact.com/partners/affiliate",
-    "affiliate_status_checked_at": "2026-09-24T22:58:55Z",
-    "application_state": "submitted",
+    "affiliate_status_checked_at": "2026-09-14T21:10:00+09:00",
+    "application_state": "not_submitted",
     "affiliate_evidence_markers": [
       "Official affiliate page says affiliates can earn up to $105 when a referred customer pays for a new account.",
       "Official knowledge base updated 2026-07-15 says the affiliate program is free to join.",
       "Official pricing/help confirms a 30-day free trial with no credit card required.",
-      "Exact COSHUMA customer tracking URL is unknown; application, dashboard and generic vendor URLs must not be used as revenue links.",
-      "2026-09-25 KST: Official Constant Contact affiliate application submitted through the authenticated PartnerStack flow using COSHUMA identity. PartnerStack dashboard shows Application pending.",
-      "Gmail confirmation `1a0d5a4b46408285` subject `Your Application to join Constant Contact` states the application was received and submitted for Constant Contact review.",
-      "No approval, exact customer-facing referral URL, signup, paid customer, commission, payout, or revenue is verified yet. Do not reapply."
+      "GitHub search and support@coshuma.com Gmail found no prior Constant Contact application, approval, rejection, issued tracking link, commission or payout record before this cycle.",
+      "Exact COSHUMA customer tracking URL is unknown; application, dashboard and generic vendor URLs must not be used as revenue links."
     ],
-    "affiliate_next_action": "Monitor the existing Constant Contact application for approval, rejection, or requests for more information. Do not reapply. After approval, recover and validate only the exact vendor-issued customer-facing referral URL."
+    "affiliate_next_action": "Submit the official free affiliate application once through the direct browser when available; stop for CAPTCHA, OTP, legal consent or forced identity verification. After approval, recover only the vendor-issued customer-facing tracking URL before changing public CTA state."
   },
   {
     "id": "convertflow",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-24T22:35:35.803Z",
+  "generatedAt": "2026-09-24T23:02:14.442Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -1824,7 +1824,7 @@
         "name": "Constant Contact",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "browser_required_affiliate_application",
+        "affiliateStatus": "application_submitted",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -1832,9 +1832,9 @@
         "revenueReady": false,
         "terminal": false,
         "doNotReapply": true,
-        "browserRequired": true,
+        "browserRequired": false,
         "directActionableGap": false,
-        "watchOnlyGap": false,
+        "watchOnlyGap": true,
         "blocker": "exact_customer_affiliate_url_missing"
       },
       {
@@ -2274,7 +2274,7 @@
         "name": "Justuno",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "application_submitted",
+        "affiliateStatus": "browser_required_partnerstack_application",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -2282,9 +2282,9 @@
         "revenueReady": false,
         "terminal": false,
         "doNotReapply": true,
-        "browserRequired": false,
+        "browserRequired": true,
         "directActionableGap": false,
-        "watchOnlyGap": true,
+        "watchOnlyGap": false,
         "blocker": "exact_customer_affiliate_url_missing"
       },
       {
