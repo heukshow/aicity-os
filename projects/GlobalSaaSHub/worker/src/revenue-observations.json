@@ -1,166 +1,252 @@
 {
   "accounts": [
-  {
-    "account_id": "partnerstack-account",
-    "evidence": [
-      {
-        "tool": "PartnerStack",
-        "observed_window": "2026-09-11 09:51–09:52 KST",
-        "checked_at": null,
-        "period": "Last 90 days · 17개 프로그램",
-        "source": "authenticated-browser-dashboard",
-        "evidence_id": "COSHUMA Work 2026-09-11 authenticated read",
-        "currency": "USD",
-        "metrics": {
-          "outbound_clicks": 83,
-          "signups_referrals": 0,
-          "gross_sales_revenue": 0,
-          "commission_pending": 0,
-          "reward_paid": 0
+    {
+      "account_id": "partnerstack-account",
+      "evidence": [
+        {
+          "tool": "PartnerStack",
+          "observed_window": "2026-09-11 09:51–09:52 KST",
+          "checked_at": null,
+          "period": "Last 90 days · 17개 프로그램",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "COSHUMA Work 2026-09-11 authenticated read",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 83,
+            "signups_referrals": 0,
+            "gross_sales_revenue": 0,
+            "commission_pending": 0,
+            "reward_paid": 0
+          }
         }
-      }
-    ]
-  },
-  {
-    "account_id": "impact-account",
-    "connection": "verified_snapshot",
-    "complete": false,
-    "checked_at": null,
-    "observed_window": "2026-09-11 09:52–09:53 KST",
-    "source": "Impact authenticated dashboard",
-    "period": "오늘 카드 / Snapshot 2026-08-18~09-01",
-    "currency": "USD",
-    "metrics": {
-      "commission_earned": null,
-      "commission_pending": 0,
-      "reward_paid": null,
-      "available": null,
-      "withdrawn": null,
-      "declined": null,
-      "payout_paid": null
+      ]
     },
-    "action": "로그인 확인됨. 전체 캠페인·누적 기간 보고서 선택 필요. 현재 카드의 잔액은 출금 가능액으로 추정하지 않음.",
-    "evidence": [
-      {
-        "tool": "Impact / Kittl",
-        "observed_window": "2026-09-11 09:52–09:53 KST",
-        "checked_at": null,
-        "period": "오늘 카드",
-        "source": "authenticated-browser-dashboard",
-        "evidence_id": "COSHUMA Work 2026-09-11 authenticated read",
-        "currency": "USD",
-        "metrics": {
-          "earnings_today": 0,
-          "network_reported_balance": 0,
-          "commission_pending": 0
-        }
+    {
+      "account_id": "impact-account",
+      "connection": "verified_snapshot",
+      "complete": false,
+      "checked_at": null,
+      "observed_window": "2026-09-11 09:52–09:53 KST",
+      "source": "Impact authenticated dashboard",
+      "period": "오늘 카드 / Snapshot 2026-08-18~09-01",
+      "currency": "USD",
+      "metrics": {
+        "commission_earned": null,
+        "commission_pending": 0,
+        "reward_paid": null,
+        "available": null,
+        "withdrawn": null,
+        "declined": null,
+        "payout_paid": null
       },
-      {
-        "tool": "Impact / Kittl",
-        "observed_window": "2026-09-11 09:52–09:53 KST",
-        "checked_at": null,
-        "period": "2026-08-18~2026-09-01",
-        "source": "authenticated-browser-dashboard",
-        "evidence_id": "COSHUMA Work 2026-09-11 authenticated read",
-        "currency": "USD",
-        "metrics": {
-          "outbound_clicks": 0,
-          "network_reported_conversions": 0,
-          "action_earnings": 0,
-          "gross_sales_revenue": 0
+      "action": "로그인 확인됨. 전체 캠페인·누적 기간 보고서 선택 필요. 현재 카드의 잔액은 출금 가능액으로 추정하지 않음.",
+      "evidence": [
+        {
+          "tool": "Impact / Kittl",
+          "observed_window": "2026-09-11 09:52–09:53 KST",
+          "checked_at": null,
+          "period": "오늘 카드",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "COSHUMA Work 2026-09-11 authenticated read",
+          "currency": "USD",
+          "metrics": {
+            "earnings_today": 0,
+            "network_reported_balance": 0,
+            "commission_pending": 0
+          }
+        },
+        {
+          "tool": "Impact / Kittl",
+          "observed_window": "2026-09-11 09:52–09:53 KST",
+          "checked_at": null,
+          "period": "2026-08-18~2026-09-01",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "COSHUMA Work 2026-09-11 authenticated read",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 0,
+            "network_reported_conversions": 0,
+            "action_earnings": 0,
+            "gross_sales_revenue": 0
+          }
         }
-      }
-    ]
-  },
-  {
-    "account_id": "lemonsqueezy-account",
-    "connection": "verified_snapshot",
-    "complete": true,
-    "checked_at": null,
-    "observed_window": "2026-09-11 09:53–09:54 KST",
-    "source": "Lemon Squeezy authenticated dashboard",
-    "period": "2026-08-12~2026-09-11 · All Programs",
-    "currency": "USD",
-    "metrics": {
-      "commission_earned": 0,
-      "commission_pending": 0,
-      "reward_paid": null,
-      "available": null,
-      "withdrawn": null,
-      "declined": null,
-      "payout_paid": null
+      ]
     },
-    "action": "All Programs 기간 수익 확인됨. 누적 소계에는 기간 보고서를 더하지 않음.",
-    "evidence": [
-      {
-        "tool": "Lemon Squeezy / Voibe",
-        "observed_window": "2026-09-11 09:53–09:54 KST",
-        "checked_at": null,
-        "period": "2026-08-12~2026-09-11 · All Programs",
-        "source": "authenticated-browser-dashboard",
-        "evidence_id": "COSHUMA Work 2026-09-11 authenticated read",
-        "currency": "USD",
-        "metrics": {
-          "outbound_clicks": 0,
-          "signups_referrals": 0,
-          "commission_earned": 0,
-          "commission_pending": 0,
-          "payout_count": 0
+    {
+      "account_id": "lemonsqueezy-account",
+      "connection": "verified_snapshot",
+      "complete": true,
+      "checked_at": null,
+      "observed_window": "2026-09-11 09:53–09:54 KST",
+      "source": "Lemon Squeezy authenticated dashboard",
+      "period": "2026-08-12~2026-09-11 · All Programs",
+      "currency": "USD",
+      "metrics": {
+        "commission_earned": 0,
+        "commission_pending": 0,
+        "reward_paid": null,
+        "available": null,
+        "withdrawn": null,
+        "declined": null,
+        "payout_paid": null
+      },
+      "action": "All Programs 기간 수익 확인됨. 누적 소계에는 기간 보고서를 더하지 않음.",
+      "evidence": [
+        {
+          "tool": "Lemon Squeezy / Voibe",
+          "observed_window": "2026-09-11 09:53–09:54 KST",
+          "checked_at": null,
+          "period": "2026-08-12~2026-09-11 · All Programs",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "COSHUMA Work 2026-09-11 authenticated read",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 0,
+            "signups_referrals": 0,
+            "commission_earned": 0,
+            "commission_pending": 0,
+            "payout_count": 0
+          }
         }
-      }
-    ]
-  },
-  {
-    "account_id": "uplead",
-    "connection": "blocked",
-    "complete": false,
-    "checked_at": null,
-    "observed_window": "2026-09-11 09:54 KST",
-    "source": "authenticated-browser-attempt",
-    "period": null,
-    "currency": null,
-    "metrics": {},
-    "portal_url": "https://affiliates.uplead.com/login",
-    "action": "로그인 시 403: Invalid recaptcha token. 기존 포털에서 CAPTCHA 확인 필요."
-  },
-  {
-    "account_id": "gohighlevel",
-    "connection": "blocked",
-    "complete": false,
-    "checked_at": null,
-    "observed_window": "2026-09-11 09:54–09:55 KST",
-    "source": "authenticated-browser-attempt",
-    "period": null,
-    "currency": null,
-    "metrics": {},
-    "portal_url": "https://affiliate.gohighlevel.com/login",
-    "action": "로그인 제출 후 동일 화면 유지. 오류 문구 없음. 기존 계정 로그인 완료 필요."
-  },
-  {
-    "account_id": "pictory",
-    "connection": "blocked",
-    "complete": false,
-    "checked_at": null,
-    "observed_window": "2026-09-11 09:55 KST",
-    "source": "authenticated-browser-attempt",
-    "period": null,
-    "currency": null,
-    "metrics": {},
-    "portal_url": "https://pictory.firstpromoter.com/login",
-    "action": "로그인 제출 후 동일 화면 유지. 오류 문구 없음. 기존 계정 로그인 완료 필요."
-  },
-  {
-    "account_id": "text-account",
-    "connection": "blocked",
-    "complete": false,
-    "checked_at": null,
-    "observed_window": "2026-09-11 09:55 KST",
-    "source": "authenticated-browser-attempt",
-    "period": null,
-    "currency": null,
-    "metrics": {},
-    "portal_url": "https://partners.livechat.com/app/auth/log-in",
-    "action": "인증 callback 후 빈 앱 본문과 reCAPTCHA iframe. 기존 포털 인증 화면 확인 필요."
-  }
-]
+      ]
+    },
+    {
+      "account_id": "uplead",
+      "connection": "blocked",
+      "complete": false,
+      "checked_at": null,
+      "observed_window": "2026-09-11 09:54 KST",
+      "source": "authenticated-browser-attempt",
+      "period": null,
+      "currency": null,
+      "metrics": {},
+      "portal_url": "https://affiliates.uplead.com/login",
+      "action": "로그인 시 403: Invalid recaptcha token. 기존 포털에서 CAPTCHA 확인 필요."
+    },
+    {
+      "account_id": "gohighlevel",
+      "connection": "blocked",
+      "complete": false,
+      "checked_at": null,
+      "observed_window": "2026-09-11 09:54–09:55 KST",
+      "source": "authenticated-browser-attempt",
+      "period": null,
+      "currency": null,
+      "metrics": {},
+      "portal_url": "https://affiliate.gohighlevel.com/login",
+      "action": "로그인 제출 후 동일 화면 유지. 오류 문구 없음. 기존 계정 로그인 완료 필요."
+    },
+    {
+      "account_id": "pictory",
+      "connection": "blocked",
+      "complete": false,
+      "checked_at": null,
+      "observed_window": "2026-09-11 09:55 KST",
+      "source": "authenticated-browser-attempt",
+      "period": null,
+      "currency": null,
+      "metrics": {},
+      "portal_url": "https://pictory.firstpromoter.com/login",
+      "action": "로그인 제출 후 동일 화면 유지. 오류 문구 없음. 기존 계정 로그인 완료 필요."
+    },
+    {
+      "account_id": "text-account",
+      "connection": "blocked",
+      "complete": false,
+      "checked_at": null,
+      "observed_window": "2026-09-11 09:55 KST",
+      "source": "authenticated-browser-attempt",
+      "period": null,
+      "currency": null,
+      "metrics": {},
+      "portal_url": "https://partners.livechat.com/app/auth/log-in",
+      "action": "인증 callback 후 빈 앱 본문과 reCAPTCHA iframe. 기존 포털 인증 화면 확인 필요."
+    },
+    {
+      "account_id": "jotform",
+      "connection": "verified_snapshot",
+      "complete": false,
+      "checked_at": "2026-09-18T06:13:30Z",
+      "observed_window": "September 2026 month-to-date as confirmed by Jotform Affiliate Marketing",
+      "source": "vendor-human-email",
+      "period": "September 2026 month-to-date",
+      "currency": "USD",
+      "metrics": {
+        "outbound_clicks": 34,
+        "signups_referrals": 0,
+        "trials": null,
+        "paid_customers": 0,
+        "commission_earned": null,
+        "commission_pending": null,
+        "reward_paid": null,
+        "available": null,
+        "withdrawn": null,
+        "declined": null,
+        "payout_paid": null
+      },
+      "action": "Commission and payout values were not supplied in the vendor reply; keep them unknown until direct evidence exists.",
+      "evidence": [
+        {
+          "tool": "Jotform",
+          "observed_window": "September 2026 month-to-date",
+          "checked_at": "2026-09-18T06:13:30Z",
+          "period": "September 2026 month-to-date",
+          "source": "vendor-human-email",
+          "evidence_id": "gmail:1a0b3265d5b2769f",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 34,
+            "signups_referrals": 0,
+            "paid_customers": 0,
+            "commission_earned": null,
+            "commission_pending": null,
+            "payout_paid": null
+          }
+        }
+      ]
+    },
+    {
+      "account_id": "aweber",
+      "connection": "verified_snapshot",
+      "complete": false,
+      "checked_at": "2026-09-18T20:00:33Z",
+      "observed_window": "Account total confirmed by AWeber Customer Solutions",
+      "source": "vendor-human-email",
+      "period": "account total as of 2026-09-18",
+      "currency": "USD",
+      "metrics": {
+        "outbound_clicks": null,
+        "signups_referrals": 0,
+        "trials": null,
+        "paid_customers": null,
+        "commission_earned": null,
+        "commission_pending": null,
+        "reward_paid": null,
+        "available": null,
+        "withdrawn": null,
+        "declined": null,
+        "payout_paid": null
+      },
+      "action": "AWeber confirmed zero referrals but did not provide click, commission, or payout totals; keep those unknown.",
+      "evidence": [
+        {
+          "tool": "AWeber",
+          "observed_window": "Account total confirmed 2026-09-18",
+          "checked_at": "2026-09-18T20:00:33Z",
+          "period": "account total as of 2026-09-18",
+          "source": "vendor-human-email",
+          "evidence_id": "gmail:1a0b61b45d55df0e",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": 0,
+            "paid_customers": null,
+            "commission_earned": null,
+            "commission_pending": null,
+            "payout_paid": null
+          }
+        }
+      ]
+    }
+  ]
 }
