@@ -21,21 +21,41 @@
         },
         {
           "tool": "Teachable",
-          "observed_window": "cumulative as of 2026-09-16",
-          "checked_at": "2026-09-16T16:43:26Z",
-          "period": "cumulative as of vendor confirmation",
-          "source": "vendor-human-email",
-          "evidence_id": "gmail:1a0ab1a9d37ec857",
+          "observed_window": "current PartnerStack dashboard",
+          "checked_at": "2026-09-24T21:54:09Z",
+          "period": "current cumulative dashboard",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "partnerstack-dashboard:2026-09-24T21:54:09Z:teachable",
           "currency": "USD",
           "metrics": {
-            "outbound_clicks": 11,
-            "signups_referrals": null,
+            "outbound_clicks": 20,
+            "signups_referrals": 0,
             "trials": null,
-            "paid_customers": 0,
+            "paid_customers": null,
+            "gross_sales_revenue": 0,
             "commission_earned": null,
-            "commission_pending": null,
+            "commission_approved": null,
+            "commission_pending": 0,
             "payout_paid": null,
-            "network_reported_conversions": 0
+            "payout_pending": null,
+            "network_reported_conversions": 0,
+            "reward_paid": 0
+          }
+        },
+        {
+          "tool": "PartnerStack",
+          "observed_window": "current account commission dashboard",
+          "checked_at": "2026-09-24T21:54:09Z",
+          "period": "current account totals",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "partnerstack-dashboard:2026-09-24T21:54:09Z:commissions",
+          "currency": "USD",
+          "metrics": {
+            "commission_earned": 0,
+            "commission_pending": 0,
+            "reward_paid": 0,
+            "payout_paid": null,
+            "available": 0
           }
         }
       ]
