@@ -7,6 +7,7 @@ on:
       - 'projects/GlobalSaaSHub/data/operations_registry.json'
       - 'projects/GlobalSaaSHub/data/release_verification_specs.json'
       - 'projects/GlobalSaaSHub/scripts/verify_release_queue.py'
+      - 'projects/GlobalSaaSHub/scripts/audit_release_handoff_registry.py'
       - '.github/workflows/coshuma-release-verification.yml'
   workflow_run:
     workflows: ['COSHUMA Site Build & Deploy']
@@ -40,6 +41,14 @@ jobs:
         run: |
           python scripts/validate_operations_registry.py
           python scripts/verify_release_queue.py --validate-only
+          python -m py_compile scripts/audit_release_handoff_registry.py
+
+      - name: Audit evidence-to-registry handoff sync
+        working-directory: projects/GlobalSaaSHub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python scripts/audit_release_handoff_registry.py
 
       - name: Verify one deterministic release candidate
         working-directory: projects/GlobalSaaSHub
