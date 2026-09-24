@@ -59,6 +59,85 @@
         "Practical first move"
       ],
       "verify_deployed_ancestry": true
+    },
+    "AFFILIATE:SUPADEMO-LIFECYCLE-CORRECTION": {
+      "mode": "generated_json_state",
+      "producer": ["node", "scripts/ensure_scribe_fastlane.mjs"],
+      "checks": [
+        {
+          "file": "data/affiliate_outreach_state.json",
+          "path": ["programs", "supademo", "status"],
+          "equals": "browser_required_application_form"
+        },
+        {
+          "file": "data/affiliate_outreach_state.json",
+          "path": ["programs", "supademo", "application_state"],
+          "equals": "not_submitted"
+        },
+        {
+          "file": "data/affiliate_outreach_state.json",
+          "path": ["programs", "supademo", "tracking_url"],
+          "equals": null
+        },
+        {
+          "file": "data/browser_required_queue.json",
+          "find": {"tool_id": "supademo"},
+          "path": ["status"],
+          "equals": "browser_required_application_form"
+        },
+        {
+          "file": "data/browser_required_queue.json",
+          "find": {"tool_id": "supademo"},
+          "path": ["affiliate_status"],
+          "equals": "browser_required_application_form"
+        },
+        {
+          "file": "data/browser_required_queue.json",
+          "find": {"tool_id": "supademo"},
+          "path": ["exact_tracking_url"],
+          "equals": null
+        },
+        {
+          "file": "data/tools.json",
+          "find": {"id": "supademo"},
+          "path": ["affiliate_status"],
+          "equals": "browser_required_application_form"
+        },
+        {
+          "file": "data/tools.json",
+          "find": {"id": "supademo"},
+          "path": ["affiliate_url"],
+          "equals": null
+        }
+      ],
+      "verify_deployed_ancestry": true
+    },
+    "AUDIENCE:AG-SHARE-001": {
+      "mode": "bundle_markers",
+      "source_file": "src/components/ShortlistShare.jsx",
+      "source_required_regex": [
+        "gtag\\('event',\\s*'saved_shortlist_share'",
+        "measurement_area:\\s*'revisit_growth'",
+        "saved_count:\\s*savedCount",
+        "share_method:\\s*'copy_link'",
+        "if\\s*\\(!didCopy\\)\\s*return\\s*measureShortlistShare\\(savedIds\\.length\\)"
+      ],
+      "source_forbidden_regex": [
+        "saved_tool_ids\\s*:",
+        "email\\s*:",
+        "raw_(user|pii)",
+        "affiliate_(id|url|status)\\s*:",
+        "revenue\\s*:"
+      ],
+      "gh_pages_glob": "assets/*.js",
+      "gh_pages_required_regex": [
+        "saved_shortlist_share",
+        "revisit_growth",
+        "copy_link"
+      ],
+      "gh_pages_forbidden_regex": [],
+      "live_url": "https://coshuma.com/",
+      "verify_deployed_ancestry": true
     }
   }
 }
