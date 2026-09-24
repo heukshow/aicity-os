@@ -33,6 +33,12 @@ jobs:
         working-directory: projects/GlobalSaaSHub
         run: npm ci
 
+      - name: Validate operations control plane
+        working-directory: projects/GlobalSaaSHub
+        run: |
+          python scripts/validate_operations_registry.py
+          python scripts/next_operations_task.py
+
       # RECOVERY-006 invariant: committed customer source must be checked before any source-mutating preparation.
       - name: Fail closed on committed public source before preparation
         working-directory: projects/GlobalSaaSHub

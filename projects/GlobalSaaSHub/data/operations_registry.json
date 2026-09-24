@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-24T09:30:00Z",
+  "authority": {
+    "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
+    "evidence_channels": [
+      "GitHub issue #763",
+      "GitHub issue #292",
+      "GitHub PR/Actions",
+      "production read-only verification"
+    ],
+    "rule": "Evidence channels prove state changes; this registry is the machine-readable lifecycle authority after synchronization."
+  },
+  "lifecycle_order": [
+    "discovered",
+    "evidence_validated",
+    "assigned_to_team",
+    "in_progress",
+    "implemented_and_merged",
+    "production_verification_requested",
+    "production_verified",
+    "measured",
+    "rejected_with_evidence"
+  ],
+  "active_queue": [
+    {
+      "record_id": "RECOVERY-005:AG-DIRECT-001",
+      "incident_key": "AG-PRIVATE-METRICS-READ-001",
+      "task_key": "AG-DIRECT-001",
+      "target": "production-worker/globalsaashub-payments",
+      "owner_team": "Operations Governance Team",
+      "lifecycle": "implemented_and_merged",
+      "next_owner": "Operations Governance Team",
+      "priority": "critical",
+      "blocker": "authorized_environment_transport_path_inaccessible",
+      "last_evidence_at": "2026-09-24T09:03:18Z",
+      "evidence": {
+        "implementation_pr": 780,
+        "merge_commit": "345ec46ba750b487aa0ff531aa7a936e66b5f25f",
+        "pr_build_check": 398,
+        "worker_safety_run": 35769317120,
+        "production_verification_comment_id": null
+      },
+      "completion_gate": "production_verified",
+      "user_action_required": false
+    },
+    {
+      "record_id": "RECOVERY-006:GETRESPONSE-PUBLIC-BOUNDARY-001",
+      "incident_key": "governance-krater-generated-listing-admin-copy-20260922",
+      "task_key": "GETRESPONSE-PUBLIC-BOUNDARY-001",
+      "target": "public/tool/getresponse.html+listing-admin-recurrence-class",
+      "owner_team": "Operations Governance Team",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
+      "priority": "critical",
+      "blocker": null,
+      "last_evidence_at": "2026-09-24T07:03:48Z",
+      "evidence": {
+        "implementation_pr": 785,
+        "merge_commit": "981e79d362926973b0dee14b0c554689601d9787",
+        "pr_build_run": 35886834115,
+        "site_deploy_run": 35887220492,
+        "release_handoff_comment_id": 5798387836,
+        "production_verification_comment_id": null
+      },
+      "completion_gate": "production_verified",
+      "user_action_required": false
+    },
+    {
+      "record_id": "AFFILIATE:SUPADEMO-FORMAL-APPLICATION",
+      "incident_key": "affiliate-supademo-form-submit-capability-20260924",
+      "task_key": "affiliate-supademo-application-attempt-20260924",
+      "target": "Supademo affiliate formal application",
+      "owner_team": "Operations Governance Team",
+      "lifecycle": "assigned_to_team",
+      "next_owner": "Operations Governance Team",
+      "priority": "high",
+      "blocker": "interactive_form_submit_capability_unavailable",
+      "last_evidence_at": "2026-09-24T01:00:00Z",
+      "evidence": {
+        "implementation_pr": 787,
+        "merge_commit": "1d52683a6174bebc01a26141607f129ac2e98d65",
+        "production_verification_comment_id": null
+      },
+      "completion_gate": "formal_application_submission_evidence_or_rejected_with_evidence",
+      "user_action_required": false
+    },
+    {
+      "record_id": "AUDIENCE:AG-SHARE-001",
+      "incident_key": null,
+      "task_key": "AG-SHARE-001",
+      "target": "saved_shortlist_share measurement",
+      "owner_team": "Audience Growth Team",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-24T02:00:00Z",
+      "evidence": {
+        "implementation_pr": 788,
+        "merge_commit": "d9d275118d12f1ae4543d29680ef4c4282fd0ac8",
+        "pr_build_run": 35943977007,
+        "site_deploy_run": 35944113900,
+        "release_handoff_comment_id": 5805966720,
+        "production_verification_comment_id": null
+      },
+      "completion_gate": "production_verified",
+      "user_action_required": false
+    },
+    {
+      "record_id": "EDITORIAL:EDITORIAL-BODY-003",
+      "incident_key": null,
+      "task_key": "EDITORIAL-BODY-003",
+      "target": "public editorial body correction",
+      "owner_team": "Editorial Quality Team",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
+      "priority": "normal",
+      "blocker": null,
+      "last_evidence_at": "2026-09-24T09:00:00Z",
+      "evidence": {
+        "implementation_pr": 791,
+        "merge_commit": "549a93fdcae05c74870967033b87a106ca8773e2",
+        "release_handoff_comment_id": 5810655463,
+        "production_verification_comment_id": null
+      },
+      "completion_gate": "production_verified",
+      "user_action_required": false
+    }
+  ],
+  "invariants": {
+    "single_active_dri": true,
+    "no_duplicate_record_id": true,
+    "no_duplicate_active_task_target": true,
+    "production_verified_requires_release_evidence": true,
+    "measured_requires_production_verified": true,
+    "resolved_without_final_evidence_forbidden": true,
+    "user_gate_only_for": [
+      "captcha",
+      "otp",
+      "legal_consent",
+      "payment",
+      "forced_identity_verification"
+    ]
+  }
+}
