@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-24T09:57:56Z",
+  "updated_at": "2026-09-24T11:12:26Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -20,6 +20,14 @@
     "site_deploy_run_number": 1028,
     "site_deploy_conclusion": "success",
     "evidence_comment_id": 5811751900
+  },
+  "release_verifier": {
+    "status": "active",
+    "implementation_pr": 794,
+    "merge_commit": "d1f01ea48c60a8653a8e78831f914725486c81db",
+    "first_run": 35991649802,
+    "first_verified_record": "RECOVERY-006:GETRESPONSE-PUBLIC-BOUNDARY-001",
+    "first_result_comment_id": 5812953682
   },
   "lifecycle_order": [
     "discovered",
@@ -60,20 +68,23 @@
       "task_key": "GETRESPONSE-PUBLIC-BOUNDARY-001",
       "target": "public/tool/getresponse.html+listing-admin-recurrence-class",
       "owner_team": "Operations Governance Team",
-      "lifecycle": "production_verification_requested",
-      "next_owner": "Release & Reliability Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
       "priority": "critical",
       "blocker": null,
-      "last_evidence_at": "2026-09-23T16:16:31Z",
+      "last_evidence_at": "2026-09-24T11:12:26Z",
       "evidence": {
         "implementation_pr": 785,
         "merge_commit": "981e79d362926973b0dee14b0c554689601d9787",
         "pr_build_run": 35886834115,
         "site_deploy_run": 35887220492,
         "release_handoff_comment_id": 5798387836,
-        "production_verification_comment_id": null
+        "production_verification_comment_id": 5812953682,
+        "deterministic_verification_run": 35991649802
       },
       "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "completed_at": "2026-09-24T11:12:26Z",
       "user_action_required": false
     },
     {
