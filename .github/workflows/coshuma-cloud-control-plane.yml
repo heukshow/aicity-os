@@ -1,0 +1,52 @@
+name: COSHUMA Cloud Control Plane
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/15 * * * *"
+  push:
+    branches: [main]
+    paths:
+      - "projects/GlobalSaaSHub/data/operations_registry.json"
+      - "projects/GlobalSaaSHub/scripts/validate_operations_registry.py"
+      - "projects/GlobalSaaSHub/scripts/next_operations_task.py"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: coshuma-cloud-control-plane
+  cancel-in-progress: false
+
+jobs:
+  validate-and-dispatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: projects/GlobalSaaSHub
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate operations registry
+        run: python scripts/validate_operations_registry.py
+      - name: Select next operation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/next_operations_task.py | tee "$RUNNER_TEMP/next-operation.json"
+          {
+            echo "### COSHUMA Cloud Control Plane"
+            echo
+            echo '~~~json'
+            cat "$RUNNER_TEMP/next-operation.json"
+            echo '~~~'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Preserve dispatch snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: coshuma-next-operation
+          path: ${{ runner.temp }}/next-operation.json
+          retention-days: 7
