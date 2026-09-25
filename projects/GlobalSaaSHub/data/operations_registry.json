@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-25T16:34:15Z",
+  "updated_at": "2026-09-25T18:10:00Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -146,12 +146,12 @@
       "incident_key": "affiliate-supademo-form-submit-capability-20260924",
       "task_key": "affiliate-supademo-application-attempt-20260924",
       "target": "Supademo affiliate formal application",
-      "owner_team": "Operations Governance Team",
-      "lifecycle": "in_progress",
+      "owner_team": "Affiliate Partnerships Team",
+      "lifecycle": "blocked",
       "next_owner": "Affiliate Partnerships Team",
       "priority": "high",
-      "blocker": null,
-      "last_evidence_at": "2026-09-25T16:34:15Z",
+      "blocker": "official_application_form_connection_reset",
+      "last_evidence_at": "2026-09-25T18:10:00Z",
       "evidence": {
         "implementation_pr": 787,
         "merge_commit": "1d52683a6174bebc01a26141607f129ac2e98d65",
@@ -159,7 +159,11 @@
         "remote_desktop_device": "흑쇼컴",
         "remote_desktop_status": "online",
         "remote_desktop_last_seen": "2026-09-25T13:14:15.183Z",
-        "capability_recheck": "authorized interactive execution transport restored; formal application remains unsubmitted until actual browser/form confirmation evidence"
+        "capability_recheck": "Remote Desktop transport is online, but vendor-hosted official MakeForms endpoint itself resets the connection; transport availability does not remove vendor form blocker",
+        "pc_orchestrator_path": "C:\\COSHUMA\\aicity-os",
+        "pc_registry_validation": "PASS records=12",
+        "pc_dispatch_state": "Affiliate Partnerships Team",
+        "form_recheck": "2026-09-26 KST: direct request to https://eu.makeforms.io/k1ibmll/ from authorized online device failed with ConnectionResetError 10054"
       },
       "completion_gate": "formal_application_submission_evidence_or_rejected_with_evidence",
       "user_action_required": false
