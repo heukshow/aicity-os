@@ -1,0 +1,43 @@
+name: COSHUMA Growth Loop
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_run:
+    workflows:
+      - "COSHUMA Analytics Snapshot"
+      - "COSHUMA Site Build & Deploy"
+      - "COSHUMA Cloud Control Plane"
+    types: [completed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: coshuma-growth-loop
+  cancel-in-progress: true
+
+jobs:
+  evaluate:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: projects/GlobalSaaSHub
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate SSOT
+        run: python scripts/validate_operations_registry.py
+      - name: Evaluate closed growth loop
+        run: python scripts/growth_loop_dispatch.py | tee "$RUNNER_TEMP/growth-loop.json"
+      - name: Preserve decision snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: coshuma-growth-loop
+          path: ${{ runner.temp }}/growth-loop.json
+          retention-days: 14
