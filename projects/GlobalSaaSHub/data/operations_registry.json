@@ -147,7 +147,7 @@
       "task_key": "affiliate-supademo-application-attempt-20260924",
       "target": "Supademo affiliate formal application",
       "owner_team": "Affiliate Partnerships Team",
-      "lifecycle": "blocked",
+      "lifecycle": "in_progress",
       "next_owner": "Affiliate Partnerships Team",
       "priority": "high",
       "blocker": "official_application_form_connection_reset",
