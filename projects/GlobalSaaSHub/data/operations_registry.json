@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-24T21:35:01Z",
+  "updated_at": "2026-09-25T16:34:15Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -147,15 +147,19 @@
       "task_key": "affiliate-supademo-application-attempt-20260924",
       "target": "Supademo affiliate formal application",
       "owner_team": "Operations Governance Team",
-      "lifecycle": "assigned_to_team",
-      "next_owner": "Operations Governance Team",
+      "lifecycle": "in_progress",
+      "next_owner": "Affiliate Partnerships Team",
       "priority": "high",
-      "blocker": "interactive_form_submit_capability_unavailable",
-      "last_evidence_at": "2026-09-24T01:00:00Z",
+      "blocker": null,
+      "last_evidence_at": "2026-09-25T16:34:15Z",
       "evidence": {
         "implementation_pr": 787,
         "merge_commit": "1d52683a6174bebc01a26141607f129ac2e98d65",
-        "production_verification_comment_id": null
+        "production_verification_comment_id": null,
+        "remote_desktop_device": "흑쇼컴",
+        "remote_desktop_status": "online",
+        "remote_desktop_last_seen": "2026-09-25T13:14:15.183Z",
+        "capability_recheck": "authorized interactive execution transport restored; formal application remains unsubmitted until actual browser/form confirmation evidence"
       },
       "completion_gate": "formal_application_submission_evidence_or_rejected_with_evidence",
       "user_action_required": false
