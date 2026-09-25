@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-25T18:10:00Z",
+  "updated_at": "2026-09-25T18:50:00Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -337,6 +337,78 @@
       "completion_gate": "production_verified",
       "completion_gate_satisfied": true,
       "completed_at": "2026-09-24T21:35:01Z",
+      "user_action_required": false
+    },
+    {
+      "record_id": "TRUST:TRUST-EVIDENCE-001",
+      "incident_key": null,
+      "task_key": "TRUST-EVIDENCE-001",
+      "target": "public tool/comparison trust evidence layer",
+      "owner_team": "Editorial Quality Team",
+      "lifecycle": "assigned_to_team",
+      "next_owner": "Editorial Quality Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-25T18:50:00Z",
+      "evidence": {
+        "source": "competitive-gap-review-20260926",
+        "scope": "Design a non-user-review trust layer using verified supplier facts, methodology visibility, evidence freshness and source attribution. Do not implement public user reviews/comments without explicit TRUST-001 approval."
+      },
+      "completion_gate": "production_verified",
+      "user_action_required": false
+    },
+    {
+      "record_id": "PRODUCT:MULTI-COMPARE-001",
+      "incident_key": null,
+      "task_key": "MULTI-COMPARE-001",
+      "target": "multi-product comparison decision UX",
+      "owner_team": "Product Experience Team",
+      "lifecycle": "assigned_to_team",
+      "next_owner": "Product Experience Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-25T18:50:00Z",
+      "evidence": {
+        "source": "competitive-gap-review-20260926",
+        "scope": "Prototype a zero-cost progressive multi-product compare flow using existing verified product data; preserve affiliate URLs/disclosures and do not invent ratings."
+      },
+      "completion_gate": "production_verified",
+      "user_action_required": false
+    },
+    {
+      "record_id": "AUDIENCE:BUYER-INTENT-001",
+      "incident_key": null,
+      "task_key": "BUYER-INTENT-001",
+      "target": "first-party buyer-intent funnel measurement",
+      "owner_team": "Audience Growth Team",
+      "lifecycle": "assigned_to_team",
+      "next_owner": "Audience Growth Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-25T18:50:00Z",
+      "evidence": {
+        "source": "competitive-gap-review-20260926",
+        "scope": "Extend privacy-safe first-party measurement across category/product/compare/pricing-interest/save/return/affiliate-click stages without PII; revenue truth remains Revenue Intelligence-owned."
+      },
+      "completion_gate": "production_verified",
+      "user_action_required": false
+    },
+    {
+      "record_id": "PRODUCT:DECISION-UX-001",
+      "incident_key": null,
+      "task_key": "DECISION-UX-001",
+      "target": "goal-led personalized shortlist UX",
+      "owner_team": "Product Experience Team",
+      "lifecycle": "assigned_to_team",
+      "next_owner": "Product Experience Team",
+      "priority": "normal",
+      "blocker": null,
+      "last_evidence_at": "2026-09-25T18:50:00Z",
+      "evidence": {
+        "source": "competitive-gap-review-20260926",
+        "scope": "Strengthen goal-led Get leads/Create content/Sell online/Automate work/Grow traffic flow into a short explainable shortlist using only existing verified data; no opaque ranking claims."
+      },
+      "completion_gate": "production_verified",
       "user_action_required": false
     }
   ],
