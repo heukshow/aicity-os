@@ -114,7 +114,7 @@ jobs:
             }
           }
           const expectedStates = new Map([
-            ['gravity-forms', 'approved'],
+            ['gravity-forms', 'approved_tracking'],
             ['sendcloud', 'approved_tracking'],
             ['apollo', 'rejected'],
             ['ai-video-cut', 'application_submitted'],
