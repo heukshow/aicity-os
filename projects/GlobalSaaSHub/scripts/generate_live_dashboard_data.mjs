@@ -104,7 +104,7 @@ try {
   const optional = async (name, request) => {
     try {
       const value = await request();
-      if(value.metadata?.dataLossFromOtherRow || (value.rowCount && value.rowCount > (value.rows?.length || 0))) throw new Error('Incomplete series');
+      if(value.metadata?.subjectToThresholding || value.metadata?.dataLossFromOtherRow || (value.rowCount && value.rowCount > (value.rows?.length || 0))) throw new Error('Incomplete series');
       statuses[name]='ok'; return value;
     } catch { statuses[name]='unavailable'; return null; }
   };
@@ -126,6 +126,25 @@ try {
   const sourceNames=(sources.rows||[]).slice(0,5).map(row=>dim(row));
   const sourceDaily=sourceNames.length ? await optional('sources_daily',()=>post(`${ga}:runReport`,access,gaRequest(sourceWindow,['activeUsers'],{dimensions:[{name:'date'},{name:'sessionSource'}],dimensionFilter:{filter:{fieldName:'sessionSource',inListFilter:{values:sourceNames}}},keepEmptyRows:true,limit:1000,orderBys:[{dimension:{dimensionName:'date'}}]}))) : {rows:[]};
   statuses.sources_daily ||= 'ok';
+  const decisionEvents = ['affiliate_cta_view', 'decision_tool_view', 'decision_tool_use', 'decision_brief_copy'];
+  const decisionReport = await optional('decision_support', () => post(`${ga}:runReport`, access,
+    gaRequest(sourceWindow, ['eventCount', 'activeUsers'], {
+      dimensions: [{name:'eventName'}],
+      dimensionFilter: {andGroup: {expressions: [
+        {filter:{fieldName:'eventName',inListFilter:{values:decisionEvents}}},
+        {filter:{fieldName:'pagePath',stringFilter:{matchType:'EXACT',value:'/compare/gamma-vs-canva.html'}}},
+      ]}}, limit: 10,
+    })));
+  const decisionSupport = {
+    status: decisionReport ? 'current' : 'unavailable',
+    page: '/compare/gamma-vs-canva.html', period: sourceWindow,
+    collected_at: collected.toISOString(),
+    instrumentation: 'presentation-brief-v2; compare only post-deployment periods',
+    metrics: Object.fromEntries(decisionEvents.map(name => {
+      const row = decisionReport?.rows?.find(r => dim(r) === name);
+      return [name, {events: decisionReport ? metric(row,0) : null, users: decisionReport ? metric(row,1) : null}];
+    })),
+  };
   const daily = gaDaily ? dateSeries((gaDaily.rows||[]).map(row=>({date:gaDate(dim(row)),users:metric(row,0),sessions:metric(row,1),views:metric(row,2)})),gaWindow,['users','sessions','views']) : [];
   const affiliate_daily = gaAffiliateDaily ? dateSeries((gaAffiliateDaily.rows||[]).map(row=>({date:gaDate(dim(row)),clicks:metric(row)})),gaWindow,['clicks']) : [];
   const searchRows=(gscDaily?.rows||[]).map(row=>({date:row.keys[0],impressions:Math.round(row.impressions||0),clicks:Math.round(row.clicks||0)}));
@@ -160,6 +179,7 @@ try {
     connections:{ga4:`연결됨 · property ${propertyId}`,search_console:`연결됨 · ${siteUrl}`,partner_revenue:'네트워크별 연결 필요'},
     metrics:{today_users:ranges.today.users,today_users_note:`GA4 property ${propertyId}`,sessions_7d:ranges['7d'].sessions,sessions_7d_note:'GA4 Data API 실집계',affiliate_clicks_30d:ranges['30d'].affiliate_clicks,affiliate_clicks_30d_note:'GA4 affiliate_click 실집계',verified_revenue:null,verified_revenue_currency:'USD',verified_revenue_note:'파트너별 실제 수익 통합 미연결'},
     ranges,windows,timezones:{ga:gaZone,search:'America/Los_Angeles'},daily,affiliate_daily,search_daily,sources_daily,series_status:statuses,series_checks,
+    decision_support: decisionSupport,
     top_sources:(sources.rows||[]).map(row=>({name:dim(row),value:metric(row),note:`세션 ${metric(row,1)}`})),
     top_pages:(pages.rows||[]).map(row=>({name:dim(row),value:metric(row),note:`사용자 ${metric(row,1)}`})),
     affiliate_pages:(affPages.rows||[]).map(row=>({name:dim(row),value:metric(row),note:'제휴 클릭'})),
