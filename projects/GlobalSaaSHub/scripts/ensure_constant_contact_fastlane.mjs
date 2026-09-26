@@ -44,14 +44,14 @@ for (const file of ['data/tools.json','data/tools.next.json']) {
   const tools = JSON.parse(fs.readFileSync(file,'utf8'));
   const existing = tools.find((x)=>x.id===tool.id);
   if (existing?.affiliate_url) throw new Error('Refusing to overwrite existing Constant Contact affiliate URL');
-  if (existing) Object.assign(existing, tool); else tools.push(tool);
+  if (existing) { const progressed=['submitted','approved','rejected'].includes(existing.application_state); const keep=progressed?{affiliate_status:existing.affiliate_status,affiliate_verified:existing.affiliate_verified,affiliate_url:existing.affiliate_url,affiliate_status_checked_at:existing.affiliate_status_checked_at,application_state:existing.application_state,affiliate_next_action:existing.affiliate_next_action,affiliate_evidence_markers:existing.affiliate_evidence_markers}:{}; Object.assign(existing, tool, keep); } else tools.push(tool);
   tools.sort((a,b)=>String(a.id||'').localeCompare(String(b.id||'')));
   fs.writeFileSync(file,`${JSON.stringify(tools,null,2)}\n`);
 }
 
 const queuePath='data/browser_required_queue.json';
 const queue=JSON.parse(fs.readFileSync(queuePath,'utf8'));
-if(!queue.some((item)=>item.tool_id==='constant-contact'||String(item.id||'').startsWith('constant-contact-'))){
+const existingQueueItem=queue.find((item)=>item.tool_id==='constant-contact'||String(item.id||'').startsWith('constant-contact-'));if(!existingQueueItem){
   queue.push({id:'constant-contact-affiliate-application-2026-09-14',tool_id:'constant-contact',priority:'medium',status:'browser_required_affiliate_application',affiliate_status:'browser_required_affiliate_application',application_state:'not_submitted',cost:0,exact_tracking_url:null,user_action_required:false,blocker:'Interactive affiliate application must be completed in the official browser flow; stop only for CAPTCHA, OTP, legal consent or identity verification.',reason:'Duplicate checks are clear and the public program is free, but no account-specific customer tracking URL exists yet.',next_action:'Submit once through the official affiliate application when direct browser interaction is available; then recover only the vendor-issued customer referral URL.',do_not_reapply:true,verified_at:checkedAt});
 }
 fs.writeFileSync(queuePath,`${JSON.stringify(queue,null,2)}\n`);
