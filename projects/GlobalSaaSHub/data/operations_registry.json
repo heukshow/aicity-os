@@ -389,22 +389,25 @@
       "task_key": "BUYER-INTENT-001",
       "target": "first-party buyer-intent funnel measurement",
       "owner_team": "Audience Growth Team",
-      "lifecycle": "production_verification_requested",
-      "next_owner": "Release & Reliability Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-09-26T00:27:00Z",
+      "last_evidence_at": "2026-09-26T00:51:52Z",
       "evidence": {
         "source": "competitive-gap-review-20260926",
         "scope": "Extend privacy-safe first-party measurement across category/product/compare/pricing-interest/save/return/affiliate-click stages without PII; revenue truth remains Revenue Intelligence-owned.",
         "implementation_pr": 822,
         "merge_commit": "95d55932e677e9d7e85915ff401436153bb98130",
         "pr_build_check_run": 36204324305,
-        "production_verification_comment_id": null,
-        "site_build_deploy_run": 36204488485
+        "production_verification_comment_id": 5841694721,
+        "site_build_deploy_run": 36204488485,
+        "deterministic_verification_run": 36206382068
       },
       "completion_gate": "production_verified",
-      "user_action_required": false
+      "user_action_required": false,
+      "completion_gate_satisfied": true,
+      "completed_at": "2026-09-26T00:51:52Z"
     },
     {
       "record_id": "PRODUCT:DECISION-UX-001",
