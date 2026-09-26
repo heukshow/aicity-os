@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T19:26:33.816Z",
+  "generated_at": "2026-09-26T21:58:14.206Z",
   "source": "data/revenue-leakage-audit.json",
   "scope": "Internal COSHUMA revenue reconciliation only",
   "queue_status": "active",
@@ -60,12 +60,6 @@
           "reason": "Latest revenue evidence is 18 days old."
         },
         {
-          "id": "teachable",
-          "name": "Teachable",
-          "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 10 days old."
-        },
-        {
           "id": "unbounce",
           "name": "Unbounce",
           "priority": "P1_STALE",
@@ -80,6 +74,12 @@
         {
           "id": "gravity-forms",
           "name": "Gravity Forms",
+          "priority": "P1_PARTIAL",
+          "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage."
+        },
+        {
+          "id": "teachable",
+          "name": "Teachable",
           "priority": "P1_PARTIAL",
           "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage."
         }
@@ -1309,10 +1309,36 @@
           "id": "aiassistworks",
           "name": "AiAssistWorks",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 18 days old."
+          "reason": "Latest revenue evidence is 19 days old."
         }
       ],
       "execution": "browser_read_only",
+      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
+      "safety": [
+        "Do not create a new account or reapply.",
+        "Do not change any customer tracking URL.",
+        "Do not start a paid plan or authorize payment.",
+        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
+        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
+        "Never expose this internal revenue audit on public COSHUMA pages."
+      ],
+      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
+    },
+    {
+      "account_id": "aweber",
+      "network": "AWeber Advocate Program",
+      "portal_url": null,
+      "priority": "P1_STALE",
+      "tool_count": 1,
+      "tools": [
+        {
+          "id": "aweber",
+          "name": "AWeber",
+          "priority": "P1_STALE",
+          "reason": "Latest revenue evidence is 8 days old."
+        }
+      ],
+      "execution": "locate_existing_account_or_vendor_dashboard_first",
       "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
       "safety": [
         "Do not create a new account or reapply.",
@@ -1361,7 +1387,7 @@
           "id": "catalister",
           "name": "Catalister",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 18 days old."
+          "reason": "Latest revenue evidence is 19 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1439,7 +1465,7 @@
           "id": "eprofessor",
           "name": "eProfessor",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 18 days old."
+          "reason": "Latest revenue evidence is 19 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1570,32 +1596,6 @@
           "name": "Jotform",
           "priority": "P1_STALE",
           "reason": "Latest revenue evidence is 8 days old."
-        }
-      ],
-      "execution": "locate_existing_account_or_vendor_dashboard_first",
-      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
-      "safety": [
-        "Do not create a new account or reapply.",
-        "Do not change any customer tracking URL.",
-        "Do not start a paid plan or authorize payment.",
-        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
-        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
-        "Never expose this internal revenue audit on public COSHUMA pages."
-      ],
-      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
-    },
-    {
-      "account_id": "aweber",
-      "network": "AWeber Advocate Program",
-      "portal_url": null,
-      "priority": "P1_PARTIAL",
-      "tool_count": 1,
-      "tools": [
-        {
-          "id": "aweber",
-          "name": "AWeber",
-          "priority": "P1_PARTIAL",
-          "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",

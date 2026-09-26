@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T19:26:33.756Z",
+  "generated_at": "2026-09-26T21:58:14.121Z",
   "evidence_scope": "Combined authenticated revenue-browser baseline, current revenue-truth records, and explicit account-wide commission/payout evidence.",
   "policy": {
     "purpose": "Detect approved monetized routes that can leak revenue because downstream affiliate metrics are missing or stale.",
@@ -106,12 +106,6 @@
           "reason": "Latest revenue evidence is 18 days old."
         },
         {
-          "id": "teachable",
-          "name": "Teachable",
-          "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 10 days old."
-        },
-        {
           "id": "unbounce",
           "name": "Unbounce",
           "priority": "P1_STALE",
@@ -126,6 +120,12 @@
         {
           "id": "gravity-forms",
           "name": "Gravity Forms",
+          "priority": "P1_PARTIAL",
+          "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage."
+        },
+        {
+          "id": "teachable",
+          "name": "Teachable",
           "priority": "P1_PARTIAL",
           "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage."
         }
@@ -686,7 +686,20 @@
           "id": "aiassistworks",
           "name": "AiAssistWorks",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 18 days old."
+          "reason": "Latest revenue evidence is 19 days old."
+        }
+      ]
+    },
+    {
+      "account_id": "aweber",
+      "network": "AWeber Advocate Program",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "aweber",
+          "name": "AWeber",
+          "priority": "P1_STALE",
+          "reason": "Latest revenue evidence is 8 days old."
         }
       ]
     },
@@ -712,7 +725,7 @@
           "id": "catalister",
           "name": "Catalister",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 18 days old."
+          "reason": "Latest revenue evidence is 19 days old."
         }
       ]
     },
@@ -751,7 +764,7 @@
           "id": "eprofessor",
           "name": "eProfessor",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 18 days old."
+          "reason": "Latest revenue evidence is 19 days old."
         }
       ]
     },
@@ -836,19 +849,6 @@
           "name": "Text",
           "priority": "P1_STALE",
           "reason": "Latest revenue evidence is 10 days old."
-        }
-      ]
-    },
-    {
-      "account_id": "aweber",
-      "network": "AWeber Advocate Program",
-      "portal_url": null,
-      "tools": [
-        {
-          "id": "aweber",
-          "name": "AWeber",
-          "priority": "P1_PARTIAL",
-          "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage."
         }
       ]
     },
@@ -4153,10 +4153,10 @@
       "account_id": "aiassistworks",
       "portal_url": "https://aiassistworks.affonso.io/",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 18 days old.",
+      "reason": "Latest revenue evidence is 19 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T20:29:50Z",
-      "evidence_age_days": 18,
+      "evidence_age_days": 19,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -4223,6 +4223,81 @@
         }
       },
       "evidence_records": 1
+    },
+    {
+      "id": "aweber",
+      "name": "AWeber",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://www.aweber.com/easy-email.htm?id=561868",
+      "network": "AWeber Advocate Program",
+      "account_id": "aweber",
+      "portal_url": null,
+      "priority": "P1_STALE",
+      "reason": "Latest revenue evidence is 8 days old.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-18T20:00:33Z",
+      "evidence_age_days": 8,
+      "evidence_source": "vendor-human-email",
+      "evidence_id": "gmail:1a0b61b45d55df0e",
+      "latest_metrics": {
+        "outbound_clicks": null,
+        "signups_referrals": 0,
+        "paid_customers": null,
+        "commission_earned": null,
+        "commission_pending": null,
+        "payout_paid": null
+      },
+      "funnel": {
+        "affiliate_click": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "stale",
+          "period": "account total as of 2026-09-18",
+          "checked_at": "2026-09-18T20:00:33Z",
+          "evidence_id": "gmail:1a0b61b45d55df0e"
+        },
+        "signup_referral": {
+          "value": 0,
+          "observation": "confirmed_zero",
+          "freshness": "stale",
+          "period": "account total as of 2026-09-18",
+          "checked_at": "2026-09-18T20:00:33Z",
+          "evidence_id": "gmail:1a0b61b45d55df0e"
+        },
+        "trial": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "stale",
+          "period": "account total as of 2026-09-18",
+          "checked_at": "2026-09-18T20:00:33Z",
+          "evidence_id": "gmail:1a0b61b45d55df0e"
+        },
+        "paid": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "stale",
+          "period": "account total as of 2026-09-18",
+          "checked_at": "2026-09-18T20:00:33Z",
+          "evidence_id": "gmail:1a0b61b45d55df0e"
+        },
+        "commission": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "stale",
+          "period": "account total as of 2026-09-18",
+          "checked_at": "2026-09-18T20:00:33Z",
+          "evidence_id": "gmail:1a0b61b45d55df0e"
+        },
+        "payout": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "stale",
+          "period": "account total as of 2026-09-18",
+          "checked_at": "2026-09-18T20:00:33Z",
+          "evidence_id": "gmail:1a0b61b45d55df0e"
+        }
+      },
+      "evidence_records": 2
     },
     {
       "id": "boldsign",
@@ -4313,10 +4388,10 @@
       "account_id": "catalister",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 18 days old.",
+      "reason": "Latest revenue evidence is 19 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T19:55:00Z",
-      "evidence_age_days": 18,
+      "evidence_age_days": 19,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -4553,10 +4628,10 @@
       "account_id": "eprofessor",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 18 days old.",
+      "reason": "Latest revenue evidence is 19 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T21:24:29.148094Z",
-      "evidence_age_days": 18,
+      "evidence_age_days": 19,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -4962,22 +5037,17 @@
       "latest_metrics": {
         "outbound_clicks": 34,
         "signups_referrals": 0,
-        "trials": null,
         "paid_customers": 0,
-        "gross_sales_revenue": null,
         "commission_earned": null,
-        "commission_approved": null,
         "commission_pending": null,
-        "payout_paid": null,
-        "payout_pending": null,
-        "network_reported_conversions": null
+        "payout_paid": null
       },
       "funnel": {
         "affiliate_click": {
           "value": 34,
           "observation": "measured",
           "freshness": "stale",
-          "period": "September 2026 month-to-date as confirmed on 2026-09-18",
+          "period": "September 2026 month-to-date",
           "checked_at": "2026-09-18T06:13:30Z",
           "evidence_id": "gmail:1a0b3265d5b2769f"
         },
@@ -4985,7 +5055,7 @@
           "value": 0,
           "observation": "confirmed_zero",
           "freshness": "stale",
-          "period": "September 2026 month-to-date as confirmed on 2026-09-18",
+          "period": "September 2026 month-to-date",
           "checked_at": "2026-09-18T06:13:30Z",
           "evidence_id": "gmail:1a0b3265d5b2769f"
         },
@@ -4993,7 +5063,7 @@
           "value": null,
           "observation": "unknown",
           "freshness": "stale",
-          "period": "September 2026 month-to-date as confirmed on 2026-09-18",
+          "period": "September 2026 month-to-date",
           "checked_at": "2026-09-18T06:13:30Z",
           "evidence_id": "gmail:1a0b3265d5b2769f"
         },
@@ -5001,7 +5071,7 @@
           "value": 0,
           "observation": "confirmed_zero",
           "freshness": "stale",
-          "period": "September 2026 month-to-date as confirmed on 2026-09-18",
+          "period": "September 2026 month-to-date",
           "checked_at": "2026-09-18T06:13:30Z",
           "evidence_id": "gmail:1a0b3265d5b2769f"
         },
@@ -5009,7 +5079,7 @@
           "value": null,
           "observation": "unknown",
           "freshness": "stale",
-          "period": "September 2026 month-to-date as confirmed on 2026-09-18",
+          "period": "September 2026 month-to-date",
           "checked_at": "2026-09-18T06:13:30Z",
           "evidence_id": "gmail:1a0b3265d5b2769f"
         },
@@ -5017,12 +5087,12 @@
           "value": null,
           "observation": "unknown",
           "freshness": "stale",
-          "period": "September 2026 month-to-date as confirmed on 2026-09-18",
+          "period": "September 2026 month-to-date",
           "checked_at": "2026-09-18T06:13:30Z",
           "evidence_id": "gmail:1a0b3265d5b2769f"
         }
       },
-      "evidence_records": 1
+      "evidence_records": 2
     },
     {
       "id": "helpdesk",
@@ -5505,86 +5575,6 @@
       "evidence_records": 1
     },
     {
-      "id": "teachable",
-      "name": "Teachable",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://partnerstack.teachable.com/ce4muoxdj46j",
-      "network": "PartnerStack",
-      "account_id": "partnerstack-account",
-      "portal_url": "https://dash.partnerstack.com/home",
-      "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 10 days old.",
-      "coverage_type": "tool",
-      "latest_evidence_at": "2026-09-16T16:43:26Z",
-      "evidence_age_days": 10,
-      "evidence_source": "vendor-human-email",
-      "evidence_id": "gmail:1a0ab1a9d37ec857;github:issue-373-comment-5701583790",
-      "latest_metrics": {
-        "outbound_clicks": 11,
-        "signups_referrals": null,
-        "trials": null,
-        "paid_customers": null,
-        "gross_sales_revenue": null,
-        "commission_earned": null,
-        "commission_approved": null,
-        "commission_pending": null,
-        "payout_paid": null,
-        "payout_pending": null,
-        "network_reported_conversions": 0
-      },
-      "funnel": {
-        "affiliate_click": {
-          "value": 11,
-          "observation": "measured",
-          "freshness": "stale",
-          "period": "current account activity confirmed by vendor on 2026-09-16; reporting period not stated",
-          "checked_at": "2026-09-16T16:43:26Z",
-          "evidence_id": "gmail:1a0ab1a9d37ec857;github:issue-373-comment-5701583790"
-        },
-        "signup_referral": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "stale",
-          "period": "current account activity confirmed by vendor on 2026-09-16; reporting period not stated",
-          "checked_at": "2026-09-16T16:43:26Z",
-          "evidence_id": "gmail:1a0ab1a9d37ec857;github:issue-373-comment-5701583790"
-        },
-        "trial": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "stale",
-          "period": "current account activity confirmed by vendor on 2026-09-16; reporting period not stated",
-          "checked_at": "2026-09-16T16:43:26Z",
-          "evidence_id": "gmail:1a0ab1a9d37ec857;github:issue-373-comment-5701583790"
-        },
-        "paid": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "stale",
-          "period": "current account activity confirmed by vendor on 2026-09-16; reporting period not stated",
-          "checked_at": "2026-09-16T16:43:26Z",
-          "evidence_id": "gmail:1a0ab1a9d37ec857;github:issue-373-comment-5701583790"
-        },
-        "commission": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "stale",
-          "period": "current account activity confirmed by vendor on 2026-09-16; reporting period not stated",
-          "checked_at": "2026-09-16T16:43:26Z",
-          "evidence_id": "gmail:1a0ab1a9d37ec857;github:issue-373-comment-5701583790"
-        },
-        "payout": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "stale",
-          "period": "current account activity confirmed by vendor on 2026-09-16; reporting period not stated",
-          "checked_at": "2026-09-16T16:43:26Z",
-          "evidence_id": "gmail:1a0ab1a9d37ec857;github:issue-373-comment-5701583790"
-        }
-      },
-      "evidence_records": 1
-    },
-    {
       "id": "unbounce",
       "name": "Unbounce",
       "affiliate_status": "approved_tracking",
@@ -5665,86 +5655,6 @@
       "evidence_records": 1
     },
     {
-      "id": "aweber",
-      "name": "AWeber",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://www.aweber.com/easy-email.htm?id=561868",
-      "network": "AWeber Advocate Program",
-      "account_id": "aweber",
-      "portal_url": null,
-      "priority": "P1_PARTIAL",
-      "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage.",
-      "coverage_type": "tool",
-      "latest_evidence_at": "2026-09-18T20:00:33Z",
-      "evidence_age_days": 7,
-      "evidence_source": "vendor-human-email",
-      "evidence_id": "gmail:1a0b61b45d55df0e",
-      "latest_metrics": {
-        "outbound_clicks": null,
-        "signups_referrals": 0,
-        "trials": null,
-        "paid_customers": null,
-        "gross_sales_revenue": null,
-        "commission_earned": null,
-        "commission_approved": null,
-        "commission_pending": null,
-        "payout_paid": null,
-        "payout_pending": null,
-        "network_reported_conversions": null
-      },
-      "funnel": {
-        "affiliate_click": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "current",
-          "period": "current account state confirmed by vendor on 2026-09-18; reporting period not stated",
-          "checked_at": "2026-09-18T20:00:33Z",
-          "evidence_id": "gmail:1a0b61b45d55df0e"
-        },
-        "signup_referral": {
-          "value": 0,
-          "observation": "confirmed_zero",
-          "freshness": "current",
-          "period": "current account state confirmed by vendor on 2026-09-18; reporting period not stated",
-          "checked_at": "2026-09-18T20:00:33Z",
-          "evidence_id": "gmail:1a0b61b45d55df0e"
-        },
-        "trial": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "current",
-          "period": "current account state confirmed by vendor on 2026-09-18; reporting period not stated",
-          "checked_at": "2026-09-18T20:00:33Z",
-          "evidence_id": "gmail:1a0b61b45d55df0e"
-        },
-        "paid": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "current",
-          "period": "current account state confirmed by vendor on 2026-09-18; reporting period not stated",
-          "checked_at": "2026-09-18T20:00:33Z",
-          "evidence_id": "gmail:1a0b61b45d55df0e"
-        },
-        "commission": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "current",
-          "period": "current account state confirmed by vendor on 2026-09-18; reporting period not stated",
-          "checked_at": "2026-09-18T20:00:33Z",
-          "evidence_id": "gmail:1a0b61b45d55df0e"
-        },
-        "payout": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "current",
-          "period": "current account state confirmed by vendor on 2026-09-18; reporting period not stated",
-          "checked_at": "2026-09-18T20:00:33Z",
-          "evidence_id": "gmail:1a0b61b45d55df0e"
-        }
-      },
-      "evidence_records": 1
-    },
-    {
       "id": "castmagic",
       "name": "Castmagic",
       "affiliate_status": "approved_tracking",
@@ -5768,16 +5678,17 @@
         "commission_earned": null,
         "commission_approved": null,
         "commission_pending": null,
+        "commission_paid": null,
         "payout_paid": null,
         "payout_pending": null,
-        "network_reported_conversions": null
+        "network_reported_unpaid_balance": 0
       },
       "funnel": {
         "affiliate_click": {
           "value": null,
           "observation": "unknown",
           "freshness": "current",
-          "period": "current unpaid balance stated in automated FirstPromoter program email on 2026-09-23; reporting period not stated",
+          "period": "Reporting period not stated",
           "checked_at": "2026-09-23T18:32:38Z",
           "evidence_id": "gmail:1a0cf8a8b7c21b67"
         },
@@ -5785,7 +5696,7 @@
           "value": null,
           "observation": "unknown",
           "freshness": "current",
-          "period": "current unpaid balance stated in automated FirstPromoter program email on 2026-09-23; reporting period not stated",
+          "period": "Reporting period not stated",
           "checked_at": "2026-09-23T18:32:38Z",
           "evidence_id": "gmail:1a0cf8a8b7c21b67"
         },
@@ -5793,7 +5704,7 @@
           "value": null,
           "observation": "unknown",
           "freshness": "current",
-          "period": "current unpaid balance stated in automated FirstPromoter program email on 2026-09-23; reporting period not stated",
+          "period": "Reporting period not stated",
           "checked_at": "2026-09-23T18:32:38Z",
           "evidence_id": "gmail:1a0cf8a8b7c21b67"
         },
@@ -5801,7 +5712,7 @@
           "value": null,
           "observation": "unknown",
           "freshness": "current",
-          "period": "current unpaid balance stated in automated FirstPromoter program email on 2026-09-23; reporting period not stated",
+          "period": "Reporting period not stated",
           "checked_at": "2026-09-23T18:32:38Z",
           "evidence_id": "gmail:1a0cf8a8b7c21b67"
         },
@@ -5809,7 +5720,7 @@
           "value": null,
           "observation": "unknown",
           "freshness": "current",
-          "period": "current unpaid balance stated in automated FirstPromoter program email on 2026-09-23; reporting period not stated",
+          "period": "Reporting period not stated",
           "checked_at": "2026-09-23T18:32:38Z",
           "evidence_id": "gmail:1a0cf8a8b7c21b67"
         },
@@ -5817,12 +5728,12 @@
           "value": null,
           "observation": "unknown",
           "freshness": "current",
-          "period": "current unpaid balance stated in automated FirstPromoter program email on 2026-09-23; reporting period not stated",
+          "period": "Reporting period not stated",
           "checked_at": "2026-09-23T18:32:38Z",
           "evidence_id": "gmail:1a0cf8a8b7c21b67"
         }
       },
-      "evidence_records": 1
+      "evidence_records": 2
     },
     {
       "id": "gamma",
@@ -5980,6 +5891,87 @@
           "period": "Last 30 days as displayed on 2026-09-26; UI timezone and exact boundaries not exposed",
           "checked_at": "2026-09-26T16:46:45.648391+00:00",
           "evidence_id": "https://dash.partnerstack.com/gravity"
+        }
+      },
+      "evidence_records": 2
+    },
+    {
+      "id": "teachable",
+      "name": "Teachable",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://partnerstack.teachable.com/ce4muoxdj46j",
+      "network": "PartnerStack",
+      "account_id": "partnerstack-account",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "priority": "P1_PARTIAL",
+      "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-24T21:54:09Z",
+      "evidence_age_days": 2,
+      "evidence_source": "authenticated-browser-dashboard",
+      "evidence_id": "partnerstack-dashboard:2026-09-24T21:54:09Z:teachable",
+      "latest_metrics": {
+        "outbound_clicks": 20,
+        "signups_referrals": 0,
+        "trials": null,
+        "paid_customers": null,
+        "gross_sales_revenue": 0,
+        "commission_earned": null,
+        "commission_approved": null,
+        "commission_pending": 0,
+        "payout_paid": null,
+        "payout_pending": null,
+        "network_reported_conversions": 0,
+        "reward_paid": 0
+      },
+      "funnel": {
+        "affiliate_click": {
+          "value": 20,
+          "observation": "measured",
+          "freshness": "current",
+          "period": "current cumulative dashboard",
+          "checked_at": "2026-09-24T21:54:09Z",
+          "evidence_id": "partnerstack-dashboard:2026-09-24T21:54:09Z:teachable"
+        },
+        "signup_referral": {
+          "value": 0,
+          "observation": "confirmed_zero",
+          "freshness": "current",
+          "period": "current cumulative dashboard",
+          "checked_at": "2026-09-24T21:54:09Z",
+          "evidence_id": "partnerstack-dashboard:2026-09-24T21:54:09Z:teachable"
+        },
+        "trial": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "current cumulative dashboard",
+          "checked_at": "2026-09-24T21:54:09Z",
+          "evidence_id": "partnerstack-dashboard:2026-09-24T21:54:09Z:teachable"
+        },
+        "paid": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "current cumulative dashboard",
+          "checked_at": "2026-09-24T21:54:09Z",
+          "evidence_id": "partnerstack-dashboard:2026-09-24T21:54:09Z:teachable"
+        },
+        "commission": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "current cumulative dashboard",
+          "checked_at": "2026-09-24T21:54:09Z",
+          "evidence_id": "partnerstack-dashboard:2026-09-24T21:54:09Z:teachable"
+        },
+        "payout": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "current cumulative dashboard",
+          "checked_at": "2026-09-24T21:54:09Z",
+          "evidence_id": "partnerstack-dashboard:2026-09-24T21:54:09Z:teachable"
         }
       },
       "evidence_records": 2
