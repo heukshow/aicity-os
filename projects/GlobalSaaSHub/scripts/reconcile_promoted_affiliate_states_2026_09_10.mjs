@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 
 const observedAt = '2026-09-10T08:26:43+09:00';
 
