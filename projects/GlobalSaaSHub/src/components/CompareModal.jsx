@@ -27,7 +27,7 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-4xl bg-[#0f111a] border border-[#222538] rounded-3xl p-6 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto">
+      <div className="relative w-full max-w-5xl bg-[#0f111a] border border-[#222538] rounded-3xl p-4 sm:p-6 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto">
         
         {/* Header */}
         <div className="flex items-center justify-between border-b border-[#222538] pb-4">
@@ -44,10 +44,12 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
         </div>
 
         {/* Comparison Grid */}
-        <div className="space-y-4 text-sm">
+        <p className="text-xs leading-5 text-slate-500">Compare up to three tools using the same source-led fields. This view does not rank a winner; verify current vendor terms before purchase.</p>
+
+        <div className="space-y-4 text-sm overflow-x-auto pb-2">
           
           {/* Row 1: Header / Tool Selector */}
-          <div className={`grid ${selectedToolC ? 'grid-cols-3' : 'grid-cols-2'} gap-3`}>
+          <div className={`grid ${selectedToolC ? 'grid-cols-3' : 'grid-cols-2'} gap-3 min-w-[680px]`}>
             <div className="p-4 rounded-2xl bg-[#181a29] border border-purple-500/30 flex items-center gap-3">
               <img src={toolA.logo_url} alt={toolA.name} className="h-8 w-8 rounded-lg bg-slate-900 object-contain p-1 border border-[#222538]" onError={(e) => e.target.style.display = 'none'} />
               <div>
@@ -120,7 +122,7 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
           </div>
 
           {/* Row 2: Ratings & Pricing */}
-          <div className={`grid ${selectedToolC ? 'grid-cols-3' : 'grid-cols-2'} gap-3 p-4 rounded-2xl bg-[#131520] border border-[#222538]`}>
+          <div className={`grid ${selectedToolC ? 'grid-cols-3' : 'grid-cols-2'} gap-3 p-4 rounded-2xl bg-[#131520] border border-[#222538] min-w-[680px]`}>
             <div>
               <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Pricing Plan</div>
               <div className="text-sm font-black text-emerald-400 mt-0.5">{toolA.pricing}</div>
@@ -141,7 +143,7 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
           </div>
 
           {/* Row 3: Key Features */}
-          <div className={`grid ${selectedToolC ? 'grid-cols-3' : 'grid-cols-2'} gap-3 p-4 rounded-2xl bg-[#131520] border border-[#222538]`}>
+          <div className={`grid ${selectedToolC ? 'grid-cols-3' : 'grid-cols-2'} gap-3 p-4 rounded-2xl bg-[#131520] border border-[#222538] min-w-[680px]`}>
             <div>
               <div className="text-[10px] font-bold text-purple-300 uppercase tracking-wider mb-2">{toolA.name} Features</div>
               <div className="space-y-1.5 text-xs text-slate-300">
@@ -182,15 +184,15 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
           </div>
 
           {/* Row 4: CTAs */}
-          <div className={`grid ${selectedToolC ? 'grid-cols-3' : 'grid-cols-2'} gap-3 pt-2`}>
+          <div className={`grid ${selectedToolC ? 'grid-cols-3' : 'grid-cols-2'} gap-3 pt-2 min-w-[680px]`}>
             {urlA && (
               <a
                 href={urlA}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel={toolA.is_sponsored === true ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
                 className="py-3 px-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-purple-950/40 hover:brightness-110 transition-all"
               >
-                <span>Get {toolA.name}</span>
+                <span>Check {toolA.name}</span>
                 <ExternalLink className="h-3 w-3" />
               </a>
             )}
@@ -198,10 +200,10 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
               <a
                 href={urlB}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel={selectedToolB.is_sponsored === true ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
                 className="py-3 px-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-blue-950/40 hover:brightness-110 transition-all"
               >
-                <span>Get {selectedToolB.name}</span>
+                <span>Check {selectedToolB.name}</span>
                 <ExternalLink className="h-3 w-3" />
               </a>
             )}
@@ -209,10 +211,10 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
               <a
                 href={urlC}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel={selectedToolC.is_sponsored === true ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
                 className="py-3 px-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-emerald-950/40 hover:brightness-110 transition-all"
               >
-                <span>Get {selectedToolC.name}</span>
+                <span>Check {selectedToolC.name}</span>
                 <ExternalLink className="h-3 w-3" />
               </a>
             )}
