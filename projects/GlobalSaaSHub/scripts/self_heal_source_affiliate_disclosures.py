@@ -47,19 +47,33 @@ HOME_NOTICE = (
     '</p>'
 )
 
+PAGE_NOTICE_SLOT = '<!-- customer-affiliate-disclosure -->'
+
+def strip_notices(text: str) -> str:
+    # Older versions emitted literal backslash-n tokens on every build. Remove
+    # only whitespace/escaped newlines adjacent to a disclosure, never code/text
+    # elsewhere in the document. Consuming both sides makes this idempotent.
+    for pattern in (PAGE_NOTICE_RE, GLOBAL_NOTICE_RE, LEGACY_DISCLOSURE_RE):
+        text = re.sub(r'(?:\\n|\s)*' + pattern.pattern + r'(?:\\n|\s)*', '', text, flags=re.I | re.S)
+    return text
+
 def normalize_page(path: Path) -> bool:
     rel = path.relative_to(ROOT).as_posix()
     before = path.read_text(encoding="utf-8")
     if rel.endswith("affiliate-disclosure.html"):
         return False
 
-    text = PAGE_NOTICE_RE.sub("", before)
-    text = GLOBAL_NOTICE_RE.sub("", text)
-    text = LEGACY_DISCLOSURE_RE.sub("", text)
+    text = strip_notices(before)
 
     first = AFFILIATE_CTA.search(text)
     if first:
-        text = text[:first.start()] + PAGE_NOTICE + "\\n" + text[first.start():]
+        if PAGE_NOTICE_SLOT in text:
+            if text.count(PAGE_NOTICE_SLOT) != 1 or text.index(PAGE_NOTICE_SLOT) > first.start():
+                raise RuntimeError(f"{rel}: disclosure slot must be unique and before the first CTA")
+            slot_end = text.index(PAGE_NOTICE_SLOT) + len(PAGE_NOTICE_SLOT)
+            text = text[:slot_end] + "\n" + PAGE_NOTICE + "\n" + text[slot_end:].lstrip()
+        else:
+            text = text[:first.start()].rstrip() + "\n" + PAGE_NOTICE + "\n" + text[first.start():]
         marker_at = text.find('data-affiliate-disclosure="page"')
         cta_at = AFFILIATE_CTA.search(text).start()
         if text.count('data-affiliate-disclosure="page"') != 1 or marker_at > cta_at:
@@ -75,15 +89,14 @@ def normalize_page(path: Path) -> bool:
 def normalize_home() -> bool:
     path = ROOT / "index.html"
     before = path.read_text(encoding="utf-8")
-    text = PAGE_NOTICE_RE.sub("", before)
-    text = GLOBAL_NOTICE_RE.sub("", text)
-    text = LEGACY_DISCLOSURE_RE.sub("", text)
+    text = strip_notices(before)
 
     first = AFFILIATE_CTA.search(text)
     if first:
-        text = text[:first.start()] + HOME_NOTICE + "\\n" + text[first.start():]
+        text = text[:first.start()].rstrip() + "\n" + HOME_NOTICE + "\n" + text[first.start():]
     elif "</body>" in text:
-        text = text.replace("</body>", HOME_NOTICE + "\\n</body>", 1)
+        end = text.index("</body>")
+        text = text[:end].rstrip() + "\n" + HOME_NOTICE + "\n" + text[end:]
     else:
         raise RuntimeError("index.html: closing body missing for homepage disclosure")
 
