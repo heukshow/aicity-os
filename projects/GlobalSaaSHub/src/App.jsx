@@ -60,6 +60,7 @@ export default function App() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedPricing, setSelectedPricing] = useState('all');
   const [mustHaveFeature, setMustHaveFeature] = useState('');
+  const [selectedGoal, setSelectedGoal] = useState('');
   const [compareToolA, setCompareToolA] = useState(null);
   const [showBookmarksOnly, setShowBookmarksOnly] = useState(false);
   const [bookmarkedIds, setBookmarkedIds] = useState(() => {
@@ -87,6 +88,14 @@ export default function App() {
     { id: 'ai_agents', name: 'AI Agents', icon: Bot },
     { id: 'finance_billing', name: 'Finance', icon: CreditCard },
     { id: 'productivity', name: 'Productivity', icon: Layers }
+  ];
+
+  const goalOptions = [
+    { id: 'get-leads', label: 'Get leads', category: 'sales_crm', feature: '' },
+    { id: 'create-content', label: 'Create content', category: 'copywriting', feature: '' },
+    { id: 'sell-online', label: 'Sell online', category: 'email_outreach', feature: 'ecommerce' },
+    { id: 'automate-work', label: 'Automate work', category: 'workflow_auto', feature: '' },
+    { id: 'grow-traffic', label: 'Grow traffic', category: 'seo_tools', feature: '' }
   ];
 
   const pricingOptions = [
@@ -162,6 +171,14 @@ export default function App() {
       return matchesBookmark && matchesCategory && matchesPricing && matchesSearch && matchesRequiredFeature;
     });
   }, [searchTerm, selectedCategory, selectedPricing, mustHaveFeature, showBookmarksOnly, bookmarkedIds]);
+
+  const applyGoal = (goal) => {
+    setSelectedGoal(goal.id);
+    setSelectedCategory(goal.category);
+    setMustHaveFeature(goal.feature);
+    setShowBookmarksOnly(false);
+    document.getElementById('directory')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   const chooseCategory = (id) => {
     setSelectedCategory(id);
@@ -269,6 +286,23 @@ export default function App() {
       )}
 
       <main id="directory" className="relative z-10 mx-auto max-w-7xl scroll-mt-24 px-4 pb-24 sm:px-6 lg:px-8">
+        <section className="mb-6 rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-5" aria-label="Goal shortcuts">
+          <div className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-300">Start with your goal</div>
+          <h2 className="mt-1 text-lg font-black text-white">Build a shortlist from the outcome you need</h2>
+          <p className="mt-1 text-xs leading-5 text-slate-500">These shortcuts only apply transparent filters. They do not create a hidden score or declare a best product.</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {goalOptions.map((goal) => (
+              <button
+                key={goal.id}
+                onClick={() => applyGoal(goal)}
+                className={`rounded-xl border px-3 py-2 text-xs font-bold transition ${selectedGoal === goal.id ? 'border-cyan-300/40 bg-cyan-400/10 text-cyan-100' : 'border-white/10 bg-white/[0.02] text-slate-300 hover:text-white'}`}
+              >
+                {goal.label}
+              </button>
+            ))}
+          </div>
+        </section>
+
         <section className="mb-6 rounded-2xl border border-violet-400/20 bg-violet-500/[0.05] p-4 sm:p-5">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end">
             <div className="flex-1">
@@ -297,7 +331,7 @@ export default function App() {
             </label>
             {(selectedCategory !== 'all' || mustHaveFeature.trim()) && (
               <button
-                onClick={() => { setSelectedCategory('all'); setMustHaveFeature(''); }}
+                onClick={() => { setSelectedGoal(''); setSelectedCategory('all'); setMustHaveFeature(''); }}
                 className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-xs font-bold text-slate-400 hover:text-white"
               >
                 Clear needs
