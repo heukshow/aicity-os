@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 
 const evidence = 'data/tidio-affiliate-rejection-evidence-2026-08-25.md';
 const authoritative = {
