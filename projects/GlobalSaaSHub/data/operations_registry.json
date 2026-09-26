@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T20:10:37Z",
+  "updated_at": "2026-09-26T20:15:20Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -784,7 +784,8 @@
         "pages_deployment_run": 36263827204,
         "deterministic_verification_run": 36263832444,
         "live_url": "https://coshuma.com/tool/chatbase.html",
-        "baseline": "Vendor-reported Chatbase totals remain 22 affiliate clicks and 0 leads/conversions; reporting period unstated; no revenue uplift claimed."
+        "baseline": "Vendor-reported Chatbase totals remain 22 affiliate clicks and 0 leads/conversions; reporting period unstated; no revenue uplift claimed.",
+        "production_verification_comment_id": 5848903019
       },
       "completion_gate": "production_verified",
       "completion_gate_satisfied": true,
