@@ -45,6 +45,8 @@ class LifecycleTests(unittest.TestCase):
             'source_type': 'vendor_email', 'source_ref': 'fixture-message', 'reason': 'revoked',
             'observed_at': '2026-09-26T00:00:00Z'}}
         self.assertEqual(lifecycle.preserve(old, new), (new, False))
+        replayed = dict(new, affiliate_status='application_submitted')
+        self.assertEqual(lifecycle.preserve(new, replayed)[0]['affiliate_status'], 'rejected')
 
     def test_changed_url_without_direct_evidence_is_preserved(self):
         old = {'affiliate_status': 'approved_tracking', 'affiliate_url': 'https://vendor.test/ref/exact'}
