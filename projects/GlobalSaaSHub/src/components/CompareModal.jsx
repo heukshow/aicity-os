@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { X, ExternalLink, Zap } from 'lucide-react';
 import { getValidExternalUrl } from '../utils/url';
 
 export default function CompareModal({ toolA, toolB, allTools, onClose }) {
+  const dialogRef = useRef(null);
+  const closeButtonRef = useRef(null);
+
   // Safe initial toolB selection if not provided by App.jsx
   const sameCategoryTools = allTools ? allTools.filter(
     t => t.id !== toolA?.id && (t.category === toolA?.category || t.category_display === toolA?.category_display)
@@ -12,6 +15,46 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
 
   const [selectedToolB, setSelectedToolB] = useState(initialB);
   const [selectedToolC, setSelectedToolC] = useState(null);
+
+  useEffect(() => {
+    const previouslyFocused = document.activeElement;
+    const previousOverflow = document.body.style.overflow;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        onClose();
+        return;
+      }
+
+      if (event.key !== 'Tab' || !dialogRef.current) return;
+
+      const focusable = Array.from(dialogRef.current.querySelectorAll(
+        'a[href], button:not([disabled]), select:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      ));
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && (document.activeElement === first || !dialogRef.current.contains(document.activeElement))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleKeyDown);
+    closeButtonRef.current?.focus();
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      previouslyFocused?.focus?.();
+    };
+  }, [onClose]);
 
   if (!toolA || !selectedToolB) {
     return null;
@@ -27,16 +70,25 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-5xl bg-[#0f111a] border border-[#222538] rounded-3xl p-4 sm:p-6 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto">
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="compare-dialog-title"
+        className="relative w-full max-w-5xl bg-[#0f111a] border border-[#222538] rounded-3xl p-4 sm:p-6 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto"
+      >
         
         {/* Header */}
         <div className="flex items-center justify-between border-b border-[#222538] pb-4">
           <div className="flex items-center gap-2">
             <span className="text-xl">⚔️</span>
-            <div><h2 className="text-lg font-black text-white">Side-by-Side Tool Comparison</h2><p className="mt-0.5 text-[11px] font-semibold text-slate-500">Compare up to 3 tools</p></div>
+            <div><h2 id="compare-dialog-title" className="text-lg font-black text-white">Side-by-Side Tool Comparison</h2><p className="mt-0.5 text-[11px] font-semibold text-slate-500">Compare up to 3 tools</p></div>
           </div>
           <button 
+            ref={closeButtonRef}
+            type="button"
             onClick={onClose}
+            aria-label="Close comparison dialog"
             className="p-2 rounded-xl bg-[#181a29] text-slate-400 hover:text-white hover:bg-[#222538] transition-all"
           >
             <X className="h-5 w-5" />
@@ -69,6 +121,7 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
 
               {availableTools.length > 0 && (
                 <select
+                  aria-label="Choose second tool"
                   value={selectedToolB.id}
                   onChange={(e) => {
                     const found = allTools.find(t => t.id === e.target.value);
@@ -94,7 +147,9 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
                   </div>
                 </div>
                 <button 
+                  type="button"
                   onClick={() => setSelectedToolC(null)}
+                  aria-label={`Remove ${selectedToolC.name} from comparison`}
                   className="text-slate-500 hover:text-rose-400 p-1"
                   title="Remove 3rd tool"
                 >
@@ -105,6 +160,7 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
               availableTools.length > 0 && (
                 <div className="p-4 rounded-2xl bg-[#181a29]/40 border border-dashed border-[#222538] flex items-center justify-center">
                   <select
+                    aria-label="Add a third tool"
                     onChange={(e) => {
                       const found = allTools.find(t => t.id === e.target.value);
                       if (found) setSelectedToolC(found);
