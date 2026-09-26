@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T18:30:17.848Z",
+  "updated_at": "2026-09-26T18:55:56.932Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -711,6 +711,41 @@
       "verification": "Deterministic production verification succeeded in run 36259021127 with trusted evidence comment 5848344630; Site 36259105919 and Pages 36259263580 deployed the verified exact Gravity URL.",
       "handoff": "After production verification, measure post-release 7/30-day windows; do not claim uplift from deployment.",
       "completed_at": "2026-09-26T17:32:01Z"
+    },
+    {
+      "record_id": "AFFILIATE:CONSTANT-CONTACT-TRACKING-ACTIVATION-20260927",
+      "task_key": "constant-contact-tracking-activation-20260927",
+      "incident_key": "constant-contact-contract-risk-20260927",
+      "target": "Constant Contact PartnerStack terms and exact customer-facing tracking URL",
+      "owner_team": "Affiliate Partnerships Team",
+      "canonical_owner": "Affiliate Partnerships Team",
+      "found_by": "Security & Cost Control Team",
+      "fixed_by": "Security & Cost Control Team",
+      "lifecycle": "in_progress",
+      "next_owner": "Affiliate Partnerships Team",
+      "priority": "high",
+      "blocker": "awaiting_vendor_terms_clarification",
+      "last_evidence_at": "2026-09-26T18:46:19Z",
+      "evidence": {
+        "approval_gmail_message_id": "1a0da69f66fadf19",
+        "terms_review_comment_id": 5848793226,
+        "clarification_request_gmail_message_id": "1a0df0917006730e",
+        "clarification_request_comment_id": 5848875837,
+        "clarification_sent_at": "2026-09-26T18:45:10Z",
+        "agreement_accepted": false,
+        "exact_tracking_url": null,
+        "unresolved_terms": [
+          "section_10_2_out_of_pocket_basis_and_cap",
+          "section_16_affiliate_indemnification_cap",
+          "account_specific_commission_schedule"
+        ]
+      },
+      "completion_gate": "vendor_terms_clarified_then_legal_consent_and_exact_tracking_url_verified",
+      "completion_gate_satisfied": false,
+      "user_action_required": false,
+      "changed_scope": "Register the existing Constant Contact legal-consent hold and official clarification thread; no agreement, URL, CTA, payment or product state changed.",
+      "verification": "Gmail thread 1a0df0917006730e contains only the SENT clarification request; no vendor reply. The agreement checkbox remains unchecked and the exact customer URL remains null.",
+      "handoff": "Reconcile the existing inquiry thread without duplicate outreach. Do not accept terms, infer a link or change public CTAs until controlling terms and the account schedule are clarified; then request the specific legal-consent decision."
     }
   ],
   "invariants": {
