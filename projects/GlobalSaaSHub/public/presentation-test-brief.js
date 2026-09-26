@@ -9,6 +9,7 @@
   // Only fixed choice labels are measured; never send the brief or user notes.
   const choice = () => ['pitch', 'lesson', 'report'].includes(scenario.value) ? scenario.value : 'pitch';
   const emit = (event, extra = {}) => {
+    if (window.__coshumaQa) return;
     try {
       if (typeof window.gtag === 'function') window.gtag('event', event, {
         page_location: window.location.href, page_path: window.location.pathname,
