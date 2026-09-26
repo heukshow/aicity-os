@@ -13,6 +13,8 @@ on:
     workflows: ['COSHUMA Site Build & Deploy']
     types: [completed]
   workflow_dispatch:
+  schedule:
+    - cron: '31 * * * *'
 
 permissions:
   contents: read
@@ -50,7 +52,8 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: python scripts/audit_release_handoff_registry.py
 
-      - name: Verify one deterministic release candidate
+      - name: Verify every eligible release candidate independently
+        if: ${{ always() && !cancelled() }}
         working-directory: projects/GlobalSaaSHub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
