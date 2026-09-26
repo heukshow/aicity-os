@@ -1,5 +1,5 @@
 // Keep the two Search Console opportunity pages reproducible after SEO generation.
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
