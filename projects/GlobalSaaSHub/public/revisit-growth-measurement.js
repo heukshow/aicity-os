@@ -14,16 +14,17 @@
   };
 
   const send = (eventName, params = {}) => {
-    if (typeof window.gtag !== 'function') return;
-    window.gtag('event', eventName, {
+    if (window.__coshumaQa || typeof window.gtag !== 'function') return;
+    try { window.gtag('event', eventName, {
       page_path: window.location.pathname,
       page_location: window.location.href,
       measurement_area: 'revisit_growth',
       ...params,
-    });
+    }); } catch { /* Measurement must not break buyer interactions. */ }
   };
 
   const measureReturnVisit = () => {
+    if (window.__coshumaQa) return;
     try {
       if (sessionStorage.getItem(SESSION_MARK)) return;
       sessionStorage.setItem(SESSION_MARK, '1');
