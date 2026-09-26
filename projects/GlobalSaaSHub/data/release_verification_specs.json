@@ -327,6 +327,57 @@
         "\"WebPage\""
       ],
       "verify_deployed_ancestry": true
+    },
+    "REVENUE:GAMMA-DECISION-MEASUREMENT-20260927": {
+      "mode": "bundle_markers",
+      "source_file": "public/presentation-test-brief.js",
+      "source_required_regex": [
+        "affiliate_cta_view",
+        "decision_tool_view",
+        "decision_tool_use",
+        "decision_brief_copy",
+        "intersectionRatio < 0.5",
+        "clipboard.writeText"
+      ],
+      "source_forbidden_regex": [],
+      "gh_pages_glob": "presentation-test-brief.js",
+      "gh_pages_required_regex": [
+        "affiliate_cta_view",
+        "decision_tool_view",
+        "decision_tool_use",
+        "decision_brief_copy"
+      ],
+      "gh_pages_forbidden_regex": [],
+      "live_url": "https://coshuma.com/compare/gamma-vs-canva.html",
+      "verify_deployed_ancestry": true,
+      "live_required_substrings": [
+        "buyer-jump",
+        "id=\"free-plan-comparison\"",
+        "data-label=\"Gamma\"",
+        "https://try.gamma.app/pu20lusdpn1j",
+        "presentation-test-brief.js",
+        "data-affiliate-disclosure=\"page\"",
+        "sponsored"
+      ]
+    },
+    "AFFILIATE:GRAVITY-TRACKING-ACTIVATION-20260927": {
+      "mode": "public_boundary",
+      "source_glob": "projects/GlobalSaaSHub/public/tool/gravity-forms.html",
+      "gh_pages_glob": "tool/gravity-forms.html",
+      "live_url": "https://coshuma.com/tool/gravity-forms.html",
+      "forbidden_regex": [
+        "affiliate_status",
+        "application_submitted",
+        "PartnerStack",
+        "internal verification"
+      ],
+      "live_required_substrings": [
+        "https://try.gravity.com/8bd4r655ttws",
+        "data-cta=\"affiliate\"",
+        "sponsored",
+        "Affiliate disclosure"
+      ],
+      "verify_deployed_ancestry": true
     }
   }
 }
