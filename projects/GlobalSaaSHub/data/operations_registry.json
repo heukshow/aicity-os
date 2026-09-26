@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T16:18:02.000Z",
+  "updated_at": "2026-09-26T16:39:07.000Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -582,6 +582,39 @@
       ],
       "continuation_reason": "Final repeat-build and production-proof checks found producer leaks and artifact-vs-deployment ambiguity; retain previous release evidence and verify this new revision.",
       "completed_at": "2026-09-26T16:10:13Z"
+    },
+    {
+      "record_id": "SECURITY:VERCEL-AUTO-DEPLOY-001",
+      "incident_key": "vercel-root-auto-deployment-burst-20260927",
+      "task_key": "SECURITY-VERCEL-AUTO-DEPLOY-001",
+      "target": "root Vercel Git auto-deployment guard",
+      "owner_team": "Security & Cost Control Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Release & Reliability Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-26T16:39:07.000Z",
+      "evidence": {
+        "gmail_message_id": "1a0de6d03d30091d",
+        "observed_error": "api-deployments-free-per-day after more than 100 automatic deployments in 24 hours",
+        "implementation_pr": 842,
+        "merge_commit": "daee6b37d35b62c151c8dac1d92777da0eb2f198",
+        "pr_build_run": 36255926829,
+        "root_guard": "vercel.json git.deploymentEnabled=false",
+        "pr_head_vercel_status_count": 0,
+        "merged_main_vercel_status_count": 0,
+        "evidence_comment_id": 5847977447
+      },
+      "completion_gate": "root_vercel_git_auto_deployments_disabled",
+      "completion_gate_satisfied": true,
+      "completed_at": "2026-09-26T16:39:07.000Z",
+      "user_action_required": false,
+      "found_by": "Security & Cost Control Team",
+      "fixed_by": "Security & Cost Control Team",
+      "canonical_owner": "Release & Reliability Team",
+      "changed_scope": "Root Vercel Git auto-deployment guard and required PR-check path coverage only",
+      "verification": "PR #842 merged after COSHUMA PR Build Check run 36255926829 passed; current main contains the official root git.deploymentEnabled=false guard, the PR-check watches vercel.json, and neither the PR head nor merged main created a Vercel deployment status.",
+      "handoff": "Release & Reliability Team retains cleanup ownership for stale/misconfigured Vercel domains/projects. Do not purchase a Vercel upgrade for this incident."
     }
   ],
   "invariants": {
