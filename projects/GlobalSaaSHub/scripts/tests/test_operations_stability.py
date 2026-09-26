@@ -246,6 +246,8 @@ class RegistryTests(unittest.TestCase):
         run = lambda _: {'name': 'COSHUMA Release Verification', 'head_branch': 'main', 'status': 'completed'}
         result, _ = registry.reconcile({'active_queue': [candidate()]}, [comment], pr, run, lambda _: True)
         self.assertEqual(result['active_queue'][0]['lifecycle'], 'production_verified')
+        self.assertEqual(result['active_queue'][0]['verification'],
+                         'Deterministic production verification succeeded in run 123; trusted evidence comment 99.')
         comment['body'] = comment['body'].replace('production_verified', 'verification_failed')
         result, _ = registry.reconcile({'active_queue': [candidate()]}, [comment], pr, run, lambda _: True)
         self.assertEqual(result['active_queue'][0]['lifecycle'], 'production_verification_requested')
