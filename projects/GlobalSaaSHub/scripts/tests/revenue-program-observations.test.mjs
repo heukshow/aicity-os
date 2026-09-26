@@ -32,5 +32,8 @@ test('same-evidence enrichment retains a balance without duplicating observation
   assert.equal(merged[0].metrics.network_reported_unpaid_balance,0);
   assert.equal(merged[0].metrics.commission_earned,null);
   assert.equal(mergeProgramObservations([old],[{...row,checked_at:'2026-09-24T00:00:00Z'}]).length,2);
+  const separate = mergeProgramObservations([{...old,period:'previous month'}],[{...row,period:'current balance'}]);
+  assert.equal(separate.length,2);
+  assert.equal(separate[0].period,'current balance');
   assert.throws(()=>mergeProgramObservations([{...row,metrics:{network_reported_unpaid_balance:5}}],[row]),/Conflicting/);
 });
