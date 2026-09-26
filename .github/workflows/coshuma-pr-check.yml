@@ -7,6 +7,7 @@ on:
       - 'projects/GlobalSaaSHub/**'
       - 'vercel.json'
       - '.github/workflows/coshuma-pr-check.yml'
+      - '.github/workflows/coshuma-site-deploy.yml'
 
 concurrency:
   group: coshuma-pr-check-${{ github.event.pull_request.number }}
@@ -44,6 +45,7 @@ jobs:
           python scripts/tests/test_affiliate_producers.py
           node scripts/tests/google-fetch-retry.test.mjs
           node scripts/tests/decision-support.test.mjs
+          node scripts/tests/synced-affiliates.test.mjs
 
       # RECOVERY-006 invariant: committed customer source must be checked before any source-mutating preparation.
       - name: Fail closed on committed public source before preparation
@@ -58,6 +60,7 @@ jobs:
           node scripts/reconcile_tagshop_approved_tracking.mjs
           node scripts/reconcile_promoted_affiliate_states_2026_09_10.mjs
           python scripts/affiliate_lifecycle_guard.py --sync-next
+          node scripts/verify_synced_affiliates.mjs
           node scripts/monetize_verified_compare_links.mjs
           python scripts/polish_public_copy.py
           python scripts/inject_pictory_partner_offer.py
