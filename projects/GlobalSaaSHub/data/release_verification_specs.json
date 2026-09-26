@@ -75,51 +75,86 @@
     },
     "AFFILIATE:SUPADEMO-LIFECYCLE-CORRECTION": {
       "mode": "generated_json_state",
-      "producer": ["node", "scripts/ensure_scribe_fastlane.mjs"],
+      "producer": [
+        "node",
+        "scripts/ensure_scribe_fastlane.mjs"
+      ],
       "checks": [
         {
           "file": "data/affiliate_outreach_state.json",
-          "path": ["programs", "supademo", "status"],
+          "path": [
+            "programs",
+            "supademo",
+            "status"
+          ],
           "equals": "browser_required_application_form"
         },
         {
           "file": "data/affiliate_outreach_state.json",
-          "path": ["programs", "supademo", "application_state"],
+          "path": [
+            "programs",
+            "supademo",
+            "application_state"
+          ],
           "equals": "not_submitted"
         },
         {
           "file": "data/affiliate_outreach_state.json",
-          "path": ["programs", "supademo", "tracking_url"],
+          "path": [
+            "programs",
+            "supademo",
+            "tracking_url"
+          ],
           "equals": null
         },
         {
           "file": "data/browser_required_queue.json",
-          "find": {"tool_id": "supademo"},
-          "path": ["status"],
+          "find": {
+            "tool_id": "supademo"
+          },
+          "path": [
+            "status"
+          ],
           "equals": "browser_required_application_form"
         },
         {
           "file": "data/browser_required_queue.json",
-          "find": {"tool_id": "supademo"},
-          "path": ["affiliate_status"],
+          "find": {
+            "tool_id": "supademo"
+          },
+          "path": [
+            "affiliate_status"
+          ],
           "equals": "browser_required_application_form"
         },
         {
           "file": "data/browser_required_queue.json",
-          "find": {"tool_id": "supademo"},
-          "path": ["exact_tracking_url"],
+          "find": {
+            "tool_id": "supademo"
+          },
+          "path": [
+            "exact_tracking_url"
+          ],
           "equals": null
         },
         {
           "file": "data/tools.json",
-          "find": {"id": "supademo"},
-          "path": ["affiliate_status"],
+          "find": {
+            "id": "supademo"
+          },
+          "path": [
+            "affiliate_status"
+          ],
           "equals": "browser_required_application_form"
         },
         {
           "file": "data/tools.json",
-          "find": {"id": "supademo"},
-          "path": ["affiliate_url"],
+          "find": {
+            "id": "supademo"
+          },
+          "path": [
+            "affiliate_url"
+          ],
           "equals": null
         }
       ],
@@ -150,6 +185,105 @@
       ],
       "gh_pages_forbidden_regex": [],
       "live_url": "https://coshuma.com/",
+      "verify_deployed_ancestry": true
+    },
+    "AUDIENCE:BUYER-INTENT-001": {
+      "mode": "bundle_markers",
+      "source_file": "public/revisit-growth-measurement.js",
+      "source_required_regex": [
+        "buyer_intent_stage",
+        "stage:\\s*'product_view_intent'",
+        "stage:\\s*'compare_intent'",
+        "stage:\\s*'affiliate_click'"
+      ],
+      "source_forbidden_regex": [
+        "email\\s*:",
+        "raw_(user|pii)",
+        "revenue\\s*:",
+        "commission\\s*:"
+      ],
+      "gh_pages_glob": "revisit-growth-measurement.js",
+      "gh_pages_required_regex": [
+        "buyer_intent_stage",
+        "product_view_intent",
+        "compare_intent",
+        "affiliate_click"
+      ],
+      "gh_pages_forbidden_regex": [],
+      "live_url": "https://coshuma.com/",
+      "verify_deployed_ancestry": true
+    },
+    "PRODUCT:MULTI-COMPARE-001": {
+      "mode": "bundle_markers",
+      "source_file": "src/components/CompareModal.jsx",
+      "source_required_regex": [
+        "Compare up to 3 tools",
+        "does not rank a winner",
+        "sponsored noopener noreferrer",
+        "min-w-\\[680px\\]"
+      ],
+      "source_forbidden_regex": [
+        "winner\\s*score",
+        "best\\s*overall"
+      ],
+      "gh_pages_glob": "assets/*.js",
+      "gh_pages_required_regex": [
+        "Compare up to 3 tools",
+        "does not rank a winner"
+      ],
+      "gh_pages_forbidden_regex": [],
+      "live_url": "https://coshuma.com/",
+      "verify_deployed_ancestry": true
+    },
+    "PRODUCT:DECISION-UX-001": {
+      "mode": "bundle_markers",
+      "source_file": "src/App.jsx",
+      "source_required_regex": [
+        "Start with your goal",
+        "Get leads",
+        "Create content",
+        "Sell online",
+        "Automate work",
+        "Grow traffic",
+        "do not create a hidden score"
+      ],
+      "source_forbidden_regex": [
+        "hiddenScore",
+        "opaqueRanking"
+      ],
+      "gh_pages_glob": "assets/*.js",
+      "gh_pages_required_regex": [
+        "Start with your goal",
+        "Get leads",
+        "Create content",
+        "Sell online",
+        "Automate work",
+        "Grow traffic"
+      ],
+      "gh_pages_forbidden_regex": [],
+      "live_url": "https://coshuma.com/",
+      "verify_deployed_ancestry": true
+    },
+    "TRUST:TRUST-EVIDENCE-001": {
+      "mode": "bundle_markers",
+      "source_file": "scripts/build_search_comparisons.mjs",
+      "source_required_regex": [
+        "Read the COSHUMA methodology",
+        "/methodology\\.html",
+        "evidence levels"
+      ],
+      "source_forbidden_regex": [
+        "revenue truth",
+        "browser queue",
+        "application state"
+      ],
+      "gh_pages_glob": "compare/*.html",
+      "gh_pages_required_regex": [
+        "/methodology\\.html",
+        "Sources and method"
+      ],
+      "gh_pages_forbidden_regex": [],
+      "live_url": "https://coshuma.com/compare/semrush-vs-frase.html",
       "verify_deployed_ancestry": true
     }
   }
