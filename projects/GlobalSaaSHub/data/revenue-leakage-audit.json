@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T17:17:44.808Z",
+  "generated_at": "2026-09-26T19:26:33.756Z",
   "evidence_scope": "Combined authenticated revenue-browser baseline, current revenue-truth records, and explicit account-wide commission/payout evidence.",
   "policy": {
     "purpose": "Detect approved monetized routes that can leak revenue because downstream affiliate metrics are missing or stale.",
@@ -725,7 +725,7 @@
           "id": "tally",
           "name": "Tally",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 14 days old."
+          "reason": "Latest revenue evidence is 15 days old."
         }
       ]
     },
@@ -738,7 +738,7 @@
           "id": "clickfunnels",
           "name": "ClickFunnels",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 18 days old."
+          "reason": "Latest revenue evidence is 19 days old."
         }
       ]
     },
@@ -4393,10 +4393,10 @@
       "account_id": "tally",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 14 days old.",
+      "reason": "Latest revenue evidence is 15 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-11T17:33:38Z",
-      "evidence_age_days": 14,
+      "evidence_age_days": 15,
       "evidence_source": "vendor-system-email",
       "evidence_id": "gmail:1a0918839bda8d0f",
       "latest_metrics": {
@@ -4473,10 +4473,10 @@
       "account_id": "clickfunnels",
       "portal_url": "https://www.clickfunnels.com/customers/profiles/kMXlLGaZ/affiliates/dashboard",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 18 days old.",
+      "reason": "Latest revenue evidence is 19 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T17:19:00Z",
-      "evidence_age_days": 18,
+      "evidence_age_days": 19,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "github:affiliate-browser-results-2026-09-08:clickfunnels",
       "latest_metrics": {
@@ -5756,7 +5756,7 @@
       "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-23T18:32:38Z",
-      "evidence_age_days": 2,
+      "evidence_age_days": 3,
       "evidence_source": "vendor-system-email",
       "evidence_id": "gmail:1a0cf8a8b7c21b67",
       "latest_metrics": {
