@@ -6,7 +6,9 @@ ROOT = Path(__file__).resolve().parents[1]
 data = json.loads((ROOT / "data" / "operations_registry.json").read_text(encoding="utf-8"))
 rank = {"critical": 0, "high": 1, "normal": 2, "low": 3}
 terminal = {"production_verified", "measured", "rejected_with_evidence"}
-items = [x for x in data.get("active_queue", []) if x.get("lifecycle") not in terminal and not x.get("blocker")]
+active_items = [x for x in data.get("active_queue", []) if x.get("lifecycle") not in terminal]
+unblocked_items = [x for x in active_items if not x.get("blocker")]
+items = unblocked_items or active_items
 items.sort(key=lambda x: (rank.get(x.get("priority"), 99), x.get("last_evidence_at", ""), x.get("record_id", "")))
 if not items:
     print("NO_ACTIVE_TASK")
