@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T16:38:43Z",
+  "updated_at": "2026-09-26T16:55:42.591125+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -147,11 +147,11 @@
       "task_key": "affiliate-supademo-application-attempt-20260924",
       "target": "Supademo affiliate formal application",
       "owner_team": "Affiliate Partnerships Team",
-      "lifecycle": "in_progress",
+      "lifecycle": "completed_with_evidence",
       "next_owner": "Affiliate Partnerships Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-09-26T16:38:43Z",
+      "last_evidence_at": "2026-09-26T16:55:42.591125+00:00",
       "evidence": {
         "implementation_pr": 787,
         "merge_commit": "1d52683a6174bebc01a26141607f129ac2e98d65",
@@ -159,33 +159,44 @@
         "remote_desktop_device": "흑쇼컴",
         "remote_desktop_status": "online",
         "remote_desktop_last_seen": "2026-09-25T13:14:15.183Z",
-        "capability_recheck": "The official Supademo affiliates page links to https://eu.makeforms.io/k1ibmll/. That Affiliate Request form became reachable and accepted the COSHUMA submission. The support-linked https://eu.makeforms.co/xtyzhps/ form is a separate Link Exchange / Guest Post form.",
+        "capability_recheck": "Official /affiliates page points to .io/k1ibmll/ Affiliate Request; successfully submitted in the existing browser. .co/xtyzhps/ is a different Link Exchange / Guest Post form.",
         "pc_orchestrator_path": "C:\\COSHUMA\\aicity-os",
         "pc_registry_validation": "PASS records=12",
         "pc_dispatch_state": "Affiliate Partnerships Team",
-        "form_recheck": "2026-09-26T16:38:43Z: the official Supademo Affiliate Request form at https://eu.makeforms.io/k1ibmll/ accepted the COSHUMA submission and returned Thanks for your submission with a 1–2 business day response window.",
+        "form_recheck": "Actual final confirmation observed; no approval or exact tracking URL claimed.",
         "previous_form_recheck": "2026-09-26 KST: direct request to https://eu.makeforms.io/k1ibmll/ from authorized online device failed with ConnectionResetError 10054",
         "form_url": "https://eu.makeforms.io/k1ibmll/",
-        "application_state": "application_submitted",
+        "application_state": "submitted",
         "official_support_email_message_id": "1a0d02cddb650402",
         "official_support_email_date": "2026-09-23T21:29:54Z",
         "official_support_email_link_url": "https://app.supademo.com/demo/cm8ht5g95022xud0j9puedpp5?preview=true",
-        "previous_form_url": "https://eu.makeforms.co/xtyzhps/",
+        "previous_form_url": "https://eu.makeforms.io/k1ibmll/",
         "approval_state": null,
         "exact_tracking_url": null,
         "submitted_at": "2026-09-26T16:38:43Z",
         "submission_confirmation": "Thanks for your submission! We'll get back to you in 1-2 business days.",
         "application_purpose": "Supademo Affiliate Request",
-        "support_linked_non_affiliate_form_url": "https://eu.makeforms.co/xtyzhps/"
+        "support_linked_non_affiliate_form_url": "https://eu.makeforms.co/xtyzhps/",
+        "superseded_form_diagnosis": {
+          "form_url": "https://eu.makeforms.co/xtyzhps/",
+          "form_recheck": "2026-09-26T16:18:02.000Z: official support-linked Supademo demo iframe resolved to https://eu.makeforms.co/xtyzhps/; direct load rendered Link Exchange / Guest Post Form with Full Name, Email, enquiry type, Domain Authority, relevant-domain fields, and Submit Request. No application was submitted.",
+          "capability_recheck": "Current canonical form is reachable through the official Supademo support-linked demo and by direct browser load. The prior .io/k1ibmll path is superseded evidence, not the current application URL.",
+          "application_state": "not_submitted"
+        },
+        "submission_evidence_comment_id": 5847971116,
+        "submission_observed_before": "2026-09-26T16:38:43Z",
+        "producer_correction_pr": 844
       },
       "completion_gate": "formal_application_submission_evidence_or_rejected_with_evidence",
       "user_action_required": false,
-      "handoff": "Do not reapply. Affiliate Partnerships Team monitors the existing submission for approval, rejection, or additional-information requests. Approval and exact customer tracking URL remain null until direct vendor evidence arrives.",
-      "found_by": "Operations Governance Team",
-      "fixed_by": "COSHUMA Team Watchdog",
+      "handoff": "Formal submission complete. Await vendor review; reconcile incoming Gmail evidence; do not reapply.",
+      "found_by": "Affiliate Partnerships Team",
+      "fixed_by": "Affiliate Partnerships Team",
       "canonical_owner": "Affiliate Partnerships Team",
-      "changed_scope": "Supademo existing formal-application record synchronized from verified submission evidence; no approval or tracking URL inferred.",
-      "verification": "Issue #292 comment 5847971116 records the official .io Affiliate Request form submission confirmation. Producer and generated affiliate state must preserve application_submitted and do_not_reapply."
+      "changed_scope": "Correct form identity and persist actual submission evidence; preserve null approval and exact URL.",
+      "verification": "Thanks for your submission! We'll get back to you in 1-2 business days.",
+      "completion_gate_satisfied": true,
+      "completed_at": "2026-09-26T16:38:43Z"
     },
     {
       "record_id": "AUDIENCE:AG-SHARE-001",
@@ -526,7 +537,7 @@
       "priority": "high",
       "blocker": null,
       "evidence": {
-        "implementation_pr": 840,
+        "implementation_pr": 845,
         "prerequisite_prs": [
           837,
           838
@@ -620,6 +631,58 @@
       "changed_scope": "Root Vercel Git auto-deployment guard and required PR-check path coverage only",
       "verification": "PR #842 merged after COSHUMA PR Build Check run 36255926829 passed; current main contains the official root git.deploymentEnabled=false guard, the PR-check watches vercel.json, and neither the PR head nor merged main created a Vercel deployment status.",
       "handoff": "Release & Reliability Team retains cleanup ownership for stale/misconfigured Vercel domains/projects. Do not purchase a Vercel upgrade for this incident."
+    },
+    {
+      "record_id": "REVENUE:GAMMA-DECISION-MEASUREMENT-20260927",
+      "task_key": "GAMMA-DECISION-MEASUREMENT-20260927",
+      "incident_key": null,
+      "target": "Gamma vs Canva mobile decision flow and measurement",
+      "owner_team": "Revenue Optimization Team",
+      "canonical_owner": "Revenue Optimization Team",
+      "found_by": "Revenue Optimization Team",
+      "fixed_by": "Revenue Optimization Team",
+      "lifecycle": "in_progress",
+      "next_owner": "Release & Reliability Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-26T16:55:42.591125+00:00",
+      "evidence": {
+        "baseline_file": "data/revenue-growth-baseline-2026-09-26.json",
+        "audit_comment_id": 5847980948,
+        "implementation_pr": 845
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": false,
+      "user_action_required": false,
+      "changed_scope": "Gamma vs Canva mobile decision flow and measurement",
+      "verification": "Pending PR Build Check, source/gh-pages/live checks and deployed main ancestry.",
+      "handoff": "After production verification, measure post-release 7/30-day windows; do not claim uplift from deployment."
+    },
+    {
+      "record_id": "AFFILIATE:GRAVITY-TRACKING-ACTIVATION-20260927",
+      "task_key": "GRAVITY-TRACKING-ACTIVATION-20260927",
+      "incident_key": null,
+      "target": "Gravity Forms vendor-issued URL and existing customer CTAs",
+      "owner_team": "Affiliate Partnerships Team",
+      "canonical_owner": "Affiliate Partnerships Team",
+      "found_by": "Revenue Optimization Team",
+      "fixed_by": "Revenue Optimization Team",
+      "lifecycle": "in_progress",
+      "next_owner": "Release & Reliability Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-26T16:55:42.591125+00:00",
+      "evidence": {
+        "baseline_file": "data/revenue-growth-baseline-2026-09-26.json",
+        "audit_comment_id": 5847980948,
+        "implementation_pr": 845
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": false,
+      "user_action_required": false,
+      "changed_scope": "Gravity Forms vendor-issued URL and existing customer CTAs",
+      "verification": "Pending PR Build Check, source/gh-pages/live checks and deployed main ancestry.",
+      "handoff": "After production verification, measure post-release 7/30-day windows; do not claim uplift from deployment."
     }
   ],
   "invariants": {

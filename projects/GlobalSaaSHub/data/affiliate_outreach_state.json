@@ -81,12 +81,15 @@
       "note": "SaneBox Partner Program welcome email from Tony Bass to support@coshuma.com explicitly welcomed COSHUMA to the program and identified https://try.sanebox.com/s1ooqjj73rpz as the SaneBox referral link. No click, trial, paying customer, commission, payout, or revenue is inferred from approval/link issuance. Thomas Yuan separately confirmed a $25 customer credit in Gmail 1a0c4afff48e68ce; the credit promo URL does not replace the later re-confirmed exact referral URL https://try.sanebox.com/s1ooqjj73rpz."
     },
     "gravity-forms": {
-      "status": "application_submitted",
+      "status": "approved_tracking",
       "contact": "PartnerStack / Gravity Forms",
       "sender": "support@coshuma.com",
-      "tracking_url": null,
+      "tracking_url": "https://try.gravity.com/8bd4r655ttws",
       "verified_at": "2026-09-08T02:06:13+09:00",
-      "note": "Authenticated PartnerStack displays Gravity / Application pending. Do not reapply. No customer-facing tracking URL is verified yet."
+      "note": "Authenticated PartnerStack displays Gravity / Application pending. Do not reapply. No customer-facing tracking URL is verified yet.",
+      "checked_at": "2026-09-26T16:42:44.796688+00:00",
+      "next_action": "Measure the existing tracked customer route; do not reapply.",
+      "evidence_file": "data/browser_required_queue.d/gravity-forms-approved-link-recovery-2026-09-09.json"
     },
     "fillout": {
       "status": "approved_tracking",
@@ -499,23 +502,25 @@
       "account": "support@coshuma.com",
       "sender": null,
       "evidence_file": "data/supademo-form-route-2026-09-24.md",
-      "note": "The official Supademo Affiliate Request form confirmed submission on 2026-09-26. The application is pending review; no approval or exact customer tracking URL is verified.",
-      "next_action": "Monitor the existing application for approval, rejection, or additional-information requests. Do not reapply; keep the exact customer tracking URL null until the vendor issues one.",
+      "note": "Official Affiliate Request submission confirmed in browser; #292 comment 5847971116. The .co/xtyzhps form is for link exchange/guest posts, not this affiliate application.",
+      "next_action": "Await vendor review of the submitted formal affiliate application; reconcile new email/portal evidence. Do not resubmit without a new vendor instruction.",
       "checked_date_kst": "2026-09-08",
-      "application_state": "application_submitted",
+      "application_state": "submitted",
       "portal_enrollment_confirmed": false,
       "do_not_reapply": true,
       "workflow_url": "https://eu.makeforms.io/k1ibmll/",
       "blockers": [],
       "gmail_message_id": "1a09b43356bc3947",
       "acknowledgement_message_id": "1a09b43b5ba55b97",
-      "checked_at": "2026-09-26T16:38:43Z",
+      "checked_at": "2026-09-26T16:42:44.796688+00:00",
       "vendor_response_message_id": "1a0d02cddb650402",
       "official_program_url": "https://supademo.com/affiliates",
       "application_url": "https://eu.makeforms.io/k1ibmll/",
       "user_action_required": false,
       "submission_observed_at": "2026-09-26T16:38:43Z",
-      "submission_confirmation": "Thanks for your submission! We'll get back to you in 1-2 business days."
+      "submission_confirmation": "Thanks for your submission! We'll get back to you in 1-2 business days.",
+      "evidence_url": "https://github.com/heukshow/aicity-os/issues/292#issuecomment-5847971116",
+      "application_submitted_at": "2026-09-26T16:38:43Z"
     },
     "claap": {
       "status": "approved_tracking",

@@ -65,6 +65,14 @@ def candidate(name='one'):
 
 
 class PublicProducerTests(unittest.TestCase):
+    def test_raw_source_rejects_internal_program_metadata_but_keeps_disclosure(self):
+        import guard_raw_public_source as raw
+        for text in ['<title>CRO Features & Affiliate Facts</title>',
+                     '<meta content="current public affiliate-program facts"/>']:
+            self.assertTrue(any(pattern.search(raw.masked(text)) for _, pattern in raw.FORBIDDEN))
+        disclosure = 'Affiliate disclosure: We may earn a commission at no extra cost to you.'
+        self.assertFalse(any(pattern.search(raw.masked(disclosure)) for _, pattern in raw.FORBIDDEN))
+
     def test_databox_cleanup_preserves_one_canonical_consumer_notice(self):
         from self_heal_source_affiliate_disclosures import PAGE_NOTICE
         with tempfile.TemporaryDirectory() as directory:
@@ -147,6 +155,28 @@ class ReleaseTests(unittest.TestCase):
 
 
 class RegistryTests(unittest.TestCase):
+    def test_form_completion_cannot_bypass_production_gate(self):
+        import json
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'scripts').mkdir(); (root / 'data').mkdir()
+            shutil.copy(SCRIPTS / 'validate_operations_registry.py', root / 'scripts')
+            row = dict(record_id='form', task_key='form', target='vendor', owner_team='Affiliate',
+                lifecycle='completed_with_evidence', next_owner='Affiliate', priority='normal',
+                evidence={'application_state':'submitted', 'submission_confirmation':'received',
+                          'submission_evidence_comment_id':123, 'form_url':'https://vendor.test/form'},
+                completion_gate='formal_application_submission_evidence_or_rejected_with_evidence',
+                completion_gate_satisfied=True, user_action_required=False)
+            def validate():
+                (root / 'data/operations_registry.json').write_text(json.dumps({'schema_version':1,'active_queue':[row]}))
+                return subprocess.run([sys.executable,str(root / 'scripts/validate_operations_registry.py')],capture_output=True).returncode
+            self.assertEqual(validate(),0)
+            row['completion_gate']='production_verified'
+            self.assertNotEqual(validate(),0)
+            row['completion_gate']='formal_application_submission_evidence_or_rejected_with_evidence'
+            row['evidence'].pop('submission_evidence_comment_id')
+            self.assertNotEqual(validate(),0)
+
     def test_merge_only_requests_verification(self):
         row = candidate(); row['lifecycle'] = 'assigned_to_team'
         result, _ = registry.reconcile({'active_queue': [row]}, [],

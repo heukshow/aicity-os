@@ -7,7 +7,7 @@ REGISTRY = ROOT / "data" / "operations_registry.json"
 ALLOWED = [
     "discovered","evidence_validated","assigned_to_team","in_progress",
     "implemented_and_merged","production_verification_requested",
-    "production_verified","measured","rejected_with_evidence"
+    "production_verified","measured","rejected_with_evidence","completed_with_evidence"
 ]
 PRIORITIES = {"critical", "high", "normal", "low"}
 
@@ -44,6 +44,15 @@ for i, item in enumerate(queue):
     if not isinstance(item["evidence"], dict):
         fail(f"{where} evidence must be an object")
     pv = item["evidence"].get("production_verification_comment_id")
+    if item["lifecycle"] == "completed_with_evidence":
+        proof = item["evidence"]
+        if (item["completion_gate"] != "formal_application_submission_evidence_or_rejected_with_evidence"
+                or proof.get("application_state") != "submitted"
+                or not proof.get("submission_confirmation")
+                or not proof.get("submission_evidence_comment_id")
+                or not proof.get("form_url", "").startswith("https://")
+                or item.get("completion_gate_satisfied") is not True):
+            fail(f"{where} completed_with_evidence requires explicit formal-submission proof; never substitutes for production")
     if item["lifecycle"] in ("production_verified","measured") and not pv:
         fail(f"{where} {item['lifecycle']} requires production_verification_comment_id")
     if item["lifecycle"] == "measured" and item["completion_gate"] == "production_verified" and not pv:

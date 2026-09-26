@@ -2,6 +2,17 @@ import fs from 'node:fs';
 
 export const approvedTracking = new Map(JSON.parse(fs.readFileSync(new URL('../data/approved-tracking-2026-09-08.json', import.meta.url), 'utf8')).items.map(item => [item.id, item]));
 
+const gravity = JSON.parse(fs.readFileSync(new URL('../data/browser_required_queue.d/gravity-forms-approved-link-recovery-2026-09-09.json', import.meta.url), 'utf8'));
+if (gravity.affiliate_status === 'approved_tracking') {
+  if (gravity.exact_tracking_url !== 'https://try.gravity.com/8bd4r655ttws' || gravity.verification?.http_status !== 200
+    || gravity.verification?.source !== 'authenticated_partnerstack_dashboard') throw new Error('Unverified Gravity tracking evidence');
+  approvedTracking.set('gravity-forms', {
+    id: 'gravity-forms', status: 'approved_tracking', exact_tracking_url: gravity.exact_tracking_url,
+    destination: gravity.verification.destination_origin, checked_at: gravity.verified_at,
+    evidence: gravity.reason, evidence_file: 'data/browser_required_queue.d/gravity-forms-approved-link-recovery-2026-09-09.json',
+  });
+}
+
 // AWeber's official Advocate Program documentation says the assigned referral ID
 // may be appended to any AWeber page while preserving the referral cookie. Keep
 // the originally issued easy-email URL as the authoritative account tracking URL,

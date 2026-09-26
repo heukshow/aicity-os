@@ -53,7 +53,7 @@ for (const file of ['data/tools.json', 'data/tools.next.json']) {
   else tools.push(scribe);
 
   const supademo = tools.find((tool) => tool.id === 'supademo');
-  if (supademo) {
+  if (supademo && !['application_submitted','approved','approved_tracking','rejected'].includes(supademo.affiliate_status)) {
     supademo.affiliate_url = null;
     supademo.affiliate_verified = false;
     supademo.affiliate_status = 'application_submitted';
@@ -95,7 +95,7 @@ outreach.programs.scribe = {
   next_action: 'Wait for a new human message from Scribe explicitly announcing that affiliate applications have reopened. Do not submit or send another inquiry before then.',
   note: 'Scribe Support agent Matt Sanz confirmed on 2026-09-14 that Scribe is not accepting new affiliate applications while the program is being refreshed and restructured. Inquiry is complete; no approval or customer tracking URL was issued. Keep official non-affiliate CTAs and suppress duplicate outreach.',
 };
-if (outreach.programs.supademo) {
+if (outreach.programs.supademo && !['application_submitted','approved','approved_tracking','rejected'].includes(outreach.programs.supademo.status)) {
   Object.assign(outreach.programs.supademo, {
     status: 'application_submitted',
     tracking_url: null,
@@ -120,7 +120,7 @@ fs.writeFileSync(outreachPath, `${JSON.stringify(outreach, null, 2)}\n`);
 const queuePath = 'data/browser_required_queue.json';
 const queue = JSON.parse(fs.readFileSync(queuePath, 'utf8'));
 for (const item of queue) {
-  if (item.tool_id === 'supademo' || String(item.id || '').startsWith('supademo-')) {
+  if ((item.tool_id === 'supademo' || String(item.id || '').startsWith('supademo-')) && !['application_submitted','approved','approved_tracking','rejected'].includes(item.affiliate_status || item.status)) {
     item.status = 'application_submitted';
     item.affiliate_status = 'application_submitted';
     item.priority = 'normal';

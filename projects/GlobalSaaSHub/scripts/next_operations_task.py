@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 data = json.loads((ROOT / "data" / "operations_registry.json").read_text(encoding="utf-8"))
 rank = {"critical": 0, "high": 1, "normal": 2, "low": 3}
-terminal = {"production_verified", "measured", "rejected_with_evidence"}
+terminal = {"production_verified", "measured", "rejected_with_evidence", "completed_with_evidence"}
 active_items = [x for x in data.get("active_queue", []) if x.get("lifecycle") not in terminal]
 unblocked_items = [x for x in active_items if not x.get("blocker")]
 items = unblocked_items or active_items

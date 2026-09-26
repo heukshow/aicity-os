@@ -30,6 +30,11 @@ const downstream = evidence => {
     'network_reported_conversions'
   ].some(k => metrics[k] !== null && metrics[k] !== undefined);
 };
+const funnelFields = {
+  affiliate_click: 'outbound_clicks', signup_referral: 'signups_referrals', trial: 'trials',
+  paid: 'paid_customers', commission: 'commission_earned', payout: 'payout_paid',
+};
+const completeFunnel = evidence => Object.values(funnelFields).every(k => Number.isFinite(evidence?.metrics?.[k]));
 const completeAccountRevenueCoverage = evidence => Boolean(
   evidence &&
   evidence.coverage?.rewards_complete === true &&
@@ -55,7 +60,7 @@ const rows = approvedTools.map(tool => {
   let reason;
   let coverageType = 'tool';
   if (accountCovered) {
-    priority = 'P2_COVERED';
+    priority = 'P1_PARTIAL';
     coverageType = 'account_revenue';
     reason = 'Recent authenticated account-wide evidence proves complete commission/payout coverage with zero rewards and zero commission/payout in this network snapshot; per-program signup/trial/customer counts remain unknown.';
   } else if (!latest) {
@@ -67,6 +72,9 @@ const rows = approvedTools.map(tool => {
   } else if (!downstream(latest)) {
     priority = 'P1_PARTIAL';
     reason = 'Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown.';
+  } else if (!completeFunnel(latest)) {
+    priority = 'P1_PARTIAL';
+    reason = 'Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage.';
   } else {
     priority = 'P2_COVERED';
     reason = 'Recent evidence-backed downstream revenue state exists.';
@@ -99,6 +107,19 @@ const rows = approvedTools.map(tool => {
       per_program_trials: null,
       per_program_paid_customers: null,
     } : (latest?.metrics || null),
+    // Each stage keeps the same selected evidence period; never join historical
+    // periods or turn account totals into per-program customer counts.
+    funnel: Object.fromEntries(Object.entries(funnelFields).map(([stage, field]) => {
+      const value = latest?.metrics?.[field];
+      const known = Number.isFinite(value);
+      return [stage, {
+        value: known ? value : null,
+        observation: known ? (value === 0 ? 'confirmed_zero' : 'measured') : 'unknown',
+        freshness: !latest ? 'unavailable' : days > 7 ? 'stale' : 'current',
+        period: latest?.period || null, checked_at: latest?.checked_at || null,
+        evidence_id: latest?.evidence_id || null,
+      }];
+    })),
     evidence_records: records.length + (accountCovered ? 1 : 0),
   };
 });

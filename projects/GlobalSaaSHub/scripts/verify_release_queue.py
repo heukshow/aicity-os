@@ -351,6 +351,9 @@ def verify_bundle_markers(record, spec):
         if status != 200:
             failures.append(f"live HTTP status was {status}")
         # HTTP 200 alone does not establish that the deployed JS reached customers.
+        for marker in spec.get("live_required_substrings", []):
+            if marker not in live:
+                failures.append(f"live page missing required marker: {marker}")
         if spec["gh_pages_glob"].endswith(".js"):
             from urllib.parse import urljoin, urlparse
             refs = re.findall(r'''(?:src|href)=["']([^"']+\.js(?:\?[^"']*)?)["']''', live)

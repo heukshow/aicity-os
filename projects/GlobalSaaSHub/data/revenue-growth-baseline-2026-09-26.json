@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-09-26T16:56:47.516464+00:00",
+  "public_output": false,
+  "source": {
+    "analytics_run": 36252755648,
+    "analytics_job": 108433740615,
+    "collected_at": "2026-09-26T15:40:34.858Z",
+    "search_latest_confirmed_date": "2026-09-24",
+    "period_note": "GA last 30 days in property timezone; GSC query/page table last 90 days in America/Los_Angeles. Exact GA date boundaries/timezone were not exposed in the action summary. Do not combine these periods."
+  },
+  "ga_30d": {
+    "users": 211,
+    "sessions": 313,
+    "page_views": 467,
+    "affiliate_clicks": 9,
+    "gamma_canva": {
+      "path": "/compare/gamma-vs-canva.html",
+      "page_views": 91,
+      "users": 82,
+      "recorded_affiliate_clicks": 0,
+      "zero_basis": "Returned affiliate page rows: home=6, offers hub=2, Pictory tool=1; sum=9 equals aggregate=9, only 3 rows below limit20. Gamma is absent. Historical traffic may include operational checks."
+    },
+    "affiliate_pages": {
+      "homepage": 6,
+      "offers_hub": 2,
+      "pictory_tool": 1
+    }
+  },
+  "gsc_30d": {
+    "impressions": 462,
+    "clicks": 1
+  },
+  "gsc_90d_candidates": [
+    {
+      "page": "/tool/unbounce.html",
+      "impressions": 168,
+      "clicks": 0
+    },
+    {
+      "page": "/tool/brand24.html",
+      "impressions": 165,
+      "clicks": 0
+    },
+    {
+      "page": "/tool/moosend.html",
+      "impressions": 115,
+      "clicks": 0
+    },
+    {
+      "page": "/tool/omnisend.html",
+      "impressions": 115,
+      "clicks": 0
+    },
+    {
+      "query": "frase vs semrush",
+      "impressions": 57,
+      "clicks": 0,
+      "average_position": 32.8
+    },
+    {
+      "query": "pipedrive pricing",
+      "impressions": 46,
+      "clicks": 0,
+      "average_position": 77
+    }
+  ],
+  "prioritization": {
+    "method": "Ordered evidence buckets, descending observed views/impressions within each bucket; no invented revenue score. Search candidates require page/query intent review before editing. Low ranking is not proven title failure.",
+    "order": [
+      "existing traffic conversion",
+      "existing buyer-intent search visibility",
+      "approved missing exact URL",
+      "downstream revenue observability",
+      "new affiliate",
+      "new feature/page"
+    ]
+  },
+  "affiliate_audit": {
+    "approved_without_exact_url_before": [
+      "constant-contact",
+      "gravity-forms"
+    ],
+    "approved_without_exact_url_after": [
+      "constant-contact"
+    ],
+    "gravity_url": "https://try.gravity.com/8bd4r655ttws",
+    "supademo_submission_evidence_comment_id": 5847971116,
+    "tracking_and_revenue_evidence_comment_id": 5847980948,
+    "constant_contact_blocker": "legal_consent",
+    "pending_policy": "22 existing submitted/pending programs reviewed against fresh Gmail search; no new approval inferred; no duplicate applications or unsolicited repeated followups sent."
+  },
+  "change_preflight": {
+    "actual_problem": "Highest-view known buyer comparison has 91 views/82 users and no recorded affiliate clicks in the baseline; its 760px minimum-width table is awkward on narrow screens and existing decision tool has no exposure/use/copy measurements. Prior Sep20/Sep24 improvements fall inside this window, so the baseline does not prove those fixes ineffective.",
+    "user_impact": "Mobile readers must horizontally navigate a comparison table and scroll to existing decision assistance.",
+    "expected_effect": "Hypothesis: easier comparison and navigation may increase qualified CTA use. Added observations will show whether users see/use the flow. No conversion or revenue uplift claimed.",
+    "existing_features": "Reuse existing scenario selector/copyable brief, current 3 Gamma CTAs, existing pricing guide; no new buyer tool or page.",
+    "complexity": "Small static HTML/CSS and bounded browser events; optional GA aggregate query.",
+    "cost": "No new service, spend, secret or account. One additional report in existing analytics job.",
+    "maintenance_risk": "Producer overwrite and duplicate events; full repeated build plus isolated clipboard/exposure tests protect behavior.",
+    "measurement": "Record post-deploy full 7/30-day windows separately from baseline; same timezone/window for page views, affiliate clicks, exposure and usage. Exclude QA where identifiable; disclose residual contamination. Low counts are not statistical uplift proof."
+  },
+  "kpis": [
+    {
+      "name": "Gamma compare affiliate clicks / page views",
+      "baseline": "0 recorded clicks / 91 views (30d)",
+      "followup": "first full 7d then 30d after release; no forecast"
+    },
+    {
+      "name": "CTA exposure, decision tool view/use, successful brief copy",
+      "baseline": null,
+      "baseline_status": "unavailable: new instrumentation",
+      "followup": "GA decision_support aggregate, unavailable stays null if API/threshold/truncation fails"
+    },
+    {
+      "name": "Approved programs missing verified exact customer URL",
+      "baseline": 2,
+      "after_verified_recovery": 1
+    },
+    {
+      "name": "Gamma/Gravity downstream signups and paid customers",
+      "baseline_source": "authenticated PartnerStack per-program Last30days; stored separately in revenue-truth supplement",
+      "followup": "same network window and program; trial/payout unknown until directly observed"
+    },
+    {
+      "name": "Buyer-intent GSC clicks/CTR",
+      "baseline_source": "gsc_90d_candidates",
+      "followup": "same query/page/window; account for indexing lag and position"
+    }
+  ],
+  "limitations": [
+    "No physical mobile-device QA claim; responsive source and browser checks only.",
+    "PartnerStack QA link verification can increment clicks; never count as customer conversion.",
+    "PartnerStack Last30days boundaries/timezone not exposed; do not join numerically to GA.",
+    "Private Worker redeployment and new downstream API access were not performed in this change.",
+    "Admin snapshot generator still contains historical Sep1 search data; use live Analytics Snapshot for operating decisions."
+  ],
+  "additional_build_findings": [
+    {
+      "page": "/tool/optimonk.html",
+      "root_cause": "Committed title/meta retained internal Affiliate Facts / affiliate-program facts. Final boundary rejected it but raw-source guard did not recognize that framing. No active producer recreates the literal.",
+      "fix": "Remove internal program framing from title/meta and add raw guard coverage with regression test; keep buyer facts and links."
+    },
+    {
+      "page": "/tool/engagebay.html",
+      "root_cause": "Committed customer copy included Official pricing and affiliate pages checked; final-dist test rejected it.",
+      "fix": "Remove the entire internal provenance paragraph; raw guard now rejects it before preparation."
+    }
+  ],
+  "automation_update": {
+    "verified_at": "2026-09-26T17:03:44.278010+00:00",
+    "core_teams": 11,
+    "all_enabled": true,
+    "schedules_preserved": true,
+    "changes": "Existing prompts now use revenue-first evidence priorities, no duplicate work, bounded costs, Fix-First, exact URL and measured funnel truth. Release retains read-only verification.",
+    "scheduler_note": "Last-run ages were below twice each existing cadence; enabled alone is not treated as recovery."
+  }
+}

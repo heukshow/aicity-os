@@ -2901,21 +2901,22 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://affiliate.gravity.com/",
-    "affiliate_url": null,
+    "affiliate_url": "https://try.gravity.com/8bd4r655ttws",
     "affiliate_verified": true,
-    "affiliate_status": "approved",
-    "affiliate_verified_at": "2026-09-10T08:26:43+09:00",
+    "affiliate_status": "approved_tracking",
+    "affiliate_verified_at": "2026-09-26T17:04:17.917807+00:00",
     "affiliate_evidence_markers": [
       "Gravity Affiliate welcome email 1a082c784399b2c3 verifies COSHUMA program acceptance.",
       "The welcome email states a 30-day attribution window and 20% commission on a qualifying sale.",
       "No exact customer-facing Gravity tracking URL has been issued or verified yet.",
       "Do not reapply, do not reuse a PartnerStack/dashboard/email redirect as a revenue URL, and do not guess tracking parameters.",
-      "Newer vendor correspondence confirms the COSHUMA Gravity Forms affiliate account is approved, but the exact customer-facing tracking URL is still unresolved; do not regress to application_submitted or invent a link."
+      "Newer vendor correspondence confirms the COSHUMA Gravity Forms affiliate account is approved, but the exact customer-facing tracking URL is still unresolved; do not regress to application_submitted or invent a link.",
+      "Authenticated PartnerStack issued the exact customer link; independent HTTP and browser verification reached Gravity Forms."
     ],
-    "affiliate_final_url": null,
-    "affiliate_status_checked_at": "2026-09-10T08:26:43+09:00",
-    "affiliate_status_evidence_url": "gmail:1a082c784399b2c3",
-    "affiliate_next_action": "Wait for the direct vendor reply with the exact customer-facing URL. If Gravity supplies it, verify and activate only that exact URL. Use the authenticated PartnerStack browser only as fallback if the vendor does not paste the link. Do not reapply."
+    "affiliate_final_url": "https://www.gravityforms.com/",
+    "affiliate_status_checked_at": "2026-09-26T17:04:17.917807+00:00",
+    "affiliate_status_evidence_url": "https://dash.partnerstack.com/gravity",
+    "affiliate_next_action": "Preserve the issued URL and connect existing customer CTAs. Measure later clicks separately from these verification requests. Do not reapply."
   },
   {
     "id": "gumloop",
@@ -6138,13 +6139,16 @@
       "Current official Supademo affiliate page links to the Affiliate Request form at https://eu.makeforms.io/k1ibmll/.",
       "The prior support outreach is not a formal affiliate application submission. No exact customer tracking URL or approval is verified.",
       "data/supademo-form-route-2026-09-24.md",
-      "2026-09-26: the official Affiliate Request form confirmed submission with “Thanks for your submission!” and a 1–2 business day response window. No approval or exact customer tracking URL is verified."
+      "2026-09-26: the official Affiliate Request form confirmed submission with “Thanks for your submission!” and a 1–2 business day response window. No approval or exact customer tracking URL is verified.",
+      "2026-09-26: official Affiliate Request form showed Thanks for your submission / reply in 1-2 business days; audit #292 comment 5847971116. Application submitted; approval and tracking remain unknown."
     ],
-    "affiliate_status_checked_at": "2026-09-07T21:35:04.579403+00:00",
-    "affiliate_status_evidence_url": "https://supademo.com/affiliates",
+    "affiliate_status_checked_at": "2026-09-26T16:42:44.796688+00:00",
+    "affiliate_status_evidence_url": "https://github.com/heukshow/aicity-os/issues/292#issuecomment-5847971116",
     "affiliate_workflow_url": "https://eu.makeforms.io/k1ibmll/",
-    "affiliate_next_action": "Monitor the existing Supademo application for approval, rejection, or additional-information requests. Do not reapply; keep the exact customer tracking URL null until the vendor issues one.",
-    "affiliate_source_url": "https://supademo.com/affiliates"
+    "affiliate_next_action": "Await vendor review of the submitted formal affiliate application; reconcile new email/portal evidence. Do not resubmit without a new vendor instruction.",
+    "affiliate_source_url": "https://supademo.com/affiliates",
+    "affiliate_application_state": "submitted",
+    "affiliate_application_submitted_at": "2026-09-26T16:38:43Z"
   },
   {
     "id": "surfeo",
