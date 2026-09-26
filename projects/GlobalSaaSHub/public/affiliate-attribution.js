@@ -139,6 +139,18 @@
     }
   }
 
+  // Match the React entry point: QA excludes this tab across navigation.
+  const explicitQa = params.get('coshuma_qa');
+  let qa = explicitQa === '1' || params.has('verify') || params.get('utm_medium') === 'qa';
+  try {
+    if (explicitQa === '0') window.sessionStorage.removeItem('coshuma_qa');
+    else if (qa) window.sessionStorage.setItem('coshuma_qa', '1');
+    else qa = window.sessionStorage.getItem('coshuma_qa') === '1';
+  } catch { /* Explicit exclusion still works with storage disabled. */ }
+  window.__coshumaQa = qa;
+  enhanceVerifiedPartnerOffers();
+  if (qa) return;
+
   const attribution = sessionAttribution();
   const campaign = attribution.campaign || directCampaign();
 
@@ -173,8 +185,6 @@
     entry_referrer: attribution.entry_referrer,
     ...campaign
   });
-
-  enhanceVerifiedPartnerOffers();
 
   document.addEventListener('click', function (event) {
     const link = event.target.closest('a[data-cta="affiliate"]');

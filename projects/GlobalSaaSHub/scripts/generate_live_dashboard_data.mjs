@@ -1,4 +1,5 @@
 import { RANGE_LENGTHS, dateInZone, shiftDate, windowEnding, dateSeries } from './dashboard-series.mjs';
+import { collectMonetization } from './monetization-measurement.mjs';
 import fs from 'node:fs';
 import { googleFetch } from './google_fetch_retry.mjs';
 import crypto from 'node:crypto';
@@ -188,6 +189,16 @@ try {
     search_pages:(gscPages.rows||[]).sort((a,b)=>(b.impressions||0)-(a.impressions||0)).slice(0,20).map(row=>({name:row.keys?.[0]||'알 수 없음',value:Math.round(row.impressions||0),note:`클릭 ${Math.round(row.clicks||0)} · CTR ${(Number(row.ctr||0)*100).toFixed(1)}%`})),
     snapshot:records
   };
+  try {
+    data.monetization_measurement = await collectMonetization({
+      registry: JSON.parse(fs.readFileSync(new URL('../data/operations_registry.json', import.meta.url), 'utf8')),
+      now: collected, zone: gaZone,
+      query: body => post(`${ga}:runReport`, access, body),
+    });
+  } catch {
+    data.monetization_measurement = { status: 'unavailable', experiments: null };
+  }
+  console.log('COSHUMA_MONETIZATION_WINDOWS ' + JSON.stringify(data.monetization_measurement));
   write(data);
   console.log('COSHUMA_ANALYTICS_SUMMARY ' + JSON.stringify({
     generated_at:data.generated_at,

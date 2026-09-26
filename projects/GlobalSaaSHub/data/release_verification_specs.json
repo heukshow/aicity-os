@@ -386,6 +386,35 @@
         "Affiliate disclosure"
       ],
       "verify_deployed_ancestry": true
+    },
+    "REVENUE:REV-COMPARE-MEASUREMENT-20260927": {
+      "mode": "bundle_markers",
+      "source_file": "src/components/CompareModal.jsx",
+      "source_required_regex": [
+        "home-compare-modal",
+        "compare_cta_view",
+        "Affiliate disclosure:",
+        "min-h-\\[44px\\]",
+        "grid-cols-1",
+        "z-\\[70\\]"
+      ],
+      "source_forbidden_regex": [
+        "min-w-\\[680px\\]"
+      ],
+      "gh_pages_glob": "assets/index-*.js",
+      "gh_pages_required_regex": [
+        "home-compare-modal",
+        "compare_cta_view",
+        "compare_tool_select",
+        "coshuma_qa",
+        "Affiliate disclosure: COSHUMA may earn a commission if you buy through these links, at no extra cost to you."
+      ],
+      "gh_pages_forbidden_regex": [],
+      "live_url": "https://coshuma.com/?coshuma_qa=1",
+      "live_required_substrings": [
+        "COSHUMA"
+      ],
+      "verify_deployed_ancestry": true
     }
   }
 }

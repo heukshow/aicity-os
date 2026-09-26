@@ -1,6 +1,7 @@
 import fs from './affiliate_state_fs.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { programObservations, mergeProgramObservations } from './revenue-program-observations.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = file => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
 const truth = read('data/revenue-truth-2026-09-11.json');
@@ -28,15 +29,16 @@ for (const [index, record] of (supplement.records || []).entries()) {
 }
 
 const truthRecords = [...truth.records, ...(supplement.records || [])];
-const evidence = [...baseline.records.map(r => ({...r, period:'당시 대시보드 누적', evidence_source:'authenticated-browser-dashboard', evidence_id:baseline.source_file})), ...truthRecords].map(r => ({
+const historicalEvidence = [...baseline.records.map(r => ({...r, period:'당시 대시보드 누적', evidence_source:'authenticated-browser-dashboard', evidence_id:baseline.source_file})), ...truthRecords].map(r => ({
   tool_id:idFor(r.tool), tool:r.tool, network:r.network, period:r.period,
   checked_at:r.evidence_timestamp, source:r.evidence_source, evidence_id:r.evidence_id,
   currency:r.currency, metrics:Object.fromEntries(metrics.map(k => [k, typeof r[k] === 'number' ? r[k] : null])),
 }));
+const evidence = mergeProgramObservations(historicalEvidence, programObservations(read('worker/src/revenue-observations.json'), tools));
 const rows = new Map(tools.map(t => [t.id, {id:t.id,name:t.name,network:null,portal_url:null,inventory_source:'data/tools.json'}]));
 for (const e of evidence) {
   if (!rows.has(e.tool_id)) rows.set(e.tool_id,{id:e.tool_id,name:e.tool,network:null,portal_url:null,inventory_source:'revenue truth evidence'});
-  rows.get(e.tool_id).network = e.network;
+  if (e.network) rows.get(e.tool_id).network = e.network;
 }
 // These portals and account groupings are from existing authenticated evidence.
 for (const item of approved) {

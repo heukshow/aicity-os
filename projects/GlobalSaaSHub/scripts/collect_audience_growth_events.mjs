@@ -5,7 +5,7 @@ import crypto from 'node:crypto';
 const outPath = process.env.DASHBOARD_OUTPUT_PATH;
 const serviceRaw = process.env.GOOGLE_SERVICE_ACCOUNT_JSON || '';
 const propertyId = String(process.env.GA_PROPERTY_ID || '552119661').trim();
-const eventNames = ['return_visit', 'saved_tool_change', 'saved_tools_view'];
+const eventNames = ['return_visit', 'saved_tool_change', 'saved_tools_view', 'saved_shortlist_share', 'buyer_intent_stage', 'compare_open', 'compare_tool_select', 'compare_cta_view'];
 
 if (!outPath) throw new Error('DASHBOARD_OUTPUT_PATH is required');
 const data = JSON.parse(fs.readFileSync(outPath, 'utf8'));
@@ -86,13 +86,16 @@ async function runReport(access, startDate) {
   });
   if (!response.ok) throw new Error(`GA4 audience event query ${response.status}`);
   const report = await response.json();
-  if (report.metadata?.dataLossFromOtherRow || (report.rowCount && report.rowCount > (report.rows?.length || 0))) {
+  if (report.metadata?.subjectToThresholding || report.metadata?.dataLossFromOtherRow || (report.rowCount && report.rowCount > (report.rows?.length || 0))) {
     throw new Error('Incomplete audience event report');
   }
   const result = Object.fromEntries(eventNames.map((name) => [name, { events: 0, users: 0 }]));
   for (const row of report.rows || []) {
     const name = row.dimensionValues?.[0]?.value;
     if (!result[name]) continue;
+    if (!row.metricValues || row.metricValues.length !== 2 || row.metricValues.some(x => !/^\d+$/.test(x.value))) {
+      throw new Error('Unknown audience event count');
+    }
     result[name] = {
       events: Number(row.metricValues?.[0]?.value || 0),
       users: Number(row.metricValues?.[1]?.value || 0),

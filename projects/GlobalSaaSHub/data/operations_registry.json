@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T20:33:36Z",
+  "updated_at": "2026-09-26T21:34:22.801004+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -827,6 +827,57 @@
       "completion_gate_satisfied": true,
       "completed_at": "2026-09-26T20:33:36Z",
       "user_action_required": false
+    },
+    {
+      "record_id": "REVENUE:REV-COMPARE-MEASUREMENT-20260927",
+      "task_key": "REV-COMPARE-MEASUREMENT-20260927",
+      "incident_key": "compare-cta-observation-and-qa-gap-20260927",
+      "target": "Homepage comparison modal, QA exclusion and release-window measurement",
+      "owner_team": "Revenue Optimization Team",
+      "canonical_owner": "Product Experience Team",
+      "found_by": "Revenue Optimization Team",
+      "fixed_by": "Revenue Optimization Team",
+      "changed_scope": "Track existing comparison CTAs and selections; preserve exact links/disclosure; improve narrow layout/touch targets; isolate QA sessions; collect fixed pre/post 7/30-day windows without inventing revenue. Preserve named-program private observations in the revenue audit producer and trigger audit on observation changes.",
+      "lifecycle": "in_progress",
+      "next_owner": "Release & Reliability Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-26T21:34:22.801004+00:00",
+      "evidence": {
+        "analytics_baseline_run": 36267400799,
+        "baseline_generated_at": "2026-09-26T19:50:02.574Z",
+        "baseline_30d": {
+          "site_views": 478,
+          "site_affiliate_clicks": 9,
+          "home_views": 86,
+          "home_affiliate_clicks": 6,
+          "gamma_compare_views": 95,
+          "gamma_compare_affiliate_clicks": 0
+        },
+        "baseline_caveat": "Rolling pre-change observations can contain unmarked QA; event counts are not referrals or revenue. Modal CTA clicks were not instrumented.",
+        "root_cause": [
+          "CompareModal vendor links bypassed the existing trackToolClick handler.",
+          "Modal used a 680px minimum grid and controls below 44px; shortlist widget could overlap its stacking layer.",
+          "Analytics lacked QA-session exclusion and fixed production-release measurement windows.",
+          "Revenue inventory did not consume private Worker program observations; its fixed metric projection also dropped the confirmed Castmagic unpaid-balance field."
+        ],
+        "protected_scope": "Verified tracking URLs, product facts, prices, title/meta/H1, Constant Contact legal hold and affiliate lifecycle remain unchanged.",
+        "implementation_pr": 863,
+        "revenue_audit_verification": {
+          "programs": 72,
+          "unpaid_balance_evidence": "gmail:1a0cf8a8b7c21b67",
+          "network_reported_unpaid_balance": 0,
+          "currency": null,
+          "commission_earned": null,
+          "payout_paid": null,
+          "policy": "Only exact named-program evidence is joined; same evidence ID/time can enrich missing metrics, never account totals or different periods."
+        }
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": false,
+      "user_action_required": false,
+      "verification": "Full local build, source/dist boundaries, JSON-LD, link/approved tracking checks, 17 focused JS tests, 19 operations tests and 21 fastlane producer checks pass. Audit generator integration preserves Castmagic unpaid_balance=0 and unknown commission/payout. PR/production checks pending; no physical-device QA claim.",
+      "handoff": "Release & Reliability verifies exact deployed bundle and live modal/QA behavior; Revenue Intelligence consumes matched-period windows. Unknown downstream remains null."
     }
   ],
   "invariants": {

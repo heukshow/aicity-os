@@ -1,4 +1,5 @@
 // Real-Time Analytics Collector Engine for GlobalSaaSHub (coshuma.com)
+import { isQaTraffic } from './qa-traffic';
 
 const STORAGE_KEY = 'coshuma_real_analytics_events_v1';
 
@@ -34,10 +35,25 @@ function emit(eventName, event) {
     link_domain: event.affiliate_network,
     outbound_domain: event.affiliate_network,
     outbound: true,
-    cta_source: 'home-tool-card',
+    cta_source: event.cta_source || 'home-tool-card',
     transport_type: 'beacon',
   });
-  if (typeof window.gtag === 'function') window.gtag('event', eventName, payload);
+  try {
+    if (typeof window.gtag === 'function') window.gtag('event', eventName, payload);
+  } catch { /* Analytics must never interrupt navigation. */ }
+}
+
+export function trackComparison(eventName, toolIds) {
+  if (isQaTraffic() || !['compare_open', 'compare_tool_select', 'compare_cta_view'].includes(eventName)) return;
+  try {
+    if (typeof window.gtag === 'function') window.gtag('event', eventName, {
+      page_path: window.location.pathname,
+      page_type: 'home',
+      cta_source: 'home-compare-modal',
+      tool_ids: toolIds.filter(Boolean).join(','),
+      transport_type: 'beacon',
+    });
+  } catch { /* Optional measurement must not interrupt comparison. */ }
 }
 
 // Country mapping helper based on browser TimeZone & Locale
@@ -71,6 +87,7 @@ export function detectVisitorCountry() {
 
 // Track a Page Visit Event
 export function trackPageView(category = 'all') {
+  if (isQaTraffic()) return;
   emit('page_view', { category });
   try {
     const events = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
@@ -100,12 +117,14 @@ export function trackPageView(category = 'all') {
 }
 
 // Track an Affiliate Tool Click Event
-export function trackToolClick(toolId, toolName, outboundUrl, isAffiliate = false) {
+export function trackToolClick(toolId, toolName, outboundUrl, isAffiliate = false, ctaSource = 'home-tool-card') {
+  if (isQaTraffic()) return;
   let outboundDomain;
   try { outboundDomain = new URL(outboundUrl).hostname; } catch { /* optional */ }
   emit(isAffiliate ? 'affiliate_click' : 'outbound_click', {
     tool_id: toolId, toolName, outbound_url: outboundUrl,
     affiliate_network: outboundDomain,
+    cta_source: ctaSource,
   });
   try {
     const events = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
@@ -124,6 +143,7 @@ export function trackToolClick(toolId, toolName, outboundUrl, isAffiliate = fals
       outbound_url: outboundUrl,
       affiliate_network: isAffiliate ? new URL(outboundUrl).hostname : null,
       affiliate_click: isAffiliate,
+      cta_source: ctaSource,
       landing_page: window.location.pathname + window.location.search,
       ...campaignContext()
     };
