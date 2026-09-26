@@ -36,6 +36,8 @@ EMPTY_SOURCES_RE = re.compile(
     re.S,
 )
 FALSE_PHRASE = "Affiliate destination verified separately from editorial product sources."
+METHOD_LINK = '<p class="mt-3 text-xs text-slate-400">How this page is checked: <a href="/methodology.html" class="underline">COSHUMA methodology</a>. Product terms can change; verify the current vendor page before purchase.</p>'
+
 
 
 def exact_tracking_verified(tool):
@@ -111,6 +113,8 @@ for tool_id, tool in by_id.items():
         body = match.group(1)
         body = AFFILIATE_DISCLOSURE_RE.sub("", body)
         body = strip_internal_evidence_links(body, tool)
+        if '/methodology.html' not in body:
+            body = body.rstrip() + METHOD_LINK
         text = text[: match.start(1)] + body + text[match.end(1) :]
 
     if not exact_tracking_verified(tool) and FALSE_PHRASE in text:
