@@ -54,9 +54,42 @@
     return match ? match[1] : null;
   };
 
+  const classifyIntentClick = (target) => {
+    const affiliate = target.closest('a[data-cta="affiliate"]');
+    if (affiliate) {
+      send('buyer_intent_stage', {
+        stage: 'affiliate_click',
+        tool_id: affiliate.getAttribute('data-tool-id') || null,
+        source: affiliate.getAttribute('data-cta-source') || 'unknown',
+      });
+      return true;
+    }
+
+    const buyerGuide = target.closest('a[href^="/tool/"]');
+    if (buyerGuide) {
+      const href = buyerGuide.getAttribute('href') || '';
+      const match = href.match(/^\/tool\/([^/?#]+)\.html/);
+      send('buyer_intent_stage', {
+        stage: 'product_view_intent',
+        tool_id: match ? match[1] : null,
+      });
+      return true;
+    }
+
+    const compareButton = target.closest('button[title="Compare side-by-side"]');
+    if (compareButton) {
+      send('buyer_intent_stage', { stage: 'compare_intent' });
+      return true;
+    }
+
+    return false;
+  };
+
   document.addEventListener('click', (event) => {
     const target = event.target instanceof Element ? event.target : null;
     if (!target) return;
+
+    classifyIntentClick(target);
 
     const saveButton = target.closest('button[title="Save tool"]');
     if (saveButton) {
