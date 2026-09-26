@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T21:58:25.995607+00:00",
+  "updated_at": "2026-09-26T22:01:33.825485+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -838,11 +838,11 @@
       "found_by": "Revenue Optimization Team",
       "fixed_by": "Revenue Optimization Team",
       "changed_scope": "Track existing comparison CTAs and selections; preserve exact links/disclosure; improve narrow layout/touch targets; isolate QA sessions; collect fixed pre/post 7/30-day windows without inventing revenue. Preserve named-program private observations in the revenue audit producer and trigger audit on observation changes.",
-      "lifecycle": "production_verification_requested",
-      "next_owner": "Release & Reliability Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-09-26T21:34:22.801004+00:00",
+      "last_evidence_at": "2026-09-26T22:01:22Z",
       "evidence": {
         "analytics_baseline_run": 36267400799,
         "baseline_generated_at": "2026-09-26T19:50:02.574Z",
@@ -872,13 +872,16 @@
           "payout_paid": null,
           "policy": "Only exact named-program evidence is joined; same evidence ID/time can enrich missing metrics, never account totals or different periods."
         },
-        "merge_commit": "307faae2af0d03ffc3ce5d5c20025b4aaa0ffdeb"
+        "merge_commit": "307faae2af0d03ffc3ce5d5c20025b4aaa0ffdeb",
+        "production_verification_comment_id": 5850270698,
+        "deterministic_verification_run": 36274807701
       },
       "completion_gate": "production_verified",
-      "completion_gate_satisfied": false,
+      "completion_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "Full local build, source/dist boundaries, JSON-LD, link/approved tracking checks, 17 focused JS tests, 19 operations tests and 21 fastlane producer checks pass. Audit generator integration preserves Castmagic unpaid_balance=0 and unknown commission/payout. PR/production checks pending; no physical-device QA claim.",
-      "handoff": "Release & Reliability verifies exact deployed bundle and live modal/QA behavior; Revenue Intelligence consumes matched-period windows. Unknown downstream remains null."
+      "verification": "Deterministic production verification succeeded in run 36274807701; trusted evidence comment 5850270698.",
+      "handoff": "Release & Reliability verifies exact deployed bundle and live modal/QA behavior; Revenue Intelligence consumes matched-period windows. Unknown downstream remains null.",
+      "completed_at": "2026-09-26T22:01:22Z"
     }
   ],
   "invariants": {
