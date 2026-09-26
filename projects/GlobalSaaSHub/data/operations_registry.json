@@ -641,7 +641,7 @@
       "canonical_owner": "Revenue Optimization Team",
       "found_by": "Revenue Optimization Team",
       "fixed_by": "Revenue Optimization Team",
-      "lifecycle": "production_verification_requested",
+      "lifecycle": "in_progress",
       "next_owner": "Release & Reliability Team",
       "priority": "high",
       "blocker": null,
@@ -658,18 +658,24 @@
           "deterministic_verification_run": 36259021127
         },
         "visual_defect": "Live browser after deployment showed literal backslash-n strings accumulated by disclosure producer and a disclosure paragraph inside the flex CTA row, squeezing both buttons.",
-        "implementation_pr": 849,
+        "implementation_pr": 850,
         "prerequisite_prs": [
           845,
-          846
+          846,
+          849
         ],
-        "merge_commit": "479670b99a3b9b5a0e3a4e72c00493bbeae8f36f"
+        "previous_visual_revision": {
+          "implementation_pr": 849,
+          "merge_commit": "479670b99a3b9b5a0e3a4e72c00493bbeae8f36f",
+          "result": "verification_failed",
+          "reason": "Final dist disclosure normalizer moved the correct source paragraph into the CTA row; source comments are removed by the public-copy scrubber."
+        }
       },
       "completion_gate": "production_verified",
       "completion_gate_satisfied": false,
       "user_action_required": false,
-      "changed_scope": "Gamma vs Canva mobile decision flow and measurement",
-      "verification": "Reopened on direct live visual evidence. Require idempotent disclosure generation, no escaped whitespace, notice outside CTA flex row, and deployed interactive checks.",
+      "changed_scope": "Preserve valid source disclosure placement through final dist polish; retain strict disclosure, exact tracking and public-copy checks.",
+      "verification": "18 regression tests pass, including the combined source/final-dist pipeline and the actual Gamma page. Pending fresh PR Build Check, current-main Site/Pages and live paragraph-before-CTA-row verification.",
       "handoff": "After production verification, measure post-release 7/30-day windows; do not claim uplift from deployment.",
       "completed_at": null
     },
