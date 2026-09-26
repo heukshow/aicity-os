@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-09-26T01:06:08.715Z",
+  "generatedAt": "2026-09-26T10:44:44.069Z",
   "counts": {
     "totalTools": 179,
-    "verifiedAffiliates": 117,
+    "verifiedAffiliates": 118,
     "revenueReadyAffiliates": 74,
     "genericRevenueReadyAffiliates": 71,
     "targetedRevenueReadyAffiliates": 3,
     "openMonetizationGaps": 81,
     "directActionableGaps": 13,
-    "browserRequiredGaps": 24,
-    "watchOnlyGaps": 44,
+    "browserRequiredGaps": 22,
+    "watchOnlyGaps": 46,
     "doNotReapply": 166,
     "toolPages": 179,
     "comparePages": 279,
@@ -18,7 +18,7 @@
   "revenueFocus": {
     "policy": "prioritize_direct_existing_gaps_without_reapplying_waiting_states",
     "allowNewTools": false,
-    "reason": "13 existing tools still have directly actionable affiliate gaps; 44 are watch-only and 24 require browser work."
+    "reason": "13 existing tools still have directly actionable affiliate gaps; 46 are watch-only and 22 require browser work."
   },
   "affiliateCoverage": {
     "counts": {
@@ -28,8 +28,8 @@
       "terminal": 25,
       "openMonetizationGaps": 81,
       "directActionableGaps": 13,
-      "browserRequiredGaps": 24,
-      "watchOnlyGaps": 44,
+      "browserRequiredGaps": 22,
+      "watchOnlyGaps": 46,
       "doNotReapply": 166,
       "unclassifiedAffiliateStatus": 7,
       "exactAffiliateUrlMissing": 81,
@@ -1824,17 +1824,17 @@
         "name": "Constant Contact",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "browser_required_affiliate_application",
-        "affiliateVerified": false,
+        "affiliateStatus": "approved",
+        "affiliateVerified": true,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
         "targetedRevenueReady": false,
         "revenueReady": false,
         "terminal": false,
         "doNotReapply": true,
-        "browserRequired": true,
+        "browserRequired": false,
         "directActionableGap": false,
-        "watchOnlyGap": false,
+        "watchOnlyGap": true,
         "blocker": "exact_customer_affiliate_url_missing"
       },
       {
@@ -2274,7 +2274,7 @@
         "name": "Justuno",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "browser_required_partnerstack_application",
+        "affiliateStatus": "application_submitted",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -2282,9 +2282,9 @@
         "revenueReady": false,
         "terminal": false,
         "doNotReapply": true,
-        "browserRequired": true,
+        "browserRequired": false,
         "directActionableGap": false,
-        "watchOnlyGap": false,
+        "watchOnlyGap": true,
         "blocker": "exact_customer_affiliate_url_missing"
       },
       {
@@ -3930,6 +3930,14 @@
       "verified": true,
       "url": null,
       "verifiedAt": "2026-09-07T19:43:49+09:00"
+    },
+    {
+      "id": "constant-contact",
+      "name": "Constant Contact",
+      "status": "approved",
+      "verified": true,
+      "url": null,
+      "verifiedAt": null
     },
     {
       "id": "fathom",
