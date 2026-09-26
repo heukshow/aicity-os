@@ -1534,19 +1534,20 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-09-14T21:10:00+09:00",
     "official_evidence_url": "https://www.constantcontact.com/partners/affiliate",
-    "affiliate_verified": false,
-    "affiliate_status": "browser_required_affiliate_application",
+    "affiliate_verified": true,
+    "affiliate_status": "approved",
     "affiliate_source_url": "https://www.constantcontact.com/partners/affiliate",
-    "affiliate_status_checked_at": "2026-09-14T21:10:00+09:00",
-    "application_state": "not_submitted",
+    "affiliate_status_checked_at": "2026-09-25T21:12:52Z",
+    "application_state": "approved",
     "affiliate_evidence_markers": [
-      "Official affiliate page says affiliates can earn up to $105 when a referred customer pays for a new account.",
-      "Official knowledge base updated 2026-07-15 says the affiliate program is free to join.",
-      "Official pricing/help confirms a 30-day free trial with no credit card required.",
-      "GitHub search and support@coshuma.com Gmail found no prior Constant Contact application, approval, rejection, issued tracking link, commission or payout record before this cycle.",
-      "Exact COSHUMA customer tracking URL is unknown; application, dashboard and generic vendor URLs must not be used as revenue links."
+      "PartnerStack approval email 1a0da69f66fadf19 confirms COSHUMA was approved for the Constant Contact program.",
+      "The earlier PartnerStack confirmation email 1a0d5a4b46408285 confirms the formal application was submitted and received for review.",
+      "No exact customer-facing Constant Contact referral/tracking URL has been recovered or verified yet.",
+      "Do not reapply and do not use PartnerStack dashboard/login, email redirect, generic Constant Contact homepage, or guessed parameters as a customer affiliate URL."
     ],
-    "affiliate_next_action": "Submit the official free affiliate application once through the direct browser when available; stop for CAPTCHA, OTP, legal consent or forced identity verification. After approval, recover only the vendor-issued customer-facing tracking URL before changing public CTA state."
+    "affiliate_next_action": "Recover the exact vendor-issued customer-facing referral/tracking URL from the existing approved Constant Contact PartnerStack account, verify that it resolves to a customer-facing Constant Contact destination, then hand off public CTA activation to Revenue Optimization Team. Do not reapply.",
+    "affiliate_verified_at": "2026-09-25T21:12:52Z",
+    "affiliate_status_evidence_url": "gmail:1a0da69f66fadf19"
   },
   {
     "id": "convertflow",
