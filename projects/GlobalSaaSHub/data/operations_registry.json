@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T17:59:03.211059+00:00",
+  "updated_at": "2026-09-26T18:02:18.502246+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -641,11 +641,11 @@
       "canonical_owner": "Revenue Optimization Team",
       "found_by": "Revenue Optimization Team",
       "fixed_by": "Revenue Optimization Team",
-      "lifecycle": "production_verification_requested",
-      "next_owner": "Release & Reliability Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-09-26T17:37:20.275032+00:00",
+      "last_evidence_at": "2026-09-26T18:02:06Z",
       "evidence": {
         "baseline_file": "data/revenue-growth-baseline-2026-09-26.json",
         "audit_comment_id": 5847980948,
@@ -670,15 +670,17 @@
           "result": "verification_failed",
           "reason": "Final dist disclosure normalizer moved the correct source paragraph into the CTA row; source comments are removed by the public-copy scrubber."
         },
-        "merge_commit": "f6eebaae1155c989c667b150d9ced2a01d64e835"
+        "merge_commit": "f6eebaae1155c989c667b150d9ced2a01d64e835",
+        "production_verification_comment_id": 5848557707,
+        "deterministic_verification_run": 36261066499
       },
       "completion_gate": "production_verified",
-      "completion_gate_satisfied": false,
+      "completion_gate_satisfied": true,
       "user_action_required": false,
       "changed_scope": "Preserve valid source disclosure placement through final dist polish; retain strict disclosure, exact tracking and public-copy checks.",
       "verification": "18 regression tests pass, including the combined source/final-dist pipeline and the actual Gamma page. Pending fresh PR Build Check, current-main Site/Pages and live paragraph-before-CTA-row verification.",
       "handoff": "After production verification, measure post-release 7/30-day windows; do not claim uplift from deployment.",
-      "completed_at": null
+      "completed_at": "2026-09-26T18:02:06Z"
     },
     {
       "record_id": "AFFILIATE:GRAVITY-TRACKING-ACTIVATION-20260927",
