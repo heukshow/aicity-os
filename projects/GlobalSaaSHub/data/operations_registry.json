@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T20:15:20Z",
+  "updated_at": "2026-09-26T20:33:36Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -793,6 +793,40 @@
       "verification": "Build, Site deploy, exact Pages deployment and deterministic Release Verification all succeeded; live page has one disclosure before and outside the hero CTA row, preserves exact vendor-issued URL and sponsored attributes.",
       "handoff": "Measure a separate post-release 7/30-day window; do not count QA traffic as growth.",
       "completed_at": "2026-09-26T19:02:38Z"
+    },
+    {
+      "record_id": "EDITORIAL:EDITORIAL-BODY-006",
+      "incident_key": null,
+      "task_key": "EDITORIAL-BODY-006",
+      "target": "public/tool/eprofessor.html body correction",
+      "owner_team": "Editorial Quality Team",
+      "canonical_owner": "Editorial Quality Team",
+      "found_by": "Editorial Quality Team",
+      "fixed_by": "Editorial Quality Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
+      "priority": "normal",
+      "blocker": null,
+      "last_evidence_at": "2026-09-26T20:33:36Z",
+      "evidence": {
+        "implementation_pr": 858,
+        "head_commit": "a8121e081cc7c7f3b4916814e4925bb0df40c1d6",
+        "merge_commit": "bf7d9b8f7bdd5c6923b1c371095e8baec3fa2c51",
+        "pr_build_run": 36269448338,
+        "site_deploy_run": 36269758622,
+        "deployment_source_commit": "bf7d9b8f7bdd5c6923b1c371095e8baec3fa2c51",
+        "gh_pages_commit": "1ad5501bcfc87b8c064b16a8a673b948f7a648a7",
+        "github_pages_run": 36269869089,
+        "live_url": "https://coshuma.com/tool/eprofessor.html",
+        "live_verification": "Neutral assessment sentence present; unsupported strongest-differentiator sentence absent; exact affiliate destination and disclosure preserved."
+      },
+      "changed_scope": "One eProfessor public body sentence; pricing, trial terms, CTA, exact affiliate URL, sponsored disclosure, SEO, structured data, KPI and revenue truth unchanged.",
+      "verification": "PR Build Check, current-main Site Build & Deploy, gh-pages ancestry, Pages deployment and direct live browser verification succeeded.",
+      "handoff": "Operations Governance retains SSOT stewardship; no revenue or conversion uplift claimed.",
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "completed_at": "2026-09-26T20:33:36Z",
+      "user_action_required": false
     }
   ],
   "invariants": {
