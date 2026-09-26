@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 
 const checkedAt='2026-09-14T08:31:00+09:00';
 const creatify={
