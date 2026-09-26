@@ -1,5 +1,5 @@
 import './reconcile_livechat_approved_tracking.mjs';
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 
 const trackingUrl = 'https://try.sanebox.com/s1ooqjj73rpz';
 const checkedAt = '2026-09-16T06:20:00+09:00';
