@@ -603,7 +603,8 @@
         "root_guard": "vercel.json git.deploymentEnabled=false",
         "pr_head_vercel_status_count": 0,
         "merged_main_vercel_status_count": 0,
-        "evidence_comment_id": 5847977447
+        "evidence_comment_id": 5847977447,
+        "production_verification_comment_id": 5847977447
       },
       "completion_gate": "root_vercel_git_auto_deployments_disabled",
       "completion_gate_satisfied": true,
