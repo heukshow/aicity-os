@@ -1,7 +1,10 @@
 import copy
 import importlib.util
 import os
+import shutil
+import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -14,6 +17,12 @@ import reconcile_operations_registry as registry
 
 
 class LifecycleTests(unittest.TestCase):
+    def test_unchanged_status_cannot_erase_newer_evidence(self):
+        old = {'affiliate_status': 'approved_tracking', 'affiliate_status_checked_at': '2026-09-26',
+               'affiliate_verified_at': '2026-09-25', 'affiliate_evidence_markers': ['vendor-issued link']}
+        new = dict(old, affiliate_verified_at='2026-09-01', affiliate_evidence_markers=[])
+        self.assertEqual(lifecycle.preserve(old, new)[0], old)
+
     def test_all_regressions_preserve_evidence_and_product_edits(self):
         for old_status, new_status in [
             ('application_submitted', 'not_submitted'), ('approved', 'application_pending'),
@@ -51,6 +60,27 @@ def candidate(name='one'):
     return {'record_id': name, 'task_key': name, 'lifecycle': 'production_verification_requested',
             'next_owner': 'Release & Reliability Team', 'completion_gate': 'production_verified',
             'evidence': {'implementation_pr': 1, 'merge_commit': 'a' * 40}}
+
+
+class PublicProducerTests(unittest.TestCase):
+    def test_search_fillout_and_revenue_producers_can_repeat(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'scripts').mkdir(); (root / 'src').mkdir()
+            shutil.copy(SCRIPTS.parent / 'src/App.jsx', root / 'src/App.jsx')
+            scripts = ['fix_search_focus_scroll.py', 'simplify_home_tool_cards.py',
+                       'improve_mobile_home_ux.py', 'apply_revenue_first_home_hook.py', 'add_fillout_search_shortcut.py']
+            for name in scripts:
+                shutil.copy(SCRIPTS / name, root / 'scripts' / name)
+            snapshots = []
+            for _ in range(2):
+                for name in scripts:
+                    result = subprocess.run([sys.executable, str(root / 'scripts' / name)], capture_output=True, text=True)
+                    self.assertEqual(result.returncode, 0, result.stderr)
+                snapshots.append((root / 'src/App.jsx').read_text())
+            self.assertEqual(*snapshots)
+            self.assertIn('tool.detail_url ||', snapshots[1])
+            self.assertIn('Verified free trials & deals', snapshots[1])
 
 
 class ReleaseTests(unittest.TestCase):
