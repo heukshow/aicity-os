@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 
 const checkedAt='2026-09-15T18:00:00+09:00';
 const convertflow={

@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 
 const checkedAt = '2026-09-16T06:18:00+09:00';
 const trackingUrl = 'https://emailoctopus.com/?ref=sangkwon';

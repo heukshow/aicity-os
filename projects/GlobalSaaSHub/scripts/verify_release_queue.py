@@ -22,8 +22,8 @@ def load_json(path):
 def eligible_records(registry):
     rows = [
         x for x in registry.get("active_queue", [])
-        if x.get("next_owner") == "Release & Reliability Team"
-        and x.get("lifecycle") == "production_verification_requested"
+        if x.get("lifecycle") == "production_verification_requested"
+        and not x.get("blocker")
     ]
     return sorted(rows, key=lambda x: (
         PRIORITY.get(x.get("priority"), 99),
@@ -32,12 +32,15 @@ def eligible_records(registry):
     ))
 
 
-def validate_contract(registry, specs):
+def validate_contract(registry, specs, strict=True):
     records = specs.get("records", {})
     active_ids = {x.get("record_id") for x in registry.get("active_queue", [])}
     errors = []
     if specs.get("schema_version") != 1:
         errors.append("release_verification_specs schema_version must be 1")
+    for row in registry.get("active_queue", []):
+        if row.get("lifecycle") == "production_verification_requested" and row.get("record_id") not in records:
+            errors.append(f"missing deterministic spec: {row.get('record_id')}")
 
     required_by_mode = {
         "public_boundary": ("source_glob", "gh_pages_glob", "live_url", "forbidden_regex", "live_required_substrings"),
@@ -77,9 +80,13 @@ def validate_contract(registry, specs):
                 if not isinstance(check.get("path"), list):
                     errors.append(f"{record_id} checks[{idx}].path must be a list")
 
-    if errors:
+    if errors and strict:
         raise SystemExit("release-verifier contract FAIL:\n- " + "\n- ".join(errors))
-    print(f"release-verifier contract PASS specs={len(records)} eligible={len(eligible_records(registry))}")
+    if errors:
+        print("release-verifier contract FAIL: " + "; ".join(errors), file=sys.stderr)
+    else:
+        print(f"release-verifier contract PASS specs={len(records)} eligible={len(eligible_records(registry))}")
+    return errors
 
 
 def run(*args, check=True):
@@ -204,6 +211,7 @@ def post_result(record, result, details, token, issue_number=292):
         lines.append(f"- {detail}")
     lines += [
         f"- result: `{result}`",
+        f"- verification_run: `{os.environ.get('GITHUB_RUN_ID', 'local')}`",
         "- verifier: deterministic GitHub Actions control-plane release verifier",
         "- next_owner: Operations Governance Team — synchronize the canonical operations registry from this evidence.",
     ]
@@ -325,10 +333,26 @@ def verify_bundle_markers(record, spec):
 
     verify_deployed_ancestry(record, spec, failures, details)
     try:
-        status, _ = fetch_live(spec["live_url"])
+        status, live = fetch_live(spec["live_url"])
         details.append(f"live HTTP: {status} `{spec['live_url']}`")
         if status != 200:
             failures.append(f"live HTTP status was {status}")
+        # HTTP 200 alone does not establish that the deployed JS reached customers.
+        if spec["gh_pages_glob"].endswith(".js"):
+            from urllib.parse import urljoin, urlparse
+            refs = re.findall(r'''(?:src|href)=["']([^"']+\.js(?:\?[^"']*)?)["']''', live)
+            asset_texts = []
+            for ref in refs:
+                url = urljoin(spec["live_url"], ref)
+                if urlparse(url).netloc != urlparse(spec["live_url"]).netloc:
+                    continue
+                asset_status, asset = fetch_live(url)
+                if asset_status != 200:
+                    failures.append(f"live asset HTTP {asset_status}")
+                asset_texts.append(asset)
+            live = "\n".join(asset_texts)
+        failures.extend(scan_required("live content", live, spec.get("gh_pages_required_regex", [])))
+        failures.extend(scan_forbidden("live content", live, spec.get("gh_pages_forbidden_regex", [])))
     except Exception as exc:
         failures.append(f"live fetch failed: {type(exc).__name__}: {exc}")
 
@@ -355,41 +379,39 @@ def main():
 
     registry = load_json(REGISTRY_PATH)
     specs = load_json(SPECS_PATH)
-    validate_contract(registry, specs)
+    contract_errors = validate_contract(registry, specs, strict=args.validate_only)
     if args.validate_only:
-        return 0
+        return 1 if contract_errors else 0
 
     candidates = eligible_records(registry)
     if not candidates:
         print("release-verifier: no release candidate")
-        return 0
-
-    # Control-plane invariant: never skip a higher-priority/older queue head merely
-    # because only a lower-priority record has a deterministic verification spec.
-    record = candidates[0]
-    spec = specs.get("records", {}).get(record["record_id"])
-    if not spec:
-        print(f"release-verifier: queue head has no deterministic spec: {record['record_id']}")
-        return 0
+        return 1 if contract_errors else 0
 
     token = os.environ.get("GITHUB_TOKEN")
     if not token:
         raise SystemExit("GITHUB_TOKEN is required outside --validate-only")
 
-    if has_existing_result(record, token):
-        print(f"release-verifier: existing result found for {record['record_id']}; skipping")
-        return 0
-
-    failures, details = verify_record(record, spec)
-    if failures:
-        details.extend([f"failure: {x}" for x in failures])
-        post_result(record, "verification_failed", details, token)
-        print("release-verifier: verification_failed")
-        return 1
-
-    post_result(record, "production_verified", details, token)
-    print("release-verifier: production_verified")
-    return 0
+    failed = bool(contract_errors)
+    for record in candidates:
+        spec = specs.get("records", {}).get(record["record_id"])
+        try:
+            if has_existing_result(record, token):
+                print(f"release-verifier: existing production evidence: {record['record_id']}")
+                continue
+            if not spec:
+                failures, details = ["missing deterministic spec; next_owner=Operations Governance Team"], []
+            else:
+                failures, details = verify_record(record, spec)
+            result = "verification_failed" if failures else "production_verified"
+            details.extend([f"failure: {x}" for x in failures])
+            post_result(record, result, details, token)
+            failed |= bool(failures)
+            print(f"release-verifier: {record['record_id']} {result}")
+        except Exception as exc:
+            failed = True
+            print(f"release-verifier: {record['record_id']} failed: {exc}", file=sys.stderr)
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":

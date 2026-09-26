@@ -1,5 +1,6 @@
 import { RANGE_LENGTHS, dateInZone, shiftDate, windowEnding, dateSeries } from './dashboard-series.mjs';
 import fs from 'node:fs';
+import { googleFetch } from './google_fetch_retry.mjs';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
@@ -48,15 +49,15 @@ function write(data) {
 
 if (!serviceRaw.trim()) {
   write(empty('credential_missing', 'GitHub Actions에 GOOGLE_SERVICE_ACCOUNT_JSON secret이 없음'));
-  process.exit(0);
+  process.exit(1);
 }
 
 let account;
 try { account = JSON.parse(serviceRaw); }
-catch { write(empty('credential_invalid', 'GOOGLE_SERVICE_ACCOUNT_JSON JSON 파싱 실패')); process.exit(0); }
+catch { write(empty('credential_invalid', 'GOOGLE_SERVICE_ACCOUNT_JSON JSON 파싱 실패')); process.exit(1); }
 if (!account.client_email || !account.private_key) {
   write(empty('credential_invalid', '서비스 계정 client_email/private_key 누락'));
-  process.exit(0);
+  process.exit(1);
 }
 
 const b64url = (v) => Buffer.from(v).toString('base64url');
@@ -71,12 +72,12 @@ async function token() {
   const unsigned = `${header}.${claim}`;
   const sign = crypto.createSign('RSA-SHA256'); sign.update(unsigned); sign.end();
   const assertion = `${unsigned}.${sign.sign(account.private_key).toString('base64url')}`;
-  const r = await fetch('https://oauth2.googleapis.com/token', { method:'POST', headers:{'content-type':'application/x-www-form-urlencoded'}, body:new URLSearchParams({grant_type:'urn:ietf:params:oauth:grant-type:jwt-bearer', assertion}) });
+  const r = await googleFetch('https://oauth2.googleapis.com/token', { method:'POST', headers:{'content-type':'application/x-www-form-urlencoded'}, body:new URLSearchParams({grant_type:'urn:ietf:params:oauth:grant-type:jwt-bearer', assertion}) });
   if (!r.ok) throw new Error(`Google token ${r.status}`);
   return (await r.json()).access_token;
 }
 async function post(url, access, body) {
-  const r = await fetch(url, {method:'POST', headers:{authorization:`Bearer ${access}`,'content-type':'application/json'}, body:JSON.stringify(body)});
+  const r = await googleFetch(url, {method:'POST', headers:{authorization:`Bearer ${access}`,'content-type':'application/json'}, body:JSON.stringify(body)});
   if (!r.ok) throw new Error(`${url} -> ${r.status}: ${(await r.text()).slice(0,200)}`);
   return r.json();
 }
@@ -182,4 +183,5 @@ try {
 } catch {
   console.error('Google analytics collection failed; prior private snapshot is preserved.');
   write(empty('google_api_error','Google API 연결 실패'));
+  process.exitCode = 1;
 }

@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 import './ensure_mailerlite_tool_record.mjs';
 
 const brevo = {

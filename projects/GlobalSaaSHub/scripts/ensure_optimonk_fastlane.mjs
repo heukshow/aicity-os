@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 import './ensure_justuno_fastlane.mjs';
 
 const checkedAt='2026-09-14T09:33:00+09:00';

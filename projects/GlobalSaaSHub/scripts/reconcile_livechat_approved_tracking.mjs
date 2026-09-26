@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 
 const trackingUrl = 'https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP';
 const vendorShortUrl = 'https://share.text.com/q8mL2psx';

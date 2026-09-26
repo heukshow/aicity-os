@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 
 const PROJECT = new URL('../', import.meta.url);
 const approvedPath = new URL('data/approved-tracking-2026-09-08.json', PROJECT);

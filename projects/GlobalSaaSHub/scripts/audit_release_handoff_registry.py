@@ -53,7 +53,7 @@ def parse_time(value):
 
 
 def field(body, name):
-    m = re.search(rf"(?mi)^\s*-\s*{re.escape(name)}\s*:\s*`?([^`\n]+)`?\s*$", body)
+    m = re.search(rf"(?mi)^\s*(?:-\s*)?{re.escape(name)}\s*:\s*`?([^`\n]+)`?\s*$", body)
     return m.group(1).strip() if m else None
 
 
@@ -67,7 +67,6 @@ def main():
     for row in records:
         evidence = row.get("evidence", {})
         known.add((row.get("task_key"), evidence.get("merge_commit")))
-        known.add((row.get("task_key"), None))
 
     drift = []
     for row in comments:
@@ -77,13 +76,13 @@ def main():
         body = row.get("body", "")
         if not any(marker in body for marker in HANDOFF_MARKERS):
             continue
-        task_key = field(body, "task_key")
+        task_key = field(body, "task_key") or field(body, "source_task")
         merge = field(body, "merge_commit") or field(body, "merged_fix")
         if merge and "/" in merge:
             merge = merge.split("/")[-1].strip()
         if not task_key:
             continue
-        if (task_key, merge) in known or (task_key, None) in known:
+        if (task_key, merge) in known or (not merge and any(task == task_key for task, _ in known)):
             continue
         drift.append((row, task_key, merge))
 

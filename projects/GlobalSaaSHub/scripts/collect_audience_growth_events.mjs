@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { googleFetch } from './google_fetch_retry.mjs';
 import crypto from 'node:crypto';
 
 const outPath = process.env.DASHBOARD_OUTPUT_PATH;
@@ -9,7 +10,8 @@ const eventNames = ['return_visit', 'saved_tool_change', 'saved_tools_view'];
 if (!outPath) throw new Error('DASHBOARD_OUTPUT_PATH is required');
 const data = JSON.parse(fs.readFileSync(outPath, 'utf8'));
 if (data.status !== 'live_google_connected' || data.measurement_status !== 'live_connected') {
-  throw new Error('Live analytics snapshot is required before Audience Growth collection');
+  console.log('Audience Growth skipped: upstream snapshot is not fresh; existing private snapshot is preserved.');
+  process.exit(0);
 }
 
 const emptyAudience = (status) => ({
@@ -53,7 +55,7 @@ async function token() {
   sign.update(unsigned);
   sign.end();
   const assertion = `${unsigned}.${sign.sign(account.private_key).toString('base64url')}`;
-  const response = await fetch('https://oauth2.googleapis.com/token', {
+  const response = await googleFetch('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
@@ -66,7 +68,7 @@ async function token() {
 }
 
 async function runReport(access, startDate) {
-  const response = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`, {
+  const response = await googleFetch(`https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`, {
     method: 'POST',
     headers: { authorization: `Bearer ${access}`, 'content-type': 'application/json' },
     body: JSON.stringify({

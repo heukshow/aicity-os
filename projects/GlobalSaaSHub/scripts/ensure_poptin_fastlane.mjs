@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 import './ensure_creatify_fastlane.mjs';
 
 const checkedAt='2026-09-14T07:38:00+09:00';

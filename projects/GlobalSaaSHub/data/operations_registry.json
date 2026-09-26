@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-25T18:50:00Z",
+  "updated_at": "2026-09-26T15:32:19.819Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -441,6 +441,81 @@
       "user_action_required": false,
       "completion_gate_satisfied": true,
       "completed_at": "2026-09-26T01:11:35Z"
+    },
+    {
+      "record_id": "EDITORIAL:EDITORIAL-BODY-005",
+      "task_key": "EDITORIAL-BODY-005",
+      "incident_key": null,
+      "target": "tool/agorapulse.html",
+      "owner_team": "Editorial Quality Team",
+      "canonical_owner": "Editorial Quality Team",
+      "found_by": "Operations Governance Team",
+      "fixed_by": "Editorial Quality Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
+      "priority": "normal",
+      "blocker": null,
+      "evidence": {
+        "implementation_pr": 817,
+        "merge_commit": "eea71296d38dcc8d8339f8424ec44b5cb4306622",
+        "production_verification_comment_id": 5833037702
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "user_action_required": false,
+      "last_evidence_at": "2026-09-25T13:17:00Z",
+      "completed_at": "2026-09-25T13:17:00Z",
+      "handoff": "Registry synchronized from existing source/gh-pages/live Release evidence in #292."
+    },
+    {
+      "record_id": "TRUST:TRUST-002B",
+      "task_key": "TRUST-002B",
+      "incident_key": null,
+      "target": "methodology.html WebPage JSON-LD",
+      "owner_team": "Growth & SEO Team",
+      "canonical_owner": "Growth & SEO Team",
+      "found_by": "Operations Governance Team",
+      "fixed_by": "Growth & SEO Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
+      "priority": "normal",
+      "blocker": null,
+      "evidence": {
+        "implementation_pr": 783,
+        "merge_commit": "5ead8424ed631e3547a6e1e3a1a4e7fc8e500374",
+        "production_verification_comment_id": 5845826750
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "user_action_required": false,
+      "last_evidence_at": "2026-09-26T11:19:00Z",
+      "completed_at": "2026-09-26T11:19:00Z",
+      "handoff": "Registry synchronized from existing source/gh-pages/live Release evidence in #292."
+    },
+    {
+      "record_id": "GOVERNANCE:OPERATIONS-STABILITY-20260927",
+      "task_key": "OPERATIONS-STABILITY-20260927",
+      "incident_key": "affiliate-generator-and-control-plane-regression",
+      "target": "affiliate producers, analytics and release control plane",
+      "owner_team": "Operations Governance Team",
+      "canonical_owner": "Operations Governance Team",
+      "found_by": "Operations Governance Team",
+      "fixed_by": "Operations Governance Team",
+      "changed_scope": "Monotonic producer boundaries; exact evidence registry sync; independent deterministic release verification; analytics retry and snapshot preservation; current-main deployment protection",
+      "lifecycle": "in_progress",
+      "next_owner": "Operations Governance Team",
+      "priority": "high",
+      "blocker": null,
+      "evidence": {
+        "implementation_pr": 837,
+        "work_status_comment_id": 5847307567,
+        "local_verification": "21 fastlane producers, 9 operations tests, retry tests, production-equivalent build and source/dist public boundary pass"
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": false,
+      "user_action_required": false,
+      "last_evidence_at": "2026-09-26T15:32:19.819Z",
+      "handoff": "Release verifies deployed ancestry and live customer boundary; Governance synchronizes only actual production evidence."
     }
   ],
   "invariants": {

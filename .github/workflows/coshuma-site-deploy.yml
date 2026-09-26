@@ -65,6 +65,15 @@ jobs:
     steps:
       - name: Checkout main
         uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Capture the actual current-main source
+        id: source
+        run: |
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "COSHUMA_SOURCE_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
 
       - name: Set up Node.js 20
         uses: actions/setup-node@v5
@@ -84,6 +93,7 @@ jobs:
           node scripts/sync_latest_affiliate_states.mjs
           node scripts/reconcile_tagshop_approved_tracking.mjs
           node scripts/reconcile_promoted_affiliate_states_2026_09_10.mjs
+          python scripts/affiliate_lifecycle_guard.py --sync-next
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
           const tools = JSON.parse(fs.readFileSync('data/tools.json', 'utf8'));
@@ -282,6 +292,11 @@ jobs:
       - name: Persist reconciled affiliate source state
         run: |
           set -e
+          git fetch origin main
+          if ! git diff --quiet "$COSHUMA_SOURCE_SHA" origin/main -- projects/GlobalSaaSHub .github/workflows/coshuma-site-deploy.yml ':!projects/GlobalSaaSHub/data/operations_registry.json'; then
+            echo 'Main changed during build; refuse stale state persistence and publication.'
+            exit 1
+          fi
           files=(
             projects/GlobalSaaSHub/data/tools.json
             projects/GlobalSaaSHub/data/tools.next.json
@@ -300,7 +315,7 @@ jobs:
             remote_subject="$(git log -1 --format=%s origin/main)"
             remote_parent="$(git rev-parse origin/main^ 2>/dev/null || true)"
             if [ "$remote_subject" = 'data: persist reconciled affiliate source state [skip ci]' ] \
-              && [ "$remote_parent" = "$GITHUB_SHA" ]; then
+              && [ "$remote_parent" = "$COSHUMA_SOURCE_SHA" ]; then
               echo 'A state commit already exists on this exact content SHA; preserving the newer persisted state.'
             elif git diff --quiet origin/main HEAD -- "${files[@]}"; then
               echo 'Affiliate source state was already persisted by a newer main commit.'
@@ -310,7 +325,19 @@ jobs:
             fi
           fi
 
+      - name: Refuse to publish if a newer content change reached main
+        id: freshness
+        run: |
+          git fetch origin main
+          if git diff --quiet HEAD origin/main -- projects/GlobalSaaSHub .github/workflows/coshuma-site-deploy.yml ':!projects/GlobalSaaSHub/data/operations_registry.json'; then
+            echo 'current=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'current=false' >> "$GITHUB_OUTPUT"
+            echo 'Superseded by newer main content; its current-main deployment owns publication.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Publish complete Vite dist to gh-pages
+        if: steps.freshness.outputs.current == 'true'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -318,4 +345,4 @@ jobs:
           publish_branch: gh-pages
           force_orphan: true
           enable_jekyll: false
-          commit_message: 'deploy: sync COSHUMA production bundle from ${{ github.sha }}'
+          commit_message: 'deploy: sync COSHUMA production bundle from ${{ steps.source.outputs.sha }}'

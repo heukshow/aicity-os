@@ -1,6 +1,6 @@
 import { applyBrowserFollowup } from './browser_followup_evidence.mjs';
 import { applyApprovedTracking } from './approved_tracking_evidence.mjs';
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 
 const verified = {
   gohighlevel: 'https://www.gohighlevel.com/?fp_ref=sangkwon56',

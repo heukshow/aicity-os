@@ -39,6 +39,9 @@ jobs:
           python scripts/validate_operations_registry.py
           python scripts/next_operations_task.py
           python scripts/verify_release_queue.py --validate-only
+          python scripts/tests/test_operations_stability.py
+          python scripts/tests/test_affiliate_producers.py
+          node scripts/tests/google-fetch-retry.test.mjs
 
       # RECOVERY-006 invariant: committed customer source must be checked before any source-mutating preparation.
       - name: Fail closed on committed public source before preparation
@@ -52,6 +55,7 @@ jobs:
           node scripts/sync_latest_affiliate_states.mjs
           node scripts/reconcile_tagshop_approved_tracking.mjs
           node scripts/reconcile_promoted_affiliate_states_2026_09_10.mjs
+          python scripts/affiliate_lifecycle_guard.py --sync-next
           node scripts/monetize_verified_compare_links.mjs
           python scripts/polish_public_copy.py
           python scripts/inject_pictory_partner_offer.py
