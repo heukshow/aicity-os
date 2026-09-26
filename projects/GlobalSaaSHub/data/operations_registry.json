@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T15:25:00Z",
+  "updated_at": "2026-09-26T15:32:19.819Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -491,6 +491,31 @@
       "last_evidence_at": "2026-09-26T11:19:00Z",
       "completed_at": "2026-09-26T11:19:00Z",
       "handoff": "Registry synchronized from existing source/gh-pages/live Release evidence in #292."
+    },
+    {
+      "record_id": "GOVERNANCE:OPERATIONS-STABILITY-20260927",
+      "task_key": "OPERATIONS-STABILITY-20260927",
+      "incident_key": "affiliate-generator-and-control-plane-regression",
+      "target": "affiliate producers, analytics and release control plane",
+      "owner_team": "Operations Governance Team",
+      "canonical_owner": "Operations Governance Team",
+      "found_by": "Operations Governance Team",
+      "fixed_by": "Operations Governance Team",
+      "changed_scope": "Monotonic producer boundaries; exact evidence registry sync; independent deterministic release verification; analytics retry and snapshot preservation; current-main deployment protection",
+      "lifecycle": "in_progress",
+      "next_owner": "Operations Governance Team",
+      "priority": "high",
+      "blocker": null,
+      "evidence": {
+        "implementation_pr": 837,
+        "work_status_comment_id": 5847307567,
+        "local_verification": "21 fastlane producers, 9 operations tests, retry tests, production-equivalent build and source/dist public boundary pass"
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": false,
+      "user_action_required": false,
+      "last_evidence_at": "2026-09-26T15:32:19.819Z",
+      "handoff": "Release verifies deployed ancestry and live customer boundary; Governance synchronizes only actual production evidence."
     }
   ],
   "invariants": {
