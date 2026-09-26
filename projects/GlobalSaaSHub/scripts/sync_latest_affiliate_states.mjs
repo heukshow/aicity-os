@@ -1,6 +1,6 @@
 import { applyBrowserFollowup } from './browser_followup_evidence.mjs';
 import { applyApprovedTracking } from './approved_tracking_evidence.mjs';
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 
 const observedAt = '2026-09-08T03:27:00+09:00';
 
