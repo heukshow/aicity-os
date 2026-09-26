@@ -657,7 +657,12 @@
           "production_verification_comment_id": 5848345014,
           "deterministic_verification_run": 36259021127
         },
-        "visual_defect": "Live browser after deployment showed literal backslash-n strings accumulated by disclosure producer and a disclosure paragraph inside the flex CTA row, squeezing both buttons."
+        "visual_defect": "Live browser after deployment showed literal backslash-n strings accumulated by disclosure producer and a disclosure paragraph inside the flex CTA row, squeezing both buttons.",
+        "implementation_pr": 849,
+        "prerequisite_prs": [
+          845,
+          846
+        ]
       },
       "completion_gate": "production_verified",
       "completion_gate_satisfied": false,
