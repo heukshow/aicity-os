@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16",
+  "updated_at": "2026-09-26",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -494,28 +494,28 @@
       "blockers": []
     },
     "supademo": {
-      "status": "browser_required_application_form",
+      "status": "application_submitted",
       "tracking_url": null,
       "account": "support@coshuma.com",
       "sender": null,
       "evidence_file": "data/supademo-form-route-2026-09-24.md",
-      "note": "Supademo support agent Mohit confirmed that support does not handle affiliate requests directly and instructed COSHUMA to use the formal request form. The earlier support outreach was not a formal application. No approval or customer tracking URL is verified.",
-      "next_action": "Submit the official Supademo Affiliate Request form exactly once when an interactive form-capable execution path is available. Recheck the full Gmail thread and repository state immediately before submission. Stop only for CAPTCHA, OTP, legal consent, payment, or forced identity verification.",
-      "checked_date_kst": "2026-09-08",
-      "application_state": "not_submitted",
+      "note": "The official Supademo Affiliate Request form was submitted exactly once and confirmed “Thanks for your submission!” with a 1-2 business day review message (#292 comment 5847971116). No approval or customer tracking URL is verified.",
+      "next_action": "Await Supademo review of the existing application. Do not reapply. Record only a new vendor decision or exact vendor-issued customer tracking URL.",
+      "checked_date_kst": "2026-09-27",
+      "application_state": "application_submitted",
       "portal_enrollment_confirmed": false,
-      "do_not_reapply": false,
+      "do_not_reapply": true,
       "workflow_url": "https://eu.makeforms.io/k1ibmll/",
-      "blockers": [
-        "official_application_form_connection_reset"
-      ],
+      "blockers": [],
       "gmail_message_id": "1a09b43356bc3947",
       "acknowledgement_message_id": "1a09b43b5ba55b97",
-      "checked_at": "2026-09-23T21:29:54Z",
+      "checked_at": "2026-09-26T16:38:43Z",
       "vendor_response_message_id": "1a0d02cddb650402",
       "official_program_url": "https://supademo.com/affiliates",
       "application_url": "https://eu.makeforms.io/k1ibmll/",
-      "user_action_required": false
+      "user_action_required": false,
+      "review_state": "pending_review",
+      "submission_evidence_comment_id": 5847971116
     },
     "claap": {
       "status": "approved_tracking",
