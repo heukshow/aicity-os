@@ -16,17 +16,24 @@ const approval = JSON.parse(fs.readFileSync(approvalEvidencePath, 'utf8'));
 
 if (
   approval.tool_id !== 'gravity-forms' ||
-  approval.affiliate_status !== 'approved_account' ||
-  approval.exact_tracking_url !== null ||
+  !['approved_account', 'approved_tracking'].includes(approval.affiliate_status) ||
   approval.gmail_message_id !== '1a082c784399b2c3'
 ) {
   throw new Error('Gravity approval evidence is not in the expected verified state; refusing to reconcile.');
 }
 
+const tracked = approval.affiliate_status === 'approved_tracking';
+if (tracked && (approval.exact_tracking_url !== 'https://try.gravity.com/8bd4r655ttws'
+  || approval.verification?.source !== 'authenticated_partnerstack_dashboard'
+  || approval.verification?.destination_host !== 'www.gravityforms.com'
+  || approval.verification?.http_status !== 200)) {
+  throw new Error('Gravity tracking requires independently verified vendor-issued evidence.');
+}
+
 const freshMarkers = [
   `Gravity Affiliate welcome email ${approval.gmail_message_id} verifies COSHUMA program acceptance.`,
   'The welcome email states a 30-day attribution window and 20% commission on a qualifying sale.',
-  'No exact customer-facing Gravity tracking URL has been issued or verified yet.',
+  tracked ? 'Authenticated PartnerStack issued the exact customer link; independent HTTP and browser verification reached Gravity Forms.' : 'No exact customer-facing Gravity tracking URL has been issued or verified yet.',
   'Do not reapply, do not reuse a PartnerStack/dashboard/email redirect as a revenue URL, and do not guess tracking parameters.',
 ];
 
@@ -37,15 +44,15 @@ for (const relativePath of ['tools.json', 'tools.next.json']) {
   if (!tool) throw new Error(`gravity-forms missing from data/${relativePath}`);
 
   Object.assign(tool, {
-    affiliate_url: null,
-    affiliate_final_url: null,
+    affiliate_url: tracked ? approval.exact_tracking_url : null,
+    affiliate_final_url: tracked ? approval.verification.destination_origin : null,
     affiliate_verified: true,
-    affiliate_status: 'approved',
+    affiliate_status: tracked ? 'approved_tracking' : 'approved',
     affiliate_verified_at: approval.verified_at,
     affiliate_status_checked_at: approval.verified_at,
-    affiliate_status_evidence_url: `gmail:${approval.gmail_message_id}`,
+    affiliate_status_evidence_url: tracked ? approval.verification.portal_url : `gmail:${approval.gmail_message_id}`,
     affiliate_next_action: approval.next_action,
-    affiliate_evidence_markers: freshMarkers,
+    affiliate_evidence_markers: [...new Set([...(tool.affiliate_evidence_markers || []), ...freshMarkers])],
   });
 
   fs.writeFileSync(filePath, `${JSON.stringify(tools, null, 2)}\n`, 'utf8');
@@ -62,4 +69,4 @@ const cleaned = queue.filter(
 cleaned.push(approval);
 fs.writeFileSync(queuePath, `${JSON.stringify(cleaned, null, 2)}\n`, 'utf8');
 
-console.log('Gravity approval reconciled: approved account, exact tracking URL still required.');
+console.log(`Gravity approval reconciled: ${tracked ? 'verified customer tracking preserved' : 'exact tracking URL still required'}.`);
