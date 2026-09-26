@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T16:39:07.000Z",
+  "updated_at": "2026-09-26T16:38:43Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -151,7 +151,7 @@
       "next_owner": "Affiliate Partnerships Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-09-26T16:18:02.000Z",
+      "last_evidence_at": "2026-09-26T16:38:43Z",
       "evidence": {
         "implementation_pr": 787,
         "merge_commit": "1d52683a6174bebc01a26141607f129ac2e98d65",
@@ -159,29 +159,33 @@
         "remote_desktop_device": "흑쇼컴",
         "remote_desktop_status": "online",
         "remote_desktop_last_seen": "2026-09-25T13:14:15.183Z",
-        "capability_recheck": "Current canonical form is reachable through the official Supademo support-linked demo and by direct browser load. The prior .io/k1ibmll path is superseded evidence, not the current application URL.",
+        "capability_recheck": "The official Supademo affiliates page links to https://eu.makeforms.io/k1ibmll/. That Affiliate Request form became reachable and accepted the COSHUMA submission. The support-linked https://eu.makeforms.co/xtyzhps/ form is a separate Link Exchange / Guest Post form.",
         "pc_orchestrator_path": "C:\\COSHUMA\\aicity-os",
         "pc_registry_validation": "PASS records=12",
         "pc_dispatch_state": "Affiliate Partnerships Team",
-        "form_recheck": "2026-09-26T16:18:02.000Z: official support-linked Supademo demo iframe resolved to https://eu.makeforms.co/xtyzhps/; direct load rendered Link Exchange / Guest Post Form with Full Name, Email, enquiry type, Domain Authority, relevant-domain fields, and Submit Request. No application was submitted.",
+        "form_recheck": "2026-09-26T16:38:43Z: the official Supademo Affiliate Request form at https://eu.makeforms.io/k1ibmll/ accepted the COSHUMA submission and returned Thanks for your submission with a 1–2 business day response window.",
         "previous_form_recheck": "2026-09-26 KST: direct request to https://eu.makeforms.io/k1ibmll/ from authorized online device failed with ConnectionResetError 10054",
-        "form_url": "https://eu.makeforms.co/xtyzhps/",
-        "application_state": "not_submitted",
+        "form_url": "https://eu.makeforms.io/k1ibmll/",
+        "application_state": "application_submitted",
         "official_support_email_message_id": "1a0d02cddb650402",
         "official_support_email_date": "2026-09-23T21:29:54Z",
         "official_support_email_link_url": "https://app.supademo.com/demo/cm8ht5g95022xud0j9puedpp5?preview=true",
-        "previous_form_url": "https://eu.makeforms.io/k1ibmll/",
+        "previous_form_url": "https://eu.makeforms.co/xtyzhps/",
         "approval_state": null,
-        "exact_tracking_url": null
+        "exact_tracking_url": null,
+        "submitted_at": "2026-09-26T16:38:43Z",
+        "submission_confirmation": "Thanks for your submission! We'll get back to you in 1-2 business days.",
+        "application_purpose": "Supademo Affiliate Request",
+        "support_linked_non_affiliate_form_url": "https://eu.makeforms.co/xtyzhps/"
       },
       "completion_gate": "formal_application_submission_evidence_or_rejected_with_evidence",
       "user_action_required": false,
-      "handoff": "Continue the existing single formal-application task at https://eu.makeforms.co/xtyzhps/ after rechecking email/state. Application remains not_submitted; no approval or vendor-issued customer tracking URL exists.",
-      "found_by": "Affiliate Partnerships Team",
-      "fixed_by": "Affiliate Partnerships Team",
+      "handoff": "Do not reapply. Affiliate Partnerships Team monitors the existing submission for approval, rejection, or additional-information requests. Approval and exact customer tracking URL remain null until direct vendor evidence arrives.",
+      "found_by": "Operations Governance Team",
+      "fixed_by": "COSHUMA Team Watchdog",
       "canonical_owner": "Affiliate Partnerships Team",
-      "changed_scope": "Supademo formal-application canonical form URL and verification evidence only",
-      "verification": "Official support email message 1a0d02cddb650402 links to Supademo demo cm8ht5g95022xud0j9puedpp5; the demo's form iframe is https://eu.makeforms.co/xtyzhps/. Direct browser verification loaded Link Exchange / Guest Post Form with the expected application fields and Submit Request button."
+      "changed_scope": "Supademo existing formal-application record synchronized from verified submission evidence; no approval or tracking URL inferred.",
+      "verification": "Issue #292 comment 5847971116 records the official .io Affiliate Request form submission confirmation. Producer and generated affiliate state must preserve application_submitted and do_not_reapply."
     },
     {
       "record_id": "AUDIENCE:AG-SHARE-001",
