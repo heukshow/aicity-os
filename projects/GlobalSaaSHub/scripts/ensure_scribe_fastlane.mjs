@@ -60,6 +60,10 @@ for (const file of ['data/tools.json', 'data/tools.next.json']) {
     supademo.affiliate_source_url = supademoProgramUrl;
     supademo.affiliate_workflow_url = supademoApplicationUrl;
     supademo.affiliate_verified_at = supademoCheckedAt;
+    supademo.affiliate_status_checked_at = supademoCheckedAt;
+    supademo.application_state = 'application_submitted';
+    supademo.review_state = 'pending_review';
+    supademo.do_not_reapply = true;
     supademo.affiliate_next_action = 'Await Supademo review of the existing formal application. Do not reapply. Record approval, rejection, or an exact vendor-issued customer tracking URL only from new direct evidence.';
     const supademoMarkers = [
       ...(Array.isArray(supademo.affiliate_evidence_markers) ? supademo.affiliate_evidence_markers.filter((marker) => !/connection reset|Resume this exact official form|not a formal affiliate application submission|Submit the official Supademo Affiliate Request|browser_required_application_form|eu\.makeforms\.co\/xtyzhps/i.test(String(marker))) : []),
@@ -77,7 +81,7 @@ for (const file of ['data/tools.json', 'data/tools.next.json']) {
 
 const outreachPath = 'data/affiliate_outreach_state.json';
 const outreach = JSON.parse(fs.readFileSync(outreachPath, 'utf8'));
-outreach.updated_at = '2026-09-24';
+outreach.updated_at = '2026-09-26';
 outreach.programs ||= {};
 outreach.programs.scribe = {
   status: 'temporarily_closed',
@@ -136,6 +140,7 @@ for (const item of queue) {
     item.next_action = 'Await Supademo review. Do not reapply. Record only a vendor decision or exact vendor-issued customer tracking URL.';
     item.verified_at = supademoCheckedAt;
     item.evidence_file = supademoEvidenceFile;
+    item.submission_evidence_comment_id = 5847971116;
   }
 }
 fs.writeFileSync(queuePath, `${JSON.stringify(queue, null, 2)}\n`);
