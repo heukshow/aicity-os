@@ -60,7 +60,9 @@ def reconcile(registry, comments, get_pr, get_run, has_spec):
             ev["deterministic_verification_run"] = int(run_id)
             row.update(lifecycle="production_verified", next_owner="Operations Governance Team",
                        blocker=None, completion_gate_satisfied=True, completed_at=comment["created_at"],
-                       last_evidence_at=comment["created_at"])
+                       last_evidence_at=comment["created_at"],
+                       verification=(f"Deterministic production verification succeeded in run {run_id}; "
+                                     f"trusted evidence comment {comment['id']}."))
             break
         if old != row:
             changed.append(row["record_id"])
