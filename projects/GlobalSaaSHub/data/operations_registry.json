@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T16:10:28.295717+00:00",
+  "updated_at": "2026-09-26T16:11:10.905Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -520,12 +520,40 @@
         "local_verification": "13 operations tests; 21 fastlane regression tests; repeated Privy public output; duplicate disclosure rejection; pending/wrong-artifact Pages rejection",
         "merge_commit": "667f1a203f243f439fec91a2149383febdaf601e",
         "production_verification_comment_id": 5847765614,
-        "deterministic_verification_run": 36254392899
+        "deterministic_verification_run": 36254392899,
+        "site_build_deploy_run": 36254253783,
+        "pages_deployment_run": 36254390422,
+        "live_verification": {
+          "observed_at": "2026-09-26T16:11:10.905Z",
+          "source_commit": "667f1a203f243f439fec91a2149383febdaf601e",
+          "artifact_commit": "d4293c8aff09b8bfd8ad3f5a6bcf60c96f64f89b",
+          "exact_live_asset_sha256": {
+            "css": "9340758803483640c60884078067d21d7c0eb21e8c2aa7a5cea89f0cca05989a",
+            "js": "bb570c34e79f612aca075fbe432233570e9a66e25cd5498232cc08a2013fdf59"
+          },
+          "merge_ancestry_prs": [
+            837,
+            838,
+            840
+          ],
+          "http_200_pages": [
+            "methodology.html",
+            "compare/convertflow-vs-unbounce.html",
+            "best/convertflow-free-plan-pricing.html",
+            "tool/optimonk.html",
+            "tool/claspo.html",
+            "best/novita-ai-free-credits-pricing.html",
+            "tool/sanebox.html"
+          ],
+          "jsonld": "parsed; FAQ questions unique",
+          "consumer_disclosure": "one before first affiliate CTA where applicable",
+          "result": "live artifact equality confirmed; deterministic Release completion still required"
+        }
       },
       "completion_gate": "production_verified",
       "completion_gate_satisfied": true,
       "user_action_required": false,
-      "last_evidence_at": "2026-09-26T16:10:13Z",
+      "last_evidence_at": "2026-09-26T16:11:10.905Z",
       "handoff": "Release must verify PR #840 merge ancestry, exact successful Pages deployment and live customer content before completing this continuation.",
       "previous_releases": [
         {
