@@ -87,7 +87,7 @@ for (const p of pages) {
 <section><h2>Compare the work and the cost</h2><div class="scroll" role="region" aria-label="Feature and pricing comparison" tabindex="0"><table><thead><tr><th scope="col">Decision</th>${pair.map(t=>`<th scope="col">${escape(t.name)}</th>`).join('')}</tr></thead><tbody>${p.rows.map(r=>`<tr><th scope="row">${escape(r[0])}</th><td>${escape(r[1])}</td><td>${escape(r[2])}</td></tr>`).join('')}</tbody></table></div><p class="muted">USD pricing where shown. Plans, allowances and offers can change; check the linked official pages and checkout terms.</p></section>
 <section><h2>What to test before paying</h2><p>${escape(p.test)}</p>${p.questions.map(([q,a])=>`<h3>${escape(q)}</h3><p>${escape(a)}</p>`).join('')}</section>
 <section><h2>Check your preferred option</h2><nav class="ctas" aria-label="Product destinations">${ctas}</nav></section>
-<section><h2>Sources and method</h2><p class="muted">This is an editorial comparison based on the official pages below, not a hands-on benchmark. Fit recommendations are our interpretation; no ranking, conversion or performance result is guaranteed.</p><ul>${p.sources.map(([label,url])=>`<li><a data-cta="source" href="${url}" target="_blank" rel="noopener noreferrer">${escape(label)}</a></li>`).join('')}</ul></section>
+<section><h2>Sources and method</h2><p class="muted">This is an editorial comparison based on the official pages below, not a hands-on benchmark. Fit recommendations are our interpretation; no ranking, conversion or performance result is guaranteed.</p><p class="muted"><a href="/methodology.html">Read the COSHUMA methodology</a> for evidence levels, commercial-label rules and how changing prices or terms are handled.</p><ul>${p.sources.map(([label,url])=>`<li><a data-cta="source" href="${url}" target="_blank" rel="noopener noreferrer">${escape(label)}</a></li>`).join('')}</ul></section>
 </main><footer class="muted">© 2026 COSHUMA · Independent AI & SaaS buyer guides</footer></body></html>`;
   fs.writeFileSync(path.join(root,'public/compare',`${p.slug}.html`),html+'\n');
 }
@@ -108,6 +108,9 @@ for (const filename of fs.readdirSync(path.join(root, 'public/compare'))) {
   if (missing.length) {
     html = html.replace('</main>', `<nav aria-label="Compared product profiles" class="my-6 p-5 text-sm">Product profiles: ${missing.map(t=>`<a class="underline" href="/tool/${t.id}.html">${escape(t.name)}</a>`).join(' · ')}</nav>\n</main>`);
     linked++;
+  }
+  if (!html.includes('/methodology.html')) {
+    html = html.replace('</main>', '<section aria-label="Evidence and methodology"><h2>Evidence and method</h2><p class="muted">This comparison uses the cited public/vendor information available when reviewed. Product terms can change. <a href="/methodology.html">See how COSHUMA checks evidence and commercial labels</a>.</p></section>\n</main>');
   }
   if (!html.includes('application/ld+json')) {
     const schema = {'@context':'https://schema.org','@type':'WebPage',name:pair.map(t=>t.name).join(' vs '),url:`https://coshuma.com/compare/${filename}`};
