@@ -309,6 +309,24 @@
         "How COSHUMA evaluates AI &amp; SaaS tools"
       ],
       "verify_deployed_ancestry": true
+    },
+    "GOVERNANCE:OPERATIONS-STABILITY-20260927": {
+      "mode": "public_boundary",
+      "source_glob": "projects/GlobalSaaSHub/public/methodology.html",
+      "gh_pages_glob": "methodology.html",
+      "live_url": "https://coshuma.com/methodology.html",
+      "forbidden_regex": [
+        "browser_required_queue",
+        "affiliate_outreach_state",
+        "revenue truth",
+        "internal verification"
+      ],
+      "live_required_substrings": [
+        "COSHUMA",
+        "https://coshuma.com/methodology.html",
+        "\"WebPage\""
+      ],
+      "verify_deployed_ancestry": true
     }
   }
 }
