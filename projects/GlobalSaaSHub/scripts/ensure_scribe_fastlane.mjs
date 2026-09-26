@@ -66,7 +66,7 @@ for (const file of ['data/tools.json', 'data/tools.next.json']) {
     supademo.do_not_reapply = true;
     supademo.affiliate_next_action = 'Await Supademo review of the existing formal application. Do not reapply. Record approval, rejection, or an exact vendor-issued customer tracking URL only from new direct evidence.';
     const supademoMarkers = [
-      ...(Array.isArray(supademo.affiliate_evidence_markers) ? supademo.affiliate_evidence_markers.filter((marker) => !/connection reset|Resume this exact official form|not a formal affiliate application submission|Submit the official Supademo Affiliate Request|browser_required_application_form|eu\.makeforms\.co\/xtyzhps/i.test(String(marker))) : []),
+      ...(Array.isArray(supademo.affiliate_evidence_markers) ? supademo.affiliate_evidence_markers.filter((marker) => !/connection reset|Resume this exact official form|not a formal affiliate application submission|Submit the official Supademo Affiliate Request|browser_required_application_form|human vendor response remains pending|eu\.makeforms\.co\/xtyzhps/i.test(String(marker))) : []),
       '2026-09-13: COSHUMA affiliate inquiry sent to support@supademo.com (Gmail 1a09b43356bc3947).',
       'Supademo Intercom acknowledged receipt (Gmail 1a09b43b5ba55b97).',
       '2026-09-23: Supademo support agent Mohit replied (Gmail 1a0d02cddb650402) that support does not handle affiliate requests directly and instructed COSHUMA to use the formal request form.',
