@@ -11,6 +11,8 @@ on:
       - 'projects/GlobalSaaSHub/data/tools.json'
       - 'projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json'
       - 'projects/GlobalSaaSHub/scripts/generate_revenue_inventory.mjs'
+      - 'projects/GlobalSaaSHub/scripts/revenue-program-observations.mjs'
+      - 'projects/GlobalSaaSHub/worker/src/revenue-observations.json'
       - 'projects/GlobalSaaSHub/scripts/generate_revenue_leakage_audit.mjs'
       - 'projects/GlobalSaaSHub/scripts/generate_revenue_reconciliation_queue.mjs'
       - 'projects/GlobalSaaSHub/scripts/validate_revenue_truth.mjs'
@@ -34,7 +36,9 @@ jobs:
           node-version: '20'
       - name: Validate evidence-backed revenue truth
         working-directory: projects/GlobalSaaSHub
-        run: node scripts/validate_revenue_truth.mjs
+        run: |
+          node scripts/validate_revenue_truth.mjs
+          node scripts/tests/revenue-program-observations.test.mjs
       - name: Rebuild private revenue inventory
         working-directory: projects/GlobalSaaSHub
         run: node scripts/generate_revenue_inventory.mjs
