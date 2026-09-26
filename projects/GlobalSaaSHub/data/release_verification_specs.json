@@ -358,6 +358,15 @@
         "presentation-test-brief.js",
         "data-affiliate-disclosure=\"page\"",
         "sponsored"
+      ],
+      "live_forbidden_regex": [
+        "(?:\\\\n){2,}"
+      ],
+      "live_ordered_substrings": [
+        "<!-- customer-affiliate-disclosure -->",
+        "data-affiliate-disclosure=\"page\"",
+        "mt-7 flex flex-col gap-3 sm:flex-row",
+        "data-cta-source=\"gamma_vs_canva_hero\""
       ]
     },
     "AFFILIATE:GRAVITY-TRACKING-ACTIVATION-20260927": {

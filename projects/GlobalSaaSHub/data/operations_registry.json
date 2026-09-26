@@ -641,26 +641,36 @@
       "canonical_owner": "Revenue Optimization Team",
       "found_by": "Revenue Optimization Team",
       "fixed_by": "Revenue Optimization Team",
-      "lifecycle": "production_verified",
-      "next_owner": "Operations Governance Team",
+      "lifecycle": "in_progress",
+      "next_owner": "Release & Reliability Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-09-26T17:32:04Z",
+      "last_evidence_at": "2026-09-26T17:37:20.275032+00:00",
       "evidence": {
         "baseline_file": "data/revenue-growth-baseline-2026-09-26.json",
         "audit_comment_id": 5847980948,
-        "implementation_pr": 845,
-        "merge_commit": "29fa85c9290458a4d1b15e6ea676d9f6896ea02d",
-        "production_verification_comment_id": 5848345014,
-        "deterministic_verification_run": 36259021127
+        "previous_marker_verified_release": {
+          "baseline_file": "data/revenue-growth-baseline-2026-09-26.json",
+          "audit_comment_id": 5847980948,
+          "implementation_pr": 845,
+          "merge_commit": "29fa85c9290458a4d1b15e6ea676d9f6896ea02d",
+          "production_verification_comment_id": 5848345014,
+          "deterministic_verification_run": 36259021127
+        },
+        "visual_defect": "Live browser after deployment showed literal backslash-n strings accumulated by disclosure producer and a disclosure paragraph inside the flex CTA row, squeezing both buttons.",
+        "implementation_pr": 849,
+        "prerequisite_prs": [
+          845,
+          846
+        ]
       },
       "completion_gate": "production_verified",
-      "completion_gate_satisfied": true,
+      "completion_gate_satisfied": false,
       "user_action_required": false,
       "changed_scope": "Gamma vs Canva mobile decision flow and measurement",
-      "verification": "Pending PR Build Check, source/gh-pages/live checks and deployed main ancestry.",
+      "verification": "Reopened on direct live visual evidence. Require idempotent disclosure generation, no escaped whitespace, notice outside CTA flex row, and deployed interactive checks.",
       "handoff": "After production verification, measure post-release 7/30-day windows; do not claim uplift from deployment.",
-      "completed_at": "2026-09-26T17:32:04Z"
+      "completed_at": null
     },
     {
       "record_id": "AFFILIATE:GRAVITY-TRACKING-ACTIVATION-20260927",

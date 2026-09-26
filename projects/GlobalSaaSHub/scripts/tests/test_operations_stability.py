@@ -65,6 +65,36 @@ def candidate(name='one'):
 
 
 class PublicProducerTests(unittest.TestCase):
+    def test_disclosure_repairs_escaped_newlines_without_shrinking_cta_row(self):
+        import self_heal_source_affiliate_disclosures as notice
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); (root/'public').mkdir()
+            page=root/'public/gamma.html'
+            link='<a data-cta="affiliate" href="https://vendor.test/ref" rel="sponsored">Try free</a>'
+            page.write_text(notice.PAGE_NOTICE_SLOT+'<div class="flex">'+r'\n\n'+notice.PAGE_NOTICE+r'\n'+link+'</div><pre>'+r'code: \n'+'</pre>')
+            with patch.object(notice,'ROOT',root):
+                self.assertTrue(notice.normalize_page(page)); first=page.read_text()
+                self.assertFalse(notice.normalize_page(page))
+            self.assertLess(first.index('data-affiliate-disclosure'),first.index('<div class="flex">'))
+            self.assertNotIn(r'\n\n',first)
+            self.assertIn('<pre>'+r'code: \n'+'</pre>',first)
+            self.assertIn(link,first)
+            self.assertEqual(first.count('data-affiliate-disclosure="page"'),1)
+
+    def test_default_page_and_home_disclosures_are_repeatable(self):
+        import self_heal_source_affiliate_disclosures as notice
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); (root/'public').mkdir()
+            page=root/'public/tool.html'; home=root/'index.html'
+            html='<body><div> <a data-cta="affiliate" href="https://vendor.test/ref">Try</a></div></body>'
+            page.write_text(html); home.write_text(html)
+            with patch.object(notice,'ROOT',root):
+                notice.normalize_page(page); notice.normalize_home()
+                first=(page.read_text(),home.read_text())
+                self.assertFalse(notice.normalize_page(page)); self.assertFalse(notice.normalize_home())
+            self.assertEqual(first,(page.read_text(),home.read_text()))
+            self.assertNotIn(r'\n', ''.join(first))
+
     def test_raw_source_rejects_internal_program_metadata_but_keeps_disclosure(self):
         import guard_raw_public_source as raw
         for text in ['<title>CRO Features & Affiliate Facts</title>',
