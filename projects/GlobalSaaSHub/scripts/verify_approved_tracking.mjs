@@ -41,6 +41,12 @@ try {
 }
 
 const outreach = JSON.parse(fs.readFileSync('data/affiliate_outreach_state.json', 'utf8')).programs;
+const saneboxCredit = outreach.sanebox;
+assert.equal(saneboxCredit.optional_trial_credit_status, 'vendor_confirmed');
+assert.equal(saneboxCredit.optional_trial_credit_amount_usd, 25);
+assert.equal(saneboxCredit.optional_trial_credit_confirmation_message_id, '1a0c4afff48e68ce');
+assert.equal(saneboxCredit.optional_trial_credit_promo_url, 'https://try.sanebox.com/coshuma');
+assert.equal(saneboxCredit.tracking_url, 'https://try.sanebox.com/s1ooqjj73rpz');
 const queue = JSON.parse(fs.readFileSync('data/browser_required_queue.json', 'utf8'));
 const dir = process.argv[2] || 'dist';
 const decode = (value) => value.replaceAll('&amp;', '&');
