@@ -1,7 +1,7 @@
 import fs from './affiliate_state_fs.mjs';
 
 const checkedAt = '2026-09-15T04:12:19+09:00';
-const supademoCheckedAt = '2026-09-23T21:29:54Z';
+const supademoCheckedAt = '2026-09-26T16:38:43Z';
 const supademoProgramUrl = 'https://supademo.com/affiliates';
 const supademoApplicationUrl = 'https://eu.makeforms.io/k1ibmll/';
 const supademoEvidenceFile = 'data/supademo-form-route-2026-09-24.md';
@@ -56,18 +56,18 @@ for (const file of ['data/tools.json', 'data/tools.next.json']) {
   if (supademo) {
     supademo.affiliate_url = null;
     supademo.affiliate_verified = false;
-    supademo.affiliate_status = 'browser_required_application_form';
+    supademo.affiliate_status = 'application_submitted';
     supademo.affiliate_source_url = supademoProgramUrl;
     supademo.affiliate_workflow_url = supademoApplicationUrl;
     supademo.affiliate_verified_at = supademoCheckedAt;
-    supademo.affiliate_next_action = 'Submit the official Supademo Affiliate Request form exactly once when an interactive form-capable execution path is available. Recheck the existing thread and repository state before submission; stop only for CAPTCHA, OTP, legal consent, payment, or forced identity verification.';
+    supademo.affiliate_next_action = 'Await Supademo review of the existing formal application. Do not reapply. Record approval, rejection, or an exact vendor-issued customer tracking URL only from new direct evidence.';
     const supademoMarkers = [
-      ...(Array.isArray(supademo.affiliate_evidence_markers) ? supademo.affiliate_evidence_markers : []),
+      ...(Array.isArray(supademo.affiliate_evidence_markers) ? supademo.affiliate_evidence_markers.filter((marker) => !/connection reset|Resume this exact official form|not a formal affiliate application submission|Submit the official Supademo Affiliate Request|browser_required_application_form|eu\.makeforms\.co\/xtyzhps/i.test(String(marker))) : []),
       '2026-09-13: COSHUMA affiliate inquiry sent to support@supademo.com (Gmail 1a09b43356bc3947).',
       'Supademo Intercom acknowledged receipt (Gmail 1a09b43b5ba55b97).',
       '2026-09-23: Supademo support agent Mohit replied (Gmail 1a0d02cddb650402) that support does not handle affiliate requests directly and instructed COSHUMA to use the formal request form.',
       `Current official Supademo affiliate page links to the Affiliate Request form at ${supademoApplicationUrl}.`,
-      'The prior support outreach is not a formal affiliate application submission. No exact customer tracking URL or approval is verified.',
+      '2026-09-26T16:38:43Z: the official Affiliate Request form confirmed “Thanks for your submission!” and review in 1-2 business days (#292 comment 5847971116). Application is submitted and pending review; no approval or exact customer tracking URL is verified.',
       supademoEvidenceFile,
     ];
     supademo.affiliate_evidence_markers = [...new Set(supademoMarkers)];
@@ -97,21 +97,24 @@ outreach.programs.scribe = {
 };
 if (outreach.programs.supademo) {
   Object.assign(outreach.programs.supademo, {
-    status: 'browser_required_application_form',
+    status: 'application_submitted',
     tracking_url: null,
     account: 'support@coshuma.com',
     gmail_message_id: '1a09b43356bc3947',
     acknowledgement_message_id: '1a09b43b5ba55b97',
     vendor_response_message_id: '1a0d02cddb650402',
     checked_at: supademoCheckedAt,
-    application_state: 'not_submitted',
+    application_state: 'application_submitted',
+    review_state: 'pending_review',
     official_program_url: supademoProgramUrl,
     application_url: supademoApplicationUrl,
     evidence_file: supademoEvidenceFile,
+    submission_evidence_comment_id: 5847971116,
+    blockers: [],
     user_action_required: false,
-    do_not_reapply: false,
-    note: 'Supademo support agent Mohit confirmed that support does not handle affiliate requests directly and instructed COSHUMA to use the formal request form. The earlier support outreach was not a formal application. No approval or customer tracking URL is verified.',
-    next_action: 'Submit the official Supademo Affiliate Request form exactly once when an interactive form-capable execution path is available. Recheck the full Gmail thread and repository state immediately before submission. Stop only for CAPTCHA, OTP, legal consent, payment, or forced identity verification.',
+    do_not_reapply: true,
+    note: 'The official Supademo Affiliate Request form was submitted exactly once and confirmed “Thanks for your submission!” with a 1-2 business day review message (#292 comment 5847971116). No approval or customer tracking URL is verified.',
+    next_action: 'Await Supademo review of the existing application. Do not reapply. Record only a new vendor decision or exact vendor-issued customer tracking URL.',
   });
 }
 fs.writeFileSync(outreachPath, `${JSON.stringify(outreach, null, 2)}\n`);
@@ -120,14 +123,17 @@ const queuePath = 'data/browser_required_queue.json';
 const queue = JSON.parse(fs.readFileSync(queuePath, 'utf8'));
 for (const item of queue) {
   if (item.tool_id === 'supademo' || String(item.id || '').startsWith('supademo-')) {
-    item.status = 'browser_required_application_form';
-    item.affiliate_status = 'browser_required_application_form';
+    item.status = 'application_submitted';
+    item.affiliate_status = 'application_submitted';
     item.priority = 'normal';
     item.user_action_required = false;
     item.exact_tracking_url = null;
+    item.application_state = 'application_submitted';
+    item.review_state = 'pending_review';
+    item.do_not_reapply = true;
     item.application_url = supademoApplicationUrl;
-    item.reason = 'Supademo support agent Mohit replied that support does not handle affiliate requests directly and instructed COSHUMA to use the formal request form. The earlier support outreach is not a formal application submission.';
-    item.next_action = 'Submit the official Supademo Affiliate Request form exactly once when an interactive form-capable execution path is available. Recheck the full Gmail thread and repository state before submission; stop only for CAPTCHA, OTP, legal consent, payment, or forced identity verification.';
+    item.reason = 'The official Supademo Affiliate Request form was submitted exactly once and confirmed receipt (#292 comment 5847971116).';
+    item.next_action = 'Await Supademo review. Do not reapply. Record only a vendor decision or exact vendor-issued customer tracking URL.';
     item.verified_at = supademoCheckedAt;
     item.evidence_file = supademoEvidenceFile;
   }
