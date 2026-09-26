@@ -7,6 +7,8 @@ source-boundary checks and the production build.
 from pathlib import Path
 import re
 
+from self_heal_source_affiliate_disclosures import normalize_home, normalize_page
+
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 TEXT_EXTENSIONS = {".html", ".txt", ".xml", ".json", ".js", ".webmanifest"}
@@ -83,4 +85,12 @@ for path in PUBLIC.rglob("*"):
         path.write_text(after, encoding="utf-8")
         changed += 1
 
-print(f"Sanitized public affiliate verification/status labels in {changed} file(s); outbound URLs preserved")
+disclosures_changed = 1 if normalize_home() else 0
+for path in PUBLIC.rglob("*.html"):
+    if normalize_page(path):
+        disclosures_changed += 1
+
+print(
+    f"Sanitized public affiliate verification/status labels in {changed} file(s); "
+    f"outbound URLs preserved; disclosures normalized in {disclosures_changed} file(s)"
+)

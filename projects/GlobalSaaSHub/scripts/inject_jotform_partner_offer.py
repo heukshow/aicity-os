@@ -55,8 +55,9 @@ def patch_tool_page():
     # exact pricing destination below on 2026-09-10 and said COSHUMA can publish it
     # as provided. Convert pricing-intent CTAs only; do not synthesize deep links.
     hero_pricing_pattern = re.compile(
-        r'<a data-cta="official" data-cta-source="jotform-hero-pricing" '
-        r'href="https://www\.jotform\.com/pricing/" target="_blank" rel="noopener noreferrer" '
+        r'<a data-cta="(?:official|affiliate)" (?:data-tool-id="jotform" )?'
+        r'data-cta-source="jotform-hero-pricing" '
+        r'href="[^"]+" target="_blank" rel="[^"]+" '
         r'class="(?P<class>[^"]+)">.*?</a>'
     )
     hero_pricing_replacement = (
@@ -67,8 +68,9 @@ def patch_tool_page():
     html, hero_pricing_count = hero_pricing_pattern.subn(hero_pricing_replacement, html, count=1)
 
     bottom_pricing_pattern = re.compile(
-        r'<a href="https://www\.jotform\.com/pricing/" target="_blank" rel="noopener noreferrer" '
-        r'class="(?P<class>[^"]+)">Compare official Jotform plans →</a>'
+        r'<a data-cta="(?:official|affiliate)" data-tool-id="jotform" '
+        r'data-cta-source="jotform-bottom-pricing" href="[^"]+" target="_blank" rel="[^"]+" '
+        r'class="(?P<class>[^"]+)">.*?</a>'
     )
     bottom_pricing_replacement = (
         f'<a data-cta="affiliate" data-tool-id="jotform" data-cta-source="jotform-bottom-pricing" '
@@ -76,6 +78,12 @@ def patch_tool_page():
         f'class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white text-sm font-extrabold text-center">Compare Jotform plans →</a>'
     )
     html, bottom_pricing_count = bottom_pricing_pattern.subn(bottom_pricing_replacement, html, count=1)
+    if bottom_pricing_count == 0:
+        bottom_pricing_pattern = re.compile(
+            r'<a href="https://www\.jotform\.com/pricing/" target="_blank" rel="noopener noreferrer" '
+            r'class="(?P<class>[^"]+)">Compare official Jotform plans →</a>'
+        )
+        html, bottom_pricing_count = bottom_pricing_pattern.subn(bottom_pricing_replacement, html, count=1)
 
 
     if LEGACY_AFFILIATE_URL in html:

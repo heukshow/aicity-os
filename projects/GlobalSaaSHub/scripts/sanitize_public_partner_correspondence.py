@@ -108,6 +108,10 @@ PRIVATE_SENTENCES: tuple[re.Pattern[str], ...] = (
 # Operational explanation blocks can be deleted wholesale. Product-feature phrases such as
 # "revenue attribution" are intentionally NOT treated as leaks by themselves.
 BLOCK = re.compile(r"<(tr|p|li|td|th|blockquote|figcaption|small)\b[^>]*>.*?</\1>", re.I | re.S)
+CONSUMER_DISCLOSURE = re.compile(
+    r'<p\b[^>]*\bdata-(?:affiliate-disclosure|site-affiliate-disclosure)\s*=\s*["\'][^"\']*["\'][^>]*>.*?</p>',
+    re.I | re.S,
+)
 
 CORRESPONDENCE = re.compile(
     r"\b(?:affiliate|partner)[- ]?(?:team|manager)\b[^\n<>]{0,220}\b(?:message|email|reply|told|confirmed|reconfirmed|supplied|highlighted|evidence)\b"
@@ -159,7 +163,13 @@ def main() -> None:
 
     for path in sorted(PUBLIC.rglob("*.html")):
         text = path.read_text(encoding="utf-8")
-        updated = text
+        protected_disclosures: list[str] = []
+
+        def protect_disclosure(match: re.Match[str]) -> str:
+            protected_disclosures.append(match.group(0))
+            return f'<x-coshuma-disclosure data-index="{len(protected_disclosures) - 1}"></x-coshuma-disclosure>'
+
+        updated = CONSUMER_DISCLOSURE.sub(protect_disclosure, text)
         file_replacements = 0
 
         updated, removed = remove_private_blocks(updated)
@@ -199,6 +209,10 @@ def main() -> None:
         updated = re.sub(r"<p\b[^>]*>\s*</p>", "", updated, flags=re.I)
         updated = re.sub(r"<li\b[^>]*>\s*</li>", "", updated, flags=re.I)
         updated = re.sub(r"\s+([.;,:])", r"\1", updated)
+
+        for index, disclosure in enumerate(protected_disclosures):
+            placeholder = f'<x-coshuma-disclosure data-index="{index}"></x-coshuma-disclosure>'
+            updated = updated.replace(placeholder, disclosure, 1)
 
         if updated != text:
             path.write_text(updated, encoding="utf-8")
