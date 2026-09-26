@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T22:01:33.825485+00:00",
+  "updated_at": "2026-09-26T23:04:36.889Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -882,6 +882,45 @@
       "verification": "Deterministic production verification succeeded in run 36274807701; trusted evidence comment 5850270698.",
       "handoff": "Release & Reliability verifies exact deployed bundle and live modal/QA behavior; Revenue Intelligence consumes matched-period windows. Unknown downstream remains null.",
       "completed_at": "2026-09-26T22:01:22Z"
+    },
+    {
+      "record_id": "REVENUE:REV-JOTFORM-SOURCE-DEEPLINK-20260927",
+      "task_key": "REV-JOTFORM-SOURCE-DEEPLINK-20260927",
+      "incident_key": "jotform-source-final-route-drift-20260927",
+      "target": "projects/GlobalSaaSHub/public/tool/jotform.html → https://coshuma.com/tool/jotform.html",
+      "owner_team": "Revenue Optimization Team",
+      "canonical_owner": "Revenue Optimization Team",
+      "found_by": "Revenue Optimization Team",
+      "fixed_by": "Revenue Optimization Team",
+      "changed_scope": "Committed Jotform public source only: replace two legacy onboarding redirect CTA hrefs with the already vendor-confirmed AI Agents customer route; preserve labels, product/pricing copy, SEO, revenue truth, disclosure, other verified routes and sponsored attribution.",
+      "lifecycle": "production_verified",
+      "next_owner": "Revenue Intelligence Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-26T23:04:36.889Z",
+      "evidence": {
+        "work_status_comment_id": 5850592929,
+        "implementation_pr": 864,
+        "head_commit": "25a79416544617f7467b62f896b93c082290d281",
+        "merge_commit": "6e767ad845aa37896bebbb8d608a55b42e23a8a5",
+        "pr_build_run": 36276846641,
+        "site_deploy_run": 36277100721,
+        "deployment_source_commit": "6e767ad845aa37896bebbb8d608a55b42e23a8a5",
+        "gh_pages_commit": "2c23fca36d1a980020df7808137447297c555054",
+        "github_pages_run": 36277228546,
+        "deterministic_verification_run": 36277231319,
+        "production_verification_comment_id": 5850592929,
+        "live_url": "https://coshuma.com/tool/jotform.html",
+        "live_verification": "Current main retains 0 legacy onboarding URLs and 2 exact AI Agents routes; live DOM has one consumer disclosure and six affiliate CTAs, all sponsored/noopener/noreferrer; QA did not click a supplier CTA.",
+        "exact_ai_agents_route": "https://www.jotform.com/ai/agents/?partner=coshuma",
+        "baseline": "Jotform vendor report recorded 34 September clicks and 0 signups as of 2026-09-18; stale baseline only, no uplift claimed."
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "user_action_required": false,
+      "verification": "PR Build, current-main Site Build & Deploy, exact Pages deployment, deterministic Release Verification and live QA succeeded. Source/final route drift is closed without changing verified facts or unrelated destinations.",
+      "handoff": "Revenue Intelligence measures only mature post-release 7/30-day matched windows and excludes QA traffic; downstream signup, paid, commission and payout remain evidence-bound.",
+      "completed_at": "2026-09-26T23:04:36.889Z"
     }
   ],
   "invariants": {
