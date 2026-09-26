@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 import { approvedTracking } from './approved_tracking_evidence.mjs';
 
 export const browserEvidencePath = 'data/affiliate-browser-followup-wave3-2026-09-08.json';
