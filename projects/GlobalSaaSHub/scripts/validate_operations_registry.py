@@ -44,6 +44,19 @@ for i, item in enumerate(queue):
     if not isinstance(item["evidence"], dict):
         fail(f"{where} evidence must be an object")
     pv = item["evidence"].get("production_verification_comment_id")
+    structured_pv = (
+        item.get("completion_gate_satisfied") is True
+        and isinstance(item["evidence"].get("site_deploy_run"), int)
+        and isinstance(item["evidence"].get("github_pages_run"), int)
+        and isinstance(item["evidence"].get("deployment_source_commit"), str)
+        and len(item["evidence"]["deployment_source_commit"]) == 40
+        and isinstance(item["evidence"].get("gh_pages_commit"), str)
+        and len(item["evidence"]["gh_pages_commit"]) == 40
+        and isinstance(item["evidence"].get("live_url"), str)
+        and item["evidence"]["live_url"].startswith("https://")
+        and isinstance(item["evidence"].get("live_verification"), str)
+        and bool(item["evidence"]["live_verification"].strip())
+    )
     if item["lifecycle"] == "completed_with_evidence":
         proof = item["evidence"]
         if (item["completion_gate"] != "formal_application_submission_evidence_or_rejected_with_evidence"
@@ -53,9 +66,9 @@ for i, item in enumerate(queue):
                 or not proof.get("form_url", "").startswith("https://")
                 or item.get("completion_gate_satisfied") is not True):
             fail(f"{where} completed_with_evidence requires explicit formal-submission proof; never substitutes for production")
-    if item["lifecycle"] in ("production_verified","measured") and not pv:
-        fail(f"{where} {item['lifecycle']} requires production_verification_comment_id")
-    if item["lifecycle"] == "measured" and item["completion_gate"] == "production_verified" and not pv:
+    if item["lifecycle"] in ("production_verified","measured") and not (pv or structured_pv):
+        fail(f"{where} {item['lifecycle']} requires a verification comment or structured deployment/live evidence")
+    if item["lifecycle"] == "measured" and item["completion_gate"] == "production_verified" and not (pv or structured_pv):
         fail(f"{where} measured before production verification")
     if item["user_action_required"] is True and item.get("blocker") not in {
         "captcha","otp","legal_consent","payment","forced_identity_verification"
