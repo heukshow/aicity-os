@@ -6148,11 +6148,8 @@
     "affiliate_verified_at": "2026-09-26T16:38:43Z",
     "affiliate_final_url": null,
     "affiliate_evidence_markers": [
-      "2026-09-08: company Gmail in:anywhere search including supademo returned no existing messages. Official Supademo page explicitly states affiliate signup is completely free, no customer subscription or sales minimum is required, and advertises 30% recurring commission. Join the affiliate program exposed an eu.makeforms.io frame with connection reset. Its exact official form https://eu.makeforms.io/k1ibmll/ also returned net::ERR_CONNECTION_RESET when opened directly in Chrome and the in-app browser. No form fields or submission confirmation were available. Technical connectivity failure, not CAPTCHA or a user-consent blocker. No account, application, payment or referral link created.",
-      "Resume this exact official form when its connection recovers. Recheck mailbox before a first submission. No user action currently required; do not publish the form or homepage as an affiliate URL.",
       "data/affiliate-submission-batch-2026-09-08.json",
       "2026-09-13: COSHUMA affiliate inquiry sent to support@supademo.com (Gmail 1a09b43356bc3947).",
-      "Supademo Intercom acknowledged receipt (Gmail 1a09b43b5ba55b97); human vendor response remains pending.",
       "No exact customer tracking URL, approval, signup, paid customer, commission or revenue is verified.",
       "Supademo Intercom acknowledged receipt (Gmail 1a09b43b5ba55b97).",
       "2026-09-23: Supademo support agent Mohit replied (Gmail 1a0d02cddb650402) that support does not handle affiliate requests directly and instructed COSHUMA to use the formal request form.",
@@ -6161,11 +6158,14 @@
       "data/supademo-form-route-2026-09-24.md",
       "2026-09-26: the official Affiliate Request form confirmed submission with “Thanks for your submission!” and a 1–2 business day response window. No approval or exact customer tracking URL is verified."
     ],
-    "affiliate_status_checked_at": "2026-09-07T21:35:04.579403+00:00",
+    "affiliate_status_checked_at": "2026-09-26T16:38:43Z",
     "affiliate_status_evidence_url": "https://supademo.com/affiliates",
     "affiliate_workflow_url": "https://eu.makeforms.io/k1ibmll/",
     "affiliate_next_action": "Monitor the existing Supademo application for approval, rejection, or additional-information requests. Do not reapply; keep the exact customer tracking URL null until the vendor issues one.",
-    "affiliate_source_url": "https://supademo.com/affiliates"
+    "affiliate_source_url": "https://supademo.com/affiliates",
+    "application_state": "application_submitted",
+    "review_state": "pending_review",
+    "do_not_reapply": true
   },
   {
     "id": "surfeo",
