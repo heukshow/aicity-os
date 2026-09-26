@@ -1151,7 +1151,7 @@
     "exact_tracking_url": null,
     "user_action_required": false,
     "blocker": "awaiting_vendor_terms_clarification",
-    "reason": "Approved, but Sections 10.2 and 16 and the account-specific commission schedule remain unresolved in official Gmail thread 1a0df0917006730e.",
+    "reason": "Approved, but Sections 10.2 and 16 and the account-specific commission schedule remain unresolved in the existing official clarification thread.",
     "next_action": "Await the existing official written clarification. Do not accept terms, infer a customer URL, change public CTAs or send duplicate outreach. After controlling terms are clarified, request the specific legal-consent decision before URL activation.",
     "do_not_reapply": true,
     "verified_at": "2026-09-26T18:45:10Z",
