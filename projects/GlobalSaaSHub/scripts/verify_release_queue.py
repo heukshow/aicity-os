@@ -354,6 +354,14 @@ def verify_bundle_markers(record, spec):
         for marker in spec.get("live_required_substrings", []):
             if marker not in live:
                 failures.append(f"live page missing required marker: {marker}")
+        failures.extend(scan_forbidden("live page", live, spec.get("live_forbidden_regex", [])))
+        cursor = 0
+        for marker in spec.get("live_ordered_substrings", []):
+            position = live.find(marker, cursor)
+            if position < 0:
+                failures.append(f"live page missing ordered marker: {marker}")
+                break
+            cursor = position + len(marker)
         if spec["gh_pages_glob"].endswith(".js"):
             from urllib.parse import urljoin, urlparse
             refs = re.findall(r'''(?:src|href)=["']([^"']+\.js(?:\?[^"']*)?)["']''', live)
