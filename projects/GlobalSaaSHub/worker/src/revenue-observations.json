@@ -286,6 +286,56 @@
           }
         }
       ]
+    },
+    {
+      "account_id": "castmagic",
+      "connection": "verified_snapshot",
+      "complete": false,
+      "checked_at": "2026-09-23T18:32:38Z",
+      "observed_window": "Current unpaid balance stated in an automated FirstPromoter program email",
+      "source": "vendor-system-email",
+      "period": "Reporting period not stated",
+      "currency": null,
+      "metrics": {
+        "outbound_clicks": null,
+        "signups_referrals": null,
+        "trials": null,
+        "paid_customers": null,
+        "gross_sales_revenue": null,
+        "commission_earned": null,
+        "commission_approved": null,
+        "commission_pending": null,
+        "commission_paid": null,
+        "payout_paid": null,
+        "payout_pending": null,
+        "network_reported_unpaid_balance": 0
+      },
+      "action": "Only network_reported_unpaid_balance=0 is confirmed; do not infer commission, payout, currency, or downstream funnel values.",
+      "evidence": [
+        {
+          "tool": "Castmagic",
+          "observed_window": "Current unpaid balance stated in an automated FirstPromoter program email",
+          "checked_at": "2026-09-23T18:32:38Z",
+          "period": "Reporting period not stated",
+          "source": "vendor-system-email",
+          "evidence_id": "gmail:1a0cf8a8b7c21b67",
+          "currency": null,
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": null,
+            "commission_earned": null,
+            "commission_approved": null,
+            "commission_pending": null,
+            "commission_paid": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_unpaid_balance": 0
+          }
+        }
+      ]
     }
   ]
 }
