@@ -837,7 +837,7 @@
       "canonical_owner": "Product Experience Team",
       "found_by": "Revenue Optimization Team",
       "fixed_by": "Revenue Optimization Team",
-      "changed_scope": "Track existing comparison CTAs and selections; preserve exact links/disclosure; improve narrow layout/touch targets; isolate QA sessions; collect fixed pre/post 7/30-day windows without inventing revenue.",
+      "changed_scope": "Track existing comparison CTAs and selections; preserve exact links/disclosure; improve narrow layout/touch targets; isolate QA sessions; collect fixed pre/post 7/30-day windows without inventing revenue. Preserve named-program private observations in the revenue audit producer and trigger audit on observation changes.",
       "lifecycle": "in_progress",
       "next_owner": "Release & Reliability Team",
       "priority": "high",
@@ -858,15 +858,25 @@
         "root_cause": [
           "CompareModal vendor links bypassed the existing trackToolClick handler.",
           "Modal used a 680px minimum grid and controls below 44px; shortlist widget could overlap its stacking layer.",
-          "Analytics lacked QA-session exclusion and fixed production-release measurement windows."
+          "Analytics lacked QA-session exclusion and fixed production-release measurement windows.",
+          "Revenue inventory did not consume private Worker program observations; its fixed metric projection also dropped the confirmed Castmagic unpaid-balance field."
         ],
         "protected_scope": "Verified tracking URLs, product facts, prices, title/meta/H1, Constant Contact legal hold and affiliate lifecycle remain unchanged.",
-        "implementation_pr": 863
+        "implementation_pr": 863,
+        "revenue_audit_verification": {
+          "programs": 72,
+          "unpaid_balance_evidence": "gmail:1a0cf8a8b7c21b67",
+          "network_reported_unpaid_balance": 0,
+          "currency": null,
+          "commission_earned": null,
+          "payout_paid": null,
+          "policy": "Only exact named-program evidence is joined; same evidence ID/time can enrich missing metrics, never account totals or different periods."
+        }
       },
       "completion_gate": "production_verified",
       "completion_gate_satisfied": false,
       "user_action_required": false,
-      "verification": "Full local build, source/dist public boundaries, JSON-LD, link/approved tracking checks, 13 focused JS tests, 19 operations tests and 21 fastlane producer checks pass. PR Build Check and production verification pending. Physical-device QA unavailable.",
+      "verification": "Full local build, source/dist boundaries, JSON-LD, link/approved tracking checks, 17 focused JS tests, 19 operations tests and 21 fastlane producer checks pass. Audit generator integration preserves Castmagic unpaid_balance=0 and unknown commission/payout. PR/production checks pending; no physical-device QA claim.",
       "handoff": "Release & Reliability verifies exact deployed bundle and live modal/QA behavior; Revenue Intelligence consumes matched-period windows. Unknown downstream remains null."
     }
   ],
