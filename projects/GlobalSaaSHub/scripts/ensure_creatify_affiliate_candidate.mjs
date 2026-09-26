@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 import './ensure_creatify_seo_discovery.mjs';
 
 const dataDir = new URL('../data/', import.meta.url);
