@@ -22,6 +22,24 @@ with tempfile.TemporaryDirectory() as tmp:
                 row.update(affiliate_status='approved', application_state='approved', affiliate_url=None,
                            affiliate_status_checked_at='2099-01-01T00:00:00Z')
         path.write_text(json.dumps(data))
+    # A legitimate promotion must preserve the approval history across repeated runs.
+    for name in ['tools.json', 'tools.next.json']:
+        path = root / 'data' / name
+        data = json.loads(path.read_text())
+        row = next(x for x in data if x['id'] == 'gravity-forms')
+        row.update(affiliate_status='approved', affiliate_url=None, affiliate_final_url=None,
+                   affiliate_status_checked_at='2026-09-10T00:00:00Z',
+                   affiliate_verified_at='2026-09-10T00:00:00Z',
+                   affiliate_evidence_markers=['historical approval evidence'])
+        path.write_text(json.dumps(data))
+    for _ in range(2):
+        result = subprocess.run(['node', 'scripts/reconcile_gravity_approval_state.mjs'], cwd=root, capture_output=True, text=True)
+        assert result.returncode == 0, result.stderr
+        for name in ['tools.json', 'tools.next.json']:
+            row = next(x for x in json.loads((root / 'data' / name).read_text()) if x['id'] == 'gravity-forms')
+            assert row['affiliate_status'] == 'approved_tracking'
+            assert row['affiliate_url'] == 'https://try.gravity.com/8bd4r655ttws'
+            assert 'historical approval evidence' in row['affiliate_evidence_markers']
     count = 0
     for script in sorted((root / 'scripts').glob('ensure_*_fastlane.mjs')):
         before = {name: json.loads((root / 'data' / name).read_text()) for name in ['tools.json', 'tools.next.json']}
