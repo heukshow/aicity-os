@@ -172,7 +172,12 @@ def main() -> None:
         html, panel_count = panel_pattern.subn(SEARCH_PANEL.strip(), html, count=1)
         if panel_count != 1:
             raise SystemExit("Offer search panel missing or duplicated")
-        script_pattern = re.compile(r'  <script>\n  \(\(\) => \{\n    const initOfferSearch = \(\) => \{.*?\n  </script>\n', re.S)
+        script_pattern = re.compile(
+            r'<script\b[^>]*>(?:(?!</script>).)*\bconst\s+initOfferSearch\s*=\s*\(\)\s*=>\s*\{(?:(?!</script>).)*</script>',
+            re.S,
+        )
+        if len(script_pattern.findall(html)) != 1:
+            raise SystemExit("Offer discovery script missing or duplicated")
         html, script_count = script_pattern.subn(lambda _: SEARCH_SCRIPT, html, count=1)
         if script_count != 1:
             raise SystemExit("Offer discovery script missing or duplicated")
