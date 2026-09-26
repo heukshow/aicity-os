@@ -159,6 +159,16 @@ class PublicProducerTests(unittest.TestCase):
 
 
 class ReleaseTests(unittest.TestCase):
+    def test_handoff_audit_recognizes_explicit_previous_revision_only(self):
+        from audit_release_handoff_registry import known_release_pairs
+        row=candidate()
+        row['evidence']['previous_visual_revision']={'merge_commit': 'b' * 40}
+        pairs=known_release_pairs([row])
+        self.assertIn(('one', 'a' * 40), pairs)
+        self.assertIn(('one', 'b' * 40), pairs)
+        self.assertNotIn(('one', 'c' * 40), pairs)
+        self.assertNotIn(('other', 'b' * 40), pairs)
+
     def test_artifact_ancestry_requires_exact_successful_pages_deployment(self):
         pages_sha = 'b' * 40
         deployment = {'name': 'pages build and deployment', 'head_sha': pages_sha,
