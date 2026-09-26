@@ -22,7 +22,9 @@ autocomplete_new = '''                  <a key={tool.id} href={`/tool/${tool.id}
                     <span className="shrink-0 rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-1 text-xs font-semibold text-slate-300">{tool.pricing || 'Check pricing'}</span>
                   </a>'''
 
-if autocomplete_new not in text:
+autocomplete_with_detail_route = autocomplete_new.replace(
+    'href={`/tool/${tool.id}.html`}', 'href={tool.detail_url || `/tool/${tool.id}.html`}')
+if autocomplete_new not in text and autocomplete_with_detail_route not in text:
     if autocomplete_old not in text:
         raise SystemExit("Autocomplete markup changed; refusing unsafe UX patch")
     text = text.replace(autocomplete_old, autocomplete_new, 1)
@@ -58,7 +60,12 @@ quick_filters_new = '''          <div className="mt-5 flex flex-wrap justify-cen
           <div className="mt-3 flex flex-wrap justify-center gap-2">
             {categories.slice(1, 7).map((cat) => {'''
 
-if quick_filters_new not in text:
+# The later revenue-hook producer replaces the category row. Match the complete
+# price-filter block separately so a repeated build preserves that newer row.
+quick_filter_block = quick_filters_new.split('\n\n          <div className="mt-3')[0]
+mobile_quick_filter_block = quick_filter_block.replace('className="inline-flex items-center',
+                                                       'className="inline-flex min-h-11 items-center')
+if quick_filter_block not in text and mobile_quick_filter_block not in text:
     if quick_filters_anchor not in text:
         raise SystemExit("Quick-filter insertion point changed; refusing unsafe UX patch")
     text = text.replace(quick_filters_anchor, quick_filters_new, 1)
