@@ -24,8 +24,10 @@ const jotformDeepLinkConfig = {
   authoritativeUrl: 'https://www.jotform.com/?partner=coshuma',
   allowedCtaUrls: [
     'https://www.jotform.com/?partner=coshuma',
+    'https://www.jotform.com/ai/agents/?partner=coshuma',
     'https://www.jotform.com/pricing/?partner=coshuma',
   ],
+  aiAgentsUrl: 'https://www.jotform.com/ai/agents/?partner=coshuma',
   deepUrl: 'https://www.jotform.com/pricing/?partner=coshuma',
   evidenceFile: 'data/jotform-pricing-tracking-request-2026-09-10.md',
 };
@@ -201,7 +203,7 @@ const jotform = approvedTracking.get('jotform') || {
       if (!href || !allowed.has(href)) {
         throw new Error(`jotform: refusing unapproved comparison CTA in ${filename}: ${href}`);
       }
-      if (href === pricingUrl) return fullAnchor;
+      if (href === pricingUrl || href === jotformDeepLinkConfig.aiAgentsUrl) return fullAnchor;
       jotformCompareCtasChanged += 1;
       return fullAnchor.replace(/href="[^"]+"/, `href="${pricingUrl}"`);
     });
