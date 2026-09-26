@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T17:17:51.479472+00:00",
+  "updated_at": "2026-09-26T17:32:20.089125+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -641,23 +641,26 @@
       "canonical_owner": "Revenue Optimization Team",
       "found_by": "Revenue Optimization Team",
       "fixed_by": "Revenue Optimization Team",
-      "lifecycle": "production_verification_requested",
-      "next_owner": "Release & Reliability Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-09-26T16:55:42.591125+00:00",
+      "last_evidence_at": "2026-09-26T17:32:04Z",
       "evidence": {
         "baseline_file": "data/revenue-growth-baseline-2026-09-26.json",
         "audit_comment_id": 5847980948,
         "implementation_pr": 845,
-        "merge_commit": "29fa85c9290458a4d1b15e6ea676d9f6896ea02d"
+        "merge_commit": "29fa85c9290458a4d1b15e6ea676d9f6896ea02d",
+        "production_verification_comment_id": 5848345014,
+        "deterministic_verification_run": 36259021127
       },
       "completion_gate": "production_verified",
-      "completion_gate_satisfied": false,
+      "completion_gate_satisfied": true,
       "user_action_required": false,
       "changed_scope": "Gamma vs Canva mobile decision flow and measurement",
       "verification": "Pending PR Build Check, source/gh-pages/live checks and deployed main ancestry.",
-      "handoff": "After production verification, measure post-release 7/30-day windows; do not claim uplift from deployment."
+      "handoff": "After production verification, measure post-release 7/30-day windows; do not claim uplift from deployment.",
+      "completed_at": "2026-09-26T17:32:04Z"
     },
     {
       "record_id": "AFFILIATE:GRAVITY-TRACKING-ACTIVATION-20260927",
@@ -668,23 +671,26 @@
       "canonical_owner": "Affiliate Partnerships Team",
       "found_by": "Revenue Optimization Team",
       "fixed_by": "Revenue Optimization Team",
-      "lifecycle": "production_verification_requested",
-      "next_owner": "Release & Reliability Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-09-26T16:55:42.591125+00:00",
+      "last_evidence_at": "2026-09-26T17:32:01Z",
       "evidence": {
         "baseline_file": "data/revenue-growth-baseline-2026-09-26.json",
         "audit_comment_id": 5847980948,
         "implementation_pr": 845,
-        "merge_commit": "29fa85c9290458a4d1b15e6ea676d9f6896ea02d"
+        "merge_commit": "29fa85c9290458a4d1b15e6ea676d9f6896ea02d",
+        "production_verification_comment_id": 5848344630,
+        "deterministic_verification_run": 36259021127
       },
       "completion_gate": "production_verified",
-      "completion_gate_satisfied": false,
+      "completion_gate_satisfied": true,
       "user_action_required": false,
       "changed_scope": "Gravity Forms vendor-issued URL and existing customer CTAs",
       "verification": "Pending PR Build Check, source/gh-pages/live checks and deployed main ancestry.",
-      "handoff": "After production verification, measure post-release 7/30-day windows; do not claim uplift from deployment."
+      "handoff": "After production verification, measure post-release 7/30-day windows; do not claim uplift from deployment.",
+      "completed_at": "2026-09-26T17:32:01Z"
     }
   ],
   "invariants": {
