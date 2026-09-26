@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T16:55:42.591125+00:00",
+  "updated_at": "2026-09-26T17:17:51.479472+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -641,7 +641,7 @@
       "canonical_owner": "Revenue Optimization Team",
       "found_by": "Revenue Optimization Team",
       "fixed_by": "Revenue Optimization Team",
-      "lifecycle": "in_progress",
+      "lifecycle": "production_verification_requested",
       "next_owner": "Release & Reliability Team",
       "priority": "high",
       "blocker": null,
@@ -649,7 +649,8 @@
       "evidence": {
         "baseline_file": "data/revenue-growth-baseline-2026-09-26.json",
         "audit_comment_id": 5847980948,
-        "implementation_pr": 845
+        "implementation_pr": 845,
+        "merge_commit": "29fa85c9290458a4d1b15e6ea676d9f6896ea02d"
       },
       "completion_gate": "production_verified",
       "completion_gate_satisfied": false,
@@ -667,7 +668,7 @@
       "canonical_owner": "Affiliate Partnerships Team",
       "found_by": "Revenue Optimization Team",
       "fixed_by": "Revenue Optimization Team",
-      "lifecycle": "in_progress",
+      "lifecycle": "production_verification_requested",
       "next_owner": "Release & Reliability Team",
       "priority": "high",
       "blocker": null,
@@ -675,7 +676,8 @@
       "evidence": {
         "baseline_file": "data/revenue-growth-baseline-2026-09-26.json",
         "audit_comment_id": 5847980948,
-        "implementation_pr": 845
+        "implementation_pr": 845,
+        "merge_commit": "29fa85c9290458a4d1b15e6ea676d9f6896ea02d"
       },
       "completion_gate": "production_verified",
       "completion_gate_satisfied": false,
