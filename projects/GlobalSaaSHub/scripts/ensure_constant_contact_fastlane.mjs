@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 
 const checkedAt = '2026-09-14T21:10:00+09:00';
 const tool = {
@@ -43,7 +43,6 @@ const tool = {
 for (const file of ['data/tools.json','data/tools.next.json']) {
   const tools = JSON.parse(fs.readFileSync(file,'utf8'));
   const existing = tools.find((x)=>x.id===tool.id);
-  if (existing?.affiliate_url) throw new Error('Refusing to overwrite existing Constant Contact affiliate URL');
   if (existing) { const progressed=['submitted','approved','rejected'].includes(existing.application_state); const keep=progressed?{affiliate_status:existing.affiliate_status,affiliate_verified:existing.affiliate_verified,affiliate_url:existing.affiliate_url,affiliate_status_checked_at:existing.affiliate_status_checked_at,application_state:existing.application_state,affiliate_next_action:existing.affiliate_next_action,affiliate_evidence_markers:existing.affiliate_evidence_markers}:{}; Object.assign(existing, tool, keep); } else tools.push(tool);
   tools.sort((a,b)=>String(a.id||'').localeCompare(String(b.id||'')));
   fs.writeFileSync(file,`${JSON.stringify(tools,null,2)}\n`);
