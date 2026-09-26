@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'projects/GlobalSaaSHub/**'
+      - 'vercel.json'
       - '.github/workflows/coshuma-pr-check.yml'
 
 concurrency:
