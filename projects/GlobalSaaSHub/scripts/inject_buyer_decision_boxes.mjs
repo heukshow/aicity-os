@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import {fileURLToPath} from 'node:url';
