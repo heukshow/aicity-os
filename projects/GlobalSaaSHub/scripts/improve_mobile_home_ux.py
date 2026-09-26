@@ -66,6 +66,15 @@ for old, new in replacements:
     if new in text:
         continue
     if old not in text:
+        # apply_revenue_first_home_hook replaces this old category row with
+        # goal links that already have 44px targets. Preserve its known output.
+        if (old == replacements[2][0] and 'categories.slice(1, 7)' not in text
+                and '<a href="/best/ai-tools-to-make-money.html" className="inline-flex min-h-11 items-center' in text
+                and 'data-cta-source="home-verified-trials-deals" className="inline-flex min-h-11 items-center' in text):
+            continue
+        if (old == '>Verified affiliate paths<' and 'Tool profiles' not in text
+                and 'data-cta-source="home-verified-trials-deals"' in text):
+            continue  # The later revenue hook deliberately removes vanity stats.
         raise SystemExit(f"Mobile homepage markup changed; refusing unsafe replacement: {old[:100]}")
     text = text.replace(old, new, 1)
 
