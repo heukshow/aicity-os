@@ -36,6 +36,8 @@ LISTING_ADMIN = re.compile(
     re.I,
 )
 FORBIDDEN = [
+    ("internal affiliate verification provenance", re.compile(r"\bOfficial pricing and affiliate pages checked\b", re.I)),
+    ("internal affiliate program framing", re.compile(r"\b(?:affiliate|partner)[-\s]+program\s+(?:status|facts|terms)\b|\bcurrent\s+(?:affiliate|partner)\s+(?:program\s+)?terms\b|\baffiliate\s+facts\b", re.I)),
     ("editorial workflow state", re.compile(r"\b(?:not\s+yet\s+editorially\s+rated|editorial\s+review\s+in\s+progress|review\s+pending)\b", re.I)),
     ("internal affiliate terms heading", re.compile(r"\bverified\s+COSHUMA\s+affiliate\s+terms\b", re.I)),
     ("referral verification provenance", re.compile(r"\breferral\s+URL\s+verified\s+directly\b", re.I)),
