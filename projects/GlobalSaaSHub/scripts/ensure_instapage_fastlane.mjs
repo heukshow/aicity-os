@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 
 const checkedAt = '2026-09-14T06:29:00+09:00';
 const instapage = {
