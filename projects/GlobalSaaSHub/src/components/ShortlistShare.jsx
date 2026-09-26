@@ -51,14 +51,14 @@ const fallbackCopy = (text) => {
 }
 
 const measureShortlistShare = (savedCount) => {
-  if (typeof window.gtag !== 'function') return
-  window.gtag('event', 'saved_shortlist_share', {
+  if (window.__coshumaQa || typeof window.gtag !== 'function') return
+  try { window.gtag('event', 'saved_shortlist_share', {
     page_path: window.location.pathname,
     page_location: window.location.href,
     measurement_area: 'revisit_growth',
     saved_count: savedCount,
     share_method: 'copy_link',
-  })
+  }) } catch { /* A successful copy remains successful if analytics is blocked. */ }
 }
 
 export default function ShortlistShare() {
