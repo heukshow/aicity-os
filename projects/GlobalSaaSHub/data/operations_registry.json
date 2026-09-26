@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T19:52:00Z",
+  "updated_at": "2026-09-26T20:10:37Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -758,6 +758,40 @@
       "changed_scope": "Register the existing Constant Contact legal-consent hold and official clarification thread; no agreement, URL, CTA, payment or product state changed.",
       "verification": "Gmail thread 1a0df0917006730e still contains only the SENT clarification request; no vendor reply. Latest main 11dd50b59e485f934a45d1bf58c154865d199e87 preserves approved, agreement_accepted=false, exact tracking URL null and the vendor-clarification blocker across all internal producer/state sources.",
       "handoff": "Reconcile the existing inquiry thread without duplicate outreach. Do not accept terms, infer a link or change public CTAs until controlling terms and the account schedule are clarified; then request the specific legal-consent decision."
+    },
+    {
+      "record_id": "REVENUE:CHATBASE-DISCLOSURE-LAYOUT-20260927",
+      "task_key": "REV-CHATBASE-DISCLOSURE-LAYOUT-20260927",
+      "incident_key": "chatbase-disclosure-layout-regression-20260927",
+      "target": "projects/GlobalSaaSHub/public/tool/chatbase.html → live /tool/chatbase.html",
+      "owner_team": "Revenue Optimization Team",
+      "canonical_owner": "Revenue Optimization Team",
+      "found_by": "Revenue Optimization Team",
+      "fixed_by": "Revenue Optimization Team",
+      "changed_scope": "Move the existing canonical consumer affiliate disclosure outside the responsive hero CTA flex row; preserve product, pricing, SEO, KPI and revenue truth.",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-26T19:02:38Z",
+      "evidence": {
+        "work_status_comment_id": 5848903019,
+        "implementation_pr": 853,
+        "head_commit": "734c7927ce7604129c5c10dba2fab715333b5402",
+        "merge_commit": "9626e4354eba681c5ac014feacf8d122efffef7a",
+        "pr_build_run": 36263385314,
+        "site_build_deploy_run": 36263684236,
+        "pages_deployment_run": 36263827204,
+        "deterministic_verification_run": 36263832444,
+        "live_url": "https://coshuma.com/tool/chatbase.html",
+        "baseline": "Vendor-reported Chatbase totals remain 22 affiliate clicks and 0 leads/conversions; reporting period unstated; no revenue uplift claimed."
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "user_action_required": false,
+      "verification": "Build, Site deploy, exact Pages deployment and deterministic Release Verification all succeeded; live page has one disclosure before and outside the hero CTA row, preserves exact vendor-issued URL and sponsored attributes.",
+      "handoff": "Measure a separate post-release 7/30-day window; do not count QA traffic as growth.",
+      "completed_at": "2026-09-26T19:02:38Z"
     }
   ],
   "invariants": {
