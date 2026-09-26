@@ -265,6 +265,20 @@ def enforce_disclosure_policy(rel: str, text: str) -> str:
     if rel == "affiliate-disclosure.html":
         return text
 
+    # Preserve the source producer's valid placement. Re-inserting immediately
+    # before an anchor can move the notice into a flex button row after build.
+    # This temporary token never reaches public output; final_polish has already
+    # removed source comments, so placement must follow the actual paragraph.
+    placement_token = '<!-- customer-disclosure-position -->'
+    if placement_token in text:
+        raise RuntimeError(f"{rel}: unexpected disclosure placement token")
+    first_cta = PAGE_AFFILIATE_CTA.search(text)
+    first_notice = AFFILIATE_DISCLOSURE_DATA.search(text)
+    preserve_placement = (rel != "index.html" and first_cta is not None
+                          and first_notice is not None and first_notice.end() <= first_cta.start())
+    if preserve_placement:
+        text = text[:first_notice.start()] + placement_token + text[first_notice.end():]
+
     # Normalize any older disclosure wording before applying one canonical notice.
     text = strip_general_affiliate_disclosures(text)
 
@@ -289,11 +303,14 @@ def enforce_disclosure_policy(rel: str, text: str) -> str:
     # Affiliate buyer pages get one disclosure immediately before the first affiliate CTA.
     # Pages with no affiliate CTA receive no page-level disclosure.
     if PAGE_AFFILIATE_CTA.search(text):
-        text = PAGE_AFFILIATE_CTA.sub(
-            lambda match: PAGE_AFFILIATE_DISCLOSURE + "\n" + match.group(0),
-            text,
-            count=1,
-        )
+        if preserve_placement:
+            text = text.replace(placement_token, PAGE_AFFILIATE_DISCLOSURE, 1)
+        else:
+            text = PAGE_AFFILIATE_CTA.sub(
+                lambda match: PAGE_AFFILIATE_DISCLOSURE + "\n" + match.group(0),
+                text,
+                count=1,
+            )
         if text.count('data-affiliate-disclosure="page"') != 1:
             raise RuntimeError(f"{rel}: affiliate page must contain exactly one page-level disclosure")
         if text.lower().count("affiliate disclosure:") != 1:

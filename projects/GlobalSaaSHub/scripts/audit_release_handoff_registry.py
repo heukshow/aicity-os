@@ -57,16 +57,30 @@ def field(body, name):
     return m.group(1).strip() if m else None
 
 
+def known_release_pairs(records):
+    known = set()
+    for row in records:
+        evidence = row.get("evidence", {})
+        versions = [evidence]
+        versions.extend(evidence.get(key, {}) for key in
+                        ("previous_marker_verified_release", "previous_visual_revision"))
+        versions.extend(version.get("evidence", {}) for version in row.get("previous_releases", []))
+        for version in versions:
+            if version.get("merge_commit"):
+                known.add((row.get("task_key"), version["merge_commit"]))
+        known.add((row.get("task_key"), evidence.get("merge_commit")))
+    return known
+
+
 def main():
     registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
     records = registry.get("active_queue", [])
     token = os.environ.get("GITHUB_TOKEN", "")
     comments = all_comments(token)
 
-    known = set()
-    for row in records:
-        evidence = row.get("evidence", {})
-        known.add((row.get("task_key"), evidence.get("merge_commit")))
+    # A continuation keeps prior handoffs as history. Only explicitly recorded
+    # revisions count; an unknown task/merge remains a control-plane drift.
+    known = known_release_pairs(records)
 
     drift = []
     for row in comments:

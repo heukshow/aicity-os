@@ -65,6 +65,21 @@ def candidate(name='one'):
 
 
 class PublicProducerTests(unittest.TestCase):
+    def test_final_dist_polish_preserves_source_disclosure_outside_cta_row(self):
+        import self_heal_source_affiliate_disclosures as source
+        import guard_built_customer_copy as built
+        from guard_customer_only_copy import clean_html
+        link='<a data-cta="affiliate" href="https://vendor.test/ref" rel="sponsored">Try free</a>'
+        row='<div class="flex">'
+        before=source.PAGE_NOTICE_SLOT+'\n'+source.PAGE_NOTICE+'\n'+row+link+'</div>'
+        polish=lambda html: built.enforce_disclosure_policy('compare/fixture.html', built.final_polish(clean_html(html)))
+        first=polish(before)
+        self.assertNotIn(source.PAGE_NOTICE_SLOT, first)
+        self.assertLess(first.index('data-affiliate-disclosure="page"'), first.index(row))
+        self.assertEqual(first, polish(first))
+        self.assertIn(link, first)
+        self.assertEqual(first.count('Affiliate disclosure:'), 1)
+
     def test_disclosure_repairs_escaped_newlines_without_shrinking_cta_row(self):
         import self_heal_source_affiliate_disclosures as notice
         with tempfile.TemporaryDirectory() as directory:
@@ -144,6 +159,16 @@ class PublicProducerTests(unittest.TestCase):
 
 
 class ReleaseTests(unittest.TestCase):
+    def test_handoff_audit_recognizes_explicit_previous_revision_only(self):
+        from audit_release_handoff_registry import known_release_pairs
+        row=candidate()
+        row['evidence']['previous_visual_revision']={'merge_commit': 'b' * 40}
+        pairs=known_release_pairs([row])
+        self.assertIn(('one', 'a' * 40), pairs)
+        self.assertIn(('one', 'b' * 40), pairs)
+        self.assertNotIn(('one', 'c' * 40), pairs)
+        self.assertNotIn(('other', 'b' * 40), pairs)
+
     def test_artifact_ancestry_requires_exact_successful_pages_deployment(self):
         pages_sha = 'b' * 40
         deployment = {'name': 'pages build and deployment', 'head_sha': pages_sha,
