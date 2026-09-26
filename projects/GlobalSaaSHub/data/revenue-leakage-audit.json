@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T15:40:37.079Z",
+  "generated_at": "2026-09-26T17:05:20.808Z",
   "evidence_scope": "Combined authenticated revenue-browser baseline, current revenue-truth records, and explicit account-wide commission/payout evidence.",
   "policy": {
     "purpose": "Detect approved monetized routes that can leak revenue because downstream affiliate metrics are missing or stale.",
@@ -115,7 +115,7 @@
           "id": "teachable",
           "name": "Teachable",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 9 days old."
+          "reason": "Latest revenue evidence is 10 days old."
         },
         {
           "id": "unbounce",
@@ -823,7 +823,7 @@
           "id": "helpdesk",
           "name": "HelpDesk",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 15 days old."
+          "reason": "Latest revenue evidence is 16 days old."
         },
         {
           "id": "text",
@@ -2051,10 +2051,10 @@
       "account_id": "text-account",
       "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 15 days old.",
+      "reason": "Latest revenue evidence is 16 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-10T15:52:30Z",
-      "evidence_age_days": 15,
+      "evidence_age_days": 16,
       "evidence_source": "vendor-report-email",
       "evidence_id": "gmail:1a08c0544c56b5ac:helpdesk-default",
       "latest_metrics": {
@@ -2261,10 +2261,10 @@
       "account_id": "partnerstack-account",
       "portal_url": "https://dash.partnerstack.com/home",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 9 days old.",
+      "reason": "Latest revenue evidence is 10 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T16:43:26Z",
-      "evidence_age_days": 9,
+      "evidence_age_days": 10,
       "evidence_source": "vendor-human-email",
       "evidence_id": "gmail:1a0ab1a9d37ec857;github:issue-373-comment-5701583790",
       "latest_metrics": {

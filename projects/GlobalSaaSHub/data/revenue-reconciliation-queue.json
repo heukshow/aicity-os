@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T15:40:37.139Z",
+  "generated_at": "2026-09-26T17:05:20.868Z",
   "source": "data/revenue-leakage-audit.json",
   "scope": "Internal COSHUMA revenue reconciliation only",
   "queue_status": "active",
@@ -69,7 +69,7 @@
           "id": "teachable",
           "name": "Teachable",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 9 days old."
+          "reason": "Latest revenue evidence is 10 days old."
         },
         {
           "id": "unbounce",
@@ -1271,7 +1271,7 @@
           "id": "helpdesk",
           "name": "HelpDesk",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 15 days old."
+          "reason": "Latest revenue evidence is 16 days old."
         },
         {
           "id": "text",
