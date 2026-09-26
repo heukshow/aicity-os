@@ -37,4 +37,16 @@ with tempfile.TemporaryDirectory() as tmp:
                     if after[key].get(field) != old.get(field):
                         raise AssertionError(f'{script.name}: {name}/{key}/{field} regressed')
         count += 1
-    print(f'PASS all {count} fastlane producers preserve progressed states and exact URLs')
+    llms = root / 'public/llms.txt'
+    llms.write_text(llms.read_text() + '\nPrivy buyer guide with current trial and affiliate-status facts\n')
+    snapshots = []
+    for _ in range(2):
+        result = subprocess.run(['node', 'scripts/ensure_privy_revenue_refresh.mjs'], cwd=root,
+                                capture_output=True, text=True)
+        if result.returncode:
+            raise AssertionError(result.stderr)
+        snapshots.append(llms.read_text())
+    assert snapshots[0] == snapshots[1]
+    assert 'affiliate-status' not in snapshots[1]
+    assert 'https://coshuma.com/tool/privy.html' in snapshots[1]
+    print(f'PASS all {count} fastlane producers preserve progressed states and exact URLs; repeated Privy output is customer-only')

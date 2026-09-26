@@ -156,6 +156,19 @@ def verify_deployed_ancestry(record, spec, failures, details):
         failures.append(f"deployed source {deployed} does not contain target merge {merge}")
     else:
         details.append(f"deployed lineage: source `{deployed}` contains target merge `{merge}`")
+    # gh-pages is a publication artifact, not proof that Pages has deployed it.
+    # Require the exact artifact commit's successful deployment, then retain the
+    # existing live HTTP/content checks. A pending deployment is retryable.
+    pages_sha = run("git", "rev-parse", "origin/gh-pages").stdout.strip()
+    runs = github_api("GET", f"/actions/runs?head_sha={pages_sha}&per_page=30",
+                      os.environ.get("GITHUB_TOKEN", "")).get("workflow_runs", [])
+    deployed_runs = [r for r in runs if r.get("name") == "pages build and deployment"
+                     and r.get("head_sha") == pages_sha and r.get("status") == "completed"
+                     and r.get("conclusion") == "success"]
+    if not deployed_runs:
+        failures.append(f"Pages deployment is not yet successful for artifact {pages_sha}; retry after deployment")
+    else:
+        details.append(f"Pages deployment: run `{deployed_runs[0]['id']}` succeeded for artifact `{pages_sha}`")
 
 
 def github_api(method, path, token, payload=None):

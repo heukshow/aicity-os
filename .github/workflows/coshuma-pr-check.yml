@@ -63,9 +63,11 @@ jobs:
           python scripts/ensure_best_pages_in_sitemap.py
           node scripts/publish_affiliate_audit.mjs
 
-      - name: Build COSHUMA preview bundle
+      - name: Build COSHUMA preview and verify producer repeatability
         working-directory: projects/GlobalSaaSHub
-        run: npm run build
+        run: |
+          npm run build
+          npm run build
 
       - name: Verify SEO, links and approved tracking
         working-directory: projects/GlobalSaaSHub

@@ -45,6 +45,8 @@ class LifecycleTests(unittest.TestCase):
             'source_type': 'vendor_email', 'source_ref': 'fixture-message', 'reason': 'revoked',
             'observed_at': '2026-09-26T00:00:00Z'}}
         self.assertEqual(lifecycle.preserve(old, new), (new, False))
+        replayed = dict(new, affiliate_status='application_submitted')
+        self.assertEqual(lifecycle.preserve(new, replayed)[0]['affiliate_status'], 'rejected')
 
     def test_changed_url_without_direct_evidence_is_preserved(self):
         old = {'affiliate_status': 'approved_tracking', 'affiliate_url': 'https://vendor.test/ref/exact'}
@@ -63,6 +65,26 @@ def candidate(name='one'):
 
 
 class PublicProducerTests(unittest.TestCase):
+    def test_databox_cleanup_preserves_one_canonical_consumer_notice(self):
+        from self_heal_source_affiliate_disclosures import PAGE_NOTICE
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'scripts').mkdir(); (root / 'public/tool').mkdir(parents=True)
+            (root / 'config').mkdir()
+            shutil.copy(SCRIPTS.parent / 'config/public_content_policy.json', root / 'config')
+            for name in ['clean_databox_customer_copy.py', 'self_heal_source_affiliate_disclosures.py']:
+                shutil.copy(SCRIPTS / name, root / 'scripts' / name)
+            page = root / 'public/tool/databox.html'
+            html = PAGE_NOTICE + '<a href="https://databox.com?aff_id=15298659&fp_ref=sangkwon-72c9ec">Try</a>'
+            page.write_text(html)
+            command = [sys.executable, str(root / 'scripts/clean_databox_customer_copy.py')]
+            for _ in range(2):
+                result = subprocess.run(command, capture_output=True, text=True)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual(page.read_text(), html)
+            page.write_text(PAGE_NOTICE + html)
+            self.assertNotEqual(subprocess.run(command, capture_output=True).returncode, 0)
+
     def test_search_fillout_and_revenue_producers_can_repeat(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -84,6 +106,25 @@ class PublicProducerTests(unittest.TestCase):
 
 
 class ReleaseTests(unittest.TestCase):
+    def test_artifact_ancestry_requires_exact_successful_pages_deployment(self):
+        pages_sha = 'b' * 40
+        deployment = {'name': 'pages build and deployment', 'head_sha': pages_sha,
+                      'status': 'in_progress', 'conclusion': None, 'id': 123}
+        with patch.object(release, 'deployed_source_sha', return_value='a' * 40), \
+             patch.object(release, 'run', return_value=subprocess.CompletedProcess([], 0, stdout=pages_sha)), \
+             patch.object(release, 'github_api', return_value={'workflow_runs': [deployment]}):
+            failures = []
+            release.verify_deployed_ancestry(candidate(), {'verify_deployed_ancestry': True}, failures, [])
+            self.assertTrue(failures)
+            deployment.update(status='completed', conclusion='success')
+            failures = []
+            release.verify_deployed_ancestry(candidate(), {'verify_deployed_ancestry': True}, failures, [])
+            self.assertFalse(failures)
+            deployment['head_sha'] = 'c' * 40
+            failures = []
+            release.verify_deployed_ancestry(candidate(), {'verify_deployed_ancestry': True}, failures, [])
+            self.assertTrue(failures)
+
     def test_coverage_gap_is_a_failure(self):
         with self.assertRaises(SystemExit):
             release.validate_contract({'active_queue': [candidate()]}, {'schema_version': 1, 'records': {}})

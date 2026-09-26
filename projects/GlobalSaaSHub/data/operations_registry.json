@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T15:51:20.792281+00:00",
+  "updated_at": "2026-09-26T16:02:27.239Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -150,8 +150,8 @@
       "lifecycle": "in_progress",
       "next_owner": "Affiliate Partnerships Team",
       "priority": "high",
-      "blocker": "official_application_form_connection_reset",
-      "last_evidence_at": "2026-09-25T18:10:00Z",
+      "blocker": null,
+      "last_evidence_at": "2026-09-26T16:02:27.239Z",
       "evidence": {
         "implementation_pr": 787,
         "merge_commit": "1d52683a6174bebc01a26141607f129ac2e98d65",
@@ -159,14 +159,18 @@
         "remote_desktop_device": "흑쇼컴",
         "remote_desktop_status": "online",
         "remote_desktop_last_seen": "2026-09-25T13:14:15.183Z",
-        "capability_recheck": "Remote Desktop transport is online, but vendor-hosted official MakeForms endpoint itself resets the connection; transport availability does not remove vendor form blocker",
+        "capability_recheck": "Official form reachable through interactive browser. Prior Remote Desktop ConnectionResetError is historical and is no longer the current task blocker.",
         "pc_orchestrator_path": "C:\\COSHUMA\\aicity-os",
         "pc_registry_validation": "PASS records=12",
         "pc_dispatch_state": "Affiliate Partnerships Team",
-        "form_recheck": "2026-09-26 KST: direct request to https://eu.makeforms.io/k1ibmll/ from authorized online device failed with ConnectionResetError 10054"
+        "form_recheck": "2026-09-26T16:02:27.239Z: official https://eu.makeforms.io/k1ibmll/ loaded Affiliate Request in the cloud browser; introductory standards and editable name/work-email fields rendered. No application was submitted.",
+        "previous_form_recheck": "2026-09-26 KST: direct request to https://eu.makeforms.io/k1ibmll/ from authorized online device failed with ConnectionResetError 10054",
+        "form_url": "https://eu.makeforms.io/k1ibmll/",
+        "application_state": "not_submitted"
       },
       "completion_gate": "formal_application_submission_evidence_or_rejected_with_evidence",
-      "user_action_required": false
+      "user_action_required": false,
+      "handoff": "Continue the existing single formal-application task using the reachable official form; recheck email/state before any submission. No approval or tracking URL inferred."
     },
     {
       "record_id": "AUDIENCE:AG-SHARE-001",
@@ -502,24 +506,39 @@
       "found_by": "Operations Governance Team",
       "fixed_by": "Operations Governance Team",
       "changed_scope": "Monotonic producer boundaries; exact evidence registry sync; independent deterministic release verification; analytics retry and snapshot preservation; current-main deployment protection",
-      "lifecycle": "production_verified",
+      "lifecycle": "in_progress",
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": null,
       "evidence": {
-        "implementation_pr": 837,
+        "implementation_pr": 840,
+        "prerequisite_prs": [
+          837,
+          838
+        ],
         "work_status_comment_id": 5847307567,
-        "local_verification": "21 fastlane producers, 9 operations tests, retry tests, production-equivalent build and source/dist public boundary pass",
-        "merge_commit": "daa611d2f87359785221429bed2e06775184f390",
-        "production_verification_comment_id": 5847629038,
-        "deterministic_verification_run": 36253352907
+        "local_verification": "13 operations tests; 21 fastlane regression tests; repeated Privy public output; duplicate disclosure rejection; pending/wrong-artifact Pages rejection"
       },
       "completion_gate": "production_verified",
-      "completion_gate_satisfied": true,
+      "completion_gate_satisfied": false,
       "user_action_required": false,
-      "last_evidence_at": "2026-09-26T15:51:04Z",
-      "handoff": "Release verifies deployed ancestry and live customer boundary; Governance synchronizes only actual production evidence.",
-      "completed_at": "2026-09-26T15:51:04Z"
+      "last_evidence_at": "2026-09-26T15:54:15.198Z",
+      "handoff": "Release must verify PR #840 merge ancestry, exact successful Pages deployment and live customer content before completing this continuation.",
+      "previous_releases": [
+        {
+          "lifecycle": "production_verified",
+          "evidence": {
+            "implementation_pr": 837,
+            "work_status_comment_id": 5847307567,
+            "local_verification": "21 fastlane producers, 9 operations tests, retry tests, production-equivalent build and source/dist public boundary pass",
+            "merge_commit": "daa611d2f87359785221429bed2e06775184f390",
+            "production_verification_comment_id": 5847629038,
+            "deterministic_verification_run": 36253352907
+          },
+          "completed_at": "2026-09-26T15:51:04Z"
+        }
+      ],
+      "continuation_reason": "Final repeat-build and production-proof checks found producer leaks and artifact-vs-deployment ambiguity; retain previous release evidence and verify this new revision."
     }
   ],
   "invariants": {

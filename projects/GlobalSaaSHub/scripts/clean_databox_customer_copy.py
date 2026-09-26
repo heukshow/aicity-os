@@ -1,4 +1,5 @@
 from pathlib import Path
+from self_heal_source_affiliate_disclosures import PAGE_NOTICE
 
 PAGE = Path(__file__).resolve().parents[1] / "public" / "tool" / "databox.html"
 TRACKING_URL = "https://databox.com?aff_id=15298659&fp_ref=sangkwon-72c9ec"
@@ -35,6 +36,9 @@ for old, new in replacements.items():
         html = html.replace(old, new)
         changed += 1
 
+# Exempt exactly one canonical consumer notice, not arbitrary marked content.
+# A duplicate notice or operational wording remains a hard failure.
+validation_html = html.replace(PAGE_NOTICE, "", 1)
 for forbidden in (
     "Databox's affiliate team",
     "Databox Affiliate Program email received by",
@@ -44,7 +48,7 @@ for forbidden in (
     "Affiliate disclosure:",
     "data-affiliate-disclosure=",
 ):
-    if forbidden in html:
+    if forbidden in validation_html:
         raise SystemExit(f"Buyer-visible internal or repeated Databox wording remains: {forbidden}")
 
 if html.count(TRACKING_URL) != before_tracking:
