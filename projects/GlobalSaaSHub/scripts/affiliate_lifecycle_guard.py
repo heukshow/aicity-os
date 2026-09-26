@@ -54,7 +54,8 @@ def preserve(old, new):
     evidence = new.get("affiliate_lifecycle_override", {})
     direct_override = (isinstance(evidence, dict) and evidence.get("source_type") in {
         "vendor_email", "authenticated_vendor_dashboard"} and evidence.get("source_ref")
-        and evidence.get("reason") and timestamp({"checked_at": evidence.get("observed_at")}) > timestamp(old))
+        and evidence.get("reason") and evidence != old.get("affiliate_lifecycle_override")
+        and timestamp({"checked_at": evidence.get("observed_at")}) > timestamp(old))
     lower = rank(new) < rank(old)
     status_changed = (new.get("affiliate_status") or new.get("status")) != (old.get("affiliate_status") or old.get("status"))
     stale = timestamp(old) > timestamp(new) or (
