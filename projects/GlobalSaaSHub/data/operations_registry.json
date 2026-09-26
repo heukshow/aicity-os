@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T18:55:56.932Z",
+  "updated_at": "2026-09-26T19:52:00Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -725,7 +725,7 @@
       "next_owner": "Affiliate Partnerships Team",
       "priority": "high",
       "blocker": "awaiting_vendor_terms_clarification",
-      "last_evidence_at": "2026-09-26T18:46:19Z",
+      "last_evidence_at": "2026-09-26T19:28:43Z",
       "evidence": {
         "approval_gmail_message_id": "1a0da69f66fadf19",
         "terms_review_comment_id": 5848793226,
@@ -738,13 +738,25 @@
           "section_10_2_out_of_pocket_basis_and_cap",
           "section_16_affiliate_indemnification_cap",
           "account_specific_commission_schedule"
-        ]
+        ],
+        "producer_hold_guard": {
+          "implementation_pr": 855,
+          "merge_commit": "c5d7d5a76b8c2c53e3796c0537b001d42a4caed9",
+          "pr_build_run": 36265776008,
+          "persisted_main_commit": "11dd50b59e485f934a45d1bf58c154865d199e87",
+          "found_by": "Affiliate Partnerships Team",
+          "fixed_by": "Affiliate Partnerships Team",
+          "canonical_owner": "Affiliate Partnerships Team",
+          "changed_scope": "Constant Contact lifecycle producer and four internal state outputs only; no public content, URL, CTA, pricing, payment or agreement acceptance change.",
+          "verification": "PR Build Check passed repeat production builds, SEO/link/tracking checks and public-bundle safety. Current main retains approved, agreement_accepted=false, exact URL null and awaiting_vendor_terms_clarification across producer, outreach, browser queue and tools state.",
+          "handoff": "Await the existing official Gmail thread; do not accept terms, infer a URL, change public CTAs or send duplicate outreach."
+        }
       },
       "completion_gate": "vendor_terms_clarified_then_legal_consent_and_exact_tracking_url_verified",
       "completion_gate_satisfied": false,
       "user_action_required": false,
       "changed_scope": "Register the existing Constant Contact legal-consent hold and official clarification thread; no agreement, URL, CTA, payment or product state changed.",
-      "verification": "Gmail thread 1a0df0917006730e contains only the SENT clarification request; no vendor reply. The agreement checkbox remains unchecked and the exact customer URL remains null.",
+      "verification": "Gmail thread 1a0df0917006730e still contains only the SENT clarification request; no vendor reply. Latest main 11dd50b59e485f934a45d1bf58c154865d199e87 preserves approved, agreement_accepted=false, exact tracking URL null and the vendor-clarification blocker across all internal producer/state sources.",
       "handoff": "Reconcile the existing inquiry thread without duplicate outreach. Do not accept terms, infer a link or change public CTAs until controlling terms and the account schedule are clarified; then request the specific legal-consent decision."
     }
   ],
