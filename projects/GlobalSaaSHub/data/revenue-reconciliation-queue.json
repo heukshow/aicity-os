@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T10:44:42.523Z",
+  "generated_at": "2026-09-26T15:40:37.139Z",
   "source": "data/revenue-leakage-audit.json",
   "scope": "Internal COSHUMA revenue reconciliation only",
   "queue_status": "active",
@@ -45,7 +45,7 @@
           "id": "brand24",
           "name": "Brand24",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 10 days old."
+          "reason": "Latest revenue evidence is 11 days old."
         },
         {
           "id": "gamma",
@@ -1527,6 +1527,32 @@
       "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
     },
     {
+      "account_id": "omnisend",
+      "network": "Impact",
+      "portal_url": null,
+      "priority": "P1_STALE",
+      "tool_count": 1,
+      "tools": [
+        {
+          "id": "omnisend",
+          "name": "Omnisend",
+          "priority": "P1_STALE",
+          "reason": "Latest revenue evidence is 8 days old."
+        }
+      ],
+      "execution": "locate_existing_account_or_vendor_dashboard_first",
+      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
+      "safety": [
+        "Do not create a new account or reapply.",
+        "Do not change any customer tracking URL.",
+        "Do not start a paid plan or authorize payment.",
+        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
+        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
+        "Never expose this internal revenue audit on public COSHUMA pages."
+      ],
+      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
+    },
+    {
       "account_id": "jotform",
       "network": "Jotform Affiliate Program",
       "portal_url": null,
@@ -1562,32 +1588,6 @@
         {
           "id": "castmagic",
           "name": "Castmagic",
-          "priority": "P1_PARTIAL",
-          "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown."
-        }
-      ],
-      "execution": "locate_existing_account_or_vendor_dashboard_first",
-      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
-      "safety": [
-        "Do not create a new account or reapply.",
-        "Do not change any customer tracking URL.",
-        "Do not start a paid plan or authorize payment.",
-        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
-        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
-        "Never expose this internal revenue audit on public COSHUMA pages."
-      ],
-      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
-    },
-    {
-      "account_id": "omnisend",
-      "network": "Impact",
-      "portal_url": null,
-      "priority": "P1_PARTIAL",
-      "tool_count": 1,
-      "tools": [
-        {
-          "id": "omnisend",
-          "name": "Omnisend",
           "priority": "P1_PARTIAL",
           "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown."
         }
