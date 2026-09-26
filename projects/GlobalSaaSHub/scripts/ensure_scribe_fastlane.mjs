@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 
 const checkedAt = '2026-09-15T04:12:19+09:00';
 const supademoCheckedAt = '2026-09-23T21:29:54Z';
