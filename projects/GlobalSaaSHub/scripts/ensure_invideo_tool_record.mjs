@@ -9,7 +9,7 @@ import './ensure_benchmarkemail_fastlane.mjs';
 import './ensure_engagebay_fastlane.mjs';
 import './ensure_sendpulse_fastlane.mjs';
 import './ensure_constant_contact_fastlane.mjs';
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 
 const invideo = {
   id: 'invideo-ai',
