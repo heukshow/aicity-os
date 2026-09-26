@@ -19,8 +19,10 @@ export function programObservations(observations, tools) {
 export function mergeProgramObservations(existing, observations) {
   const result = structuredClone(existing);
   for (const observation of observations) {
-    const same = result.find(row => row.tool_id === observation.tool_id && row.evidence_id === observation.evidence_id && row.checked_at === observation.checked_at);
-    if (!same) { result.push(observation); continue; }
+    const same = result.find(row => row.tool_id === observation.tool_id && row.evidence_id === observation.evidence_id && row.checked_at === observation.checked_at && row.period === observation.period);
+    // Preserve separate period descriptions. On timestamp ties the explicit
+    // private observation is selected ahead of the historical projection.
+    if (!same) { result.unshift(observation); continue; }
     // Enrich only the exact same evidence, never a different reporting period.
     for (const [key, value] of Object.entries(observation.metrics)) {
       if (Number.isFinite(same.metrics[key]) && Number.isFinite(value) && same.metrics[key] !== value) {
