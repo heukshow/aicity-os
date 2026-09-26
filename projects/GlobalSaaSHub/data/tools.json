@@ -591,7 +591,6 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Beefree is a drag-and-drop editor for creating beautiful, responsive emails and landing pages quickly and without coding, ideal for marketers and designers.",
-    "affiliate_url": "https://partners.beefree.io/kqi520hezix2",
     "pricing": "Starter $0; Professional $30/month ($25/month billed yearly); Business $160/month ($134/month billed yearly); Enterprise custom",
     "key_features": [
       "Drag-and-drop editor",
@@ -614,18 +613,20 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://reallygoodemails.com/pricing",
+    "affiliate_url": "https://partners.beefree.io/kqi520hezix2",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
-    "affiliate_verified_at": "2026-09-09T14:02:11Z",
+    "affiliate_verified_at": "2026-09-10T08:26:43+09:00",
     "affiliate_evidence_markers": [
       "Vendor/PartnerStack welcome email 1a08679f9fe66388 to support@coshuma.com explicitly identifies https://partners.beefree.io/kqi520hezix2 as COSHUMA's unique referral link to share.",
       "Beefree's official Ambassador page states ambassadors earn 20% of first-year customer revenue and referrals use a 90-day cookie.",
       "Generic Beefree/RGE Studio home, pricing, dashboard, onboarding and login URLs are not treated as affiliate links.",
       "Approval and link issuance do not prove a customer click, signup, commission, or revenue.",
-      "data/beefree-approved-tracking-2026-09-09.json"
+      "data/beefree-approved-tracking-2026-09-09.json",
+      "Newer PartnerStack approval evidence verifies COSHUMA customer referral URL https://partners.beefree.io/kqi520hezix2; do not regress to application_submitted or reapply."
     ],
     "affiliate_final_url": "https://partners.beefree.io/kqi520hezix2",
-    "affiliate_status_checked_at": "2026-09-09T14:02:11Z",
+    "affiliate_status_checked_at": "2026-09-10T08:26:43+09:00",
     "affiliate_status_evidence_url": "gmail:1a08679f9fe66388",
     "affiliate_tracking_url_verified": true,
     "affiliate_tracking_attribution_currently_verified": false,
@@ -2881,7 +2882,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Gravity Forms is a powerful WordPress plugin that enables users to build custom forms, manage online payments, and automate various data workflows directly on their website.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Powerful WordPress plugin",
@@ -2904,17 +2904,19 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://affiliate.gravity.com/",
+    "affiliate_url": null,
     "affiliate_verified": true,
     "affiliate_status": "approved",
-    "affiliate_verified_at": "2026-09-09T15:24:56Z",
+    "affiliate_verified_at": "2026-09-10T08:26:43+09:00",
     "affiliate_evidence_markers": [
       "Gravity Affiliate welcome email 1a082c784399b2c3 verifies COSHUMA program acceptance.",
       "The welcome email states a 30-day attribution window and 20% commission on a qualifying sale.",
       "No exact customer-facing Gravity tracking URL has been issued or verified yet.",
-      "Do not reapply, do not reuse a PartnerStack/dashboard/email redirect as a revenue URL, and do not guess tracking parameters."
+      "Do not reapply, do not reuse a PartnerStack/dashboard/email redirect as a revenue URL, and do not guess tracking parameters.",
+      "Newer vendor correspondence confirms the COSHUMA Gravity Forms affiliate account is approved, but the exact customer-facing tracking URL is still unresolved; do not regress to application_submitted or invent a link."
     ],
     "affiliate_final_url": null,
-    "affiliate_status_checked_at": "2026-09-09T15:24:56Z",
+    "affiliate_status_checked_at": "2026-09-10T08:26:43+09:00",
     "affiliate_status_evidence_url": "gmail:1a082c784399b2c3",
     "affiliate_next_action": "Wait for the direct vendor reply with the exact customer-facing URL. If Gravity supplies it, verify and activate only that exact URL. Use the authenticated PartnerStack browser only as fallback if the vendor does not paste the link. Do not reapply."
   },
@@ -3829,7 +3831,6 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "LiveChat is website chat software for customer support and sales, with campaigns, visitor tracking, chat history, reporting and AI-assisted agent tools.",
-    "affiliate_url": "https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP",
     "pricing": "14-day free trial; Starter $19, Team $49, Business $79 per person/month billed annually; Enterprise custom",
     "key_features": [
       "Website live chat for support and sales",
@@ -3852,6 +3853,15 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.livechat.com/",
+    "pricing_evidence_markers": [
+      "Free 14-day trial",
+      "No credit card required",
+      "Starter $19",
+      "Team $49",
+      "Business $79",
+      "billed annually"
+    ],
+    "affiliate_url": "https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
     "affiliate_status_checked_at": "2026-09-18T19:38:07+09:00",
@@ -3865,14 +3875,6 @@
       "Text Support replied to support@coshuma.com in existing Gmail thread 1a08c0544c56b5ac (message 1a0b418541063824) and explicitly said the LiveChat affiliate URL is available under the existing Partner App Affiliate area, supplying https://share.text.com/q8mL2psx. Prior authenticated Partner App evidence had already issued https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP and verified that it resolves to the official LiveChat destination with attribution retained. Preserve that canonical verified URL; record the vendor-supplied short URL as corroborating alternate evidence. No new campaign, duplicate enrollment, signup, trial, paid account, commission, payout, or revenue is inferred."
     ],
     "affiliate_next_action": "Preserve the already verified LiveChat customer tracking URL. Do not create another campaign or send another exact-link request. Keep the vendor-supplied share.text.com URL as corroborating alternate evidence unless it is separately chosen and validated for publication.",
-    "pricing_evidence_markers": [
-      "Free 14-day trial",
-      "No credit card required",
-      "Starter $19",
-      "Team $49",
-      "Business $79",
-      "billed annually"
-    ],
     "affiliate_verified_at": "2026-09-18T19:38:07+09:00"
   },
   {
@@ -4658,7 +4660,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "An advanced e-commerce marketing automation platform, integrating email, SMS, and push notifications to drive sales and customer retention.",
-    "affiliate_url": "https://your.omnisend.com/4aA5k9",
     "pricing": "See official pricing",
     "key_features": [
       "Email & SMS Campaigns",
@@ -4681,6 +4682,7 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
     "official_evidence_url": "https://www.omnisend.com/",
+    "affiliate_url": "https://your.omnisend.com/4aA5k9",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
     "affiliate_verified_at": "2026-09-09T19:56:33+09:00",
@@ -5772,7 +5774,6 @@
     "category": "marketing_auto",
     "category_display": "Marketing Automation",
     "description": "Email and SMS marketing platform with campaigns, automation, transactional email, landing pages, forms and popups, including a generous Free Forever plan.",
-    "affiliate_url": null,
     "pricing": "Free Forever $0 for up to 2,500 subscribers and 15,000 emails/month; paid pricing varies by subscriber volume, billing term and promotions",
     "key_features": [
       "Email campaigns and drag-and-drop editor",
@@ -5796,6 +5797,7 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-09-14T15:39:00+09:00",
     "official_evidence_url": "https://www.sender.net/affiliate-program/",
+    "affiliate_url": null,
     "affiliate_verified": true,
     "affiliate_status": "rejected",
     "affiliate_source_url": "https://www.sender.net/affiliate-program/",
@@ -6607,7 +6609,6 @@
     "category": "sales_crm",
     "category_display": "Sales & CRM",
     "description": "Launch and scale your online courses and coaching products with an intuitive platform built for educators and entrepreneurs.",
-    "affiliate_url": "https://partnerstack.teachable.com/ce4muoxdj46j",
     "pricing": "See official pricing",
     "key_features": [
       "Course Creation & Hosting",
@@ -6630,9 +6631,10 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://support.teachable.com/en/collections/13696598-affiliates",
+    "affiliate_url": "https://partnerstack.teachable.com/ce4muoxdj46j",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
-    "affiliate_verified_at": "2026-09-09T14:55:10Z",
+    "affiliate_verified_at": "2026-09-10T02:24:53+09:00",
     "affiliate_evidence_markers": [
       "Teachable welcome email 1a08653d9c3bd9f8 confirms COSHUMA is approved for the Teachable Affiliate Program.",
       "Teachable manager Camila Gouveia pasted COSHUMA's exact unique customer-facing PartnerStack URL into Gmail message 1a086aa6ef5a4d98.",
@@ -6642,10 +6644,11 @@
       "Teachable manager Camila Gouveia supplied COSHUMA's exact unique default PartnerStack URL in Gmail message 1a086aa6ef5a4d98: https://partnerstack.teachable.com/ce4muoxdj46j",
       "Teachable manager Camila Gouveia separately supplied the exact COSHUMA 30-day Free Trial PartnerStack route in Gmail message 1a087337fdf3bdd1: https://partnerstack.teachable.com/COSHUMA",
       "Use the default route for general Teachable affiliate CTAs and the separately vendor-issued COSHUMA route only for the 30-day Free Trial offer. Do not use the unwrapped partner30 landing page, dashboard/login URLs, or guessed wrappers.",
-      "Approval and link issuance do not prove a click, signup, commission, or revenue event."
+      "Approval and link issuance do not prove a click, signup, commission, or revenue event.",
+      "Newer Teachable manager correspondence to support@coshuma.com verifies COSHUMA customer tracking URL https://partnerstack.teachable.com/ce4muoxdj46j; preserve the separately vendor-issued 30-day trial route and do not regress to outreach_sent."
     ],
     "affiliate_final_url": "https://partnerstack.teachable.com/ce4muoxdj46j",
-    "affiliate_status_checked_at": "2026-09-09T14:55:10Z",
+    "affiliate_status_checked_at": "2026-09-10T08:26:43+09:00",
     "affiliate_status_evidence_url": "gmail:1a086aa6ef5a4d98",
     "affiliate_dashboard_status": "Approved; exact unique PartnerStack customer tracking URL supplied directly by Teachable manager",
     "affiliate_next_action": "Use the verified default PartnerStack route for general Teachable CTAs and the separately vendor-confirmed COSHUMA route for 30-day Free Trial CTAs. Do not reapply, reopen link recovery, or guess tracking wrappers. Monitor real click/signup/commission evidence separately.",
