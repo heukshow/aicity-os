@@ -1,0 +1,197 @@
+# COSHUMA
+
+> Independent AI and SaaS buyer guides focused on pricing, trials, comparisons, buyer fit, and source-backed product information.
+
+Product prices, trial terms, discounts, and outbound destinations can change; use the linked vendor source on each guide to verify final terms before purchase.
+
+High-intent guides below prioritize concrete buying questions such as free trials, pricing, discounts, alternatives and plan fit.
+
+## High-intent buyer guides
+
+- https://coshuma.com/best/index.html — Main AI & SaaS buyer-guide hub
+- https://coshuma.com/best/systeme-io-ai-tools.html — Systeme.io free AI Prompt Generator, browser-based HTML Text Editor, native MCP, pricing and workflow-fit guide
+- https://coshuma.com/best/tally-referral-program-guide.html — Tally new-user referral benefit, program restrictions, and Free/Pro/Business plan-fit guide
+- https://coshuma.com/best/brand24-free-trial.html — Brand24 14-day no-card trial, current pricing and buyer-fit guide
+- https://coshuma.com/best/getgenie-free-vs-paid.html — GetGenie Free vs paid plan and pricing guide
+- https://coshuma.com/best/gamma-free-plan-pricing.html — Gamma Free vs Plus vs Pro vs Ultra buyer guide with a contextual path to Gamma vs Canva
+- https://coshuma.com/best/murf-ai-free-trial.html — Murf AI 10-minute no-card free trial and Creator-plan pricing guide
+- https://coshuma.com/best/kittl-commercial-use-license.html — Kittl Free vs paid commercial-license guide for POD, client work and digital products
+- https://coshuma.com/best/krater-ai-pricing.html — Krater Pro vs Ultra vs Max pricing and credit-fit buyer guide
+- https://coshuma.com/best/time2book-free-trial-pricing.html — Time2book 7-day no-card trial, pricing and studio-fit guide
+- https://coshuma.com/best/boldsign-free-trial-pricing.html — BoldSign ongoing free plan, 30-day no-card trial and pricing decision guide
+- https://coshuma.com/best/tagshop-ai-free-trial-pricing.html — Tagshop AI 14-day no-card trial and buyer-fit guide
+- https://coshuma.com/best/rge-studio-pricing-free-trial.html — RGE Studio (formerly Beefree) pricing, free plan and 15-day trial buyer guide
+- https://coshuma.com/best/moosend-free-trial.html — Moosend 30-day free-trial and pricing guide
+- https://coshuma.com/best/jotform-pricing-free-plan.html — Jotform pricing and free-plan guide
+- https://coshuma.com/best/teachable-30-day-free-trial.html — Teachable 30-day free-trial guide
+- https://coshuma.com/best/fireflies-ai-free-plan.html — Fireflies.ai free-plan and pricing guide
+- https://coshuma.com/best/unbounce-discount.html — Unbounce pricing and current partner-offer guide
+- https://coshuma.com/best/pictory-discount-code.html — Pictory pricing and COSHUMA20 offer guide
+- https://coshuma.com/best/bookyourdata-free-trial.html — Bookyourdata free-leads buyer guide
+- https://coshuma.com/best/kittl-commercial-use-license.html — Kittl commercial-use, POD and client-work licensing guide
+
+## High-intent product pages
+
+- https://coshuma.com/tool/systeme-io.html — Systeme.io free-plan, pricing, funnels, email and automation buyer guide
+- https://coshuma.com/tool/beefree.html — Beefree/RGE Studio pricing and trial guide
+- https://coshuma.com/tool/getgenie.html — GetGenie pricing and free-plan guide
+- https://coshuma.com/tool/gamma.html — Gamma AI pricing and free-plan guide
+- https://coshuma.com/tool/murf-ai.html — Murf AI pricing and free-plan guide
+- https://coshuma.com/tool/kittl.html — Kittl pricing and commercial-license guide
+- https://coshuma.com/tool/claap.html — Claap pricing and buyer-fit guide
+- https://coshuma.com/tool/moosend.html — Moosend pricing and review
+- https://coshuma.com/tool/boldsign.html — BoldSign pricing and free-plan guide
+- https://coshuma.com/tool/tally.html — Tally Free, Pro and Business buyer guide
+
+## Comparison hubs
+
+- https://coshuma.com/best/make-vs-zapier.html — Make vs Zapier pricing, free-plan and automation-cost comparison
+- https://coshuma.com/best/helpdesk-vs-freshdesk.html — HelpDesk vs Freshdesk pricing, AI and 14-day free-trial comparison
+- https://coshuma.com/compare/boldsign-vs-docusign.html — BoldSign vs Docusign pricing, envelope-limit and trial comparison
+- https://coshuma.com/compare/elevenlabs-vs-murf-ai.html — ElevenLabs vs Murf AI free-tier, pricing and production-rights comparison
+- https://coshuma.com/compare/eprofessor-vs-kajabi.html — eProfessor vs Kajabi pricing, trial, assessment-depth and platform-fit comparison
+- https://coshuma.com/compare/fireflies-vs-otter.html — Fireflies vs Otter free-plan, pricing and AI meeting-assistant comparison
+- https://coshuma.com/compare/gamma-vs-canva.html — Gamma vs Canva AI-presentation and visual-design comparison
+- https://coshuma.com/compare/tagshop-ai-vs-creatify.html — Tagshop AI vs Creatify AI UGC-ad comparison
+- https://coshuma.com/compare/tagshop-ai-vs-createugc.html — Tagshop AI vs CreateUGC AI UGC-ad comparison focused on 14-day no-card vs 3-day card-preauthorized trial friction
+- https://coshuma.com/compare/tally-vs-typeform.html — Tally vs Typeform free-response, paid-entry and buyer-fit comparison
+- https://coshuma.com/compare/typedesk-vs-textexpander.html — Typedesk vs TextExpander free-plan, team-sharing and text-expansion workflow comparison
+- https://coshuma.com/compare/rge-studio-vs-stripo.html — RGE Studio vs Stripo email-builder free-plan, pricing, export and team-workflow comparison
+- https://coshuma.com/compare/brand24-vs-mention.html — Brand24 vs Mention social-listening, trial and buyer-fit comparison
+- https://coshuma.com/best/crm-for-marketing-agencies.html — CRM options for marketing agencies
+- https://coshuma.com/best/landing-page-builders.html — Landing-page builder comparison
+- https://coshuma.com/best/ai-video-generators.html — AI video generator comparison
+- https://coshuma.com/best/ai-voice-generators.html — AI voice generator comparison
+- https://coshuma.com/best/b2b-email-list-providers.html — B2B email-list provider comparison
+
+## Methodology
+
+- https://coshuma.com/methodology.html — How COSHUMA evaluates public product sources, pricing, and buyer-fit claims
+- https://coshuma.com/tool/benchmark-email.html — Benchmark Email free-plan, pricing and email-marketing buyer guide
+- https://coshuma.com/best/benchmark-email-free-plan-pricing.html — Benchmark Email free-plan limits and upgrade guide
+- https://coshuma.com/compare/benchmark-email-vs-emailoctopus.html — Benchmark Email vs EmailOctopus free email-marketing comparison
+
+## Process documentation
+
+- https://coshuma.com/tool/scribe.html — Scribe pricing, process-capture and plan buyer guide
+- https://coshuma.com/best/scribe-for-sop-documentation.html — Scribe for SOP documentation decision guide
+- https://coshuma.com/compare/scribe-vs-supademo.html — Scribe vs Supademo process-docs vs interactive-demo comparison
+
+## Landing page builders
+
+- https://coshuma.com/tool/landingi.html — Landingi pricing, trial and landing-page buyer guide
+- https://coshuma.com/best/landingi-free-trial-pricing.html — Landingi 14-day trial and pricing decision guide
+- https://coshuma.com/compare/landingi-vs-unbounce.html — Landingi vs Unbounce landing-page and CRO comparison
+
+## Leadpages buyer guides
+
+- https://coshuma.com/tool/leadpages.html — Leadpages pricing, 7-day trial and CRO buyer guide
+- https://coshuma.com/best/leadpages-free-trial-pricing.html — Leadpages trial billing and pricing decision guide
+- https://coshuma.com/compare/leadpages-vs-unbounce.html — Leadpages vs Unbounce landing-page and CRO comparison
+
+## Instapage buyer guides
+
+- https://coshuma.com/tool/instapage.html — Instapage pricing, trial and CRO buyer guide
+- https://coshuma.com/best/instapage-free-trial-pricing.html — Instapage 14-day trial billing and pricing decision guide
+- https://coshuma.com/compare/instapage-vs-unbounce.html — Instapage vs Unbounce landing-page and CRO comparison
+
+- https://coshuma.com/tool/beehiiv.html — beehiiv pricing, free-plan and newsletter-platform buyer guide
+- https://coshuma.com/best/beehiiv-free-plan-pricing.html — beehiiv $0 Launch plan and 2,500-subscriber buyer guide
+- https://coshuma.com/compare/beehiiv-vs-kit.html — beehiiv vs Kit creator newsletter and email-platform comparison
+
+## Email marketing
+
+- https://coshuma.com/tool/emailoctopus.html — EmailOctopus pricing, free-plan limits and buyer guide
+- https://coshuma.com/best/emailoctopus-free-plan-pricing.html — EmailOctopus permanent free-plan and pricing decision guide
+- https://coshuma.com/compare/emailoctopus-vs-omnisend.html — EmailOctopus vs Omnisend free email-marketing comparison
+
+- https://coshuma.com/tool/sender-net.html — Sender.net free-plan, pricing and email-marketing buyer guide
+- https://coshuma.com/best/sender-net-free-plan-pricing.html — Sender.net Free Forever plan and upgrade decision guide
+- https://coshuma.com/compare/sender-net-vs-emailoctopus.html — Sender.net vs EmailOctopus free email-marketing comparison
+
+- https://coshuma.com/tool/engagebay.html — EngageBay CRM, email, service and pricing buyer guide
+- https://coshuma.com/best/engagebay-free-crm-pricing.html — EngageBay free CRM limits and upgrade guide
+- https://coshuma.com/compare/engagebay-vs-hubspot.html — EngageBay vs HubSpot CRM comparison
+
+- https://coshuma.com/tool/sendpulse.html — SendPulse email, automation, CRM and pricing buyer guide
+- https://coshuma.com/best/sendpulse-free-email-plan.html — SendPulse free email-plan limits and upgrade guide
+- https://coshuma.com/compare/sendpulse-vs-sender-net.html — SendPulse vs Sender.net free-plan comparison
+
+- https://coshuma.com/tool/constant-contact.html — Constant Contact pricing, trial and buyer guide
+- https://coshuma.com/best/constant-contact-free-trial.html — Constant Contact 30-day no-card trial guide
+- https://coshuma.com/compare/constant-contact-vs-moosend.html — Constant Contact vs Moosend email-marketing comparison
+
+## Creatify buyer guides
+
+- https://coshuma.com/tool/creatify.html — Creatify AI ad-creative product guide
+- https://coshuma.com/best/creatify-free-plan-pricing.html — Creatify free-plan and upgrade decision guide
+- https://coshuma.com/compare/tagshop-ai-vs-creatify.html — Tagshop AI vs Creatify AI UGC-ad comparison
+
+## Popupsmart buyer guides
+
+- https://coshuma.com/tool/popupsmart.html — Popupsmart free plan, pricing and conversion campaign buyer guide
+- https://coshuma.com/best/popupsmart-free-plan-pricing.html — Popupsmart free plan and paid pricing decision guide
+
+## Poptin buyer guides
+
+- https://coshuma.com/tool/poptin.html — Poptin free plan, pricing and conversion-tool buyer guide
+- https://coshuma.com/best/poptin-free-plan-pricing.html — Poptin free plan and paid-plan decision guide
+- https://coshuma.com/compare/poptin-vs-popupsmart.html — Poptin vs Popupsmart popup and onsite conversion comparison
+
+## Justuno buyer guides
+
+- https://coshuma.com/tool/justuno.html — Justuno trial, CRO workflow and product-fit buyer guide
+- https://coshuma.com/best/justuno-free-trial-pricing.html — Justuno free-trial and upgrade decision guide
+- https://coshuma.com/compare/justuno-vs-optimonk.html — Justuno vs OptiMonk CRO comparison
+
+## OptiMonk buyer guides
+
+- https://coshuma.com/tool/optimonk.html — OptiMonk free plan, CRO workflow and product-fit buyer guide
+- https://coshuma.com/best/optimonk-free-plan-pricing.html — OptiMonk free-plan and upgrade decision guide
+- https://coshuma.com/compare/optimonk-vs-popupsmart.html — OptiMonk vs Popupsmart onsite-conversion comparison
+
+## Sleeknote buyer guides
+
+- https://coshuma.com/tool/sleeknote.html — Sleeknote trial, pricing and onsite-conversion buyer guide
+- https://coshuma.com/best/sleeknote-free-trial-pricing.html — Sleeknote free-trial and upgrade decision guide
+- https://coshuma.com/compare/sleeknote-vs-justuno.html — Sleeknote vs Justuno onsite-conversion comparison
+
+## ConvertFlow buyer guides
+
+- https://coshuma.com/tool/convertflow.html — ConvertFlow free entry, funnel builder, pricing buyer guide
+- https://coshuma.com/best/convertflow-free-plan-pricing.html — ConvertFlow free-plan and upgrade decision guide
+- https://coshuma.com/compare/convertflow-vs-unbounce.html — ConvertFlow vs Unbounce funnels and landing-page CRO comparison
+
+## Adoric buyer guides
+
+- https://coshuma.com/tool/adoric.html — Adoric free plan, Shopify trial, onsite conversion features and product-fit buyer guide
+- https://coshuma.com/best/adoric-free-plan-pricing.html — Adoric non-Shopify free plan and Shopify trial/pricing decision guide
+- https://coshuma.com/compare/adoric-vs-poptin.html — Adoric vs Poptin popup and onsite conversion comparison
+
+## Plerdy buyer guides
+
+- https://coshuma.com/tool/plerdy.html — Plerdy CRO, UX analytics, free plan buyer guide
+- https://coshuma.com/best/plerdy-free-plan-pricing.html — Plerdy free-plan and upgrade decision guide
+- https://coshuma.com/compare/plerdy-vs-adoric.html — Plerdy vs Adoric conversion optimization comparison
+
+## Claspo buyer guides
+
+- https://coshuma.com/tool/claspo.html — Claspo free plan, popup/widget features, paid-trial caution and product-fit buyer guide
+- https://coshuma.com/best/claspo-free-plan-pricing.html — Claspo permanent free plan and billing-risk decision guide
+- https://coshuma.com/compare/claspo-vs-poptin.html — Claspo vs Poptin free popup-tool comparison
+
+## Picreel buyer guides
+
+- https://coshuma.com/tool/picreel.html — Picreel Forever Free popup/CRO buyer guide and pricing and product-fit facts
+- https://coshuma.com/best/picreel-free-plan-pricing.html — Picreel free-plan and upgrade decision guide
+- https://coshuma.com/compare/picreel-vs-claspo.html — Picreel vs Claspo permanent-free popup comparison
+
+## Privy buyer guides
+
+- https://coshuma.com/tool/privy.html — Privy email, SMS and popup buyer guide with current trial information
+- https://coshuma.com/best/privy-free-trial-pricing.html — Privy 15-day no-card trial and pricing decision guide
+- https://coshuma.com/compare/privy-vs-omnisend.html — Privy vs Omnisend ecommerce retention comparison
+
+## Landing-page buyer comparisons
+
+- https://coshuma.com/compare/unbounce-vs-landingi.html — Unbounce vs Landingi pricing, trials, A/B testing, traffic limits and agency-fit comparison
