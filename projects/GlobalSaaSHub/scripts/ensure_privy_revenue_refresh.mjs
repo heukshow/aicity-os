@@ -108,9 +108,9 @@ for (const url of urls) {
 fs.writeFileSync(sitemapPath, sitemap);
 
 const llmsPath = 'public/llms.txt';
-let llms = fs.readFileSync(llmsPath, 'utf8');
+let llms = fs.readFileSync(llmsPath, 'utf8').replaceAll('trial and affiliate-status facts', 'trial information');
 if (!llms.includes('https://coshuma.com/best/privy-free-trial-pricing.html')) {
-  llms += '\n## Privy buyer guides\n\n- https://coshuma.com/tool/privy.html — Privy email, SMS and popup buyer guide with current trial and affiliate-status facts\n- https://coshuma.com/best/privy-free-trial-pricing.html — Privy 15-day no-card trial and pricing decision guide\n- https://coshuma.com/compare/privy-vs-omnisend.html — Privy vs Omnisend ecommerce retention comparison\n';
+  llms += '\n## Privy buyer guides\n\n- https://coshuma.com/tool/privy.html — Privy email, SMS and popup buyer guide with current trial information\n- https://coshuma.com/best/privy-free-trial-pricing.html — Privy 15-day no-card trial and pricing decision guide\n- https://coshuma.com/compare/privy-vs-omnisend.html — Privy vs Omnisend ecommerce retention comparison\n';
 }
 fs.writeFileSync(llmsPath, llms);
 
