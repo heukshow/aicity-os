@@ -45,6 +45,9 @@ POST_EXACT = {
 }
 
 POST_PATTERNS = (
+    (re.compile(r"\bAffiliate Facts\b", re.I), "Product Details"),
+    (re.compile(r"\bcurrent\s+public\s+affiliate-program\s+facts\b", re.I), "current product details"),
+    (re.compile(r"\bcurrent\s+public\s+affiliate\s+terms\b", re.I), "current product details"),
     (re.compile(r"\bCOSHUMA may earn a commission if an eligible paid signup is attributed through this (?:verified customer-facing referral URL|current offer link), at no extra cost to the buyer\.", re.I), "COSHUMA may earn a commission from some links on this page, at no extra cost to you."),
     (re.compile(r"\bverified\s+COSHUMA\s+partner\s+offer\b", re.I), "current offer"),
     (re.compile(r"\bverified\s+[A-Za-z0-9 ._-]{1,40}\s+partner\s+route\b", re.I), "current offer"),
