@@ -60,9 +60,13 @@ for (const file of ['data/tools.json', 'data/tools.next.json']) {
     supademo.affiliate_source_url = supademoProgramUrl;
     supademo.affiliate_workflow_url = supademoApplicationUrl;
     supademo.affiliate_verified_at = supademoCheckedAt;
+    supademo.affiliate_status_checked_at = supademoCheckedAt;
+    supademo.application_state = 'application_submitted';
+    supademo.review_state = 'pending_review';
+    supademo.do_not_reapply = true;
     supademo.affiliate_next_action = 'Monitor the existing Supademo application for approval, rejection, or additional-information requests. Do not reapply; keep the exact customer tracking URL null until the vendor issues one.';
     const supademoMarkers = [
-      ...(Array.isArray(supademo.affiliate_evidence_markers) ? supademo.affiliate_evidence_markers : []),
+      ...(Array.isArray(supademo.affiliate_evidence_markers) ? supademo.affiliate_evidence_markers.filter((marker) => !/connection reset|Resume this exact official form|human vendor response remains pending/i.test(String(marker))) : []),
       '2026-09-13: COSHUMA affiliate inquiry sent to support@supademo.com (Gmail 1a09b43356bc3947).',
       'Supademo Intercom acknowledged receipt (Gmail 1a09b43b5ba55b97).',
       '2026-09-23: Supademo support agent Mohit replied (Gmail 1a0d02cddb650402) that support does not handle affiliate requests directly and instructed COSHUMA to use the formal request form.',
@@ -77,7 +81,7 @@ for (const file of ['data/tools.json', 'data/tools.next.json']) {
 
 const outreachPath = 'data/affiliate_outreach_state.json';
 const outreach = JSON.parse(fs.readFileSync(outreachPath, 'utf8'));
-outreach.updated_at = '2026-09-24';
+outreach.updated_at = '2026-09-26';
 outreach.programs ||= {};
 outreach.programs.scribe = {
   status: 'temporarily_closed',
@@ -105,6 +109,8 @@ if (outreach.programs.supademo) {
     vendor_response_message_id: '1a0d02cddb650402',
     checked_at: supademoCheckedAt,
     application_state: 'application_submitted',
+    review_state: 'pending_review',
+    submission_evidence_comment_id: 5847971116,
     official_program_url: supademoProgramUrl,
     application_url: supademoApplicationUrl,
     evidence_file: supademoEvidenceFile,
@@ -126,12 +132,15 @@ for (const item of queue) {
     item.priority = 'normal';
     item.user_action_required = false;
     item.exact_tracking_url = null;
+    item.application_state = 'application_submitted';
+    item.review_state = 'pending_review';
     item.do_not_reapply = true;
     item.application_url = supademoApplicationUrl;
     item.reason = 'The official Supademo Affiliate Request form confirmed submission on 2026-09-26. Approval and exact customer tracking URL remain unverified.';
     item.next_action = 'Monitor the existing application for approval, rejection, or additional-information requests. Do not reapply.';
     item.verified_at = supademoCheckedAt;
     item.evidence_file = supademoEvidenceFile;
+    item.submission_evidence_comment_id = 5847971116;
   }
 }
 fs.writeFileSync(queuePath, `${JSON.stringify(queue, null, 2)}\n`);
