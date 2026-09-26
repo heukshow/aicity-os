@@ -4,6 +4,9 @@ import fs from 'node:fs';
 const trackingUrl = 'https://try.sanebox.com/s1ooqjj73rpz';
 const checkedAt = '2026-09-16T06:20:00+09:00';
 const evidenceFile = 'data/sanebox-approved-tracking-2026-09-16.md';
+const creditConfirmationMessageId = '1a0c4afff48e68ce';
+const creditConfirmedAt = '2026-09-21T15:57:41Z';
+const creditPromoUrl = 'https://try.sanebox.com/coshuma';
 const evidenceNote =
   'SaneBox Partner Program welcome email from Tony Bass to support@coshuma.com explicitly welcomed COSHUMA to the program and identified https://try.sanebox.com/s1ooqjj73rpz as the SaneBox referral link. No click, trial, paying customer, commission, payout, or revenue is inferred from approval/link issuance.';
 
@@ -50,8 +53,12 @@ outreach.programs.sanebox = {
   verified_at: checkedAt,
   evidence_file: evidenceFile,
   commission_terms: '20% recurring on referred revenue; 30% tier after $500 completed sales, per SaneBox welcome email',
-  optional_trial_credit_status: 'requested_pending_vendor_confirmation',
-  note: evidenceNote,
+  optional_trial_credit_status: 'vendor_confirmed',
+  optional_trial_credit_amount_usd: 25,
+  optional_trial_credit_confirmation_message_id: creditConfirmationMessageId,
+  optional_trial_credit_confirmed_at: creditConfirmedAt,
+  optional_trial_credit_promo_url: creditPromoUrl,
+  note: `${evidenceNote} Thomas Yuan separately confirmed a $25 customer credit in Gmail ${creditConfirmationMessageId}; the credit promo URL does not replace the later re-confirmed exact referral URL ${trackingUrl}.`,
 };
 writeJson(outreachPath, outreach);
 
