@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-09-26T17:06:35.019Z",
+  "generatedAt": "2026-09-26T17:28:19.852Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 118,
-    "revenueReadyAffiliates": 74,
-    "genericRevenueReadyAffiliates": 71,
+    "revenueReadyAffiliates": 75,
+    "genericRevenueReadyAffiliates": 72,
     "targetedRevenueReadyAffiliates": 3,
-    "openMonetizationGaps": 81,
+    "openMonetizationGaps": 80,
     "directActionableGaps": 13,
     "browserRequiredGaps": 21,
-    "watchOnlyGaps": 47,
+    "watchOnlyGaps": 46,
     "doNotReapply": 166,
     "toolPages": 179,
     "comparePages": 279,
@@ -18,21 +18,21 @@
   "revenueFocus": {
     "policy": "prioritize_direct_existing_gaps_without_reapplying_waiting_states",
     "allowNewTools": false,
-    "reason": "13 existing tools still have directly actionable affiliate gaps; 47 are watch-only and 21 require browser work."
+    "reason": "13 existing tools still have directly actionable affiliate gaps; 46 are watch-only and 21 require browser work."
   },
   "affiliateCoverage": {
     "counts": {
-      "revenueReady": 74,
-      "genericRevenueReady": 71,
+      "revenueReady": 75,
+      "genericRevenueReady": 72,
       "targetedRevenueReady": 3,
       "terminal": 25,
-      "openMonetizationGaps": 81,
+      "openMonetizationGaps": 80,
       "directActionableGaps": 13,
       "browserRequiredGaps": 21,
-      "watchOnlyGaps": 47,
+      "watchOnlyGaps": 46,
       "doNotReapply": 166,
       "unclassifiedAffiliateStatus": 7,
-      "exactAffiliateUrlMissing": 81,
+      "exactAffiliateUrlMissing": 80,
       "officialUnverified": 1,
       "pricingUnverified": 132
     },
@@ -580,6 +580,24 @@
       {
         "id": "gojiberry",
         "name": "Gojiberry",
+        "officialVerified": true,
+        "pricingVerified": false,
+        "affiliateStatus": "approved_tracking",
+        "affiliateVerified": true,
+        "hasAffiliateUrl": true,
+        "genericRevenueReady": true,
+        "targetedRevenueReady": true,
+        "revenueReady": true,
+        "terminal": false,
+        "doNotReapply": true,
+        "browserRequired": false,
+        "directActionableGap": false,
+        "watchOnlyGap": false,
+        "blocker": null
+      },
+      {
+        "id": "gravity-forms",
+        "name": "Gravity Forms",
         "officialVerified": true,
         "pricingVerified": false,
         "affiliateStatus": "approved_tracking",
@@ -2108,24 +2126,6 @@
         "blocker": "affiliate_status_unclassified"
       },
       {
-        "id": "gravity-forms",
-        "name": "Gravity Forms",
-        "officialVerified": true,
-        "pricingVerified": false,
-        "affiliateStatus": "approved",
-        "affiliateVerified": true,
-        "hasAffiliateUrl": false,
-        "genericRevenueReady": false,
-        "targetedRevenueReady": false,
-        "revenueReady": false,
-        "terminal": false,
-        "doNotReapply": true,
-        "browserRequired": false,
-        "directActionableGap": false,
-        "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
-      },
-      {
         "id": "gumloop",
         "name": "Gumloop",
         "officialVerified": true,
@@ -3556,6 +3556,14 @@
       "verifiedAt": "2026-08-31T14:00:00Z"
     },
     {
+      "id": "gravity-forms",
+      "name": "Gravity Forms",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://try.gravity.com/8bd4r655ttws",
+      "verifiedAt": "2026-09-26T17:04:17.917807+00:00"
+    },
+    {
       "id": "helpdesk",
       "name": "HelpDesk",
       "status": "approved_tracking",
@@ -3962,14 +3970,6 @@
       "verified": true,
       "url": null,
       "verifiedAt": "2026-09-01T09:14:55Z"
-    },
-    {
-      "id": "gravity-forms",
-      "name": "Gravity Forms",
-      "status": "approved",
-      "verified": true,
-      "url": null,
-      "verifiedAt": "2026-09-10T08:26:43+09:00"
     },
     {
       "id": "gumloop",
