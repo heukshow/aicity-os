@@ -1,0 +1,32 @@
+name: COSHUMA Registry Reconciliation
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 * * * *'
+  workflow_run:
+    workflows: ['COSHUMA Release Verification', 'COSHUMA Site Build & Deploy']
+    types: [completed]
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: coshuma-registry-reconciliation
+  cancel-in-progress: false
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - name: Reconcile only existing records from exact PR and release evidence
+        working-directory: projects/GlobalSaaSHub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python scripts/reconcile_operations_registry.py --write
