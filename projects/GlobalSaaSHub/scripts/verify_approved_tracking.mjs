@@ -1,5 +1,5 @@
 import './reconcile_sanebox_approved_tracking.mjs';
-import fs from 'node:fs';
+import fs from './affiliate_state_fs.mjs';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { approvedTracking } from './approved_tracking_evidence.mjs';
