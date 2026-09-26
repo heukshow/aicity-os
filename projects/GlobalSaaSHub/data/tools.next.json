@@ -833,7 +833,12 @@
     "affiliate_status": "approved_tracking",
     "affiliate_source_url": "https://www.bolddesk.com/affiliate-program/signup",
     "affiliate_final_url": "https://www.bolddesk.com/?via=sangkwon",
-    "affiliate_verified_at": "2026-09-01T00:00:00Z"
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "30% of active subscription for first year",
+      "password creation required",
+      "payment only via Business PayPal account"
+    ]
   },
   {
     "id": "boldsign",
@@ -868,7 +873,11 @@
     "affiliate_status": "approved_tracking",
     "affiliate_source_url": "https://boldsign.com/affiliate-program/signup/",
     "affiliate_final_url": "https://boldsign.com?via=sangkwon",
-    "affiliate_verified_at": "2026-09-01T00:00:00Z"
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "30% of active subscription for first year",
+      "password creation required"
+    ]
   },
   {
     "id": "bookyourdata",
@@ -939,12 +948,16 @@
     "affiliate_url": "https://try.brand24.com/8xqrjxybmsbt",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
-    "affiliate_verified_at": "2026-09-08T00:00:00Z",
+    "affiliate_verified_at": "2026-09-07T06:48:39Z",
     "affiliate_evidence_markers": [
-      "PartnerStack Terms of Service confirmed; Links section enabled and displayed the exact link. Official Brand24 page loaded with PartnerStack attribution parameters. Program dashboard showed 7 clicks, 0 signups, and $0 revenue.",
-      "data/approved-tracking-2026-09-08.json"
+      "Merged PR #229 uses the verified customer-facing PartnerStack URL",
+      "Production Brand24 CTAs use https://try.brand24.com/8xqrjxybmsbt",
+      "Live redirect preserves partner-program attribution parameters",
+      "No sale, commission, or conversion is inferred from link verification"
     ],
-    "affiliate_final_url": "https://brand24.com/"
+    "affiliate_source_url": "https://try.brand24.com/8xqrjxybmsbt",
+    "affiliate_final_url": "https://try.brand24.com/8xqrjxybmsbt",
+    "affiliate_rejection_reason": null
   },
   {
     "id": "brevo",
@@ -1494,7 +1507,6 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Email and digital marketing platform for small businesses with email, social, automation, events, integrations and a 30-day free trial.",
-    "affiliate_url": null,
     "pricing": "Lite from $12/month, Standard from $35/month, Premium from $80/month; annual prepay can reduce starting prices by up to 15%",
     "key_features": [
       "Email marketing",
@@ -1518,11 +1530,12 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-09-14T21:10:00+09:00",
     "official_evidence_url": "https://www.constantcontact.com/partners/affiliate",
-    "affiliate_verified": false,
-    "affiliate_status": "browser_required_affiliate_application",
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "approved",
     "affiliate_source_url": "https://www.constantcontact.com/partners/affiliate",
-    "affiliate_status_checked_at": "2026-09-14T21:10:00+09:00",
-    "application_state": "not_submitted",
+    "affiliate_status_checked_at": "2026-09-26T10:37:00Z",
+    "application_state": "approved",
     "affiliate_evidence_markers": [
       "Official affiliate page says affiliates can earn up to $105 when a referred customer pays for a new account.",
       "Official knowledge base updated 2026-07-15 says the affiliate program is free to join.",
@@ -1530,7 +1543,7 @@
       "GitHub search and support@coshuma.com Gmail found no prior Constant Contact application, approval, rejection, issued tracking link, commission or payout record before this cycle.",
       "Exact COSHUMA customer tracking URL is unknown; application, dashboard and generic vendor URLs must not be used as revenue links."
     ],
-    "affiliate_next_action": "Submit the official free affiliate application once through the direct browser when available; stop for CAPTCHA, OTP, legal consent or forced identity verification. After approval, recover only the vendor-issued customer-facing tracking URL before changing public CTA state."
+    "affiliate_next_action": "Constant Contact application is approved. Recover and independently verify the exact PartnerStack customer-facing tracking URL before any public affiliate CTA change. Do not reapply."
   },
   {
     "id": "convertflow",
@@ -3422,7 +3435,13 @@
     "affiliate_url": "https://www.jotform.com/?partner=coshuma",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
-    "affiliate_verified_at": "2026-09-07T06:06:40+00:00"
+    "affiliate_source_url": "https://www.jotform.com/partnership/affiliate/",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "Welcome to the Jotform Affiliate Program",
+      "30% recurring commission",
+      "Partner Dashboard"
+    ]
   },
   {
     "id": "justuno",
@@ -3430,7 +3449,6 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Onsite conversion and visitor-identification platform for popups, workflows, targeting, personalization and ecommerce product recommendations.",
-    "affiliate_url": null,
     "pricing": "Current Lite display: $59/month in annual-save context, up to 10,000 visitors/month, all features, 5 live workflows, 14-day free trial; paid pricing varies with traffic and billing selectors",
     "key_features": [
       "Website popups and onsite workflows",
@@ -3454,12 +3472,13 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-09-14T09:38:00+09:00",
     "official_evidence_url": "https://www.justuno.com/affiliate",
+    "affiliate_url": null,
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_partnerstack_application",
+    "affiliate_status": "application_submitted",
     "affiliate_source_url": "https://www.justuno.com/affiliate",
     "affiliate_workflow_url": "https://www.justuno.com/affiliate",
-    "affiliate_status_checked_at": "2026-09-14T09:38:00+09:00",
-    "application_state": "not_submitted",
+    "affiliate_status_checked_at": "2026-09-26T10:37:00Z",
+    "application_state": "submitted",
     "affiliate_evidence_markers": [
       "Official Justuno affiliate page says applicants use PartnerStack, receive a unique referral link, and earn 30% of eligible new-customer plan cost for up to one year.",
       "Official affiliate page says PartnerStack can track clicks, trials, referrals and payouts; this program capability is not evidence of COSHUMA account activity.",
@@ -3470,7 +3489,7 @@
       "Generic homepage, signup, login, onboarding and PartnerStack dashboard URLs must not be treated as affiliate links.",
       "GitHub issue #493 tracks PartnerStack duplicate-check/application and exact account-issued customer referral URL recovery."
     ],
-    "affiliate_next_action": "Reuse the existing COSHUMA PartnerStack identity, check for an existing Justuno relationship first, and submit exactly once only if absent. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification or payment approval. After approval, recover and validate only the exact vendor-issued customer-facing referral URL."
+    "affiliate_next_action": "Monitor the existing Justuno application for approval, rejection, or requests for more information. Do not reapply. After approval, recover and verify only the exact vendor-issued customer-facing referral URL."
   },
   {
     "id": "kinsta",
@@ -3500,7 +3519,14 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://kinsta.com/",
-    "affiliate_url": null
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "rejected",
+    "affiliate_verified_at": "2026-09-01T00:00:00Z",
+    "affiliate_evidence_markers": [
+      "Kinsta Affiliate Program application status",
+      "profile is not suitable for the program at this time"
+    ]
   },
   {
     "id": "kit",
@@ -3992,16 +4018,19 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
     "official_evidence_url": "https://www.make.com/",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.make.com/?pc=coshuma",
     "affiliate_verified": true,
-    "affiliate_status": "blocked_requires_active_wise_account",
+    "affiliate_status": "approved_tracking",
     "affiliate_source_url": "https://www.make.com/en/affiliate",
-    "affiliate_final_url": "https://make.com/user/affiliate",
+    "affiliate_final_url": "https://www.make.com/en?pc=coshuma",
     "affiliate_verified_at": "2026-09-01T00:00:00Z",
     "affiliate_evidence_markers": [
       "35% commission",
       "12 months",
-      "Wise"
+      "Partner code created",
+      "pc=coshuma",
+      "Wise Business Basic account created",
+      "receiving account details not issued"
     ]
   },
   {
@@ -4592,14 +4621,18 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.omi.me/",
-    "affiliate_url": null,
-    "affiliate_status": "approved_email_verification_required",
-    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_url": "https://www.omi.me/?ref=SANGKWONAN",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
+    "affiliate_status_checked_at": "2026-09-07T06:16:08Z",
     "affiliate_status_evidence_url": "https://affiliate.omi.me/overview",
     "affiliate_evidence_markers": [
-      "Your account has been approved",
-      "Verify your email"
-    ]
+      "Email verified",
+      "Welcome back, Sangkwon",
+      "Your Referral Link",
+      "https://www.omi.me/?ref=SANGKWONAN"
+    ],
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "omnisend",
