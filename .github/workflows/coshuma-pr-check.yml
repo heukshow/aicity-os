@@ -43,6 +43,7 @@ jobs:
           python scripts/tests/test_operations_stability.py
           python scripts/tests/test_affiliate_producers.py
           node scripts/tests/google-fetch-retry.test.mjs
+          node scripts/tests/decision-support.test.mjs
 
       # RECOVERY-006 invariant: committed customer source must be checked before any source-mutating preparation.
       - name: Fail closed on committed public source before preparation
