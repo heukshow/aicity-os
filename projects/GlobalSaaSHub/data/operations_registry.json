@@ -422,22 +422,25 @@
       "task_key": "DECISION-UX-001",
       "target": "goal-led personalized shortlist UX",
       "owner_team": "Product Experience Team",
-      "lifecycle": "production_verification_requested",
-      "next_owner": "Release & Reliability Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
       "priority": "normal",
       "blocker": null,
-      "last_evidence_at": "2026-09-26T00:27:00Z",
+      "last_evidence_at": "2026-09-26T01:11:35Z",
       "evidence": {
         "source": "competitive-gap-review-20260926",
         "scope": "Strengthen goal-led Get leads/Create content/Sell online/Automate work/Grow traffic flow into a short explainable shortlist using only existing verified data; no opaque ranking claims.",
         "implementation_pr": 824,
         "merge_commit": "d62240698d559f54f60def8197a0e3369d48cdf7",
         "pr_build_check_run": 36204426292,
-        "production_verification_comment_id": null,
-        "site_build_deploy_run": 36204708444
+        "production_verification_comment_id": 5841830661,
+        "site_build_deploy_run": 36207245882,
+        "deterministic_verification_run": 36207574184
       },
       "completion_gate": "production_verified",
-      "user_action_required": false
+      "user_action_required": false,
+      "completion_gate_satisfied": true,
+      "completed_at": "2026-09-26T01:11:35Z"
     }
   ],
   "invariants": {
