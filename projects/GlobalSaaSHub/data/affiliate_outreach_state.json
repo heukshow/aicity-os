@@ -85,9 +85,9 @@
       "contact": "PartnerStack / Gravity Forms",
       "sender": "support@coshuma.com",
       "tracking_url": "https://try.gravity.com/8bd4r655ttws",
-      "verified_at": "2026-09-08T02:06:13+09:00",
-      "note": "Authenticated PartnerStack displays Gravity / Application pending. Do not reapply. No customer-facing tracking URL is verified yet.",
-      "checked_at": "2026-09-26T16:42:44.796688+00:00",
+      "verified_at": "2026-09-26T17:04:17.917807+00:00",
+      "note": "Authenticated PartnerStack issued the exact customer-facing URL; independent HTTP 200 and browser redirect verification reached the public Gravity Forms product page. Verification requests are operational traffic, not customer conversions.",
+      "checked_at": "2026-09-26T17:04:17.917807+00:00",
       "next_action": "Measure the existing tracked customer route; do not reapply.",
       "evidence_file": "data/browser_required_queue.d/gravity-forms-approved-link-recovery-2026-09-09.json"
     },
