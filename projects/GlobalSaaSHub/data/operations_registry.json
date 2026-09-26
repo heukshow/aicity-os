@@ -345,14 +345,19 @@
       "task_key": "TRUST-EVIDENCE-001",
       "target": "public tool/comparison trust evidence layer",
       "owner_team": "Editorial Quality Team",
-      "lifecycle": "assigned_to_team",
-      "next_owner": "Editorial Quality Team",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-09-25T18:50:00Z",
+      "last_evidence_at": "2026-09-26T00:23:00Z",
       "evidence": {
         "source": "competitive-gap-review-20260926",
-        "scope": "Design a non-user-review trust layer using verified supplier facts, methodology visibility, evidence freshness and source attribution. Do not implement public user reviews/comments without explicit TRUST-001 approval."
+        "scope": "Design a non-user-review trust layer using verified supplier facts, methodology visibility, evidence freshness and source attribution. Do not implement public user reviews/comments without explicit TRUST-001 approval.",
+        "implementation_pr": 825,
+        "merge_commit": "8ccc50e52a0adcaf1e338ca98ad32e0572a4a554",
+        "pr_build_check_run": 36204457412,
+        "site_build_deploy_run": 36204625778,
+        "production_verification_comment_id": null
       },
       "completion_gate": "production_verified",
       "user_action_required": false
@@ -363,14 +368,18 @@
       "task_key": "MULTI-COMPARE-001",
       "target": "multi-product comparison decision UX",
       "owner_team": "Product Experience Team",
-      "lifecycle": "assigned_to_team",
-      "next_owner": "Product Experience Team",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-09-25T18:50:00Z",
+      "last_evidence_at": "2026-09-26T00:23:00Z",
       "evidence": {
         "source": "competitive-gap-review-20260926",
-        "scope": "Prototype a zero-cost progressive multi-product compare flow using existing verified product data; preserve affiliate URLs/disclosures and do not invent ratings."
+        "scope": "Prototype a zero-cost progressive multi-product compare flow using existing verified product data; preserve affiliate URLs/disclosures and do not invent ratings.",
+        "implementation_pr": 823,
+        "merge_commit": "351c23ec520f522b94e9d2ede910182a331ce5bf",
+        "pr_build_check_run": 36204416148,
+        "production_verification_comment_id": null
       },
       "completion_gate": "production_verified",
       "user_action_required": false
@@ -381,14 +390,19 @@
       "task_key": "BUYER-INTENT-001",
       "target": "first-party buyer-intent funnel measurement",
       "owner_team": "Audience Growth Team",
-      "lifecycle": "assigned_to_team",
-      "next_owner": "Audience Growth Team",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-09-25T18:50:00Z",
+      "last_evidence_at": "2026-09-26T00:23:00Z",
       "evidence": {
         "source": "competitive-gap-review-20260926",
-        "scope": "Extend privacy-safe first-party measurement across category/product/compare/pricing-interest/save/return/affiliate-click stages without PII; revenue truth remains Revenue Intelligence-owned."
+        "scope": "Extend privacy-safe first-party measurement across category/product/compare/pricing-interest/save/return/affiliate-click stages without PII; revenue truth remains Revenue Intelligence-owned.",
+        "implementation_pr": 822,
+        "merge_commit": "95d55932e677e9d7e85915ff401436153bb98130",
+        "pr_build_check_run": 36204324305,
+        "site_build_deploy_run": 36204488485,
+        "production_verification_comment_id": null
       },
       "completion_gate": "production_verified",
       "user_action_required": false
@@ -399,14 +413,18 @@
       "task_key": "DECISION-UX-001",
       "target": "goal-led personalized shortlist UX",
       "owner_team": "Product Experience Team",
-      "lifecycle": "assigned_to_team",
-      "next_owner": "Product Experience Team",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
       "priority": "normal",
       "blocker": null,
-      "last_evidence_at": "2026-09-25T18:50:00Z",
+      "last_evidence_at": "2026-09-26T00:23:00Z",
       "evidence": {
         "source": "competitive-gap-review-20260926",
-        "scope": "Strengthen goal-led Get leads/Create content/Sell online/Automate work/Grow traffic flow into a short explainable shortlist using only existing verified data; no opaque ranking claims."
+        "scope": "Strengthen goal-led Get leads/Create content/Sell online/Automate work/Grow traffic flow into a short explainable shortlist using only existing verified data; no opaque ranking claims.",
+        "implementation_pr": 824,
+        "merge_commit": "d62240698d559f54f60def8197a0e3369d48cdf7",
+        "pr_build_check_run": 36204426292,
+        "production_verification_comment_id": null
       },
       "completion_gate": "production_verified",
       "user_action_required": false
