@@ -285,6 +285,30 @@
       "gh_pages_forbidden_regex": [],
       "live_url": "https://coshuma.com/compare/semrush-vs-frase.html",
       "verify_deployed_ancestry": true
+    },
+    "EDITORIAL:EDITORIAL-BODY-005": {
+      "mode": "public_boundary",
+      "source_glob": "projects/GlobalSaaSHub/public/tool/agorapulse.html",
+      "gh_pages_glob": "tool/agorapulse.html",
+      "live_url": "https://coshuma.com/tool/agorapulse.html",
+      "forbidden_regex": [
+        "It is strongest when social operations and listening need to live in one platform."
+      ],
+      "live_required_substrings": [
+        "It can fit when social operations and listening need to live in one platform."
+      ],
+      "verify_deployed_ancestry": true
+    },
+    "TRUST:TRUST-002B": {
+      "mode": "public_boundary",
+      "source_glob": "projects/GlobalSaaSHub/public/methodology.html",
+      "gh_pages_glob": "methodology.html",
+      "live_url": "https://coshuma.com/methodology.html",
+      "forbidden_regex": [],
+      "live_required_substrings": [
+        "How COSHUMA evaluates AI &amp; SaaS tools"
+      ],
+      "verify_deployed_ancestry": true
     }
   }
 }
