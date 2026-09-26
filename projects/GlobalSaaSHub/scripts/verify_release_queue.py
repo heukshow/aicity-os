@@ -180,7 +180,12 @@ def has_existing_result(record, token, issue_number=292):
             return False
         for row in rows:
             body = row.get("body", "")
-            if marker in body and "RELEASE_VERIFICATION" in body and (not merge or merge in body):
+            if (
+                marker in body
+                and "RELEASE_VERIFICATION" in body
+                and "result: `production_verified`" in body
+                and (not merge or merge in body)
+            ):
                 return True
         page += 1
 
