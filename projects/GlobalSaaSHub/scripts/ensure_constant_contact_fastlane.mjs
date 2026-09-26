@@ -43,14 +43,48 @@ const tool = {
 for (const file of ['data/tools.json','data/tools.next.json']) {
   const tools = JSON.parse(fs.readFileSync(file,'utf8'));
   const existing = tools.find((x)=>x.id===tool.id);
-  if (existing) { const progressed=['submitted','approved','rejected'].includes(existing.application_state); const keep=progressed?{affiliate_status:existing.affiliate_status,affiliate_verified:existing.affiliate_verified,affiliate_url:existing.affiliate_url,affiliate_status_checked_at:existing.affiliate_status_checked_at,application_state:existing.application_state,affiliate_next_action:existing.affiliate_next_action,affiliate_evidence_markers:existing.affiliate_evidence_markers}:{}; Object.assign(existing, tool, keep); } else tools.push(tool);
+  if (existing) {
+    const progressed = ['submitted', 'approved', 'rejected'].includes(existing.application_state);
+    const keep = progressed ? {
+      affiliate_status: existing.affiliate_status,
+      affiliate_verified: existing.affiliate_verified,
+      affiliate_url: existing.affiliate_url,
+      affiliate_status_checked_at: existing.affiliate_status_checked_at,
+      application_state: existing.application_state,
+      affiliate_next_action: existing.affiliate_next_action,
+      affiliate_evidence_markers: existing.affiliate_evidence_markers
+    } : {};
+    Object.assign(existing, tool, keep);
+    if (existing.application_state === 'approved') {
+      existing.affiliate_url = null;
+      existing.affiliate_next_action = 'Await the existing official terms clarification for Sections 10.2 and 16 and the account-specific commission schedule. Do not accept the agreement, infer a tracking URL, change public CTAs or send duplicate outreach. After controlling terms are clarified, request the specific legal-consent decision before recovering and verifying the vendor-issued customer URL.';
+      existing.affiliate_evidence_markers = [...new Set([
+        ...(existing.affiliate_evidence_markers || []),
+        '2026-09-27: Official clarification request sent in Gmail thread 1a0df0917006730e. Agreement remains unaccepted and exact customer tracking URL remains null pending controlling terms.'
+      ])];
+    }
+  } else tools.push(tool);
   tools.sort((a,b)=>String(a.id||'').localeCompare(String(b.id||'')));
   fs.writeFileSync(file,`${JSON.stringify(tools,null,2)}\n`);
 }
 
 const queuePath='data/browser_required_queue.json';
 const queue=JSON.parse(fs.readFileSync(queuePath,'utf8'));
-const existingQueueItem=queue.find((item)=>item.tool_id==='constant-contact'||String(item.id||'').startsWith('constant-contact-'));if(!existingQueueItem){
+const existingQueueItem = queue.find((item) => item.tool_id === 'constant-contact' || String(item.id || '').startsWith('constant-contact-'));
+if (existingQueueItem?.application_state === 'approved') {
+  Object.assign(existingQueueItem, {
+    task_key: 'constant-contact-tracking-activation-20260927',
+    status: 'approved',
+    affiliate_status: 'approved',
+    exact_tracking_url: null,
+    user_action_required: false,
+    blocker: 'awaiting_vendor_terms_clarification',
+    reason: 'Approved, but Sections 10.2 and 16 and the account-specific commission schedule remain unresolved in the existing official clarification thread.',
+    next_action: 'Await the existing official written clarification. Do not accept terms, infer a customer URL, change public CTAs or send duplicate outreach. After controlling terms are clarified, request the specific legal-consent decision before URL activation.',
+    do_not_reapply: true
+  });
+}
+if (!existingQueueItem) {
   queue.push({id:'constant-contact-affiliate-application-2026-09-14',tool_id:'constant-contact',priority:'medium',status:'browser_required_affiliate_application',affiliate_status:'browser_required_affiliate_application',application_state:'not_submitted',cost:0,exact_tracking_url:null,user_action_required:false,blocker:'Interactive affiliate application must be completed in the official browser flow; stop only for CAPTCHA, OTP, legal consent or identity verification.',reason:'Duplicate checks are clear and the public program is free, but no account-specific customer tracking URL exists yet.',next_action:'Submit once through the official affiliate application when direct browser interaction is available; then recover only the vendor-issued customer referral URL.',do_not_reapply:true,verified_at:checkedAt});
 }
 fs.writeFileSync(queuePath,`${JSON.stringify(queue,null,2)}\n`);
