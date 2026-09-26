@@ -12,6 +12,7 @@ on:
       - 'projects/GlobalSaaSHub/scripts/collect_audience_growth_events.mjs'
       - 'projects/GlobalSaaSHub/scripts/audit_search_index.mjs'
       - 'projects/GlobalSaaSHub/scripts/dashboard-series.mjs'
+      - 'projects/GlobalSaaSHub/scripts/monetization-measurement.mjs'
       - 'projects/GlobalSaaSHub/scripts/upload_private_dashboard.mjs'
       - 'projects/GlobalSaaSHub/scripts/google_fetch_retry.mjs'
 
