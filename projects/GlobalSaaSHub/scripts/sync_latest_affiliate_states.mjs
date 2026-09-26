@@ -157,17 +157,6 @@ const states = {
       'Do not send duplicate outreach while awaiting Tapfiliate response or a browser path that can bypass the prior CAPTCHA blocker',
     ],
   },
-  'gravity-forms': {
-    affiliate_url: null,
-    affiliate_verified: true,
-    affiliate_status: 'application_submitted',
-    affiliate_verified_at: observedAt,
-    affiliate_evidence_markers: [
-      'Authenticated PartnerStack displays Gravity / Application pending',
-      'Application was already submitted; do not submit another application',
-      'Exact customer-facing tracking URL is not available before approval',
-    ],
-  },
   sendcloud: {
     affiliate_url: 'https://sendcloud.getsc.eu/bdwc8vxceqtt',
     affiliate_verified: true,
