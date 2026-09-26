@@ -46,6 +46,7 @@ jobs:
           node scripts/tests/google-fetch-retry.test.mjs
           node scripts/tests/decision-support.test.mjs
           node scripts/tests/monetization-measurement.test.mjs
+          node scripts/tests/revenue-program-observations.test.mjs
           node scripts/tests/compare-measurement.test.mjs
           node scripts/tests/synced-affiliates.test.mjs
 
