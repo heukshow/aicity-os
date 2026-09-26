@@ -10,7 +10,7 @@ on:
       - 'projects/GlobalSaaSHub/scripts/audit_release_handoff_registry.py'
       - '.github/workflows/coshuma-release-verification.yml'
   workflow_run:
-    workflows: ['COSHUMA Site Build & Deploy']
+    workflows: ['COSHUMA Site Build & Deploy', 'pages build and deployment']
     types: [completed]
   workflow_dispatch:
   schedule:
