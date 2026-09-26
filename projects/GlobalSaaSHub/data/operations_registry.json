@@ -173,15 +173,19 @@
         "previous_form_url": "https://eu.makeforms.io/k1ibmll/",
         "approval_state": null,
         "exact_tracking_url": null,
+        "submitted_at": "2026-09-26T16:38:43Z",
+        "submission_confirmation": "Thanks for your submission! We'll get back to you in 1-2 business days.",
+        "application_purpose": "Supademo Affiliate Request",
+        "support_linked_non_affiliate_form_url": "https://eu.makeforms.co/xtyzhps/",
         "superseded_form_diagnosis": {
           "form_url": "https://eu.makeforms.co/xtyzhps/",
           "form_recheck": "2026-09-26T16:18:02.000Z: official support-linked Supademo demo iframe resolved to https://eu.makeforms.co/xtyzhps/; direct load rendered Link Exchange / Guest Post Form with Full Name, Email, enquiry type, Domain Authority, relevant-domain fields, and Submit Request. No application was submitted.",
           "capability_recheck": "Current canonical form is reachable through the official Supademo support-linked demo and by direct browser load. The prior .io/k1ibmll path is superseded evidence, not the current application URL.",
           "application_state": "not_submitted"
         },
-        "submission_confirmation": "Thanks for your submission! We'll get back to you in 1-2 business days.",
         "submission_evidence_comment_id": 5847971116,
-        "submission_observed_before": "2026-09-26T16:38:43Z"
+        "submission_observed_before": "2026-09-26T16:38:43Z",
+        "producer_correction_pr": 844
       },
       "completion_gate": "formal_application_submission_evidence_or_rejected_with_evidence",
       "user_action_required": false,
@@ -533,7 +537,7 @@
       "priority": "high",
       "blocker": null,
       "evidence": {
-        "implementation_pr": 840,
+        "implementation_pr": 845,
         "prerequisite_prs": [
           837,
           838
@@ -644,7 +648,8 @@
       "last_evidence_at": "2026-09-26T16:55:42.591125+00:00",
       "evidence": {
         "baseline_file": "data/revenue-growth-baseline-2026-09-26.json",
-        "audit_comment_id": 5847980948
+        "audit_comment_id": 5847980948,
+        "implementation_pr": 845
       },
       "completion_gate": "production_verified",
       "completion_gate_satisfied": false,
@@ -669,7 +674,8 @@
       "last_evidence_at": "2026-09-26T16:55:42.591125+00:00",
       "evidence": {
         "baseline_file": "data/revenue-growth-baseline-2026-09-26.json",
-        "audit_comment_id": 5847980948
+        "audit_comment_id": 5847980948,
+        "implementation_pr": 845
       },
       "completion_gate": "production_verified",
       "completion_gate_satisfied": false,

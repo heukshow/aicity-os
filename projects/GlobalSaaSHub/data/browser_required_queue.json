@@ -667,6 +667,25 @@
     "user_action_required": false
   },
   {
+    "id": "supademo-affiliate-batch-20260908-0633",
+    "tool_id": "supademo",
+    "priority": "normal",
+    "status": "application_submitted",
+    "affiliate_status": "application_submitted",
+    "exact_tracking_url": null,
+    "cost": "0",
+    "verified_at": "2026-09-26T16:42:44.796688+00:00",
+    "reason": "Formal Affiliate Request submission confirmed; vendor review pending.",
+    "next_action": "Await vendor review of the submitted formal affiliate application; reconcile new email/portal evidence. Do not resubmit without a new vendor instruction.",
+    "evidence_file": "data/supademo-form-route-2026-09-24.md",
+    "user_action_required": false,
+    "application_url": "https://eu.makeforms.io/k1ibmll/",
+    "do_not_reapply": true,
+    "submission_observed_at": "2026-09-26T16:38:43Z",
+    "application_state": "submitted",
+    "evidence_url": "https://github.com/heukshow/aicity-os/issues/292#issuecomment-5847971116"
+  },
+  {
     "id": "nudgera-affiliate-batch-20260908-0650",
     "tool_id": "nudgera",
     "status": "browser_required_otp",
@@ -1207,6 +1226,41 @@
     "campaign_slug": "aiassistworks"
   },
   {
+    "id": "gravity-forms-approved-link-recovery-2026-09-09",
+    "tool_id": "gravity-forms",
+    "priority": "high",
+    "status": "approved_tracking",
+    "affiliate_status": "approved_tracking",
+    "cost": 0,
+    "verified_at": "2026-09-26T17:04:17.917807+00:00",
+    "gmail_message_id": "1a082c784399b2c3",
+    "gmail_thread_id": "1a082c784399b2c3",
+    "latest_vendor_message_id": "1a086c5b09d76105",
+    "outbound_exact_link_request_message_id": "1a086cebfdc650f5",
+    "reason": "Recovered directly from the existing authenticated Gravity PartnerStack Summary; independent HTTP 200 and browser redirect reached the public Gravity Forms product page.",
+    "exact_tracking_url": "https://try.gravity.com/8bd4r655ttws",
+    "next_action": "Preserve the issued URL and connect existing customer CTAs. Measure later clicks separately from these verification requests. Do not reapply.",
+    "do_not": [
+      "Do not submit another Gravity affiliate application; the welcome email verifies program acceptance.",
+      "Do not use SendGrid email redirects, PartnerStack login/dashboard routes, profile URLs, help pages, notification pages, or the generic gravityforms.com homepage as affiliate/revenue URLs.",
+      "Do not guess or construct a referral parameter or pricing deeplink.",
+      "Do not infer clicks, sales, conversions, commissions, or revenue from approval or link availability alone."
+    ],
+    "verification": {
+      "source": "authenticated_partnerstack_dashboard",
+      "portal_url": "https://dash.partnerstack.com/gravity",
+      "destination_origin": "https://www.gravityforms.com/",
+      "destination_host": "www.gravityforms.com",
+      "http_status": 200,
+      "browser_title": "Gravity Forms | The Best WordPress Form Plugin | Form Builder",
+      "attribution_preserved": true,
+      "audit_comment_id": 5847980948,
+      "verification_traffic_note": "One command-line GET and one browser navigation were verification traffic, not customer conversions.",
+      "browser_rechecked_at": "2026-09-26T17:04:17.917807+00:00",
+      "browser_recheck_note": "Existing independently redirected browser tab still displays the Gravity Forms product title and www.gravityforms.com customer destination; no extra referral request was made."
+    }
+  },
+  {
     "id": "claap-approved-tracking-2026-09-09",
     "tool_id": "claap",
     "priority": "resolved",
@@ -1269,58 +1323,5 @@
     "resolved_at": "2026-09-09T12:45:09Z",
     "resolution_evidence": "Gmail message 1a08633651c79db9 from Claap affiliate manager Lamia Karmaly supplied both exact URLs; the first is the authoritative default CTA pending destination-label mapping for the second.",
     "blocker": null
-  },
-  {
-    "id": "supademo-affiliate-batch-20260908-0633",
-    "tool_id": "supademo",
-    "priority": "normal",
-    "status": "application_submitted",
-    "affiliate_status": "application_submitted",
-    "exact_tracking_url": null,
-    "cost": "0",
-    "verified_at": "2026-09-26T16:42:44.796688+00:00",
-    "reason": "Formal Affiliate Request submission confirmed; vendor review pending.",
-    "next_action": "Await vendor review of the submitted formal affiliate application; reconcile new email/portal evidence. Do not resubmit without a new vendor instruction.",
-    "evidence_file": "data/supademo-form-route-2026-09-24.md",
-    "user_action_required": false,
-    "application_url": "https://eu.makeforms.io/k1ibmll/",
-    "application_state": "submitted",
-    "evidence_url": "https://github.com/heukshow/aicity-os/issues/292#issuecomment-5847971116",
-    "do_not_reapply": true
-  },
-  {
-    "id": "gravity-forms-approved-link-recovery-2026-09-09",
-    "tool_id": "gravity-forms",
-    "priority": "high",
-    "status": "approved_tracking",
-    "affiliate_status": "approved_tracking",
-    "cost": 0,
-    "verified_at": "2026-09-26T17:04:17.917807+00:00",
-    "gmail_message_id": "1a082c784399b2c3",
-    "gmail_thread_id": "1a082c784399b2c3",
-    "latest_vendor_message_id": "1a086c5b09d76105",
-    "outbound_exact_link_request_message_id": "1a086cebfdc650f5",
-    "reason": "Recovered directly from the existing authenticated Gravity PartnerStack Summary; independent HTTP 200 and browser redirect reached the public Gravity Forms product page.",
-    "exact_tracking_url": "https://try.gravity.com/8bd4r655ttws",
-    "next_action": "Preserve the issued URL and connect existing customer CTAs. Measure later clicks separately from these verification requests. Do not reapply.",
-    "do_not": [
-      "Do not submit another Gravity affiliate application; the welcome email verifies program acceptance.",
-      "Do not use SendGrid email redirects, PartnerStack login/dashboard routes, profile URLs, help pages, notification pages, or the generic gravityforms.com homepage as affiliate/revenue URLs.",
-      "Do not guess or construct a referral parameter or pricing deeplink.",
-      "Do not infer clicks, sales, conversions, commissions, or revenue from approval or link availability alone."
-    ],
-    "verification": {
-      "source": "authenticated_partnerstack_dashboard",
-      "portal_url": "https://dash.partnerstack.com/gravity",
-      "destination_origin": "https://www.gravityforms.com/",
-      "destination_host": "www.gravityforms.com",
-      "http_status": 200,
-      "browser_title": "Gravity Forms | The Best WordPress Form Plugin | Form Builder",
-      "attribution_preserved": true,
-      "audit_comment_id": 5847980948,
-      "verification_traffic_note": "One command-line GET and one browser navigation were verification traffic, not customer conversions.",
-      "browser_rechecked_at": "2026-09-26T17:04:17.917807+00:00",
-      "browser_recheck_note": "Existing independently redirected browser tab still displays the Gravity Forms product title and www.gravityforms.com customer destination; no extra referral request was made."
-    }
   }
 ]

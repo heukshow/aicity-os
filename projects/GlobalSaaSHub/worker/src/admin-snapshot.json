@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T16:06:26.973Z",
+  "generatedAt": "2026-09-26T17:06:35.019Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 118,
@@ -8,8 +8,8 @@
     "targetedRevenueReadyAffiliates": 3,
     "openMonetizationGaps": 81,
     "directActionableGaps": 13,
-    "browserRequiredGaps": 22,
-    "watchOnlyGaps": 46,
+    "browserRequiredGaps": 21,
+    "watchOnlyGaps": 47,
     "doNotReapply": 166,
     "toolPages": 179,
     "comparePages": 279,
@@ -18,7 +18,7 @@
   "revenueFocus": {
     "policy": "prioritize_direct_existing_gaps_without_reapplying_waiting_states",
     "allowNewTools": false,
-    "reason": "13 existing tools still have directly actionable affiliate gaps; 46 are watch-only and 22 require browser work."
+    "reason": "13 existing tools still have directly actionable affiliate gaps; 47 are watch-only and 21 require browser work."
   },
   "affiliateCoverage": {
     "counts": {
@@ -28,8 +28,8 @@
       "terminal": 25,
       "openMonetizationGaps": 81,
       "directActionableGaps": 13,
-      "browserRequiredGaps": 22,
-      "watchOnlyGaps": 46,
+      "browserRequiredGaps": 21,
+      "watchOnlyGaps": 47,
       "doNotReapply": 166,
       "unclassifiedAffiliateStatus": 7,
       "exactAffiliateUrlMissing": 81,
@@ -3030,7 +3030,7 @@
         "name": "Supademo",
         "officialVerified": true,
         "pricingVerified": false,
-        "affiliateStatus": "browser_required_application_form",
+        "affiliateStatus": "application_submitted",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -3038,9 +3038,9 @@
         "revenueReady": false,
         "terminal": false,
         "doNotReapply": true,
-        "browserRequired": true,
+        "browserRequired": false,
         "directActionableGap": false,
-        "watchOnlyGap": false,
+        "watchOnlyGap": true,
         "blocker": "exact_customer_affiliate_url_missing"
       },
       {
