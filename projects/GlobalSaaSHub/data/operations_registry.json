@@ -860,12 +860,13 @@
           "Modal used a 680px minimum grid and controls below 44px; shortlist widget could overlap its stacking layer.",
           "Analytics lacked QA-session exclusion and fixed production-release measurement windows."
         ],
-        "protected_scope": "Verified tracking URLs, product facts, prices, title/meta/H1, Constant Contact legal hold and affiliate lifecycle remain unchanged."
+        "protected_scope": "Verified tracking URLs, product facts, prices, title/meta/H1, Constant Contact legal hold and affiliate lifecycle remain unchanged.",
+        "implementation_pr": 863
       },
       "completion_gate": "production_verified",
       "completion_gate_satisfied": false,
       "user_action_required": false,
-      "verification": "Targeted regression tests pass; full build and production verification pending. Physical mobile device unavailable; do not claim physical-device QA.",
+      "verification": "Full local build, source/dist public boundaries, JSON-LD, link/approved tracking checks, 13 focused JS tests, 19 operations tests and 21 fastlane producer checks pass. PR Build Check and production verification pending. Physical-device QA unavailable.",
       "handoff": "Release & Reliability verifies exact deployed bundle and live modal/QA behavior; Revenue Intelligence consumes matched-period windows. Unknown downstream remains null."
     }
   ],
