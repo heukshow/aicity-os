@@ -87,7 +87,7 @@
             "supademo",
             "status"
           ],
-          "equals": "browser_required_application_form"
+          "equals": "application_submitted"
         },
         {
           "file": "data/affiliate_outreach_state.json",
@@ -96,7 +96,7 @@
             "supademo",
             "application_state"
           ],
-          "equals": "not_submitted"
+          "equals": "application_submitted"
         },
         {
           "file": "data/affiliate_outreach_state.json",
@@ -115,7 +115,7 @@
           "path": [
             "status"
           ],
-          "equals": "browser_required_application_form"
+          "equals": "application_submitted"
         },
         {
           "file": "data/browser_required_queue.json",
@@ -125,7 +125,7 @@
           "path": [
             "affiliate_status"
           ],
-          "equals": "browser_required_application_form"
+          "equals": "application_submitted"
         },
         {
           "file": "data/browser_required_queue.json",
@@ -145,7 +145,7 @@
           "path": [
             "affiliate_status"
           ],
-          "equals": "browser_required_application_form"
+          "equals": "application_submitted"
         },
         {
           "file": "data/tools.json",

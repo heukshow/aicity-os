@@ -14,11 +14,13 @@ The current official Supademo affiliate page independently exposes the affiliate
 ## Canonical lifecycle interpretation
 - The earlier support email was outreach only; it was not a formal affiliate application submission.
 - `waiting_vendor_response` / `outreach_sent` is therefore stale after the human reply.
-- Current lifecycle state: `browser_required_application_form`.
-- Formal application state: `not_submitted`.
+- Current lifecycle state: `application_submitted` / pending vendor review.
+- Formal application state: `application_submitted` on 2026-09-26; the form returned `Thanks for your submission!` and a 1–2 business day response window.
 - Exact customer-facing referral/tracking URL: `null` / not issued.
 - The Supademo demo URL in the support reply and the MakeForms application URL are application/help routes, not customer-facing referral URLs.
 - No approval, referral signup, paid customer, commission, payout, or revenue is inferred.
 
-## Next action and duplicate guard
-Submit the official Supademo Affiliate Request form exactly once when an interactive form-capable execution path is available. Recheck the Supademo Gmail thread and repository state immediately before submission. Stop and hand off to the user only if CAPTCHA, OTP, legal consent, payment, or forced identity verification actually appears. After submission, record only the actual resulting application state and wait for a vendor-issued exact customer-facing referral URL before any affiliate CTA use.
+## Submission evidence and next action
+The official Supademo affiliate page linked to `https://eu.makeforms.io/k1ibmll/`. On 2026-09-26, that Affiliate Request form accepted the COSHUMA submission and returned `Thanks for your submission!` with a 1–2 business day response window. The separate support-linked `.co/xtyzhps/` form is a Link Exchange / Guest Post form and is not the affiliate application.
+
+Do not reapply. Monitor the existing application for approval, rejection, or an additional-information request. Keep the customer-facing referral/tracking URL null until Supademo issues an exact vendor link.
