@@ -1534,19 +1534,17 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-09-14T21:10:00+09:00",
     "official_evidence_url": "https://www.constantcontact.com/partners/affiliate",
-    "affiliate_verified": false,
-    "affiliate_status": "browser_required_affiliate_application",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_account",
     "affiliate_source_url": "https://www.constantcontact.com/partners/affiliate",
-    "affiliate_status_checked_at": "2026-09-14T21:10:00+09:00",
-    "application_state": "not_submitted",
+    "affiliate_status_checked_at": "2026-09-25T21:12:52Z",
+    "application_state": "approved",
     "affiliate_evidence_markers": [
-      "Official affiliate page says affiliates can earn up to $105 when a referred customer pays for a new account.",
-      "Official knowledge base updated 2026-07-15 says the affiliate program is free to join.",
-      "Official pricing/help confirms a 30-day free trial with no credit card required.",
-      "GitHub search and support@coshuma.com Gmail found no prior Constant Contact application, approval, rejection, issued tracking link, commission or payout record before this cycle.",
-      "Exact COSHUMA customer tracking URL is unknown; application, dashboard and generic vendor URLs must not be used as revenue links."
+      "Authenticated support-mailbox evidence verifies approval for the Constant Contact PartnerStack program.",
+      "The exact account-issued customer referral URL remains unverified."
     ],
-    "affiliate_next_action": "Submit the official free affiliate application once through the direct browser when available; stop for CAPTCHA, OTP, legal consent or forced identity verification. After approval, recover only the vendor-issued customer-facing tracking URL before changing public CTA state."
+    "affiliate_next_action": "Recover and verify the exact vendor-issued customer-facing referral URL from the existing approved PartnerStack relationship. Do not reapply.",
+    "affiliate_verified_at": "2026-09-25T21:12:52Z"
   },
   {
     "id": "convertflow",
@@ -3476,23 +3474,18 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-09-14T09:38:00+09:00",
     "official_evidence_url": "https://www.justuno.com/affiliate",
-    "affiliate_verified": false,
-    "affiliate_status": "browser_required_partnerstack_application",
+    "affiliate_verified": true,
+    "affiliate_status": "application_submitted",
     "affiliate_source_url": "https://www.justuno.com/affiliate",
     "affiliate_workflow_url": "https://www.justuno.com/affiliate",
-    "affiliate_status_checked_at": "2026-09-14T09:38:00+09:00",
-    "application_state": "not_submitted",
+    "affiliate_status_checked_at": "2026-09-24T22:20:00Z",
+    "application_state": "submitted",
     "affiliate_evidence_markers": [
-      "Official Justuno affiliate page says applicants use PartnerStack, receive a unique referral link, and earn 30% of eligible new-customer plan cost for up to one year.",
-      "Official affiliate page says PartnerStack can track clicks, trials, referrals and payouts; this program capability is not evidence of COSHUMA account activity.",
-      "Official pricing page currently displays Lite at $59/month in an annual-save context, up to 10K visitors/month, all features, 5 live workflows and a 14-day free trial.",
-      "Fresh GitHub code search on 2026-09-14 found no pre-existing Justuno tool/state/page record before this cycle.",
-      "Fresh support@coshuma.com Gmail searches found no Justuno received, sent or spam record.",
-      "No COSHUMA application submission, approval, rejection, account-specific referral URL, trial, paid customer, commission, payout or revenue is verified.",
-      "Generic homepage, signup, login, onboarding and PartnerStack dashboard URLs must not be treated as affiliate links.",
-      "GitHub issue #493 tracks PartnerStack duplicate-check/application and exact account-issued customer referral URL recovery."
+      "Application Received was verified in the authenticated existing partner flow.",
+      "The application was submitted once; approval and the exact customer referral URL remain unverified."
     ],
-    "affiliate_next_action": "Reuse the existing COSHUMA PartnerStack identity, check for an existing Justuno relationship first, and submit exactly once only if absent. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification or payment approval. After approval, recover and validate only the exact vendor-issued customer-facing referral URL."
+    "affiliate_next_action": "Monitor the existing application; do not reapply. After approval, recover and verify the exact vendor-issued customer referral URL.",
+    "affiliate_verified_at": "2026-09-24T22:20:00Z"
   },
   {
     "id": "kinsta",

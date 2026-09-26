@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-25T18:50:00Z",
+  "updated_at": "2026-09-26T01:20:00Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -441,6 +441,103 @@
       "user_action_required": false,
       "completion_gate_satisfied": true,
       "completed_at": "2026-09-26T01:11:35Z"
+    },
+    {
+      "record_id": "REVENUE:PARTNERSTACK-DASHBOARD-REFRESH-20260925",
+      "incident_key": "revenue-truth-partnerstack-dashboard-refresh-20260925",
+      "task_key": "PARTNERSTACK-DASHBOARD-REFRESH-20260925",
+      "target": "private-revenue-truth/partnerstack-dashboard",
+      "owner_team": "Revenue Intelligence Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-24T21:58:08Z",
+      "evidence": {
+        "implementation_pr": 814,
+        "merge_commit": "3dfa2c14fe2ceb4efa6ad0d64502388f14783039",
+        "production_deploy_version": "789e5146-479a-4aac-ae27-263a57abbcf5",
+        "production_verification_comment_id": 5822915633,
+        "clicks": 20,
+        "signups": 0,
+        "revenue_usd": 0,
+        "pending_commissions_usd": 0,
+        "paid_commissions_usd": 0
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "completed_at": "2026-09-24T21:58:08Z",
+      "user_action_required": false
+    },
+    {
+      "record_id": "EDITORIAL:EDITORIAL-BODY-005",
+      "incident_key": "editorial-agorapulse-neutral-fit-20260925",
+      "task_key": "EDITORIAL-BODY-005",
+      "target": "public/tool/agorapulse.html",
+      "owner_team": "Editorial Quality Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
+      "priority": "normal",
+      "blocker": null,
+      "last_evidence_at": "2026-09-25T13:17:15Z",
+      "evidence": {
+        "implementation_pr": 817,
+        "merge_commit": "eea71296d38dcc8d8339f8424ec44b5cb4306622",
+        "production_deploy_run": 36120095513,
+        "production_verification_comment_id": 5833037702
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "completed_at": "2026-09-25T13:17:15Z",
+      "user_action_required": false
+    },
+    {
+      "record_id": "AFFILIATE:JUSTUNO-PARTNER-LIFECYCLE",
+      "incident_key": "affiliate-justuno-partner-lifecycle-20260925",
+      "task_key": "affiliate-justuno-formal-application-20260925",
+      "target": "Justuno affiliate partner lifecycle",
+      "owner_team": "Affiliate Partnerships Team",
+      "lifecycle": "in_progress",
+      "next_owner": "Affiliate Partnerships Team",
+      "priority": "high",
+      "blocker": "vendor_review_pending",
+      "last_evidence_at": "2026-09-24T22:32:59Z",
+      "evidence": {
+        "implementation_pr": 815,
+        "merge_commit": "58cef89f54a57e21db0c90d93c513161abcdfd8d",
+        "application_evidence_comment_id": 5823321230,
+        "application_state": "application_submitted",
+        "submission_confirmation": "Application Received",
+        "exact_customer_tracking_url": null,
+        "do_not_reapply": true
+      },
+      "completion_gate": "approval_or_rejection_with_evidence_and_exact_tracking_url_if_approved",
+      "completion_gate_satisfied": false,
+      "user_action_required": false
+    },
+    {
+      "record_id": "AFFILIATE:CONSTANT-CONTACT-PARTNER-LIFECYCLE",
+      "incident_key": "affiliate-constant-contact-partner-lifecycle-20260925",
+      "task_key": "affiliate-constant-contact-formal-application-20260925",
+      "target": "Constant Contact affiliate partner lifecycle",
+      "owner_team": "Affiliate Partnerships Team",
+      "lifecycle": "in_progress",
+      "next_owner": "Affiliate Partnerships Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-25T21:12:52Z",
+      "evidence": {
+        "implementation_pr": 816,
+        "merge_commit": "1b12ad7913d056838716ba43c73889bfc79168ce",
+        "application_evidence_comment_id": 5823621903,
+        "application_state": "approved_account",
+        "approval_observed_at": "2026-09-25T21:12:52Z",
+        "exact_customer_tracking_url": null,
+        "do_not_reapply": true
+      },
+      "completion_gate": "exact_customer_tracking_url_verified_or_vendor_confirms_none",
+      "completion_gate_satisfied": false,
+      "user_action_required": false
     }
   ],
   "invariants": {

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16",
+  "updated_at": "2026-09-26",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -746,15 +746,13 @@
       "note": "Official affiliate option is free to apply and current partner-page wording advertises 20% revenue share for 2 years. No COSHUMA application submission, approval or account-specific customer referral URL is proven; public CTAs remain official non-affiliate URLs."
     },
     "justuno": {
-      "status": "browser_required_partnerstack_application",
+      "status": "application_submitted",
       "tracking_url": null,
-      "application_state": "not_submitted",
+      "application_state": "submitted",
       "account": "support@coshuma.com",
       "official_program_url": "https://www.justuno.com/affiliate",
-      "workflow_url": "https://www.justuno.com/affiliate",
-      "github_issue": 493,
-      "checked_at": "2026-09-14T09:38:00+09:00",
-      "note": "Official PartnerStack affiliate program advertises 30% of eligible new-customer plan cost for up to one year. No COSHUMA Justuno application submission, approval or account-specific referral URL is proven; public CTAs remain official non-affiliate URLs."
+      "checked_at": "2026-09-24T22:20:00Z",
+      "note": "Application Received was verified. Vendor review remains pending; no exact customer referral URL is verified."
     },
     "sleeknote": {
       "status": "waiting_vendor_response",
@@ -904,6 +902,15 @@
       "note": "Text Support replied to support@coshuma.com in existing Gmail thread 1a08c0544c56b5ac (message 1a0b418541063824) and explicitly said the LiveChat affiliate URL is available under the existing Partner App Affiliate area, supplying https://share.text.com/q8mL2psx. Prior authenticated Partner App evidence had already issued https://www.livechat.com/?a=8IetMhQv&utm_campaign=pp_livechat-default&utm_source=PP and verified that it resolves to the official LiveChat destination with attribution retained. Preserve that canonical verified URL; record the vendor-supplied short URL as corroborating alternate evidence. No new campaign, duplicate enrollment, signup, trial, paid account, commission, payout, or revenue is inferred.",
       "do_not_reapply": true,
       "do_not_repeat_exact_link_outreach": true
+    },
+    "constant-contact": {
+      "status": "approved_account",
+      "tracking_url": null,
+      "application_state": "approved",
+      "account": "support@coshuma.com",
+      "official_program_url": "https://www.constantcontact.com/partners/affiliate",
+      "checked_at": "2026-09-25T21:12:52Z",
+      "note": "PartnerStack program approval is verified. The exact account-issued customer referral URL remains unverified."
     }
   }
 }
