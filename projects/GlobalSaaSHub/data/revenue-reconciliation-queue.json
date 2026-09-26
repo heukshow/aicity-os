@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-26T17:05:20.868Z",
+  "generated_at": "2026-09-26T17:17:45.002Z",
   "source": "data/revenue-leakage-audit.json",
   "scope": "Internal COSHUMA revenue reconciliation only",
   "queue_status": "active",
-  "task_count": 59,
+  "task_count": 61,
   "priority_order": [
     "P0_UNCHECKED",
     "P1_STALE",
@@ -15,7 +15,7 @@
       "network": "PartnerStack",
       "portal_url": "https://dash.partnerstack.com/home",
       "priority": "P0_UNCHECKED",
-      "tool_count": 10,
+      "tool_count": 11,
       "tools": [
         {
           "id": "claap",
@@ -48,12 +48,6 @@
           "reason": "Latest revenue evidence is 11 days old."
         },
         {
-          "id": "gamma",
-          "name": "Gamma",
-          "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 18 days old."
-        },
-        {
           "id": "moosend",
           "name": "Moosend",
           "priority": "P1_STALE",
@@ -76,6 +70,18 @@
           "name": "Unbounce",
           "priority": "P1_STALE",
           "reason": "Latest revenue evidence is 18 days old."
+        },
+        {
+          "id": "gamma",
+          "name": "Gamma",
+          "priority": "P1_PARTIAL",
+          "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage."
+        },
+        {
+          "id": "gravity-forms",
+          "name": "Gravity Forms",
+          "priority": "P1_PARTIAL",
+          "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage."
         }
       ],
       "execution": "browser_read_only",
@@ -1579,6 +1585,32 @@
       "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
     },
     {
+      "account_id": "aweber",
+      "network": "AWeber Advocate Program",
+      "portal_url": null,
+      "priority": "P1_PARTIAL",
+      "tool_count": 1,
+      "tools": [
+        {
+          "id": "aweber",
+          "name": "AWeber",
+          "priority": "P1_PARTIAL",
+          "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage."
+        }
+      ],
+      "execution": "locate_existing_account_or_vendor_dashboard_first",
+      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
+      "safety": [
+        "Do not create a new account or reapply.",
+        "Do not change any customer tracking URL.",
+        "Do not start a paid plan or authorize payment.",
+        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
+        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
+        "Never expose this internal revenue audit on public COSHUMA pages."
+      ],
+      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
+    },
+    {
       "account_id": "castmagic",
       "network": "FirstPromoter",
       "portal_url": null,
@@ -1590,6 +1622,32 @@
           "name": "Castmagic",
           "priority": "P1_PARTIAL",
           "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown."
+        }
+      ],
+      "execution": "locate_existing_account_or_vendor_dashboard_first",
+      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
+      "safety": [
+        "Do not create a new account or reapply.",
+        "Do not change any customer tracking URL.",
+        "Do not start a paid plan or authorize payment.",
+        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
+        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
+        "Never expose this internal revenue audit on public COSHUMA pages."
+      ],
+      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
+    },
+    {
+      "account_id": "chatbase",
+      "network": "Vendor-native / Chatbase",
+      "portal_url": null,
+      "priority": "P1_PARTIAL",
+      "tool_count": 1,
+      "tools": [
+        {
+          "id": "chatbase",
+          "name": "Chatbase",
+          "priority": "P1_PARTIAL",
+          "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
