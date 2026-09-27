@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T08:48:00Z",
+  "updated_at": "2026-09-27T08:59:32Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1234,8 +1234,8 @@
       "root_cause": "tool_capability",
       "next_owner": "Operations Governance Team",
       "priority": "high",
-      "blocker": "all_affected_workflows_one_success_observed_second_success_pending",
-      "last_evidence_at": "2026-09-27T08:16:20.269Z",
+      "blocker": "four_workflows_second_schedule_success_missing_two_awaiting_next_due",
+      "last_evidence_at": "2026-09-27T08:59:32Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "*/15 * * * *",
@@ -1245,7 +1245,7 @@
         "recovery_run_attempt": 2,
         "recovery_completed_at": "2026-09-27T03:18:31Z",
         "downstream_growth_run_id": 36291024934,
-        "checked_at": "2026-09-27T08:16:20.269Z",
+        "checked_at": "2026-09-27T08:59:32Z",
         "missing_expected_runs": [
           "2026-09-27T03:30:00Z",
           "2026-09-27T03:45:00Z",
@@ -1263,12 +1263,12 @@
           "COSHUMA Cloud Control Plane": {
             "latest_schedule_run_id": 36304114014,
             "latest_schedule_run_at": "2026-09-27T07:46:01Z",
-            "recovery_status": "one_success_observed_not_complete"
+            "recovery_status": "second_success_missing_stall_persists"
           },
           "Royal Queue Reconcile Status": {
             "latest_schedule_run_id": 36305610421,
             "latest_schedule_run_at": "2026-09-27T08:15:10Z",
-            "recovery_status": "one_success_observed_not_complete"
+            "recovery_status": "one_success_observed_next_window_not_yet_due"
           },
           "COSHUMA Analytics Snapshot": {
             "latest_schedule_run_id": 36305164478,
@@ -1282,22 +1282,22 @@
               "2026-09-27T06:17:00Z",
               "2026-09-27T07:17:00Z"
             ],
-            "recovery_status": "one_success_observed_not_complete"
+            "recovery_status": "one_success_observed_next_window_not_yet_due"
           },
           "COSHUMA Release Verification": {
             "latest_schedule_run_id": 36301313898,
             "latest_schedule_run_at": "2026-09-27T06:51:03Z",
-            "recovery_status": "one_success_observed_not_complete"
+            "recovery_status": "second_success_missing_stall_persists"
           },
           "COSHUMA Registry Reconciliation": {
             "latest_schedule_run_id": 36300760574,
             "latest_schedule_run_at": "2026-09-27T06:39:55Z",
-            "recovery_status": "one_success_observed_not_complete"
+            "recovery_status": "second_success_missing_stall_persists"
           },
           "COSHUMA Growth Loop": {
             "latest_schedule_run_id": 36300585791,
             "latest_schedule_run_at": "2026-09-27T06:36:18Z",
-            "recovery_status": "one_success_observed_not_complete"
+            "recovery_status": "second_success_missing_stall_persists"
           }
         },
         "latest_push_control_plane_run_id": 36293260934,
@@ -1338,13 +1338,84 @@
           },
           "still_missing": [],
           "completion_boundary": "All affected workflows now have at least one post-stall scheduled success. No recovered workflow has two consecutive post-stall scheduled runs yet, so the completion gate remains false."
+        },
+        "second_success_observation": {
+          "observed_at": "2026-09-27T08:59:32Z",
+          "stalled_again": {
+            "COSHUMA Cloud Control Plane": {
+              "cron": "*/15 * * * *",
+              "latest_schedule_run_id": 36304114014,
+              "latest_schedule_run_at": "2026-09-27T07:46:01Z",
+              "missing_nominal_windows_after_success": [
+                "2026-09-27T08:00:00Z",
+                "2026-09-27T08:15:00Z",
+                "2026-09-27T08:30:00Z",
+                "2026-09-27T08:45:00Z"
+              ],
+              "recovery_status": "second_success_missing_stall_persists"
+            },
+            "COSHUMA Release Verification": {
+              "cron": "31 * * * *",
+              "latest_schedule_run_id": 36301313898,
+              "latest_schedule_run_at": "2026-09-27T06:51:03Z",
+              "missing_nominal_windows_after_success": [
+                "2026-09-27T07:31:00Z",
+                "2026-09-27T08:31:00Z"
+              ],
+              "recovery_status": "second_success_missing_stall_persists"
+            },
+            "COSHUMA Registry Reconciliation": {
+              "cron": "23 * * * *",
+              "latest_schedule_run_id": 36300760574,
+              "latest_schedule_run_at": "2026-09-27T06:39:55Z",
+              "missing_nominal_windows_after_success": [
+                "2026-09-27T07:23:00Z",
+                "2026-09-27T08:23:00Z"
+              ],
+              "recovery_status": "second_success_missing_stall_persists"
+            },
+            "COSHUMA Growth Loop": {
+              "cron": "17 * * * *",
+              "latest_schedule_run_id": 36300585791,
+              "latest_schedule_run_at": "2026-09-27T06:36:18Z",
+              "missing_nominal_windows_after_success": [
+                "2026-09-27T07:17:00Z",
+                "2026-09-27T08:17:00Z"
+              ],
+              "recovery_status": "second_success_missing_stall_persists"
+            }
+          },
+          "awaiting_second_window": {
+            "Royal Queue Reconcile Status": {
+              "cron": "17 * * * *",
+              "latest_schedule_run_id": 36305610421,
+              "latest_schedule_run_at": "2026-09-27T08:15:10Z",
+              "next_nominal_window": "2026-09-27T09:17:00Z",
+              "recovery_status": "one_success_observed_next_window_not_yet_due"
+            },
+            "COSHUMA Analytics Snapshot": {
+              "cron": "17 * * * *",
+              "latest_schedule_run_id": 36305164478,
+              "latest_schedule_run_at": "2026-09-27T08:06:33Z",
+              "next_nominal_window": "2026-09-27T09:17:00Z",
+              "recovery_status": "one_success_observed_next_window_not_yet_due"
+            }
+          },
+          "analytics_snapshot_run": {
+            "run_id": 36305164478,
+            "conclusion": "success",
+            "fresh_upstream_collection": "success",
+            "downstream_collection": "success",
+            "last_valid_snapshot_preserved": true
+          },
+          "completion_boundary": "No affected workflow has two consecutive post-stall schedule successes. Four workflows have already missed at least two nominal windows after their single recovery success; Royal Queue and Analytics Snapshot have not yet reached their next hourly nominal window."
         }
       },
       "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
       "completion_gate_satisfied": false,
       "user_action_required": false,
-      "verification": "Fresh GitHub Actions history at 2026-09-27T08:16:20.269Z shows post-stall schedule successes for Growth Loop 36300585791, Registry Reconciliation 36300760574, Release Verification 36301313898, Cloud Control Plane 36304114014, Analytics Snapshot 36305164478, and Royal Queue 36305610421. Each affected workflow has one observed recovery success, but none has two consecutive post-stall scheduled successes; completion_gate_satisfied remains false.",
-      "handoff": "Continue passive observation without another forced rerun. Keep all team automations enabled and other tasks moving. All affected workflows have one post-stall scheduled success; close only after two consecutive actual scheduled runs within expected periods satisfy the gate. Preserve analytics periods/status exactly and do not count operational or QA traffic as customer growth."
+      "verification": "Fresh GitHub Actions history at 2026-09-27T08:59:32Z shows no affected workflow with two consecutive post-stall schedule successes. Cloud Control Plane, Release Verification, Registry Reconciliation and Growth Loop each missed at least two nominal windows after their single recovery success. Royal Queue and Analytics Snapshot each retain one successful recovery run and their next hourly nominal window is 2026-09-27T09:17:00Z. Analytics run 36305164478 completed both fresh upstream and downstream collection successfully; no missing period was converted to zero.",
+      "handoff": "Keep the existing incident stalled and observe actual schedule events only. Do not force-rerun the same method, disable team automations, or count push/manual/QA activity as schedule recovery or customer growth. Close only after every affected workflow records two consecutive actual schedule successes within expected periods."
     },
     {
       "record_id": "EDITORIAL:EDITORIAL-BODY-008",
