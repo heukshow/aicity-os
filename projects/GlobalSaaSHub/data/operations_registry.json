@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T01:06:59.575Z",
+  "updated_at": "2026-09-27T01:15:35.607Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -985,7 +985,7 @@
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-09-27T01:06:59.575Z",
+      "last_evidence_at": "2026-09-27T01:15:35.607Z",
       "evidence": {
         "implementation_pr": 867,
         "merge_commit": "2305cdf2fc00f070345ab718a89a232960b70387",
@@ -993,8 +993,8 @@
         "worker_safety_run": 36284311834,
         "production_verification_comment_id": 5851492685,
         "production_deploy_version": "4c9d65f3-cc24-4af8-b192-d3326240803e",
-        "production_deploy_id": "0688ad23-d433-4c1d-808d-92fa55b70975",
-        "production_deployed_at": "2026-09-27T01:03:41.830972Z",
+        "production_deploy_id": "43d73e81-f384-4f7d-beee-59d37cc814b1",
+        "production_deployed_at": "2026-09-27T01:08:39.932023Z",
         "production_source_commit": "2305cdf2fc00f070345ab718a89a232960b70387",
         "bundle_sha256": "114c9c2c5f9c909fee742bdba942efd2977d6d6156e088d878a509419ea18457",
         "bundle_exact_match": true,
@@ -1004,14 +1004,18 @@
         "analytics_property_id": "552233666",
         "private_snapshot_generated_at": "2026-09-26T22:47:45.129Z",
         "private_snapshot_preserved": true,
-        "authenticated_owner_revenue_ui_verified": false
+        "authenticated_owner_revenue_ui_verified": false,
+        "initial_deploy_id": "0688ad23-d433-4c1d-808d-92fa55b70975",
+        "initial_deployed_at": "2026-09-27T01:03:41.830972Z",
+        "deployment_pointer_correction_comment_id": 5851511686,
+        "superseded_duplicate_version": "4e0651f7-b6d8-4a58-91f6-540201f114b5"
       },
       "completion_gate": "production_verified",
       "completion_gate_satisfied": true,
-      "completed_at": "2026-09-27T01:06:59.575Z",
+      "completed_at": "2026-09-27T01:15:35.607Z",
       "user_action_required": false,
-      "verification": "Official authenticated Cloudflare active-version/config/content reads; byte-exact bundle equality; post-deploy health 200; anonymous private JSON 401/no-store; private D1 matched periods preserved. 31 Worker and 5 matched-period tests pass. No revenue values or owner UI behavior inferred.",
-      "handoff": "Keep actual Worker version/source evidence separate from dry-run CI. Continue fixed measurement without public/event changes; isolate FirstPromoter and real-device QA."
+      "verification": "Official authenticated Cloudflare active-version/config/content reads; byte-exact bundle equality; post-deploy health 200; anonymous private JSON 401/no-store; private D1 matched periods preserved. 31 Worker and 5 matched-period tests pass. No revenue values or owner UI behavior inferred. Subsequent untagged duplicate deployment was restored to the same source-tagged version; official latest deployment pointer and live health were independently read back after restoration.",
+      "handoff": "Keep actual Worker version/source evidence separate from dry-run CI. Continue fixed measurement without public/event changes; isolate FirstPromoter and real-device QA. Do not redeploy a matching source-tagged active version or deploy regenerated/uncommitted artifacts; continue existing same-task PRs instead of creating duplicates."
     },
     {
       "record_id": "REVENUE:FIRSTPROMOTER-SESSION-RECOVERY-20260927",
