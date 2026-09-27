@@ -6,6 +6,34 @@ const valid = n => typeof n === 'number' && Number.isFinite(n) && n >= 0;
 const moneyKeys = ['commission_earned','commission_pending','reward_paid','available','withdrawn','declined','payout_paid'];
 const funnelKeys = ['outbound_clicks','signups_referrals','trials','paid_customers'];
 const allMetricKeys = [...funnelKeys, ...moneyKeys];
+// Fresh portal evidence belongs in private storage, not the public repository.
+export function mergePrivateObservations(base, document, programs, now) {
+  const accounts = new Map(base.map(a => [a.account_id, a]));
+  const known = new Set(programs.map(p => p.account_id));
+  if (document?.schema_version !== 1 || !Array.isArray(document.accounts)) return base;
+  for (const row of document.accounts) {
+    const stamp = Date.parse(row?.checked_at);
+    const previous = accounts.get(row?.account_id);
+    if (!known.has(row?.account_id) || row.account_id === 'partnerstack-account'
+      || row.source !== 'authenticated-browser-dashboard' || !row.evidence_id
+      || !Number.isFinite(stamp) || stamp > Date.parse(now)
+      || stamp <= (Date.parse(previous?.checked_at) || 0)
+      || typeof row.period !== 'string' || !row.period.trim()
+      || !row.metrics || typeof row.metrics !== 'object') continue;
+    const metrics = Object.fromEntries(allMetricKeys.map(key => [key, valid(row.metrics[key]) ? row.metrics[key] : null]));
+    const portal = programs.find(p => p.account_id === row.account_id)?.portal_url;
+    const evidence = { tool: row.tool || row.account_id, source: row.source,
+      evidence_id: row.evidence_id, checked_at: row.checked_at, period: row.period,
+      observed_window: row.observed_window || row.period,
+      currency: /^[A-Z]{3}$/.test(row.currency || '') ? row.currency : null, metrics };
+    accounts.set(row.account_id, { ...previous, account_id: row.account_id,
+      connection: 'verified_snapshot', complete: false, ...evidence,
+      portal_url: previous?.portal_url || portal || null,
+      action: '확인 시점의 계정 관측입니다. 다음 조회에서 갱신하며 미확인 항목은 —로 유지합니다.',
+      evidence: [...(previous?.evidence || []), evidence] });
+  }
+  return [...accounts.values()];
+}
 const historicalEvidence = (accounts, key, now) => {
   const rows = accounts.flatMap(a => (a.evidence || []).map(e => ({...e, account_id:a.account_id})));
   // Reports can overlap, use different windows, or contain account-wide totals.
@@ -48,10 +76,11 @@ export function summarizeRevenue(programs, liveAccounts, now = new Date().toISOS
     definitions:{commission_earned:'수익으로 기록된 커미션. 미지급 보상을 포함하며 매출/출금액과 더하지 않습니다.',reward_paid:'네트워크가 보상에 표시한 paid 상태. 은행 입금과 별개입니다.',withdrawn:'네트워크의 출금 처리 상태. 은행 입금 대조 결과가 아닙니다.',payout_paid:'지급 보고서가 명시한 지급액. 보상 paid에서 추정하지 않습니다.',totals:'최근 24시간 내 확인한 누적 계정 소계와 과거 검증 근거를 분리합니다. 0은 실제 0, —는 해당 수치가 확인되지 않음을 뜻합니다.'}};
 }
 
-export async function getRevenueSummary(env) {
-  const now=new Date().toISOString();
+export async function getRevenueSummary(env, partnerFetcher = fetchPartnerStackMetrics) {
   let partner;
-  try { partner=await fetchPartnerStackMetrics(env); } catch { partner={connected:false,reason:'PartnerStack API 조회 실패'}; }
+  try { partner=await partnerFetcher(env); } catch { partner={connected:false,reason:'PartnerStack API 조회 실패'}; }
+  // Use the observation's completion time; a slow live API must not look future-dated.
+  const now=new Date().toISOString();
   const safe=partner.connected && partner.coverage?.rewardsComplete===true && partner.invalidAmountCount===0 && !partner.mixedCurrency && !(partner.rewardStatusCounts?.other>0);
   const ps={account_id:'partnerstack-account',connection:partner.connected?'connected':'error',complete:Boolean(safe),checked_at:partner.checkedAt||now,
     source:'PartnerStack API',period:'lifetime',currency:partner.currency||null,coverage:partner.coverage||null,reward_count:partner.rewardCount??null,
@@ -61,7 +90,13 @@ export async function getRevenueSummary(env) {
   ps.evidence=observations.accounts.find(a=>a.account_id==='partnerstack-account')?.evidence || [];
   // No payouts means zero payouts only when that independent endpoint was fully read.
   if(partner.coverage?.payouts?.connected && partner.coverage.payouts.complete && partner.coverage.payouts.count===0) ps.metrics.payout_paid=0;
-  const summary=summarizeRevenue(inventory.programs,[ps,...observations.accounts.filter(a=>a.account_id!=='partnerstack-account')],now);
+  let accounts = observations.accounts;
+  try {
+    const doc = await env.ORDERS.prepare('SELECT content FROM private_ops_documents WHERE name = ?')
+      .bind('revenue-observations.json').first();
+    if (doc) accounts = mergePrivateObservations(accounts, JSON.parse(doc.content), inventory.programs, now);
+  } catch { /* Unavailable private evidence never creates zero or replaces existing observations. */ }
+  const summary=summarizeRevenue(inventory.programs,[ps,...accounts.filter(a=>a.account_id!=='partnerstack-account')],now);
   summary.partnerstack_currency_breakdown=partner.amountsByCurrency || {};
   summary.direct_sales={connection:'error',checked_at:now,currency_totals:[],note:'COSHUMA 결제 장부 기준 · 제휴 커미션과 별도 · 결제사 잔액/은행 입금 아님'};
   try {
