@@ -106,21 +106,21 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
         <div className="flex items-center justify-between gap-3 border-b border-[#222538] pb-4">
           <div className="flex items-center gap-2">
             <span className="text-xl">⚔️</span>
-            <div><h2 id="compare-dialog-title" className="text-lg font-black text-white">Side-by-Side Tool Comparison</h2><p className="mt-0.5 text-[11px] font-semibold text-slate-400">Compare up to 3 tools</p></div>
+            <div><h2 id="compare-dialog-title" className="text-lg font-black text-white">Side-by-Side Tool Comparison</h2><p className="mt-0.5 text-[11px] font-semibold text-slate-300">Compare up to 3 tools</p></div>
           </div>
           <button 
             ref={closeButtonRef}
             type="button"
             onClick={onClose}
             aria-label="Close comparison dialog"
-            className="min-h-[44px] min-w-[44px] shrink-0 flex items-center justify-center p-2 rounded-xl bg-[#181a29] text-slate-400 hover:text-white hover:bg-[#222538] transition-all"
+            className="min-h-[44px] min-w-[44px] shrink-0 flex items-center justify-center p-2 rounded-xl bg-[#181a29] text-slate-300 hover:text-white hover:bg-[#222538] transition-all"
           >
             <X className="h-5 w-5" />
           </button>
         </div>
 
         {/* Comparison Grid */}
-        <p className="text-xs leading-5 text-slate-400">Compare up to three tools using the same source-led fields. This view does not rank a winner; verify current vendor terms before purchase.</p>
+        <p className="text-xs leading-5 text-slate-300">Compare up to three tools using the same source-led fields. This view does not rank a winner; verify current vendor terms before purchase.</p>
 
         <div className="space-y-4 text-sm overflow-x-auto pb-2">
           
@@ -174,7 +174,7 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
                   type="button"
                   onClick={() => setSelectedToolC(null)}
                   aria-label={`Remove ${selectedToolC.name} from comparison`}
-                  className="min-h-[44px] min-w-[44px] shrink-0 flex items-center justify-center text-slate-400 hover:text-rose-400 p-2"
+                  className="min-h-[44px] min-w-[44px] shrink-0 flex items-center justify-center text-slate-300 hover:text-rose-400 p-2"
                   title="Remove 3rd tool"
                 >
                   <X className="h-4 w-4" />
@@ -204,20 +204,20 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
           {/* Row 2: Ratings & Pricing */}
           <div className={`grid grid-cols-1 ${selectedToolC ? 'sm:grid-cols-3' : 'sm:grid-cols-2'} gap-3 p-4 rounded-2xl bg-[#131520] border border-[#222538] min-w-0 [&>div]:min-w-0 [&>div]:break-words`}>
             <div>
-              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{toolA.name} pricing</div>
+              <div className="text-[10px] font-bold text-slate-300 uppercase tracking-wider">{toolA.name} pricing</div>
               <div className="text-sm font-black text-emerald-400 mt-0.5">{toolA.pricing}</div>
-              <div className="text-[10px] text-slate-400 font-extrabold mt-1">No sourced rating</div>
+              <div className="text-[10px] text-slate-300 font-extrabold mt-1">No sourced rating</div>
             </div>
             <div>
-              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{selectedToolB.name} pricing</div>
+              <div className="text-[10px] font-bold text-slate-300 uppercase tracking-wider">{selectedToolB.name} pricing</div>
               <div className="text-sm font-black text-emerald-400 mt-0.5">{selectedToolB.pricing}</div>
-              <div className="text-[10px] text-slate-400 font-extrabold mt-1">No sourced rating</div>
+              <div className="text-[10px] text-slate-300 font-extrabold mt-1">No sourced rating</div>
             </div>
             {selectedToolC && (
               <div>
-                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{selectedToolC.name} pricing</div>
+                <div className="text-[10px] font-bold text-slate-300 uppercase tracking-wider">{selectedToolC.name} pricing</div>
                 <div className="text-sm font-black text-emerald-400 mt-0.5">{selectedToolC.pricing}</div>
-                <div className="text-[10px] text-slate-400 font-extrabold mt-1">No sourced rating</div>
+                <div className="text-[10px] text-slate-300 font-extrabold mt-1">No sourced rating</div>
               </div>
             )}
           </div>
@@ -278,7 +278,7 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
                 onClick={() => trackToolClick(toolA.id, toolA.name, urlA, toolA.is_sponsored === true, 'home-compare-modal')}
                 target="_blank"
                 rel={toolA.is_sponsored === true ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
-                className="min-h-[44px] py-3 px-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-purple-950/40 hover:brightness-110 transition-all"
+                className="min-h-[44px] py-3 px-3 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-violet-950/40 hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 transition-all"
               >
                 <span>Check {toolA.name}</span>
                 <ExternalLink className="h-3 w-3" />
@@ -293,7 +293,7 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
                 onClick={() => trackToolClick(selectedToolB.id, selectedToolB.name, urlB, selectedToolB.is_sponsored === true, 'home-compare-modal')}
                 target="_blank"
                 rel={selectedToolB.is_sponsored === true ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
-                className="min-h-[44px] py-3 px-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-blue-950/40 hover:brightness-110 transition-all"
+                className="min-h-[44px] py-3 px-3 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-violet-950/40 hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 transition-all"
               >
                 <span>Check {selectedToolB.name}</span>
                 <ExternalLink className="h-3 w-3" />
@@ -308,7 +308,7 @@ export default function CompareModal({ toolA, toolB, allTools, onClose }) {
                 onClick={() => trackToolClick(selectedToolC.id, selectedToolC.name, urlC, selectedToolC.is_sponsored === true, 'home-compare-modal')}
                 target="_blank"
                 rel={selectedToolC.is_sponsored === true ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
-                className="min-h-[44px] py-3 px-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-emerald-950/40 hover:brightness-110 transition-all"
+                className="min-h-[44px] py-3 px-3 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 font-extrabold text-xs text-white text-center flex items-center justify-center gap-1 shadow-lg shadow-violet-950/40 hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 transition-all"
               >
                 <span>Check {selectedToolC.name}</span>
                 <ExternalLink className="h-3 w-3" />
