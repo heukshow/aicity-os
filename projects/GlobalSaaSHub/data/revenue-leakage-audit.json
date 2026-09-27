@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T21:58:14.121Z",
+  "generated_at": "2026-09-27T18:44:07.732Z",
   "evidence_scope": "Combined authenticated revenue-browser baseline, current revenue-truth records, and explicit account-wide commission/payout evidence.",
   "policy": {
     "purpose": "Detect approved monetized routes that can leak revenue because downstream affiliate metrics are missing or stale.",
@@ -85,31 +85,31 @@
           "id": "bookyourdata",
           "name": "Bookyourdata",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 18 days old."
+          "reason": "Latest revenue evidence is 19 days old."
         },
         {
           "id": "brand24",
           "name": "Brand24",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 11 days old."
+          "reason": "Latest revenue evidence is 12 days old."
         },
         {
           "id": "moosend",
           "name": "Moosend",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 18 days old."
+          "reason": "Latest revenue evidence is 19 days old."
         },
         {
           "id": "murf-ai",
           "name": "Murf AI",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 18 days old."
+          "reason": "Latest revenue evidence is 19 days old."
         },
         {
           "id": "unbounce",
           "name": "Unbounce",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 18 days old."
+          "reason": "Latest revenue evidence is 19 days old."
         },
         {
           "id": "gamma",
@@ -712,7 +712,7 @@
           "id": "boldsign",
           "name": "BoldSign",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 10 days old."
+          "reason": "Latest revenue evidence is 11 days old."
         }
       ]
     },
@@ -738,7 +738,7 @@
           "id": "tally",
           "name": "Tally",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 15 days old."
+          "reason": "Latest revenue evidence is 16 days old."
         }
       ]
     },
@@ -751,7 +751,7 @@
           "id": "clickfunnels",
           "name": "ClickFunnels",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 19 days old."
+          "reason": "Latest revenue evidence is 20 days old."
         }
       ]
     },
@@ -777,7 +777,7 @@
           "id": "pictory",
           "name": "Pictory",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 10 days old."
+          "reason": "Latest revenue evidence is 11 days old."
         }
       ]
     },
@@ -790,7 +790,7 @@
           "id": "gohighlevel",
           "name": "GoHighLevel",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 10 days old."
+          "reason": "Latest revenue evidence is 11 days old."
         }
       ]
     },
@@ -803,7 +803,7 @@
           "id": "getgenie",
           "name": "GetGenie",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 11 days old."
+          "reason": "Latest revenue evidence is 12 days old."
         }
       ]
     },
@@ -816,7 +816,7 @@
           "id": "omnisend",
           "name": "Omnisend",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 8 days old."
+          "reason": "Latest revenue evidence is 9 days old."
         }
       ]
     },
@@ -829,7 +829,7 @@
           "id": "jotform",
           "name": "Jotform",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 8 days old."
+          "reason": "Latest revenue evidence is 9 days old."
         }
       ]
     },
@@ -842,13 +842,13 @@
           "id": "helpdesk",
           "name": "HelpDesk",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 16 days old."
+          "reason": "Latest revenue evidence is 17 days old."
         },
         {
           "id": "text",
           "name": "Text",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 10 days old."
+          "reason": "Latest revenue evidence is 11 days old."
         }
       ]
     },
@@ -4308,10 +4308,10 @@
       "account_id": "boldsign",
       "portal_url": "https://affiliates.boldsign.com/login",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 10 days old.",
+      "reason": "Latest revenue evidence is 11 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 10,
+      "evidence_age_days": 11,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "browser:boldsign-affiliate-dashboard;github:issue-380",
       "latest_metrics": {
@@ -4468,10 +4468,10 @@
       "account_id": "tally",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 15 days old.",
+      "reason": "Latest revenue evidence is 16 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-11T17:33:38Z",
-      "evidence_age_days": 15,
+      "evidence_age_days": 16,
       "evidence_source": "vendor-system-email",
       "evidence_id": "gmail:1a0918839bda8d0f",
       "latest_metrics": {
@@ -4548,10 +4548,10 @@
       "account_id": "clickfunnels",
       "portal_url": "https://www.clickfunnels.com/customers/profiles/kMXlLGaZ/affiliates/dashboard",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 19 days old.",
+      "reason": "Latest revenue evidence is 20 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T17:19:00Z",
-      "evidence_age_days": 19,
+      "evidence_age_days": 20,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "github:affiliate-browser-results-2026-09-08:clickfunnels",
       "latest_metrics": {
@@ -4708,10 +4708,10 @@
       "account_id": "pictory",
       "portal_url": "https://pictory.firstpromoter.com/login",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 10 days old.",
+      "reason": "Latest revenue evidence is 11 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 10,
+      "evidence_age_days": 11,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "browser:pictory-partners-home;github:issue-315",
       "latest_metrics": {
@@ -4788,10 +4788,10 @@
       "account_id": "gohighlevel",
       "portal_url": "https://affiliate.gohighlevel.com/login",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 10 days old.",
+      "reason": "Latest revenue evidence is 11 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 10,
+      "evidence_age_days": 11,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "browser:highlevel-affiliate-home;github:issue-337",
       "latest_metrics": {
@@ -4868,10 +4868,10 @@
       "account_id": "getgenie",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 11 days old.",
+      "reason": "Latest revenue evidence is 12 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-15T00:00:00Z",
-      "evidence_age_days": 11,
+      "evidence_age_days": 12,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "github:issue-388",
       "latest_metrics": {
@@ -4948,10 +4948,10 @@
       "account_id": "omnisend",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 8 days old.",
+      "reason": "Latest revenue evidence is 9 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-18T14:29:47Z",
-      "evidence_age_days": 8,
+      "evidence_age_days": 9,
       "evidence_source": "vendor-human-email",
       "evidence_id": "gmail:1a0b4ec7c76011ec",
       "latest_metrics": {
@@ -5028,10 +5028,10 @@
       "account_id": "jotform",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 8 days old.",
+      "reason": "Latest revenue evidence is 9 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-18T06:13:30Z",
-      "evidence_age_days": 8,
+      "evidence_age_days": 9,
       "evidence_source": "vendor-human-email",
       "evidence_id": "gmail:1a0b3265d5b2769f",
       "latest_metrics": {
@@ -5103,10 +5103,10 @@
       "account_id": "text-account",
       "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 16 days old.",
+      "reason": "Latest revenue evidence is 17 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-10T15:52:30Z",
-      "evidence_age_days": 16,
+      "evidence_age_days": 17,
       "evidence_source": "vendor-report-email",
       "evidence_id": "gmail:1a08c0544c56b5ac:helpdesk-default",
       "latest_metrics": {
@@ -5183,10 +5183,10 @@
       "account_id": "text-account",
       "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 10 days old.",
+      "reason": "Latest revenue evidence is 11 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 10,
+      "evidence_age_days": 11,
       "evidence_source": "vendor-report-email+authenticated-partner-app",
       "evidence_id": "gmail:1a08c0544c56b5ac;browser:partners.livechat.com/app/affiliate:2026-09-16",
       "latest_metrics": {
@@ -5263,10 +5263,10 @@
       "account_id": "partnerstack-account",
       "portal_url": "https://dash.partnerstack.com/home",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 18 days old.",
+      "reason": "Latest revenue evidence is 19 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-08T00:00:00Z",
-      "evidence_age_days": 18,
+      "evidence_age_days": 19,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -5343,10 +5343,10 @@
       "account_id": "partnerstack-account",
       "portal_url": "https://dash.partnerstack.com/home",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 11 days old.",
+      "reason": "Latest revenue evidence is 12 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-15T11:55:21Z",
-      "evidence_age_days": 11,
+      "evidence_age_days": 12,
       "evidence_source": "authenticated-partnerstack-dashboard+vendor-human-email",
       "evidence_id": "browser:partnerstack-brand24-home-and-links:2026-09-15;gmail:1a0a4ebf43d40e98;github:issue-373-comment-5680067918",
       "latest_metrics": {
@@ -5423,10 +5423,10 @@
       "account_id": "partnerstack-account",
       "portal_url": "https://dash.partnerstack.com/home",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 18 days old.",
+      "reason": "Latest revenue evidence is 19 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-08T00:00:00Z",
-      "evidence_age_days": 18,
+      "evidence_age_days": 19,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -5503,10 +5503,10 @@
       "account_id": "partnerstack-account",
       "portal_url": "https://dash.partnerstack.com/home",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 18 days old.",
+      "reason": "Latest revenue evidence is 19 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-08T00:00:00Z",
-      "evidence_age_days": 18,
+      "evidence_age_days": 19,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -5583,10 +5583,10 @@
       "account_id": "partnerstack-account",
       "portal_url": "https://dash.partnerstack.com/home",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 18 days old.",
+      "reason": "Latest revenue evidence is 19 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-08T00:00:00Z",
-      "evidence_age_days": 18,
+      "evidence_age_days": 19,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -5666,7 +5666,7 @@
       "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-23T18:32:38Z",
-      "evidence_age_days": 3,
+      "evidence_age_days": 4,
       "evidence_source": "vendor-system-email",
       "evidence_id": "gmail:1a0cf8a8b7c21b67",
       "latest_metrics": {
@@ -5747,7 +5747,7 @@
       "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-26T16:46:45.648391+00:00",
-      "evidence_age_days": 0,
+      "evidence_age_days": 1,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "https://dash.partnerstack.com/gammaapp",
       "latest_metrics": {
@@ -5827,7 +5827,7 @@
       "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-26T16:46:45.648391+00:00",
-      "evidence_age_days": 0,
+      "evidence_age_days": 1,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "https://dash.partnerstack.com/gravity",
       "latest_metrics": {
@@ -5988,7 +5988,7 @@
       "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-20T10:19:21Z",
-      "evidence_age_days": 6,
+      "evidence_age_days": 7,
       "evidence_source": "vendor-human-email+existing-github-record",
       "evidence_id": "gmail:1a0be35224e6e69d;github:issue-373-comment-5749189977",
       "latest_metrics": {
