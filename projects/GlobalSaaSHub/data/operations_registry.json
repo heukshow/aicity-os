@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T02:21:18.928048+00:00",
+  "updated_at": "2026-09-27T02:36:43Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -827,6 +827,40 @@
       "completion_gate_satisfied": true,
       "completed_at": "2026-09-26T20:33:36Z",
       "user_action_required": false
+    },
+    {
+      "record_id": "EDITORIAL:EDITORIAL-BODY-007",
+      "incident_key": "buyer-decision-superlative-20260927",
+      "task_key": "EDITORIAL-BODY-007",
+      "target": "scripts/inject_buyer_decision_boxes.mjs and generated public buyer-decision boxes",
+      "owner_team": "Editorial Quality Team",
+      "canonical_owner": "Editorial Quality Team",
+      "found_by": "Editorial Quality Team",
+      "fixed_by": "Editorial Quality Team",
+      "changed_scope": "Neutralized one unsupported buyer-box superlative in the producer and fail-isolated an unrelated explicitly blocked release candidate; product facts, prices, links, CTAs, affiliate disclosures, analytics events and fixed measurement windows unchanged.",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
+      "priority": "normal",
+      "blocker": null,
+      "last_evidence_at": "2026-09-27T02:36:43Z",
+      "evidence": {
+        "implementation_pr": 872,
+        "merge_commit": "7887b445cfc623b91c5a70515d350ed0e11038c7",
+        "pr_build_run": 36288658347,
+        "release_verification_run": 36288904667,
+        "site_deploy_run": 36288904652,
+        "deployment_source_commit": "7887b445cfc623b91c5a70515d350ed0e11038c7",
+        "gh_pages_commit": "0cba21f4e7d6f86b6fbdfd211d9ebedc398653a8",
+        "github_pages_run": 36288996825,
+        "live_url": "https://coshuma.com/tool/make-com.html?coshuma_qa=1",
+        "live_verification": "Live browser showed the neutral Nearby alternative heading with the existing n8n alternative, Make affiliate destination, official URL and disclosure preserved; the removed superlative was not rendered."
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "completed_at": "2026-09-27T02:36:43Z",
+      "user_action_required": false,
+      "verification": "PR Build, current-main release validation, Site Build & Deploy, exact gh-pages ancestry, Pages deployment and direct live browser verification succeeded.",
+      "handoff": "Operations Governance retains SSOT stewardship. The unrelated AUDIENCE:AG-DIRECT-MEASURE-002 task remains blocked and ineligible until a real Worker/private-endpoint deterministic verification path exists; no revenue or conversion uplift is claimed."
     },
     {
       "record_id": "REVENUE:REV-COMPARE-MEASUREMENT-20260927",
