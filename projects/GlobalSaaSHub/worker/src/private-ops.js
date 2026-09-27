@@ -41,7 +41,7 @@ const response = (body, status, type = 'application/json; charset=utf-8') => new
   status, headers: { ...PRIVATE_HEADERS, 'content-type': type, 'content-security-policy': "default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'self'; img-src data:; base-uri 'none'; form-action 'self'; frame-ancestors 'none'" },
 });
 
-const AUDIENCE_EVENTS = ['return_visit', 'saved_tool_change', 'saved_tools_view'];
+const AUDIENCE_EVENTS = ['return_visit', 'saved_tool_change', 'saved_tools_view', 'saved_shortlist_share', 'buyer_intent_stage', 'compare_open', 'compare_tool_select', 'compare_cta_view'];
 function projectAudienceGrowth(snapshot) {
   const source = snapshot?.audience_growth;
   if (!source || typeof source !== 'object') return null;
