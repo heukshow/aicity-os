@@ -273,9 +273,9 @@ export default function App() {
             <div><div className="text-xs font-bold uppercase tracking-[0.2em] text-violet-300">Popular starting points</div><h2 className="mt-2 text-2xl font-black text-white sm:text-3xl">Start with tools buyers compare often</h2></div>
             <a href="#directory" className="hidden items-center gap-1 text-sm font-semibold text-slate-400 hover:text-white sm:flex">View all <ArrowRight className="h-4 w-4" /></a>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {featuredTools.map((tool) => (
-              <a key={tool.id} href={`/tool/${tool.id}.html`} className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition hover:-translate-y-0.5 hover:border-violet-400/30 hover:bg-white/[0.055]">
+              <a key={tool.id} href={`/tool/${tool.id}.html`} className="group flex min-w-0 items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition hover:-translate-y-0.5 hover:border-violet-400/30 hover:bg-white/[0.055]">
                 <div className="h-12 w-12 overflow-hidden rounded-xl border border-white/10"><ToolLogo tool={tool} /></div>
                 <div className="min-w-0 flex-1"><div className="font-bold text-white group-hover:text-violet-200">{tool.name}</div><div className="truncate text-xs text-slate-500">{tool.category_display} · {tool.pricing}</div></div>
                 <ArrowUpRight className="h-4 w-4 text-slate-600 group-hover:text-violet-300" />
