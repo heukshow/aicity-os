@@ -754,7 +754,6 @@
       },
       "completion_gate": "vendor_terms_clarified_then_legal_consent_and_exact_tracking_url_verified",
       "completion_gate_satisfied": false,
-      "availability_gate_satisfied": true,
       "user_action_required": false,
       "changed_scope": "Register the existing Constant Contact legal-consent hold and official clarification thread; no agreement, URL, CTA, payment or product state changed.",
       "verification": "Gmail thread 1a0df0917006730e still contains only the SENT clarification request; no vendor reply. Latest main 11dd50b59e485f934a45d1bf58c154865d199e87 preserves approved, agreement_accepted=false, exact tracking URL null and the vendor-clarification blocker across all internal producer/state sources.",
@@ -1451,6 +1450,7 @@
       },
       "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
       "completion_gate_satisfied": false,
+      "availability_gate_satisfied": true,
       "user_action_required": false,
       "verification": "GitHub native schedule remains best-effort and permanent recovery is not claimed. PR #885 staggered the six affected cron triggers away from the top of hour and removed the three-way :17 collision. PR #886 added an owner-gated #292 fallback dispatcher. Fallback proof: issue comment 5856049812 triggered COSHUMA Scheduler Fallback run 36320674838 success, which dispatched COSHUMA Cloud Control Plane run 36320679479 as workflow_dispatch and that run completed success on current main. Operational fallback is verified; native schedule recovery remains separately observed.",
       "handoff": "Keep native schedule fidelity under observation and do not relabel fallback workflow_dispatch as schedule success. For any affected workflow that exceeds two expected native periods, COSHUMA Team Watchdog may post one owner-authored #292 marker for exactly one allow-listed target and must verify both fallback and target workflow_dispatch success. Do not repeat a marker in the same stall window. Close the native-scheduler gate only after the existing two-consecutive-schedule criterion is met; central operational availability no longer depends solely on native schedule."
