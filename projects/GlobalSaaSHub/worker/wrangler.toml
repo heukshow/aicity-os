@@ -14,7 +14,7 @@ enabled = true
 PAYPAL_ENVIRONMENT = "live"
 ALLOWED_ORIGIN = "https://coshuma.com"
 CHECKOUT_ENABLED = "false"
-GA_PROPERTY_ID = "552119661"
+GA_PROPERTY_ID = "552233666"
 GSC_SITE_URL = "https://coshuma.com/"
 
 # Create the D1 database before deployment, then add its non-secret database_id here.

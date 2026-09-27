@@ -6,21 +6,21 @@ const valid = n => typeof n === 'number' && Number.isFinite(n) && n >= 0;
 const moneyKeys = ['commission_earned','commission_pending','reward_paid','available','withdrawn','declined','payout_paid'];
 const funnelKeys = ['outbound_clicks','signups_referrals','trials','paid_customers'];
 const allMetricKeys = [...funnelKeys, ...moneyKeys];
-const sumEvidence = (accounts, key) => {
+const historicalEvidence = (accounts, key, now) => {
   const rows = accounts.flatMap(a => (a.evidence || []).map(e => ({...e, account_id:a.account_id})));
-  const validRows = rows.filter(e => valid(e.metrics?.[key]));
-  const byCurrency = {};
-  let total = 0;
-  for (const e of validRows) {
-    const value = e.metrics[key];
-    if (moneyKeys.includes(key)) {
-      const currency = /^[A-Z]{3}$/.test(e.currency || '') ? e.currency : null;
-      if (!currency) continue;
-      byCurrency[currency] = (byCurrency[currency] || 0) + Math.round(value * 100);
-    } else total += value;
-  }
-  return {value: moneyKeys.includes(key) ? Object.fromEntries(Object.entries(byCurrency).map(([c,v]) => [c, v/100])) : total,
-    observed_records: validRows.length, latest_checked_at: validRows.map(e=>e.checked_at).filter(Boolean).sort().at(-1) || null};
+  // Reports can overlap, use different windows, or contain account-wide totals.
+  // Preserve each observation; none proves an additive historical grand total.
+  const records = [...new Map(rows.filter(e => valid(e.metrics?.[key])).map(e => {
+    const record = {account_id:e.account_id,tool:e.tool || null,source:e.source || null,
+      evidence_id:e.evidence_id || null,checked_at:e.checked_at || null,period:e.period || null,
+      observed_window:e.observed_window || null,currency:/^[A-Z]{3}$/.test(e.currency || '') ? e.currency : null,
+      value:e.metrics[key]};
+    const age = Date.parse(now) - Date.parse(record.checked_at);
+    record.status = !Number.isFinite(age) || age < 0 ? 'unknown' : age > 86400000 ? 'stale' : 'current';
+    return [JSON.stringify(record), record];
+  })).values()];
+  return {value:null,status:records.length ? 'not_aggregated' : 'unknown',records,
+    observed_records:records.length,latest_checked_at:records.map(e=>e.checked_at).filter(v=>Number.isFinite(Date.parse(v)) && Date.parse(v)<=Date.parse(now)).sort().at(-1) || null};
 };
 export function summarizeRevenue(programs, liveAccounts, now = new Date().toISOString()) {
   const accounts = [...new Set(programs.map(p=>p.account_id))].map(id => {
@@ -38,7 +38,7 @@ export function summarizeRevenue(programs, liveAccounts, now = new Date().toISOS
     for(const a of included) byCurrency[a.currency]=(byCurrency[a.currency]||0)+Math.round(a.metrics[key]*100);
     totals[key]={by_currency:Object.fromEntries(Object.entries(byCurrency).map(([k,v])=>[k,v/100])),account_ids:included.map(a=>a.account_id),checked_accounts:included.length,total_accounts:accounts.length,complete:included.length===accounts.length && accounts.length>0};
   }
-  const historical = Object.fromEntries(allMetricKeys.map(key => [key, sumEvidence(accounts, key)]));
+  const historical = Object.fromEntries(allMetricKeys.map(key => [key, historicalEvidence(accounts, key, now)]));
   const rank=a=>a.connection==='connected'?0:a.connection==='verified_snapshot'?1:a.connection==='blocked'?2:a.evidence.length?3:4;
   accounts.sort((a,b)=>rank(a)-rank(b)||a.name.localeCompare(b.name));
   return {generated_at:now,scope:inventory.scope,program_count:programs.length,account_count:accounts.length,

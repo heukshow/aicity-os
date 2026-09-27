@@ -48,8 +48,9 @@ const gaRangeRequest = (startDate) => ({
 });
 
 export async function fetchGoogleMetrics(env) {
+  const property = String(env.GA_PROPERTY_ID || '');
+  if (!/^\d+$/.test(property)) throw new Error('GA_PROPERTY_ID must be explicitly configured');
   const token = await accessToken(env);
-  const property = env.GA_PROPERTY_ID || '552119661';
   const gaBase = `https://analyticsdata.googleapis.com/v1beta/properties/${property}`;
   const site = env.GSC_SITE_URL || 'https://coshuma.com/';
   const gscBase = `https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(site)}/searchAnalytics/query`;
