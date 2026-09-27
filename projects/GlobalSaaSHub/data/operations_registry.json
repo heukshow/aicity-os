@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T02:36:43Z",
+  "updated_at": "2026-09-27T03:57:42Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1143,6 +1143,46 @@
       "user_action_required": false,
       "verification": "Collector/projector source parity, focused regression assertions, successful PR Build Check and merged current-main source. Production Worker ancestry and owner-authenticated live response are not yet verified.",
       "handoff": "Run Worker safety tests/dry-run, deploy the exact clean merged source through the existing authorized environment, then verify health, anonymous 401/no-store and owner-authenticated projection of all eight events before promotion."
+    },
+    {
+      "record_id": "GOVERNANCE:CLOUD-CONTROL-PLANE-SCHEDULER-STALL-20260927",
+      "task_key": "COSHUMA-CLOUD-CONTROL-PLANE-AVAILABILITY",
+      "incident_key": "cloud-control-plane-scheduler-stall-20260927-1217-kst",
+      "target": ".github/workflows/coshuma-cloud-control-plane.yml scheduled execution availability",
+      "owner_team": "Operations Governance Team",
+      "canonical_owner": "Operations Governance Team",
+      "found_by": "COSHUMA Team Watchdog",
+      "fixed_by": "COSHUMA Team Watchdog",
+      "changed_scope": "Canonical operations registry evidence only; no workflow, safety control, deployment, public page, measurement definition, secret or automation setting changed.",
+      "lifecycle": "in_progress",
+      "operational_status": "stalled",
+      "root_cause": "tool_capability",
+      "next_owner": "Operations Governance Team",
+      "priority": "high",
+      "blocker": "github_schedule_trigger_not_firing_after_two_periods",
+      "last_evidence_at": "2026-09-27T03:57:42Z",
+      "evidence": {
+        "watchdog_comment_id": 5852244585,
+        "expected_schedule": "*/15 * * * *",
+        "last_actual_scheduled_run_id": 36286724252,
+        "last_actual_scheduled_run_at": "2026-09-27T01:50:04Z",
+        "recovery_run_id": 36289364625,
+        "recovery_run_attempt": 2,
+        "recovery_completed_at": "2026-09-27T03:18:31Z",
+        "downstream_growth_run_id": 36291024934,
+        "checked_at": "2026-09-27T03:57:42Z",
+        "missing_expected_runs": [
+          "2026-09-27T03:30:00Z",
+          "2026-09-27T03:45:00Z"
+        ],
+        "github_reported_actor": null,
+        "github_reported_reason": null
+      },
+      "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
+      "completion_gate_satisfied": false,
+      "user_action_required": false,
+      "verification": "GitHub Actions repository run history shows no new schedule-triggered Cloud Control Plane execution after the 03:18 UTC recovery; the 03:30 and 03:45 UTC expected periods are absent. Current recovery and downstream Growth Loop succeeded, but permanent scheduler recovery is not proven.",
+      "handoff": "Do not perform a third identical rerun. Keep all teams enabled and other tasks moving; verify future actual schedule-triggered executions. Close only after two consecutive expected schedule periods complete successfully, or replace the trigger through an approved non-paid existing capability."
     }
   ],
   "invariants": {
