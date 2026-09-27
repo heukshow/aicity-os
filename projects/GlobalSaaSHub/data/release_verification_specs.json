@@ -415,6 +415,28 @@
         "COSHUMA"
       ],
       "verify_deployed_ancestry": true
+    },
+    "QUALITY:PUBLIC-PRICING-TRUTH-20260928": {
+      "mode": "bundle_markers",
+      "source_file": "src/App.jsx",
+      "source_required_regex": [
+        "Search tools, tasks or features",
+        "matchesPricingFilter\\(tool.pricing, selectedPricing\\)"
+      ],
+      "source_forbidden_regex": [
+        "\\?\\s*0\\s*:\\s*25"
+      ],
+      "gh_pages_glob": "assets/*.js",
+      "gh_pages_required_regex": [
+        "Search tools, tasks or features",
+        "See official pricing"
+      ],
+      "gh_pages_forbidden_regex": [
+        "Not specified in snippet",
+        "Varies by paid referral plan"
+      ],
+      "live_url": "https://coshuma.com/",
+      "verify_deployed_ancestry": true
     }
   }
 }

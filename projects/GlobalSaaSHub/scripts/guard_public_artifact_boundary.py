@@ -112,6 +112,9 @@ PATTERNS = {
     "internal-payment-ops": INTERNAL_PAYMENT_OPS,
     "listing-administration": LISTING_ADMIN,
 }
+POLICY = json.loads((Path(__file__).resolve().parents[1] / "config" / "public_content_policy.json").read_text(encoding="utf-8"))
+PATTERNS.update({f"internal-tool-value-{i}": re.compile(pattern, re.I)
+                 for i, pattern in enumerate(POLICY["public_internal_data"]["forbidden_value_patterns"])})
 
 
 class PublicHTML(HTMLParser):

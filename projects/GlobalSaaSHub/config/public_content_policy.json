@@ -47,6 +47,10 @@
       "Claim Profile ($49/yr)",
       "Official Embed Badge Code"
     ],
-    "allow_tracking_url_network_host_or_parameters": true
+    "allow_tracking_url_network_host_or_parameters": true,
+    "forbidden_value_patterns": [
+      "\\bnot\\s+specified\\s+in\\s+(?:the\\s+)?snippet\\b",
+      "\\bvaries\\s+by\\s+paid\\s+referral\\s+plan\\b"
+    ]
   }
 }

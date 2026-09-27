@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T17:56:11Z",
+  "updated_at": "2026-09-27T18:36:52.551Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1630,6 +1630,44 @@
       "user_action_required": false,
       "verification": "PR Build, exact current-main deployment ancestry, gh-pages commit, Pages deployment and direct live browser verification succeeded.",
       "handoff": "Operations Governance retains SSOT stewardship. Preserve the 2026-09-28 measurement-window start; QA traffic is not customer growth and no conversion or revenue uplift is claimed."
+    },
+    {
+      "record_id": "QUALITY:PUBLIC-PRICING-TRUTH-20260928",
+      "task_key": "QUALITY:PUBLIC-PRICING-TRUTH-20260928",
+      "incident_key": "public-pricing-placeholder-and-invented-filter-price",
+      "target": "Home pricing filter/search and Supademo/Synthflow public pricing projection",
+      "owner_team": "Product Experience Team",
+      "canonical_owner": "Product Experience Team",
+      "found_by": "Operations Governance Team",
+      "fixed_by": "Operations Governance Team",
+      "lifecycle": "in_progress",
+      "next_owner": "Release & Reliability Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-27T18:30:48.229927+00:00",
+      "evidence": {
+        "discovery_comment_id": 5858523358,
+        "audit_source_commit": "bda268261de0bed41d68458f4f2982bdcf409380",
+        "audit_file": "data/quality-audit-2026-09-28.md",
+        "implementation_pr": 900,
+        "implementation_head": "a612fc2450f2d231ad07c9a47229107dab3f2792",
+        "local_validation": {
+          "pricing_regressions": "3 passed",
+          "build": "561 HTML and 572 public text artifacts passed",
+          "tool_links": "179/179 passed",
+          "approved_tracking": "72/72 primary exact URLs and CTAs present",
+          "measurement_events": "existing compare and fixed-period tests passed",
+          "mobile_emulator": "7 layouts passed; zero analytics requests; physical device not verified"
+        }
+      },
+      "root_cause": "Unknown prices defaulted to invented $25; public projection validated keys but not ingestion-placeholder values; search lacked accessible name.",
+      "changed_scope": "Two unverified pricing placeholders, six affected static pages, public projection/source/dist value guards, directory price filter and search aria-label. Existing verified URLs, facts, events, disclosure, layout and fixed measurement periods preserved.",
+      "verification": "Pending PR Build Check, deploy ancestry and live interaction verification.",
+      "handoff": "Editorial Quality maintains source/producer copy; Product Experience maintains filters/accessibility; Revenue Optimization observes existing matched periods without uplift claims.",
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": false,
+      "user_action_required": false,
+      "next_action": "Complete Build Check, merge, current-main deploy and live price-filter/public-copy/affiliate-preservation verification; sync exact release evidence."
     }
   ],
   "invariants": {
