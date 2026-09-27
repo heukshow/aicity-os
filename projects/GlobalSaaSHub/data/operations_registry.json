@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T17:08:31Z",
+  "updated_at": "2026-09-27T17:56:11Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1235,17 +1235,17 @@
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": "native_schedule_fidelity_observation_only",
-      "last_evidence_at": "2026-09-27T17:08:31Z",
+      "last_evidence_at": "2026-09-27T17:56:11Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "*/15 * * * *",
-        "last_actual_scheduled_run_id": 36305610421,
-        "last_actual_scheduled_run_at": "2026-09-27T08:15:10Z",
+        "last_actual_scheduled_run_id": 36338759157,
+        "last_actual_scheduled_run_at": "2026-09-27T17:55:59Z",
         "recovery_run_id": 36289364625,
         "recovery_run_attempt": 2,
         "recovery_completed_at": "2026-09-27T03:18:31Z",
         "downstream_growth_run_id": 36291024934,
-        "checked_at": "2026-09-27T17:08:31Z",
+        "checked_at": "2026-09-27T17:56:11Z",
         "scheduler_mitigation": {
           "cron_stagger_pr": 885,
           "cron_stagger_merge": "96002c5f6369ec4e90e48480ed612e7c88d86b27",
@@ -1318,22 +1318,24 @@
         ],
         "github_reported_actor": null,
         "github_reported_reason": null,
-        "latest_repository_schedule_run_id": 36305610421,
-        "latest_repository_schedule_run_at": "2026-09-27T08:15:10Z",
+        "latest_repository_schedule_run_id": 36338759157,
+        "latest_repository_schedule_run_at": "2026-09-27T17:55:59Z",
         "affected_workflows": {
           "COSHUMA Cloud Control Plane": {
-            "latest_schedule_run_id": 36304114014,
-            "latest_schedule_run_at": "2026-09-27T07:46:01Z",
-            "recovery_status": "second_success_missing_stall_persists"
+            "latest_schedule_run_id": 36337914232,
+            "latest_schedule_run_at": "2026-09-27T17:42:04Z",
+            "recovery_status": "one_new_native_schedule_success_observed_gate_pending",
+            "current_cron": "7,22,37,52 * * * *"
           },
           "Royal Queue Reconcile Status": {
-            "latest_schedule_run_id": 36305610421,
-            "latest_schedule_run_at": "2026-09-27T08:15:10Z",
-            "recovery_status": "second_success_missing_stall_persists"
+            "latest_schedule_run_id": 36338319960,
+            "latest_schedule_run_at": "2026-09-27T17:48:43Z",
+            "recovery_status": "one_new_native_schedule_success_observed_gate_pending",
+            "current_cron": "19 * * * *"
           },
           "COSHUMA Analytics Snapshot": {
-            "latest_schedule_run_id": 36305164478,
-            "latest_schedule_run_at": "2026-09-27T08:06:33Z",
+            "latest_schedule_run_id": 36337947871,
+            "latest_schedule_run_at": "2026-09-27T17:42:37Z",
             "expected_schedule": "17 * * * *",
             "missing_expected_runs": [
               "2026-09-27T02:17:00Z",
@@ -1343,7 +1345,7 @@
               "2026-09-27T06:17:00Z",
               "2026-09-27T07:17:00Z"
             ],
-            "recovery_status": "fallback_workflow_dispatch_success_native_schedule_unverified",
+            "recovery_status": "one_new_native_schedule_success_observed_gate_pending",
             "current_cron": "11 * * * *",
             "operational_fallback": {
               "marker_comment_id": 5857247641,
@@ -1356,9 +1358,9 @@
             }
           },
           "COSHUMA Release Verification": {
-            "latest_schedule_run_id": 36301313898,
-            "latest_schedule_run_at": "2026-09-27T06:51:03Z",
-            "recovery_status": "fallback_workflow_dispatch_success_native_schedule_unverified",
+            "latest_schedule_run_id": 36336548043,
+            "latest_schedule_run_at": "2026-09-27T17:20:08Z",
+            "recovery_status": "one_new_native_schedule_success_observed_gate_pending",
             "current_cron": "53 * * * *",
             "operational_fallback": {
               "marker_comment_id": 5857609589,
@@ -1370,9 +1372,9 @@
             }
           },
           "COSHUMA Registry Reconciliation": {
-            "latest_schedule_run_id": 36300760574,
-            "latest_schedule_run_at": "2026-09-27T06:39:55Z",
-            "recovery_status": "fallback_workflow_dispatch_success_native_schedule_unverified",
+            "latest_schedule_run_id": 36338759157,
+            "latest_schedule_run_at": "2026-09-27T17:55:59Z",
+            "recovery_status": "one_new_native_schedule_success_observed_gate_pending",
             "current_cron": "41 * * * *",
             "operational_fallback": {
               "marker_comment_id": 5857959091,
@@ -1384,9 +1386,10 @@
             }
           },
           "COSHUMA Growth Loop": {
-            "latest_schedule_run_id": 36300585791,
-            "latest_schedule_run_at": "2026-09-27T06:36:18Z",
-            "recovery_status": "second_success_missing_stall_persists"
+            "latest_schedule_run_id": 36338664055,
+            "latest_schedule_run_at": "2026-09-27T17:54:22Z",
+            "recovery_status": "one_new_native_schedule_success_observed_gate_pending",
+            "current_cron": "29 * * * *"
           }
         },
         "latest_push_control_plane_run_id": 36293260934,
@@ -1516,14 +1519,50 @@
             "last_valid_snapshot_preserved": true
           },
           "completion_boundary": "All six affected workflows missed at least two nominal windows after their single post-stall schedule success. No workflow has two consecutive post-stall schedule successes; the completion gate remains false."
+        },
+        "renewed_native_schedule_observation": {
+          "observed_at": "2026-09-27T17:56:11Z",
+          "successful_workflows": {
+            "COSHUMA Cloud Control Plane": {
+              "run_id": 36337914232,
+              "scheduled_at": "2026-09-27T17:42:04Z",
+              "conclusion": "success"
+            },
+            "Royal Queue Reconcile Status": {
+              "run_id": 36338319960,
+              "scheduled_at": "2026-09-27T17:48:43Z",
+              "conclusion": "success"
+            },
+            "COSHUMA Analytics Snapshot": {
+              "run_id": 36337947871,
+              "scheduled_at": "2026-09-27T17:42:37Z",
+              "conclusion": "success"
+            },
+            "COSHUMA Release Verification": {
+              "run_id": 36336548043,
+              "scheduled_at": "2026-09-27T17:20:08Z",
+              "conclusion": "success"
+            },
+            "COSHUMA Registry Reconciliation": {
+              "run_id": 36338759157,
+              "scheduled_at": "2026-09-27T17:55:59Z",
+              "conclusion": "success"
+            },
+            "COSHUMA Growth Loop": {
+              "run_id": 36338664055,
+              "scheduled_at": "2026-09-27T17:54:22Z",
+              "conclusion": "success"
+            }
+          },
+          "completion_boundary": "Each of the six affected workflows has one new schedule-triggered success after the fallback mitigation. No workflow yet has two consecutive new schedule-triggered successes within its expected periods, so the completion gate remains false."
         }
       },
       "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
       "completion_gate_satisfied": false,
       "availability_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "GitHub native schedule remains best-effort and permanent recovery is not claimed. PR #885 staggered the six affected cron triggers and PR #886 added the owner-gated #292 fallback dispatcher. Verified fallback targets now include Cloud Control Plane (marker 5856049812; fallback 36320674838; target workflow_dispatch 36320679479), Royal Queue (marker 5856717271; fallback 36326034544; target workflow_dispatch 36326038638), Analytics Snapshot (marker 5857247641; fallback 36329866750; target workflow_dispatch 36329872044), Release Verification (marker 5857609589; fallback 36332859925; target workflow_dispatch 36332867682), and Registry Reconciliation (marker 5857959091; fallback 36335806186; target workflow_dispatch 36335810900), all successful. The Analytics fallback preserves fixed post-period collection availability but does not establish uplift or native schedule recovery.",
-      "handoff": "Keep native schedule fidelity under observation and do not relabel fallback workflow_dispatch, push, or workflow_run as schedule success. Analytics measurement collection remains operationally restored for the fixed post period; preserve baseline/post definitions and do not infer uplift before maturation. For any remaining affected workflow that exceeds two expected native periods, COSHUMA Team Watchdog may post one owner-authored #292 marker for exactly one allow-listed target and must verify both fallback and target workflow_dispatch success. Do not repeat a marker in the same stall window. Close the native-scheduler gate only after the existing two-consecutive-schedule criterion is met."
+      "verification": "Operational availability remains mitigated by the owner-gated fallback. New native schedule successes were directly observed for Cloud Control Plane 36337914232, Royal Queue 36338319960, Analytics Snapshot 36337947871, Release Verification 36336548043, Registry Reconciliation 36338759157, and Growth Loop 36338664055. Each affected workflow has one new schedule-triggered success, but none yet has two consecutive new schedule successes within its expected periods; permanent native-schedule recovery is not claimed.",
+      "handoff": "Continue observing the next native schedule event for each affected workflow. Do not count workflow_dispatch, push, or workflow_run as schedule evidence. Close the native-scheduler gate only after the existing two-consecutive-schedule criterion is satisfied; preserve analytics baseline/post definitions and do not infer uplift from collection recovery."
     },
     {
       "record_id": "EDITORIAL:EDITORIAL-BODY-008",
