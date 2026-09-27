@@ -5,6 +5,7 @@ import CompareModal from './components/CompareModal';
 import SponsorshipCheckout from './components/SponsorshipCheckout';
 import { paymentConfig } from './config/payment.js';
 import { getValidExternalUrl } from './utils/url';
+import { matchesPricingFilter } from './utils/pricingFilter.mjs';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -147,14 +148,7 @@ export default function App() {
     return toolsData.filter((tool) => {
       const matchesBookmark = !showBookmarksOnly || bookmarkedIds.includes(tool.id);
       const matchesCategory = selectedCategory === 'all' || tool.category === selectedCategory;
-      const pricingLower = (tool.pricing || '').toLowerCase();
-      const priceMatch = (tool.pricing || '').match(/\$(\d+)/);
-      const numericPrice = priceMatch ? parseInt(priceMatch[1], 10) : pricingLower.includes('free') ? 0 : 25;
-      let matchesPricing = true;
-      if (selectedPricing === 'free') matchesPricing = pricingLower.includes('free') || pricingLower.includes('trial');
-      if (selectedPricing === 'under20') matchesPricing = numericPrice < 20 || pricingLower.includes('free');
-      if (selectedPricing === 'under50') matchesPricing = numericPrice >= 20 && numericPrice <= 50;
-      if (selectedPricing === 'over50') matchesPricing = numericPrice > 50;
+      const matchesPricing = matchesPricingFilter(tool.pricing, selectedPricing);
 
       const matchesSearch =
         !term ||
@@ -230,6 +224,7 @@ export default function App() {
           <div className="relative mx-auto mt-8 max-w-3xl">
             <Search className="absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-500" />
             <input
+              aria-label="Search tools, tasks or features"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               onFocus={() => document.getElementById('directory')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
