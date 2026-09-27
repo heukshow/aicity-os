@@ -1,0 +1,50 @@
+name: COSHUMA Scheduler Fallback
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: coshuma-scheduler-fallback
+  cancel-in-progress: false
+
+jobs:
+  dispatch-one:
+    if: >-
+      github.event.issue.number == 292 &&
+      github.event.comment.user.login == github.repository_owner &&
+      contains(github.event.comment.body, '[COSHUMA_SCHEDULER_FALLBACK')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Parse and validate target
+        id: target
+        shell: bash
+        env:
+          BODY: ${{ github.event.comment.body }}
+        run: |
+          set -euo pipefail
+          target="$(printf '%s\n' "$BODY" | sed -n 's/.*\[COSHUMA_SCHEDULER_FALLBACK target=\([^]]*\)\].*/\1/p' | head -n1)"
+          case "$target" in
+            coshuma-cloud-control-plane.yml|coshuma-release-verification.yml|coshuma-registry-reconciliation.yml|coshuma-growth-loop.yml|coshuma-analytics-snapshot.yml|royal-queue-reconcile.yml)
+              ;;
+            *)
+              echo "Invalid or missing fallback target."
+              exit 1
+              ;;
+          esac
+          echo "workflow=$target" >> "$GITHUB_OUTPUT"
+
+      - name: Dispatch one affected workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          TARGET: ${{ steps.target.outputs.workflow }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh workflow run "$TARGET" --repo "$REPO" --ref main
