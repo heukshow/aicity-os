@@ -65,11 +65,13 @@ for (const tool of publicTools) {
   }
 }
 
-const dir = path.join(root, 'src', 'generated');
-fs.mkdirSync(dir, { recursive: true });
-fs.writeFileSync(path.join(dir, 'public-tools.json'), JSON.stringify(publicTools), 'utf8');
-
 const serialized = JSON.stringify(publicTools);
+const policy = JSON.parse(fs.readFileSync(path.join(root, 'config', 'public_content_policy.json'), 'utf8'));
+for (const pattern of policy.public_internal_data.forbidden_value_patterns) {
+  if (new RegExp(pattern, 'i').test(serialized)) {
+    throw new Error(`Public tool dataset contains internal value: ${pattern}`);
+  }
+}
 for (const forbidden of [
   'affiliate_evidence_markers',
   'affiliate_status',
@@ -85,4 +87,8 @@ for (const forbidden of [
     throw new Error(`Public tool dataset still contains internal marker: ${forbidden}`);
   }
 }
+// Validate all keys and values before replacing the last safe artifact.
+const dir = path.join(root, 'src', 'generated');
+fs.mkdirSync(dir, { recursive: true });
+fs.writeFileSync(path.join(dir, 'public-tools.json'), serialized, 'utf8');
 console.log(`Generated allowlisted customer-only tool dataset: ${publicTools.length} tools / ${PUBLIC_FIELDS.length + 2} allowed fields max`);
