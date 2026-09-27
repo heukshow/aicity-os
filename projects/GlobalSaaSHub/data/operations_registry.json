@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T03:57:42Z",
+  "updated_at": "2026-09-27T05:00:48Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1148,19 +1148,19 @@
       "record_id": "GOVERNANCE:CLOUD-CONTROL-PLANE-SCHEDULER-STALL-20260927",
       "task_key": "COSHUMA-CLOUD-CONTROL-PLANE-AVAILABILITY",
       "incident_key": "cloud-control-plane-scheduler-stall-20260927-1217-kst",
-      "target": ".github/workflows/coshuma-cloud-control-plane.yml scheduled execution availability",
+      "target": ".github/workflows repository schedule-trigger execution availability",
       "owner_team": "Operations Governance Team",
       "canonical_owner": "Operations Governance Team",
       "found_by": "COSHUMA Team Watchdog",
-      "fixed_by": "COSHUMA Team Watchdog",
-      "changed_scope": "Canonical operations registry evidence only; no workflow, safety control, deployment, public page, measurement definition, secret or automation setting changed.",
+      "fixed_by": "Operations Governance Team",
+      "changed_scope": "Canonical operations registry incident scope and evidence only; no workflow, safety control, deployment, public page, measurement definition, secret or automation setting changed.",
       "lifecycle": "in_progress",
       "operational_status": "stalled",
       "root_cause": "tool_capability",
       "next_owner": "Operations Governance Team",
       "priority": "high",
-      "blocker": "github_schedule_trigger_not_firing_after_two_periods",
-      "last_evidence_at": "2026-09-27T03:57:42Z",
+      "blocker": "github_schedule_trigger_not_firing_across_multiple_workflows",
+      "last_evidence_at": "2026-09-27T05:00:48Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "*/15 * * * *",
@@ -1170,19 +1170,55 @@
         "recovery_run_attempt": 2,
         "recovery_completed_at": "2026-09-27T03:18:31Z",
         "downstream_growth_run_id": 36291024934,
-        "checked_at": "2026-09-27T03:57:42Z",
+        "checked_at": "2026-09-27T05:00:48Z",
         "missing_expected_runs": [
           "2026-09-27T03:30:00Z",
           "2026-09-27T03:45:00Z"
         ],
         "github_reported_actor": null,
-        "github_reported_reason": null
+        "github_reported_reason": null,
+        "latest_repository_schedule_run_id": 36286724252,
+        "latest_repository_schedule_run_at": "2026-09-27T01:50:04Z",
+        "affected_workflows": {
+          "COSHUMA Cloud Control Plane": {
+            "latest_schedule_run_id": 36286724252,
+            "latest_schedule_run_at": "2026-09-27T01:50:04Z"
+          },
+          "Royal Queue Reconcile Status": {
+            "latest_schedule_run_id": 36285737030,
+            "latest_schedule_run_at": "2026-09-27T01:30:26Z"
+          },
+          "COSHUMA Analytics Snapshot": {
+            "latest_schedule_run_id": 36285457481,
+            "latest_schedule_run_at": "2026-09-27T01:24:57Z",
+            "expected_schedule": "17 * * * *",
+            "missing_expected_runs": [
+              "2026-09-27T02:17:00Z",
+              "2026-09-27T03:17:00Z",
+              "2026-09-27T04:17:00Z"
+            ]
+          },
+          "COSHUMA Release Verification": {
+            "latest_schedule_run_id": 36283459654,
+            "latest_schedule_run_at": "2026-09-27T00:45:27Z"
+          },
+          "COSHUMA Registry Reconciliation": {
+            "latest_schedule_run_id": 36283312145,
+            "latest_schedule_run_at": "2026-09-27T00:42:30Z"
+          },
+          "COSHUMA Growth Loop": {
+            "latest_schedule_run_id": 36282977955,
+            "latest_schedule_run_at": "2026-09-27T00:35:51Z"
+          }
+        },
+        "latest_push_control_plane_run_id": 36293260934,
+        "latest_push_control_plane_run_at": "2026-09-27T04:04:45Z"
       },
       "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
       "completion_gate_satisfied": false,
       "user_action_required": false,
-      "verification": "GitHub Actions repository run history shows no new schedule-triggered Cloud Control Plane execution after the 03:18 UTC recovery; the 03:30 and 03:45 UTC expected periods are absent. Current recovery and downstream Growth Loop succeeded, but permanent scheduler recovery is not proven.",
-      "handoff": "Do not perform a third identical rerun. Keep all teams enabled and other tasks moving; verify future actual schedule-triggered executions. Close only after two consecutive expected schedule periods complete successfully, or replace the trigger through an approved non-paid existing capability."
+      "verification": "Fresh repository-wide GitHub Actions history at 2026-09-27T05:00:48Z shows no schedule event after Control Plane run 36286724252 at 01:50:04Z. Analytics Snapshot, Release Verification, Registry Reconciliation, Growth Loop and Royal Queue Reconcile also have no later scheduled execution. Push-triggered runs remain healthy, but they do not satisfy the actual-schedule recovery gate.",
+      "handoff": "Treat this as one repository scheduler-capability incident, not duplicate workflow tasks. Do not perform a third identical rerun. Keep every team automation enabled and other tasks moving; preserve the private analytics snapshot as stale/last-successful rather than zero. Close only after two consecutive actual scheduled runs occur within expected periods, or replace the trigger through an approved non-paid existing capability."
     }
   ],
   "invariants": {
