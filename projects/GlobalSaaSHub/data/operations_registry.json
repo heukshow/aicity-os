@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T14:28:28Z",
+  "updated_at": "2026-09-27T15:02:59.948Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1505,6 +1505,40 @@
       "user_action_required": false,
       "verification": "PR Build, exact current-main source readback, Site Build & Deploy, gh-pages commit, Pages deployment and direct live browser verification succeeded.",
       "handoff": "Operations Governance retains SSOT stewardship. Preserve the 2026-09-28 measurement-window start and do not count QA verification traffic as customer growth; no conversion or revenue uplift is claimed."
+    },
+    {
+      "record_id": "EDITORIAL:EDITORIAL-BODY-009",
+      "incident_key": "jotform-superlative-20260927",
+      "task_key": "EDITORIAL-BODY-009",
+      "target": "public/tool/jotform.html body correction",
+      "owner_team": "Editorial Quality Team",
+      "canonical_owner": "Editorial Quality Team",
+      "found_by": "Editorial Quality Team",
+      "fixed_by": "Editorial Quality Team",
+      "changed_scope": "Neutralized one unsupported Jotform comparative claim in one public buyer-guide sentence; product facts, prices, CTAs, exact affiliate URLs, disclosure, SEO metadata, analytics events, revenue truth and fixed measurement windows unchanged.",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
+      "priority": "normal",
+      "blocker": null,
+      "last_evidence_at": "2026-09-27T14:35:59.087Z",
+      "evidence": {
+        "implementation_pr": 891,
+        "merge_commit": "865a437070583bb9ada7c046643f31c39e95bca3",
+        "pr_build_run": 36325950260,
+        "site_deploy_run": 36326264781,
+        "deployment_source_commit": "865a437070583bb9ada7c046643f31c39e95bca3",
+        "reconciled_main_commit": "4d86a6f24ddea7e355c2fe6623a7bf9cf3711e5b",
+        "gh_pages_commit": "4dd130ece1e546a3f5a6d86e4592c47bc47abb68",
+        "github_pages_run": 36326407479,
+        "live_url": "https://coshuma.com/tool/jotform.html?coshuma_qa=1",
+        "live_verification": "Live browser showed the neutral 'Jotform can fit' sentence and no prior 'Jotform is strongest' wording; confirmed Jotform partner destinations and the customer affiliate disclosure remained rendered."
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "completed_at": "2026-09-27T14:35:59.087Z",
+      "user_action_required": false,
+      "verification": "PR Build, exact current-main deployment ancestry, gh-pages commit, Pages deployment and direct live browser verification succeeded.",
+      "handoff": "Operations Governance retains SSOT stewardship. Preserve the 2026-09-28 measurement-window start; QA traffic is not customer growth and no conversion or revenue uplift is claimed."
     }
   ],
   "invariants": {
