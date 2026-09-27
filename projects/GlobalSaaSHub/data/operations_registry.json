@@ -1099,7 +1099,8 @@
         "implementation_pr": 879,
         "production_version": "f09b7767-5182-43f0-993f-53cd85e9f49c",
         "tax_form_notice_observed": true,
-        "tax_form_submitted": false
+        "tax_form_submitted": false,
+        "production_verification_comment_id": 5854277284
       },
       "completion_gate": "authenticated_dashboard_program_url_commission_and_payout_evidence",
       "completion_gate_satisfied": true,
