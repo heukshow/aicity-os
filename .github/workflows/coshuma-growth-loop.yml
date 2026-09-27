@@ -3,7 +3,7 @@ name: COSHUMA Growth Loop
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17 * * * *"
+    - cron: "29 * * * *"
   workflow_run:
     workflows:
       - "COSHUMA Analytics Snapshot"

@@ -13,7 +13,7 @@ on:
       - 'royal-queue-sync/reconcile_status.py'
       - '.github/workflows/royal-queue-reconcile.yml'
   schedule:
-    - cron: '17 * * * *'
+    - cron: '19 * * * *'
   workflow_dispatch:
 
 permissions:

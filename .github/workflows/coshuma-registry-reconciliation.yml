@@ -3,7 +3,7 @@ name: COSHUMA Registry Reconciliation
 on:
   workflow_dispatch:
   schedule:
-    - cron: '23 * * * *'
+    - cron: '41 * * * *'
   workflow_run:
     workflows: ['COSHUMA Release Verification', 'COSHUMA Site Build & Deploy']
     types: [completed]

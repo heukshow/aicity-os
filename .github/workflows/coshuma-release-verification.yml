@@ -14,7 +14,7 @@ on:
     types: [completed]
   workflow_dispatch:
   schedule:
-    - cron: '31 * * * *'
+    - cron: '53 * * * *'
 
 permissions:
   contents: read
