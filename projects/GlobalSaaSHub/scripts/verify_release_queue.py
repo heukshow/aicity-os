@@ -39,7 +39,8 @@ def validate_contract(registry, specs, strict=True):
     if specs.get("schema_version") != 1:
         errors.append("release_verification_specs schema_version must be 1")
     for row in registry.get("active_queue", []):
-        if row.get("lifecycle") == "production_verification_requested" and row.get("record_id") not in records:
+        if (row.get("lifecycle") == "production_verification_requested" and not row.get("blocker")
+                and row.get("record_id") not in records):
             errors.append(f"missing deterministic spec: {row.get('record_id')}")
 
     required_by_mode = {
