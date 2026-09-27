@@ -115,6 +115,8 @@ for path in SRC.rglob("*"):
             errors.append(f"{rel}: {label}: {m.group(0)}")
 
 public_patterns = {**FORBIDDEN_SOURCE, **FORBIDDEN_PUBLIC_COPY}
+public_patterns.update({f"internal-tool-value-{i}": re.compile(pattern, re.I)
+                        for i, pattern in enumerate(POLICY["public_internal_data"]["forbidden_value_patterns"])})
 for path in PUBLIC.rglob("*"):
     if not path.is_file() or path.suffix.lower() not in TEXT_EXTENSIONS:
         continue
@@ -160,7 +162,7 @@ else:
             for item in values:
                 if not isinstance(item, str):
                     continue
-                for label, pattern in FORBIDDEN_PUBLIC_COPY.items():
+                for label, pattern in public_patterns.items():
                     m = pattern.search(item)
                     if m:
                         errors.append(
