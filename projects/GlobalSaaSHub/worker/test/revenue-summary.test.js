@@ -1,11 +1,31 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { summarizeRevenue, getRevenueSummary } from '../src/revenue-summary.js';
+import { summarizeRevenue, getRevenueSummary, mergePrivateObservations } from '../src/revenue-summary.js';
 import { fetchGoogleMetrics } from '../src/google-analytics.js';
 import { revenuePage } from '../src/revenue-view.js';
 const now='2026-09-11T03:00:00Z';
 const programs=[{id:'one',name:'One',account_id:'ps',network:'PartnerStack'},{id:'two',name:'Two',account_id:'ps',network:'PartnerStack'},{id:'three',name:'Three',account_id:'native',network:'Native'}];
 const live={account_id:'ps',connection:'connected',complete:true,checked_at:now,period:'lifetime',currency:'USD',metrics:{commission_earned:20,available:0}};
+test('private portal observations preserve confirmed zero and unknown without entering lifetime totals',()=>{
+  const row={account_id:'native',source:'authenticated-browser-dashboard',evidence_id:'qa:snapshot',checked_at:now,period:'current dashboard, date bounds not exposed',metrics:{outbound_clicks:7,paid_customers:0,commission_earned:0,trials:'0'},currency:'USD'};
+  const accounts=mergePrivateObservations([], {schema_version:1,accounts:[row]},programs,now);
+  assert.equal(accounts[0].metrics.paid_customers,0);
+  assert.equal(accounts[0].metrics.trials,null);
+  assert.equal(accounts[0].metrics.payout_paid,null);
+  assert.equal(accounts[0].complete,false);
+  const summary=summarizeRevenue(programs,accounts,now);
+  assert.deepEqual(summary.totals.commission_earned.by_currency,{});
+  assert.equal(summary.historical.commission_earned.records[0].value,0);
+  assert.equal(summary.historical.commission_earned.records[0].status,'current');
+});
+test('private observations cannot regress newer evidence, invent accounts, or replace the live API',()=>{
+  const base=[{account_id:'native',checked_at:now,metrics:{outbound_clicks:9}}];
+  const row={account_id:'native',source:'authenticated-browser-dashboard',evidence_id:'qa:old',checked_at:now,period:'current dashboard',metrics:{outbound_clicks:1}};
+  for(const patch of [{},{checked_at:'2026-09-10T00:00:00Z'},{checked_at:'2026-09-12T00:00:00Z'},{account_id:'unknown'},{account_id:'partnerstack-account'},{source:'unverified'},{evidence_id:null}]) {
+    assert.deepEqual(mergePrivateObservations(base,{schema_version:1,accounts:[{...row,...patch}]},programs,now),base);
+  }
+  assert.deepEqual(mergePrivateObservations(base,{accounts:[row]},programs,now),base);
+});
 test('shared accounts count once; unknown and reward-paid do not become payouts',()=>{
   const s=summarizeRevenue(programs,[live],now);
   assert.equal(s.account_count,2);assert.equal(s.program_count,3);
@@ -31,6 +51,17 @@ test('API failures remain isolated from the direct-sales aggregate',async()=>{
   assert.match(sql,/GROUP BY currency/);assert.doesNotMatch(sql,/SELECT \*/);
   assert.equal(s.direct_sales.connection,'connected');assert.equal(s.direct_sales.empty,true);
   assert.equal(s.accounts.find(a=>a.account_id==='partnerstack-account').connection,'error');
+});
+test('live API completion is not excluded as future evidence after network latency',async()=>{
+  const summary=await getRevenueSummary({},async()=>{
+    await new Promise(resolve=>setTimeout(resolve,10));
+    return {connected:true,checkedAt:new Date().toISOString(),currency:'USD',
+      coverage:{rewardsComplete:true},invalidAmountCount:0,mixedCurrency:false,
+      rewardStatusCounts:{other:0},total:0,pending:0,paid:0,available:0,withdrawn:0,declined:0};
+  });
+  assert.deepEqual(summary.totals.commission_earned.by_currency,{USD:0});
+  assert.equal(summary.totals.commission_earned.checked_accounts,1);
+  assert.equal(summary.totals.commission_earned.complete,false);
 });
 test('overlapping snapshots and account totals remain separate instead of becoming historical revenue',()=>{
   const evidence=[

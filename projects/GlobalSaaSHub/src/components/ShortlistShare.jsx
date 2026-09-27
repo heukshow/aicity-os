@@ -116,7 +116,7 @@ export default function ShortlistShare() {
         onClick={copyShortlistLink}
         aria-label={`Share ${savedIds.length} saved tools`}
         aria-live="polite"
-        className="inline-flex items-center gap-2 rounded-xl border border-violet-400/30 bg-[#11131a]/95 px-4 py-3 text-xs font-bold text-violet-100 shadow-2xl shadow-black/40 backdrop-blur hover:border-violet-300/50 hover:bg-[#181a29] focus:outline-none focus:ring-2 focus:ring-violet-400/60"
+        className="inline-flex min-h-11 min-w-11 items-center gap-2 rounded-xl border border-violet-400/30 bg-[#11131a]/95 px-4 py-3 text-xs font-bold text-violet-100 shadow-2xl shadow-black/40 backdrop-blur hover:border-violet-300/50 hover:bg-[#181a29] focus:outline-none focus:ring-2 focus:ring-violet-400/60"
       >
         {copied ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />}
         {copied ? 'Shortlist link copied' : `Share saved (${savedIds.length})`}
