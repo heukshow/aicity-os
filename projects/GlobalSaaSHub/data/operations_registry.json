@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T18:36:52.551Z",
+  "updated_at": "2026-09-27T18:44:19.658615+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1640,7 +1640,7 @@
       "canonical_owner": "Product Experience Team",
       "found_by": "Operations Governance Team",
       "fixed_by": "Operations Governance Team",
-      "lifecycle": "in_progress",
+      "lifecycle": "production_verification_requested",
       "next_owner": "Release & Reliability Team",
       "priority": "high",
       "blocker": null,
@@ -1658,7 +1658,8 @@
           "approved_tracking": "72/72 primary exact URLs and CTAs present",
           "measurement_events": "existing compare and fixed-period tests passed",
           "mobile_emulator": "7 layouts passed; zero analytics requests; physical device not verified"
-        }
+        },
+        "merge_commit": "cbd4f30ee7c5077e16de4c8d4aab6029fe0cfc2f"
       },
       "root_cause": "Unknown prices defaulted to invented $25; public projection validated keys but not ingestion-placeholder values; search lacked accessible name.",
       "changed_scope": "Two unverified pricing placeholders, six affected static pages, public projection/source/dist value guards, directory price filter and search aria-label. Existing verified URLs, facts, events, disclosure, layout and fixed measurement periods preserved.",
