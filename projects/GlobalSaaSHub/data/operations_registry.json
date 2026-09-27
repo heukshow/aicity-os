@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T02:15:24.636Z",
+  "updated_at": "2026-09-27T02:21:18.928048+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1086,10 +1086,10 @@
       "found_by": "Audience Growth Team",
       "fixed_by": "Audience Growth Team",
       "changed_scope": "Authenticated private audience-growth projection whitelist and regression coverage only; public UI, analytics event definitions, affiliate URLs, PII boundary and fixed measurement windows unchanged.",
-      "lifecycle": "implemented_and_merged",
-      "next_owner": "Operations Governance Team",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
       "priority": "high",
-      "blocker": "pending_worker_safety_deploy_and_authenticated_live_projection",
+      "blocker": "missing_deterministic_verification_spec",
       "last_evidence_at": "2026-09-27T02:15:24.636Z",
       "evidence": {
         "implementation_pr": 870,
