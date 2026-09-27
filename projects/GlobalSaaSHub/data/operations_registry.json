@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T01:15:35.607Z",
+  "updated_at": "2026-09-27T02:15:24.636Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1075,6 +1075,40 @@
       "user_action_required": false,
       "verification": "Available UI surface is a desktop cloud browser. Phone-link process or device-folder presence is not a real-device browser observation. No real-device pass claimed.",
       "handoff": "Use an existing supported actual device with QA exclusion. Check CTA/touch/overflow/stacking/disclosure/filter/sort/shortlist/save/share; fix only confirmed errors while preserving exact links, pricing, event names and measurement periods."
+    },
+    {
+      "record_id": "AUDIENCE:AG-DIRECT-MEASURE-002",
+      "incident_key": "AG-PRIVATE-METRICS-PROJECTION-002",
+      "task_key": "AG-DIRECT-MEASURE-002",
+      "target": "production-worker/globalsaashub-payments:/ops/audience-growth.json",
+      "owner_team": "Audience Growth Team",
+      "canonical_owner": "Operations Governance Team",
+      "found_by": "Audience Growth Team",
+      "fixed_by": "Audience Growth Team",
+      "changed_scope": "Authenticated private audience-growth projection whitelist and regression coverage only; public UI, analytics event definitions, affiliate URLs, PII boundary and fixed measurement windows unchanged.",
+      "lifecycle": "implemented_and_merged",
+      "next_owner": "Operations Governance Team",
+      "priority": "high",
+      "blocker": "pending_worker_safety_deploy_and_authenticated_live_projection",
+      "last_evidence_at": "2026-09-27T02:15:24.636Z",
+      "evidence": {
+        "implementation_pr": 870,
+        "merge_commit": "9464a0a5a7d83e118056951cf27f0d3dcdd00dff",
+        "pr_build_run": 36287587437,
+        "governance_evidence_comment_id": 5851890981,
+        "collector_event_count": 8,
+        "previous_private_projection_event_count": 3,
+        "current_main_projection_event_count": 8,
+        "worker_safety_run": null,
+        "production_deploy_id": null,
+        "production_source_commit": null,
+        "authenticated_live_projection_verified": false
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": false,
+      "user_action_required": false,
+      "verification": "Collector/projector source parity, focused regression assertions, successful PR Build Check and merged current-main source. Production Worker ancestry and owner-authenticated live response are not yet verified.",
+      "handoff": "Run Worker safety tests/dry-run, deploy the exact clean merged source through the existing authorized environment, then verify health, anonymous 401/no-store and owner-authenticated projection of all eight events before promotion."
     }
   ],
   "invariants": {
