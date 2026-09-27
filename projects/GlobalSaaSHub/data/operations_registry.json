@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T00:01:13Z",
+  "updated_at": "2026-09-27T01:08:56Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -970,6 +970,48 @@
       "user_action_required": false,
       "verification": "Issue #763 comment 5850862428 supplies a distinct non-duplicate target, official external evidence, internal baseline boundaries, cost/complexity/maintenance risks and a bounded feasibility gate. Open PR #317 is unrelated.",
       "handoff": "Editorial Quality Team should produce only the paper protocol and go/no-go evidence without displacing mature 7/30-day revenue measurement or the Constant Contact legal hold. Operations Governance retains SSOT stewardship."
+    },
+    {
+      "record_id": "REVENUE:PRIVATE-WORKER-LIVE-EVIDENCE-20260927",
+      "task_key": "private-worker-live-evidence-20260927",
+      "incident_key": "private-worker-deployment-drift-20260927",
+      "target": "private Worker analytics configuration and non-additive revenue evidence",
+      "owner_team": "Revenue Intelligence Team",
+      "canonical_owner": "Revenue Intelligence Team",
+      "found_by": "Revenue Intelligence Team",
+      "fixed_by": "Revenue Intelligence Team",
+      "changed_scope": "PR #867 private Worker analytics property, non-additive historical observation handling and tests; deployment-pointer correction restored the exact source-tagged version. Public pages, KPI events, fixed measurement windows, verified links, D1 data, secret values and payment state were unchanged.",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-09-27T01:08:56Z",
+      "evidence": {
+        "implementation_pr": 867,
+        "merge_commit": "2305cdf2fc00f070345ab718a89a232960b70387",
+        "pr_build_run": 36284049254,
+        "worker_safety_run": 36284311834,
+        "production_verification_comment_id": 5851492685,
+        "deployment_pointer_correction_comment_id": 5851511686,
+        "active_worker_version": "4c9d65f3-cc24-4af8-b192-d3326240803e",
+        "active_version_tag": "source-2305cdf2",
+        "rollback_deployment_at": "2026-09-27T01:08:39.932Z",
+        "ga_property_id": "552233666",
+        "checkout_enabled": false,
+        "live_health": "HTTP 200 {\"ok\":true}",
+        "anonymous_private_json": "HTTP 401",
+        "private_snapshot_status": "live_google_connected",
+        "measurement_windows": {
+          "post_7d": "2026-09-28..2026-10-04; available_on=2026-10-07; not_matured/null",
+          "post_30d": "2026-09-28..2026-10-27; available_on=2026-10-30; not_matured/null"
+        }
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "user_action_required": false,
+      "verification": "Current main source, tagged Worker bundle/config, active 100% traffic deployment, live health, anonymous private boundary and read-only D1 snapshot evidence agree. Overlapping periods remain separate and unknown totals remain null.",
+      "handoff": "Revenue Intelligence retains Worker deployment/config drift monitoring. FirstPromoter authentication and physical mobile QA remain separate unresolved gates and are not completed by this record.",
+      "completed_at": "2026-09-27T01:08:56Z"
     }
   ],
   "invariants": {
