@@ -10,9 +10,9 @@ export function revenueClient() {
     $('coverage').textContent=`관리 대상 ${data.program_count}개 프로그램 · ${data.account_count}개 계정 묶음 · 실시간 ${data.connected_accounts}개 / 포털 확인 ${data.snapshot_accounts}개 / 로그인 단계 ${data.blocked_accounts}개`;
     const card=(key,content,meta)=>`<article><span>${esc(labels[key])}</span><strong>${content}</strong><small>${meta}</small></article>`;
     const recent=['commission_earned','available','payout_paid'].map(key=>{const t=data.totals[key],parts=Object.entries(t.by_currency).map(([c,n])=>fmt(n,c));return card(key,parts.map(esc).join('<br>')||'집계 가능한 기록 없음',`${t.checked_accounts} / ${t.total_accounts} 계정 · 최근 24시간 확인`)}).join('');
-    const historical=['outbound_clicks','signups_referrals','trials','paid_customers'].map(key=>{const h=data.historical?.[key];return card(key,h?.observed_records?String(h.value):'—',`과거 검증 합계 · ${h?.observed_records||0}건 · ${stamp(h?.latest_checked_at)}`)}).join('');
+    const historical=['outbound_clicks','signups_referrals','trials','paid_customers'].map(key=>{const h=data.historical?.[key];return card(key,h?.observed_records?'기간별 근거 확인':'—',`합산하지 않은 관측 ${h?.observed_records||0}건 · ${stamp(h?.latest_checked_at)}`)}).join('');
     $('totals').innerHTML=recent+historical;
-    $('definition').textContent=`${data.definitions.totals} 최근 확인 금액 3개와 과거 검증 퍼널 4개를 함께 표시합니다.`;
+    $('definition').textContent=`${data.definitions.totals} 과거 퍼널 기록은 기간과 범위가 달라 합산하지 않습니다. 계정별 근거에서 원래 수치와 기간을 확인하세요.`;
     const q=$('query').value.toLowerCase(), status=$('status').value;
     const rows=data.accounts.filter(a=>`${a.name} ${a.network} ${a.programs.join(' ')}`.toLowerCase().includes(q) && (status==='all'||(status==='open'?!a.complete:a.complete)));
     $('rows').innerHTML=rows.map(a=>{
