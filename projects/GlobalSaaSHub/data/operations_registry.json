@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T08:40:00Z",
+  "updated_at": "2026-09-27T08:48:00Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1345,6 +1345,39 @@
       "user_action_required": false,
       "verification": "Fresh GitHub Actions history at 2026-09-27T08:16:20.269Z shows post-stall schedule successes for Growth Loop 36300585791, Registry Reconciliation 36300760574, Release Verification 36301313898, Cloud Control Plane 36304114014, Analytics Snapshot 36305164478, and Royal Queue 36305610421. Each affected workflow has one observed recovery success, but none has two consecutive post-stall scheduled successes; completion_gate_satisfied remains false.",
       "handoff": "Continue passive observation without another forced rerun. Keep all team automations enabled and other tasks moving. All affected workflows have one post-stall scheduled success; close only after two consecutive actual scheduled runs within expected periods satisfy the gate. Preserve analytics periods/status exactly and do not count operational or QA traffic as customer growth."
+    },
+    {
+      "record_id": "EDITORIAL:EDITORIAL-BODY-008",
+      "incident_key": "instapage-superlative-20260927",
+      "task_key": "EDITORIAL-BODY-008",
+      "target": "public/best/instapage-free-trial-pricing.html body correction",
+      "owner_team": "Editorial Quality Team",
+      "canonical_owner": "Editorial Quality Team",
+      "found_by": "Editorial Quality Team",
+      "fixed_by": "Editorial Quality Team",
+      "changed_scope": "Neutralized one unsupported Instapage superlative in one public buyer guide sentence; product facts, prices, trial terms, links, CTAs, affiliate state, disclosures, SEO metadata, analytics events, revenue truth and fixed measurement windows unchanged.",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
+      "priority": "normal",
+      "blocker": null,
+      "last_evidence_at": "2026-09-27T08:33:36.617Z",
+      "evidence": {
+        "implementation_pr": 878,
+        "merge_commit": "95f0f970ac9bdb3c6ef64fac079305ca66038529",
+        "pr_build_run": 36306115266,
+        "site_deploy_run": 36306377727,
+        "deployment_source_commit": "95f0f970ac9bdb3c6ef64fac079305ca66038529",
+        "gh_pages_commit": "458dbbb374be0496210fe97c18425431fbc627cb",
+        "github_pages_run": 36306492227,
+        "live_url": "https://coshuma.com/best/instapage-free-trial-pricing.html?coshuma_qa=1",
+        "live_verification": "Live browser showed the neutral 'Instapage can fit' sentence. The prior unsupported 'Instapage is strongest' wording was absent, while the existing trial/pricing content, official pricing destination and internal review/comparison links remained rendered."
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "completed_at": "2026-09-27T08:33:36.617Z",
+      "user_action_required": false,
+      "verification": "PR Build, exact current-main source readback, Site Build & Deploy, gh-pages commit, Pages deployment and direct live browser verification succeeded.",
+      "handoff": "Operations Governance retains SSOT stewardship. Preserve the 2026-09-28 measurement-window start and do not count QA verification traffic as customer growth; no conversion or revenue uplift is claimed."
     }
   ],
   "invariants": {
