@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T16:20:34Z",
+  "updated_at": "2026-09-27T17:08:31Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1235,7 +1235,7 @@
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": "native_schedule_fidelity_observation_only",
-      "last_evidence_at": "2026-09-27T16:20:34Z",
+      "last_evidence_at": "2026-09-27T17:08:31Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "*/15 * * * *",
@@ -1245,7 +1245,7 @@
         "recovery_run_attempt": 2,
         "recovery_completed_at": "2026-09-27T03:18:31Z",
         "downstream_growth_run_id": 36291024934,
-        "checked_at": "2026-09-27T16:20:34Z",
+        "checked_at": "2026-09-27T17:08:31Z",
         "scheduler_mitigation": {
           "cron_stagger_pr": 885,
           "cron_stagger_merge": "96002c5f6369ec4e90e48480ed612e7c88d86b27",
@@ -1293,6 +1293,14 @@
               "marker_comment_id": 5857609589,
               "fallback_workflow_run_id": 36332859925,
               "target_workflow_run_id": 36332867682,
+              "target_event": "workflow_dispatch",
+              "fallback_conclusion": "success",
+              "target_conclusion": "success"
+            },
+            "coshuma-registry-reconciliation.yml": {
+              "marker_comment_id": 5857959091,
+              "fallback_workflow_run_id": 36335806186,
+              "target_workflow_run_id": 36335810900,
               "target_event": "workflow_dispatch",
               "fallback_conclusion": "success",
               "target_conclusion": "success"
@@ -1364,7 +1372,16 @@
           "COSHUMA Registry Reconciliation": {
             "latest_schedule_run_id": 36300760574,
             "latest_schedule_run_at": "2026-09-27T06:39:55Z",
-            "recovery_status": "second_success_missing_stall_persists"
+            "recovery_status": "fallback_workflow_dispatch_success_native_schedule_unverified",
+            "current_cron": "41 * * * *",
+            "operational_fallback": {
+              "marker_comment_id": 5857959091,
+              "fallback_workflow_run_id": 36335806186,
+              "target_workflow_run_id": 36335810900,
+              "target_event": "workflow_dispatch",
+              "conclusion": "success",
+              "completed_at": "2026-09-27T17:08:31Z"
+            }
           },
           "COSHUMA Growth Loop": {
             "latest_schedule_run_id": 36300585791,
@@ -1505,8 +1522,8 @@
       "completion_gate_satisfied": false,
       "availability_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "GitHub native schedule remains best-effort and permanent recovery is not claimed. PR #885 staggered the six affected cron triggers and PR #886 added the owner-gated #292 fallback dispatcher. Verified fallback targets now include Cloud Control Plane (marker 5856049812; fallback 36320674838; target workflow_dispatch 36320679479), Royal Queue (marker 5856717271; fallback 36326034544; target workflow_dispatch 36326038638), Analytics Snapshot (marker 5857247641; fallback 36329866750; target workflow_dispatch 36329872044), and Release Verification (marker 5857609589; fallback 36332859925; target workflow_dispatch 36332867682), all successful. The Analytics fallback preserves fixed post-period collection availability but does not establish uplift or native schedule recovery.",
-      "handoff": "Keep native schedule fidelity under observation and do not relabel fallback workflow_dispatch as schedule success. Analytics measurement collection is operationally restored for the fixed post period; preserve baseline/post definitions and do not infer uplift before maturation. For any remaining affected workflow that exceeds two expected native periods, COSHUMA Team Watchdog may post one owner-authored #292 marker for exactly one allow-listed target and must verify both fallback and target workflow_dispatch success. Do not repeat a marker in the same stall window. Close the native-scheduler gate only after the existing two-consecutive-schedule criterion is met."
+      "verification": "GitHub native schedule remains best-effort and permanent recovery is not claimed. PR #885 staggered the six affected cron triggers and PR #886 added the owner-gated #292 fallback dispatcher. Verified fallback targets now include Cloud Control Plane (marker 5856049812; fallback 36320674838; target workflow_dispatch 36320679479), Royal Queue (marker 5856717271; fallback 36326034544; target workflow_dispatch 36326038638), Analytics Snapshot (marker 5857247641; fallback 36329866750; target workflow_dispatch 36329872044), Release Verification (marker 5857609589; fallback 36332859925; target workflow_dispatch 36332867682), and Registry Reconciliation (marker 5857959091; fallback 36335806186; target workflow_dispatch 36335810900), all successful. The Analytics fallback preserves fixed post-period collection availability but does not establish uplift or native schedule recovery.",
+      "handoff": "Keep native schedule fidelity under observation and do not relabel fallback workflow_dispatch, push, or workflow_run as schedule success. Analytics measurement collection remains operationally restored for the fixed post period; preserve baseline/post definitions and do not infer uplift before maturation. For any remaining affected workflow that exceeds two expected native periods, COSHUMA Team Watchdog may post one owner-authored #292 marker for exactly one allow-listed target and must verify both fallback and target workflow_dispatch success. Do not repeat a marker in the same stall window. Close the native-scheduler gate only after the existing two-consecutive-schedule criterion is met."
     },
     {
       "record_id": "EDITORIAL:EDITORIAL-BODY-008",
