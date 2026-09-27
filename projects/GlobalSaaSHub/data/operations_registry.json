@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T23:04:36.889Z",
+  "updated_at": "2026-09-27T00:01:13Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -921,6 +921,55 @@
       "verification": "PR Build, current-main Site Build & Deploy, exact Pages deployment, deterministic Release Verification and live QA succeeded. Source/final route drift is closed without changing verified facts or unrelated destinations.",
       "handoff": "Revenue Intelligence measures only mature post-release 7/30-day matched windows and excludes QA traffic; downstream signup, paid, commission and payout remain evidence-bound.",
       "completed_at": "2026-09-26T23:04:36.889Z"
+    },
+    {
+      "record_id": "EDITORIAL:EVAL-001",
+      "incident_key": "standardized-hands-on-evaluation-feasibility-20260927",
+      "task_key": "EVAL-001",
+      "target": "COSHUMA tool/comparison standardized hands-on evaluation methodology feasibility",
+      "owner_team": "Editorial Quality Team",
+      "canonical_owner": "Editorial Quality Team",
+      "found_by": "Market & Competitive Intelligence Team",
+      "fixed_by": "Operations Governance Team",
+      "changed_scope": "Canonical registry synchronization only; no public page, CTA, SEO, affiliate lifecycle, KPI, deployment, account, paid service, secret or token change.",
+      "lifecycle": "evidence_validated",
+      "next_owner": "Editorial Quality Team",
+      "priority": "normal",
+      "blocker": null,
+      "last_evidence_at": "2026-09-27T00:01:13Z",
+      "evidence": {
+        "intake_comment_id": 5850862428,
+        "external_source": "https://company.g2.com/news/g2-accelerates-gtm-execution-buyer-intent-customer-proof-solutions",
+        "external_announcement_date": "2026-09-22",
+        "scope": "Paper-only feasibility protocol for one existing comparison category; no account creation, browser test, public copy, scoring UI or deployment at this lifecycle.",
+        "baseline": {
+          "ga_30d": {
+            "users": 211,
+            "sessions": 313,
+            "page_views": 467,
+            "affiliate_clicks": 9
+          },
+          "gsc_30d": {
+            "impressions": 462,
+            "clicks": 1
+          },
+          "boundary": "GA and GSC periods are retained separately and are not combined; no revenue uplift is claimed."
+        },
+        "acceptance_criteria": [
+          "Define identical input, task, resources, environment, product tier, success/failure rules and stop conditions.",
+          "Record product/version or checked date, exact task, observable output, reliable elapsed steps, failures, limitations and evidence artifact.",
+          "Keep vendor-confirmed fact, COSHUMA direct observation and unknown/not tested mechanically distinct.",
+          "Exclude non-equivalent tiers, unavailable features, authentication or legal gates, vendor-specific setup, non-comparable outputs and QA contamination.",
+          "Review Terms, privacy and synthetic-data safety before any future execution.",
+          "Estimate retest cadence and owner workload; reject implementation if it cannot remain current at zero or low cost.",
+          "Produce a go/no-go recommendation for one narrow pilot; any implementation requires a separate owner-scoped task."
+        ]
+      },
+      "completion_gate": "methodology_feasibility_go_no_go_evidence",
+      "completion_gate_satisfied": false,
+      "user_action_required": false,
+      "verification": "Issue #763 comment 5850862428 supplies a distinct non-duplicate target, official external evidence, internal baseline boundaries, cost/complexity/maintenance risks and a bounded feasibility gate. Open PR #317 is unrelated.",
+      "handoff": "Editorial Quality Team should produce only the paper protocol and go/no-go evidence without displacing mature 7/30-day revenue measurement or the Constant Contact legal hold. Operations Governance retains SSOT stewardship."
     }
   ],
   "invariants": {
