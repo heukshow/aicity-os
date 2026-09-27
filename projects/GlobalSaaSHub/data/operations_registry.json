@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T05:00:48Z",
+  "updated_at": "2026-09-27T07:03:08.081Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1159,8 +1159,8 @@
       "root_cause": "tool_capability",
       "next_owner": "Operations Governance Team",
       "priority": "high",
-      "blocker": "github_schedule_trigger_not_firing_across_multiple_workflows",
-      "last_evidence_at": "2026-09-27T05:00:48Z",
+      "blocker": "partial_schedule_recovery_control_plane_analytics_royal_queue_still_missing",
+      "last_evidence_at": "2026-09-27T07:03:08.081Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "*/15 * * * *",
@@ -1170,23 +1170,27 @@
         "recovery_run_attempt": 2,
         "recovery_completed_at": "2026-09-27T03:18:31Z",
         "downstream_growth_run_id": 36291024934,
-        "checked_at": "2026-09-27T05:00:48Z",
+        "checked_at": "2026-09-27T07:03:08.081Z",
         "missing_expected_runs": [
           "2026-09-27T03:30:00Z",
-          "2026-09-27T03:45:00Z"
+          "2026-09-27T03:45:00Z",
+          "2026-09-27T06:30:00Z",
+          "2026-09-27T06:45:00Z"
         ],
         "github_reported_actor": null,
         "github_reported_reason": null,
-        "latest_repository_schedule_run_id": 36286724252,
-        "latest_repository_schedule_run_at": "2026-09-27T01:50:04Z",
+        "latest_repository_schedule_run_id": 36301313898,
+        "latest_repository_schedule_run_at": "2026-09-27T06:51:03Z",
         "affected_workflows": {
           "COSHUMA Cloud Control Plane": {
             "latest_schedule_run_id": 36286724252,
-            "latest_schedule_run_at": "2026-09-27T01:50:04Z"
+            "latest_schedule_run_at": "2026-09-27T01:50:04Z",
+            "recovery_status": "not_resumed"
           },
           "Royal Queue Reconcile Status": {
             "latest_schedule_run_id": 36285737030,
-            "latest_schedule_run_at": "2026-09-27T01:30:26Z"
+            "latest_schedule_run_at": "2026-09-27T01:30:26Z",
+            "recovery_status": "not_resumed"
           },
           "COSHUMA Analytics Snapshot": {
             "latest_schedule_run_id": 36285457481,
@@ -1195,30 +1199,62 @@
             "missing_expected_runs": [
               "2026-09-27T02:17:00Z",
               "2026-09-27T03:17:00Z",
-              "2026-09-27T04:17:00Z"
-            ]
+              "2026-09-27T04:17:00Z",
+              "2026-09-27T05:17:00Z",
+              "2026-09-27T06:17:00Z"
+            ],
+            "recovery_status": "not_resumed"
           },
           "COSHUMA Release Verification": {
-            "latest_schedule_run_id": 36283459654,
-            "latest_schedule_run_at": "2026-09-27T00:45:27Z"
+            "latest_schedule_run_id": 36301313898,
+            "latest_schedule_run_at": "2026-09-27T06:51:03Z",
+            "recovery_status": "one_success_observed_not_complete"
           },
           "COSHUMA Registry Reconciliation": {
-            "latest_schedule_run_id": 36283312145,
-            "latest_schedule_run_at": "2026-09-27T00:42:30Z"
+            "latest_schedule_run_id": 36300760574,
+            "latest_schedule_run_at": "2026-09-27T06:39:55Z",
+            "recovery_status": "one_success_observed_not_complete"
           },
           "COSHUMA Growth Loop": {
-            "latest_schedule_run_id": 36282977955,
-            "latest_schedule_run_at": "2026-09-27T00:35:51Z"
+            "latest_schedule_run_id": 36300585791,
+            "latest_schedule_run_at": "2026-09-27T06:36:18Z",
+            "recovery_status": "one_success_observed_not_complete"
           }
         },
         "latest_push_control_plane_run_id": 36293260934,
-        "latest_push_control_plane_run_at": "2026-09-27T04:04:45Z"
+        "latest_push_control_plane_run_at": "2026-09-27T04:04:45Z",
+        "partial_schedule_recovery": {
+          "observed_at": "2026-09-27T07:03:08.081Z",
+          "resumed_workflows": {
+            "COSHUMA Growth Loop": {
+              "run_id": 36300585791,
+              "scheduled_at": "2026-09-27T06:36:18Z",
+              "conclusion": "success"
+            },
+            "COSHUMA Registry Reconciliation": {
+              "run_id": 36300760574,
+              "scheduled_at": "2026-09-27T06:39:55Z",
+              "conclusion": "success"
+            },
+            "COSHUMA Release Verification": {
+              "run_id": 36301313898,
+              "scheduled_at": "2026-09-27T06:51:03Z",
+              "conclusion": "success"
+            }
+          },
+          "still_missing": [
+            "COSHUMA Cloud Control Plane",
+            "COSHUMA Analytics Snapshot",
+            "Royal Queue Reconcile Status"
+          ],
+          "completion_boundary": "Only one resumed scheduled run exists per recovered workflow; the Control Plane has not resumed and the two-consecutive-run gate remains false."
+        }
       },
       "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
       "completion_gate_satisfied": false,
       "user_action_required": false,
-      "verification": "Fresh repository-wide GitHub Actions history at 2026-09-27T05:00:48Z shows no schedule event after Control Plane run 36286724252 at 01:50:04Z. Analytics Snapshot, Release Verification, Registry Reconciliation, Growth Loop and Royal Queue Reconcile also have no later scheduled execution. Push-triggered runs remain healthy, but they do not satisfy the actual-schedule recovery gate.",
-      "handoff": "Treat this as one repository scheduler-capability incident, not duplicate workflow tasks. Do not perform a third identical rerun. Keep every team automation enabled and other tasks moving; preserve the private analytics snapshot as stale/last-successful rather than zero. Close only after two consecutive actual scheduled runs occur within expected periods, or replace the trigger through an approved non-paid existing capability."
+      "verification": "Fresh repository-wide GitHub Actions history at 2026-09-27T07:03:08.081Z shows one successful schedule run each for Growth Loop (36300585791), Registry Reconciliation (36300760574), and Release Verification (36301313898). Cloud Control Plane remains at 36286724252 / 2026-09-27T01:50:04Z, Analytics Snapshot at 36285457481 / 01:24:57Z, and Royal Queue at 36285737030 / 01:30:26Z. Partial recovery does not satisfy the two-consecutive-run completion gate.",
+      "handoff": "Continue the existing repository scheduler incident without another forced rerun. Keep all team automations enabled and other tasks moving. Preserve analytics as stale/last-successful, not zero. Close only after the missing workflows resume and the actual-schedule completion gate is satisfied."
     }
   ],
   "invariants": {
