@@ -99,6 +99,9 @@ def validate_policy_alignment() -> None:
 
 def main() -> None:
     validate_policy_alignment()
+    policy = json.loads(POLICY_PATH.read_text(encoding="utf-8"))
+    value_patterns = [("internal tool value", re.compile(p, re.I))
+                      for p in policy["public_internal_data"]["forbidden_value_patterns"]]
     violations = []
     checked = 0
     for path in TARGETS:
@@ -106,7 +109,7 @@ def main() -> None:
             continue
         checked += 1
         text = masked(path.read_text(encoding="utf-8", errors="replace"))
-        for label, pattern in FORBIDDEN:
+        for label, pattern in [*FORBIDDEN, *value_patterns]:
             match = pattern.search(text)
             if match:
                 rel = path.relative_to(ROOT).as_posix()
