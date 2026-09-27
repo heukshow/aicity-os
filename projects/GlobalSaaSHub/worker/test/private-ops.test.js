@@ -8,7 +8,7 @@ const hash = async s => [...new Uint8Array(await crypto.subtle.digest('SHA-256',
 async function setup() {
   let reads = 0;
   return { get reads() { return reads; }, env: { OPS_PASSWORD_SHA256: await hash(password), ORDERS: {
-    prepare(sql) { return { bind(name) { return { async first() { if (sql.includes('login_limits')) return { attempts: 1 }; reads++; return { content: name.endsWith('.json') ? '{"private_metric":17,"revenue":{"paid":999},"audience_growth":{"status":"live_connected","scope":"first_party_direct_customer_asset_usage","events":["return_visit","saved_tool_change","saved_tools_view"],"ranges":{"7d":{"return_visit":{"events":7,"users":3},"saved_tool_change":{"events":5,"users":2},"saved_tools_view":{"events":4,"users":2}},"30d":{"return_visit":{"events":30,"users":12},"saved_tool_change":{"events":21,"users":8},"saved_tools_view":{"events":18,"users":7}}},"collected_at":"2026-09-23T00:00:00.000Z"}}' : '<h1>Private dashboard marker</h1><script>(()=>{})();</script>', content_type: name.endsWith('.json') ? 'application/json' : 'text/html' }; } }; } }; },
+    prepare(sql) { return { bind(name) { return { async first() { if (sql.includes('login_limits')) return { attempts: 1 }; reads++; return { content: name.endsWith('.json') ? '{"private_metric":17,"revenue":{"paid":999},"audience_growth":{"status":"live_connected","scope":"first_party_direct_customer_asset_usage","events":["return_visit","saved_tool_change","saved_tools_view","saved_shortlist_share","buyer_intent_stage","compare_open","compare_tool_select","compare_cta_view"],"ranges":{"7d":{"return_visit":{"events":7,"users":3},"saved_tool_change":{"events":5,"users":2},"saved_tools_view":{"events":4,"users":2},"saved_shortlist_share":{"events":3,"users":2},"buyer_intent_stage":{"events":9,"users":4},"compare_open":{"events":6,"users":3},"compare_tool_select":{"events":4,"users":2},"compare_cta_view":{"events":2,"users":2}},"30d":{"return_visit":{"events":30,"users":12},"saved_tool_change":{"events":21,"users":8},"saved_tools_view":{"events":18,"users":7},"saved_shortlist_share":{"events":12,"users":6},"buyer_intent_stage":{"events":40,"users":15},"compare_open":{"events":24,"users":10},"compare_tool_select":{"events":16,"users":7},"compare_cta_view":{"events":8,"users":5}}},"collected_at":"2026-09-23T00:00:00.000Z"}}' : '<h1>Private dashboard marker</h1><script>(()=>{})();</script>', content_type: name.endsWith('.json') ? 'application/json' : 'text/html' }; } }; } }; },
   } } };
 }
 const url = 'https://worker.example/ops/traffic-revenue.html';
@@ -34,6 +34,13 @@ test('only configured owner password permits content; expired and forged session
     const r = await worker.fetch(new Request(`https://worker.example/ops/${path}`, { headers: { cookie } }), state.env);
     assert.equal(r.status, 200); assert.match(await r.text(), /Private dashboard marker|private_metric/);
   }
+  const audienceResponse = await worker.fetch(new Request('https://worker.example/ops/audience-growth.json', { headers: { cookie } }), state.env);
+  assert.equal(audienceResponse.status, 200);
+  const audience = await audienceResponse.json();
+  assert.deepEqual(audience.events, ['return_visit', 'saved_tool_change', 'saved_tools_view', 'saved_shortlist_share', 'buyer_intent_stage', 'compare_open', 'compare_tool_select', 'compare_cta_view']);
+  assert.deepEqual(audience.ranges['7d'].saved_shortlist_share, { events: 3, users: 2 });
+  assert.deepEqual(audience.ranges['7d'].buyer_intent_stage, { events: 9, users: 4 });
+  assert.deepEqual(audience.ranges['30d'].compare_cta_view, { events: 8, users: 5 });
   for (const badCookie of [cookie.replace(/=\d+\./, '=1.'), cookie + 'x']) {
     assert.equal((await worker.fetch(new Request(url, { headers: { cookie: badCookie } }), state.env)).status, 401);
   }
