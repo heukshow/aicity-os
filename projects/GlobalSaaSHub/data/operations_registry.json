@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T08:04:20.343Z",
+  "updated_at": "2026-09-27T08:10:40.538Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1159,18 +1159,18 @@
       "root_cause": "tool_capability",
       "next_owner": "Operations Governance Team",
       "priority": "high",
-      "blocker": "partial_schedule_recovery_analytics_royal_queue_still_missing",
-      "last_evidence_at": "2026-09-27T08:04:20.343Z",
+      "blocker": "partial_schedule_recovery_royal_queue_still_missing",
+      "last_evidence_at": "2026-09-27T08:10:40.538Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "*/15 * * * *",
-        "last_actual_scheduled_run_id": 36304114014,
-        "last_actual_scheduled_run_at": "2026-09-27T07:46:01Z",
+        "last_actual_scheduled_run_id": 36305164478,
+        "last_actual_scheduled_run_at": "2026-09-27T08:06:33Z",
         "recovery_run_id": 36289364625,
         "recovery_run_attempt": 2,
         "recovery_completed_at": "2026-09-27T03:18:31Z",
         "downstream_growth_run_id": 36291024934,
-        "checked_at": "2026-09-27T08:04:20.343Z",
+        "checked_at": "2026-09-27T08:10:40.538Z",
         "missing_expected_runs": [
           "2026-09-27T03:30:00Z",
           "2026-09-27T03:45:00Z",
@@ -1182,8 +1182,8 @@
         ],
         "github_reported_actor": null,
         "github_reported_reason": null,
-        "latest_repository_schedule_run_id": 36304114014,
-        "latest_repository_schedule_run_at": "2026-09-27T07:46:01Z",
+        "latest_repository_schedule_run_id": 36305164478,
+        "latest_repository_schedule_run_at": "2026-09-27T08:06:33Z",
         "affected_workflows": {
           "COSHUMA Cloud Control Plane": {
             "latest_schedule_run_id": 36304114014,
@@ -1196,17 +1196,18 @@
             "recovery_status": "not_resumed"
           },
           "COSHUMA Analytics Snapshot": {
-            "latest_schedule_run_id": 36285457481,
-            "latest_schedule_run_at": "2026-09-27T01:24:57Z",
+            "latest_schedule_run_id": 36305164478,
+            "latest_schedule_run_at": "2026-09-27T08:06:33Z",
             "expected_schedule": "17 * * * *",
             "missing_expected_runs": [
               "2026-09-27T02:17:00Z",
               "2026-09-27T03:17:00Z",
               "2026-09-27T04:17:00Z",
               "2026-09-27T05:17:00Z",
-              "2026-09-27T06:17:00Z"
+              "2026-09-27T06:17:00Z",
+              "2026-09-27T07:17:00Z"
             ],
-            "recovery_status": "not_resumed"
+            "recovery_status": "one_success_observed_not_complete"
           },
           "COSHUMA Release Verification": {
             "latest_schedule_run_id": 36301313898,
@@ -1227,7 +1228,7 @@
         "latest_push_control_plane_run_id": 36293260934,
         "latest_push_control_plane_run_at": "2026-09-27T04:04:45Z",
         "partial_schedule_recovery": {
-          "observed_at": "2026-09-27T08:04:20.343Z",
+          "observed_at": "2026-09-27T08:10:40.538Z",
           "resumed_workflows": {
             "COSHUMA Growth Loop": {
               "run_id": 36300585791,
@@ -1248,20 +1249,24 @@
               "run_id": 36304114014,
               "scheduled_at": "2026-09-27T07:46:01Z",
               "conclusion": "success"
+            },
+            "COSHUMA Analytics Snapshot": {
+              "run_id": 36305164478,
+              "scheduled_at": "2026-09-27T08:06:33Z",
+              "conclusion": "success"
             }
           },
           "still_missing": [
-            "COSHUMA Analytics Snapshot",
             "Royal Queue Reconcile Status"
           ],
-          "completion_boundary": "Cloud Control Plane has resumed once, while Analytics Snapshot and Royal Queue remain missing. No recovered workflow has two consecutive post-stall scheduled runs, so the completion gate remains false."
+          "completion_boundary": "Cloud Control Plane and Analytics Snapshot have each resumed once, while Royal Queue remains missing. No recovered workflow has two consecutive post-stall scheduled runs, so the completion gate remains false."
         }
       },
       "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
       "completion_gate_satisfied": false,
       "user_action_required": false,
-      "verification": "Fresh GitHub Actions history at 2026-09-27T08:04:20.343Z shows Cloud Control Plane schedule run 36304114014 succeeded at 2026-09-27T07:46:01Z. Growth Loop, Registry Reconciliation, and Release Verification still have one observed post-stall schedule success each. Analytics Snapshot remains at 36285457481 / 2026-09-27T01:24:57Z and Royal Queue at 36285737030 / 2026-09-27T01:30:26Z. No workflow has two consecutive post-stall scheduled successes; completion_gate_satisfied remains false.",
-      "handoff": "Continue passive observation without another forced rerun. Keep all team automations enabled and other tasks moving. Preserve analytics as stale/last-successful, not zero. Close only after Analytics Snapshot and Royal Queue resume and two consecutive actual scheduled runs satisfy the gate."
+      "verification": "Fresh GitHub Actions history at 2026-09-27T08:10:40.538Z shows Cloud Control Plane schedule run 36304114014 succeeded at 2026-09-27T07:46:01Z and Analytics Snapshot schedule run 36305164478 succeeded at 2026-09-27T08:06:33Z. Growth Loop, Registry Reconciliation, and Release Verification still have one observed post-stall schedule success each. Royal Queue remains at 36285737030 / 2026-09-27T01:30:26Z. No recovered workflow has two consecutive post-stall scheduled successes; completion_gate_satisfied remains false.",
+      "handoff": "Continue passive observation without another forced rerun. Keep all team automations enabled and other tasks moving. Royal Queue remains the only workflow without a post-stall scheduled success. Preserve analytics periods/status exactly and do not treat this operational run as customer growth. Close only after Royal Queue resumes and two consecutive actual scheduled runs satisfy the gate."
     }
   ],
   "invariants": {
