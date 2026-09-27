@@ -150,7 +150,7 @@ for (const t of selected) {
 <h2 class="text-2xl font-bold">Is ${esc(t.name)} right for you?</h2>
 <div class="grid md:grid-cols-2 gap-5"><div><h3 class="font-bold">Best for</h3>${list(cfg.best)}</div><div><h3 class="font-bold">Skip if</h3>${list(cfg.not)}</div></div>
 <h3 class="font-bold">Why consider it?</h3>${list(cfg.why)}
-<div class="grid md:grid-cols-2 gap-4"><div><h3 class="font-bold">Starting price / free option</h3><p>${esc(pricingLabel)}</p></div><div><h3 class="font-bold">Strongest nearby alternative</h3><p>${strongestAlt}</p></div></div>
+<div class="grid md:grid-cols-2 gap-4"><div><h3 class="font-bold">Starting price / free option</h3><p>${esc(pricingLabel)}</p></div><div><h3 class="font-bold">Nearby alternative</h3><p>${strongestAlt}</p></div></div>
 <dl><dt class="font-bold">Free plan</dt><dd>${esc(cfg.freePlan)}</dd><dt class="font-bold">Free trial</dt><dd>${esc(cfg.trial)}</dd></dl>
 <p>${esc(cfg.risk)}</p>
 <p class="text-sm text-slate-400">Official/public source: <a data-cta-source="buyer-box-source" href="${esc(cfg.source)}" target="_blank" rel="noopener noreferrer" class="underline">check current product or pricing details</a>. Editorial fit guidance, not a hands-on performance test.</p>
