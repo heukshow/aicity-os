@@ -418,7 +418,7 @@
     },
     "QUALITY:PUBLIC-PRICING-TRUTH-20260928": {
       "mode": "bundle_markers",
-      "source_file": "projects/GlobalSaaSHub/src/App.jsx",
+      "source_file": "src/App.jsx",
       "source_required_regex": [
         "Search tools, tasks or features",
         "matchesPricingFilter\\(tool.pricing, selectedPricing\\)"
