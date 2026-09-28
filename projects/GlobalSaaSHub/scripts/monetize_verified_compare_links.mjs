@@ -9,10 +9,6 @@ const TOOLS_PATH = path.join(PROJECT_DIR, 'data', 'tools.json');
 const COMPARE_DIR = path.join(PROJECT_DIR, 'public', 'compare');
 const TOOL_DIR = path.join(PROJECT_DIR, 'public', 'tool');
 
-const SPONSORSHIP_MAILTO =
-  'mailto:support@coshuma.com?subject=COSHUMA%20%2449%20sponsorship%20inquiry&amp;' +
-  'body=Product%20name%3A%0AWebsite%3A%0APlacement%20goal%3A%0A';
-
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -175,13 +171,9 @@ for (const filename of fs.readdirSync(TOOL_DIR)) {
     }
   }
 
-  updated = updated.replace(legacySponsorshipAnchor, (...args) => {
-    const groups = args.at(-1);
+  updated = updated.replace(legacySponsorshipAnchor, () => {
     normalizedInFile += 1;
-    return (
-      `<a${groups.before}data-cta="sponsorship-inquiry" data-cta-source="tool-legacy-normalized" ` +
-      `href="${SPONSORSHIP_MAILTO}"${groups.after}>Request $49 sponsored placement →</a>`
-    );
+    return '';
   });
 
   if (updated === original) continue;
