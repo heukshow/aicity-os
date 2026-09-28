@@ -11,7 +11,7 @@ Turn revenue-priority COSHUMA pages (`/best/`, `/compare/`, `/tool/`) into Short
 | Revenue-priority selection | Done | `scripts/youtube_shorts/select_content.py` |
 | Topic/hook generation | Partial | deterministic templates in `prepare_next_short.py` |
 | Script generation | Not implemented | follow-up work |
-| Video rendering | Partial | existing published Shorts prove the format, but repo automation is not yet implemented |
+| Video rendering | Done for real-UI capture composition | `scripts/youtube_shorts/render_verified_short.py` turns a real browser/app capture + narration + final-result still + one-line captions into a deterministic 1080x1920 H.264/AAC Short |
 | Quality gate | Done | `scripts/youtube_shorts/quality_gate.py` |
 | Metadata + UTM | Done | `scripts/youtube_shorts/generate_metadata.py` |
 | Manifest / duplicate prevention | Done | `data/youtube_shorts_manifest.json` |
@@ -32,7 +32,7 @@ Repository code currently contains no YouTube OAuth upload integration. GitHub A
 - `data/youtube_shorts_manifest.json` — source page, affiliate target, campaign, COSHUMA URL, YouTube video ID, hashes and status.
 - `scripts/youtube_shorts/select_content.py` — revenue-priority ranking.
 - `scripts/youtube_shorts/generate_metadata.py` — title, description, hashtags and UTM URL.
-- `scripts/youtube_shorts/quality_gate.py` — pre-upload validation.
+- `scripts/youtube_shorts/render_verified_short.py` — deterministic real-UI renderer: portrait crop, real cursor capture, final-result hold, one-line captions, loudness normalization and narration-safe duration.\n- `scripts/youtube_shorts/quality_gate.py` — pre-upload validation.
 - `scripts/youtube_shorts/prepare_next_short.py` — prepares the next candidate and render/upload queue task.
 - `scripts/tests/test_youtube_shorts_pipeline.py` — isolated pipeline tests.
 - `.github/workflows/coshuma-youtube-shorts.yml` — manual workflow for selection/queueing until rendering/upload are fully automated.
