@@ -119,14 +119,9 @@ VERIFIED_COMPARE_LINK_REPLACEMENTS = {
 }
 
 
-TOOL_SPONSORSHIP_INQUIRY = (
-    '      <section data-sponsorship-inquiry="tool" class="mt-8 p-5 rounded-2xl bg-violet-500/5 border border-violet-500/20 space-y-3">\n'
-    '        <div class="text-[10px] uppercase tracking-wider font-bold text-violet-300">Represent this product?</div>\n'
-    '        <h2 class="text-lg font-extrabold text-white">Request a COSHUMA sponsored placement</h2>\n'
-    '        <p class="text-xs text-slate-400 leading-relaxed">A one-time sponsored placement is USD 49. Sponsorship is reviewed separately from editorial coverage; payment does not guarantee acceptance, ranking, or an editorial rating.</p>\n'
-    '        <a data-cta="sponsorship-inquiry" href="mailto:support@coshuma.com?subject=COSHUMA%20%2449%20sponsorship%20inquiry&amp;body=Product%20name%3A%0AWebsite%3A%0APlacement%20goal%3A%0A" class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-extrabold transition-all">Email a sponsorship request →</a>\n'
-    '        <p class="text-[10px] text-slate-500">This inquiry link does not create a charge.</p>\n'
-    '      </section>'
+TOOL_SPONSORSHIP_INQUIRY_RE = re.compile(
+    r'\\s*<section\\b[^>]*data-sponsorship-inquiry=["\\\']tool["\\\'][^>]*>.*?</section>',
+    re.I | re.S,
 )
 
 # Some high-intent tool pages do not yet have a verified customer-facing affiliate
@@ -268,18 +263,9 @@ def ensure_tool_revenue_alternative(text: str, filename: str) -> str:
     return re.sub(r"(?=\s*</main>)", section + "\n", text, count=1)
 
 
-def ensure_tool_sponsorship_inquiry(text: str) -> str:
-    """Keep a no-charge sponsorship lead path visible on every static tool profile."""
-    if 'data-sponsorship-inquiry="tool"' in text:
-        return text
-    if "</main>" not in text:
-        return text
-    return re.sub(
-        r"(?=\s*</main>)",
-        TOOL_SPONSORSHIP_INQUIRY + "\n",
-        text,
-        count=1,
-    )
+def remove_tool_sponsorship_inquiry(text: str) -> str:
+    """Remove advertiser lead-generation blocks while COSHUMA ads are closed."""
+    return TOOL_SPONSORSHIP_INQUIRY_RE.sub("", text)
 
 
 def main() -> None:
@@ -294,7 +280,7 @@ def main() -> None:
             updated = polish(original)
             if folder.name == "tool":
                 updated = ensure_tool_revenue_alternative(updated, path.name)
-                updated = ensure_tool_sponsorship_inquiry(updated)
+                updated = remove_tool_sponsorship_inquiry(updated)
             if folder.name == "compare":
                 updated = monetize_verified_compare_links(updated)
             if updated != original:
