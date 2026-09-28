@@ -48,6 +48,14 @@ jobs:
           fi
           ffprobe -v error -show_entries stream=width,height -show_entries format=duration,size -of json /tmp/coshuma-character-short.mp4
 
+      - name: Preserve rendered video artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coshuma-sendcloud-render-${{ github.sha }}
+          path: /tmp/coshuma-character-short.mp4
+          if-no-files-found: error
+          retention-days: 3
+
       - name: Upload to YouTube
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
