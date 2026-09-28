@@ -86,6 +86,30 @@ INTERNAL_VERIFICATION_NOTE = re.compile(
     re.I | re.S,
 )
 
+AD_INQUIRY_SECTION = re.compile(
+    r'\s*<section\b(?:(?!<section\b).)*?(?:'
+    r'data-sponsorship-inquiry=["\']tool["\']|'
+    r'Request\s+a\s+COSHUMA\s+sponsored\s+placement|'
+    r'Email\s+a\s+sponsorship\s+request|'
+    r'Ask\s+about\s+(?:the\s+\$49\s+standard\s+placement|sponsorship)|'
+    r'mailto:support@coshuma\.com[^"\']*(?:sponsor|advertis)'
+    r')(?:(?!<section\b).)*?</section>',
+    re.I | re.S,
+)
+ADVERTISE_LINK = re.compile(
+    r'\s*<a\b[^>]*href=["\']/advertise\.html["\'][^>]*>.*?</a>',
+    re.I | re.S,
+)
+SPONSORSHIP_SALES_SCRIPT = re.compile(
+    r'\s*<script\b[^>]*src=["\']/sponsorship-sales\.js["\'][^>]*></script>',
+    re.I | re.S,
+)
+AD_INQUIRY_MARKER = re.compile(
+    r'data-sponsorship-inquiry|data-cta=["\']sponsorship-inquiry["\']|'
+    r'mailto:support@coshuma\.com\?subject=[^"\']*sponsor',
+    re.I,
+)
+
 # COSHUMA policy: keep the site-wide notice on the homepage and a short,
 # consumer-facing disclosure close to the first affiliate CTA on each page that
 # actually contains an affiliate CTA. Internal affiliate operations remain private.
@@ -239,6 +263,9 @@ def final_polish(text: str) -> str:
     text = AFFILIATE_STATUS_SECTION.sub("", text)
     text = INTERNAL_HTML_COMMENT.sub("", text)
     text = INTERNAL_VERIFICATION_NOTE.sub("", text)
+    text = AD_INQUIRY_SECTION.sub("", text)
+    text = ADVERTISE_LINK.sub("", text)
+    text = SPONSORSHIP_SALES_SCRIPT.sub("", text)
     text = _strip_internal_blocks(text)
     return text
 
@@ -329,6 +356,8 @@ def main() -> None:
         before = path.read_text(encoding="utf-8")
         rel = path.relative_to(DIST).as_posix()
         after = enforce_disclosure_policy(rel, final_polish(clean_html(before)))
+        if AD_INQUIRY_MARKER.search(after):
+            raise RuntimeError(f"{rel}: advertising/sponsorship inquiry path must remain closed")
         if after != before:
             path.write_text(after, encoding="utf-8")
             changed.append(rel)
