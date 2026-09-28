@@ -7,6 +7,7 @@ on:
       - '.github/workflows/coshuma-character-short-upload.yml'
       - 'projects/GlobalSaaSHub/data/youtube_character_upload_request.json'
       - 'projects/GlobalSaaSHub/scripts/youtube_shorts/build_real_ui_short.py'
+      - 'projects/GlobalSaaSHub/scripts/youtube_shorts/build_sendcloud_partner_video.py'
 
 permissions:
   contents: write
@@ -38,6 +39,8 @@ jobs:
           GENERATOR=$(jq -r '.generator // empty' data/youtube_character_upload_request.json)
           if [ "$GENERATOR" = "real_ui_chatbase_v1" ]; then
             python3 scripts/youtube_shorts/build_real_ui_short.py
+          elif [ "$GENERATOR" = "sendcloud_partner_workflow_v1" ]; then
+            python3 scripts/youtube_shorts/build_sendcloud_partner_video.py
           else
             VIDEO_URL=$(jq -r '.video_url // empty' data/youtube_character_upload_request.json)
             test -n "$VIDEO_URL"
@@ -67,7 +70,11 @@ jobs:
           result = {
               'campaign_slug': request['campaign_slug'],
               'youtube_video_id': video_id,
-              'youtube_url': f'https://youtube.com/shorts/{video_id}',
+              'youtube_url': (
+                  f'https://youtube.com/shorts/{video_id}'
+                  if request.get('content_type', 'short') == 'short'
+                  else f'https://www.youtube.com/watch?v={video_id}'
+              ),
               'privacy': request.get('privacy', 'unlisted'),
               'character_name': request.get('character_name'),
               'source_video_url': request.get('video_url') or f"generated:{request.get('generator')}",
