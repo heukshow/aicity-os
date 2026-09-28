@@ -180,3 +180,38 @@ def test_quality_gate_flags_banned_earnings_claims():
         )
         assert not report["passed"]
         assert any("banned" in f for f in report["failures"])
+
+
+def test_real_ui_renderer_target_duration_uses_house_minimum():
+    assert render_verified_short.compute_target_duration(20.0, 18.0) == 30.0
+
+
+def test_real_ui_renderer_keeps_voice_tail():
+    assert render_verified_short.compute_target_duration(31.0, 20.0) == 32.5
+
+
+def test_real_ui_renderer_rejects_overlong_required_duration():
+    with pytest.raises(ValueError):
+        render_verified_short.compute_target_duration(45.0, 20.0)
+
+
+def test_real_ui_renderer_caption_contract_is_one_line_and_bounded():
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "captions.json"
+        path.write_text(
+            json.dumps({"captions": [{"start": 0, "end": 2, "text": "  Real   UI   only  "}]}),
+            encoding="utf-8",
+        )
+        captions = render_verified_short.load_captions(path)
+        assert captions[0]["text"] == "Real UI only"
+
+
+def test_real_ui_renderer_rejects_caption_that_is_too_long():
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "captions.json"
+        path.write_text(
+            json.dumps({"captions": [{"start": 0, "end": 2, "text": "x" * 57}]}),
+            encoding="utf-8",
+        )
+        with pytest.raises(ValueError):
+            render_verified_short.load_captions(path)
