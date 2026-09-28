@@ -1,10 +1,10 @@
-"""Normalize COSHUMA sponsorship copy and routes while checkout is paused.
+"""Remove public sponsorship solicitation while COSHUMA advertising is closed.
 
-Runs at the end of the production public-copy pipeline. The public sponsorship
-checkout is currently in maintenance, so generated tool pages must never advertise
-a live purchase button. Instead, every sponsorship section routes to the company
-mailbox and the advertiser-options page. This does not alter editorial rankings,
-affiliate URLs, or payment state.
+Runs near the end of the production public-copy pipeline. It removes advertiser
+inquiry blocks, advertiser navigation, and sponsorship-sales tracking from public
+tool pages and the homepage. Sponsored inventory generation remains in place so
+its separately disabled state is preserved; this script does not enable ads,
+payments, or sponsorship checkout.
 """
 from pathlib import Path
 import re
@@ -17,128 +17,61 @@ PUBLIC = ROOT / "public"
 TOOL_DIR = PUBLIC / "tool"
 APP = ROOT / "src" / "App.jsx"
 
-SPONSORSHIP_COPY = (
-    "Sponsored placement starts at USD 49. Approved sponsorships receive a clearly "
-    "labeled promotional placement in designated high-visibility areas. Premium "
-    "positions are priced separately based on placement and availability. Sponsorship "
-    "does not change independent editorial ratings or organic rankings."
+TOOL_INQUIRY_RE = re.compile(
+    r"\s*<section\b[^>]*data-sponsorship-inquiry=[\"']tool[\"'][^>]*>.*?</section>",
+    flags=re.I | re.S,
 )
-
-LEGACY_COPY_PATTERNS = [
-    r"A one-time sponsored placement is USD 49\.\s*Sponsorship is reviewed separately from editorial coverage;\s*payment does not guarantee acceptance, ranking,? or an editorial rating\.",
-    r"A one-time sponsored placement is USD 49\.\s*Approved sponsorships receive a clearly labeled promotional placement in designated high-visibility areas\.\s*Sponsorship does not change independent editorial ratings or organic rankings\.",
-    r"Sponsorship is reviewed separately from editorial coverage\.\s*Payment does not guarantee acceptance, ranking,? or an editorial rating\.",
-]
-
-INQUIRY_URL = (
-    "mailto:support@coshuma.com?subject=COSHUMA%20sponsorship%20inquiry&body="
-    "Product%20name%3A%0AWebsite%3A%0APreferred%20placement%3A%0APreferred%20duration%3A%0A"
+SPONSORSHIP_SALES_SCRIPT_RE = re.compile(
+    r"\s*<script\b[^>]*src=[\"']/sponsorship-sales\.js[\"'][^>]*></script>",
+    flags=re.I | re.S,
 )
-INQUIRY_LINK = (
-    f'<a data-cta="sponsorship-inquiry" data-cta-source="tool-sponsorship-standard" href="{INQUIRY_URL}" '
-    'class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-violet-600 '
-    'hover:bg-violet-500 text-white text-xs font-extrabold transition-all">'
-    'Ask about the $49 standard placement →</a>'
-)
-CHECKOUT_ANCHOR_RE = re.compile(
-    r'<a\b[^>]*data-cta="sponsorship-checkout"[^>]*>.*?</a>',
+HOME_ADVERTISE_LINK_RE = re.compile(
+    r"\s*<a\b[^>]*href=[\"']/advertise\.html[\"'][^>]*>\s*Advertise\s*</a>",
     flags=re.I | re.S,
 )
 
-OPTIONS_LINK = (
-    '<a data-cta="sponsorship-options" href="/advertise.html" '
-    'class="inline-flex items-center justify-center px-5 py-3 rounded-xl border border-violet-500/30 '
-    'bg-violet-500/5 text-violet-200 text-xs font-extrabold hover:bg-violet-500/10 transition-all">'
-    'See sponsorship options →</a>'
-)
 
-HOME_ADVERTISE_LINK = (
-    '            <a href="/advertise.html" className="rounded-full border border-violet-400/30 '
-    'bg-violet-500/10 px-4 py-2 text-xs font-bold text-violet-200 hover:bg-violet-500/20 sm:text-sm">\n'
-    '              Advertise\n'
-    '            </a>\n'
-)
-
-
-def normalize_copy(text: str) -> str:
-    for pattern in LEGACY_COPY_PATTERNS:
-        text = re.sub(pattern, SPONSORSHIP_COPY, text, flags=re.I)
+def strip_page(text: str) -> str:
+    text = TOOL_INQUIRY_RE.sub("", text)
+    text = SPONSORSHIP_SALES_SCRIPT_RE.sub("", text)
     return text
 
 
-def insert_before_mailto_or_after_copy(section: str, link_html: str) -> str:
-    mailto = re.search(r'<a\b[^>]*href="mailto:support@coshuma\.com[^>]*>', section, flags=re.I)
-    if mailto:
-        return section[:mailto.start()] + link_html + "\n        " + section[mailto.start():]
-
-    first_paragraph_end = section.find("</p>")
-    if first_paragraph_end >= 0:
-        first_paragraph_end += len("</p>")
-        return section[:first_paragraph_end] + "\n        " + link_html + section[first_paragraph_end:]
-    return section
-
-
-def normalize_section(section: str) -> str:
-    section = normalize_copy(section)
-    section = CHECKOUT_ANCHOR_RE.sub(INQUIRY_LINK, section)
-
-    if 'data-cta="sponsorship-inquiry"' not in section:
-        section = insert_before_mailto_or_after_copy(section, INQUIRY_LINK)
-
-    if '/advertise.html' not in section:
-        section = insert_before_mailto_or_after_copy(section, OPTIONS_LINK)
-
-    return section
-
-
-def normalize_page(text: str) -> str:
-    text = normalize_copy(text)
-    pattern = re.compile(
-        r'<section\b[^>]*data-sponsorship-inquiry="tool"[^>]*>.*?</section>',
-        flags=re.I | re.S,
-    )
-    updated = pattern.sub(lambda m: normalize_section(m.group(0)), text)
-    if 'data-sponsorship-inquiry="tool"' in updated and '/sponsorship-sales.js' not in updated:
-        updated = updated.replace('</head>', '  <script defer src="/sponsorship-sales.js"></script>\n</head>', 1)
-    return updated
-
-
-def ensure_home_advertise_link() -> bool:
+def remove_home_solicitation() -> bool:
     if not APP.exists():
         return False
-    text = APP.read_text(encoding="utf-8")
-    if 'href="/advertise.html"' in text:
+    original = APP.read_text(encoding="utf-8")
+    updated = HOME_ADVERTISE_LINK_RE.sub("", original)
+    updated = re.sub(
+        r'\s*<section\s+id="submit"\b[^>]*>.*?</section>',
+        "",
+        updated,
+        flags=re.I | re.S,
+    )
+    if updated == original:
         return False
-
-    anchor = '            {paymentConfig.checkoutEnabled && (\n'
-    if anchor not in text:
-        raise SystemExit("Could not find the homepage sponsorship navigation anchor")
-
-    updated = text.replace(anchor, HOME_ADVERTISE_LINK + anchor, 1)
     APP.write_text(updated, encoding="utf-8")
     return True
 
 
-def ensure_sitemap() -> None:
+def remove_advertise_from_sitemap() -> bool:
     sitemap = PUBLIC / "sitemap.xml"
     if not sitemap.exists():
-        return
-    text = sitemap.read_text(encoding="utf-8")
-    url = "https://coshuma.com/advertise.html"
-    if url not in text and "</urlset>" in text:
-        text = text.replace("</urlset>", f"  <url><loc>{url}</loc></url>\n</urlset>")
-        sitemap.write_text(text, encoding="utf-8")
+        return False
+    original = sitemap.read_text(encoding="utf-8")
+    updated = re.sub(
+        r"\s*<url>\s*<loc>https://coshuma\.com/advertise\.html</loc>.*?</url>",
+        "",
+        original,
+        flags=re.I | re.S,
+    )
+    if updated == original:
+        return False
+    sitemap.write_text(updated, encoding="utf-8")
+    return True
 
 
 def run_fastlane_state_finalizers() -> None:
-    """Reapply new-tool authoritative state after older build scripts have run.
-
-    Several legacy reconciliation scripts still rewrite the shared affiliate-state
-    JSON from older snapshots. The fast-lane finalizers are idempotent and must run
-    at the end so Scribe/Supademo, Landingi, Leadpages, Instapage, Popupsmart, Poptin
-    and OptiMonk survive into the source files persisted by the deploy workflow. This
-    changes no customer tracking URL.
-    """
     for script_name in (
         "ensure_scribe_fastlane.mjs",
         "ensure_landingi_fastlane.mjs",
@@ -148,26 +81,11 @@ def run_fastlane_state_finalizers() -> None:
         "ensure_poptin_fastlane.mjs",
         "ensure_optimonk_fastlane.mjs",
     ):
-        subprocess.run(
-            ["node", str(ROOT / "scripts" / script_name)],
-            cwd=ROOT,
-            check=True,
-        )
+        subprocess.run(["node", str(ROOT / "scripts" / script_name)], cwd=ROOT, check=True)
 
 
 def main() -> None:
-    # Legacy buyer-hub offer generators are intentionally quarantined from the
-    # production path. Many of them encode historical meta/layout assumptions
-    # and internal affiliate-network/evidence wording. Public offer cards are
-    # now allowed only after they have been converted to customer-only copy and
-    # aligned with the central disclosure/source-boundary policy.
-    #
-    # The earlier build stages preserve already verified tracking URLs on tool
-    # and comparison pages. Disabling these legacy hub injectors does not alter
-    # those verified customer routes or sponsored attribution.
-    for script_name in (
-        "improve_verified_offer_discovery.py",
-    ):
+    for script_name in ("improve_verified_offer_discovery.py",):
         try:
             runpy.run_path(str(ROOT / "scripts" / script_name), run_name="__main__")
         except SystemExit as exc:
@@ -180,15 +98,22 @@ def main() -> None:
         for page in TOOL_DIR.glob("*.html"):
             scanned += 1
             original = page.read_text(encoding="utf-8")
-            updated = normalize_page(original)
+            updated = strip_page(original)
             if updated != original:
                 page.write_text(updated, encoding="utf-8")
                 changed += 1
-    home_changed = ensure_home_advertise_link()
-    ensure_sitemap()
+
+    home_changed = remove_home_solicitation()
+    sitemap_changed = remove_advertise_from_sitemap()
     prepare_sponsored_inventory()
     run_fastlane_state_finalizers()
-    print(f"normalize_sponsorship_offer: scanned={scanned} changed={changed} homepage_link_added={home_changed} checkout_cta=disabled")
+    print(
+        "normalize_sponsorship_offer: "
+        f"scanned={scanned} changed={changed} "
+        f"homepage_solicitation_removed={home_changed} "
+        f"advertise_sitemap_removed={sitemap_changed} "
+        "advertising_inquiries=closed"
+    )
 
 
 if __name__ == "__main__":
