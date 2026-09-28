@@ -14,7 +14,6 @@ from prepare_sponsored_inventory import main as prepare_sponsored_inventory
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
-TOOL_DIR = PUBLIC / "tool"
 APP = ROOT / "src" / "App.jsx"
 
 TOOL_INQUIRY_RE = re.compile(
@@ -34,6 +33,12 @@ HOME_ADVERTISE_LINK_RE = re.compile(
 def strip_page(text: str) -> str:
     text = TOOL_INQUIRY_RE.sub("", text)
     text = SPONSORSHIP_SALES_SCRIPT_RE.sub("", text)
+    text = re.sub(
+        r'\s*<a\b[^>]*href=["\']/advertise\.html["\'][^>]*>.*?</a>',
+        "",
+        text,
+        flags=re.I | re.S,
+    )
     return text
 
 
@@ -94,8 +99,8 @@ def main() -> None:
 
     changed = 0
     scanned = 0
-    if TOOL_DIR.exists():
-        for page in TOOL_DIR.glob("*.html"):
+    if PUBLIC.exists():
+        for page in PUBLIC.rglob("*.html"):
             scanned += 1
             original = page.read_text(encoding="utf-8")
             updated = strip_page(original)
