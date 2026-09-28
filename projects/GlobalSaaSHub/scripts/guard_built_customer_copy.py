@@ -87,7 +87,12 @@ INTERNAL_VERIFICATION_NOTE = re.compile(
 )
 
 AD_INQUIRY_SECTION = re.compile(
-    r'\s*<section\b[^>]*data-sponsorship-inquiry=["\']tool["\'][^>]*>.*?</section>',
+    r'\s*<section\b(?:(?!<section\b).)*?(?:'
+    r'data-sponsorship-inquiry=["\']tool["\']|'
+    r'Request\s+a\s+COSHUMA\s+sponsored\s+placement|'
+    r'Email\s+a\s+sponsorship\s+request|'
+    r'Ask\s+about\s+(?:the\s+\$49\s+standard\s+placement|sponsorship)'
+    r')(?:(?!<section\b).)*?</section>',
     re.I | re.S,
 )
 ADVERTISE_LINK = re.compile(
