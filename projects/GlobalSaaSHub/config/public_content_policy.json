@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "policy_owner": "config/public_content_policy.json",
   "stages": {
     "source": {
@@ -52,5 +52,13 @@
       "\\bnot\\s+specified\\s+in\\s+(?:the\\s+)?snippet\\b",
       "\\bvaries\\s+by\\s+paid\\s+referral\\s+plan\\b"
     ]
+  },
+  "public_embeds": {
+    "allowed_iframe_hosts": [
+      "www.youtube-nocookie.com",
+      "app.supademo.com"
+    ],
+    "require_https": true,
+    "reason": "Public pages may embed only explicitly allowed HTTPS media or interactive-demo hosts. Do not iframe arbitrary vendor apps, login pages, dashboards, or customer workspaces."
   }
 }
