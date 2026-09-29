@@ -17,6 +17,7 @@ from urllib.parse import urlparse
 TEXT_EXTENSIONS = {".html", ".txt", ".xml", ".json", ".js", ".webmanifest"}
 
 URL = re.compile(r"https?://[^\s\"'<>]+", re.I)
+IFRAME_SRC = re.compile(r'<iframe\b[^>]*\bsrc=["\']([^"\']+)["\']', re.I)
 
 UNIQUE_NETWORK = re.compile(r"\b(?:PartnerStack|FirstPromoter)\b", re.I)
 CONTEXTUAL_NETWORK = re.compile(
@@ -114,7 +115,14 @@ PATTERNS = {
     "listing-administration": LISTING_ADMIN,
 }
 POLICY = json.loads((Path(__file__).resolve().parents[1] / "config" / "public_content_policy.json").read_text(encoding="utf-8"))
-PATTERNS.update({f"internal-tool-value-{i}": re.compile(pattern, re.I)\n                 for i, pattern in enumerate(POLICY["public_internal_data"]["forbidden_value_patterns"])})\n\nALLOWED_IFRAME_HOSTS = set(POLICY.get("public_embeds", {}).get("allowed_iframe_hosts", []))\nREQUIRE_HTTPS_IFRAMES = bool(POLICY.get("public_embeds", {}).get("require_https", True))\n\n\nclass PublicHTML(HTMLParser):
+PATTERNS.update({f"internal-tool-value-{i}": re.compile(pattern, re.I)
+                 for i, pattern in enumerate(POLICY["public_internal_data"]["forbidden_value_patterns"])})
+
+ALLOWED_IFRAME_HOSTS = set(POLICY.get("public_embeds", {}).get("allowed_iframe_hosts", []))
+REQUIRE_HTTPS_IFRAMES = bool(POLICY.get("public_embeds", {}).get("require_https", True))
+
+
+class PublicHTML(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self.hidden = 0
@@ -191,7 +199,9 @@ def scan_file(path: Path) -> list[str]:
     if path.suffix.lower() == ".html":
         p = PublicHTML()
         p.feed(raw)
-        visible = scan_text(" ".join(p.parts + p.meta))\n        visible.extend(scan_iframe_hosts(raw))\n        key = INTERNAL_KEYS.search(mask_urls(raw))
+        visible = scan_text(" ".join(p.parts + p.meta))
+        visible.extend(scan_iframe_hosts(raw))
+        key = INTERNAL_KEYS.search(mask_urls(raw))
         if key:
             visible.append(f"internal-data-key: {key.group(0)}")
         return visible
