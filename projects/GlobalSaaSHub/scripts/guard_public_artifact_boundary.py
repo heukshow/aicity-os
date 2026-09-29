@@ -12,6 +12,7 @@ from pathlib import Path
 import json
 import re
 import sys
+from urllib.parse import urlparse
 
 TEXT_EXTENSIONS = {".html", ".txt", ".xml", ".json", ".js", ".webmanifest"}
 
@@ -113,11 +114,7 @@ PATTERNS = {
     "listing-administration": LISTING_ADMIN,
 }
 POLICY = json.loads((Path(__file__).resolve().parents[1] / "config" / "public_content_policy.json").read_text(encoding="utf-8"))
-PATTERNS.update({f"internal-tool-value-{i}": re.compile(pattern, re.I)
-                 for i, pattern in enumerate(POLICY["public_internal_data"]["forbidden_value_patterns"])})
-
-
-class PublicHTML(HTMLParser):
+PATTERNS.update({f"internal-tool-value-{i}": re.compile(pattern, re.I)\n                 for i, pattern in enumerate(POLICY["public_internal_data"]["forbidden_value_patterns"])})\n\nALLOWED_IFRAME_HOSTS = set(POLICY.get("public_embeds", {}).get("allowed_iframe_hosts", []))\nREQUIRE_HTTPS_IFRAMES = bool(POLICY.get("public_embeds", {}).get("require_https", True))\n\n\nclass PublicHTML(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self.hidden = 0
@@ -155,6 +152,18 @@ def mask_urls(text: str) -> str:
     return URL.sub("https://PUBLIC-OUTBOUND-URL", text)
 
 
+def scan_iframe_hosts(raw: str) -> list[str]:
+    violations: list[str] = []
+    for src in IFRAME_SRC.findall(raw):
+        parsed = urlparse(src)
+        host = (parsed.hostname or "").lower()
+        if REQUIRE_HTTPS_IFRAMES and parsed.scheme.lower() != "https":
+            violations.append(f"iframe-non-https: {src[:180]}")
+            continue
+        if host not in ALLOWED_IFRAME_HOSTS:
+            violations.append(f"iframe-host-not-allowlisted: {host or src[:120]}")
+    return violations
+
 def scan_text(text: str) -> list[str]:
     text = mask_urls(text)
     # Consumer-facing affiliate disclosure is intentionally public and required on
@@ -182,8 +191,7 @@ def scan_file(path: Path) -> list[str]:
     if path.suffix.lower() == ".html":
         p = PublicHTML()
         p.feed(raw)
-        visible = scan_text(" ".join(p.parts + p.meta))
-        key = INTERNAL_KEYS.search(mask_urls(raw))
+        visible = scan_text(" ".join(p.parts + p.meta))\n        visible.extend(scan_iframe_hosts(raw))\n        key = INTERNAL_KEYS.search(mask_urls(raw))
         if key:
             visible.append(f"internal-data-key: {key.group(0)}")
         return visible
