@@ -21,7 +21,26 @@ import render_short
 
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST_JSON = ROOT / "data" / "youtube_shorts_manifest.json"
+\nPUBLIC_VISUAL_SOURCES = {"real_product_ui", "official_product_media", "official_interactive_demo"}\n
 
+def assert_publication_quality(upload_privacy: str | None, rendered: dict, script: dict) -> None:
+    """Block low-value public uploads while still allowing private/unlisted QA renders."""
+    if upload_privacy != "public":
+        return
+    visual_source = rendered.get("visual_source")
+    if visual_source not in PUBLIC_VISUAL_SOURCES:
+        raise RuntimeError(
+            "Public upload blocked: COSHUMA requires real product UI, official product media, "
+            "or an official interactive demo. Motion-graphic/text-card renders may be used for QA only."
+        )
+    if not script.get("evidence"):
+        raise RuntimeError(
+            "Public upload blocked: campaign lacks structured source evidence for its product claims."
+        )
+    if (script.get("hook") or "").strip().lower().startswith("still doing "):
+        raise RuntimeError(
+            "Public upload blocked: generic fallback hook is not publication-quality creative."
+        )
 
 def sha256_file(path: Path) -> str:
     h = hashlib.sha256()
@@ -95,9 +114,7 @@ def run(tool_id: str, upload_privacy: str | None = None) -> dict:
         campaign_slug=script["campaign_slug"],
         narration=script.get("narration"),
     )
-    if not report["passed"]:
-        raise RuntimeError("Shorts quality gate failed: " + "; ".join(report["failures"]))
-    upsert_ready(script, metadata, rendered, report)
+    if not report["passed"]:\n        raise RuntimeError("Shorts quality gate failed: " + "; ".join(report["failures"]))\n    assert_publication_quality(upload_privacy, rendered, script)\n    upsert_ready(script, metadata, rendered, report)
 
     result = {"script": script, "metadata": metadata, "render": rendered, "quality_gate": report}
     if upload_privacy:
