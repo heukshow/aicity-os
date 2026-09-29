@@ -21,7 +21,8 @@ import render_short
 
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST_JSON = ROOT / "data" / "youtube_shorts_manifest.json"
-\nPUBLIC_VISUAL_SOURCES = {"real_product_ui", "official_product_media", "official_interactive_demo"}\n
+PUBLIC_VISUAL_SOURCES = {"real_product_ui", "official_product_media", "official_interactive_demo"}
+
 
 def assert_publication_quality(upload_privacy: str | None, rendered: dict, script: dict) -> None:
     """Block low-value public uploads while still allowing private/unlisted QA renders."""
@@ -114,7 +115,10 @@ def run(tool_id: str, upload_privacy: str | None = None) -> dict:
         campaign_slug=script["campaign_slug"],
         narration=script.get("narration"),
     )
-    if not report["passed"]:\n        raise RuntimeError("Shorts quality gate failed: " + "; ".join(report["failures"]))\n    assert_publication_quality(upload_privacy, rendered, script)\n    upsert_ready(script, metadata, rendered, report)
+    if not report["passed"]:
+        raise RuntimeError("Shorts quality gate failed: " + "; ".join(report["failures"]))
+    assert_publication_quality(upload_privacy, rendered, script)
+    upsert_ready(script, metadata, rendered, report)
 
     result = {"script": script, "metadata": metadata, "render": rendered, "quality_gate": report}
     if upload_privacy:
