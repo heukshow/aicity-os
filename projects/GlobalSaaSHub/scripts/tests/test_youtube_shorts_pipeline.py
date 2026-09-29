@@ -17,7 +17,9 @@ sys.path.insert(0, str(REPO_ROOT / "scripts" / "youtube_shorts"))
 
 import select_content  # noqa: E402
 import generate_metadata  # noqa: E402
-import quality_gate  # noqa: E402\nimport run_pipeline  # noqa: E402\n
+import quality_gate  # noqa: E402
+import run_pipeline  # noqa: E402
+
 
 def _make_test_video(path: Path, width=1080, height=1920, duration=5, with_audio=True):
     cmd = [
