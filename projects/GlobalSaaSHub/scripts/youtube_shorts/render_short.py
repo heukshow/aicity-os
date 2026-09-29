@@ -130,6 +130,7 @@ def render(tool_id: str, output: str | None = None) -> dict:
         "output": str(out_path),
         "duration_seconds": round(probe_duration(out_path), 2),
         "resolution": "1080x1920",
+        "visual_source": "motion_graphic_cards",
     }
 
 
