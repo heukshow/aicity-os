@@ -17,8 +17,7 @@ sys.path.insert(0, str(REPO_ROOT / "scripts" / "youtube_shorts"))
 
 import select_content  # noqa: E402
 import generate_metadata  # noqa: E402
-import quality_gate  # noqa: E402
-
+import quality_gate  # noqa: E402\nimport run_pipeline  # noqa: E402\n
 
 def _make_test_video(path: Path, width=1080, height=1920, duration=5, with_audio=True):
     cmd = [
@@ -180,3 +179,37 @@ def test_quality_gate_flags_banned_earnings_claims():
         )
         assert not report["passed"]
         assert any("banned" in f for f in report["failures"])
+
+
+def test_publication_gate_blocks_motion_graphic_cards():
+    with pytest.raises(RuntimeError, match="Motion-graphic/text-card"):
+        run_pipeline.assert_publication_quality(
+            "public",
+            {"visual_source": "motion_graphic_cards"},
+            {"hook": "See this workflow in action", "evidence": {"source_url": "https://example.com"}},
+        )
+
+
+def test_publication_gate_requires_structured_evidence():
+    with pytest.raises(RuntimeError, match="structured source evidence"):
+        run_pipeline.assert_publication_quality(
+            "public",
+            {"visual_source": "real_product_ui"},
+            {"hook": "See this workflow in action", "evidence": None},
+        )
+
+
+def test_publication_gate_accepts_evidence_backed_real_ui():
+    run_pipeline.assert_publication_quality(
+        "public",
+        {"visual_source": "real_product_ui"},
+        {"hook": "Build a support agent from your own docs", "evidence": {"source_url": "https://example.com"}},
+    )
+
+
+def test_publication_gate_does_not_block_private_qa_motion_graphics():
+    run_pipeline.assert_publication_quality(
+        "private",
+        {"visual_source": "motion_graphic_cards"},
+        {"hook": "Still doing this work the slow way?", "evidence": None},
+    )
