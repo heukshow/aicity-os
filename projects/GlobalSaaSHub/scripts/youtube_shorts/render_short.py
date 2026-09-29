@@ -129,8 +129,7 @@ def render(tool_id: str, output: str | None = None) -> dict:
         "script_hash": script["script_hash"],
         "output": str(out_path),
         "duration_seconds": round(probe_duration(out_path), 2),
-        "resolution": "1080x1920",
-    }
+        "resolution": "1080x1920",\n        "visual_source": "motion_graphic_cards",\n    }
 
 
 def main() -> None:
