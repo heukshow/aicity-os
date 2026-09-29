@@ -73,3 +73,68 @@ test('actual modal links retain exact URLs, classify sponsorship, disclose and e
   assert.ok(JSON.stringify(tree).includes('Affiliate disclosure:'));
   assert.ok(!JSON.stringify(tree).includes('min-w-[680px]'));
 });
+
+
+test('static interactive experience emits one visible-view event and one exit CTA event', () => {
+  const calls = [], listeners = {}, store = new Map();
+  const storage = {
+    getItem: key => store.get(key) || null,
+    setItem: (key, value) => store.set(key, value),
+    removeItem: key => store.delete(key),
+  };
+  const experience = { dataset: { interactiveExperience: 'official-embed' } };
+  let observerCallback;
+  class IntersectionObserver {
+    constructor(callback) { observerCallback = callback; }
+    observe(node) {
+      observerCallback([{ target: node, isIntersecting: true, intersectionRatio: 0.5 }]);
+    }
+    unobserve() {}
+  }
+  const experienceLink = {
+    dataset: {
+      toolId: 'supademo',
+      ctaSource: 'supademo-interactive-demo',
+      interactiveExperienceCta: 'official-exit',
+    },
+    href: 'https://supademo.com/',
+    textContent: 'Open Supademo after trying it',
+  };
+  const window = {
+    location: {
+      search: '',
+      hostname: 'coshuma.com',
+      pathname: '/tool/supademo.html',
+      href: 'https://coshuma.com/tool/supademo.html',
+    },
+    sessionStorage: storage,
+    gtag: (...args) => calls.push(args),
+    IntersectionObserver,
+  };
+  const document = {
+    title: 'Supademo | COSHUMA',
+    referrer: '',
+    querySelector: () => null,
+    querySelectorAll: selector => selector === '[data-interactive-experience]' ? [experience] : [],
+    createElement: () => ({ dataset: {} }),
+    head: { appendChild: node => calls.push(['script', node.src]) },
+    addEventListener: (name, listener) => { listeners[name] = listener; },
+  };
+  const context = vm.createContext({ window, document, sessionStorage: storage, localStorage: storage, URL, URLSearchParams, Intl, navigator: { language: 'en-US', userAgent: 'test' }, console });
+  vm.runInContext(read('public/affiliate-attribution.js'), context);
+
+  const views = calls.filter(call => call[0] === 'event' && call[1] === 'interactive_demo_view');
+  assert.equal(views.length, 1);
+  assert.equal(views[0][2].tool_id, 'supademo');
+  assert.equal(views[0][2].experience_type, 'official-embed');
+
+  listeners.click({
+    target: {
+      closest: selector => selector === 'a[data-interactive-experience-cta]' ? experienceLink : null,
+    },
+  });
+  const exits = calls.filter(call => call[0] === 'event' && call[1] === 'interactive_demo_cta_click');
+  assert.equal(exits.length, 1);
+  assert.equal(exits[0][2].tool_id, 'supademo');
+  assert.equal(exits[0][2].link_url, 'https://supademo.com/');
+});

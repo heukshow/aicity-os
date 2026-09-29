@@ -186,7 +186,52 @@
     ...campaign
   });
 
+  const interactiveExperiences = Array.from(document.querySelectorAll('[data-interactive-experience]'));
+  if (interactiveExperiences.length && typeof window.IntersectionObserver === 'function') {
+    const observer = new window.IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.35) return;
+        const node = entry.target;
+        if (node.dataset.coshumaExperienceSeen === '1') return;
+        node.dataset.coshumaExperienceSeen = '1';
+        window.gtag('event', 'interactive_demo_view', {
+          tool_id: toolIdFromPath(),
+          experience_type: node.dataset.interactiveExperience || 'unknown',
+          page_location: window.location.href,
+          page_path: window.location.pathname + window.location.search,
+          page_type: pageTypeFromPath(),
+          content_slug: contentSlugFromPath(),
+          entry_page: attribution.entry_page,
+          entry_referrer: attribution.entry_referrer,
+          ...campaign
+        });
+        observer.unobserve(node);
+      });
+    }, { threshold: [0.35] });
+    interactiveExperiences.forEach(function (node) { observer.observe(node); });
+  }
+
   document.addEventListener('click', function (event) {
+    const experienceLink = event.target.closest('a[data-interactive-experience-cta]');
+    if (experienceLink) {
+      window.gtag('event', 'interactive_demo_cta_click', {
+        tool_id: experienceLink.dataset.toolId || toolIdFromPath(),
+        experience_action: experienceLink.dataset.interactiveExperienceCta || 'official-exit',
+        cta_source: experienceLink.dataset.ctaSource || 'interactive-demo',
+        link_url: experienceLink.href,
+        outbound_domain: hostnameFromUrl(experienceLink.href),
+        link_text: (experienceLink.textContent || '').trim().slice(0, 120),
+        page_location: window.location.href,
+        page_path: window.location.pathname + window.location.search,
+        page_type: pageTypeFromPath(),
+        content_slug: contentSlugFromPath(),
+        entry_page: attribution.entry_page,
+        entry_referrer: attribution.entry_referrer,
+        ...campaign,
+        transport_type: 'beacon'
+      });
+    }
+
     const link = event.target.closest('a[data-cta="affiliate"]');
     if (!link) return;
 
