@@ -146,6 +146,7 @@ jobs:
           node scripts/verify_approved_tracking.mjs
           node scripts/tests/browser-followup.test.mjs
           node scripts/tests/tagshop-consent.test.mjs
+          python scripts/tests/test_indexnow.py
 
       - name: Verify COSHUMA bundle identity
         run: |
@@ -155,6 +156,11 @@ jobs:
           test ! -e projects/GlobalSaaSHub/dist/admin-affiliate-audit.json
           grep -q 'COSHUMA' projects/GlobalSaaSHub/dist/index.html
           test -f projects/GlobalSaaSHub/dist/brand-usage.html
+          test -f projects/GlobalSaaSHub/dist/c8f43b92e1d74a6f9c2057be8301ad6e.txt
+          test "$(tr -d '\\r\\n' < projects/GlobalSaaSHub/dist/c8f43b92e1d74a6f9c2057be8301ad6e.txt)" = 'c8f43b92e1d74a6f9c2057be8301ad6e'
+          grep -q -F 'User-agent: *' projects/GlobalSaaSHub/dist/robots.txt
+          grep -q -F 'Allow: /' projects/GlobalSaaSHub/dist/robots.txt
+          grep -q -F 'Sitemap: https://coshuma.com/sitemap.xml' projects/GlobalSaaSHub/dist/robots.txt
           grep -q -F 'data-coshuma-origin-guard="1"' projects/GlobalSaaSHub/dist/index.html
           grep -q -F 'mirror or systematically republish' projects/GlobalSaaSHub/dist/terms.html
           grep -q -F 'Brand &amp; Content Usage Policy' projects/GlobalSaaSHub/dist/brand/index.html
@@ -304,6 +310,22 @@ jobs:
             echo 'Superseded by newer main content; its current-main deployment owns publication.' >> "$GITHUB_STEP_SUMMARY"
           fi
 
+      - name: Prepare global search notification set
+        if: steps.freshness.outputs.current == 'true'
+        run: |
+          set -e
+          rm -rf /tmp/coshuma-prev
+          mkdir -p /tmp/coshuma-prev
+          git fetch origin gh-pages:refs/remotes/origin/gh-pages || true
+          if git rev-parse --verify refs/remotes/origin/gh-pages >/dev/null 2>&1; then
+            git archive --format=tar refs/remotes/origin/gh-pages | tar -xf - -C /tmp/coshuma-prev
+          fi
+          python projects/GlobalSaaSHub/scripts/prepare_indexnow_urls.py \
+            --current projects/GlobalSaaSHub/dist \
+            --previous /tmp/coshuma-prev \
+            --output projects/GlobalSaaSHub/.private-ops/indexnow-urls.json \
+            --key-file c8f43b92e1d74a6f9c2057be8301ad6e.txt
+
       - name: Publish complete Vite dist to gh-pages
         if: steps.freshness.outputs.current == 'true'
         uses: peaceiris/actions-gh-pages@v4
@@ -314,3 +336,26 @@ jobs:
           force_orphan: true
           enable_jekyll: false
           commit_message: 'deploy: sync COSHUMA production bundle from ${{ steps.source.outputs.sha }}'
+
+      - name: Notify global search engines with IndexNow
+        id: indexnow
+        if: steps.freshness.outputs.current == 'true'
+        continue-on-error: true
+        working-directory: projects/GlobalSaaSHub
+        run: |
+          python scripts/submit_indexnow.py \
+            --urls-file .private-ops/indexnow-urls.json \
+            --key c8f43b92e1d74a6f9c2057be8301ad6e \
+            --key-location https://coshuma.com/c8f43b92e1d74a6f9c2057be8301ad6e.txt
+
+      - name: Record global search notification status
+        if: steps.freshness.outputs.current == 'true'
+        run: |
+          {
+            echo
+            echo '## Global search discovery'
+            echo "- robots.txt: all standards-compliant public crawlers allowed"
+            echo "- sitemap: https://coshuma.com/sitemap.xml"
+            echo "- IndexNow step: ${{ steps.indexnow.outcome }}"
+            echo "- IndexNow endpoint shares submitted changes with participating search engines"
+          } >> "$GITHUB_STEP_SUMMARY"
