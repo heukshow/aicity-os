@@ -28,21 +28,42 @@ PROTECTION_BLOCK = r'''<meta name="copyright" content="© 2026 COSHUMA. All righ
   var canonicalUrl = 'https://coshuma.com' + window.location.pathname + window.location.search + window.location.hash;
 
   function showCanonicalNotice() {
-    document.documentElement.innerHTML =
-      '<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
-      '<title>COSHUMA — Canonical Site</title></head>' +
-      '<body style="margin:0;background:#07080c;color:#e2e8f0;font:16px/1.6 system-ui,sans-serif;display:grid;min-height:100vh;place-items:center">' +
-      '<main style="max-width:680px;padding:32px"><h1 style="color:white">COSHUMA</h1>' +
-      '<p id="coshuma-origin-message"></p><p><a id="coshuma-canonical-link" target="_top" rel="noopener" style="color:#93c5fd">Open the official COSHUMA page</a></p>' +
-      '</main></body>';
-    var message = document.getElementById('coshuma-origin-message');
-    var link = document.getElementById('coshuma-canonical-link');
-    if (message) {
-      message.textContent = foreignHost
-        ? 'This copy is not being served from COSHUMA\'s canonical public domain.'
-        : 'COSHUMA pages are not intended to be embedded inside another site.';
+    if (!document.body) return;
+    document.title = 'COSHUMA — Canonical Site';
+
+    while (document.body.firstChild) {
+      document.body.removeChild(document.body.firstChild);
     }
-    if (link) link.href = canonicalUrl;
+    document.body.setAttribute(
+      'style',
+      'margin:0;background:#07080c;color:#e2e8f0;font:16px/1.6 system-ui,sans-serif;display:grid;min-height:100vh;place-items:center'
+    );
+
+    var main = document.createElement('main');
+    main.setAttribute('style', 'max-width:680px;padding:32px');
+
+    var heading = document.createElement('h1');
+    heading.setAttribute('style', 'color:white');
+    heading.textContent = 'COSHUMA';
+
+    var message = document.createElement('p');
+    message.textContent = foreignHost
+      ? 'This copy is not being served from COSHUMA\'s canonical public domain.'
+      : 'COSHUMA pages are not intended to be embedded inside another site.';
+
+    var linkRow = document.createElement('p');
+    var link = document.createElement('a');
+    link.href = canonicalUrl;
+    link.target = '_top';
+    link.rel = 'noopener';
+    link.setAttribute('style', 'color:#93c5fd');
+    link.textContent = 'Open the official COSHUMA page';
+
+    linkRow.appendChild(link);
+    main.appendChild(heading);
+    main.appendChild(message);
+    main.appendChild(linkRow);
+    document.body.appendChild(main);
   }
 
   if (document.readyState === 'loading') {
