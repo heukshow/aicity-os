@@ -30,7 +30,7 @@ export function verifySyncedAffiliates(tools) {
     ['fillout', 'approved_tracking'],
     ['beefree', 'approved_tracking'],
     ['gumloop', 'application_submitted'],
-    ['pipedrive', 'pending'],
+    ['pipedrive', 'approved'],
     ['monday-com', 'pending'],
     ['kittl', 'approved_tracking'],
   ]);
