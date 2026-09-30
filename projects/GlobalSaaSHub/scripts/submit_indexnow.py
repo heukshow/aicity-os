@@ -72,7 +72,8 @@ def main() -> int:
 
     last_status = None
     last_body = ""
-    for attempt in range(4):
+    max_attempts = 20
+    for attempt in range(max_attempts):
         status, body = post_json(ENDPOINT, payload)
         last_status, last_body = status, body
         if status in (200, 202):
@@ -83,10 +84,20 @@ def main() -> int:
                 "bootstrap": bool(doc.get("bootstrap")),
             }))
             return 0
-        if status not in (429, 500, 502, 503, 504):
+
+        verification_pending = (
+            status == 403
+            and "SiteVerificationNotCompleted" in body
+        )
+        transient = status in (429, 500, 502, 503, 504)
+        if not verification_pending and not transient:
             break
-        if attempt < 3:
-            time.sleep(4 * (attempt + 1))
+
+        if attempt < max_attempts - 1:
+            if verification_pending:
+                time.sleep(10)
+            else:
+                time.sleep(min(20, 4 * (attempt + 1)))
 
     raise SystemExit(f"IndexNow submission failed: HTTP {last_status} {last_body[:300]}")
 
