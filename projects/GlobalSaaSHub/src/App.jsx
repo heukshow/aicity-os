@@ -204,6 +204,22 @@ export default function App() {
             </div>
           </a>
           <div className="flex items-center gap-2">
+            {bookmarkedIds.length > 0 && (
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedGoal('');
+                  setSelectedCategory('all');
+                  setSelectedPricing('all');
+                  setMustHaveFeature('');
+                  setShowBookmarksOnly(true);
+                  document.getElementById('directory')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+                className="inline-flex items-center gap-1.5 rounded-full border border-rose-400/20 bg-rose-400/[0.07] px-3 py-2 text-xs font-bold text-rose-100 hover:bg-rose-400/10"
+              >
+                <Heart className="h-3.5 w-3.5 fill-current" /> Saved ({bookmarkedIds.length})
+              </button>
+            )}
             <a href="#directory" className="hidden rounded-full px-4 py-2 text-sm font-semibold text-slate-300 hover:bg-white/5 sm:inline-flex">Explore tools</a>
             {paymentConfig.checkoutEnabled && (
               <a href="#submit" className="rounded-full border border-violet-400/30 bg-violet-500/10 px-4 py-2 text-xs font-bold text-violet-200 hover:bg-violet-500/20 sm:text-sm">
