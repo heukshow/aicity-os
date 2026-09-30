@@ -105,14 +105,18 @@
     if (!/\/tool\/[^/.]+\.html$/.test(window.location.pathname)) return;
     if (!document.body || document.querySelector('[data-coshuma-decision-dock="1"]')) return;
 
+    const pageToolId = toolIdFromPath();
+    if (!pageToolId || pageToolId === 'unknown') return;
+
     const affiliateLinks = Array.from(document.querySelectorAll('a[data-cta="affiliate"]')).filter(function (link) {
-      return typeof link.href === 'string' && /^https?:\/\//i.test(link.href);
+      return typeof link.href === 'string'
+        && /^https?:\/\//i.test(link.href)
+        && link.dataset.toolId === pageToolId;
     });
     if (!affiliateLinks.length) return;
 
     const primary = affiliateLinks[0];
-    const toolId = primary.dataset.toolId || toolIdFromPath();
-    if (!toolId || toolId === 'unknown') return;
+    const toolId = pageToolId;
 
     const dock = document.createElement('aside');
     dock.dataset.coshumaDecisionDock = '1';
