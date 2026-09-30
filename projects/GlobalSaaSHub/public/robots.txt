@@ -3,4 +3,4 @@ Allow: /
 Disallow: /ops-private/
 
 Sitemap: https://coshuma.com/sitemap.xml
-# Reviewed 2026-09-11: public buyer guides and comparison pages are intentionally crawlable.
+# Global discovery policy reviewed 2026-10-01: public buyer guides, comparisons, JS and CSS are intentionally crawlable by all standards-compliant search engines.
