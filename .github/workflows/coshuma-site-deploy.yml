@@ -157,6 +157,7 @@ jobs:
           grep -q 'COSHUMA' projects/GlobalSaaSHub/dist/index.html
           test -f projects/GlobalSaaSHub/dist/brand-usage.html
           test -f projects/GlobalSaaSHub/dist/c8f43b92e1d74a6f9c2057be8301ad6e.txt
+          test -f projects/GlobalSaaSHub/dist/indexnow-bootstrap-v1.txt
           test "$(tr -d '\\r\\n' < projects/GlobalSaaSHub/dist/c8f43b92e1d74a6f9c2057be8301ad6e.txt)" = 'c8f43b92e1d74a6f9c2057be8301ad6e'
           grep -q -F 'User-agent: *' projects/GlobalSaaSHub/dist/robots.txt
           grep -q -F 'Allow: /' projects/GlobalSaaSHub/dist/robots.txt
@@ -324,7 +325,7 @@ jobs:
             --current projects/GlobalSaaSHub/dist \
             --previous /tmp/coshuma-prev \
             --output projects/GlobalSaaSHub/.private-ops/indexnow-urls.json \
-            --key-file c8f43b92e1d74a6f9c2057be8301ad6e.txt
+            --bootstrap-marker indexnow-bootstrap-v1.txt
 
       - name: Publish complete Vite dist to gh-pages
         if: steps.freshness.outputs.current == 'true'
