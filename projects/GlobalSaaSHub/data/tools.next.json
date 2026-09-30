@@ -6793,19 +6793,18 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.tidio.com/",
-    "affiliate_url": null,
-    "affiliate_status": "rejected",
-    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
+    "affiliate_url": "https://affiliate.tidio.com/7ow2khr31ti8",
+    "affiliate_status": "approved_tracking",
+    "affiliate_status_checked_at": "2026-09-29T14:37:23Z",
     "affiliate_status_evidence_url": "https://www.tidio.com/partners/affiliate/",
     "affiliate_verified": true,
-    "affiliate_verified_at": "2026-08-25T00:00:00Z",
-    "affiliate_source_url": null,
+    "affiliate_verified_at": "2026-09-30T09:42:19Z",
+    "affiliate_source_url": "https://affiliate.tidio.com/7ow2khr31ti8",
     "affiliate_evidence_markers": [
-      "PartnerStack application confirmation received 2026-08-24.",
-      "Newer PartnerStack status on 2026-08-25 states Tidio declined the COSHUMA application.",
-      "Authoritative repository evidence: data/tidio-affiliate-rejection-evidence-2026-08-25.md",
-      "Do not reapply automatically; no COSHUMA customer-facing Tidio tracking URL is verified."
-    ]
+      "Tidio PartnerStack welcome email to support@coshuma.com (Gmail 1a0ed995bd9fde81) explicitly welcomes COSHUMA to the affiliate program and identifies https://affiliate.tidio.com/7ow2khr31ti8 as 'Your affiliate link'. The email states 20% revenue share to start, scaling to 25%, a 30-day cookie window and a 7-day referral trial. Independent GET verification on 2026-09-30 followed HTTP 302 to the official tidio.com destination, observed PartnerStack attribution parameters/cookies, and ended at HTTP 200. No click, signup, paid customer, commission, payout, or revenue is inferred from approval/link validation.",
+      "data/tidio-approved-tracking-2026-09-30.md"
+    ],
+    "affiliate_final_url": "https://www.tidio.com/"
   },
   {
     "id": "time2book",
