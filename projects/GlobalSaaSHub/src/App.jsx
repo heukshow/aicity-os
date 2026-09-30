@@ -101,7 +101,7 @@ export default function App() {
   const goalOptions = [
     { id: 'get-leads', label: 'Get leads', category: 'sales_crm', feature: '' },
     { id: 'create-content', label: 'Create content', category: 'copywriting', feature: '' },
-    { id: 'sell-online', label: 'Sell online', category: 'email_outreach', feature: 'ecommerce' },
+    { id: 'sell-online', label: 'Sell online', category: 'all', feature: '' },
     { id: 'automate-work', label: 'Automate work', category: 'workflow_auto', feature: '' },
     { id: 'grow-traffic', label: 'Grow traffic', category: 'seo_tools', feature: '' }
   ];
@@ -173,9 +173,19 @@ export default function App() {
         (tool.description || '').toLowerCase().includes(requiredFeature) ||
         (tool.key_features || []).some((f) => f.toLowerCase().includes(requiredFeature));
 
-      return matchesBookmark && matchesCategory && matchesPricing && matchesSearch && matchesRequiredFeature;
+      const goalText = [
+        tool.name || '',
+        tool.description || '',
+        ...(tool.key_features || []),
+        tool.category_display || ''
+      ].join(' ').toLowerCase();
+      const matchesSelectedGoal =
+        selectedGoal !== 'sell-online' ||
+        /e-?commerce|online store|shopify|bigcommerce|woocommerce|dropship|shipping|store conversion/.test(goalText);
+
+      return matchesBookmark && matchesCategory && matchesPricing && matchesSearch && matchesRequiredFeature && matchesSelectedGoal;
     });
-  }, [searchTerm, selectedCategory, selectedPricing, mustHaveFeature, showBookmarksOnly, bookmarkedIds]);
+  }, [searchTerm, selectedCategory, selectedPricing, mustHaveFeature, selectedGoal, showBookmarksOnly, bookmarkedIds]);
 
   const applyGoal = (goal) => {
     setSelectedGoal(goal.id);
