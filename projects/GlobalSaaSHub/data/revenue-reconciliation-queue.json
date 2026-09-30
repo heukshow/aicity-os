@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T09:49:30.930Z",
+  "generated_at": "2026-09-30T19:21:00.378Z",
   "source": "data/revenue-leakage-audit.json",
   "scope": "Internal COSHUMA revenue reconciliation only",
   "queue_status": "active",
@@ -45,7 +45,7 @@
           "id": "brand24",
           "name": "Brand24",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 14 days old."
+          "reason": "Latest revenue evidence is 15 days old."
         },
         {
           "id": "moosend",
@@ -1303,7 +1303,7 @@
           "id": "helpdesk",
           "name": "HelpDesk",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 19 days old."
+          "reason": "Latest revenue evidence is 20 days old."
         },
         {
           "id": "text",
@@ -1439,7 +1439,7 @@
           "id": "tally",
           "name": "Tally",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 18 days old."
+          "reason": "Latest revenue evidence is 19 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1465,7 +1465,7 @@
           "id": "clickfunnels",
           "name": "ClickFunnels",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 22 days old."
+          "reason": "Latest revenue evidence is 23 days old."
         }
       ],
       "execution": "browser_read_only",
@@ -1595,7 +1595,7 @@
           "id": "omnisend",
           "name": "Omnisend",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 11 days old."
+          "reason": "Latest revenue evidence is 12 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1647,7 +1647,7 @@
           "id": "chatbase",
           "name": "Chatbase",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 9 days old."
+          "reason": "Latest revenue evidence is 10 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
