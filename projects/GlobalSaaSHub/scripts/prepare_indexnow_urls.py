@@ -9,7 +9,7 @@ from urllib.parse import urlparse
 import xml.etree.ElementTree as ET
 
 CANONICAL_RE = re.compile(
-    r'<link\\b(?=[^>]*\\brel=["\\']canonical["\\'])(?=[^>]*\\bhref=["\\']([^"\\']+)["\\'])[^>]*>',
+    r"<link\\b(?=[^>]*\\brel=['\\\"]canonical['\\\"])(?=[^>]*\\bhref=['\\\"]([^'\\\"]+)['\\\"])[^>]*>",
     re.I,
 )
 
