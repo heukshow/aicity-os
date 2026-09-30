@@ -63,7 +63,13 @@ export default function App() {
   const [mustHaveFeature, setMustHaveFeature] = useState('');
   const [selectedGoal, setSelectedGoal] = useState('');
   const [compareToolA, setCompareToolA] = useState(null);
-  const [showBookmarksOnly, setShowBookmarksOnly] = useState(false);
+  const [showBookmarksOnly, setShowBookmarksOnly] = useState(() => {
+    try {
+      return new URLSearchParams(window.location.search).get('saved') === '1';
+    } catch {
+      return false;
+    }
+  });
   const [bookmarkedIds, setBookmarkedIds] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem('coshuma_bookmarks') || '[]');
