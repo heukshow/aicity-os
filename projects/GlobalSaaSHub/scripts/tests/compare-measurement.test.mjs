@@ -138,3 +138,117 @@ test('static interactive experience emits one visible-view event and one exit CT
   assert.equal(exits[0][2].tool_id, 'supademo');
   assert.equal(exits[0][2].link_url, 'https://supademo.com/');
 });
+
+
+test('tool decision dock reuses the exact affiliate destination and saves the tool for revisit', () => {
+  const store = new Map(), calls = [], windowListeners = {}, documentListeners = {};
+  const storage = {
+    getItem: key => store.get(key) || null,
+    setItem: (key, value) => store.set(key, value),
+    removeItem: key => store.delete(key),
+  };
+  function element(tag) {
+    return {
+      tagName: tag.toUpperCase(),
+      dataset: {},
+      attributes: {},
+      children: [],
+      listeners: {},
+      className: '',
+      textContent: '',
+      type: '',
+      target: '',
+      rel: '',
+      disabled: false,
+      appendChild(child) { this.children.push(child); return child; },
+      setAttribute(name, value) { this.attributes[name] = String(value); },
+      addEventListener(name, listener) { this.listeners[name] = listener; },
+    };
+  }
+  const primary = element('a');
+  primary.href = 'https://verified.example/customer-route';
+  primary.target = '_blank';
+  primary.rel = 'sponsored noopener noreferrer';
+  primary.dataset.cta = 'affiliate';
+  primary.dataset.toolId = 'demo-tool';
+  primary.textContent = 'Start demo tool';
+
+  const body = element('body');
+  const head = element('head');
+  const document = {
+    title: 'Demo Tool | COSHUMA',
+    referrer: '',
+    body,
+    head,
+    querySelector(selector) {
+      if (selector === '[data-coshuma-decision-dock="1"]') {
+        return body.children.find(child => child.dataset?.coshumaDecisionDock === '1') || null;
+      }
+      return null;
+    },
+    querySelectorAll(selector) {
+      if (selector === 'a[data-cta="affiliate"]') return [primary];
+      if (selector === '[data-interactive-experience]') return [];
+      return [];
+    },
+    createElement: element,
+    addEventListener(name, listener) { documentListeners[name] = listener; },
+  };
+  const window = {
+    location: {
+      search: '',
+      hostname: 'coshuma.com',
+      pathname: '/tool/demo-tool.html',
+      href: 'https://coshuma.com/tool/demo-tool.html',
+    },
+    localStorage: storage,
+    sessionStorage: storage,
+    scrollY: 500,
+    pageYOffset: 500,
+    innerWidth: 390,
+    gtag: (...args) => calls.push(args),
+    addEventListener(name, listener) { windowListeners[name] = listener; },
+  };
+  const context = vm.createContext({
+    window,
+    document,
+    sessionStorage: storage,
+    localStorage: storage,
+    URL,
+    URLSearchParams,
+    Intl,
+    navigator: { language: 'en-US', userAgent: 'test' },
+    console,
+  });
+
+  vm.runInContext(read('public/affiliate-attribution.js'), context);
+
+  const dock = body.children.find(child => child.dataset?.coshumaDecisionDock === '1');
+  assert.ok(dock);
+  assert.equal(dock.dataset.visible, 'true');
+
+  const nodes = [];
+  function walk(node) {
+    if (!node || typeof node !== 'object') return;
+    nodes.push(node);
+    (node.children || []).forEach(walk);
+  }
+  walk(dock);
+
+  const stickyCta = nodes.find(node => node.dataset?.ctaSource === 'tool-decision-dock');
+  assert.ok(stickyCta);
+  assert.equal(stickyCta.href, primary.href);
+  assert.equal(stickyCta.dataset.toolId, 'demo-tool');
+  assert.equal(stickyCta.dataset.cta, 'affiliate');
+
+  const save = nodes.find(node => node.className === 'coshuma-dock-save');
+  assert.ok(save);
+  save.listeners.click();
+  assert.deepEqual(JSON.parse(store.get('coshuma_bookmarks')), ['demo-tool']);
+  assert.equal(save.textContent, 'Saved ✓');
+
+  const savedLink = nodes.find(node => node.className === 'coshuma-dock-saved');
+  assert.equal(savedLink.href, '/?saved=1#directory');
+  assert.equal(savedLink.dataset.visible, 'true');
+  assert.equal(calls.filter(call => call[0] === 'event' && call[1] === 'tool_save').length, 1);
+});
