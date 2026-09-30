@@ -63,6 +63,7 @@ export default function App() {
   const [mustHaveFeature, setMustHaveFeature] = useState('');
   const [selectedGoal, setSelectedGoal] = useState('');
   const [compareToolA, setCompareToolA] = useState(null);
+  const [visibleToolLimit, setVisibleToolLimit] = useState(24);
   const [showBookmarksOnly, setShowBookmarksOnly] = useState(() => {
     try {
       return new URLSearchParams(window.location.search).get('saved') === '1';
@@ -116,6 +117,10 @@ export default function App() {
   useEffect(() => {
     trackPageView();
   }, []);
+
+  useEffect(() => {
+    setVisibleToolLimit(24);
+  }, [searchTerm, selectedCategory, selectedPricing, mustHaveFeature, showBookmarksOnly]);
 
   const toggleBookmark = (id) => {
     setBookmarkedIds((prev) => {
@@ -376,13 +381,13 @@ export default function App() {
               ))}
               <button onClick={() => setShowBookmarksOnly(!showBookmarksOnly)} className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold ${showBookmarksOnly ? 'bg-rose-500/20 text-rose-200' : 'bg-white/5 text-slate-400 hover:text-white'}`}><Heart className={`h-3.5 w-3.5 ${showBookmarksOnly ? 'fill-current' : ''}`} /> Saved ({bookmarkedIds.length})</button>
             </div>
-            <div className="text-xs text-slate-500">Showing <span className="font-bold text-slate-300">{filteredTools.length}</span> matching tools</div>
+            <div className="text-xs text-slate-500">Showing <span className="font-bold text-slate-300">{Math.min(visibleToolLimit, filteredTools.length)}</span> of <span className="font-bold text-slate-300">{filteredTools.length}</span> matching tools</div>
           </div>
         </section>
 
         {filteredTools.length > 0 ? (
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {filteredTools.map((tool) => {
+            {filteredTools.slice(0, visibleToolLimit).map((tool) => {
               const isSponsored = tool.is_sponsored === true;
               const validUrl = getValidExternalUrl(tool);
               return (
@@ -396,9 +401,11 @@ export default function App() {
                   <p className="mt-4 line-clamp-3 text-sm leading-6 text-slate-400">{tool.description}</p>
                   <div className="mt-4 flex flex-wrap gap-1.5">{(tool.key_features || []).slice(0, 3).map((feature) => <span key={feature} className="rounded-lg border border-white/10 bg-white/[0.03] px-2 py-1 text-[11px] text-slate-400">{feature}</span>)}</div>
 
-                  <div className="mt-5 grid grid-cols-2 gap-2 rounded-xl bg-white/[0.025] p-3">
+                  <div className={`mt-5 grid ${tool.rating != null && tool.rating_source_url ? 'grid-cols-2' : 'grid-cols-1'} gap-2 rounded-xl bg-white/[0.025] p-3`}>
                     <div><div className="text-[10px] uppercase tracking-wider text-slate-600">Pricing</div><div className="mt-0.5 text-sm font-bold text-slate-200">{tool.pricing}</div></div>
-                    <div className="text-right"><div className="text-[10px] uppercase tracking-wider text-slate-600">Rating</div><div className="mt-0.5 inline-flex items-center gap-1 text-sm font-bold text-slate-200">{tool.rating != null && tool.rating_source_url ? <><Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" /> {tool.rating}</> : 'Source-led'}</div></div>
+                    {tool.rating != null && tool.rating_source_url && (
+                      <div className="text-right"><div className="text-[10px] uppercase tracking-wider text-slate-600">Rating</div><div className="mt-0.5 inline-flex items-center gap-1 text-sm font-bold text-slate-200"><Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" /> {tool.rating}</div></div>
+                    )}
                   </div>
 
                   <div className="mt-auto pt-4">
@@ -408,7 +415,7 @@ export default function App() {
                     </div>
                     {validUrl ? (
                       <a data-cta={isSponsored ? 'affiliate' : 'official'} data-tool-id={tool.id} data-cta-source="home-tool-card" href={validUrl} target="_blank" rel={isSponsored ? 'sponsored noopener noreferrer' : 'noopener noreferrer'} onClick={() => trackToolClick(tool.id, tool.name, validUrl, isSponsored)} className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-500 px-4 py-3 text-sm font-black text-white shadow-lg shadow-violet-950/20 hover:from-violet-400 hover:to-indigo-400">
-                        {isSponsored ? 'View current offer' : 'Visit official site'} <ArrowUpRight className="h-4 w-4" />
+                        {isSponsored ? `Check ${tool.name}` : 'Visit official site'} <ArrowUpRight className="h-4 w-4" />
                       </a>
                     ) : (
                       <div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center text-xs font-bold text-slate-600">Official link unavailable</div>
@@ -420,6 +427,18 @@ export default function App() {
           </div>
         ) : (
           <div className="rounded-3xl border border-white/10 bg-white/[0.03] py-20 text-center"><Search className="mx-auto h-10 w-10 text-slate-700" /><h3 className="mt-4 text-lg font-bold text-white">No matching tools</h3><p className="mt-2 text-sm text-slate-500">Try a broader search, another category or a different price filter.</p></div>
+        )}
+
+        {filteredTools.length > visibleToolLimit && (
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setVisibleToolLimit((limit) => Math.min(limit + 24, filteredTools.length))}
+              className="min-h-11 rounded-xl border border-white/10 bg-white/[0.04] px-6 py-3 text-sm font-bold text-slate-200 hover:border-violet-400/30 hover:bg-violet-400/10 hover:text-white"
+            >
+              Show 24 more tools
+            </button>
+          </div>
         )}
 
         <section className="mt-20 grid gap-4 lg:grid-cols-3">
