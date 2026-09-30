@@ -50,6 +50,7 @@ jobs:
           node scripts/tests/revenue-program-observations.test.mjs
           node scripts/tests/compare-measurement.test.mjs
           node scripts/tests/synced-affiliates.test.mjs
+          python scripts/tests/test_indexnow.py
 
       # RECOVERY-006 invariant: committed customer source must be checked before any source-mutating preparation.
       - name: Fail closed on committed public source before preparation
@@ -93,6 +94,11 @@ jobs:
           test -f projects/GlobalSaaSHub/dist/sitemap.xml
           test -f projects/GlobalSaaSHub/dist/robots.txt
           test -f projects/GlobalSaaSHub/dist/CNAME
+          test -f projects/GlobalSaaSHub/dist/c8f43b92e1d74a6f9c2057be8301ad6e.txt
+          test "$(tr -d '\\r\\n' < projects/GlobalSaaSHub/dist/c8f43b92e1d74a6f9c2057be8301ad6e.txt)" = 'c8f43b92e1d74a6f9c2057be8301ad6e'
+          grep -q -F 'User-agent: *' projects/GlobalSaaSHub/dist/robots.txt
+          grep -q -F 'Allow: /' projects/GlobalSaaSHub/dist/robots.txt
+          grep -q -F 'Sitemap: https://coshuma.com/sitemap.xml' projects/GlobalSaaSHub/dist/robots.txt
           grep -q -F 'coshuma.com' projects/GlobalSaaSHub/dist/CNAME
           grep -q -F 'COSHUMA' projects/GlobalSaaSHub/dist/index.html
           test -f projects/GlobalSaaSHub/dist/brand-usage.html
