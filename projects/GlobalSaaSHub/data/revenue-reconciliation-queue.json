@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-27T18:44:07.798Z",
+  "generated_at": "2026-09-30T09:49:30.930Z",
   "source": "data/revenue-leakage-audit.json",
   "scope": "Internal COSHUMA revenue reconciliation only",
   "queue_status": "active",
-  "task_count": 61,
+  "task_count": 62,
   "priority_order": [
     "P0_UNCHECKED",
     "P1_STALE",
@@ -39,31 +39,31 @@
           "id": "bookyourdata",
           "name": "Bookyourdata",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 19 days old."
+          "reason": "Latest revenue evidence is 22 days old."
         },
         {
           "id": "brand24",
           "name": "Brand24",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 12 days old."
+          "reason": "Latest revenue evidence is 14 days old."
         },
         {
           "id": "moosend",
           "name": "Moosend",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 19 days old."
+          "reason": "Latest revenue evidence is 22 days old."
         },
         {
           "id": "murf-ai",
           "name": "Murf AI",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 19 days old."
+          "reason": "Latest revenue evidence is 22 days old."
         },
         {
           "id": "unbounce",
           "name": "Unbounce",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 19 days old."
+          "reason": "Latest revenue evidence is 22 days old."
         },
         {
           "id": "gamma",
@@ -1111,6 +1111,32 @@
       "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
     },
     {
+      "account_id": "tidio",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "priority": "P0_UNCHECKED",
+      "tool_count": 1,
+      "tools": [
+        {
+          "id": "tidio",
+          "name": "Tidio",
+          "priority": "P0_UNCHECKED",
+          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
+        }
+      ],
+      "execution": "locate_existing_account_or_vendor_dashboard_first",
+      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
+      "safety": [
+        "Do not create a new account or reapply.",
+        "Do not change any customer tracking URL.",
+        "Do not start a paid plan or authorize payment.",
+        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
+        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
+        "Never expose this internal revenue audit on public COSHUMA pages."
+      ],
+      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
+    },
+    {
       "account_id": "time2book",
       "network": "개별 제휴 포털",
       "portal_url": "https://time2book.me/affiliates",
@@ -1277,13 +1303,13 @@
           "id": "helpdesk",
           "name": "HelpDesk",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 17 days old."
+          "reason": "Latest revenue evidence is 19 days old."
         },
         {
           "id": "text",
           "name": "Text",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 11 days old."
+          "reason": "Latest revenue evidence is 14 days old."
         }
       ],
       "execution": "browser_read_only",
@@ -1309,7 +1335,7 @@
           "id": "aiassistworks",
           "name": "AiAssistWorks",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 19 days old."
+          "reason": "Latest revenue evidence is 22 days old."
         }
       ],
       "execution": "browser_read_only",
@@ -1335,7 +1361,7 @@
           "id": "aweber",
           "name": "AWeber",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 8 days old."
+          "reason": "Latest revenue evidence is 11 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1361,7 +1387,7 @@
           "id": "boldsign",
           "name": "BoldSign",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 11 days old."
+          "reason": "Latest revenue evidence is 14 days old."
         }
       ],
       "execution": "browser_read_only",
@@ -1387,7 +1413,7 @@
           "id": "catalister",
           "name": "Catalister",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 19 days old."
+          "reason": "Latest revenue evidence is 22 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1413,7 +1439,7 @@
           "id": "tally",
           "name": "Tally",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 16 days old."
+          "reason": "Latest revenue evidence is 18 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1439,7 +1465,7 @@
           "id": "clickfunnels",
           "name": "ClickFunnels",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 20 days old."
+          "reason": "Latest revenue evidence is 22 days old."
         }
       ],
       "execution": "browser_read_only",
@@ -1465,7 +1491,7 @@
           "id": "eprofessor",
           "name": "eProfessor",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 19 days old."
+          "reason": "Latest revenue evidence is 22 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1491,7 +1517,7 @@
           "id": "pictory",
           "name": "Pictory",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 11 days old."
+          "reason": "Latest revenue evidence is 14 days old."
         }
       ],
       "execution": "browser_read_only",
@@ -1517,7 +1543,7 @@
           "id": "gohighlevel",
           "name": "GoHighLevel",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 11 days old."
+          "reason": "Latest revenue evidence is 14 days old."
         }
       ],
       "execution": "browser_read_only",
@@ -1543,7 +1569,7 @@
           "id": "getgenie",
           "name": "GetGenie",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 12 days old."
+          "reason": "Latest revenue evidence is 15 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1569,7 +1595,7 @@
           "id": "omnisend",
           "name": "Omnisend",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 9 days old."
+          "reason": "Latest revenue evidence is 11 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1594,6 +1620,32 @@
         {
           "id": "jotform",
           "name": "Jotform",
+          "priority": "P1_STALE",
+          "reason": "Latest revenue evidence is 12 days old."
+        }
+      ],
+      "execution": "locate_existing_account_or_vendor_dashboard_first",
+      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
+      "safety": [
+        "Do not create a new account or reapply.",
+        "Do not change any customer tracking URL.",
+        "Do not start a paid plan or authorize payment.",
+        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
+        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
+        "Never expose this internal revenue audit on public COSHUMA pages."
+      ],
+      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
+    },
+    {
+      "account_id": "chatbase",
+      "network": "Vendor-native / Chatbase",
+      "portal_url": null,
+      "priority": "P1_STALE",
+      "tool_count": 1,
+      "tools": [
+        {
+          "id": "chatbase",
+          "name": "Chatbase",
           "priority": "P1_STALE",
           "reason": "Latest revenue evidence is 9 days old."
         }
@@ -1622,32 +1674,6 @@
           "name": "Castmagic",
           "priority": "P1_PARTIAL",
           "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown."
-        }
-      ],
-      "execution": "locate_existing_account_or_vendor_dashboard_first",
-      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
-      "safety": [
-        "Do not create a new account or reapply.",
-        "Do not change any customer tracking URL.",
-        "Do not start a paid plan or authorize payment.",
-        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
-        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
-        "Never expose this internal revenue audit on public COSHUMA pages."
-      ],
-      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
-    },
-    {
-      "account_id": "chatbase",
-      "network": "Vendor-native / Chatbase",
-      "portal_url": null,
-      "priority": "P1_PARTIAL",
-      "tool_count": 1,
-      "tools": [
-        {
-          "id": "chatbase",
-          "name": "Chatbase",
-          "priority": "P1_PARTIAL",
-          "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
