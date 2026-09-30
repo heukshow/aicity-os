@@ -264,8 +264,10 @@
         return;
       }
       const y = Number(window.scrollY || window.pageYOffset || 0);
-      const threshold = Number(window.innerWidth || 1024) < 900 ? 280 : 560;
-      const visible = y >= threshold;
+      const threshold = Number(window.innerWidth || 1024) < 900 ? 520 : 720;
+      const rect = typeof primary.getBoundingClientRect === 'function' ? primary.getBoundingClientRect() : null;
+      const passedPrimary = rect ? rect.bottom < 0 : y >= threshold;
+      const visible = y >= threshold && passedPrimary;
       dock.dataset.visible = visible ? 'true' : 'false';
       document.body.dataset.coshumaConversionDockVisible = visible ? 'true' : 'false';
     }
