@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T20:28:06.687302+00:00",
+  "updated_at": "2026-09-30T09:12:42Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1235,7 +1235,7 @@
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": "native_schedule_fidelity_observation_only",
-      "last_evidence_at": "2026-09-27T17:56:11Z",
+      "last_evidence_at": "2026-09-30T09:12:42Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "*/15 * * * *",
@@ -1555,14 +1555,62 @@
             }
           },
           "completion_boundary": "Each of the six affected workflows has one new schedule-triggered success after the fallback mitigation. No workflow yet has two consecutive new schedule-triggered successes within its expected periods, so the completion gate remains false."
+        },
+        "latest_external_watchdog_observation": {
+          "observed_at": "2026-09-30T09:12:42Z",
+          "native_schedule_runs": {
+            "COSHUMA Cloud Control Plane": {
+              "run_id": 36693132622,
+              "scheduled_at": "2026-09-30T08:58:55Z",
+              "conclusion": "success"
+            },
+            "COSHUMA Registry Reconciliation": {
+              "run_id": 36693262249,
+              "scheduled_at": "2026-09-30T09:00:09Z",
+              "conclusion": "success"
+            },
+            "COSHUMA Release Verification": {
+              "run_id": 36676210776,
+              "scheduled_at": "2026-09-30T06:02:18Z",
+              "conclusion": "success"
+            },
+            "COSHUMA Growth Loop": {
+              "run_id": 36682301123,
+              "scheduled_at": "2026-09-30T07:11:35Z",
+              "conclusion": "success"
+            },
+            "COSHUMA Analytics Snapshot": {
+              "run_id": 36679372481,
+              "scheduled_at": "2026-09-30T06:39:32Z",
+              "conclusion": "success"
+            },
+            "Royal Queue Reconcile Status": {
+              "run_id": 36680356182,
+              "scheduled_at": "2026-09-30T06:50:27Z",
+              "conclusion": "success"
+            }
+          },
+          "fallback_race_observation": {
+            "marker_comment_id": 5908020053,
+            "fallback_workflow_run_id": 36694613077,
+            "fallback_conclusion": "success",
+            "target_workflow_run_id": 36694627865,
+            "target_event": "workflow_dispatch",
+            "target_conclusion": "success",
+            "native_schedule_resumed_before_marker": true,
+            "note": "Cloud Control Plane native schedule run 36693132622 succeeded before the fallback marker was posted. The external Watchdog contract was tightened to re-query the same workflow immediately before posting any fallback marker and cancel fallback when a newer native schedule success exists."
+          },
+          "native_scheduler_status": "irregular_schedule_delivery_persists",
+          "availability_status": "mitigated_by_verified_owner_gated_fallback",
+          "permanent_native_recovery_claimed": false
         }
       },
       "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
       "completion_gate_satisfied": false,
       "availability_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "Operational availability remains mitigated by the owner-gated fallback. New native schedule successes were directly observed for Cloud Control Plane 36337914232, Royal Queue 36338319960, Analytics Snapshot 36337947871, Release Verification 36336548043, Registry Reconciliation 36338759157, and Growth Loop 36338664055. Each affected workflow has one new schedule-triggered success, but none yet has two consecutive new schedule successes within its expected periods; permanent native-schedule recovery is not claimed.",
-      "handoff": "Continue observing the next native schedule event for each affected workflow. Do not count workflow_dispatch, push, or workflow_run as schedule evidence. Close the native-scheduler gate only after the existing two-consecutive-schedule criterion is satisfied; preserve analytics baseline/post definitions and do not infer uplift from collection recovery."
+      "verification": "As of 2026-09-30, all six affected workflows still produce successful native schedule runs, but expected periods continue to be skipped. The owner-gated fallback path was re-verified by Scheduler Fallback run 36694613077 and Cloud Control Plane workflow_dispatch run 36694627865. A race was observed because native schedule run 36693132622 had already succeeded before the fallback marker; the external Watchdog now requires an immediate pre-dispatch recheck. Permanent native-schedule recovery is not claimed.",
+      "handoff": "Keep lifecycle in_progress/mitigated. The external ChatGPT Watchdog must re-read current workflow runs immediately before each fallback marker, cancel fallback if a newer native schedule success exists, process at most one stalled target at a time, and preserve the existing two-consecutive-native-schedule completion criterion."
     },
     {
       "record_id": "EDITORIAL:EDITORIAL-BODY-008",
