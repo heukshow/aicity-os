@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-30T18:14:55.791Z",
+  "generatedAt": "2026-09-30T19:21:04.499Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 118,
@@ -978,7 +978,7 @@
         "name": "Pipedrive",
         "officialVerified": true,
         "pricingVerified": false,
-        "affiliateStatus": "pending",
+        "affiliateStatus": "approved",
         "affiliateVerified": true,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -4102,10 +4102,10 @@
     {
       "id": "pipedrive",
       "name": "Pipedrive",
-      "status": "pending",
+      "status": "approved",
       "verified": true,
       "url": null,
-      "verifiedAt": "2026-09-08T03:27:00+09:00"
+      "verifiedAt": "2026-09-30T18:55:16Z"
     },
     {
       "id": "privy",
