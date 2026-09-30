@@ -1,0 +1,12 @@
+COSHUMA PROPRIETARY NOTICE
+
+Copyright © 2026 COSHUMA. All rights reserved.
+
+This notice applies to the COSHUMA project under projects/GlobalSaaSHub, except where a file, dependency, third-party asset, or third-party content states a different license or ownership notice.
+
+COSHUMA's original source code, site design, original editorial content, original graphics, logos, and brand assets are proprietary. No permission is granted to copy, mirror, republish, redistribute, sell, sublicense, impersonate, or create a confusingly similar service using those protected COSHUMA materials, except for ordinary temporary browser caching, truthful reference and linking, and uses permitted by applicable law.
+
+Third-party product names, logos, trademarks, software, and open-source dependencies remain subject to their respective owners' rights and licenses.
+
+Permission requests: support@coshuma.com
+Canonical website: https://coshuma.com/

@@ -407,8 +407,8 @@ export default function App() {
 
       <footer className="relative z-10 border-t border-white/10 bg-[#06070a] py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center"><div><div className="font-black text-white">COSHUMA</div><p className="mt-1 max-w-xl text-xs leading-5 text-slate-600">Independent AI & SaaS decision guides. Pricing, trial details and outbound links can change, so verify final terms on the vendor site before purchasing.</p></div><div className="flex flex-wrap gap-5 text-xs"><a href="/privacy.html" className="text-slate-500 hover:text-white">Privacy</a><a href="/terms.html" className="text-slate-500 hover:text-white">Terms</a></div></div>
-          <div className="mt-7 border-t border-white/5 pt-6 text-[11px] text-slate-700">© {new Date().getFullYear()} COSHUMA. Independent software decision support.</div>
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center"><div><div className="font-black text-white">COSHUMA</div><p className="mt-1 max-w-xl text-xs leading-5 text-slate-600">Independent AI & SaaS decision guides. Pricing, trial details and outbound links can change, so verify final terms on the vendor site before purchasing.</p></div><div className="flex flex-wrap gap-5 text-xs"><a href="/privacy.html" className="text-slate-500 hover:text-white">Privacy</a><a href="/terms.html" className="text-slate-500 hover:text-white">Terms</a><a href="/brand-usage.html" className="text-slate-500 hover:text-white">Brand use</a></div></div>
+          <div className="mt-7 border-t border-white/5 pt-6 text-[11px] text-slate-700">© {new Date().getFullYear()} COSHUMA. Independent software decision support. All rights reserved.</div>
         </div>
       </footer>
 
