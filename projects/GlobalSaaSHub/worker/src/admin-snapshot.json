@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-29T04:19:59.601Z",
+  "generatedAt": "2026-09-30T09:49:35.309Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 118,
-    "revenueReadyAffiliates": 75,
-    "genericRevenueReadyAffiliates": 72,
+    "revenueReadyAffiliates": 76,
+    "genericRevenueReadyAffiliates": 73,
     "targetedRevenueReadyAffiliates": 3,
     "openMonetizationGaps": 80,
     "directActionableGaps": 13,
@@ -22,10 +22,10 @@
   },
   "affiliateCoverage": {
     "counts": {
-      "revenueReady": 75,
-      "genericRevenueReady": 72,
+      "revenueReady": 76,
+      "genericRevenueReady": 73,
       "targetedRevenueReady": 3,
-      "terminal": 25,
+      "terminal": 24,
       "openMonetizationGaps": 80,
       "directActionableGaps": 13,
       "browserRequiredGaps": 21,
@@ -1235,6 +1235,24 @@
         "hasAffiliateUrl": true,
         "genericRevenueReady": true,
         "targetedRevenueReady": true,
+        "revenueReady": true,
+        "terminal": false,
+        "doNotReapply": true,
+        "browserRequired": false,
+        "directActionableGap": false,
+        "watchOnlyGap": false,
+        "blocker": null
+      },
+      {
+        "id": "tidio",
+        "name": "Tidio",
+        "officialVerified": true,
+        "pricingVerified": false,
+        "affiliateStatus": "approved_tracking",
+        "affiliateVerified": true,
+        "hasAffiliateUrl": true,
+        "genericRevenueReady": true,
+        "targetedRevenueReady": false,
         "revenueReady": true,
         "terminal": false,
         "doNotReapply": true,
@@ -3170,24 +3188,6 @@
         "blocker": null
       },
       {
-        "id": "tidio",
-        "name": "Tidio",
-        "officialVerified": true,
-        "pricingVerified": false,
-        "affiliateStatus": "rejected",
-        "affiliateVerified": true,
-        "hasAffiliateUrl": false,
-        "genericRevenueReady": false,
-        "targetedRevenueReady": false,
-        "revenueReady": false,
-        "terminal": true,
-        "doNotReapply": true,
-        "browserRequired": false,
-        "directActionableGap": false,
-        "watchOnlyGap": false,
-        "blocker": null
-      },
-      {
         "id": "triple-whale",
         "name": "Triple Whale",
         "officialVerified": true,
@@ -3820,6 +3820,14 @@
       "verifiedAt": "2026-09-01T10:04:07Z"
     },
     {
+      "id": "tidio",
+      "name": "Tidio",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://affiliate.tidio.com/7ow2khr31ti8",
+      "verifiedAt": "2026-09-30T09:42:19Z"
+    },
+    {
       "id": "time2book",
       "name": "Time2book",
       "status": "approved_tracking",
@@ -4218,14 +4226,6 @@
       "verified": true,
       "url": null,
       "verifiedAt": "2026-09-01T00:00:00Z"
-    },
-    {
-      "id": "tidio",
-      "name": "Tidio",
-      "status": "rejected",
-      "verified": true,
-      "url": null,
-      "verifiedAt": "2026-08-25T00:00:00Z"
     },
     {
       "id": "triple-whale",

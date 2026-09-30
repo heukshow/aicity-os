@@ -1229,6 +1229,22 @@
     "campaign_slug": "aiassistworks"
   },
   {
+    "id": "tidio-approved-tracking-2026-09-30",
+    "tool_id": "tidio",
+    "priority": "high",
+    "status": "resolved",
+    "cost": "0",
+    "affiliate_status": "approved_tracking",
+    "exact_tracking_url": "https://affiliate.tidio.com/7ow2khr31ti8",
+    "tracking_url": "https://affiliate.tidio.com/7ow2khr31ti8",
+    "evidence_file": "data/tidio-approved-tracking-2026-09-30.md",
+    "evidence_message_id": "gmail:1a0ed995bd9fde81",
+    "updated_at": "2026-09-30T09:42:19Z",
+    "blocker": null,
+    "reason": "Tidio PartnerStack welcome email to support@coshuma.com (Gmail 1a0ed995bd9fde81) explicitly welcomes COSHUMA to the affiliate program and identifies https://affiliate.tidio.com/7ow2khr31ti8 as 'Your affiliate link'. The email states 20% revenue share to start, scaling to 25%, a 30-day cookie window and a 7-day referral trial. Independent GET verification on 2026-09-30 followed HTTP 302 to the official tidio.com destination, observed PartnerStack attribution parameters/cookies, and ended at HTTP 200. No click, signup, paid customer, commission, payout, or revenue is inferred from approval/link validation.",
+    "next_action": "Use the verified customer-facing tracking URL for existing Tidio buyer-intent surfaces with the existing disclosure/attribution rules; do not reapply or infer revenue."
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",
@@ -1326,21 +1342,5 @@
     "resolved_at": "2026-09-09T12:45:09Z",
     "resolution_evidence": "Gmail message 1a08633651c79db9 from Claap affiliate manager Lamia Karmaly supplied both exact URLs; the first is the authoritative default CTA pending destination-label mapping for the second.",
     "blocker": null
-  },
-  {
-    "id": "tidio-approved-tracking-2026-09-30",
-    "tool_id": "tidio",
-    "priority": "high",
-    "status": "resolved",
-    "cost": "0",
-    "affiliate_status": "approved_tracking",
-    "exact_tracking_url": "https://affiliate.tidio.com/7ow2khr31ti8",
-    "tracking_url": "https://affiliate.tidio.com/7ow2khr31ti8",
-    "evidence_file": "data/tidio-approved-tracking-2026-09-30.md",
-    "evidence_message_id": "gmail:1a0ed995bd9fde81",
-    "updated_at": "2026-09-30T09:42:19Z",
-    "blocker": null,
-    "reason": "Tidio PartnerStack welcome email to support@coshuma.com (Gmail 1a0ed995bd9fde81) explicitly welcomes COSHUMA to the affiliate program and identifies https://affiliate.tidio.com/7ow2khr31ti8 as 'Your affiliate link'. The email states 20% revenue share to start, scaling to 25%, a 30-day cookie window and a 7-day referral trial. Independent GET verification on 2026-09-30 followed HTTP 302 to the official tidio.com destination, observed PartnerStack attribution parameters/cookies, and ended at HTTP 200. No click, signup, paid customer, commission, payout, or revenue is inferred from approval/link validation.",
-    "next_action": "Use the verified customer-facing tracking URL for existing Tidio buyer-intent surfaces with the existing disclosure/attribution rules; do not reapply or infer revenue."
   }
 ]
