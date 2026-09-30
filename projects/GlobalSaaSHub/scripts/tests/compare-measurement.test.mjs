@@ -252,3 +252,64 @@ test('tool decision dock reuses the exact affiliate destination and saves the to
   assert.equal(savedLink.dataset.visible, 'true');
   assert.equal(calls.filter(call => call[0] === 'event' && call[1] === 'tool_save').length, 1);
 });
+
+
+test('tool decision dock ignores affiliate CTAs for a different product', () => {
+  const store = new Map(), calls = [];
+  const storage = {
+    getItem: key => store.get(key) || null,
+    setItem: (key, value) => store.set(key, value),
+    removeItem: key => store.delete(key),
+  };
+  function element(tag) {
+    return {
+      tagName: tag.toUpperCase(), dataset: {}, children: [], listeners: {}, className: '', textContent: '',
+      appendChild(child) { this.children.push(child); return child; },
+      setAttribute() {},
+      addEventListener(name, listener) { this.listeners[name] = listener; },
+    };
+  }
+  const alternative = element('a');
+  alternative.href = 'https://example.com/alternative-affiliate';
+  alternative.dataset.cta = 'affiliate';
+  alternative.dataset.toolId = 'alternative-tool';
+
+  const body = element('body');
+  const document = {
+    title: 'Target Tool | COSHUMA',
+    referrer: '',
+    body,
+    head: element('head'),
+    querySelector: () => null,
+    querySelectorAll(selector) {
+      if (selector === 'a[data-cta="affiliate"]') return [alternative];
+      if (selector === '[data-interactive-experience]') return [];
+      return [];
+    },
+    createElement: element,
+    addEventListener() {},
+  };
+  const window = {
+    location: {
+      search: '',
+      hostname: 'coshuma.com',
+      pathname: '/tool/target-tool.html',
+      href: 'https://coshuma.com/tool/target-tool.html',
+    },
+    localStorage: storage,
+    sessionStorage: storage,
+    scrollY: 700,
+    pageYOffset: 700,
+    innerWidth: 390,
+    gtag: (...args) => calls.push(args),
+    addEventListener() {},
+  };
+  const context = vm.createContext({
+    window, document, sessionStorage: storage, localStorage: storage,
+    URL, URLSearchParams, Intl, navigator: { language: 'en-US', userAgent: 'test' }, console,
+  });
+
+  vm.runInContext(read('public/affiliate-attribution.js'), context);
+
+  assert.equal(body.children.some(child => child.dataset?.coshumaDecisionDock === '1'), false);
+});
