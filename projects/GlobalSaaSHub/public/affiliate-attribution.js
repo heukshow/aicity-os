@@ -101,6 +101,169 @@
     }
   }
 
+  function enhanceToolDecisionDock() {
+    if (!/\/tool\/[^/.]+\.html$/.test(window.location.pathname)) return;
+    if (!document.body || document.querySelector('[data-coshuma-decision-dock="1"]')) return;
+
+    const affiliateLinks = Array.from(document.querySelectorAll('a[data-cta="affiliate"]')).filter(function (link) {
+      return typeof link.href === 'string' && /^https?:\/\//i.test(link.href);
+    });
+    if (!affiliateLinks.length) return;
+
+    const primary = affiliateLinks[0];
+    const toolId = primary.dataset.toolId || toolIdFromPath();
+    if (!toolId || toolId === 'unknown') return;
+
+    const dock = document.createElement('aside');
+    dock.dataset.coshumaDecisionDock = '1';
+    dock.dataset.visible = 'false';
+    dock.setAttribute('aria-label', 'Save this tool or continue to the current vendor destination');
+
+    const style = document.createElement('style');
+    style.dataset.coshumaDecisionDockStyle = '1';
+    style.textContent = [
+      '[data-coshuma-decision-dock="1"]{position:fixed;right:18px;bottom:18px;z-index:65;width:min(380px,calc(100vw - 36px));padding:14px;border:1px solid rgba(139,92,246,.35);border-radius:18px;background:rgba(12,14,22,.96);box-shadow:0 20px 55px rgba(0,0,0,.45);backdrop-filter:blur(16px);transform:translateY(130%);opacity:0;pointer-events:none;transition:transform .22s ease,opacity .22s ease;font-family:Inter,system-ui,sans-serif}',
+      '[data-coshuma-decision-dock="1"][data-visible="true"]{transform:translateY(0);opacity:1;pointer-events:auto}',
+      '[data-coshuma-decision-dock="1"] .coshuma-dock-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}',
+      '[data-coshuma-decision-dock="1"] .coshuma-dock-kicker{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#c4b5fd}',
+      '[data-coshuma-decision-dock="1"] .coshuma-dock-copy{margin-top:3px;font-size:12px;line-height:1.45;color:#aeb7ca}',
+      '[data-coshuma-decision-dock="1"] .coshuma-dock-close{min-width:36px;min-height:36px;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:rgba(255,255,255,.05);color:#cbd5e1;font-size:20px;line-height:1;cursor:pointer}',
+      '[data-coshuma-decision-dock="1"] .coshuma-dock-actions{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:8px}',
+      '[data-coshuma-decision-dock="1"] .coshuma-dock-save,[data-coshuma-decision-dock="1"] .coshuma-dock-cta{min-height:44px;border-radius:12px;padding:10px 12px;font-size:12px;font-weight:800;text-align:center;display:flex;align-items:center;justify-content:center;text-decoration:none}',
+      '[data-coshuma-decision-dock="1"] .coshuma-dock-save{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#e2e8f0;cursor:pointer}',
+      '[data-coshuma-decision-dock="1"] .coshuma-dock-save:disabled{cursor:default;color:#bbf7d0;border-color:rgba(74,222,128,.25);background:rgba(34,197,94,.08)}',
+      '[data-coshuma-decision-dock="1"] .coshuma-dock-cta{background:#7c3aed;color:#fff}',
+      '[data-coshuma-decision-dock="1"] .coshuma-dock-saved{display:none;margin-top:9px;font-size:11px;font-weight:700;color:#a7f3d0;text-decoration:none}',
+      '[data-coshuma-decision-dock="1"] .coshuma-dock-saved[data-visible="true"]{display:inline-flex}',
+      '@media(max-width:899px){[data-coshuma-decision-dock="1"]{left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom));width:auto;border-radius:16px;padding:12px}[data-coshuma-decision-dock="1"] .coshuma-dock-copy{font-size:11px}body[data-coshuma-conversion-dock="1"]{padding-bottom:92px}}',
+      '@media(prefers-reduced-motion:reduce){[data-coshuma-decision-dock="1"]{transition:none}}'
+    ].join('');
+    document.head.appendChild(style);
+
+    const top = document.createElement('div');
+    top.className = 'coshuma-dock-top';
+
+    const message = document.createElement('div');
+    const kicker = document.createElement('div');
+    kicker.className = 'coshuma-dock-kicker';
+    kicker.textContent = 'Keep your decision moving';
+    const copy = document.createElement('div');
+    copy.className = 'coshuma-dock-copy';
+    copy.textContent = 'Save this tool for later or continue using the same verified customer destination already shown on this page.';
+    message.appendChild(kicker);
+    message.appendChild(copy);
+
+    const close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'coshuma-dock-close';
+    close.setAttribute('aria-label', 'Close decision actions');
+    close.textContent = '×';
+
+    top.appendChild(message);
+    top.appendChild(close);
+
+    const actions = document.createElement('div');
+    actions.className = 'coshuma-dock-actions';
+
+    const save = document.createElement('button');
+    save.type = 'button';
+    save.className = 'coshuma-dock-save';
+    save.textContent = 'Save for later';
+
+    const cta = document.createElement('a');
+    cta.className = 'coshuma-dock-cta';
+    cta.href = primary.href;
+    cta.target = primary.target || '_blank';
+    cta.rel = primary.rel || 'sponsored noopener noreferrer';
+    cta.dataset.cta = 'affiliate';
+    cta.dataset.toolId = toolId;
+    cta.dataset.ctaSource = 'tool-decision-dock';
+    cta.textContent = 'Continue to current offer →';
+
+    actions.appendChild(save);
+    actions.appendChild(cta);
+
+    const savedLink = document.createElement('a');
+    savedLink.className = 'coshuma-dock-saved';
+    savedLink.href = '/?saved=1#directory';
+    savedLink.textContent = 'View saved tools →';
+
+    dock.appendChild(top);
+    dock.appendChild(actions);
+    dock.appendChild(savedLink);
+    document.body.appendChild(dock);
+    document.body.dataset.coshumaConversionDock = '1';
+
+    const bookmarksKey = 'coshuma_bookmarks';
+    function readBookmarks() {
+      try {
+        const parsed = JSON.parse(window.localStorage.getItem(bookmarksKey) || '[]');
+        return Array.isArray(parsed) ? parsed.filter(function (id) { return typeof id === 'string'; }) : [];
+      } catch (error) {
+        return [];
+      }
+    }
+    function syncSavedState() {
+      const saved = readBookmarks().includes(toolId);
+      save.disabled = saved;
+      save.textContent = saved ? 'Saved ✓' : 'Save for later';
+      savedLink.dataset.visible = saved ? 'true' : 'false';
+    }
+    syncSavedState();
+
+    save.addEventListener('click', function () {
+      const current = readBookmarks();
+      if (!current.includes(toolId)) {
+        try {
+          window.localStorage.setItem(bookmarksKey, JSON.stringify(current.concat(toolId)));
+        } catch (error) {
+          return;
+        }
+      }
+      syncSavedState();
+      if (!window.__coshumaQa && typeof window.gtag === 'function') {
+        window.gtag('event', 'tool_save', {
+          tool_id: toolId,
+          save_source: 'tool-decision-dock',
+          page_location: window.location.href,
+          page_path: window.location.pathname + window.location.search,
+          page_type: pageTypeFromPath(),
+          content_slug: contentSlugFromPath()
+        });
+      }
+    });
+
+    const closedKey = 'coshuma_conversion_dock_closed_v1:' + toolId;
+    function isClosed() {
+      try {
+        return window.sessionStorage.getItem(closedKey) === '1';
+      } catch (error) {
+        return false;
+      }
+    }
+    close.addEventListener('click', function () {
+      dock.dataset.visible = 'false';
+      try {
+        window.sessionStorage.setItem(closedKey, '1');
+      } catch (error) {
+        // Closing the dock should still work when storage is unavailable.
+      }
+    });
+
+    function syncVisibility() {
+      if (isClosed()) {
+        dock.dataset.visible = 'false';
+        return;
+      }
+      const y = Number(window.scrollY || window.pageYOffset || 0);
+      const threshold = Number(window.innerWidth || 1024) < 900 ? 280 : 560;
+      dock.dataset.visible = y >= threshold ? 'true' : 'false';
+    }
+    window.addEventListener('scroll', syncVisibility, { passive: true });
+    window.addEventListener('resize', syncVisibility);
+    syncVisibility();
+  }
+
   function enhanceVerifiedPartnerOffers() {
     if (/\/tool\/unbounce\.html$/.test(window.location.pathname)) {
       if (!document.querySelector('[data-partner-offer="unbounce-conversion-fit"]')) {
@@ -149,6 +312,7 @@
   } catch { /* Explicit exclusion still works with storage disabled. */ }
   window.__coshumaQa = qa;
   enhanceVerifiedPartnerOffers();
+  enhanceToolDecisionDock();
   if (qa) return;
 
   const attribution = sessionAttribution();
