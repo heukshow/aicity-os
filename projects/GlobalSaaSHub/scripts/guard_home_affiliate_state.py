@@ -9,7 +9,7 @@ required = [
     "tool.is_sponsored === true",
     "data-cta={isSponsored ? 'affiliate' : 'official'}",
     "trackToolClick(tool.id, tool.name, validUrl, isSponsored)",
-    "{isSponsored ? 'View current offer' : 'Visit official site'}",
+    "{isSponsored ? `Check ${tool.name}` : 'Visit official site'}",
 ]
 for marker in required:
     if marker not in text:
