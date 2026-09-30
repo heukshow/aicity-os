@@ -41,7 +41,11 @@ def main() -> None:
     missing = []
     duplicates = []
     for page in pages:
-        count = page.read_text(encoding='utf-8').count(MARKER)
+        page_text = page.read_text(encoding='utf-8')
+        expected_google_verification = f'google-site-verification: {page.name}'
+        if page.name.startswith('google') and page.name.endswith('.html') and page_text.strip() == expected_google_verification:
+            continue
+        count = page_text.count(MARKER)
         if count == 0:
             missing.append(page.relative_to(root).as_posix())
         elif count != 1:
