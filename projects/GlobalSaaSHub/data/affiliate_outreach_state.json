@@ -940,6 +940,17 @@
       "note": "PartnerStack email confirms Thinkific declined COSHUMA's application.",
       "next_action": "Do not reapply unless later vendor evidence materially changes eligibility.",
       "do_not_reapply": true
+    },
+    "tidio": {
+      "status": "approved_tracking",
+      "contact": "Tidio Partnerships / Mateusz",
+      "gmail_message_id": "1a0ed995bd9fde81",
+      "sender": "support@coshuma.com",
+      "tracking_url": "https://affiliate.tidio.com/7ow2khr31ti8",
+      "verified_at": "2026-09-30T09:42:19Z",
+      "evidence_file": "data/tidio-approved-tracking-2026-09-30.md",
+      "commission_terms": "20% revenue share to start, scaling to 25% as referrals grow; 30-day cookie; 7-day referral trial; $50 first-paid-referral welcome bonus within the vendor-stated 30-day window",
+      "note": "Tidio PartnerStack welcome email to support@coshuma.com (Gmail 1a0ed995bd9fde81) explicitly welcomes COSHUMA to the affiliate program and identifies https://affiliate.tidio.com/7ow2khr31ti8 as 'Your affiliate link'. The email states 20% revenue share to start, scaling to 25%, a 30-day cookie window and a 7-day referral trial. Independent GET verification on 2026-09-30 followed HTTP 302 to the official tidio.com destination, observed PartnerStack attribution parameters/cookies, and ended at HTTP 200. No click, signup, paid customer, commission, payout, or revenue is inferred from approval/link validation."
     }
   }
 }
