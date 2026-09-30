@@ -126,6 +126,24 @@ approvedTracking.set('sanebox', {
   evidence_file: 'data/sanebox-approved-tracking-2026-09-16.md',
 });
 
+
+// Tidio Partnerships explicitly superseded the prior 2026-08-25 rejection and
+// issued COSHUMA's exact PartnerStack customer-facing affiliate link.
+approvedTracking.set('tidio', {
+  id: 'tidio',
+  status: 'approved_tracking',
+  exact_tracking_url: 'https://affiliate.tidio.com/7ow2khr31ti8',
+  destination: 'https://www.tidio.com/',
+  allowed_cta_urls: [
+    'https://affiliate.tidio.com/7ow2khr31ti8',
+  ],
+  company_mailbox: 'support@coshuma.com',
+  vendor_reply_message_id: '1a0ed995bd9fde81',
+  evidence: "Tidio PartnerStack welcome email to support@coshuma.com (Gmail 1a0ed995bd9fde81) explicitly welcomes COSHUMA to the affiliate program and identifies https://affiliate.tidio.com/7ow2khr31ti8 as 'Your affiliate link'. The email states 20% revenue share to start, scaling to 25%, a 30-day cookie window and a 7-day referral trial. Independent GET verification on 2026-09-30 followed HTTP 302 to the official tidio.com destination, observed PartnerStack attribution parameters/cookies, and ended at HTTP 200. No click, signup, paid customer, commission, payout, or revenue is inferred from approval/link validation.",
+  checked_at: '2026-09-30T09:42:19Z',
+  evidence_file: 'data/tidio-approved-tracking-2026-09-30.md',
+});
+
 export function applyApprovedTracking(tool) {
   const item = approvedTracking.get(tool.id);
   if (!item) return false;

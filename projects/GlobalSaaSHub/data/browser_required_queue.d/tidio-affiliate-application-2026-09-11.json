@@ -3,12 +3,12 @@
   "tool_id": "tidio",
   "issue": 389,
   "priority": "resolved",
-  "status": "blocked_rejected_do_not_reapply",
-  "affiliate_status": "rejected",
+  "status": "resolved",
+  "affiliate_status": "approved_tracking",
   "cost": 0,
   "registered_email": "support@coshuma.com",
   "official_program_url": "https://www.tidio.com/partners/affiliate/",
-  "checked_at": "2026-09-11T03:40:00Z",
+  "checked_at": "2026-09-30T09:42:19Z",
   "authoritative_prior_evidence": {
     "file": "projects/GlobalSaaSHub/data/tidio-affiliate-rejection-evidence-2026-08-25.md",
     "application_confirmation_date": "2026-08-24",
@@ -17,15 +17,26 @@
     "precedence": "The newer rejection email/state wins over stale application_available data until a later explicit approval exists."
   },
   "conflict_resolution": {
-    "incorrect_new_queue_state": "A 2026-09-11 scan looked only at the support@coshuma.com mailbox window and stale structured tool state, and therefore incorrectly concluded that no prior Tidio application/rejection existed.",
-    "resolved_state": "Do not submit or queue a new Tidio application. Preserve rejected status unless a later explicit vendor approval or invitation supersedes the 2026-08-25 rejection."
+    "prior_state": "The 2026-08-25 rejection was authoritative until a later explicit vendor decision existed.",
+    "resolved_state": "The 2026-09-29 Tidio Partnerships welcome email explicitly supersedes the prior rejection and issues a customer-facing affiliate link. Independent HTTP verification confirms attribution and official destination."
   },
-  "next_action": "None. Wait for a later explicit Tidio approval/invitation before reconsidering. Keep customer-facing Tidio CTA non-affiliate because no COSHUMA tracking URL is verified.",
+  "next_action": "Preserve approved_tracking and the exact customer-facing link; do not reapply. Revenue Optimization may activate only this verified URL under existing disclosure/measurement rules.",
   "do_not": [
-    "Do not submit another Tidio affiliate application while the 2026-08-25 rejection is the latest authoritative program decision.",
-    "Do not treat the current public affiliate program page as proof that COSHUMA is eligible or approved.",
-    "Do not use a generic homepage, dashboard, login, onboarding, or application URL as an affiliate link.",
-    "Do not infer clicks, signups, paid customers, commission, payout, or revenue."
+    "Do not submit another Tidio affiliate application.",
+    "Do not replace the verified affiliate link with a generic homepage, dashboard, login, onboarding, or application URL.",
+    "Do not infer clicks, signups, paid customers, commission, payout, or revenue from approval/link validation."
   ],
-  "done_when": "Closed as rejected/protected from duplicate application. Reopen only if later explicit vendor evidence supersedes the rejection."
+  "done_when": "Resolved as approved_tracking with supplier-issued exact URL and independent destination/attribution verification.",
+  "exact_tracking_url": "https://affiliate.tidio.com/7ow2khr31ti8",
+  "tracking_url": "https://affiliate.tidio.com/7ow2khr31ti8",
+  "blocker": null,
+  "superseding_evidence": {
+    "gmail_message_id": "1a0ed995bd9fde81",
+    "approved_at": "2026-09-29T14:37:23Z",
+    "exact_tracking_url": "https://affiliate.tidio.com/7ow2khr31ti8",
+    "destination": "https://www.tidio.com/",
+    "http_verification": "302 from affiliate.tidio.com with PartnerStack attribution cookies/params, followed by 200 on official tidio.com",
+    "verified_at": "2026-09-30T09:42:19Z",
+    "evidence_file": "data/tidio-approved-tracking-2026-09-30.md"
+  }
 }
