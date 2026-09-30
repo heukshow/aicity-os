@@ -135,7 +135,7 @@
       '[data-coshuma-decision-dock="1"] .coshuma-dock-cta{background:#7c3aed;color:#fff}',
       '[data-coshuma-decision-dock="1"] .coshuma-dock-saved{display:none;margin-top:9px;font-size:11px;font-weight:700;color:#a7f3d0;text-decoration:none}',
       '[data-coshuma-decision-dock="1"] .coshuma-dock-saved[data-visible="true"]{display:inline-flex}',
-      '@media(max-width:899px){[data-coshuma-decision-dock="1"]{left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom));width:auto;border-radius:16px;padding:12px}[data-coshuma-decision-dock="1"] .coshuma-dock-copy{font-size:11px}body[data-coshuma-conversion-dock="1"]{padding-bottom:92px}}',
+      '@media(max-width:899px){[data-coshuma-decision-dock="1"]{left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom));width:auto;border-radius:16px;padding:12px}[data-coshuma-decision-dock="1"] .coshuma-dock-copy{font-size:11px}body[data-coshuma-conversion-dock-visible="true"]{padding-bottom:92px}}',
       '@media(prefers-reduced-motion:reduce){[data-coshuma-decision-dock="1"]{transition:none}}'
     ].join('');
     document.head.appendChild(style);
@@ -149,7 +149,7 @@
     kicker.textContent = 'Keep your decision moving';
     const copy = document.createElement('div');
     copy.className = 'coshuma-dock-copy';
-    copy.textContent = 'Save this tool for later or continue using the same verified customer destination already shown on this page.';
+    copy.textContent = 'Save this tool for later or continue to the same vendor destination already shown on this page.';
     message.appendChild(kicker);
     message.appendChild(copy);
 
@@ -178,7 +178,8 @@
     cta.dataset.cta = 'affiliate';
     cta.dataset.toolId = toolId;
     cta.dataset.ctaSource = 'tool-decision-dock';
-    cta.textContent = 'Continue to current offer →';
+    const primaryLabel = String(primary.textContent || '').trim().replace(/\\s+/g, ' ');
+    cta.textContent = primaryLabel && primaryLabel.length <= 70 ? primaryLabel : 'Continue to vendor →';
 
     actions.appendChild(save);
     actions.appendChild(cta);
@@ -193,6 +194,7 @@
     dock.appendChild(savedLink);
     document.body.appendChild(dock);
     document.body.dataset.coshumaConversionDock = '1';
+    document.body.dataset.coshumaConversionDockVisible = 'false';
 
     const bookmarksKey = 'coshuma_bookmarks';
     function readBookmarks() {
@@ -243,6 +245,7 @@
     }
     close.addEventListener('click', function () {
       dock.dataset.visible = 'false';
+      document.body.dataset.coshumaConversionDockVisible = 'false';
       try {
         window.sessionStorage.setItem(closedKey, '1');
       } catch (error) {
@@ -253,11 +256,14 @@
     function syncVisibility() {
       if (isClosed()) {
         dock.dataset.visible = 'false';
+        document.body.dataset.coshumaConversionDockVisible = 'false';
         return;
       }
       const y = Number(window.scrollY || window.pageYOffset || 0);
       const threshold = Number(window.innerWidth || 1024) < 900 ? 280 : 560;
-      dock.dataset.visible = y >= threshold ? 'true' : 'false';
+      const visible = y >= threshold;
+      dock.dataset.visible = visible ? 'true' : 'false';
+      document.body.dataset.coshumaConversionDockVisible = visible ? 'true' : 'false';
     }
     window.addEventListener('scroll', syncVisibility, { passive: true });
     window.addEventListener('resize', syncVisibility);
