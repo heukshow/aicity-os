@@ -246,13 +246,18 @@ const states = {
   pipedrive: {
     affiliate_url: null,
     affiliate_verified: true,
-    affiliate_status: 'pending',
-    affiliate_verified_at: observedAt,
+    affiliate_status: 'approved',
+    affiliate_verified_at: '2026-09-30T18:55:16Z',
+    affiliate_status_checked_at: '2026-09-30T18:55:16Z',
+    affiliate_status_evidence_url: 'data/pipedrive-approved-link-pending-2026-09-30.md',
     affiliate_evidence_markers: [
-      'Authenticated PartnerStack displays Pipedrive / Application pending',
-      'Pipedrive support moved partner support to authenticated Partner Portal chat',
-      'Pending application must not be duplicated',
+      'PartnerStack approval email 1a0f3abcd4b68127 confirms the COSHUMA Pipedrive application was approved on 2026-09-30',
+      'Pipedrive Affiliate Team welcome email 1a0f3abacb8d1edb independently confirms approval and says the exact referral link is available in PartnerStack Links after agreeing to program terms',
+      'Pipedrive welcome email states an exclusive 30-day trial and 20% revenue share for the first 12 months of a new paying customer, including eligible add-ons',
+      'Exact customer-facing Pipedrive referral URL is not yet recovered; do not invent or publish a dashboard URL',
+      'Do not submit a duplicate Pipedrive affiliate application',
     ],
+    affiliate_next_action: 'Recover and verify the exact account-specific customer referral URL from the existing PartnerStack Links tab, then promote to approved_tracking. Keep public Pipedrive CTAs non-affiliate until that URL is verified.',
   },
   'monday-com': {
     affiliate_url: null,
