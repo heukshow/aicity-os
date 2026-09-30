@@ -3,28 +3,41 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
 import xml.etree.ElementTree as ET
 
-CANONICAL_RE = re.compile(
-    r"<link\\b(?=[^>]*\\brel=['\\\"]canonical['\\\"])(?=[^>]*\\bhref=['\\\"]([^'\\\"]+)['\\\"])[^>]*>",
-    re.I,
-)
+class CanonicalParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.canonical: str | None = None
+
+    def handle_starttag(self, tag: str, attrs):
+        if self.canonical is not None or tag.lower() != "link":
+            return
+        values = {str(k).lower(): v for k, v in attrs if k}
+        rel = str(values.get("rel") or "").lower().split()
+        href = values.get("href")
+        if "canonical" in rel and href:
+            self.canonical = str(href).strip()
+
 
 def canonical_from_html(path: Path) -> str | None:
     try:
         text = path.read_text(encoding="utf-8", errors="ignore")
     except OSError:
         return None
-    match = CANONICAL_RE.search(text)
-    if match:
-        return match.group(1).strip()
+    parser = CanonicalParser()
+    try:
+        parser.feed(text)
+    except Exception:
+        return None
+    if parser.canonical:
+        return parser.canonical
     if path.name == "index.html" and path.parent.name == "dist":
         return "https://coshuma.com/"
     return None
-
 def sitemap_urls(path: Path) -> list[str]:
     root = ET.parse(path).getroot()
     ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
