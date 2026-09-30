@@ -65,7 +65,7 @@ def protect_html(path: Path) -> bool:
         return False
     if not re.search(r'</head\s*>', text, flags=re.I):
         raise SystemExit(f'{path}: missing </head> for origin guard injection')
-    updated = re.sub(r'</head\s*>', PROTECTION_BLOCK + '\n</head>', text, count=1, flags=re.I)
+    updated = re.sub(r'</head\s*>', lambda _: PROTECTION_BLOCK + '\n</head>', text, count=1, flags=re.I)
     path.write_text(updated, encoding='utf-8')
     return True
 
