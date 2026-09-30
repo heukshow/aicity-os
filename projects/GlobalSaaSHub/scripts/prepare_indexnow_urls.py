@@ -62,21 +62,21 @@ def main() -> int:
     parser.add_argument("--current", required=True)
     parser.add_argument("--previous", required=True)
     parser.add_argument("--output", required=True)
-    parser.add_argument("--key-file", required=True)
+    parser.add_argument("--bootstrap-marker", required=True)
     args = parser.parse_args()
 
     current = Path(args.current)
     previous = Path(args.previous)
     output = Path(args.output)
-    key_file = args.key_file
+    bootstrap_marker = args.bootstrap_marker
 
     sitemap = sitemap_urls(current / "sitemap.xml")
     sitemap_set = {url for url in sitemap if valid_coshuma_url(url)}
     if not sitemap_set:
         raise SystemExit("IndexNow preparation failed: sitemap has no valid COSHUMA URLs")
 
-    previous_key = previous / key_file
-    bootstrap = not previous_key.exists()
+    previous_marker = previous / bootstrap_marker
+    bootstrap = not previous_marker.exists()
 
     urls: set[str] = set()
     changed_files: list[str] = []
