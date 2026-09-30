@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from apply_brand_protection import PROTECTION_BLOCK
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "public" / "methodology.html"
@@ -11,6 +13,7 @@ ALLOWED_BUILD_INJECTION = (
     b'type="image/svg+xml" />\n'
     b'  <script defer src="/brand/brand-runtime.js"></script>'
 )
+ALLOWED_ORIGIN_PROTECTION = (PROTECTION_BLOCK + "\n").encode("utf-8")
 
 
 def main() -> None:
@@ -24,10 +27,16 @@ def main() -> None:
         raise SystemExit(
             "Final methodology page must contain exactly one allowlisted brand injection"
         )
-    if source != built.replace(ALLOWED_BUILD_INJECTION, b"", 1):
+    if built.count(ALLOWED_ORIGIN_PROTECTION) != 1:
+        raise SystemExit(
+            "Final methodology page must contain exactly one allowlisted origin-protection injection"
+        )
+    normalized = built.replace(ALLOWED_BUILD_INJECTION, b"", 1)
+    normalized = normalized.replace(ALLOWED_ORIGIN_PROTECTION, b"", 1)
+    if source != normalized:
         raise SystemExit(
             "Final dist/methodology.html must preserve public/methodology.html "
-            "apart from the allowlisted brand injection"
+            "apart from the allowlisted brand and origin-protection injections"
         )
     print("Methodology source preserved in final dist")
 
