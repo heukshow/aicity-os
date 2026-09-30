@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16",
+  "updated_at": "2026-10-01",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -20,12 +20,19 @@
   },
   "programs": {
     "pipedrive": {
-      "status": "pending",
-      "contact": "support@pipedrive.com",
-      "gmail_message_id": "1a07c48b9d1d24f8",
+      "status": "approved",
+      "contact": "Pipedrive Affiliate Team / PartnerStack",
+      "gmail_message_id": "1a0f3abacb8d1edb",
+      "partnerstack_approval_message_id": "1a0f3abcd4b68127",
       "sender": "support@coshuma.com",
       "tracking_url": null,
-      "note": "Authenticated PartnerStack shows Pipedrive / Application pending. Do not reapply. The later support email says future support should use Partner Portal chat, but the application itself is already pending."
+      "approved_at": "2026-09-30T18:55:16Z",
+      "evidence_file": "data/pipedrive-approved-link-pending-2026-09-30.md",
+      "commission_terms": "20% revenue share for the first 12 months of a new paying customer, including eligible add-ons; Net43, per Pipedrive welcome email",
+      "customer_offer": "Exclusive extended 30-day trial, per Pipedrive welcome email",
+      "do_not_reapply": true,
+      "outbound_followup_message_id": "1a0f3ba7e06d87b4",
+      "note": "Approval is confirmed by both PartnerStack and Pipedrive. The exact customer referral URL is still unknown and must be recovered from the existing PartnerStack Links tab or directly confirmed by Pipedrive before any Pipedrive CTA is monetized."
     },
     "monday-com": {
       "status": "pending",

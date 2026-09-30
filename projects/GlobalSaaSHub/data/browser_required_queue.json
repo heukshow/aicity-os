@@ -200,14 +200,22 @@
   },
   {
     "id": "pipedrive-browser-followup-20260908",
-    "priority": "medium",
+    "priority": "high",
     "status": "pending",
     "cost": "0",
-    "verified_at": "2026-09-07T17:06:13Z",
-    "reason": "Authenticated PartnerStack home displays Pipedrive / Application pending. Prior confirmation email 1a033ebe93e30c46. Support email 1a07c48b9d1d24f8 specifies Quick help > Chat with us. Its guide URL is now 404; homepage leads to Partner Portal password login. Username prepared but password unavailable.",
-    "next_action": "No duplicate request. Application state confirmed through PartnerStack; partner chat itself not reached.",
+    "verified_at": "2026-09-30T18:55:16Z",
+    "reason": "PartnerStack email 1a0f3abcd4b68127 and Pipedrive Affiliate Team email 1a0f3abacb8d1edb confirm COSHUMA is approved. Pipedrive states the account-specific referral link is available in PartnerStack Links after agreeing to program terms. The exact customer URL has not yet been recovered, so public Pipedrive CTAs remain non-affiliate.",
+    "next_action": "Reuse the existing PartnerStack account. Review/accept ordinary Pipedrive program terms if no abnormal obligation appears, open Pipedrive Links, copy the exact customer referral URL, verify its destination and 30-day trial, then promote only that exact URL to approved_tracking. A direct link-confirmation request was sent to affiliates@pipedrive.com in Gmail message 1a0f3ba7e06d87b4.",
     "exact_tracking_url": null,
-    "execution_evidence": "affiliate-browser-results-2026-09-08.json"
+    "execution_evidence": "affiliate-browser-results-2026-09-08.json",
+    "affiliate_status": "approved",
+    "evidence_file": "data/pipedrive-approved-link-pending-2026-09-30.md",
+    "evidence_message_ids": [
+      "gmail:1a0f3abcd4b68127",
+      "gmail:1a0f3abacb8d1edb",
+      "gmail:1a0f3ba7e06d87b4"
+    ],
+    "blocker": "Existing PartnerStack authenticated browser session is not currently available; exact account-specific customer link is still unknown."
   },
   {
     "id": "monday-com-browser-followup-20260908",
