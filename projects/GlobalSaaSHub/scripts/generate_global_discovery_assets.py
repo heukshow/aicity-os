@@ -25,34 +25,29 @@ def write_text_sitemap(urls: list[str]) -> None:
     TEXT_SITEMAP.write_text("\n".join(urls) + "\n", encoding="utf-8")
 
 def write_llms() -> None:
-    content = """# COSHUMA
+    existing = LLMS.read_text(encoding="utf-8") if LLMS.exists() else "# COSHUMA\n"
+    marker = "## Global discovery"
+    if marker in existing:
+        return
+    addition = """
+## Global discovery
 
-> Independent AI & SaaS buyer guides for people comparing pricing, trials, features, trade-offs, and current vendor offers before choosing software.
-
-COSHUMA targets a global audience. Public buyer guides, comparison pages, category hubs, methodology pages, and the homepage are intended to be discoverable by search and AI-search crawlers that respect robots.txt.
-
-## Primary discovery
 - Homepage: https://coshuma.com/
 - XML sitemap: https://coshuma.com/sitemap.xml
 - Text sitemap: https://coshuma.com/sitemap.txt
 - Methodology: https://coshuma.com/methodology.html
-- Buyer guides: https://coshuma.com/best/index.html
+- Buyer-guide hub: https://coshuma.com/best/index.html
 - Affiliate disclosure: https://coshuma.com/affiliate-disclosure.html
+- Automation category: https://coshuma.com/category/automation.html
+- Sales & CRM category: https://coshuma.com/category/sales-crm.html
+- AI agents category: https://coshuma.com/category/ai-agents.html
+- AI video category: https://coshuma.com/category/ai-video.html
+- AI voice category: https://coshuma.com/category/ai-voice.html
+- SEO category: https://coshuma.com/category/seo.html
 
-## Core categories
-- Automation: https://coshuma.com/category/automation.html
-- Sales & CRM: https://coshuma.com/category/sales-crm.html
-- AI agents: https://coshuma.com/category/ai-agents.html
-- AI video: https://coshuma.com/category/ai-video.html
-- AI voice: https://coshuma.com/category/ai-voice.html
-- SEO: https://coshuma.com/category/seo.html
-
-## Editorial notes
-- Pricing, trial terms, and vendor details can change; current vendor checkout remains the final source of truth.
-- Affiliate relationships do not determine editorial conclusions.
-- Public pages should be cited by their canonical https://coshuma.com/ URLs.
+COSHUMA targets a global audience. Public buyer guides, comparison pages, category hubs, methodology pages, and the homepage are intended to be discoverable by standards-compliant search and AI-search crawlers that respect robots.txt. Public pages should be cited by their canonical https://coshuma.com/ URLs.
 """
-    LLMS.write_text(content, encoding="utf-8")
+    LLMS.write_text(existing.rstrip() + "\n\n" + addition.lstrip(), encoding="utf-8")
 
 def main() -> int:
     urls = read_urls()
