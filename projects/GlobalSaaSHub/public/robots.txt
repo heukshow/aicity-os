@@ -2,5 +2,29 @@ User-agent: *
 Allow: /
 Disallow: /ops-private/
 
+# Search and AI-search crawlers are explicitly allowed.
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /ops-private/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /ops-private/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /ops-private/
+
+User-agent: Applebot
+Allow: /
+Disallow: /ops-private/
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /ops-private/
+
 Sitemap: https://coshuma.com/sitemap.xml
-# Global discovery policy reviewed 2026-10-01: public buyer guides, comparisons, JS and CSS are intentionally crawlable by all standards-compliant search engines.
+Sitemap: https://coshuma.com/sitemap.txt
+
+# Global discovery policy reviewed 2026-10-01: public buyer guides, comparisons,
+# JS and CSS are intentionally crawlable by standards-compliant search engines.
