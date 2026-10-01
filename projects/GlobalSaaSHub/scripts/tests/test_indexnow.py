@@ -7,6 +7,7 @@ from pathlib import Path
 
 SCRIPT = Path(__file__).resolve().parents[1] / "prepare_indexnow_urls.py"
 KEY_FILE = "c8f43b92e1d74a6f9c2057be8301ad6e.txt"
+BOOTSTRAP_MARKER = "indexnow-bootstrap-v1.txt"
 
 SITEMAP = """<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -37,6 +38,8 @@ class IndexNowPreparationTests(unittest.TestCase):
             current.mkdir(); previous.mkdir()
             (current / "tool").mkdir()
             (current / "sitemap.xml").write_text(SITEMAP, encoding="utf-8")
+            (current / KEY_FILE).write_text("c8f43b92e1d74a6f9c2057be8301ad6e\n", encoding="utf-8")
+            (current / BOOTSTRAP_MARKER).write_text("v1\n", encoding="utf-8")
             (current / "index.html").write_text(HOME, encoding="utf-8")
             (current / "tool" / "example.html").write_text(TOOL, encoding="utf-8")
             out = root / "urls.json"
@@ -55,7 +58,10 @@ class IndexNowPreparationTests(unittest.TestCase):
             current.mkdir(); previous.mkdir()
             (current / "tool").mkdir(); (previous / "tool").mkdir()
             (current / "sitemap.xml").write_text(SITEMAP, encoding="utf-8")
+            (current / KEY_FILE).write_text("c8f43b92e1d74a6f9c2057be8301ad6e\n", encoding="utf-8")
+            (current / BOOTSTRAP_MARKER).write_text("v1\n", encoding="utf-8")
             (previous / KEY_FILE).write_text("c8f43b92e1d74a6f9c2057be8301ad6e\n", encoding="utf-8")
+            (previous / BOOTSTRAP_MARKER).write_text("v1\n", encoding="utf-8")
             (previous / "index.html").write_text(HOME, encoding="utf-8")
             (current / "index.html").write_text(HOME, encoding="utf-8")
             (previous / "tool" / "example.html").write_text(TOOL, encoding="utf-8")
