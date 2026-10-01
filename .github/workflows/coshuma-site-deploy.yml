@@ -161,6 +161,13 @@ jobs:
           grep -q -F 'User-agent: *' projects/GlobalSaaSHub/dist/robots.txt
           grep -q -F 'Allow: /' projects/GlobalSaaSHub/dist/robots.txt
           grep -q -F 'Sitemap: https://coshuma.com/sitemap.xml' projects/GlobalSaaSHub/dist/robots.txt
+          test -f projects/GlobalSaaSHub/dist/sitemap.txt
+          test -f projects/GlobalSaaSHub/dist/llms.txt
+          grep -q -F 'https://coshuma.com/' projects/GlobalSaaSHub/dist/sitemap.txt
+          grep -q -F 'XML sitemap: https://coshuma.com/sitemap.xml' projects/GlobalSaaSHub/dist/llms.txt
+          grep -q -F 'User-agent: OAI-SearchBot' projects/GlobalSaaSHub/dist/robots.txt
+          grep -q -F 'User-agent: Applebot' projects/GlobalSaaSHub/dist/robots.txt
+          grep -q -F 'Sitemap: https://coshuma.com/sitemap.txt' projects/GlobalSaaSHub/dist/robots.txt
           grep -q -F 'data-coshuma-origin-guard="1"' projects/GlobalSaaSHub/dist/index.html
           grep -q -F 'mirror or systematically republish' projects/GlobalSaaSHub/dist/terms.html
           grep -q -F 'Brand &amp; Content Usage Policy' projects/GlobalSaaSHub/dist/brand/index.html
