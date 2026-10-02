@@ -4186,9 +4186,9 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
     "official_evidence_url": "https://manychat.com/",
-    "affiliate_status": "application_available_partnerstack",
-    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://manychat.com/affiliate/"
+    "affiliate_status": "browser_required_legal_program_consent",
+    "affiliate_status_checked_at": "2026-10-03T07:14:26+09:00",
+    "affiliate_status_evidence_url": "https://dash.partnerstack.com/application?company=manychat&gref=page"
   },
   {
     "id": "marblism",
