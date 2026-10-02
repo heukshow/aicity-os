@@ -93,7 +93,17 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.activepieces.com/"
+    "official_evidence_url": "https://www.activepieces.com/",
+    "affiliate_verified": false,
+    "affiliate_status": "browser_required_sales_inquiry",
+    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_source_url": "https://www.activepieces.com/",
+    "affiliate_workflow_url": "https://www.activepieces.com/",
+    "affiliate_next_action": "Use Activepieces' current official Talk to sales/contact route to ask whether a public affiliate or referral program exists. Do not infer a program or tracking URL from integrations/community references.",
+    "affiliate_evidence_markers": [
+      "2026-10-03 current official-site recheck found no public affiliate/referral enrollment route; product/sales routes remain live.",
+      "No COSHUMA-specific tracking URL is verified."
+    ]
   },
   {
     "id": "adoric",
@@ -219,14 +229,19 @@
     "official_verified_at": "2026-09-11T02:41:00+09:00",
     "official_evidence_url": "https://www.agorapulse.com/pricing/",
     "affiliate_verified": false,
-    "affiliate_status": "unverified",
-    "affiliate_source_url": "https://www.agorapulse.com/partners/agency/",
+    "affiliate_status": "waiting_vendor_response",
+    "affiliate_source_url": "https://www.agorapulse.com/partners/referral/",
     "affiliate_verified_at": null,
     "affiliate_evidence_markers": [
       "Official agency partner program exists",
       "No COSHUMA-specific commission-bearing customer URL verified as of 2026-09-11",
-      "Use official non-affiliate links only until an exact customer tracking route is proven"
-    ]
+      "Use official non-affiliate links only until an exact customer tracking route is proven",
+      "Agorapulse's current official Referral Partner Program advertises a unique referral link and 90-day tracking after enrollment.",
+      "COSHUMA sent the original referral enrollment inquiry in Gmail 1a0907c7757252b0 and one follow-up on 2026-10-03 in Gmail 1a0fdcf483d35e25.",
+      "Exact COSHUMA customer tracking URL remains unknown."
+    ],
+    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_next_action": "Wait for Mike Allton / Agorapulse to reply to the existing referral-partner inquiry and 2026-10-03 follow-up. Do not submit duplicate outreach or publish a guessed URL."
   },
   {
     "id": "ai-agent-store",
@@ -1065,7 +1080,17 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://www.carv.com/"
+    "official_evidence_url": "https://www.carv.com/",
+    "affiliate_verified": false,
+    "affiliate_status": "browser_required_application_form",
+    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_source_url": "https://www.carv.com/partner-program/referral-partner",
+    "affiliate_workflow_url": "https://www.carv.com/partner-program/referral-partner",
+    "affiliate_next_action": "Use the current Carv Referral Partner application only if COSHUMA can answer the enterprise-network qualification questions truthfully. Do not claim eligibility before the form is reviewed.",
+    "affiliate_evidence_markers": [
+      "Current Carv Referral Partner program is live and states applications are reviewed within 5 business days.",
+      "Program targets trusted advisors with enterprise staffing/recruitment relationships and pays 10% of first-year contract value capped at EUR 500 per deal."
+    ]
   },
   {
     "id": "castmagic",
@@ -1203,7 +1228,17 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://chatbot.com/"
+    "official_evidence_url": "https://chatbot.com/",
+    "affiliate_verified": false,
+    "affiliate_status": "referral_link_requested",
+    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_source_url": "https://partners.livechat.com/app/affiliate",
+    "affiliate_next_action": "Wait for Text Partner Team to supply or identify COSHUMA's exact ChatBot customer-facing affiliate URL in the existing Text Partner account. Do not construct a link.",
+    "affiliate_evidence_markers": [
+      "COSHUMA already has an existing Text Partner account for other Text products.",
+      "Text's current partner material includes ChatBot as an affiliate-promotable product.",
+      "COSHUMA requested the exact ChatBot affiliate URL from Text Support on 2026-10-03 in Gmail 1a0fdcf2e220b96e."
+    ]
   },
   {
     "id": "claap",
@@ -1942,13 +1977,18 @@
     "official_verified_at": "2026-09-11T04:00:00+09:00",
     "official_evidence_url": "https://www.docusign.com/products/electronic-signature",
     "affiliate_verified": false,
-    "affiliate_status": "unverified",
-    "affiliate_source_url": null,
+    "affiliate_status": "browser_required_captcha_program_form",
+    "affiliate_source_url": "https://partners.docusign.com/s/partner-program-support-form",
     "affiliate_verified_at": null,
     "affiliate_evidence_markers": [
       "No current COSHUMA-specific Docusign customer-facing affiliate URL verified as of 2026-09-11",
-      "Use official Docusign links only; do not infer referral attribution from generic product or trial URLs"
-    ]
+      "Use official Docusign links only; do not infer referral attribution from generic product or trial URLs",
+      "Docusign currently maintains official partner enrollment/support routes.",
+      "No current COSHUMA-specific Docusign customer-facing affiliate URL is verified."
+    ],
+    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_workflow_url": "https://partners.docusign.com/s/partner-program-support-form",
+    "affiliate_next_action": "Use Docusign's official partner support/application route to reconcile the current affiliate enrollment path. The form is browser/CAPTCHA gated; do not infer a customer tracking URL."
   },
   {
     "id": "dorik",
@@ -2020,8 +2060,16 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://partners.dub.co/dub/apply",
     "affiliate_verified": false,
-    "affiliate_status": "application_not_submitted",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_status": "browser_required_program_enrollment",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00",
+    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_source_url": "https://partners.dub.co/dub",
+    "affiliate_workflow_url": "https://app.dub.co/referrals",
+    "affiliate_next_action": "Reuse the existing Dub account already used for COSHUMA partner programs and open Dub's own referral dashboard/program enrollment. Do not create a duplicate Dub account.",
+    "affiliate_evidence_markers": [
+      "Dub's current official affiliate program pays 30% per sale for one year and gives new users 20% off for three months.",
+      "Dub states existing users can join from the in-app referrals dashboard; COSHUMA already has an existing Dub partner identity used for other approved programs."
+    ]
   },
   {
     "id": "elevenlabs",
@@ -2235,7 +2283,17 @@
     "pricing_source_final_url": null,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://expandi.io/"
+    "official_evidence_url": "https://expandi.io/",
+    "affiliate_verified": false,
+    "affiliate_status": "browser_required_application_form",
+    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_source_url": "https://expandi.io/affiliate-program/",
+    "affiliate_workflow_url": "https://expandi.io/affiliate-program/",
+    "affiliate_next_action": "Open Expandi's current official affiliate application and submit truthful COSHUMA details using the existing company identity. Preserve the issued unique link only after approval.",
+    "affiliate_evidence_markers": [
+      "Expandi's current official Affiliate Program is live and says signup produces a unique referral link.",
+      "No COSHUMA-specific Expandi tracking URL is currently verified."
+    ]
   },
   {
     "id": "fathom",
@@ -2316,7 +2374,17 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://featureshark.com/"
+    "official_evidence_url": "https://featureshark.com/",
+    "affiliate_verified": false,
+    "affiliate_status": "waiting_vendor_response",
+    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_source_url": "https://www.featureshark.com/help-center",
+    "affiliate_next_action": "Wait for FeatureShark support to confirm whether a current affiliate/referral program exists and provide the exact route. Do not send duplicate inquiries.",
+    "affiliate_evidence_markers": [
+      "FeatureShark official Help Center publishes support@featureshark.com.",
+      "COSHUMA sent one affiliate/referral program inquiry on 2026-10-03 in Gmail 1a0fdd2503fc6b9e.",
+      "No public tracking URL is verified."
+    ]
   },
   {
     "id": "fireflies-ai",
@@ -2418,7 +2486,18 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://flowgent.ai/"
+    "official_evidence_url": "https://flowgent.ai/",
+    "affiliate_verified": false,
+    "affiliate_status": "program_inactive",
+    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_source_url": "https://flowgent.ai/affiliate",
+    "affiliate_workflow_url": "https://flowgent-ai.getrewardful.com/",
+    "affiliate_next_action": "Do not submit or publish a FlowGent affiliate URL while the vendor-linked Rewardful enrollment route reports the program inactive. Recheck only when FlowGent restores a working enrollment route or replies directly.",
+    "affiliate_evidence_markers": [
+      "FlowGent's current affiliate landing page advertises 20% lifetime recurring commission and links to Rewardful.",
+      "The vendor-linked Rewardful enrollment endpoint currently reports 'Affiliate Program Inactive'.",
+      "Operational enrollment state takes precedence over marketing copy; no application or tracking URL is claimed."
+    ]
   },
   {
     "id": "followr",
@@ -2878,7 +2957,17 @@
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
-    "official_evidence_url": "https://workspace.google.com/"
+    "official_evidence_url": "https://workspace.google.com/",
+    "affiliate_verified": false,
+    "affiliate_status": "browser_required_country_eligibility_check",
+    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_source_url": "https://workspace.google.com/intl/ko/affiliate-program/",
+    "affiliate_workflow_url": "https://workspace.google.com/intl/ko/affiliate-program/",
+    "affiliate_next_action": "Check CJ Affiliate enrollment and country eligibility for COSHUMA's business identity before applying. Do not assume eligibility or construct a tracking link.",
+    "affiliate_evidence_markers": [
+      "Google Workspace's current official Affiliate Program accepts free applications through CJ Affiliate and provides tracked promotional links after approval.",
+      "COSHUMA country/program eligibility has not yet been verified; exact tracking URL remains null."
+    ]
   },
   {
     "id": "gravity-forms",
@@ -3116,9 +3205,17 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://hide.me/",
-    "affiliate_status": "application_available",
-    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://hide.me/en/affiliates"
+    "affiliate_status": "browser_required_application_form",
+    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_status_evidence_url": "https://hide.me/en/affiliates",
+    "affiliate_verified": false,
+    "affiliate_source_url": "https://hide.me/en/affiliates",
+    "affiliate_workflow_url": "https://hide.me/en/affiliates",
+    "affiliate_next_action": "Use hide.me's current official Post Affiliate Pro enrollment route and reconcile it with the prior COSHUMA inquiry. Do not create a second partner identity if an existing enrollment is found.",
+    "affiliate_evidence_markers": [
+      "hide.me's current official affiliate page is live, advertises commissions from 30%, lifetime revenue share and an affiliate dashboard.",
+      "COSHUMA previously sent an affiliate application inquiry from the personal mailbox on 2026-09-07; exact account/link status remains unverified."
+    ]
   },
   {
     "id": "hubspot",
@@ -5654,14 +5751,18 @@
     "official_verified_at": "2026-09-15T04:12:19+09:00",
     "official_evidence_url": "https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program",
     "affiliate_verified": false,
-    "affiliate_status": "temporarily_closed",
+    "affiliate_status": "program_closed_to_new_applicants",
     "affiliate_source_url": "https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program",
     "affiliate_verified_at": "2026-09-15T04:12:19+09:00",
     "affiliate_evidence_markers": [
       "2026-09-14: Scribe Support agent Matt Sanz confirmed that Scribe is not accepting new affiliate applications while its affiliate program is being refreshed and restructured.",
       "The prior COSHUMA inquiry is complete. Do not reapply or send another inquiry unless Scribe itself sends a new human update that applications have reopened.",
-      "No COSHUMA approval or account-specific customer tracking URL was issued. Keep affiliate_url null and do not infer clicks, signups, customers, commissions, payouts or revenue."
-    ]
+      "No COSHUMA approval or account-specific customer tracking URL was issued. Keep affiliate_url null and do not infer clicks, signups, customers, commissions, payouts or revenue.",
+      "Scribe Support agent Matt Sanz confirmed in Gmail 1a0a155a6b7de938 that Scribe was not accepting new affiliate applications while the program was being refreshed/restructured.",
+      "No approval or customer tracking URL was issued."
+    ],
+    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_next_action": "Wait for a new Scribe message explicitly announcing that affiliate applications have reopened. Do not reapply."
   },
   {
     "id": "seamless",
@@ -5989,9 +6090,17 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://snov.io/",
-    "affiliate_status": "application_available",
-    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://snov.io/affiliate-program"
+    "affiliate_status": "browser_required_application_form",
+    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_status_evidence_url": "https://snov.io/affiliate-program",
+    "affiliate_verified": false,
+    "affiliate_source_url": "https://snov.io/affiliate-program",
+    "affiliate_workflow_url": "https://snov.io/affiliate-program",
+    "affiliate_next_action": "Use Snov.io's current official affiliate application and the existing COSHUMA identity. Reconcile against the prior 2026-09-07 inquiry before any resubmission; preserve only an issued personal affiliate link after approval.",
+    "affiliate_evidence_markers": [
+      "Snov.io's current official affiliate program is live, open to applicants and advertises 40% lifetime commission on premium-plan purchases.",
+      "COSHUMA previously sent an application request on 2026-09-07; no approval or exact personal affiliate link has been received."
+    ]
   },
   {
     "id": "socialchamp-io",

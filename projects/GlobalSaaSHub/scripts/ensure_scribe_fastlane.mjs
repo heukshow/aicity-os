@@ -36,7 +36,7 @@ const scribe = {
   official_verified_at: checkedAt,
   official_evidence_url: 'https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program',
   affiliate_verified: false,
-  affiliate_status: 'temporarily_closed',
+  affiliate_status: 'program_closed_to_new_applicants',
   affiliate_source_url: 'https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program',
   affiliate_verified_at: checkedAt,
   affiliate_evidence_markers: [
@@ -80,7 +80,7 @@ const outreach = JSON.parse(fs.readFileSync(outreachPath, 'utf8'));
 outreach.updated_at = '2026-09-24';
 outreach.programs ||= {};
 outreach.programs.scribe = {
-  status: 'temporarily_closed',
+  status: 'program_closed_to_new_applicants',
   application_state: 'vendor_not_accepting_new_affiliate_applications',
   contact: 'support@scribehow.com',
   gmail_message_id: '1a09c7a8e9029ff0',

@@ -35,13 +35,15 @@ const agorapulse = {
   official_verified_at: '2026-09-11T02:41:00+09:00',
   official_evidence_url: 'https://www.agorapulse.com/pricing/',
   affiliate_verified: false,
-  affiliate_status: 'unverified',
-  affiliate_source_url: 'https://www.agorapulse.com/partners/agency/',
+  affiliate_status: 'waiting_vendor_response',
+  affiliate_source_url: 'https://www.agorapulse.com/partners/referral/',
   affiliate_verified_at: null,
+  affiliate_status_checked_at: '2026-10-03T03:05:00+09:00',
+  affiliate_next_action: 'Wait for Mike Allton / Agorapulse to reply to the existing referral-partner inquiry and 2026-10-03 follow-up. Do not submit duplicate outreach or publish a guessed URL.',
   affiliate_evidence_markers: [
-    'Official agency partner program exists',
-    'No COSHUMA-specific commission-bearing customer URL verified as of 2026-09-11',
-    'Use official non-affiliate links only until an exact customer tracking route is proven',
+    'Agorapulse current Referral Partner Program advertises a unique referral link and 90-day tracking after enrollment.',
+    'COSHUMA sent the original referral enrollment inquiry in Gmail 1a0907c7757252b0 and one follow-up on 2026-10-03 in Gmail 1a0fdcf483d35e25.',
+    'Exact COSHUMA customer tracking URL remains unknown.',
   ],
 };
 
