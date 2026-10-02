@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-02T13:59:40.305Z",
+  "generatedAt": "2026-10-02T17:37:15.726Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 118,
     "revenueReadyAffiliates": 76,
-    "genericRevenueReadyAffiliates": 73,
-    "targetedRevenueReadyAffiliates": 3,
+    "genericRevenueReadyAffiliates": 74,
+    "targetedRevenueReadyAffiliates": 2,
     "openMonetizationGaps": 80,
     "directActionableGaps": 13,
     "browserRequiredGaps": 21,
@@ -23,8 +23,8 @@
   "affiliateCoverage": {
     "counts": {
       "revenueReady": 76,
-      "genericRevenueReady": 73,
-      "targetedRevenueReady": 3,
+      "genericRevenueReady": 74,
+      "targetedRevenueReady": 2,
       "terminal": 24,
       "openMonetizationGaps": 80,
       "directActionableGaps": 13,
@@ -978,10 +978,10 @@
         "name": "Pipedrive",
         "officialVerified": true,
         "pricingVerified": false,
-        "affiliateStatus": "approved",
+        "affiliateStatus": "approved_tracking",
         "affiliateVerified": true,
-        "hasAffiliateUrl": false,
-        "genericRevenueReady": false,
+        "hasAffiliateUrl": true,
+        "genericRevenueReady": true,
         "targetedRevenueReady": true,
         "revenueReady": true,
         "terminal": false,
@@ -3708,6 +3708,14 @@
       "verifiedAt": "2026-09-10T23:27:39+09:00"
     },
     {
+      "id": "pipedrive",
+      "name": "Pipedrive",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://aff.trypipedrive.com/sv587bilh4w7",
+      "verifiedAt": "2026-10-02T07:58:36+09:00"
+    },
+    {
       "id": "relevance-ai",
       "name": "Relevance AI",
       "status": "approved_tracking",
@@ -4098,14 +4106,6 @@
       "verified": true,
       "url": null,
       "verifiedAt": "2026-09-07T19:50:46+09:00"
-    },
-    {
-      "id": "pipedrive",
-      "name": "Pipedrive",
-      "status": "approved",
-      "verified": true,
-      "url": null,
-      "verifiedAt": "2026-09-30T18:55:16Z"
     },
     {
       "id": "privy",
