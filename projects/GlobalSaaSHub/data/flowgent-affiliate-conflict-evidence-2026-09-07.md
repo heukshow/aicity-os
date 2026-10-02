@@ -1,23 +1,23 @@
-# FlowGent affiliate programme conflict — 2026-09-07
+# FlowGent affiliate programme conflict — rechecked 2026-10-03
 
 ## Decision
 
 - `affiliate_url`: `null`
-- `affiliate_status`: `program_signup_inactive_conflict`
-- Do not submit or publish a FlowGent affiliate link until the vendor resolves the conflict.
+- `affiliate_status`: `program_inactive`
+- Do not submit or publish a FlowGent affiliate link while the vendor-linked enrollment endpoint is inactive.
 
-## Conflicting first-party evidence
+## Current first-party evidence
 
-- FlowGent's current official affiliate page at https://flowgent.ai/affiliate advertises a 20% lifetime recurring commission, a 60-day cookie, and says applications are open.
-- The affiliate CTA on that same official page points to FlowGent's Rewardful signup at `flowgent-ai.getrewardful.com`.
-- Following that vendor-provided signup destination currently resolves to Rewardful's `Affiliate Program Inactive` page, which says the affiliate program is no longer active.
+- FlowGent's current official affiliate page at https://flowgent.ai/affiliate advertises a 20% lifetime recurring commission and a 60-day cookie.
+- The affiliate CTA routes to FlowGent's Rewardful enrollment endpoint at https://flowgent-ai.getrewardful.com/.
+- Recheck on 2026-10-03: that Rewardful endpoint displays **Affiliate Program Inactive**.
 
 ## Resolution rule
 
-The operational signup destination is more directly relevant to whether an application can actually be submitted than marketing copy on the landing page. Treat the program as conflicted/inactive for enrollment until newer first-party evidence restores a working signup route.
+The operational signup endpoint is more directly relevant to whether COSHUMA can actually enroll than promotional copy on the marketing page. Treat the program as inactive until FlowGent restores a working enrollment route or directly supplies a valid alternative.
 
-## Current status
+## Current state
 
-- No application was submitted.
-- Exact customer-facing referral URL is not issued or verified.
-- No click, signup, commission, or revenue is claimed.
+- No application is claimed.
+- No customer-facing referral URL is issued or verified.
+- No click, signup, customer, commission, payout, or revenue is claimed.
