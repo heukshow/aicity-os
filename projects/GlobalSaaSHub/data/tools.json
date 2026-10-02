@@ -233,10 +233,7 @@
     "affiliate_source_url": "https://www.agorapulse.com/partners/referral/",
     "affiliate_verified_at": null,
     "affiliate_evidence_markers": [
-      "Official agency partner program exists",
-      "No COSHUMA-specific commission-bearing customer URL verified as of 2026-09-11",
-      "Use official non-affiliate links only until an exact customer tracking route is proven",
-      "Agorapulse's current official Referral Partner Program advertises a unique referral link and 90-day tracking after enrollment.",
+      "Agorapulse current Referral Partner Program advertises a unique referral link and 90-day tracking after enrollment.",
       "COSHUMA sent the original referral enrollment inquiry in Gmail 1a0907c7757252b0 and one follow-up on 2026-10-03 in Gmail 1a0fdcf483d35e25.",
       "Exact COSHUMA customer tracking URL remains unknown."
     ],
@@ -1982,13 +1979,11 @@
     "affiliate_verified_at": null,
     "affiliate_evidence_markers": [
       "No current COSHUMA-specific Docusign customer-facing affiliate URL verified as of 2026-09-11",
-      "Use official Docusign links only; do not infer referral attribution from generic product or trial URLs",
-      "Docusign currently maintains official partner enrollment/support routes.",
-      "No current COSHUMA-specific Docusign customer-facing affiliate URL is verified."
+      "Use official Docusign links only; do not infer referral attribution from generic product or trial URLs"
     ],
     "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
     "affiliate_workflow_url": "https://partners.docusign.com/s/partner-program-support-form",
-    "affiliate_next_action": "Use Docusign's official partner support/application route to reconcile the current affiliate enrollment path. The form is browser/CAPTCHA gated; do not infer a customer tracking URL."
+    "affiliate_next_action": "Use the official Docusign partner support/application route to reconcile the current affiliate enrollment path. Do not infer a tracking URL."
   },
   {
     "id": "dorik",
@@ -5726,7 +5721,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Process documentation software that captures workflows and turns them into step-by-step visual guides with screenshots and text.",
-    "affiliate_url": null,
     "pricing": "Free plan available; Pro Personal, Pro Team and Enterprise plans available",
     "key_features": [
       "Automatic step-by-step workflow capture",
@@ -5750,6 +5744,7 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-09-15T04:12:19+09:00",
     "official_evidence_url": "https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program",
+    "affiliate_url": null,
     "affiliate_verified": false,
     "affiliate_status": "program_closed_to_new_applicants",
     "affiliate_source_url": "https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program",

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-03",
+  "updated_at": "2026-09-16",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -671,15 +671,15 @@
       "evidence": "Scalenut's FirstPromoter program sent Gmail message 1a090067413635a3 to support@coshuma.com with subject 'Unfortunately we had to reject your affiliate request' and states that COSHUMA's Affiliate Program - New Starter Tier application was rejected. This is newer than the repository's application_submitted state."
     },
     "scribe": {
-      "status": "program_closed_to_new_applicants",
-      "application_state": "vendor_not_accepting_new_affiliate_applications",
       "contact": "support@scribehow.com",
       "gmail_message_id": "1a09c7a8e9029ff0",
       "vendor_response_message_id": "1a0a155a6b7de938",
       "sender": "support@coshuma.com",
-      "tracking_url": null,
       "official_program_url": "https://support.scribehow.com/hc/en-us/articles/34916903648029-Does-Scribe-have-an-affiliate-program",
       "github_issue": 525,
+      "status": "program_closed_to_new_applicants",
+      "application_state": "vendor_not_accepting_new_affiliate_applications",
+      "tracking_url": null,
       "checked_at": "2026-10-03T03:05:00+09:00",
       "do_not_reapply": true,
       "user_action_required": false,
