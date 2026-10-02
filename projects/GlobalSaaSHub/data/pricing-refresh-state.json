@@ -181,9 +181,112 @@
     "framer": {
       "checked_at": "2026-10-02T23:06:43Z",
       "status": "extract_retry_exhausted"
+    },
+    "frase": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "extract_retry_exhausted"
+    },
+    "gallabox": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "no_official_pricing_result"
+    },
+    "getgabs": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "verified",
+      "pricing_source_url": "https://getgabs.com/pricing"
+    },
+    "getgenie": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "extract_retry_exhausted"
+    },
+    "getresponse": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "extract_retry_exhausted"
+    },
+    "gobii": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "no_official_pricing_result"
+    },
+    "gohighlevel": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "no_official_pricing_result"
+    },
+    "gojiberry": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "no_official_pricing_result"
+    },
+    "google-workspace": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "extract_retry_exhausted"
+    },
+    "gravity-forms": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "extract_retry_exhausted"
+    },
+    "gumloop": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "extract_retry_exhausted"
+    },
+    "happyscribe": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "no_official_pricing_result"
+    },
+    "helpdesk": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "extract_retry_exhausted"
+    },
+    "heygen": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "extract_retry_exhausted"
+    },
+    "hide-me": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "extract_retry_exhausted"
+    },
+    "hubspot": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "no_official_pricing_result"
+    },
+    "inkfluence-ai": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "extract_retry_exhausted"
+    },
+    "jasper": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "extract_retry_exhausted"
+    },
+    "jobhire": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "no_official_pricing_result"
+    },
+    "jotform": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "extract_retry_exhausted"
+    },
+    "kinsta": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "extract_retry_exhausted"
+    },
+    "kit": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "no_official_pricing_result"
+    },
+    "kittl": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "extract_retry_exhausted"
+    },
+    "koala-ai": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "extract_retry_exhausted"
+    },
+    "liftmycv": {
+      "checked_at": "2026-10-02T23:21:25Z",
+      "status": "extract_retry_exhausted"
     }
   },
-  "last_run_at": "2026-10-02T23:06:43Z",
+  "last_run_at": "2026-10-02T23:21:25Z",
   "last_batch_size": 25,
-  "last_updated_tools": []
+  "last_updated_tools": [
+    "getgabs"
+  ]
 }

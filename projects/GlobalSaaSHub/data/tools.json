@@ -2722,7 +2722,7 @@
     "category_display": "Productivity & SaaS",
     "description": "Getgabs is a WhatsApp marketing platform empowering businesses to automate customer communication and engage audiences effectively through chat.",
     "affiliate_url": null,
-    "pricing": "Check website for pricing details",
+    "pricing": "59",
     "key_features": [
       "Automated WhatsApp campaigns",
       "Bulk messaging capabilities",
@@ -2734,12 +2734,12 @@
     "primary_category": "productivity",
     "comparison_group": "productivity",
     "official_url": "https://getgabs.com/",
-    "pricing_source_url": null,
-    "pricing_verified_at": null,
-    "pricing_verified": false,
-    "currency": null,
-    "billing_period": null,
-    "evidence_source_type": null,
+    "pricing_source_url": "https://getgabs.com/pricing",
+    "pricing_verified_at": "2026-10-02T23:21:25Z",
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": "official_pricing_page",
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
@@ -2754,6 +2754,14 @@
       "COSHUMA affiliate application sent to official info@getgabs.com address",
       "Gmail message id 1a07a9eff46a2c04",
       "Exact customer-facing referral URL not yet issued or verified"
+    ],
+    "pricing_source_http_status": 200,
+    "pricing_source_final_url": "https://getgabs.com/pricing/",
+    "pricing_evidence_markers": [
+      "$ 59 /month (USD)",
+      "/month",
+      "Monthly",
+      "(USD)"
     ]
   },
   {
