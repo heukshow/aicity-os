@@ -3,6 +3,9 @@ import copy, html, json, os, re, sys, urllib.parse, urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
 from auto_aggregator import extract_domain, query_gemini_batch, query_tavily
 
 ROOT = Path(__file__).resolve().parents[1]
