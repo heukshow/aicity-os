@@ -216,7 +216,8 @@
             "commission_earned": 0,
             "commission_pending": null,
             "payout_paid": null
-          }
+          },
+          "tool_id": "pictory"
         }
       ]
     },
@@ -414,7 +415,8 @@
             "payout_paid": null,
             "network_reported_unpaid_balance": 0,
             "network_reported_paid_balance": 0
-          }
+          },
+          "tool_id": "databox"
         }
       ]
     },
@@ -461,7 +463,8 @@
             "commission_pending": null,
             "payout_paid": null,
             "network_reported_unpaid_balance": 0
-          }
+          },
+          "tool_id": "docsbot"
         }
       ]
     },
@@ -508,7 +511,8 @@
             "commission_pending": null,
             "payout_paid": null,
             "network_reported_unpaid_balance": 0
-          }
+          },
+          "tool_id": "vista-social"
         }
       ]
     }
