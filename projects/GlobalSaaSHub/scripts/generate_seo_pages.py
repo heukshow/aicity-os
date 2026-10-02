@@ -252,12 +252,12 @@ for tool in tools_data:
     comp_tools = same_group_comp[:3]
 
     alternatives_html = "\n".join([
-        f'<a href="/tool/{canonical_slug(c)}.html" class="p-3.5 rounded-xl bg-[#181a29] border border-[#222538] hover:border-purple-500/40 transition-all flex items-center justify-between group">'
-        f'<div class="flex items-center gap-2.5">'
-        f'<img src="{c.get("logo_url")}" class="h-6 w-6 rounded object-contain p-0.5 bg-slate-900 border border-[#222538]" onError="this.style.display=\'none\'"/>'
-        f'<span class="text-xs font-bold text-slate-200 group-hover:text-purple-300">{c.get("name")}</span>'
+        f'<a href="/tool/{canonical_slug(c)}.html" class="min-w-0 p-3.5 rounded-xl bg-[#181a29] border border-[#222538] hover:border-purple-500/40 transition-all flex flex-col items-stretch justify-start gap-3 group">'
+        f'<div class="min-w-0 flex items-center gap-2.5">'
+        f'<img src="{c.get("logo_url")}" class="h-6 w-6 shrink-0 rounded object-contain p-0.5 bg-slate-900 border border-[#222538]" onError="this.style.display=\'none\'"/>'
+        f'<span class="min-w-0 break-words text-xs font-bold leading-tight text-slate-200 group-hover:text-purple-300">{c.get("name")}</span>'
         f'</div>'
-        f'<span class="text-[10px] font-extrabold text-emerald-400">{c.get("pricing")}</span>'
+        f'<span class="w-full break-words text-[10px] font-extrabold leading-relaxed text-emerald-400">{c.get("pricing")}</span>'
         f'</a>'
         for c in comp_tools
     ])
