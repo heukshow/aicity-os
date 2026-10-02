@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T21:34:14.690Z",
+  "generated_at": "2026-10-02T22:25:52.770Z",
   "source": "data/revenue-leakage-audit.json",
   "scope": "Internal COSHUMA revenue reconciliation only",
   "queue_status": "active",
@@ -66,6 +66,12 @@
           "reason": "Latest revenue evidence is 24 days old."
         },
         {
+          "id": "teachable",
+          "name": "Teachable",
+          "priority": "P1_STALE",
+          "reason": "Latest revenue evidence is 8 days old."
+        },
+        {
           "id": "unbounce",
           "name": "Unbounce",
           "priority": "P1_STALE",
@@ -80,12 +86,6 @@
         {
           "id": "gravity-forms",
           "name": "Gravity Forms",
-          "priority": "P1_PARTIAL",
-          "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage."
-        },
-        {
-          "id": "teachable",
-          "name": "Teachable",
           "priority": "P1_PARTIAL",
           "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage."
         }
