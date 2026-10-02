@@ -51,6 +51,7 @@ jobs:
           node scripts/tests/compare-measurement.test.mjs
           node scripts/tests/synced-affiliates.test.mjs
           python scripts/tests/test_indexnow.py
+          python scripts/tests/test_pricing_backlog_refresh.py
           python -m py_compile scripts/prepare_indexnow_urls.py scripts/submit_indexnow.py
 
       # RECOVERY-006 invariant: committed customer source must be checked before any source-mutating preparation.
