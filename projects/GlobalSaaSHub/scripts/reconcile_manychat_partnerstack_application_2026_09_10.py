@@ -12,27 +12,24 @@ TASK_ID = "manychat-partnerstack-direct-application-20260910"
 TASK = {
     "id": TASK_ID,
     "priority": "high",
-    "status": "open",
-    "type": "browser_required",
+    "status": "blocked",
+    "type": "user_action_required",
     "cost": "0",
-    "verified_at": "2026-09-10T02:39:59+09:00",
+    "verified_at": "2026-10-03T07:14:26+09:00",
     "gmail_thread_id": "1a07b34ffaf04027",
     "gmail_message_id": "1a086b6eabaeb524",
     "reason": (
-        "The full Manychat PartnerStack support thread was reviewed. COSHUMA asked for a direct "
-        "application path without creating a duplicate PartnerStack account, and human PartnerStack "
-        "support agent Digna Rivas replied on 2026-09-09 with the exact Manychat application form. "
-        "Repository evidence still shows application_available_partnerstack / "
-        "direct_enrollment_path_requested, with no verified submitted, pending, approved, declined, "
-        "closed, or cooldown state. Authenticated browser review is therefore required before any submission."
+        "The full Manychat PartnerStack support thread and the authenticated direct application form were "
+        "reviewed. PartnerStack support agent Digna Rivas supplied the exact form, and the live form requires "
+        "unchecked legal acknowledgments covering the Manychat Partner Program Terms, fraud/compliance "
+        "verification, commission forfeiture for violations, and paid-search policy. No application was "
+        "submitted, and no approval or tracking URL is inferred."
     ),
     "url": "https://dash.partnerstack.com/application?company=manychat&gref=page",
     "next_action": (
-        "Reuse the existing authenticated PartnerStack session and open the exact Manychat application form. "
-        "First verify that Manychat is not already submitted, pending, approved, declined, closed, or in cooldown. "
-        "Only if there is no existing application state and the application is free and eligible, complete and "
-        "submit it. Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment. "
-        "After submission, record the actual resulting state; do not infer approval or a tracking URL."
+        "Wait for the user to review and accept the Manychat Partner Program legal acknowledgments in the "
+        "existing PartnerStack application. After that explicit legal consent, continue the same task, verify "
+        "there is no duplicate application state, submit once, and record only the actual resulting state."
     ),
     "do_not": [
         "Do not treat the PartnerStack application URL as a customer-facing affiliate, referral, or revenue link.",
@@ -42,9 +39,9 @@ TASK = {
         "Do not complete CAPTCHA, OTP, legal acceptance, identity verification, or any paid step on the user's behalf."
     ],
     "source_evidence": (
-        "Gmail thread 1a07b34ffaf04027 / human reply 1a086b6eabaeb524 from Digna Rivas "
-        "(PartnerStack Support), plus repository affiliate-batch evidence showing the prior state as "
-        "application_available_partnerstack / direct_enrollment_path_requested."
+        "Gmail thread 1a07b34ffaf04027 / reply 1a086b6eabaeb524 from Digna Rivas "
+        "(PartnerStack Support), plus authenticated live readback of the exact PartnerStack application "
+        "form at 2026-10-03T07:14:26+09:00."
     ),
 }
 
@@ -79,7 +76,7 @@ def main() -> None:
         queue.append(TASK)
 
     QUEUE_PATH.write_text(json.dumps(queue, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print("Manychat direct PartnerStack application recorded as browser-required; no application submitted")
+    print("Manychat direct PartnerStack application blocked on legal consent; no application submitted")
 
     # Keep the build-time mailbox reconciliation chain current without requiring
     # a duplicate application or a new browser handoff. This helper only records
