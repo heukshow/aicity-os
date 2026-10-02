@@ -150,7 +150,7 @@ jobs:
 
       - name: Verify COSHUMA bundle identity
         run: |
-          set -euxo pipefail
+          set -e
           test -f projects/GlobalSaaSHub/dist/index.html
           test -f projects/GlobalSaaSHub/.private-ops/admin-affiliate-audit.json
           test ! -e projects/GlobalSaaSHub/dist/admin-affiliate-audit.json
@@ -159,7 +159,7 @@ jobs:
           test -f projects/GlobalSaaSHub/dist/c8f43b92e1d74a6f9c2057be8301ad6e.txt
           test "$(tr -d '\\r\\n' < projects/GlobalSaaSHub/dist/c8f43b92e1d74a6f9c2057be8301ad6e.txt)" = 'c8f43b92e1d74a6f9c2057be8301ad6e'
           test -f projects/GlobalSaaSHub/dist/naver2939dac4daca231f97a75752bf8dcf2c.html
-          test "$(tr -d '\\r\\n' < projects/GlobalSaaSHub/dist/naver2939dac4daca231f97a75752bf8dcf2c.html)" = 'naver-site-verification: naver2939dac4daca231f97a75752bf8dcf2c.html'
+          test "$(cat projects/GlobalSaaSHub/dist/naver2939dac4daca231f97a75752bf8dcf2c.html)" = 'naver-site-verification: naver2939dac4daca231f97a75752bf8dcf2c.html'
           grep -q -F 'User-agent: *' projects/GlobalSaaSHub/dist/robots.txt
           grep -q -F 'Allow: /' projects/GlobalSaaSHub/dist/robots.txt
           grep -q -F 'Sitemap: https://coshuma.com/sitemap.xml' projects/GlobalSaaSHub/dist/robots.txt
