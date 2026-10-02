@@ -198,7 +198,7 @@ jobs:
           grep -q -F 'https://pictory.ai?fpr=sangkwon-an23' projects/GlobalSaaSHub/dist/tool/pictory.html
           grep -q -F 'Start 14-day free trial' projects/GlobalSaaSHub/dist/tool/pictory.html
           grep -q -F 'no credit card' projects/GlobalSaaSHub/dist/tool/pictory.html
-          grep -q -F 'Start 14-day free trial' projects/GlobalSaaSHub/dist/best/pictory-free-trial-pricing.html
+          grep -q -F 'Start 14-day trial' projects/GlobalSaaSHub/dist/best/pictory-free-trial-pricing.html
           grep -q -F 'no credit card' projects/GlobalSaaSHub/dist/best/pictory-free-trial-pricing.html
           if grep -R -q -F 'href="https://unbounce.com/"' projects/GlobalSaaSHub/dist/compare 2>/dev/null; then
             echo 'Unbounce comparison CTA still points to the non-revenue homepage.'
