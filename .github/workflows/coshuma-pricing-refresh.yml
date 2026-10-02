@@ -76,7 +76,7 @@ jobs:
             projects/GlobalSaaSHub/data/tools.next.json
             projects/GlobalSaaSHub/data/pricing-refresh-state.json
           )
-          if git diff --quiet -- "${files[@]}"; then
+          if [ -z "$(git status --porcelain -- "${files[@]}")" ]; then
             echo 'No pricing refresh changes.'
             exit 0
           fi
