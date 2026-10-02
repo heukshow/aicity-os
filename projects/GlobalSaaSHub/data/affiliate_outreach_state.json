@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16",
+  "updated_at": "2026-10-03",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -981,12 +981,15 @@
       "note": "Agorapulse's current official Referral Partner Program advertises a unique referral link and 90-day tracking after enrollment. COSHUMA sent the original referral enrollment inquiry in Gmail 1a0907c7757252b0 and one follow-up on 2026-10-03 in Gmail 1a0fdcf483d35e25. Exact COSHUMA customer tracking URL remains unknown."
     },
     "carv": {
-      "status": "browser_required_application_form",
+      "status": "waiting_vendor_eligibility_clarification",
       "tracking_url": null,
-      "checked_at": "2026-10-03T03:05:00+09:00",
+      "checked_at": "2026-10-03T06:30:00+09:00",
       "official_program_url": "https://www.carv.com/partner-program/referral-partner",
-      "next_action": "Use the current Carv Referral Partner application only if COSHUMA can answer the enterprise-network qualification questions truthfully. Do not claim eligibility before the form is reviewed.",
-      "note": "Current Carv Referral Partner program is live and states applications are reviewed within 5 business days. Program targets trusted advisors with enterprise staffing/recruitment relationships and pays 10% of first-year contract value capped at EUR 500 per deal."
+      "next_action": "Wait for Carv to confirm COSHUMA eligibility for the Referral Partner track; do not apply first.",
+      "note": "Current Carv partner materials target enterprise staffing/recruitment advisors. COSHUMA disclosed that it is a SaaS/AI buyer-guide publisher without that client portfolio and asked info@carv.com to confirm eligibility.",
+      "do_not_reapply": true,
+      "user_action_required": false,
+      "outbound_message_id": "1a0fe84e15a6a09d"
     },
     "chatbot": {
       "status": "referral_link_requested",
@@ -1015,12 +1018,14 @@
       "note": "Dub's current official affiliate program pays 30% per sale for one year and gives new users 20% off for three months. Dub states existing users can join from the in-app referrals dashboard; COSHUMA already has an existing Dub partner identity used for other approved programs."
     },
     "expandi": {
-      "status": "browser_required_application_form",
+      "status": "waiting_vendor_requirement",
       "tracking_url": null,
-      "checked_at": "2026-10-03T03:05:00+09:00",
+      "checked_at": "2026-10-03T06:30:00+09:00",
       "official_program_url": "https://expandi.io/affiliate-program/",
-      "next_action": "Open Expandi's current official affiliate application and submit truthful COSHUMA details using the existing company identity. Preserve the issued unique link only after approval.",
-      "note": "Expandi's current official Affiliate Program is live and says signup produces a unique referral link. No COSHUMA-specific Expandi tracking URL is currently verified."
+      "next_action": "Do not submit the Expandi affiliate application until the required 14 days of active product use is evidenced or Expandi explicitly clarifies/waives the requirement.",
+      "note": "Official Expandi affiliate terms require at least 14 days of active product use. Prior COSHUMA screening found no qualifying use evidence, so application is held rather than submitted.",
+      "do_not_reapply": true,
+      "user_action_required": false
     },
     "featureshark": {
       "status": "waiting_vendor_response",
