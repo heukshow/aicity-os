@@ -81,11 +81,109 @@
     "carv": {
       "checked_at": "2026-10-02T23:01:07Z",
       "status": "no_official_pricing_result"
+    },
+    "castmagic": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "catalister": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "no_official_pricing_result"
+    },
+    "chatbase": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "chatbot": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "clickfunnels": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "clickup": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "cloudtalk": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "cloudways": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "colossyan": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "copy-ai": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "customgpt-ai": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "databox": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "no_official_pricing_result"
+    },
+    "decktopus": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "docsbot": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "dorik": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "dub": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "elevenlabs": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "eprofessor": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "expandi": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "featureshark": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "no_official_pricing_result"
+    },
+    "fireflies-ai": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "fliki": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "no_official_pricing_result"
+    },
+    "flowgent-ai": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "no_official_pricing_result"
+    },
+    "followr": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
+    },
+    "framer": {
+      "checked_at": "2026-10-02T23:06:43Z",
+      "status": "extract_retry_exhausted"
     }
   },
-  "last_run_at": "2026-10-02T23:01:07Z",
-  "last_batch_size": 10,
-  "last_updated_tools": [
-    "bolddesk"
-  ]
+  "last_run_at": "2026-10-02T23:06:43Z",
+  "last_batch_size": 25,
+  "last_updated_tools": []
 }
