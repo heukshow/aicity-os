@@ -33,9 +33,37 @@
     });
   }
 
+  function patchToolAlternativeCards() {
+    document.querySelectorAll('h2').forEach((heading) => {
+      const label = heading.querySelector('span');
+      if (!label || !/^Top Alternatives to\b/.test((label.textContent || '').trim())) return;
+
+      const grid = heading.nextElementSibling;
+      if (!grid) return;
+
+      grid.querySelectorAll(':scope > a[href^="/tool/"]').forEach((card) => {
+        card.classList.remove('items-center', 'justify-between');
+        card.classList.add('min-w-0', 'flex-col', 'items-stretch', 'justify-start', 'gap-3');
+
+        const identity = card.firstElementChild;
+        if (identity) {
+          identity.classList.add('min-w-0');
+          const image = identity.querySelector('img');
+          const name = identity.querySelector('span');
+          if (image) image.classList.add('shrink-0');
+          if (name) name.classList.add('min-w-0', 'break-words', 'leading-tight');
+        }
+
+        const pricing = Array.from(card.children).find((child) => child.tagName === 'SPAN');
+        if (pricing) pricing.classList.add('w-full', 'break-words', 'leading-relaxed');
+      });
+    });
+  }
+
   function patchAll() {
     patchHomeBrand();
     patchLegacyBadges();
+    patchToolAlternativeCards();
   }
 
   if (document.readyState === 'loading') {
