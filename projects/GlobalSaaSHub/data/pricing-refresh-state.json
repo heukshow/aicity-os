@@ -382,9 +382,109 @@
     "reclaim-ai": {
       "checked_at": "2026-10-02T23:34:19Z",
       "status": "no_official_pricing_result"
+    },
+    "reply-io": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "rytr": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "sanebox": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "no_official_pricing_result"
+    },
+    "scalenut": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "seamless": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "semrush": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "sendcloud": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "shopify": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "snov-io": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "speechify": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "sudowrite": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "supademo": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "surfeo": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "no_official_pricing_result"
+    },
+    "surfer-seo": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "synder": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "synthesia": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "synthflow-ai": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "evidence_validation_failed"
+    },
+    "systeme-io": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "no_official_pricing_result"
+    },
+    "tagshop-ai": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "no_official_pricing_result"
+    },
+    "tapfiliate": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "no_official_pricing_result"
+    },
+    "taskip": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "teknikforce": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "no_official_pricing_result"
+    },
+    "text": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "text-cortex": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
+    },
+    "tidio": {
+      "checked_at": "2026-10-02T23:46:08Z",
+      "status": "extract_retry_exhausted"
     }
   },
-  "last_run_at": "2026-10-02T23:34:19Z",
+  "last_run_at": "2026-10-02T23:46:08Z",
   "last_batch_size": 25,
   "last_updated_tools": []
 }
