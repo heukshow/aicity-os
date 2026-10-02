@@ -181,12 +181,12 @@ def main():
             path.write_text(updated, encoding='utf-8')
             changed += 1
     for source in (ROOT/'scripts/public-copy-templates').glob('*.html'):
-        folder = 'compare' if source.name == 'kit-vs-convertkit.html' else 'tool'
+        folder = 'compare' if source.name in {'kit-vs-convertkit.html', 'merlin-ai-vs-babylovegrowth-ai.html'} else 'tool'
         (ROOT/'public'/folder/source.name).write_text(source.read_text(encoding='utf-8'), encoding='utf-8')
     sitemap = ROOT/'public/sitemap.xml'
     if sitemap.exists():
         text = sitemap.read_text(encoding='utf-8')
-        text = re.sub(r'\s*<url>\s*<loc>https://coshuma.com/(?:tool/merlin-ai|compare/kit-vs-convertkit)\.html</loc>.*?</url>', '', text, flags=re.S)
+        text = re.sub(r'\s*<url>\s*<loc>https://coshuma.com/(?:tool/merlin-ai|compare/merlin-ai-vs-babylovegrowth-ai|compare/kit-vs-convertkit)\.html</loc>.*?</url>', '', text, flags=re.S)
         disclosure_url = '<url><loc>https://coshuma.com/affiliate-disclosure.html</loc></url>'
         if 'https://coshuma.com/affiliate-disclosure.html' not in text and '</urlset>' in text:
             text = text.replace('</urlset>', f'  {disclosure_url}\n</urlset>')
