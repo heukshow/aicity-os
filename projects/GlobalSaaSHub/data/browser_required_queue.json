@@ -1277,19 +1277,20 @@
     "id": "carv-affiliate-reconcile-20261003",
     "tool_id": "carv",
     "priority": "high",
-    "status": "browser_required_application_form",
+    "status": "waiting_vendor_eligibility_clarification",
     "cost": "0",
     "verified_at": "2026-10-03T03:05:00+09:00",
     "reason": "Current Carv Referral Partner program is live and states applications are reviewed within 5 business days. Program targets trusted advisors with enterprise staffing/recruitment relationships and pays 10% of first-year contract value capped at EUR 500 per deal.",
-    "next_action": "Use the current Carv Referral Partner application only if COSHUMA can answer the enterprise-network qualification questions truthfully. Do not claim eligibility before the form is reviewed.",
+    "next_action": "Wait for Carv reply to Gmail 1a0fe84e15a6a09d; do not submit the application before eligibility is confirmed.",
     "exact_tracking_url": null,
-    "affiliate_status": "browser_required_application_form",
-    "blocker": "browser_required_application_form",
+    "affiliate_status": "waiting_vendor_eligibility_clarification",
+    "blocker": "COSHUMA partner-fit eligibility is not established under Carv's enterprise staffing/recruitment referral criteria.",
     "do_not": [
       "Do not create a duplicate affiliate/partner identity if an existing account is found.",
       "Do not invent or construct a customer tracking URL.",
       "Do not infer clicks, signups, customers, commissions, payouts, or revenue from application access."
-    ]
+    ],
+    "user_action_required": false
   },
   {
     "id": "docusign-affiliate-reconcile-20261003",
@@ -1331,19 +1332,20 @@
     "id": "expandi-affiliate-reconcile-20261003",
     "tool_id": "expandi",
     "priority": "high",
-    "status": "browser_required_application_form",
+    "status": "waiting_vendor_requirement",
     "cost": "0",
     "verified_at": "2026-10-03T03:05:00+09:00",
     "reason": "Expandi's current official Affiliate Program is live and says signup produces a unique referral link. No COSHUMA-specific Expandi tracking URL is currently verified.",
-    "next_action": "Open Expandi's current official affiliate application and submit truthful COSHUMA details using the existing company identity. Preserve the issued unique link only after approval.",
+    "next_action": "Do not submit. Recheck only after qualifying 14-day use is evidenced or Expandi explicitly clarifies the requirement.",
     "exact_tracking_url": null,
-    "affiliate_status": "browser_required_application_form",
-    "blocker": "browser_required_application_form",
+    "affiliate_status": "waiting_vendor_requirement",
+    "blocker": "Expandi official affiliate terms require at least 14 days of active product use; qualifying COSHUMA use evidence is not established.",
     "do_not": [
       "Do not create a duplicate affiliate/partner identity if an existing account is found.",
       "Do not invent or construct a customer tracking URL.",
       "Do not infer clicks, signups, customers, commissions, payouts, or revenue from application access."
-    ]
+    ],
+    "user_action_required": false
   },
   {
     "id": "google-workspace-affiliate-reconcile-20261003",

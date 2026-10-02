@@ -11,11 +11,11 @@ const states = {
     next: 'Use the current official Talk to sales/contact route to ask whether a public affiliate or referral program exists. Do not infer a program or tracking URL.',
   },
   carv: {
-    stale: [null, 'unclassified'],
-    status: 'browser_required_application_form',
+    stale: [null, 'unclassified', 'browser_required_application_form'],
+    status: 'waiting_vendor_eligibility_clarification',
     source: 'https://www.carv.com/partner-program/referral-partner',
     workflow: 'https://www.carv.com/partner-program/referral-partner',
-    next: 'Use the current Carv Referral Partner application only if COSHUMA can answer the enterprise-network qualification questions truthfully.',
+    next: 'Wait for Carv to confirm whether COSHUMA qualifies for the Referral Partner track; do not submit the application first.',
   },
   chatbot: {
     stale: [null, 'unclassified'],
@@ -38,11 +38,11 @@ const states = {
     next: 'Reuse the existing Dub account and open Dub own referral dashboard/program enrollment. Do not create a duplicate Dub account.',
   },
   expandi: {
-    stale: [null, 'unclassified'],
-    status: 'browser_required_application_form',
+    stale: [null, 'unclassified', 'browser_required_application_form'],
+    status: 'waiting_vendor_requirement',
     source: 'https://expandi.io/affiliate-program/',
     workflow: 'https://expandi.io/affiliate-program/',
-    next: 'Use the current official Expandi affiliate application and preserve only the unique link issued after enrollment.',
+    next: 'Do not submit until the required 14 days of active Expandi use is evidenced or Expandi explicitly clarifies the requirement.',
   },
   featureshark: {
     stale: [null, 'unclassified'],
