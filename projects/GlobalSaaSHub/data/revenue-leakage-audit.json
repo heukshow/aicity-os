@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T20:10:14.016Z",
+  "generated_at": "2026-10-02T21:26:35.883Z",
   "evidence_scope": "Combined authenticated revenue-browser baseline, current revenue-truth records, and explicit account-wide commission/payout evidence.",
   "policy": {
     "purpose": "Detect approved monetized routes that can leak revenue because downstream affiliate metrics are missing or stale.",
@@ -11,27 +11,14 @@
   },
   "summary": {
     "approved_tracked_tools": 74,
-    "P0_UNCHECKED": 47,
-    "P1_STALE": 20,
+    "P0_UNCHECKED": 46,
+    "P1_STALE": 21,
     "P1_PARTIAL": 7,
     "P2_COVERED": 0,
     "unchecked_or_stale_or_partial": 74,
     "account_groups_to_check": 62
   },
   "account_groups": [
-    {
-      "account_id": "tagshop-ai",
-      "network": "FirstPromoter",
-      "portal_url": "https://tagshop.firstpromoter.com/login",
-      "tools": [
-        {
-          "id": "tagshop-ai",
-          "name": "Tagshop AI",
-          "priority": "P0_UNCHECKED",
-          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
-        }
-      ]
-    },
     {
       "account_id": "impact-account",
       "network": "Impact",
@@ -666,7 +653,7 @@
           "id": "aiassistworks",
           "name": "AiAssistWorks",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 24 days old."
+          "reason": "Latest revenue evidence is 25 days old."
         }
       ]
     },
@@ -744,7 +731,7 @@
           "id": "eprofessor",
           "name": "eProfessor",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 24 days old."
+          "reason": "Latest revenue evidence is 25 days old."
         }
       ]
     },
@@ -758,6 +745,19 @@
           "name": "Castmagic",
           "priority": "P1_STALE",
           "reason": "Latest revenue evidence is 9 days old."
+        }
+      ]
+    },
+    {
+      "account_id": "tagshop-ai",
+      "network": "FirstPromoter",
+      "portal_url": "https://tagshop.firstpromoter.com/login",
+      "tools": [
+        {
+          "id": "tagshop-ai",
+          "name": "Tagshop AI",
+          "priority": "P1_STALE",
+          "reason": "Latest revenue evidence is 14 days old."
         }
       ]
     },
@@ -899,74 +899,6 @@
     }
   ],
   "rows": [
-    {
-      "id": "tagshop-ai",
-      "name": "Tagshop AI",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://tagshop.ai?via=coshuma-22501e",
-      "network": "FirstPromoter",
-      "account_id": "tagshop-ai",
-      "portal_url": "https://tagshop.firstpromoter.com/login",
-      "priority": "P0_UNCHECKED",
-      "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
-      "coverage_type": "tool",
-      "latest_evidence_at": null,
-      "evidence_age_days": null,
-      "evidence_source": null,
-      "evidence_id": null,
-      "latest_metrics": null,
-      "funnel": {
-        "affiliate_click": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "signup_referral": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "trial": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "paid": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "commission": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "payout": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        }
-      },
-      "evidence_records": 0
-    },
     {
       "id": "kittl",
       "name": "Kittl",
@@ -4104,10 +4036,10 @@
       "account_id": "aiassistworks",
       "portal_url": "https://aiassistworks.affonso.io/",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 24 days old.",
+      "reason": "Latest revenue evidence is 25 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T20:29:50Z",
-      "evidence_age_days": 24,
+      "evidence_age_days": 25,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -4579,10 +4511,10 @@
       "account_id": "eprofessor",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 24 days old.",
+      "reason": "Latest revenue evidence is 25 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T21:24:29.148094Z",
-      "evidence_age_days": 24,
+      "evidence_age_days": 25,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -4730,6 +4662,83 @@
         }
       },
       "evidence_records": 2
+    },
+    {
+      "id": "tagshop-ai",
+      "name": "Tagshop AI",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://tagshop.ai?via=coshuma-22501e",
+      "network": "FirstPromoter",
+      "account_id": "tagshop-ai",
+      "portal_url": "https://tagshop.firstpromoter.com/login",
+      "priority": "P1_STALE",
+      "reason": "Latest revenue evidence is 14 days old.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-18T13:39:08Z",
+      "evidence_age_days": 14,
+      "evidence_source": "vendor-human-email-attachment",
+      "evidence_id": "gmail:1a0b4be35d48f261:Screenshot 2026-09-18 190742.png",
+      "latest_metrics": {
+        "outbound_clicks": null,
+        "signups_referrals": null,
+        "trials": null,
+        "paid_customers": null,
+        "commission_earned": null,
+        "commission_pending": null,
+        "payout_paid": null,
+        "network_reported_unlabeled_zero_summary": 0
+      },
+      "funnel": {
+        "affiliate_click": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "stale",
+          "period": "Current dashboard as of 2026-09-18; screenshot column labels cropped",
+          "checked_at": "2026-09-18T13:39:08Z",
+          "evidence_id": "gmail:1a0b4be35d48f261:Screenshot 2026-09-18 190742.png"
+        },
+        "signup_referral": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "stale",
+          "period": "Current dashboard as of 2026-09-18; screenshot column labels cropped",
+          "checked_at": "2026-09-18T13:39:08Z",
+          "evidence_id": "gmail:1a0b4be35d48f261:Screenshot 2026-09-18 190742.png"
+        },
+        "trial": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "stale",
+          "period": "Current dashboard as of 2026-09-18; screenshot column labels cropped",
+          "checked_at": "2026-09-18T13:39:08Z",
+          "evidence_id": "gmail:1a0b4be35d48f261:Screenshot 2026-09-18 190742.png"
+        },
+        "paid": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "stale",
+          "period": "Current dashboard as of 2026-09-18; screenshot column labels cropped",
+          "checked_at": "2026-09-18T13:39:08Z",
+          "evidence_id": "gmail:1a0b4be35d48f261:Screenshot 2026-09-18 190742.png"
+        },
+        "commission": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "stale",
+          "period": "Current dashboard as of 2026-09-18; screenshot column labels cropped",
+          "checked_at": "2026-09-18T13:39:08Z",
+          "evidence_id": "gmail:1a0b4be35d48f261:Screenshot 2026-09-18 190742.png"
+        },
+        "payout": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "stale",
+          "period": "Current dashboard as of 2026-09-18; screenshot column labels cropped",
+          "checked_at": "2026-09-18T13:39:08Z",
+          "evidence_id": "gmail:1a0b4be35d48f261:Screenshot 2026-09-18 190742.png"
+        }
+      },
+      "evidence_records": 1
     },
     {
       "id": "gohighlevel",
