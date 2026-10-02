@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T22:58:58Z",
+  "updated_at": "2026-10-02T23:07:06Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1261,7 +1261,7 @@
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": "native_schedule_fidelity_observation_only",
-      "last_evidence_at": "2026-10-02T22:58:58Z",
+      "last_evidence_at": "2026-10-02T23:07:06Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "*/15 * * * *",
@@ -1702,7 +1702,7 @@
             "Royal Queue Reconcile Status": {
               "run_id": 37048010062,
               "scheduled_at": "2026-10-02T18:31:00Z",
-              "recovery_status": "overdue_awaiting_single_target_continuation"
+              "recovery_status": "new_native_schedule_success_observed_after_fallback_window"
             }
           },
           "current_native_schedule_runs": {
@@ -1729,15 +1729,28 @@
           "evidence_comment_id": 5962782397,
           "availability_status": "cloud_control_plane_restored_three_overdue_targets_isolated",
           "native_schedule_permanent_recovery_claimed": false,
-          "user_action_required": false
+          "user_action_required": false,
+          "post_merge_native_observation": {
+            "observed_at": "2026-10-02T23:07:06Z",
+            "workflow": "Royal Queue Reconcile Status",
+            "run_id": 37075694809,
+            "scheduled_at": "2026-10-02T23:03:00Z",
+            "conclusion": "success",
+            "remaining_overdue_targets": [
+              "COSHUMA Cloud Control Plane",
+              "COSHUMA Growth Loop",
+              "COSHUMA Registry Reconciliation"
+            ],
+            "completion_boundary": "One fresh Royal Queue native schedule success reduces the current overdue set but does not satisfy the incident completion gate for all affected workflows."
+          }
         }
       },
       "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
       "completion_gate_satisfied": false,
       "availability_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "Direct GitHub Actions readback confirmed four overdue native schedules and two current schedules. Existing owner-gated fallback run 37075200875 and Cloud Control Plane workflow_dispatch 37075206971 both succeeded. This restores availability for one target only and is not native schedule recovery evidence.",
-      "handoff": "Operations Governance Team continues the existing incident. Process Growth Loop, Registry Reconciliation, and Royal Queue as separate single-target continuations after fresh readback; keep lifecycle in_progress and completion gate false until native-schedule completion evidence exists."
+      "verification": "Direct GitHub Actions readback initially confirmed four overdue native schedules and two current schedules. Owner-gated fallback 37075200875 and Cloud Control Plane workflow_dispatch 37075206971 succeeded. Royal Queue then produced fresh native schedule run 37075694809 successfully. Cloud Control Plane, Growth Loop, and Registry Reconciliation remain overdue; native schedule completion is not claimed.",
+      "handoff": "Operations Governance Team continues the existing incident. Re-read Cloud Control Plane, Growth Loop, and Registry Reconciliation before any separate single-target continuation. Keep lifecycle in_progress and completion gate false until the existing native-schedule completion boundary is met."
     },
     {
       "record_id": "EDITORIAL:EDITORIAL-BODY-008",
