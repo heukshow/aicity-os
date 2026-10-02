@@ -127,6 +127,27 @@ approvedTracking.set('sanebox', {
 });
 
 
+
+  // Pipedrive Affiliate Team directly supplied COSHUMA's exact account-specific
+  // customer referral URL after approval. This vendor confirmation is sufficient
+  // to promote the URL as approved_tracking, but it is not evidence of clicks,
+  // signups, paid customers, commission, payout, or end-to-end attribution.
+  approvedTracking.set('pipedrive', {
+    id: 'pipedrive',
+    status: 'approved_tracking',
+    exact_tracking_url: 'https://aff.trypipedrive.com/sv587bilh4w7',
+    destination: 'https://aff.trypipedrive.com/sv587bilh4w7',
+    allowed_cta_urls: [
+      'https://aff.trypipedrive.com/sv587bilh4w7',
+    ],
+    company_mailbox: 'support@coshuma.com',
+    vendor_reply_message_id: '1a0f9b12d43f26ed',
+    extended_trial_days: 30,
+    evidence: 'Pipedrive Affiliate Team reply 1a0f9b12d43f26ed directly supplies https://aff.trypipedrive.com/sv587bilh4w7 as COSHUMA\'s exact customer-facing referral URL and confirms the extended 30-day trial is automatically offered through that link. The same reply confirms upgrades and add-ons within the first 12 months of a new customer are included in revenue share. No click, signup, paid customer, commission, payout, or revenue is inferred from link issuance.',
+    checked_at: '2026-10-02T07:58:36+09:00',
+    evidence_file: 'data/pipedrive-approved-tracking-2026-10-02.md',
+  });
+
 // Tidio Partnerships explicitly superseded the prior 2026-08-25 rejection and
 // issued COSHUMA's exact PartnerStack customer-facing affiliate link.
 approvedTracking.set('tidio', {
