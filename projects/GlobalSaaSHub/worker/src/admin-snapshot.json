@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T21:28:14.995Z",
+  "generatedAt": "2026-10-02T21:35:25.662Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 118,
@@ -8,8 +8,8 @@
     "targetedRevenueReadyAffiliates": 2,
     "openMonetizationGaps": 78,
     "directActionableGaps": 0,
-    "browserRequiredGaps": 29,
-    "watchOnlyGaps": 49,
+    "browserRequiredGaps": 27,
+    "watchOnlyGaps": 51,
     "doNotReapply": 179,
     "toolPages": 179,
     "comparePages": 279,
@@ -28,13 +28,13 @@
       "terminal": 26,
       "openMonetizationGaps": 78,
       "directActionableGaps": 0,
-      "browserRequiredGaps": 29,
-      "watchOnlyGaps": 49,
+      "browserRequiredGaps": 27,
+      "watchOnlyGaps": 51,
       "doNotReapply": 179,
       "unclassifiedAffiliateStatus": 0,
       "exactAffiliateUrlMissing": 78,
       "officialUnverified": 1,
-      "pricingUnverified": 132
+      "pricingUnverified": 131
     },
     "records": [
       {
@@ -1445,7 +1445,7 @@
         "id": "activepieces",
         "name": "Activepieces",
         "officialVerified": true,
-        "pricingVerified": false,
+        "pricingVerified": true,
         "affiliateStatus": "browser_required_sales_inquiry",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
@@ -1734,7 +1734,7 @@
         "name": "Carv",
         "officialVerified": true,
         "pricingVerified": false,
-        "affiliateStatus": "browser_required_application_form",
+        "affiliateStatus": "waiting_vendor_eligibility_clarification",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -1742,9 +1742,9 @@
         "revenueReady": false,
         "terminal": false,
         "doNotReapply": true,
-        "browserRequired": true,
+        "browserRequired": false,
         "directActionableGap": false,
-        "watchOnlyGap": false,
+        "watchOnlyGap": true,
         "blocker": "exact_customer_affiliate_url_missing"
       },
       {
@@ -1968,7 +1968,7 @@
         "name": "Expandi",
         "officialVerified": true,
         "pricingVerified": false,
-        "affiliateStatus": "browser_required_application_form",
+        "affiliateStatus": "waiting_vendor_requirement",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -1976,9 +1976,9 @@
         "revenueReady": false,
         "terminal": false,
         "doNotReapply": true,
-        "browserRequired": true,
+        "browserRequired": false,
         "directActionableGap": false,
-        "watchOnlyGap": false,
+        "watchOnlyGap": true,
         "blocker": "exact_customer_affiliate_url_missing"
       },
       {
