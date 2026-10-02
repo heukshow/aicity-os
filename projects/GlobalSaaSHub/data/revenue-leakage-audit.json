@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T18:30:04.731Z",
+  "generated_at": "2026-10-02T20:10:14.016Z",
   "evidence_scope": "Combined authenticated revenue-browser baseline, current revenue-truth records, and explicit account-wide commission/payout evidence.",
   "policy": {
     "purpose": "Detect approved monetized routes that can leak revenue because downstream affiliate metrics are missing or stale.",
@@ -11,9 +11,9 @@
   },
   "summary": {
     "approved_tracked_tools": 74,
-    "P0_UNCHECKED": 50,
-    "P1_STALE": 21,
-    "P1_PARTIAL": 3,
+    "P0_UNCHECKED": 47,
+    "P1_STALE": 20,
+    "P1_PARTIAL": 7,
     "P2_COVERED": 0,
     "unchecked_or_stale_or_partial": 74,
     "account_groups_to_check": 62
@@ -216,19 +216,6 @@
       ]
     },
     {
-      "account_id": "databox",
-      "network": "개별 제휴 포털",
-      "portal_url": null,
-      "tools": [
-        {
-          "id": "databox",
-          "name": "Databox",
-          "priority": "P0_UNCHECKED",
-          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
-        }
-      ]
-    },
-    {
       "account_id": "decktopus",
       "network": "개별 제휴 포털",
       "portal_url": null,
@@ -236,19 +223,6 @@
         {
           "id": "decktopus",
           "name": "Decktopus",
-          "priority": "P0_UNCHECKED",
-          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
-        }
-      ]
-    },
-    {
-      "account_id": "docsbot",
-      "network": "개별 제휴 포털",
-      "portal_url": null,
-      "tools": [
-        {
-          "id": "docsbot",
-          "name": "DocsBot",
           "priority": "P0_UNCHECKED",
           "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
         }
@@ -671,19 +645,6 @@
       ]
     },
     {
-      "account_id": "vista-social",
-      "network": "개별 제휴 포털",
-      "portal_url": null,
-      "tools": [
-        {
-          "id": "vista-social",
-          "name": "Vista Social",
-          "priority": "P0_UNCHECKED",
-          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
-        }
-      ]
-    },
-    {
       "account_id": "writesonic",
       "network": "개별 제휴 포털",
       "portal_url": null,
@@ -718,7 +679,7 @@
           "id": "aweber",
           "name": "AWeber",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 13 days old."
+          "reason": "Latest revenue evidence is 14 days old."
         }
       ]
     },
@@ -744,7 +705,7 @@
           "id": "catalister",
           "name": "Catalister",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 24 days old."
+          "reason": "Latest revenue evidence is 25 days old."
         }
       ]
     },
@@ -796,20 +757,7 @@
           "id": "castmagic",
           "name": "Castmagic",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 8 days old."
-        }
-      ]
-    },
-    {
-      "account_id": "pictory",
-      "network": "FirstPromoter",
-      "portal_url": "https://pictory.firstpromoter.com/login",
-      "tools": [
-        {
-          "id": "pictory",
-          "name": "Pictory",
-          "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 16 days old."
+          "reason": "Latest revenue evidence is 9 days old."
         }
       ]
     },
@@ -894,6 +842,58 @@
           "name": "Chatbase",
           "priority": "P1_STALE",
           "reason": "Latest revenue evidence is 12 days old."
+        }
+      ]
+    },
+    {
+      "account_id": "pictory",
+      "network": "FirstPromoter",
+      "portal_url": "https://pictory.firstpromoter.com/login",
+      "tools": [
+        {
+          "id": "pictory",
+          "name": "Pictory",
+          "priority": "P1_PARTIAL",
+          "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage."
+        }
+      ]
+    },
+    {
+      "account_id": "databox",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "databox",
+          "name": "Databox",
+          "priority": "P1_PARTIAL",
+          "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown."
+        }
+      ]
+    },
+    {
+      "account_id": "docsbot",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "docsbot",
+          "name": "DocsBot",
+          "priority": "P1_PARTIAL",
+          "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown."
+        }
+      ]
+    },
+    {
+      "account_id": "vista-social",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "tools": [
+        {
+          "id": "vista-social",
+          "name": "Vista Social",
+          "priority": "P1_PARTIAL",
+          "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown."
         }
       ]
     }
@@ -1784,148 +1784,12 @@
       "evidence_records": 0
     },
     {
-      "id": "databox",
-      "name": "Databox",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://databox.com?aff_id=15298659&fp_ref=sangkwon-72c9ec",
-      "network": "개별 제휴 포털",
-      "account_id": "databox",
-      "portal_url": null,
-      "priority": "P0_UNCHECKED",
-      "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
-      "coverage_type": "tool",
-      "latest_evidence_at": null,
-      "evidence_age_days": null,
-      "evidence_source": null,
-      "evidence_id": null,
-      "latest_metrics": null,
-      "funnel": {
-        "affiliate_click": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "signup_referral": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "trial": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "paid": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "commission": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "payout": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        }
-      },
-      "evidence_records": 0
-    },
-    {
       "id": "decktopus",
       "name": "Decktopus",
       "affiliate_status": "approved_tracking",
       "tracking_url": "https://www.decktopus.com?via=sangkwon",
       "network": "개별 제휴 포털",
       "account_id": "decktopus",
-      "portal_url": null,
-      "priority": "P0_UNCHECKED",
-      "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
-      "coverage_type": "tool",
-      "latest_evidence_at": null,
-      "evidence_age_days": null,
-      "evidence_source": null,
-      "evidence_id": null,
-      "latest_metrics": null,
-      "funnel": {
-        "affiliate_click": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "signup_referral": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "trial": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "paid": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "commission": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "payout": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        }
-      },
-      "evidence_records": 0
-    },
-    {
-      "id": "docsbot",
-      "name": "DocsBot",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://docsbot.ai?via=31kq9q",
-      "network": "개별 제휴 포털",
-      "account_id": "docsbot",
       "portal_url": null,
       "priority": "P0_UNCHECKED",
       "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
@@ -4164,74 +4028,6 @@
       "evidence_records": 0
     },
     {
-      "id": "vista-social",
-      "name": "Vista Social",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://vistasocial.com?fpr=sangkwon14",
-      "network": "개별 제휴 포털",
-      "account_id": "vista-social",
-      "portal_url": null,
-      "priority": "P0_UNCHECKED",
-      "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory.",
-      "coverage_type": "tool",
-      "latest_evidence_at": null,
-      "evidence_age_days": null,
-      "evidence_source": null,
-      "evidence_id": null,
-      "latest_metrics": null,
-      "funnel": {
-        "affiliate_click": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "signup_referral": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "trial": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "paid": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "commission": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        },
-        "payout": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "unavailable",
-          "period": null,
-          "checked_at": null,
-          "evidence_id": null
-        }
-      },
-      "evidence_records": 0
-    },
-    {
       "id": "writesonic",
       "name": "Writesonic",
       "affiliate_status": "approved_tracking",
@@ -4388,10 +4184,10 @@
       "account_id": "aweber",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 13 days old.",
+      "reason": "Latest revenue evidence is 14 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-18T20:00:33Z",
-      "evidence_age_days": 13,
+      "evidence_age_days": 14,
       "evidence_source": "vendor-human-email",
       "evidence_id": "gmail:1a0b61b45d55df0e",
       "latest_metrics": {
@@ -4543,10 +4339,10 @@
       "account_id": "catalister",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 24 days old.",
+      "reason": "Latest revenue evidence is 25 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T19:55:00Z",
-      "evidence_age_days": 24,
+      "evidence_age_days": 25,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -4863,10 +4659,10 @@
       "account_id": "castmagic",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 8 days old.",
+      "reason": "Latest revenue evidence is 9 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-23T18:32:38Z",
-      "evidence_age_days": 8,
+      "evidence_age_days": 9,
       "evidence_source": "vendor-system-email",
       "evidence_id": "gmail:1a0cf8a8b7c21b67",
       "latest_metrics": {
@@ -4934,86 +4730,6 @@
         }
       },
       "evidence_records": 2
-    },
-    {
-      "id": "pictory",
-      "name": "Pictory",
-      "affiliate_status": "approved_tracking",
-      "tracking_url": "https://pictory.ai?fpr=sangkwon-an23",
-      "network": "FirstPromoter",
-      "account_id": "pictory",
-      "portal_url": "https://pictory.firstpromoter.com/login",
-      "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 16 days old.",
-      "coverage_type": "tool",
-      "latest_evidence_at": "2026-09-16T00:00:00Z",
-      "evidence_age_days": 16,
-      "evidence_source": "authenticated-browser-dashboard",
-      "evidence_id": "browser:pictory-partners-home;github:issue-315",
-      "latest_metrics": {
-        "outbound_clicks": 6,
-        "signups_referrals": 0,
-        "trials": null,
-        "paid_customers": 0,
-        "gross_sales_revenue": null,
-        "commission_earned": 0,
-        "commission_approved": null,
-        "commission_pending": null,
-        "payout_paid": null,
-        "payout_pending": null,
-        "network_reported_conversions": null
-      },
-      "funnel": {
-        "affiliate_click": {
-          "value": 6,
-          "observation": "measured",
-          "freshness": "stale",
-          "period": "account aggregate since 2026-08-23",
-          "checked_at": "2026-09-16T00:00:00Z",
-          "evidence_id": "browser:pictory-partners-home;github:issue-315"
-        },
-        "signup_referral": {
-          "value": 0,
-          "observation": "confirmed_zero",
-          "freshness": "stale",
-          "period": "account aggregate since 2026-08-23",
-          "checked_at": "2026-09-16T00:00:00Z",
-          "evidence_id": "browser:pictory-partners-home;github:issue-315"
-        },
-        "trial": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "stale",
-          "period": "account aggregate since 2026-08-23",
-          "checked_at": "2026-09-16T00:00:00Z",
-          "evidence_id": "browser:pictory-partners-home;github:issue-315"
-        },
-        "paid": {
-          "value": 0,
-          "observation": "confirmed_zero",
-          "freshness": "stale",
-          "period": "account aggregate since 2026-08-23",
-          "checked_at": "2026-09-16T00:00:00Z",
-          "evidence_id": "browser:pictory-partners-home;github:issue-315"
-        },
-        "commission": {
-          "value": 0,
-          "observation": "confirmed_zero",
-          "freshness": "stale",
-          "period": "account aggregate since 2026-08-23",
-          "checked_at": "2026-09-16T00:00:00Z",
-          "evidence_id": "browser:pictory-partners-home;github:issue-315"
-        },
-        "payout": {
-          "value": null,
-          "observation": "unknown",
-          "freshness": "stale",
-          "period": "account aggregate since 2026-08-23",
-          "checked_at": "2026-09-16T00:00:00Z",
-          "evidence_id": "browser:pictory-partners-home;github:issue-315"
-        }
-      },
-      "evidence_records": 1
     },
     {
       "id": "gohighlevel",
@@ -5971,6 +5687,82 @@
       "evidence_records": 1
     },
     {
+      "id": "pictory",
+      "name": "Pictory",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://pictory.ai?fpr=sangkwon-an23",
+      "network": "FirstPromoter",
+      "account_id": "pictory",
+      "portal_url": "https://pictory.firstpromoter.com/login",
+      "priority": "P1_PARTIAL",
+      "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-28T09:09:57Z",
+      "evidence_age_days": 4,
+      "evidence_source": "vendor-system-email",
+      "evidence_id": "gmail:1a0e74730a53e9b7",
+      "latest_metrics": {
+        "outbound_clicks": 0,
+        "signups_referrals": 0,
+        "trials": null,
+        "paid_customers": 0,
+        "commission_earned": 0,
+        "commission_pending": null,
+        "payout_paid": null
+      },
+      "funnel": {
+        "affiliate_click": {
+          "value": 0,
+          "observation": "confirmed_zero",
+          "freshness": "current",
+          "period": "Previous month; exact calendar boundaries not stated in email",
+          "checked_at": "2026-09-28T09:09:57Z",
+          "evidence_id": "gmail:1a0e74730a53e9b7"
+        },
+        "signup_referral": {
+          "value": 0,
+          "observation": "confirmed_zero",
+          "freshness": "current",
+          "period": "Previous month; exact calendar boundaries not stated in email",
+          "checked_at": "2026-09-28T09:09:57Z",
+          "evidence_id": "gmail:1a0e74730a53e9b7"
+        },
+        "trial": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Previous month; exact calendar boundaries not stated in email",
+          "checked_at": "2026-09-28T09:09:57Z",
+          "evidence_id": "gmail:1a0e74730a53e9b7"
+        },
+        "paid": {
+          "value": 0,
+          "observation": "confirmed_zero",
+          "freshness": "current",
+          "period": "Previous month; exact calendar boundaries not stated in email",
+          "checked_at": "2026-09-28T09:09:57Z",
+          "evidence_id": "gmail:1a0e74730a53e9b7"
+        },
+        "commission": {
+          "value": 0,
+          "observation": "confirmed_zero",
+          "freshness": "current",
+          "period": "Previous month; exact calendar boundaries not stated in email",
+          "checked_at": "2026-09-28T09:09:57Z",
+          "evidence_id": "gmail:1a0e74730a53e9b7"
+        },
+        "payout": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Previous month; exact calendar boundaries not stated in email",
+          "checked_at": "2026-09-28T09:09:57Z",
+          "evidence_id": "gmail:1a0e74730a53e9b7"
+        }
+      },
+      "evidence_records": 2
+    },
+    {
       "id": "gamma",
       "name": "Gamma",
       "affiliate_status": "approved_tracking",
@@ -6210,6 +6002,238 @@
         }
       },
       "evidence_records": 2
+    },
+    {
+      "id": "databox",
+      "name": "Databox",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://databox.com?aff_id=15298659&fp_ref=sangkwon-72c9ec",
+      "network": "개별 제휴 포털",
+      "account_id": "databox",
+      "portal_url": null,
+      "priority": "P1_PARTIAL",
+      "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-10-02T06:46:00Z",
+      "evidence_age_days": 0,
+      "evidence_source": "vendor-system-email",
+      "evidence_id": "gmail:1a0fb5cd86910322",
+      "latest_metrics": {
+        "outbound_clicks": null,
+        "signups_referrals": null,
+        "trials": null,
+        "paid_customers": null,
+        "commission_earned": null,
+        "commission_pending": null,
+        "payout_paid": null,
+        "network_reported_unpaid_balance": 0,
+        "network_reported_paid_balance": 0
+      },
+      "funnel": {
+        "affiliate_click": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-10-02",
+          "checked_at": "2026-10-02T06:46:00Z",
+          "evidence_id": "gmail:1a0fb5cd86910322"
+        },
+        "signup_referral": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-10-02",
+          "checked_at": "2026-10-02T06:46:00Z",
+          "evidence_id": "gmail:1a0fb5cd86910322"
+        },
+        "trial": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-10-02",
+          "checked_at": "2026-10-02T06:46:00Z",
+          "evidence_id": "gmail:1a0fb5cd86910322"
+        },
+        "paid": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-10-02",
+          "checked_at": "2026-10-02T06:46:00Z",
+          "evidence_id": "gmail:1a0fb5cd86910322"
+        },
+        "commission": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-10-02",
+          "checked_at": "2026-10-02T06:46:00Z",
+          "evidence_id": "gmail:1a0fb5cd86910322"
+        },
+        "payout": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-10-02",
+          "checked_at": "2026-10-02T06:46:00Z",
+          "evidence_id": "gmail:1a0fb5cd86910322"
+        }
+      },
+      "evidence_records": 1
+    },
+    {
+      "id": "docsbot",
+      "name": "DocsBot",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://docsbot.ai?via=31kq9q",
+      "network": "개별 제휴 포털",
+      "account_id": "docsbot",
+      "portal_url": null,
+      "priority": "P1_PARTIAL",
+      "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-10-01T13:56:48Z",
+      "evidence_age_days": 1,
+      "evidence_source": "vendor-system-email",
+      "evidence_id": "gmail:1a0f7c0e76dbd5de",
+      "latest_metrics": {
+        "outbound_clicks": null,
+        "signups_referrals": null,
+        "trials": null,
+        "paid_customers": null,
+        "commission_earned": null,
+        "commission_pending": null,
+        "payout_paid": null,
+        "network_reported_unpaid_balance": 0
+      },
+      "funnel": {
+        "affiliate_click": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-10-01",
+          "checked_at": "2026-10-01T13:56:48Z",
+          "evidence_id": "gmail:1a0f7c0e76dbd5de"
+        },
+        "signup_referral": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-10-01",
+          "checked_at": "2026-10-01T13:56:48Z",
+          "evidence_id": "gmail:1a0f7c0e76dbd5de"
+        },
+        "trial": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-10-01",
+          "checked_at": "2026-10-01T13:56:48Z",
+          "evidence_id": "gmail:1a0f7c0e76dbd5de"
+        },
+        "paid": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-10-01",
+          "checked_at": "2026-10-01T13:56:48Z",
+          "evidence_id": "gmail:1a0f7c0e76dbd5de"
+        },
+        "commission": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-10-01",
+          "checked_at": "2026-10-01T13:56:48Z",
+          "evidence_id": "gmail:1a0f7c0e76dbd5de"
+        },
+        "payout": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-10-01",
+          "checked_at": "2026-10-01T13:56:48Z",
+          "evidence_id": "gmail:1a0f7c0e76dbd5de"
+        }
+      },
+      "evidence_records": 1
+    },
+    {
+      "id": "vista-social",
+      "name": "Vista Social",
+      "affiliate_status": "approved_tracking",
+      "tracking_url": "https://vistasocial.com?fpr=sangkwon14",
+      "network": "개별 제휴 포털",
+      "account_id": "vista-social",
+      "portal_url": null,
+      "priority": "P1_PARTIAL",
+      "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown.",
+      "coverage_type": "tool",
+      "latest_evidence_at": "2026-09-30T22:02:27Z",
+      "evidence_age_days": 1,
+      "evidence_source": "vendor-system-email",
+      "evidence_id": "gmail:1a0f4572d54da79a",
+      "latest_metrics": {
+        "outbound_clicks": null,
+        "signups_referrals": null,
+        "trials": null,
+        "paid_customers": null,
+        "commission_earned": null,
+        "commission_pending": null,
+        "payout_paid": null,
+        "network_reported_unpaid_balance": 0
+      },
+      "funnel": {
+        "affiliate_click": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-09-30",
+          "checked_at": "2026-09-30T22:02:27Z",
+          "evidence_id": "gmail:1a0f4572d54da79a"
+        },
+        "signup_referral": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-09-30",
+          "checked_at": "2026-09-30T22:02:27Z",
+          "evidence_id": "gmail:1a0f4572d54da79a"
+        },
+        "trial": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-09-30",
+          "checked_at": "2026-09-30T22:02:27Z",
+          "evidence_id": "gmail:1a0f4572d54da79a"
+        },
+        "paid": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-09-30",
+          "checked_at": "2026-09-30T22:02:27Z",
+          "evidence_id": "gmail:1a0f4572d54da79a"
+        },
+        "commission": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-09-30",
+          "checked_at": "2026-09-30T22:02:27Z",
+          "evidence_id": "gmail:1a0f4572d54da79a"
+        },
+        "payout": {
+          "value": null,
+          "observation": "unknown",
+          "freshness": "current",
+          "period": "Account balance as of 2026-09-30",
+          "checked_at": "2026-09-30T22:02:27Z",
+          "evidence_id": "gmail:1a0f4572d54da79a"
+        }
+      },
+      "evidence_records": 1
     }
   ]
 }

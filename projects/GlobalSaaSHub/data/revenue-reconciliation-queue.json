@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T18:30:04.775Z",
+  "generated_at": "2026-10-02T20:10:14.087Z",
   "source": "data/revenue-leakage-audit.json",
   "scope": "Internal COSHUMA revenue reconciliation only",
   "queue_status": "active",
@@ -337,32 +337,6 @@
       "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
     },
     {
-      "account_id": "databox",
-      "network": "개별 제휴 포털",
-      "portal_url": null,
-      "priority": "P0_UNCHECKED",
-      "tool_count": 1,
-      "tools": [
-        {
-          "id": "databox",
-          "name": "Databox",
-          "priority": "P0_UNCHECKED",
-          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
-        }
-      ],
-      "execution": "locate_existing_account_or_vendor_dashboard_first",
-      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
-      "safety": [
-        "Do not create a new account or reapply.",
-        "Do not change any customer tracking URL.",
-        "Do not start a paid plan or authorize payment.",
-        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
-        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
-        "Never expose this internal revenue audit on public COSHUMA pages."
-      ],
-      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
-    },
-    {
       "account_id": "decktopus",
       "network": "개별 제휴 포털",
       "portal_url": null,
@@ -372,32 +346,6 @@
         {
           "id": "decktopus",
           "name": "Decktopus",
-          "priority": "P0_UNCHECKED",
-          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
-        }
-      ],
-      "execution": "locate_existing_account_or_vendor_dashboard_first",
-      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
-      "safety": [
-        "Do not create a new account or reapply.",
-        "Do not change any customer tracking URL.",
-        "Do not start a paid plan or authorize payment.",
-        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
-        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
-        "Never expose this internal revenue audit on public COSHUMA pages."
-      ],
-      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
-    },
-    {
-      "account_id": "docsbot",
-      "network": "개별 제휴 포털",
-      "portal_url": null,
-      "priority": "P0_UNCHECKED",
-      "tool_count": 1,
-      "tools": [
-        {
-          "id": "docsbot",
-          "name": "DocsBot",
           "priority": "P0_UNCHECKED",
           "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
         }
@@ -1247,32 +1195,6 @@
       "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
     },
     {
-      "account_id": "vista-social",
-      "network": "개별 제휴 포털",
-      "portal_url": null,
-      "priority": "P0_UNCHECKED",
-      "tool_count": 1,
-      "tools": [
-        {
-          "id": "vista-social",
-          "name": "Vista Social",
-          "priority": "P0_UNCHECKED",
-          "reason": "Approved tracked affiliate route has no dashboard/email/API revenue evidence in the combined baseline + current truth inventory."
-        }
-      ],
-      "execution": "locate_existing_account_or_vendor_dashboard_first",
-      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
-      "safety": [
-        "Do not create a new account or reapply.",
-        "Do not change any customer tracking URL.",
-        "Do not start a paid plan or authorize payment.",
-        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
-        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
-        "Never expose this internal revenue audit on public COSHUMA pages."
-      ],
-      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
-    },
-    {
       "account_id": "writesonic",
       "network": "개별 제휴 포털",
       "portal_url": null,
@@ -1367,7 +1289,7 @@
           "id": "aweber",
           "name": "AWeber",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 13 days old."
+          "reason": "Latest revenue evidence is 14 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1419,7 +1341,7 @@
           "id": "catalister",
           "name": "Catalister",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 24 days old."
+          "reason": "Latest revenue evidence is 25 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1523,36 +1445,10 @@
           "id": "castmagic",
           "name": "Castmagic",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 8 days old."
+          "reason": "Latest revenue evidence is 9 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
-      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
-      "safety": [
-        "Do not create a new account or reapply.",
-        "Do not change any customer tracking URL.",
-        "Do not start a paid plan or authorize payment.",
-        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
-        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
-        "Never expose this internal revenue audit on public COSHUMA pages."
-      ],
-      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
-    },
-    {
-      "account_id": "pictory",
-      "network": "FirstPromoter",
-      "portal_url": "https://pictory.firstpromoter.com/login",
-      "priority": "P1_STALE",
-      "tool_count": 1,
-      "tools": [
-        {
-          "id": "pictory",
-          "name": "Pictory",
-          "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 16 days old."
-        }
-      ],
-      "execution": "browser_read_only",
       "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
       "safety": [
         "Do not create a new account or reapply.",
@@ -1680,6 +1576,110 @@
           "name": "Chatbase",
           "priority": "P1_STALE",
           "reason": "Latest revenue evidence is 12 days old."
+        }
+      ],
+      "execution": "locate_existing_account_or_vendor_dashboard_first",
+      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
+      "safety": [
+        "Do not create a new account or reapply.",
+        "Do not change any customer tracking URL.",
+        "Do not start a paid plan or authorize payment.",
+        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
+        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
+        "Never expose this internal revenue audit on public COSHUMA pages."
+      ],
+      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
+    },
+    {
+      "account_id": "pictory",
+      "network": "FirstPromoter",
+      "portal_url": "https://pictory.firstpromoter.com/login",
+      "priority": "P1_PARTIAL",
+      "tool_count": 1,
+      "tools": [
+        {
+          "id": "pictory",
+          "name": "Pictory",
+          "priority": "P1_PARTIAL",
+          "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage."
+        }
+      ],
+      "execution": "browser_read_only",
+      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
+      "safety": [
+        "Do not create a new account or reapply.",
+        "Do not change any customer tracking URL.",
+        "Do not start a paid plan or authorize payment.",
+        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
+        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
+        "Never expose this internal revenue audit on public COSHUMA pages."
+      ],
+      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
+    },
+    {
+      "account_id": "databox",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "priority": "P1_PARTIAL",
+      "tool_count": 1,
+      "tools": [
+        {
+          "id": "databox",
+          "name": "Databox",
+          "priority": "P1_PARTIAL",
+          "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown."
+        }
+      ],
+      "execution": "locate_existing_account_or_vendor_dashboard_first",
+      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
+      "safety": [
+        "Do not create a new account or reapply.",
+        "Do not change any customer tracking URL.",
+        "Do not start a paid plan or authorize payment.",
+        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
+        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
+        "Never expose this internal revenue audit on public COSHUMA pages."
+      ],
+      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
+    },
+    {
+      "account_id": "docsbot",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "priority": "P1_PARTIAL",
+      "tool_count": 1,
+      "tools": [
+        {
+          "id": "docsbot",
+          "name": "DocsBot",
+          "priority": "P1_PARTIAL",
+          "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown."
+        }
+      ],
+      "execution": "locate_existing_account_or_vendor_dashboard_first",
+      "objective": "Read only evidence-backed affiliate metrics for the existing approved/tracked relationship. Capture clicks, signups/referrals, trials, paid customers, revenue if explicitly shown, commission earned/approved/pending, paid payout, pending payout, currency, reporting period, and timestamp. Preserve unknown when a metric is not shown.",
+      "safety": [
+        "Do not create a new account or reapply.",
+        "Do not change any customer tracking URL.",
+        "Do not start a paid plan or authorize payment.",
+        "Do not infer signup, trial, paid customer, commission, or payout from clicks.",
+        "Stop for CAPTCHA, OTP, legal agreement acceptance, identity verification, or payment authorization.",
+        "Never expose this internal revenue audit on public COSHUMA pages."
+      ],
+      "done_when": "A new evidence-backed revenue-truth record is stored for each checked tool/account scope, or the metric is explicitly marked unavailable/unknown with source and timestamp."
+    },
+    {
+      "account_id": "vista-social",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "priority": "P1_PARTIAL",
+      "tool_count": 1,
+      "tools": [
+        {
+          "id": "vista-social",
+          "name": "Vista Social",
+          "priority": "P1_PARTIAL",
+          "reason": "Recent evidence exists but downstream signup/trial/customer/commission/payout metrics are all unknown."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
