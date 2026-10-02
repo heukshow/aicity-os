@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T22:00:37Z",
+  "updated_at": "2026-10-02T22:58:58Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1261,7 +1261,7 @@
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": "native_schedule_fidelity_observation_only",
-      "last_evidence_at": "2026-10-02T22:00:37Z",
+      "last_evidence_at": "2026-10-02T22:58:58Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "*/15 * * * *",
@@ -1679,14 +1679,65 @@
           },
           "unaffected_current_target": "coshuma-analytics-snapshot.yml",
           "user_action_required": false
+        },
+        "latest_security_cost_recovery": {
+          "observed_at": "2026-10-02T22:58:58Z",
+          "observation": "four_native_schedules_overdue_two_current",
+          "overdue_native_schedule_runs": {
+            "COSHUMA Cloud Control Plane": {
+              "run_id": 37057358716,
+              "scheduled_at": "2026-10-02T19:56:00Z",
+              "recovery_status": "availability_restored_by_owner_gated_fallback"
+            },
+            "COSHUMA Growth Loop": {
+              "run_id": 37048628770,
+              "scheduled_at": "2026-10-02T18:36:00Z",
+              "recovery_status": "overdue_awaiting_single_target_continuation"
+            },
+            "COSHUMA Registry Reconciliation": {
+              "run_id": 37049107816,
+              "scheduled_at": "2026-10-02T18:41:00Z",
+              "recovery_status": "overdue_awaiting_single_target_continuation"
+            },
+            "Royal Queue Reconcile Status": {
+              "run_id": 37048010062,
+              "scheduled_at": "2026-10-02T18:31:00Z",
+              "recovery_status": "overdue_awaiting_single_target_continuation"
+            }
+          },
+          "current_native_schedule_runs": {
+            "COSHUMA Analytics Snapshot": {
+              "run_id": 37066028583,
+              "scheduled_at": "2026-10-02T21:18:00Z",
+              "conclusion": "success"
+            },
+            "COSHUMA Release Verification": {
+              "run_id": 37073426349,
+              "scheduled_at": "2026-10-02T22:36:00Z",
+              "conclusion": "success"
+            }
+          },
+          "recovery": {
+            "target": "coshuma-cloud-control-plane.yml",
+            "marker_comment_id": 5962774731,
+            "fallback_workflow_run_id": 37075200875,
+            "target_workflow_run_id": 37075206971,
+            "fallback_conclusion": "success",
+            "target_event": "workflow_dispatch",
+            "target_conclusion": "success"
+          },
+          "evidence_comment_id": 5962782397,
+          "availability_status": "cloud_control_plane_restored_three_overdue_targets_isolated",
+          "native_schedule_permanent_recovery_claimed": false,
+          "user_action_required": false
         }
       },
       "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
       "completion_gate_satisfied": false,
       "availability_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "Five overdue workflows were each re-read and recovered through the existing owner-gated single-target fallback; all ten fallback/target jobs completed successfully. Analytics Snapshot remained current. workflow_dispatch restores availability but is not native schedule evidence.",
-      "handoff": "Keep lifecycle in_progress/mitigated and completion gate false. Observe the next native schedule events independently; never count fallback/workflow_dispatch as native recovery."
+      "verification": "Direct GitHub Actions readback confirmed four overdue native schedules and two current schedules. Existing owner-gated fallback run 37075200875 and Cloud Control Plane workflow_dispatch 37075206971 both succeeded. This restores availability for one target only and is not native schedule recovery evidence.",
+      "handoff": "Operations Governance Team continues the existing incident. Process Growth Loop, Registry Reconciliation, and Royal Queue as separate single-target continuations after fresh readback; keep lifecycle in_progress and completion gate false until native-schedule completion evidence exists."
     },
     {
       "record_id": "EDITORIAL:EDITORIAL-BODY-008",
