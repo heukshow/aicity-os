@@ -132,6 +132,7 @@ def main():
     tools = json.loads(TOOLS.read_text(encoding="utf-8"))
     next_tools = json.loads(TOOLS_NEXT.read_text(encoding="utf-8")) if TOOLS_NEXT.exists() else copy.deepcopy(tools)
     before = copy.deepcopy(tools)
+    before_next = copy.deepcopy(next_tools)
     state = load_state()
     attempts = state.setdefault("tools", {})
     candidates = [
@@ -208,6 +209,7 @@ def main():
             outcome["status"] = f"error_{type(exc).__name__}"
         attempts[tid] = outcome
     assert_price_only(before, tools)
+    assert_price_only(before_next, next_tools)
     save_json(TOOLS, tools)
     save_json(TOOLS_NEXT, next_tools)
     state["last_run_at"] = checked_at
