@@ -4828,24 +4828,23 @@
     "is_manual_override": true,
     "official_verification_status": "verified",
     "official_verified_at": "2026-09-14T09:33:00+09:00",
-    "official_evidence_url": "https://www.optimonk.com/partners-program",
+    "official_evidence_url": "https://www.optimonk.com/partners",
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_affiliate_application",
-    "affiliate_source_url": "https://www.optimonk.com/partners-program",
-    "affiliate_workflow_url": "https://www.optimonk.com/partners-program",
-    "affiliate_status_checked_at": "2026-09-14T09:33:00+09:00",
+    "affiliate_status": "waiting_vendor_eligibility_clarification",
+    "affiliate_source_url": "https://www.optimonk.com/partners",
+    "affiliate_workflow_url": "mailto:partnership@optimonk.com",
+    "affiliate_status_checked_at": "2026-10-03T08:17:00+09:00",
     "application_state": "not_submitted",
     "affiliate_evidence_markers": [
-      "Official OptiMonk pricing page shows a permanent $0 Free plan with 10,000 pageviews/month, max 1 domain, unlimited campaigns and all features.",
-      "Official OptiMonk partner page says the Affiliate option has no membership fees, everyone can apply, and advertises 20% revenue share for 2 years.",
-      "Some official OptiMonk help-center pages use broader lifetime/up-to-20% wording, so COSHUMA uses the more conservative current partner-page terms until the vendor clarifies.",
-      "Fresh GitHub code search on 2026-09-14 found no pre-existing OptiMonk tool/state/page record before this cycle.",
-      "Fresh support@coshuma.com Gmail searches found no OptiMonk received, sent or spam record.",
-      "No COSHUMA application submission, approval, rejection, account-specific referral URL, referral, paid customer, commission, payout or revenue is verified.",
-      "Generic homepage, signup, login, onboarding and dashboard URLs must not be treated as affiliate links.",
-      "GitHub issue #491 tracks the free application and exact account-issued customer referral URL recovery."
+      "2026-10-03 official partner-page readback redirects /partners-program to /partners and now describes an agency model for partners who manage client accounts.",
+      "The current page says no call, contract or certification is needed, but enrollment requires creating an OptiMonk account and switching to agency view.",
+      "The current page states 20% commission applies only to new client-paid accounts managed through the partner.",
+      "Fresh support@coshuma.com Gmail duplicate checks found no prior OptiMonk outreach or vendor reply.",
+      "COSHUMA sent one eligibility inquiry to the official partnership@optimonk.com address as Gmail message 1a0fee78f87e9e57.",
+      "No application, approval, rejection, account-specific tracking URL, referral, paid customer, commission, payout or revenue is verified.",
+      "Generic homepage, signup, login, onboarding and dashboard URLs must not be treated as affiliate links."
     ],
-    "affiliate_next_action": "Use the official OptiMonk affiliate route with the COSHUMA company identity, recheck for an existing account/application in the authenticated flow, and submit exactly once only if absent. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification or payment approval. After approval, recover and validate only the exact vendor-issued customer-facing referral URL."
+    "affiliate_next_action": "Await OptiMonk Partnerships reply on whether independent software buyer-guide publishers are eligible. Do not create an agency account, submit an agency enrollment, or infer an affiliate program. If eligible, use only the official enrollment route and an issued customer tracking URL."
   },
   {
     "id": "outlierkit",
