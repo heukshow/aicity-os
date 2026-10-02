@@ -45,6 +45,9 @@ def main() -> None:
         expected_google_verification = f'google-site-verification: {page.name}'
         if page.name.startswith('google') and page.name.endswith('.html') and page_text.strip() == expected_google_verification:
             continue
+        expected_naver_verification = f'naver-site-verification: {page.name}'
+        if page.name.startswith('naver') and page.name.endswith('.html') and page_text.strip() == expected_naver_verification:
+            continue
         count = page_text.count(MARKER)
         if count == 0:
             missing.append(page.relative_to(root).as_posix())
