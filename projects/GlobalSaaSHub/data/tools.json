@@ -72,7 +72,7 @@
     "category_display": "Workflow Automation",
     "description": "A budget-friendly automated workflow software designed for small teams and solo builders seeking robust automation without the high costs of enterprise solutions.",
     "affiliate_url": null,
-    "pricing": "Budget-friendly",
+    "pricing": "Free $0; Plus $20/month or $16/month billed annually; Team $200/month or $166/month billed annually; Ultimate custom",
     "key_features": [
       "Best for small teams and solo builders",
       "Budget-friendly automation solution",
@@ -84,13 +84,13 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://www.activepieces.com/",
-    "pricing_source_url": null,
-    "pricing_verified_at": null,
-    "pricing_verified": false,
-    "currency": null,
-    "billing_period": null,
-    "evidence_source_type": null,
-    "is_manual_override": false,
+    "pricing_source_url": "https://www.activepieces.com/pricing",
+    "pricing_verified_at": "2026-10-02T21:30:00Z",
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "annual/monthly",
+    "evidence_source_type": "official_pricing_page",
+    "is_manual_override": true,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.activepieces.com/",
@@ -103,6 +103,15 @@
     "affiliate_evidence_markers": [
       "2026-10-03 current official-site recheck found no public affiliate/referral enrollment route; product/sales routes remain live.",
       "No COSHUMA-specific tracking URL is verified."
+    ],
+    "pricing_source_http_status": 200,
+    "pricing_source_final_url": "https://www.activepieces.com/pricing",
+    "pricing_evidence_markers": [
+      "Free $0",
+      "Plus $20 flat per month",
+      "Plus $16/mo billed annually",
+      "Team $200 flat per month",
+      "Team $166/mo billed annually"
     ]
   },
   {
