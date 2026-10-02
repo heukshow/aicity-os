@@ -1353,5 +1353,149 @@
     "resolved_at": "2026-09-09T12:45:09Z",
     "resolution_evidence": "Gmail message 1a08633651c79db9 from Claap affiliate manager Lamia Karmaly supplied both exact URLs; the first is the authoritative default CTA pending destination-label mapping for the second.",
     "blocker": null
+  },
+  {
+    "id": "activepieces-affiliate-reconcile-20261003",
+    "tool_id": "activepieces",
+    "priority": "high",
+    "status": "browser_required_sales_inquiry",
+    "cost": "0",
+    "verified_at": "2026-10-03T03:05:00+09:00",
+    "reason": "2026-10-03 current official-site recheck found no public affiliate/referral enrollment route; product/sales routes remain live. No COSHUMA-specific tracking URL is verified.",
+    "next_action": "Use Activepieces' current official Talk to sales/contact route to ask whether a public affiliate or referral program exists. Do not infer a program or tracking URL from integrations/community references.",
+    "exact_tracking_url": null,
+    "affiliate_status": "browser_required_sales_inquiry",
+    "blocker": "browser_required_sales_inquiry",
+    "do_not": [
+      "Do not create a duplicate affiliate/partner identity if an existing account is found.",
+      "Do not invent or construct a customer tracking URL.",
+      "Do not infer clicks, signups, customers, commissions, payouts, or revenue from application access."
+    ]
+  },
+  {
+    "id": "carv-affiliate-reconcile-20261003",
+    "tool_id": "carv",
+    "priority": "high",
+    "status": "browser_required_application_form",
+    "cost": "0",
+    "verified_at": "2026-10-03T03:05:00+09:00",
+    "reason": "Current Carv Referral Partner program is live and states applications are reviewed within 5 business days. Program targets trusted advisors with enterprise staffing/recruitment relationships and pays 10% of first-year contract value capped at EUR 500 per deal.",
+    "next_action": "Use the current Carv Referral Partner application only if COSHUMA can answer the enterprise-network qualification questions truthfully. Do not claim eligibility before the form is reviewed.",
+    "exact_tracking_url": null,
+    "affiliate_status": "browser_required_application_form",
+    "blocker": "browser_required_application_form",
+    "do_not": [
+      "Do not create a duplicate affiliate/partner identity if an existing account is found.",
+      "Do not invent or construct a customer tracking URL.",
+      "Do not infer clicks, signups, customers, commissions, payouts, or revenue from application access."
+    ]
+  },
+  {
+    "id": "docusign-affiliate-reconcile-20261003",
+    "tool_id": "docusign",
+    "priority": "medium",
+    "status": "browser_required_captcha_program_form",
+    "cost": "0",
+    "verified_at": "2026-10-03T03:05:00+09:00",
+    "reason": "Docusign currently maintains official partner enrollment/support routes. No current COSHUMA-specific Docusign customer-facing affiliate URL is verified.",
+    "next_action": "Use Docusign's official partner support/application route to reconcile the current affiliate enrollment path. The form is browser/CAPTCHA gated; do not infer a customer tracking URL.",
+    "exact_tracking_url": null,
+    "affiliate_status": "browser_required_captcha_program_form",
+    "blocker": "browser_required_captcha_program_form",
+    "do_not": [
+      "Do not create a duplicate affiliate/partner identity if an existing account is found.",
+      "Do not invent or construct a customer tracking URL.",
+      "Do not infer clicks, signups, customers, commissions, payouts, or revenue from application access."
+    ]
+  },
+  {
+    "id": "dub-affiliate-reconcile-20261003",
+    "tool_id": "dub",
+    "priority": "high",
+    "status": "browser_required_program_enrollment",
+    "cost": "0",
+    "verified_at": "2026-10-03T03:05:00+09:00",
+    "reason": "Dub's current official affiliate program pays 30% per sale for one year and gives new users 20% off for three months. Dub states existing users can join from the in-app referrals dashboard; COSHUMA already has an existing Dub partner identity used for other approved programs.",
+    "next_action": "Reuse the existing Dub account already used for COSHUMA partner programs and open Dub's own referral dashboard/program enrollment. Do not create a duplicate Dub account.",
+    "exact_tracking_url": null,
+    "affiliate_status": "browser_required_program_enrollment",
+    "blocker": "browser_required_program_enrollment",
+    "do_not": [
+      "Do not create a duplicate affiliate/partner identity if an existing account is found.",
+      "Do not invent or construct a customer tracking URL.",
+      "Do not infer clicks, signups, customers, commissions, payouts, or revenue from application access."
+    ]
+  },
+  {
+    "id": "expandi-affiliate-reconcile-20261003",
+    "tool_id": "expandi",
+    "priority": "high",
+    "status": "browser_required_application_form",
+    "cost": "0",
+    "verified_at": "2026-10-03T03:05:00+09:00",
+    "reason": "Expandi's current official Affiliate Program is live and says signup produces a unique referral link. No COSHUMA-specific Expandi tracking URL is currently verified.",
+    "next_action": "Open Expandi's current official affiliate application and submit truthful COSHUMA details using the existing company identity. Preserve the issued unique link only after approval.",
+    "exact_tracking_url": null,
+    "affiliate_status": "browser_required_application_form",
+    "blocker": "browser_required_application_form",
+    "do_not": [
+      "Do not create a duplicate affiliate/partner identity if an existing account is found.",
+      "Do not invent or construct a customer tracking URL.",
+      "Do not infer clicks, signups, customers, commissions, payouts, or revenue from application access."
+    ]
+  },
+  {
+    "id": "google-workspace-affiliate-reconcile-20261003",
+    "tool_id": "google-workspace",
+    "priority": "high",
+    "status": "browser_required_country_eligibility_check",
+    "cost": "0",
+    "verified_at": "2026-10-03T03:05:00+09:00",
+    "reason": "Google Workspace's current official Affiliate Program accepts free applications through CJ Affiliate and provides tracked promotional links after approval. COSHUMA country/program eligibility has not yet been verified; exact tracking URL remains null.",
+    "next_action": "Check CJ Affiliate enrollment and country eligibility for COSHUMA's business identity before applying. Do not assume eligibility or construct a tracking link.",
+    "exact_tracking_url": null,
+    "affiliate_status": "browser_required_country_eligibility_check",
+    "blocker": "browser_required_country_eligibility_check",
+    "do_not": [
+      "Do not create a duplicate affiliate/partner identity if an existing account is found.",
+      "Do not invent or construct a customer tracking URL.",
+      "Do not infer clicks, signups, customers, commissions, payouts, or revenue from application access."
+    ]
+  },
+  {
+    "id": "hide-me-affiliate-reconcile-20261003",
+    "tool_id": "hide-me",
+    "priority": "high",
+    "status": "browser_required_application_form",
+    "cost": "0",
+    "verified_at": "2026-10-03T03:05:00+09:00",
+    "reason": "hide.me's current official affiliate page is live, advertises commissions from 30%, lifetime revenue share and an affiliate dashboard. COSHUMA previously sent an affiliate application inquiry from the personal mailbox on 2026-09-07; exact account/link status remains unverified.",
+    "next_action": "Use hide.me's current official Post Affiliate Pro enrollment route and reconcile it with the prior COSHUMA inquiry. Do not create a second partner identity if an existing enrollment is found.",
+    "exact_tracking_url": null,
+    "affiliate_status": "browser_required_application_form",
+    "blocker": "browser_required_application_form",
+    "do_not": [
+      "Do not create a duplicate affiliate/partner identity if an existing account is found.",
+      "Do not invent or construct a customer tracking URL.",
+      "Do not infer clicks, signups, customers, commissions, payouts, or revenue from application access."
+    ]
+  },
+  {
+    "id": "snov-io-affiliate-reconcile-20261003",
+    "tool_id": "snov-io",
+    "priority": "high",
+    "status": "browser_required_application_form",
+    "cost": "0",
+    "verified_at": "2026-10-03T03:05:00+09:00",
+    "reason": "Snov.io's current official affiliate program is live, open to applicants and advertises 40% lifetime commission on premium-plan purchases. COSHUMA previously sent an application request on 2026-09-07; no approval or exact personal affiliate link has been received.",
+    "next_action": "Use Snov.io's current official affiliate application and the existing COSHUMA identity. Reconcile against the prior 2026-09-07 inquiry before any resubmission; preserve only an issued personal affiliate link after approval.",
+    "exact_tracking_url": null,
+    "affiliate_status": "browser_required_application_form",
+    "blocker": "browser_required_application_form",
+    "do_not": [
+      "Do not create a duplicate affiliate/partner identity if an existing account is found.",
+      "Do not invent or construct a customer tracking URL.",
+      "Do not infer clicks, signups, customers, commissions, payouts, or revenue from application access."
+    ]
   }
 ]
