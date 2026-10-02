@@ -282,11 +282,109 @@
     "liftmycv": {
       "checked_at": "2026-10-02T23:21:25Z",
       "status": "extract_retry_exhausted"
+    },
+    "loopcv": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "extract_retry_exhausted"
+    },
+    "lovo": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "no_official_pricing_result"
+    },
+    "make-com": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "extract_retry_exhausted"
+    },
+    "manychat": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "extract_retry_exhausted"
+    },
+    "marblism": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "no_official_pricing_result"
+    },
+    "marketingblocks": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "extract_retry_exhausted"
+    },
+    "merlin": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "extract_retry_exhausted"
+    },
+    "mindstudio": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "no_official_pricing_result"
+    },
+    "monday-com": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "extract_retry_exhausted"
+    },
+    "moosend": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "extract_retry_exhausted"
+    },
+    "murf-ai": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "no_official_pricing_result"
+    },
+    "n8n": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "extract_retry_exhausted"
+    },
+    "novita-ai": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "no_official_pricing_result"
+    },
+    "nudgera": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "no_official_pricing_result"
+    },
+    "octo-browser": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "extract_retry_exhausted"
+    },
+    "omi-ai": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "extract_retry_exhausted"
+    },
+    "outlierkit": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "extract_retry_exhausted"
+    },
+    "panda-video": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "extract_retry_exhausted"
+    },
+    "pickaxe": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "no_official_pricing_result"
+    },
+    "pictory": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "extract_retry_exhausted"
+    },
+    "pipedrive": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "extract_retry_exhausted"
+    },
+    "questmate": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "no_official_pricing_result"
+    },
+    "quillbot": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "extract_retry_exhausted"
+    },
+    "reactin": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "extract_retry_exhausted"
+    },
+    "reclaim-ai": {
+      "checked_at": "2026-10-02T23:34:19Z",
+      "status": "no_official_pricing_result"
     }
   },
-  "last_run_at": "2026-10-02T23:21:25Z",
+  "last_run_at": "2026-10-02T23:34:19Z",
   "last_batch_size": 25,
-  "last_updated_tools": [
-    "getgabs"
-  ]
+  "last_updated_tools": []
 }
