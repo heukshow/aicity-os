@@ -83,6 +83,9 @@ def protect_html(path: Path) -> bool:
     expected_google_verification = f'google-site-verification: {path.name}'
     if path.name.startswith('google') and path.name.endswith('.html') and text.strip() == expected_google_verification:
         return False
+    expected_naver_verification = f'naver-site-verification: {path.name}'
+    if path.name.startswith('naver') and path.name.endswith('.html') and text.strip() == expected_naver_verification:
+        return False
     if text.count(MARKER) > 1:
         raise SystemExit(f'{path}: duplicate COSHUMA origin guard')
     if MARKER in text:
