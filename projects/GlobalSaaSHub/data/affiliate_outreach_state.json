@@ -20,19 +20,21 @@
   },
   "programs": {
     "pipedrive": {
-      "status": "approved",
+      "status": "approved_tracking",
       "contact": "Pipedrive Affiliate Team / PartnerStack",
-      "gmail_message_id": "1a0f3abacb8d1edb",
+      "gmail_message_id": "1a0f9b12d43f26ed",
       "partnerstack_approval_message_id": "1a0f3abcd4b68127",
       "sender": "support@coshuma.com",
-      "tracking_url": null,
+      "tracking_url": "https://aff.trypipedrive.com/sv587bilh4w7",
       "approved_at": "2026-09-30T18:55:16Z",
-      "evidence_file": "data/pipedrive-approved-link-pending-2026-09-30.md",
-      "commission_terms": "20% revenue share for the first 12 months of a new paying customer, including eligible add-ons; Net43, per Pipedrive welcome email",
-      "customer_offer": "Exclusive extended 30-day trial, per Pipedrive welcome email",
+      "evidence_file": "data/pipedrive-approved-tracking-2026-10-02.md",
+      "commission_terms": "20% revenue share for the first 12 months of a new paying customer, including upgrades and eligible add-ons purchased within that period; confirmed by Pipedrive Affiliate Team",
+      "customer_offer": "Account-specific referral link automatically provides an extended 30-day trial; confirmed by Pipedrive Affiliate Team",
       "do_not_reapply": true,
       "outbound_followup_message_id": "1a0f3ba7e06d87b4",
-      "note": "Approval is confirmed by both PartnerStack and Pipedrive. The exact customer referral URL is still unknown and must be recovered from the existing PartnerStack Links tab or directly confirmed by Pipedrive before any Pipedrive CTA is monetized."
+      "note": "Pipedrive Affiliate Team directly confirmed the exact COSHUMA customer referral URL https://aff.trypipedrive.com/sv587bilh4w7 and confirmed that the extended 30-day trial is automatically offered through this link. Upgrades and add-ons within the first 12 months of a new customer are included in revenue share. Publication or link verification does not prove clicks, signups, paying customers, commission, payout, or revenue.",
+      "verified_at": "2026-10-02T07:58:36+09:00",
+      "next_action": "Keep the exact confirmed customer referral URL on eligible Pipedrive CTAs, preserve a separate official-pricing verification link, and measure click-to-signup and paid conversion without inferring revenue."
     },
     "monday-com": {
       "status": "pending",

@@ -201,21 +201,24 @@
   {
     "id": "pipedrive-browser-followup-20260908",
     "priority": "high",
-    "status": "pending",
+    "status": "approved_tracking",
     "cost": "0",
-    "verified_at": "2026-09-30T18:55:16Z",
-    "reason": "PartnerStack email 1a0f3abcd4b68127 and Pipedrive Affiliate Team email 1a0f3abacb8d1edb confirm COSHUMA is approved. Pipedrive states the account-specific referral link is available in PartnerStack Links after agreeing to program terms. The exact customer URL has not yet been recovered, so public Pipedrive CTAs remain non-affiliate.",
-    "next_action": "Reuse the existing PartnerStack account. Review/accept ordinary Pipedrive program terms if no abnormal obligation appears, open Pipedrive Links, copy the exact customer referral URL, verify its destination and 30-day trial, then promote only that exact URL to approved_tracking. A direct link-confirmation request was sent to affiliates@pipedrive.com in Gmail message 1a0f3ba7e06d87b4.",
-    "exact_tracking_url": null,
-    "execution_evidence": "affiliate-browser-results-2026-09-08.json",
-    "affiliate_status": "approved",
-    "evidence_file": "data/pipedrive-approved-link-pending-2026-09-30.md",
+    "verified_at": "2026-10-02T07:58:36+09:00",
+    "reason": "Pipedrive Affiliate Team directly confirmed COSHUMA's exact customer-facing referral URL https://aff.trypipedrive.com/sv587bilh4w7. The same reply confirms the extended 30-day trial is automatically offered through this link and that upgrades/add-ons within the first 12 months are included in revenue share.",
+    "next_action": "No browser recovery is required. Preserve the exact vendor-confirmed customer link on eligible Pipedrive CTAs, keep official pricing as a separate verification route, and measure actual downstream conversions.",
+    "exact_tracking_url": "https://aff.trypipedrive.com/sv587bilh4w7",
+    "execution_evidence": "data/pipedrive-approved-tracking-2026-10-02.md",
+    "affiliate_status": "approved_tracking",
+    "evidence_file": "data/pipedrive-approved-tracking-2026-10-02.md",
     "evidence_message_ids": [
       "gmail:1a0f3abcd4b68127",
       "gmail:1a0f3abacb8d1edb",
-      "gmail:1a0f3ba7e06d87b4"
+      "gmail:1a0f3ba7e06d87b4",
+      "gmail:1a0f9b12d43f26ed"
     ],
-    "blocker": "Existing PartnerStack authenticated browser session is not currently available; exact account-specific customer link is still unknown."
+    "blocker": null,
+    "resolved_at": "2026-10-02T07:58:36+09:00",
+    "resolution_evidence": "Pipedrive Affiliate Team reply 1a0f9b12d43f26ed directly supplied https://aff.trypipedrive.com/sv587bilh4w7 and confirmed automatic 30-day trial eligibility through that link."
   },
   {
     "id": "monday-com-browser-followup-20260908",

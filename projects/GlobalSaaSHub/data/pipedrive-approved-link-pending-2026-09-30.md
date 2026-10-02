@@ -1,39 +1,21 @@
-# Pipedrive affiliate approval — exact tracking link pending
+# Pipedrive affiliate approval — exact tracking link resolved
 
-Checked: 2026-10-01 KST
+Checked: 2026-10-02 KST
 
-## Verified approval evidence
+This file originally recorded Pipedrive approval while the account-specific customer URL was still unknown.
 
-- Gmail message `1a0f3abcd4b68127` from PartnerStack states: COSHUMA's Pipedrive application is approved and can begin promoting Pipedrive.
-- Gmail message `1a0f3abacb8d1edb` from the Pipedrive Affiliate Team independently confirms approval.
-- The Pipedrive welcome message says the account-specific referral link is available under the PartnerStack **Links** tab after agreeing to the program terms.
-- No account-specific customer referral URL is present in either email, so COSHUMA must not invent or publish one.
+## Resolution
 
-## Vendor-supplied commercial terms
+Pipedrive Affiliate Team reply `1a0f9b12d43f26ed` directly supplied COSHUMA's exact customer-facing referral URL:
 
-The Pipedrive Affiliate Team's welcome email states:
-- customer offer: exclusive extended **30-day trial** through the affiliate program;
-- commission: **20% revenue share for the first 12 months** of a new paying customer;
-- eligible add-ons purchased during that period are included;
-- payment policy: **Net43**;
-- PartnerStack withdrawal availability is stated as the 13th of each month.
+`https://aff.trypipedrive.com/sv587bilh4w7`
 
-These terms are recorded as current email evidence, not as proof of any click, signup, paid customer, commission, payout, or revenue.
+The same reply confirms:
+- the extended **30-day trial is automatically offered through this exact link**;
+- upgrades and add-ons purchased within the first 12 months of a new customer are included in the revenue share.
 
-## Current revenue state
+The prior exact-link blocker is therefore resolved. Current canonical evidence is:
 
-- affiliate status: `approved`
-- exact tracking URL: `unknown`
-- public Pipedrive buyer page must keep official/non-affiliate Pipedrive URLs until an exact account-specific customer link is recovered and verified.
-- do not reapply.
+`data/pipedrive-approved-tracking-2026-10-02.md`
 
-## Next action
-
-1. Reuse the existing Pipedrive PartnerStack account.
-2. Review/accept ordinary program terms only if no abnormal obligation appears.
-3. Copy the exact customer-facing Pipedrive referral URL from the Links tab.
-4. Verify the destination and the 30-day-trial offer.
-5. Only then promote Pipedrive to `approved_tracking` and replace eligible official Pipedrive CTAs.
-6. A direct confirmation request was also sent from support@coshuma.com to affiliates@pipedrive.com on 2026-10-01 (Gmail sent message `1a0f3ba7e06d87b4`).
-
-Do not count approval, link issuance, publication, clicks, trials, customers, commission, or payout as revenue without separate evidence.
+Do not infer clicks, signups, paying customers, commission, payout, or revenue from approval, link issuance, publication, or verification alone.

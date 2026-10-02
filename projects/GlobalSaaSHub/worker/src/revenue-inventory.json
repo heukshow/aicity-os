@@ -1426,7 +1426,13 @@
       "network": "PartnerStack",
       "account_id": "partnerstack-account",
       "portal_url": "https://dash.partnerstack.com/home",
-      "evidence": []
+      "evidence": [
+        "Gmail 1a0f9b12d43f26ed: Pipedrive Affiliate Team directly confirmed exact customer referral URL https://aff.trypipedrive.com/sv587bilh4w7.",
+        "Same reply confirms automatic extended 30-day trial through the link and upgrades/add-ons included in first-12-month revenue share."
+      ],
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://aff.trypipedrive.com/sv587bilh4w7",
+      "verified_at": "2026-10-02T07:58:36+09:00"
     },
     {
       "id": "bidx",

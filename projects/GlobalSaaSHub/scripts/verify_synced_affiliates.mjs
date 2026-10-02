@@ -16,6 +16,8 @@ export function verifySyncedAffiliates(tools) {
   ]);
   const gravity = approvedTracking.get('gravity-forms');
   if (gravity) expected.set('gravity-forms', gravity.exact_tracking_url);
+  const pipedrive = approvedTracking.get('pipedrive');
+  if (pipedrive) expected.set('pipedrive', pipedrive.exact_tracking_url);
   for (const [id, url] of expected) {
     const tool = tools.find((item) => item.id === id);
     if (!tool || tool.affiliate_verified !== true || tool.affiliate_status !== 'approved_tracking' || tool.affiliate_url !== url) {
@@ -30,7 +32,7 @@ export function verifySyncedAffiliates(tools) {
     ['fillout', 'approved_tracking'],
     ['beefree', 'approved_tracking'],
     ['gumloop', 'application_submitted'],
-    ['pipedrive', 'approved'],
+    ['pipedrive', approvedTracking.has('pipedrive') ? 'approved_tracking' : 'approved'],
     ['monday-com', 'pending'],
     ['kittl', 'approved_tracking'],
   ]);

@@ -6,6 +6,12 @@ const fixture = () => JSON.parse(fs.readFileSync(new URL('../../data/tools.json'
 test('current direct evidence permits Gravity promotion without relaxing other checks', () => {
   assert.doesNotThrow(() => verifySyncedAffiliates(fixture()));
 });
+test('vendor-confirmed Pipedrive route is required once tracking is approved', () => {
+  const tools=fixture();
+  assert.doesNotThrow(() => verifySyncedAffiliates(tools));
+  tools.find(t=>t.id==='pipedrive').affiliate_url='https://www.pipedrive.com/pricing';
+  assert.throws(()=>verifySyncedAffiliates(tools), /pipedrive/);
+});
 test('Gravity generic homepage cannot replace the issued customer link', () => {
   const tools=fixture(); tools.find(t=>t.id==='gravity-forms').affiliate_url='https://www.gravityforms.com/';
   assert.throws(()=>verifySyncedAffiliates(tools), /gravity-forms/);
