@@ -515,6 +515,54 @@
           "tool_id": "vista-social"
         }
       ]
+    },
+    {
+      "account_id": "tagshop-ai",
+      "connection": "verified_snapshot",
+      "complete": false,
+      "checked_at": "2026-09-18T13:39:08Z",
+      "observed_window": "Tagshop dashboard screenshot supplied by partner manager",
+      "source": "vendor-human-email-attachment",
+      "period": "Current dashboard as of 2026-09-18; screenshot column labels cropped",
+      "currency": "USD",
+      "metrics": {
+        "outbound_clicks": null,
+        "signups_referrals": null,
+        "trials": null,
+        "paid_customers": null,
+        "commission_earned": null,
+        "commission_pending": null,
+        "reward_paid": null,
+        "available": null,
+        "withdrawn": null,
+        "declined": null,
+        "payout_paid": null,
+        "network_reported_unlabeled_zero_summary": 0
+      },
+      "portal_url": "https://tagshop.firstpromoter.com/login",
+      "action": "Vendor-supplied dashboard screenshot visibly shows 0 / 0 / 0 / $0 for COSHUMA, but the screenshot crop omits column headers. Treat this only as partial dashboard evidence; do not assign the zeros to clicks, signups, customers, commission, or payout fields.",
+      "evidence": [
+        {
+          "tool_id": "tagshop-ai",
+          "tool": "Tagshop AI",
+          "observed_window": "Tagshop dashboard screenshot supplied by partner manager",
+          "checked_at": "2026-09-18T13:39:08Z",
+          "period": "Current dashboard as of 2026-09-18; screenshot column labels cropped",
+          "source": "vendor-human-email-attachment",
+          "evidence_id": "gmail:1a0b4be35d48f261:Screenshot 2026-09-18 190742.png",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "commission_earned": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "network_reported_unlabeled_zero_summary": 0
+          }
+        }
+      ]
     }
   ]
 }
