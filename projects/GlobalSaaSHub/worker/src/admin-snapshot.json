@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T21:39:52.768Z",
+  "generatedAt": "2026-10-02T22:25:57.406Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 118,
@@ -2454,7 +2454,7 @@
         "name": "Manychat",
         "officialVerified": true,
         "pricingVerified": false,
-        "affiliateStatus": "application_available_partnerstack",
+        "affiliateStatus": "browser_required_legal_program_consent",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
