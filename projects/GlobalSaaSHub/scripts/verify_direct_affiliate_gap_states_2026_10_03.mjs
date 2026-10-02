@@ -3,11 +3,11 @@ import fs from 'node:fs';
 const expected = new Map([
   ['activepieces','browser_required_sales_inquiry'],
   ['agorapulse','waiting_vendor_response'],
-  ['carv','browser_required_application_form'],
+  ['carv','waiting_vendor_eligibility_clarification'],
   ['chatbot','referral_link_requested'],
   ['docusign','browser_required_captcha_program_form'],
   ['dub','browser_required_program_enrollment'],
-  ['expandi','browser_required_application_form'],
+  ['expandi','waiting_vendor_requirement'],
   ['featureshark','waiting_vendor_response'],
   ['flowgent-ai','program_inactive'],
   ['google-workspace','browser_required_country_eligibility_check'],
