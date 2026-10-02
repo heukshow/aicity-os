@@ -234,11 +234,12 @@
     "affiliate_verified_at": null,
     "affiliate_evidence_markers": [
       "Agorapulse current Referral Partner Program advertises a unique referral link and 90-day tracking after enrollment.",
-      "COSHUMA sent the original referral enrollment inquiry in Gmail 1a0907c7757252b0 and one follow-up on 2026-10-03 in Gmail 1a0fdcf483d35e25.",
+      "COSHUMA sent the original referral enrollment inquiry in Gmail 1a0907c7757252b0.",
+      "Two materially duplicative follow-ups were sent 20 seconds apart on 2026-10-03 in Gmail 1a0fdcefc5bf958e and 1a0fdcf483d35e25. This is recorded as a mail-triage execution gap; do not send any further outreach until the vendor replies.",
       "Exact COSHUMA customer tracking URL remains unknown."
     ],
-    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
-    "affiliate_next_action": "Wait for Mike Allton / Agorapulse to reply to the existing referral-partner inquiry and 2026-10-03 follow-up. Do not submit duplicate outreach or publish a guessed URL."
+    "affiliate_status_checked_at": "2026-10-03T06:25:17+09:00",
+    "affiliate_next_action": "Wait for Mike Allton / Agorapulse to reply to the existing referral-partner inquiry and the two already-sent 2026-10-03 follow-ups. Do not send further outreach, submit a duplicate enrollment, or publish a guessed URL."
   },
   {
     "id": "ai-agent-store",
