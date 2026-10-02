@@ -1076,14 +1076,16 @@
     "official_evidence_url": "https://www.carv.com/",
     "affiliate_url": null,
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_application_form",
-    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_status": "waiting_vendor_eligibility_clarification",
+    "affiliate_status_checked_at": "2026-10-03T06:30:00+09:00",
     "affiliate_source_url": "https://www.carv.com/partner-program/referral-partner",
     "affiliate_workflow_url": "https://www.carv.com/partner-program/referral-partner",
-    "affiliate_next_action": "Use the current Carv Referral Partner application only if COSHUMA can answer the enterprise-network qualification questions truthfully. Do not claim eligibility before the form is reviewed.",
+    "affiliate_next_action": "Wait for Carv to confirm whether a general SaaS buyer-guide publisher without an enterprise staffing/recruitment client portfolio qualifies for the Referral Partner track. Do not apply before confirmation.",
     "affiliate_evidence_markers": [
       "Current Carv Referral Partner program is live and states applications are reviewed within 5 business days.",
-      "Program targets trusted advisors with enterprise staffing/recruitment relationships and pays 10% of first-year contract value capped at EUR 500 per deal."
+      "Program targets trusted advisors with enterprise staffing/recruitment relationships and pays 10% of first-year contract value capped at EUR 500 per deal.",
+      "Carv's current Referral Partner materials target HR-tech consultants, staffing group owners and TA advisors with enterprise staffing/recruitment relationships.",
+      "COSHUMA emailed info@carv.com on 2026-10-03 asking for eligibility confirmation before any application (Gmail 1a0fe84e15a6a09d)."
     ]
   },
   {
@@ -2277,14 +2279,16 @@
     "official_evidence_url": "https://expandi.io/",
     "affiliate_url": null,
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_application_form",
-    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_status": "waiting_vendor_requirement",
+    "affiliate_status_checked_at": "2026-10-03T06:30:00+09:00",
     "affiliate_source_url": "https://expandi.io/affiliate-program/",
     "affiliate_workflow_url": "https://expandi.io/affiliate-program/",
-    "affiliate_next_action": "Open Expandi's current official affiliate application and submit truthful COSHUMA details using the existing company identity. Preserve the issued unique link only after approval.",
+    "affiliate_next_action": "Do not submit the Expandi affiliate application until COSHUMA has evidence that the program's required 14 days of active product use has been satisfied, or Expandi explicitly waives/clarifies that requirement.",
     "affiliate_evidence_markers": [
       "Expandi's current official Affiliate Program is live and says signup produces a unique referral link.",
-      "No COSHUMA-specific Expandi tracking URL is currently verified."
+      "No COSHUMA-specific Expandi tracking URL is currently verified.",
+      "Expandi's current official affiliate page requires affiliates to use Expandi actively for at least 14 days before becoming an affiliate.",
+      "Prior COSHUMA duplicate/use screening recorded no qualifying 14-day active-use evidence; do not apply until this requirement is satisfied or clarified."
     ]
   },
   {
