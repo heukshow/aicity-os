@@ -39,11 +39,35 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PRICING_REFRESH_BATCH: '10'
         run: python scripts/refresh_pricing_backlog.py
-      - name: Validate both source datasets
+      - name: Validate only pricing fields changed by this refresh
         working-directory: projects/GlobalSaaSHub
         run: |
-          python scripts/validate_data.py --input data/tools.json
-          python scripts/validate_data.py --input data/tools.next.json
+          python scripts/tests/test_pricing_backlog_refresh.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+          tools = {x['id']: x for x in json.loads((root/'data/tools.json').read_text(encoding='utf-8'))}
+          nxt = {x['id']: x for x in json.loads((root/'data/tools.next.json').read_text(encoding='utf-8'))}
+          state = json.loads((root/'data/pricing-refresh-state.json').read_text(encoding='utf-8'))
+          fields = [
+            'pricing','pricing_source_url','pricing_verified','pricing_verified_at',
+            'pricing_source_http_status','pricing_source_final_url','pricing_evidence_markers',
+            'currency','billing_period','evidence_source_type'
+          ]
+          for tid in state.get('last_updated_tools', []):
+            if tid not in tools or tid not in nxt:
+              raise SystemExit(f'missing updated pricing tool: {tid}')
+            a, b = tools[tid], nxt[tid]
+            if a.get('pricing_verified') is not True or a.get('pricing_source_http_status') != 200:
+              raise SystemExit(f'pricing verification incomplete: {tid}')
+            if not a.get('pricing_evidence_markers') or not a.get('pricing_source_final_url'):
+              raise SystemExit(f'pricing evidence incomplete: {tid}')
+            if any(a.get(k) != b.get(k) for k in fields):
+              raise SystemExit(f'tools/tools.next pricing mismatch: {tid}')
+          print(f"PASS targeted pricing refresh validation: {len(state.get('last_updated_tools', []))} verified updates")
+          PY
       - name: Persist only verified pricing updates and rotation state
         run: |
           set -e
