@@ -40,9 +40,52 @@
     "alidropship": {
       "checked_at": "2026-10-02T20:30:38Z",
       "status": "no_official_pricing_result"
+    },
+    "apollo": {
+      "checked_at": "2026-10-02T23:01:07Z",
+      "status": "extract_retry_exhausted"
+    },
+    "aweber": {
+      "checked_at": "2026-10-02T23:01:07Z",
+      "status": "evidence_validation_failed"
+    },
+    "babylovegrowth-ai": {
+      "checked_at": "2026-10-02T23:01:07Z",
+      "status": "evidence_validation_failed"
+    },
+    "blaze": {
+      "checked_at": "2026-10-02T23:01:07Z",
+      "status": "evidence_validation_failed"
+    },
+    "bolddesk": {
+      "checked_at": "2026-10-02T23:01:07Z",
+      "status": "verified",
+      "pricing_source_url": "https://www.bolddesk.com/blogs/zendesk-pricing"
+    },
+    "boldsign": {
+      "checked_at": "2026-10-02T23:01:07Z",
+      "status": "evidence_validation_failed"
+    },
+    "bookyourdata": {
+      "checked_at": "2026-10-02T23:01:07Z",
+      "status": "extract_retry_exhausted"
+    },
+    "brand24": {
+      "checked_at": "2026-10-02T23:01:07Z",
+      "status": "extract_retry_exhausted"
+    },
+    "cartstack": {
+      "checked_at": "2026-10-02T23:01:07Z",
+      "status": "evidence_validation_failed"
+    },
+    "carv": {
+      "checked_at": "2026-10-02T23:01:07Z",
+      "status": "no_official_pricing_result"
     }
   },
-  "last_run_at": "2026-10-02T20:30:38Z",
+  "last_run_at": "2026-10-02T23:01:07Z",
   "last_batch_size": 10,
-  "last_updated_tools": []
+  "last_updated_tools": [
+    "bolddesk"
+  ]
 }
