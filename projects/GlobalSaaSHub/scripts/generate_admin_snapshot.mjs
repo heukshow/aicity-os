@@ -140,7 +140,7 @@ const coverageCounts = affiliateCoverage.reduce((acc, item) => {
   acc.doNotReapply += Number(item.doNotReapply);
   acc.unclassifiedAffiliateStatus += Number(item.affiliateStatus === 'unclassified');
   acc.exactAffiliateUrlMissing += Number(!item.revenueReady && !item.terminal && !item.hasAffiliateUrl);
-  acc.officialUnverified += Number(!item.officialVerified);
+  acc.officialUnverified += Number(!item.officialVerified && !item.terminal);
   acc.pricingUnverified += Number(!item.pricingVerified);
   return acc;
 }, {
