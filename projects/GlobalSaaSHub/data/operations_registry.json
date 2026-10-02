@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T09:12:42Z",
+  "updated_at": "2026-10-02T22:00:37Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1014,12 +1014,12 @@
       "canonical_owner": "Revenue Intelligence Team",
       "found_by": "Revenue Intelligence Team",
       "fixed_by": "Revenue Intelligence Team",
-      "changed_scope": "Private observation ingestion with evidence/freshness/type guards; correct live-provider freshness reference time after API completion. Exact merged Worker deployed; authenticated owner UI verified. Existing 7/30-day periods, public copy, event names, links and secret/config scope preserved.",
-      "lifecycle": "production_verified",
-      "next_owner": "Operations Governance Team",
+      "changed_scope": "Repository revenue observations for Databox, DocsBot, Vista Social and Tagshop are merged and validated; active private Worker deployment still predates those source changes. Public pages, links, analytics definitions, fixed periods, accounts, secrets and payment settings remain unchanged.",
+      "lifecycle": "in_progress",
+      "next_owner": "Revenue Intelligence Team",
       "priority": "high",
-      "blocker": null,
-      "last_evidence_at": "2026-09-27T08:40:00Z",
+      "blocker": "authorized_cloudflare_deploy_readback_capability_unavailable",
+      "last_evidence_at": "2026-10-02T21:35:32Z",
       "evidence": {
         "implementation_pr": 879,
         "merge_commit": "9088a09c25cdc0a57e95893ed36b10aee278c1ca",
@@ -1051,16 +1051,42 @@
         "authenticated_owner_revenue_ui_checked_at": "2026-09-27T08:37:11Z",
         "private_observation_document": "revenue-observations.json",
         "private_observation_readback_verified": true,
-        "worker_tests_passed": 34
+        "worker_tests_passed": 34,
+        "previous_verified_release": {
+          "implementation_pr": 879,
+          "merge_commit": "9088a09c25cdc0a57e95893ed36b10aee278c1ca",
+          "production_deploy_version": "f09b7767-5182-43f0-993f-53cd85e9f49c",
+          "production_source_commit": "9088a09c25cdc0a57e95893ed36b10aee278c1ca",
+          "bundle_sha256": "26829540cc3a0fc26a31bfc7a71fadd21335ad9bdd71dfe625b56012fc9d6538",
+          "production_deployed_at": "2026-09-27T08:36:32.977Z",
+          "production_verification_comment_id": 5854277284
+        },
+        "latest_continuation": {
+          "evidence_comment_id": 5961923896,
+          "checked_at": "2026-10-02T21:35:32Z",
+          "current_main_at_check": "3f2ec6d2e6247698fe5d577a4ddb6b48333e910f",
+          "revenue_binding_pr": 938,
+          "revenue_binding_merge": "09a62c559ba2f243917cdf8b71277c14b5addcab",
+          "revenue_binding_build_check": 37048018726,
+          "tagshop_evidence_pr": 944,
+          "tagshop_evidence_merge": "eeaf3bcdff4dc65b3c606e8a99144f4ad4af5c3d",
+          "tagshop_build_check": 37066431153,
+          "active_worker_version": "f09b7767-5182-43f0-993f-53cd85e9f49c",
+          "active_worker_source_commit": "9088a09c25cdc0a57e95893ed36b10aee278c1ca",
+          "repository_truth_complete": true,
+          "active_worker_contains_latest_observations": false,
+          "live_owner_summary_verified": false,
+          "root_cause": "tool_capability",
+          "user_action_required": false
+        }
       },
-      "completion_gate": "production_verified",
-      "completion_gate_satisfied": true,
-      "completed_at": "2026-09-27T08:40:00Z",
+      "completion_gate": "exact_current_main_worker_deploy_and_owner_authenticated_revenue_summary_verified",
+      "completion_gate_satisfied": false,
       "user_action_required": false,
-      "verification": "Active version-specific Cloudflare module byte-matches clean merged dry-run bundle; 100% active deployment, health 200, anonymous private routes 401/no-store. Existing owner session renders current provider evidence plus Pictory portal observation; unknown, currency and incompatible periods stay distinct. No complete revenue coverage or uplift inferred.",
-      "handoff": "Revenue Intelligence refreshes private evidence via existing authenticated portals; Operations Governance preserves exact version/source evidence. Do not redeploy the same matching version or regenerate uncommitted artifacts.",
-      "execution_status": "completed",
-      "next_executable_action": "On the next Revenue Intelligence run, refresh available private observations and check freshness; retain unknowns and period boundaries."
+      "verification": "PR #938 and #944 Build Checks succeeded and current main preserves balance-only/unlabeled-zero semantics. The canonical active Worker source predates both changes; merge/build does not prove live owner revenue summary state.",
+      "handoff": "Continue this same task only in the existing authorized Cloudflare environment: clean exact-current-main build, tests/dry-run, deploy, active-version/source/bundle/config readback, health and anonymous 401/no-store, then owner-authenticated revenue-summary verification.",
+      "execution_status": "stalled",
+      "next_executable_action": "Revenue Intelligence retries only when the existing authorized Cloudflare deploy/readback capability is available; do not redeploy from a dirty or generated workspace."
     },
     {
       "record_id": "REVENUE:FIRSTPROMOTER-SESSION-RECOVERY-20260927",
@@ -1235,7 +1261,7 @@
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": "native_schedule_fidelity_observation_only",
-      "last_evidence_at": "2026-09-30T09:12:42Z",
+      "last_evidence_at": "2026-10-02T22:00:37Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "*/15 * * * *",
@@ -1603,14 +1629,64 @@
           "native_scheduler_status": "irregular_schedule_delivery_persists",
           "availability_status": "mitigated_by_verified_owner_gated_fallback",
           "permanent_native_recovery_claimed": false
+        },
+        "latest_watchdog_recovery": {
+          "observed_at": "2026-10-02T22:00:37Z",
+          "native_scheduler_status": "five_workflows_overdue_one_current",
+          "availability_status": "mitigated_by_verified_owner_gated_fallback",
+          "permanent_native_recovery_claimed": false,
+          "recovered_targets": {
+            "coshuma-cloud-control-plane.yml": {
+              "marker_comment_id": 5961920153,
+              "fallback_workflow_run_id": 37068279211,
+              "target_workflow_run_id": 37068288864,
+              "fallback_conclusion": "success",
+              "target_conclusion": "success",
+              "target_event": "workflow_dispatch"
+            },
+            "coshuma-release-verification.yml": {
+              "marker_comment_id": 5961931802,
+              "fallback_workflow_run_id": 37068377214,
+              "target_workflow_run_id": 37068387604,
+              "fallback_conclusion": "success",
+              "target_conclusion": "success",
+              "target_event": "workflow_dispatch"
+            },
+            "coshuma-registry-reconciliation.yml": {
+              "marker_comment_id": 5961940125,
+              "fallback_workflow_run_id": 37068447066,
+              "target_workflow_run_id": 37068455773,
+              "fallback_conclusion": "success",
+              "target_conclusion": "success",
+              "target_event": "workflow_dispatch"
+            },
+            "coshuma-growth-loop.yml": {
+              "marker_comment_id": 5961949078,
+              "fallback_workflow_run_id": 37068524062,
+              "target_workflow_run_id": 37068533859,
+              "fallback_conclusion": "success",
+              "target_conclusion": "success",
+              "target_event": "workflow_dispatch"
+            },
+            "royal-queue-reconcile.yml": {
+              "marker_comment_id": 5961958626,
+              "fallback_workflow_run_id": 37068597209,
+              "target_workflow_run_id": 37068605515,
+              "fallback_conclusion": "success",
+              "target_conclusion": "success",
+              "target_event": "workflow_dispatch"
+            }
+          },
+          "unaffected_current_target": "coshuma-analytics-snapshot.yml",
+          "user_action_required": false
         }
       },
       "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
       "completion_gate_satisfied": false,
       "availability_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "As of 2026-09-30, all six affected workflows still produce successful native schedule runs, but expected periods continue to be skipped. The owner-gated fallback path was re-verified by Scheduler Fallback run 36694613077 and Cloud Control Plane workflow_dispatch run 36694627865. A race was observed because native schedule run 36693132622 had already succeeded before the fallback marker; the external Watchdog now requires an immediate pre-dispatch recheck. Permanent native-schedule recovery is not claimed.",
-      "handoff": "Keep lifecycle in_progress/mitigated. The external ChatGPT Watchdog must re-read current workflow runs immediately before each fallback marker, cancel fallback if a newer native schedule success exists, process at most one stalled target at a time, and preserve the existing two-consecutive-native-schedule completion criterion."
+      "verification": "Five overdue workflows were each re-read and recovered through the existing owner-gated single-target fallback; all ten fallback/target jobs completed successfully. Analytics Snapshot remained current. workflow_dispatch restores availability but is not native schedule evidence.",
+      "handoff": "Keep lifecycle in_progress/mitigated and completion gate false. Observe the next native schedule events independently; never count fallback/workflow_dispatch as native recovery."
     },
     {
       "record_id": "EDITORIAL:EDITORIAL-BODY-008",
@@ -1720,6 +1796,79 @@
       "user_action_required": false,
       "next_action": "Complete Build Check, merge, current-main deploy and live price-filter/public-copy/affiliate-preservation verification; sync exact release evidence.",
       "completed_at": "2026-09-27T20:27:50Z"
+    },
+    {
+      "record_id": "PRODUCT:TOOL-ALTERNATIVE-CARD-OVERLAP-20261003",
+      "task_key": "tool-alternative-card-overlap-20261003",
+      "incident_key": "generated-tool-alternatives-flex-overlap-20261003",
+      "target": "generated tool alternative cards → live tool pages",
+      "owner_team": "Product Experience Team",
+      "canonical_owner": "Product Experience Team",
+      "found_by": "Product Experience Team",
+      "fixed_by": "Product Experience Team",
+      "changed_scope": "Alternative-card generator classes plus existing public brand runtime compatibility normalization only; product facts, pricing, URLs, disclosure, analytics definitions and fixed measurement windows unchanged.",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
+      "priority": "normal",
+      "blocker": null,
+      "last_evidence_at": "2026-10-02T21:43:00Z",
+      "evidence": {
+        "producer_pr": 943,
+        "producer_merge": "b0949b647f5f5751cf413931359c43cc65f03268",
+        "producer_build_check": 37066421817,
+        "continuation_pr": 948,
+        "continuation_merge": "bb052638e9fc8d0b695f58c1a41984738f57837b",
+        "continuation_build_check": 37067640977,
+        "site_build_deploy_run": 37068139120,
+        "gh_pages_commit": "46fce9b2093cc50673fb46078ec99ab2e77caf56",
+        "pages_run": 37068332051,
+        "release_verification_run": 37068341066,
+        "production_verification_comment_id": 5961975218,
+        "live_url": "https://coshuma.com/tool/supademo.html?coshuma_qa=1&deploy=bb052638",
+        "live_result": "All three alternative cards stack pricing below identity; overlaps=false and scrollWidth===clientWidth===256."
+      },
+      "completion_gate": "deployed_ancestry_and_live_geometry_verified",
+      "completion_gate_satisfied": true,
+      "completed_at": "2026-10-02T21:43:00Z",
+      "user_action_required": false,
+      "verification": "Build, current-main deploy, gh-pages ancestry, Pages and Release Verification succeeded; fresh live DOM geometry proves no overlap while preserving exact content and destinations.",
+      "handoff": "Product Experience owns future generator/layout maintenance; Operations Governance preserves release evidence."
+    },
+    {
+      "record_id": "PRODUCT:SUPADEMO-INTERACTIVE-PILOT-20260929",
+      "task_key": "product-experience-supademo-interactive-pilot-20260929",
+      "incident_key": "supademo-guided-interactive-demo-live-verification",
+      "target": "https://coshuma.com/tool/supademo.html guided interactive demo",
+      "owner_team": "Product Experience Team",
+      "canonical_owner": "Product Experience Team",
+      "found_by": "Product Experience Team",
+      "fixed_by": "Product Experience Team",
+      "changed_scope": "Existing Supademo interactive pilot live-verification gate only; no mass embed expansion, login, customer data, auth bypass, Shorts restart or analytics-definition change.",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
+      "priority": "normal",
+      "blocker": null,
+      "last_evidence_at": "2026-10-02T21:43:00Z",
+      "evidence": {
+        "prior_pending_comment_id": 5883566302,
+        "production_verification_comment_id": 5961975218,
+        "deployment_source_commit": "bb052638e9fc8d0b695f58c1a41984738f57837b",
+        "site_build_deploy_run": 37068139120,
+        "pages_run": 37068332051,
+        "release_verification_run": 37068341066,
+        "live_url": "https://coshuma.com/tool/supademo.html?coshuma_qa=1&deploy=bb052638",
+        "exact_iframe_url": "https://app.supademo.com/embed/cm2nn9s3x02kmtxbvhvwj62xj",
+        "live_frame_title": "Product Tour of Supademo",
+        "live_dimensions": "796x540.75",
+        "qa_mode": true,
+        "analytics_loaded": false
+      },
+      "completion_gate": "deployed_live_guided_demo_verified",
+      "completion_gate_satisfied": true,
+      "completed_at": "2026-10-02T21:43:00Z",
+      "user_action_required": false,
+      "verification": "Fresh live page exposes the exact allowlisted HTTPS iframe and guided seven-click flow with playback controls. Customer copy remains a guided public demo, not a live account/workspace.",
+      "handoff": "Keep mass embed expansion unapproved and preserve the separate physical-device gate."
     }
   ],
   "invariants": {
