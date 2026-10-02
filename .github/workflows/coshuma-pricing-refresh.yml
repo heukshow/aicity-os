@@ -10,6 +10,11 @@ on:
   schedule:
     - cron: '23 1 * * *'
   workflow_dispatch:
+    inputs:
+      batch_size:
+        description: 'Manual pricing verification batch size (1-25)'
+        required: false
+        default: '25'
 
 permissions:
   contents: write
@@ -37,7 +42,7 @@ jobs:
         env:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          PRICING_REFRESH_BATCH: '10'
+          PRICING_REFRESH_BATCH: ${{ github.event_name == 'workflow_dispatch' && inputs.batch_size || '10' }}
         run: python scripts/refresh_pricing_backlog.py
       - name: Validate only pricing fields changed by this refresh
         working-directory: projects/GlobalSaaSHub
