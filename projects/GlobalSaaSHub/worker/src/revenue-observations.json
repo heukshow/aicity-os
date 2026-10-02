@@ -177,16 +177,48 @@
     },
     {
       "account_id": "pictory",
-      "connection": "blocked",
+      "connection": "verified_snapshot",
       "complete": false,
-      "checked_at": null,
-      "observed_window": "2026-09-11 09:55 KST",
-      "source": "authenticated-browser-attempt",
-      "period": null,
-      "currency": null,
-      "metrics": {},
+      "checked_at": "2026-09-28T09:09:57Z",
+      "observed_window": "Previous month performance reported by Pictory Affiliate Manager",
+      "source": "vendor-system-email",
+      "period": "Previous month; exact calendar boundaries not stated in email",
+      "currency": "USD",
+      "metrics": {
+        "outbound_clicks": 0,
+        "signups_referrals": 0,
+        "trials": null,
+        "paid_customers": 0,
+        "commission_earned": 0,
+        "commission_pending": null,
+        "reward_paid": null,
+        "available": null,
+        "withdrawn": null,
+        "declined": null,
+        "payout_paid": null
+      },
       "portal_url": "https://pictory.firstpromoter.com/login",
-      "action": "로그인 제출 후 동일 화면 유지. 오류 문구 없음. 기존 계정 로그인 완료 필요."
+      "action": "Pictory monthly email explicitly reports 0 clicks, 0 referrals, 0 customers and $0 earnings for the reported prior-month window. Trial count and payout fields remain unknown.",
+      "evidence": [
+        {
+          "tool": "Pictory",
+          "observed_window": "Previous month performance reported by Pictory Affiliate Manager",
+          "checked_at": "2026-09-28T09:09:57Z",
+          "period": "Previous month; exact calendar boundaries not stated in email",
+          "source": "vendor-system-email",
+          "evidence_id": "gmail:1a0e74730a53e9b7",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 0,
+            "signups_referrals": 0,
+            "trials": null,
+            "paid_customers": 0,
+            "commission_earned": 0,
+            "commission_pending": null,
+            "payout_paid": null
+          }
+        }
+      ]
     },
     {
       "account_id": "text-account",
@@ -332,6 +364,149 @@
             "commission_paid": null,
             "payout_paid": null,
             "payout_pending": null,
+            "network_reported_unpaid_balance": 0
+          }
+        }
+      ]
+    },
+    {
+      "account_id": "databox",
+      "connection": "verified_snapshot",
+      "complete": false,
+      "checked_at": "2026-10-02T06:46:00Z",
+      "observed_window": "Current balances stated in Databox 30-day affiliate review email",
+      "source": "vendor-system-email",
+      "period": "Account balance as of 2026-10-02",
+      "currency": null,
+      "metrics": {
+        "outbound_clicks": null,
+        "signups_referrals": null,
+        "trials": null,
+        "paid_customers": null,
+        "commission_earned": null,
+        "commission_pending": null,
+        "reward_paid": null,
+        "available": null,
+        "withdrawn": null,
+        "declined": null,
+        "payout_paid": null,
+        "network_reported_unpaid_balance": 0,
+        "network_reported_paid_balance": 0
+      },
+      "portal_url": "https://databox.firstpromoter.com/login",
+      "action": "Databox email confirms unpaid balance 0 and paid balance 0 only. Click, signup, paid-customer, commission semantics, payout currency, and reporting-period funnel values remain unknown.",
+      "evidence": [
+        {
+          "tool": "Databox",
+          "observed_window": "Current balances stated in Databox 30-day affiliate review email",
+          "checked_at": "2026-10-02T06:46:00Z",
+          "period": "Account balance as of 2026-10-02",
+          "source": "vendor-system-email",
+          "evidence_id": "gmail:1a0fb5cd86910322",
+          "currency": null,
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "commission_earned": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "network_reported_unpaid_balance": 0,
+            "network_reported_paid_balance": 0
+          }
+        }
+      ]
+    },
+    {
+      "account_id": "docsbot",
+      "connection": "verified_snapshot",
+      "complete": false,
+      "checked_at": "2026-10-01T13:56:48Z",
+      "observed_window": "Current unpaid balance stated in DocsBot first-month review email",
+      "source": "vendor-system-email",
+      "period": "Account balance as of 2026-10-01",
+      "currency": null,
+      "metrics": {
+        "outbound_clicks": null,
+        "signups_referrals": null,
+        "trials": null,
+        "paid_customers": null,
+        "commission_earned": null,
+        "commission_pending": null,
+        "reward_paid": null,
+        "available": null,
+        "withdrawn": null,
+        "declined": null,
+        "payout_paid": null,
+        "network_reported_unpaid_balance": 0
+      },
+      "portal_url": "https://docsbot.firstpromoter.com/login",
+      "action": "DocsBot email confirms unpaid balance 0 only. Do not infer clicks, referrals, customers, earned commission, paid balance, payout, or currency.",
+      "evidence": [
+        {
+          "tool": "DocsBot",
+          "observed_window": "Current unpaid balance stated in DocsBot first-month review email",
+          "checked_at": "2026-10-01T13:56:48Z",
+          "period": "Account balance as of 2026-10-01",
+          "source": "vendor-system-email",
+          "evidence_id": "gmail:1a0f7c0e76dbd5de",
+          "currency": null,
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "commission_earned": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "network_reported_unpaid_balance": 0
+          }
+        }
+      ]
+    },
+    {
+      "account_id": "vista-social",
+      "connection": "verified_snapshot",
+      "complete": false,
+      "checked_at": "2026-09-30T22:02:27Z",
+      "observed_window": "Current unpaid balance stated in Vista Social first-month affiliate review email",
+      "source": "vendor-system-email",
+      "period": "Account balance as of 2026-09-30",
+      "currency": null,
+      "metrics": {
+        "outbound_clicks": null,
+        "signups_referrals": null,
+        "trials": null,
+        "paid_customers": null,
+        "commission_earned": null,
+        "commission_pending": null,
+        "reward_paid": null,
+        "available": null,
+        "withdrawn": null,
+        "declined": null,
+        "payout_paid": null,
+        "network_reported_unpaid_balance": 0
+      },
+      "portal_url": "https://vistasocial.firstpromoter.com/login",
+      "action": "Vista Social email confirms unpaid balance 0 only. Do not infer clicks, referrals, customers, earned commission, payout, or currency.",
+      "evidence": [
+        {
+          "tool": "Vista Social",
+          "observed_window": "Current unpaid balance stated in Vista Social first-month affiliate review email",
+          "checked_at": "2026-09-30T22:02:27Z",
+          "period": "Account balance as of 2026-09-30",
+          "source": "vendor-system-email",
+          "evidence_id": "gmail:1a0f4572d54da79a",
+          "currency": null,
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "commission_earned": null,
+            "commission_pending": null,
+            "payout_paid": null,
             "network_reported_unpaid_balance": 0
           }
         }
