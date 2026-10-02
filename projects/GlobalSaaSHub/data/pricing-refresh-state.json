@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "tools": {
+    "10web": {
+      "checked_at": "2026-10-02T20:30:38Z",
+      "status": "no_official_pricing_result"
+    },
+    "activecampaign": {
+      "checked_at": "2026-10-02T20:30:38Z",
+      "status": "evidence_validation_failed"
+    },
+    "activepieces": {
+      "checked_at": "2026-10-02T20:30:38Z",
+      "status": "evidence_validation_failed"
+    },
+    "agentworks": {
+      "checked_at": "2026-10-02T20:30:38Z",
+      "status": "evidence_validation_failed"
+    },
+    "ai-agent-store": {
+      "checked_at": "2026-10-02T20:30:38Z",
+      "status": "no_official_pricing_result"
+    },
+    "ai-video-cut": {
+      "checked_at": "2026-10-02T20:30:38Z",
+      "status": "no_official_pricing_result"
+    },
+    "aiassistworks": {
+      "checked_at": "2026-10-02T20:30:38Z",
+      "status": "extract_ok"
+    },
+    "airia": {
+      "checked_at": "2026-10-02T20:30:38Z",
+      "status": "no_official_pricing_result"
+    },
+    "aitable-ai": {
+      "checked_at": "2026-10-02T20:30:38Z",
+      "status": "no_official_pricing_result"
+    },
+    "alidropship": {
+      "checked_at": "2026-10-02T20:30:38Z",
+      "status": "no_official_pricing_result"
+    }
+  },
+  "last_run_at": "2026-10-02T20:30:38Z",
+  "last_batch_size": 10,
+  "last_updated_tools": []
+}
