@@ -155,6 +155,7 @@ jobs:
           test -f projects/GlobalSaaSHub/.private-ops/admin-affiliate-audit.json
           test ! -e projects/GlobalSaaSHub/dist/admin-affiliate-audit.json
           grep -q 'COSHUMA' projects/GlobalSaaSHub/dist/index.html
+          grep -q -F '<meta name="yandex-verification" content="c12267f25e56c30f" />' projects/GlobalSaaSHub/dist/index.html
           test -f projects/GlobalSaaSHub/dist/brand-usage.html
           test -f projects/GlobalSaaSHub/dist/c8f43b92e1d74a6f9c2057be8301ad6e.txt
           test "$(tr -d '\\r\\n' < projects/GlobalSaaSHub/dist/c8f43b92e1d74a6f9c2057be8301ad6e.txt)" = 'c8f43b92e1d74a6f9c2057be8301ad6e'
