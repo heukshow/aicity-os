@@ -35,7 +35,12 @@ const historicalEvidence = [...baseline.records.map(r => ({...r, period:'당시 
   currency:r.currency, metrics:Object.fromEntries(metrics.map(k => [k, typeof r[k] === 'number' ? r[k] : null])),
 }));
 const evidence = mergeProgramObservations(historicalEvidence, programObservations(read('worker/src/revenue-observations.json'), tools));
-const rows = new Map(tools.map(t => [t.id, {id:t.id,name:t.name,network:null,portal_url:null,inventory_source:'data/tools.json'}]));
+const rows = new Map(tools.map(t => [t.id, {
+  id:t.id,name:t.name,network:null,portal_url:null,inventory_source:'data/tools.json',
+  status:t.affiliate_status,
+  exact_tracking_url:t.affiliate_final_url || t.affiliate_url,
+  verified_at:t.affiliate_verified_at || t.affiliate_status_checked_at || null,
+}]));
 for (const e of evidence) {
   if (!rows.has(e.tool_id)) rows.set(e.tool_id,{id:e.tool_id,name:e.tool,network:null,portal_url:null,inventory_source:'revenue truth evidence'});
   if (e.network) rows.get(e.tool_id).network = e.network;

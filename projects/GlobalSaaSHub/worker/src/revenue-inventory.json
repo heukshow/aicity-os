@@ -7,6 +7,9 @@
       "network": "Affonso",
       "portal_url": "https://aiassistworks.affonso.io/",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.aiassistworks.com/?via=coshuma",
+      "verified_at": "2026-09-08T05:29:50+09:00",
       "account_id": "aiassistworks",
       "evidence": [
         {
@@ -40,8 +43,29 @@
       "network": "AWeber Advocate Program",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.aweber.com/easy-email.htm?id=561868",
+      "verified_at": "2026-09-01T08:20:00+09:00",
       "account_id": "aweber",
       "evidence": [
+        {
+          "tool_id": "aweber",
+          "tool": "AWeber",
+          "network": null,
+          "period": "account total as of 2026-09-18",
+          "checked_at": "2026-09-18T20:00:33Z",
+          "source": "vendor-human-email",
+          "evidence_id": "gmail:1a0b61b45d55df0e",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": 0,
+            "paid_customers": null,
+            "commission_earned": null,
+            "commission_pending": null,
+            "payout_paid": null
+          }
+        },
         {
           "tool_id": "aweber",
           "tool": "AWeber",
@@ -73,6 +97,9 @@
       "network": "개별 제휴 포털",
       "portal_url": "https://dash.partnerstack.com/home",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://partners.beefree.io/kqi520hezix2",
+      "verified_at": "2026-09-10T08:26:43+09:00",
       "portal_source": "data/affiliate-browser-results-2026-09-08.json",
       "account_id": "beefree",
       "evidence": []
@@ -83,6 +110,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.bolddesk.com/?via=sangkwon",
+      "verified_at": "2026-09-01T00:00:00Z",
       "account_id": "bolddesk",
       "evidence": []
     },
@@ -92,6 +122,9 @@
       "network": "BoldSign Affiliate",
       "portal_url": "https://affiliates.boldsign.com/login",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://boldsign.com?via=sangkwon",
+      "verified_at": "2026-09-01T00:00:00Z",
       "account_id": "boldsign",
       "evidence": [
         {
@@ -125,6 +158,9 @@
       "network": "PartnerStack",
       "portal_url": "https://dash.partnerstack.com/home",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.bookyourdata.com/",
+      "verified_at": "2026-09-08T00:00:00Z",
       "account_id": "partnerstack-account",
       "evidence": [
         {
@@ -158,6 +194,9 @@
       "network": "PartnerStack",
       "portal_url": "https://dash.partnerstack.com/home",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://try.brand24.com/8xqrjxybmsbt",
+      "verified_at": "2026-09-07T06:48:39Z",
       "account_id": "partnerstack-account",
       "evidence": [
         {
@@ -214,6 +253,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "http://www.cartstack.com/?afmc=wb",
+      "verified_at": "2026-09-01T00:00:00+09:00",
       "account_id": "cartstack",
       "evidence": []
     },
@@ -223,8 +265,35 @@
       "network": "FirstPromoter",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://castmagic.io?fpr=sangkwon-an54",
+      "verified_at": "2026-09-01T00:00:00+09:00",
       "account_id": "castmagic",
       "evidence": [
+        {
+          "tool_id": "castmagic",
+          "tool": "Castmagic",
+          "network": null,
+          "period": "Reporting period not stated",
+          "checked_at": "2026-09-23T18:32:38Z",
+          "source": "vendor-system-email",
+          "evidence_id": "gmail:1a0cf8a8b7c21b67",
+          "currency": null,
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": null,
+            "commission_earned": null,
+            "commission_approved": null,
+            "commission_pending": null,
+            "commission_paid": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_unpaid_balance": 0
+          }
+        },
         {
           "tool_id": "castmagic",
           "tool": "Castmagic",
@@ -256,6 +325,9 @@
       "network": "Catalister native affiliate dashboard",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://app.catalister.com/signup?via=coshuma",
+      "verified_at": "2026-09-08T04:55:00+09:00",
       "account_id": "catalister",
       "evidence": [
         {
@@ -289,6 +361,9 @@
       "network": "Vendor-native / Chatbase",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://link.chatbase.co/sang-kwon-an",
+      "verified_at": "2026-09-06T01:50:28+09:00",
       "account_id": "chatbase",
       "evidence": [
         {
@@ -322,6 +397,9 @@
       "network": "PartnerStack",
       "portal_url": "https://dash.partnerstack.com/home",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://get.claap.io/rc9nqme16a9q-gfvrqk",
+      "verified_at": "2026-09-09T12:45:09Z",
       "account_id": "partnerstack-account",
       "evidence": []
     },
@@ -331,6 +409,9 @@
       "network": "ClickFunnels Affiliate Portal",
       "portal_url": "https://www.clickfunnels.com/customers/profiles/kMXlLGaZ/affiliates/dashboard",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.clickfunnels.com/signup-flow?aff=b57f3056884d05b842f607e32347df542821875bbe3209a214141aa32a210532",
+      "verified_at": "2026-09-08T02:19:00+09:00",
       "portal_source": "data/affiliate-browser-results-2026-09-08.json",
       "account_id": "clickfunnels",
       "evidence": [
@@ -365,6 +446,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://app.convertflow.com/refer?fpr=sangkwon-an-334dcb",
+      "verified_at": "2026-09-01T00:00:00+09:00",
       "account_id": "convertflow",
       "evidence": []
     },
@@ -374,6 +458,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://customgpt.ai/?fpr=sangkwon-3b18de",
+      "verified_at": "2026-09-01T00:00:00+09:00",
       "account_id": "customgpt-ai",
       "evidence": []
     },
@@ -383,8 +470,33 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://databox.com?aff_id=15298659&fp_ref=sangkwon-72c9ec",
+      "verified_at": "2026-09-01T00:00:00+09:00",
       "account_id": "databox",
-      "evidence": []
+      "evidence": [
+        {
+          "tool_id": "databox",
+          "tool": "Databox",
+          "network": null,
+          "period": "Account balance as of 2026-10-02",
+          "checked_at": "2026-10-02T06:46:00Z",
+          "source": "vendor-system-email",
+          "evidence_id": "gmail:1a0fb5cd86910322",
+          "currency": null,
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "commission_earned": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "network_reported_unpaid_balance": 0,
+            "network_reported_paid_balance": 0
+          }
+        }
+      ]
     },
     {
       "id": "decktopus",
@@ -392,6 +504,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.decktopus.com?via=sangkwon",
+      "verified_at": "2026-09-01T00:00:00Z",
       "account_id": "decktopus",
       "evidence": []
     },
@@ -401,6 +516,9 @@
       "network": "PartnerStack",
       "portal_url": "https://dash.partnerstack.com/home",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://get.descript.com/ole5fu20j5sq",
+      "verified_at": "2026-09-01T00:00:00+09:00",
       "account_id": "partnerstack-account",
       "evidence": []
     },
@@ -410,8 +528,32 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://docsbot.ai?via=31kq9q",
+      "verified_at": "2026-09-01T00:00:00+09:00",
       "account_id": "docsbot",
-      "evidence": []
+      "evidence": [
+        {
+          "tool_id": "docsbot",
+          "tool": "DocsBot",
+          "network": null,
+          "period": "Account balance as of 2026-10-01",
+          "checked_at": "2026-10-01T13:56:48Z",
+          "source": "vendor-system-email",
+          "evidence_id": "gmail:1a0f7c0e76dbd5de",
+          "currency": null,
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "commission_earned": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "network_reported_unpaid_balance": 0
+          }
+        }
+      ]
     },
     {
       "id": "dorik",
@@ -419,6 +561,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://dorik.com/?ref=coshuma",
+      "verified_at": "2026-09-01T00:00:00Z",
       "account_id": "dorik",
       "evidence": []
     },
@@ -428,6 +573,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://try.elevenlabs.io/ldc2xmh2x2t5",
+      "verified_at": "2026-09-01T00:00:00Z",
       "account_id": "elevenlabs",
       "evidence": []
     },
@@ -437,6 +585,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://emailoctopus.com/?ref=sangkwon",
+      "verified_at": "2026-09-01T00:00:00+09:00",
       "account_id": "emailoctopus",
       "evidence": []
     },
@@ -446,6 +597,9 @@
       "network": "eProfessor native referrals",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://eprofessor.com/invite/coshuma173",
+      "verified_at": "2026-09-07T21:24:29.148094+00:00",
       "account_id": "eprofessor",
       "evidence": [
         {
@@ -479,6 +633,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://fireflies.ai/?fpr=sangkwon53",
+      "verified_at": "2026-09-01T00:00:00+09:00",
       "account_id": "fireflies-ai",
       "evidence": []
     },
@@ -488,6 +645,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://fliki.ai?via=sangkwon",
+      "verified_at": "2026-08-23T22:05:38Z",
       "account_id": "fliki",
       "evidence": []
     },
@@ -497,6 +657,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://followr.ai/?ref=support22",
+      "verified_at": "2026-08-31T14:00:00Z",
       "account_id": "followr",
       "evidence": []
     },
@@ -506,6 +669,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.frase.io/?utm_source=firstpromoter&utm_medium=affiliate&utm_campaign=affiliate_program&via=sangkwon12",
+      "verified_at": "2026-09-01T00:00:00+09:00",
       "account_id": "frase",
       "evidence": []
     },
@@ -515,6 +681,9 @@
       "network": "PartnerStack",
       "portal_url": "https://dash.partnerstack.com/home",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://gamma.app",
+      "verified_at": "2026-09-08T00:00:00Z",
       "account_id": "partnerstack-account",
       "evidence": [
         {
@@ -571,6 +740,9 @@
       "network": "GetGenie Affiliate Area",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://getgenie.ai?rui=3921",
+      "verified_at": "2026-08-31T14:00:00Z",
       "account_id": "getgenie",
       "evidence": [
         {
@@ -604,6 +776,9 @@
       "network": "FirstPromoter / HighLevel Affiliate Portal",
       "portal_url": "https://affiliate.gohighlevel.com/login",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.gohighlevel.com/?fp_ref=sangkwon56",
+      "verified_at": "2026-09-01T00:00:00+09:00",
       "account_id": "gohighlevel",
       "evidence": [
         {
@@ -637,6 +812,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://gojiberry.ai/?ref=sangkwon",
+      "verified_at": "2026-08-31T14:00:00Z",
       "account_id": "gojiberry",
       "evidence": []
     },
@@ -646,6 +824,9 @@
       "network": "PartnerStack",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.gravityforms.com/",
+      "verified_at": "2026-09-26T17:04:17.917807+00:00",
       "account_id": "partnerstack-account",
       "evidence": [
         {
@@ -702,6 +883,9 @@
       "network": "LiveChat Partner Program",
       "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.helpdesk.com/",
+      "verified_at": "2026-09-07T17:06:13Z",
       "account_id": "text-account",
       "evidence": [
         {
@@ -735,6 +919,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.inkfluenceai.com/?ref=sangkwon",
+      "verified_at": "2026-08-31T14:00:00Z",
       "account_id": "inkfluence-ai",
       "evidence": []
     },
@@ -744,8 +931,29 @@
       "network": "Jotform Affiliate Program",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.jotform.com/?partner=coshuma",
+      "verified_at": "2026-09-01T00:00:00Z",
       "account_id": "jotform",
       "evidence": [
+        {
+          "tool_id": "jotform",
+          "tool": "Jotform",
+          "network": null,
+          "period": "September 2026 month-to-date",
+          "checked_at": "2026-09-18T06:13:30Z",
+          "source": "vendor-human-email",
+          "evidence_id": "gmail:1a0b3265d5b2769f",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 34,
+            "signups_referrals": 0,
+            "paid_customers": 0,
+            "commission_earned": null,
+            "commission_pending": null,
+            "payout_paid": null
+          }
+        },
         {
           "tool_id": "jotform",
           "tool": "Jotform",
@@ -777,6 +985,9 @@
       "network": "Impact",
       "portal_url": "https://app.impact.com/login.user",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.kittl.com/",
+      "verified_at": "2026-09-08T00:00:00Z",
       "account_id": "impact-account",
       "evidence": []
     },
@@ -786,6 +997,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://go.krater.ai/sang-kwon-an",
+      "verified_at": "2026-09-08T14:00:00+09:00",
       "account_id": "krater",
       "evidence": []
     },
@@ -795,6 +1009,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.liftmycv.com/?via=sangkwon",
+      "verified_at": "2026-08-31T14:00:00Z",
       "account_id": "liftmycv",
       "evidence": []
     },
@@ -804,6 +1021,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.livechat.com/",
+      "verified_at": "2026-09-18T19:38:07+09:00",
       "account_id": "livechat",
       "evidence": []
     },
@@ -813,6 +1033,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://loopcv.pro?via=sang-kwon",
+      "verified_at": "2026-09-01T00:00:00Z",
       "account_id": "loopcv",
       "evidence": []
     },
@@ -822,6 +1045,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.make.com/en?pc=coshuma",
+      "verified_at": "2026-09-01T00:00:00Z",
       "account_id": "make-com",
       "evidence": []
     },
@@ -831,6 +1057,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.getmerlin.in/chat?ref=yjeyytn",
+      "verified_at": "2026-08-31T14:00:00Z",
       "account_id": "merlin",
       "evidence": []
     },
@@ -840,6 +1069,9 @@
       "network": "PartnerStack",
       "portal_url": "https://dash.partnerstack.com/home",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://moosend.com/",
+      "verified_at": "2026-09-08T00:00:00Z",
       "account_id": "partnerstack-account",
       "evidence": [
         {
@@ -873,6 +1105,9 @@
       "network": "PartnerStack",
       "portal_url": "https://dash.partnerstack.com/home",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://murf.ai/",
+      "verified_at": "2026-09-08T00:00:00Z",
       "account_id": "partnerstack-account",
       "evidence": [
         {
@@ -906,6 +1141,9 @@
       "network": "Tapfiliate",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://novita.ai/?ref=mwjmyjy&utm_source=affiliate",
+      "verified_at": "2026-09-08T06:04:00+09:00",
       "account_id": "novita-ai",
       "evidence": []
     },
@@ -915,6 +1153,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.omi.me/?ref=SANGKWONAN",
+      "verified_at": "2026-09-01T00:00:00+09:00",
       "account_id": "omi-ai",
       "evidence": []
     },
@@ -924,6 +1165,9 @@
       "network": "Impact",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://your.omnisend.com/4aA5k9",
+      "verified_at": "2026-09-09T19:56:33+09:00",
       "account_id": "omnisend",
       "evidence": [
         {
@@ -957,6 +1201,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://outlierkit.com/?ref=sangkwon",
+      "verified_at": "2026-09-01T00:00:00Z",
       "account_id": "outlierkit",
       "evidence": []
     },
@@ -966,6 +1213,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://pandavideo.com?ref=wds66lmt&refc=usd",
+      "verified_at": "2026-09-01T00:00:00+09:00",
       "account_id": "panda-video",
       "evidence": []
     },
@@ -975,8 +1225,30 @@
       "network": "FirstPromoter",
       "portal_url": "https://pictory.firstpromoter.com/login",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://pictory.ai?fpr=sangkwon-an23",
+      "verified_at": "2026-09-10T23:27:39+09:00",
       "account_id": "pictory",
       "evidence": [
+        {
+          "tool_id": "pictory",
+          "tool": "Pictory",
+          "network": null,
+          "period": "Previous month; exact calendar boundaries not stated in email",
+          "checked_at": "2026-09-28T09:09:57Z",
+          "source": "vendor-system-email",
+          "evidence_id": "gmail:1a0e74730a53e9b7",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 0,
+            "signups_referrals": 0,
+            "trials": null,
+            "paid_customers": 0,
+            "commission_earned": 0,
+            "commission_pending": null,
+            "payout_paid": null
+          }
+        },
         {
           "tool_id": "pictory",
           "tool": "Pictory",
@@ -1003,11 +1275,26 @@
       ]
     },
     {
+      "id": "pipedrive",
+      "name": "Pipedrive",
+      "network": "PartnerStack",
+      "portal_url": "https://dash.partnerstack.com/home",
+      "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://aff.trypipedrive.com/sv587bilh4w7",
+      "verified_at": "2026-10-02T07:58:36+09:00",
+      "account_id": "partnerstack-account",
+      "evidence": []
+    },
+    {
       "id": "relevance-ai",
       "name": "Relevance AI",
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://relevanceai.com?via=sangkwon",
+      "verified_at": "2026-08-31T17:44:19Z",
       "account_id": "relevance-ai",
       "evidence": []
     },
@@ -1017,6 +1304,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://rytr.me?via=sangkwon",
+      "verified_at": "2026-09-01T00:00:00Z",
       "account_id": "rytr",
       "evidence": []
     },
@@ -1026,6 +1316,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://try.sanebox.com/s1ooqjj73rpz",
+      "verified_at": "2026-09-16T06:20:00+09:00",
       "account_id": "sanebox",
       "evidence": []
     },
@@ -1035,6 +1328,9 @@
       "network": "PartnerStack",
       "portal_url": "https://dash.partnerstack.com/home",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://sendcloud.getsc.eu/bdwc8vxceqtt",
+      "verified_at": "2026-09-21T08:41:58Z",
       "account_id": "partnerstack-account",
       "evidence": []
     },
@@ -1044,6 +1340,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://app.impact.com/campaign-promo-signup/Shopify.brand",
+      "verified_at": "2026-09-01T00:00:00Z",
       "account_id": "shopify",
       "evidence": []
     },
@@ -1053,6 +1352,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.sudowrite.com?via=sangkwon",
+      "verified_at": "2026-09-01T00:00:00Z",
       "account_id": "sudowrite",
       "evidence": []
     },
@@ -1062,6 +1364,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.synthesia.io?via=sangkwon",
+      "verified_at": "2026-09-01T00:00:00Z",
       "account_id": "synthesia",
       "evidence": []
     },
@@ -1071,6 +1376,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://systeme.io/?sa=sa0279779913657b281b5d2c1fed58680413f14dca",
+      "verified_at": "2026-08-23T20:23:38Z",
       "account_id": "systeme-io",
       "evidence": []
     },
@@ -1080,9 +1388,33 @@
       "network": "FirstPromoter",
       "portal_url": "https://tagshop.firstpromoter.com/login",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://tagshop.ai/",
+      "verified_at": "2026-09-09T05:03:24+09:00",
       "portal_source": "data/browser_required_queue.d/tagshop-revenue-stats-2026-09-12.json",
       "account_id": "tagshop-ai",
-      "evidence": []
+      "evidence": [
+        {
+          "tool_id": "tagshop-ai",
+          "tool": "Tagshop AI",
+          "network": null,
+          "period": "Current dashboard as of 2026-09-18; screenshot column labels cropped",
+          "checked_at": "2026-09-18T13:39:08Z",
+          "source": "vendor-human-email-attachment",
+          "evidence_id": "gmail:1a0b4be35d48f261:Screenshot 2026-09-18 190742.png",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "commission_earned": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "network_reported_unlabeled_zero_summary": 0
+          }
+        }
+      ]
     },
     {
       "id": "tally",
@@ -1090,6 +1422,9 @@
       "network": "Cello / Tally Rewards",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://tally.cello.so/ub0qUbuKk2f",
+      "verified_at": "2026-09-11T17:33:38Z",
       "account_id": "tally",
       "evidence": [
         {
@@ -1123,6 +1458,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://partners.taskade.com/",
+      "verified_at": "2026-08-16T04:20:43Z",
       "account_id": "taskade",
       "evidence": []
     },
@@ -1132,6 +1470,9 @@
       "network": "개별 제휴 포털",
       "portal_url": "https://taskip.affonso.io/success-hub",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://taskip.net/?atp=qnV3mw",
+      "verified_at": "2026-09-08T02:19:00+09:00",
       "portal_source": "data/affiliate-browser-results-2026-09-08.json",
       "account_id": "taskip",
       "evidence": []
@@ -1142,8 +1483,35 @@
       "network": "PartnerStack",
       "portal_url": "https://dash.partnerstack.com/home",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://partnerstack.teachable.com/ce4muoxdj46j",
+      "verified_at": "2026-09-10T02:24:53+09:00",
       "account_id": "partnerstack-account",
       "evidence": [
+        {
+          "tool_id": "teachable",
+          "tool": "Teachable",
+          "network": null,
+          "period": "current cumulative dashboard",
+          "checked_at": "2026-09-24T21:54:09Z",
+          "source": "authenticated-browser-dashboard",
+          "evidence_id": "partnerstack-dashboard:2026-09-24T21:54:09Z:teachable",
+          "currency": "USD",
+          "metrics": {
+            "outbound_clicks": 20,
+            "signups_referrals": 0,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": 0,
+            "commission_earned": null,
+            "commission_approved": null,
+            "commission_pending": 0,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_conversions": 0,
+            "reward_paid": 0
+          }
+        },
         {
           "tool_id": "teachable",
           "tool": "Teachable",
@@ -1175,6 +1543,9 @@
       "network": "LiveChat Partner Program",
       "portal_url": "https://partners.livechat.com/app/affiliate/campaigns/723911/overview",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.text.com/?a=8IetMhQvR&utm_campaign=pp_text-wins-martech-awards&utm_source=PP",
+      "verified_at": "2026-09-01T10:04:07Z",
       "account_id": "text-account",
       "evidence": [
         {
@@ -1203,11 +1574,26 @@
       ]
     },
     {
+      "id": "tidio",
+      "name": "Tidio",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.tidio.com/",
+      "verified_at": "2026-09-30T09:42:19Z",
+      "account_id": "tidio",
+      "evidence": []
+    },
+    {
       "id": "time2book",
       "name": "Time2book",
       "network": "개별 제휴 포털",
       "portal_url": "https://time2book.me/affiliates",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.time2book.me/",
+      "verified_at": "2026-09-08T02:06:13+09:00",
       "portal_source": "data/affiliate-browser-results-2026-09-08.json",
       "account_id": "time2book",
       "evidence": []
@@ -1218,6 +1604,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.tubebuddy.com/pricing?a=coshuma",
+      "verified_at": "2026-09-01T00:00:00Z",
       "account_id": "tubebuddy",
       "evidence": []
     },
@@ -1227,6 +1616,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.typedesk.com?via=sangkwon",
+      "verified_at": "2026-09-09T12:20:00+09:00",
       "account_id": "typedesk",
       "evidence": []
     },
@@ -1236,6 +1628,9 @@
       "network": "PartnerStack",
       "portal_url": "https://dash.partnerstack.com/home",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://unbounce.com/your-invitation/",
+      "verified_at": "2026-09-08T00:00:00Z",
       "account_id": "partnerstack-account",
       "evidence": [
         {
@@ -1269,6 +1664,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://vidiq.com/coshuma",
+      "verified_at": "2026-09-01T00:00:00+09:00",
       "account_id": "vidiq",
       "evidence": []
     },
@@ -1278,8 +1676,32 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://vistasocial.com?fpr=sangkwon14",
+      "verified_at": "2026-08-31T22:02:27Z",
       "account_id": "vista-social",
-      "evidence": []
+      "evidence": [
+        {
+          "tool_id": "vista-social",
+          "tool": "Vista Social",
+          "network": null,
+          "period": "Account balance as of 2026-09-30",
+          "checked_at": "2026-09-30T22:02:27Z",
+          "source": "vendor-system-email",
+          "evidence_id": "gmail:1a0f4572d54da79a",
+          "currency": null,
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "commission_earned": null,
+            "commission_pending": null,
+            "payout_paid": null,
+            "network_reported_unpaid_balance": 0
+          }
+        }
+      ]
     },
     {
       "id": "voibe",
@@ -1287,6 +1709,9 @@
       "network": "Lemon Squeezy",
       "portal_url": "https://affiliates.lemonsqueezy.com/programs/voibe",
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.getvoibe.com/?aff=G5Yr5D",
+      "verified_at": "2026-09-07T17:06:13Z",
       "account_id": "lemonsqueezy-account",
       "evidence": []
     },
@@ -1296,6 +1721,9 @@
       "network": "개별 제휴 포털",
       "portal_url": null,
       "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://writesonic.com/",
+      "verified_at": "2026-09-08T03:02:55+09:00",
       "account_id": "writesonic",
       "evidence": []
     },
@@ -1418,21 +1846,6 @@
       "account_id": "partnerstack-account",
       "portal_url": "https://dash.partnerstack.com/home",
       "evidence": []
-    },
-    {
-      "id": "pipedrive",
-      "name": "Pipedrive",
-      "inventory_source": "authenticated PartnerStack membership list 2026-09-11",
-      "network": "PartnerStack",
-      "account_id": "partnerstack-account",
-      "portal_url": "https://dash.partnerstack.com/home",
-      "evidence": [
-        "Gmail 1a0f9b12d43f26ed: Pipedrive Affiliate Team directly confirmed exact customer referral URL https://aff.trypipedrive.com/sv587bilh4w7.",
-        "Same reply confirms automatic extended 30-day trial through the link and upgrades/add-ons included in first-12-month revenue share."
-      ],
-      "status": "approved_tracking",
-      "exact_tracking_url": "https://aff.trypipedrive.com/sv587bilh4w7",
-      "verified_at": "2026-10-02T07:58:36+09:00"
     },
     {
       "id": "bidx",
