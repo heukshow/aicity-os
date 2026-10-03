@@ -2,7 +2,9 @@
 
 Campaign: `COSHUMA-20261004-ONE-MONTH`
 
-Status: prepared and reviewed; not scheduled or published. Intended channel: an existing COSHUMA-owned LinkedIn account after its identity and publishing connection are verified.
+Status: prepared and reviewed; not scheduled or published. Intended channel: a COSHUMA company Page managed through the actual owner's legitimate LinkedIn profile, after identity and publishing authority are verified. Reuse an existing appropriate account/Page first; necessary free non-video channel signup is now authorized. Follow supported authentication capabilities; no fabricated business-as-person profile.
+
+Format: text, comparison tables, checklists and optional permitted static images only. Do not create/edit/upload video or treat YouTube authentication recovery as campaign work. Preserve existing live media. No additional paid spend.
 
 ## Source and approval scope
 
@@ -54,3 +56,7 @@ COSHUMA가 AI 통화 검토에 관심을 갖는 이유는 영업 관리자를 �
 ## Live destination verification
 
 The guide and blank CSV were published and verified in [C01 release evidence](https://github.com/heukshow/aicity-os/issues/292#issuecomment-5973554126). Account authentication is still required before publication. This file remains a draft, with no public post URL.
+
+## Latest access observation — 2026-10-04 KST
+
+The current LinkedIn browser session was signed out. The secure Google option was selected, but the resulting popup could not be acquired because of a browser locale-override control error. A fresh LinkedIn check remained signed out. This is not a confirmed completed login, created Page or publication. The user authorized necessary non-video channel signup; current supported authentication constraints still apply. Threads separately showed a login/signup prompt. New accounts and public posts verified in this update: 0.

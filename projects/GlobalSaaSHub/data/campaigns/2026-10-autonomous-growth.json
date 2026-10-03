@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-03T21:35:29.617Z",
+  "updated_at": "2026-10-03T21:45:28.835Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -103,7 +103,17 @@
       "conversion_affiliate_revenue": 25,
       "necessary_maintenance": 15
     },
-    "allocation_is_measured_time": false
+    "allocation_is_measured_time": false,
+    "latest_scope_update": {
+      "non_video_updates_succeeded": 13,
+      "non_video_readback_matches": 13,
+      "signup_authorization_updates_succeeded": 13,
+      "signup_authorization_readback_matches": 13,
+      "signup_update_kst_from": "2026-10-04T06:35:03+09:00",
+      "signup_update_kst_to": "2026-10-04T06:35:30+09:00",
+      "existing_schedules_and_flags_preserved": true,
+      "new_schedules": 0
+    }
   },
   "baseline": {
     "source_url": "https://github.com/heukshow/aicity-os/actions/runs/37149051833/job/111278859820",
@@ -279,12 +289,32 @@
         "status": "no_social_network_connected",
         "evidence": "Current connector returned INVALID_ARGUMENT with 'This brand does not have any social network connected yet'; current official connection URL redirects to sign-in.",
         "url": "https://app.metricool.com/brands/connections?blogId=6940199"
+      },
+      {
+        "channel": "LinkedIn COSHUMA Company Page setup",
+        "checked_at": "2026-10-03T21:45:28.835Z",
+        "status": "authentication_incomplete_browser_popup_control_error",
+        "selected_method": "google",
+        "secure_auth_result": "submitted is method-selection evidence only, not sign-in success",
+        "popup_error": "Protocol error (Emulation.setLocaleOverride): Another locale override is already in effect",
+        "fresh_target_check": "A new tab at https://www.linkedin.com/ still shows the signed-out landing page.",
+        "new_account_created": false,
+        "verified_company_page": null,
+        "verified_public_post": null
+      },
+      {
+        "channel": "Threads",
+        "checked_at": "2026-10-03T21:45:28.835Z",
+        "url": "https://www.threads.com/",
+        "status": "signed_out_login_or_signup_screen",
+        "observation": "The current page offers Instagram and username sign-in and explicitly says to log in or join. No verified COSHUMA account or publishing permission.",
+        "new_account_created": false
       }
     ],
     "access_next_action": "Confirm an existing COSHUMA-owned text/static channel first; if no usable account exists, create a necessary free dedicated account under the new user authorization and complete supported ordinary signup/authentication. Verify identity and a successful channel read before publication. YouTube is excluded. Do not fabricate identity, bypass safeguards or extract credentials.",
     "blocked_execution_policy": "At most one access-state check per day unless new evidence arrives; reuse the existing channel incident. Continue website assets, search distribution and previously authorized affiliate work. Missing public posts count as a missed distribution goal, never as completed drafts. YouTube/video access is outside scope and must not be rechecked as a campaign blocker.",
     "platform_priority": [
-      "COSHUMA LinkedIn, existing account/Page first, with necessary free setup authorized, for text/static B2B decision posts",
+      "COSHUMA Company Page managed through the actual owner's legitimate LinkedIn profile; inspect existing Page/admin access first. Never create a personal member profile named COSHUMA.",
       "One other verified COSHUMA-owned text/static channel with necessary free signup authorized; exclude video formats"
     ],
     "post_format": "Text/static only. Each substantive buyer asset yields three distinct native posts: evaluation criterion, who should not buy, and practical checklist. Include a concise affiliate disclosure when promotional links are present, a supported factual claim, a useful standalone takeaway and a relevant destination.",
@@ -330,6 +360,18 @@
         "operating_status": "excluded_by_user_instruction_not_campaign_blocker",
         "do_not_restore_for_campaign": true
       }
+    ],
+    "current_access_gate": {
+      "status": "authentication_not_completed",
+      "cause": "Browser-controlled sign-in is incomplete; necessary account creation is authorized but not completed.",
+      "supported_auth_constraint": "Current browserAuth requires secure user method/credential input and requires manual handoff for account signup; do not bypass it.",
+      "next_action": "Use the documented secure/manual handoff for the existing LinkedIn flow, then verify the legitimate owner profile and COSHUMA Company Page. Continue unblocked C02 website work while access remains incomplete."
+    },
+    "platform_guidance_sources": [
+      "https://www.linkedin.com/help/linkedin/answer/a6204405",
+      "https://www.linkedin.com/help/linkedin/answer/a726850",
+      "https://business.linkedin.com/advertise/linkedin-pages/best-practices",
+      "https://about.fb.com/news/2026/06/meta-launching-new-features-500-million-monthly-threads-users/"
     ]
   },
   "calendar": [
@@ -660,7 +702,24 @@
       "Video-generation plugin installation, credits or spending"
     ],
     "existing_media": "Preserve already published media; this instruction does not request deletion.",
-    "product_coverage": "Evidence-backed written coverage of video SaaS remains allowed. Do not fabricate hands-on use, generated footage or customer results."
+    "product_coverage": "Evidence-backed written coverage of video SaaS remains allowed. Do not fabricate hands-on use, generated footage or customer results.",
+    "workflow_enforcement": {
+      "pr": 975,
+      "commit": "e1d5ea07beb707f3713c4c9f8a5c3510d77754da",
+      "job_guards": "job-level if: false in both video workflows",
+      "verified_runs": [
+        {
+          "id": 37155685971,
+          "conclusion": "skipped"
+        },
+        {
+          "id": 37155686049,
+          "conclusion": "skipped"
+        }
+      ],
+      "root_retrieved_run_states": true,
+      "existing_public_media_preserved": true
+    }
   },
   "channel_setup_authorization": {
     "source": "User instruction at 2026-10-04T06:31:18+09:00 authorizes platform-appropriate non-video marketing, required account signup and supported authentication.",

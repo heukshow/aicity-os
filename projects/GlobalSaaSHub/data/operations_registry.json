@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-03T21:35:29.617Z",
+  "updated_at": "2026-10-03T21:45:28.835Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2200,7 +2200,7 @@
       "next_owner": "Growth & SEO Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-10-03T21:35:29.617Z",
+      "last_evidence_at": "2026-10-03T21:45:28.835Z",
       "evidence": {
         "campaign_source": "projects/GlobalSaaSHub/data/campaigns/2026-10-autonomous-growth.json",
         "plan_source": "projects/GlobalSaaSHub/docs/2026-10-autonomous-growth-plan.md",
@@ -2210,7 +2210,7 @@
         "automation_readback_matches": 13,
         "first_asset_status": "production_verified",
         "new_public_social_posts": 0,
-        "distribution_status": "New verified public social posts remain zero. Text/static channel setup uses existing COSHUMA accounts first; necessary free dedicated signup and supported authentication are explicitly authorized as of 06:31 KST. YouTube/video is excluded, not an active campaign blocker.",
+        "distribution_status": "Non-video signup is authorized. LinkedIn Google method selected but popup control failed; fresh LinkedIn check remained signed out. Threads shows login/signup. Newly created accounts and public posts remain zero. No video-auth recovery work.",
         "first_asset": {
           "implementation_pr": 972,
           "final_head_commit": "16acc698ecd3466ad1f22e0449a4597d49c3917a",
@@ -2277,6 +2277,39 @@
           "authentication": "Complete ordinary authorized sign-in, email verification and standard setup with supported capabilities; apply the relevant authentication tool's rules to identity/CAPTCHA/OTP/consent gates. Never bypass a safeguard or extract stored credentials.",
           "limits": "No new spend, paid subscriptions, unrelated accounts, privilege expansion or fabricated identity. Routine platform signup is no longer barred by the old blanket account-creation restriction.",
           "trend_rule": "Adapt non-video topics, length, layout and publication style to current official platform guidance and observed relevant audience discussion. Record sources and dates; do not invent trend demand, reach or performance."
+        },
+        "video_workflows_paused": {
+          "pr": 975,
+          "commit": "e1d5ea07beb707f3713c4c9f8a5c3510d77754da",
+          "job_guards": "job-level if: false in both video workflows",
+          "verified_runs": [
+            {
+              "id": 37155685971,
+              "conclusion": "skipped"
+            },
+            {
+              "id": 37155686049,
+              "conclusion": "skipped"
+            }
+          ],
+          "root_retrieved_run_states": true,
+          "existing_public_media_preserved": true
+        },
+        "latest_scope_updates": {
+          "non_video_updates_succeeded": 13,
+          "non_video_readback_matches": 13,
+          "signup_authorization_updates_succeeded": 13,
+          "signup_authorization_readback_matches": 13,
+          "signup_update_kst_from": "2026-10-04T06:35:03+09:00",
+          "signup_update_kst_to": "2026-10-04T06:35:30+09:00",
+          "existing_schedules_and_flags_preserved": true,
+          "new_schedules": 0
+        },
+        "current_channel_access_gate": {
+          "status": "authentication_not_completed",
+          "cause": "Browser-controlled sign-in is incomplete; necessary account creation is authorized but not completed.",
+          "supported_auth_constraint": "Current browserAuth requires secure user method/credential input and requires manual handoff for account signup; do not bypass it.",
+          "next_action": "Use the documented secure/manual handoff for the existing LinkedIn flow, then verify the legitimate owner profile and COSHUMA Company Page. Continue unblocked C02 website work while access remains incomplete."
         }
       },
       "completion_gate": "campaign_period_ended_and_source_evidenced_outcomes_and_closeout_report",
