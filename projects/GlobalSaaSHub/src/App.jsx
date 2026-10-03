@@ -60,6 +60,7 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedPricing, setSelectedPricing] = useState('all');
+  const [selectedCountry, setSelectedCountry] = useState('all');
   const [mustHaveFeature, setMustHaveFeature] = useState('');
   const [selectedGoal, setSelectedGoal] = useState('');
   const [compareToolA, setCompareToolA] = useState(null);
@@ -120,7 +121,7 @@ export default function App() {
 
   useEffect(() => {
     setVisibleToolLimit(24);
-  }, [searchTerm, selectedCategory, selectedPricing, mustHaveFeature, showBookmarksOnly]);
+  }, [searchTerm, selectedCategory, selectedPricing, selectedCountry, mustHaveFeature, showBookmarksOnly]);
 
   const toggleBookmark = (id) => {
     setBookmarkedIds((prev) => {
@@ -130,12 +131,29 @@ export default function App() {
     });
   };
 
+  const countryStats = useMemo(() => {
+    const byCode = new Map();
+    for (const tool of toolsData) {
+      if (!tool.company_country_code || !tool.company_country_name) continue;
+      const current = byCode.get(tool.company_country_code) || {
+        code: tool.company_country_code,
+        name: tool.company_country_name,
+        flag: tool.company_country_flag || '',
+        slug: tool.company_country_slug || '',
+        count: 0
+      };
+      current.count += 1;
+      byCode.set(tool.company_country_code, current);
+    }
+    return [...byCode.values()].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+  }, []);
+
   const stats = useMemo(() => {
     const total = toolsData.length;
     const categoriesCount = new Set(toolsData.map((t) => t.category)).size;
     const verified = toolsData.filter((t) => t.is_sponsored === true).length;
-    return { total, categoriesCount, verified };
-  }, []);
+    return { total, categoriesCount, countriesCount: countryStats.length, verified };
+  }, [countryStats]);
 
   const featuredTools = useMemo(() => {
     const preferred = ['gohighlevel', 'elevenlabs', 'make-com', 'descript', 'pictory', 'brand24'];
@@ -148,7 +166,8 @@ export default function App() {
     return toolsData
       .filter((t) =>
         (t.name || '').toLowerCase().includes(term) ||
-        (t.category_display || '').toLowerCase().includes(term)
+        (t.category_display || '').toLowerCase().includes(term) ||
+        (t.company_country_name || '').toLowerCase().includes(term)
       )
       .slice(0, 6);
   }, [searchTerm]);
@@ -160,12 +179,14 @@ export default function App() {
       const matchesBookmark = !showBookmarksOnly || bookmarkedIds.includes(tool.id);
       const matchesCategory = selectedCategory === 'all' || tool.category === selectedCategory;
       const matchesPricing = matchesPricingFilter(tool.pricing, selectedPricing);
+      const matchesCountry = selectedCountry === 'all' || tool.company_country_code === selectedCountry;
 
       const matchesSearch =
         !term ||
         (tool.name || '').toLowerCase().includes(term) ||
         (tool.description || '').toLowerCase().includes(term) ||
         (tool.category_display || '').toLowerCase().includes(term) ||
+        (tool.company_country_name || '').toLowerCase().includes(term) ||
         (tool.key_features || []).some((f) => f.toLowerCase().includes(term));
 
       const matchesRequiredFeature =
@@ -183,9 +204,9 @@ export default function App() {
         selectedGoal !== 'sell-online' ||
         /e-?commerce|online store|shopify|bigcommerce|woocommerce|dropship|shipping|store conversion/.test(goalText);
 
-      return matchesBookmark && matchesCategory && matchesPricing && matchesSearch && matchesRequiredFeature && matchesSelectedGoal;
+      return matchesBookmark && matchesCategory && matchesPricing && matchesCountry && matchesSearch && matchesRequiredFeature && matchesSelectedGoal;
     });
-  }, [searchTerm, selectedCategory, selectedPricing, mustHaveFeature, selectedGoal, showBookmarksOnly, bookmarkedIds]);
+  }, [searchTerm, selectedCategory, selectedPricing, selectedCountry, mustHaveFeature, selectedGoal, showBookmarksOnly, bookmarkedIds]);
 
   const applyGoal = (goal) => {
     setSelectedGoal(goal.id);
@@ -235,6 +256,7 @@ export default function App() {
                 <Heart className="h-3.5 w-3.5 fill-current" /> Saved ({bookmarkedIds.length})
               </button>
             )}
+            <a href="/countries/" className="hidden rounded-full px-4 py-2 text-sm font-semibold text-slate-300 hover:bg-white/5 md:inline-flex">Countries</a>
             <a href="#directory" className="hidden rounded-full px-4 py-2 text-sm font-semibold text-slate-300 hover:bg-white/5 sm:inline-flex">Explore tools</a>
             {paymentConfig.checkoutEnabled && (
               <a href="#submit" className="rounded-full border border-violet-400/30 bg-violet-500/10 px-4 py-2 text-xs font-bold text-violet-200 hover:bg-violet-500/20 sm:text-sm">
@@ -273,7 +295,7 @@ export default function App() {
                 {autocompleteSuggestions.map((tool) => (
                   <a key={tool.id} href={`/tool/${tool.id}.html`} className="flex items-center justify-between border-b border-white/5 px-4 py-3 last:border-0 hover:bg-white/5">
                     <span className="font-semibold text-white">{tool.name}</span>
-                    <span className="text-xs text-slate-500">{tool.category_display}</span>
+                    <span className="text-xs text-slate-500">{tool.company_country_flag ? `${tool.company_country_flag} ${tool.company_country_name} · ` : ''}{tool.category_display}</span>
                   </a>
                 ))}
               </div>
@@ -292,10 +314,11 @@ export default function App() {
           </div>
         </div>
 
-        <div className="mx-auto mt-10 grid max-w-4xl grid-cols-3 gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-3 sm:p-4">
+        <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-3 sm:grid-cols-4 sm:p-4">
           <div className="rounded-xl bg-white/[0.03] p-4 text-center"><div className="text-2xl font-black text-white">{stats.total}</div><div className="mt-1 text-[10px] uppercase tracking-widest text-slate-500">Tool profiles</div></div>
           <div className="rounded-xl bg-white/[0.03] p-4 text-center"><div className="text-2xl font-black text-violet-300">{stats.categoriesCount}</div><div className="mt-1 text-[10px] uppercase tracking-widest text-slate-500">Categories</div></div>
-          <div className="rounded-xl bg-white/[0.03] p-4 text-center"><div className="text-2xl font-black text-cyan-300">{stats.verified}</div><div className="mt-1 text-[10px] uppercase tracking-widest text-slate-500">Current offers</div></div>
+          <div className="rounded-xl bg-white/[0.03] p-4 text-center"><div className="text-2xl font-black text-cyan-300">{stats.countriesCount}</div><div className="mt-1 text-[10px] uppercase tracking-widest text-slate-500">Verified countries</div></div>
+          <div className="rounded-xl bg-white/[0.03] p-4 text-center"><div className="text-2xl font-black text-emerald-300">{stats.verified}</div><div className="mt-1 text-[10px] uppercase tracking-widest text-slate-500">Current offers</div></div>
         </div>
       </header>
 
@@ -309,8 +332,30 @@ export default function App() {
             {featuredTools.map((tool) => (
               <a key={tool.id} href={`/tool/${tool.id}.html`} className="group flex min-w-0 items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition hover:-translate-y-0.5 hover:border-violet-400/30 hover:bg-white/[0.055]">
                 <div className="h-12 w-12 overflow-hidden rounded-xl border border-white/10"><ToolLogo tool={tool} /></div>
-                <div className="min-w-0 flex-1"><div className="font-bold text-white group-hover:text-violet-200">{tool.name}</div><div className="truncate text-xs text-slate-500">{tool.category_display} · {tool.pricing}</div></div>
+                <div className="min-w-0 flex-1"><div className="font-bold text-white group-hover:text-violet-200">{tool.name}</div><div className="truncate text-xs text-slate-500">{tool.company_country_flag ? `${tool.company_country_flag} ${tool.company_country_name} · ` : ''}{tool.category_display} · {tool.pricing}</div></div>
                 <ArrowUpRight className="h-4 w-4 text-slate-600 group-hover:text-violet-300" />
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {countryStats.length > 0 && (
+        <section className="relative z-10 mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
+          <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <div className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">Explore by company country / region</div>
+              <h2 className="mt-2 text-2xl font-black text-white sm:text-3xl">Where COSHUMA-listed tools are based</h2>
+              <p className="mt-2 max-w-3xl text-xs leading-5 text-slate-500">Counts use source-backed company locations in the COSHUMA catalog. They are not a global technology ranking or market-share estimate.</p>
+            </div>
+            <a href="/countries/" className="inline-flex items-center gap-1 text-sm font-bold text-cyan-300 hover:text-cyan-100">View country ranking <ArrowRight className="h-4 w-4" /></a>
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            {countryStats.slice(0, 6).map((country) => (
+              <a key={country.code} href={`/countries/${country.slug}.html`} className="rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition hover:-translate-y-0.5 hover:border-cyan-400/30 hover:bg-cyan-400/[0.05]">
+                <div className="text-2xl">{country.flag}</div>
+                <div className="mt-2 truncate text-sm font-black text-white">{country.name}</div>
+                <div className="mt-1 text-xs text-slate-500">{country.count} tools</div>
               </a>
             ))}
           </div>
@@ -352,6 +397,17 @@ export default function App() {
                 {categories.map((cat) => <option key={cat.id} value={cat.id}>{cat.name}</option>)}
               </select>
             </label>
+            <label className="min-w-0 lg:w-56">
+              <span className="mb-1.5 block text-[11px] font-bold uppercase tracking-wider text-slate-500">Company country / region</span>
+              <select
+                value={selectedCountry}
+                onChange={(e) => setSelectedCountry(e.target.value)}
+                className="w-full rounded-xl border border-white/10 bg-[#101218] px-3 py-2.5 text-sm font-semibold text-slate-200 outline-none focus:border-cyan-400/50"
+              >
+                <option value="all">All verified countries</option>
+                {countryStats.map((country) => <option key={country.code} value={country.code}>{country.flag} {country.name} ({country.count})</option>)}
+              </select>
+            </label>
             <label className="min-w-0 lg:w-72">
               <span className="mb-1.5 block text-[11px] font-bold uppercase tracking-wider text-slate-500">Must-have capability</span>
               <input
@@ -361,9 +417,9 @@ export default function App() {
                 className="w-full rounded-xl border border-white/10 bg-[#101218] px-3 py-2.5 text-sm text-white outline-none placeholder:text-slate-600 focus:border-violet-400/50"
               />
             </label>
-            {(selectedCategory !== 'all' || mustHaveFeature.trim()) && (
+            {(selectedCategory !== 'all' || selectedCountry !== 'all' || mustHaveFeature.trim()) && (
               <button
-                onClick={() => { setSelectedGoal(''); setSelectedCategory('all'); setMustHaveFeature(''); }}
+                onClick={() => { setSelectedGoal(''); setSelectedCategory('all'); setSelectedCountry('all'); setMustHaveFeature(''); }}
                 className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-xs font-bold text-slate-400 hover:text-white"
               >
                 Clear needs
@@ -404,7 +460,15 @@ export default function App() {
                 <article key={tool.id} className="group flex flex-col rounded-2xl border border-white/10 bg-[#101218] p-5 transition hover:-translate-y-1 hover:border-violet-400/30 hover:shadow-2xl hover:shadow-violet-950/10">
                   <div className="flex items-start gap-3">
                     <div className="h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-white/10"><ToolLogo tool={tool} /></div>
-                    <div className="min-w-0 flex-1"><a href={`/tool/${tool.id}.html`} className="block truncate text-lg font-black text-white hover:text-violet-200">{tool.name}</a><div className="mt-1 text-[10px] font-bold uppercase tracking-widest text-violet-300">{tool.category_display}</div></div>
+                    <div className="min-w-0 flex-1">
+                      <a href={`/tool/${tool.id}.html`} className="block truncate text-lg font-black text-white hover:text-violet-200">{tool.name}</a>
+                      <div className="mt-1 text-[10px] font-bold uppercase tracking-widest text-violet-300">{tool.category_display}</div>
+                      {tool.company_country_name && (
+                        <a href={`/countries/${tool.company_country_slug}.html`} className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-cyan-400/20 bg-cyan-400/[0.06] px-2.5 py-1 text-[11px] font-bold text-cyan-200 hover:bg-cyan-400/10">
+                          <span>{tool.company_country_flag}</span><span>{tool.company_country_name}</span>
+                        </a>
+                      )}
+                    </div>
                     <button onClick={() => toggleBookmark(tool.id)} title="Save tool" className={`rounded-lg border p-2 ${bookmarkedIds.includes(tool.id) ? 'border-rose-400/30 bg-rose-400/10 text-rose-300' : 'border-white/10 text-slate-600 hover:text-white'}`}><Heart className={`h-4 w-4 ${bookmarkedIds.includes(tool.id) ? 'fill-current' : ''}`} /></button>
                   </div>
 
