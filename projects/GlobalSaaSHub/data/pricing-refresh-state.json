@@ -67,43 +67,43 @@
       "status": "extract_retry_exhausted"
     },
     "bookyourdata": {
-      "checked_at": "2026-10-02T23:01:07Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-03T06:36:36Z",
+      "status": "evidence_validation_failed"
     },
     "brand24": {
-      "checked_at": "2026-10-02T23:01:07Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-03T06:36:36Z",
+      "status": "evidence_validation_failed"
     },
     "cartstack": {
-      "checked_at": "2026-10-02T23:01:07Z",
+      "checked_at": "2026-10-03T06:36:36Z",
       "status": "evidence_validation_failed"
     },
     "carv": {
-      "checked_at": "2026-10-02T23:01:07Z",
+      "checked_at": "2026-10-03T06:36:36Z",
       "status": "no_official_pricing_result"
     },
     "castmagic": {
-      "checked_at": "2026-10-02T23:06:43Z",
+      "checked_at": "2026-10-03T06:36:36Z",
       "status": "extract_retry_exhausted"
     },
     "catalister": {
-      "checked_at": "2026-10-02T23:06:43Z",
+      "checked_at": "2026-10-03T06:36:36Z",
       "status": "no_official_pricing_result"
     },
     "chatbase": {
-      "checked_at": "2026-10-02T23:06:43Z",
+      "checked_at": "2026-10-03T06:36:36Z",
       "status": "extract_retry_exhausted"
     },
     "chatbot": {
-      "checked_at": "2026-10-02T23:06:43Z",
+      "checked_at": "2026-10-03T06:36:36Z",
       "status": "extract_retry_exhausted"
     },
     "clickfunnels": {
-      "checked_at": "2026-10-02T23:06:43Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-03T06:36:36Z",
+      "status": "evidence_validation_failed"
     },
     "clickup": {
-      "checked_at": "2026-10-02T23:06:43Z",
+      "checked_at": "2026-10-03T06:36:36Z",
       "status": "extract_retry_exhausted"
     },
     "cloudtalk": {
@@ -528,7 +528,7 @@
       "status": "extract_retry_exhausted"
     }
   },
-  "last_run_at": "2026-10-02T23:59:50Z",
-  "last_batch_size": 25,
+  "last_run_at": "2026-10-03T06:36:36Z",
+  "last_batch_size": 10,
   "last_updated_tools": []
 }
