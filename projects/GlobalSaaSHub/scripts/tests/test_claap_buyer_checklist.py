@@ -35,6 +35,18 @@ class ClaapBuyerChecklistTests(unittest.TestCase):
             self.assertIn(f'href="/{CSV_PATH}" download=', section)
             self.assertNotIn('data-cta="affiliate"', section)
             self.assertNotIn("<form", section)
+            self.assertNotRegex(html, r"(?i)14[- ]days?|no[- ]card|no[- ]credit[- ]card|full[- ]access|US-localized|\$(?:40|32|75|60)\b")
+            self.assertNotIn("https://www.claap.io/pricing-v2", html)
+            self.assertIn('href="https://www.claap.io/pricing"', html)
+            self.assertIn("trial of Pro or Business", html)
+            self.assertIn("pricing FAQ", html)
+            self.assertIn("does not specify the trial duration or payment-card requirements", html)
+        detail = (root / "public/tool/claap.html").read_text(encoding="utf-8")
+        self.assertIn("The page viewed displayed prices in EUR", detail)
+        for price in ("€0 per license/month", "€30 per license/month on monthly billing",
+                      "€24 per license/month billed yearly", "€60 per license/month on monthly billing",
+                      "€48 per license/month billed yearly"):
+            self.assertIn(price, detail)
 
     def test_committed_csv_is_blank_and_linked_from_both_pages(self):
         self.assert_checklist(PROJECT)
