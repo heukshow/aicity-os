@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import copy, html, json, os, re, sys, urllib.parse, urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -107,6 +107,18 @@ def load_state():
     data = json.loads(STATE.read_text(encoding="utf-8"))
     return data if isinstance(data,dict) and data.get("schema_version")==1 else {"schema_version":1,"tools":{}}
 
+def cooldown_elapsed(attempt, now, cooldown_hours):
+    if cooldown_hours <= 0:
+        return True
+    value = (attempt or {}).get("checked_at")
+    if not isinstance(value, str) or not value.strip():
+        return True
+    try:
+        checked = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return True
+    return now - checked >= timedelta(hours=cooldown_hours)
+
 def save_json(path, value):
     path.write_text(json.dumps(value, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
 
@@ -129,21 +141,36 @@ def main():
     if not tavily or not gemini:
         raise SystemExit("Missing TAVILY_API_KEY or GEMINI_API_KEY")
     batch = max(1, min(int(os.environ.get("PRICING_REFRESH_BATCH","10")), 25))
+    cooldown_hours = max(0, min(int(os.environ.get("PRICING_REFRESH_COOLDOWN_HOURS","24")), 168))
     tools = json.loads(TOOLS.read_text(encoding="utf-8"))
     next_tools = json.loads(TOOLS_NEXT.read_text(encoding="utf-8")) if TOOLS_NEXT.exists() else copy.deepcopy(tools)
     before = copy.deepcopy(tools)
     before_next = copy.deepcopy(next_tools)
     state = load_state()
     attempts = state.setdefault("tools", {})
-    candidates = [
+    all_candidates = [
         t for t in tools
         if t.get("pricing_verified") is not True
         and t.get("official_verification_status") == "verified"
         and isinstance(t.get("official_url"),str)
         and t["official_url"].startswith(("http://","https://"))
     ]
+    now = datetime.now(timezone.utc)
+    candidates = [
+        t for t in all_candidates
+        if cooldown_elapsed(attempts.get(t["id"],{}), now, cooldown_hours)
+    ]
     candidates.sort(key=lambda t: (attempts.get(t["id"],{}).get("checked_at",""), t["id"]))
-    checked_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    checked_at = now.strftime("%Y-%m-%dT%H:%M:%SZ")
+    if not candidates:
+        print(json.dumps({
+            "checked": 0,
+            "updated": [],
+            "remaining_unverified": sum(t.get("pricing_verified") is not True for t in tools),
+            "cooldown_hours": cooldown_hours,
+            "recently_checked": len(all_candidates),
+        }, ensure_ascii=False))
+        return
     updated = []
     for tool in candidates[:batch]:
         tid, domain = tool["id"], extract_domain(tool["official_url"])
