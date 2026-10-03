@@ -333,6 +333,29 @@ block = "\n" + sitemap_start + "\n" + "\n".join(country_urls) + "\n" + sitemap_e
 if "</urlset>" not in sitemap:
     raise SystemExit("sitemap.xml has no closing urlset tag")
 sitemap = sitemap.replace("</urlset>", block + "</urlset>")
+
+# This generator runs after the other sitemap-mutating build steps. Normalize the
+# final XML before link-integrity checks so an earlier idempotency drift cannot
+# leave duplicate <loc> entries and block an otherwise safe release.
+url_block_re = re.compile(r"<url>\s*.*?</url>", re.S)
+seen_locs: set[str] = set()
+duplicate_count = 0
+parts: list[str] = []
+cursor = 0
+for match in url_block_re.finditer(sitemap):
+    loc_match = re.search(r"<loc>\s*(.*?)\s*</loc>", match.group(0), re.S)
+    if not loc_match:
+        continue
+    loc = loc_match.group(1).strip()
+    if loc in seen_locs:
+        parts.append(sitemap[cursor:match.start()])
+        cursor = match.end()
+        duplicate_count += 1
+        continue
+    seen_locs.add(loc)
+parts.append(sitemap[cursor:])
+sitemap = "".join(parts)
+
 SITEMAP.write_text(sitemap, encoding="utf-8")
 
 print(
