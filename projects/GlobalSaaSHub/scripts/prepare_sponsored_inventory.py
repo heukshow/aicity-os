@@ -1,8 +1,7 @@
-"""Prepare hidden sponsored-placement inventory without exposing ads yet.
+"""Prepare hidden containers for independently verified sponsored placements.
 
-The public runtime stays disabled by default. This script only creates reserved,
-hidden containers in the highest-value buyer locations so COSHUMA can activate
-specific campaigns later with one configuration switch and campaign data.
+This script creates containers only. The public runtime shows a card only for
+an explicitly allowed page and a server-verified paid, approved, live campaign.
 """
 from pathlib import Path
 import re
@@ -139,7 +138,7 @@ def main() -> None:
                 if prepare(path, kind):
                     changed += 1
         totals[kind] = {'scanned': scanned, 'changed': changed}
-    print(f"prepare_sponsored_inventory: {totals}; public runtime remains disabled")
+    print(f"prepare_sponsored_inventory: {totals}; display requires a verified live campaign")
 
 
 if __name__ == '__main__':

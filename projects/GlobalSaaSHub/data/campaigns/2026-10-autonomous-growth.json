@@ -18,7 +18,8 @@
       "Necessary reversible implementation, PR, merge, deployment and live verification",
       "Reuse of the 13 existing enabled operating schedules",
       "Necessary free dedicated COSHUMA non-video channel signup and ordinary supported authentication, after checking for an existing suitable account.",
-      "Daily context-aware public Threads reading, likes and substantive public replies under the user's 2026-10-04 07:13 KST instruction."
+      "Daily context-aware public Threads reading, likes and substantive public replies under the user's 2026-10-04 07:13 KST instruction.",
+      "Reopen on-site sponsored advertising with assistant-readable PayPal payment verification, reviewed materials and paid-publication gates under the owner's 2026-10-04 07:31-07:33 KST authorization; customer advertising materials are English-only under the 08:03 KST correction."
     ],
     "excluded": [
       "New paid services, subscriptions, ad spend or model upgrades",
@@ -876,5 +877,28 @@
     "authentication": "Complete ordinary authorized sign-in, email verification and standard setup with supported capabilities; apply the relevant authentication tool's rules to identity/CAPTCHA/OTP/consent gates. Never bypass a safeguard or extract stored credentials.",
     "limits": "No new spend, paid subscriptions, unrelated accounts, privilege expansion or fabricated identity. Routine platform signup is no longer barred by the old blanket account-creation restriction.",
     "trend_rule": "Adapt non-video topics, length, layout and publication style to current official platform guidance and observed relevant audience discussion. Record sources and dates; do not invent trend demand, reach or performance."
+  },
+  "onsite_advertising": {
+    "status": "implementation_ready_live_verification_pending",
+    "authorized_at": "2026-10-04T07:31:56+09:00",
+    "payment_verification_requested_at": "2026-10-04T07:33:53+09:00",
+    "customer_material_language": "en",
+    "language_instruction_at": "2026-10-04T08:03:33+09:00",
+    "provider": "existing_paypal_orders",
+    "operating_runbook": "projects/GlobalSaaSHub/docs/campaigns/2026-10-sponsored-advertising-operations.md",
+    "catalogue": "projects/GlobalSaaSHub/data/sponsorship-inventory.json",
+    "entry_url": "https://coshuma.com/advertise.html",
+    "receipt_and_fulfilment_owner": "Revenue Intelligence Team",
+    "publication_gate": [
+      "verified_live_payment",
+      "reviewed_destination_and_claims",
+      "approved_materials",
+      "allowed_page_and_slot",
+      "available_inventory",
+      "valid_start_and_end"
+    ],
+    "new_paid_advertiser_milestone": "First real advertiser payment must be separately verified; mock and internal QA records are excluded.",
+    "cash_receipt_forecast": "unknown; do not treat catalogue prices or technical readiness as received revenue",
+    "additional_operating_spend_limit_usd": 0
   }
 }

@@ -1,0 +1,170 @@
+import { SponsorshipError } from './sponsorship-domain.js';
+
+export class SponsorshipRepository {
+  constructor(db) {
+    if (!db) throw new SponsorshipError('Application storage is unavailable', 503);
+    this.db = db;
+  }
+
+  async ready() {
+    // Read every required table: a binding alone does not prove the migration ran.
+    await this.db.batch(['sponsorship_applications', 'sponsorship_payments', 'sponsorship_webhook_events', 'sponsorship_audit_log', 'sponsorship_intake_limits']
+      .map((name) => this.db.prepare(`SELECT 1 FROM ${name} LIMIT 1`)));
+    const guards = await this.db.prepare("SELECT name FROM sqlite_master WHERE type='trigger' AND name IN ('sponsorship_publish_guard','sponsorship_no_published_insert','sponsorship_refund_is_terminal','sponsorship_payment_stop','sponsorship_application_terms_immutable')").all();
+    if (guards.results?.length !== 5) throw new SponsorshipError('Application storage migration is incomplete', 503);
+  }
+
+  async rateLimit(clientHash, now) {
+    const bucket = Math.floor(Date.parse(now) / 3600000);
+    const row = await this.db.prepare(`INSERT INTO sponsorship_intake_limits(client_hash,bucket,attempts) VALUES(?,?,1)
+      ON CONFLICT(client_hash,bucket) DO UPDATE SET attempts=attempts+1 RETURNING attempts`).bind(clientHash, bucket).first();
+    if (!row || row.attempts > 10) throw new SponsorshipError('Too many applications; try again later', 429);
+    await this.db.prepare('DELETE FROM sponsorship_intake_limits WHERE bucket < ?').bind(bucket - 24).run();
+  }
+
+  async createApplication(id, reference, tokenHash, fields, now) {
+    await this.db.prepare(`INSERT INTO sponsorship_applications
+      (id,reference,access_token_hash,company_name,tool_name,contact_email,slot,duration_days,target_page,destination_url,headline,description,cta_text,desired_start_date,seller_attestation,amount,currency,created_at,updated_at)
+      VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,1,?,?,?,?)`).bind(
+      id, reference, tokenHash, fields.companyName, fields.toolName, fields.contactEmail,
+      fields.slot, fields.durationDays, fields.targetPage, fields.destinationUrl,
+      fields.headline, fields.description, fields.ctaText, fields.desiredStartDate,
+      fields.amount, fields.currency, now, now,
+    ).run();
+    return this.getApplication(id);
+  }
+
+  getApplication(id) { return this.db.prepare('SELECT * FROM sponsorship_applications WHERE id=?').bind(id).first(); }
+  getPayment(id) { return this.db.prepare('SELECT * FROM sponsorship_payments WHERE application_id=?').bind(id).first(); }
+  getPaymentByOrder(id, environment) { return this.db.prepare('SELECT * FROM sponsorship_payments WHERE provider_order_id=? AND environment=?').bind(id, environment).first(); }
+  getPaymentByCapture(id, environment) { return this.db.prepare('SELECT * FROM sponsorship_payments WHERE capture_id=? AND environment=?').bind(id, environment).first(); }
+
+  async listApplications() {
+    return (await this.db.prepare('SELECT * FROM sponsorship_applications ORDER BY created_at DESC LIMIT 100').all()).results || [];
+  }
+
+  audit(applicationId, action, actor, detail, now) {
+    return this.db.prepare('INSERT INTO sponsorship_audit_log(id,application_id,action,actor,detail,created_at) VALUES(?,?,?,?,?,?)')
+      .bind(crypto.randomUUID(), applicationId, action, actor, detail, now);
+  }
+
+  async reservePayment(application, env, now) {
+    // The same payment ID is reused after network timeouts; never mint another charge blindly.
+    await this.db.prepare(`INSERT INTO sponsorship_payments(id,application_id,environment,merchant_id,amount,currency,created_at,updated_at)
+      VALUES(?,?,?,?,?,?,?,?) ON CONFLICT(application_id) DO NOTHING`).bind(
+      crypto.randomUUID(), application.id, env.PAYPAL_ENVIRONMENT, env.PAYPAL_MERCHANT_ID,
+      application.amount, application.currency, now, now,
+    ).run();
+    const payment = await this.getPayment(application.id);
+    if (payment.environment !== env.PAYPAL_ENVIRONMENT || payment.merchant_id !== env.PAYPAL_MERCHANT_ID) throw new SponsorshipError('This application requires payment configuration review', 409);
+    return payment;
+  }
+
+  async attachProviderOrder(applicationId, providerId, now) {
+    await this.db.batch([
+      this.db.prepare("UPDATE sponsorship_payments SET provider_order_id=?,state='pending',updated_at=? WHERE application_id=? AND provider_order_id IS NULL AND state='created'").bind(providerId, now, applicationId),
+      this.db.prepare("UPDATE sponsorship_applications SET payment_status='pending',updated_at=? WHERE id=? AND payment_status='unpaid'").bind(now, applicationId),
+    ]);
+    const payment = await this.getPayment(applicationId);
+    if (payment.provider_order_id !== providerId) throw new SponsorshipError('The payment order could not be linked safely', 409);
+    return payment;
+  }
+
+  async markVerified(application, evidence, actor, now) {
+    await this.db.batch([
+      this.db.prepare(`UPDATE sponsorship_payments SET capture_id=?,state='verified',verified_at=?,last_checked_at=?,verification_reason=NULL,updated_at=?
+        WHERE application_id=? AND provider_order_id=? AND environment='live' AND merchant_id=? AND state!='refunded'
+        AND coalesce(verification_reason,'') NOT LIKE 'hold:%'
+        AND NOT EXISTS(SELECT 1 FROM sponsorship_webhook_events e WHERE e.environment='live'
+          AND (e.related_order_id=? OR EXISTS(SELECT 1 FROM json_each(e.capture_ids_json) WHERE value=?))
+          AND (e.event_type IN ('PAYMENT.CAPTURE.REFUNDED','PAYMENT.CAPTURE.REVERSED') OR e.event_type LIKE 'CUSTOMER.DISPUTE.%'))`)
+        .bind(evidence.captureId, now, now, now, application.id, evidence.providerOrderId, evidence.merchantId, evidence.providerOrderId, evidence.captureId),
+      this.db.prepare(`UPDATE sponsorship_applications SET payment_status='verified',updated_at=? WHERE id=? AND payment_status!='refunded'
+        AND EXISTS(SELECT 1 FROM sponsorship_payments p WHERE p.application_id=? AND p.state='verified' AND p.capture_id=?)`)
+        .bind(now, application.id, application.id, evidence.captureId),
+      this.db.prepare(`INSERT INTO sponsorship_audit_log(id,application_id,action,actor,detail,created_at)
+        SELECT ?,?,'payment_verified',?,?,? WHERE EXISTS(SELECT 1 FROM sponsorship_payments p JOIN sponsorship_applications a ON a.id=p.application_id
+          WHERE p.application_id=? AND p.state='verified' AND a.payment_status='verified' AND p.capture_id=?)`)
+        .bind(crypto.randomUUID(), application.id, actor, 'Live order and capture match the saved application, merchant, gross amount and currency', now, application.id, evidence.captureId),
+    ]);
+    const saved = await this.getApplication(application.id);
+    if (saved.payment_status !== 'verified') throw new SponsorshipError('Payment verification was not saved', 409);
+    return saved;
+  }
+
+  async stopPayment(applicationId, state, reason, actor, now, event = null) {
+    const statements = [
+      this.db.prepare(`UPDATE sponsorship_payments SET state=?,
+        verification_reason=CASE WHEN verification_reason LIKE 'hold:%' AND ?='review' THEN verification_reason ELSE ? END,
+        last_checked_at=?,updated_at=? WHERE application_id=? AND state!='refunded'`)
+        .bind(state, state, reason, now, now, applicationId),
+      this.db.prepare(`INSERT INTO sponsorship_audit_log(id,application_id,action,actor,detail,created_at)
+        SELECT ?,?,?,?,?,? WHERE EXISTS(SELECT 1 FROM sponsorship_payments WHERE application_id=? AND state=?)`)
+        .bind(crypto.randomUUID(), applicationId, state === 'refunded' ? 'payment_reversed' : 'payment_review', actor, reason, now, applicationId, state),
+    ];
+    if (event) statements.push(this.eventStatement(event, now));
+    await this.db.batch(statements);
+  }
+
+  eventStatement(event, now) {
+    return this.db.prepare('INSERT INTO sponsorship_webhook_events(environment,event_id,event_type,related_order_id,capture_ids_json,processed_at) VALUES(?,?,?,?,?,?) ON CONFLICT(environment,event_id) DO NOTHING')
+      .bind(event.environment, event.id, event.event_type, event.relatedOrderId || null, JSON.stringify(event.captureIds || []), now);
+  }
+  hasEvent(environment, id) { return this.db.prepare('SELECT 1 AS found FROM sponsorship_webhook_events WHERE environment=? AND event_id=?').bind(environment, id).first(); }
+  recordEvent(event, now) { return this.eventStatement(event, now).run(); }
+  blockingPaymentEvent(environment, orderId, captureId) {
+    return this.db.prepare(`SELECT event_type FROM sponsorship_webhook_events e WHERE environment=?
+      AND (related_order_id=? OR EXISTS(SELECT 1 FROM json_each(e.capture_ids_json) WHERE value=?))
+      AND (event_type IN ('PAYMENT.CAPTURE.REFUNDED','PAYMENT.CAPTURE.REVERSED') OR event_type LIKE 'CUSTOMER.DISPUTE.%')
+      ORDER BY CASE WHEN event_type LIKE 'PAYMENT.CAPTURE.%' THEN 0 ELSE 1 END LIMIT 1`)
+      .bind(environment, orderId, captureId).first();
+  }
+
+  async review(application, approved, notes, actor, now) {
+    if (approved && application.payment_status !== 'verified') throw new SponsorshipError('Verify the payment before approving this application', 409);
+    if (application.publication_status === 'published') throw new SponsorshipError('Pause a published campaign before changing its review', 409);
+    await this.db.batch([
+      this.db.prepare(`UPDATE sponsorship_applications SET review_status=?,review_notes=?,approved_at=?,approved_by=?,updated_at=?
+        WHERE id=? AND publication_status!='published' ${approved ? "AND payment_status='verified'" : ''}`)
+        .bind(approved ? 'approved' : 'rejected', notes, approved ? now : null, approved ? actor : null, now, application.id),
+      this.audit(application.id, approved ? 'materials_approved' : 'materials_rejected', actor, notes, now),
+    ]);
+    const saved = await this.getApplication(application.id);
+    if (saved.review_status !== (approved ? 'approved' : 'rejected')) throw new SponsorshipError('Review could not be saved', 409);
+    return saved;
+  }
+
+  async publish(application, startsAt, endsAt, actor, now) {
+    if (application.publication_status !== 'draft') throw new SponsorshipError('Only a new, approved campaign can be published; extensions require a new application', 409);
+    try {
+      await this.db.batch([
+        this.db.prepare("UPDATE sponsorship_applications SET publication_status='published',starts_at=?,ends_at=?,updated_at=? WHERE id=? AND publication_status='draft'")
+          .bind(startsAt, endsAt, now, application.id),
+        this.audit(application.id, 'published', actor, `${startsAt} / ${endsAt}`, now),
+      ]);
+    } catch (error) {
+      if (/inventory conflicts|Verified payment|approved materials/i.test(error?.message || '')) throw new SponsorshipError('Payment, approval, period or placement inventory prevented publication', 409);
+      throw error;
+    }
+    const saved = await this.getApplication(application.id);
+    if (saved.publication_status !== 'published' || saved.starts_at !== startsAt || saved.ends_at !== endsAt) throw new SponsorshipError('Publication could not be saved', 409);
+    return saved;
+  }
+
+  async pause(applicationId, actor, now) {
+    await this.db.batch([
+      this.db.prepare("UPDATE sponsorship_applications SET publication_status='paused',updated_at=? WHERE id=? AND publication_status='published'").bind(now, applicationId),
+      this.audit(applicationId, 'paused', actor, 'Owner paused publication', now),
+    ]);
+    return this.getApplication(applicationId);
+  }
+
+  async placements(path, now, merchantId) {
+    return (await this.db.prepare(`SELECT a.* FROM sponsorship_applications a JOIN sponsorship_payments p ON p.application_id=a.id
+      WHERE a.target_page=? AND a.publication_status='published' AND a.payment_status='verified' AND a.review_status='approved'
+      AND a.approved_at IS NOT NULL AND a.approved_by IS NOT NULL AND a.starts_at<=? AND a.ends_at>?
+      AND p.state='verified' AND p.environment='live' AND p.merchant_id=? AND p.capture_id IS NOT NULL
+      AND p.provider_order_id IS NOT NULL AND p.verified_at IS NOT NULL AND p.amount=a.amount AND p.currency=a.currency`)
+      .bind(path, now, now, merchantId).all()).results || [];
+  }
+}

@@ -254,7 +254,7 @@ def _strip_internal_blocks(text: str) -> str:
     return text
 
 
-def final_polish(text: str) -> str:
+def final_polish(text: str, allow_sponsorship: bool = False) -> str:
     for old, new in POST_EXACT.items():
         text = text.replace(old, new)
     for pattern, replacement in POST_PATTERNS:
@@ -263,9 +263,9 @@ def final_polish(text: str) -> str:
     text = AFFILIATE_STATUS_SECTION.sub("", text)
     text = INTERNAL_HTML_COMMENT.sub("", text)
     text = INTERNAL_VERIFICATION_NOTE.sub("", text)
-    text = AD_INQUIRY_SECTION.sub("", text)
-    text = ADVERTISE_LINK.sub("", text)
-    text = SPONSORSHIP_SALES_SCRIPT.sub("", text)
+    if not allow_sponsorship:
+        text = AD_INQUIRY_SECTION.sub("", text)
+        text = SPONSORSHIP_SALES_SCRIPT.sub("", text)
     text = _strip_internal_blocks(text)
     return text
 
@@ -355,9 +355,10 @@ def main() -> None:
     for path in DIST.rglob("*.html"):
         before = path.read_text(encoding="utf-8")
         rel = path.relative_to(DIST).as_posix()
-        after = enforce_disclosure_policy(rel, final_polish(clean_html(before)))
-        if AD_INQUIRY_MARKER.search(after):
-            raise RuntimeError(f"{rel}: advertising/sponsorship inquiry path must remain closed")
+        sponsorship_page = rel in {"advertise.html", "sponsorship.html"}
+        after = enforce_disclosure_policy(rel, final_polish(clean_html(before), allow_sponsorship=sponsorship_page))
+        if not sponsorship_page and AD_INQUIRY_MARKER.search(after):
+            raise RuntimeError(f"{rel}: legacy inline sponsorship inquiry remains outside the dedicated advertising pages")
         if after != before:
             path.write_text(after, encoding="utf-8")
             changed.append(rel)
