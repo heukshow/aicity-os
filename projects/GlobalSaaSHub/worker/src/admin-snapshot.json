@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T16:55:54.047Z",
+  "generatedAt": "2026-10-03T17:03:24.703Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 118,
@@ -33,7 +33,7 @@
       "doNotReapply": 179,
       "unclassifiedAffiliateStatus": 0,
       "exactAffiliateUrlMissing": 78,
-      "officialUnverified": 1,
+      "officialUnverified": 0,
       "pricingUnverified": 129
     },
     "records": [
