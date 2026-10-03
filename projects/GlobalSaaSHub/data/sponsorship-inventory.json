@@ -1,11 +1,14 @@
 {
-  "enabled": false,
   "currency": "USD",
   "default_duration_days": 30,
-  "duration_options": [7, 30, 90],
+  "duration_options": [
+    7,
+    30,
+    90
+  ],
   "placements": {
     "tool-primary": {
-      "status": "reserved_hidden",
+      "status": "applications_open_subject_to_review",
       "package_name": "Tool Page Sponsored",
       "position": "after the primary CTA section on tool pages",
       "public_label": "Sponsored",
@@ -14,10 +17,13 @@
         "30_days": 49,
         "90_days": 129,
         "180_plus_days": "custom"
-      }
+      },
+      "requestable_pages": [
+        "/tool/pipedrive.html"
+      ]
     },
     "buyer-intent-top": {
-      "status": "reserved_hidden",
+      "status": "applications_open_subject_to_review",
       "package_name": "Buyer-Intent Featured",
       "position": "immediately after the opening section on Best / buyer-intent pages",
       "public_label": "Sponsored",
@@ -26,10 +32,13 @@
         "30_days": 99,
         "90_days": 269,
         "180_plus_days": "custom"
-      }
+      },
+      "requestable_pages": [
+        "/best/claap-sales-follow-up-ai.html"
+      ]
     },
     "compare-decision-premium": {
-      "status": "reserved_hidden",
+      "status": "applications_open_subject_to_review",
       "package_name": "Comparison Premium",
       "position": "immediately before the final decision / verdict area on comparison pages",
       "public_label": "Sponsored",
@@ -38,7 +47,10 @@
         "30_days": 149,
         "90_days": 399,
         "180_plus_days": "custom"
-      }
+      },
+      "requestable_pages": [
+        "/compare/semrush-vs-frase.html"
+      ]
     }
   },
   "measurement": {
@@ -49,13 +61,15 @@
     "conversion_policy": "Do not infer advertiser signups, paid customers, sales or revenue from COSHUMA-side impressions or clicks. Vendor-side conversion evidence remains separate."
   },
   "rules": [
-    "Do not display any reserved placement while enabled is false.",
-    "A campaign must be explicitly enabled and have a destination URL before a slot can render.",
+    "Applications do not reserve a placement or activate an advertisement.",
+    "Only an explicitly allowed page with a server-verified live payment, approved copy, an available slot and a valid start/end period may display an advertisement.",
     "The campaign period begins when the placement is actually activated, not when an inquiry or payment is received.",
-    "Campaigns must include startAt and endAt when activated; the runtime fails closed on invalid dates and stops rendering at endAt.",
+    "Campaigns must include startAt and endAt when activated; invalid or missing dates must remain hidden and rendering stops at endAt.",
     "Extensions require a new approved campaign period rather than silently running past the contracted end date.",
     "Paid placement may buy visibility in a labeled sponsored area but must not change independent editorial ratings or organic rankings.",
     "All public sponsored placements must be labeled Sponsored.",
-    "Tracked impressions and outbound clicks are measurement signals, not guarantees of leads, signups, sales or revenue."
-  ]
+    "Tracked impressions and outbound clicks are measurement signals, not guarantees of leads, signups, sales or revenue.",
+    "Homepage, Gamma, Chatbase and the active Privy versus Omnisend comparison experiment are excluded. Wildcard placement targets are not permitted."
+  ],
+  "applications_open": true
 }
