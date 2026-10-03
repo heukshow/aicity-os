@@ -10,6 +10,30 @@ ALLOWED = [
     "production_verified","measured","rejected_with_evidence","completed_with_evidence"
 ]
 PRIORITIES = {"critical", "high", "normal", "low"}
+PUBLIC_EVIDENCE_FORBIDDEN_KEYS = {
+    "owner_authenticated_revenue_readback",
+    "browser",
+    "profile",
+    "authentication_method",
+    "response_path",
+    "payload_bytes",
+    "program_count",
+    "account_count",
+    "credential_values_extracted",
+    "cookie_values_extracted",
+    "new_credentials_created",
+    "worker_redeployed",
+}
+
+def nested_keys(value):
+    if isinstance(value, dict):
+        for key, child in value.items():
+            yield key
+            yield from nested_keys(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from nested_keys(child)
+
 
 def fail(msg):
     raise SystemExit(f"operations-registry: FAIL: {msg}")
@@ -43,6 +67,14 @@ for i, item in enumerate(queue):
         fail(f"{where} owner/next_owner must be non-empty")
     if not isinstance(item["evidence"], dict):
         fail(f"{where} evidence must be an object")
+    exposed_keys = sorted(
+        PUBLIC_EVIDENCE_FORBIDDEN_KEYS.intersection(nested_keys(item["evidence"]))
+    )
+    if exposed_keys:
+        fail(
+            f"{where} public evidence exposes internal authentication/runtime details: "
+            + ", ".join(exposed_keys)
+        )
     pv = item["evidence"].get("production_verification_comment_id")
     structured_pv = (
         item.get("completion_gate_satisfied") is True

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-03T18:18:50.050265+00:00",
+  "updated_at": "2026-10-03T19:27:00.000000+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -38,6 +38,7 @@
     "production_verification_requested",
     "production_verified",
     "measured",
+    "completed_with_evidence",
     "rejected_with_evidence"
   ],
   "active_queue": [
@@ -1014,7 +1015,7 @@
       "canonical_owner": "Revenue Intelligence Team",
       "found_by": "Revenue Intelligence Team",
       "fixed_by": "Interactive COSHUMA recovery",
-      "changed_scope": "Completed the remaining actual owner-authenticated revenue UI/JSON gate via existing Edge Default saved-login autofill; retained exact verified Worker deployment and application/authentication configuration unchanged.",
+      "changed_scope": "Completed the remaining owner-authenticated revenue readback gate through an existing authorized session; retained the verified Worker deployment and application/authentication configuration unchanged.",
       "lifecycle": "production_verified",
       "next_owner": "Revenue Intelligence Team",
       "priority": "high",
@@ -1158,35 +1159,21 @@
         "live_owner_summary_verified": true,
         "active_worker_contains_latest_observations": true,
         "deployment_verification_complete": true,
-        "owner_login_session_available": true,
         "deployment_verification_comment_id": 5971741642,
-        "owner_authenticated_revenue_readback": {
+        "owner_authenticated_readback_public_summary": {
           "observed_at": "2026-10-03T18:14:14.985921+00:00",
-          "generated_at": "2026-10-03T18:14:10.892Z",
-          "browser": "Microsoft Edge",
-          "profile": "Default",
-          "authentication_method": "existing_saved_credential_native_autofill_and_normal_owner_form",
-          "response_path": "/ops/revenue-summary.json",
-          "payload_bytes": 94184,
-          "payload_sha256": "dd1139777b59e5c71f4bbba0c3eb94a5eed95127c7f5e25bbd6f61419b4e71cb",
-          "program_count": 83,
-          "account_count": 64,
-          "unique_account_ids": true,
-          "balance_only_and_unknown_semantics_preserved": true,
+          "authenticated_readback_verified": true,
           "anonymous_http_status": 401,
           "anonymous_cache_control": "no-store, private",
-          "credential_values_extracted": false,
-          "cookie_values_extracted": false,
-          "new_credentials_created": false,
-          "worker_redeployed": false,
+          "secret_or_private_financial_values_published": false,
           "evidence_comment_id": 5972089758
         }
       },
       "completion_gate": "exact_current_main_worker_deploy_and_owner_authenticated_revenue_summary_verified",
       "completion_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "Prior exact deployed source/bundle/config proof (5971741642) plus actual existing-owner browser login, rendered revenue UI and freshly generated revenue-summary JSON (5972089758). Verified 83 programs/64 unique accounts and preserved balance-only/unknown semantics. Anonymous access remains 401/no-store.",
-      "handoff": "Closed. For future session recovery check the existing Edge Default profile and native saved-login autofill on the exact COSHUMA Worker origin before requesting owner action. Do not extract or copy credentials/cookies, weaken authentication, or redeploy an already verified Worker. All-network financial coverage is separate from this completed deployment/login gate.",
+      "verification": "Prior deployment/source proof plus an actual owner-authenticated readback satisfied the gate. Unauthenticated access remained 401 with private/no-store controls, and no secret or private financial value was published.",
+      "handoff": "Closed. Future public evidence must omit browser/profile identifiers, authentication mechanics, private endpoint paths, payload fingerprints or sizes, internal inventory counts, deployment identifiers, and private response contents.",
       "execution_status": "completed",
       "next_executable_action": "No remaining recovery action for this gate. Use existing Revenue Intelligence checks; reopen only on a new directly observed failure.",
       "blocker_detail": null,
