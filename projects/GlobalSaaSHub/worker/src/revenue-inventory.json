@@ -1223,7 +1223,7 @@
       "id": "pictory",
       "name": "Pictory",
       "network": "FirstPromoter",
-      "portal_url": "https://pictory.firstpromoter.com/login",
+      "portal_url": "https://partners.pictory.ai/login",
       "inventory_source": "data/tools.json",
       "status": "approved_tracking",
       "exact_tracking_url": "https://pictory.ai?fpr=sangkwon-an23",
