@@ -84,11 +84,12 @@ BEGIN
   SELECT RAISE(ABORT, 'Application terms are immutable');
 END;
 
+-- Parenthesize CASE expressions for D1 remote trigger parsing (workers-sdk#4727).
 CREATE TRIGGER IF NOT EXISTS sponsorship_publish_guard
 BEFORE UPDATE ON sponsorship_applications
 WHEN NEW.publication_status = 'published'
 BEGIN
-  SELECT CASE WHEN NEW.payment_status != 'verified' OR NEW.review_status != 'approved'
+  SELECT (CASE WHEN NEW.payment_status != 'verified' OR NEW.review_status != 'approved'
     OR julianday(NEW.approved_at) IS NULL OR length(trim(coalesce(NEW.approved_by,''))) = 0
     OR julianday(NEW.starts_at) IS NULL OR julianday(NEW.ends_at) IS NULL
     OR abs((julianday(NEW.ends_at)-julianday(NEW.starts_at))*86400 - NEW.duration_days*86400) > 0.01
@@ -97,11 +98,11 @@ BEGIN
       AND length(trim(coalesce(p.provider_order_id,''))) > 0 AND julianday(p.verified_at) IS NOT NULL
       AND length(trim(p.merchant_id)) > 0
       AND p.amount = NEW.amount AND p.currency = NEW.currency)
-    THEN RAISE(ABORT, 'Verified payment, approved materials and a valid period are required') END;
-  SELECT CASE WHEN EXISTS(SELECT 1 FROM sponsorship_applications other WHERE other.id != NEW.id
+    THEN RAISE(ABORT, 'Verified payment, approved materials and a valid period are required') END);
+  SELECT (CASE WHEN EXISTS(SELECT 1 FROM sponsorship_applications other WHERE other.id != NEW.id
     AND other.target_page = NEW.target_page AND other.slot = NEW.slot AND other.publication_status = 'published'
     AND other.starts_at < NEW.ends_at AND other.ends_at > NEW.starts_at)
-    THEN RAISE(ABORT, 'Placement inventory conflicts with another campaign') END;
+    THEN RAISE(ABORT, 'Placement inventory conflicts with another campaign') END);
 END;
 
 CREATE TRIGGER IF NOT EXISTS sponsorship_no_published_insert
@@ -121,6 +122,6 @@ CREATE TRIGGER IF NOT EXISTS sponsorship_payment_stop
 AFTER UPDATE OF state ON sponsorship_payments WHEN NEW.state IN ('review','refunded')
 BEGIN
   UPDATE sponsorship_applications SET payment_status = NEW.state,
-    publication_status = CASE WHEN publication_status = 'published' THEN 'paused' ELSE publication_status END,
+    publication_status = (CASE WHEN publication_status = 'published' THEN 'paused' ELSE publication_status END),
     updated_at = NEW.updated_at WHERE id = NEW.application_id;
 END;
