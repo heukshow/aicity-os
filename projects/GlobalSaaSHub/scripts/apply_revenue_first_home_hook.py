@@ -90,7 +90,7 @@ if "/best/verified-software-free-trials-deals.html" not in text:
 
 # 3) Remove vanity-count block from the hero. It consumes prime space without helping a buyer decide.
 stats_block = re.compile(
-    r'''\n\s*<div className="mx-auto mt-10 grid max-w-4xl grid-cols-3 gap-3 rounded-2xl border border-white/10 bg-white/\[0\.03\] p-3 sm:p-4">.*?\n\s*</div>\n\s*</header>''',
+    r'''\n\s*<div className="mx-auto mt-10 grid max-w-4xl grid-cols-(?:2|3) gap-3 rounded-2xl border border-white/10 bg-white/\[0\.03\] p-3(?: sm:grid-cols-4)? sm:p-4">.*?\n\s*</div>\n\s*</header>''',
     re.S,
 )
 text, count = stats_block.subn("\n      </header>", text, count=1)
