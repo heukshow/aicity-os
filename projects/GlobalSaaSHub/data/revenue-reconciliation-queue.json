@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T23:33:06.683Z",
+  "generated_at": "2026-10-03T16:56:28.612Z",
   "source": "data/revenue-leakage-audit.json",
   "scope": "Internal COSHUMA revenue reconciliation only",
   "queue_status": "active",
@@ -45,25 +45,25 @@
           "id": "bookyourdata",
           "name": "Bookyourdata",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 24 days old."
+          "reason": "Latest revenue evidence is 25 days old."
         },
         {
           "id": "brand24",
           "name": "Brand24",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 17 days old."
+          "reason": "Latest revenue evidence is 18 days old."
         },
         {
           "id": "moosend",
           "name": "Moosend",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 24 days old."
+          "reason": "Latest revenue evidence is 25 days old."
         },
         {
           "id": "murf-ai",
           "name": "Murf AI",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 24 days old."
+          "reason": "Latest revenue evidence is 25 days old."
         },
         {
           "id": "teachable",
@@ -75,7 +75,7 @@
           "id": "unbounce",
           "name": "Unbounce",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 24 days old."
+          "reason": "Latest revenue evidence is 25 days old."
         },
         {
           "id": "gamma",
@@ -1205,13 +1205,13 @@
           "id": "helpdesk",
           "name": "HelpDesk",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 22 days old."
+          "reason": "Latest revenue evidence is 23 days old."
         },
         {
           "id": "text",
           "name": "Text",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 16 days old."
+          "reason": "Latest revenue evidence is 17 days old."
         }
       ],
       "execution": "browser_read_only",
@@ -1289,7 +1289,7 @@
           "id": "boldsign",
           "name": "BoldSign",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 16 days old."
+          "reason": "Latest revenue evidence is 17 days old."
         }
       ],
       "execution": "browser_read_only",
@@ -1445,7 +1445,7 @@
           "id": "tagshop-ai",
           "name": "Tagshop AI",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 14 days old."
+          "reason": "Latest revenue evidence is 15 days old."
         }
       ],
       "execution": "browser_read_only",
@@ -1471,7 +1471,7 @@
           "id": "gohighlevel",
           "name": "GoHighLevel",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 16 days old."
+          "reason": "Latest revenue evidence is 17 days old."
         }
       ],
       "execution": "browser_read_only",
@@ -1497,7 +1497,7 @@
           "id": "getgenie",
           "name": "GetGenie",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 17 days old."
+          "reason": "Latest revenue evidence is 18 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1523,7 +1523,7 @@
           "id": "omnisend",
           "name": "Omnisend",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 14 days old."
+          "reason": "Latest revenue evidence is 15 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1549,7 +1549,7 @@
           "id": "jotform",
           "name": "Jotform",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 14 days old."
+          "reason": "Latest revenue evidence is 15 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1575,7 +1575,7 @@
           "id": "chatbase",
           "name": "Chatbase",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 12 days old."
+          "reason": "Latest revenue evidence is 13 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
