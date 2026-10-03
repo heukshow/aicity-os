@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-03T21:15:42Z",
+  "updated_at": "2026-10-03T21:35:29.617Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2200,7 +2200,7 @@
       "next_owner": "Growth & SEO Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-10-03T21:15:42Z",
+      "last_evidence_at": "2026-10-03T21:35:29.617Z",
       "evidence": {
         "campaign_source": "projects/GlobalSaaSHub/data/campaigns/2026-10-autonomous-growth.json",
         "plan_source": "projects/GlobalSaaSHub/docs/2026-10-autonomous-growth-plan.md",
@@ -2210,7 +2210,7 @@
         "automation_readback_matches": 13,
         "first_asset_status": "production_verified",
         "new_public_social_posts": 0,
-        "distribution_status": "Metricool has no connected network; a current existing YouTube Studio access check requires Google reauthentication. New verified public social posts remain zero.",
+        "distribution_status": "New verified public social posts remain zero. Text/static channel setup uses existing COSHUMA accounts first; necessary free dedicated signup and supported authentication are explicitly authorized as of 06:31 KST. YouTube/video is excluded, not an active campaign blocker.",
         "first_asset": {
           "implementation_pr": 972,
           "final_head_commit": "16acc698ecd3466ad1f22e0449a4597d49c3917a",
@@ -2249,13 +2249,41 @@
             "accepted_at": "2026-10-03T21:11:24Z",
             "indexing_or_traffic_confirmed": false
           }
+        },
+        "content_format_policy": {
+          "source": "User correction in this conversation at 2026-10-04T06:29:11+09:00: video content cannot be relied on and YouTube-style video uploads must be excluded.",
+          "effective_at": "2026-10-04T06:29:11+09:00",
+          "status": "text_static_only_until_explicit_user_change",
+          "allowed_formats": [
+            "Text articles",
+            "Comparison tables",
+            "Buyer checklists",
+            "Downloadable worksheets/CSV",
+            "Evidence-backed permitted screenshots or static graphics"
+          ],
+          "excluded_actions": [
+            "Video generation or editing",
+            "YouTube/Shorts/Reels/TikTok video uploads",
+            "Recovery of YouTube authentication as a growth-plan dependency",
+            "Video-generation plugin installation, credits or spending"
+          ],
+          "existing_media": "Preserve already published media; this instruction does not request deletion.",
+          "product_coverage": "Evidence-backed written coverage of video SaaS remains allowed. Do not fabricate hands-on use, generated footage or customer results."
+        },
+        "channel_setup_authorization": {
+          "source": "User instruction at 2026-10-04T06:31:18+09:00 authorizes platform-appropriate non-video marketing, required account signup and supported authentication.",
+          "effective_at": "2026-10-04T06:31:18+09:00",
+          "scope": "Reuse existing COSHUMA accounts first. If a required non-video marketing channel has no usable COSHUMA account, create a free dedicated COSHUMA account using legitimate identity and supported provider signup/authentication. At most two active distribution channels.",
+          "authentication": "Complete ordinary authorized sign-in, email verification and standard setup with supported capabilities; apply the relevant authentication tool's rules to identity/CAPTCHA/OTP/consent gates. Never bypass a safeguard or extract stored credentials.",
+          "limits": "No new spend, paid subscriptions, unrelated accounts, privilege expansion or fabricated identity. Routine platform signup is no longer barred by the old blanket account-creation restriction.",
+          "trend_rule": "Adapt non-video topics, length, layout and publication style to current official platform guidance and observed relevant audience discussion. Record sources and dates; do not invent trend demand, reach or performance."
         }
       },
       "completion_gate": "campaign_period_ended_and_source_evidenced_outcomes_and_closeout_report",
       "completion_gate_satisfied": false,
       "user_action_required": false,
       "verification": "Monthly module stored and read back in 13 existing schedules. C01 passed final-head CI, deployed from the merged source, passed GitHub Pages and actual live page/CSV checks. Campaign goals and overall month remain in progress.",
-      "handoff": "Growth & SEO Team owns C02, the existing Privy–Omnisend comparison. Do not repeat C01 implementation. Editorial maintains the Claap producer; Revenue Intelligence records matched site-wide and campaign-attributed outcomes separately."
+      "handoff": "Growth & SEO Team owns C02, the existing Privy–Omnisend comparison. Do not repeat C01 implementation. Editorial maintains the Claap producer; Revenue Intelligence records matched site-wide and campaign-attributed outcomes separately. Use text/static formats only. Do not assign video creation/upload or YouTube authentication recovery. Necessary free non-video channel signup and supported authentication are authorized; do not block ordinary setup solely on old no-new-account guidance."
     }
   ],
   "invariants": {

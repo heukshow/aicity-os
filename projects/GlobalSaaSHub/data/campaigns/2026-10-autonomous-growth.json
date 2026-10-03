@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-03T21:15:42Z",
+  "updated_at": "2026-10-03T21:35:29.617Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -13,19 +13,21 @@
     "allowed": [
       "Evidence-backed edits and distribution of existing COSHUMA buyer content",
       "Up to eight substantive buyer decision assets under this plan",
-      "Organic public posts on verified existing COSHUMA-owned accounts with authorized access and provider rules",
+      "Organic text/static posts on verified COSHUMA-owned non-video channels, reusing existing accounts or creating necessary free dedicated accounts under the user's 2026-10-04 06:31 KST authorization",
       "Previously authorized ordinary affiliate followups",
       "Necessary reversible implementation, PR, merge, deployment and live verification",
-      "Reuse of the 13 existing enabled operating schedules"
+      "Reuse of the 13 existing enabled operating schedules",
+      "Necessary free dedicated COSHUMA non-video channel signup and ordinary supported authentication, after checking for an existing suitable account."
     ],
     "excluded": [
       "New paid services, subscriptions, ad spend or model upgrades",
-      "New accounts, tokens or secrets and authentication bypass",
+      "Unrelated account creation, raw credential/token extraction or authentication bypass. Necessary free COSHUMA non-video marketing account signup and supported ordinary authentication are newly authorized.",
       "Unapproved special legal terms",
       "Unsolicited bulk emails or DMs",
       "Repurposing personal accounts without business ownership and use authorization",
       "Fabricated reviews, use experience, customer results or financial outcomes",
-      "Restarting SheetProof"
+      "Restarting SheetProof",
+      "Video creation/editing or video uploads, including YouTube/Shorts/Reels/TikTok; no video-auth recovery or video-tool acquisition for this plan until the user explicitly changes this instruction."
     ]
   },
   "period": {
@@ -266,7 +268,7 @@
     "objective_posts": 24,
     "weekly_objective_posts": 6,
     "max_channels": 2,
-    "objective_condition": "Verified ownership, authorized current account access and suitable platform rules.",
+    "objective_condition": "Text/static formats only on at most two verified COSHUMA-owned non-video channels, reusing existing accounts first or creating necessary free accounts under explicit user authorization; current access and suitable platform rules required.",
     "paid_ad_budget_usd": 0,
     "state": "blocked_authentication",
     "verified_new_public_posts": 0,
@@ -277,28 +279,15 @@
         "status": "no_social_network_connected",
         "evidence": "Current connector returned INVALID_ARGUMENT with 'This brand does not have any social network connected yet'; current official connection URL redirects to sign-in.",
         "url": "https://app.metricool.com/brands/connections?blogId=6940199"
-      },
-      {
-        "channel": "Existing COSHUMA YouTube",
-        "status": "latest_observed_upload_auth_failure_not_reverified_currently",
-        "url": "https://www.youtube.com/channel/UCT33Ogj3tjh1_ddTAomOkBQ",
-        "evidence_url": "https://github.com/heukshow/aicity-os/actions/runs/35547491999/job/106175940637",
-        "failure_date": "2026-09-21",
-        "failure": "invalid_grant: token expired or revoked",
-        "note": "Past secret-presence checks and private uploads succeeded. Do not claim no tokens exist or a later recovery without evidence.",
-        "current_access_status": "google_reauthentication_required",
-        "current_access_checked_at": "2026-10-03T21:15:42Z",
-        "current_access_source": "https://studio.youtube.com/channel/UCT33Ogj3tjh1_ddTAomOkBQ",
-        "current_access_observation": "The existing Studio route leads to Google's account-verification page and asks for sign-in again. No credential entry or submission was attempted; current publication authority remains unverified."
       }
     ],
-    "access_next_action": "Use an already authorized current COSHUMA owner session and supported provider sign-in/consent to restore one existing channel; verify its identity and a successful channel read before any publication. Do not create a replacement account or extract credentials.",
-    "blocked_execution_policy": "At most one access-state check per day unless new evidence arrives; reuse the existing channel incident. Continue website assets, search distribution and previously authorized affiliate work. Missing public posts count as a missed distribution goal, never as completed drafts.",
+    "access_next_action": "Confirm an existing COSHUMA-owned text/static channel first; if no usable account exists, create a necessary free dedicated account under the new user authorization and complete supported ordinary signup/authentication. Verify identity and a successful channel read before publication. YouTube is excluded. Do not fabricate identity, bypass safeguards or extract credentials.",
+    "blocked_execution_policy": "At most one access-state check per day unless new evidence arrives; reuse the existing channel incident. Continue website assets, search distribution and previously authorized affiliate work. Missing public posts count as a missed distribution goal, never as completed drafts. YouTube/video access is outside scope and must not be rechecked as a campaign blocker.",
     "platform_priority": [
-      "Existing verified COSHUMA LinkedIn, if available, for B2B decision posts",
-      "One other verified COSHUMA-owned text channel; existing YouTube only after access and footage rights/quality are verified"
+      "COSHUMA LinkedIn, existing account/Page first, with necessary free setup authorized, for text/static B2B decision posts",
+      "One other verified COSHUMA-owned text/static channel with necessary free signup authorized; exclude video formats"
     ],
-    "post_format": "Each substantive buyer asset yields three distinct native posts: evaluation criterion, who should not buy, and practical checklist. Include a concise affiliate disclosure when promotional links are present, a supported factual claim, a useful standalone takeaway and a relevant destination.",
+    "post_format": "Text/static only. Each substantive buyer asset yields three distinct native posts: evaluation criterion, who should not buy, and practical checklist. Include a concise affiliate disclosure when promotional links are present, a supported factual claim, a useful standalone takeaway and a relevant destination.",
     "pacing": "Aim for six total native posts per week across at most two connected channels. Space posts normally; do not mass-publish a backlog after an access delay.",
     "utm_rule": "Website links use utm_source=<actual channel>, utm_medium=organic_social, utm_campaign=coshuma_20261004_month, utm_content=<asset-id>-<angle>-<date>. Keep exact supplier affiliate URLs unchanged.",
     "required_post_evidence": [
@@ -324,6 +313,23 @@
         "note": "Approved core copy; campaign worksheet link/disclosure added by COSHUMA, not represented as vendor-approved additions.",
         "live_destination_verified_at": "2026-10-03T21:15:42Z"
       }
+    ],
+    "excluded_channel_history": [
+      {
+        "channel": "Existing COSHUMA YouTube",
+        "status": "latest_observed_upload_auth_failure_not_reverified_currently",
+        "url": "https://www.youtube.com/channel/UCT33Ogj3tjh1_ddTAomOkBQ",
+        "evidence_url": "https://github.com/heukshow/aicity-os/actions/runs/35547491999/job/106175940637",
+        "failure_date": "2026-09-21",
+        "failure": "invalid_grant: token expired or revoked",
+        "note": "Past secret-presence checks and private uploads succeeded. Do not claim no tokens exist or a later recovery without evidence.",
+        "current_access_status": "google_reauthentication_required",
+        "current_access_checked_at": "2026-10-03T21:15:42Z",
+        "current_access_source": "https://studio.youtube.com/channel/UCT33Ogj3tjh1_ddTAomOkBQ",
+        "current_access_observation": "The existing Studio route leads to Google's account-verification page and asks for sign-in again. No credential entry or submission was attempted; current publication authority remains unverified.",
+        "operating_status": "excluded_by_user_instruction_not_campaign_blocker",
+        "do_not_restore_for_campaign": true
+      }
     ]
   },
   "calendar": [
@@ -339,7 +345,7 @@
       ],
       "content_objective": 2,
       "conditional_external_posts": 6,
-      "actions": "Launch Claap evaluation worksheet and improve the Omnisend–Privy buyer comparison using existing source evidence. Attempt legitimate restoration of one existing owned distribution channel. Establish the first source-matched campaign observation."
+      "actions": "Launch Claap evaluation worksheet and improve the Omnisend–Privy buyer comparison using existing source evidence. Establish one authorized COSHUMA-owned text/static channel, reusing an existing account or completing necessary free signup and supported authentication (YouTube excluded). Establish the first source-matched campaign observation."
     },
     {
       "week": 2,
@@ -353,7 +359,7 @@
       ],
       "content_objective": 2,
       "conditional_external_posts": 6,
-      "actions": "Improve Pictory workflow/plan-choice guidance and Jotform buyer criteria. Distribute distinct practical examples; check paid purchase and pending/approved commission records independently."
+      "actions": "Improve written Pictory workflow/plan-choice guidance without producing video and Jotform buyer criteria. Distribute distinct practical examples; check paid purchase and pending/approved commission records independently."
     },
     {
       "week": 3,
@@ -460,7 +466,7 @@
       "target_urls": [
         "https://coshuma.com/tool/pictory.html"
       ],
-      "scope": "Evidence-backed workflow and plan-choice guidance using approved assets; avoid claiming unperformed hands-on tests. Use verified trial/code terms and preserve exact affiliate destinations.",
+      "scope": "Text and comparison tables only. Evidence-backed workflow and plan-choice guidance using approved assets; avoid claiming unperformed hands-on tests. Use verified trial/code terms and preserve exact affiliate destinations. Do not generate, edit or upload video to support this article.",
       "basis": "GA 30-day page 8 views/4 active users/1 affiliate click; two Pictory clicks including the existing trials/deals hub.",
       "output_evidence": []
     },
@@ -517,7 +523,7 @@
     "A concrete buyer decision benefit beyond a plan/audit or generic rewrite",
     "Current official or direct sources, independently verified exact destinations and clear affiliate disclosure",
     "No fabricated hands-on experience, testimonials, savings, customer results or numeric scores",
-    "Rights verified for any partner screenshots/footage; video reuse permission is not blanket website embedding permission",
+    "Rights verified for any partner screenshots or static assets; no new video creation, editing or uploads. Preserve existing published media unless separately instructed.",
     "Producer regeneration preserves content; existing build and registry validation gates pass",
     "Actual deployment ancestry and expected live content/mobile usability verified with QA traffic excluded",
     "One substantive asset counted once even if repeated on several pages or adapted into several posts"
@@ -635,5 +641,33 @@
     "public_social_posts": 0,
     "prepared_social_drafts": 1,
     "as_of": "2026-10-03T21:15:42Z"
+  },
+  "content_format_policy": {
+    "source": "User correction in this conversation at 2026-10-04T06:29:11+09:00: video content cannot be relied on and YouTube-style video uploads must be excluded.",
+    "effective_at": "2026-10-04T06:29:11+09:00",
+    "status": "text_static_only_until_explicit_user_change",
+    "allowed_formats": [
+      "Text articles",
+      "Comparison tables",
+      "Buyer checklists",
+      "Downloadable worksheets/CSV",
+      "Evidence-backed permitted screenshots or static graphics"
+    ],
+    "excluded_actions": [
+      "Video generation or editing",
+      "YouTube/Shorts/Reels/TikTok video uploads",
+      "Recovery of YouTube authentication as a growth-plan dependency",
+      "Video-generation plugin installation, credits or spending"
+    ],
+    "existing_media": "Preserve already published media; this instruction does not request deletion.",
+    "product_coverage": "Evidence-backed written coverage of video SaaS remains allowed. Do not fabricate hands-on use, generated footage or customer results."
+  },
+  "channel_setup_authorization": {
+    "source": "User instruction at 2026-10-04T06:31:18+09:00 authorizes platform-appropriate non-video marketing, required account signup and supported authentication.",
+    "effective_at": "2026-10-04T06:31:18+09:00",
+    "scope": "Reuse existing COSHUMA accounts first. If a required non-video marketing channel has no usable COSHUMA account, create a free dedicated COSHUMA account using legitimate identity and supported provider signup/authentication. At most two active distribution channels.",
+    "authentication": "Complete ordinary authorized sign-in, email verification and standard setup with supported capabilities; apply the relevant authentication tool's rules to identity/CAPTCHA/OTP/consent gates. Never bypass a safeguard or extract stored credentials.",
+    "limits": "No new spend, paid subscriptions, unrelated accounts, privilege expansion or fabricated identity. Routine platform signup is no longer barred by the old blanket account-creation restriction.",
+    "trend_rule": "Adapt non-video topics, length, layout and publication style to current official platform guidance and observed relevant audience discussion. Record sources and dates; do not invent trend demand, reach or performance."
   }
 }
