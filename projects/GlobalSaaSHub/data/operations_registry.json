@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-03T21:57:01.215Z",
+  "updated_at": "2026-10-03T22:29:25.170Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2200,7 +2200,7 @@
       "next_owner": "Growth & SEO Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-10-03T21:57:01.215Z",
+      "last_evidence_at": "2026-10-03T22:29:25.170Z",
       "evidence": {
         "campaign_source": "projects/GlobalSaaSHub/data/campaigns/2026-10-autonomous-growth.json",
         "plan_source": "projects/GlobalSaaSHub/docs/2026-10-autonomous-growth-plan.md",
@@ -2209,8 +2209,8 @@
         "automation_updates_succeeded": 13,
         "automation_readback_matches": 13,
         "first_asset_status": "production_verified",
-        "new_public_social_posts": 0,
-        "distribution_status": "Existing PC Threads @showm_ic is shown as COSHUMA/coshuma.com in the user screenshot; the PC and running Threads window were confirmed. Separate cloud sign-in state does not invalidate it. Current root lacks a native PC UI control surface; no new public post is verified. Prioritize reusing this session, not new Threads signup.",
+        "new_public_social_posts": 1,
+        "distribution_status": "Existing PC Threads @showm_ic was verified and first Korean C01 post is publicly live; LinkedIn access remains pending independently.",
         "first_asset": {
           "implementation_pr": 972,
           "final_head_commit": "16acc698ecd3466ad1f22e0449a4597d49c3917a",
@@ -2306,13 +2306,15 @@
           "new_schedules": 0
         },
         "current_channel_access_gate": {
-          "status": "existing_pc_session_evidenced_ui_control_not_available_in_current_chat",
-          "cause": "Current root UI inventory exposes no native PC app surface. Remote device/process connectivity is confirmed, but it is not proof of ability to click/publish.",
+          "status": "existing_pc_threads_session_remote_ui_verified",
+          "cause": null,
           "account_missing": false,
           "account_creation_required_for_threads": false,
-          "root_ui_verified_signed_in": false,
-          "new_public_posts_verified": 0,
-          "next_action": "Use the already-authorized supported PC UI/Work route when available to inspect @showm_ic and publish the prepared Threads post, then record the actual public URL and time. Continue C02 while that capability is unavailable. Do not re-run cloud-login loops as a substitute for the PC session."
+          "root_ui_verified_signed_in": true,
+          "new_public_posts_verified": 1,
+          "verified_public_url": "https://www.threads.com/@showm_ic/post/DeDGYIcE8Jl",
+          "next_action": "Reuse the current authorized PC Threads session. Read the relevant public content, then use scoped public reply/like controls; obtain post URLs from timestamp Hyperlink ValuePattern. Do not use Share, DM, recipient suggestions or private messages. Continue C02 in parallel.",
+          "prior_limitation_corrected": "No native CUA surface did not imply that Remote Desktop Commander could not operate the PC. Windows UI Automation through the already-authorized Remote route was successfully verified."
         },
         "threads_pc_account": {
           "observed_at": "2026-10-03T21:57:01.215Z",
@@ -2325,18 +2327,145 @@
             "The desktop Threads screenshot shows this profile alongside Profile edit and Post controls.",
             "The displayed account has 403 followers; this is a screenshot value, not new campaign reach or live API validation."
           ],
-          "live_remote_observation": "The authorized PC is online. A read-only process query confirmed a running msedge window with Threads in its title.",
+          "live_remote_observation": "Remote Windows UI Automation verified COSHUMA @showm_ic and published the prepared Korean C01 post. The current permalink and published destination are verified.",
           "interpretation": "An existing user-designated COSHUMA Threads account/session is evidenced. The separate cloud browser's sign-in prompt does not show that the PC session is signed out.",
-          "publishing_authority_limit": "The root has not directly inspected the live PC profile or submitted a post. The current UI inventory exposes only cloud Chrome, with no native PC app control surface.",
-          "verified_new_posts": 0
+          "publishing_authority_limit": "Existing PC UI route is available and verified. No credentials or new login were required.",
+          "verified_new_posts": 1,
+          "public_url": "https://www.threads.com/@showm_ic/post/DeDGYIcE8Jl"
         },
-        "prepared_social_drafts": 2
+        "prepared_social_drafts": 1,
+        "first_public_threads_post": {
+          "asset_id": "C01",
+          "platform": "threads",
+          "account": "showm_ic",
+          "display_name": "COSHUMA",
+          "language": "ko",
+          "state": "public_post_verified",
+          "public_url": "https://www.threads.com/@showm_ic/post/DeDGYIcE8Jl",
+          "platform_displayed_local_time": "2026-10-04T07:09+09:00",
+          "publish_action_at": "2026-10-03T22:10:01.8757339Z",
+          "precise_platform_published_at": null,
+          "timestamp_note": "Platform tooltip shows 07:09 KST; the Remote publish invocation was recorded at 07:10:01 KST. Preserve both observations without inventing an exact server timestamp.",
+          "verified_at": "2026-10-03T22:20:55.949Z",
+          "character_count": 361,
+          "text": "영업 통화에서 어떤 순간을 코칭해야 할까요?\n\nCOSHUMA의 빈 3통화 점검표에는 근거, 고객의 이의제기, 다음 단계, 담당자·기한, CRM 필드가 들어 있습니다. 직접 관찰한 내용으로 채워 보세요.\n\nhttps://coshuma.com/best/claap-sales-follow-up-ai.html?utm_source=threads&utm_medium=organic_social&utm_campaign=coshuma_20261004_month&utm_content=C01-checklist-20261004#claap-3-call-checklist\n\n제휴 고지: 가이드의 파트너 링크를 통해 구매하면 COSHUMA가 수수료를 받을 수 있습니다.",
+          "draft_path": "projects/GlobalSaaSHub/docs/campaigns/2026-10-claap-threads-first-post.md",
+          "destination_url": "https://coshuma.com/best/claap-sales-follow-up-ai.html?utm_source=threads&utm_medium=organic_social&utm_campaign=coshuma_20261004_month&utm_content=C01-checklist-20261004#claap-3-call-checklist",
+          "verification": "Scoped Windows UI Automation confirmed the existing COSHUMA @showm_ic account, exact 361-character input before submission, new post body and affiliate disclosure after submission, the timestamp hyperlink's actual public URL, and the exact UTM destination from published links. Screenshot captured without changing foreground.",
+          "screenshot_sha256": "63a1d02ff1cfc403add4d5a1f88012285b3582d4a5db6d4c906b435be9670258",
+          "new_account_created": false,
+          "credentials_extracted": false,
+          "traffic_or_revenue_confirmed": false
+        },
+        "daily_threads_engagement_policy": {
+          "effective_at": "2026-10-04T07:13:21+09:00",
+          "authorization": "User explicitly requested daily Threads activity that reads and understands content, leaves appropriate public comments and likes.",
+          "owner": "Audience Growth Team",
+          "account": "showm_ic",
+          "timezone": "Asia/Seoul",
+          "daily_targets": {
+            "relevant_posts_read": [
+              10,
+              15
+            ],
+            "likes": [
+              5,
+              10
+            ],
+            "substantive_public_comments": [
+              3,
+              5
+            ]
+          },
+          "daily_maximums": {
+            "new_likes": 10,
+            "unsolicited_public_comments": 5
+          },
+          "targets_are_observed_results": false,
+          "quality_rule": "Read the complete relevant post, any necessary continuation and existing responses before interacting. Do not fill quotas with unsuitable content. Refer to something concrete in the post; add a useful observation or a sincere specific question. Avoid repeated templated comments, irrelevant praise, follow-for-follow, copied advertising, unsolicited links or fabricated personal use/results.",
+          "topics": [
+            "AI used in real work",
+            "sales follow-up",
+            "CRM and customer operations",
+            "SaaS evaluation",
+            "practical small-business workflow improvement"
+          ],
+          "inbound_public_replies": "Check relevant replies to COSHUMA posts and previous comments; respond when useful after reading context. Record these separately from new outreach comments.",
+          "distribution": "Use up to two short daily activity sessions when an existing run and authorized UI are available. Spread activity across suitable conversations. Daily totals must be checked before any new action.",
+          "prohibited_actions": [
+            "DMs or individual private messages",
+            "Recipient selection or suggested-recipient interaction",
+            "Share button use",
+            "Bulk/follow-for-follow activity",
+            "Fake personal product experience or claims to be a human operator",
+            "Unverified posting/like success or invented exposure/revenue"
+          ],
+          "verification": "Log the source post URL, public reply URL when available, exact reply text, observed like toggle state and actual execution time. A click/queued action alone is not completion. If timed out, read current state before retrying.",
+          "availability": "Use the already-authorized Remote PC session only while its identity and public context are verified. If the PC is offline or UI unavailable, record the actual missed activity and retry only on an eligible later run. Configuration is not proof of execution.",
+          "site_learning": {
+            "effective_at": "2026-10-04T07:21:20+09:00",
+            "clarified_at": "2026-10-04T07:22:39+09:00",
+            "scope": "Read other people's actual public posts and discussions, then identify concrete improvements relevant to COSHUMA.",
+            "process": "Record source URL/date, the specific question or workflow need, current COSHUMA coverage, a narrow improvement hypothesis and owner. Review the existing implementation first. Make useful authorized source changes only for a real gap; do not duplicate existing guidance. Preserve protected experiment windows and verify deployed changes before claiming completion.",
+            "source_claims": "Treat outside posts as observations or hypotheses, not verified vendor performance, market demand or firsthand COSHUMA test results. Do not copy third-party content.",
+            "handoff_owners": [
+              "Editorial Quality Team",
+              "Growth & SEO Team",
+              "Revenue Optimization Team"
+            ]
+          }
+        },
+        "total_social_drafts_produced": 2,
+        "first_threads_engagement": {
+          "date_kst": "2026-10-04",
+          "account": "showm_ic",
+          "source_post_url": "https://www.threads.com/@lab.joon/post/Dd537fRFJKz",
+          "read": {
+            "status": "complete_relevant_public_context_read",
+            "distinct_conversations": 1,
+            "author_chain_parts": 5,
+            "other_existing_public_replies_read": 1,
+            "observed_theme": "Repeated report work becomes a reusable workflow with fixed templates. Source claims about speed and user results have not been independently verified."
+          },
+          "like": {
+            "status": "verified_liked",
+            "action_at": "2026-10-03T22:23:14.2601074Z",
+            "before_control": "좋아요 23",
+            "after_control": "좋아요 취소 24",
+            "counted_new_likes": 1
+          },
+          "public_reply": {
+            "status": "published_and_verified",
+            "action_at": "2026-10-03T22:25:13.9997256Z",
+            "verified_at": "2026-10-03T22:25:57.8324153Z",
+            "url": "https://www.threads.com/@showm_ic/post/DeDIHeUEyhU",
+            "text": "정리는 자동화하고 서식은 고정해 둔 점이 실용적이네요. 혹시 원문의 숫자·날짜가 요약하면서 바뀌지 않았는지 확인하는 단계도 두셨나요? 보고서라면 그 확인까지 붙으면 더 안심하고 쓸 수 있을 것 같아요.",
+            "verified_exact_text": true,
+            "counted_public_comments": 1
+          },
+          "attribution": "Public community activity; do not count this comment toward the 24 standalone marketing-post goal. No reach, visits or revenue is established.",
+          "private_message_actions": 0
+        },
+        "threads_site_learning_review": {
+          "id": "THREADS-LEARNING-20261004-01",
+          "source_post_url": "https://www.threads.com/@lab.joon/post/Dd537fRFJKz",
+          "source_continuation_url": "https://www.threads.com/@lab.joon/post/Dd538HcFD7b",
+          "observed_at": "2026-10-03T22:29:25.170Z",
+          "observation": "Fixed reusable fields/templates can make a repeated task easier to complete consistently.",
+          "candidate_application": "Check whether the Claap three-call worksheet explains how to fill the same five fields, compare against source evidence and select corrections for coaching.",
+          "review_status": "already_covered_no_duplicate_edit",
+          "source_checked": "main Claap producer and both generated pages",
+          "review_result": "The existing checklist already covers three calls with the same fields, quotes/timestamps and context, agreed next steps, owner/deadline and CRM comparison, Not stated versus Needs correction, and recurring fixes/missing commitments.",
+          "source_changes": 0,
+          "requires_new_deployment": false,
+          "next_action": "Continue reading other relevant discussions and create a narrow owner-assigned improvement only when a concrete gap is found."
+        }
       },
       "completion_gate": "campaign_period_ended_and_source_evidenced_outcomes_and_closeout_report",
       "completion_gate_satisfied": false,
       "user_action_required": false,
-      "verification": "Monthly module stored and read back in 13 existing schedules. C01 passed final-head CI, deployed from the merged source, passed GitHub Pages and actual live page/CSV checks. Campaign goals and overall month remain in progress.",
-      "handoff": "Growth & SEO Team owns C02, the existing Privy–Omnisend comparison. Do not repeat C01 implementation. Editorial maintains the Claap producer; Revenue Intelligence records matched site-wide and campaign-attributed outcomes separately. Use text/static formats only. Do not assign video creation/upload or YouTube authentication recovery. Necessary free non-video channel signup and supported authentication are authorized; do not block ordinary setup solely on old no-new-account guidance. Audience Growth should first reuse the user-designated existing PC Threads @showm_ic session with supported available UI; do not treat the cloud sign-in prompt or older personal-handle assumption as missing account evidence. Actual post URL/time are still required."
+      "verification": "The first asset is production verified and one public Threads post is verified by live account/UI, exact text, destination and actual permalink. The month and daily engagement program remain in progress; configuration and targets are not delivery evidence.",
+      "handoff": "Growth & SEO Team owns C02; do not repeat C01. Audience Growth owns daily context-aware public Threads activity through the proven existing PC Remote UI route and must use actual action evidence and daily caps. The C01 Threads post is already published: https://www.threads.com/@showm_ic/post/DeDGYIcE8Jl. Do not republish it. No Share-button/DM/recipient workflows. LinkedIn is the optional second channel with an independent access gate. Keep text/static-only, no additional spend, and existing experiment windows."
     }
   ],
   "invariants": {

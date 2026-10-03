@@ -1,6 +1,8 @@
 # COSHUMA 첫 Threads 게시물 — Claap 빈 점검표
 
-상태: **작성 완료, 미발행**. 사용자 지정 PC Threads 계정 `showm_ic`의 표시명은 첨부 화면에서 COSHUMA이며 사이트 링크는 coshuma.com이다. 실제 PC 화면에서 대상 계정을 확인한 후 게시해야 한다. 이 계정에 새 가입이 필요하다고 가정하지 않는다.
+상태: **한국어안 공개 게시 완료**. 계정 COSHUMA `@showm_ic`. 공개 URL: https://www.threads.com/@showm_ic/post/DeDGYIcE8Jl
+
+플랫폼 표시 시각은 2026-10-04 07:09 KST, Remote 게시 실행 로그는 07:10:01 KST다. 정확한 서버 게시 시각을 임의로 일치시키지 않는다. 실제 공개 본문·제휴 고지·UTM 목적지를 확인했다. 아래 영문 대안은 발행하지 않았다.
 
 영상 제작·업로드는 제외한다. 이 원고는 공개된 COSHUMA 빈 양식을 소개하며 사용 성과·시간 절감·공급사의 별도 승인 여부를 꾸미지 않는다. 핵심 페이지 공개 증거: https://github.com/heukshow/aicity-os/issues/292#issuecomment-5973554126
 
@@ -33,3 +35,12 @@ https://coshuma.com/best/claap-sales-follow-up-ai.html?utm_source=threads&utm_me
 ## 게시 후 기록
 
 실제 계정, 공개 게시 URL, 게시 시각, 최종 원고를 기록한다. 초안 수와 실제 게시 수를 분리한다. UTM source는 실제 배포 플랫폼 threads로 유지하며 가이드 내부의 공급사 제휴 목적지는 바꾸지 않는다.
+
+## 실제 게시 확인과 운영 정정
+
+- 공개 URL: https://www.threads.com/@showm_ic/post/DeDGYIcE8Jl
+- 한국어 원문 361자 입력을 읽어 일치 확인한 뒤 게시했다.
+- 기존 PC 로그인으로 Remote Windows UI Automation이 정상 작동했다. 클라우드 CUA에 네이티브 창이 없다는 이유로 PC 조작이 불가능하다고 했던 이전 판단을 정정한다.
+- 게시물의 시간 링크에서 ValuePattern으로 공개 URL을 읽었다. 공유 버튼이나 DM 화면은 URL 확인에 필요하지 않다.
+- 주소 확인 중 공유 버튼을 한 번 눌렀으나, 수신인 선택·메시지 입력·전송 명령은 없었다. 사용자의 지적 후 공유·DM 경로를 사용하지 않는다.
+- 새 게시물 노출·외부 유입·수익은 아직 측정하지 않았다.
