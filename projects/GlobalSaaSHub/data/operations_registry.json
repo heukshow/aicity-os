@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T23:07:06Z",
+  "updated_at": "2026-10-03T00:58:20Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1261,7 +1261,7 @@
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": "native_schedule_fidelity_observation_only",
-      "last_evidence_at": "2026-10-02T23:07:06Z",
+      "last_evidence_at": "2026-10-03T00:58:20Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "*/15 * * * *",
@@ -1743,14 +1743,71 @@
             ],
             "completion_boundary": "One fresh Royal Queue native schedule success reduces the current overdue set but does not satisfy the incident completion gate for all affected workflows."
           }
+        },
+        "latest_governance_observation": {
+          "observed_at": "2026-10-03T00:58:20Z",
+          "native_schedule_runs": {
+            "COSHUMA Cloud Control Plane": {
+              "run_id": 37078964868,
+              "scheduled_at": "2026-10-02T23:44:11Z",
+              "conclusion": "success",
+              "status": "overdue_over_2x_expected_period"
+            },
+            "COSHUMA Release Verification": {
+              "run_id": 37073426349,
+              "scheduled_at": "2026-10-02T22:36:50Z",
+              "conclusion": "success",
+              "status": "overdue_over_2x_expected_period"
+            },
+            "COSHUMA Registry Reconciliation": {
+              "run_id": 37076691055,
+              "scheduled_at": "2026-10-02T23:15:20Z",
+              "conclusion": "success",
+              "status": "current_within_2x_expected_period"
+            },
+            "COSHUMA Growth Loop": {
+              "run_id": 37076270934,
+              "scheduled_at": "2026-10-02T23:10:18Z",
+              "conclusion": "success",
+              "status": "current_within_2x_expected_period"
+            },
+            "COSHUMA Analytics Snapshot": {
+              "run_id": 37066028583,
+              "scheduled_at": "2026-10-02T21:18:21Z",
+              "conclusion": "success",
+              "status": "overdue_over_2x_expected_period"
+            },
+            "Royal Queue Reconcile Status": {
+              "run_id": 37075694809,
+              "scheduled_at": "2026-10-02T23:03:24Z",
+              "conclusion": "success",
+              "status": "current_within_2x_expected_period"
+            }
+          },
+          "overdue_targets": [
+            "coshuma-cloud-control-plane.yml",
+            "coshuma-release-verification.yml",
+            "coshuma-analytics-snapshot.yml"
+          ],
+          "fallback_attempt": {
+            "target": "coshuma-analytics-snapshot.yml",
+            "status": "stalled",
+            "root_cause": "tool_capability",
+            "github_connector_write": "blocked_by_safety_check",
+            "remote_gh_write": "blocked_by_safety_check",
+            "fallback_run_id": null,
+            "target_run_id": null
+          },
+          "native_schedule_permanent_recovery_claimed": false,
+          "user_action_required": false
         }
       },
       "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
       "completion_gate_satisfied": false,
       "availability_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "Direct GitHub Actions readback initially confirmed four overdue native schedules and two current schedules. Owner-gated fallback 37075200875 and Cloud Control Plane workflow_dispatch 37075206971 succeeded. Royal Queue then produced fresh native schedule run 37075694809 successfully. Cloud Control Plane, Growth Loop, and Registry Reconciliation remain overdue; native schedule completion is not claimed.",
-      "handoff": "Operations Governance Team continues the existing incident. Re-read Cloud Control Plane, Growth Loop, and Registry Reconciliation before any separate single-target continuation. Keep lifecycle in_progress and completion gate false until the existing native-schedule completion boundary is met."
+      "verification": "Direct GitHub Actions readback at 2026-10-03T00:58:20Z found Cloud Control Plane, Release Verification, and Analytics Snapshot beyond two expected periods; Registry Reconciliation, Growth Loop, and Royal Queue remained within two periods. Fallback marker write for Analytics was blocked by both GitHub connector and existing-auth Remote gh paths, so no fallback success is claimed.",
+      "handoff": "Operations Governance Team continues the same scheduler incident. Do not retry the same blocked Analytics fallback write path a third time. Re-read native schedule evidence on the next run; keep lifecycle in_progress and completion_gate_satisfied=false."
     },
     {
       "record_id": "EDITORIAL:EDITORIAL-BODY-008",
