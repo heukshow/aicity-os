@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-03T19:36:54+00:00",
+  "updated_at": "2026-10-03T20:20:04+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1188,12 +1188,12 @@
       "owner_team": "Revenue Intelligence Team",
       "canonical_owner": "Revenue Intelligence Team",
       "found_by": "Revenue Intelligence Team",
-      "changed_scope": "Recovered existing Pictory FirstPromoter account through official custom portal and secure existing-account auth. Updated only private observation evidence and its Worker ingestion; exact affiliate URL/lifecycle unchanged.",
+      "changed_scope": "Recovered existing Pictory FirstPromoter account through official custom portal and secure existing-account auth. Updated only private observation evidence and its Worker ingestion; exact affiliate URL/lifecycle unchanged. 2026-10-04 follow-up: aligned the inventory producer and generated reconciliation route with the previously recovered official Pictory portal.",
       "lifecycle": "production_verified",
       "next_owner": "Revenue Intelligence Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-09-27T08:40:00Z",
+      "last_evidence_at": "2026-10-03T20:20:04+00:00",
       "evidence": {
         "audit_comment_id": 5854277284,
         "prior_blocker_comment_id": 5850146441,
@@ -1218,13 +1218,28 @@
         "production_version": "f09b7767-5182-43f0-993f-53cd85e9f49c",
         "tax_form_notice_observed": true,
         "tax_form_submitted": false,
-        "production_verification_comment_id": 5854277284
+        "production_verification_comment_id": 5854277284,
+        "portal_route_producer_repair": {
+          "verified_at": "2026-10-03T20:20:04+00:00",
+          "scope": "Generated Pictory revenue reconciliation route only; no new financial observation or current authentication/runtime claim.",
+          "source_pr": 968,
+          "merge_commit": "92e51dff6ba155eb1aa16739d681aeef89dfbe7d",
+          "pr_check_run": 37150628790,
+          "revenue_audit_run": 37151019743,
+          "persisted_main_commit": "4faa791700247872f591bdbd0c63c3a49f12d978",
+          "portal_url": "https://partners.pictory.ai/login",
+          "queue_generated_at": "2026-10-03T20:17:51.307Z",
+          "readback": "Inventory, audit and reconciliation queue all contain the recovered official portal on the persisted main commit.",
+          "completion_gate_satisfied": true,
+          "verification_comment_id": 5973109775,
+          "preserved": "Original financial observations, reporting periods, customer referral destinations and fixed 7/30-day measurement windows."
+        }
       },
       "completion_gate": "authenticated_dashboard_program_url_commission_and_payout_evidence",
       "completion_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "Authenticated Pictory Home, all-state Commissions and Payouts inspected; active program and exact existing referral URL match SSOT. New private observation read back from existing D1 and rendered by authenticated production owner UI. Other FirstPromoter accounts are outside this completed recovery scope.",
-      "handoff": "Resume Pictory via https://partners.pictory.ai/login using the existing account/session. Do not duplicate outreach, reset credentials or create accounts/tokens. Tax-form attestation remains a separate legal readiness step, not an authentication failure.",
+      "verification": "Authenticated Pictory Home, all-state Commissions and Payouts inspected; active program and exact existing referral URL match SSOT. New private observation read back from existing D1 and rendered by authenticated production owner UI. Other FirstPromoter accounts are outside this completed recovery scope. The 2026-10-04 route follow-up passed the existing PR check and Revenue Leakage Audit; the persisted main inventory, audit and reconciliation queue were read back directly with the corrected portal.",
+      "handoff": "Resume Pictory via https://partners.pictory.ai/login using the existing account/session. Do not duplicate outreach, reset credentials or create accounts/tokens. Tax-form attestation remains a separate legal readiness step, not an authentication failure. The corrected reconciliation queue is now the route source for the next existing scheduled Pictory observation. Read supplier reporting periods and currency explicitly, preserve unknown values, and keep financial evidence private.",
       "execution_status": "completed",
       "fixed_by": "Revenue Intelligence Team",
       "completed_at": "2026-09-27T08:40:00Z",
