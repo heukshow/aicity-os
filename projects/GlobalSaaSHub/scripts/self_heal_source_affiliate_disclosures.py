@@ -29,7 +29,7 @@ GLOBAL_NOTICE_RE = re.compile(
     re.I | re.S,
 )
 LEGACY_DISCLOSURE_RE = re.compile(
-    r"""<p\b[^>]*>(?:(?!</p>).)*(?:Affiliate\s+disclosure\s*:|COSHUMA\s+may\s+earn\s+(?:(?:an\s+affiliate|a)\s+)?commission)(?:(?!</p>).)*</p>""",
+    r"""(?:<p\b[^>]*>(?:(?!</p>).)*Affiliate\s+disclosure\s*:(?:(?!</p>).)*</p>|<p\b[^>]*>\s*(?:<[^>]+>\s*)*COSHUMA\s+may\s+earn\s+(?:(?:an\s+affiliate|a)\s+)?commission(?:(?!</p>).)*</p>)""",
     re.I | re.S,
 )
 
