@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "definition": "Primary company base or registered company country/region supported by a cited public company, legal, registry, or other reliable source. This is not founder nationality and does not claim that all product development occurs in that country/region.",
+  "verified_at": "2026-10-03",
+  "tools": {
+    "activecampaign": {
+      "country_code": "US",
+      "country_name": "United States",
+      "flag": "🇺🇸",
+      "basis": "headquarters",
+      "source_url": "https://www.activecampaign.com/about"
+    },
+    "constant-contact": {
+      "country_code": "US",
+      "country_name": "United States",
+      "flag": "🇺🇸",
+      "basis": "headquarters",
+      "source_url": "https://www.constantcontact.com/about"
+    },
+    "hubspot": {
+      "country_code": "US",
+      "country_name": "United States",
+      "flag": "🇺🇸",
+      "basis": "global headquarters",
+      "source_url": "https://www.hubspot.com/company/contact"
+    },
+    "docusign": {
+      "country_code": "US",
+      "country_name": "United States",
+      "flag": "🇺🇸",
+      "basis": "principal office",
+      "source_url": "https://investor.docusign.com/"
+    },
+    "gohighlevel": {
+      "country_code": "US",
+      "country_name": "United States",
+      "flag": "🇺🇸",
+      "basis": "corporate headquarters",
+      "source_url": "https://www.gohighlevel.com/contact-us-9945"
+    },
+    "descript": {
+      "country_code": "US",
+      "country_name": "United States",
+      "flag": "🇺🇸",
+      "basis": "company address",
+      "source_url": "https://www.descript.com/terms"
+    },
+    "gamma": {
+      "country_code": "US",
+      "country_name": "United States",
+      "flag": "🇺🇸",
+      "basis": "principal place of business",
+      "source_url": "https://gamma.app/terms"
+    },
+    "notion-ai": {
+      "country_code": "US",
+      "country_name": "United States",
+      "flag": "🇺🇸",
+      "basis": "company address",
+      "source_url": "https://www.notion.com/help/security-and-privacy"
+    },
+    "beehiiv": {
+      "country_code": "US",
+      "country_name": "United States",
+      "flag": "🇺🇸",
+      "basis": "company address",
+      "source_url": "https://www.beehiiv.com/tou"
+    },
+    "webflow": {
+      "country_code": "US",
+      "country_name": "United States",
+      "flag": "🇺🇸",
+      "basis": "company address",
+      "source_url": "https://webflow.com/legal/terms"
+    },
+    "jotform": {
+      "country_code": "US",
+      "country_name": "United States",
+      "flag": "🇺🇸",
+      "basis": "company address",
+      "source_url": "https://www.jotform.com/terms/"
+    },
+    "privy": {
+      "country_code": "US",
+      "country_name": "United States",
+      "flag": "🇺🇸",
+      "basis": "company address",
+      "source_url": "https://www.privy.com/terms-of-use"
+    },
+    "teachable": {
+      "country_code": "US",
+      "country_name": "United States",
+      "flag": "🇺🇸",
+      "basis": "company office",
+      "source_url": "https://teachable.com/terms-of-use"
+    },
+    "murf-ai": {
+      "country_code": "US",
+      "country_name": "United States",
+      "flag": "🇺🇸",
+      "basis": "company address",
+      "source_url": "https://murf.ai/impressum"
+    },
+    "shopify": {
+      "country_code": "CA",
+      "country_name": "Canada",
+      "flag": "🇨🇦",
+      "basis": "registered corporation",
+      "source_url": "https://www.shopify.com/legal/terms"
+    },
+    "unbounce": {
+      "country_code": "CA",
+      "country_name": "Canada",
+      "flag": "🇨🇦",
+      "basis": "headquarters",
+      "source_url": "https://unbounce.com/contact/"
+    },
+    "brand24": {
+      "country_code": "PL",
+      "country_name": "Poland",
+      "flag": "🇵🇱",
+      "basis": "company address",
+      "source_url": "https://brand24.com/contact/"
+    },
+    "getresponse": {
+      "country_code": "PL",
+      "country_name": "Poland",
+      "flag": "🇵🇱",
+      "basis": "registered office",
+      "source_url": "https://www.getresponse.com/legal/privacy"
+    },
+    "surfer-seo": {
+      "country_code": "PL",
+      "country_name": "Poland",
+      "flag": "🇵🇱",
+      "basis": "company address",
+      "source_url": "https://surferseo.com/contact/"
+    },
+    "agorapulse": {
+      "country_code": "FR",
+      "country_name": "France",
+      "flag": "🇫🇷",
+      "basis": "head office",
+      "source_url": "https://www.agorapulse.com/terms-of-service/"
+    },
+    "brevo": {
+      "country_code": "FR",
+      "country_name": "France",
+      "flag": "🇫🇷",
+      "basis": "registered establishment",
+      "source_url": "https://annuaire-entreprises.data.gouv.fr/etablissement/49801929800112"
+    },
+    "n8n": {
+      "country_code": "DE",
+      "country_name": "Germany",
+      "flag": "🇩🇪",
+      "basis": "registered company",
+      "source_url": "https://n8n.io/legal/"
+    },
+    "kittl": {
+      "country_code": "DE",
+      "country_name": "Germany",
+      "flag": "🇩🇪",
+      "basis": "registered company",
+      "source_url": "https://www.kittl.com/legal/terms"
+    },
+    "bidx": {
+      "country_code": "DE",
+      "country_name": "Germany",
+      "flag": "🇩🇪",
+      "basis": "company address",
+      "source_url": "https://www.bidx.io/imprint"
+    },
+    "elevenlabs": {
+      "country_code": "GB",
+      "country_name": "United Kingdom",
+      "flag": "🇬🇧",
+      "basis": "London operational headquarters",
+      "source_url": "https://elevenlabs.io/blog/london-office-opening"
+    },
+    "synthesia": {
+      "country_code": "GB",
+      "country_name": "United Kingdom",
+      "flag": "🇬🇧",
+      "basis": "headquarters",
+      "source_url": "https://www.synthesia.io/post/synthesia-london-office"
+    },
+    "veed": {
+      "country_code": "GB",
+      "country_name": "United Kingdom",
+      "flag": "🇬🇧",
+      "basis": "registered company",
+      "source_url": "https://www.veed.io/terms"
+    },
+    "colossyan": {
+      "country_code": "GB",
+      "country_name": "United Kingdom",
+      "flag": "🇬🇧",
+      "basis": "registered office",
+      "source_url": "https://find-and-update.company-information.service.gov.uk/company/12880580"
+    },
+    "framer": {
+      "country_code": "NL",
+      "country_name": "Netherlands",
+      "flag": "🇳🇱",
+      "basis": "registered company",
+      "source_url": "https://www.framer.com/legal/privacy-statement/"
+    },
+    "omnisend": {
+      "country_code": "LT",
+      "country_name": "Lithuania",
+      "flag": "🇱🇹",
+      "basis": "registered company",
+      "source_url": "https://www.omnisend.com/legal/terms-of-use/"
+    },
+    "sleeknote": {
+      "country_code": "DK",
+      "country_name": "Denmark",
+      "flag": "🇩🇰",
+      "basis": "company address",
+      "source_url": "https://sleeknote.com/terms"
+    },
+    "tally": {
+      "country_code": "BE",
+      "country_name": "Belgium",
+      "flag": "🇧🇪",
+      "basis": "registered company",
+      "source_url": "https://tally.so/help/terms-and-conditions"
+    },
+    "happyscribe": {
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "flag": "🇮🇪",
+      "basis": "registered company",
+      "source_url": "https://www.happyscribe.com/terms"
+    },
+    "relevance-ai": {
+      "country_code": "AU",
+      "country_name": "Australia",
+      "flag": "🇦🇺",
+      "basis": "registered business",
+      "source_url": "https://relevanceai.com/terms-and-conditions"
+    },
+    "scalenut": {
+      "country_code": "IN",
+      "country_name": "India",
+      "flag": "🇮🇳",
+      "basis": "registered office",
+      "source_url": "https://www.scalenut.com/terms"
+    },
+    "gallabox": {
+      "country_code": "IN",
+      "country_name": "India",
+      "flag": "🇮🇳",
+      "basis": "company office",
+      "source_url": "https://gallabox.com/privacy-policy"
+    },
+    "adoric": {
+      "country_code": "IL",
+      "country_name": "Israel",
+      "flag": "🇮🇱",
+      "basis": "company office",
+      "source_url": "https://adoric.com/privacy-policy/"
+    }
+  }
+}
