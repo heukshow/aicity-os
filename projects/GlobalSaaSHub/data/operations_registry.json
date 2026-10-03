@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-03T17:38:40.166838+00:00",
+  "updated_at": "2026-10-03T17:43:38.638550+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1385,14 +1385,14 @@
       "canonical_owner": "Operations Governance Team",
       "found_by": "COSHUMA Team Watchdog",
       "fixed_by": "Operations Governance Team",
-      "changed_scope": "Scheduler trigger mitigation only: PR #885 staggered six cron expressions; PR #886 added an owner-gated #292 fallback dispatcher. No job logic, measurement definition, affiliate state, public page, deployment target, account, paid service, persistent secret/token or safety control changed.",
+      "changed_scope": "Existing owner-gated fallback restored four overdue targets through Chat GitHub issue writes; one registry record synchronized with actual successful runs. No cron, job logic, public UI, measurement definitions, affiliate state, payment settings, credentials or service changes.",
       "lifecycle": "in_progress",
       "operational_status": "mitigated",
       "root_cause": "github_schedule_best_effort",
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": "native_schedule_fidelity_observation_only",
-      "last_evidence_at": "2026-10-02T23:07:06Z",
+      "last_evidence_at": "2026-10-03T17:35:02Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "*/15 * * * *",
@@ -1762,54 +1762,103 @@
           "permanent_native_recovery_claimed": false
         },
         "latest_watchdog_recovery": {
-          "observed_at": "2026-10-02T22:00:37Z",
-          "native_scheduler_status": "five_workflows_overdue_one_current",
-          "availability_status": "mitigated_by_verified_owner_gated_fallback",
-          "permanent_native_recovery_claimed": false,
-          "recovered_targets": {
+          "observed_at": "2026-10-03T17:35:02Z",
+          "source_main_at_check": "b63052883c2b51ea1609c8b0a12d76e38d52e803",
+          "native_schedule_runs": {
             "coshuma-cloud-control-plane.yml": {
-              "marker_comment_id": 5961920153,
-              "fallback_workflow_run_id": 37068279211,
-              "target_workflow_run_id": 37068288864,
-              "fallback_conclusion": "success",
-              "target_conclusion": "success",
-              "target_event": "workflow_dispatch"
+              "run_id": 37127693717,
+              "scheduled_at": "2026-10-03T13:52:54Z",
+              "conclusion": "success",
+              "current_cron": "7,22,37,52 * * * *",
+              "expected_period_minutes": 15,
+              "overdue": true
             },
             "coshuma-release-verification.yml": {
-              "marker_comment_id": 5961931802,
-              "fallback_workflow_run_id": 37068377214,
-              "target_workflow_run_id": 37068387604,
-              "fallback_conclusion": "success",
-              "target_conclusion": "success",
-              "target_event": "workflow_dispatch"
+              "run_id": 37138120788,
+              "scheduled_at": "2026-10-03T16:47:01Z",
+              "conclusion": "success",
+              "current_cron": "53 * * * *",
+              "expected_period_minutes": 60,
+              "overdue": false
             },
             "coshuma-registry-reconciliation.yml": {
-              "marker_comment_id": 5961940125,
-              "fallback_workflow_run_id": 37068447066,
-              "target_workflow_run_id": 37068455773,
-              "fallback_conclusion": "success",
-              "target_conclusion": "success",
-              "target_event": "workflow_dispatch"
+              "run_id": 37127767512,
+              "scheduled_at": "2026-10-03T13:54:11Z",
+              "conclusion": "success",
+              "current_cron": "41 * * * *",
+              "expected_period_minutes": 60,
+              "overdue": true
             },
             "coshuma-growth-loop.yml": {
-              "marker_comment_id": 5961949078,
-              "fallback_workflow_run_id": 37068524062,
-              "target_workflow_run_id": 37068533859,
-              "fallback_conclusion": "success",
-              "target_conclusion": "success",
-              "target_event": "workflow_dispatch"
+              "run_id": 37126907135,
+              "scheduled_at": "2026-10-03T13:39:14Z",
+              "conclusion": "success",
+              "current_cron": "29 * * * *",
+              "expected_period_minutes": 60,
+              "overdue": true
+            },
+            "coshuma-analytics-snapshot.yml": {
+              "run_id": 37139740498,
+              "scheduled_at": "2026-10-03T17:13:50Z",
+              "conclusion": "success",
+              "current_cron": "11 * * * *",
+              "expected_period_minutes": 60,
+              "overdue": false
             },
             "royal-queue-reconcile.yml": {
-              "marker_comment_id": 5961958626,
-              "fallback_workflow_run_id": 37068597209,
-              "target_workflow_run_id": 37068605515,
-              "fallback_conclusion": "success",
-              "target_conclusion": "success",
-              "target_event": "workflow_dispatch"
+              "run_id": 37126467640,
+              "scheduled_at": "2026-10-03T13:31:19Z",
+              "conclusion": "success",
+              "current_cron": "19 * * * *",
+              "expected_period_minutes": 60,
+              "overdue": true
             }
           },
-          "unaffected_current_target": "coshuma-analytics-snapshot.yml",
-          "user_action_required": false
+          "native_overdue_count": 4,
+          "recovered_targets": {
+            "coshuma-cloud-control-plane.yml": {
+              "fallback_workflow_run_id": 37140318023,
+              "target_workflow_run_id": 37140323159,
+              "fallback_conclusion": "success",
+              "target_event": "workflow_dispatch",
+              "target_conclusion": "success",
+              "target_created_at": "2026-10-03T17:23:26Z",
+              "target_source_sha": "047b14ffc6849cfadb977d087b26108b87595b82"
+            },
+            "coshuma-growth-loop.yml": {
+              "fallback_workflow_run_id": 37140498149,
+              "target_workflow_run_id": 37140503051,
+              "fallback_conclusion": "success",
+              "target_event": "workflow_dispatch",
+              "target_conclusion": "success",
+              "target_created_at": "2026-10-03T17:26:23Z",
+              "target_source_sha": "047b14ffc6849cfadb977d087b26108b87595b82"
+            },
+            "coshuma-registry-reconciliation.yml": {
+              "fallback_workflow_run_id": 37140534303,
+              "target_workflow_run_id": 37140539392,
+              "fallback_conclusion": "success",
+              "target_event": "workflow_dispatch",
+              "target_conclusion": "success",
+              "target_created_at": "2026-10-03T17:27:00Z",
+              "target_source_sha": "047b14ffc6849cfadb977d087b26108b87595b82"
+            },
+            "royal-queue-reconcile.yml": {
+              "fallback_workflow_run_id": 37140588532,
+              "target_workflow_run_id": 37140597024,
+              "fallback_conclusion": "success",
+              "target_event": "workflow_dispatch",
+              "target_conclusion": "success",
+              "target_created_at": "2026-10-03T17:27:55Z",
+              "target_source_sha": "047b14ffc6849cfadb977d087b26108b87595b82"
+            }
+          },
+          "availability_status": "four_overdue_targets_restored_by_verified_existing_fallback",
+          "permanent_native_recovery_claimed": false,
+          "user_action_required": false,
+          "execution_environment": "Chat GitHub writes and existing Remote readback; Work not invoked",
+          "mail_heartbeat_comment_id": 5913741002,
+          "mail_heartbeat_checked_at": "2026-10-03T17:30:06Z"
         },
         "latest_security_cost_recovery": {
           "observed_at": "2026-10-02T22:58:58Z",
@@ -1880,8 +1929,8 @@
       "completion_gate_satisfied": false,
       "availability_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "Direct GitHub Actions readback initially confirmed four overdue native schedules and two current schedules. Owner-gated fallback 37075200875 and Cloud Control Plane workflow_dispatch 37075206971 succeeded. Royal Queue then produced fresh native schedule run 37075694809 successfully. Cloud Control Plane, Growth Loop, and Registry Reconciliation remain overdue; native schedule completion is not claimed.",
-      "handoff": "Operations Governance Team continues the existing incident. Re-read Cloud Control Plane, Growth Loop, and Registry Reconciliation before any separate single-target continuation. Keep lifecycle in_progress and completion gate false until the existing native-schedule completion boundary is met."
+      "verification": "Four fallback runs and their corresponding workflow_dispatch target runs were reread as completed/success. Native schedule runs were checked separately; dispatch success does not close the native-schedule fidelity gate.",
+      "handoff": "Continue this same incident; recheck native success and existing recovery markers immediately before fallback. Do not duplicate an already recovered stall window. Preserve the existing two-consecutive-native-run completion gate and all user holds. Do not treat a missing capability as permission to bypass a safety or authorization denial."
     },
     {
       "record_id": "EDITORIAL:EDITORIAL-BODY-008",
