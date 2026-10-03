@@ -46,6 +46,9 @@ permissions:
 
 jobs:
   validate-and-prepare:
+    # Paused by the 2026-10-04 user directive: no video creation or video uploads.
+    # Resume only after explicit user authorization.
+    if: ${{ false }}
     runs-on: ubuntu-latest
     defaults:
       run:
