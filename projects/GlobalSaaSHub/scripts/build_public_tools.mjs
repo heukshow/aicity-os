@@ -5,6 +5,8 @@ import { fileURLToPath } from 'node:url';
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
 const source = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tools.json'), 'utf8'));
+const countryDoc = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tool_company_countries.json'), 'utf8'));
+const countryRecords = countryDoc.tools || {};
 
 // Fail closed: only these explicitly customer-safe fields may ever reach the browser.
 // New source fields are PRIVATE BY DEFAULT until intentionally reviewed and added here.
@@ -39,6 +41,14 @@ function validHttp(value) {
   }
 }
 
+function countrySlug(value) {
+  return String(value || '')
+    .normalize('NFKD')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
 const publicTools = source.map((tool) => {
   const sponsored =
     tool.affiliate_verified === true &&
@@ -50,6 +60,21 @@ const publicTools = source.map((tool) => {
     if (Object.prototype.hasOwnProperty.call(tool, key)) out[key] = tool[key];
   }
 
+  const country = countryRecords[tool.id];
+  if (country) {
+    const code = String(country.country_code || '').trim().toUpperCase();
+    const name = String(country.country_name || '').trim();
+    const flag = String(country.flag || '').trim();
+    const slug = countrySlug(name);
+    if (!/^[A-Z]{2}$/.test(code) || !name || !flag || !slug) {
+      throw new Error(`Invalid public country metadata for ${tool.id}`);
+    }
+    out.company_country_code = code;
+    out.company_country_name = name;
+    out.company_country_flag = flag;
+    out.company_country_slug = slug;
+  }
+
   out.outbound_url = sponsored
     ? tool.affiliate_url.trim()
     : (validHttp(tool.official_url) ? tool.official_url.trim() : null);
@@ -57,7 +82,7 @@ const publicTools = source.map((tool) => {
   return out;
 });
 
-const ALLOWED_OUTPUT_KEYS = new Set([...PUBLIC_FIELDS, 'outbound_url', 'is_sponsored']);
+const ALLOWED_OUTPUT_KEYS = new Set([...PUBLIC_FIELDS, 'company_country_code', 'company_country_name', 'company_country_flag', 'company_country_slug', 'outbound_url', 'is_sponsored']);
 for (const tool of publicTools) {
   const unexpected = Object.keys(tool).filter((key) => !ALLOWED_OUTPUT_KEYS.has(key));
   if (unexpected.length) {
@@ -91,4 +116,4 @@ for (const forbidden of [
 const dir = path.join(root, 'src', 'generated');
 fs.mkdirSync(dir, { recursive: true });
 fs.writeFileSync(path.join(dir, 'public-tools.json'), serialized, 'utf8');
-console.log(`Generated allowlisted customer-only tool dataset: ${publicTools.length} tools / ${PUBLIC_FIELDS.length + 2} allowed fields max`);
+console.log(`Generated allowlisted customer-only tool dataset: ${publicTools.length} tools / ${ALLOWED_OUTPUT_KEYS.size} allowed fields max`);
