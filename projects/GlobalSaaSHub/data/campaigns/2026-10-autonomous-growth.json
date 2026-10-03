@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-03T21:45:28.835Z",
+  "updated_at": "2026-10-03T21:57:01.215Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -309,13 +309,31 @@
         "status": "signed_out_login_or_signup_screen",
         "observation": "The current page offers Instagram and username sign-in and explicitly says to log in or join. No verified COSHUMA account or publishing permission.",
         "new_account_created": false
+      },
+      {
+        "channel": "Existing PC Threads — showm_ic",
+        "status": "user_screenshot_shows_signed_in_business_profile_pc_window_running",
+        "observed_at": "2026-10-03T21:57:01.215Z",
+        "user_reported_at": "2026-10-04T06:50:49+09:00",
+        "source": "User-provided desktop Threads screenshot plus Remote Desktop Commander device/process metadata",
+        "handle": "showm_ic",
+        "display_name": "COSHUMA",
+        "website_text": "coshuma.com",
+        "screenshot_observations": [
+          "The desktop Threads screenshot shows this profile alongside Profile edit and Post controls.",
+          "The displayed account has 403 followers; this is a screenshot value, not new campaign reach or live API validation."
+        ],
+        "live_remote_observation": "The authorized PC is online. A read-only process query confirmed a running msedge window with Threads in its title.",
+        "interpretation": "An existing user-designated COSHUMA Threads account/session is evidenced. The separate cloud browser's sign-in prompt does not show that the PC session is signed out.",
+        "publishing_authority_limit": "The root has not directly inspected the live PC profile or submitted a post. The current UI inventory exposes only cloud Chrome, with no native PC app control surface.",
+        "verified_new_posts": 0
       }
     ],
-    "access_next_action": "Confirm an existing COSHUMA-owned text/static channel first; if no usable account exists, create a necessary free dedicated account under the new user authorization and complete supported ordinary signup/authentication. Verify identity and a successful channel read before publication. YouTube is excluded. Do not fabricate identity, bypass safeguards or extract credentials.",
+    "access_next_action": "Prioritize the user-designated existing PC Threads @showm_ic session. Do not create another Threads account, demand a fresh login, or infer that it is a personal-only account from an old handle classification. The cloud browser login state is a separate session. Use authorized available PC UI control to verify current identity and publish the prepared text; current root UI capabilities do not expose native PC app interaction. No cookie/password/token extraction.",
     "blocked_execution_policy": "At most one access-state check per day unless new evidence arrives; reuse the existing channel incident. Continue website assets, search distribution and previously authorized affiliate work. Missing public posts count as a missed distribution goal, never as completed drafts. YouTube/video access is outside scope and must not be rechecked as a campaign blocker.",
     "platform_priority": [
-      "COSHUMA Company Page managed through the actual owner's legitimate LinkedIn profile; inspect existing Page/admin access first. Never create a personal member profile named COSHUMA.",
-      "One other verified COSHUMA-owned text/static channel with necessary free signup authorized; exclude video formats"
+      "First: reuse the user's existing desktop Threads session for @showm_ic, shown as COSHUMA with coshuma.com. Use an authorized available PC UI capability and verify the actual profile before posting.",
+      "Second: COSHUMA Company Page managed through the actual owner's legitimate LinkedIn profile when accessible; no business-as-person profile."
     ],
     "post_format": "Text/static only. Each substantive buyer asset yields three distinct native posts: evaluation criterion, who should not buy, and practical checklist. Include a concise affiliate disclosure when promotional links are present, a supported factual claim, a useful standalone takeaway and a relevant destination.",
     "pacing": "Aim for six total native posts per week across at most two connected channels. Space posts normally; do not mass-publish a backlog after an access delay.",
@@ -342,6 +360,19 @@
         "source_and_rights_evidence": "https://github.com/heukshow/aicity-os/issues/416#issuecomment-5712756506",
         "note": "Approved core copy; campaign worksheet link/disclosure added by COSHUMA, not represented as vendor-approved additions.",
         "live_destination_verified_at": "2026-10-03T21:15:42Z"
+      },
+      {
+        "asset_id": "C01",
+        "platform": "threads",
+        "intended_account": "showm_ic",
+        "state": "prepared_not_published_pending_supported_pc_ui",
+        "draft_path": "projects/GlobalSaaSHub/docs/campaigns/2026-10-claap-threads-first-post.md",
+        "public_url": null,
+        "character_count": 476,
+        "source_and_rights_evidence": "COSHUMA's already published blank checklist/CSV; no vendor claim of hands-on results or approval of this adapted post.",
+        "account_evidence_kind": "user_screenshot_and_remote_process_metadata_not_live_ui_verification",
+        "preferred_initial_language": "ko",
+        "language_basis": "The user-provided account screenshot shows a Korean bio and Korean existing posts. This is an editorial fit judgment, not proof of follower language or demand."
       }
     ],
     "excluded_channel_history": [
@@ -362,10 +393,13 @@
       }
     ],
     "current_access_gate": {
-      "status": "authentication_not_completed",
-      "cause": "Browser-controlled sign-in is incomplete; necessary account creation is authorized but not completed.",
-      "supported_auth_constraint": "Current browserAuth requires secure user method/credential input and requires manual handoff for account signup; do not bypass it.",
-      "next_action": "Use the documented secure/manual handoff for the existing LinkedIn flow, then verify the legitimate owner profile and COSHUMA Company Page. Continue unblocked C02 website work while access remains incomplete."
+      "status": "existing_pc_session_evidenced_ui_control_not_available_in_current_chat",
+      "cause": "Current root UI inventory exposes no native PC app surface. Remote device/process connectivity is confirmed, but it is not proof of ability to click/publish.",
+      "account_missing": false,
+      "account_creation_required_for_threads": false,
+      "root_ui_verified_signed_in": false,
+      "new_public_posts_verified": 0,
+      "next_action": "Use the already-authorized supported PC UI/Work route when available to inspect @showm_ic and publish the prepared Threads post, then record the actual public URL and time. Continue C02 while that capability is unavailable. Do not re-run cloud-login loops as a substitute for the PC session."
     },
     "platform_guidance_sources": [
       "https://www.linkedin.com/help/linkedin/answer/a6204405",
@@ -681,8 +715,8 @@
   "verified_delivery_counts": {
     "substantive_content_assets": 1,
     "public_social_posts": 0,
-    "prepared_social_drafts": 1,
-    "as_of": "2026-10-03T21:15:42Z"
+    "prepared_social_drafts": 2,
+    "as_of": "2026-10-03T21:57:01.215Z"
   },
   "content_format_policy": {
     "source": "User correction in this conversation at 2026-10-04T06:29:11+09:00: video content cannot be relied on and YouTube-style video uploads must be excluded.",

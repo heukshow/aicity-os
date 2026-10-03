@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-03T21:45:28.835Z",
+  "updated_at": "2026-10-03T21:57:01.215Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2200,7 +2200,7 @@
       "next_owner": "Growth & SEO Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-10-03T21:45:28.835Z",
+      "last_evidence_at": "2026-10-03T21:57:01.215Z",
       "evidence": {
         "campaign_source": "projects/GlobalSaaSHub/data/campaigns/2026-10-autonomous-growth.json",
         "plan_source": "projects/GlobalSaaSHub/docs/2026-10-autonomous-growth-plan.md",
@@ -2210,7 +2210,7 @@
         "automation_readback_matches": 13,
         "first_asset_status": "production_verified",
         "new_public_social_posts": 0,
-        "distribution_status": "Non-video signup is authorized. LinkedIn Google method selected but popup control failed; fresh LinkedIn check remained signed out. Threads shows login/signup. Newly created accounts and public posts remain zero. No video-auth recovery work.",
+        "distribution_status": "Existing PC Threads @showm_ic is shown as COSHUMA/coshuma.com in the user screenshot; the PC and running Threads window were confirmed. Separate cloud sign-in state does not invalidate it. Current root lacks a native PC UI control surface; no new public post is verified. Prioritize reusing this session, not new Threads signup.",
         "first_asset": {
           "implementation_pr": 972,
           "final_head_commit": "16acc698ecd3466ad1f22e0449a4597d49c3917a",
@@ -2306,17 +2306,37 @@
           "new_schedules": 0
         },
         "current_channel_access_gate": {
-          "status": "authentication_not_completed",
-          "cause": "Browser-controlled sign-in is incomplete; necessary account creation is authorized but not completed.",
-          "supported_auth_constraint": "Current browserAuth requires secure user method/credential input and requires manual handoff for account signup; do not bypass it.",
-          "next_action": "Use the documented secure/manual handoff for the existing LinkedIn flow, then verify the legitimate owner profile and COSHUMA Company Page. Continue unblocked C02 website work while access remains incomplete."
-        }
+          "status": "existing_pc_session_evidenced_ui_control_not_available_in_current_chat",
+          "cause": "Current root UI inventory exposes no native PC app surface. Remote device/process connectivity is confirmed, but it is not proof of ability to click/publish.",
+          "account_missing": false,
+          "account_creation_required_for_threads": false,
+          "root_ui_verified_signed_in": false,
+          "new_public_posts_verified": 0,
+          "next_action": "Use the already-authorized supported PC UI/Work route when available to inspect @showm_ic and publish the prepared Threads post, then record the actual public URL and time. Continue C02 while that capability is unavailable. Do not re-run cloud-login loops as a substitute for the PC session."
+        },
+        "threads_pc_account": {
+          "observed_at": "2026-10-03T21:57:01.215Z",
+          "user_reported_at": "2026-10-04T06:50:49+09:00",
+          "source": "User-provided desktop Threads screenshot plus Remote Desktop Commander device/process metadata",
+          "handle": "showm_ic",
+          "display_name": "COSHUMA",
+          "website_text": "coshuma.com",
+          "screenshot_observations": [
+            "The desktop Threads screenshot shows this profile alongside Profile edit and Post controls.",
+            "The displayed account has 403 followers; this is a screenshot value, not new campaign reach or live API validation."
+          ],
+          "live_remote_observation": "The authorized PC is online. A read-only process query confirmed a running msedge window with Threads in its title.",
+          "interpretation": "An existing user-designated COSHUMA Threads account/session is evidenced. The separate cloud browser's sign-in prompt does not show that the PC session is signed out.",
+          "publishing_authority_limit": "The root has not directly inspected the live PC profile or submitted a post. The current UI inventory exposes only cloud Chrome, with no native PC app control surface.",
+          "verified_new_posts": 0
+        },
+        "prepared_social_drafts": 2
       },
       "completion_gate": "campaign_period_ended_and_source_evidenced_outcomes_and_closeout_report",
       "completion_gate_satisfied": false,
       "user_action_required": false,
       "verification": "Monthly module stored and read back in 13 existing schedules. C01 passed final-head CI, deployed from the merged source, passed GitHub Pages and actual live page/CSV checks. Campaign goals and overall month remain in progress.",
-      "handoff": "Growth & SEO Team owns C02, the existing Privy–Omnisend comparison. Do not repeat C01 implementation. Editorial maintains the Claap producer; Revenue Intelligence records matched site-wide and campaign-attributed outcomes separately. Use text/static formats only. Do not assign video creation/upload or YouTube authentication recovery. Necessary free non-video channel signup and supported authentication are authorized; do not block ordinary setup solely on old no-new-account guidance."
+      "handoff": "Growth & SEO Team owns C02, the existing Privy–Omnisend comparison. Do not repeat C01 implementation. Editorial maintains the Claap producer; Revenue Intelligence records matched site-wide and campaign-attributed outcomes separately. Use text/static formats only. Do not assign video creation/upload or YouTube authentication recovery. Necessary free non-video channel signup and supported authentication are authorized; do not block ordinary setup solely on old no-new-account guidance. Audience Growth should first reuse the user-designated existing PC Threads @showm_ic session with supported available UI; do not treat the cloud sign-in prompt or older personal-handle assumption as missing account evidence. Actual post URL/time are still required."
     }
   ],
   "invariants": {
