@@ -98,6 +98,9 @@ def main():
     root=Path(sys.argv[1] if len(sys.argv)>1 else 'dist')
     files=list(root.rglob('*.html'))
     assert len(files)>400, f'Incomplete build: {len(files)} HTML files'
+    pictory_faq=(root/'best/pictory-discount-code.html').read_text(encoding='utf-8')
+    assert 'Does COSHUMA earn a commission?' in pictory_faq, 'Pictory commission FAQ question missing from build'
+    assert 'Yes. COSHUMA may earn a commission if you purchase through the partner links on this page, at no extra cost to you.' in pictory_faq, 'Pictory commission FAQ answer was stripped during build'
     errors=[]
     for path in files:
         html=path.read_text(encoding='utf-8');bad=violations(html)
