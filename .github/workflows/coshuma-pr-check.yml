@@ -24,6 +24,28 @@ jobs:
       - name: Checkout pull request
         uses: actions/checkout@v5
 
+
+      - name: Reject public campaign access metadata
+        run: |
+          set -e
+          pattern='Remote Desktop Commander|Windows UI Automation|ValuePattern|native CUA|native PC app|device/process metadata|live_remote_observation|publishing_authority_limit|root_ui_verified_signed_in|browser_popup_control_error|Protocol error \(Emulation|existing_pc_threads_session_remote_ui_verified'
+          if grep -R -n -E "$pattern" \
+            projects/GlobalSaaSHub/data/campaigns \
+            projects/GlobalSaaSHub/docs/campaigns; then
+            echo 'Internal authentication, session, device or UI-control metadata detected in public campaign sources.'
+            exit 1
+          fi
+          node <<'NODE'
+          const fs = require('fs');
+          const registry = JSON.parse(fs.readFileSync('projects/GlobalSaaSHub/data/operations_registry.json', 'utf8'));
+          const record = registry.active_queue.find((item) => item.record_id === 'CAMPAIGN:COSHUMA-20261004-ONE-MONTH');
+          if (!record) throw new Error('Campaign registry record not found');
+          const forbidden = /Remote Desktop Commander|Windows UI Automation|ValuePattern|native CUA|native PC app|device\/process metadata|live_remote_observation|publishing_authority_limit|root_ui_verified_signed_in|browser_popup_control_error|existing_pc_threads_session_remote_ui_verified/i;
+          if (forbidden.test(JSON.stringify(record))) {
+            throw new Error('Internal access metadata detected in the public campaign registry record');
+          }
+          NODE
+
       - name: Set up Node.js 20
         uses: actions/setup-node@v5
         with:

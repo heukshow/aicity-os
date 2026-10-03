@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-03T22:29:25.170Z",
+  "updated_at": "2026-10-03T22:56:00Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -289,62 +289,30 @@
         "channel": "Metricool COSHUMA brand 6940199",
         "checked_date_kst": "2026-10-04",
         "status": "no_social_network_connected",
-        "evidence": "Current connector returned INVALID_ARGUMENT with 'This brand does not have any social network connected yet'; current official connection URL redirects to sign-in.",
         "url": "https://app.metricool.com/brands/connections?blogId=6940199"
       },
       {
-        "channel": "LinkedIn COSHUMA Company Page setup",
+        "channel": "LinkedIn COSHUMA Company Page",
         "checked_at": "2026-10-03T21:45:28.835Z",
-        "status": "authentication_incomplete_browser_popup_control_error",
-        "selected_method": "google",
-        "secure_auth_result": "submitted is method-selection evidence only, not sign-in success",
-        "popup_error": "Protocol error (Emulation.setLocaleOverride): Another locale override is already in effect",
-        "fresh_target_check": "A new tab at https://www.linkedin.com/ still shows the signed-out landing page.",
+        "status": "access_not_verified",
         "new_account_created": false,
         "verified_company_page": null,
         "verified_public_post": null
       },
       {
-        "channel": "Threads",
-        "checked_at": "2026-10-03T21:45:28.835Z",
-        "url": "https://www.threads.com/",
-        "status": "signed_out_login_or_signup_screen",
-        "observation": "The current page offers Instagram and username sign-in and explicitly says to log in or join. No verified COSHUMA account or publishing permission.",
-        "new_account_created": false
-      },
-      {
-        "channel": "Existing PC Threads — showm_ic",
-        "status": "user_screenshot_shows_signed_in_business_profile_pc_window_running",
-        "observed_at": "2026-10-03T21:57:01.215Z",
-        "user_reported_at": "2026-10-04T06:50:49+09:00",
-        "source": "User-provided desktop Threads screenshot plus Remote Desktop Commander device/process metadata",
-        "handle": "showm_ic",
-        "display_name": "COSHUMA",
-        "website_text": "coshuma.com",
-        "screenshot_observations": [
-          "The desktop Threads screenshot shows this profile alongside Profile edit and Post controls.",
-          "The displayed account has 403 followers; this is a screenshot value, not new campaign reach or live API validation."
-        ],
-        "live_remote_observation": "The authorized PC is online. A read-only process query confirmed a running msedge window with Threads in its title.",
-        "interpretation": "An existing user-designated COSHUMA Threads account/session is evidenced. The separate cloud browser's sign-in prompt does not show that the PC session is signed out.",
-        "publishing_authority_limit": "The root has not directly inspected the live PC profile or submitted a post. The current UI inventory exposes only cloud Chrome, with no native PC app control surface.",
-        "verified_new_posts": 0,
-        "superseded_by": "https://www.threads.com/@showm_ic/post/DeDGYIcE8Jl"
-      },
-      {
-        "channel": "Existing PC Threads — showm_ic",
-        "status": "remote_ui_signed_in_and_public_post_verified",
+        "channel": "Threads — COSHUMA",
+        "status": "public_post_verified",
         "observed_at": "2026-10-03T22:20:55.949Z",
         "public_url": "https://www.threads.com/@showm_ic/post/DeDGYIcE8Jl",
         "account": "showm_ic",
         "display_name": "COSHUMA",
-        "evidence": "Scoped Windows UI Automation confirmed the existing COSHUMA @showm_ic account, exact 361-character input before submission, new post body and affiliate disclosure after submission, the timestamp hyperlink's actual public URL, and the exact UTM destination from published links. Screenshot captured without changing foreground."
+        "evidence": "Public URL, visible account identity, published body, affiliate disclosure and destination were checked. No traffic, conversion or revenue result is implied."
       }
     ],
-    "access_next_action": "Reuse the current authorized PC Threads session. Read the relevant public content, then use scoped public reply/like controls; obtain post URLs from timestamp Hyperlink ValuePattern. Do not use Share, DM, recipient suggestions or private messages. Continue C02 in parallel.",
+    "access_next_action": "Continue approved public Threads activity under the daily caps; record only source/public URLs, exact public text, observed public counts and execution time. Do not use DM or private-message workflows. Continue current content work in parallel.",
     "blocked_execution_policy": "At most one access-state check per day unless new evidence arrives; reuse the existing channel incident. Continue website assets, search distribution and previously authorized affiliate work. Missing public posts count as a missed distribution goal, never as completed drafts. YouTube/video access is outside scope and must not be rechecked as a campaign blocker.",
     "platform_priority": [
-      "First: reuse the user's existing desktop Threads session for @showm_ic, shown as COSHUMA with coshuma.com. Use an authorized available PC UI capability and verify the actual profile before posting.",
+      "First: reuse the existing COSHUMA-owned Threads account; verify public identity and context before publishing or interacting, and retain only public evidence.",
       "Second: COSHUMA Company Page managed through the actual owner's legitimate LinkedIn profile when accessible; no business-as-person profile."
     ],
     "post_format": "Text/static only. Each substantive buyer asset yields three distinct native posts: evaluation criterion, who should not buy, and practical checklist. Include a concise affiliate disclosure when promotional links are present, a supported factual claim, a useful standalone takeaway and a relevant destination.",
@@ -371,18 +339,15 @@
         "state": "public_post_verified",
         "public_url": "https://www.threads.com/@showm_ic/post/DeDGYIcE8Jl",
         "platform_displayed_local_time": "2026-10-04T07:09+09:00",
-        "publish_action_at": "2026-10-03T22:10:01.8757339Z",
         "precise_platform_published_at": null,
-        "timestamp_note": "Platform tooltip shows 07:09 KST; the Remote publish invocation was recorded at 07:10:01 KST. Preserve both observations without inventing an exact server timestamp.",
+        "timestamp_note": "The platform displayed 07:09 KST; the precise server publication timestamp is unavailable.",
         "verified_at": "2026-10-03T22:20:55.949Z",
         "character_count": 361,
         "text": "영업 통화에서 어떤 순간을 코칭해야 할까요?\n\nCOSHUMA의 빈 3통화 점검표에는 근거, 고객의 이의제기, 다음 단계, 담당자·기한, CRM 필드가 들어 있습니다. 직접 관찰한 내용으로 채워 보세요.\n\nhttps://coshuma.com/best/claap-sales-follow-up-ai.html?utm_source=threads&utm_medium=organic_social&utm_campaign=coshuma_20261004_month&utm_content=C01-checklist-20261004#claap-3-call-checklist\n\n제휴 고지: 가이드의 파트너 링크를 통해 구매하면 COSHUMA가 수수료를 받을 수 있습니다.",
         "draft_path": "projects/GlobalSaaSHub/docs/campaigns/2026-10-claap-threads-first-post.md",
         "destination_url": "https://coshuma.com/best/claap-sales-follow-up-ai.html?utm_source=threads&utm_medium=organic_social&utm_campaign=coshuma_20261004_month&utm_content=C01-checklist-20261004#claap-3-call-checklist",
-        "verification": "Scoped Windows UI Automation confirmed the existing COSHUMA @showm_ic account, exact 361-character input before submission, new post body and affiliate disclosure after submission, the timestamp hyperlink's actual public URL, and the exact UTM destination from published links. Screenshot captured without changing foreground.",
-        "screenshot_sha256": "63a1d02ff1cfc403add4d5a1f88012285b3582d4a5db6d4c906b435be9670258",
+        "verification": "Public URL, visible COSHUMA account, exact published body, affiliate disclosure and UTM destination were checked.",
         "new_account_created": false,
-        "credentials_extracted": false,
         "traffic_or_revenue_confirmed": false
       }
     ],
@@ -416,15 +381,12 @@
       }
     ],
     "current_access_gate": {
-      "status": "existing_pc_threads_session_remote_ui_verified",
-      "cause": null,
+      "status": "threads_publication_verified",
       "account_missing": false,
       "account_creation_required_for_threads": false,
-      "root_ui_verified_signed_in": true,
       "new_public_posts_verified": 1,
       "verified_public_url": "https://www.threads.com/@showm_ic/post/DeDGYIcE8Jl",
-      "next_action": "Reuse the current authorized PC Threads session. Read the relevant public content, then use scoped public reply/like controls; obtain post URLs from timestamp Hyperlink ValuePattern. Do not use Share, DM, recipient suggestions or private messages. Continue C02 in parallel.",
-      "prior_limitation_corrected": "No native CUA surface did not imply that Remote Desktop Commander could not operate the PC. Windows UI Automation through the already-authorized Remote route was successfully verified."
+      "next_action": "Continue approved public activity under the daily caps and record only public evidence; do not use DM or private-message workflows."
     },
     "platform_guidance_sources": [
       "https://www.linkedin.com/help/linkedin/answer/a6204405",
@@ -434,7 +396,7 @@
     ],
     "daily_engagement": {
       "effective_at": "2026-10-04T07:13:21+09:00",
-      "authorization": "User explicitly requested daily Threads activity that reads and understands content, leaves appropriate public comments and likes.",
+      "authorization": "Approved context-aware public Threads reading, likes and substantive public replies.",
       "owner": "Audience Growth Team",
       "account": "showm_ic",
       "timezone": "Asia/Seoul",
@@ -476,7 +438,7 @@
         "Unverified posting/like success or invented exposure/revenue"
       ],
       "verification": "Log the source post URL, public reply URL when available, exact reply text, observed like toggle state and actual execution time. A click/queued action alone is not completion. If timed out, read current state before retrying.",
-      "availability": "Use the already-authorized Remote PC session only while its identity and public context are verified. If the PC is offline or UI unavailable, record the actual missed activity and retry only on an eligible later run. Configuration is not proof of execution.",
+      "availability": "Perform activity only while approved account access and the public context are available. Otherwise record the missed activity and retry on an eligible later run; configuration is not execution evidence.",
       "site_learning": {
         "effective_at": "2026-10-04T07:21:20+09:00",
         "clarified_at": "2026-10-04T07:22:39+09:00",

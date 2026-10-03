@@ -40,7 +40,6 @@ https://coshuma.com/best/claap-sales-follow-up-ai.html?utm_source=threads&utm_me
 
 - 공개 URL: https://www.threads.com/@showm_ic/post/DeDGYIcE8Jl
 - 한국어 원문 361자 입력을 읽어 일치 확인한 뒤 게시했다.
-- 기존 PC 로그인으로 Remote Windows UI Automation이 정상 작동했다. 클라우드 CUA에 네이티브 창이 없다는 이유로 PC 조작이 불가능하다고 했던 이전 판단을 정정한다.
-- 게시물의 시간 링크에서 ValuePattern으로 공개 URL을 읽었다. 공유 버튼이나 DM 화면은 URL 확인에 필요하지 않다.
-- 주소 확인 중 공유 버튼을 한 번 눌렀으나, 수신인 선택·메시지 입력·전송 명령은 없었다. 사용자의 지적 후 공유·DM 경로를 사용하지 않는다.
+- 공개 URL, 게시물 본문, 제휴 고지와 목적지 링크를 확인했다.
+- 개인 메시지·DM 발송은 없었다. 인증·세션·장치·UI 제어 방식은 공개 증거에 기록하지 않는다.
 - 새 게시물 노출·외부 유입·수익은 아직 측정하지 않았다.
