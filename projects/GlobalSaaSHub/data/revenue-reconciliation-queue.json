@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T16:56:28.612Z",
+  "generated_at": "2026-10-03T20:17:51.307Z",
   "source": "data/revenue-leakage-audit.json",
   "scope": "Internal COSHUMA revenue reconciliation only",
   "queue_status": "active",
@@ -1263,7 +1263,7 @@
           "id": "aweber",
           "name": "AWeber",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 14 days old."
+          "reason": "Latest revenue evidence is 15 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1315,7 +1315,7 @@
           "id": "catalister",
           "name": "Catalister",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 25 days old."
+          "reason": "Latest revenue evidence is 26 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1341,7 +1341,7 @@
           "id": "tally",
           "name": "Tally",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 21 days old."
+          "reason": "Latest revenue evidence is 22 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1367,7 +1367,7 @@
           "id": "clickfunnels",
           "name": "ClickFunnels",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 25 days old."
+          "reason": "Latest revenue evidence is 26 days old."
         }
       ],
       "execution": "browser_read_only",
@@ -1419,7 +1419,7 @@
           "id": "castmagic",
           "name": "Castmagic",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 9 days old."
+          "reason": "Latest revenue evidence is 10 days old."
         }
       ],
       "execution": "locate_existing_account_or_vendor_dashboard_first",
@@ -1593,7 +1593,7 @@
     {
       "account_id": "pictory",
       "network": "FirstPromoter",
-      "portal_url": "https://pictory.firstpromoter.com/login",
+      "portal_url": "https://partners.pictory.ai/login",
       "priority": "P1_PARTIAL",
       "tool_count": 1,
       "tools": [

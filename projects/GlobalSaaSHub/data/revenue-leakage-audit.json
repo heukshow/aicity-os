@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T16:56:28.552Z",
+  "generated_at": "2026-10-03T20:17:51.259Z",
   "evidence_scope": "Combined authenticated revenue-browser baseline, current revenue-truth records, and explicit account-wide commission/payout evidence.",
   "policy": {
     "purpose": "Detect approved monetized routes that can leak revenue because downstream affiliate metrics are missing or stale.",
@@ -666,7 +666,7 @@
           "id": "aweber",
           "name": "AWeber",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 14 days old."
+          "reason": "Latest revenue evidence is 15 days old."
         }
       ]
     },
@@ -692,7 +692,7 @@
           "id": "catalister",
           "name": "Catalister",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 25 days old."
+          "reason": "Latest revenue evidence is 26 days old."
         }
       ]
     },
@@ -705,7 +705,7 @@
           "id": "tally",
           "name": "Tally",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 21 days old."
+          "reason": "Latest revenue evidence is 22 days old."
         }
       ]
     },
@@ -718,7 +718,7 @@
           "id": "clickfunnels",
           "name": "ClickFunnels",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 25 days old."
+          "reason": "Latest revenue evidence is 26 days old."
         }
       ]
     },
@@ -744,7 +744,7 @@
           "id": "castmagic",
           "name": "Castmagic",
           "priority": "P1_STALE",
-          "reason": "Latest revenue evidence is 9 days old."
+          "reason": "Latest revenue evidence is 10 days old."
         }
       ]
     },
@@ -848,7 +848,7 @@
     {
       "account_id": "pictory",
       "network": "FirstPromoter",
-      "portal_url": "https://pictory.firstpromoter.com/login",
+      "portal_url": "https://partners.pictory.ai/login",
       "tools": [
         {
           "id": "pictory",
@@ -4116,10 +4116,10 @@
       "account_id": "aweber",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 14 days old.",
+      "reason": "Latest revenue evidence is 15 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-18T20:00:33Z",
-      "evidence_age_days": 14,
+      "evidence_age_days": 15,
       "evidence_source": "vendor-human-email",
       "evidence_id": "gmail:1a0b61b45d55df0e",
       "latest_metrics": {
@@ -4271,10 +4271,10 @@
       "account_id": "catalister",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 25 days old.",
+      "reason": "Latest revenue evidence is 26 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T19:55:00Z",
-      "evidence_age_days": 25,
+      "evidence_age_days": 26,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "projects/GlobalSaaSHub/data/approved-tracking-2026-09-08.json",
       "latest_metrics": {
@@ -4351,10 +4351,10 @@
       "account_id": "tally",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 21 days old.",
+      "reason": "Latest revenue evidence is 22 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-11T17:33:38Z",
-      "evidence_age_days": 21,
+      "evidence_age_days": 22,
       "evidence_source": "vendor-system-email",
       "evidence_id": "gmail:1a0918839bda8d0f",
       "latest_metrics": {
@@ -4431,10 +4431,10 @@
       "account_id": "clickfunnels",
       "portal_url": "https://www.clickfunnels.com/customers/profiles/kMXlLGaZ/affiliates/dashboard",
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 25 days old.",
+      "reason": "Latest revenue evidence is 26 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-07T17:19:00Z",
-      "evidence_age_days": 25,
+      "evidence_age_days": 26,
       "evidence_source": "authenticated-browser-dashboard",
       "evidence_id": "github:affiliate-browser-results-2026-09-08:clickfunnels",
       "latest_metrics": {
@@ -4591,10 +4591,10 @@
       "account_id": "castmagic",
       "portal_url": null,
       "priority": "P1_STALE",
-      "reason": "Latest revenue evidence is 9 days old.",
+      "reason": "Latest revenue evidence is 10 days old.",
       "coverage_type": "tool",
       "latest_evidence_at": "2026-09-23T18:32:38Z",
-      "evidence_age_days": 9,
+      "evidence_age_days": 10,
       "evidence_source": "vendor-system-email",
       "evidence_id": "gmail:1a0cf8a8b7c21b67",
       "latest_metrics": {
@@ -5783,7 +5783,7 @@
       "tracking_url": "https://pictory.ai?fpr=sangkwon-an23",
       "network": "FirstPromoter",
       "account_id": "pictory",
-      "portal_url": "https://pictory.firstpromoter.com/login",
+      "portal_url": "https://partners.pictory.ai/login",
       "priority": "P1_PARTIAL",
       "reason": "Some downstream values are measured, but the full click/signup/trial/paid/commission/payout funnel is not observed. A partial zero does not prove complete coverage.",
       "coverage_type": "tool",
