@@ -32,3 +32,5 @@ admin_commission_rates.*
 projects/GlobalSaaSHub/admin_commission_rates.*
 projects/GlobalSaaSHub/data/manual_candidates_verified.json
 projects/GlobalSaaSHub/.private-ops/
+projects/GlobalSaaSHub/data/revenue-leakage-audit.json
+projects/GlobalSaaSHub/data/revenue-reconciliation-queue.json

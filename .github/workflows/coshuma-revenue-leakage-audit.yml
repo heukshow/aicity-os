@@ -18,7 +18,7 @@ on:
       - 'projects/GlobalSaaSHub/scripts/validate_revenue_truth.mjs'
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: coshuma-revenue-leakage-audit
@@ -65,26 +65,15 @@ jobs:
           if (!Array.isArray(queue.tasks) || queue.tasks.length !== audit.summary.account_groups_to_check) throw new Error('reconciliation queue does not match audit groups');
           console.log(`PASS revenue leakage audit: ${audit.summary.approved_tracked_tools} approved routes; ${audit.summary.unchecked_or_stale_or_partial} need metric reconciliation across ${audit.summary.account_groups_to_check} account groups.`);
           NODE
-      - name: Persist current leakage audit and reconciliation queue
+      - name: Verify private outputs remain ephemeral
         run: |
           set -e
-          audit='projects/GlobalSaaSHub/data/revenue-leakage-audit.json'
-          queue='projects/GlobalSaaSHub/data/revenue-reconciliation-queue.json'
-          if [ -z "$(git status --porcelain -- "$audit" "$queue")" ]; then
-            echo 'Revenue leakage audit and queue already current.'
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add "$audit" "$queue"
-          git commit -m 'data: refresh COSHUMA revenue leakage audit queue [skip ci]'
-          for attempt in 1 2 3; do
-            git fetch origin main
-            git rebase --autostash origin/main
-            if git push origin HEAD:main; then
-              exit 0
+          for file in             projects/GlobalSaaSHub/data/revenue-leakage-audit.json             projects/GlobalSaaSHub/data/revenue-reconciliation-queue.json
+          do
+            git check-ignore -q "$file"
+            if git ls-files --error-unmatch "$file" >/dev/null 2>&1; then
+              echo "::error::$file must not be tracked in this public repository."
+              exit 1
             fi
-            echo "Push race on attempt $attempt; retrying against latest main."
           done
-          echo 'Failed to persist revenue audit after bounded retries.'
-          exit 1
+          echo 'Private revenue audit outputs were generated for this run only and were not persisted.'
