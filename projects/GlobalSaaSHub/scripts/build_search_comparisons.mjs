@@ -30,13 +30,13 @@ const pages = [
   },
   {
     slug: 'privy-vs-omnisend', ids: ['privy', 'omnisend'],
-    checked: 'September 9, 2026',
-    title: 'Omnisend vs Privy 2026: Free Plan vs 15-Day Trial, Pricing & SMS',
-    description: "Omnisend vs Privy in 2026: Omnisend has a $0 Free plan, Standard from $16 and Pro from $59; Privy starts at $30/month with a 15-day no-card trial. Compare email, SMS, pop-ups and automation.",
-    intro: 'Quick answer: Omnisend is the lower-risk start because it has a permanent Free plan, while Privy is stronger when on-site pop-ups and displays are central to the workflow. Compare your contact count, SMS needs and capture strategy before paying.',
+    checked: 'October 4, 2026',
+    title: 'Omnisend vs Privy (2026): Pricing, Email, SMS & Pop-Ups',
+    description: "Compare Omnisend vs Privy for ecommerce email, SMS and pop-ups. See current Free/$16/$59 and $30 pricing, billing limits, best fit and reasons to skip each.",
+    intro: 'Quick answer: choose Omnisend for the lowest-risk start with a permanent Free plan; shortlist Privy when advanced pop-ups and on-site capture matter more. Neither is automatically cheaper at scale—compare billable contacts, SMS needs and traffic-based display pricing.',
     fit: [
-      "Shortlist Privy when your immediate problem is converting store traffic with pop-ups and displays and you want email/SMS plus on-site capture under one vendor. Privy's Email plan currently starts at $30/month; Pop-ups & Displays starts at $24/month.",
-      "Shortlist Omnisend when you want to test ecommerce email and automation with no subscription cost first. Its Free plan supports up to 250 contacts and 500 emails/month; Standard starts at $16/month and Pro at $59/month."
+      "Shortlist Privy when your immediate problem is converting store traffic with pop-ups and displays and you want email/SMS plus on-site capture under one vendor. Skip Privy if you mainly need a no-cost starting tier or if page-view-based display pricing makes cost less predictable. Privy's Email plan currently starts at $30/month; Pop-ups & Displays starts at $24/month.",
+      "Shortlist Omnisend when you want to test ecommerce email and automation with no subscription cost first. Skip Omnisend if advanced on-site pop-up/display control is the core job, or if your SMS requirements make Pro plus add-on pricing a poor fit. Its Free plan supports up to 250 contacts and 500 emails/month; Standard starts at $16/month and Pro at $59/month."
     ],
     rows: [
       ['Lowest-risk start', '15-day free trial with no credit card required.', 'Permanent Free plan: up to 250 contacts and 500 emails/month, no credit card required.'],
