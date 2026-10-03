@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-03T17:43:38.638550+00:00",
+  "updated_at": "2026-10-03T17:58:45+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -38,7 +38,8 @@
     "production_verification_requested",
     "production_verified",
     "measured",
-    "rejected_with_evidence"
+    "rejected_with_evidence",
+    "completed_with_evidence"
   ],
   "active_queue": [
     {
