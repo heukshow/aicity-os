@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T23:07:06Z",
+  "updated_at": "2026-10-03T17:05:00Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1213,10 +1213,10 @@
       "fixed_by": "Audience Growth Team",
       "changed_scope": "Authenticated private audience-growth projection whitelist and regression coverage only; public UI, analytics event definitions, affiliate URLs, PII boundary and fixed measurement windows unchanged.",
       "lifecycle": "production_verification_requested",
-      "next_owner": "Release & Reliability Team",
+      "next_owner": "Revenue Intelligence Team",
       "priority": "high",
-      "blocker": "authenticated_raw_json_observation_capability_unavailable",
-      "last_evidence_at": "2026-09-27T08:40:00Z",
+      "blocker": "awaiting_exact_current_main_worker_deploy_and_oidc_live_verification",
+      "last_evidence_at": "2026-10-03T17:01:33Z",
       "evidence": {
         "implementation_pr": 870,
         "merge_commit": "9464a0a5a7d83e118056951cf27f0d3dcdd00dff",
@@ -1233,7 +1233,14 @@
         "production_deployed_at": "2026-09-27T08:36:32.977Z",
         "source_ancestry_verified": true,
         "anonymous_live_projection_status": 401,
-        "verification_comment_id": 5854277284
+        "verification_comment_id": 5854277284,
+        "oidc_verification_capability_pr": 959,
+        "oidc_verification_capability_merge": "9cbd20a53c66e13f689de47c550f0695ac0f2055",
+        "oidc_verification_capability_build_check": 37138754991,
+        "oidc_scope": "GET /ops/audience-growth.json only via existing short-lived GitHub OIDC contract; revenue/private dashboard endpoints remain owner-authenticated",
+        "production_capability_deployed": false,
+        "production_oidc_projection_verified": false,
+        "handoff": "Revenue Intelligence Team must deploy an exact clean current-main Worker with source provenance, then Release & Reliability may verify the OIDC audience projection and existing fail-closed boundaries."
       },
       "completion_gate": "production_verified",
       "completion_gate_satisfied": false,
