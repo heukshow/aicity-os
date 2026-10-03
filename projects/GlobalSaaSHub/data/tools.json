@@ -62,8 +62,19 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.activecampaign.com/partners/affiliate",
     "affiliate_verified": false,
-    "affiliate_status": "application_page_unavailable",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_status": "browser_required_legal_program_consent",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00",
+    "affiliate_source_url": "https://www.activecampaign.com/partners/affiliate",
+    "affiliate_workflow_url": "https://activecampaign.partnerstack.com/?group=affiliatepartners",
+    "affiliate_status_checked_at": "2026-10-03T14:22:00+09:00",
+    "application_state": "not_submitted",
+    "affiliate_evidence_markers": [
+      "Fresh 2026-10-03 recheck confirmed ActiveCampaign's official affiliate page is live and routes Apply Now to the official ActiveCampaign PartnerStack program, so the prior application_page_unavailable state is stale.",
+      "The PartnerStack enrollment page places a Terms of Service review step immediately before Join now; unattended enrollment is therefore blocked on account-holder legal/program consent.",
+      "ActiveCampaign's current public affiliate page contains inconsistent commission copy (a current 30% recurring/up-to-12-month offer alongside older 20%-to-30% wording), so COSHUMA does not promote a single guaranteed commission rate from this evidence alone.",
+      "No COSHUMA-specific ActiveCampaign customer-facing tracking URL, approval, commission, payout, or revenue is verified. Generic affiliate, PartnerStack application, homepage, dashboard, login, or signup URLs must not be used as affiliate CTAs."
+    ],
+    "affiliate_next_action": "The account holder must review the ActiveCampaign/PartnerStack program Terms of Service and decide whether to consent. Only after valid consent and enrollment should COSHUMA recover and validate the exact vendor-issued customer-facing referral URL. Stop for CAPTCHA, OTP, payment approval, forced identity verification, or any additional legal consent."
   },
   {
     "id": "activepieces",
