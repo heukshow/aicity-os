@@ -77,7 +77,9 @@ ALLOWED_GENERATED_KEYS = {
     "id", "name", "category", "category_display", "description", "pricing",
     "key_features", "rating", "rating_source_url", "logo_url", "primary_category",
     "comparison_group", "official_url", "pricing_source_url", "pricing_verified_at",
-    "pricing_verified", "currency", "billing_period", "outbound_url", "is_sponsored",
+    "pricing_verified", "currency", "billing_period", "company_country_code",
+    "company_country_name", "company_country_flag", "company_country_slug",
+    "outbound_url", "is_sponsored",
 }
 URL_FIELDS = {"outbound_url", "official_url", "pricing_source_url", "rating_source_url", "logo_url"}
 
