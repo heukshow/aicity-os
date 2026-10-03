@@ -2,7 +2,7 @@
 
 Campaign: `COSHUMA-20261004-ONE-MONTH`
 
-Status: prepared for review; not scheduled or published. Intended channel: an existing COSHUMA-owned LinkedIn account after its publishing connection is verified.
+Status: prepared and reviewed; not scheduled or published. Intended channel: an existing COSHUMA-owned LinkedIn account after its identity and publishing connection are verified.
 
 ## Source and approval scope
 
@@ -50,3 +50,7 @@ COSHUMA가 AI 통화 검토에 관심을 갖는 이유는 영업 관리자를 �
 - Record the actual COSHUMA profile or company-page URL, post URL or Metricool scheduled-post ID, publication time, and final copy.
 - Preserve the campaign parameters on the COSHUMA URL; keep the vendor-issued affiliate URL unchanged inside the guide.
 - Count a scheduled post, a published post, visits and affiliate clicks as their separate observed events. This draft is none of those events.
+
+## Live destination verification
+
+The guide and blank CSV were published and verified in [C01 release evidence](https://github.com/heukshow/aicity-os/issues/292#issuecomment-5973554126). Account authentication is still required before publication. This file remains a draft, with no public post URL.

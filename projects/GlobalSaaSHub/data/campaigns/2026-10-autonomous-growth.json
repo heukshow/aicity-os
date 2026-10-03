@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-03T20:54:41.448162Z",
+  "updated_at": "2026-10-03T21:15:42Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -168,7 +168,7 @@
       "unit": "sessions",
       "target": 1000,
       "basis": "management_judgement_not_forecast",
-      "definition": "GA sessions in the matched campaign window; report active users separately and disclose QA exclusion coverage."
+      "definition": "All-site GA sessions in the matched campaign period. Campaign-UTM-attributed sessions are a separate observation; do not label before/after differences as incremental causal impact. Report active users and QA exclusion coverage separately."
     },
     {
       "id": "affiliate_click_events",
@@ -176,28 +176,28 @@
       "target": 50,
       "stretch": 100,
       "basis": "management_judgement_not_forecast",
-      "definition": "Existing affiliate_click event definition, QA excluded where verified. Events are not unique referrals or customers."
+      "definition": "All-site existing affiliate_click events in the matched period, with verified QA exclusion. Campaign-specific attribution is a separate observation. Events are not unique referrals or customers."
     },
     {
       "id": "new_paid_customers",
       "unit": "source_confirmed_customers",
       "target": 1,
       "basis": "management_judgement_not_forecast",
-      "definition": "New customer's actual paid purchase observed in supplier records; record purchase date and attribution. Separate signup/trial, pending commission, commission approval and payout. A paid purchase does not satisfy a 45/60-day commission waiting period by itself."
+      "definition": "New customer's actual paid purchase observed in supplier records; record purchase date and attribution. Separate signup/trial, pending commission, commission approval and payout. A paid purchase does not satisfy a 45/60-day commission waiting period by itself. Verify COSHUMA referral attribution separately from attribution to a particular campaign post; never infer the latter from dates alone."
     },
     {
       "id": "gsc_impressions",
       "unit": "impressions",
       "target": 3000,
       "basis": "management_judgement_not_forecast",
-      "definition": "Source window and final available date must be shown."
+      "definition": "Site-wide Google Search impressions during the aligned source period. Show the source window and last available date."
     },
     {
       "id": "gsc_clicks",
       "unit": "clicks",
       "target": 20,
       "basis": "management_judgement_not_forecast",
-      "definition": "Search clicks; not unique visitors or social clicks."
+      "definition": "Site-wide Google Search clicks, not unique visitors or social clicks. Campaign causal uplift is not established by a before/after change."
     },
     {
       "id": "new_commission",
@@ -285,7 +285,11 @@
         "evidence_url": "https://github.com/heukshow/aicity-os/actions/runs/35547491999/job/106175940637",
         "failure_date": "2026-09-21",
         "failure": "invalid_grant: token expired or revoked",
-        "note": "Past secret-presence checks and private uploads succeeded. Do not claim no tokens exist or a later recovery without evidence."
+        "note": "Past secret-presence checks and private uploads succeeded. Do not claim no tokens exist or a later recovery without evidence.",
+        "current_access_status": "google_reauthentication_required",
+        "current_access_checked_at": "2026-10-03T21:15:42Z",
+        "current_access_source": "https://studio.youtube.com/channel/UCT33Ogj3tjh1_ddTAomOkBQ",
+        "current_access_observation": "The existing Studio route leads to Google's account-verification page and asks for sign-in again. No credential entry or submission was attempted; current publication authority remains unverified."
       }
     ],
     "access_next_action": "Use an already authorized current COSHUMA owner session and supported provider sign-in/consent to restore one existing channel; verify its identity and a successful channel read before any publication. Do not create a replacement account or extract credentials.",
@@ -313,11 +317,12 @@
       {
         "asset_id": "C01",
         "platform": "linkedin",
-        "state": "draft_not_scheduled",
+        "state": "ready_after_verified_account_access_not_scheduled",
         "draft_path": "projects/GlobalSaaSHub/docs/campaigns/2026-10-claap-first-social-post.md",
         "public_url": null,
         "source_and_rights_evidence": "https://github.com/heukshow/aicity-os/issues/416#issuecomment-5712756506",
-        "note": "Approved core copy; campaign worksheet link/disclosure added by COSHUMA, not represented as vendor-approved additions."
+        "note": "Approved core copy; campaign worksheet link/disclosure added by COSHUMA, not represented as vendor-approved additions.",
+        "live_destination_verified_at": "2026-10-03T21:15:42Z"
       }
     ]
   },
@@ -383,7 +388,7 @@
     {
       "id": "C01",
       "owner": "Editorial Quality Team",
-      "status": "implemented_local_awaiting_pr_and_deployment",
+      "status": "production_verified",
       "type": "substantive_existing_asset_update",
       "target_urls": [
         "https://coshuma.com/tool/claap.html",
@@ -392,12 +397,53 @@
       "scope": "One buyer evaluation asset across two related existing pages, with five-field blank CSV. Objection, transcript evidence, next action, owner/deadline and CRM field. The worksheet and two page placements count as one asset.",
       "basis": "Direct partner topic/publishing approval, existing buyer guide and exact approved affiliate URL.",
       "evidence_url": "https://github.com/heukshow/aicity-os/issues/416#issuecomment-5712756506",
-      "output_evidence": []
+      "output_evidence": [
+        {
+          "implementation_pr": 972,
+          "final_head_commit": "16acc698ecd3466ad1f22e0449a4597d49c3917a",
+          "merge_commit": "45115329827e6db376bbd215fae843c6c88086cd",
+          "pr_build_run": 37153860405,
+          "site_deploy_run": 37154133755,
+          "deployment_source_commit": "45115329827e6db376bbd215fae843c6c88086cd",
+          "gh_pages_commit": "6f5789d35380cc66234eee991b2af382cab45eec",
+          "github_pages_run": 37154226518,
+          "production_verification_comment_id": 5973554126,
+          "evidence_url": "https://github.com/heukshow/aicity-os/issues/292#issuecomment-5973554126",
+          "verified_at": "2026-10-03T21:15:42Z",
+          "live_urls": [
+            "https://coshuma.com/best/claap-sales-follow-up-ai.html?coshuma_qa=1&deploy=4511532982#claap-3-call-checklist",
+            "https://coshuma.com/tool/claap.html?coshuma_qa=1&deploy=4511532982#claap-3-call-checklist"
+          ],
+          "live_result": "Both existing pages expose exactly one five-check section and CSV download. Current trial guidance and observed EUR pricing are present; the old 14-day/no-card/full-access trial assurances are absent. Exact affiliate destinations/disclosures preserved.",
+          "download": {
+            "completed": true,
+            "bytes": 140,
+            "call_rows": 3,
+            "blank_review_fields_per_row": 5,
+            "sha256": "feb4562ec777f2c12fd8610cd847abe342d941020ec96b920259b6192e14179c",
+            "matches_committed_source": true
+          },
+          "qa": {
+            "analytics_script_elements_loaded": 0,
+            "viewport_width": 1348,
+            "page_width": 1348,
+            "physical_phone_verified": false
+          },
+          "search_notification": {
+            "method": "IndexNow",
+            "response_status": 200,
+            "url_count": 3,
+            "accepted_at": "2026-10-03T21:11:24Z",
+            "indexing_or_traffic_confirmed": false
+          }
+        }
+      ],
+      "completed_at": "2026-10-03T21:15:42Z"
     },
     {
       "id": "C02",
       "owner": "Growth & SEO Team",
-      "status": "planned",
+      "status": "assigned_to_team",
       "type": "substantive_existing_asset_update",
       "target_urls": [
         "https://coshuma.com/compare/privy-vs-omnisend.html"
@@ -547,7 +593,8 @@
     "new_campaign_spend": {
       "status": "no_spend_authorized",
       "recorded_spend": []
-    }
+    },
+    "attribution_rule": "Site-wide operating targets, campaign-UTM-attributed activity, COSHUMA supplier referrals and particular-post attribution are distinct. Unjoined data and before/after movements do not establish causal uplift."
   },
   "closeout": {
     "stop_new_campaign_work_at": "2026-11-04T05:27:29+09:00",
@@ -581,5 +628,12 @@
       "Continue/narrow/stop recommendation supported by evidence"
     ],
     "duplicate_prevention": "Record report delivery evidence only after a confirmed send, and reuse the existing report states. Schedule configuration alone is not delivery."
+  },
+  "current_work_item": "C02",
+  "verified_delivery_counts": {
+    "substantive_content_assets": 1,
+    "public_social_posts": 0,
+    "prepared_social_drafts": 1,
+    "as_of": "2026-10-03T21:15:42Z"
   }
 }
