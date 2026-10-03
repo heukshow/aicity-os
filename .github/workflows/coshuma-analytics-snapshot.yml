@@ -14,6 +14,7 @@ on:
       - 'projects/GlobalSaaSHub/scripts/dashboard-series.mjs'
       - 'projects/GlobalSaaSHub/scripts/monetization-measurement.mjs'
       - 'projects/GlobalSaaSHub/scripts/upload_private_dashboard.mjs'
+      - 'projects/GlobalSaaSHub/scripts/audience-projection-contract.mjs'
       - 'projects/GlobalSaaSHub/scripts/google_fetch_retry.mjs'
 
 permissions:
@@ -54,9 +55,9 @@ jobs:
           node scripts/collect_audience_growth_events.mjs
           node scripts/audit_search_index.mjs
           node scripts/upload_private_dashboard.mjs
-      - name: Record upstream failure without overwriting the last valid snapshot
+      - name: Record analytics failure without claiming verification success
         if: failure()
-        run: echo 'Fresh metrics unavailable. Previous private snapshot remains stored with its original collected_at. Fresh-metric decisions must wait; unrelated operations continue.' >> "$GITHUB_STEP_SUMMARY"
+        run: echo 'Analytics collection, upload, or production verification failed. Inspect the failed stage. Failed collection never replaces stored data; a successful upload may already be stored when the subsequent readback fails. Do not claim verified metrics; unrelated operations continue.' >> "$GITHUB_STEP_SUMMARY"
       - name: Remove temporary private snapshot
         if: always()
         run: rm -f -- "${{ runner.temp }}/traffic-revenue-data.json"
