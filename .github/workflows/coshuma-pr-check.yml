@@ -46,6 +46,7 @@ jobs:
           node scripts/tests/google-fetch-retry.test.mjs
           node scripts/tests/decision-support.test.mjs
           node scripts/tests/pricing-truth.test.mjs
+          python scripts/tests/test_claap_buyer_checklist.py
           node scripts/tests/monetization-measurement.test.mjs
           node scripts/tests/revenue-program-observations.test.mjs
           node scripts/tests/compare-measurement.test.mjs
