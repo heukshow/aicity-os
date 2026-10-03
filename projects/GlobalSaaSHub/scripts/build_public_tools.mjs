@@ -5,7 +5,10 @@ import { fileURLToPath } from 'node:url';
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
 const source = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tools.json'), 'utf8'));
-const countryDoc = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tool_company_countries.json'), 'utf8'));
+const countryPath = path.join(root, 'data', 'tool_company_countries.json');
+const countryDoc = fs.existsSync(countryPath)
+  ? JSON.parse(fs.readFileSync(countryPath, 'utf8'))
+  : { tools: {} };
 const countryRecords = countryDoc.tools || {};
 
 // Fail closed: only these explicitly customer-safe fields may ever reach the browser.
