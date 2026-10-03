@@ -97,23 +97,6 @@ jobs:
           python scripts/affiliate_lifecycle_guard.py --sync-next
           node scripts/verify_synced_affiliates.mjs
 
-      - name: Refresh and verify private affiliate admin snapshot
-        working-directory: projects/GlobalSaaSHub
-        run: |
-          node scripts/generate_admin_snapshot.mjs
-          node --input-type=module <<'NODE'
-          import fs from 'node:fs';
-          const tools = JSON.parse(fs.readFileSync('data/tools.json', 'utf8'));
-          const snapshot = JSON.parse(fs.readFileSync('worker/src/admin-snapshot.json', 'utf8'));
-          const actual = new Map(snapshot.affiliates.map((item) => [item.id, item]));
-          for (const tool of tools.filter((item) => item.affiliate_verified === true)) {
-            const row = actual.get(tool.id);
-            if (!row || row.status !== (tool.affiliate_status || 'unknown') || row.url !== (tool.affiliate_url || null)) {
-              throw new Error(`Private affiliate snapshot mismatch for ${tool.id}`);
-            }
-          }
-          NODE
-
       - name: Monetize verified tool and comparison CTAs
         working-directory: projects/GlobalSaaSHub
         run: node scripts/monetize_verified_compare_links.mjs
@@ -273,6 +256,24 @@ jobs:
           done
           grep -q 'coshuma.com' projects/GlobalSaaSHub/dist/CNAME
 
+      - name: Regenerate private snapshots from final protected affiliate state
+        working-directory: projects/GlobalSaaSHub
+        run: |
+          node scripts/generate_admin_snapshot.mjs
+          node scripts/generate_revenue_inventory.mjs
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const tools = JSON.parse(fs.readFileSync('data/tools.json', 'utf8'));
+          const snapshot = JSON.parse(fs.readFileSync('worker/src/admin-snapshot.json', 'utf8'));
+          const actual = new Map(snapshot.affiliates.map((item) => [item.id, item]));
+          for (const tool of tools.filter((item) => item.affiliate_verified === true)) {
+            const row = actual.get(tool.id);
+            if (!row || row.status !== (tool.affiliate_status || 'unknown') || row.url !== (tool.affiliate_url || null)) {
+              throw new Error(`Private affiliate snapshot mismatch for ${tool.id}`);
+            }
+          }
+          NODE
+
       - name: Persist reconciled affiliate source state
         run: |
           set -e
@@ -287,6 +288,7 @@ jobs:
             projects/GlobalSaaSHub/data/affiliate_outreach_state.json
             projects/GlobalSaaSHub/data/browser_required_queue.json
             projects/GlobalSaaSHub/worker/src/admin-snapshot.json
+            projects/GlobalSaaSHub/worker/src/revenue-inventory.json
           )
           if git diff --quiet -- "${files[@]}"; then
             echo 'Affiliate source state already current.'
