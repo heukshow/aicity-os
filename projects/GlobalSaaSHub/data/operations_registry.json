@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-03T19:27:00.000000+00:00",
+  "updated_at": "2026-10-03T19:36:54+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2123,6 +2123,56 @@
       "user_action_required": false,
       "verification": "Fresh live page exposes the exact allowlisted HTTPS iframe and guided seven-click flow with playback controls. Customer copy remains a guided public demo, not a live account/workspace.",
       "handoff": "Keep mass embed expansion unapproved and preserve the separate physical-device gate."
+    },
+    {
+      "record_id": "EDITORIAL:DESCRIPT-PRICING-CONSISTENCY-20261004",
+      "task_key": "DESCRIPT-PRICING-CONSISTENCY-20261004",
+      "incident_key": "descript-shortlist-price-drift-and-seo-regeneration",
+      "target": "Descript buyer shortlist, detail and TubeBuddy comparison pricing consistency",
+      "owner_team": "Editorial Quality Team",
+      "canonical_owner": "Editorial Quality Team",
+      "found_by": "Operations Governance Team",
+      "fixed_by": "Operations Governance Team",
+      "changed_scope": "Correct the Descript shortlist entry plan and billing descriptions; preserve two researched Descript guides at build start, retain normal content enrichment, and add actual SEO-generation regression coverage. Eight source files; exact affiliate destinations, events and fixed measurement windows preserved.",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
+      "priority": "high",
+      "blocker": null,
+      "evidence": {
+        "implementation_pr": 965,
+        "head_commit": "9f4f14878f7cee08170cc4bb0bbc0ee37b767878",
+        "official_pricing_source": "https://www.descript.com/pricing",
+        "price_rechecked_at": "2026-10-04",
+        "local_validation": {
+          "pricing_tests": "4/4 passed, including both actual SEO-generation dataset paths",
+          "production_equivalent_build": "passed; rendered source, methodology and value sections preserved",
+          "tool_link_integrity": "179/179 tools passed",
+          "revenue_seo_and_tracking": "passed"
+        },
+        "merge_commit": "1c36b721fcc66207cd8c03a64e055774a4ebeb8c",
+        "pr_build_run": 37147779023,
+        "site_deploy_run": 37148080930,
+        "deployment_source_commit": "4103202695b54fe759707199d280d8baa8456530",
+        "gh_pages_commit": "3fecb1cd907d067d85dc9cd1fd1194824bdd0cf2",
+        "github_pages_run": 37148248429,
+        "production_verification_comment_id": 5972765854,
+        "live_url": "https://coshuma.com/best/ai-video-generators.html?coshuma_qa=1&deploy=4103202695",
+        "live_verification": "Direct HTTP reads of the shortlist, Descript detail and TubeBuddy comparison returned 200 with corrected prices, consistent JSON-LD, exact affiliate destinations, one disclosure before the first affiliate CTA, and the existing source/value/methodology content. Other vendors' check dates were preserved."
+      },
+      "root_cause": "The hand-maintained shortlist retained obsolete Creator/Pro prices; recurring SEO generation could overwrite researched Descript detail/comparison content with generic dataset output.",
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "user_action_required": false,
+      "last_evidence_at": "2026-10-03T19:33:54Z",
+      "completed_at": "2026-10-03T19:33:54Z",
+      "measurement_annotation": {
+        "change_type": "narrow verified pricing correction and regeneration repair",
+        "public_last_modified_at": "2026-10-03T19:32:35Z",
+        "first_live_verified_at": "2026-10-03T19:33:54Z",
+        "fixed_window_policy": "Existing event definitions and 7/30-day windows preserved; no traffic, conversion or revenue uplift claimed."
+      },
+      "verification": "PR CI, deployed source ancestry, production build, GitHub Pages and direct live expected-content checks passed.",
+      "handoff": "Editorial Quality Team maintains curated source/templates and pricing regression coverage; Operations Governance Team maintains lifecycle evidence. Revenue Optimization Team retains the existing matched measurement windows with this correction annotated."
     }
   ],
   "invariants": {
