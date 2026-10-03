@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import { summarizeRevenue, getRevenueSummary, mergePrivateObservations } from '../src/revenue-summary.js';
 import { fetchGoogleMetrics } from '../src/google-analytics.js';
 import { revenuePage } from '../src/revenue-view.js';
@@ -91,4 +92,12 @@ test('historical observations preserve currency and freshness without adding per
 test('missing analytics property fails before any credential or network access',async()=>{
   await assert.rejects(fetchGoogleMetrics({}),/GA_PROPERTY_ID must be explicitly configured/);
   await assert.rejects(fetchGoogleMetrics({GA_PROPERTY_ID:'unknown'}),/GA_PROPERTY_ID must be explicitly configured/);
+});
+
+test('generated inventory preserves verified customer tracking lifecycle from tools SSOT',()=>{
+  const inventory=JSON.parse(fs.readFileSync(new URL('../src/revenue-inventory.json',import.meta.url),'utf8'));
+  const pipedrive=inventory.programs.find(program=>program.id==='pipedrive');
+  assert.equal(pipedrive.status,'approved_tracking');
+  assert.equal(pipedrive.exact_tracking_url,'https://aff.trypipedrive.com/sv587bilh4w7');
+  assert.equal(pipedrive.verified_at,'2026-10-02T07:58:36+09:00');
 });

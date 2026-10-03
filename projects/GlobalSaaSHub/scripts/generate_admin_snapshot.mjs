@@ -176,8 +176,15 @@ const affiliates = tools.filter((tool) => tool.affiliate_verified === true)
 
 const publicPages = [path.join(root, 'index.html'), ...files('tool').map((name) => path.join(root, 'public/tool', name)), ...files('compare').map((name) => path.join(root, 'public/compare', name))];
 const koreanLeakCount = publicPages.reduce((count, file) => count + ((fs.readFileSync(file, 'utf8').match(/[가-힣]/g) || []).length), 0);
+const snapshotPath = path.join(root, 'worker/src/admin-snapshot.json');
+let previousSnapshot = null;
+try {
+  previousSnapshot = JSON.parse(fs.readFileSync(snapshotPath, 'utf8'));
+} catch {
+  previousSnapshot = null;
+}
 const snapshot = {
-  generatedAt: new Date().toISOString(),
+  generatedAt: null,
   counts: {
     totalTools: tools.length,
     verifiedAffiliates: affiliates.length,
@@ -216,5 +223,11 @@ const snapshot = {
   seo: { testsPassed: true, koreanLeakCount }, affiliates,
   recentSeoChanges: [{ title: '공개 검색 최적화 무결성 계약 강화', date: '2026-09-01' }, { title: '사이트맵 및 정적 페이지 동기화', date: '2026-09-01' }],
 };
-fs.writeFileSync(path.join(root, 'worker/src/admin-snapshot.json'), `${JSON.stringify(snapshot, null, 2)}\n`);
+const previousGeneratedAt = previousSnapshot?.generatedAt;
+const previousComparable = previousSnapshot ? { ...previousSnapshot, generatedAt: null } : null;
+const unchanged = previousComparable && JSON.stringify(previousComparable) === JSON.stringify(snapshot);
+snapshot.generatedAt = unchanged && typeof previousGeneratedAt === 'string'
+  ? previousGeneratedAt
+  : new Date().toISOString();
+fs.writeFileSync(snapshotPath, `${JSON.stringify(snapshot, null, 2)}\n`);
 console.log(`Admin snapshot: ${tools.length} tools, ${coverageCounts.revenueReady} revenue-ready affiliates (${coverageCounts.targetedRevenueReady} targeted-only), ${coverageCounts.directActionableGaps} direct gaps, ${coverageCounts.watchOnlyGaps} watch-only, ${coverageCounts.browserRequiredGaps} browser-required`);
