@@ -130,14 +130,19 @@ for page in tool_dir.glob("*.html"):
     if cleaned != raw:
         page.write_text(cleaned, encoding="utf-8")
 
+badge_count = 0
+skipped_detail_pages = []
+
 for tool_id, record in records.items():
     page = tool_dir / f"{tool_id}.html"
     if not page.exists():
-        raise SystemExit(f"Country-mapped tool page is missing: {page.relative_to(ROOT)}")
+        skipped_detail_pages.append(tool_id)
+        continue
     raw = page.read_text(encoding="utf-8")
     h1 = re.search(r"<h1\b[^>]*>.*?</h1>", raw, flags=re.I | re.S)
     if not h1:
-        raise SystemExit(f"No H1 found for country badge injection: {tool_id}")
+        skipped_detail_pages.append(tool_id)
+        continue
     badge = (
         f' {START}<div class="mt-3">'
         f'<a data-coshuma-country="{escape(record["country_code"], quote=True)}" '
@@ -150,6 +155,7 @@ for tool_id, record in records.items():
     )
     updated = raw[: h1.end()] + badge + raw[h1.end() :]
     page.write_text(updated, encoding="utf-8")
+    badge_count += 1
 
 COUNTRIES_DIR.mkdir(parents=True, exist_ok=True)
 for stale in COUNTRIES_DIR.glob("*.html"):
@@ -229,18 +235,47 @@ index_body = f"""
 for row in rows:
     cards = []
     for tool, record in sorted(row["items"], key=lambda pair: pair[0].get("name", "").lower()):
+        detail = PUBLIC / "tool" / f'{tool["id"]}.html'
+        if detail.exists():
+            primary_link = (
+                f'<a href="/tool/{escape(tool["id"], quote=True)}.html" '
+                f'class="text-lg font-black text-white hover:text-cyan-200">'
+                f'{escape(tool.get("name", tool["id"]))}</a>'
+            )
+            action_link = (
+                f'<a href="/tool/{escape(tool["id"], quote=True)}.html" '
+                f'class="rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-bold '
+                f'text-slate-200 hover:bg-white/[0.08]">Buyer guide →</a>'
+            )
+        else:
+            official = str(tool.get("official_url") or "").strip()
+            if official.startswith(("https://", "http://")):
+                primary_link = (
+                    f'<a href="{escape(official, quote=True)}" target="_blank" rel="noopener noreferrer" '
+                    f'class="text-lg font-black text-white hover:text-cyan-200">'
+                    f'{escape(tool.get("name", tool["id"]))}</a>'
+                )
+                action_link = (
+                    f'<a href="{escape(official, quote=True)}" target="_blank" rel="noopener noreferrer" '
+                    f'class="rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-bold '
+                    f'text-slate-200 hover:bg-white/[0.08]">Official site ↗</a>'
+                )
+            else:
+                primary_link = f'<span class="text-lg font-black text-white">{escape(tool.get("name", tool["id"]))}</span>'
+                action_link = ""
+
         cards.append(
             f"""<article class="rounded-2xl border border-white/10 bg-white/[0.035] p-5">
               <div class="flex items-start justify-between gap-4">
                 <div>
-                  <a href="/tool/{escape(tool["id"], quote=True)}.html" class="text-lg font-black text-white hover:text-cyan-200">{escape(tool.get("name", tool["id"]))}</a>
+                  {primary_link}
                   <div class="mt-1 text-xs font-bold uppercase tracking-wider text-violet-300">{escape(tool.get("category_display", "AI & SaaS"))}</div>
                 </div>
                 <span class="text-2xl" aria-hidden="true">{escape(row["flag"])}</span>
               </div>
               <p class="mt-3 line-clamp-3 text-sm leading-6 text-slate-400">{escape(tool.get("description", ""))}</p>
               <div class="mt-4 flex flex-wrap gap-2">
-                <a href="/tool/{escape(tool["id"], quote=True)}.html" class="rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-bold text-slate-200 hover:bg-white/[0.08]">Buyer guide →</a>
+                {action_link}
                 <a href="{escape(record["source_url"], quote=True)}" target="_blank" rel="noopener noreferrer" class="rounded-xl border border-cyan-400/20 bg-cyan-400/[0.06] px-3 py-2 text-xs font-bold text-cyan-200 hover:bg-cyan-400/10">Company-location source ↗</a>
               </div>
             </article>"""
@@ -302,5 +337,6 @@ SITEMAP.write_text(sitemap, encoding="utf-8")
 
 print(
     f"Generated country explorer: {coverage}/{total} tools, "
-    f"{len(rows)} countries/regions, {coverage} tool-page badges"
+    f"{len(rows)} countries/regions, {badge_count} tool-page badges, "
+    f"{len(skipped_detail_pages)} mapped tools without badgeable static detail pages"
 )
