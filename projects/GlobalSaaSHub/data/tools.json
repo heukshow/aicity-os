@@ -3689,8 +3689,17 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://kit.com/affiliate",
     "affiliate_verified": false,
-    "affiliate_status": "application_page_unavailable",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_status": "rejected",
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00",
+    "affiliate_status_checked_at": "2026-10-03T19:14:48+09:00",
+    "affiliate_source_url": "https://kit.com/affiliate",
+    "affiliate_rejection_reason": "Kit directly declined the affiliate application on 2026-08-24. The rejection email listed several possible fit/review reasons but did not identify one specific reason for COSHUMA.",
+    "affiliate_evidence_markers": [
+      "PartnerStack application-received thread 1a033dd7487c74e9 includes messages 1a033dd7487c74e9 and 1a034354017747c2 confirming the Kit (formerly ConvertKit) application was submitted for review on 2026-08-24.",
+      "Kit Affiliates rejection thread 1a033e0604cdac6e includes messages 1a033e0604cdac6e and 1a034367d5620b6f stating that Kit decided not to move forward with the affiliate application.",
+      "Fresh 2026-10-03 Gmail recheck found no later Kit/PartnerStack approval or reversal. Exact customer-facing affiliate URL remains null."
+    ],
+    "affiliate_next_action": "Do not submit a duplicate application. Reconsider only if Kit sends a new direct invitation/approval or COSHUMA's fit materially changes and a deliberate reapplication is justified."
   },
   {
     "id": "kittl",
