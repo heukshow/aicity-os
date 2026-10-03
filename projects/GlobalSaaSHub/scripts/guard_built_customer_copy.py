@@ -122,7 +122,7 @@ AFFILIATE_DISCLOSURE_ATTR = re.compile(
     re.I,
 )
 AFFILIATE_DISCLOSURE_PARAGRAPH = re.compile(
-    r'<p\b[^>]*>(?:(?!</p>).)*(?:Affiliate\s+disclosure\s*:|COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+)?commission)(?:(?!</p>).)*</p>',
+    r'(?:<p\b[^>]*>(?:(?!</p>).)*Affiliate\s+disclosure\s*:(?:(?!</p>).)*</p>|<p\b[^>]*>\s*(?:<[^>]+>\s*)*COSHUMA\s+may\s+earn\s+(?:an\s+affiliate\s+)?commission(?:(?!</p>).)*</p>)',
     re.I | re.S,
 )
 AFFILIATE_DISCLOSURE_DIV = re.compile(
@@ -275,7 +275,7 @@ def strip_general_affiliate_disclosures(text: str) -> str:
     text = AFFILIATE_DISCLOSURE_PARAGRAPH.sub("", text)
     text = AFFILIATE_DISCLOSURE_DIV.sub("", text)
     text = re.sub(
-        r'<p\b[^>]*>(?:(?!</p>).)*COSHUMA(?:(?!</p>).){0,180}(?:may\s+earn|may\s+receive)(?:(?!</p>).){0,180}(?:commission|compensation)(?:(?!</p>).)*</p>',
+        r'<p\b[^>]*>\s*(?:<[^>]+>\s*)*COSHUMA(?:(?!</p>).){0,180}(?:may\s+earn|may\s+receive)(?:(?!</p>).){0,180}(?:commission|compensation)(?:(?!</p>).)*</p>',
         "",
         text,
         flags=re.I | re.S,
