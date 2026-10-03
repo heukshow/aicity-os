@@ -228,7 +228,7 @@
       awaiting_payment: 'Application received — payment has not been confirmed',
       payment_review: 'Payment requires review — checkout is unavailable',
       ready_to_publish: 'Payment and copy confirmed — awaiting activation',
-      pending_review: 'Payment confirmed — copy review pending'
+      pending_review: 'Payment confirmed — your ad copy is awaiting approval'
     };
     if (['active', 'scheduled', 'ready_to_publish'].includes(record.status)
       && (record.paymentVerified !== true || record.approved !== true)) return 'Activation could not be confirmed — contact support';
