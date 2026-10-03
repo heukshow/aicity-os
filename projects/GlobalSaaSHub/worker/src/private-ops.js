@@ -133,12 +133,17 @@ export async function handlePrivateOps(request, env) {
     const login = await privateLogin(request, authEnv, path === '/ops/traffic-revenue.html' ? path : '/ops/revenue.html', true);
     return login.status === 401 ? ownerLoginPage(env, '아이디 또는 비밀번호가 맞지 않습니다.') : login;
   }
-  if (!await authorized(request, authEnv, false)) {
+  const name = ['/ops', '/ops/'].includes(path) ? 'revenue.html' : path.slice('/ops/'.length);
+  const bearer = request.headers.get('authorization')?.replace(/^Bearer /, '');
+  const trustedWorkflowRead = request.method === 'GET'
+    && name === 'audience-growth.json'
+    && typeof bearer === 'string'
+    && await verifyPublisher(bearer);
+  if (!trustedWorkflowRead && !await authorized(request, authEnv, false)) {
     return path.endsWith('.json') ? response('{"error":"Authentication required"}', 401)
       : ownerLoginPage(env);
   }
   if (!['GET', 'HEAD'].includes(request.method)) return response('{"error":"Method not allowed"}', 405);
-  const name = ['/ops', '/ops/'].includes(path) ? 'revenue.html' : path.slice('/ops/'.length);
   if (name === 'revenue.html') return response(request.method === 'HEAD' ? null : revenuePage(), 200, 'text/html; charset=utf-8');
   if (name === 'revenue-summary.json') return response(request.method === 'HEAD' ? null : JSON.stringify(await getRevenueSummary(env)), 200);
   if (name === 'audience-growth.json') {
