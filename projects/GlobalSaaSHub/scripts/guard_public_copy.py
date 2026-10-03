@@ -1,8 +1,25 @@
 """Final, idempotent customer-copy pass. Never edits audit records or link attributes."""
 from pathlib import Path
+import argparse
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
+
+DESCRIPT_GUIDES = {
+    'descript.html': 'tool',
+    'descript-vs-tubebuddy.html': 'compare',
+}
+
+
+def restore_descript_guides():
+    # Restore researched source before the normal build adds trust, methodology,
+    # value playbooks and disclosures. A late restore would erase those additions.
+    for filename, folder in DESCRIPT_GUIDES.items():
+        source = ROOT / 'scripts/public-copy-templates' / filename
+        target = ROOT / 'public' / folder / filename
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(source.read_text(encoding='utf-8'), encoding='utf-8')
+    print('Restored Descript pricing guides before customer-content enrichment')
 
 
 def identity(tool):
@@ -181,6 +198,8 @@ def main():
             path.write_text(updated, encoding='utf-8')
             changed += 1
     for source in (ROOT/'scripts/public-copy-templates').glob('*.html'):
+        if source.name in DESCRIPT_GUIDES:
+            continue
         folder = 'compare' if source.name in {'kit-vs-convertkit.html', 'merlin-ai-vs-babylovegrowth-ai.html'} else 'tool'
         (ROOT/'public'/folder/source.name).write_text(source.read_text(encoding='utf-8'), encoding='utf-8')
     sitemap = ROOT/'public/sitemap.xml'
@@ -194,4 +213,10 @@ def main():
     print(f'Customer copy normalized: {changed} HTML files')
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--restore-descript-guides', action='store_true')
+    args = parser.parse_args()
+    if args.restore_descript_guides:
+        restore_descript_guides()
+    else:
+        main()
