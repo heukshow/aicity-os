@@ -74,3 +74,47 @@ test('publisher verifies signature, audience, exact workflow, repository IDs, br
   const signed = await token();
   assert.equal(await verifyPublisher(signed.slice(0,-8)+'AAAAAAAA', fetcher), false);
 });
+
+test('trusted analytics workflow may read only the audience projection with a valid OIDC token', async () => {
+  const state = await setup();
+  const keys = await crypto.subtle.generateKey({ name: 'RSASSA-PKCS1-v1_5', modulusLength: 2048, publicExponent: new Uint8Array([1,0,1]), hash: 'SHA-256' }, true, ['sign', 'verify']);
+  const jwk = { ...await crypto.subtle.exportKey('jwk', keys.publicKey), kid: 'test-audience-read', use: 'sig' };
+  const now = Math.floor(Date.now()/1000);
+  const header = Buffer.from(JSON.stringify({ alg: 'RS256', kid: jwk.kid })).toString('base64url');
+  const claims = Buffer.from(JSON.stringify({
+    iss: 'https://token.actions.githubusercontent.com',
+    aud: 'coshuma-private-analytics',
+    sub: 'repo:heukshow/aicity-os:ref:refs/heads/main',
+    repository_id: '1158871708',
+    repository_owner_id: '209299838',
+    workflow_ref: 'heukshow/aicity-os/.github/workflows/coshuma-analytics-snapshot.yml@refs/heads/main',
+    ref: 'refs/heads/main',
+    event_name: 'workflow_dispatch',
+    iat: now,
+    nbf: now,
+    exp: now + 300,
+  })).toString('base64url');
+  const signed = `${header}.${claims}`;
+  const token = `${signed}.${Buffer.from(await crypto.subtle.sign('RSASSA-PKCS1-v1_5', keys.privateKey, new TextEncoder().encode(signed))).toString('base64url')}`;
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async input => String(input).includes('/.well-known/jwks')
+    ? new Response(JSON.stringify({ keys: [jwk] }))
+    : originalFetch(input);
+  try {
+    const audience = await worker.fetch(new Request('https://worker.example/ops/audience-growth.json', {
+      headers: { authorization: `Bearer ${token}` },
+    }), state.env);
+    assert.equal(audience.status, 200);
+    const payload = await audience.json();
+    assert.deepEqual(payload.events, ['return_visit', 'saved_tool_change', 'saved_tools_view', 'saved_shortlist_share', 'buyer_intent_stage', 'compare_open', 'compare_tool_select', 'compare_cta_view']);
+    assert.equal(payload.revenue, undefined);
+    assert.equal(payload.private_metric, undefined);
+
+    const revenue = await worker.fetch(new Request('https://worker.example/ops/revenue-summary.json', {
+      headers: { authorization: `Bearer ${token}` },
+    }), state.env);
+    assert.equal(revenue.status, 401);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
