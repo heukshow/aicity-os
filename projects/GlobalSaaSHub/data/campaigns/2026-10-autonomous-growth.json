@@ -1,0 +1,585 @@
+{
+  "schema_version": 1,
+  "campaign_id": "COSHUMA-20261004-ONE-MONTH",
+  "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
+  "updated_at": "2026-10-03T20:54:41.448162Z",
+  "execution_status": "in_progress",
+  "authorization": {
+    "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
+    "requested_at": "2026-10-04T05:27:29+09:00",
+    "plan_reported_before_execution": true,
+    "scope": "A bounded one-month campaign under existing business access, cost and content truth constraints; independent of the unapproved 2028 profit plan.",
+    "additional_cash_spend_limit_usd": 0,
+    "allowed": [
+      "Evidence-backed edits and distribution of existing COSHUMA buyer content",
+      "Up to eight substantive buyer decision assets under this plan",
+      "Organic public posts on verified existing COSHUMA-owned accounts with authorized access and provider rules",
+      "Previously authorized ordinary affiliate followups",
+      "Necessary reversible implementation, PR, merge, deployment and live verification",
+      "Reuse of the 13 existing enabled operating schedules"
+    ],
+    "excluded": [
+      "New paid services, subscriptions, ad spend or model upgrades",
+      "New accounts, tokens or secrets and authentication bypass",
+      "Unapproved special legal terms",
+      "Unsolicited bulk emails or DMs",
+      "Repurposing personal accounts without business ownership and use authorization",
+      "Fabricated reviews, use experience, customer results or financial outcomes",
+      "Restarting SheetProof"
+    ]
+  },
+  "period": {
+    "timezone": "Asia/Seoul",
+    "start_inclusive": "2026-10-04T05:27:29+09:00",
+    "end_exclusive": "2026-11-04T05:27:29+09:00",
+    "elapsed_days": 31,
+    "daily_fallback_dates": [
+      "2026-10-04",
+      "2026-11-03"
+    ],
+    "equal_length_daily_comparison": [
+      "2026-09-03",
+      "2026-10-03"
+    ],
+    "comparison_rule": "Requery matched 31-day source windows. Daily fallback excludes the final partial morning and includes the initial pre-start morning; disclose the boundary difference. Do not present the launch 30-day snapshot as a matched before window.",
+    "protected_experiments": {
+      "targets": [
+        "existing Gamma fixed experiment",
+        "existing Chatbase fixed experiment",
+        "existing homepage fixed experiment"
+      ],
+      "seven_day_window": [
+        "2026-09-28",
+        "2026-10-04"
+      ],
+      "seven_day_review_date": "2026-10-07",
+      "thirty_day_window": [
+        "2026-09-28",
+        "2026-10-27"
+      ],
+      "thirty_day_review_date": "2026-10-30",
+      "rule": "Do not reset windows, rename events or restructure these pages/CTAs. Only confirmed narrow bug or factual corrections, with deployment annotations. Attribute new campaign distribution separately and disclose possible contamination."
+    }
+  },
+  "ownership": {
+    "dri": "Operations Governance Team",
+    "content": "Editorial Quality Team",
+    "search": "Growth & SEO Team",
+    "distribution": "Audience Growth Team",
+    "conversion": "Revenue Optimization Team",
+    "affiliate": "Affiliate Partnerships Team",
+    "measurement": "Revenue Intelligence Team",
+    "production_verification": "Release & Reliability Team",
+    "reporting": "Team Watchdog"
+  },
+  "runtime": {
+    "order": [
+      "Chat",
+      "existing Remote",
+      "Work only if necessary"
+    ],
+    "permitted_work_model": "GPT-5.6 Luna",
+    "max_active_coshuma_work": 1,
+    "use_existing_schedules": true,
+    "schedule_count_at_launch": 13,
+    "automation_module_status": "saved_and_readback_verified",
+    "automation_verification_evidence": {
+      "saved_at_kst_from": "2026-10-04T05:47:56+09:00",
+      "saved_at_kst_to": "2026-10-04T05:48:22+09:00",
+      "updates_succeeded": 13,
+      "readback_matches": 13,
+      "existing_schedule_and_enabled_state_preserved": true,
+      "root_readback_confirmed": 13,
+      "new_schedules": 0,
+      "manual_runs_requested": 0,
+      "limits": "Configuration verification only, not proof of future execution or notification receipt."
+    },
+    "uninterrupted_execution_guaranteed": false,
+    "liveness_rule": "Enabled is configuration only. Inspect actual execution timestamps and investigate lag exceeding twice the intended interval using the existing incident record and recovery procedure.",
+    "workload_allocation_goal_pct": {
+      "content_and_distribution": 60,
+      "conversion_affiliate_revenue": 25,
+      "necessary_maintenance": 15
+    },
+    "allocation_is_measured_time": false
+  },
+  "baseline": {
+    "source_url": "https://github.com/heukshow/aicity-os/actions/runs/37149051833/job/111278859820",
+    "captured_at": "2026-10-03T19:45:37Z",
+    "observation_kind": "launch_reference_snapshot_not_matched_campaign_outcome",
+    "windows": {
+      "ga_30d": {
+        "start": "2026-09-05",
+        "end": "2026-10-04",
+        "timezone": "Asia/Seoul",
+        "final_day_partial": true
+      },
+      "gsc_30d_requested": {
+        "start": "2026-09-03",
+        "end": "2026-10-02",
+        "timezone": "America/Los_Angeles",
+        "latest_observed_date": "2026-09-29"
+      },
+      "gsc_page_query_detail": {
+        "days": 90,
+        "start": "2026-07-05",
+        "end": "2026-10-02"
+      }
+    },
+    "seven_days": {
+      "ga_active_users": 46,
+      "ga_sessions": 47,
+      "ga_page_views": 54,
+      "affiliate_click_events": 0,
+      "gsc_impressions": 684,
+      "gsc_clicks": 0,
+      "verified_revenue": null
+    },
+    "thirty_days": {
+      "ga_active_users": 259,
+      "ga_sessions": 364,
+      "ga_page_views": 529,
+      "affiliate_click_events": 6,
+      "gsc_impressions": 1096,
+      "gsc_clicks": 1,
+      "verified_revenue": null
+    },
+    "ninety_days": {
+      "ga_active_users": 274,
+      "ga_sessions": 383,
+      "ga_page_views": 556,
+      "affiliate_click_events": 10,
+      "gsc_impressions": 3141,
+      "gsc_clicks": 2,
+      "verified_revenue": null
+    },
+    "limitations": [
+      "Unknown financial values remain null; unknown is not a confirmed zero.",
+      "GA pagePath views are not landing-page sessions; current output lacks page-by-source joins.",
+      "GA source row sessions sum to 367 versus 364 overall; the difference is unexplained. Users can overlap across source rows. Do not force reconciliation or calculate channel shares/conversion rates.",
+      "Historical QA exclusion is not fully established. Never label all aggregate users as new external buyers.",
+      "GSC page/query detail is 90-day; do not relabel it as 30-day.",
+      "GA, GSC, affiliate records and payouts have different clocks and delays; do not combine unmatched windows into a funnel."
+    ]
+  },
+  "targets": [
+    {
+      "id": "ga_sessions",
+      "unit": "sessions",
+      "target": 1000,
+      "basis": "management_judgement_not_forecast",
+      "definition": "GA sessions in the matched campaign window; report active users separately and disclose QA exclusion coverage."
+    },
+    {
+      "id": "affiliate_click_events",
+      "unit": "events",
+      "target": 50,
+      "stretch": 100,
+      "basis": "management_judgement_not_forecast",
+      "definition": "Existing affiliate_click event definition, QA excluded where verified. Events are not unique referrals or customers."
+    },
+    {
+      "id": "new_paid_customers",
+      "unit": "source_confirmed_customers",
+      "target": 1,
+      "basis": "management_judgement_not_forecast",
+      "definition": "New customer's actual paid purchase observed in supplier records; record purchase date and attribution. Separate signup/trial, pending commission, commission approval and payout. A paid purchase does not satisfy a 45/60-day commission waiting period by itself."
+    },
+    {
+      "id": "gsc_impressions",
+      "unit": "impressions",
+      "target": 3000,
+      "basis": "management_judgement_not_forecast",
+      "definition": "Source window and final available date must be shown."
+    },
+    {
+      "id": "gsc_clicks",
+      "unit": "clicks",
+      "target": 20,
+      "basis": "management_judgement_not_forecast",
+      "definition": "Search clicks; not unique visitors or social clicks."
+    },
+    {
+      "id": "new_commission",
+      "unit": "USD",
+      "target": null,
+      "stretch": 100,
+      "basis": "aspiration_not_expected_revenue",
+      "definition": "Newly recorded campaign commission only, by currency and pending/approved status. Do not substitute customer gross payments, lifetime commission, recurring MRR or payout."
+    }
+  ],
+  "financial_plan": {
+    "forecast_status": "not_estimable_from_available_evidence",
+    "expected_total_revenue": null,
+    "expected_net_profit": null,
+    "cash_receipt_planning_assumption_usd": 0,
+    "actual_zero_is_possible": true,
+    "additional_spend_limit_usd": 0,
+    "existing_fixed_costs_verified": false,
+    "interpretation": "Zero cash is the planning assumption, not an assertion that current revenue is zero. Overall net profit cannot be computed without actual costs and a complete revenue ledger.",
+    "sensitivity_only": {
+      "formula": "assumed_clicks * assumed_paid_conversion_rate * assumed_first_commissionable_payment_usd * assumed_commission_rate",
+      "assumed_first_commissionable_payment_usd": 50,
+      "assumed_commission_rate": 0.3,
+      "assumed_paid_conversion_rates": [
+        0.01,
+        0.03,
+        0.05
+      ],
+      "rows": [
+        {
+          "clicks": 50,
+          "commission_usd": [
+            7.5,
+            22.5,
+            37.5
+          ]
+        },
+        {
+          "clicks": 100,
+          "commission_usd": [
+            15,
+            45,
+            75
+          ]
+        }
+      ],
+      "customers_needed_to_exceed_100_usd_at_15_each": 7,
+      "clicks_corresponding_to_7_customers_at_assumed_3pct": 234,
+      "limitations": "Illustrative conditional arithmetic, not calibrated probabilities, a forecast range or a ceiling. Fractional expected customers are mathematical quantities. Refunds, disqualification, tax, existing costs and payout delay are not modelled."
+    },
+    "supplier_condition_notes": {
+      "pictory": "Current public signup describes 40% one-time first-payment commission; direct account correspondence is consistent. Current payout readiness and payment dates require account evidence.",
+      "gamma": "25% approval/public listing and later 30% correspondence conflict. Do not choose a confirmed account rate until the current offer is verified.",
+      "jotform": "Base 30% for the first year. FAQ describes 60 days as a paid client before confirmation and twelve monthly instalments for annual plans.",
+      "highlevel": "Standard eligible direct referral rate 40%; at least 45 days in good standing, monthly payment and possible hold until more than USD 50. A new purchase during this 31-day period cannot complete 45 days within the same period."
+    },
+    "official_sources": [
+      "https://partners.pictory.ai/signup/40690",
+      "https://market.partnerstack.com/page/gammaapp",
+      "https://gamma-partners-y9y8f3m.gamma.site/",
+      "https://www.jotform.com/partnership/affiliate/",
+      "https://www.gohighlevel.com/affiliate-policy"
+    ]
+  },
+  "distribution": {
+    "objective_posts": 24,
+    "weekly_objective_posts": 6,
+    "max_channels": 2,
+    "objective_condition": "Verified ownership, authorized current account access and suitable platform rules.",
+    "paid_ad_budget_usd": 0,
+    "state": "blocked_authentication",
+    "verified_new_public_posts": 0,
+    "channel_evidence": [
+      {
+        "channel": "Metricool COSHUMA brand 6940199",
+        "checked_date_kst": "2026-10-04",
+        "status": "no_social_network_connected",
+        "evidence": "Current connector returned INVALID_ARGUMENT with 'This brand does not have any social network connected yet'; current official connection URL redirects to sign-in.",
+        "url": "https://app.metricool.com/brands/connections?blogId=6940199"
+      },
+      {
+        "channel": "Existing COSHUMA YouTube",
+        "status": "latest_observed_upload_auth_failure_not_reverified_currently",
+        "url": "https://www.youtube.com/channel/UCT33Ogj3tjh1_ddTAomOkBQ",
+        "evidence_url": "https://github.com/heukshow/aicity-os/actions/runs/35547491999/job/106175940637",
+        "failure_date": "2026-09-21",
+        "failure": "invalid_grant: token expired or revoked",
+        "note": "Past secret-presence checks and private uploads succeeded. Do not claim no tokens exist or a later recovery without evidence."
+      }
+    ],
+    "access_next_action": "Use an already authorized current COSHUMA owner session and supported provider sign-in/consent to restore one existing channel; verify its identity and a successful channel read before any publication. Do not create a replacement account or extract credentials.",
+    "blocked_execution_policy": "At most one access-state check per day unless new evidence arrives; reuse the existing channel incident. Continue website assets, search distribution and previously authorized affiliate work. Missing public posts count as a missed distribution goal, never as completed drafts.",
+    "platform_priority": [
+      "Existing verified COSHUMA LinkedIn, if available, for B2B decision posts",
+      "One other verified COSHUMA-owned text channel; existing YouTube only after access and footage rights/quality are verified"
+    ],
+    "post_format": "Each substantive buyer asset yields three distinct native posts: evaluation criterion, who should not buy, and practical checklist. Include a concise affiliate disclosure when promotional links are present, a supported factual claim, a useful standalone takeaway and a relevant destination.",
+    "pacing": "Aim for six total native posts per week across at most two connected channels. Space posts normally; do not mass-publish a backlog after an access delay.",
+    "utm_rule": "Website links use utm_source=<actual channel>, utm_medium=organic_social, utm_campaign=coshuma_20261004_month, utm_content=<asset-id>-<angle>-<date>. Keep exact supplier affiliate URLs unchanged.",
+    "required_post_evidence": [
+      "asset_id",
+      "platform",
+      "verified_account_identifier",
+      "published_at",
+      "public_url",
+      "destination_with_utm",
+      "source_and_rights_evidence",
+      "disclosure_check",
+      "publication_state"
+    ],
+    "published_posts": [],
+    "prepared_posts": [
+      {
+        "asset_id": "C01",
+        "platform": "linkedin",
+        "state": "draft_not_scheduled",
+        "draft_path": "projects/GlobalSaaSHub/docs/campaigns/2026-10-claap-first-social-post.md",
+        "public_url": null,
+        "source_and_rights_evidence": "https://github.com/heukshow/aicity-os/issues/416#issuecomment-5712756506",
+        "note": "Approved core copy; campaign worksheet link/disclosure added by COSHUMA, not represented as vendor-approved additions."
+      }
+    ]
+  },
+  "calendar": [
+    {
+      "week": 1,
+      "dates_kst": [
+        "2026-10-04",
+        "2026-10-10"
+      ],
+      "assets": [
+        "C01",
+        "C02"
+      ],
+      "content_objective": 2,
+      "conditional_external_posts": 6,
+      "actions": "Launch Claap evaluation worksheet and improve the Omnisend–Privy buyer comparison using existing source evidence. Attempt legitimate restoration of one existing owned distribution channel. Establish the first source-matched campaign observation."
+    },
+    {
+      "week": 2,
+      "dates_kst": [
+        "2026-10-11",
+        "2026-10-17"
+      ],
+      "assets": [
+        "C03",
+        "C04"
+      ],
+      "content_objective": 2,
+      "conditional_external_posts": 6,
+      "actions": "Improve Pictory workflow/plan-choice guidance and Jotform buyer criteria. Distribute distinct practical examples; check paid purchase and pending/approved commission records independently."
+    },
+    {
+      "week": 3,
+      "dates_kst": [
+        "2026-10-18",
+        "2026-10-24"
+      ],
+      "assets": [
+        "C05",
+        "C06"
+      ],
+      "content_objective": 2,
+      "conditional_external_posts": 6,
+      "actions": "Produce two substantive supporting decision assets for topics with the best verified response. Use existing pages when intent overlaps. Treat small samples as directional."
+    },
+    {
+      "week": 4,
+      "dates_kst": [
+        "2026-10-25",
+        "2026-11-03"
+      ],
+      "assets": [
+        "C07",
+        "C08"
+      ],
+      "content_objective": 2,
+      "conditional_external_posts": 6,
+      "actions": "Complete two further useful assets and distribute the best-supported angles. Preserve the October 30 fixed-window reading. Collect actual campaign outcomes and costs for closeout."
+    }
+  ],
+  "content_backlog": [
+    {
+      "id": "C01",
+      "owner": "Editorial Quality Team",
+      "status": "implemented_local_awaiting_pr_and_deployment",
+      "type": "substantive_existing_asset_update",
+      "target_urls": [
+        "https://coshuma.com/tool/claap.html",
+        "https://coshuma.com/best/claap-sales-follow-up-ai.html"
+      ],
+      "scope": "One buyer evaluation asset across two related existing pages, with five-field blank CSV. Objection, transcript evidence, next action, owner/deadline and CRM field. The worksheet and two page placements count as one asset.",
+      "basis": "Direct partner topic/publishing approval, existing buyer guide and exact approved affiliate URL.",
+      "evidence_url": "https://github.com/heukshow/aicity-os/issues/416#issuecomment-5712756506",
+      "output_evidence": []
+    },
+    {
+      "id": "C02",
+      "owner": "Growth & SEO Team",
+      "status": "planned",
+      "type": "substantive_existing_asset_update",
+      "target_urls": [
+        "https://coshuma.com/compare/privy-vs-omnisend.html"
+      ],
+      "scope": "Clear business fit and reasons not to choose each product, exact current billing limits from official sources, relevant title/snippet and approved exact destinations.",
+      "basis": "GSC 90-day page 70 impressions/0 clicks; query omnisend vs privy 58 impressions/0 clicks, average position 19.2. Not a 30-day or proven conversion result.",
+      "output_evidence": []
+    },
+    {
+      "id": "C03",
+      "owner": "Editorial Quality Team",
+      "status": "planned",
+      "type": "substantive_existing_asset_update",
+      "target_urls": [
+        "https://coshuma.com/tool/pictory.html"
+      ],
+      "scope": "Evidence-backed workflow and plan-choice guidance using approved assets; avoid claiming unperformed hands-on tests. Use verified trial/code terms and preserve exact affiliate destinations.",
+      "basis": "GA 30-day page 8 views/4 active users/1 affiliate click; two Pictory clicks including the existing trials/deals hub.",
+      "output_evidence": []
+    },
+    {
+      "id": "C04",
+      "owner": "Revenue Optimization Team",
+      "status": "planned",
+      "type": "substantive_existing_asset_update",
+      "target_urls": [
+        "https://coshuma.com/tool/jotform.html"
+      ],
+      "scope": "Concrete form-use and plan-limit decision aid, with official supported facts and the provider-issued destination. No collection of user data for the worksheet.",
+      "basis": "GA 30-day page 8 views/7 active users/1 affiliate click; GSC 90-day jotform pricing query 34 impressions.",
+      "output_evidence": []
+    },
+    {
+      "id": "C05",
+      "owner": "Editorial Quality Team",
+      "status": "planned",
+      "type": "new_supporting_decision_asset",
+      "target_urls": [],
+      "scope": "A distinct practical decision worksheet or comparison from the first four topics; choose using current evidence. Merge into an existing page if intent overlaps.",
+      "output_evidence": []
+    },
+    {
+      "id": "C06",
+      "owner": "Editorial Quality Team",
+      "status": "planned",
+      "type": "new_supporting_decision_asset",
+      "target_urls": [],
+      "scope": "A second distinct decision asset; a copy-only rewrite or the same CSV does not count.",
+      "output_evidence": []
+    },
+    {
+      "id": "C07",
+      "owner": "Editorial Quality Team",
+      "status": "planned",
+      "type": "new_supporting_decision_asset",
+      "target_urls": [],
+      "scope": "Evidence-backed expansion of a responsive topic; no unsupported new product category or mass-generated SEO pages.",
+      "output_evidence": []
+    },
+    {
+      "id": "C08",
+      "owner": "Editorial Quality Team",
+      "status": "planned",
+      "type": "new_supporting_decision_asset",
+      "target_urls": [],
+      "scope": "Final distinct useful buyer asset, with live proof before counting as published.",
+      "output_evidence": []
+    }
+  ],
+  "content_quality_gate": [
+    "A concrete buyer decision benefit beyond a plan/audit or generic rewrite",
+    "Current official or direct sources, independently verified exact destinations and clear affiliate disclosure",
+    "No fabricated hands-on experience, testimonials, savings, customer results or numeric scores",
+    "Rights verified for any partner screenshots/footage; video reuse permission is not blanket website embedding permission",
+    "Producer regeneration preserves content; existing build and registry validation gates pass",
+    "Actual deployment ancestry and expected live content/mobile usability verified with QA traffic excluded",
+    "One substantive asset counted once even if repeated on several pages or adapted into several posts"
+  ],
+  "decision_rules": [
+    {
+      "when": "Weekly reviews on 2026-10-11, 2026-10-18 and 2026-10-25",
+      "rule": "Rank evidenced buyer interest and paid/affiliate outcomes, not output volume. Check source/period/QA quality before choosing a topic. Assign the next two concrete assets and next six conditional distribution posts."
+    },
+    {
+      "when": "At least 20 verified attributed sessions for a topic or channel",
+      "rule": "Use response only as a directional allocation signal, not a statistically proven winner; a missing page-by-source dataset is not estimated from marginal totals."
+    },
+    {
+      "when": "At least 50 eligible page sessions and zero affiliate clicks in a matched observation window",
+      "rule": "Check intent, offer fit and destination; make one supported narrow content/CTA change outside protected experiments and annotate it. Do not infer the cause from zero clicks alone."
+    },
+    {
+      "when": "Below the sample thresholds",
+      "rule": "Prioritize useful distribution and visibility. Record insufficient data; do not declare a product or channel successful or failed."
+    },
+    {
+      "when": "New paid purchase confirmed",
+      "rule": "Verify attribution, amount/currency and commission state. Continue narrowly; one customer does not validate scaling or establish repeatable profit."
+    },
+    {
+      "when": "No new paid purchase at closeout",
+      "rule": "Report failure to meet the paid goal. If fewer than 50 real affiliate clicks were obtained, distribution remains unvalidated; if 50+ clicks but no paid purchase, examine offer/intent/measurement before any further scale or spending."
+    }
+  ],
+  "measurement": {
+    "owner": "Revenue Intelligence Team",
+    "current_campaign_outcomes": null,
+    "baseline_is_not_campaign_outcome": true,
+    "append_only_observations": [],
+    "required_observation_fields": [
+      "observed_at",
+      "source_url_or_record",
+      "source_timezone",
+      "requested_window",
+      "available_window",
+      "qa_exclusion_coverage",
+      "metric_definition",
+      "value",
+      "availability_state"
+    ],
+    "availability_states": [
+      "confirmed",
+      "confirmed_zero",
+      "unknown",
+      "unavailable",
+      "stale",
+      "partial"
+    ],
+    "paid_ledger_fields": [
+      "supplier",
+      "attribution_evidence",
+      "signup_at",
+      "paid_at",
+      "payment_amount",
+      "currency",
+      "commission_amount",
+      "commission_status",
+      "eligible_at",
+      "payout_at",
+      "payout_amount",
+      "source_record"
+    ],
+    "fixed_costs": {
+      "status": "not_verified",
+      "actual_amounts": []
+    },
+    "new_campaign_spend": {
+      "status": "no_spend_authorized",
+      "recorded_spend": []
+    }
+  },
+  "closeout": {
+    "stop_new_campaign_work_at": "2026-11-04T05:27:29+09:00",
+    "continue_regular_coshuma_operations": true,
+    "owner": "Team Watchdog",
+    "initial_report": {
+      "status": "not_due",
+      "trigger": "First normal hourly Watchdog run after campaign end",
+      "evidence_url": null,
+      "reported_at": null
+    },
+    "delayed_data": {
+      "owner": "Revenue Intelligence Team",
+      "status": "not_due",
+      "deadline": "2026-11-11T05:27:29+09:00",
+      "evidence_urls": []
+    },
+    "final_report": {
+      "status": "not_due",
+      "trigger": "First normal Watchdog run after refreshed data is ready, no later than seven days after end; explicitly retain unresolved data",
+      "evidence_url": null,
+      "reported_at": null
+    },
+    "report_requirements": [
+      "Targets versus source-confirmed outcomes",
+      "Live content and public posts with URLs and dates",
+      "Missing distribution and other unmet targets",
+      "Paid purchases, pending/approved commissions and actual cash receipts separately",
+      "Actual new and known existing costs; net profit only if supportable",
+      "Source delays, QA and exact/daily boundary limitations",
+      "Continue/narrow/stop recommendation supported by evidence"
+    ],
+    "duplicate_prevention": "Record report delivery evidence only after a confirmed send, and reuse the existing report states. Schedule configuration alone is not delivery."
+  }
+}

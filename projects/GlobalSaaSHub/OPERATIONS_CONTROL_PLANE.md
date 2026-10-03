@@ -50,3 +50,11 @@ No new paid service/account/secret/token/advertising spend, unapproved legal acc
 Use atomic writes with fresh file SHA and check each result. Do not repeat a rejected payload unchanged; after two same-cause capability failures isolate that write and continue unrelated work. Do not turn a tool block into a user gate.
 
 Completion requires actual deployed ancestry and live expected behavior where production is the gate, followed by registry/#292 synchronization. Enabled automations alone do not prove liveness: inspect actual runs against twice the intended interval and preserve existing recovery evidence.
+
+## Explicit one-month campaign authorization (2026-10-04 KST)
+
+The user explicitly requested one month of autonomous operation and aggressive marketing, with goals and revenue expectations reported first and execution immediately afterward. The reported plan is recorded in `data/campaigns/2026-10-autonomous-growth.json` and `docs/2026-10-autonomous-growth-plan.md`.
+
+Within **2026-10-04T05:27:29+09:00 to 2026-11-04T05:27:29+09:00**, this is new authorization for the bounded management targets and eight substantive buyer assets in that plan, plus up to 24 organic posts on verified existing authorized COSHUMA channels if access is available. This specific approval supersedes earlier restrictions on unapproved new KPIs/content only within this campaign. It does not approve the proposed 2028 profit plan, guarantee revenue, authorize new spend/accounts/secrets, bypass authentication, authorize unsolicited bulk messages, or reset protected experiments.
+
+Use existing schedules and cost/runtime boundaries. Count only verified deployed assets and actual public posts. Record blocked access and unavailable financial values honestly. At the stated end, stop campaign-specific new work, retain regular operations and deliver the closeout defined in the campaign source of truth.
