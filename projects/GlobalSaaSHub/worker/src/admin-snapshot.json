@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T22:25:57.406Z",
+  "generatedAt": "2026-10-03T00:38:51.054Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 118,
@@ -8,8 +8,8 @@
     "targetedRevenueReadyAffiliates": 2,
     "openMonetizationGaps": 78,
     "directActionableGaps": 0,
-    "browserRequiredGaps": 27,
-    "watchOnlyGaps": 51,
+    "browserRequiredGaps": 26,
+    "watchOnlyGaps": 52,
     "doNotReapply": 179,
     "toolPages": 179,
     "comparePages": 279,
@@ -28,13 +28,13 @@
       "terminal": 26,
       "openMonetizationGaps": 78,
       "directActionableGaps": 0,
-      "browserRequiredGaps": 27,
-      "watchOnlyGaps": 51,
+      "browserRequiredGaps": 26,
+      "watchOnlyGaps": 52,
       "doNotReapply": 179,
       "unclassifiedAffiliateStatus": 0,
       "exactAffiliateUrlMissing": 78,
       "officialUnverified": 1,
-      "pricingUnverified": 131
+      "pricingUnverified": 129
     },
     "records": [
       {
@@ -95,7 +95,7 @@
         "id": "bolddesk",
         "name": "BoldDesk",
         "officialVerified": true,
-        "pricingVerified": false,
+        "pricingVerified": true,
         "affiliateStatus": "approved_tracking",
         "affiliateVerified": true,
         "hasAffiliateUrl": true,
@@ -2075,7 +2075,7 @@
         "id": "getgabs",
         "name": "Getgabs",
         "officialVerified": true,
-        "pricingVerified": false,
+        "pricingVerified": true,
         "affiliateStatus": "application_submitted",
         "affiliateVerified": true,
         "hasAffiliateUrl": false,
@@ -2634,7 +2634,7 @@
         "name": "OptiMonk",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "browser_required_affiliate_application",
+        "affiliateStatus": "waiting_vendor_eligibility_clarification",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -2642,9 +2642,9 @@
         "revenueReady": false,
         "terminal": false,
         "doNotReapply": true,
-        "browserRequired": true,
+        "browserRequired": false,
         "directActionableGap": false,
-        "watchOnlyGap": false,
+        "watchOnlyGap": true,
         "blocker": "exact_customer_affiliate_url_missing"
       },
       {
