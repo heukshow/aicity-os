@@ -65,7 +65,7 @@ for(const [id,name] of Object.entries(partnerPrograms)){
   if(!rows.has(id)) rows.set(id,{id,name,inventory_source:'authenticated PartnerStack membership list 2026-09-11'});
   Object.assign(rows.get(id),{network:'PartnerStack',account_id:'partnerstack-account',portal_url:'https://dash.partnerstack.com/home'});
 }
-for(const [id,url] of Object.entries({gohighlevel:'https://affiliate.gohighlevel.com/login',pictory:'https://pictory.firstpromoter.com/login'})) rows.get(id).portal_url=url;
+for(const [id,url] of Object.entries({gohighlevel:'https://affiliate.gohighlevel.com/login',pictory:'https://partners.pictory.ai/login'})) rows.get(id).portal_url=url;
 // Recover exact recorded portal routes; customer tracking links never supply these.
 function portals(value,source){
   if(!value || typeof value!=='object') return;
