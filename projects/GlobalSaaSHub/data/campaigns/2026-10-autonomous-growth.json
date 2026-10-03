@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-03T21:57:01.215Z",
+  "updated_at": "2026-10-03T22:03:00Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -525,14 +525,28 @@
     {
       "id": "C02",
       "owner": "Growth & SEO Team",
-      "status": "assigned_to_team",
+      "status": "production_verified",
       "type": "substantive_existing_asset_update",
       "target_urls": [
         "https://coshuma.com/compare/privy-vs-omnisend.html"
       ],
       "scope": "Clear business fit and reasons not to choose each product, exact current billing limits from official sources, relevant title/snippet and approved exact destinations.",
       "basis": "GSC 90-day page 70 impressions/0 clicks; query omnisend vs privy 58 impressions/0 clicks, average position 19.2. Not a 30-day or proven conversion result.",
-      "output_evidence": []
+      "output_evidence": [
+        {
+          "implementation_pr": 973,
+          "pr_head_commit": "69309dd64cfaddf378985dda3af68b965a701665",
+          "merge_commit": "630a1eae4c8e9774ff325439576de76b7478936f",
+          "pr_build_run": 37155019533,
+          "site_deploy_run": 37155327779,
+          "production_verification_comment_id": 5973699904,
+          "evidence_url": "https://github.com/heukshow/aicity-os/issues/292#issuecomment-5973699904",
+          "verified_at": "2026-10-03T21:33:46Z",
+          "live_url": "https://coshuma.com/compare/privy-vs-omnisend.html?coshuma_qa=1&deploy=630a1eae4c8e",
+          "live_result": "Title, H1 and meta description lead with the observed Omnisend vs Privy query order; current official-source date and explicit skip guidance are live. Canonical, methodology link, internal profiles, exact Omnisend pricing tracker and sponsored attribution are preserved.",
+          "measurement_annotation": "Bounded C02 asset change during the fixed 7/30-day window. No protected experiment, event definition or CTA structure changed. No CTR or revenue uplift is claimed."
+        }
+      ]
     },
     {
       "id": "C03",
@@ -711,9 +725,9 @@
     ],
     "duplicate_prevention": "Record report delivery evidence only after a confirmed send, and reuse the existing report states. Schedule configuration alone is not delivery."
   },
-  "current_work_item": "C02",
+  "current_work_item": "C03",
   "verified_delivery_counts": {
-    "substantive_content_assets": 1,
+    "substantive_content_assets": 2,
     "public_social_posts": 0,
     "prepared_social_drafts": 2,
     "as_of": "2026-10-03T21:57:01.215Z"
