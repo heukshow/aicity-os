@@ -498,7 +498,7 @@ test('verified advertiser capture reuses stored status without provider calls an
   assert.notEqual(paypal.captured[0].requestId, paypal.created[0].requestId);
   const path = `/v1/sponsorship/applications/${app.applicationId}`;
   const headers = f.advertiser(app);
-  for (const expected of ['pending_review', 'ready_to_publish', 'active']) {
+  for (const expected of ['awaiting_ad_approval', 'ready_to_publish', 'active']) {
     if (expected === 'ready_to_publish') assert.equal((await f.ownerAction(app, 'review', {
       decision: 'approve', notes: 'Synthetic reviewed material', destinationChecked: true, claimsChecked: true,
     })).status, 200);

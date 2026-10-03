@@ -3,7 +3,7 @@ const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (character
 }[character]));
 
 const STATUS_LABELS = {
-  awaiting_payment: '입금 확인 대기', payment_review: '결제 확인 필요', pending_review: '소재 검토 대기',
+  awaiting_payment: '입금 확인 대기', payment_review: '결제 확인 필요', awaiting_ad_approval: '소재 검토 대기',
   ready_to_publish: '집행 준비 완료', scheduled: '집행 예약', active: '집행 중', paused: '집행 중지',
   ended: '집행 종료', rejected: '소재 반려', payment_reversed: '환불·결제 취소',
 };

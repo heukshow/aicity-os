@@ -99,7 +99,7 @@ test('publish is unavailable for unpaid, unapproved, stale, contradictory or alr
 
 test('review needs verified payment, both factual checks and a bounded note before posting approval', async () => {
   assert.match(render(), /data-field="notes" maxlength="1000"/);
-  const state = browser(render(application({ approved: false, reviewStatus: 'pending', status: 'pending_review' })));
+  const state = browser(render(application({ approved: false, reviewStatus: 'pending', status: 'awaiting_ad_approval' })));
   const card = state.cards[0];
   assert.equal(state.requests.length, 0, 'opening the owner screen must not mutate anything');
   await action(card, 'approve').dispatch('click');

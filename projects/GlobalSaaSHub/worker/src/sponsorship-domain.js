@@ -116,7 +116,7 @@ export function publicStatus(application, now = new Date()) {
   if (application.publication_status === 'ended' || (application.ends_at && Date.parse(application.ends_at) <= now.getTime())) return 'ended';
   if (application.publication_status === 'published') return Date.parse(application.starts_at) > now.getTime() ? 'scheduled' : 'active';
   if (application.payment_status !== 'verified') return application.payment_status === 'review' ? 'payment_review' : 'awaiting_payment';
-  return application.review_status === 'approved' ? 'ready_to_publish' : 'pending_review';
+  return application.review_status === 'approved' ? 'ready_to_publish' : 'awaiting_ad_approval';
 }
 
 export function captureIdFromRefundLink(event) {

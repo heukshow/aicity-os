@@ -29,7 +29,7 @@ test('all actual backend public states agree with the browser checkout and statu
   const cases = [
     [{ ...base }, 'awaiting_payment', false, false],
     [{ ...base, payment_status: 'review' }, 'payment_review', false, false],
-    [{ ...base, payment_status: 'verified' }, 'pending_review', true, false],
+    [{ ...base, payment_status: 'verified' }, 'awaiting_ad_approval', true, false],
     [{ ...base, payment_status: 'verified', review_status: 'approved' }, 'ready_to_publish', true, true],
     [{ ...base, payment_status: 'verified', review_status: 'approved', publication_status: 'published', starts_at: '2026-10-05T00:00:00.000Z', ends_at: '2026-10-12T00:00:00.000Z' }, 'scheduled', true, true],
     [{ ...base, payment_status: 'verified', review_status: 'approved', publication_status: 'published', starts_at: '2026-10-03T00:00:00.000Z', ends_at: '2026-10-10T00:00:00.000Z' }, 'active', true, true],

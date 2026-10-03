@@ -244,7 +244,7 @@ test('publication duration starts on activation and public status stops at expir
   assert.equal(publicStatus(application, new Date('2027-01-01T11:00:00.000Z')), 'scheduled');
   assert.equal(publicStatus({ ...application, payment_status: 'refunded' }, now), 'payment_reversed');
   assert.equal(publicStatus({ ...application, publication_status: 'paused' }, now), 'paused');
-  assert.equal(publicStatus({ ...application, publication_status: 'draft', review_status: 'pending' }, now), 'pending_review');
+  assert.equal(publicStatus({ ...application, publication_status: 'draft', review_status: 'pending' }, now), 'awaiting_ad_approval');
 });
 
 test('refund capture hints accept only known live PayPal links and never fetch the supplied URL', (t) => {

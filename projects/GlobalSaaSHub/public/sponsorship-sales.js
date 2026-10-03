@@ -228,7 +228,7 @@
       awaiting_payment: 'Application received — payment has not been confirmed',
       payment_review: 'Payment requires review — checkout is unavailable',
       ready_to_publish: 'Payment and copy confirmed — awaiting activation',
-      pending_review: 'Payment confirmed — your ad copy is awaiting approval'
+      awaiting_ad_approval: 'Payment confirmed — your ad copy is awaiting approval'
     };
     if (['active', 'scheduled', 'ready_to_publish'].includes(record.status)
       && (record.paymentVerified !== true || record.approved !== true)) return 'Activation could not be confirmed — contact support';
@@ -267,7 +267,7 @@
         active: 'Your placement is active for the confirmed dates shown above.',
         scheduled: 'Your placement is scheduled for the confirmed dates shown above.',
         ready_to_publish: 'Payment and copy are confirmed. The purchased period begins at actual activation.',
-        pending_review: 'Payment is confirmed. Copy approval and an available placement are still required.',
+        awaiting_ad_approval: 'Payment is confirmed. Copy approval and an available placement are still required.',
         payment_reversed: 'The placement is stopped. Contact support with your order reference about the payment.',
         paused: 'The placement is paused. Contact support with your order reference.',
         rejected: 'The application was not accepted. Contact support about any confirmed payment or cancellation request.',
