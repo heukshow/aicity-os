@@ -121,6 +121,19 @@ if 'data-pictory-trial-current="2026-09-19"' not in pictory_tool:
 if "3 video projects" in pictory_tool.lower():
     raise RuntimeError("Stale Pictory 3-video-project trial copy remains on the tool page")
 
+# Keep the C03 buyer-decision workflow intact when the page is rebuilt.
+workflow_marker = 'data-pictory-workflow-checklist="c03-2026-10"'
+workflow_copy = (
+    "Test one real workflow before choosing a plan",
+    "Count substantial corrections before the draft is usable.",
+    "Do not upgrade if the automated draft takes more correction than your current editor.",
+)
+if workflow_marker not in pictory_tool:
+    raise RuntimeError("Pictory C03 workflow checklist missing after conversion patch")
+for required_copy in workflow_copy:
+    if required_copy not in pictory_tool:
+        raise RuntimeError(f"Pictory C03 decision copy missing after conversion patch: {required_copy}")
+
 print(f"Optimized Pictory trial conversion copy on {len(changed)} monetized pages")
 for rel in changed:
     print(f" - {rel}")
