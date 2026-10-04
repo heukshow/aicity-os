@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T06:11:45.394963+00:00",
+  "updated_at": "2026-10-04T07:10:00Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2718,6 +2718,41 @@
         "deterministic_verification_run": 37182070060
       },
       "completed_at": "2026-10-04T06:11:30Z"
+    },
+    {
+      "record_id": "REVENUE:JOTFORM-C04-WORKSHEET-20261004",
+      "task_key": "jotform-c04-worksheet-production-verification-20261004",
+      "incident_key": "jotform-c04-release-candidate-missing-20261004",
+      "target": "projects/GlobalSaaSHub/public/tool/jotform.html",
+      "owner_team": "Revenue Optimization Team",
+      "canonical_owner": "Revenue Optimization Team",
+      "found_by": "Release & Reliability Team",
+      "fixed_by": "Security & Cost Control Team",
+      "changed_scope": "Control-plane routing only: add a page-scoped production-verification candidate for the already merged and deployed C04 Jotform worksheet. No customer copy, price, product fact, affiliate URL, measurement event, account, payment, secret, token, or spend change.",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-10-04T07:07:00Z",
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": false,
+      "user_action_required": false,
+      "execution_status": "queued",
+      "verification_status": "pending",
+      "next_executable_action": "Run the deterministic Jotform C04 release spec against current-main source, deployed gh-pages/Pages ancestry and the QA-marked live page; record production_verified or the exact failed boundary in issue #292.",
+      "evidence": {
+        "implementation_pr": 1003,
+        "merge_commit": "54c7da989dea53654c7ed478a21d1c0f491cb9cd",
+        "pr_build_run": 37183521378,
+        "site_deploy_run": 37183989550,
+        "gh_pages_commit": "ef0b646aad5545d022a75a704e62dd6edbde5174",
+        "github_pages_run": 37184110305,
+        "deployed_blob": "ff01ac5f364033350f9cd454ad1165795c7ff2e7",
+        "release_capability_gap_comment_id": 5977585981,
+        "live_url": "https://coshuma.com/tool/jotform.html?coshuma_qa=1&deploy=54c7da989dea"
+      },
+      "verification": "Source, PR Build, Site Build & Deploy, gh-pages source tag, Pages and manual QA-marked live readback passed; deterministic lifecycle completion remains pending this registered spec.",
+      "handoff": "Release & Reliability Team owns deterministic re-verification. Operations Governance will synchronize the monthly campaign C04 state only after trusted production verification evidence; QA traffic is not growth."
     }
   ],
   "invariants": {
