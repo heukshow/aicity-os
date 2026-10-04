@@ -35,7 +35,11 @@ def reconcile(registry, comments, get_pr, get_run, has_spec):
         old = copy.deepcopy(row)
         ev["merge_commit"] = merge
         row["evidence"] = ev
-        if row["lifecycle"] in EARLY:
+        # A merged implementation PR is necessary but not sufficient for release
+        # handoff.  A live/deploy blocker means the producer still owns the task;
+        # promoting it here would send an unverifiable candidate to Release and
+        # overwrite the precise blocker with a verifier-spec error.
+        if row["lifecycle"] in EARLY and not row.get("blocker"):
             row["lifecycle"] = "production_verification_requested"
             row["next_owner"] = "Release & Reliability Team"
             row["completion_gate_satisfied"] = False

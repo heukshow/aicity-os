@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T01:48:53.776410+00:00",
+  "updated_at": "2026-10-04T01:52:05+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2497,11 +2497,11 @@
       "found_by": "Security & Cost Control Team",
       "fixed_by": "Security & Cost Control Team",
       "changed_scope": "Sponsorship checkout lifecycle evidence only: reconcile verified PayPal prerequisites and the merged activation source while preserving the live deployment gate, payment truth, publication gate, pricing, customer data and measurement definitions.",
-      "lifecycle": "production_verification_requested",
-      "next_owner": "Release & Reliability Team",
+      "lifecycle": "in_progress",
+      "next_owner": "Revenue Intelligence Team",
       "priority": "high",
-      "blocker": "missing_deterministic_verification_spec",
-      "last_evidence_at": "2026-10-04T01:43:04Z",
+      "blocker": "checkout_activation_deploy_and_live_verification_pending",
+      "last_evidence_at": "2026-10-04T01:52:05Z",
       "evidence": {
         "implementation_pr": 981,
         "implementation_merge_commit": "4706d69769559ec226060b7100d8392533462d9d",

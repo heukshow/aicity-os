@@ -239,6 +239,17 @@ class RegistryTests(unittest.TestCase):
         self.assertEqual(result['active_queue'][0]['lifecycle'], 'production_verification_requested')
         self.assertFalse(result['active_queue'][0]['completion_gate_satisfied'])
 
+    def test_merged_pr_with_live_blocker_stays_with_producer(self):
+        row = candidate(); row.update(lifecycle='in_progress', next_owner='Revenue Intelligence Team',
+                                      blocker='checkout_activation_deploy_and_live_verification_pending')
+        result, changed = registry.reconcile({'active_queue': [row]}, [],
+            lambda _: {'merged': True, 'merge_commit_sha': 'a' * 40}, lambda _: {}, lambda _: False)
+        self.assertEqual(result['active_queue'][0]['lifecycle'], 'in_progress')
+        self.assertEqual(result['active_queue'][0]['next_owner'], 'Revenue Intelligence Team')
+        self.assertEqual(result['active_queue'][0]['blocker'],
+                         'checkout_activation_deploy_and_live_verification_pending')
+        self.assertEqual(changed, [])
+
     def test_only_exact_trusted_success_advances(self):
         comment = {'id': 99, 'user': {'login': 'github-actions[bot]'}, 'created_at': '2026-09-27T00:00:00Z',
             'body': 'RELEASE_VERIFICATION\n- record_id: `one`\n- merge: `' + 'a' * 40 + '`\n- result: `production_verified`\n- verification_run: `123`'}
