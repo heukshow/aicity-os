@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-03T22:56:00Z",
+  "updated_at": "2026-10-04T00:13:41.536787+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2484,6 +2484,43 @@
       "user_action_required": false,
       "verification": "C01 and C02 source/build/deploy/live evidence is preserved. The first Threads post and one contextual public reply are verified by public URLs. Campaign goals remain in progress; no uplift or revenue result is claimed.",
       "handoff": "Editorial Quality Team owns C03 next; do not repeat C01 or C02. Audience Growth continues approved public Threads activity under the daily caps and records only public evidence. LinkedIn remains an independent access gate. Keep text/static-only, no additional spend, and existing experiment windows."
+    },
+    {
+      "record_id": "REVENUE:SPONSORSHIP-SALES-REOPEN-20261004",
+      "incident_key": "sponsorship-live-migration-gate-20261004",
+      "task_key": "sponsorship-sales-reopen-20261004",
+      "target": "GlobalSaaSHub sponsorship intake + PayPal-gated fulfillment",
+      "owner_team": "Revenue Optimization Team",
+      "canonical_owner": "Revenue Optimization Team",
+      "found_by": "Operations Governance Team",
+      "fixed_by": "Revenue Optimization Team",
+      "changed_scope": "English advertiser intake, server-priced quotes, PayPal-bound payment verification, approved-material and inventory publication gates; checkout and public placement activation remain disabled pending production gates.",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
+      "priority": "high",
+      "blocker": "missing_deterministic_verification_spec",
+      "last_evidence_at": "2026-10-04T00:00:10Z",
+      "evidence": {
+        "implementation_pr": 981,
+        "implementation_merge_commit": "4706d69769559ec226060b7100d8392533462d9d",
+        "implementation_build_run": 37162637067,
+        "d1_compatibility_fix_pr": 983,
+        "d1_compatibility_merge_commit": "0f75fe32416f2a13e806cae25e3c8bbd409cced8",
+        "compatibility_build_run": 37163223568,
+        "worker_revenue_safety_run": 37163500870,
+        "remote_migration_applied": false,
+        "private_worker_deployed_from_current_main": false,
+        "provider_readiness_verified": false,
+        "checkout_enabled": false,
+        "real_advertiser_payment_confirmed": false,
+        "public_ad_activated": false,
+        "merge_commit": "4706d69769559ec226060b7100d8392533462d9d"
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": false,
+      "user_action_required": false,
+      "verification": "PR #981 and #983 Build Checks succeeded and current-main Worker Revenue Safety succeeded. The earlier remote D1 migration failed atomically and left no sponsorship objects or migration marker; corrected migration source is merged but not yet applied. No live provider readiness or actual payment evidence is claimed.",
+      "handoff": "Security & Cost Control Team: from a clean current-main worktree apply migration 0004, deploy the private Worker, verify authenticated PayPal provider readiness and registered receipt/refund/dispute notifications, and keep checkout disabled until all gates pass. Then hand off to Release & Reliability Team for production read-only verification. Do not count an application or test as payment, publication or revenue."
     }
   ],
   "invariants": {
