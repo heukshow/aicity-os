@@ -2494,7 +2494,7 @@
       "target": "GlobalSaaSHub sponsorship intake + PayPal-gated fulfillment",
       "owner_team": "Revenue Optimization Team",
       "canonical_owner": "Revenue Optimization Team",
-      "found_by": "Operations Governance Team",
+      "found_by": "Security & Cost Control Team",
       "fixed_by": "Operations Governance Team",
       "changed_scope": "Canonical sponsorship lifecycle/evidence synchronization plus deterministic Release verifier coverage: exact PR #992 source/build, active Worker configuration, trusted exact deployment evidence, public client and live Worker config. Payment, revenue, material approval and public-ad publication remain unverified and separate.",
       "lifecycle": "production_verification_requested",
