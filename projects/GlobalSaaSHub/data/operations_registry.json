@@ -2496,14 +2496,14 @@
       "canonical_owner": "Revenue Optimization Team",
       "found_by": "Operations Governance Team",
       "fixed_by": "Operations Governance Team",
-      "changed_scope": "Canonical sponsorship lifecycle/evidence synchronization only: reflect the directly evidenced exact PR #992 Worker deployment and customer-facing checkout QA while preserving payment, revenue, material-approval and public-ad publication gates.",
+      "changed_scope": "Canonical sponsorship lifecycle/evidence synchronization plus deterministic Release verifier coverage: exact PR #992 source/build, active Worker configuration, trusted exact deployment evidence, public client and live Worker config. Payment, revenue, material approval and public-ad publication remain unverified and separate.",
       "lifecycle": "production_verification_requested",
       "next_owner": "Release & Reliability Team",
       "priority": "high",
       "blocker": null,
       "last_evidence_at": "2026-10-04T01:46:53Z",
       "evidence": {
-        "implementation_pr": 981,
+        "implementation_pr": 992,
         "implementation_merge_commit": "4706d69769559ec226060b7100d8392533462d9d",
         "implementation_build_run": 37162637067,
         "d1_compatibility_fix_pr": 983,
@@ -2516,7 +2516,7 @@
         "checkout_enabled": true,
         "real_advertiser_payment_confirmed": false,
         "public_ad_activated": false,
-        "merge_commit": "4706d69769559ec226060b7100d8392533462d9d",
+        "merge_commit": "79ddda77319b56c665f4dab2e6604d079501a373",
         "deployed_worker_source_commit": "79ddda77319b56c665f4dab2e6604d079501a373",
         "migration_tables": 5,
         "migration_triggers": 5,
@@ -2577,7 +2577,7 @@
       "completion_gate_satisfied": false,
       "user_action_required": false,
       "verification": "PR #992 merged as 79ddda77319b56c665f4dab2e6604d079501a373 after Build Check 37167944426. Direct evidence records exact Worker deployment version 76768acc-5d00-4a3b-a01d-e841ed309457 with CHECKOUT_ENABLED=true and customer-facing PayPal/card rendering through a labelled internal QA application. PayPal blocked seller-linked self-purchase; the QA record was rejected unpaid/unpublished. No independent-customer payment, revenue or ad publication is claimed.",
-      "handoff": "Release & Reliability Team must independently verify PR #992 source/build ancestry, exact active Worker deployment source/version/config and the public checkout behavior, then record production_verified or the precise failure. Real advertiser payment and public ad activation remain separate later gates."
+      "handoff": "Release & Reliability Team must run the deterministic worker_checkout spec across PR #992 source/build, exact trusted deployment source/version evidence, published client, live advertise page and live Worker config. Record production_verified only if all agree; otherwise record the precise failure. Real advertiser payment and public ad activation remain separate later gates."
     },
     {
       "record_id": "EDITORIAL:ENGLISH-COPY-QUALITY-20261004",
