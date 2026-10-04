@@ -278,18 +278,25 @@
     "is_manual_override": false,
     "http_verification_status": null,
     "affiliate_verified": false,
-    "affiliate_source_url": "https://aiagentstore.com/affiliate",
-    "affiliate_final_url": null,
-    "affiliate_http_status": null,
-    "affiliate_evidence_markers": [],
+    "affiliate_source_url": "https://aiagentstore.ai/affiliate-program",
+    "affiliate_final_url": "https://aiagentstore.tolt.io/",
+    "affiliate_http_status": 200,
+    "affiliate_evidence_markers": [
+      "2026-10-04 official aiagentstore.ai affiliate page is live and links to the official Tolt enrollment portal at https://aiagentstore.tolt.io/.",
+      "The official page states 10% commission on Agent Teams plans and 30% on other eligible paid products; these are vendor-stated terms, not independent performance evidence.",
+      "Fresh support@coshuma.com and personal Gmail searches found no existing AI Agent Store/Tolt application, approval, issued tracking URL, commission, payout or account evidence.",
+      "No application was submitted and no customer-facing tracking URL is verified."
+    ],
     "affiliate_verified_at": null,
-    "affiliate_rejection_reason": "URL error: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1017)",
+    "affiliate_rejection_reason": null,
     "primary_category": "automation",
     "comparison_group": "automation",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
     "official_evidence_url": "https://aiagentstore.ai/",
-    "affiliate_status": "application_blocked_affiliate_domain_ssl_error"
+    "affiliate_status": "application_available_account_required",
+    "affiliate_status_checked_at": "2026-10-04T13:15:00Z",
+    "affiliate_next_action": "Use an existing COSHUMA-owned AI Agent Store/Tolt account if authenticated evidence appears. Otherwise hold because enrollment requires a new account; do not infer approval or publish the application URL as a customer CTA. After authorized enrollment and approval, recover and validate only the exact vendor-issued customer-facing tracking URL."
   },
   {
     "id": "ai-video-cut",
