@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T19:52:00Z",
+  "updated_at": "2026-10-04T20:24:06.394Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2783,11 +2783,11 @@
       "canonical_owner": "Editorial Quality Team",
       "found_by": "Operations Governance Team",
       "fixed_by": "Editorial Quality Team",
-      "lifecycle": "in_progress",
-      "next_owner": "Editorial Quality Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-10-04T14:25:33Z",
+      "last_evidence_at": "2026-10-04T20:24:06.394Z",
       "evidence": {
         "source_base_commit": "e7bb35372c9b40284b71a0d167e5f39a825235ec",
         "reviewed_pages": [
@@ -2801,10 +2801,35 @@
         "public_copy_replacements": 42,
         "producer_template_replacements": 8,
         "protected_source_tags_attributes_numeric_terms_and_scripts_unchanged": true,
-        "public_live_verification": false
+        "public_live_verification": true,
+        "implementation_pr": 986,
+        "implementation_head_commit": "e003afa17ca50e1baf388a066607b1e593e72c56",
+        "merge_commit": "db9026d6a60744a956100e5cbfc87c075e16195d",
+        "pr_build_run": 37164915787,
+        "site_deploy_run": 37165899570,
+        "deployment_source_commit": "b7fd001127329248002132fc861778db7b3e9713",
+        "pages_run": 37165979213,
+        "verification_comment_id": 5975178165,
+        "current_main_commit": "ed775c3a5785544ff4e5a9753921837d47960b9b",
+        "current_gh_pages_commit": "d26290aebe80e4e008006b6df868c31d6bd8584e",
+        "current_pages_run": 37230927777,
+        "live_verified_at": "2026-10-04T20:24:06.394Z",
+        "verification_scope": {
+          "source_and_producer": "All six reviewed markers remain in current main; curated Descript source and producer template have identical blob dcd1b0ac015a0ade7e8f392103345e5913888ee7.",
+          "deployed_artifact": "All six reviewed markers are present in current gh-pages output and the five known awkward regression phrases are absent.",
+          "live_pages": [
+            "https://coshuma.com/?coshuma_qa=1",
+            "https://coshuma.com/tool/agorapulse.html?coshuma_qa=1",
+            "https://coshuma.com/compare/brand24-vs-agorapulse.html?coshuma_qa=1",
+            "https://coshuma.com/best/claap-sales-follow-up-ai.html?coshuma_qa=1",
+            "https://coshuma.com/compare/gamma-vs-canva.html?coshuma_qa=1",
+            "https://coshuma.com/tool/descript.html?coshuma_qa=1"
+          ],
+          "result": "Five document markers were visible in current live rendered text. The homepage reviewed marker is fallback-source copy rather than rendered application text; it was verified in the deployed gh-pages HTML. The live application shows the separately corrected All countries and regions label. No old known phrase was found."
+        }
       },
       "changed_scope": "English wording only on six existing pages plus the matching Descript source template; read-only regression gate and editorial maintenance contract. No payment, price, link, disclosure, event definition or fixed-period boundary changes.",
-      "verification": "Protected source structure, attributes, numeric tokens and embedded scripts compared before/after each text edit. Automated tests, complete production-equivalent build, deployment and live checks pending.",
+      "verification": "PR #986 Build Check succeeded and merged. Site Build & Deploy 37165899570 and Pages 37165979213 published a main that includes the merge. Current main and the later exact gh-pages deployment chain preserve all six reviewed markers; current QA-marked live reads confirmed the five rendered document markers, while the homepage fallback marker was confirmed in deployed HTML and the live application showed the corrected country label. Known prior phrases were absent. No traffic, conversion or revenue uplift is claimed.",
       "measurement_annotation": {
         "change_type": "bounded English copy correction",
         "window_policy": "Preserve fixed dates/events; annotate revision and do not claim uplift or attribute a mixed-copy period solely to an earlier release.",
@@ -2835,10 +2860,11 @@
           "verification": "PR #990 source and producer changes passed Build Check 37167277495, merged as 391a9d0a5a93685f34d0f55ceebb2bb02ef59f48, deployed successfully in Site Build 37167569931, and reached Pages in run 37167666341 from gh-pages a068bd7563d8a3c83a06b84693958ca509ce5573. Fresh QA-marked live readback confirmed all three corrected phrases; the three replaced phrases were absent from the corresponding current outputs. No conversion uplift is inferred."
         }
       },
-      "handoff": "Editorial Quality maintains source and producer wording. Complete PR checks, merge, current-main deployment and live readback; Operations Governance synchronizes evidence. Continue contextual English review in the existing workflow.",
+      "handoff": "Operations Governance retains lifecycle stewardship. Editorial Quality continues contextual review as maintenance; this completed bounded six-page correction is not a full-site English certification and must not reset fixed measurement windows.",
       "completion_gate": "production_verified",
-      "completion_gate_satisfied": false,
-      "user_action_required": false
+      "completion_gate_satisfied": true,
+      "user_action_required": false,
+      "completed_at": "2026-10-04T20:24:06.394Z"
     },
     {
       "record_id": "REVENUE:TAGSHOP-TOOL-CTA-20261004",
