@@ -67,6 +67,8 @@
     module.exports = { validDestination, paymentAvailable, validQuote, emailDraft, safeAnalyticsLink, statusText };
   }
   if (typeof document === 'undefined') return;
+  // Inquiry mode must never initialize the dormant payment/application flow.
+  if (document.body?.dataset.advertisingMode === 'inquiry') return;
 
   function emit(eventName, link) {
     if (!['coshuma.com', 'www.coshuma.com'].includes(window.location.hostname)) return;

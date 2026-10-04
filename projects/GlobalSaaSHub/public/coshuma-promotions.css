@@ -21,3 +21,7 @@
 .coshuma-promotion .coshuma-promotion__copy h2{font-size:21px;line-height:1.35}
 .coshuma-promotion .coshuma-promotion__copy p{font-size:14px;line-height:1.65}
 }
+
+.coshuma-promotion .coshuma-promotion__advertiser{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:22px;padding-top:14px;border-top:1px solid #554233;font-size:12px;color:#c3b9d5}
+.coshuma-promotion .coshuma-promotion__advertiser a{display:inline-flex;align-items:center;min-height:44px;color:#f0c878;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.coshuma-promotion .coshuma-promotion__advertiser a:focus-visible{outline:3px solid #f1c56b;outline-offset:4px}

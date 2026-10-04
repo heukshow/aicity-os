@@ -24,6 +24,15 @@
       destination.searchParams.set('coshuma_qa', '1');
       link.href = destination.pathname + destination.search + destination.hash;
     }
+    const interest = card.querySelector('[data-advertiser-interest]');
+    const interestPath = '/advertise.html?placement=' + route[0] + '#inquire';
+    if (interest && interest.getAttribute('href') === interestPath) {
+      if (qa) interest.href = '/advertise.html?placement=' + route[0] + '&coshuma_qa=1#inquire';
+      interest.addEventListener('click', event => {
+        if (!available()) { event.preventDefault(); return; }
+        if (!qa && typeof window.gtag === 'function') window.gtag('event', 'advertiser_interest_click', { promotion_slot: route[0], page_path: path, destination_path: '/advertise.html', transport_type: 'beacon' });
+      });
+    }
     let seen = false, timer = null, inView = false;
     function stopTimer() { window.clearTimeout(timer); timer = null; }
     function available() {
