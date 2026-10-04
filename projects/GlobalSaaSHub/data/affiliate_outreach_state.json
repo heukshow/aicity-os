@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16",
+  "updated_at": "2026-10-04T06:15:38Z",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -1047,12 +1047,13 @@
       "note": "FlowGent's current affiliate landing page advertises 20% lifetime recurring commission and links to Rewardful. The vendor-linked Rewardful enrollment endpoint currently reports 'Affiliate Program Inactive'. Operational enrollment state takes precedence over marketing copy; no application or tracking URL is claimed."
     },
     "google-workspace": {
-      "status": "browser_required_country_eligibility_check",
+      "status": "application_available_account_required",
       "tracking_url": null,
-      "checked_at": "2026-10-03T03:05:00+09:00",
+      "checked_at": "2026-10-04T06:15:38Z",
       "official_program_url": "https://workspace.google.com/intl/ko/affiliate-program/",
-      "next_action": "Check CJ Affiliate enrollment and country eligibility for COSHUMA's business identity before applying. Do not assume eligibility or construct a tracking link.",
-      "note": "Google Workspace's current official Affiliate Program accepts free applications through CJ Affiliate and provides tracked promotional links after approval. COSHUMA country/program eligibility has not yet been verified; exact tracking URL remains null."
+      "next_action": "Reuse an existing COSHUMA-owned CJ publisher account if authenticated evidence becomes available. Otherwise hold: CJ account creation, publisher-agreement consent, tax forms, and payment information are outside the current autonomous application scope. After authorized enrollment, apply to advertiser 5261735 and verify the issued customer-facing tracking URL before any CTA change.",
+      "note": "Google Workspace's current official Korean Affiliate Program page routes free applications through CJ Affiliate. Google's official Affiliate Supported Countries PDF lists South Korea in the Asia Pacific region. The official CJ Google Workspace APAC enrollment page requires an active CJ publisher account, email confirmation, acceptance of CJ Affiliate Publisher Agreements, and company, tax, and payment information for activation. No authenticated COSHUMA-owned CJ publisher session or issued Google Workspace customer tracking URL was observed; no application was submitted.",
+      "application_url": "https://public.cj.com/signup/publisher?advertiserId=5261735"
     },
     "hide-me": {
       "status": "browser_required_application_form",
