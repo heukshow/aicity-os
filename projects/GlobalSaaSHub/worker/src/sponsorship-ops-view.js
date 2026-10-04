@@ -176,6 +176,21 @@ export function sponsorshipOpsClient() {
       const httpStatus = Number.isInteger(diagnostic.httpStatus) && diagnostic.httpStatus >= 100 && diagnostic.httpStatus <= 599 ? ` · PayPal HTTP ${diagnostic.httpStatus}` : '';
       parts.push(`진단 단계: ${stages[diagnostic.stage]}${httpStatus} · ${codes[diagnostic.code]}`);
     }
+    const discovery = value?.webhookDiscovery;
+    if (discovery?.status === 'found' && Array.isArray(discovery.candidates)) {
+      parts.push('현재 인증 앱에서 콜백 주소가 정확히 일치하는 후보를 찾았습니다. 후보는 아직 설정에 연결되지 않았으며 현재 알림 준비 상태는 미확인입니다.');
+      for (const candidate of discovery.candidates) {
+        if (typeof candidate?.id !== 'string' || !/^[A-Za-z0-9_-]{1,128}$/.test(candidate.id)) continue;
+        parts.push(`후보 ID: ${candidate.id} · 후보의 필수 알림 구독: ${candidate.requiredEventsVerified === true ? '확인' : '확인 필요'}`);
+      }
+    } else if (discovery?.status === 'none') {
+      parts.push('현재 인증 앱의 목록에서 콜백 주소가 정확히 일치하는 등록을 찾지 못했습니다.');
+    } else if (discovery?.status === 'failed') {
+      const detail = discovery.diagnostic;
+      const status = Number.isInteger(detail?.httpStatus) && detail.httpStatus >= 100 && detail.httpStatus <= 599 ? ` · PayPal HTTP ${detail.httpStatus}` : '';
+      const reason = detail && Object.hasOwn(codes, detail.code) ? codes[detail.code] : codes.unknown_error;
+      parts.push(`현재 인증 앱의 알림 목록 조회를 완료하지 못했습니다${status} · ${reason}`);
+    }
     if (typeof value?.readinessVerifiedAt === 'string' && /(Z|[+-]\d{2}:\d{2})$/i.test(value.readinessVerifiedAt) && Number.isFinite(Date.parse(value.readinessVerifiedAt))) {
       parts.push(`조회 시각: ${new Date(value.readinessVerifiedAt).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })} KST`);
     }

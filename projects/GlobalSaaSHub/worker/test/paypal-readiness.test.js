@@ -89,11 +89,12 @@ test('webhook 404 preserves verified OAuth while keeping webhook, merchant and p
     if (url.endsWith('/v1/oauth2/token')) return new Response(JSON.stringify({ access_token: 'SYNTHETIC-TOKEN' }));
     return new Response(JSON.stringify({ message: 'SYNTHETIC-WEBHOOK', debug_id: 'SYNTHETIC-DEBUG', client_secret: 'SYNTHETIC-SECRET' }), { status: 404 });
   });
-  assert.deepEqual(calls, ['POST', 'GET']);
+  assert.deepEqual(calls, ['POST', 'GET', 'GET']);
   assert.deepEqual(result, {
     providerAuthenticationVerified: true, webhookUrlVerified: false, requiredEventsVerified: false,
     merchantIdentityVerified: false, configurationOnly: true,
     diagnostic: { stage: 'webhook_lookup', code: 'provider_http_error', httpStatus: 404 },
+    webhookDiscovery: { status: 'failed', candidates: [], diagnostic: { stage: 'webhook_discovery', code: 'provider_http_error', httpStatus: 404 } },
   });
   assert.doesNotMatch(JSON.stringify(result), /SYNTHETIC|debug_id|client_secret|access_token|worker\.example/);
 });
@@ -123,4 +124,77 @@ test('ordinary payment reads still reject provider failures instead of returning
   await assert.rejects(getPayPalOrder(syntheticEnv, 'SYNTHETIC-ORDER', async () => new Response('{}', { status: 401 })), { message: 'PayPal authentication failed' });
   await assert.rejects(getPayPalOrder(syntheticEnv, 'SYNTHETIC-ORDER', async (url) => url.endsWith('/v1/oauth2/token')
     ? new Response(JSON.stringify({ access_token: 'SYNTHETIC-TOKEN' })) : new Response('{}', { status: 404 })), { message: 'PayPal request failed (404)' });
+});
+
+test('configured webhook 404 discovers exact URL candidates in the same app token without changing binding or readiness', async () => {
+  const expectedUrl = 'https://worker.example/v1/webhooks/paypal';
+  const env = { ...syntheticEnv, CHECKOUT_ENABLED: 'false' };
+  const calls = [];
+  const result = await checkPayPalReadiness(env, expectedUrl, async (url, options = {}) => {
+    const path = new URL(url).pathname;
+    calls.push([options.method || 'GET', path]);
+    if (path === '/v1/oauth2/token') return new Response(JSON.stringify({ access_token: 'SYNTHETIC-TOKEN' }));
+    assert.equal(options.headers.Authorization, 'Bearer SYNTHETIC-TOKEN', 'both reads reuse the same authenticated app token');
+    if (path === '/v1/notifications/webhooks/SYNTHETIC-WEBHOOK') return new Response('{}', { status: 404 });
+    assert.equal(url, 'https://api-m.paypal.com/v1/notifications/webhooks', 'default app scope only');
+    return new Response(JSON.stringify({ webhooks: [
+      { id: 'MATCH-1', url: expectedUrl, event_types: registeredEvents.map((name) => ({ name })), links: [{ href: 'SECRET-LINK' }] },
+      { id: 'MATCH-2', url: expectedUrl, event_types: [{ name: 'PAYMENT.CAPTURE.COMPLETED' }], description: 'SECRET-DESCRIPTION' },
+      { id: 'OTHER-SLASH', url: expectedUrl + '/', event_types: [{ name: '*' }] },
+      { id: 'OTHER-QUERY', url: expectedUrl + '?secret=1', event_types: [{ name: '*' }] },
+      { id: 'OTHER-HOST', url: 'https://another.example/v1/webhooks/paypal', event_types: [{ name: '*' }] },
+    ], raw: 'SECRET-RESPONSE' }));
+  });
+  assert.deepEqual(calls, [['POST', '/v1/oauth2/token'], ['GET', '/v1/notifications/webhooks/SYNTHETIC-WEBHOOK'], ['GET', '/v1/notifications/webhooks']]);
+  assert.equal(result.webhookDiscovery.status, 'found');
+  assert.deepEqual(result.webhookDiscovery.candidates.map((candidate) => candidate.id), ['MATCH-1', 'MATCH-2']);
+  assert.equal(result.webhookDiscovery.candidates[0].requiredEventsVerified, true);
+  assert.equal(result.webhookDiscovery.candidates[1].requiredEventsVerified, false);
+  assert.ok(result.webhookDiscovery.candidates[1].missingRequiredEvents.includes('PAYMENT.CAPTURE.REFUNDED'));
+  assert.equal(result.providerAuthenticationVerified, true);
+  assert.equal(result.webhookUrlVerified, false);
+  assert.equal(result.requiredEventsVerified, false);
+  assert.equal(result.merchantIdentityVerified, false);
+  assert.equal(result.configurationOnly, true);
+  assert.equal(result.diagnostic.httpStatus, 404);
+  assert.equal(env.PAYPAL_WEBHOOK_ID, 'SYNTHETIC-WEBHOOK');
+  assert.equal(env.CHECKOUT_ENABLED, 'false');
+  assert.doesNotMatch(JSON.stringify(result), /SECRET|OTHER-|SYNTHETIC-TOKEN|SYNTHETIC-CLIENT|SYNTHETIC-SECRET|worker\.example|another\.example/);
+});
+
+test('webhook discovery does not broaden a non-404 failure into app enumeration', async () => {
+  for (const status of [401, 403, 500]) {
+    let calls = 0;
+    const result = await checkPayPalReadiness(syntheticEnv, 'https://worker.example/v1/webhooks/paypal', async (url) => {
+      calls++;
+      if (url.endsWith('/v1/oauth2/token')) return new Response(JSON.stringify({ access_token: 'SYNTHETIC-TOKEN' }));
+      assert.ok(url.endsWith('/webhooks/SYNTHETIC-WEBHOOK'));
+      return new Response('{}', { status });
+    });
+    assert.equal(calls, 2);
+    assert.equal(result.webhookDiscovery, undefined);
+  }
+});
+
+test('discovery distinguishes no match from list failure and rejects unvalidated candidate IDs', async () => {
+  const expectedUrl = 'https://worker.example/v1/webhooks/paypal';
+  for (const [listResponse, expectedStatus, code] of [
+    [() => new Response(JSON.stringify({ webhooks: [{ id: 'OTHER-ID', url: 'https://another.example', event_types: [{ name: '*' }] }] })), 'none', 'complete'],
+    [() => new Response(JSON.stringify({ error: 'SECRET-PROVIDER-DETAIL' }), { status: 403 }), 'failed', 'provider_http_error'],
+    [() => { throw new Error('SECRET-NETWORK-DETAIL'); }, 'failed', 'network_error'],
+    [() => new Response(JSON.stringify({ webhooks: 'SECRET-MALFORMED-LIST' })), 'failed', 'unknown_error'],
+    [() => new Response(JSON.stringify({ webhooks: [{ id: '<script>SECRET</script>', url: expectedUrl, event_types: [{ name: '*' }] }] })), 'failed', 'unknown_error'],
+  ]) {
+    const result = await checkPayPalReadiness(syntheticEnv, expectedUrl, async (url) => {
+      if (url.endsWith('/v1/oauth2/token')) return new Response(JSON.stringify({ access_token: 'SYNTHETIC-TOKEN' }));
+      if (url.endsWith('/webhooks/SYNTHETIC-WEBHOOK')) return new Response('{}', { status: 404 });
+      return listResponse();
+    });
+    assert.equal(result.webhookDiscovery.status, expectedStatus);
+    assert.deepEqual(result.webhookDiscovery.candidates, []);
+    assert.equal(result.webhookDiscovery.diagnostic.code, code);
+    assert.equal(result.webhookUrlVerified, false);
+    assert.equal(result.requiredEventsVerified, false);
+    assert.doesNotMatch(JSON.stringify(result), /SECRET|OTHER-ID|another\.example|<script>/);
+  }
 });

@@ -234,3 +234,35 @@ test('readiness failures display fixed stage and HTTP diagnostics without render
   await unexpected.nodes.get('verify-readiness').dispatch('click');
   assert.doesNotMatch(unexpected.nodes.get('connection-result').textContent, /SECRET/);
 });
+
+test('owner discovery displays validated candidate IDs separately from the still-unverified configured webhook', async () => {
+  const state = browser(render(), async () => ({ ok: true, status: 200, json: async () => ({
+    providerAuthenticationVerified: true, webhookUrlVerified: false, requiredEventsVerified: false, merchantIdentityVerified: false,
+    diagnostic: { stage: 'webhook_lookup', code: 'provider_http_error', httpStatus: 404 },
+    webhookDiscovery: { status: 'found', candidates: [
+      { id: 'MATCH-1', requiredEventsVerified: true, url: 'SECRET-URL', raw: 'SECRET-RAW' },
+      { id: 'MATCH-2', requiredEventsVerified: false },
+      { id: '<script>SECRET-ID</script>', requiredEventsVerified: true },
+    ] },
+  }) }));
+  await state.nodes.get('verify-readiness').dispatch('click');
+  const shown = state.nodes.get('connection-result').textContent;
+  assert.match(shown, /결제 알림 주소 조회: 미확인/);
+  assert.match(shown, /필수 결제 알림 구독: 미확인/);
+  assert.match(shown, /후보 ID: MATCH-1 · 후보의 필수 알림 구독: 확인/);
+  assert.match(shown, /후보 ID: MATCH-2 · 후보의 필수 알림 구독: 확인 필요/);
+  assert.match(shown, /아직 설정에 연결되지 않았으며/);
+  assert.doesNotMatch(shown, /SECRET|<script>/);
+  assert.equal(state.requests.length, 1);
+  assert.equal(state.reloads, 0);
+  assert.equal(state.nodes.get('ops-result').attributes.role, 'alert');
+  for (const [status, expected] of [['none', /등록을 찾지 못했습니다/], ['failed', /목록 조회를 완료하지 못했습니다/]]) {
+    const empty = browser(render(), async () => ({ ok: true, status: 200, json: async () => ({
+      diagnostic: { stage: 'webhook_lookup', code: 'provider_http_error', httpStatus: 404 },
+      webhookDiscovery: { status, candidates: [], diagnostic: { code: 'network_error', httpStatus: null }, raw: 'SECRET-DETAIL' },
+    }) }));
+    await empty.nodes.get('verify-readiness').dispatch('click');
+    assert.match(empty.nodes.get('connection-result').textContent, expected);
+    assert.doesNotMatch(empty.nodes.get('connection-result').textContent, /SECRET/);
+  }
+});
