@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "enabled": true,
+  "purpose": "Owner-authorized COSHUMA self-promotion; not a paid placement or revenue record.",
+  "promotions": [
+    {
+      "id": "coshuma-tool-guides-20261005",
+      "page": "/tool/pipedrive.html",
+      "slot": "tool-primary",
+      "format": "square",
+      "image": "/promotions/coshuma-tool.webp",
+      "width": 600,
+      "height": 600,
+      "max_bytes": 300000,
+      "alt": "COSHUMA software selection guide: compare pricing, features and fit.",
+      "title": "Find software that fits your team",
+      "description": "Compare software prices, features and use cases with COSHUMA's guides to find a tool that suits your team.",
+      "button": "Explore software guides",
+      "destination": "/best/index.html",
+      "next_heading": "Current Pipedrive plan snapshot"
+    },
+    {
+      "id": "coshuma-call-checklist-20261005",
+      "page": "/best/claap-sales-follow-up-ai.html",
+      "slot": "buyer-intent-top",
+      "format": "landscape",
+      "image": "/promotions/coshuma-guide.webp",
+      "width": 1200,
+      "height": 675,
+      "max_bytes": 500000,
+      "alt": "COSHUMA call-review checklist: evidence, customer concerns, actions, responsibilities and CRM updates.",
+      "title": "Review sales calls with a checklist",
+      "description": "Review call notes, customer concerns, agreed actions, responsibilities, deadlines and CRM updates with COSHUMA's three-call checklist.",
+      "button": "Open the checklist",
+      "destination": "/best/claap-sales-follow-up-ai.html#claap-3-call-checklist",
+      "next_heading": "Where sales follow-up usually breaks"
+    },
+    {
+      "id": "coshuma-compare-20261005",
+      "page": "/compare/semrush-vs-frase.html",
+      "slot": "compare-decision-premium",
+      "format": "wide",
+      "image": "/promotions/coshuma-comparison.webp",
+      "width": 1200,
+      "height": 400,
+      "max_bytes": 400000,
+      "alt": "COSHUMA comparison guide highlighting software prices, use cases and limitations.",
+      "title": "Compare your options before you subscribe",
+      "description": "Compare software prices, use cases and limitations on COSHUMA before choosing a subscription.",
+      "button": "Browse comparisons",
+      "destination": "/compare/",
+      "next_heading": "Sources and method"
+    }
+  ]
+}
