@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-04T01:43:04Z",
+  "updated_at": "2026-10-04T02:37:00Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -648,14 +648,32 @@
     {
       "id": "C03",
       "owner": "Editorial Quality Team",
-      "status": "planned",
+      "status": "production_verified",
       "type": "substantive_existing_asset_update",
       "target_urls": [
         "https://coshuma.com/tool/pictory.html"
       ],
       "scope": "Text and comparison tables only. Evidence-backed workflow and plan-choice guidance using approved assets; avoid claiming unperformed hands-on tests. Use verified trial/code terms and preserve exact affiliate destinations. Do not generate, edit or upload video to support this article.",
       "basis": "GA 30-day page 8 views/4 active users/1 affiliate click; two Pictory clicks including the existing trials/deals hub.",
-      "output_evidence": []
+      "output_evidence": [
+        {
+          "implementation_pr": 996,
+          "final_head_commit": "90c9d2a963ad3bcceffc2c4f076d3780f78e1e1a",
+          "merge_commit": "e6a52483e17c57e4cf9da464112433887a921e6a",
+          "pr_build_run": 37171007176,
+          "site_deploy_run": 37171329786,
+          "deployment_source_commit": "e6a52483e17c57e4cf9da464112433887a921e6a",
+          "gh_pages_commit": "8f9fd3e6f5d1395d3f4ed716bd775fa109ba202f",
+          "github_pages_run": 37171404067,
+          "production_verification_comment_id": 5975851844,
+          "evidence_url": "https://github.com/heukshow/aicity-os/issues/292#issuecomment-5975851844",
+          "verified_at": "2026-10-04T02:37:00Z",
+          "live_urls": [
+            "https://coshuma.com/tool/pictory.html?coshuma_qa=1&deploy=e6a52483e17c"
+          ],
+          "live_result": "Live HTTP 200 page contains the C03 workflow checklist and plan-choice guidance, the exact Pictory affiliate destination, sponsored attribution and COSHUMA20. No hands-on use, conversion uplift, traffic gain or revenue is claimed."
+        }
+      ]
     },
     {
       "id": "C04",
@@ -823,7 +841,7 @@
     ],
     "duplicate_prevention": "Record report delivery evidence only after a confirmed send, and reuse the existing report states. Schedule configuration alone is not delivery."
   },
-  "current_work_item": "C03",
+  "current_work_item": "C04",
   "verified_delivery_counts": {
     "substantive_content_assets": 2,
     "public_social_posts": 1,
