@@ -13,7 +13,7 @@ enabled = true
 [vars]
 PAYPAL_ENVIRONMENT = "live"
 ALLOWED_ORIGIN = "https://coshuma.com"
-CHECKOUT_ENABLED = "true"
+CHECKOUT_ENABLED = "false"
 GA_PROPERTY_ID = "552233666"
 GSC_SITE_URL = "https://coshuma.com/"
 
