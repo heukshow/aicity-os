@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T14:25:33Z",
+  "updated_at": "2026-10-04T14:36:53Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2257,10 +2257,10 @@
       "canonical_owner": "Operations Governance Team",
       "found_by": "Operations Governance Team",
       "lifecycle": "in_progress",
-      "next_owner": "Revenue Optimization Team",
+      "next_owner": "Editorial Quality Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-10-04T02:37:00Z",
+      "last_evidence_at": "2026-10-04T14:36:53Z",
       "evidence": {
         "campaign_source": "projects/GlobalSaaSHub/data/campaigns/2026-10-autonomous-growth.json",
         "plan_source": "projects/GlobalSaaSHub/docs/2026-10-autonomous-growth-plan.md",
@@ -2554,13 +2554,24 @@
           "verified_at": "2026-10-04T02:37:00Z",
           "live_url": "https://coshuma.com/tool/pictory.html?coshuma_qa=1&deploy=e6a52483e17c",
           "result": "production_verified"
+        },
+        "current_work_item": "C05",
+        "verified_substantive_content_assets": 4,
+        "routing_sync": {
+          "found_by": "Revenue Optimization Team",
+          "fixed_by": "Revenue Optimization Team",
+          "canonical_owner": "Operations Governance Team",
+          "reason": "Campaign SSOT advanced from production-verified C04 to planned C05, whose declared owner is Editorial Quality Team; the registry still pointed to Revenue Optimization Team and retained the old C04 handoff.",
+          "changed_scope": "This campaign registry record only; no page, CTA, affiliate destination, disclosure, event definition, outcome, revenue truth, spend, or campaign asset state changed.",
+          "source": "projects/GlobalSaaSHub/data/campaigns/2026-10-autonomous-growth.json",
+          "synchronized_at": "2026-10-04T14:36:53Z"
         }
       },
       "completion_gate": "campaign_period_ended_and_source_evidenced_outcomes_and_closeout_report",
       "completion_gate_satisfied": false,
       "user_action_required": false,
-      "verification": "C01, C02 and C03 source/build/deploy/live evidence is preserved. C03 exposes the text/static Pictory workflow and plan-choice guide with the verified affiliate destination and disclosure; no hands-on use, uplift or revenue result is claimed. The campaign remains in progress.",
-      "handoff": "Revenue Optimization Team owns C04 Jotform next; do not repeat C01-C03. Audience Growth continues approved public Threads activity under the daily caps and records only public evidence. Keep text/static-only, no additional spend, and existing experiment windows."
+      "verification": "C01-C04 source/build/deploy/live evidence remains preserved. Current campaign SSOT shows C04 production_verified, four substantive content assets, and current_work_item=C05. The overall campaign remains in_progress and completion_gate_satisfied=false; no conversion uplift or revenue result is claimed.",
+      "handoff": "Editorial Quality Team owns planned C05, a distinct text/static supporting decision asset selected from current evidence. Revenue Optimization Team continues read-only conversion and affiliate-click monitoring and must not recreate C04 or change protected experiment CTAs without a confirmed narrow bug."
     },
     {
       "record_id": "REVENUE:SPONSORSHIP-SALES-REOPEN-20261004",
