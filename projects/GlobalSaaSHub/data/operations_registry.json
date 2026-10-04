@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T15:02:20Z",
+  "updated_at": "2026-10-04T15:57:32.956Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1410,24 +1410,24 @@
       "canonical_owner": "Operations Governance Team",
       "found_by": "COSHUMA Team Watchdog",
       "fixed_by": "Operations Governance Team",
-      "changed_scope": "Latest direct native schedule evidence for all six monitored workflows, the newest Registry owner-gated fallback recovery, and fresh Registry/Growth native successes were synchronized. Two native schedules remain overdue: Cloud Control Plane and Analytics Snapshot. No cron, workflow logic, public UI, measurement definition, affiliate state, payment setting, credential, service or spend was changed.",
+      "changed_scope": "Latest direct native schedule evidence for all six monitored workflows and the newest Analytics owner-gated fallback recovery were synchronized. Cloud Control Plane returned with a fresh native schedule success; two native schedules remain overdue: Analytics Snapshot and Royal Queue Reconcile Status. No cron, workflow logic, public UI, measurement definition, affiliate state, payment setting, credential, service or spend was changed.",
       "lifecycle": "in_progress",
       "operational_status": "mitigated",
       "root_cause": "github_schedule_best_effort",
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": "native_schedule_fidelity_observation_only",
-      "last_evidence_at": "2026-10-04T15:02:20Z",
+      "last_evidence_at": "2026-10-04T15:57:32.956Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "7,22,37,52 * * * *",
-        "last_actual_scheduled_run_id": 37198430137,
-        "last_actual_scheduled_run_at": "2026-10-04T11:20:53Z",
+        "last_actual_scheduled_run_id": 37214721893,
+        "last_actual_scheduled_run_at": "2026-10-04T15:53:46Z",
         "recovery_run_id": 36289364625,
         "recovery_run_attempt": 2,
         "recovery_completed_at": "2026-09-27T03:18:31Z",
         "downstream_growth_run_id": 36291024934,
-        "checked_at": "2026-10-04T15:02:20Z",
+        "checked_at": "2026-10-04T15:57:32.956Z",
         "scheduler_mitigation": {
           "cron_stagger_pr": 885,
           "cron_stagger_merge": "96002c5f6369ec4e90e48480ed612e7c88d86b27",
@@ -1464,12 +1464,15 @@
               "target_conclusion": "success"
             },
             "coshuma-analytics-snapshot.yml": {
-              "marker_comment_id": 5857247641,
-              "fallback_workflow_run_id": 36329866750,
-              "target_workflow_run_id": 36329872044,
+              "marker_comment_id": 5981733603,
+              "verification_comment_id": 5981763526,
+              "fallback_workflow_run_id": 37214145438,
+              "target_workflow_run_id": 37214152239,
               "target_event": "workflow_dispatch",
               "fallback_conclusion": "success",
-              "target_conclusion": "success"
+              "target_conclusion": "success",
+              "completed_at": "2026-10-04T15:48:07Z",
+              "measurement_window_note": "Availability recovery only; fixed 7/30-day measurement definitions and maturity gates remain unchanged."
             },
             "coshuma-release-verification.yml": {
               "marker_comment_id": 5980680907,
@@ -1502,19 +1505,19 @@
         ],
         "github_reported_actor": null,
         "github_reported_reason": null,
-        "latest_repository_schedule_run_id": 37211239415,
-        "latest_repository_schedule_run_at": "2026-10-04T14:58:23Z",
+        "latest_repository_schedule_run_id": 37214721893,
+        "latest_repository_schedule_run_at": "2026-10-04T15:53:46Z",
         "affected_workflows": {
           "COSHUMA Cloud Control Plane": {
-            "latest_schedule_run_id": 37198430137,
-            "latest_schedule_run_at": "2026-10-04T11:20:53Z",
-            "recovery_status": "native_schedule_overdue_operational_fallback_verified",
+            "latest_schedule_run_id": 37214721893,
+            "latest_schedule_run_at": "2026-10-04T15:53:46Z",
+            "recovery_status": "latest_native_success_within_two_expected_periods_after_new_stall_window",
             "current_cron": "7,22,37,52 * * * *"
           },
           "Royal Queue Reconcile Status": {
             "latest_schedule_run_id": 37205096911,
             "latest_schedule_run_at": "2026-10-04T13:17:33Z",
-            "recovery_status": "latest_native_success_within_two_expected_periods",
+            "recovery_status": "native_schedule_overdue_awaiting_single_target_continuation",
             "current_cron": "19 * * * *",
             "operational_fallback": {
               "marker_comment_id": 5978630348,
@@ -1541,13 +1544,15 @@
             "recovery_status": "native_schedule_overdue_operational_fallback_verified",
             "current_cron": "11 * * * *",
             "operational_fallback": {
-              "marker_comment_id": 5857247641,
-              "fallback_workflow_run_id": 36329866750,
-              "target_workflow_run_id": 36329872044,
+              "marker_comment_id": 5981733603,
+              "verification_comment_id": 5981763526,
+              "fallback_workflow_run_id": 37214145438,
+              "target_workflow_run_id": 37214152239,
               "target_event": "workflow_dispatch",
-              "conclusion": "success",
-              "completed_at": "2026-09-27T15:35:02Z",
-              "measurement_window_note": "Asia/Seoul fixed post period began 2026-09-28; this run preserves collection availability and is not an uplift claim."
+              "fallback_conclusion": "success",
+              "target_conclusion": "success",
+              "completed_at": "2026-10-04T15:48:07Z",
+              "measurement_window_note": "Availability recovery only; fixed 7/30-day measurement definitions and maturity gates remain unchanged."
             }
           },
           "COSHUMA Release Verification": {
@@ -1569,7 +1574,7 @@
           "COSHUMA Registry Reconciliation": {
             "latest_schedule_run_id": 37211239415,
             "latest_schedule_run_at": "2026-10-04T14:58:23Z",
-            "recovery_status": "latest_native_success_within_two_expected_periods_after_operational_fallback",
+            "recovery_status": "latest_native_success_within_two_expected_periods",
             "current_cron": "41 * * * *",
             "operational_fallback": {
               "marker_comment_id": 5981188624,
@@ -2012,18 +2017,18 @@
           }
         },
         "latest_governance_observation": {
-          "observed_at": "2026-10-04T15:02:20Z",
+          "observed_at": "2026-10-04T15:57:32.956Z",
           "overdue_count": 2,
           "overdue_targets": [
-            "COSHUMA Cloud Control Plane",
-            "COSHUMA Analytics Snapshot"
+            "COSHUMA Analytics Snapshot",
+            "Royal Queue Reconcile Status"
           ],
           "native_schedule_runs": {
             "COSHUMA Cloud Control Plane": {
-              "run_id": 37198430137,
-              "scheduled_at": "2026-10-04T11:20:53Z",
+              "run_id": 37214721893,
+              "scheduled_at": "2026-10-04T15:53:46Z",
               "conclusion": "success",
-              "within_two_expected_periods": false
+              "within_two_expected_periods": true
             },
             "COSHUMA Release Verification": {
               "run_id": 37209284869,
@@ -2053,27 +2058,28 @@
               "run_id": 37205096911,
               "scheduled_at": "2026-10-04T13:17:33Z",
               "conclusion": "success",
-              "within_two_expected_periods": true
+              "within_two_expected_periods": false
             }
           },
-          "newest_registry_recovery": {
-            "marker_comment_id": 5981188624,
-            "verification_comment_id": 5981215296,
-            "fallback_workflow_run_id": 37210269718,
-            "target_workflow_run_id": 37210275280,
+          "newest_analytics_recovery": {
+            "marker_comment_id": 5981733603,
+            "verification_comment_id": 5981763526,
+            "fallback_workflow_run_id": 37214145438,
+            "target_workflow_run_id": 37214152239,
             "target_event": "workflow_dispatch",
             "fallback_conclusion": "success",
-            "target_conclusion": "success"
+            "target_conclusion": "success",
+            "target_source_sha": "9bd1f6733d7626eddc806f436388954bece4028c"
           },
-          "completion_boundary": "Registry and Growth now have fresh native schedule successes, but Cloud and Analytics are still overdue and the two-consecutive-native-run completion gate remains false."
+          "completion_boundary": "Cloud Control Plane has a fresh native schedule success. Analytics Snapshot and Royal Queue Reconcile Status remain overdue; workflow_dispatch fallback does not satisfy the two-consecutive-native-run completion gate."
         }
       },
       "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
       "completion_gate_satisfied": false,
       "availability_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "All six latest native schedule successes were reread directly at 2026-10-04T15:02:20Z. Registry run 37211239415 and Growth run 37211093377 are fresh native schedule successes. Release and Royal Queue remain current. Cloud and Analytics remain overdue. Registry fallback 37210269718 and target workflow_dispatch 37210275280 were independently verified successful; fallback is availability recovery only.",
-      "handoff": "Continue this same incident. Recheck Cloud Control Plane and Analytics Snapshot first. Use the existing owner-gated fallback only after an immediate native schedule recheck and duplicate-marker check. Preserve the two-consecutive-native-run completion gate.",
+      "verification": "All six latest native schedule successes were reread directly at 2026-10-04T15:57:32.956Z. Cloud Control Plane run 37214721893 is a fresh native schedule success. Release, Registry and Growth remain current. Analytics and Royal Queue remain overdue. Analytics fallback 37214145438 and target workflow_dispatch 37214152239 were independently verified successful; fallback is availability recovery only.",
+      "handoff": "Continue this same incident. Recheck Analytics Snapshot and Royal Queue Reconcile Status first. Use the existing owner-gated fallback only after an immediate native schedule recheck and duplicate-marker check. Preserve the two-consecutive-native-run completion gate.",
       "completed_at": null
     },
     {
