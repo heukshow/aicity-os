@@ -131,7 +131,7 @@
       '[data-coshuma-decision-dock="1"] .coshuma-dock-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}',
       '[data-coshuma-decision-dock="1"] .coshuma-dock-kicker{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#c4b5fd}',
       '[data-coshuma-decision-dock="1"] .coshuma-dock-copy{margin-top:3px;font-size:12px;line-height:1.45;color:#aeb7ca}',
-      '[data-coshuma-decision-dock="1"] .coshuma-dock-close{min-width:36px;min-height:36px;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:rgba(255,255,255,.05);color:#cbd5e1;font-size:20px;line-height:1;cursor:pointer}',
+      '[data-coshuma-decision-dock="1"] .coshuma-dock-close{min-width:44px;min-height:44px;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:rgba(255,255,255,.05);color:#cbd5e1;font-size:20px;line-height:1;cursor:pointer}',
       '[data-coshuma-decision-dock="1"] .coshuma-dock-actions{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:8px}',
       '[data-coshuma-decision-dock="1"] .coshuma-dock-save,[data-coshuma-decision-dock="1"] .coshuma-dock-cta{min-height:44px;border-radius:12px;padding:10px 12px;font-size:12px;font-weight:800;text-align:center;display:flex;align-items:center;justify-content:center;text-decoration:none}',
       '[data-coshuma-decision-dock="1"] .coshuma-dock-save{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#e2e8f0;cursor:pointer}',
