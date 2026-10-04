@@ -6,7 +6,7 @@ const expected = new Map([
   ['carv','waiting_vendor_eligibility_clarification'],
   ['chatbot','referral_link_requested'],
   ['docusign','browser_required_captcha_program_form'],
-  ['dub','browser_required_program_enrollment'],
+  ['dub','browser_required_legal_program_consent'],
   ['expandi','waiting_vendor_requirement'],
   ['featureshark','waiting_vendor_response'],
   ['flowgent-ai','program_inactive'],
