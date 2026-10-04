@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-04T21:00:00Z",
+  "updated_at": "2026-10-04T22:41:06Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -1070,7 +1070,26 @@
         "automated_email": false,
         "form_storage_or_transmission": false,
         "payment_or_provider_call": false,
-        "revenue_claim": false
+        "revenue_claim": false,
+        "inquiry_duration_fix": {
+          "implementation_pr": 1028,
+          "merge_commit": "fcf43df6b9199fc1ebc60824f5c48199840f6bca",
+          "pr_build_run": 37235294522,
+          "site_build_deploy_run": 37240618692,
+          "pages_run": 37240737939,
+          "gh_pages_commit": "0f62e021579d8f7cf781694734d6ef27b7a6fc6a",
+          "live_evidence_comment_id": 5985242463,
+          "live_url": "https://coshuma.com/advertise.html?coshuma_qa=1",
+          "publication_status": "production_verified",
+          "verified_options_days": [
+            7,
+            30,
+            90
+          ],
+          "malformed_option_markup_present": false,
+          "changed_scope": "Inquiry duration selector markup only; no price, payment, measurement or revenue claim changed.",
+          "conversion_uplift_confirmed": false
+        }
       }
     }
   },
