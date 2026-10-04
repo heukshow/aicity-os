@@ -58,11 +58,11 @@ const states = {
     next: 'Do not apply or publish an affiliate URL while the vendor-linked Rewardful enrollment route reports the program inactive.',
   },
   'google-workspace': {
-    stale: [null, 'unclassified'],
-    status: 'browser_required_country_eligibility_check',
+    stale: [null, 'unclassified', 'browser_required_country_eligibility_check'],
+    status: 'application_available_account_required',
     source: 'https://workspace.google.com/intl/ko/affiliate-program/',
-    workflow: 'https://workspace.google.com/intl/ko/affiliate-program/',
-    next: 'Check CJ Affiliate enrollment and country eligibility before applying. Do not assume eligibility or construct a tracking link.',
+    workflow: 'https://public.cj.com/signup/publisher?advertiserId=5261735',
+    next: 'Reuse an existing COSHUMA-owned CJ publisher account if authenticated evidence becomes available. Otherwise hold: CJ account creation, publisher-agreement consent, tax forms, and payment information are outside the current autonomous application scope. After authorized enrollment, apply to advertiser 5261735 and verify the issued customer-facing tracking URL before any CTA change.',
   },
   'hide-me': {
     stale: [null, 'unclassified', 'application_available'],
