@@ -3402,18 +3402,22 @@
     "official_verified_at": "2026-09-11T00:00:00+09:00",
     "official_evidence_url": "https://invideo.io/",
     "affiliate_verified": true,
-    "affiliate_status": "application_available_impact",
+    "affiliate_status": "browser_required_legal_program_consent",
     "affiliate_source_url": "https://invideo.io/make/affiliate-program/",
     "affiliate_verified_at": "2026-09-11T05:26:00Z",
     "affiliate_evidence_markers": [
       "Official InVideo affiliate program is free to join and open to everyone",
+      "2026-10-05 live official enrollment check reached Impact and requires affirmative acceptance of the InVideo offer before all continuation/sign-in controls are enabled",
       "Official terms: 50% commission on monthly plans and 25% on annual plans for the first billing cycle",
       "Program is managed by Impact.com and uses the Impact account used to enroll for payouts",
       "Referral click window is 120 days; free signups themselves earn no commission",
       "support@coshuma.com Gmail search found no prior InVideo application, approval, rejection, tracking-link, commission, or payout mail in the last 180 days as of 2026-09-11",
       "No COSHUMA-specific customer-facing InVideo tracking URL is verified yet; do not publish a generic or guessed affiliate URL",
       "GitHub issue #391 holds the browser-only existing-Impact-account check and enrollment guard"
-    ]
+    ],
+    "affiliate_workflow_url": "https://invideo.io/make/affiliate-program/",
+    "affiliate_status_checked_at": "2026-10-05T07:19:22+09:00",
+    "affiliate_next_action": "The account holder must review and accept the InVideo offer in the official Impact enrollment flow. After consent, reuse the existing COSHUMA Impact identity if available, check for an existing InVideo application, submit once only if absent, and recover only the exact vendor-issued customer-facing tracking URL. Stop for CAPTCHA, OTP, payment approval or forced identity verification."
   },
   {
     "id": "jasper",
