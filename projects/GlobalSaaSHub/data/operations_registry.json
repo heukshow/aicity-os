@@ -2826,7 +2826,8 @@
             "https://coshuma.com/tool/descript.html?coshuma_qa=1"
           ],
           "result": "Five document markers were visible in current live rendered text. The homepage reviewed marker is fallback-source copy rather than rendered application text; it was verified in the deployed gh-pages HTML. The live application shows the separately corrected All countries and regions label. No old known phrase was found."
-        }
+        },
+        "production_verification_comment_id": 5975178165
       },
       "changed_scope": "English wording only on six existing pages plus the matching Descript source template; read-only regression gate and editorial maintenance contract. No payment, price, link, disclosure, event definition or fixed-period boundary changes.",
       "verification": "PR #986 Build Check succeeded and merged. Site Build & Deploy 37165899570 and Pages 37165979213 published a main that includes the merge. Current main and the later exact gh-pages deployment chain preserve all six reviewed markers; current QA-marked live reads confirmed the five rendered document markers, while the homepage fallback marker was confirmed in deployed HTML and the live application showed the corrected country label. Known prior phrases were absent. No traffic, conversion or revenue uplift is claimed.",
