@@ -7,6 +7,111 @@ MARKER = "<!-- COSHUMA_TAGSHOP_VERIFIED_OFFER -->"
 TRACKING_URL = "https://tagshop.ai?via=coshuma-22501e"
 ADMIN_URL = "https://tagshop.firstpromoter.com/login"
 
+def ensure_tool_partner_cta(tool_id, official_url, tracking_url, label, source):
+    page = ROOT / "public" / "tool" / f"{tool_id}.html"
+    if not page.exists():
+        raise SystemExit(f"Missing tool page: {page}")
+
+    page_html = page.read_text(encoding="utf-8")
+    marker = f'data-cta-source="{source}"'
+    partner = (
+        f'<a data-cta="affiliate" data-tool-id="{tool_id}" '
+        f'data-cta-source="{source}" href="{tracking_url}" target="_blank" '
+        'rel="sponsored nofollow noopener noreferrer" '
+        'class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-gradient-to-r '
+        'from-purple-600 to-indigo-600 text-white text-center shadow-lg '
+        'hover:brightness-110 transition-all flex items-center justify-center gap-2">'
+        f'<span>{label}</span><span>→</span></a>'
+    )
+    disclosure = (
+        '<p data-affiliate-disclosure="page" class="text-[11px] leading-5 text-slate-500">'
+        '<strong>Affiliate disclosure:</strong> COSHUMA may earn a commission if you '
+        'purchase through the partner link, at no extra cost to you.</p>'
+    )
+    official_link = (
+        f'<a data-cta="official" href="{official_url}" target="_blank" '
+        'rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold '
+        'text-sm bg-slate-800 text-white text-center border border-slate-600 '
+        'hover:bg-slate-700 transition-all flex items-center justify-center gap-2">'
+        '<span>Visit official site</span><span>→</span></a>'
+    )
+
+    # Earlier and later build producers may promote the exact route, change the
+    # source marker, or remove the explicit disclosure. Canonicalize the current
+    # anchor on every pass so the second repeatability build repairs that drift.
+    exact_partner = re.compile(
+        r'(<a\b(?=[^>]*\bdata-cta="affiliate")(?=[^>]*\bhref="'
+        + re.escape(tracking_url) + r'")[^>]*>.*?</a>)',
+        flags=re.I | re.S,
+    )
+    exact_match = exact_partner.search(page_html)
+    if exact_match:
+        page_html = (
+            page_html[:exact_match.start()] + partner + page_html[exact_match.end():]
+        )
+    else:
+        official = re.compile(
+            r'(<a\b(?=[^>]*\bdata-cta="official")(?=[^>]*\bhref="'
+            + re.escape(official_url) + r'")[^>]*>.*?</a>)',
+            flags=re.I | re.S,
+        )
+        page_html, count = official.subn(
+            lambda _: partner + official_link, page_html, count=1
+        )
+        if count != 1:
+            raise SystemExit(f"Could not place verified partner CTA on {tool_id}")
+
+    exact_match = exact_partner.search(page_html)
+    if not exact_match:
+        raise SystemExit(f"Could not normalize verified partner CTA on {tool_id}")
+
+    official = re.compile(
+        r'<a\b(?=[^>]*\bdata-cta="official")(?=[^>]*\bhref="'
+        + re.escape(official_url) + r'")[^>]*>.*?</a>',
+        flags=re.I | re.S,
+    )
+    if not official.search(page_html):
+        page_html = (
+            page_html[:exact_match.end()] + official_link + page_html[exact_match.end():]
+        )
+
+    exact_match = exact_partner.search(page_html)
+    disclosure_at = page_html.rfind(
+        'data-affiliate-disclosure="page"', 0, exact_match.start()
+    )
+    if disclosure_at < 0:
+        page_html = (
+            page_html[:exact_match.start()] + disclosure + page_html[exact_match.start():]
+        )
+
+    affiliate_at = page_html.find(marker)
+    disclosure_at = page_html.rfind('data-affiliate-disclosure="page"', 0, affiliate_at)
+    required = [tracking_url, marker, 'data-cta="affiliate"', 'rel="sponsored']
+    for token in required:
+        if token not in page_html:
+            raise SystemExit(f"{tool_id} tool CTA lost required token: {token}")
+    if disclosure_at < 0:
+        raise SystemExit(f"{tool_id} disclosure must appear before the partner CTA")
+
+    page.write_text(page_html, encoding="utf-8")
+    print(f"Verified {tool_id} partner CTA and disclosure")
+
+
+ensure_tool_partner_cta(
+    "tagshop-ai",
+    "https://tagshop.ai/",
+    TRACKING_URL,
+    "Open Tagshop partner offer",
+    "tagshop-tool-issued-referral",
+)
+ensure_tool_partner_cta(
+    "tidio",
+    "https://www.tidio.com/",
+    "https://affiliate.tidio.com/7ow2khr31ti8",
+    "Start with the Tidio partner link",
+    "tidio-tool-issued-referral",
+)
+
 if not PAGE.exists():
     raise SystemExit(f"Missing buyer hub: {PAGE}")
 
