@@ -15,10 +15,6 @@ def ensure_tool_partner_cta(tool_id, official_url, tracking_url, label, source):
     page_html = page.read_text(encoding="utf-8")
     marker = f'data-cta-source="{source}"'
     if marker not in page_html:
-        official = re.compile(
-            r'(<a data-cta="official" href="' + re.escape(official_url) + r'"[^>]*>.*?</a>)',
-            flags=re.I | re.S,
-        )
         partner = (
             f'<a data-cta="affiliate" data-tool-id="{tool_id}" '
             f'data-cta-source="{source}" href="{tracking_url}" target="_blank" '
@@ -33,12 +29,55 @@ def ensure_tool_partner_cta(tool_id, official_url, tracking_url, label, source):
             '<strong>Affiliate disclosure:</strong> COSHUMA may earn a commission if you '
             'purchase through the partner link, at no extra cost to you.</p>'
         )
-        replacement = (
-            '<div class="flex flex-col gap-2 sm:items-end">' + disclosure
-            + '<div class="flex flex-col sm:flex-row gap-2">' + partner
-            + r'\1</div></div>'
+        official_link = (
+            f'<a data-cta="official" href="{official_url}" target="_blank" '
+            'rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold '
+            'text-sm bg-slate-800 text-white text-center border border-slate-600 '
+            'hover:bg-slate-700 transition-all flex items-center justify-center gap-2">'
+            '<span>Visit official site</span><span>→</span></a>'
         )
-        page_html, count = official.subn(replacement, page_html, count=1)
+
+        # Earlier build producers can already promote the canonical exact tracking URL
+        # to the primary CTA. Normalize that anchor instead of requiring the stale
+        # generic-official shape or creating a duplicate partner link.
+        exact_partner = re.compile(
+            r'(<a\b(?=[^>]*\bdata-cta="affiliate")(?=[^>]*\bhref="'
+            + re.escape(tracking_url) + r'")[^>]*>.*?</a>)',
+            flags=re.I | re.S,
+        )
+        exact_match = exact_partner.search(page_html)
+        if exact_match:
+            current_partner = exact_match.group(1)
+            if re.search(r'\bdata-cta-source="[^"]*"', current_partner, flags=re.I):
+                current_partner = re.sub(
+                    r'\bdata-cta-source="[^"]*"', marker, current_partner,
+                    count=1, flags=re.I,
+                )
+            else:
+                current_partner = current_partner.replace(
+                    'data-cta="affiliate"', f'data-cta="affiliate" {marker}', 1
+                )
+            replacement = (
+                '<div class="flex flex-col gap-2 sm:items-end">' + disclosure
+                + '<div class="flex flex-col sm:flex-row gap-2">' + current_partner
+                + official_link + '</div></div>'
+            )
+            page_html = (
+                page_html[:exact_match.start()] + replacement + page_html[exact_match.end():]
+            )
+            count = 1
+        else:
+            official = re.compile(
+                r'(<a\b(?=[^>]*\bdata-cta="official")(?=[^>]*\bhref="'
+                + re.escape(official_url) + r'")[^>]*>.*?</a>)',
+                flags=re.I | re.S,
+            )
+            replacement = (
+                '<div class="flex flex-col gap-2 sm:items-end">' + disclosure
+                + '<div class="flex flex-col sm:flex-row gap-2">' + partner
+                + official_link + '</div></div>'
+            )
+            page_html, count = official.subn(lambda _: replacement, page_html, count=1)
         if count != 1:
             raise SystemExit(f"Could not place verified partner CTA on {tool_id}")
 
