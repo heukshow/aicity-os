@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T20:24:06.394Z",
+  "updated_at": "2026-10-04T20:31:30Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2989,7 +2989,7 @@
       "next_owner": "Revenue Optimization Team",
       "priority": "high",
       "blocker": "active_worker_disable_deploy_and_verification_pending",
-      "last_evidence_at": "2026-10-04T18:34:00Z",
+      "last_evidence_at": "2026-10-04T20:28:15Z",
       "evidence": {
         "evidence_comment_id": 5983120644,
         "implementation_pr": 1020,
@@ -3006,17 +3006,24 @@
         "merged_paid_slots_status": "reserved_hidden",
         "deployed_public_paid_renderer_enabled": false,
         "gh_pages_renderer_blob": "b17d0c55e00375aa33bcb22912b59b8390c14569",
-        "active_worker_checkout_disabled": null,
-        "active_worker_state": "unverified_after_stop_fix",
+        "active_worker_checkout_disabled": false,
+        "active_worker_state": "checkout_ready_after_stop_fix",
         "real_advertiser_payment_confirmed": false,
         "public_paid_ad_activated": false,
-        "additional_spend_usd": 0
+        "additional_spend_usd": 0,
+        "production_live_config_checked_at": "2026-10-04T20:28:15Z",
+        "production_live_config_http_status": 200,
+        "production_live_config_intake_ready": true,
+        "production_live_config_payment_ready": true,
+        "production_live_config_evidence_comment_id": 5984094974,
+        "production_worker_deploy_capability": "unavailable_in_current_execution_environment",
+        "production_worker_deploy_attempted": false
       },
       "completion_gate": "active Worker checkout disabled and read-only production verified; public paid renderer remains fail-closed",
       "completion_gate_satisfied": false,
       "user_action_required": false,
-      "verification": "PR Build Check, main merge, site deploy and Pages deploy succeeded; gh-pages renderer contains CONFIG.enabled=false and exits before paid placement lookup. Production Worker deployment/config is not verified.",
-      "handoff": "Reuse only the existing authorized Cloudflare environment to deploy the clean current-main Worker at f2ab6d2 or later equivalent, then verify active version/config and that create/capture are unavailable without making a payment transaction. Release & Reliability should record the production result.",
+      "verification": "Current main/source and deployed public paid renderer remain fail-closed, but a fresh read-only GET of the production Worker public config returned HTTP 200 with intakeReady=true and paymentReady=true at 2026-10-04T20:28:15Z. Active Worker stop gate is failed; no payment/create/capture request was made.",
+      "handoff": "Revenue Optimization Team must reuse the existing authorized Cloudflare environment to deploy clean current-main Worker a8565b0 or later equivalent with CHECKOUT_ENABLED=false, then verify public config paymentReady=false and create/capture unavailable without making a payment. Release & Reliability should record source→active version→live verification.",
       "completed_at": null
     }
   ],
