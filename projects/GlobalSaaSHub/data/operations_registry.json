@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T21:00:00Z",
+  "updated_at": "2026-10-04T22:41:06Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -3046,6 +3046,38 @@
       "verification": "Current main/source and deployed public paid renderer remain fail-closed, but a fresh read-only GET of the production Worker public config returned HTTP 200 with intakeReady=true and paymentReady=true at 2026-10-04T20:28:15Z. Active Worker stop gate is failed; no payment/create/capture request was made.",
       "handoff": "Revenue Optimization Team must reuse the existing authorized Cloudflare environment to deploy clean current-main Worker a8565b0 or later equivalent with CHECKOUT_ENABLED=false, then verify public config paymentReady=false and create/capture unavailable without making a payment. Release & Reliability should record source→active version→live verification.",
       "completed_at": null
+    },
+    {
+      "record_id": "REVENUE:ADVERTISE-INQUIRY-DURATION-20261005",
+      "incident_key": "advertise-seven-day-option-malformed-20261005",
+      "task_key": "advertise-seven-day-option-20261005",
+      "target": "public/advertise.html#brief-period",
+      "owner_team": "Product Experience Team",
+      "canonical_owner": "Product Experience Team",
+      "found_by": "Product Experience Team",
+      "fixed_by": "Product Experience Team",
+      "changed_scope": "Advertiser inquiry duration selector markup only. The 7-day choice was restored; 30/90-day choices, pricing, payment boundaries and measurement event definitions were unchanged.",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
+      "priority": "normal",
+      "blocker": null,
+      "last_evidence_at": "2026-10-04T22:41:06Z",
+      "evidence": {
+        "implementation_pr": 1028,
+        "merge_commit": "fcf43df6b9199fc1ebc60824f5c48199840f6bca",
+        "pr_build_run": 37235294522,
+        "site_build_deploy_run": 37240618692,
+        "pages_run": 37240737939,
+        "gh_pages_commit": "0f62e021579d8f7cf781694734d6ef27b7a6fc6a",
+        "production_verification_comment_id": 5985242463,
+        "live_url": "https://coshuma.com/advertise.html?coshuma_qa=1"
+      },
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": true,
+      "user_action_required": false,
+      "verification": "The deployed page exposes valid 7, 30 and 90 day inquiry options and no malformed </option value=\"7\"> markup. Deployment ancestry links current main to the gh-pages commit and successful Pages run.",
+      "handoff": "Keep normal matched-window observation. Do not claim conversion uplift without measured evidence.",
+      "completed_at": "2026-10-04T22:41:06Z"
     }
   ],
   "invariants": {
