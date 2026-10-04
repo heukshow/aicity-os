@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-04T21:34:00.921Z",
+  "generatedAt": "2026-10-04T22:33:33.422Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -690,7 +690,7 @@
         "name": "InVideo AI",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "application_available_impact",
+        "affiliateStatus": "browser_required_legal_program_consent",
         "affiliateVerified": true,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -4014,7 +4014,7 @@
     {
       "id": "invideo-ai",
       "name": "InVideo AI",
-      "status": "application_available_impact",
+      "status": "browser_required_legal_program_consent",
       "verified": true,
       "url": null,
       "verifiedAt": "2026-09-11T05:26:00Z"
