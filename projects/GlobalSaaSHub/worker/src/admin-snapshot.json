@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-04T00:33:18.740Z",
+  "generatedAt": "2026-10-04T06:31:16.274Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -2148,7 +2148,7 @@
         "name": "Google Workspace",
         "officialVerified": true,
         "pricingVerified": false,
-        "affiliateStatus": "browser_required_country_eligibility_check",
+        "affiliateStatus": "application_available_account_required",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
