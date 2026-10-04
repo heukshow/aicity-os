@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T00:13:41.536787+00:00",
+  "updated_at": "2026-10-04T00:25:43.670038Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2533,6 +2533,46 @@
       "user_action_required": false,
       "verification": "The corrected remote D1 migration succeeded with five tables and five triggers, and the Worker deployed from merged current main 0f75fe3. Six public release assets match the validated build. The owner advertising view is accessible and anonymous financial access returns 401. Actual provider lookup returned HTTP 502; checkout remains disabled. No real advertiser payment or public paid ad is claimed.",
       "handoff": "Continue PR #985, deploy the safe owner readiness diagnostic, identify the actual provider failure and resolve it through authorized existing account setup. Verify authentication, registered receipt/refund/dispute notifications and merchant identity before enabling checkout through tracked configuration. Revenue Intelligence owns recurring receipt review and approved fulfilment. Release & Reliability verifies actual deployment and public results; mock/internal QA never counts as an advertiser or receipt."
+    },
+    {
+      "record_id": "EDITORIAL:ENGLISH-COPY-QUALITY-20261004",
+      "task_key": "english-copy-quality-20261004",
+      "incident_key": "awkward-english-reader-trust-20261004",
+      "target": "Six existing public pages and the curated Descript producer template",
+      "owner_team": "Editorial Quality Team",
+      "canonical_owner": "Editorial Quality Team",
+      "found_by": "Operations Governance Team",
+      "fixed_by": "Editorial Quality Team",
+      "lifecycle": "in_progress",
+      "next_owner": "Editorial Quality Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-10-04T00:22:22.083960Z",
+      "evidence": {
+        "source_base_commit": "e7bb35372c9b40284b71a0d167e5f39a825235ec",
+        "reviewed_pages": [
+          "/",
+          "/tool/agorapulse.html",
+          "/compare/brand24-vs-agorapulse.html",
+          "/best/claap-sales-follow-up-ai.html",
+          "/compare/gamma-vs-canva.html",
+          "/tool/descript.html"
+        ],
+        "public_copy_replacements": 42,
+        "producer_template_replacements": 8,
+        "protected_source_tags_attributes_numeric_terms_and_scripts_unchanged": true,
+        "public_live_verification": false
+      },
+      "changed_scope": "English wording only on six existing pages plus the matching Descript source template; read-only regression gate and editorial maintenance contract. No payment, price, link, disclosure, event definition or fixed-period boundary changes.",
+      "verification": "Protected source structure, attributes, numeric tokens and embedded scripts compared before/after each text edit. Automated tests, complete production-equivalent build, deployment and live checks pending.",
+      "measurement_annotation": {
+        "change_type": "bounded English copy correction",
+        "window_policy": "Preserve fixed dates/events; annotate revision and do not claim uplift or attribute a mixed-copy period solely to an earlier release."
+      },
+      "handoff": "Editorial Quality maintains source and producer wording. Complete PR checks, merge, current-main deployment and live readback; Operations Governance synchronizes evidence. Continue contextual English review in the existing workflow.",
+      "completion_gate": "production_verified",
+      "completion_gate_satisfied": false,
+      "user_action_required": false
     }
   ],
   "invariants": {
