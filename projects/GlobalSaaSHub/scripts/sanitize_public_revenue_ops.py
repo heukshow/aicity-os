@@ -11,6 +11,8 @@ from html import unescape
 from pathlib import Path
 import re
 
+from public_html_cleanup import remove_empty_presentational_paragraphs
+
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 
@@ -78,7 +80,7 @@ def clean_html(source: str) -> str:
     # Attribute/meta copy is customer-visible too; these substitutions do not touch URLs.
     cleaned = re.sub(r"\bverified\s+COSHUMA\s+partner\s+(?:links?|routes?|URLs?)\b", "current offer links", cleaned, flags=re.I)
     cleaned = TEXT_NODE.sub(clean_text_node, cleaned)
-    cleaned = re.sub(r"<p\b[^>]*>\s*</p>", "", cleaned, flags=re.I)
+    cleaned = remove_empty_presentational_paragraphs(cleaned)
     cleaned = re.sub(r"<li\b[^>]*>\s*</li>", "", cleaned, flags=re.I)
     return cleaned
 
