@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T06:03:00Z",
+  "updated_at": "2026-10-04T06:11:45.394963+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2659,15 +2659,15 @@
       "found_by": "Security & Cost Control Team",
       "fixed_by": "Security & Cost Control Team",
       "changed_scope": "Restored exact verified customer partner CTA, explicit pre-CTA disclosure, and a separate official-site link through the idempotent tool-page producer; no product, pricing, revenue, measurement, payment, account, secret, token, or spend change.",
-      "lifecycle": "production_verification_requested",
-      "next_owner": "Release & Reliability Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-10-04T05:57:21Z",
+      "last_evidence_at": "2026-10-04T06:11:27Z",
       "completion_gate": "production_verified",
-      "completion_gate_satisfied": false,
+      "completion_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "PR #997 merged after COSHUMA PR Build Check run 37181081170 succeeded; deployment ancestry, gh-pages artifact, Pages deployment, and live page markers remain to be verified.",
+      "verification": "Deterministic production verification succeeded in run 37182070060; trusted evidence comment 5977204489.",
       "handoff": "Release & Reliability Team must verify current-main source → generated page → gh-pages/Pages deployment → live page agreement with QA-marked URLs. Do not count verifier traffic as growth.",
       "execution_status": "queued",
       "next_executable_action": "Run the deterministic release spec and record production_verified or the exact failed boundary in issue #292.",
@@ -2678,8 +2678,11 @@
         "pr_build_run": 37181081170,
         "fix_evidence_comment_id": 5977114768,
         "source_producer": "projects/GlobalSaaSHub/scripts/surface_tagshop_verified_offer.py",
-        "live_url": "https://coshuma.com/tool/tagshop-ai.html?coshuma_qa=1"
-      }
+        "live_url": "https://coshuma.com/tool/tagshop-ai.html?coshuma_qa=1",
+        "production_verification_comment_id": 5977204489,
+        "deterministic_verification_run": 37182070060
+      },
+      "completed_at": "2026-10-04T06:11:27Z"
     },
     {
       "record_id": "REVENUE:TIDIO-TOOL-CTA-20261004",
@@ -2691,15 +2694,15 @@
       "found_by": "Security & Cost Control Team",
       "fixed_by": "Security & Cost Control Team",
       "changed_scope": "Restored exact verified customer partner CTA, explicit pre-CTA disclosure, and a separate official-site link through the idempotent tool-page producer; no product, pricing, revenue, measurement, payment, account, secret, token, or spend change.",
-      "lifecycle": "production_verification_requested",
-      "next_owner": "Release & Reliability Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-10-04T05:57:21Z",
+      "last_evidence_at": "2026-10-04T06:11:30Z",
       "completion_gate": "production_verified",
-      "completion_gate_satisfied": false,
+      "completion_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "PR #997 merged after COSHUMA PR Build Check run 37181081170 succeeded; deployment ancestry, gh-pages artifact, Pages deployment, and live page markers remain to be verified.",
+      "verification": "Deterministic production verification succeeded in run 37182070060; trusted evidence comment 5977204810.",
       "handoff": "Release & Reliability Team must verify current-main source → generated page → gh-pages/Pages deployment → live page agreement with QA-marked URLs. Do not count verifier traffic as growth.",
       "execution_status": "queued",
       "next_executable_action": "Run the deterministic release spec and record production_verified or the exact failed boundary in issue #292.",
@@ -2710,8 +2713,11 @@
         "pr_build_run": 37181081170,
         "fix_evidence_comment_id": 5977114768,
         "source_producer": "projects/GlobalSaaSHub/scripts/surface_tagshop_verified_offer.py",
-        "live_url": "https://coshuma.com/tool/tidio.html?coshuma_qa=1"
-      }
+        "live_url": "https://coshuma.com/tool/tidio.html?coshuma_qa=1",
+        "production_verification_comment_id": 5977204810,
+        "deterministic_verification_run": 37182070060
+      },
+      "completed_at": "2026-10-04T06:11:30Z"
     }
   ],
   "invariants": {
