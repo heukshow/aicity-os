@@ -713,7 +713,8 @@
     "Rights verified for any partner screenshots or static assets; no new video creation, editing or uploads. Preserve existing published media unless separately instructed.",
     "Producer regeneration preserves content; existing build and registry validation gates pass",
     "Actual deployment ancestry and expected live content/mobile usability verified with QA traffic excluded",
-    "One substantive asset counted once even if repeated on several pages or adapted into several posts"
+    "One substantive asset counted once even if repeated on several pages or adapted into several posts",
+    "Original English is reviewed for grammar, idiomatic phrasing, clear reader-facing labels and repetition; translation quality and authorship assumptions are not substitutes for this review."
   ],
   "decision_rules": [
     {
@@ -879,7 +880,7 @@
     "trend_rule": "Adapt non-video topics, length, layout and publication style to current official platform guidance and observed relevant audience discussion. Record sources and dates; do not invent trend demand, reach or performance."
   },
   "onsite_advertising": {
-    "status": "implementation_ready_live_verification_pending",
+    "status": "intake_live_payment_connection_diagnosis",
     "authorized_at": "2026-10-04T07:31:56+09:00",
     "payment_verification_requested_at": "2026-10-04T07:33:53+09:00",
     "customer_material_language": "en",
@@ -899,6 +900,75 @@
     ],
     "new_paid_advertiser_milestone": "First real advertiser payment must be separately verified; mock and internal QA records are excluded.",
     "cash_receipt_forecast": "unknown; do not treat catalogue prices or technical readiness as received revenue",
-    "additional_operating_spend_limit_usd": 0
+    "additional_operating_spend_limit_usd": 0,
+    "updated_at": "2026-10-04T09:12:22+09:00",
+    "production_evidence": {
+      "site_source_commit": "4706d69769559ec226060b7100d8392533462d9d",
+      "site_build_run": 37162847558,
+      "pages_run": 37162966078,
+      "live_public_assets_checked": 6,
+      "live_assets_match_validated_release": true,
+      "worker_source_commit": "0f75fe32416f2a13e806cae25e3c8bbd409cced8",
+      "database_migration": "0004_sponsorship_sales.sql",
+      "database_tables": 5,
+      "database_triggers": 5,
+      "owner_advertising_view_accessed": true,
+      "intake_ready": true,
+      "checkout_enabled": false,
+      "live_provider_lookup": "HTTP 502; failure stage is being diagnosed before checkout activation",
+      "real_advertiser_capture": "not_verified"
+    },
+    "recurring_operations": {
+      "owner": "Revenue Intelligence Team",
+      "existing_cadence": "every 6 hours",
+      "prompt_updated": true,
+      "exact_readback_verified": true,
+      "cadence_and_other_automations_preserved": true,
+      "execution_evidence": "Configuration only; no future run or advertiser receipt claimed."
+    }
+  },
+  "public_content_language": {
+    "language": "en",
+    "owner_instruction_at": "2026-10-04T08:03:33+09:00",
+    "applies_to": "New public customer materials, posts and replies",
+    "audience_prompt_updated_and_read_back": true,
+    "existing_cadence_and_caps_preserved": true
+  },
+  "english_editorial_review": {
+    "reviewed_at": "2026-10-04T09:12:22+09:00",
+    "scope": [
+      "/",
+      "/advertise.html",
+      "/sponsorship.html",
+      "/best/claap-sales-follow-up-ai.html",
+      "/tool/pipedrive.html",
+      "/compare/semrush-vs-frase.html",
+      "/best/pictory-free-trial-pricing.html"
+    ],
+    "finding": "The sampled English is generally understandable, but some labels, grammar, abstract phrasing and repetition need editing. This is a sample, not a complete site certification or AI-authorship determination.",
+    "examples": [
+      {
+        "page": "/",
+        "text": "All verified countries",
+        "issue": "unclear reader-facing label"
+      },
+      {
+        "page": "/advertise.html",
+        "text": "Buyer-Intent Featured",
+        "issue": "internal marketing terminology rather than a clear placement description"
+      },
+      {
+        "page": "/best/claap-sales-follow-up-ai.html",
+        "text": "preparing the next rep or manager touch",
+        "issue": "awkward and ambiguous phrasing"
+      },
+      {
+        "page": "/compare/semrush-vs-frase.html",
+        "text": "Start Frase 7-day free trial",
+        "issue": "missing determiner or possessive"
+      }
+    ],
+    "edits_applied": false,
+    "next_action": "Editorial Quality Team should check existing work, correct concrete English errors in source and producers, and consolidate unclear/repetitive wording within existing authorization. Preserve protected pages and fixed measurement windows; annotate each actual deployed change. Do not claim an edit or conversion improvement before verification."
   }
 }

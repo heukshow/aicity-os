@@ -2443,7 +2443,41 @@
           "verified_new_posts": 1,
           "evidence_scope": "Public URL and public content only; authentication, session, device and UI-control details are intentionally excluded."
         },
-        "security_metadata_minimized_at": "2026-10-03T22:56:00Z"
+        "security_metadata_minimized_at": "2026-10-03T22:56:00Z",
+        "onsite_advertising": {
+          "recorded_at": "2026-10-04T00:12:22Z",
+          "manifest_section": "onsite_advertising",
+          "status": "intake_live_payment_connection_diagnosis",
+          "implementation_pr": 981,
+          "d1_compatibility_pr": 983,
+          "site_source_commit": "4706d69769559ec226060b7100d8392533462d9d",
+          "worker_source_commit": "0f75fe32416f2a13e806cae25e3c8bbd409cced8",
+          "public_release_verified": true,
+          "migration_and_worker_deployed": true,
+          "owner_view_accessed": true,
+          "new_checkout_enabled": false,
+          "provider_readiness_result": "HTTP 502; diagnose provider stage before activation",
+          "revenue_automation_prompt_updated_and_verified": true,
+          "existing_6_hour_cadence_preserved": true,
+          "real_advertiser_payment": "not_verified",
+          "next_owner": "Revenue Intelligence Team",
+          "next_action": "Resolve actual provider readiness, verify checkout, then review confirmed receipts and fulfil approved placements."
+        },
+        "english_editorial_review": {
+          "recorded_at": "2026-10-04T00:12:22Z",
+          "manifest_section": "english_editorial_review",
+          "scope": "Seven current public pages and the live homepage bundle",
+          "finding": "Understandable English with specific grammar, labeling and repetition defects; no site-wide certification or authorship claim.",
+          "copy_edits_applied": false,
+          "next_owner": "Editorial Quality Team",
+          "measurement_window_policy": "Preserve protected pages and fixed windows; annotate verified narrow corrections."
+        },
+        "public_content_language": {
+          "language": "en",
+          "owner_instruction_at": "2026-10-04T08:03:33+09:00",
+          "audience_prompt_exact_readback": true,
+          "existing_schedule_and_caps_preserved": true
+        }
       },
       "completion_gate": "campaign_period_ended_and_source_evidenced_outcomes_and_closeout_report",
       "completion_gate_satisfied": false,
