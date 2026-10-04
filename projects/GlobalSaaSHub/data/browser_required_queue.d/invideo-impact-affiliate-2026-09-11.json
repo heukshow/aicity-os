@@ -3,13 +3,13 @@
   "tool_id": "invideo-ai",
   "issue": 391,
   "priority": "high",
-  "status": "browser_required_existing_impact_check_then_application",
-  "affiliate_status": "application_available_impact",
+  "status": "browser_required_legal_program_consent",
+  "affiliate_status": "browser_required_legal_program_consent",
   "cost": 0,
   "registered_email": "support@coshuma.com",
   "official_program_url": "https://invideo.io/make/affiliate-program/",
   "network": "Impact.com",
-  "evidence_checked_at": "2026-09-13T14:26:00Z",
+  "evidence_checked_at": "2026-10-04T22:19:22Z",
   "official_terms": {
     "join_cost": "free",
     "monthly_plan_commission": "50% first billing cycle",
@@ -36,7 +36,8 @@
     "result": "Only the September 13 COSHUMA inquiry and Eva's reply were found. No older InVideo application, approval, rejection, tracking-link, commission or payout mail was found in the connected support@coshuma.com mailbox."
   },
   "preflight": [
-    "Reuse the existing COSHUMA Impact account if available.",
+    "The account holder must review and accept the InVideo offer shown in the official Impact enrollment flow.",
+    "After consent, reuse the existing COSHUMA Impact account if available.",
     "Before submitting, search the Impact account for an existing InVideo partnership or application.",
     "If an existing partnership/application is found, do not reapply; recover its exact status and issued customer-facing tracking URL instead.",
     "Vendor support explicitly confirmed on 2026-09-13 that Impact is the correct zero-cost route and that a new application is authorized only when no existing InVideo record is present.",
@@ -44,7 +45,7 @@
   ],
   "allowed_actions": [
     "Open the official InVideo affiliate page.",
-    "Use the free official enrollment path only if the existing Impact account shows no prior InVideo application or partnership.",
+    "After the account holder accepts the InVideo offer, use the free official enrollment path only if the existing Impact account shows no prior InVideo application or partnership.",
     "After approval, copy only the exact customer-facing tracking URL issued by InVideo/Impact.",
     "Read authenticated Impact click, signup, paid-customer, commission and payout metrics without inferring missing values."
   ],
@@ -61,5 +62,12 @@
     "Do not treat a generic InVideo homepage, Impact dashboard, onboarding URL or guessed query parameter as an affiliate link.",
     "Do not treat application submission, approval, link issuance, or a validation visit as a click, signup, paid customer, commission, payout, or revenue event."
   ],
-  "completion_rule": "Complete only after an existing InVideo state is recovered or a single valid application is submitted, and later move to approved_tracking only when the exact issued customer-facing tracking URL is independently verified."
+  "completion_rule": "Complete only after an existing InVideo state is recovered or a single valid application is submitted, and later move to approved_tracking only when the exact issued customer-facing tracking URL is independently verified.",
+  "live_enrollment_gate": {
+    "checked_at": "2026-10-04T22:19:22Z",
+    "route": "Official InVideo affiliate page -> Impact campaign enrollment",
+    "requirement": "Affirmative acceptance of the InVideo offer before Continue with Google, Continue with Apple, Continue with Email, or Sign In becomes enabled",
+    "applied": false,
+    "tracking_url": null
+  }
 }
