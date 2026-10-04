@@ -2591,7 +2591,18 @@
       "verification": "Protected source structure, attributes, numeric tokens and embedded scripts compared before/after each text edit. Automated tests, complete production-equivalent build, deployment and live checks pending.",
       "measurement_annotation": {
         "change_type": "bounded English copy correction",
-        "window_policy": "Preserve fixed dates/events; annotate revision and do not claim uplift or attribute a mixed-copy period solely to an earlier release."
+        "window_policy": "Preserve fixed dates/events; annotate revision and do not claim uplift or attribute a mixed-copy period solely to an earlier release.",
+        "additional_microcopy_correction": {
+          "prepared_at": "2026-10-04T01:06:37Z",
+          "status": "source_prepared_deployment_pending",
+          "scope": [
+            "Homepage country filter: All verified countries -> All countries and regions. Existing option value and filter behavior are unchanged.",
+            "Semrush vs Frase trial CTA: Start Frase 7-day free trial -> Start your free 7-day Frase trial. Preserve the free 7-day offer, arrow, destination and event attributes in source and producer.",
+            "Pipedrive cross-link introduction: replace the abstract existing-guide sentence with Compare Pipedrive and Reply.io to see which fits your sales workflow. The existing build producer owns this section."
+          ],
+          "policy": "Narrow clarity correction under the existing English editorial contract. Preserve prices, trial terms, links, layout, homepage title/meta/H1, event definitions and fixed 7/30-day period boundaries. Record actual deployment time before claiming publication; do not infer conversion uplift.",
+          "production_verified_at": null
+        }
       },
       "handoff": "Editorial Quality maintains source and producer wording. Complete PR checks, merge, current-main deployment and live readback; Operations Governance synchronizes evidence. Continue contextual English review in the existing workflow.",
       "completion_gate": "production_verified",

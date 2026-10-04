@@ -404,7 +404,7 @@ export default function App() {
                 onChange={(e) => setSelectedCountry(e.target.value)}
                 className="w-full rounded-xl border border-white/10 bg-[#101218] px-3 py-2.5 text-sm font-semibold text-slate-200 outline-none focus:border-cyan-400/50"
               >
-                <option value="all">All verified countries</option>
+                <option value="all">All countries and regions</option>
                 {countryStats.map((country) => <option key={country.code} value={country.code}>{country.flag} {country.name} ({country.count})</option>)}
               </select>
             </label>
