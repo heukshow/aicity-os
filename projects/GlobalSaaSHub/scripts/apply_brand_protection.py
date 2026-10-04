@@ -1,9 +1,21 @@
 #!/usr/bin/env python3
 from pathlib import Path
+import html
 import re
 import sys
 
 MARKER = 'data-coshuma-origin-guard="1"'
+
+# Search Console still reports these former canonical paths as indexed. GitHub
+# Pages cannot emit per-path HTTP redirects, so publish small 200 responses that
+# immediately hand visitors and crawlers to the current canonical pages. Keep
+# aliases out of sitemaps and mark them noindex to avoid duplicate results.
+LEGACY_SEARCH_ALIASES = {
+    "tool/jasper-ai.html": "tool/jasper.html",
+    "tool/make.html": "tool/make-com.html",
+    "tool/synthflow.html": "tool/synthflow-ai.html",
+    "compare/notion-ai-vs-boldsign.html": "compare/boldsign-vs-notion-ai.html",
+}
 
 PROTECTION_BLOCK = r'''<meta name="copyright" content="© 2026 COSHUMA. All rights reserved.">
 <meta name="author" content="COSHUMA">
@@ -78,6 +90,42 @@ PROTECTION_BLOCK = r'''<meta name="copyright" content="© 2026 COSHUMA. All righ
 })();
 </script>'''
 
+
+def write_legacy_search_aliases(root: Path) -> int:
+    written = 0
+    for legacy_path, canonical_path in LEGACY_SEARCH_ALIASES.items():
+        target = root / canonical_path
+        if not target.is_file():
+            raise SystemExit(f'legacy alias target does not exist: {canonical_path}')
+
+        canonical_url = f'https://coshuma.com/{canonical_path}'
+        canonical_url_attr = html.escape(canonical_url, quote=True)
+        alias = f'''<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="refresh" content="0;url={canonical_url_attr}" />
+    <link rel="canonical" href="{canonical_url_attr}" />
+    <title>Page moved | COSHUMA</title>
+    <script>window.location.replace({canonical_url!r} + window.location.search + window.location.hash);</script>
+  </head>
+  <body>
+    <main>
+      <h1>This COSHUMA page has moved</h1>
+      <p><a href="{canonical_url_attr}">Continue to the current page</a>.</p>
+    </main>
+  </body>
+</html>
+'''
+        destination = root / legacy_path
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(alias, encoding='utf-8')
+        written += 1
+    return written
+
+
 def protect_html(path: Path) -> bool:
     text = path.read_text(encoding='utf-8')
     expected_google_verification = f'google-site-verification: {path.name}'
@@ -96,15 +144,21 @@ def protect_html(path: Path) -> bool:
     path.write_text(updated, encoding='utf-8')
     return True
 
+
 def main() -> None:
     root = Path(sys.argv[1] if len(sys.argv) > 1 else 'dist')
     if not root.is_dir():
         raise SystemExit(f'brand protection target does not exist: {root}')
+    aliases_written = write_legacy_search_aliases(root)
     pages = sorted(root.rglob('*.html'))
     if not pages:
         raise SystemExit(f'no HTML pages found under {root}')
     changed = sum(1 for page in pages if protect_html(page))
-    print(f'COSHUMA BRAND PROTECTION: PASS ({len(pages)} HTML pages checked, {changed} updated)')
+    print(
+        f'COSHUMA BRAND PROTECTION: PASS '
+        f'({len(pages)} HTML pages checked, {changed} updated, {aliases_written} legacy aliases written)'
+    )
+
 
 if __name__ == '__main__':
     main()
