@@ -898,7 +898,7 @@
     "trend_rule": "Adapt non-video topics, length, layout and publication style to current official platform guidance and observed relevant audience discussion. Record sources and dates; do not invent trend demand, reach or performance."
   },
   "onsite_advertising": {
-    "status": "checkout_deployed_release_verification_pending",
+    "status": "checkout_deployed_release_verified",
     "authorized_at": "2026-10-04T07:31:56+09:00",
     "payment_verification_requested_at": "2026-10-04T07:33:53+09:00",
     "customer_material_language": "en",
@@ -919,7 +919,7 @@
     "new_paid_advertiser_milestone": "First real advertiser payment must be separately verified; mock and internal QA records are excluded.",
     "cash_receipt_forecast": "unknown; do not treat catalogue prices or technical readiness as received revenue",
     "additional_operating_spend_limit_usd": 0,
-    "updated_at": "2026-10-04T03:58:00Z",
+    "updated_at": "2026-10-04T04:09:55Z",
     "production_evidence": {
       "site_source_commit": "4706d69769559ec226060b7100d8392533462d9d",
       "site_build_run": 37162847558,
@@ -968,6 +968,12 @@
       "checkout_activation_source_enabled": true,
       "checkout_activation_deployed": true,
       "live_checkout_verified": true,
+      "release_verification_status": "production_verified",
+      "release_verification_run": 37176044519,
+      "release_verification_evidence_comment_id": 5976412878,
+      "registry_sync_commit": "e6f7e0fb9dbffb37a8b611031f333947cdc6d641",
+      "site_sync_merge_commit": "79c4195e6232b03ba8c6be6c1447d04920abff7d",
+      "site_sync_deploy_run": 37176044476,
       "public_ad_activated": false,
       "live_checkout_observation": "A labelled internal QA application displayed the USD 49 / 30-day quote and enabled PayPal/card choices. paypal.com checkout opened, then blocked seller-linked self-purchase. The QA application was rejected unpaid and unpublished.",
       "checkout_deployment_evidence_comment_id": 5975512465,
@@ -983,7 +989,6 @@
       "execution_evidence": "Configuration only; no future run or advertiser receipt claimed."
     },
     "remaining_gates": [
-      "Obtain Release & Reliability read-only verification of PR #992 source/build ancestry, active Worker source/version/config and the customer-facing checkout behavior",
       "Verify a real advertiser payment against its exact order before any material approval or placement; internal QA remains excluded",
       "Review destination, claims, materials, allowed page/slot, inventory and dates before publishing an advertisement",
       "Publish and verify a paid placement only after all payment and material gates; the new proposal page/PDF remain on owner approval hold"
