@@ -62,8 +62,8 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.activecampaign.com/partners/affiliate",
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_legal_program_consent",
-    "affiliate_verified_at": "2026-10-04T07:49:55+09:00"
+    "affiliate_status": "rejected",
+    "affiliate_verified_at": "2026-08-28T18:55:34+00:00"
   },
   {
     "id": "activepieces",
