@@ -19,6 +19,11 @@ TEXT_EXTENSIONS = {".html", ".txt", ".xml", ".json", ".js", ".webmanifest"}
 URL = re.compile(r"https?://[^\s\"'<>]+", re.I)
 IFRAME_SRC = re.compile(r'<iframe\b[^>]*\bsrc=["\']([^"\']+)["\']', re.I)
 
+METHODOLOGY_VENDOR_CONFIRMED_CELL = re.compile(
+    r'<td\s+class=["\']py-4 pr-4 font-bold text-white["\']>\s*Vendor-confirmed\s*</td>',
+    re.I,
+)
+
 UNIQUE_NETWORK = re.compile(r"\b(?:PartnerStack|FirstPromoter)\b", re.I)
 CONTEXTUAL_NETWORK = re.compile(
     r"\b(?:Impact(?:\.com|\s+Radius)?|Dub|Cello|Tolt|Awin|CJ\s+Affiliate)\b"
@@ -197,9 +202,20 @@ def scan_file(path: Path) -> list[str]:
         return []
 
     if path.suffix.lower() == ".html":
+        preserve_methodology_label = (
+            path.name == "methodology.html"
+            and len(METHODOLOGY_VENDOR_CONFIRMED_CELL.findall(raw)) == 1
+        )
         p = PublicHTML()
         p.feed(raw)
-        visible = scan_text(" ".join(p.parts + p.meta))
+        public_text = " ".join(p.parts + p.meta)
+        if preserve_methodology_label:
+            public_text = public_text.replace(
+                "Vendor-confirmed",
+                "METHODOLOGY-EVIDENCE-LABEL",
+                1,
+            )
+        visible = scan_text(public_text)
         visible.extend(scan_iframe_hosts(raw))
         key = INTERNAL_KEYS.search(mask_urls(raw))
         if key:

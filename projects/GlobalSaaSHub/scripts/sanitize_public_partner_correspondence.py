@@ -16,6 +16,8 @@ from public_html_cleanup import remove_empty_presentational_paragraphs
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
+METHODOLOGY_VENDOR_CONFIRMED_LABEL = '<td class="py-4 pr-4 font-bold text-white">Vendor-confirmed</td>'
+METHODOLOGY_VENDOR_CONFIRMED_TOKEN = "__COSHUMA_METHODOLOGY_VENDOR_CONFIRMED_LABEL__"
 
 TAG = re.compile(r"<[^>]+>")
 URL = re.compile(r"https?://[^\s\"'<>]+", re.I)
@@ -171,7 +173,19 @@ def main() -> None:
             protected_disclosures.append(match.group(0))
             return f'<x-coshuma-disclosure data-index="{len(protected_disclosures) - 1}"></x-coshuma-disclosure>'
 
-        updated = CONSUMER_DISCLOSURE.sub(protect_disclosure, text)
+        updated = text
+        preserve_methodology_label = (
+            path == PUBLIC / "methodology.html"
+            and METHODOLOGY_VENDOR_CONFIRMED_LABEL in updated
+        )
+        if preserve_methodology_label:
+            updated = updated.replace(
+                METHODOLOGY_VENDOR_CONFIRMED_LABEL,
+                METHODOLOGY_VENDOR_CONFIRMED_TOKEN,
+                1,
+            )
+
+        updated = CONSUMER_DISCLOSURE.sub(protect_disclosure, updated)
         file_replacements = 0
 
         updated, removed = remove_private_blocks(updated)
@@ -215,6 +229,15 @@ def main() -> None:
         for index, disclosure in enumerate(protected_disclosures):
             placeholder = f'<x-coshuma-disclosure data-index="{index}"></x-coshuma-disclosure>'
             updated = updated.replace(placeholder, disclosure, 1)
+
+        if preserve_methodology_label:
+            updated = updated.replace(
+                METHODOLOGY_VENDOR_CONFIRMED_TOKEN,
+                METHODOLOGY_VENDOR_CONFIRMED_LABEL,
+                1,
+            )
+        if METHODOLOGY_VENDOR_CONFIRMED_TOKEN in updated:
+            raise RuntimeError(f"methodology evidence label placeholder leaked in {path}")
 
         if updated != text:
             path.write_text(updated, encoding="utf-8")
