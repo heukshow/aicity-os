@@ -17,10 +17,11 @@
 6. If an existing application/account record is present inside Impact, do not reapply; recover the current status and exact issued customer-facing tracking URL from the existing Impact relationship.
 
 ## Current decision
-- Keep status at `application_available_impact` / browser-required.
-- Do not claim `application_submitted`, approval, clicks, signups, paid customers, commission or revenue.
-- Before any submission, reuse the existing COSHUMA Impact account and check for an existing InVideo relationship to prevent duplication.
-- Stop only for CAPTCHA, OTP, payment, account-holder legal acceptance or forced identity verification.
+- A live official enrollment check on 2026-10-05 reached Impact and showed an unchecked affirmation: “I have read and accepted InVideo’s offer.” The continuation and sign-in controls remain disabled until that affirmation is supplied.
+- Keep status at `browser_required_legal_program_consent`; the account holder must review and accept the InVideo offer before enrollment can continue.
+- No application was submitted, no terms were accepted, and no COSHUMA-specific customer tracking URL was issued.
+- After owner consent, reuse the existing COSHUMA Impact identity if available, check for an existing InVideo relationship, submit once only if absent, and recover only the exact vendor-issued customer-facing tracking URL.
+- Do not claim approval, clicks, signups, paid customers, commission or revenue. Stop for CAPTCHA, OTP, payment approval or forced identity verification.
 
 ## Revenue truth
 All downstream metrics remain `unknown` until authenticated Impact evidence or a vendor message proves them.
