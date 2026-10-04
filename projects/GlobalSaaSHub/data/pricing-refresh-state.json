@@ -107,44 +107,44 @@
       "status": "extract_retry_exhausted"
     },
     "cloudtalk": {
-      "checked_at": "2026-10-02T23:06:43Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-04T07:00:21Z",
+      "status": "error_HTTPError"
     },
     "cloudways": {
-      "checked_at": "2026-10-02T23:06:43Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-04T07:00:21Z",
+      "status": "extract_ok"
     },
     "colossyan": {
-      "checked_at": "2026-10-02T23:06:43Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-04T07:00:21Z",
+      "status": "error_HTTPError"
     },
     "copy-ai": {
-      "checked_at": "2026-10-02T23:06:43Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-04T07:00:21Z",
+      "status": "evidence_validation_failed"
     },
     "customgpt-ai": {
-      "checked_at": "2026-10-02T23:06:43Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-04T07:00:21Z",
+      "status": "evidence_validation_failed"
     },
     "databox": {
-      "checked_at": "2026-10-02T23:06:43Z",
+      "checked_at": "2026-10-04T07:00:21Z",
       "status": "no_official_pricing_result"
     },
     "decktopus": {
-      "checked_at": "2026-10-02T23:06:43Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-04T07:00:21Z",
+      "status": "evidence_validation_failed"
     },
     "docsbot": {
-      "checked_at": "2026-10-02T23:06:43Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-04T07:00:21Z",
+      "status": "evidence_validation_failed"
     },
     "dorik": {
-      "checked_at": "2026-10-02T23:06:43Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-04T07:00:21Z",
+      "status": "evidence_validation_failed"
     },
     "dub": {
-      "checked_at": "2026-10-02T23:06:43Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-04T07:00:21Z",
+      "status": "evidence_validation_failed"
     },
     "elevenlabs": {
       "checked_at": "2026-10-02T23:06:43Z",
@@ -528,7 +528,7 @@
       "status": "extract_retry_exhausted"
     }
   },
-  "last_run_at": "2026-10-03T06:36:36Z",
+  "last_run_at": "2026-10-04T07:00:21Z",
   "last_batch_size": 10,
   "last_updated_tools": []
 }
