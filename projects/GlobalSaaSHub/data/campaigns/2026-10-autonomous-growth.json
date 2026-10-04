@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-04T02:37:00Z",
+  "updated_at": "2026-10-04T03:58:00Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -898,7 +898,7 @@
     "trend_rule": "Adapt non-video topics, length, layout and publication style to current official platform guidance and observed relevant audience discussion. Record sources and dates; do not invent trend demand, reach or performance."
   },
   "onsite_advertising": {
-    "status": "provider_verified_checkout_activation_pending",
+    "status": "checkout_deployed_release_verification_pending",
     "authorized_at": "2026-10-04T07:31:56+09:00",
     "payment_verification_requested_at": "2026-10-04T07:33:53+09:00",
     "customer_material_language": "en",
@@ -919,20 +919,20 @@
     "new_paid_advertiser_milestone": "First real advertiser payment must be separately verified; mock and internal QA records are excluded.",
     "cash_receipt_forecast": "unknown; do not treat catalogue prices or technical readiness as received revenue",
     "additional_operating_spend_limit_usd": 0,
-    "updated_at": "2026-10-04T01:43:04Z",
+    "updated_at": "2026-10-04T03:58:00Z",
     "production_evidence": {
       "site_source_commit": "4706d69769559ec226060b7100d8392533462d9d",
       "site_build_run": 37162847558,
       "pages_run": 37162966078,
       "live_public_assets_checked": 6,
       "live_assets_match_validated_release": true,
-      "worker_source_commit": "2bc81b912dfb74eba5b1acdcfddedea31afed19a",
+      "worker_source_commit": "79ddda77319b56c665f4dab2e6604d079501a373",
       "database_migration": "0004_sponsorship_sales.sql",
       "database_tables": 5,
       "database_triggers": 5,
       "owner_advertising_view_accessed": true,
       "intake_ready": true,
-      "checkout_enabled": false,
+      "checkout_enabled": true,
       "live_provider_lookup": "Authenticated configured lookup returned HTTP 200 at 2026-10-04T01:31:15Z and verified authentication, exact callback URL and required capture/refund/dispute subscriptions. Merchant receiver support comes from separate existing PayPal business-profile and merchant-identifier evidence; the connection-probe identity flag remains false by design.",
       "real_advertiser_capture": "not_verified",
       "intake_configuration_ready": true,
@@ -952,7 +952,7 @@
       "webhook_discovery_worker_safety_run": 37166591428,
       "webhook_discovery_deployed": true,
       "provider_readiness_verified": true,
-      "deployed_worker_version": "97728353-625d-4aac-adcc-b004363a0913",
+      "deployed_worker_version": "76768acc-5d00-4a3b-a01d-e841ed309457",
       "provider_authentication_verified": true,
       "provider_callback_url_verified": true,
       "provider_required_events_verified": true,
@@ -966,9 +966,13 @@
       "checkout_activation_pr_build_run": 37167944426,
       "checkout_activation_main_safety_run": 37168413230,
       "checkout_activation_source_enabled": true,
-      "checkout_activation_deployed": false,
-      "live_checkout_verified": false,
-      "public_ad_activated": false
+      "checkout_activation_deployed": true,
+      "live_checkout_verified": true,
+      "public_ad_activated": false,
+      "live_checkout_observation": "A labelled internal QA application displayed the USD 49 / 30-day quote and enabled PayPal/card choices. paypal.com checkout opened, then blocked seller-linked self-purchase. The QA application was rejected unpaid and unpublished.",
+      "checkout_deployment_evidence_comment_id": 5975512465,
+      "proposal_page_and_pdf_publication_authorized": false,
+      "proposal_owner_hold_comment_id": 5975326594
     },
     "recurring_operations": {
       "owner": "Revenue Intelligence Team",
@@ -979,10 +983,10 @@
       "execution_evidence": "Configuration only; no future run or advertiser receipt claimed."
     },
     "remaining_gates": [
-      "Deploy exact current main 79ddda77319b56c665f4dab2e6604d079501a373 from a clean worktree and record active Worker version, source tag, bundle identity and config readback",
-      "Verify CHECKOUT_ENABLED=true plus health and customer-facing checkout behavior after deployment without charging an internal QA application",
-      "Obtain Release & Reliability read-only production verification before treating checkout as live",
-      "Keep real advertiser payment, material approval and public ad activation as separate evidence-backed gates"
+      "Obtain Release & Reliability read-only verification of PR #992 source/build ancestry, active Worker source/version/config and the customer-facing checkout behavior",
+      "Verify a real advertiser payment against its exact order before any material approval or placement; internal QA remains excluded",
+      "Review destination, claims, materials, allowed page/slot, inventory and dates before publishing an advertisement",
+      "Publish and verify a paid placement only after all payment and material gates; the new proposal page/PDF remain on owner approval hold"
     ]
   },
   "public_content_language": {

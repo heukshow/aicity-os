@@ -437,6 +437,63 @@
       ],
       "live_url": "https://coshuma.com/",
       "verify_deployed_ancestry": true
+    },
+    "REVENUE:SPONSORSHIP-SALES-REOPEN-20261004": {
+      "mode": "worker_checkout",
+      "source_file": "worker/wrangler.toml",
+      "source_required_regex": [
+        "name\\s*=\\s*\"globalsaashub-payments\"",
+        "CHECKOUT_ENABLED\\s*=\\s*\"true\"",
+        "PAYPAL_ENVIRONMENT\\s*=\\s*\"live\""
+      ],
+      "source_forbidden_regex": [],
+      "gh_pages_file": "sponsorship-sales.js",
+      "gh_pages_required_regex": [
+        "https://globalsaashub-payments\\.qmfforfhem\\.workers\\.dev",
+        "/v1/sponsorship/config",
+        "paymentReady\\s*===\\s*true",
+        "intakeReady\\s*===\\s*true"
+      ],
+      "live_url": "https://coshuma.com/advertise.html",
+      "live_required_substrings": [
+        "/sponsorship-sales.js",
+        "Payment is available only when a verified order and checkout are ready.",
+        "Pay with PayPal"
+      ],
+      "worker_config_url": "https://globalsaashub-payments.qmfforfhem.workers.dev/v1/sponsorship/config",
+      "worker_config_checks": [
+        {
+          "path": [
+            "currency"
+          ],
+          "equals": "USD"
+        },
+        {
+          "path": [
+            "intakeReady"
+          ],
+          "equals": true
+        },
+        {
+          "path": [
+            "paymentReady"
+          ],
+          "equals": true
+        }
+      ],
+      "implementation_pr": 992,
+      "merge_commit": "79ddda77319b56c665f4dab2e6604d079501a373",
+      "build_run": 37167944426,
+      "build_head_sha": "44cf8b12c614825836621466e79f85f63f54b9d0",
+      "evidence_comment_id": 5975512465,
+      "evidence_required_substrings": [
+        "Actual Worker deployment source: 79ddda77319b56c665f4dab2e6604d079501a373.",
+        "Actual Worker version: 76768acc-5d00-4a3b-a01d-e841ed309457.",
+        "CHECKOUT_ENABLED=\"true\"",
+        "The PayPal SDK rendered visible, enabled PayPal and card payment options.",
+        "Both internal QA applications were rejected/closed, unpaid and unpublished",
+        "No payment approval, capture, refund, withdrawal, advertising spend or ad publication was performed."
+      ]
     }
   }
 }

@@ -47,6 +47,7 @@ def validate_contract(registry, specs, strict=True):
         "public_boundary": ("source_glob", "gh_pages_glob", "live_url", "forbidden_regex", "live_required_substrings"),
         "generated_json_state": ("producer", "checks"),
         "bundle_markers": ("source_file", "source_required_regex", "source_forbidden_regex", "gh_pages_glob", "gh_pages_required_regex", "gh_pages_forbidden_regex", "live_url"),
+        "worker_checkout": ("source_file", "source_required_regex", "source_forbidden_regex", "gh_pages_file", "gh_pages_required_regex", "live_url", "live_required_substrings", "worker_config_url", "worker_config_checks", "implementation_pr", "merge_commit", "build_run", "build_head_sha", "evidence_comment_id", "evidence_required_substrings"),
     }
 
     for record_id, spec in records.items():
@@ -65,12 +66,21 @@ def validate_contract(registry, specs, strict=True):
             regex_fields = ["forbidden_regex"]
         elif mode == "bundle_markers":
             regex_fields = ["source_required_regex", "source_forbidden_regex", "gh_pages_required_regex", "gh_pages_forbidden_regex"]
+        elif mode == "worker_checkout":
+            regex_fields = ["source_required_regex", "source_forbidden_regex", "gh_pages_required_regex"]
         for field in regex_fields:
             for pat in spec.get(field, []):
                 try:
                     re.compile(pat, re.I | re.S)
                 except re.error as exc:
                     errors.append(f"{record_id} invalid regex {pat!r}: {exc}")
+
+        if mode == "worker_checkout":
+            for idx, check in enumerate(spec.get("worker_config_checks", [])):
+                if "path" not in check or "equals" not in check:
+                    errors.append(f"{record_id} worker_config_checks[{idx}] requires path/equals")
+                if not isinstance(check.get("path"), list):
+                    errors.append(f"{record_id} worker_config_checks[{idx}].path must be a list")
 
         if mode == "generated_json_state":
             if not isinstance(spec.get("producer"), list) or not spec.get("producer"):
@@ -386,6 +396,111 @@ def verify_bundle_markers(record, spec):
     return failures, details
 
 
+
+def verify_worker_checkout(record, spec):
+    failures = []
+    details = []
+    token = os.environ.get("GITHUB_TOKEN", "")
+
+    source_path = ROOT / spec["source_file"]
+    if not source_path.exists():
+        failures.append(f"source file missing: {spec['source_file']}")
+    else:
+        source = source_path.read_text(encoding="utf-8", errors="replace")
+        failures.extend(scan_required("source", source, spec.get("source_required_regex", [])))
+        failures.extend(scan_forbidden("source", source, spec.get("source_forbidden_regex", [])))
+        details.append(f"source checkout configuration verified: {spec['source_file']}")
+
+    expected_merge = spec["merge_commit"]
+    try:
+        pr = github_api("GET", f"/pulls/{spec['implementation_pr']}", token)
+        if not pr.get("merged") or pr.get("merge_commit_sha") != expected_merge:
+            failures.append(
+                f"PR #{spec['implementation_pr']} merge mismatch: "
+                f"merged={pr.get('merged')} sha={pr.get('merge_commit_sha')}"
+            )
+        else:
+            details.append(f"source merge: PR #{spec['implementation_pr']} -> {expected_merge}")
+    except Exception as exc:
+        failures.append(f"PR verification failed: {type(exc).__name__}: {exc}")
+
+    try:
+        workflow = github_api("GET", f"/actions/runs/{spec['build_run']}", token)
+        if (workflow.get("status") != "completed" or workflow.get("conclusion") != "success"
+                or workflow.get("head_sha") != spec["build_head_sha"]):
+            failures.append(
+                f"build run {spec['build_run']} mismatch: status={workflow.get('status')} "
+                f"conclusion={workflow.get('conclusion')} head={workflow.get('head_sha')}"
+            )
+        else:
+            details.append(
+                f"Build Check: run {spec['build_run']} succeeded for head {spec['build_head_sha']}"
+            )
+    except Exception as exc:
+        failures.append(f"build verification failed: {type(exc).__name__}: {exc}")
+
+    try:
+        comment = github_api("GET", f"/issues/comments/{spec['evidence_comment_id']}", token)
+        body = comment.get("body", "")
+        if comment.get("author_association") not in ("OWNER", "MEMBER", "COLLABORATOR"):
+            failures.append("deployment evidence comment is not from a trusted repository principal")
+        for required in spec.get("evidence_required_substrings", []):
+            if required not in body:
+                failures.append(f"deployment evidence missing required marker: {required!r}")
+        if not failures:
+            details.append(
+                f"deployment/live attestation: trusted evidence comment {spec['evidence_comment_id']} "
+                "contains exact source, version, configuration and bounded QA markers"
+            )
+    except Exception as exc:
+        failures.append(f"deployment evidence verification failed: {type(exc).__name__}: {exc}")
+
+    try:
+        published_script = git_show(f"origin/gh-pages:{spec['gh_pages_file']}")
+        failures.extend(scan_required("gh-pages worker client", published_script, spec.get("gh_pages_required_regex", [])))
+        details.append(f"published worker client checked: {spec['gh_pages_file']}")
+    except Exception as exc:
+        failures.append(f"gh-pages worker client verification failed: {type(exc).__name__}: {exc}")
+
+    try:
+        status, live = fetch_live(spec["live_url"])
+        details.append(f"live HTTP: {status} {spec['live_url']}")
+        if status != 200:
+            failures.append(f"live HTTP status was {status}")
+        for required in spec.get("live_required_substrings", []):
+            if required not in live:
+                failures.append(f"live required substring missing: {required!r}")
+    except Exception as exc:
+        failures.append(f"live page fetch failed: {type(exc).__name__}: {exc}")
+
+    try:
+        status, raw = fetch_live(spec["worker_config_url"])
+        details.append(f"Worker config HTTP: {status} {spec['worker_config_url']}")
+        if status != 200:
+            failures.append(f"Worker config HTTP status was {status}")
+        config = json.loads(raw)
+        for check in spec.get("worker_config_checks", []):
+            actual = select_json_value(config, check)
+            expected = check.get("equals")
+            if actual != expected:
+                failures.append(
+                    f"Worker config path {check['path']} expected {expected!r}, got {actual!r}"
+                )
+            else:
+                details.append(
+                    f"live Worker config verified: {'.'.join(map(str, check['path']))}={expected!r}"
+                )
+    except Exception as exc:
+        failures.append(f"live Worker config verification failed: {type(exc).__name__}: {exc}")
+
+    if not failures:
+        details.append(
+            "source, required Build Check, trusted exact deployment attestation, public client, "
+            "live page and live Worker checkout configuration agree; no payment or revenue is inferred"
+        )
+    return failures, details
+
+
 def verify_record(record, spec):
     mode = spec.get("mode")
     if mode == "public_boundary":
@@ -394,6 +509,8 @@ def verify_record(record, spec):
         return verify_generated_json_state(record, spec)
     if mode == "bundle_markers":
         return verify_bundle_markers(record, spec)
+    if mode == "worker_checkout":
+        return verify_worker_checkout(record, spec)
     return [f"unsupported verification mode: {mode}"], []
 
 
