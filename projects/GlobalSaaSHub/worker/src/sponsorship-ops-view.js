@@ -126,10 +126,31 @@ export function sponsorshipOpsClient() {
   const root = document.getElementById('sponsorship-ops');
   const feedback = document.getElementById('ops-result');
   const connection = document.getElementById('connection-result');
+  const repairButton = document.getElementById('repair-webhook-events');
   const basePath = root.dataset.basePath;
   const baseIsSafe = /^\/(?:[a-zA-Z0-9_-]+\/)*ads\/?$/.test(basePath);
   const cards = Array.from(document.querySelectorAll('[data-application]'));
   let busy = false;
+  let repairCandidate = null;
+  let checkoutDisabled = false;
+  const validCandidateId = (value) => typeof value === 'string' && /^[A-Za-z0-9_-]{1,128}$/.test(value);
+  const requiredEventNames = [
+    'PAYMENT.CAPTURE.COMPLETED', 'PAYMENT.CAPTURE.PENDING', 'PAYMENT.CAPTURE.REFUNDED', 'PAYMENT.CAPTURE.REVERSED',
+    'CUSTOMER.DISPUTE.CREATED', 'CUSTOMER.DISPUTE.UPDATED', 'CUSTOMER.DISPUTE.RESOLVED',
+    'PAYMENT.CAPTURE.DENIED or PAYMENT.CAPTURE.DECLINED',
+  ];
+  const missingEvents = (value) => Array.isArray(value) ? requiredEventNames.filter((name) => value.includes(name)) : [];
+  function syncRepair() { repairButton.disabled = busy || !checkoutDisabled || !repairCandidate; }
+  function clearRepair() { repairCandidate = null; syncRepair(); }
+  function acceptReadiness(data) {
+    const value = data?.config || data;
+    checkoutDisabled = value?.checks?.checkoutEnabled === false;
+    const discovery = value?.webhookDiscovery;
+    const candidate = discovery?.status === 'found' && Array.isArray(discovery.candidates) && discovery.candidates.length === 1 ? discovery.candidates[0] : null;
+    repairCandidate = checkoutDisabled && value?.providerAuthenticationVerified === true
+      && validCandidateId(candidate?.id) && candidate.requiredEventsVerified === false ? candidate.id : null;
+    syncRepair();
+  }
 
   const field = (card, name) => card.querySelector(`[data-field="${name}"]`);
   const button = (card, action) => card.querySelector(`[data-action="${action}"]`);
@@ -163,13 +184,15 @@ export function sponsorshipOpsClient() {
       ['결제 수신 업체 신원', value?.merchantIdentityVerified],
     ].map(([label, verified]) => `${label}: ${verified === true ? '확인' : '미확인'}`);
     const diagnostic = value?.diagnostic;
-    const stages = { configuration: '연결 설정', authentication: 'PayPal 인증 요청', webhook_lookup: 'PayPal 알림 설정 조회', complete: '연결 조회' };
+    const stages = { configuration: '연결 설정', authentication: 'PayPal 인증 요청', webhook_discovery: 'PayPal 알림 목록 조회', webhook_lookup: 'PayPal 알림 설정 조회', webhook_update: 'PayPal 필수 알림 구독 보완', webhook_readback: 'PayPal 알림 구독 재조회', complete: '연결 조회' };
     const codes = {
       configuration_incomplete: '필수 연결 설정을 확인해야 합니다.',
       authentication_http_error: '인증 단계에서 PayPal 오류 응답을 받았습니다. 이 결과만으로 인증 정보 오류를 단정할 수 없습니다.',
       provider_http_error: 'PayPal 알림 설정 조회에서 오류 응답을 받았습니다.',
       network_error: '요청 응답을 받지 못했습니다. 연결 상태를 확인한 뒤 다시 조회하세요.',
       unknown_error: '예상한 응답을 확인하지 못했습니다. 원인은 아직 확인되지 않았습니다.',
+      candidate_mismatch: '조회한 후보와 현재 등록이 일치하지 않습니다. PayPal 연결을 다시 조회하세요.',
+      readback_mismatch: '보완 후 필수 알림 구독을 확인하지 못했습니다. PayPal 연결을 다시 조회하세요.',
       complete: '조회 요청을 마쳤습니다. 위 항목별 확인 결과를 확인하세요.',
     };
     if (diagnostic && Object.hasOwn(stages, diagnostic.stage) && Object.hasOwn(codes, diagnostic.code)) {
@@ -180,8 +203,10 @@ export function sponsorshipOpsClient() {
     if (discovery?.status === 'found' && Array.isArray(discovery.candidates)) {
       parts.push('현재 인증 앱에서 콜백 주소가 정확히 일치하는 후보를 찾았습니다. 후보는 아직 설정에 연결되지 않았으며 현재 알림 준비 상태는 미확인입니다.');
       for (const candidate of discovery.candidates) {
-        if (typeof candidate?.id !== 'string' || !/^[A-Za-z0-9_-]{1,128}$/.test(candidate.id)) continue;
+        if (!validCandidateId(candidate?.id)) continue;
         parts.push(`후보 ID: ${candidate.id} · 후보의 필수 알림 구독: ${candidate.requiredEventsVerified === true ? '확인' : '확인 필요'}`);
+        const missing = missingEvents(candidate.missingRequiredEvents);
+        if (missing.length) parts.push(`부족한 필수 알림: ${missing.join(', ')}`);
       }
     } else if (discovery?.status === 'none') {
       parts.push('현재 인증 앱의 목록에서 콜백 주소가 정확히 일치하는 등록을 찾지 못했습니다.');
@@ -191,6 +216,11 @@ export function sponsorshipOpsClient() {
       const reason = detail && Object.hasOwn(codes, detail.code) ? codes[detail.code] : codes.unknown_error;
       parts.push(`현재 인증 앱의 알림 목록 조회를 완료하지 못했습니다${status} · ${reason}`);
     }
+    if (value?.repair) {
+      if (validCandidateId(value.repair.candidateId)) parts.push(`보완 대상 ID: ${value.repair.candidateId}`);
+      const missing = missingEvents(value.repair.missingRequiredEvents);
+      if (missing.length) parts.push(`부족한 필수 알림: ${missing.join(', ')}`);
+    }
     if (typeof value?.readinessVerifiedAt === 'string' && /(Z|[+-]\d{2}:\d{2})$/i.test(value.readinessVerifiedAt) && Number.isFinite(Date.parse(value.readinessVerifiedAt))) {
       parts.push(`조회 시각: ${new Date(value.readinessVerifiedAt).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })} KST`);
     }
@@ -199,11 +229,18 @@ export function sponsorshipOpsClient() {
   }
   async function run(card, action) {
     if (busy || !baseIsSafe) return;
-    const allowed = ['verify-readiness', 'verify-payment', 'approve', 'reject', 'publish', 'pause'];
+    const allowed = ['verify-readiness', 'repair-webhook-events', 'verify-payment', 'approve', 'reject', 'publish', 'pause'];
     if (!allowed.includes(action) || (card && !/^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$/.test(card.dataset.applicationId))) return;
     let body = {}, suffix = action;
     try {
-      if (action === 'approve') {
+      if (action === 'verify-readiness') {
+        if (card) return;
+        clearRepair();
+      } else if (action === 'repair-webhook-events') {
+        if (card || !checkoutDisabled || !repairCandidate) return;
+        body = { expectedCandidateId: repairCandidate };
+        clearRepair();
+      } else if (action === 'approve') {
         if (!card || card.dataset.canApprove !== 'true' || !field(card, 'destination-checked').checked || !field(card, 'claims-checked').checked) {
           message(card, '연결 주소와 광고 표현을 모두 확인한 뒤 승인하세요.', true); return;
         }
@@ -219,9 +256,8 @@ export function sponsorshipOpsClient() {
         if (!card || card.dataset.canPublish !== 'true') { message(card, '입금 검증과 소재 승인, 운영 결제 준비 상태를 확인하세요.', true); return; }
         body = startValue(card);
       } else if (action === 'pause' && (!card || card.dataset.canPause !== 'true')) return;
-      if (card && action === 'verify-readiness') return;
-      if (!card && action !== 'verify-readiness') return;
-      const path = card ? `${basePath}/applications/${encodeURIComponent(card.dataset.applicationId)}/${suffix}` : `${basePath}/verify-readiness`;
+      if (!card && !['verify-readiness', 'repair-webhook-events'].includes(action)) return;
+      const path = card ? `${basePath}/applications/${encodeURIComponent(card.dataset.applicationId)}/${suffix}` : `${basePath}/${action}`;
       const endpoint = new URL(path, window.location.origin);
       if (endpoint.origin !== window.location.origin) return;
       const buttons = Array.from(document.querySelectorAll('button[data-action]'));
@@ -233,19 +269,27 @@ export function sponsorshipOpsClient() {
         let data = null;
         try { data = await response.json(); } catch { /* A login page or invalid response is not a successful operation. */ }
         if (!response.ok || !data || typeof data !== 'object' || Array.isArray(data) || data.ok === false) {
+          clearRepair();
           const detail = response.status === 401 || response.status === 403 ? '소유자 로그인 상태를 확인하세요.' : response.status === 409 ? '현재 결제·소재·집행 상태를 새로고침해 확인하세요.' : '연결과 현재 상태를 확인한 뒤 다시 시도하세요.';
-          message(card, `처리하지 못했습니다. ${detail} (HTTP ${response.status})`, true); return;
+          message(card, `처리하지 못했습니다. ${detail}${action === 'repair-webhook-events' ? ' 보완 재실행 전 PayPal 연결을 다시 조회하세요.' : ''} (HTTP ${response.status})`, true); return;
         }
         if (action === 'verify-readiness') {
           responseStatus(data);
+          acceptReadiness(data);
           const incomplete = data?.diagnostic && data.diagnostic.code !== 'complete';
           message(card, incomplete ? '연결 조회를 완료하지 못했습니다. 위 진단 단계와 항목별 상태를 확인하세요.' : '결제 연결 조회가 끝났습니다. 위 항목별 확인 결과를 확인하세요.', !!incomplete);
+        } else if (action === 'repair-webhook-events') {
+          responseStatus(data);
+          const repaired = ['updated', 'already_complete'].includes(data.repair?.status) && data.repair.requiredEventsVerified === true
+            && data.repair.bindingRequired === true && validCandidateId(data.repair.candidateId) && data.repair.candidateId === body.expectedCandidateId;
+          message(card, repaired ? '구독 확인 완료 · 연결 ID 설정 필요. 현재 알림 준비 상태는 미확인입니다.' : '필수 알림 구독 보완을 확인하지 못했습니다. 위 진단을 확인하고 PayPal 연결을 다시 조회하세요.', !repaired);
         }
         else { message(card, '요청을 처리했습니다. 저장된 상태를 새로 조회합니다.'); window.location.reload(); }
       } catch {
-        message(card, '응답을 확인하지 못했습니다. 다시 실행하기 전에 화면을 새로고침해 처리 결과를 확인하세요.', true);
+        clearRepair();
+        message(card, action === 'repair-webhook-events' ? '보완 응답을 확인하지 못했습니다. PayPal 연결을 다시 조회해 결과를 확인하세요.' : '응답을 확인하지 못했습니다. 다시 실행하기 전에 화면을 새로고침해 처리 결과를 확인하세요.', true);
       } finally {
-        busy = false; buttons.forEach((item, index) => { item.disabled = before[index]; }); cards.forEach(syncApproval);
+        busy = false; buttons.forEach((item, index) => { item.disabled = before[index]; }); cards.forEach(syncApproval); syncRepair();
       }
     } catch (error) {
       message(card, error.message === 'START_DATE' ? '시작일시는 현재 이후의 올바른 한국 시간으로 입력하세요.' : '입력값을 확인하세요.', true);
@@ -259,6 +303,8 @@ export function sponsorshipOpsClient() {
     syncApproval(card);
   }
   document.getElementById('verify-readiness').addEventListener('click', () => run(null, 'verify-readiness'));
+  repairButton.addEventListener('click', () => run(null, 'repair-webhook-events'));
+  syncRepair();
   document.getElementById('refresh-ops').addEventListener('click', () => window.location.reload());
 }
 
@@ -277,6 +323,6 @@ export function renderSponsorshipOps({ applications = [], config = {}, basePath 
   *{box-sizing:border-box}body{margin:0;background:#f3f5f9;color:#18273e;font:15px/1.6 system-ui,-apple-system,sans-serif}main{max-width:1320px;margin:auto;padding:30px}h1{font-size:30px;line-height:1.3;margin:6px 0 10px}h2{font-size:22px;margin:0 0 8px}h3{font-size:21px;margin:3px 0;overflow-wrap:anywhere}h3 span{color:#96a3b6;font-weight:400}h4{font-size:16px;margin:0 0 12px}p{margin:6px 0}a{color:#285ac2;overflow-wrap:anywhere}.top,.application-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}.eyebrow{font-size:12px;letter-spacing:.14em;font-weight:700;color:#4265ba}nav,.buttons{display:flex;gap:10px;flex-wrap:wrap}button,nav a{font:inherit;padding:10px 14px;border:1px solid #cbd5e4;border-radius:8px;background:#fff;color:#263b59;text-decoration:none}button{cursor:pointer}button:disabled{color:#748093;background:#f2f4f7;cursor:not-allowed;opacity:.75}button[data-action=publish]:not(:disabled),button[data-action=approve]:not(:disabled){background:#315dde;color:#fff;border-color:#315dde}button[data-action=pause]:not(:disabled){color:#983328;border-color:#d6a5a0}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #9bb5fd;outline-offset:3px}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0 8px}.summary article,.connection,.application{background:#fff;border:1px solid #dde4ef;border-radius:14px;padding:22px}.summary span{color:#566882;font-size:13px}.summary strong{font-size:32px;display:block;margin-top:8px;font-variant-numeric:tabular-nums}.scope,small,.muted{color:#65738a;font-size:12px}small{display:block;margin-top:5px}.connection{margin:22px 0}.connection-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:14px}.checks{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:9px 22px}.checks li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #e9edf4;padding:8px 0;font-size:13px}.good{color:#096442}.warning,.error{color:#9a3b1a}.applications{margin-top:28px}.application{margin-top:18px}.reference{font-size:12px;color:#58708e;overflow-wrap:anywhere}.pill{display:inline-block;white-space:nowrap;background:#fff1d6;color:#795400;padding:5px 10px;border-radius:16px;font-size:12px}.pill.verified{background:#e0f4ed;color:#096442}.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 24px;margin:22px 0}.facts dt{font-size:12px;color:#65738a;margin-bottom:5px}.facts dd{margin:0;overflow-wrap:anywhere;font-size:14px}.facts dd strong{font-size:17px}.facts time{font-size:13px}.materials{border-top:1px solid #e5eaf2;border-bottom:1px solid #e5eaf2;padding:20px 0;overflow-wrap:anywhere}.materials p{font-size:14px}.materials b{display:inline-block;color:#566882;min-width:100px}.material-copy,.review-notes{white-space:pre-wrap}.workflow{display:grid;grid-template-columns:.85fr 1.4fr 1.1fr;gap:24px;margin-top:22px}.workflow section+section{border-left:1px solid #e5eaf2;padding-left:24px}.workflow p{font-size:13px;color:#65738a;margin:9px 0 14px}.workflow label{display:block;font-size:13px;margin:8px 0}.workflow label span{color:#65738a}.workflow .check{display:flex;gap:8px;align-items:flex-start;line-height:1.5}.check input{width:18px;height:18px;margin:2px 0 0;flex:none}textarea,input[type=datetime-local]{display:block;box-sizing:border-box;width:100%;font:inherit;font-size:14px;border:1px solid #cbd5e4;border-radius:8px;padding:10px;background:#fff;color:#18273e}textarea{resize:vertical;margin:6px 0 12px}textarea:disabled,input:disabled{background:#f3f5f9}.action-result{min-height:1.5em;font-size:13px;margin-top:16px}#ops-result,#connection-result{font-size:14px}.empty{background:#fff;border:1px solid #dde4ef;padding:30px;border-radius:14px}footer{margin-top:28px;color:#65738a;font-size:12px}@media(max-width:1000px){.facts{grid-template-columns:repeat(2,1fr)}.checks{grid-template-columns:repeat(2,1fr)}.workflow{grid-template-columns:1fr}.workflow section+section{border-left:0;border-top:1px solid #e5eaf2;padding:18px 0 0}}@media(max-width:700px){main{padding:16px}.top,.application-heading{display:block}.top nav{margin-top:18px}.summary{grid-template-columns:repeat(2,1fr)}.application,.connection{padding:18px}.pill{margin-top:10px}.facts{gap:16px}.checks{grid-template-columns:1fr}h1{font-size:26px}}
   </style></head><body><main id="sponsorship-ops" data-base-path="${escapeHtml(base)}"><header class="top"><div><div class="eyebrow">COSHUMA / ADS</div><h1>광고 운영 · 결제 확인</h1><p>주문별 입금 근거와 소재를 확인하고 광고를 집행합니다.</p></div><nav aria-label="운영 화면 이동"><a href="/ops/revenue.html">전체 수익</a><button type="button" id="refresh-ops">상태 새로고침</button></nav></header>
   <section class="summary" aria-label="조회된 광고 신청 현황">${summary('조회된 신청', rows.length)}${summary('입금 검증 완료', verified)}${summary('입금 확인 후 소재 검토 대기', awaitingReview)}${summary('집행 중 · 예약', onSite)}</section><p class="scope">현재 조회 목록 기준입니다. 입금 검증 건수는 은행 출금액이나 광고 성과를 뜻하지 않습니다.</p>
-  <section class="connection" aria-labelledby="connection-title"><h2 id="connection-title">결제 연결 상태</h2><p><strong>${escapeHtml(connectionLabel)}</strong> · 광고 접수 ${settings.intakeReady === true ? '준비됨' : '확인 필요'}</p><p class="muted">연결 준비와 개별 광고의 실제 입금 확인은 각각 확인합니다.</p>${checks ? `<ul class="checks">${checks}</ul>` : '<p class="muted">세부 연결 확인 결과가 아직 없습니다.</p>'}<div class="connection-actions"><button type="button" id="verify-readiness" data-action="verify-readiness">PayPal 연결 조회</button><span class="muted">인증과 알림 등록 상태를 읽습니다.</span></div><p id="connection-result" role="status" aria-live="polite"></p><p id="ops-result" role="status" aria-live="polite"></p></section>
+  <section class="connection" aria-labelledby="connection-title"><h2 id="connection-title">결제 연결 상태</h2><p><strong>${escapeHtml(connectionLabel)}</strong> · 광고 접수 ${settings.intakeReady === true ? '준비됨' : '확인 필요'}</p><p class="muted">연결 준비와 개별 광고의 실제 입금 확인은 각각 확인합니다.</p>${checks ? `<ul class="checks">${checks}</ul>` : '<p class="muted">세부 연결 확인 결과가 아직 없습니다.</p>'}<div class="connection-actions"><button type="button" id="verify-readiness" data-action="verify-readiness">PayPal 연결 조회</button><span class="muted">인증과 알림 등록 상태를 읽습니다.</span><button type="button" id="repair-webhook-events" data-action="repair-webhook-events" aria-describedby="repair-webhook-help" disabled>필수 알림 구독 보완</button><span class="muted" id="repair-webhook-help">결제 접수 중지 상태에서 조회한 단일 후보의 부족한 필수 알림만 보완합니다. 연결 ID 설정은 별도로 필요합니다.</span></div><p id="connection-result" role="status" aria-live="polite"></p><p id="ops-result" role="status" aria-live="polite"></p></section>
   <section class="applications" aria-labelledby="applications-title"><h2 id="applications-title">광고 신청 및 집행</h2><p class="muted">시간은 한국 시간(KST)입니다. 기록이 없는 날짜는 확인 기록 없음으로 표시합니다.</p>${rows.length ? rows.map((application, index) => renderApplication(application, index, settings)).join('') : '<p class="empty">현재 조회된 광고 신청이 없습니다.</p>'}</section><noscript><p role="alert">운영 작업에는 JavaScript가 필요합니다. 위 상태는 페이지를 불러온 시점의 기록입니다.</p></noscript><footer>소유자 전용 운영 화면 · 마지막 확인 시점을 기준으로 읽으세요.</footer></main><script>const __name=fn=>fn;(${sponsorshipOpsClient.toString()})();</script></body></html>`;
 }
