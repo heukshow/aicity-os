@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T13:56:34Z",
+  "updated_at": "2026-10-04T14:25:33Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2671,7 +2671,7 @@
       "next_owner": "Editorial Quality Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-10-04T00:22:22.083960Z",
+      "last_evidence_at": "2026-10-04T14:25:33Z",
       "evidence": {
         "source_base_commit": "e7bb35372c9b40284b71a0d167e5f39a825235ec",
         "reviewed_pages": [
@@ -2694,14 +2694,29 @@
         "window_policy": "Preserve fixed dates/events; annotate revision and do not claim uplift or attribute a mixed-copy period solely to an earlier release.",
         "additional_microcopy_correction": {
           "prepared_at": "2026-10-04T01:06:37Z",
-          "status": "source_prepared_deployment_pending",
+          "status": "production_verified",
           "scope": [
             "Homepage country filter: All verified countries -> All countries and regions. Existing option value and filter behavior are unchanged.",
             "Semrush vs Frase trial CTA: Start Frase 7-day free trial -> Start your free 7-day Frase trial. Preserve the free 7-day offer, arrow, destination and event attributes in source and producer.",
             "Pipedrive cross-link introduction: replace the abstract existing-guide sentence with Compare Pipedrive and Reply.io to see which fits your sales workflow. The existing build producer owns this section."
           ],
           "policy": "Narrow clarity correction under the existing English editorial contract. Preserve prices, trial terms, links, layout, homepage title/meta/H1, event definitions and fixed 7/30-day period boundaries. Record actual deployment time before claiming publication; do not infer conversion uplift.",
-          "production_verified_at": null
+          "production_verified_at": "2026-10-04T01:20:04Z",
+          "implementation_pr": 990,
+          "implementation_head_commit": "36c28a6dec4acf16e51cfe433af5dd69bfc75e5b",
+          "merge_commit": "391a9d0a5a93685f34d0f55ceebb2bb02ef59f48",
+          "pr_build_run": 37167277495,
+          "site_deploy_run": 37167569931,
+          "gh_pages_commit": "a068bd7563d8a3c83a06b84693958ca509ce5573",
+          "pages_run": 37167666341,
+          "verification_comment_id": 5975512465,
+          "live_verified_at": "2026-10-04T14:25:33Z",
+          "live_urls": [
+            "https://coshuma.com/?coshuma_qa=1&deploy=36c28a6",
+            "https://coshuma.com/compare/semrush-vs-frase.html?coshuma_qa=1&deploy=36c28a6",
+            "https://coshuma.com/tool/pipedrive.html?coshuma_qa=1&deploy=36c28a6"
+          ],
+          "verification": "PR #990 source and producer changes passed Build Check 37167277495, merged as 391a9d0a5a93685f34d0f55ceebb2bb02ef59f48, deployed successfully in Site Build 37167569931, and reached Pages in run 37167666341 from gh-pages a068bd7563d8a3c83a06b84693958ca509ce5573. Fresh QA-marked live readback confirmed all three corrected phrases; the three replaced phrases were absent from the corresponding current outputs. No conversion uplift is inferred."
         }
       },
       "handoff": "Editorial Quality maintains source and producer wording. Complete PR checks, merge, current-main deployment and live readback; Operations Governance synchronizes evidence. Continue contextual English review in the existing workflow.",
