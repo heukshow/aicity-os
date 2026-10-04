@@ -78,7 +78,7 @@ def sync_advertise_catalog() -> None:
     """Keep displayed rates and form choices tied to the existing product table."""
     page = PUBLIC / "advertise.html"
     source = json.loads((ROOT / "data/sponsorship-inventory.json").read_text(encoding="utf-8"))
-    catalog = [{"slot": slot, "label": item["package_name"],
+    catalog = [{"slot": slot, "label": item.get("public_name", item["package_name"]),
                 "prices": {str(days): f'{item["pricing"][f"{days}_days"]:.2f}' for days in (7, 30, 90)},
                 "allowedPages": item["requestable_pages"]}
                for slot, item in source["placements"].items()]

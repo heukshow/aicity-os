@@ -25,6 +25,7 @@
     "buyer-intent-top": {
       "status": "applications_open_subject_to_review",
       "package_name": "Buyer-Intent Featured",
+      "public_name": "Featured Buyer Guide Placement",
       "position": "immediately after the opening section on Best / buyer-intent pages",
       "public_label": "Sponsored",
       "pricing": {
