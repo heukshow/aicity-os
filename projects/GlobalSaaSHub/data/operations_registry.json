@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T00:22:22.083960Z",
+  "updated_at": "2026-10-04T00:25:43.670038Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2443,7 +2443,41 @@
           "verified_new_posts": 1,
           "evidence_scope": "Public URL and public content only; authentication, session, device and UI-control details are intentionally excluded."
         },
-        "security_metadata_minimized_at": "2026-10-03T22:56:00Z"
+        "security_metadata_minimized_at": "2026-10-03T22:56:00Z",
+        "onsite_advertising": {
+          "recorded_at": "2026-10-04T00:12:22Z",
+          "manifest_section": "onsite_advertising",
+          "status": "intake_live_payment_connection_diagnosis",
+          "implementation_pr": 981,
+          "d1_compatibility_pr": 983,
+          "site_source_commit": "4706d69769559ec226060b7100d8392533462d9d",
+          "worker_source_commit": "0f75fe32416f2a13e806cae25e3c8bbd409cced8",
+          "public_release_verified": true,
+          "migration_and_worker_deployed": true,
+          "owner_view_accessed": true,
+          "new_checkout_enabled": false,
+          "provider_readiness_result": "HTTP 502; diagnose provider stage before activation",
+          "revenue_automation_prompt_updated_and_verified": true,
+          "existing_6_hour_cadence_preserved": true,
+          "real_advertiser_payment": "not_verified",
+          "next_owner": "Revenue Intelligence Team",
+          "next_action": "Resolve actual provider readiness, verify checkout, then review confirmed receipts and fulfil approved placements."
+        },
+        "english_editorial_review": {
+          "recorded_at": "2026-10-04T00:12:22Z",
+          "manifest_section": "english_editorial_review",
+          "scope": "Seven current public pages and the live homepage bundle",
+          "finding": "Understandable English with specific grammar, labeling and repetition defects; no site-wide certification or authorship claim.",
+          "copy_edits_applied": false,
+          "next_owner": "Editorial Quality Team",
+          "measurement_window_policy": "Preserve protected pages and fixed windows; annotate verified narrow corrections."
+        },
+        "public_content_language": {
+          "language": "en",
+          "owner_instruction_at": "2026-10-04T08:03:33+09:00",
+          "audience_prompt_exact_readback": true,
+          "existing_schedule_and_caps_preserved": true
+        }
       },
       "completion_gate": "campaign_period_ended_and_source_evidenced_outcomes_and_closeout_report",
       "completion_gate_satisfied": false,
@@ -2460,12 +2494,12 @@
       "canonical_owner": "Revenue Optimization Team",
       "found_by": "Operations Governance Team",
       "fixed_by": "Revenue Optimization Team",
-      "changed_scope": "English advertiser intake, server-priced quotes, PayPal-bound payment verification, approved-material and inventory publication gates; checkout and public placement activation remain disabled pending production gates.",
+      "changed_scope": "English advertiser intake, server-priced quotes, PayPal-bound payment verification, approved-material and inventory publication gates; public materials and intake are live, with checkout disabled while the provider readiness failure is diagnosed.",
       "lifecycle": "production_verification_requested",
-      "next_owner": "Release & Reliability Team",
+      "next_owner": "Revenue Optimization Team",
       "priority": "high",
-      "blocker": "missing_deterministic_verification_spec",
-      "last_evidence_at": "2026-10-04T00:00:10Z",
+      "blocker": "live_provider_readiness_diagnosis",
+      "last_evidence_at": "2026-10-04T00:18:52Z",
       "evidence": {
         "implementation_pr": 981,
         "implementation_merge_commit": "4706d69769559ec226060b7100d8392533462d9d",
@@ -2474,19 +2508,31 @@
         "d1_compatibility_merge_commit": "0f75fe32416f2a13e806cae25e3c8bbd409cced8",
         "compatibility_build_run": 37163223568,
         "worker_revenue_safety_run": 37163500870,
-        "remote_migration_applied": false,
-        "private_worker_deployed_from_current_main": false,
+        "remote_migration_applied": true,
+        "private_worker_deployed_from_current_main": true,
         "provider_readiness_verified": false,
         "checkout_enabled": false,
         "real_advertiser_payment_confirmed": false,
         "public_ad_activated": false,
-        "merge_commit": "4706d69769559ec226060b7100d8392533462d9d"
+        "merge_commit": "4706d69769559ec226060b7100d8392533462d9d",
+        "deployed_worker_source_commit": "0f75fe32416f2a13e806cae25e3c8bbd409cced8",
+        "migration_tables": 5,
+        "migration_triggers": 5,
+        "public_release_verified": true,
+        "site_build_run": 37162847558,
+        "pages_run": 37162966078,
+        "owner_ads_view_accessed": true,
+        "anonymous_owner_access_status": 401,
+        "intake_ready": true,
+        "provider_readiness_result": "HTTP 502; failure stage unknown until the pending safe owner diagnostic is deployed",
+        "readiness_diagnostic_pr": 985,
+        "revenue_automation_prompt_updated_and_read_back": true
       },
       "completion_gate": "production_verified",
       "completion_gate_satisfied": false,
       "user_action_required": false,
-      "verification": "PR #981 and #983 Build Checks succeeded and current-main Worker Revenue Safety succeeded. The earlier remote D1 migration failed atomically and left no sponsorship objects or migration marker; corrected migration source is merged but not yet applied. No live provider readiness or actual payment evidence is claimed.",
-      "handoff": "Security & Cost Control Team: from a clean current-main worktree apply migration 0004, deploy the private Worker, verify authenticated PayPal provider readiness and registered receipt/refund/dispute notifications, and keep checkout disabled until all gates pass. Then hand off to Release & Reliability Team for production read-only verification. Do not count an application or test as payment, publication or revenue."
+      "verification": "The corrected remote D1 migration succeeded with five tables and five triggers, and the Worker deployed from merged current main 0f75fe3. Six public release assets match the validated build. The owner advertising view is accessible and anonymous financial access returns 401. Actual provider lookup returned HTTP 502; checkout remains disabled. No real advertiser payment or public paid ad is claimed.",
+      "handoff": "Continue PR #985, deploy the safe owner readiness diagnostic, identify the actual provider failure and resolve it through authorized existing account setup. Verify authentication, registered receipt/refund/dispute notifications and merchant identity before enabling checkout through tracked configuration. Revenue Intelligence owns recurring receipt review and approved fulfilment. Release & Reliability verifies actual deployment and public results; mock/internal QA never counts as an advertiser or receipt."
     },
     {
       "record_id": "EDITORIAL:ENGLISH-COPY-QUALITY-20261004",

@@ -206,3 +206,31 @@ test('uncertain responses are not retried, raw errors are not displayed, and dou
   assert.match(rejected.cards[0].querySelector('[data-result]').textContent, /HTTP 409/);
   assert.doesNotMatch(rejected.cards[0].querySelector('[data-result]').textContent, /secret-provider-debug-data/);
 });
+
+test('readiness failures display fixed stage and HTTP diagnostics without rendering raw provider details', async () => {
+  for (const [stage, code, httpStatus, label] of [
+    ['authentication', 'authentication_http_error', 401, 'PayPal 인증 요청'],
+    ['webhook_lookup', 'provider_http_error', 404, 'PayPal 알림 설정 조회'],
+    ['webhook_lookup', 'network_error', null, 'PayPal 알림 설정 조회'],
+  ]) {
+    const state = browser(render(), async () => ({ ok: true, status: 200, json: async () => ({
+      providerAuthenticationVerified: stage === 'webhook_lookup', webhookUrlVerified: false, requiredEventsVerified: false,
+      merchantIdentityVerified: false, configurationOnly: true,
+      diagnostic: { stage, code, httpStatus, raw: 'SECRET-DETAIL', error: 'SECRET-PROVIDER-ERROR', webhookId: 'SECRET-WEBHOOK-ID' },
+    }) }));
+    await state.nodes.get('verify-readiness').dispatch('click');
+    const shown = state.nodes.get('connection-result').textContent;
+    assert.match(shown, new RegExp(`진단 단계: ${label}`));
+    if (httpStatus) assert.match(shown, new RegExp(`PayPal HTTP ${httpStatus}`));
+    assert.match(state.nodes.get('ops-result').textContent, /완료하지 못했습니다/);
+    assert.equal(state.nodes.get('ops-result').attributes.role, 'alert');
+    assert.doesNotMatch(shown, /SECRET|입금 검증 완료/);
+    assert.equal(state.requests.length, 1);
+    assert.equal(state.reloads, 0);
+  }
+  const unexpected = browser(render(), async () => ({ ok: true, status: 200, json: async () => ({
+    diagnostic: { stage: 'SECRET-STAGE', code: 'SECRET-CODE', httpStatus: 'SECRET-STATUS' },
+  }) }));
+  await unexpected.nodes.get('verify-readiness').dispatch('click');
+  assert.doesNotMatch(unexpected.nodes.get('connection-result').textContent, /SECRET/);
+});

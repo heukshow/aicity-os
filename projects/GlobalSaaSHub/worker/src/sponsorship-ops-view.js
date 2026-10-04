@@ -162,6 +162,20 @@ export function sponsorshipOpsClient() {
       ['필수 결제 알림 구독', value?.requiredEventsVerified],
       ['결제 수신 업체 신원', value?.merchantIdentityVerified],
     ].map(([label, verified]) => `${label}: ${verified === true ? '확인' : '미확인'}`);
+    const diagnostic = value?.diagnostic;
+    const stages = { configuration: '연결 설정', authentication: 'PayPal 인증 요청', webhook_lookup: 'PayPal 알림 설정 조회', complete: '연결 조회' };
+    const codes = {
+      configuration_incomplete: '필수 연결 설정을 확인해야 합니다.',
+      authentication_http_error: '인증 단계에서 PayPal 오류 응답을 받았습니다. 이 결과만으로 인증 정보 오류를 단정할 수 없습니다.',
+      provider_http_error: 'PayPal 알림 설정 조회에서 오류 응답을 받았습니다.',
+      network_error: '요청 응답을 받지 못했습니다. 연결 상태를 확인한 뒤 다시 조회하세요.',
+      unknown_error: '예상한 응답을 확인하지 못했습니다. 원인은 아직 확인되지 않았습니다.',
+      complete: '조회 요청을 마쳤습니다. 위 항목별 확인 결과를 확인하세요.',
+    };
+    if (diagnostic && Object.hasOwn(stages, diagnostic.stage) && Object.hasOwn(codes, diagnostic.code)) {
+      const httpStatus = Number.isInteger(diagnostic.httpStatus) && diagnostic.httpStatus >= 100 && diagnostic.httpStatus <= 599 ? ` · PayPal HTTP ${diagnostic.httpStatus}` : '';
+      parts.push(`진단 단계: ${stages[diagnostic.stage]}${httpStatus} · ${codes[diagnostic.code]}`);
+    }
     if (typeof value?.readinessVerifiedAt === 'string' && /(Z|[+-]\d{2}:\d{2})$/i.test(value.readinessVerifiedAt) && Number.isFinite(Date.parse(value.readinessVerifiedAt))) {
       parts.push(`조회 시각: ${new Date(value.readinessVerifiedAt).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })} KST`);
     }
@@ -207,7 +221,11 @@ export function sponsorshipOpsClient() {
           const detail = response.status === 401 || response.status === 403 ? '소유자 로그인 상태를 확인하세요.' : response.status === 409 ? '현재 결제·소재·집행 상태를 새로고침해 확인하세요.' : '연결과 현재 상태를 확인한 뒤 다시 시도하세요.';
           message(card, `처리하지 못했습니다. ${detail} (HTTP ${response.status})`, true); return;
         }
-        if (action === 'verify-readiness') { responseStatus(data); message(card, '결제 연결 조회가 끝났습니다. 새로고침하면 저장된 최신 상태를 확인할 수 있습니다.'); }
+        if (action === 'verify-readiness') {
+          responseStatus(data);
+          const incomplete = data?.diagnostic && data.diagnostic.code !== 'complete';
+          message(card, incomplete ? '연결 조회를 완료하지 못했습니다. 위 진단 단계와 항목별 상태를 확인하세요.' : '결제 연결 조회가 끝났습니다. 위 항목별 확인 결과를 확인하세요.', !!incomplete);
+        }
         else { message(card, '요청을 처리했습니다. 저장된 상태를 새로 조회합니다.'); window.location.reload(); }
       } catch {
         message(card, '응답을 확인하지 못했습니다. 다시 실행하기 전에 화면을 새로고침해 처리 결과를 확인하세요.', true);
