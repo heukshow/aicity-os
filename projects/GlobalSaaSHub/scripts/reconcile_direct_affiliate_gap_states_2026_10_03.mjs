@@ -31,11 +31,17 @@ const states = {
     next: 'Use the official Docusign partner support/application route to reconcile the current affiliate enrollment path. Do not infer a tracking URL.',
   },
   dub: {
-    stale: [null, 'unclassified', 'application_not_submitted'],
-    status: 'browser_required_program_enrollment',
+    stale: [null, 'unclassified', 'application_not_submitted', 'browser_required_program_enrollment'],
+    status: 'browser_required_legal_program_consent',
+    checkedAt: '2026-10-05T06:18:40+09:00',
     source: 'https://partners.dub.co/dub',
-    workflow: 'https://app.dub.co/referrals',
-    next: 'Reuse the existing Dub account and open Dub own referral dashboard/program enrollment. Do not create a duplicate Dub account.',
+    workflow: 'https://partners.dub.co/dub/apply',
+    next: 'The account holder must review and accept the official Dub Affiliate Program Terms before continuing the two-step application. After consent, reuse the existing COSHUMA Dub identity if available, submit once only, and recover only the exact vendor-issued customer-facing tracking URL. Stop for CAPTCHA, OTP, payment approval or forced identity verification.',
+    evidence: [
+      '2026-10-05 direct official-page check: Dub states 30% per sale for one year and 20% off for referred new users for three months; these are vendor-stated terms, not independent performance evidence.',
+      'The official application is Step 1 of 2 and requires name, email, website, partnership rationale, promotion plan, and affirmative acceptance of the Dub Affiliate Program Terms before Continue.',
+      'No application was submitted, no program terms were accepted, no duplicate account was created, and no customer-facing tracking URL is verified.',
+    ],
   },
   expandi: {
     stale: [null, 'unclassified', 'browser_required_application_form'],
@@ -88,10 +94,11 @@ function reconcileTool(tool, rule) {
   tool.affiliate_url = null;
   tool.affiliate_verified = false;
   tool.affiliate_status = rule.status;
-  tool.affiliate_status_checked_at = checkedAt;
+  tool.affiliate_status_checked_at = rule.checkedAt ?? checkedAt;
   tool.affiliate_source_url = rule.source;
   if (rule.workflow) tool.affiliate_workflow_url = rule.workflow;
   tool.affiliate_next_action = rule.next;
+  if (rule.evidence) tool.affiliate_evidence_markers = rule.evidence;
   return true;
 }
 
