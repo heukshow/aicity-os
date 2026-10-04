@@ -1020,15 +1020,15 @@
     "is_manual_override": true,
     "official_verification_status": "verified",
     "official_verified_at": "2026-09-14T04:00:00+09:00",
-    "official_evidence_url": "https://www.brevo.com/partners/affiliates/",
+    "official_evidence_url": "https://help.brevo.com/hc/en-us/articles/16487784994322-The-Brevo-Affiliate-program",
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_partnerstack_application",
-    "affiliate_source_url": "https://www.brevo.com/partners/affiliates/",
+    "affiliate_status": "browser_required_legal_program_consent",
+    "affiliate_source_url": "https://help.brevo.com/hc/en-us/articles/16487784994322-The-Brevo-Affiliate-program",
     "affiliate_verified_at": null,
     "affiliate_evidence_markers": [
-      "Brevo official affiliate program uses PartnerStack and advertises a 90-day cookie",
-      "No existing Brevo application, approval, rejection, or COSHUMA-specific customer tracking URL was found in support@coshuma.com Gmail on 2026-09-14",
-      "PartnerStack application remains unsubmitted because an interactive account/application step is required; do not treat the official pricing or partner pages as referral URLs"
+      "Brevo's current official affiliate help states the program is for bloggers, publishers and content creators, uses PartnerStack, requires a website business email, and issues the personalized affiliate link only after application approval",
+      "Brevo's official terms page states online acceptance is a binding legal commitment and requires acceptance of the terms without reserve",
+      "No Brevo application approval, rejection, or COSHUMA-specific customer tracking URL is present in current repository or Gmail evidence; the application remains unsubmitted pending legal consent"
     ],
     "affiliate_status_checked_at": "2026-10-03T22:13:49Z",
     "affiliate_next_action": "Review and explicitly accept Brevo's binding Affiliate Program Terms before submitting the PartnerStack application. Do not submit or claim approval until that legal-consent gate is completed. After approval, recover and verify only the exact personalized customer-facing affiliate URL issued in PartnerStack."

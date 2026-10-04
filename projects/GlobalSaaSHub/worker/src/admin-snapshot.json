@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-04T06:31:16.274Z",
+  "generatedAt": "2026-10-04T07:46:20.892Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -1734,7 +1734,7 @@
         "name": "Brevo",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "browser_required_partnerstack_application",
+        "affiliateStatus": "browser_required_legal_program_consent",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
