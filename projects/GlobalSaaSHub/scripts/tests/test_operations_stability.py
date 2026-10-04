@@ -192,6 +192,33 @@ class ReleaseTests(unittest.TestCase):
         with self.assertRaises(SystemExit):
             release.validate_contract({'active_queue': [candidate()]}, {'schema_version': 1, 'records': {}})
 
+    def test_worker_checkout_contract_requires_deterministic_live_evidence(self):
+        spec = {
+            'mode': 'worker_checkout',
+            'source_file': 'worker/wrangler.toml',
+            'source_required_regex': ['CHECKOUT_ENABLED'],
+            'source_forbidden_regex': [],
+            'gh_pages_file': 'sponsorship-sales.js',
+            'gh_pages_required_regex': ['workers\\.dev'],
+            'live_url': 'https://coshuma.test/advertise.html',
+            'live_required_substrings': ['Pay with PayPal'],
+            'worker_config_url': 'https://worker.test/v1/sponsorship/config',
+            'worker_config_checks': [{'path': ['paymentReady'], 'equals': True}],
+            'implementation_pr': 1,
+            'merge_commit': 'a' * 40,
+            'build_run': 2,
+            'build_head_sha': 'b' * 40,
+            'evidence_comment_id': 3,
+            'evidence_required_substrings': ['exact version'],
+        }
+        self.assertEqual(
+            release.validate_contract(
+                {'active_queue': [candidate()]},
+                {'schema_version': 1, 'records': {'one': spec}},
+            ),
+            [],
+        )
+
     def test_failed_comment_does_not_block_retry(self):
         body = 'RELEASE_VERIFICATION\n- record_id: `one`\n- result: `verification_failed`\n' + 'a' * 40
         with patch.object(release, 'github_api', side_effect=[[{'body': body}], []]):
