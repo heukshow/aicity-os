@@ -2073,15 +2073,16 @@
     "official_evidence_url": "https://partners.dub.co/dub/apply",
     "affiliate_url": null,
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_program_enrollment",
+    "affiliate_status": "browser_required_legal_program_consent",
     "affiliate_verified_at": "2026-09-01T00:00:00+09:00",
-    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_status_checked_at": "2026-10-05T06:18:40+09:00",
     "affiliate_source_url": "https://partners.dub.co/dub",
-    "affiliate_workflow_url": "https://app.dub.co/referrals",
-    "affiliate_next_action": "Reuse the existing Dub account already used for COSHUMA partner programs and open Dub's own referral dashboard/program enrollment. Do not create a duplicate Dub account.",
+    "affiliate_workflow_url": "https://partners.dub.co/dub/apply",
+    "affiliate_next_action": "The account holder must review and accept the official Dub Affiliate Program Terms before continuing the two-step application. After consent, reuse the existing COSHUMA Dub identity if available, submit once only, and recover only the exact vendor-issued customer-facing tracking URL. Stop for CAPTCHA, OTP, payment approval or forced identity verification.",
     "affiliate_evidence_markers": [
-      "Dub's current official affiliate program pays 30% per sale for one year and gives new users 20% off for three months.",
-      "Dub states existing users can join from the in-app referrals dashboard; COSHUMA already has an existing Dub partner identity used for other approved programs."
+      "2026-10-05 direct official-page check: Dub states 30% per sale for one year and 20% off for referred new users for three months; these are vendor-stated terms, not independent performance evidence.",
+      "The official application is Step 1 of 2 and requires name, email, website, partnership rationale, promotion plan, and affirmative acceptance of the Dub Affiliate Program Terms before Continue.",
+      "No application was submitted, no program terms were accepted, no duplicate account was created, and no customer-facing tracking URL is verified."
     ]
   },
   {

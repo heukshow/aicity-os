@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-04T13:26:07.412Z",
+  "generatedAt": "2026-10-04T21:34:00.921Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -1950,7 +1950,7 @@
         "name": "Dub",
         "officialVerified": true,
         "pricingVerified": false,
-        "affiliateStatus": "browser_required_program_enrollment",
+        "affiliateStatus": "browser_required_legal_program_consent",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
