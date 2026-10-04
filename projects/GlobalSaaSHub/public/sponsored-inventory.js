@@ -1,5 +1,6 @@
 (() => {
   const API = 'https://globalsaashub-payments.qmfforfhem.workers.dev/v1/sponsored/placements';
+  const CONFIG = Object.freeze({ enabled: false });
   // These are the only pages opened for sponsored inventory. Never use wildcard placements.
   const ALLOWED_SLOTS = {
     '/tool/pipedrive.html': 'tool-primary',
@@ -65,6 +66,7 @@
   function init() {
     const slots = Array.from(document.querySelectorAll('[data-sponsored-slot]'));
     slots.forEach((slotEl) => { slotEl.hidden = true; });
+    if (!CONFIG.enabled) return;
     const path = window.location.pathname;
     const slot = ALLOWED_SLOTS[path];
     const matchingSlots = slots.filter((slotEl) => slotEl.dataset.sponsoredSlot === slot);
