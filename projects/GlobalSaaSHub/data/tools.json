@@ -62,8 +62,8 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.activecampaign.com/partners/affiliate",
     "affiliate_verified": false,
-    "affiliate_status": "application_page_unavailable",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_status": "rejected",
+    "affiliate_verified_at": "2026-08-28T18:55:34+00:00"
   },
   {
     "id": "activepieces",
@@ -2985,14 +2985,16 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://workspace.google.com/",
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_country_eligibility_check",
-    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_status": "application_available_account_required",
+    "affiliate_status_checked_at": "2026-10-04T06:15:38Z",
     "affiliate_source_url": "https://workspace.google.com/intl/ko/affiliate-program/",
-    "affiliate_workflow_url": "https://workspace.google.com/intl/ko/affiliate-program/",
-    "affiliate_next_action": "Check CJ Affiliate enrollment and country eligibility for COSHUMA's business identity before applying. Do not assume eligibility or construct a tracking link.",
+    "affiliate_workflow_url": "https://public.cj.com/signup/publisher?advertiserId=5261735",
+    "affiliate_next_action": "Reuse an existing COSHUMA-owned CJ publisher account if authenticated evidence becomes available. Otherwise hold: CJ account creation, publisher-agreement consent, tax forms, and payment information are outside the current autonomous application scope. After authorized enrollment, apply to advertiser 5261735 and verify the issued customer-facing tracking URL before any CTA change.",
     "affiliate_evidence_markers": [
-      "Google Workspace's current official Affiliate Program accepts free applications through CJ Affiliate and provides tracked promotional links after approval.",
-      "COSHUMA country/program eligibility has not yet been verified; exact tracking URL remains null."
+      "Google Workspace's current official Korean Affiliate Program page routes free applications through CJ Affiliate.",
+      "Google's official Affiliate Supported Countries PDF lists South Korea in the Asia Pacific region.",
+      "The official CJ Google Workspace APAC enrollment page requires an active CJ publisher account, email confirmation, acceptance of CJ Affiliate Publisher Agreements, and company, tax, and payment information for activation.",
+      "No authenticated COSHUMA-owned CJ publisher session or issued Google Workspace customer tracking URL was observed; no application was submitted."
     ]
   },
   {
