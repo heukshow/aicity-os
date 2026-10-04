@@ -10,6 +10,10 @@ HOMEPAGE_AFFILIATE_URL = "https://www.jotform.com/?partner=coshuma"
 PRICING_AFFILIATE_URL = "https://www.jotform.com/pricing/?partner=coshuma"
 LEGACY_AFFILIATE_URL = "https://link.jotform.com/17STYVOunG?username=AnSangkwon"
 
+C04_CAMPAIGN_MARKER = 'data-campaign-asset="coshuma-one-month-growth-c04"'
+C04_DECISION_ANCHOR = '<section class="p-7 rounded-3xl bg-[#131520] border border-[#222538] space-y-5"> <h2 class="text-3xl font-black text-white">Decision shortcuts</h2>'
+C04_SECTION = '''<section id="jotform-upgrade-checklist" data-campaign-asset="coshuma-one-month-growth-c04" class="p-7 rounded-3xl bg-[#131520] border border-[#222538] space-y-5"> <div> <div class="text-xs uppercase tracking-widest text-emerald-300 font-bold">Upgrade worksheet</div> <h2 class="text-3xl font-black text-white mt-2">Choose a plan from your busiest month, not your average</h2> <p class="text-sm text-slate-400 mt-2">Write these numbers down privately before opening Jotform. COSHUMA does not collect or store your answers.</p> </div> <div class="overflow-x-auto"> <table class="w-full text-sm min-w-[760px]"> <thead class="text-left text-slate-400 border-b border-[#222538]"> <tr><th class="py-3 pr-4">Decision input</th><th class="py-3 pr-4">What to count</th><th class="py-3">Upgrade signal</th></tr> </thead> <tbody class="divide-y divide-[#222538] text-slate-300"> <tr><td class="py-4 pr-4 font-bold text-white">Active forms</td><td class="py-4 pr-4">Forms that must stay live at the same time</td><td class="py-4">Starter allows 5; compare the 25, 50 and 100-form paid limits when 5 is not enough.</td></tr> <tr><td class="py-4 pr-4 font-bold text-white">Peak monthly submissions</td><td class="py-4 pr-4">Completed responses across every form in your busiest recent month</td><td class="py-4">Starter allows 100. Pick the lowest tier that covers the peak with operating room.</td></tr> <tr><td class="py-4 pr-4 font-bold text-white">Payments and signatures</td><td class="py-4 pr-4">Payment submissions and signed documents, counted separately</td><td class="py-4">Starter includes 10 of each per month. Confirm the current paid-tier limits before upgrading.</td></tr> <tr><td class="py-4 pr-4 font-bold text-white">Branding</td><td class="py-4 pr-4">Whether customer-facing forms can retain Jotform branding</td><td class="py-4">A paid plan is required to remove Jotform branding.</td></tr> <tr><td class="py-4 pr-4 font-bold text-white">Compliance and team access</td><td class="py-4 pr-4">HIPAA requirements, multiple users, SSO or organization controls</td><td class="py-4">Gold and Enterprise offer optional HIPAA features; Enterprise is the multiuser plan.</td></tr> </tbody> </table> </div> <div class="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-5 text-sm text-slate-300"><strong class="text-white">Selection rule:</strong> stay on Starter while every real limit fits and the branding is acceptable. Otherwise choose the lowest paid tier that clears your busiest-month form and submission needs plus any non-negotiable compliance or team requirement. AI Agent limits are separate from normal form limits.</div> <p data-affiliate-disclosure="section" class="text-[11px] leading-5 text-slate-500"><strong>Affiliate disclosure:</strong> COSHUMA may earn a commission if you upgrade through the tracked plan link, at no extra cost to you.</p> <div class="flex flex-col sm:flex-row gap-3"> <a data-cta="affiliate" data-tool-id="jotform" data-cta-source="jotform-c04-plan-checklist" href="https://www.jotform.com/pricing/?partner=coshuma" target="_blank" rel="sponsored noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-sm font-extrabold text-center">Check the plan that fits your numbers →</a> <a data-cta="official" href="https://www.jotform.com/help/408-understanding-your-account-usage-and-limits/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white text-sm font-extrabold text-center">Read Jotform's limit definitions →</a> </div> </section> '''
+
 updated = []
 
 
@@ -84,6 +88,29 @@ def patch_tool_page():
             r'class="(?P<class>[^"]+)">Compare official Jotform plans →</a>'
         )
         html, bottom_pricing_count = bottom_pricing_pattern.subn(bottom_pricing_replacement, html, count=1)
+
+
+    c04_pattern = re.compile(
+        r'<section id="jotform-upgrade-checklist"[^>]*data-campaign-asset="coshuma-one-month-growth-c04"[^>]*>.*?</section> ',
+        re.DOTALL,
+    )
+    if C04_CAMPAIGN_MARKER in html:
+        html, c04_count = c04_pattern.subn(C04_SECTION, html, count=1)
+        if c04_count != 1:
+            raise SystemExit("Could not normalize the Jotform C04 decision worksheet")
+    else:
+        if C04_DECISION_ANCHOR not in html:
+            raise SystemExit("Could not locate the Jotform decision-shortcuts anchor for C04")
+        html = html.replace(C04_DECISION_ANCHOR, C04_SECTION + C04_DECISION_ANCHOR, 1)
+
+    html = html.replace('"dateModified":"2026-09-07"', '"dateModified":"2026-10-04"')
+    html = html.replace('Updated September 7, 2026', 'Updated October 4, 2026')
+    if html.count(C04_CAMPAIGN_MARKER) != 1:
+        raise SystemExit("Jotform C04 decision worksheet must appear exactly once")
+    if 'data-cta-source="jotform-c04-plan-checklist"' not in html:
+        raise SystemExit("Jotform C04 tracked pricing CTA missing")
+    if 'href="https://www.jotform.com/help/408-understanding-your-account-usage-and-limits/"' not in html:
+        raise SystemExit("Jotform official usage-limit source missing")
 
 
     if LEGACY_AFFILIATE_URL in html:
