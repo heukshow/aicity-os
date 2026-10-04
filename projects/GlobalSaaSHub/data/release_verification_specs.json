@@ -494,6 +494,69 @@
         "Both internal QA applications were rejected/closed, unpaid and unpublished",
         "No payment approval, capture, refund, withdrawal, advertising spend or ad publication was performed."
       ]
+    },
+    "REVENUE:TAGSHOP-TOOL-CTA-20261004": {
+      "mode": "bundle_markers",
+      "source_file": "scripts/surface_tagshop_verified_offer.py",
+      "source_forbidden_regex": [],
+      "verify_deployed_ancestry": true,
+      "source_required_regex": [
+        "ensure_tool_partner_cta\\(\\s*\"tagshop-ai\"",
+        "https://tagshop\\.ai\\?via=coshuma-22501e",
+        "tagshop-tool-issued-referral",
+        "data-affiliate-disclosure"
+      ],
+      "gh_pages_glob": "tool/tagshop-ai.html",
+      "gh_pages_required_regex": [
+        "https://tagshop\\.ai\\?via=coshuma-22501e",
+        "data-cta-source=\"tagshop-tool-issued-referral\"",
+        "data-cta=\"affiliate\"",
+        "data-affiliate-disclosure=\"page\"",
+        "rel=\"sponsored nofollow noopener noreferrer\"",
+        "Visit official site"
+      ],
+      "gh_pages_forbidden_regex": [
+        "tagshop\\.firstpromoter\\.com/login",
+        "affiliate_status",
+        "application_submitted",
+        "browser_required",
+        "revenue truth"
+      ],
+      "live_url": "https://coshuma.com/tool/tagshop-ai.html?coshuma_qa=1",
+      "live_required_substrings": [
+        "Tagshop AI"
+      ]
+    },
+    "REVENUE:TIDIO-TOOL-CTA-20261004": {
+      "mode": "bundle_markers",
+      "source_file": "scripts/surface_tagshop_verified_offer.py",
+      "source_forbidden_regex": [],
+      "verify_deployed_ancestry": true,
+      "source_required_regex": [
+        "ensure_tool_partner_cta\\(\\s*\"tidio\"",
+        "https://affiliate\\.tidio\\.com/7ow2khr31ti8",
+        "tidio-tool-issued-referral",
+        "data-affiliate-disclosure"
+      ],
+      "gh_pages_glob": "tool/tidio.html",
+      "gh_pages_required_regex": [
+        "https://affiliate\\.tidio\\.com/7ow2khr31ti8",
+        "data-cta-source=\"tidio-tool-issued-referral\"",
+        "data-cta=\"affiliate\"",
+        "data-affiliate-disclosure=\"page\"",
+        "rel=\"sponsored nofollow noopener noreferrer\"",
+        "Visit official site"
+      ],
+      "gh_pages_forbidden_regex": [
+        "affiliate_status",
+        "application_submitted",
+        "browser_required",
+        "revenue truth"
+      ],
+      "live_url": "https://coshuma.com/tool/tidio.html?coshuma_qa=1",
+      "live_required_substrings": [
+        "Tidio"
+      ]
     }
   }
 }
