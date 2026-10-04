@@ -41,7 +41,7 @@ PATCHES = {
         ),
         (
             '>Explore Frase →</a>',
-            '>Start Frase 7-day free trial →</a>',
+            '>Start your free 7-day Frase trial →</a>',
         ),
         (
             'href="https://www.semrush.com/" target="_blank" rel="noopener noreferrer">Explore Semrush →</a>',

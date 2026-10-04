@@ -26,7 +26,7 @@ TARGETS = {
         "anchor": "</main>",
         "block": '''<section data-search-opportunity-link="pipedrive-vs-reply-io" class="rounded-3xl border border-[#222538] bg-[#131520] p-7 md:p-9 space-y-3">
 <h2 class="text-2xl font-black">Compare Pipedrive with another sales workflow</h2>
-<p class="text-sm leading-6 text-slate-300">Use the existing side-by-side guide to compare the documented workflows before choosing.</p>
+<p class="text-sm leading-6 text-slate-300">Compare Pipedrive and Reply.io to see which fits your sales workflow.</p>
 <a href="/compare/pipedrive-vs-reply-io.html" class="text-sm font-bold text-purple-300 hover:text-purple-200">Pipedrive vs Reply.io comparison →</a>
 </section> ''',
     },

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-03T23:32:17.196Z",
+  "updated_at": "2026-10-04T01:06:00Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -880,7 +880,7 @@
     "trend_rule": "Adapt non-video topics, length, layout and publication style to current official platform guidance and observed relevant audience discussion. Record sources and dates; do not invent trend demand, reach or performance."
   },
   "onsite_advertising": {
-    "status": "form_fix_ready_checkout_blocked",
+    "status": "intake_verified_checkout_blocked",
     "authorized_at": "2026-10-04T07:31:56+09:00",
     "payment_verification_requested_at": "2026-10-04T07:33:53+09:00",
     "customer_material_language": "en",
@@ -901,7 +901,7 @@
     "new_paid_advertiser_milestone": "First real advertiser payment must be separately verified; mock and internal QA records are excluded.",
     "cash_receipt_forecast": "unknown; do not treat catalogue prices or technical readiness as received revenue",
     "additional_operating_spend_limit_usd": 0,
-    "updated_at": "2026-10-04T00:38:42+00:00",
+    "updated_at": "2026-10-04T01:06:00Z",
     "production_evidence": {
       "site_source_commit": "4706d69769559ec226060b7100d8392533462d9d",
       "site_build_run": 37162847558,
@@ -913,16 +913,27 @@
       "database_tables": 5,
       "database_triggers": 5,
       "owner_advertising_view_accessed": true,
-      "intake_ready": false,
+      "intake_ready": true,
       "checkout_enabled": false,
-      "live_provider_lookup": "Authentication verified; webhook lookup returned HTTP 404 at 2026-10-04T09:27:54+09:00. Checkout remains disabled.",
+      "live_provider_lookup": "Existing provider authentication succeeded, but the configured webhook lookup returned HTTP 404. Checkout remains disabled.",
       "real_advertiser_capture": "not_verified",
       "intake_configuration_ready": true,
-      "live_form_submission_verified": false,
-      "public_form_regression": "Production cleanup removed four initially empty status paragraphs, preventing form submission before the API call. A labelled internal QA attempt created no application or payment.",
+      "live_form_submission_verified": true,
+      "public_form_regression": "Resolved in production. The public form preserved all 19 static DOM targets and four status paragraphs; one explicitly labelled internal QA application was saved, returned a unique order reference and USD 49 / 30-day quote, survived protected status refresh, appeared in the authenticated owner view, and was then rejected with an audit note. It remained unpaid, unpublished and excluded from growth and revenue.",
       "form_fix_pr": 987,
-      "form_fix_validation": "All three affected producers reproduced the failure before the fix. Regression tests 4/4 and isolated full build passed, with all 19 static DOM targets preserved. Live deployment and recheck are still required.",
-      "provider_setup_access": "The developer browser session expired. Supported normal sign-in did not complete; a usable authenticated developer session is needed to finish matching the webhook to the active REST app. No credentials were extracted."
+      "form_fix_validation": "Production verification passed: /advertise.html returned HTTP 200 from the PR 987 release ancestry, all 19 static DOM targets and four status paragraphs were present, and the labelled internal QA save/status/owner-view/reject path worked without payment or publication.",
+      "provider_setup_access": "PR 988 adds owner-only read-only same-app webhook discovery and passed bundle verification, but the workflow did not deploy it. The active Worker version/source, exact callback webhook, required event subscriptions and merchant identity remain unverified.",
+      "public_form_regression_resolved": true,
+      "form_fix_merge_commit": "b7fd001127329248002132fc861778db7b3e9713",
+      "form_fix_site_build_run": 37165899570,
+      "form_fix_pages_run": 37165979213,
+      "form_fix_live_evidence_comment_id": 5975178165,
+      "webhook_discovery_pr": 988,
+      "webhook_discovery_merge_commit": "1c06cdf1eb9bacccdda41720ec21d960df62afcc",
+      "webhook_discovery_pr_build_run": 37166361111,
+      "webhook_discovery_worker_safety_run": 37166591428,
+      "webhook_discovery_deployed": false,
+      "provider_readiness_verified": false
     },
     "recurring_operations": {
       "owner": "Revenue Intelligence Team",
@@ -933,8 +944,8 @@
       "execution_evidence": "Configuration only; no future run or advertiser receipt claimed."
     },
     "remaining_gates": [
-      "Deploy PR 987 and verify real form submission and protected status retrieval",
-      "Match the registered webhook to the active PayPal app and verify required events",
+      "Deploy the exact merged PR 988 Worker from a clean current-main source and record the active version, source tag and bundle identity",
+      "Run authenticated read-only exact-callback webhook discovery, bind the correct webhook through the supported provider setup, and verify required events and merchant identity",
       "Enable checkout only after verified provider readiness",
       "Verify the live public checkout UI without charging an internal QA application"
     ]
