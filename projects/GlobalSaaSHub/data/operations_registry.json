@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T17:52:00Z",
+  "updated_at": "2026-10-04T18:42:00Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2940,6 +2940,50 @@
       "verification": "Deterministic production verification succeeded in run 37185388536; trusted evidence comment 5977643150.",
       "handoff": "Release & Reliability Team owns deterministic re-verification. Operations Governance will synchronize the monthly campaign C04 state only after trusted production verification evidence; QA traffic is not growth.",
       "completed_at": "2026-10-04T07:18:47Z"
+    },
+    {
+      "record_id": "SECURITY:PAID-SPONSORSHIP-STOP-DRIFT-20261005",
+      "incident_key": "paid-sponsorship-stop-drift-20261005",
+      "task_key": "paid-sponsorship-stop-drift-20261005",
+      "target": "GlobalSaaSHub external paid sponsorship checkout + inventory + public renderer",
+      "owner_team": "Revenue Optimization Team",
+      "canonical_owner": "Revenue Optimization Team",
+      "found_by": "Security & Cost Control Team",
+      "fixed_by": "Security & Cost Control Team",
+      "changed_scope": "External paid sponsorship checkout source, paid inventory state and public paid renderer only. COSHUMA first-party unpaid house promotion remains separate and unchanged.",
+      "lifecycle": "in_progress",
+      "next_owner": "Revenue Optimization Team",
+      "priority": "high",
+      "blocker": "active_worker_disable_deploy_and_verification_pending",
+      "last_evidence_at": "2026-10-04T18:34:00Z",
+      "evidence": {
+        "evidence_comment_id": 5983120644,
+        "implementation_pr": 1020,
+        "implementation_head_commit": "692c85dd1655d2056b8bd498dfcefd8304429c1c",
+        "merge_commit": "f2ab6d218c30507b0ebbc48260f13dd36fe47020",
+        "pr_build_run": 37224429133,
+        "site_build_deploy_run": 37224765697,
+        "pages_run": 37224891220,
+        "worker_revenue_safety_run": 37224765693,
+        "worker_revenue_safety_scope": "tests and wrangler dry-run only; not a production Worker deployment",
+        "merged_checkout_source_enabled": false,
+        "merged_paid_inventory_enabled": false,
+        "merged_paid_applications_open": false,
+        "merged_paid_slots_status": "reserved_hidden",
+        "deployed_public_paid_renderer_enabled": false,
+        "gh_pages_renderer_blob": "b17d0c55e00375aa33bcb22912b59b8390c14569",
+        "active_worker_checkout_disabled": null,
+        "active_worker_state": "unverified_after_stop_fix",
+        "real_advertiser_payment_confirmed": false,
+        "public_paid_ad_activated": false,
+        "additional_spend_usd": 0
+      },
+      "completion_gate": "active Worker checkout disabled and read-only production verified; public paid renderer remains fail-closed",
+      "completion_gate_satisfied": false,
+      "user_action_required": false,
+      "verification": "PR Build Check, main merge, site deploy and Pages deploy succeeded; gh-pages renderer contains CONFIG.enabled=false and exits before paid placement lookup. Production Worker deployment/config is not verified.",
+      "handoff": "Reuse only the existing authorized Cloudflare environment to deploy the clean current-main Worker at f2ab6d2 or later equivalent, then verify active version/config and that create/capture are unavailable without making a payment transaction. Release & Reliability should record the production result.",
+      "completed_at": null
     }
   ],
   "invariants": {
