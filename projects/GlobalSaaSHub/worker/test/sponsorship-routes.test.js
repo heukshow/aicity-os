@@ -747,3 +747,52 @@ test('a pending event cannot erase a dispute hold while its event record is stil
   assert.equal((await f.db.prepare('SELECT COUNT(*) AS n FROM sponsorship_webhook_events WHERE event_id IN (?,?)').bind(disputeEvent.id, 'SYNTHETIC-PENDING-DURING-DISPUTE').first()).n, 2);
   assert.deepEqual((await f.request('/v1/sponsored/placements?path=/tool/pipedrive.html')).json.placements, []);
 });
+
+
+test('webhook subscription repair requires an authenticated same-origin owner and paused checkout', async (t) => {
+  const f = fixture(t);
+  const path = '/synthetic-owner/ads/repair-webhook-events';
+  const body = { expectedCandidateId: 'SYNTHETIC-CANDIDATE' };
+  const auth = { authorization: OWNER };
+  assert.equal((await f.request(path, { method: 'POST', body })).status, 401);
+  assert.equal((await f.request('/ops/ads/repair-webhook-events', { method: 'POST', body, headers: auth })).status, 401);
+  assert.equal((await f.request(path, { method: 'POST', body, headers: { ...auth, origin: 'https://attacker.example' } })).status, 403);
+  assert.equal((await f.request(path, { method: 'POST', body, headers: { ...auth, 'content-type': 'text/plain' } })).status, 415);
+  for (const invalid of [{}, { ...body, url: 'https://attacker.example' }, { expectedCandidateId: '../wrong' }]) {
+    assert.equal((await f.request(path, { method: 'POST', body: invalid, headers: auth })).status, 422);
+  }
+  f.env.CHECKOUT_ENABLED = 'true';
+  assert.equal((await f.request(path, { method: 'POST', body, headers: auth })).status, 409);
+  assert.equal(f.fetchMock.mock.callCount(), 0, 'all guards must reject before contacting PayPal');
+  f.env.CHECKOUT_ENABLED = 'false';
+  const calls = [];
+  const candidate = { id: body.expectedCandidateId, url: `${ORIGIN}/v1/webhooks/paypal`, event_types: [{ name: '*' }] };
+  f.fetchMock.mock.mockImplementation(async (url, options = {}) => {
+    const parsed = new URL(url);
+    assert.equal(parsed.origin, 'https://api-m.paypal.com');
+    const operation = `${options.method || 'GET'} ${parsed.pathname}`;
+    calls.push(operation);
+    let data;
+    if (operation === 'POST /v1/oauth2/token') data = { access_token: 'synthetic-repair-token' };
+    else {
+      assert.equal(options.headers.Authorization, 'Bearer synthetic-repair-token');
+      if (operation === 'GET /v1/notifications/webhooks') data = { webhooks: [candidate] };
+      else if (operation === `GET /v1/notifications/webhooks/${candidate.id}`) data = candidate;
+      else assert.fail(`Unexpected provider operation: ${operation}`);
+    }
+    return new Response(JSON.stringify(data), { headers: { 'content-type': 'application/json' } });
+  });
+  const result = await f.request(path, { method: 'POST', body, headers: auth });
+  assert.equal(result.status, 200);
+  assert.equal(result.json.repair.status, 'already_complete');
+  assert.equal(result.json.repair.requiredEventsVerified, true);
+  assert.equal(result.json.repair.bindingRequired, true);
+  assert.equal(result.json.webhookUrlVerified, false);
+  assert.equal(result.json.requiredEventsVerified, false);
+  assert.equal(result.json.merchantIdentityVerified, false);
+  assert.equal(result.json.paymentReady, false);
+  assert.equal(result.json.checks.checkoutEnabled, false);
+  assert.deepEqual(calls, ['POST /v1/oauth2/token', 'GET /v1/notifications/webhooks', `GET /v1/notifications/webhooks/${candidate.id}`]);
+  assert.equal(f.env.PAYPAL_WEBHOOK_ID, 'synthetic-webhook-id');
+  assert.equal(f.env.CHECKOUT_ENABLED, 'false');
+});

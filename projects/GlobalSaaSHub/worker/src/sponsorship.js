@@ -1,7 +1,7 @@
 import { authorized } from './admin.js';
 import { CATALOG, SponsorshipError, quoteFor, validateApplication, paypalPayload, verifyPayPalPayment, publicationPeriod, publicStatus, destinationUrl, captureIdFromRefundLink } from './sponsorship-domain.js';
 import { SponsorshipRepository } from './sponsorship-repository.js';
-import { createSponsorshipPayPalOrder, capturePayPalOrder, getPayPalOrder, getPayPalCapture, verifyPayPalWebhook, checkPayPalReadiness } from './paypal.js';
+import { createSponsorshipPayPalOrder, capturePayPalOrder, getPayPalOrder, getPayPalCapture, verifyPayPalWebhook, checkPayPalReadiness, repairPayPalWebhookEvents } from './paypal.js';
 import { renderSponsorshipOps } from './sponsorship-ops-view.js';
 import { handleLegacyPayPalEvent } from './sponsorship-legacy-webhook.js';
 
@@ -197,6 +197,15 @@ async function ownerRequest(request, env, repo, base) {
   if (request.method === 'POST' && suffix === '/verify-readiness') {
     await bodyJson(request);
     const result = await providerCall(() => checkPayPalReadiness(env, `${new URL(request.url).origin}/v1/webhooks/paypal`));
+    return reply(request, env, { ...configuration(env, true, true), ...result, readinessVerifiedAt: new Date().toISOString() });
+  }
+  if (request.method === 'POST' && suffix === '/repair-webhook-events') {
+    const body = await bodyJson(request);
+    if (env.CHECKOUT_ENABLED !== 'false') throw new SponsorshipError('New checkout must be paused before updating webhook subscriptions', 409);
+    if (Object.keys(body).length !== 1 || typeof body.expectedCandidateId !== 'string' || !/^[A-Za-z0-9_-]{1,128}$/.test(body.expectedCandidateId)) {
+      throw new SponsorshipError('One expected webhook candidate ID is required', 422);
+    }
+    const result = await repairPayPalWebhookEvents(env, `${new URL(request.url).origin}/v1/webhooks/paypal`, body.expectedCandidateId);
     return reply(request, env, { ...configuration(env, true, true), ...result, readinessVerifiedAt: new Date().toISOString() });
   }
   if (request.method === 'GET' && ['', '/applications'].includes(suffix)) {

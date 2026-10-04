@@ -30,9 +30,10 @@ function element(properties = {}) {
 
 function browser(html, response = async () => ({ ok: true, status: 200, json: async () => ({ status: 'ready_to_publish' }) })) {
   const nodes = new Map();
-  for (const id of ['ops-result', 'connection-result', 'verify-readiness', 'refresh-ops']) nodes.set(id, element());
+  for (const id of ['ops-result', 'connection-result', 'verify-readiness', 'refresh-ops', 'repair-webhook-events']) nodes.set(id, element());
+  nodes.get('repair-webhook-events').disabled = /\sdisabled(?:\s|>)/.test(buttonTag(html, 'repair-webhook-events'));
   nodes.set('sponsorship-ops', element({ dataset: { basePath: html.match(/data-base-path="([^"]+)"/)[1] } }));
-  const allButtons = [nodes.get('verify-readiness')];
+  const allButtons = [nodes.get('verify-readiness'), nodes.get('repair-webhook-events')];
   const cards = [...html.matchAll(/<article class="application"[\s\S]+?<\/article>/g)].map(([block]) => {
     const controls = new Map();
     const dataset = {};
@@ -264,5 +265,141 @@ test('owner discovery displays validated candidate IDs separately from the still
     await empty.nodes.get('verify-readiness').dispatch('click');
     assert.match(empty.nodes.get('connection-result').textContent, expected);
     assert.doesNotMatch(empty.nodes.get('connection-result').textContent, /SECRET/);
+  }
+});
+
+const repairReadiness = (changes = {}) => ({
+  checks: { checkoutEnabled: false }, providerAuthenticationVerified: true,
+  webhookUrlVerified: false, requiredEventsVerified: false, merchantIdentityVerified: false,
+  diagnostic: { stage: 'webhook_lookup', code: 'provider_http_error', httpStatus: 404 },
+  webhookDiscovery: { status: 'found', candidates: [{ id: 'MATCH-1', requiredEventsVerified: false,
+    missingRequiredEvents: ['PAYMENT.CAPTURE.REFUNDED', 'PAYMENT.CAPTURE.DENIED or PAYMENT.CAPTURE.DECLINED', 'SECRET-EVENT'] }] },
+  ...changes,
+});
+const jsonResponse = (data, status = 200) => ({ ok: status >= 200 && status < 300, status, json: async () => data });
+
+test('event repair needs explicit fresh discovery and posts only its candidate to the same-origin endpoint', async () => {
+  for (const status of ['updated', 'already_complete']) {
+    const html = renderSponsorshipOps({ config, basePath: '/synthetic-owner/ads' });
+    assert.match(buttonTag(html, 'repair-webhook-events'), /\sdisabled/);
+    const state = browser(html, async (path) => jsonResponse(path.endsWith('/verify-readiness') ? repairReadiness() : {
+      providerAuthenticationVerified: true, webhookUrlVerified: false, requiredEventsVerified: false, merchantIdentityVerified: false,
+      diagnostic: { stage: 'webhook_readback', code: 'complete', httpStatus: 200 },
+      repair: { status, candidateId: 'MATCH-1', requiredEventsVerified: true, bindingRequired: true, raw: 'SECRET-REPAIR' },
+    }));
+    const repair = state.nodes.get('repair-webhook-events');
+    assert.equal(repair.disabled, true);
+    await repair.dispatch('click');
+    assert.equal(state.requests.length, 0);
+    await state.nodes.get('verify-readiness').dispatch('click');
+    assert.equal(repair.disabled, false);
+    const discoveryText = state.nodes.get('connection-result').textContent;
+    assert.match(discoveryText, /부족한 필수 알림: PAYMENT\.CAPTURE\.REFUNDED, PAYMENT\.CAPTURE\.DENIED or PAYMENT\.CAPTURE\.DECLINED/);
+    assert.doesNotMatch(discoveryText, /SECRET-EVENT/);
+    assert.equal(state.requests.length, 1, 'discovery never repairs automatically');
+    await repair.dispatch('click');
+    assert.equal(state.requests.length, 2);
+    assert.equal(state.requests[1].path, '/synthetic-owner/ads/repair-webhook-events');
+    const options = state.requests[1].options;
+    assert.deepEqual(JSON.parse(options.body), { expectedCandidateId: 'MATCH-1' });
+    assert.equal(options.method, 'POST');
+    assert.equal(options.headers['Content-Type'], 'application/json');
+    assert.equal(options.credentials, 'same-origin');
+    assert.equal(options.mode, 'same-origin');
+    assert.equal(options.redirect, 'error');
+    assert.equal(repair.disabled, true);
+    assert.equal(state.reloads, 0);
+    assert.match(state.nodes.get('ops-result').textContent, /구독 확인 완료 · 연결 ID 설정 필요/);
+    assert.equal(state.nodes.get('ops-result').attributes.role, 'status');
+    const shown = state.nodes.get('connection-result').textContent;
+    assert.match(shown, /결제 알림 주소 조회: 미확인/);
+    assert.match(shown, /필수 결제 알림 구독: 미확인/);
+    assert.match(shown, /보완 대상 ID: MATCH-1/);
+    assert.doesNotMatch(shown, /SECRET-REPAIR/);
+    await repair.dispatch('click');
+    assert.equal(state.requests.length, 2, 'success also consumes the candidate');
+  }
+});
+
+test('repair stays unavailable without one incomplete candidate, verified auth and disabled checkout', async () => {
+  const cases = [
+    { providerAuthenticationVerified: false }, { providerAuthenticationVerified: 'true' },
+    { checks: { checkoutEnabled: true } }, { checks: {} }, { checks: { checkoutEnabled: 'false' } },
+    { webhookDiscovery: { status: 'none', candidates: [] } },
+    { webhookDiscovery: { status: 'failed', candidates: [{ id: 'MATCH-1', requiredEventsVerified: false }] } },
+    ...[true, undefined, 'false'].map((requiredEventsVerified) => ({ webhookDiscovery: { status: 'found', candidates: [{ id: 'MATCH-1', requiredEventsVerified }] } })),
+    { webhookDiscovery: { status: 'found', candidates: [{ id: 'MATCH-1', requiredEventsVerified: false }, { id: 'MATCH-2', requiredEventsVerified: false }] } },
+    { webhookDiscovery: { status: 'found', candidates: [{ id: '<script>BAD</script>', requiredEventsVerified: false }] } },
+  ];
+  for (const changes of cases) {
+    const state = browser(render(), async () => jsonResponse(repairReadiness(changes)));
+    await state.nodes.get('verify-readiness').dispatch('click');
+    const repair = state.nodes.get('repair-webhook-events');
+    assert.equal(repair.disabled, true, JSON.stringify(changes));
+    await repair.dispatch('click');
+    assert.equal(state.requests.length, 1);
+  }
+});
+
+test('readiness and repair consume old candidates, block concurrent clicks and require fresh discovery after failures', async () => {
+  let release, pending;
+  let mode = 'ready';
+  const state = browser(render(), async () => {
+    if (mode === 'ready') return jsonResponse(repairReadiness());
+    await pending;
+    if (mode === 'read-failure') return jsonResponse({ error: 'SECRET-HTTP-ERROR' }, 503);
+    throw new Error('SECRET-NETWORK-ERROR');
+  });
+  const verify = state.nodes.get('verify-readiness');
+  const repair = state.nodes.get('repair-webhook-events');
+  await verify.dispatch('click');
+  assert.equal(repair.disabled, false);
+  mode = 'read-failure'; pending = new Promise((resolve) => { release = resolve; });
+  const refresh = verify.dispatch('click');
+  assert.equal(repair.disabled, true);
+  await repair.dispatch('click');
+  assert.equal(state.requests.length, 2);
+  release(); await refresh;
+  assert.equal(repair.disabled, true, 'finally must not restore the old enabled state');
+  await repair.dispatch('click');
+  assert.equal(state.requests.length, 2);
+  mode = 'ready'; await verify.dispatch('click');
+  assert.equal(repair.disabled, false);
+  mode = 'repair-failure'; pending = new Promise((resolve) => { release = resolve; });
+  const first = repair.dispatch('click');
+  const second = repair.dispatch('click');
+  assert.equal(repair.disabled, true);
+  assert.equal(state.requests.length, 4);
+  release(); await Promise.all([first, second]);
+  assert.equal(repair.disabled, true);
+  await repair.dispatch('click');
+  assert.equal(state.requests.length, 4);
+  assert.equal(state.nodes.get('ops-result').attributes.role, 'alert');
+  assert.match(state.nodes.get('ops-result').textContent, /PayPal 연결을 다시 조회/);
+  assert.doesNotMatch(state.nodes.get('ops-result').textContent, /SECRET/);
+  assert.equal(state.reloads, 0);
+});
+
+test('readback failures and contradictory repair success keep an alert without exposing raw diagnostics', async () => {
+  for (const [status, requiredEventsVerified, candidateId] of [
+    ['failed', false, 'MATCH-1'], ['updated', false, 'MATCH-1'], ['updated', true, 'ANOTHER-ID'],
+  ]) {
+    const state = browser(render(), async (path) => jsonResponse(path.endsWith('/verify-readiness') ? repairReadiness() : {
+      providerAuthenticationVerified: true, webhookUrlVerified: false, requiredEventsVerified: false, merchantIdentityVerified: false,
+      diagnostic: { stage: 'webhook_readback', code: 'readback_mismatch', httpStatus: 200, error: 'SECRET-ERROR' },
+      repair: { status, candidateId, requiredEventsVerified, bindingRequired: true,
+        missingRequiredEvents: ['PAYMENT.CAPTURE.REFUNDED', 'SECRET-RAW-EVENT'] },
+    }));
+    await state.nodes.get('verify-readiness').dispatch('click');
+    await state.nodes.get('repair-webhook-events').dispatch('click');
+    assert.equal(state.nodes.get('repair-webhook-events').disabled, true);
+    assert.equal(state.nodes.get('ops-result').attributes.role, 'alert');
+    assert.doesNotMatch(state.nodes.get('ops-result').textContent, /구독 확인 완료/);
+    const shown = state.nodes.get('connection-result').textContent;
+    assert.match(shown, /진단 단계: PayPal 알림 구독 재조회/);
+    assert.match(shown, /보완 후 필수 알림 구독을 확인하지 못했습니다/);
+    assert.match(shown, /부족한 필수 알림: PAYMENT\.CAPTURE\.REFUNDED/);
+    assert.doesNotMatch(shown, /SECRET/);
+    assert.equal(state.requests.length, 2);
   }
 });
