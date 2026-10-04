@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T03:58:00Z",
+  "updated_at": "2026-10-04T04:07:19.389172+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2512,11 +2512,11 @@
       "found_by": "Security & Cost Control Team",
       "fixed_by": "Operations Governance Team",
       "changed_scope": "Canonical sponsorship lifecycle/evidence synchronization plus deterministic Release verifier coverage: exact PR #992 source/build, active Worker configuration, trusted exact deployment evidence, public client and live Worker config. Payment, revenue, material approval and public-ad publication remain unverified and separate.",
-      "lifecycle": "production_verification_requested",
-      "next_owner": "Release & Reliability Team",
+      "lifecycle": "production_verified",
+      "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-10-04T03:08:27Z",
+      "last_evidence_at": "2026-10-04T04:07:03Z",
       "evidence": {
         "implementation_pr": 992,
         "implementation_merge_commit": "4706d69769559ec226060b7100d8392533462d9d",
@@ -2587,13 +2587,16 @@
         "live_checkout_observation": "A labelled internal QA application rendered the configured USD 49 / 30-day quote and enabled PayPal/card choices; paypal.com checkout opened and then blocked seller-linked self-purchase. The application was rejected unpaid and unpublished.",
         "deployment_evidence_comment_id": 5975512465,
         "live_checkout_evidence_comment_id": 5975512465,
-        "release_verification_evidence_comment_id": 5976040159
+        "release_verification_evidence_comment_id": 5976040159,
+        "production_verification_comment_id": 5976412878,
+        "deterministic_verification_run": 37176044519
       },
       "completion_gate": "production_verified",
-      "completion_gate_satisfied": false,
+      "completion_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "PR #992 merged as 79ddda77319b56c665f4dab2e6604d079501a373 after Build Check 37167944426. Direct evidence records exact Worker deployment version 76768acc-5d00-4a3b-a01d-e841ed309457 with CHECKOUT_ENABLED=true and customer-facing PayPal/card rendering through a labelled internal QA application. PayPal blocked seller-linked self-purchase; the QA record was rejected unpaid/unpublished. No independent-customer payment, revenue or ad publication is claimed. Release verification comment 5976040159 independently re-read the same deployment evidence but could not select the stale main record; this sync supplies the required selector without asserting payment, revenue, or publication.",
-      "handoff": "Release & Reliability Team must run the deterministic worker_checkout spec across PR #992 source/build, exact trusted deployment source/version evidence, published client, live advertise page and live Worker config. Record production_verified only if all agree; otherwise record the precise failure. Real advertiser payment and public ad activation remain separate later gates."
+      "verification": "Deterministic production verification succeeded in run 37176044519; trusted evidence comment 5976412878.",
+      "handoff": "Release & Reliability Team must run the deterministic worker_checkout spec across PR #992 source/build, exact trusted deployment source/version evidence, published client, live advertise page and live Worker config. Record production_verified only if all agree; otherwise record the precise failure. Real advertiser payment and public ad activation remain separate later gates.",
+      "completed_at": "2026-10-04T04:07:03Z"
     },
     {
       "record_id": "EDITORIAL:ENGLISH-COPY-QUALITY-20261004",
