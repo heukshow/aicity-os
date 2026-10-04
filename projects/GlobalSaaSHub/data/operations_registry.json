@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T01:06:00Z",
+  "updated_at": "2026-10-04T01:14:37.447116+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2497,10 +2497,10 @@
       "found_by": "Operations Governance Team",
       "fixed_by": "Revenue Optimization Team",
       "changed_scope": "English advertiser intake, server-priced quotes, PayPal-bound payment verification, approved-material and inventory publication gates; public materials and intake are live, with checkout disabled while the provider readiness failure is diagnosed.",
-      "lifecycle": "in_progress",
-      "next_owner": "Revenue Intelligence Team",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
       "priority": "high",
-      "blocker": "private_worker_deploy_and_provider_webhook_binding_pending",
+      "blocker": "missing_deterministic_verification_spec",
       "last_evidence_at": "2026-10-04T01:05:00Z",
       "evidence": {
         "implementation_pr": 981,
