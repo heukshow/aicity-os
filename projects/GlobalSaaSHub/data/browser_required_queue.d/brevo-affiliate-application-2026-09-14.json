@@ -2,18 +2,23 @@
   "id": "brevo-affiliate-application-20260914",
   "tool_id": "brevo",
   "priority": "medium",
-  "status": "browser_required_partnerstack_application",
-  "affiliate_status": "application_available_partnerstack_review_required",
+  "status": "browser_required_legal_program_consent",
+  "affiliate_status": "browser_required_legal_program_consent",
+  "application_state": "not_submitted_legal_consent_required",
   "cost": 0,
+  "exact_tracking_url": null,
+  "user_action_required": true,
   "registered_email": "support@coshuma.com",
-  "official_program_url": "https://www.brevo.com/partners/affiliates/",
+  "official_program_url": "https://help.brevo.com/hc/en-us/articles/16487784994322-The-Brevo-Affiliate-program",
   "requirements": [
     "primary website",
     "professional website-domain email",
-    "application review by Brevo"
+    "application review by Brevo",
+    "explicit acceptance of Brevo Affiliate Program Terms"
   ],
+  "blocker": "Submitting the Brevo PartnerStack application requires acceptance of Brevo's binding Affiliate Program Terms.",
   "duplicate_check": "GitHub search and support@coshuma.com Gmail in:anywhere search found no prior Brevo application, approval, rejection, or issued tracking URL before this cycle.",
-  "next_action": "Use the existing COSHUMA identity and support@coshuma.com to submit the official Brevo affiliate application when direct browser interaction is available. Stop only for CAPTCHA, OTP, legal consent, or forced identity verification. After approval, recover only the exact Brevo/PartnerStack-issued customer tracking URL before changing public CTA state.",
+  "next_action": "Review and explicitly accept Brevo's binding Affiliate Program Terms only if the account holder agrees, then submit the PartnerStack application once. After approval, recover and verify only the exact personalized customer-facing affiliate URL issued in PartnerStack. Stop for CAPTCHA, OTP, additional legal consent, forced identity verification, or payment approval.",
   "guardrails": [
     "Do not create a duplicate application",
     "Do not treat the PartnerStack dashboard, onboarding URL, or generic Brevo homepage as an affiliate link",
