@@ -32,9 +32,10 @@ async function accessToken(env, fetchImpl = fetch, probe) {
   return token;
 }
 
-async function paypalRequest(env, path, options = {}, fetchImpl = fetch, probe) {
-  const token = await accessToken(env, fetchImpl, probe);
-  probeStage(probe, 'webhook_lookup', 'network_error');
+async function paypalRequest(env, path, options = {}, fetchImpl = fetch, probe, existingToken) {
+  const token = existingToken ?? await accessToken(env, fetchImpl, probe);
+  const stage = probe?.requestStage || 'webhook_lookup';
+  probeStage(probe, stage, 'network_error');
   const response = await fetchImpl(`${apiBase(env)}${path}`, {
     ...options,
     headers: {
@@ -43,7 +44,7 @@ async function paypalRequest(env, path, options = {}, fetchImpl = fetch, probe) 
       ...(options.headers || {}),
     },
   });
-  probeStage(probe, 'webhook_lookup', response.ok ? 'unknown_error' : 'provider_http_error', response.status);
+  probeStage(probe, stage, response.ok ? 'unknown_error' : 'provider_http_error', response.status);
   const data = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(`PayPal request failed (${response.status})`);
   return data;
@@ -81,30 +82,53 @@ export function getPayPalCapture(env, captureId, fetchImpl) {
   return paypalRequest(env, `/v2/payments/captures/${encodeURIComponent(captureId)}`, {}, fetchImpl);
 }
 
+function webhookEventReadiness(webhook) {
+  if (!Array.isArray(webhook.event_types) || webhook.event_types.some((event) => !event || typeof event.name !== 'string')) throw new Error('PayPal webhook events could not be verified');
+  const events = new Set(webhook.event_types.map((event) => event.name));
+  const required = ['PAYMENT.CAPTURE.COMPLETED', 'PAYMENT.CAPTURE.PENDING', 'PAYMENT.CAPTURE.REFUNDED', 'PAYMENT.CAPTURE.REVERSED', 'CUSTOMER.DISPUTE.CREATED', 'CUSTOMER.DISPUTE.UPDATED', 'CUSTOMER.DISPUTE.RESOLVED'];
+  // Some live-app subscription UIs do not offer this pre-capture legacy event.
+  // Its absence does not weaken completed-capture verification or ad-stop events.
+  const optional = ['CHECKOUT.PAYMENT-APPROVAL.REVERSED'];
+  const missingRequiredEvents = events.has('*') ? [] : required.filter((name) => !events.has(name));
+  const missingOptionalEvents = events.has('*') ? [] : optional.filter((name) => !events.has(name));
+  if (!events.has('*') && !events.has('PAYMENT.CAPTURE.DENIED') && !events.has('PAYMENT.CAPTURE.DECLINED')) missingRequiredEvents.push('PAYMENT.CAPTURE.DENIED or PAYMENT.CAPTURE.DECLINED');
+  return { requiredEventsVerified: missingRequiredEvents.length === 0, missingRequiredEvents, missingOptionalEvents };
+}
+
+async function discoverWebhookCandidates(env, expectedWebhookUrl, token, fetchImpl) {
+  const probe = { requestStage: 'webhook_discovery', diagnostic: { stage: 'webhook_discovery', code: 'unknown_error', httpStatus: null } };
+  try {
+    // Default APPLICATION scope uses the same OAuth token and never reads ACCOUNT registrations.
+    const result = await paypalRequest(env, '/v1/notifications/webhooks', {}, fetchImpl, probe, token);
+    if (!Array.isArray(result?.webhooks)) throw new Error('PayPal webhook list could not be verified');
+    const candidates = new Map();
+    for (const webhook of result.webhooks) {
+      if (webhook?.url !== expectedWebhookUrl) continue;
+      if (typeof webhook.id !== 'string' || !/^[A-Za-z0-9_-]{1,128}$/.test(webhook.id)) throw new Error('PayPal webhook ID could not be verified');
+      candidates.set(webhook.id, { id: webhook.id, ...webhookEventReadiness(webhook) });
+    }
+    return { status: candidates.size ? 'found' : 'none', candidates: [...candidates.values()], diagnostic: { stage: 'webhook_discovery', code: 'complete', httpStatus: probe.diagnostic.httpStatus } };
+  } catch {
+    return { status: 'failed', candidates: [], diagnostic: probe.diagnostic };
+  }
+}
+
 export async function checkPayPalReadiness(env, expectedWebhookUrl, fetchImpl) {
   const unverified = { providerAuthenticationVerified: false, webhookUrlVerified: false, requiredEventsVerified: false, merchantIdentityVerified: false, configurationOnly: true };
   if (env.PAYPAL_ENVIRONMENT !== 'live' || !env.PAYPAL_CLIENT_ID || !env.PAYPAL_CLIENT_SECRET || !env.PAYPAL_WEBHOOK_ID) {
     return { ...unverified, diagnostic: { stage: 'configuration', code: 'configuration_incomplete', httpStatus: null } };
   }
   const probe = { providerAuthenticationVerified: false, diagnostic: { stage: 'authentication', code: 'unknown_error', httpStatus: null } };
+  let token;
   try {
     // Authenticated GET only: this cannot create an order, charge, refund or register an app.
-    const webhook = await paypalRequest(env, `/v1/notifications/webhooks/${encodeURIComponent(env.PAYPAL_WEBHOOK_ID)}`, {}, fetchImpl, probe);
+    token = await accessToken(env, fetchImpl, probe);
+    const webhook = await paypalRequest(env, `/v1/notifications/webhooks/${encodeURIComponent(env.PAYPAL_WEBHOOK_ID)}`, {}, fetchImpl, probe, token);
     if (!webhook || typeof webhook.url !== 'string' || !Array.isArray(webhook.event_types)) throw new Error('PayPal webhook response could not be verified');
-    const events = new Set((webhook.event_types || []).map((event) => event.name));
-    const required = ['PAYMENT.CAPTURE.COMPLETED', 'PAYMENT.CAPTURE.PENDING', 'PAYMENT.CAPTURE.REFUNDED', 'PAYMENT.CAPTURE.REVERSED', 'CUSTOMER.DISPUTE.CREATED', 'CUSTOMER.DISPUTE.UPDATED', 'CUSTOMER.DISPUTE.RESOLVED'];
-    // Some live-app subscription UIs do not offer this pre-capture legacy event.
-    // Its absence does not weaken completed-capture verification or ad-stop events.
-    const optional = ['CHECKOUT.PAYMENT-APPROVAL.REVERSED'];
-    const missingRequiredEvents = events.has('*') ? [] : required.filter((name) => !events.has(name));
-    const missingOptionalEvents = events.has('*') ? [] : optional.filter((name) => !events.has(name));
-    if (!events.has('*') && !events.has('PAYMENT.CAPTURE.DENIED') && !events.has('PAYMENT.CAPTURE.DECLINED')) missingRequiredEvents.push('PAYMENT.CAPTURE.DENIED or PAYMENT.CAPTURE.DECLINED');
     return {
       providerAuthenticationVerified: true,
       webhookUrlVerified: webhook.url === expectedWebhookUrl,
-      requiredEventsVerified: missingRequiredEvents.length === 0,
-      missingRequiredEvents,
-      missingOptionalEvents,
+      ...webhookEventReadiness(webhook),
       // An OAuth token and registered webhook do not independently establish merchant identity.
       merchantIdentityVerified: false,
       configurationOnly: true,
@@ -112,7 +136,13 @@ export async function checkPayPalReadiness(env, expectedWebhookUrl, fetchImpl) {
     };
   } catch {
     // Never return an exception message, response body, token, configured ID or URL.
-    return { ...unverified, providerAuthenticationVerified: probe.providerAuthenticationVerified, diagnostic: probe.diagnostic };
+    const result = { ...unverified, providerAuthenticationVerified: probe.providerAuthenticationVerified, diagnostic: probe.diagnostic };
+    if (probe.providerAuthenticationVerified && probe.diagnostic.stage === 'webhook_lookup'
+        && probe.diagnostic.code === 'provider_http_error' && probe.diagnostic.httpStatus === 404) {
+      // Candidate IDs are private setup evidence only; no binding or readiness flag changes.
+      result.webhookDiscovery = await discoverWebhookCandidates(env, expectedWebhookUrl, token, fetchImpl);
+    }
+    return result;
   }
 }
 
