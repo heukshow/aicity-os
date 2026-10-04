@@ -6,6 +6,7 @@ import sys
 import tempfile
 import unittest
 from contextlib import ExitStack
+from html.parser import HTMLParser
 from pathlib import Path
 from unittest.mock import patch
 
@@ -13,9 +14,81 @@ PROJECT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT / "scripts"))
 import normalize_sponsorship_offer as source_guard
 import guard_built_customer_copy as built_guard
+import guard_public_artifact_boundary as artifact_guard
+import sanitize_public_partner_correspondence as correspondence_cleanup
+import sanitize_public_revenue_ops as revenue_cleanup
+import cleanup_legacy_public_affiliate_ops as legacy_cleanup
+
+
+def elements_by_id(html):
+    class Elements(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.elements = {}
+
+        def handle_starttag(self, tag, attrs):
+            attrs = dict(attrs)
+            if "id" in attrs:
+                self.elements.setdefault(attrs["id"], []).append((tag, attrs))
+
+    parser = Elements()
+    parser.feed(html)
+    return parser.elements
 
 
 class SponsorshipReopeningTests(unittest.TestCase):
+    def test_actual_cleanup_producers_preserve_form_targets_and_accessible_status_messages(self):
+        source = (PROJECT / "public/advertise.html").read_text()
+        javascript = (PROJECT / "public/sponsorship-sales.js").read_text()
+        targets = set(re.findall(r"(?:\bbyId|\bgetElementById)\(\s*['\"]([^'\"]+)['\"]\s*\)", javascript))
+        messages = {"application-message", "payment-message", "email-draft-message", "receipt-message"}
+        original = elements_by_id(source)
+        self.assertTrue(messages <= targets)
+        for target in targets:
+            self.assertEqual(len(original.get(target, [])), 1, f"Source is missing JS target {target}")
+        for target in messages:
+            self.assertEqual(original[target][0][0], "p")
+            self.assertEqual(original[target][0][1]["role"], "status")
+            self.assertEqual(original[target][0][1]["aria-live"], "polite")
+
+        functional = ('<p role="status" aria-live="polite"></p>', '<p data-status="control"></p>',
+                      '<p tabindex="0"></p>', '<p onclick="void(0)"></p>')
+        private_copy = "The affiliate manager confirmed the tracking URL."
+        controls = ('<p></p><p class="cleanup-cosmetic" style="margin:0"> \n </p>'
+                    + "".join(functional) + f'<p id="private-copy-control">{private_copy}</p>')
+        fixture = source.replace("</main>", controls + "</main>", 1)
+        producers = (correspondence_cleanup, revenue_cleanup, legacy_cleanup)
+        # Each entry point must be safe on its own, including the separate source-cleanup workflow.
+        for pipeline in [(producer,) for producer in producers] + [producers]:
+            with self.subTest(pipeline=[producer.__name__ for producer in pipeline]):
+                with tempfile.TemporaryDirectory(prefix="coshuma-ad-status-") as temporary:
+                    root = Path(temporary)
+                    public = root / "public"
+                    public.mkdir()
+                    page = public / "advertise.html"
+                    page.write_text(fixture)
+                    (public / "sponsorship-sales.js").write_text(javascript)
+                    for producer in pipeline:
+                        with patch.object(producer, "ROOT", root), patch.object(producer, "PUBLIC", public):
+                            producer.main()
+                    with patch.object(built_guard, "DIST", public):
+                        built_guard.main()
+                    cleaned = page.read_text()
+                    remaining = elements_by_id(cleaned)
+                    for target in targets:
+                        self.assertEqual(len(remaining.get(target, [])), 1, f"Cleanup removed or duplicated JS target {target}")
+                    for target in messages:
+                        self.assertEqual(remaining[target], original[target], f"Status accessibility changed: {target}")
+                    for paragraph in functional:
+                        self.assertIn(paragraph, cleaned)
+                    self.assertNotIn("<p></p>", cleaned)
+                    self.assertNotIn("cleanup-cosmetic", cleaned)
+                    self.assertNotIn(private_copy, cleaned)
+                    self.assertNotIn("private-copy-control", cleaned)
+                    # Preserve functional elements without weakening the actual final public-data boundary.
+                    with patch.object(sys, "argv", ["guard_public_artifact_boundary.py", str(public)]):
+                        artifact_guard.main()
+
     def test_source_and_built_finalizers_preserve_the_application_and_policy(self):
         with tempfile.TemporaryDirectory(prefix="coshuma-ad-reopen-") as temporary:
             root = Path(temporary)

@@ -16,6 +16,8 @@ from html import unescape
 from pathlib import Path
 import re
 
+from public_html_cleanup import remove_empty_presentational_paragraphs
+
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 
@@ -173,7 +175,7 @@ def main() -> None:
         after = preserving_urls(after)
 
         # Tidy only structural leftovers from deleted private paragraphs/list items.
-        after = re.sub(r"<p\b[^>]*>\s*</p>", "", after, flags=re.I)
+        after = remove_empty_presentational_paragraphs(after)
         after = re.sub(r"<li\b[^>]*>\s*</li>", "", after, flags=re.I)
         after = re.sub(r"\s+([,.;:!?])", r"\1", after)
 

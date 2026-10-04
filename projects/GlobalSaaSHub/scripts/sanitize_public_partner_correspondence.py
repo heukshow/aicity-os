@@ -12,6 +12,8 @@ from html import unescape
 from pathlib import Path
 import re
 
+from public_html_cleanup import remove_empty_presentational_paragraphs
+
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 
@@ -206,7 +208,7 @@ def main() -> None:
         # Remove orphan customer-surface structure left after private blocks/text are removed.
         updated = re.sub(r"<h[1-6]\b[^>]*>\s*Affiliate disclosure\s*</h[1-6]>", "", updated, flags=re.I)
         updated = re.sub(r"<h([1-6])\b[^>]*>\s*</h\1>", "", updated, flags=re.I)
-        updated = re.sub(r"<p\b[^>]*>\s*</p>", "", updated, flags=re.I)
+        updated = remove_empty_presentational_paragraphs(updated)
         updated = re.sub(r"<li\b[^>]*>\s*</li>", "", updated, flags=re.I)
         updated = re.sub(r"\s+([.;,:])", r"\1", updated)
 
