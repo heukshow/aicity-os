@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-04T07:58:23.347Z",
+  "updated_at": "2026-10-04T18:43:00Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -917,7 +917,7 @@
     "trend_rule": "Adapt non-video topics, length, layout and publication style to current official platform guidance and observed relevant audience discussion. Record sources and dates; do not invent trend demand, reach or performance."
   },
   "onsite_advertising": {
-    "status": "checkout_deployed_release_verified",
+    "status": "paid_path_paused_site_fail_closed_worker_disable_pending",
     "authorized_at": "2026-10-04T07:31:56+09:00",
     "payment_verification_requested_at": "2026-10-04T07:33:53+09:00",
     "customer_material_language": "en",
@@ -938,7 +938,7 @@
     "new_paid_advertiser_milestone": "First real advertiser payment must be separately verified; mock and internal QA records are excluded.",
     "cash_receipt_forecast": "unknown; do not treat catalogue prices or technical readiness as received revenue",
     "additional_operating_spend_limit_usd": 0,
-    "updated_at": "2026-10-04T04:09:55Z",
+    "updated_at": "2026-10-04T18:43:00Z",
     "production_evidence": {
       "site_source_commit": "4706d69769559ec226060b7100d8392533462d9d",
       "site_build_run": 37162847558,
@@ -1008,10 +1008,35 @@
       "execution_evidence": "Configuration only; no future run or advertiser receipt claimed."
     },
     "remaining_gates": [
-      "Verify a real advertiser payment against its exact order before any material approval or placement; internal QA remains excluded",
-      "Review destination, claims, materials, allowed page/slot, inventory and dates before publishing an advertisement",
-      "Publish and verify a paid placement only after all payment and material gates; the new proposal page/PDF remain on owner approval hold"
-    ]
+      "Deploy the clean current-main Worker through the existing authorized environment without creating a new Worker, account, plan or secret.",
+      "Read-only verify the active Worker version/config and that payment create/capture remain unavailable without making a payment transaction.",
+      "Keep external paid inventory and public paid rendering disabled; preserve any independently verified pre-existing paid obligation if later found."
+    ],
+    "production_evidence_scope": "Historical paid-checkout activation evidence before the 2026-10-05 stop fix. It is preserved for audit and must not be read as the current operating state.",
+    "current_operating_state": {
+      "effective_at": "2026-10-05T03:34:00+09:00",
+      "evidence_comment_id": 5983120644,
+      "implementation_pr": 1020,
+      "merge_commit": "f2ab6d218c30507b0ebbc48260f13dd36fe47020",
+      "pr_build_run": 37224429133,
+      "site_build_deploy_run": 37224765697,
+      "pages_run": 37224891220,
+      "worker_revenue_safety_run": 37224765693,
+      "worker_revenue_safety_scope": "tests and wrangler dry-run only; not a production Worker deployment",
+      "paid_sponsorship_source_enabled": false,
+      "paid_sponsorship_inventory_enabled": false,
+      "applications_open": false,
+      "paid_slots_status": "reserved_hidden",
+      "deployed_public_paid_renderer_enabled": false,
+      "gh_pages_renderer_blob": "b17d0c55e00375aa33bcb22912b59b8390c14569",
+      "active_worker_checkout_disabled": null,
+      "active_worker_state": "unverified_after_stop_fix",
+      "real_advertiser_payment_confirmed": false,
+      "public_paid_ad_activated": false,
+      "house_promotion_scope": "COSHUMA first-party unpaid house promotion is separate and was not changed by PR #1020.",
+      "additional_operating_spend_usd": 0,
+      "user_action_required": false
+    }
   },
   "public_content_language": {
     "language": "en",
