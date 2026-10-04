@@ -557,6 +557,51 @@
       "live_required_substrings": [
         "Tidio"
       ]
+    },
+    "REVENUE:JOTFORM-C04-WORKSHEET-20261004": {
+      "mode": "bundle_markers",
+      "source_file": "public/tool/jotform.html",
+      "source_forbidden_regex": [
+        "affiliate_status",
+        "application_submitted",
+        "browser_required",
+        "revenue truth"
+      ],
+      "verify_deployed_ancestry": true,
+      "source_required_regex": [
+        "id=\"jotform-upgrade-checklist\"",
+        "data-campaign-asset=\"coshuma-one-month-growth-c04\"",
+        "Choose a plan from your busiest month, not your average",
+        "COSHUMA does not collect or store your answers",
+        "https://www\\.jotform\\.com/pricing/\\?partner=coshuma",
+        "data-cta-source=\"jotform-c04-plan-checklist\"",
+        "data-affiliate-disclosure=\"page\"",
+        "rel=\"sponsored noopener noreferrer\""
+      ],
+      "gh_pages_glob": "tool/jotform.html",
+      "gh_pages_required_regex": [
+        "id=\"jotform-upgrade-checklist\"",
+        "data-campaign-asset=\"coshuma-one-month-growth-c04\"",
+        "Choose a plan from your busiest month, not your average",
+        "COSHUMA does not collect or store your answers",
+        "https://www\\.jotform\\.com/pricing/\\?partner=coshuma",
+        "data-cta-source=\"jotform-c04-plan-checklist\"",
+        "data-cta=\"affiliate\"",
+        "data-affiliate-disclosure=\"page\"",
+        "rel=\"sponsored noopener noreferrer\""
+      ],
+      "gh_pages_forbidden_regex": [
+        "affiliate_status",
+        "application_submitted",
+        "browser_required",
+        "revenue truth"
+      ],
+      "live_url": "https://coshuma.com/tool/jotform.html?coshuma_qa=1&deploy=54c7da989dea",
+      "live_required_substrings": [
+        "Jotform",
+        "Choose a plan from your busiest month, not your average",
+        "COSHUMA does not collect or store your answers"
+      ]
     }
   }
 }
