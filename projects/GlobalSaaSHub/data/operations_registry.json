@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T00:07:00Z",
+  "updated_at": "2026-10-04T00:13:41.536787+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2461,10 +2461,10 @@
       "found_by": "Operations Governance Team",
       "fixed_by": "Revenue Optimization Team",
       "changed_scope": "English advertiser intake, server-priced quotes, PayPal-bound payment verification, approved-material and inventory publication gates; checkout and public placement activation remain disabled pending production gates.",
-      "lifecycle": "implemented_and_merged",
-      "next_owner": "Security & Cost Control Team",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
       "priority": "high",
-      "blocker": "remote_d1_migration_private_worker_deploy_and_provider_readiness_pending",
+      "blocker": "missing_deterministic_verification_spec",
       "last_evidence_at": "2026-10-04T00:00:10Z",
       "evidence": {
         "implementation_pr": 981,
@@ -2479,7 +2479,8 @@
         "provider_readiness_verified": false,
         "checkout_enabled": false,
         "real_advertiser_payment_confirmed": false,
-        "public_ad_activated": false
+        "public_ad_activated": false,
+        "merge_commit": "4706d69769559ec226060b7100d8392533462d9d"
       },
       "completion_gate": "production_verified",
       "completion_gate_satisfied": false,
