@@ -98,6 +98,7 @@ def card(row):
       <a class="coshuma-promotion__button" data-promotion-link href="{e('destination')}">{e('button')}</a>
     </div>
   </div>
+  <div class="coshuma-promotion__advertiser"><span>Build software? Your product could be here.</span><a data-advertiser-interest href="/advertise.html?placement={e('slot')}#inquire">Explore this placement &rarr;</a></div>
 </aside>
 {END}'''
 
