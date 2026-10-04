@@ -26,3 +26,5 @@ h1{font-size:clamp(38px,4.6vw,62px);line-height:1.08;letter-spacing:-.05em;margi
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 
 @media(max-width:650px){.hero .btn{font-size:13px;padding:12px;white-space:nowrap}}
+/* Keep step copy in a normal block; only the outer row needs a number column. */
+.steps>div>div{display:block;margin:0;min-width:0}
