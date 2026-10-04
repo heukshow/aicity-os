@@ -1352,19 +1352,20 @@
     "id": "google-workspace-affiliate-reconcile-20261003",
     "tool_id": "google-workspace",
     "priority": "high",
-    "status": "browser_required_country_eligibility_check",
+    "status": "application_available_account_required",
     "cost": "0",
-    "verified_at": "2026-10-03T03:05:00+09:00",
-    "reason": "Google Workspace's current official Affiliate Program accepts free applications through CJ Affiliate and provides tracked promotional links after approval. COSHUMA country/program eligibility has not yet been verified; exact tracking URL remains null.",
-    "next_action": "Check CJ Affiliate enrollment and country eligibility for COSHUMA's business identity before applying. Do not assume eligibility or construct a tracking link.",
+    "verified_at": "2026-10-04T06:15:38Z",
+    "reason": "Google Workspace's current official Korean Affiliate Program page routes free applications through CJ Affiliate. Google's official Affiliate Supported Countries PDF lists South Korea in the Asia Pacific region. The official CJ Google Workspace APAC enrollment page requires an active CJ publisher account, email confirmation, acceptance of CJ Affiliate Publisher Agreements, and company, tax, and payment information for activation. No authenticated COSHUMA-owned CJ publisher session or issued Google Workspace customer tracking URL was observed; no application was submitted.",
+    "next_action": "Reuse an existing COSHUMA-owned CJ publisher account if authenticated evidence becomes available. Otherwise hold: CJ account creation, publisher-agreement consent, tax forms, and payment information are outside the current autonomous application scope. After authorized enrollment, apply to advertiser 5261735 and verify the issued customer-facing tracking URL before any CTA change.",
     "exact_tracking_url": null,
-    "affiliate_status": "browser_required_country_eligibility_check",
-    "blocker": "browser_required_country_eligibility_check",
+    "affiliate_status": "application_available_account_required",
+    "blocker": "cj_account_publisher_agreement_tax_payment_required",
     "do_not": [
       "Do not create a duplicate affiliate/partner identity if an existing account is found.",
       "Do not invent or construct a customer tracking URL.",
       "Do not infer clicks, signups, customers, commissions, payouts, or revenue from application access."
-    ]
+    ],
+    "application_url": "https://public.cj.com/signup/publisher?advertiserId=5261735"
   },
   {
     "id": "hide-me-affiliate-reconcile-20261003",
