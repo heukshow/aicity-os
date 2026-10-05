@@ -7,6 +7,7 @@ from html.parser import HTMLParser
 from html import escape
 import argparse,json,re
 from prepare_coshuma_promotions import image_size
+from house_ad_identity import identity_html
 ROOT=Path(__file__).resolve().parents[1]
 EXPECTED={
  'tool-rotation':('tool/pipedrive.html','rotating'),
@@ -67,11 +68,11 @@ def render_slot(row,creatives):
  for i,c in enumerate(items):
   e=lambda k:escape(str(c[k]),quote=True)
   hidden=' hidden' if i else ''
-  slides.append(f'''<article id="{sid}-slide-{i}" class="house-slot__slide" data-house-slide="{e('id')}" role="group" aria-roledescription="slide" aria-label="{i+1} of {n}"{hidden}><img src="{e('image')}" width="1200" height="400" alt="{e('alt')}" loading="lazy" decoding="async"/><div class="house-slot__copy"><h2>{e('title')}</h2><p>{e('description')}</p><a class="house-slot__button" data-house-link href="{e('destination')}">{e('button')}</a></div></article>''')
+  slides.append(f'''<article id="{sid}-slide-{i}" class="house-slot__slide" data-house-slide="{e('id')}" role="group" aria-roledescription="slide" aria-label="{i+1} of {n}"{hidden}>{identity_html()}<img data-house-image src="{e('image')}" width="1200" height="400" alt="{e('alt')}" loading="lazy" decoding="async"/><div class="house-slot__copy"><h2>{e('title')}</h2><p>{e('description')}</p><a class="house-slot__button" data-house-link href="{e('destination')}">{e('button')}</a></div></article>''')
  return f'''<!-- HOUSE_PLACEMENT_START:{sid} -->
 <aside id="{sid}" class="house-slot" data-house-slot="{sid}" data-house-mode="{mode}" aria-label="COSHUMA {mode} advertisements" role="region" aria-roledescription="{'carousel' if mode=='rotating' else 'advertisement'}">
 <div class="house-slot__top"><span>Advertisement &middot; COSHUMA</span><span class="house-slot__type">{'Rotating placement' if mode=='rotating' else 'Fixed placement'}</span></div>
-{controls}<div class="house-slot__slides" data-house-slides aria-live="off">{''.join(slides)}</div>
+<div class="house-slot__slides" data-house-slides aria-live="off">{''.join(slides)}</div>{controls}
 <div class="house-slot__interest"><span>{'Shared rotation · up to 3 campaigns' if mode=='rotating' else 'One campaign in this position'} &middot; House demonstration</span><a href="/advertise.html?placement={sid}#inquire" data-house-inquiry>Explore this placement &rarr;</a></div>
 </aside>
 <!-- HOUSE_PLACEMENT_END -->'''
@@ -103,7 +104,7 @@ def main():
    count=text.count('data-house-slot="'+row['id']+'"')
    if count!=(1 if data['house_enabled'] else 0):raise ValueError('Missing or duplicate unit: '+row['id'])
    if data['house_enabled']:
-    for marker in ['house-placements.js','house-placements.css','data-house-inquiry']:
+    for marker in ['house-placements.js','house-placements.css','data-house-inquiry','data-advertiser-logo','data-house-image']:
      if marker not in text:raise ValueError('Lost '+marker)
   else:
    updated=prepare(text,row,creatives,data['house_enabled'])
