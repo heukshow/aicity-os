@@ -18,7 +18,7 @@ DESTINATIONS={'/best/index.html','/compare/','/best/claap-sales-follow-up-ai.htm
 ASSETS={'/promotions/house-wide-guides.webp','/promotions/house-wide-checklist.webp','/promotions/house-wide-comparisons.webp'}
 CSS='<link rel="stylesheet" href="/house-placements.css" />'
 JS='<script defer src="/house-placements.js"></script>'
-BLOCK=re.compile(r'\n?<!-- HOUSE_PLACEMENT_START:[a-z-]+ -->.*?<!-- HOUSE_PLACEMENT_END -->',re.S)
+BLOCK=re.compile(r'<!-- HOUSE_PLACEMENT_START:[a-z-]+ -->.*?<!-- HOUSE_PLACEMENT_END -->',re.S)
 
 def load_config():
  data=json.loads((ROOT/'data/placement-expansion.json').read_text(encoding='utf-8'))
@@ -68,7 +68,7 @@ def render_slot(row,creatives):
   e=lambda k:escape(str(c[k]),quote=True)
   hidden=' hidden' if i else ''
   slides.append(f'''<article id="{sid}-slide-{i}" class="house-slot__slide" data-house-slide="{e('id')}" role="group" aria-roledescription="slide" aria-label="{i+1} of {n}"{hidden}><img src="{e('image')}" width="1200" height="400" alt="{e('alt')}" loading="lazy" decoding="async"/><div class="house-slot__copy"><h2>{e('title')}</h2><p>{e('description')}</p><a class="house-slot__button" data-house-link href="{e('destination')}">{e('button')}</a></div></article>''')
- return f'''\n<!-- HOUSE_PLACEMENT_START:{sid} -->
+ return f'''<!-- HOUSE_PLACEMENT_START:{sid} -->
 <aside id="{sid}" class="house-slot" data-house-slot="{sid}" data-house-mode="{mode}" aria-label="COSHUMA {mode} advertisements" role="region" aria-roledescription="{'carousel' if mode=='rotating' else 'advertisement'}">
 <div class="house-slot__top"><span>Advertisement &middot; COSHUMA</span><span class="house-slot__type">{'Rotating placement' if mode=='rotating' else 'Fixed placement'}</span></div>
 {controls}<div class="house-slot__slides" data-house-slides aria-live="off">{''.join(slides)}</div>
