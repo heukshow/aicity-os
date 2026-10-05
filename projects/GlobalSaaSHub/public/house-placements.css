@@ -16,3 +16,12 @@
 .house-slot .house-slot__interest a{display:inline-flex;align-items:center;min-height:44px;color:#f0c878;font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
 .house-inventory{width:100%;border-collapse:collapse;font-size:13px}.house-inventory caption{text-align:left;color:#b8c1d2;font-size:12px;padding:10px 0}.house-inventory td,.house-inventory th{text-align:left;padding:15px 12px;border-bottom:1px solid #354058;vertical-align:top}.house-inventory th{font-weight:650}.house-inventory thead{background:#182136}.house-inventory td:nth-child(3){text-align:center}.house-inventory td:last-child{white-space:nowrap}.house-inventory a{color:#f0c878;display:inline-flex;align-items:center;min-height:44px}.house-inventory__where{display:block;font-weight:400;font-size:11px;color:#aeb9cf;max-width:39ch;margin-top:5px}
 @media(max-width:640px){.house-slot{padding:18px;margin:24px 0}.house-slot .house-slot__slide{grid-template-columns:minmax(0,1fr);gap:18px}.house-slot .house-slot__copy h2{font-size:20px;min-height:2.7em}.house-slot .house-slot__copy p{min-height:6.6em;font-size:14px}.house-slot .house-slot__controls{gap:7px}.house-slot .house-slot__controls button{font-size:11px;padding:8px}.house-slot .house-slot__top{font-size:10px}.house-inventory{min-width:650px}}
+
+/* Every fixed creative and rotating slide owns its visible identity. */
+.house-slot .house-ad-identity{display:flex;align-items:center;grid-column:1/-1;min-width:0;margin:0;padding:0}
+.house-slot .house-ad-identity img[data-advertiser-logo]{display:block;width:260px;height:48px;max-width:100%;object-fit:contain;object-position:left center;aspect-ratio:auto;margin:0;padding:0;border:0;border-radius:0;background:transparent}
+.house-slot .house-slot__slide{row-gap:20px}
+.house-slot[data-house-mode="rotating"] .house-slot__slide{grid-template-columns:minmax(0,1fr)}
+.house-slot .house-slot__controls{margin:20px 0 0}
+.house-slot[data-house-mode="rotating"] .house-slot__copy p{min-height:3.3em}
+@media(max-width:640px){.house-slot .house-ad-identity img[data-advertiser-logo]{width:240px;height:auto;min-height:40px}.house-slot[data-house-mode="rotating"] .house-slot__copy p{min-height:5em}}

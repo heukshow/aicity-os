@@ -3,8 +3,10 @@ import importlib.util
 from pathlib import Path
 import re
 import unittest
+import sys
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / 'scripts'))
 spec = importlib.util.spec_from_file_location('house', ROOT / 'scripts/prepare_coshuma_promotions.py')
 house = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(house)
