@@ -24,7 +24,7 @@
       const valid = allowed[slot]?.includes(path) && mode === (rotating ? 'rotating' : 'fixed') &&
         units.filter(u => u.dataset.houseSlot === slot).length === 1 && slides.length >= 1 && slides.length <= capacity &&
         new Set(slides.map(s => s.dataset.houseSlide)).size === slides.length && slides.every(s => {
-          const img = s.querySelector('img'), link = s.querySelector('[data-house-link]');
+          const img = s.querySelector('[data-house-image]'), link = s.querySelector('[data-house-link]');
           return ids.has(s.dataset.houseSlide) && img && link && imagePaths.has(img.getAttribute('src')) &&
             img.getAttribute('width') === '1200' && img.getAttribute('height') === '400' && destinations.has(link.getAttribute('href'));
         });
@@ -60,7 +60,7 @@
           rotationTimer = null;
           if (!paused && !hovered && visible()) show((index + 1) % slides.length);
         }, 8000);
-        const slide = slides[index], image = slide.querySelector('img');
+        const slide = slides[index], image = slide.querySelector('[data-house-image]');
         const measurable = visible() && !slide.hidden && image.complete && image.naturalWidth > 0;
         if (!measurable || seen.has(slide.dataset.houseSlide)) stopImpression();
         else if (impressionTimer === null) impressionTimer = setTimeout(() => {
@@ -84,8 +84,8 @@
           if (slide !== slides[index] || slide.hidden || unit.hidden || location.pathname !== path) { event.preventDefault(); return; }
           emit('house_placement_click', slide);
         });
-        slide.querySelector('img').addEventListener('load', sync);
-        slide.querySelector('img').addEventListener('error', stopImpression);
+        slide.querySelector('[data-house-image]').addEventListener('load', sync);
+        slide.querySelector('[data-house-image]').addEventListener('error', stopImpression);
       }
       const inquiry = unit.querySelector('[data-house-inquiry]');
       if (inquiry) {

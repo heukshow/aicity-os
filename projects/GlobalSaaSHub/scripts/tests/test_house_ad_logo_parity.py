@@ -1,6 +1,7 @@
 """Source and final-output logo coverage for the eight owned ad positions."""
 from pathlib import Path
 import json
+import hashlib
 import re
 import sys
 import unittest
@@ -42,6 +43,14 @@ def verify_output(folder):
 
 
 class HouseLogoTests(unittest.TestCase):
+    def test_all_six_raster_assets_are_the_reviewed_branded_versions(self):
+        assets = json.loads((ROOT / 'data/house-ad-logo-assets.json').read_text(encoding='utf-8'))
+        self.assertEqual(len(assets), 6)
+        for item in assets:
+            image = ROOT / 'public/promotions' / item['file']
+            self.assertEqual(hashlib.sha256(image.read_bytes()).hexdigest(), item['sha256'])
+            self.assertEqual(primary.image_size(image), (item['width'], item['height']))
+
     def test_primary_cards_have_official_identity(self):
         for row in primary.load_manifest()['promotions']:
             check_identity(primary.card(row))

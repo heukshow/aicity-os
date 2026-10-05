@@ -1,0 +1,44 @@
+[
+  {
+    "file": "coshuma-tool.webp",
+    "width": 600,
+    "height": 600,
+    "bytes": 12586,
+    "sha256": "c11ae3ed52cf9829787e8928764430fe2e4bcd86a63e374d4bf1941bb3cd88e6"
+  },
+  {
+    "file": "coshuma-guide.webp",
+    "width": 1200,
+    "height": 675,
+    "bytes": 24404,
+    "sha256": "94bbec8f6b4fa8073a1b94e33b31074357b15b60f6cb669a50f597662c9efc5d"
+  },
+  {
+    "file": "coshuma-comparison.webp",
+    "width": 1200,
+    "height": 400,
+    "bytes": 14736,
+    "sha256": "5757cdab7a34365ffd334b25544c6aa8637b9b8bf4ba034ec66916c6c1300434"
+  },
+  {
+    "file": "house-wide-guides.webp",
+    "width": 1200,
+    "height": 400,
+    "bytes": 13454,
+    "sha256": "52202768740ef9ffef620a4a48c3e360cc20e8e7776ca68b998036c9be83c5e2"
+  },
+  {
+    "file": "house-wide-checklist.webp",
+    "width": 1200,
+    "height": 400,
+    "bytes": 15724,
+    "sha256": "623c174b4c367d2ed643d5769fec0542efdcb0ef9ef048317dd940cd9a569c40"
+  },
+  {
+    "file": "house-wide-comparisons.webp",
+    "width": 1200,
+    "height": 400,
+    "bytes": 14736,
+    "sha256": "5757cdab7a34365ffd334b25544c6aa8637b9b8bf4ba034ec66916c6c1300434"
+  }
+]
