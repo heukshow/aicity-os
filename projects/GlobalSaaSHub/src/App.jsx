@@ -266,7 +266,7 @@ export default function App() {
             <a href={navigationHref('/compare/')} className="hidden min-h-11 items-center rounded-full px-3 text-sm font-semibold text-slate-300 hover:bg-white/5 lg:inline-flex">Comparisons</a>
             <details data-site-menu className="relative lg:hidden">
               <summary className="flex min-h-11 cursor-pointer list-none items-center rounded-full border border-white/10 px-3 text-xs font-bold text-slate-200">Menu <span aria-hidden="true" className="ml-1">▾</span></summary>
-              <div className="absolute right-0 top-full z-50 mt-2 w-56 max-w-[80vw] rounded-xl border border-white/10 bg-[#11131a] p-2 shadow-xl">
+              <div className="absolute left-0 top-full z-50 mt-2 w-56 max-w-[80vw] rounded-xl border border-white/10 bg-[#11131a] p-2 shadow-xl">
                 <a href={navigationHref('/best/index.html')} className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5">Buyer guides</a>
                 <a href={navigationHref('/compare/')} className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5">Comparisons</a>
                 <a href={navigationHref('/countries/')} className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5">Countries</a>
