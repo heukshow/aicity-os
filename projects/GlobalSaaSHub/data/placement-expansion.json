@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "house_enabled": true,
+  "paid_bookings_open": false,
+  "max_visible_slots_per_page": 2,
+  "creatives": [
+    {"id":"coshuma-guides","advertiser":"COSHUMA","image":"/promotions/house-wide-guides.webp","width":1200,"height":400,"alt":"COSHUMA software guides compare pricing, features and suitability.","title":"Find software that fits your team","description":"Compare software prices, features and use cases with COSHUMA's guides to find a tool that suits your team.","button":"Explore software guides","destination":"/best/index.html"},
+    {"id":"coshuma-checklist","advertiser":"COSHUMA","image":"/promotions/house-wide-checklist.webp","width":1200,"height":400,"alt":"COSHUMA call-review checklist covering notes, concerns and next steps.","title":"Review sales calls with a checklist","description":"Review call notes, customer concerns, agreed actions, responsibilities, deadlines and CRM updates with COSHUMA's three-call checklist.","button":"Open the checklist","destination":"/best/claap-sales-follow-up-ai.html#claap-3-call-checklist"},
+    {"id":"coshuma-comparisons","advertiser":"COSHUMA","image":"/promotions/house-wide-comparisons.webp","width":1200,"height":400,"alt":"COSHUMA comparison guides cover pricing, use cases and limitations.","title":"Compare your options before you subscribe","description":"Compare software prices, use cases and limitations on COSHUMA before choosing a subscription.","button":"Browse comparisons","destination":"/compare/"}
+  ],
+  "slots": [
+    {"id":"tool-rotation","page":"/tool/pipedrive.html","aliases":["/tool/pipedrive.html"],"file":"tool/pipedrive.html","mode":"rotating","capacity":3,"interval_ms":8000,"before_heading":"Bottom line","position":"Before the final summary, after the Pipedrive / HighLevel comparison.","image_width":1200,"image_height":400,"max_bytes":400000,"creative_ids":["coshuma-guides","coshuma-checklist","coshuma-comparisons"],"rate_usd":null},
+    {"id":"guide-rotation","page":"/best/claap-sales-follow-up-ai.html","aliases":["/best/claap-sales-follow-up-ai.html"],"file":"best/claap-sales-follow-up-ai.html","mode":"rotating","capacity":3,"interval_ms":8000,"before_heading":"Who should test Claap for follow-up?","position":"After the three-call checklist, before the suitability section.","image_width":1200,"image_height":400,"max_bytes":400000,"creative_ids":["coshuma-checklist","coshuma-guides","coshuma-comparisons"],"rate_usd":null},
+    {"id":"compare-rotation","page":"/compare/semrush-vs-frase.html","aliases":["/compare/semrush-vs-frase.html"],"file":"compare/semrush-vs-frase.html","mode":"rotating","capacity":3,"interval_ms":8000,"before_heading":"What to test before paying","position":"After the comparison table, before the evaluation questions.","image_width":1200,"image_height":400,"max_bytes":400000,"creative_ids":["coshuma-comparisons","coshuma-guides"],"rate_usd":null},
+    {"id":"buyer-hub-fixed","page":"/best/index.html","aliases":["/best/index.html","/best/"],"file":"best/index.html","mode":"fixed","capacity":1,"interval_ms":0,"before_heading":"High-intent pricing, trial & discount guides","position":"After the buyer-guide introduction, before the pricing and trial guide list.","image_width":1200,"image_height":400,"max_bytes":400000,"creative_ids":["coshuma-comparisons"],"rate_usd":null},
+    {"id":"comparison-hub-fixed","page":"/compare/","aliases":["/compare/","/compare/index.html"],"file":"compare/index.html","mode":"fixed","capacity":1,"interval_ms":0,"before_heading":"GoHighLevel vs HubSpot","position":"After the comparison-hub introduction, before the comparison list.","image_width":1200,"image_height":400,"max_bytes":400000,"creative_ids":["coshuma-guides"],"rate_usd":null}
+  ]
+}

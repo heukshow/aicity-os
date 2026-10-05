@@ -5,7 +5,12 @@
   const slots = {
     'tool-primary': { label: 'Tool page', page: '/tool/pipedrive.html' },
     'buyer-intent-top': { label: 'Buyer guide', page: '/best/claap-sales-follow-up-ai.html' },
-    'compare-decision-premium': { label: 'Comparison', page: '/compare/semrush-vs-frase.html' }
+    'compare-decision-premium': { label: 'Comparison', page: '/compare/semrush-vs-frase.html' },
+    'tool-rotation': { label: 'Pipedrive / rotating', page: '/tool/pipedrive.html' },
+    'guide-rotation': { label: 'Claap / rotating', page: '/best/claap-sales-follow-up-ai.html' },
+    'compare-rotation': { label: 'Semrush-Frase / rotating', page: '/compare/semrush-vs-frase.html' },
+    'buyer-hub-fixed': { label: 'Buyer-guide hub / fixed', page: '/best/index.html' },
+    'comparison-hub-fixed': { label: 'Comparison hub / fixed', page: '/compare/' }
   };
   const params = new URLSearchParams(window.location.search);
   const qa = params.get('coshuma_qa') === '1';
@@ -18,6 +23,7 @@
     window.gtag('event', 'advertiser_interest', { action, placement: Object.hasOwn(slots, slot) ? slot : 'undecided', page_path: '/advertise.html', transport_type: 'beacon' });
   }
   function selectExample(slot) {
+    if (!panels.some(panel => panel.dataset.examplePanel === slot)) slot = 'tool-primary';
     if (!Object.hasOwn(slots, slot)) return;
     for (const panel of panels) panel.hidden = panel.dataset.examplePanel !== slot;
     for (const tab of tabs) tab.setAttribute('aria-pressed', String(tab.dataset.example === slot));
