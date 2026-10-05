@@ -11,6 +11,7 @@ import argparse
 import json
 import re
 import struct
+from house_ad_identity import identity_html
 
 ROOT = Path(__file__).resolve().parents[1]
 PAIRS = {
@@ -90,6 +91,7 @@ def card(row):
     return f'''\n{START}
 <aside id="coshuma-promotion" class="coshuma-promotion coshuma-promotion--{e('format')}" data-coshuma-promotion="{e('id')}" data-promotion-page="{e('page')}" data-promotion-slot="{e('slot')}" aria-label="COSHUMA self-promotion">
   <div class="coshuma-promotion__label">Advertisement <span aria-hidden="true">&middot;</span> COSHUMA</div>
+  {identity_html()}
   <div class="coshuma-promotion__layout">
     <img class="coshuma-promotion__image" src="{e('image')}" width="{e('width')}" height="{e('height')}" alt="{e('alt')}" loading="lazy" decoding="async" />
     <div class="coshuma-promotion__copy">
@@ -128,7 +130,7 @@ def main():
         if args.verify:
             # Final output may be minified; verify concrete content instead of raw formatting.
             if config['enabled']:
-                for expected in ['data-coshuma-promotion="' + row['id'] + '"', row['image'], 'coshuma-promotions.css', 'coshuma-promotions.js', 'COSHUMA self-promotion']:
+                for expected in ['data-coshuma-promotion="' + row['id'] + '"', row['image'], 'coshuma-promotions.css', 'coshuma-promotions.js', 'COSHUMA self-promotion', 'data-advertiser-logo']:
                     if expected not in source: raise ValueError(f'{file}: lost {expected}')
         else:
             updated = prepare(source, row, config['enabled'])
