@@ -2091,7 +2091,7 @@
     "category": "voice_cloning",
     "category_display": "Voice & Speech AI",
     "description": "The leading generative voice AI software that creates lifelike speech, voice clones, and sound effects in any language and voice style.",
-    "pricing": "Varies",
+    "pricing": "$29",
     "key_features": [
       "AI Voice Cloning",
       "Text-to-Speech",
@@ -2104,12 +2104,12 @@
     "comparison_group": "voice_generation",
     "is_direct_competitor": true,
     "official_url": "https://elevenlabs.io/",
-    "pricing_source_url": null,
-    "pricing_verified_at": null,
-    "pricing_verified": false,
-    "currency": null,
-    "billing_period": null,
-    "evidence_source_type": null,
+    "pricing_source_url": "https://elevenlabs.io/docs/reception-ai/billing/plans-and-pricing",
+    "pricing_verified_at": "2026-10-05T07:09:53Z",
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "annual/monthly",
+    "evidence_source_type": "official_pricing_page",
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
@@ -2125,6 +2125,15 @@
       "12 months",
       "active affiliate account",
       "Default affiliate link"
+    ],
+    "pricing_source_http_status": 200,
+    "pricing_source_final_url": "https://elevenlabs.io/docs/reception-ai/billing/plans-and-pricing",
+    "pricing_evidence_markers": [
+      "$29/month",
+      "Prices are in USD",
+      "$288/year",
+      "Monthly subscribers",
+      "Annual price"
     ]
   },
   {
@@ -2480,7 +2489,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "FlowGent AI is a complete platform to build, manage, and scale AI agents and automations, designed to streamline complex workflows.",
-    "pricing": "Not specified",
+    "pricing": "99",
     "key_features": [
       "AI Agent Creation",
       "Agent Management Tools",
@@ -2492,12 +2501,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://flowgent.ai/",
-    "pricing_source_url": null,
-    "pricing_verified_at": null,
-    "pricing_verified": false,
-    "currency": null,
-    "billing_period": null,
-    "evidence_source_type": null,
+    "pricing_source_url": "https://flowgent.ai/pricing",
+    "pricing_verified_at": "2026-10-05T07:09:53Z",
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": "official_pricing_page",
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
@@ -2513,6 +2522,14 @@
       "FlowGent's current affiliate landing page advertises 20% lifetime recurring commission and links to Rewardful.",
       "The vendor-linked Rewardful enrollment endpoint currently reports 'Affiliate Program Inactive'.",
       "Operational enrollment state takes precedence over marketing copy; no application or tracking URL is claimed."
+    ],
+    "pricing_source_http_status": 200,
+    "pricing_source_final_url": "https://flowgent.ai/pricing",
+    "pricing_evidence_markers": [
+      "$99",
+      "Per month",
+      "Standard",
+      "🔥 Most Popular"
     ]
   },
   {
