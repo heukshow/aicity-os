@@ -28,3 +28,14 @@ h1{font-size:clamp(38px,4.6vw,62px);line-height:1.08;letter-spacing:-.05em;margi
 @media(max-width:650px){.hero .btn{font-size:13px;padding:12px;white-space:nowrap}}
 /* Keep step copy in a normal block; only the outer row needs a number column. */
 .steps>div>div{display:block;margin:0;min-width:0}
+
+/* Direct access to all existing ad positions, including narrow screens. */
+.ad-position-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:24px 0 32px}
+.ad-position-link{display:flex;flex-direction:column;gap:10px;min-height:150px;padding:18px;border:1px solid #544737;border-radius:12px;background:#161b28;text-decoration:none;overflow-wrap:anywhere}
+.ad-position-link:hover{border-color:var(--gold);background:#211e30}
+.ad-position-link>span{font-size:11px;color:var(--gold);font-weight:750;letter-spacing:.05em}
+.ad-position-link>strong{font-size:15px;line-height:1.4;color:var(--ink)}
+.ad-position-link>b{font-size:12px;color:var(--gold);margin-top:auto}
+.ad-position-link:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+@media(max-width:900px){.ad-position-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.site-head nav{flex-wrap:wrap;justify-content:flex-end;gap:12px}.site-head nav a{display:inline-flex;min-height:44px;align-items:center}}
+@media(max-width:400px){.ad-position-link{padding:14px;min-height:152px}.ad-position-link>strong{font-size:14px}.hero .actions{flex-direction:column}.hero .actions .btn{width:100%}}
