@@ -22,7 +22,7 @@ PAIRS = {
 START = '<!-- COSHUMA_PROMOTION_START -->'
 END = '<!-- COSHUMA_PROMOTION_END -->'
 BLOCK = re.compile(r'\s*<!-- COSHUMA_PROMOTION_START -->.*?<!-- COSHUMA_PROMOTION_END -->', re.S)
-CSS = '<link rel="stylesheet" href="/coshuma-promotions.css" />'
+CSS = '<link rel="stylesheet" href="/coshuma-promotions.css?v=logo-20261006" />'
 JS = '<script defer src="/coshuma-promotions.js"></script>'
 
 class SectionParser(HTMLParser):
@@ -93,7 +93,7 @@ def card(row):
   <div class="coshuma-promotion__label">Advertisement <span aria-hidden="true">&middot;</span> COSHUMA</div>
   {identity_html()}
   <div class="coshuma-promotion__layout">
-    <img class="coshuma-promotion__image" src="{e('image')}" width="{e('width')}" height="{e('height')}" alt="{e('alt')}" loading="lazy" decoding="async" />
+    <img class="coshuma-promotion__image" src="{e('image')}?v=logo-20261006" width="{e('width')}" height="{e('height')}" alt="{e('alt')}" loading="lazy" decoding="async" />
     <div class="coshuma-promotion__copy">
       <h2>{e('title')}</h2>
       <p>{e('description')}</p>
@@ -107,6 +107,7 @@ def card(row):
 def prepare(text, row, enabled=True):
     clean = BLOCK.sub('', text)
     for tag in (CSS, JS): clean = clean.replace(tag, '')
+    clean=clean.replace('<link rel="stylesheet" href="/coshuma-promotions.css" />','')
     if not enabled: return clean
     parser = SectionParser(clean, row['slot']); parser.feed(clean)
     if len(parser.boundaries) != 1: raise ValueError('Expected one existing paid slot: ' + row['page'])

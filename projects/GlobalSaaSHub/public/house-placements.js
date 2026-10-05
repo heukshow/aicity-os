@@ -10,7 +10,7 @@
   };
   const destinations = new Set(['/best/index.html', '/compare/', '/best/claap-sales-follow-up-ai.html#claap-3-call-checklist']);
   const ids = new Set(['coshuma-guides', 'coshuma-checklist', 'coshuma-comparisons']);
-  const imagePaths = new Set(['/promotions/house-wide-guides.webp', '/promotions/house-wide-checklist.webp', '/promotions/house-wide-comparisons.webp']);
+  const imagePaths = new Set(['/promotions/house-wide-guides.webp?v=logo-20261006', '/promotions/house-wide-checklist.webp?v=logo-20261006', '/promotions/house-wide-comparisons.webp?v=logo-20261006']);
   function init() {
     const path = location.pathname;
     const qa = new URLSearchParams(location.search).get('coshuma_qa') === '1';
