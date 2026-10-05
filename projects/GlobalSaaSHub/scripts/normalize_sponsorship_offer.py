@@ -31,10 +31,7 @@ SPONSORSHIP_SALES_SCRIPT_RE = re.compile(
     r"\s*<script\b[^>]*src=[\"']/sponsorship-sales\.js[\"'][^>]*></script>",
     flags=re.I | re.S,
 )
-HOME_ADVERTISE_LINK_RE = re.compile(
-    r"\s*<a\b[^>]*href=[\"']/advertise\.html[\"'][^>]*>\s*Advertise\s*</a>",
-    flags=re.I | re.S,
-)
+
 
 
 def strip_page(text: str) -> str:
@@ -47,9 +44,11 @@ def remove_home_solicitation() -> bool:
     if not APP.exists():
         return False
     original = APP.read_text(encoding="utf-8")
-    updated = HOME_ADVERTISE_LINK_RE.sub("", original)
+    # Informational advertising navigation is owner-approved; it does not enable sales.
+    # Continue stripping the obsolete inline purchase section below.
+    updated = original
     updated = re.sub(
-        r'\s*<section\s+id="submit"\b[^>]*>.*?</section>',
+        r'\s*<section\s+id="submit"(?=\s|>)[^>]*>.*?</section>',
         "",
         updated,
         flags=re.I | re.S,

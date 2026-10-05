@@ -57,6 +57,12 @@ function ToolLogo({ tool }) {
 }
 
 export default function App() {
+  // Keep owner QA visits excluded while following these internal navigation links.
+  const navigationHref = (path) => {
+    const qa = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('coshuma_qa') === '1';
+    return qa ? `${path}?coshuma_qa=1` : path;
+  };
+
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedPricing, setSelectedPricing] = useState('all');
@@ -228,8 +234,8 @@ export default function App() {
         <div className="absolute top-1/3 -right-32 h-[28rem] w-[28rem] rounded-full bg-cyan-600/10 blur-[130px]" />
       </div>
 
-      <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#08090d]/80 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <nav aria-label="Main navigation" className="sticky top-0 z-50 border-b border-white/10 bg-[#08090d]/80 backdrop-blur-xl">
+        <div className="mx-auto flex min-h-16 max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8">
           <a href="/" className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-cyan-400 shadow-lg shadow-violet-950/40">
               <TrendingUp className="h-5 w-5 text-white" />
@@ -256,6 +262,18 @@ export default function App() {
                 <Heart className="h-3.5 w-3.5 fill-current" /> Saved ({bookmarkedIds.length})
               </button>
             )}
+            <a href={navigationHref('/best/index.html')} className="hidden min-h-11 items-center rounded-full px-3 text-sm font-semibold text-slate-300 hover:bg-white/5 lg:inline-flex">Buyer guides</a>
+            <a href={navigationHref('/compare/')} className="hidden min-h-11 items-center rounded-full px-3 text-sm font-semibold text-slate-300 hover:bg-white/5 lg:inline-flex">Comparisons</a>
+            <details data-site-menu className="relative lg:hidden">
+              <summary className="flex min-h-11 cursor-pointer list-none items-center rounded-full border border-white/10 px-3 text-xs font-bold text-slate-200">Menu <span aria-hidden="true" className="ml-1">▾</span></summary>
+              <div className="absolute left-0 top-full z-50 mt-2 w-56 max-w-[80vw] rounded-xl border border-white/10 bg-[#11131a] p-2 shadow-xl">
+                <a href={navigationHref('/best/index.html')} className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5">Buyer guides</a>
+                <a href={navigationHref('/compare/')} className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5">Comparisons</a>
+                <a href={navigationHref('/countries/')} className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5">Countries</a>
+                <a data-advertising-entry="home-mobile" href={navigationHref('/advertise.html')} className="flex min-h-11 items-center rounded-lg px-3 text-sm font-bold text-amber-200 hover:bg-white/5">Advertise</a>
+              </div>
+            </details>
+            <a data-advertising-entry="home-header" href={navigationHref('/advertise.html')} className="inline-flex min-h-11 items-center rounded-full border border-amber-300/40 bg-amber-300/10 px-3 text-xs font-bold text-amber-100 hover:bg-amber-300/20 sm:text-sm">Advertise</a>
             <a href="/countries/" className="hidden rounded-full px-4 py-2 text-sm font-semibold text-slate-300 hover:bg-white/5 md:inline-flex">Countries</a>
             <a href="#directory" className="hidden rounded-full px-4 py-2 text-sm font-semibold text-slate-300 hover:bg-white/5 sm:inline-flex">Explore tools</a>
             {paymentConfig.checkoutEnabled && (
@@ -522,7 +540,7 @@ export default function App() {
 
       <footer className="relative z-10 border-t border-white/10 bg-[#06070a] py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center"><div><div className="font-black text-white">COSHUMA</div><p className="mt-1 max-w-xl text-xs leading-5 text-slate-600">Independent AI & SaaS decision guides. Pricing, trial details and outbound links can change, so verify final terms on the vendor site before purchasing.</p></div><div className="flex flex-wrap gap-5 text-xs"><a href="/privacy.html" className="text-slate-500 hover:text-white">Privacy</a><a href="/terms.html" className="text-slate-500 hover:text-white">Terms</a><a href="/brand-usage.html" className="text-slate-500 hover:text-white">Brand use</a></div></div>
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center"><div><div className="font-black text-white">COSHUMA</div><p className="mt-1 max-w-xl text-xs leading-5 text-slate-600">Independent AI & SaaS decision guides. Pricing, trial details and outbound links can change, so verify final terms on the vendor site before purchasing.</p></div><div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs"><a href={navigationHref('/best/index.html')} className="inline-flex min-h-11 items-center text-slate-300 hover:text-white">Buyer guides</a><a href={navigationHref('/compare/')} className="inline-flex min-h-11 items-center text-slate-300 hover:text-white">Comparisons</a><a data-advertising-entry="home-footer" href={navigationHref('/advertise.html')} className="inline-flex min-h-11 items-center font-bold text-amber-200 hover:text-white">Advertise</a><a href="/privacy.html" className="text-slate-500 hover:text-white">Privacy</a><a href="/terms.html" className="text-slate-500 hover:text-white">Terms</a><a href="/brand-usage.html" className="text-slate-500 hover:text-white">Brand use</a></div></div>
           <div className="mt-7 border-t border-white/5 pt-6 text-[11px] text-slate-700">© {new Date().getFullYear()} COSHUMA. Independent software decision support. All rights reserved.</div>
         </div>
       </footer>
