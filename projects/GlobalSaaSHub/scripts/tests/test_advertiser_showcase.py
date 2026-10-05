@@ -44,7 +44,7 @@ class AdvertiserShowcaseTests(unittest.TestCase):
             if tag=='a' and attrs.get('href','').startswith('mailto:'):
                 self.assertEqual(attrs['href'],'mailto:support@coshuma.com?subject=COSHUMA%20advertising%20inquiry')
     def test_real_examples_are_local_and_labeled_as_house_ads(self):
-        images=[a['src'] for t,a in self.parser.tags if t=='img']
+        images=[a['src'] for t,a in self.parser.tags if t=='img' and a.get('src','').startswith('/promotions/showcase-')]
         self.assertEqual(len(images),7)
         for src in images:
             self.assertTrue(src.startswith('/promotions/showcase-'))

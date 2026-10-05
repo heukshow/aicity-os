@@ -39,3 +39,18 @@ h1{font-size:clamp(38px,4.6vw,62px);line-height:1.08;letter-spacing:-.05em;margi
 .ad-position-link:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
 @media(max-width:900px){.ad-position-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.site-head nav{flex-wrap:wrap;justify-content:flex-end;gap:12px}.site-head nav a{display:inline-flex;min-height:44px;align-items:center}}
 @media(max-width:400px){.ad-position-link{padding:14px;min-height:152px}.ad-position-link>strong{font-size:14px}.hero .actions{flex-direction:column}.hero .actions .btn{width:100%}}
+
+/* An ad preview is separate from the editorial page on which it may appear. */
+.ad-context-preview{margin:14px 0;border:1px solid #6d5835;border-radius:12px;background:#111725;scroll-margin-top:24px}
+.ad-context-preview>summary{padding:18px 22px;cursor:pointer;font-weight:750;color:#ecd39e;font-size:16px}
+.ad-context-body{padding:0 22px 22px}.ad-context-disclosure{font-size:14px;color:#bec9de;max-width:85ch}
+.ad-context-disclosure strong{color:#fff}.ad-context-creative{padding:22px;border:2px solid #d8ad58;border-radius:12px;background:#18152b;margin-bottom:16px}
+.ad-context-label{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:#f3cc7c;margin-bottom:16px}
+.ad-context-creative .house-ad-identity{margin:0 0 18px;display:block}.ad-context-creative [data-advertiser-logo]{display:block;width:220px;max-width:100%;height:auto}
+.ad-context-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:26px;align-items:center}.ad-context-image{display:block;width:100%;height:auto;max-height:280px;object-fit:contain;border-radius:8px}
+.ad-context-layout h3{font-size:24px;line-height:1.25}.ad-context-layout p{font-size:15px;color:#d4dced}
+.ad-context-cta{display:inline-block;background:#7049dd;border-radius:7px;padding:10px 16px;color:#fff;font-size:13px;font-weight:750}
+.ad-context-controls{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:16px 0}
+.ad-context-controls button{min-height:44px;background:#20263c;color:#fff;border:1px solid #768099;border-radius:7px;padding:10px 15px;cursor:pointer}
+.ad-context-page{display:inline-flex;align-items:center;min-height:44px;color:#eac779;font-weight:700;font-size:14px}.ad-context-body>.fine{margin:8px 0 0}
+@media(max-width:650px){.ad-context-body{padding:0 14px 18px}.ad-context-creative{padding:16px}.ad-context-layout{grid-template-columns:1fr;gap:18px}.ad-context-layout h3{font-size:21px}.ad-context-preview>summary{padding:17px 14px;font-size:14px}.ad-context-controls{gap:10px}.ad-context-controls button{font-size:12px}}

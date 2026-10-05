@@ -44,8 +44,10 @@ class NavigationTests(unittest.TestCase):
   base=json.loads((ROOT/'data/coshuma-promotions.json').read_text(encoding='utf-8'))
   expected={r['slot']:r['page']+'#coshuma-promotion' for r in base['promotions']}
   expected.update({r['id']:r['page']+'#'+r['id'] for r in config['slots']})
-  self.assertEqual(actual,expected)
-  self.assertTrue(all('data-live-example' in a for a in parser.items))
+  self.assertEqual(actual,{key:'#ad-preview-'+key for key in expected})
+  self.assertTrue(all('data-live-example' not in a for a in parser.items))
+  for key,url in expected.items():
+   self.assertIn('data-context-link="'+key+'" href="'+url+'"',html)
   self.assertFalse(config['paid_bookings_open'])
  def test_directory_is_near_the_top(self):
   text=(ROOT/'public/advertise.html').read_text(encoding='utf-8')
