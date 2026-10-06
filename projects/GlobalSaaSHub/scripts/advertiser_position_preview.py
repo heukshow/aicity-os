@@ -30,11 +30,11 @@ def preview_sections(root: Path, data: dict) -> str:
             controls = f'''<div class="ad-context-controls" data-preview-controls hidden><button type="button" data-preview-prev>Previous example</button><span data-preview-count aria-live="polite">1 / {len(creatives)}</span><button type="button" data-preview-next>Next example</button></div><p class="fine">Preview controls are manual. On-page rotation uses up to three creatives, one at a time, with an eight-second interval when active.</p>'''
         output.append(f'''<details id="ad-preview-{sid}" class="ad-context-preview" data-position-preview="{sid}">
 <summary>{code} &middot; {mode} &middot; Preview advertisement</summary>
-<div class="ad-context-body"><p class="ad-context-disclosure"><strong>Example advertiser: COSHUMA.</strong> The product named in the position list is the topic of the surrounding article, not the advertiser. This preview uses COSHUMA's existing house-ad assets; it is not a client campaign or a screenshot.</p>
+<div class="ad-context-body"><p class="ad-context-disclosure"><strong>Example advertiser: COSHUMA.</strong> Page names describe the article topic, not a paying advertiser. This is an interactive example, not a screenshot or customer case study.</p>
 <div data-preview-slides>{''.join(slides)}</div>{controls}
 <p class="fine">The product button above is shown for layout only. It does not open a product site or place an order.</p>
 <a class="ad-context-page" data-live-example data-context-link="{sid}" href="{page}#{anchor}" target="_blank" rel="noopener noreferrer">View the position within the full article &rarr;</a>
-<p class="fine">Opens a separate tab. The article may contain product comparisons, recommendations and affiliate links. Those are separate from this COSHUMA advertisement.</p></div></details>''')
+<p class="fine">Opens a separate tab. The article may contain product comparisons, recommendations and affiliate links. Those are separate from this COSHUMA advertisement.</p><a class="ad-context-back" href="#placement-formats">Back to all positions &rarr;</a></div></details>''')
     return '<div class="ad-context-previews" aria-label="Advertisement previews without product recommendations">'+''.join(output)+'</div>'
 
 
