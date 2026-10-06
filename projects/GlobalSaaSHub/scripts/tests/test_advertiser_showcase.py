@@ -48,7 +48,7 @@ class AdvertiserShowcaseTests(unittest.TestCase):
         self.assertEqual(len(images),6)
         for src in images:
             self.assertTrue(src.startswith('/promotions/showcase-'))
-            self.assertTrue((ROOT/'public'/src.lstrip('/')).is_file())
+            self.assertTrue((ROOT/'public'/src.split('?',1)[0].lstrip('/')).is_file())
         self.assertIn('not a paid client campaign',self.active)
         self.assertIn('simulated viewport',self.active)
         self.assertNotIn('Copyedited_20261005.pdf',self.html)
