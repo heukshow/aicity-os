@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T21:11:54.301Z",
+  "generatedAt": "2026-10-06T09:55:51.837Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -34,7 +34,7 @@
       "unclassifiedAffiliateStatus": 0,
       "exactAffiliateUrlMissing": 75,
       "officialUnverified": 0,
-      "pricingUnverified": 127
+      "pricingUnverified": 125
     },
     "records": [
       {
@@ -581,7 +581,7 @@
         "id": "gohighlevel",
         "name": "GoHighLevel",
         "officialVerified": true,
-        "pricingVerified": false,
+        "pricingVerified": true,
         "affiliateStatus": "approved_tracking",
         "affiliateVerified": true,
         "hasAffiliateUrl": true,
@@ -2111,7 +2111,7 @@
         "id": "getresponse",
         "name": "GetResponse",
         "officialVerified": true,
-        "pricingVerified": false,
+        "pricingVerified": true,
         "affiliateStatus": "rejected",
         "affiliateVerified": true,
         "hasAffiliateUrl": false,
