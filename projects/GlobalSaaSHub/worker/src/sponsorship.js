@@ -4,6 +4,7 @@ import { SponsorshipRepository } from './sponsorship-repository.js';
 import { createSponsorshipPayPalOrder, capturePayPalOrder, getPayPalOrder, getPayPalCapture, verifyPayPalWebhook, checkPayPalReadiness, repairPayPalWebhookEvents } from './paypal.js';
 import { renderSponsorshipOps } from './sponsorship-ops-view.js';
 import { handleLegacyPayPalEvent } from './sponsorship-legacy-webhook.js';
+import { handleImageAdWebhook } from './ad-sales.js';
 
 const HEADERS = {
   'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store',
@@ -32,7 +33,7 @@ function paymentConfiguration(env) {
 }
 
 function configuration(env, storageReady = true, privateView = false) {
-  const intakeReady = storageReady && env.ALLOWED_ORIGIN === 'https://coshuma.com';
+  const intakeReady = storageReady && env.LEGACY_SPONSORSHIP_INTAKE_ENABLED !== 'false' && env.ALLOWED_ORIGIN === 'https://coshuma.com';
   const paymentReady = intakeReady && env.CHECKOUT_ENABLED === 'true' && paymentConfiguration(env);
   const result = { catalog: CATALOG, currency: 'USD', intakeReady, paymentReady };
   if (paymentReady && !privateView) result.publicClientId = env.PAYPAL_CLIENT_ID;
@@ -291,6 +292,7 @@ async function webhook(request, env, repo) {
   }
   const legacy = direct && captureIds.every((id) => knownCaptures.has(id)) ? { matched: false }
     : await handleLegacyPayPalEvent(event, env, metadata, knownCaptures);
+  await handleImageAdWebhook(event, env, metadata);
   // Commit dedupe only after every referenced advertising/legacy transaction was handled.
   await repo.recordEvent(metadata, now);
   return reply(request, env, { accepted: true, matched: payments.size > 0 || legacy.matched, legacy: legacy.matched });

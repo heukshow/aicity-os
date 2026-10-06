@@ -36,3 +36,10 @@ CREATE TRIGGER ad_sales_publication_guard BEFORE UPDATE OF state ON ad_sales_app
  SELECT CASE WHEN NEW.reviewed_at IS NULL OR length(trim(coalesce(NEW.reviewed_by,'')))=0 OR NEW.verified_at IS NULL OR length(trim(coalesce(NEW.provider_order_id,'')))=0 OR length(trim(coalesce(NEW.capture_id,'')))=0 OR length(trim(coalesce(NEW.merchant_id,'')))=0 THEN RAISE(ABORT,'Review and verified payment are required') END;
  SELECT CASE WHEN (SELECT COUNT(*) FROM ad_sales_allocations r WHERE r.application_id=NEW.id AND r.payment_lock=1 AND r.start_at=json_extract(NEW.quote_json,'$.startAt') AND r.end_at=json_extract(NEW.quote_json,'$.endAt'))!=json_array_length(NEW.quote_json,'$.slots') THEN RAISE(ABORT,'Every package position must be reserved') END;
 END;
+
+CREATE TRIGGER ad_sales_capture_guard BEFORE UPDATE OF state ON ad_sales_applications WHEN NEW.state='capturing' BEGIN
+ SELECT CASE WHEN NEW.reviewed_at IS NULL OR NEW.reviewed_by IS NULL OR json_extract(NEW.quote_json,'$.startAt')<=strftime('%Y-%m-%dT%H:%M:%fZ','now') OR (SELECT COUNT(*) FROM ad_sales_allocations r WHERE r.application_id=NEW.id AND r.payment_lock=1 AND r.hold_until>strftime('%Y-%m-%dT%H:%M:%fZ','now'))!=json_array_length(NEW.quote_json,'$.slots') THEN RAISE(ABORT,'Valid reviewed payment reservations are required') END;
+END;
+CREATE TRIGGER ad_sales_lock_conflict BEFORE UPDATE OF payment_lock ON ad_sales_allocations WHEN NEW.payment_lock=1 BEGIN
+ SELECT CASE WHEN EXISTS(SELECT 1 FROM ad_sales_allocations r WHERE r.slot=NEW.slot AND r.seat=NEW.seat AND r.application_id!=NEW.application_id AND r.start_at<NEW.end_at AND r.end_at>NEW.start_at AND (r.payment_lock=1 OR r.hold_until>strftime('%Y-%m-%dT%H:%M:%fZ','now'))) THEN RAISE(ABORT,'Inventory conflict during payment') END;
+END;

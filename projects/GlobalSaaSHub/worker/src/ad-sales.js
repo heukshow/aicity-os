@@ -33,7 +33,7 @@ async function reserve(db,app){
  const q=JSON.parse(app.quote_json);if(Date.parse(q.startAt)<=Date.now())throw new AdError('The requested start date has passed; submit a new selection',409);
  const exp=new Date(Date.now()+30*60000).toISOString(),statements=[db.prepare('DELETE FROM ad_sales_allocations WHERE application_id=? AND payment_lock=0').bind(app.id)];
  for(const slot of q.slots){const p=catalog.positions.find(p=>p.id===slot);statements.push(db.prepare(`INSERT INTO ad_sales_allocations(application_id,slot,seat,start_at,end_at,hold_until)
- VALUES(?,?,(SELECT seat FROM (SELECT 0 AS seat UNION ALL SELECT 1 UNION ALL SELECT 2) WHERE seat<? AND NOT EXISTS(SELECT 1 FROM ad_sales_allocations r WHERE r.slot=? AND r.seat=seat AND r.application_id!=? AND r.start_at<? AND r.end_at>? AND (r.payment_lock=1 OR r.hold_until>?)) ORDER BY seat LIMIT 1),?,?,?)`).bind(app.id,slot,p.capacity,slot,app.id,q.endAt,q.startAt,now(),q.startAt,q.endAt,exp));}
+ VALUES(?,?,(SELECT seat FROM (SELECT 0 AS seat UNION ALL SELECT 1 UNION ALL SELECT 2) seats WHERE seats.seat<? AND NOT EXISTS(SELECT 1 FROM ad_sales_allocations r WHERE r.slot=? AND r.seat=seats.seat AND r.application_id!=? AND r.start_at<? AND r.end_at>? AND (r.payment_lock=1 OR r.hold_until>?)) ORDER BY seat LIMIT 1),?,?,?)`).bind(app.id,slot,p.capacity,slot,app.id,q.endAt,q.startAt,now(),q.startAt,q.endAt,exp));}
  statements.push(db.prepare("UPDATE ad_sales_applications SET state='awaiting_payment',updated_at=? WHERE id=? AND state IN ('approved','awaiting_payment')").bind(now(),app.id));
  try{await db.batch(statements);}catch{throw new AdError('The complete package is no longer available for these dates. No payment was taken.',409);}return exp;
 }
@@ -71,7 +71,11 @@ export async function handleImageAdRequest(req,env){
    if(m[2]==='reconcile')await finalize(db,a,env,'owner-reconciliation');return json(req,env,status(await getApp(db,a.id)));
   }
   const path=u.pathname.slice(PREFIX.length);
-  if(req.method==='GET'&&path==='/catalog')return json(req,env,{...catalog,intakeReady:enabled(env),paymentReady:await providerReady(env),...(await providerReady(env)?{publicClientId:env.PAYPAL_CLIENT_ID}:{})});
+  if(req.method==='GET'&&path==='/catalog'){
+   const cached=await db.prepare('SELECT checked_at FROM ad_sales_readiness WHERE id=1').first();
+   if(!cached||Date.now()-Date.parse(cached.checked_at)>3600000)await imagePaymentReadiness(env,u.origin);
+   const paymentReady=await providerReady(env);return json(req,env,{...catalog,intakeReady:enabled(env),paymentReady,...(paymentReady?{publicClientId:env.PAYPAL_CLIENT_ID}:{})});
+  }
   if(req.method==='GET'&&path==='/availability'){const q=quote(Object.fromEntries(u.searchParams));return json(req,env,{quote:q,...await available(db,q)});}
   if(req.method==='GET'&&path==='/placements'){
    let page=u.searchParams.get('path');if(page==='/compare/index.html')page='/compare/';if(page==='/best/')page='/best/index.html';if(!catalog.positions.some(p=>p.page===page))throw new AdError('Unknown page');
@@ -111,8 +115,14 @@ export async function handleImageAdRequest(req,env){
    if(rows.length!==q.slots.length||Date.parse(q.startAt)<=Date.now())throw new AdError('The payment reservation has expired. No new charge was made.',409);
    await db.batch([db.prepare('UPDATE ad_sales_allocations SET payment_lock=1 WHERE application_id=? AND hold_until>?').bind(a.id,now()),db.prepare("UPDATE ad_sales_applications SET state='capturing',updated_at=? WHERE id=? AND state='awaiting_payment'").bind(now(),a.id)]);
   }
-  a=await getApp(db,a.id);const order=await getPayPalOrder(env,a.provider_order_id);
+  a=await getApp(db,a.id);if(!['capturing','scheduled'].includes(a.state))throw new AdError('Payment could not be locked safely',409);const order=await getPayPalOrder(env,a.provider_order_id);
   if(order.status!=='COMPLETED')await capturePayPalOrder(env,a.provider_order_id,a.id.replaceAll('-','')+'p');
   a=await finalize(db,a,env,'advertiser-capture');return json(req,env,status(a));
  }catch(e){return json(req,env,{error:e instanceof AdError?e.message:'The service could not verify completion. Do not repeat a payment until its status is checked.'},e instanceof AdError?e.status:503);}
+}
+
+export async function maintainImageAds(env,origin='https://globalsaashub-payments.qmfforfhem.workers.dev') {
+ await ready(env.ORDERS);await imagePaymentReadiness(env,origin);
+ const rows=(await env.ORDERS.prepare("SELECT * FROM ad_sales_applications WHERE state='capturing' AND provider_order_id IS NOT NULL LIMIT 10").all()).results||[];
+ for(const app of rows){try{await finalize(env.ORDERS,app,env,'scheduled-read-only-reconciliation');}catch{/* No new capture or automatic approval in reconciliation. */}}
 }
