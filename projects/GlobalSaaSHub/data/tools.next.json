@@ -2820,7 +2820,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "Boost your marketing efforts with a powerful email marketing and automation platform, perfect for businesses and content creators.",
-    "pricing": "Varies by plan, offers multiple tiers",
+    "pricing": "19",
     "key_features": [
       "Email Marketing Campaigns",
       "Marketing Automation Workflows",
@@ -2832,12 +2832,12 @@
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
     "official_url": "https://www.getresponse.com/",
-    "pricing_source_url": null,
-    "pricing_verified_at": null,
-    "pricing_verified": false,
-    "currency": null,
-    "billing_period": null,
-    "evidence_source_type": null,
+    "pricing_source_url": "https://www.getresponse.com/pricing",
+    "pricing_verified_at": "2026-10-06T07:37:35Z",
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": "official_pricing_page",
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
@@ -2849,6 +2849,13 @@
     "affiliate_evidence_markers": [
       "PartnerStack decision email",
       "GetResponse application declined"
+    ],
+    "pricing_source_http_status": 200,
+    "pricing_source_final_url": "https://www.getresponse.com/pricing",
+    "pricing_evidence_markers": [
+      "$19 per month",
+      "starting at $19 per month",
+      "Monthly payment plans"
     ]
   },
   {
@@ -2898,7 +2905,7 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "An all-in-one sales, marketing, and CRM platform designed specifically for agencies and businesses to automate client acquisition and retention.",
-    "pricing": "See official pricing",
+    "pricing": "97",
     "key_features": [
       "CRM & Pipeline",
       "Automated SMS/Email",
@@ -2910,12 +2917,12 @@
     "primary_category": "chatbots_support",
     "comparison_group": "chatbots_support",
     "official_url": "https://www.gohighlevel.com/",
-    "pricing_source_url": null,
-    "pricing_verified_at": null,
-    "pricing_verified": false,
-    "currency": null,
-    "billing_period": null,
-    "evidence_source_type": null,
+    "pricing_source_url": "https://www.gohighlevel.com/pricing-plan",
+    "pricing_verified_at": "2026-10-06T07:37:35Z",
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": "official_pricing_page",
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
@@ -2923,7 +2930,15 @@
     "affiliate_url": "https://www.gohighlevel.com/?fp_ref=sangkwon56",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00",
+    "pricing_source_http_status": 200,
+    "pricing_source_final_url": "https://www.gohighlevel.com/pricing-plan",
+    "pricing_evidence_markers": [
+      "$97 /month",
+      "Get Started with our affordable starter plan",
+      "Unlimited Contacts & Users",
+      "Up To Three Sub-Accounts"
+    ]
   },
   {
     "id": "gojiberry",

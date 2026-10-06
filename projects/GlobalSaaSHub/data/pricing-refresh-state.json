@@ -189,8 +189,8 @@
       "status": "evidence_validation_failed"
     },
     "gallabox": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "no_official_pricing_result"
+      "checked_at": "2026-10-06T07:37:35Z",
+      "status": "evidence_validation_failed"
     },
     "getgabs": {
       "checked_at": "2026-10-02T23:21:25Z",
@@ -198,40 +198,42 @@
       "pricing_source_url": "https://getgabs.com/pricing"
     },
     "getgenie": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-06T07:37:35Z",
+      "status": "extract_network_error"
     },
     "getresponse": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-06T07:37:35Z",
+      "status": "verified",
+      "pricing_source_url": "https://www.getresponse.com/pricing"
     },
     "gobii": {
-      "checked_at": "2026-10-02T23:21:25Z",
+      "checked_at": "2026-10-06T07:37:35Z",
       "status": "no_official_pricing_result"
     },
     "gohighlevel": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "no_official_pricing_result"
+      "checked_at": "2026-10-06T07:37:35Z",
+      "status": "verified",
+      "pricing_source_url": "https://www.gohighlevel.com/pricing-plan"
     },
     "gojiberry": {
-      "checked_at": "2026-10-02T23:21:25Z",
+      "checked_at": "2026-10-06T07:37:35Z",
       "status": "no_official_pricing_result"
     },
     "google-workspace": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-06T07:37:35Z",
+      "status": "evidence_validation_failed"
     },
     "gravity-forms": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-06T07:37:35Z",
+      "status": "no_official_pricing_result"
     },
     "gumloop": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-06T07:37:35Z",
+      "status": "evidence_validation_failed"
     },
     "happyscribe": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "no_official_pricing_result"
+      "checked_at": "2026-10-06T07:37:35Z",
+      "status": "evidence_validation_failed"
     },
     "helpdesk": {
       "checked_at": "2026-10-02T23:21:25Z",
@@ -530,10 +532,10 @@
       "status": "extract_retry_exhausted"
     }
   },
-  "last_run_at": "2026-10-05T07:09:53Z",
+  "last_run_at": "2026-10-06T07:37:35Z",
   "last_batch_size": 10,
   "last_updated_tools": [
-    "elevenlabs",
-    "flowgent-ai"
+    "getresponse",
+    "gohighlevel"
   ]
 }
