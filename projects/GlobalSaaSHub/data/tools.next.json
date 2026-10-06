@@ -4879,21 +4879,20 @@
     "official_verified_at": "2026-10-03T08:17:00+09:00",
     "official_evidence_url": "https://www.optimonk.com/partners",
     "affiliate_verified": false,
-    "affiliate_status": "waiting_vendor_eligibility_clarification",
+    "affiliate_status": "waiting_vendor_response",
     "affiliate_source_url": "https://www.optimonk.com/partners",
     "affiliate_workflow_url": "mailto:partnership@optimonk.com",
-    "affiliate_status_checked_at": "2026-10-03T08:17:00+09:00",
-    "application_state": "not_submitted",
+    "affiliate_status_checked_at": "2026-10-07T06:22:27+09:00",
+    "application_state": "enrollment_details_requested",
     "affiliate_evidence_markers": [
-      "2026-10-03 official partner-page readback redirects /partners-program to /partners and now describes an agency model for partners who manage client accounts.",
-      "The current page says no call, contract or certification is needed, but enrollment requires creating an OptiMonk account and switching to agency view.",
-      "The current page states 20% commission applies only to new client-paid accounts managed through the partner.",
-      "Fresh support@coshuma.com Gmail duplicate checks found no prior OptiMonk outreach or vendor reply.",
-      "COSHUMA sent one eligibility inquiry to the official partnership@optimonk.com address as Gmail message 1a0fee78f87e9e57.",
-      "No application, approval, rejection, account-specific tracking URL, referral, paid customer, commission, payout or revenue is verified.",
+      "2026-10-03 official partner-page readback redirects /partners-program to /partners and publicly describes an agency model for partners who manage client accounts.",
+      "OptiMonk International Partnership Manager directly confirmed in Gmail message 1a10b67cafbf349f that OptiMonk also offers a classic affiliate model for independent publishers who do not manage referred customer accounts or campaigns.",
+      "The vendor states that the classic affiliate model issues a unique referral link and pays 20% commission for two years for paying customers who sign up through that link; this is vendor-stated program evidence, not COSHUMA performance evidence.",
+      "COSHUMA replied in the same thread as Gmail message 1a1131bb9d1b475e, requesting the official asynchronous enrollment path plus payout cadence and any minimum payout threshold.",
+      "No application, approval, account-specific tracking URL, referral, paid customer, commission, payout or revenue is verified.",
       "Generic homepage, signup, login, onboarding and dashboard URLs must not be treated as affiliate links."
     ],
-    "affiliate_next_action": "Await OptiMonk Partnerships reply on whether independent software buyer-guide publishers are eligible. Do not create an agency account, submit an agency enrollment, or infer an affiliate program. If eligible, use only the official enrollment route and an issued customer tracking URL."
+    "affiliate_next_action": "Await the official reply with an asynchronous enrollment path, payout cadence and any minimum payout threshold. Do not create an agency account, book a meeting as a substitute for enrollment evidence, or infer a customer tracking URL. Submit once only through the confirmed classic-affiliate route and preserve only the account-issued customer URL."
   },
   {
     "id": "outlierkit",
