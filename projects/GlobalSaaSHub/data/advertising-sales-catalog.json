@@ -1,0 +1,20 @@
+{
+  "version": "2026-10-06.1", "currency": "USD", "price_status": "fixed",
+  "logo": {"width":400,"height":400,"maxBytes":100000,"types":["image/png"]},
+  "positions": [
+    {"id":"tool-primary","code":"F1","label":"Tool profile — fixed","page":"/tool/pipedrive.html","anchor":"coshuma-promotion","mode":"fixed","capacity":1,"width":600,"height":600,"maxBytes":300000,"prices":{"7":19,"30":49,"90":129}},
+    {"id":"buyer-intent-top","code":"F2","label":"Sales follow-up guide — fixed","page":"/best/claap-sales-follow-up-ai.html","anchor":"coshuma-promotion","mode":"fixed","capacity":1,"width":1200,"height":675,"maxBytes":500000,"prices":{"7":39,"30":99,"90":269}},
+    {"id":"compare-decision-premium","code":"F3","label":"SEO comparison — fixed","page":"/compare/semrush-vs-frase.html","anchor":"coshuma-promotion","mode":"fixed","capacity":1,"width":1200,"height":400,"maxBytes":400000,"prices":{"7":59,"30":149,"90":399}},
+    {"id":"buyer-hub-fixed","code":"F4","label":"Buyer-guide directory — fixed","page":"/best/index.html","anchor":"buyer-hub-fixed","mode":"fixed","capacity":1,"width":1200,"height":400,"maxBytes":400000,"prices":{"7":19,"30":49,"90":129}},
+    {"id":"comparison-hub-fixed","code":"F5","label":"Comparison directory — fixed","page":"/compare/","anchor":"comparison-hub-fixed","mode":"fixed","capacity":1,"width":1200,"height":400,"maxBytes":400000,"prices":{"7":19,"30":49,"90":129}},
+    {"id":"tool-rotation","code":"R1","label":"CRM article — rotating","page":"/tool/pipedrive.html","anchor":"tool-rotation","mode":"rotating","capacity":3,"width":1200,"height":400,"maxBytes":400000,"prices":{"7":15,"30":39,"90":99}},
+    {"id":"guide-rotation","code":"R2","label":"Sales follow-up guide — rotating","page":"/best/claap-sales-follow-up-ai.html","anchor":"guide-rotation","mode":"rotating","capacity":3,"width":1200,"height":400,"maxBytes":400000,"prices":{"7":15,"30":39,"90":99}},
+    {"id":"compare-rotation","code":"R3","label":"SEO comparison — rotating","page":"/compare/semrush-vs-frase.html","anchor":"compare-rotation","mode":"rotating","capacity":3,"width":1200,"height":400,"maxBytes":400000,"prices":{"7":15,"30":39,"90":99}}
+  ],
+  "bundles": [
+    {"id":"discovery-mix","code":"P1","label":"Discovery Mix","fixed":["buyer-hub-fixed"],"chooseOne":["tool-rotation","guide-rotation","compare-rotation"],"prices":{"30":79}},
+    {"id":"sales-crm-duo","code":"P2","label":"Sales & CRM Duo","fixed":["tool-primary","buyer-intent-top"],"chooseOne":[],"prices":{"30":129}},
+    {"id":"seo-content-duo","code":"P3","label":"SEO & Content Duo","fixed":["compare-decision-premium","comparison-hub-fixed"],"chooseOne":[],"prices":{"30":179}}
+  ],
+  "rules": {"payment_after_material_review":true,"automatic_renewal":false,"extra_coshuma_checkout_fee":0,"rotation_seconds":8,"guaranteed_results":false,"bundle_unit":"One advertiser and one product across the two selected positions.","price_scope":"The displayed USD total is the full amount collected by COSHUMA. Payment-provider or currency-conversion charges are outside this price.","period_scope":"A single position starts when activated; a bundle starts only when both positions activate together. Material review is not sales consultation."}
+}
