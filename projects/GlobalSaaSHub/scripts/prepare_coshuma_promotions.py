@@ -12,6 +12,7 @@ import json
 import re
 import struct
 from house_ad_identity import identity_html
+from reader_first_ads import reader_style
 
 ROOT = Path(__file__).resolve().parents[1]
 PAIRS = {
@@ -100,7 +101,7 @@ def card(row):
       <a class="coshuma-promotion__button" data-promotion-link href="{e('destination')}">{e('button')}</a>
     </div>
   </div>
-  <div class="coshuma-promotion__advertiser"><span>Build software? Your product could be here.</span><a data-advertiser-interest href="/advertise.html?placement={e('slot')}#inquire">Explore this placement &rarr;</a></div>
+  <div class="coshuma-promotion__advertiser"><a data-advertiser-interest href="/advertise.html?placement={e('slot')}#inquire">Explore this placement &rarr;</a></div>
 </aside>
 {END}'''
 
@@ -116,7 +117,7 @@ def prepare(text, row, enabled=True):
     updated = clean[:at] + card(row) + clean[at:]
     if updated.count('</head>') != 1 or updated.count('</body>') != 1: raise ValueError('Malformed page')
     updated = updated.replace('</head>', CSS + '</head>', 1)
-    return updated.replace('</body>', JS + '</body>', 1)
+    return reader_style(updated.replace('</body>', JS + '</body>', 1))
 
 def main():
     parser = argparse.ArgumentParser()
