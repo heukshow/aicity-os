@@ -61,7 +61,7 @@ class PlacementExpansionTests(unittest.TestCase):
  def test_catalog_has_eight_positions_and_no_fixed_rate_for_rotation(self):
   text=p.inventory_section(self.data)
   self.assertEqual(text.count('<tr>'),9)
-  self.assertIn('separate quote',text)
+  self.assertIn('fixed-price catalogue',text)
   self.assertIn('not a guarantee of equal impressions',text)
   self.assertIn('not silently converted',text)
  def test_runtime_protects_privacy_and_measurement_contract(self):

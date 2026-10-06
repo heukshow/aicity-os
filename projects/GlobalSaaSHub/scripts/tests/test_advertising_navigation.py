@@ -51,7 +51,7 @@ class NavigationTests(unittest.TestCase):
   self.assertFalse(config['paid_bookings_open'])
  def test_directory_is_near_the_top(self):
   text=(ROOT/'public/advertise.html').read_text(encoding='utf-8')
-  self.assertLess(text.index('id="placement-formats"'),text.index('<section class="benefits"'))
+  self.assertLess(text.index('id="placement-formats"'),text.index('<section id="materials"'))
   self.assertEqual(text.count('data-ad-position='),8)
   self.assertIn('data-position-directory href="#placement-formats"',text)
   self.assertIn('data-advertising-mode="inquiry"',text)

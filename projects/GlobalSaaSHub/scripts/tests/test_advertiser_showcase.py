@@ -27,9 +27,9 @@ class AdvertiserShowcaseTests(unittest.TestCase):
         self.assertIn('data-advertising-mode="inquiry"',self.html)
         ids=[attrs.get('id') for _,attrs in self.parser.tags if attrs.get('id')]
         self.assertEqual(len(ids),len(set(ids)))
-        for name in ['advertiser-brief','brief-product','brief-url','prepare-brief','brief-draft','brief-result']:
+        for name in ['about-coshuma','materials','materials-title']:
             self.assertIn(name,ids)
-        for name in ['sponsorship-application','paypal-buttons','payment-area']:
+        for name in ['sponsorship-application','paypal-buttons','payment-area','advertiser-brief']:
             self.assertNotIn(name,ids)
         old=(ROOT/'public/sponsorship-sales.js').read_text(encoding='utf-8')
         self.assertIn("if (document.body?.dataset.advertisingMode === 'inquiry') return;",old)
@@ -37,15 +37,15 @@ class AdvertiserShowcaseTests(unittest.TestCase):
     def test_inquiry_has_no_server_send_or_storage(self):
         for token in ['fetch(', 'XMLHttpRequest', 'sendBeacon', 'localStorage', 'sessionStorage', 'innerHTML']:
             self.assertNotIn(token,self.js)
-        self.assertIn('Nothing is sent until you send the email yourself',self.active)
-        self.assertIn('nothing has been submitted',self.js)
+        self.assertIn('No personal or product information is collected here',self.active)
+        self.assertNotIn('clipboard.writeText',self.js)
         self.assertIn("params.get('coshuma_qa') === '1'",self.js)
         for tag,attrs in self.parser.tags:
             if tag=='a' and attrs.get('href','').startswith('mailto:'):
-                self.assertEqual(attrs['href'],'mailto:support@coshuma.com?subject=COSHUMA%20advertising%20inquiry')
+                self.assertEqual(attrs['href'],'mailto:support@coshuma.com?subject=COSHUMA%20technical%20support')
     def test_real_examples_are_local_and_labeled_as_house_ads(self):
         images=[a['src'] for t,a in self.parser.tags if t=='img' and a.get('src','').startswith('/promotions/showcase-')]
-        self.assertEqual(len(images),7)
+        self.assertEqual(len(images),6)
         for src in images:
             self.assertTrue(src.startswith('/promotions/showcase-'))
             self.assertTrue((ROOT/'public'/src.lstrip('/')).is_file())
