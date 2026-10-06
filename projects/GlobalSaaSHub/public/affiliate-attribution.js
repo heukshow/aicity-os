@@ -196,7 +196,15 @@
     dock.appendChild(top);
     dock.appendChild(actions);
     dock.appendChild(savedLink);
-    document.body.appendChild(dock);
+    const inlineDock = Boolean(document.querySelector('[data-coshuma-promotion],[data-house-slot]'));
+    if (inlineDock) {
+      dock.dataset.readerInline = 'true';
+      document.body.dataset.coshumaReaderInline = 'true';
+      const articleEnd = document.querySelector('main') || document.querySelector('footer');
+      if (articleEnd && articleEnd.tagName.toLowerCase() === 'main') articleEnd.appendChild(dock);
+      else if (articleEnd) articleEnd.before(dock);
+      else document.body.appendChild(dock);
+    } else document.body.appendChild(dock);
     document.body.dataset.coshumaConversionDock = '1';
     document.body.dataset.coshumaConversionDockVisible = 'false';
 
@@ -260,6 +268,11 @@
     function syncVisibility() {
       if (isClosed()) {
         dock.dataset.visible = 'false';
+        document.body.dataset.coshumaConversionDockVisible = 'false';
+        return;
+      }
+      if (inlineDock) {
+        dock.dataset.visible = 'true';
         document.body.dataset.coshumaConversionDockVisible = 'false';
         return;
       }

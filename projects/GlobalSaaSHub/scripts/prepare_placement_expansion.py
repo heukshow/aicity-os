@@ -8,6 +8,7 @@ from html import escape
 import argparse,json,re
 from prepare_coshuma_promotions import image_size
 from house_ad_identity import identity_html
+from reader_first_ads import reader_style
 from advertiser_position_preview import preview_sections, position_text
 ROOT=Path(__file__).resolve().parents[1]
 EXPECTED={
@@ -74,7 +75,7 @@ def render_slot(row,creatives):
 <aside id="{sid}" class="house-slot" data-house-slot="{sid}" data-house-mode="{mode}" aria-label="COSHUMA {mode} advertisements" role="region" aria-roledescription="{'carousel' if mode=='rotating' else 'advertisement'}">
 <div class="house-slot__top"><span>Advertisement &middot; COSHUMA</span><span class="house-slot__type">{'Rotating placement' if mode=='rotating' else 'Fixed placement'}</span></div>
 <div class="house-slot__slides" data-house-slides aria-live="off">{''.join(slides)}</div>{controls}
-<div class="house-slot__interest"><span>{'Shared rotation · up to 3 campaigns' if mode=='rotating' else 'One campaign in this position'} &middot; House demonstration</span><a href="/advertise.html?placement={sid}#inquire" data-house-inquiry>Explore this placement &rarr;</a></div>
+<div class="house-slot__interest"><span>{'Shared · up to 3' if mode=='rotating' else 'Fixed placement'}</span><a href="/advertise.html?placement={sid}#inquire" data-house-inquiry>Explore this placement &rarr;</a></div>
 </aside>
 <!-- HOUSE_PLACEMENT_END -->'''
 
@@ -87,7 +88,7 @@ def prepare(text,row,creatives,enabled=True):
  at=parser.found[0]
  if clean.count('</head>')!=1 or clean.count('</body>')!=1:raise ValueError('Malformed document')
  result=clean[:at]+render_slot(row,creatives)+clean[at:]
- return result.replace('</head>',CSS+'</head>',1).replace('</body>',JS+'</body>',1)
+ return reader_style(result.replace('</head>',CSS+'</head>',1).replace('</body>',JS+'</body>',1))
 
 def inventory_section(data):
  existing=[('tool-primary','Pipedrive / introduction','Fixed','/tool/pipedrive.html','600 × 600 · 300 KB'),('buyer-intent-top','Claap / introduction','Fixed','/best/claap-sales-follow-up-ai.html','1200 × 675 · 500 KB'),('compare-decision-premium','Semrush / Frase / before sources','Fixed','/compare/semrush-vs-frase.html','1200 × 400 · 400 KB')]
