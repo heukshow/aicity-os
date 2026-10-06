@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-06T23:01:36Z",
+  "updated_at": "2026-10-06T23:03:09Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -3097,7 +3097,8 @@
         "production_worker_deploy_attempted": true,
         "production_live_config_public_client_id_present": false,
         "production_worker_deploy_version": "bd720a85-3272-4a1a-a0e1-4bdc8b433a8e",
-        "production_worker_deploy_source_commit": "991b324650f0661c04cb59da3c4b1f14e2cb4a25"
+        "production_worker_deploy_source_commit": "991b324650f0661c04cb59da3c4b1f14e2cb4a25",
+        "production_verification_comment_id": 6023444328
       },
       "completion_gate": "active Worker checkout disabled and read-only production verified; public paid renderer remains fail-closed",
       "completion_gate_satisfied": true,
