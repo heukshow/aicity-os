@@ -1,6 +1,6 @@
 import fs from './affiliate_state_fs.mjs';
 
-const checkedAt='2026-09-14T11:26:00+09:00';
+const checkedAt='2026-10-07T15:19:25+09:00';
 const adoric={
   id:'adoric',name:'Adoric',category:'dev_coding',category_display:'Coding & Dev Tools',
   description:'Onsite conversion platform for popups, forms, gamification, personalization, product recommendations and ecommerce conversion campaigns.',
