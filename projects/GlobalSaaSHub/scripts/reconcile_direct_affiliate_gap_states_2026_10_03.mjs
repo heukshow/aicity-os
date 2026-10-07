@@ -70,11 +70,18 @@ const states = {
     next: 'Do not apply or publish an affiliate URL while the vendor-linked Rewardful enrollment route reports the program inactive.',
   },
   'google-workspace': {
-    stale: [null, 'unclassified', 'browser_required_country_eligibility_check'],
-    status: 'application_available_account_required',
-    source: 'https://workspace.google.com/intl/ko/affiliate-program/',
+    stale: [null, 'unclassified', 'browser_required_country_eligibility_check', 'application_available_account_required'],
+    status: 'browser_required_legal_program_consent',
+    checkedAt: '2026-10-07T22:18:35Z',
+    source: 'https://workspace.google.com/affiliate-program/',
     workflow: 'https://public.cj.com/signup/publisher?advertiserId=5261735',
-    next: 'Reuse an existing COSHUMA-owned CJ publisher account if authenticated evidence becomes available. Otherwise hold: CJ account creation, publisher-agreement consent, tax forms, and payment information are outside the current autonomous application scope. After authorized enrollment, apply to advertiser 5261735 and verify the issued customer-facing tracking URL before any CTA change.',
+    next: 'The account holder must review and accept the Google Workspace Affiliate Program terms and the required CJ publisher agreement before enrollment. Reuse only an existing COSHUMA-owned CJ publisher identity if available; complete required tax and bank/payment setup only through the authorized normal process. Stop for CAPTCHA, OTP, payment approval, or forced identity verification. After authorized enrollment, apply once to advertiser 5261735 and recover only the exact vendor-issued customer-facing tracking URL.',
+    evidence: [
+      '2026-10-08 official Google Workspace Affiliate Program recheck: applications are free and handled through CJ Affiliate after program review.',
+      'Google\'s official Affiliate Supported Countries PDF lists South Korea in the Asia Pacific region.',
+      'Google\'s official affiliate terms require acceptance of the program terms and a business/residence address, valid tax identifier, and valid bank account in the supported territory; CJ publisher terms also apply.',
+      'No legal terms were accepted, no application was submitted, no duplicate identity was created, and no COSHUMA-specific customer tracking URL was observed.',
+    ],
   },
   'hide-me': {
     stale: [null, 'unclassified', 'application_available'],
