@@ -62,17 +62,34 @@ text_replacements = {
     "The first button preserves the exact Writesonic customer-facing referral URL already verified for COSHUMA. The pricing button is a separate official non-affiliate reference; COSHUMA does not guess a pricing deep link. A click, trial, signup, paid customer, commission, payout or revenue is not counted without partner-side evidence.": "The first button opens Writesonic's official homepage. The pricing button is a separate official pricing reference. Check current product and trial terms before choosing a plan.",
 }
 
+affiliate_cta = re.compile(r'<a\b[^>]*\bdata-cta\s*=\s*["\']affiliate["\'][^>]*>', re.IGNORECASE)
+page_disclosure = re.compile(
+    r'<p\b[^>]*\bdata-affiliate-disclosure\s*=\s*["\'][^"\']*["\'][^>]*>.*?</p>',
+    re.IGNORECASE | re.DOTALL,
+)
+
 files_changed = 0
 links_paused = 0
 for path in sorted(PUBLIC.rglob("*.html")):
     original = path.read_text(encoding="utf-8")
-    updated, replaced = re.subn(r"<a\b[^>]*>", _rewrite_anchor, original, flags=re.IGNORECASE)
-    links_paused += replaced
+    links_paused += len(
+        re.findall(
+            r"<a\b[^>]*" + re.escape(TRACKING_URL) + r"[^>]*>",
+            original,
+            flags=re.IGNORECASE,
+        )
+    )
+    updated = re.sub(r"<a\b[^>]*>", _rewrite_anchor, original, flags=re.IGNORECASE)
 
     # Catch non-anchor or encoded copies after preserving the canonical URL in data only.
     updated = updated.replace(TRACKING_URL, OFFICIAL_URL)
     for old, new in text_replacements.items():
         updated = updated.replace(old, new)
+
+    # The public-boundary contract forbids a page disclosure when no
+    # affiliate CTA remains. Other affiliate pages keep their disclosure.
+    if not affiliate_cta.search(updated):
+        updated = page_disclosure.sub("", updated)
 
     if updated != original:
         path.write_text(updated, encoding="utf-8")
