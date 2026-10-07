@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16",
+  "updated_at": "2026-10-07",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -753,16 +753,17 @@
       "note": "Official program is free and advertises 25% recurring commission. Fresh Gmail duplicate check is clear. No COSHUMA application submission, approval or account-specific referral URL is proven; customer CTAs remain official non-affiliate URLs."
     },
     "optimonk": {
-      "status": "waiting_vendor_eligibility_clarification",
+      "status": "application_available_account_required",
       "tracking_url": null,
       "application_state": "not_submitted",
       "account": "support@coshuma.com",
       "official_program_url": "https://www.optimonk.com/partners",
       "workflow_url": "mailto:partnership@optimonk.com",
       "github_issue": 491,
-      "checked_at": "2026-10-03T08:17:00+09:00",
+      "checked_at": "2026-10-07T17:05:08+09:00",
       "outreach_message_id": "1a0fee78f87e9e57",
-      "note": "Current official page is an agency model for partners who manage client accounts. COSHUMA asked the official partnerships address whether independent buyer-guide publishers are eligible. Await a direct answer; do not create an agency account or infer approval/tracking."
+      "note": "Supplier confirmed publisher eligibility and the 20% for two years model, but enrollment requires a free OptiMonk product account before the supplier upgrades it and issues the unique link. No account, application, approval or tracking URL is verified; no duplicate reply is needed.",
+      "vendor_reply_message_id": "1a115654c5759cfa"
     },
     "justuno": {
       "status": "application_submitted",
