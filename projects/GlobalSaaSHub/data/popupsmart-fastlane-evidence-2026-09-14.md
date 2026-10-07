@@ -18,7 +18,7 @@ Add one new conversion-optimization buyer surface without inventing affiliate at
 
 ## COSHUMA state after this cycle
 - `application_state`: `not_submitted`
-- `affiliate_status`: `browser_required_account_registration`
+- `affiliate_status`: `browser_required_legal_program_consent`
 - exact customer referral URL: `null / unknown`
 - signup / paid subscription / commission / payout / revenue: `unknown`
 - GitHub issue: #482
@@ -32,5 +32,11 @@ A comparison page is intentionally omitted because this cycle did not find a suf
 ## CTA rule
 Until Popupsmart itself issues and COSHUMA verifies an account-specific customer referral URL, all Popupsmart CTAs remain official non-affiliate links. `app.popupsmart.com`, dashboard/login/onboarding URLs, the generic homepage and guessed query parameters are never to be promoted as affiliate links.
 
+## 2026-10-07 legal-boundary correction
+- Official Terms of Use: https://popupsmart.com/terms-of-use
+- The terms state that product use is governed by the Terms and Privacy Policy and that affiliate participation is subject to those terms plus any additional dashboard terms.
+- A valid account in good standing is required. The terms allow supplier approval or revocation, so the marketing phrase “no approval required” is not treated as overriding the binding terms.
+- No account, legal/program consent, approval, exact tracking URL or revenue-stage evidence was created or inferred.
+
 ## Next action
-Use the official free Popupsmart account flow with `support@coshuma.com`, checking for an existing account before creating one. If absent, register once, recover the exact vendor-issued customer referral URL, and validate its customer destination/attribution. Stop for CAPTCHA, OTP, account-holder legal/program consent, forced identity verification or payment approval. No paid plan is permitted.
+Hold at legal consent. After the account holder accepts the current Popupsmart Terms of Use, Privacy Policy and any affiliate dashboard terms through the official flow, check for an existing COSHUMA account before registration and recover only the exact issued customer-facing referral URL. Stop for CAPTCHA, OTP, forced identity verification or payment approval. No paid plan is permitted.
