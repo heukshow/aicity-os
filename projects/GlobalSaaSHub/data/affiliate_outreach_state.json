@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16",
+  "updated_at": "2026-10-07",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -892,15 +892,15 @@
       "note": "The public application requires explicit acceptance of Affiliate Terms & Conditions and Privacy Policy. No COSHUMA-specific tracking URL exists yet. Keep customer CTAs on official non-affiliate Benchmark Email pages until a vendor-issued URL is verified."
     },
     "engagebay": {
-      "status": "browser_required_account_registration",
+      "status": "browser_required_legal_program_consent",
       "tracking_url": null,
       "application_state": "not_submitted",
       "account": "support@coshuma.com",
       "official_program_url": "https://www.engagebay.com/affiliate-program",
       "workflow_url": "https://app.engagebay.com/signup?route=referrer/overview",
       "github_issue": 520,
-      "checked_at": "2026-09-14T19:30:00+09:00",
-      "note": "No prior relationship found. Account creation is not completed unattended, and no customer tracking URL is verified."
+      "checked_at": "2026-10-07T19:19:30+09:00",
+      "note": "The official affiliate page publishes program Terms & Conditions and the join route creates an EngageBay account. Legal program consent is not completed, and no customer tracking URL is verified."
     },
     "sendpulse": {
       "status": "browser_required_phone_captcha",
