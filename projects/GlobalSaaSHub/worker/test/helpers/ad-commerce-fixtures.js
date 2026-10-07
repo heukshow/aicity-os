@@ -5,7 +5,7 @@ import { deflateSync } from 'node:zlib';
 import { AdStore } from '../../src/ad-commerce-store.js';
 import { CATALOG_VERSION } from '../../src/ad-commerce-catalog.js';
 export const TEST_MERCHANT = 'SYNTHETIC-MERCHANT';
-export const TEST_REVIEW_KEY = 'synthetic-review-key-local-tests-only-16610881';
+export const TEST_REVIEW_KEY = 'synthetic-review-key-local-tests-only-v1';
 export const TEST_ENV = Object.freeze({ PAYPAL_ENVIRONMENT: 'sandbox', PAYPAL_CLIENT_ID: 'SYNTHETIC-CLIENT',
   PAYPAL_CLIENT_SECRET: 'SYNTHETIC-SECRET', PAYPAL_MERCHANT_ID: TEST_MERCHANT });
 
