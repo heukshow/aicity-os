@@ -10,7 +10,7 @@ const expected = new Map([
   ['expandi','waiting_vendor_requirement'],
   ['featureshark','waiting_vendor_response'],
   ['flowgent-ai','program_inactive'],
-  ['google-workspace','application_available_account_required'],
+  ['google-workspace','browser_required_legal_program_consent'],
   ['hide-me','browser_required_application_form'],
   ['scribe','program_closed_to_new_applicants'],
   ['snov-io','browser_required_legal_program_consent'],
