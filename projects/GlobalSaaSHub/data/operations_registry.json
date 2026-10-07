@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-07T11:04:30Z",
+  "updated_at": "2026-10-07T23:00:00Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -3152,8 +3152,8 @@
       "lifecycle": "production_verification_requested",
       "next_owner": "Release & Reliability Team",
       "priority": "high",
-      "blocker": "direct_public_http_response_unverified",
-      "last_evidence_at": "2026-10-07T10:57:49Z",
+      "blocker": null,
+      "last_evidence_at": "2026-10-07T23:00:00Z",
       "evidence": {
         "capability_gap_comment_id": 6035690506,
         "implementation_pr": 1051,
@@ -3166,7 +3166,12 @@
         "deployed_artifact_verified": true,
         "direct_live_response_verified": false,
         "observed_verifier_limit": "Public-reader access was unavailable and an independent browser returned net::ERR_BLOCKED_BY_CLIENT; neither result proves an origin or CDN HTTP failure.",
-        "additional_spend_usd": 0
+        "additional_spend_usd": 0,
+        "latest_verification_failed_comment_id": 6047767914,
+        "latest_verification_failed_at": "2026-10-07T22:05:00Z",
+        "deterministic_spec_file": "projects/GlobalSaaSHub/data/release_verification_specs.json",
+        "deterministic_spec_mode": "public_boundary",
+        "deterministic_spec_ready": true
       },
       "completion_gate": "direct_public_http_response_observed_and_source_build_deploy_live_consistent",
       "completion_gate_satisfied": false,
@@ -3174,8 +3179,9 @@
       "production_verification_requested": true,
       "execution_status": "queued",
       "verification_status": "pending",
-      "verification": "Current source and deployed gh-pages blobs are identical and deployment ancestry contains PR #1051. The live direct-download response remains unknown, so production verification is intentionally open.",
-      "handoff": "Release & Reliability Team should use a supported public HTTP verifier against the QA-marked download URL, confirm the actual response and content, then record production_verified or the exact failed boundary in issue #292. Do not alter payment, checkout, inventory, affiliate URLs or measurement events."
+      "verification": "The source and deployed gh-pages blobs are identical. Two UI/public-reader methods could not expose the live HTTP response and were isolated as a tool-capability boundary; no origin/CDN failure is claimed. A materially different deterministic GitHub Actions public-boundary spec is now queued.",
+      "handoff": "Release & Reliability Team should consume the existing candidate through the deterministic GitHub Actions verifier. Operations Governance must synchronize only a trusted github-actions[bot] production_verified result tied to the exact merge and run; do not infer live success from Git blobs alone.",
+      "next_executable_action": "Run the new deterministic public-boundary release spec from GitHub Actions against current-main source, deployed gh-pages content, deployment ancestry and the live Markdown URL. Record production_verified or the exact failed boundary in issue #292."
     },
     {
       "record_id": "SECURITY:AFFILIATE-PRIMARY-GATE-BLOCKER-20261007",

@@ -20,8 +20,21 @@ def reconcile(registry, comments, get_pr, get_run, has_spec):
     updated = copy.deepcopy(registry)
     changed = []
     for row in updated.get("active_queue", []):
-        if row.get("completion_gate") != "production_verified" or row.get("lifecycle") in {
-            "production_verified", "measured", "rejected_with_evidence"}:
+        old = copy.deepcopy(row)
+        if row.get("lifecycle") in {"production_verified", "measured", "rejected_with_evidence"}:
+            if row.get("lifecycle") == "production_verified" and row.get("completion_gate_satisfied"):
+                if "execution_status" in row:
+                    row["execution_status"] = "completed"
+                if "verification_status" in row:
+                    row["verification_status"] = "production_verified"
+            if old != row:
+                changed.append(row["record_id"])
+            continue
+        is_release_candidate = (
+            row.get("lifecycle") == "production_verification_requested"
+            and has_spec(row.get("record_id"))
+        )
+        if row.get("completion_gate") != "production_verified" and not is_release_candidate:
             continue
         ev = row.get("evidence", {})
         if not ev.get("implementation_pr"):
@@ -32,7 +45,6 @@ def reconcile(registry, comments, get_pr, get_run, has_spec):
         merge = pr["merge_commit_sha"]
         if ev.get("merge_commit") and ev["merge_commit"] != merge:
             continue  # conflicting evidence requires an explicit reviewed correction
-        old = copy.deepcopy(row)
         ev["merge_commit"] = merge
         row["evidence"] = ev
         # A merged implementation PR is necessary but not sufficient for release
@@ -67,6 +79,10 @@ def reconcile(registry, comments, get_pr, get_run, has_spec):
                        last_evidence_at=comment["created_at"],
                        verification=(f"Deterministic production verification succeeded in run {run_id}; "
                                      f"trusted evidence comment {comment['id']}."))
+            if "execution_status" in row:
+                row["execution_status"] = "completed"
+            if "verification_status" in row:
+                row["verification_status"] = "production_verified"
             break
         if old != row:
             changed.append(row["record_id"])
