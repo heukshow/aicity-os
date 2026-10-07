@@ -1785,10 +1785,10 @@
     "official_verified_at": "2026-09-14T08:31:00+09:00",
     "official_evidence_url": "https://creatify.ai/affiliate",
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_affiliate_application",
+    "affiliate_status": "application_available_account_required",
     "affiliate_source_url": "https://creatify.ai/affiliate",
-    "affiliate_workflow_url": "https://creatify.ai/affiliate",
-    "affiliate_status_checked_at": "2026-09-14T08:31:00+09:00",
+    "affiliate_workflow_url": "https://docs.google.com/forms/d/e/1FAIpQLSc_k126zcElDxMgsaqO7WJOTMLUS0JPhqiNOAgzrGmJMC2ZAA/viewform",
+    "affiliate_status_checked_at": "2026-10-07T21:24:00+09:00",
     "application_state": "not_submitted",
     "affiliate_evidence_markers": [
       "Official Creatify affiliate page says the program is free to join and advertises 25% recurring commission on qualifying purchases.",
@@ -1797,9 +1797,10 @@
       "Fresh support@coshuma.com Gmail in:anywhere search on 2026-09-14 found no Creatify received, sent, spam, trash, application, approval, rejection, tracking-link, commission or payout record.",
       "Repository already contained a 2026-09-12 Creatify affiliate candidate queue item but no verified account-specific tracking URL or Creatify product page before this fast-lane cycle.",
       "Exact COSHUMA customer referral URL remains unknown; affiliate/dashboard/login/onboarding/homepage URLs must not be used as affiliate CTAs.",
-      "GitHub issue #487 tracks the free application and exact vendor-issued referral URL recovery."
+      "GitHub issue #487 tracks the free application and exact vendor-issued referral URL recovery.",
+      "The current official Google application form was read directly on 2026-10-07 and requires a Creatify account plus applicant, channel, audience and monthly reach details; no existing COSHUMA Creatify account is evidenced."
     ],
-    "affiliate_next_action": "Use the official Creatify affiliate route with the COSHUMA company identity, recheck for an existing account/application in the authenticated flow, and submit once only if absent. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification or payment approval. After approval, recover and validate only the vendor-issued customer-facing referral URL."
+    "affiliate_next_action": "Confirm an existing COSHUMA-owned Creatify account before applying. If none is evidenced, keep the application on hold; do not create a new vendor account. If an existing account is confirmed, submit the official Google form once with verified COSHUMA details and actual reach only. After approval, recover and validate only the vendor-issued customer-facing referral URL."
   },
   {
     "id": "customgpt-ai",
