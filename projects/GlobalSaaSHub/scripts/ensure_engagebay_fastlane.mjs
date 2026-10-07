@@ -1,6 +1,6 @@
 import fs from './affiliate_state_fs.mjs';
 
-const checkedAt = '2026-09-14T19:30:00+09:00';
+const checkedAt = '2026-10-07T19:19:30+09:00';
 const engagebay = {
   id: 'engagebay',
   name: 'EngageBay',
@@ -26,7 +26,7 @@ const engagebay = {
   official_verified_at: checkedAt,
   official_evidence_url: 'https://www.engagebay.com/affiliate-program',
   affiliate_verified: false,
-  affiliate_status: 'browser_required_account_registration',
+  affiliate_status: 'browser_required_legal_program_consent',
   affiliate_source_url: 'https://www.engagebay.com/affiliate-program',
   affiliate_workflow_url: 'https://app.engagebay.com/signup?route=referrer/overview',
   affiliate_status_checked_at: checkedAt,
@@ -35,11 +35,11 @@ const engagebay = {
     'Official EngageBay affiliate page advertises 30% recurring commission while a referred paid subscriber remains active.',
     'Official terms state first-click attribution, a 30-day refund-clearance period, commissions approved before the 3rd and payouts before the 5th under current published terms.',
     'Official program page says affiliates do not need to buy EngageBay to promote it.',
-    'Exact official signup route creates an EngageBay account before reaching the referrer overview.',
+    'The official program page publishes Affiliate Terms & Conditions, and the join route creates an EngageBay account before reaching the referrer overview.',
     'GitHub search and both Gmail accounts, including sent and spam, contained no prior EngageBay application, approval, rejection, tracking-link, commission or payout record before issue #520.',
     'Exact account-specific customer tracking URL is unknown; signup, dashboard, onboarding and generic vendor URLs must not be used as affiliate revenue links.',
   ],
-  affiliate_next_action: 'When the account owner is available, use the exact official signup route once. Stop for CAPTCHA, OTP, legal consent or identity verification. After enrollment, publish only the vendor-issued customer-facing referral URL.',
+  affiliate_next_action: 'Review and accept the official affiliate terms through the exact signup route. Stop for CAPTCHA, OTP or identity verification. After enrollment, publish only the vendor-issued customer-facing referral URL.',
 };
 
 for (const file of ['data/tools.json','data/tools.next.json']) {
@@ -53,16 +53,17 @@ for (const file of ['data/tools.json','data/tools.next.json']) {
 
 const outreachPath='data/affiliate_outreach_state.json';
 const outreach=JSON.parse(fs.readFileSync(outreachPath,'utf8'));
-outreach.updated_at='2026-09-14';
+outreach.updated_at='2026-10-07';
 outreach.programs||={};
-outreach.programs.engagebay={status:'browser_required_account_registration',tracking_url:null,application_state:'not_submitted',account:'support@coshuma.com',official_program_url:'https://www.engagebay.com/affiliate-program',workflow_url:'https://app.engagebay.com/signup?route=referrer/overview',github_issue:520,checked_at:checkedAt,note:'No prior relationship found. Account creation is not completed unattended, and no customer tracking URL is verified.'};
+outreach.programs.engagebay={status:'browser_required_legal_program_consent',tracking_url:null,application_state:'not_submitted',account:'support@coshuma.com',official_program_url:'https://www.engagebay.com/affiliate-program',workflow_url:'https://app.engagebay.com/signup?route=referrer/overview',github_issue:520,checked_at:checkedAt,note:'The official affiliate page publishes program Terms & Conditions and the join route creates an EngageBay account. Legal program consent is not completed, and no customer tracking URL is verified.'};
 fs.writeFileSync(outreachPath,`${JSON.stringify(outreach,null,2)}\n`);
 
 const queuePath='data/browser_required_queue.json';
 const queue=JSON.parse(fs.readFileSync(queuePath,'utf8'));
-if(!queue.some((item)=>item.tool_id==='engagebay'||String(item.id||'').startsWith('engagebay-'))){
-  queue.push({id:'engagebay-account-registration-2026-09-14',tool_id:'engagebay',priority:'medium',status:'browser_required_account_registration',affiliate_status:'browser_required_account_registration',application_state:'not_submitted',cost:0,exact_tracking_url:null,user_action_required:true,blocker:'The official referral route requires creating an EngageBay account.',reason:'Duplicate checks are clear, but account creation is not completed and no customer tracking URL exists.',next_action:'Account owner uses the official signup route once; stop for CAPTCHA, OTP, legal consent or identity verification. Recover only a vendor-issued customer-facing referral URL.',do_not_reapply:true,verified_at:checkedAt,github_issue:520});
-}
+const engagebayQueueEntry={id:'engagebay-legal-program-consent-2026-10-07',tool_id:'engagebay',priority:'medium',status:'browser_required_legal_program_consent',affiliate_status:'browser_required_legal_program_consent',application_state:'not_submitted',cost:0,exact_tracking_url:null,user_action_required:true,blocker:'The official affiliate page publishes program Terms & Conditions and the join route creates an EngageBay account.',reason:'Legal program consent is not completed and no customer-facing tracking URL exists.',next_action:'Review and accept the official affiliate terms through the exact signup route; stop for CAPTCHA, OTP or identity verification. Recover only a vendor-issued customer-facing referral URL.',do_not_reapply:true,verified_at:checkedAt,github_issue:520};
+const engagebayQueueIndex=queue.findIndex((item)=>item.tool_id==='engagebay'||String(item.id||'').startsWith('engagebay-'));
+if(engagebayQueueIndex===-1) queue.push(engagebayQueueEntry);
+else queue[engagebayQueueIndex]={...queue[engagebayQueueIndex],...engagebayQueueEntry};
 fs.writeFileSync(queuePath,`${JSON.stringify(queue,null,2)}\n`);
 
 const urls=['https://coshuma.com/tool/engagebay.html','https://coshuma.com/best/engagebay-free-crm-pricing.html','https://coshuma.com/compare/engagebay-vs-hubspot.html'];
