@@ -53,6 +53,18 @@ class LifecycleTests(unittest.TestCase):
         new = {'affiliate_status': 'approved_tracking', 'affiliate_url': 'https://vendor.test/dashboard'}
         self.assertEqual(lifecycle.preserve(old, new)[0]['affiliate_url'], old['affiliate_url'])
 
+    def test_outreach_metadata_updated_at_cannot_rollback(self):
+        previous = {'updated_at': '2026-10-07', 'programs': {}}
+        stale = {'updated_at': '2026-09-16', 'programs': {}}
+        actual, changed = lifecycle.reconcile(previous, stale, 'affiliate_outreach_state.json')
+        self.assertEqual(actual['updated_at'], previous['updated_at'])
+        self.assertEqual(changed, 1)
+
+        newer = {'updated_at': '2026-10-08', 'programs': {}}
+        actual, changed = lifecycle.reconcile(previous, newer, 'affiliate_outreach_state.json')
+        self.assertEqual(actual['updated_at'], newer['updated_at'])
+        self.assertEqual(changed, 0)
+
     def test_deletion_is_not_silently_accepted(self):
         with self.assertRaises(ValueError):
             lifecycle.reconcile([{'id': 'vendor', 'affiliate_status': 'approved'}], [], 'tools.json')

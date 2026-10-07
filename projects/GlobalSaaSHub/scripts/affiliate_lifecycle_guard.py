@@ -89,6 +89,14 @@ def reconcile(before, after, filename):
     old_rows = rows(before, filename)
     new_rows = rows(after, filename)
     count = 0
+    # Several legacy outreach producers still carry historical literal dates.
+    # Preserve the latest already-recorded metadata date instead of letting a
+    # later reconciliation write make the canonical file appear older.
+    if (filename == "affiliate_outreach_state.json"
+            and timestamp({"checked_at": before.get("updated_at")})
+            > timestamp({"checked_at": after.get("updated_at")})):
+        after["updated_at"] = copy.deepcopy(before["updated_at"])
+        count += 1
     for key, old in old_rows.items():
         if key not in new_rows:
             if rank(old):
