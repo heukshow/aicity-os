@@ -3,6 +3,8 @@
 import { AdError } from './ad-commerce-domain.js';
 
 const API = 'https://api-m.sandbox.paypal.com';
+// PayPal may return the older Sandbox host in HATEOAS metadata; never fetch these links.
+const LINK_ORIGINS = new Set([API, 'https://api.sandbox.paypal.com']);
 const LIST = '/v1/notifications/webhooks';
 const EVENT = 'PAYMENT.CAPTURE.COMPLETED';
 const LIMIT = 65536;
@@ -88,7 +90,7 @@ function links(value, allowedRels, paths) {
     }
     let url;
     try { url = new URL(link.href); } catch { fail('REGISTRATION'); }
-    if (url.origin !== API || url.username || url.password || url.hash ||
+    if (!LINK_ORIGINS.has(url.origin) || url.username || url.password || url.hash ||
         !paths.includes(url.pathname + url.search) || url.href !== link.href) fail('REGISTRATION');
   }
 }

@@ -136,6 +136,11 @@ for (const [name, mutate] of [
   ['account pagination metadata', f => { f.account.next_page = '2'; }],
   ['paginated self link', f => { f.account.links = [{ rel: 'self', href: API + '/v1/notifications/webhooks?anchor_type=ACCOUNT&page=1' }]; }],
   ['live HATEOAS URL', f => { f.application.webhooks[0].links[0].href = 'https://api-m.paypal.com/v1/notifications/webhooks/SYNTHETIC-HOOK'; }],
+  ['legacy live HATEOAS URL', f => { f.application.webhooks[0].links[0].href = 'https://api.paypal.com/v1/notifications/webhooks/SYNTHETIC-HOOK'; }],
+  ['legacy Sandbox lookalike URL', f => { f.application.webhooks[0].links[0].href = 'https://api.sandbox.paypal.com.attacker.example.invalid/v1/notifications/webhooks/SYNTHETIC-HOOK'; }],
+  ['modern Sandbox lookalike URL', f => { f.application.webhooks[0].links[0].href = 'https://api-m.sandbox.paypal.com.attacker.example.invalid/v1/notifications/webhooks/SYNTHETIC-HOOK'; }],
+  ['insecure legacy Sandbox URL', f => { f.application.webhooks[0].links[0].href = 'http://api.sandbox.paypal.com/v1/notifications/webhooks/SYNTHETIC-HOOK'; }],
+  ['legacy Sandbox URL with credentials', f => { f.application.webhooks[0].links[0].href = 'https://user@api.sandbox.paypal.com/v1/notifications/webhooks/SYNTHETIC-HOOK'; }],
   ['unexpected provider URL', f => { f.application.webhooks[0].links[0].href = 'https://attacker.example.invalid/path'; }],
   ['malformed links', f => { f.application.webhooks[0].links = {}; }],
   ['extra webhook fields', f => { f.application.webhooks[0].next = 'ignored'; }],
@@ -202,4 +207,33 @@ test('transport and body-read failures never expose provider error text or crede
     start(controller) { controller.error(new Error(ENV.PAYPAL_CLIENT_SECRET + 'RAW-PROVIDER-DETAIL')); },
   }), { headers: { 'content-type': 'application/json' } });
   await rejected(f);
+});
+
+test('observed legacy Sandbox self/update/delete metadata passes without following any link', async t => {
+  const f = fixture(t);
+  f.application.webhooks[0].links = [
+    { href: 'https://api.sandbox.paypal.com/v1/notifications/webhooks/' + ENV.PAYPAL_WEBHOOK_ID, rel: 'self', method: 'GET' },
+    { href: 'https://api.sandbox.paypal.com/v1/notifications/webhooks/' + ENV.PAYPAL_WEBHOOK_ID, rel: 'update', method: 'PATCH' },
+    { href: 'https://api.sandbox.paypal.com/v1/notifications/webhooks/' + ENV.PAYPAL_WEBHOOK_ID, rel: 'delete', method: 'DELETE' },
+  ];
+  const result = await assertSandboxWebhookRegistration(ENV, f.fetchImpl);
+  assert.equal(result.verified, true);
+  assert.equal(result.webhookId, ENV.PAYPAL_WEBHOOK_ID);
+  assert.equal(result.applicationCount, 1);
+  assert.equal(result.accountCount, 0);
+  assert.deepEqual(result.eventTypes, [EVENT]);
+  assert.equal(f.calls.length, 3);
+  assert.equal(f.calls.every(call => new URL(call.url).origin === API), true);
+});
+
+test('legacy metadata host does not permit a changed network response origin', async t => {
+  const f = fixture(t);
+  f.override = url => {
+    if (url !== API + '/v1/oauth2/token') return;
+    const response = json(f.auth);
+    Object.defineProperty(response, 'url', { value: 'https://api.sandbox.paypal.com/v1/oauth2/token' });
+    return response;
+  };
+  await rejected(f);
+  assert.equal(f.calls.length, 1);
 });
