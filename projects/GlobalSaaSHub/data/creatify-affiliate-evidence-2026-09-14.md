@@ -15,7 +15,7 @@
 
 ## Current COSHUMA truth state
 - `application_state`: `not_submitted`
-- `affiliate_status`: `browser_required_affiliate_application`
+- `affiliate_status`: `application_available_account_required`
 - customer tracking URL: `null / unknown`
 - clicks, signups, paid customers, commission, payout, revenue: `unknown`
 - GitHub tracking issue: #487
@@ -28,3 +28,9 @@
 
 ## Next authenticated action
 Use only the official Creatify affiliate route with the COSHUMA company identity. Recheck for an existing account/application in the authenticated flow before submitting once. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification, or payment approval. After approval, recover only the exact vendor-issued customer-facing referral URL and independently verify destination/attribution before changing COSHUMA CTAs.
+
+## 2026-10-07 application-gate recheck
+- Creatify's current official affiliate page still says the program is free and advertises 25% recurring commission on qualifying purchases.
+- The current official Google application form was read directly through the authorized Remote connection. It requires a Creatify account, full name, country, discovery source, promotion rationale and channels, website/social profile, target audience, and actual monthly unique reach.
+- No existing COSHUMA-owned Creatify account, submitted application, approval, or exact customer tracking URL is evidenced.
+- State is therefore `application_available_account_required`; application remains `not_submitted`, tracking URL remains `null`, and no account, application, reply, payment, or spend was created.
