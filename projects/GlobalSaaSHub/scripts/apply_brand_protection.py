@@ -15,6 +15,7 @@ LEGACY_SEARCH_ALIASES = {
     "tool/make.html": "tool/make-com.html",
     "tool/synthflow.html": "tool/synthflow-ai.html",
     "compare/notion-ai-vs-boldsign.html": "compare/boldsign-vs-notion-ai.html",
+    "compare/reactin-vs-quillbot.html": "compare/quillbot-vs-reactin.html",
 }
 
 PROTECTION_BLOCK = r'''<meta name="copyright" content="© 2026 COSHUMA. All rights reserved.">
