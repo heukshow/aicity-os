@@ -27,7 +27,7 @@ function fixture(t,{arrayBlobs=false}={}){
  t.mock.method(globalThis,'fetch',async(url,init={})=>{
   const target=new URL(url),method=init.method||'GET';
   if(target.origin!=='https://api-m.sandbox.paypal.com')throw new Error('External network forbidden');
-  network.push({path:target.pathname,query:target.search,method});
+  network.push({path:target.pathname,query:target.search,method,redirect:init.redirect});
   if(target.pathname==='/v1/oauth2/token')return response({access_token:'SYNTHETIC-TOKEN',token_type:'Bearer',expires_in:300});
   if(target.pathname==='/v1/notifications/webhooks'){
    if(target.searchParams.get('anchor_type')==='ACCOUNT')return response({webhooks:[]});
@@ -106,6 +106,11 @@ test('unauthenticated checkout and capture do not trigger provider preflight cal
  const f=fixture(t),{id}=await prepared(f);f.network.length=0;
  for(const action of ['checkout','capture'])assert.equal((await f.call('/sandbox/orders/'+id+'/'+action,{method:'POST'})).status,403);
  assert.equal(f.network.length,0);
+});
+test('public provider transport uses Cloudflare-supported manual redirect mode',async t=>{
+ const f=fixture(t),{id,token}=await prepared(f);f.network.length=0;
+ assert.equal((await f.call('/sandbox/orders/'+id+'/checkout',{method:'POST',key:token})).status,200);
+ assert.ok(f.network.length>0);assert.ok(f.network.every(call=>call.redirect==='manual'));
 });
 test('wrong webhook registration blocks PayPal order creation and capture of an existing order',async t=>{
  const f=fixture(t),{id,token}=await prepared(f);f.setWrongRegistration(true);
