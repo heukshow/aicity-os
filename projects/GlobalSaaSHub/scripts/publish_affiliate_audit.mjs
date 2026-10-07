@@ -70,13 +70,15 @@ const records = tools.map((tool) => {
   const targetedRevenueReady = !genericRevenueReady && hasVerifiedTargetedAffiliateCta(tool);
   const revenueReady = genericRevenueReady || targetedRevenueReady;
   const terminal = terminalStatuses.has(status);
-  const browserRequired = !revenueReady && !terminal && browserRequiredStatuses.has(status);
-  const doNotReapply = revenueReady || terminal || noReapplyStatuses.has(status);
+  const browserRequired = !revenueReady && !terminal && (browserRequiredStatuses.has(status) || status.startsWith('browser_required_'));
+  const doNotReapply = revenueReady || terminal || browserRequired || noReapplyStatuses.has(status);
   const directActionableGap = !revenueReady && !terminal && !browserRequired && !doNotReapply;
   const watchOnlyGap = !revenueReady && !terminal && !browserRequired && doNotReapply;
   let blocker = null;
   if (!revenueReady && !terminal) {
     if (status === 'unclassified') blocker = 'affiliate_status_unclassified';
+    else if (status === 'browser_required_legal_program_consent') blocker = 'legal_program_consent_required';
+    else if (browserRequired || watchOnlyGap) blocker = `affiliate_status_${status}`;
     else if (!hasAffiliateUrl) blocker = 'exact_customer_affiliate_url_missing';
     else if (tool.affiliate_verified !== true) blocker = 'affiliate_evidence_not_verified';
     else blocker = `affiliate_status_${status}`;
@@ -143,8 +145,14 @@ const counts = records.reduce((acc, item) => {
 });
 
 for (const item of records) {
-  if (noReapplyStatuses.has(item.affiliateStatus) && item.directActionableGap) {
+  if ((item.browserRequired || item.watchOnlyGap) && item.directActionableGap) {
     throw new Error(`Duplicate-application guard failed for ${item.id}: ${item.affiliateStatus}`);
+  }
+  if (
+    (item.browserRequired || item.watchOnlyGap) &&
+    item.blocker === 'exact_customer_affiliate_url_missing'
+  ) {
+    throw new Error(`Affiliate primary-gate blocker regressed for ${item.id}: ${item.affiliateStatus}`);
   }
 }
 
