@@ -58,7 +58,11 @@ async function runtime(env,request){
    method==='POST'&&/^\/v2\/checkout\/orders\/[A-Za-z0-9_-]+\/capture$/.test(target.pathname)||
    method==='GET'&&/^\/v2\/payments\/captures\/[A-Za-z0-9_-]+$/.test(target.pathname));
   if(!allowed)throw new AdError('Only required Sandbox operations are allowed.',503);
-  const response=await fetch(target.href,{...init,redirect:'error',signal:AbortSignal.timeout(20000)});
+  const response=await fetch(target.href,{...init,redirect:'manual',signal:AbortSignal.timeout(20000)});
+  if((response.status>=300&&response.status<400)||response.headers.get('location')){
+   await record('provider_response',{method,path:target.pathname,status:response.status,redirectRejected:true});
+   throw new AdError('Provider redirects are not accepted.',503);
+  }
   const detail={method,path:target.pathname,status:response.status};
   if(target.pathname==='/v1/notifications/verify-webhook-signature'){
    const result=await response.clone().json().catch(()=>({}));
