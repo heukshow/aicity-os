@@ -1,6 +1,6 @@
 import fs from './affiliate_state_fs.mjs';
 
-const checkedAt = '2026-09-14T07:31:00+09:00';
+const checkedAt = '2026-10-07T17:15:00+09:00';
 const popupsmart = {
   id: 'popupsmart', name: 'Popupsmart', category: 'dev_coding', category_display: 'Coding & Dev Tools',
   description: 'Conversion-focused popup and onsite messaging platform for lead capture, announcements, ecommerce offers, gamification, targeting and campaign analytics.',
@@ -15,19 +15,17 @@ const popupsmart = {
   evidence_source_type: 'official_pricing_home_and_affiliate_pages', is_manual_override: true,
   official_verification_status: 'verified', official_verified_at: checkedAt,
   official_evidence_url: 'https://popupsmart.com/affiliate-program', affiliate_verified: false,
-  affiliate_status: 'browser_required_account_registration', affiliate_source_url: 'https://popupsmart.com/affiliate-program',
+  affiliate_status: 'browser_required_legal_program_consent', affiliate_source_url: 'https://popupsmart.com/affiliate-program',
   affiliate_workflow_url: 'https://app.popupsmart.com/', affiliate_status_checked_at: checkedAt, application_state: 'not_submitted',
   affiliate_evidence_markers: [
-    'Official Popupsmart affiliate page states no approval is required and a unique referral link is available after registering a Popupsmart account.',
-    'Official current affiliate terms advertise 30% recurring commission on eligible paid subscriptions, a 30-day cookie and 50% off for referred customers for their first 3 months.',
-    'Official Popupsmart pages advertise a forever-free plan and no credit card required to get started.',
-    'Official affiliate calculator currently shows monthly list prices Basic $39, Advanced $69, Pro $99 and Expert $159; annual billing can be lower.',
-    'GitHub search found no pre-existing COSHUMA Popupsmart record before this fast-lane cycle.',
-    'support@coshuma.com Gmail in:anywhere search found no prior Popupsmart application, approval, rejection, tracking-link, commission or payout message.',
-    'Exact account-specific customer tracking URL is unknown; app/dashboard/onboarding/homepage URLs must not be used as customer revenue links.',
-    'GitHub issue #482 tracks the free account registration and exact vendor-issued referral-link recovery step.'
-  ],
-  affiliate_next_action: 'Use the official Popupsmart free registration flow with the COSHUMA company account, avoid duplicate account creation, then recover and validate only the exact vendor-issued customer referral URL. Stop for CAPTCHA, OTP, legal consent, forced identity verification or payment approval.'
+    "Official Popupsmart affiliate page says registration is available to publishers and advertises 30% recurring commission, a 30-day cookie and 50% off for referred customers for their first three months.",
+    "Official Popupsmart help says the unique affiliate link is available only inside the authenticated affiliate section after product-account registration.",
+    "Popupsmart Terms of Use, last updated 2025-12-18, state that service use is governed by binding Terms and Privacy Policy; affiliate participation is subject to those Terms and any additional dashboard terms.",
+    "The binding terms require a valid account in good standing, allow supplier approval/revocation despite marketing copy saying no approval, and make the supplier dashboard the controlling source for payout details.",
+    "No COSHUMA Popupsmart account, legal/program consent, application, approval, exact customer referral URL, referral, paid customer, commission, payout or revenue is verified.",
+    "Generic signup, app, dashboard, onboarding and homepage URLs must not be used as affiliate tracking links."
+],
+  affiliate_next_action: "Hold at legal consent. After the account holder accepts the current Popupsmart Terms of Use, Privacy Policy and any affiliate dashboard terms through the official flow, check for an existing COSHUMA account before registration and recover only the exact issued customer-facing referral URL. Stop for CAPTCHA, OTP, forced identity verification or payment approval."
 };
 
 for (const file of ['data/tools.json','data/tools.next.json']) {
@@ -39,13 +37,15 @@ for (const file of ['data/tools.json','data/tools.next.json']) {
 
 const outreachPath = 'data/affiliate_outreach_state.json';
 const outreach = JSON.parse(fs.readFileSync(outreachPath,'utf8'));
-outreach.updated_at = '2026-09-14'; outreach.programs ||= {};
-outreach.programs.popupsmart = {status:'browser_required_account_registration',tracking_url:null,application_state:'not_submitted',account:'support@coshuma.com',official_program_url:'https://popupsmart.com/affiliate-program',workflow_url:'https://app.popupsmart.com/',github_issue:482,checked_at:checkedAt,note:'Official Popupsmart affiliate program is active, free-account entry is available without a credit card, and the vendor says approval is not required. No existing COSHUMA Popupsmart application/account-specific referral URL was found in GitHub or Gmail. Do not use the app URL as a customer CTA.'};
+outreach.updated_at = '2026-10-07'; outreach.programs ||= {};
+outreach.programs.popupsmart = {status:'browser_required_legal_program_consent',tracking_url:null,application_state:'not_submitted',account:'support@coshuma.com',official_program_url:'https://popupsmart.com/affiliate-program',workflow_url:'https://app.popupsmart.com/',github_issue:482,checked_at:checkedAt,note:'Official terms make account use and affiliate participation subject to binding legal terms, while the unique link is issued only in the authenticated affiliate area. No COSHUMA account, consent, approval or exact tracking URL is verified.'};
 fs.writeFileSync(outreachPath, `${JSON.stringify(outreach,null,2)}\n`);
 
 const queuePath='data/browser_required_queue.json';
 const queue=JSON.parse(fs.readFileSync(queuePath,'utf8'));
-if(!queue.some((item)=>item.tool_id==='popupsmart'||String(item.id||'').startsWith('popupsmart-'))){queue.push({id:'popupsmart-affiliate-2026-09-14',tool_id:'popupsmart',priority:'high',status:'browser_required_account_registration',affiliate_status:'browser_required_account_registration',application_state:'not_submitted',cost:0,exact_tracking_url:null,user_action_required:false,blocker:'Popupsmart issues the unique affiliate link after account registration in its authenticated app; this run has no authenticated Popupsmart UI session.',reason:'Repository and Gmail duplicate checks are clear and the official program needs no approval, but account registration/link issuance has not been completed.',next_action:'Use the official free Popupsmart registration with support@coshuma.com. If no existing account is found, register once and recover the exact vendor-issued customer referral URL. Stop for CAPTCHA, OTP, legal agreement, forced identity verification or payment approval.',do_not_reapply:true,verified_at:checkedAt,github_issue:482});}
+let item=queue.find((entry)=>entry.tool_id==='popupsmart'||String(entry.id||'').startsWith('popupsmart-'));
+const patch={tool_id:'popupsmart',priority:'high',status:'browser_required_legal_program_consent',affiliate_status:'browser_required_legal_program_consent',application_state:'not_submitted',cost:0,exact_tracking_url:null,user_action_required:true,blocker:'Popupsmart account use and affiliate participation are subject to binding Terms of Use, Privacy Policy and any additional dashboard terms.',reason:'Official program and help pages confirm account registration and authenticated link issuance; official legal terms control participation and may require supplier approval despite no-approval marketing copy.',next_action:"Hold at legal consent. After the account holder accepts the current Popupsmart Terms of Use, Privacy Policy and any affiliate dashboard terms through the official flow, check for an existing COSHUMA account before registration and recover only the exact issued customer-facing referral URL. Stop for CAPTCHA, OTP, forced identity verification or payment approval.",do_not_reapply:true,verified_at:checkedAt,github_issue:482};
+if(item)Object.assign(item,patch);else queue.push({id:'popupsmart-affiliate-2026-09-14',...patch});
 fs.writeFileSync(queuePath, `${JSON.stringify(queue,null,2)}\n`);
 
 const urls=['https://coshuma.com/tool/popupsmart.html','https://coshuma.com/best/popupsmart-free-plan-pricing.html'];

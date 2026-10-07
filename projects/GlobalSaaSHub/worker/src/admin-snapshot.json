@@ -2634,7 +2634,7 @@
         "name": "OptiMonk",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "waiting_vendor_eligibility_clarification",
+        "affiliateStatus": "application_available_account_required",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -2642,10 +2642,10 @@
         "revenueReady": false,
         "terminal": false,
         "doNotReapply": true,
-        "browserRequired": false,
+        "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "account_registration_required"
       },
       {
         "id": "pickaxe",
@@ -2724,7 +2724,7 @@
         "name": "Popupsmart",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "browser_required_account_registration",
+        "affiliateStatus": "browser_required_legal_program_consent",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -2734,8 +2734,8 @@
         "doNotReapply": true,
         "browserRequired": true,
         "directActionableGap": false,
-        "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "watchOnlyGap": true,
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "privy",

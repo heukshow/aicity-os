@@ -4905,21 +4905,20 @@
     "official_verified_at": "2026-10-03T08:17:00+09:00",
     "official_evidence_url": "https://www.optimonk.com/partners",
     "affiliate_verified": false,
-    "affiliate_status": "waiting_vendor_eligibility_clarification",
+    "affiliate_status": "application_available_account_required",
     "affiliate_source_url": "https://www.optimonk.com/partners",
     "affiliate_workflow_url": "mailto:partnership@optimonk.com",
-    "affiliate_status_checked_at": "2026-10-03T08:17:00+09:00",
+    "affiliate_status_checked_at": "2026-10-07T17:05:08+09:00",
     "application_state": "not_submitted",
     "affiliate_evidence_markers": [
-      "2026-10-03 official partner-page readback redirects /partners-program to /partners and now describes an agency model for partners who manage client accounts.",
-      "The current page says no call, contract or certification is needed, but enrollment requires creating an OptiMonk account and switching to agency view.",
-      "The current page states 20% commission applies only to new client-paid accounts managed through the partner.",
-      "Fresh support@coshuma.com Gmail duplicate checks found no prior OptiMonk outreach or vendor reply.",
-      "COSHUMA sent one eligibility inquiry to the official partnership@optimonk.com address as Gmail message 1a0fee78f87e9e57.",
-      "No application, approval, rejection, account-specific tracking URL, referral, paid customer, commission, payout or revenue is verified.",
-      "Generic homepage, signup, login, onboarding and dashboard URLs must not be treated as affiliate links."
+      "OptiMonk Partnership Manager confirmed by Gmail message 1a0b67cafbf349f that independent publishers can use a classic affiliate model with 20% commission for two years on referred paying customers.",
+      "OptiMonk Partnership Manager confirmed by Gmail message 1a115654c5759cfa that enrollment requires creating a free OptiMonk product account, then sending the registered email so the supplier can upgrade it to an affiliate account.",
+      "The supplier says a unique customer affiliate link is issued only after that upgrade; no generic homepage, signup, login, onboarding or dashboard URL is a verified customer tracking URL.",
+      "The supplier says commissions, refunds and corrections appear in the balance; payouts can be requested one at a time from $50, require an invoice requested by email, and are paid by bank transfer.",
+      "COSHUMA has not created the required product account, completed enrollment, received an account-specific tracking URL, or verified any click, signup, paid customer, commission, payout or revenue.",
+      "No duplicate reply is required because the supplier directly answered the enrollment and payout questions."
     ],
-    "affiliate_next_action": "Await OptiMonk Partnerships reply on whether independent software buyer-guide publishers are eligible. Do not create an agency account, submit an agency enrollment, or infer an affiliate program. If eligible, use only the official enrollment route and an issued customer tracking URL."
+    "affiliate_next_action": "Reuse an existing authenticated COSHUMA-owned OptiMonk account if later evidenced. Otherwise keep enrollment on hold because a new affiliate product account is required. After supplier upgrade, recover and verify only the issued customer-facing tracking URL before any affiliate CTA."
   },
   {
     "id": "outlierkit",
@@ -5317,22 +5316,20 @@
     "official_verified_at": "2026-09-14T07:31:00+09:00",
     "official_evidence_url": "https://popupsmart.com/affiliate-program",
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_account_registration",
+    "affiliate_status": "browser_required_legal_program_consent",
     "affiliate_source_url": "https://popupsmart.com/affiliate-program",
     "affiliate_workflow_url": "https://app.popupsmart.com/",
-    "affiliate_status_checked_at": "2026-09-14T07:31:00+09:00",
+    "affiliate_status_checked_at": "2026-10-07T17:15:00+09:00",
     "application_state": "not_submitted",
     "affiliate_evidence_markers": [
-      "Official Popupsmart affiliate page states no approval is required and a unique referral link is available after registering a Popupsmart account.",
-      "Official current affiliate terms advertise 30% recurring commission on eligible paid subscriptions, a 30-day cookie and 50% off for referred customers for their first 3 months.",
-      "Official Popupsmart pages advertise a forever-free plan and no credit card required to get started.",
-      "Official affiliate calculator currently shows monthly list prices Basic $39, Advanced $69, Pro $99 and Expert $159; annual billing can be lower.",
-      "GitHub search found no pre-existing COSHUMA Popupsmart record before this fast-lane cycle.",
-      "support@coshuma.com Gmail in:anywhere search found no prior Popupsmart application, approval, rejection, tracking-link, commission or payout message.",
-      "Exact account-specific customer tracking URL is unknown; app/dashboard/onboarding/homepage URLs must not be used as customer revenue links.",
-      "GitHub issue #482 tracks the free account registration and exact vendor-issued referral-link recovery step."
+      "Official Popupsmart affiliate page says registration is available to publishers and advertises 30% recurring commission, a 30-day cookie and 50% off for referred customers for their first three months.",
+      "Official Popupsmart help says the unique affiliate link is available only inside the authenticated affiliate section after product-account registration.",
+      "Popupsmart Terms of Use, last updated 2025-12-18, state that service use is governed by binding Terms and Privacy Policy; affiliate participation is subject to those Terms and any additional dashboard terms.",
+      "The binding terms require a valid account in good standing, allow supplier approval/revocation despite marketing copy saying no approval, and make the supplier dashboard the controlling source for payout details.",
+      "No COSHUMA Popupsmart account, legal/program consent, application, approval, exact customer referral URL, referral, paid customer, commission, payout or revenue is verified.",
+      "Generic signup, app, dashboard, onboarding and homepage URLs must not be used as affiliate tracking links."
     ],
-    "affiliate_next_action": "Use the official Popupsmart free registration flow with the COSHUMA company account, avoid duplicate account creation, then recover and validate only the exact vendor-issued customer referral URL. Stop for CAPTCHA, OTP, legal consent, forced identity verification or payment approval."
+    "affiliate_next_action": "Hold at legal consent. After the account holder accepts the current Popupsmart Terms of Use, Privacy Policy and any affiliate dashboard terms through the official flow, check for an existing COSHUMA account before registration and recover only the exact issued customer-facing referral URL. Stop for CAPTCHA, OTP, forced identity verification or payment approval."
   },
   {
     "id": "privy",
