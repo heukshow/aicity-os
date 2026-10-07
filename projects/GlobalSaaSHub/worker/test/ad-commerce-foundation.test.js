@@ -69,10 +69,11 @@ test('canonical repository removes legacy header-only image acceptance and ambig
  assert.equal(Object.hasOwn(api, 'AdCommerceStore'), false);
 });
 
-test('public advertising reports omit runtime and permission internals', () => {
+test('public advertising documents omit runtime, permission and protected-route internals', () => {
  const reports = [
   '../../docs/2026-10-ad-commerce-foundation.md',
   '../../docs/2026-10-ad-commerce-sandbox-integration.md',
+  '../README.public-sandbox-test.md',
  ].map(path => readFileSync(new URL(path, import.meta.url), 'utf8'));
  const forbidden = [
   /`[A-Za-z0-9_]+\.(?:write_file|execute|click)`/,
@@ -81,6 +82,8 @@ test('public advertising reports omit runtime and permission internals', () => {
   /보안 상태.{0,200}도구 요청/is,
   /도구 관측.{0,400}(?:차단|재시도)/is,
   /(?:원래 PC|local-overlay|증거 폴더)/i,
+  /\/sandbox\/[a-z]+\/\*/i,
+  /<[a-z-]+>\.workers\.dev/i,
  ];
  for (const report of reports) {
   for (const pattern of forbidden) assert.doesNotMatch(report, pattern);
