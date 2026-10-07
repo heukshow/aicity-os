@@ -11,7 +11,7 @@ Use `testconfig.example.toml` only as a template for a private, dedicated test c
 - Entry: `src/ad-commerce-public-sandbox-worker.js`.
 - Runtime target: compatibility date `2026-08-09` with `nodejs_compat`. Actual local workerd execution verified `inflateSync` with `info`, `maxOutputLength`, and `engine.bytesWritten`, all nine maximum-byte role PNGs, oversized-file rejection, and rejection of trailing compressed junk or a second stream. Deployed runtime behavior still needs its own confirmation.
 - Database: a separate `AD_SANDBOX_DB` binding and an isolated `coshuma-ads-sandbox-*` database label. Install base schemas `migrations/0004_sponsorship_sales.sql` and `migrations/0005_image_ad_fulfilment.sql` in the empty test database, then the migrations in `sandbox-migrations/`. Do not apply these steps to an existing production database.
-- Origin: the exact dedicated HTTPS `coshuma-ads-sandbox-*.<test-subdomain>.workers.dev` origin, without a trailing slash.
+- Origin: use only the dedicated HTTPS test origin stored in the private deployment configuration. Do not publish or reuse its exact hostname.
 - Secrets: configure the Sandbox app credentials, merchant ID, expected webhook ID, and separate operator/reviewer keys only in the test worker's secret store. Keep them out of source, URLs, public logs, and PR descriptions.
 - The once-per-minute scheduled trigger is commented out by default. Enabling it is not proof that it ran; preserve actual scheduled execution records when external verification is performed.
 
@@ -20,9 +20,9 @@ Use `testconfig.example.toml` only as a template for a private, dedicated test c
 | Surface | Required authorization and behavior |
 | --- | --- |
 | `/sandbox/purchase` | Public test start page. The buyer enters an existing test order ID and that order's access key. |
-| Order creation and `/sandbox/ops/*` | Dedicated test operator key; customer mutations also require the configured origin. |
+| Protected order creation | A dedicated test operator key is required; customer mutations also require the configured origin. Administrative endpoint details are intentionally omitted from this public document. |
 | Order data, upload, checkout, capture, reconcile | The matching order access key in `Authorization`, never a URL parameter. |
-| `/sandbox/admin/*` | Separate reviewer key. |
+| Protected review actions | A separate reviewer key is required. Administrative endpoint details are intentionally omitted from this public document. |
 | `/sandbox/checkout-return` | Purpose-bound signed return URL and matching provider order token. GET renders without payment or inventory mutation. |
 | `/sandbox/webhooks/paypal` | Original request body and provider signature headers; successful Sandbox verification is required before durable event processing. |
 
