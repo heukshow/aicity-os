@@ -27,7 +27,7 @@
 - Keep all Creatify CTAs on official non-affiliate destinations until the exact vendor-issued account-specific customer URL is recovered and verified.
 
 ## Next authenticated action
-Use only the official Creatify affiliate route with the COSHUMA company identity. Recheck for an existing account/application in the authenticated flow before submitting once. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification, or payment approval. After approval, recover only the exact vendor-issued customer-facing referral URL and independently verify destination/attribution before changing COSHUMA CTAs.
+Confirm an existing COSHUMA-owned Creatify account before applying. If no existing account is evidenced, keep the application on hold and do not create a new vendor account. If an existing account is later confirmed, submit the official form once with verified COSHUMA details and actual reach only. After approval, recover only the exact vendor-issued customer-facing referral URL and independently verify destination/attribution before changing COSHUMA CTAs.
 
 ## 2026-10-07 application-gate recheck
 - Creatify's current official affiliate page still says the program is free and advertises 25% recurring commission on qualifying purchases.
