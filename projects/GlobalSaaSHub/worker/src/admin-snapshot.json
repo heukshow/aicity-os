@@ -1482,7 +1482,7 @@
         "name": "Activepieces",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "browser_required_sales_inquiry",
+        "affiliateStatus": "browser_required_affiliate_application",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
