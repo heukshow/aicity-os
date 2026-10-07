@@ -4,11 +4,17 @@ const checkedAt = '2026-10-03T03:05:00+09:00';
 
 const states = {
   activepieces: {
-    stale: [null, 'unclassified'],
-    status: 'browser_required_sales_inquiry',
-    source: 'https://www.activepieces.com/',
-    workflow: 'https://www.activepieces.com/',
-    next: 'Use the current official Talk to sales/contact route to ask whether a public affiliate or referral program exists. Do not infer a program or tracking URL.',
+    stale: [null, 'unclassified', 'browser_required_sales_inquiry'],
+    status: 'browser_required_affiliate_application',
+    checkedAt: '2026-10-07T12:22:00+09:00',
+    source: 'https://market.partnerstack.com/program/activepieces',
+    workflow: 'https://market.partnerstack.com/program/activepieces',
+    next: 'Reuse the existing COSHUMA-owned PartnerStack session to open the official Activepieces program application. Inspect the application questions and program terms first; submit once only if no CAPTCHA, OTP, legal-consent, payment, or forced-identity gate appears. Recover and validate only the exact vendor-issued customer referral URL after approval.',
+    evidence: [
+      '2026-10-07 official PartnerStack marketplace recheck: the Activepieces program directory exposes an Apply to program action and PartnerStack sign-in.',
+      'This verifies that a public application route exists; it does not prove COSHUMA application, approval, tracking URL, clicks, customers, commission, payout, or revenue.',
+      'No application was submitted in this update and no COSHUMA-specific tracking URL is verified.',
+    ],
   },
   carv: {
     stale: [null, 'unclassified', 'browser_required_application_form'],

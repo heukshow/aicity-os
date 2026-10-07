@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 
 const expected = new Map([
-  ['activepieces','browser_required_sales_inquiry'],
+  ['activepieces','browser_required_affiliate_application'],
   ['agorapulse','waiting_vendor_response'],
   ['carv','waiting_vendor_eligibility_clarification'],
   ['chatbot','referral_link_requested'],
