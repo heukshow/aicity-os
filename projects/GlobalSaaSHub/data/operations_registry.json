@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-06T23:03:09Z",
+  "updated_at": "2026-10-07T10:57:49Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -3138,6 +3138,44 @@
       "verification": "The deployed page exposes valid 7, 30 and 90 day inquiry options and no malformed </option value=\"7\"> markup. Deployment ancestry links current main to the gh-pages commit and successful Pages run.",
       "handoff": "Keep normal matched-window observation. Do not claim conversion uplift without measured evidence.",
       "completed_at": "2026-10-04T22:41:06Z"
+    },
+    {
+      "record_id": "RELEASE:ADVERTISER-TEMPLATE-DIRECT-RESPONSE-20261007",
+      "task_key": "advertiser-template-direct-response-verification-20261007",
+      "incident_key": "advertiser-template-direct-response-capability-gap-20261007",
+      "target": "projects/GlobalSaaSHub/public/downloads/coshuma-advertiser-application-template-en.md",
+      "owner_team": "Release & Reliability Team",
+      "canonical_owner": "Revenue Intelligence Team",
+      "found_by": "Release & Reliability Team",
+      "fixed_by": "Operations Governance Team",
+      "changed_scope": "Control-plane routing only: added one explicit read-only release candidate for the already merged and deployed English advertiser application template. No customer copy, payment, checkout, inventory, affiliate URL, measurement event, account, credential, service or spend changed.",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
+      "priority": "high",
+      "blocker": "direct_public_http_response_unverified",
+      "last_evidence_at": "2026-10-07T10:57:49Z",
+      "evidence": {
+        "capability_gap_comment_id": 6035690506,
+        "implementation_pr": 1051,
+        "merge_commit": "4a9046f2f4ac91540f242bc83cf269057ed32007",
+        "site_deploy_run": 37585217741,
+        "source_and_deployed_blob": "99621c371e5445d27b6d86a6cddc030a0a0130bb",
+        "gh_pages_commit": "ac0c6969914d895295f06cde9da3872f476b48e0",
+        "deployment_source_commit": "a2ba5562df8c2f92b0e1e793adfd90c0ac1fffb6",
+        "live_url": "https://coshuma.com/downloads/coshuma-advertiser-application-template-en.md?coshuma_qa=1",
+        "deployed_artifact_verified": true,
+        "direct_live_response_verified": false,
+        "observed_verifier_limit": "Public-reader access was unavailable and an independent browser returned net::ERR_BLOCKED_BY_CLIENT; neither result proves an origin or CDN HTTP failure.",
+        "additional_spend_usd": 0
+      },
+      "completion_gate": "direct_public_http_response_observed_and_source_build_deploy_live_consistent",
+      "completion_gate_satisfied": false,
+      "user_action_required": false,
+      "production_verification_requested": true,
+      "execution_status": "queued",
+      "verification_status": "pending",
+      "verification": "Current source and deployed gh-pages blobs are identical and deployment ancestry contains PR #1051. The live direct-download response remains unknown, so production verification is intentionally open.",
+      "handoff": "Release & Reliability Team should use a supported public HTTP verifier against the QA-marked download URL, confirm the actual response and content, then record production_verified or the exact failed boundary in issue #292. Do not alter payment, checkout, inventory, affiliate URLs or measurement events."
     }
   ],
   "invariants": {
