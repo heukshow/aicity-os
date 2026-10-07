@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-07",
+  "updated_at": "2026-09-16",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -762,8 +762,8 @@
       "github_issue": 491,
       "checked_at": "2026-10-07T17:05:08+09:00",
       "outreach_message_id": "1a0fee78f87e9e57",
-      "note": "Supplier confirmed publisher eligibility and the 20% for two years model, but enrollment requires a free OptiMonk product account before the supplier upgrades it and issues the unique link. No account, application, approval or tracking URL is verified; no duplicate reply is needed.",
-      "vendor_reply_message_id": "1a115654c5759cfa"
+      "vendor_reply_message_id": "1a115654c5759cfa",
+      "note": "Supplier confirmed publisher eligibility and the 20% for two years model, but enrollment requires a free OptiMonk product account before the supplier upgrades it and issues the unique link. No account, application, approval or tracking URL is verified; no duplicate reply is needed."
     },
     "justuno": {
       "status": "application_submitted",

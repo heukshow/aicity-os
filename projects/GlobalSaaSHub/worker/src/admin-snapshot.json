@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T07:33:38.777Z",
+  "generatedAt": "2026-10-07T08:38:04.382Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -8,8 +8,8 @@
     "targetedRevenueReadyAffiliates": 4,
     "openMonetizationGaps": 75,
     "directActionableGaps": 0,
-    "browserRequiredGaps": 28,
-    "watchOnlyGaps": 47,
+    "browserRequiredGaps": 29,
+    "watchOnlyGaps": 46,
     "doNotReapply": 179,
     "toolPages": 180,
     "comparePages": 280,
@@ -28,8 +28,8 @@
       "terminal": 27,
       "openMonetizationGaps": 75,
       "directActionableGaps": 0,
-      "browserRequiredGaps": 28,
-      "watchOnlyGaps": 47,
+      "browserRequiredGaps": 29,
+      "watchOnlyGaps": 46,
       "doNotReapply": 179,
       "unclassifiedAffiliateStatus": 0,
       "exactAffiliateUrlMissing": 75,
@@ -2644,8 +2644,8 @@
         "doNotReapply": true,
         "browserRequired": true,
         "directActionableGap": false,
-        "watchOnlyGap": true,
-        "blocker": "account_registration_required"
+        "watchOnlyGap": false,
+        "blocker": "exact_customer_affiliate_url_missing"
       },
       {
         "id": "pickaxe",
@@ -2734,8 +2734,8 @@
         "doNotReapply": true,
         "browserRequired": true,
         "directActionableGap": false,
-        "watchOnlyGap": true,
-        "blocker": "legal_program_consent_required"
+        "watchOnlyGap": false,
+        "blocker": "exact_customer_affiliate_url_missing"
       },
       {
         "id": "privy",
