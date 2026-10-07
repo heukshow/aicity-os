@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T08:38:04.382Z",
+  "generatedAt": "2026-10-07T10:33:20.100Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -1979,7 +1979,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "legal_program_consent_required"
+        "blocker": "exact_customer_affiliate_url_missing"
       },
       {
         "id": "expandi",
