@@ -95,14 +95,15 @@
     "official_evidence_url": "https://www.activepieces.com/",
     "affiliate_url": null,
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_sales_inquiry",
-    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
-    "affiliate_source_url": "https://www.activepieces.com/",
-    "affiliate_workflow_url": "https://www.activepieces.com/",
-    "affiliate_next_action": "Use Activepieces' current official Talk to sales/contact route to ask whether a public affiliate or referral program exists. Do not infer a program or tracking URL from integrations/community references.",
+    "affiliate_status": "browser_required_affiliate_application",
+    "affiliate_status_checked_at": "2026-10-07T12:22:00+09:00",
+    "affiliate_source_url": "https://market.partnerstack.com/program/activepieces",
+    "affiliate_workflow_url": "https://market.partnerstack.com/program/activepieces",
+    "affiliate_next_action": "Reuse the existing COSHUMA-owned PartnerStack session to open the official Activepieces program application. Inspect the application questions and program terms first; submit once only if no CAPTCHA, OTP, legal-consent, payment, or forced-identity gate appears. Recover and validate only the exact vendor-issued customer referral URL after approval.",
     "affiliate_evidence_markers": [
-      "2026-10-03 current official-site recheck found no public affiliate/referral enrollment route; product/sales routes remain live.",
-      "No COSHUMA-specific tracking URL is verified."
+      "2026-10-07 official PartnerStack marketplace recheck: the Activepieces program directory exposes an Apply to program action and PartnerStack sign-in.",
+      "This verifies that a public application route exists; it does not prove COSHUMA application, approval, tracking URL, clicks, customers, commission, payout, or revenue.",
+      "No application was submitted in this update and no COSHUMA-specific tracking URL is verified."
     ],
     "pricing_source_http_status": 200,
     "pricing_source_final_url": "https://www.activepieces.com/pricing",
