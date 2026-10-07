@@ -146,12 +146,13 @@
     "official_verified_at": "2026-09-14T11:26:00+09:00",
     "official_evidence_url": "https://ftp.adoric.com/affiliate/",
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_account_registration",
+    "affiliate_status": "browser_required_legal_program_consent",
     "affiliate_source_url": "https://ftp.adoric.com/affiliate/",
     "affiliate_workflow_url": "https://ftp.adoric.com/affiliate/",
-    "affiliate_status_checked_at": "2026-09-14T11:26:00+09:00",
+    "affiliate_status_checked_at": "2026-10-07T15:19:25+09:00",
     "application_state": "not_submitted",
     "affiliate_evidence_markers": [
+      "Adoric's Terms of Service state that creating an account accepts the Terms and incorporated Privacy Policy; this is a legal-consent gate before affiliate-area access.",
       "Official Adoric affiliate page says the program is free to join and the affiliate area is available from a free Adoric account.",
       "Official affiliate page says the account affiliate area provides the referral link; generic signup, dashboard, homepage and affiliate-portal URLs are not customer tracking URLs.",
       "Current public affiliate terms advertise 20% of qualifying referred monthly payments for up to 12 months, a $100 payout threshold and PayPal payouts.",
@@ -161,7 +162,7 @@
       "Exact account-specific customer referral URL is unknown; no click, signup, paid customer, commission, payout or revenue is inferred.",
       "GitHub issue #499 tracks free account registration and exact vendor-issued referral URL recovery."
     ],
-    "affiliate_next_action": "Use the official Adoric free-account route with support@coshuma.com, checking for an existing account first. If absent, register once at zero cost, then recover and validate only the exact customer-facing referral URL shown in the authenticated affiliate area. Stop for CAPTCHA, OTP, account-holder legal/program consent, forced identity verification or payment approval."
+    "affiliate_next_action": "Hold at the legal-consent gate. After the owner accepts Adoric's Terms of Service and Privacy Policy in the account-registration flow, recover and validate only the exact customer-facing referral URL shown in the authenticated affiliate area. Stop for CAPTCHA, OTP, forced identity verification or payment approval."
   },
   {
     "id": "agentworks",

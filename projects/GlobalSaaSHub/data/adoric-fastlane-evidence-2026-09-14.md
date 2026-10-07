@@ -14,15 +14,18 @@
 
 ## Official affiliate evidence
 - Program page: https://ftp.adoric.com/affiliate/
+- Terms of Service: https://adoric.com/terms/
 - Free to join.
 - Referral link is obtained from the authenticated affiliate area in an Adoric account.
+- Adoric's current Terms state that creating an account accepts the Terms and incorporated Privacy Policy; account registration is therefore a legal-consent gate.
 - Current public terms advertise 20% of qualifying referred customer monthly payments for up to 12 months.
 - Current public payout threshold: $100.
 - Current payout method stated: PayPal.
+- Legal-consent evidence rechecked: 2026-10-07.
 
 ## COSHUMA truth state
 - `application_state`: `not_submitted`
-- `affiliate_status`: `browser_required_account_registration`
+- `affiliate_status`: `browser_required_legal_program_consent`
 - exact customer referral URL: `null / unknown`
 - clicks / signups / paid customers / commission / payout / revenue: `unknown`
 - GitHub issue: #499
@@ -36,4 +39,5 @@
 - Do not use generic homepage, signup, dashboard or affiliate-portal URLs as affiliate CTAs.
 - Do not guess a referral parameter.
 - Do not infer revenue from registration, link issuance, test visits or clicks.
+- Do not create the account or accept legal terms until the legal-consent gate is satisfied.
 - No paid plan or payment authorization is required for the current next step.

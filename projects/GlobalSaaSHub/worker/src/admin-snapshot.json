@@ -1500,7 +1500,7 @@
         "name": "Adoric",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "browser_required_account_registration",
+        "affiliateStatus": "browser_required_legal_program_consent",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
