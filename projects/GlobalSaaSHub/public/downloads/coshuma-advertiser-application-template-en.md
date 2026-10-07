@@ -22,7 +22,7 @@ Existing COSHUMA application or order reference, if already issued:
 
 4. Requested placement:
    [ ] Tool Page Sponsored
-   [ ] Buyer-Intent Featured
+   [ ] Featured Buyer Guide Placement
    [ ] Comparison Premium
 
 5. Requested duration:
@@ -61,7 +61,7 @@ No logo, banner image or video is required. Do not send passwords, card details,
 | Placement | 7 days | 30 days | 90 days |
 | --- | ---: | ---: | ---: |
 | Tool Page Sponsored | USD 19 | USD 49 | USD 129 |
-| Buyer-Intent Featured | USD 39 | USD 99 | USD 269 |
+| Featured Buyer Guide Placement | USD 39 | USD 99 | USD 269 |
 | Comparison Premium | USD 59 | USD 149 | USD 399 |
 
 The exact page, placement and period depend on confirmed availability. A price or quote does not confirm a reservation or prove payment. The advertising period starts at actual publication, not on the payment or submission date.
@@ -82,7 +82,7 @@ Which customers or tasks make it worth considering?
 Supporting evidence for material claims or comparisons:
 ```
 
-### Buyer-Intent Featured
+### Featured Buyer Guide Placement
 
 ```text
 Why does the product fit this buyer guide or category?
