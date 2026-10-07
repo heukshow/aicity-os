@@ -13,7 +13,7 @@ const expected = new Map([
   ['google-workspace','application_available_account_required'],
   ['hide-me','browser_required_application_form'],
   ['scribe','program_closed_to_new_applicants'],
-  ['snov-io','browser_required_application_form'],
+  ['snov-io','browser_required_legal_program_consent'],
 ]);
 
 for (const file of ['data/tools.json','data/tools.next.json']) {
