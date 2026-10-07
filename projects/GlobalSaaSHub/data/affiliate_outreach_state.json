@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16",
+  "updated_at": "2026-10-07",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -742,15 +742,15 @@
       "note": "Official Poptin terms require signup and Terms of Service acceptance before access to the affiliate control panel. No existing COSHUMA Poptin application or account-specific referral URL was found in GitHub/Gmail. Do not use the app URL as a customer CTA."
     },
     "creatify": {
-      "status": "browser_required_affiliate_application",
+      "status": "application_available_account_required",
       "tracking_url": null,
       "application_state": "not_submitted",
       "account": "support@coshuma.com",
       "official_program_url": "https://creatify.ai/affiliate",
-      "workflow_url": "https://creatify.ai/affiliate",
+      "workflow_url": "https://docs.google.com/forms/d/e/1FAIpQLSc_k126zcElDxMgsaqO7WJOTMLUS0JPhqiNOAgzrGmJMC2ZAA/viewform",
       "github_issue": 487,
-      "checked_at": "2026-09-14T08:31:00+09:00",
-      "note": "Official program is free and advertises 25% recurring commission. Fresh Gmail duplicate check is clear. No COSHUMA application submission, approval or account-specific referral URL is proven; customer CTAs remain official non-affiliate URLs."
+      "checked_at": "2026-10-07T21:24:00+09:00",
+      "note": "Official program is free and advertises 25% recurring commission. The current official application form requires a Creatify account and verified applicant/channel/reach details. No existing COSHUMA Creatify account, application, approval or account-specific referral URL is proven; customer CTAs remain official non-affiliate URLs."
     },
     "optimonk": {
       "status": "application_available_account_required",
