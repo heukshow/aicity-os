@@ -8,6 +8,8 @@ on:
       - 'vercel.json'
       - '.github/workflows/coshuma-pr-check.yml'
       - '.github/workflows/coshuma-site-deploy.yml'
+      - '.github/workflows/coshuma-release-verification.yml'
+      - '.github/workflows/coshuma-registry-reconciliation.yml'
 
 concurrency:
   group: coshuma-pr-check-${{ github.event.pull_request.number }}
