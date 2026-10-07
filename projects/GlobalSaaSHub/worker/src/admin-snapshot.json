@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T10:33:20.100Z",
+  "generatedAt": "2026-10-07T10:43:06.000Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -1457,7 +1457,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "activecampaign",
@@ -1493,7 +1493,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_browser_required_affiliate_application"
       },
       {
         "id": "adoric",
@@ -1511,7 +1511,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "agentworks",
@@ -1529,7 +1529,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_referral_link_requested"
       },
       {
         "id": "agorapulse",
@@ -1547,7 +1547,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_waiting_vendor_response"
       },
       {
         "id": "ai-agent-store",
@@ -1565,7 +1565,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_available_account_required"
       },
       {
         "id": "airia",
@@ -1583,7 +1583,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "aitable-ai",
@@ -1619,7 +1619,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_pending"
       },
       {
         "id": "apollo",
@@ -1655,7 +1655,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_blocked_existing_reditus_onboarding"
       },
       {
         "id": "beehiiv",
@@ -1673,7 +1673,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_available_account_required"
       },
       {
         "id": "benchmark-email",
@@ -1691,7 +1691,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "bidx",
@@ -1709,7 +1709,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "blaze",
@@ -1727,7 +1727,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_outreach_sent"
       },
       {
         "id": "brevo",
@@ -1745,7 +1745,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "carv",
@@ -1763,7 +1763,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_waiting_vendor_eligibility_clarification"
       },
       {
         "id": "chatbot",
@@ -1781,7 +1781,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_referral_link_requested"
       },
       {
         "id": "claspo",
@@ -1799,7 +1799,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "clickup",
@@ -1835,7 +1835,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_enrollment_requested"
       },
       {
         "id": "cloudways",
@@ -1853,7 +1853,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_pending"
       },
       {
         "id": "colossyan",
@@ -1889,7 +1889,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_approved"
       },
       {
         "id": "copy-ai",
@@ -1925,7 +1925,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_browser_required_affiliate_application"
       },
       {
         "id": "docusign",
@@ -1943,7 +1943,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_browser_required_captcha_program_form"
       },
       {
         "id": "dub",
@@ -1961,7 +1961,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "engagebay",
@@ -1979,7 +1979,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "expandi",
@@ -1997,7 +1997,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_waiting_vendor_requirement"
       },
       {
         "id": "fathom",
@@ -2033,7 +2033,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_waiting_vendor_response"
       },
       {
         "id": "flowgent-ai",
@@ -2069,7 +2069,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_outreach_sent"
       },
       {
         "id": "gallabox",
@@ -2087,7 +2087,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_blocked_tax_id_captcha"
       },
       {
         "id": "getgabs",
@@ -2105,7 +2105,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "getresponse",
@@ -2159,7 +2159,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_available_account_required"
       },
       {
         "id": "gumloop",
@@ -2177,7 +2177,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "happyscribe",
@@ -2195,7 +2195,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "heygen",
@@ -2213,7 +2213,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_outreach_sent"
       },
       {
         "id": "hide-me",
@@ -2231,7 +2231,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_browser_required_application_form"
       },
       {
         "id": "instapage",
@@ -2249,7 +2249,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_browser_required_portal_access"
       },
       {
         "id": "jasper",
@@ -2267,7 +2267,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_enrollment_requested"
       },
       {
         "id": "jobhire",
@@ -2285,7 +2285,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_outreach_sent"
       },
       {
         "id": "joiin",
@@ -2303,7 +2303,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "justuno",
@@ -2321,7 +2321,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "kinsta",
@@ -2357,7 +2357,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_page_unavailable"
       },
       {
         "id": "convertkit",
@@ -2393,7 +2393,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "landingi",
@@ -2411,7 +2411,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_browser_required_portal_access"
       },
       {
         "id": "leadpages",
@@ -2429,7 +2429,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_browser_required_portal_access"
       },
       {
         "id": "lovo",
@@ -2465,7 +2465,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_browser_required_trackdesk_application"
       },
       {
         "id": "manychat",
@@ -2483,7 +2483,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "marblism",
@@ -2519,7 +2519,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_enrollment_requested"
       },
       {
         "id": "merlin-ai",
@@ -2555,7 +2555,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_enrollment_requested"
       },
       {
         "id": "n8n",
@@ -2609,7 +2609,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_browser_required_otp"
       },
       {
         "id": "octo-browser",
@@ -2627,7 +2627,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_outreach_sent"
       },
       {
         "id": "optimonk",
@@ -2645,7 +2645,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_available_account_required"
       },
       {
         "id": "pickaxe",
@@ -2681,7 +2681,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "plerdy",
@@ -2699,7 +2699,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "poptin",
@@ -2717,7 +2717,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "popupsmart",
@@ -2735,7 +2735,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "privy",
@@ -2753,7 +2753,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "questmate",
@@ -2771,7 +2771,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_outreach_sent"
       },
       {
         "id": "quillbot",
@@ -2807,7 +2807,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_outreach_sent"
       },
       {
         "id": "reclaim-ai",
@@ -2825,7 +2825,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_enrollment_requested"
       },
       {
         "id": "reditus",
@@ -2843,7 +2843,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_enrollment_requested"
       },
       {
         "id": "reply-io",
@@ -2861,7 +2861,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_enrollment_requested"
       },
       {
         "id": "scalenut",
@@ -2969,7 +2969,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_browser_required_phone_captcha"
       },
       {
         "id": "sleeknote",
@@ -2987,7 +2987,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_waiting_vendor_response"
       },
       {
         "id": "snov-io",
@@ -3005,7 +3005,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "socialchamp-io",
@@ -3023,7 +3023,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "speechify",
@@ -3041,7 +3041,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "supademo",
@@ -3059,7 +3059,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "surfeo",
@@ -3095,7 +3095,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "synder",
@@ -3113,7 +3113,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_outreach_sent"
       },
       {
         "id": "synthflow-ai",
@@ -3131,7 +3131,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "tapfiliate",
@@ -3149,7 +3149,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_outreach_sent"
       },
       {
         "id": "teknikforce",
@@ -3167,7 +3167,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_enrollment_requested"
       },
       {
         "id": "text-cortex",
@@ -3203,7 +3203,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "veed",
@@ -3221,7 +3221,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "webflow",
@@ -3239,7 +3239,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       },
       {
         "id": "zenrows",
@@ -3257,7 +3257,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "affiliate_status_application_submitted"
       }
     ]
   },
