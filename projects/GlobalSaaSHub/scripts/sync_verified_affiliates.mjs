@@ -120,11 +120,17 @@ const statusOverrides = {
     affiliate_final_url: 'https://writesonic.com/',
     affiliate_verified_at: '2026-09-08T03:02:55+09:00',
     affiliate_rejection_reason: null,
+    affiliate_public_cta_paused: true,
+    affiliate_public_cta_pause_reason: 'vendor_reported_tracking_incident',
+    affiliate_public_cta_paused_at: '2026-10-07T15:36:57+09:00',
+    affiliate_public_cta_pause_evidence:
+      'Gmail message 1a115145bd92ea53: Writesonic reported conversion recording was unreliable and requested a temporary hold on new referrals until repair confirmation.',
     affiliate_evidence_markers: [
       'Writesonic reviewer Tanay Ahir explicitly accepted the COSHUMA application in Gmail message 1a07d09c9175ad13',
       'Writesonic welcome email 1a07d08d00c9f651 issued the exact customer-facing referral URL and states referrals are rewarded when they subscribe to a paid account',
       'https://writesonic.com?fp_ref=sang-kwon-f5452a',
       'This September 8 acceptance is newer and supersedes the stale September 1 rejected state in source tool data',
+      'Gmail message 1a115145bd92ea53: Writesonic reported conversion recording was unreliable and requested a temporary hold on new referrals until repair confirmation.',
     ],
   },
   brand24: {
