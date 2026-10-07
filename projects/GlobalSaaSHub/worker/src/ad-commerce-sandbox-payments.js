@@ -186,18 +186,29 @@ export class SandboxAdPayments {
   }
 
   capture(id) { return this.serial(id, () => this.finishCapture(id, true)); }
-  reconcile(id) { return this.serial(id, () => this.finishCapture(id, false)); }
+  reconcile(id, options = {}) { return this.serial(id, () => this.finishCapture(id, false, options)); }
 
-  async finishCapture(id, allowCapture) {
+  async finishCapture(id, allowCapture, { expectedCaptureIds, actor = 'sandbox_service' } = {}) {
+    if (!['sandbox_service', 'sandbox_webhook', 'sandbox_webhook_retry'].includes(actor) ||
+        (expectedCaptureIds !== undefined && (!Array.isArray(expectedCaptureIds) || expectedCaptureIds.length !== 1 ||
+          !expectedCaptureIds.every(identifier)))) fail('Invalid sandbox reconciliation context.', 503);
+    const captureMatches = value => expectedCaptureIds === undefined || expectedCaptureIds.includes(value);
     let order = await this.store.requireState(id, ['checkout', 'capturing', 'active', 'ended']);
     this.localPayment(order);
     await this.noStopEvent(order);
-    if (['active', 'ended'].includes(order.state)) return order;
+    if (['active', 'ended'].includes(order.state)) {
+      if (!captureMatches(order.capture_id)) fail('The completed event does not match this sandbox capture.');
+      return order;
+    }
     // Before our first capture attempt, a known unapproved order must remain checkout.
     // A failed preflight read also cannot justify an indefinite capturing reservation.
     if (order.state === 'checkout') await this.holds(order);
     let providerOrder = await this.provider(() => getPayPalOrder(this.env, order.provider_order, this.fetch));
     const beforeUnit = this.binding(providerOrder, order);
+    if (expectedCaptureIds !== undefined && (providerOrder.status !== 'COMPLETED' ||
+        beforeUnit.payments?.captures?.length !== 1 || !captureMatches(beforeUnit.payments.captures[0]?.id))) {
+      fail('The completed event does not match the provider-confirmed sandbox capture.');
+    }
     if (providerOrder.status !== 'COMPLETED' &&
         (!allowCapture || providerOrder.status !== 'APPROVED' || (beforeUnit.payments?.captures?.length || 0) > 0)) {
       fail('Sandbox payment is not approved for capture; no new capture request was sent.');
@@ -212,8 +223,8 @@ export class SandboxAdPayments {
           AND (SELECT count(*) FROM ad_sale_holds WHERE order_id=? AND expires_at>?)=?`,
           at, id, at, id, at, slots.length),
         this.store.q(`INSERT INTO ad_sale_audit(id,order_id,action,actor,detail,created_at)
-          SELECT ?,?,'sandbox_capture_started','sandbox_service',?,? WHERE changes()=1`,
-          crypto.randomUUID(), id, 'Reservation retained until provider outcome is reconciled', at),
+          SELECT ?,?,'sandbox_capture_started',?,?,? WHERE changes()=1`,
+          crypto.randomUUID(), id, actor, 'Reservation retained until provider outcome is reconciled', at),
       ]);
       order = await this.store.get(id);
       if (['active', 'ended'].includes(order.state)) return order;
@@ -255,8 +266,8 @@ export class SandboxAdPayments {
         AND provider_order=? AND payment_environment='sandbox' AND merchant_id=?`,
         capture.id, at, at, until, until, at, id, order.provider_order, this.env.PAYPAL_MERCHANT_ID),
       this.store.q(`INSERT INTO ad_sale_audit(id,order_id,action,actor,detail,created_at)
-        SELECT ?,?,'sandbox_payment_verified','sandbox_service',?,? WHERE changes()=1`,
-        crypto.randomUUID(), id, 'Sandbox order and capture matched; all positions activated atomically', at),
+        SELECT ?,?,'sandbox_payment_verified',?,?,? WHERE changes()=1`,
+        crypto.randomUUID(), id, actor, 'Sandbox order and capture matched; all positions activated atomically', at),
     ]);
     const saved = await this.store.get(id);
     if (saved.state !== 'active' || saved.capture_id !== capture.id) {

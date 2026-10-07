@@ -42,7 +42,7 @@ test('GET approval return renders a protected page without charging or changing 
 });
 test('cancel return does not capture, release reservation or falsely mark paid',async t=>{
  const f=await fixture(t),before=f.provider.calls.length,r=await f.handle(new Request(f.urls.cancel_url));
- assert.equal(r.status,200);assert.match(await r.text(),/approval was cancelled/);assert.equal(f.provider.calls.length,before);
+ assert.equal(r.status,200);assert.match(await r.text(),/구매자 승인이 취소/);assert.equal(f.provider.calls.length,before);
  assert.equal((await f.store.get(f.id)).state,'checkout');assert.equal(f.native.prepare('SELECT count(*) n FROM ad_sale_holds').get().n,1);
 });
 test('tampered state or mismatched PayPal token is rejected without financial calls',async t=>{
@@ -60,24 +60,70 @@ test('an authenticated POST completes only the matching approved order; reconcil
  assert.equal((await f.call('/sandbox/orders/'+f.id+'/reconcile')).status,200);
  assert.equal(before,1);assert.equal(f.provider.calls.filter(c=>c.method==='POST'&&c.path.endsWith('/capture')).length,1);
 });
-async function scriptRun(view,{key='b'.repeat(64),fail=false}={}){
- const message={textContent:''},button={disabled:false,addEventListener(_name,fn){this.click=fn;}};const calls=[];
- runInNewContext(sandboxReturnScript(view),{document:{getElementById:id=>id==='return-status'?message:button},
-  sessionStorage:{getItem:()=>key},fetch:async(path,init)=>{calls.push({path,init});if(fail)throw new Error('lost response');return {ok:true,json:async()=>({order:{state:'active'}})};},encodeURIComponent,JSON,Error});
- await nextTick();return {message,button,calls};
+async function scriptRun(view,{key='b'.repeat(64),fail=false,storage=new Map(),state='checkout',deny=false,storageFails=false}={}){
+ const message={textContent:''},detail={textContent:''},button={disabled:false,addEventListener(_name,fn){this.click=fn;}};const calls=[];
+ const paid={id:view.orderId,state:'active',capture_id:'SYNTHETIC-CAPTURE',payment_environment:'sandbox',
+   payment_verified_at:'2026-10-07T00:00:00.000Z',starts_at:'2026-10-07T00:00:00.000Z',ends_at:'2026-11-06T00:00:00.000Z'};
+ const order={id:view.orderId,state,provider_order:'SYNTHETIC-ORDER',hold_until:'2099-01-01T00:00:00.000Z',...(state==='active'?paid:{})};
+ const sessionStorage={getItem:name=>name.startsWith('coshuma-sandbox-order:')?key:storage.get(name),
+   setItem(name,value){if(storageFails)throw new Error('denied');storage.set(name,value);}};
+ runInNewContext(sandboxReturnScript(view),{document:{getElementById:id=>id==='return-status'?message:id==='order-detail'?detail:button},
+  sessionStorage,fetch:async(path,init)=>{calls.push({path,init});if(fail&&init.method==='POST')throw new Error('lost response');
+    return {ok:!deny,json:async()=>({order:init.method==='POST'?paid:order})};},encodeURIComponent,JSON,Error,Date});
+ await nextTick();return {message,detail,button,calls,storage};
 }
-const view={orderId:'test-order',nextAction:'confirm_with_authenticated_post'};
+const view={orderId:'test-order',nextAction:'confirm_with_authenticated_post',browserOutcome:'returned',reservationExpired:false};
+
 test('return script without order access cannot make any request',async()=>{
- const r=await scriptRun(view,{key:null});assert.equal(r.calls.length,0);assert.match(r.message.textContent,/cannot charge/);
+ const r=await scriptRun(view,{key:null});assert.equal(r.calls.length,0);assert.match(r.message.textContent,/접근키가 유실/);
 });
-test('return script uses one authenticated capture POST and reports only server-confirmed status',async()=>{
- const r=await scriptRun(view);assert.equal(r.calls.length,1);assert.match(r.calls[0].path,/\/capture$/);
- assert.equal(r.calls[0].init.method,'POST');assert.equal(r.calls[0].init.headers.Authorization,'Bearer '+'b'.repeat(64));assert.match(r.message.textContent,/verified/);
+
+test('return script reads owner state before one authenticated capture and shows verified period',async()=>{
+ const r=await scriptRun(view);assert.equal(r.calls.length,2);assert.equal(r.calls[0].init.method,'GET');
+ assert.match(r.calls[1].path,/\/capture$/);assert.equal(r.calls[1].init.method,'POST');
+ assert.equal(r.calls[1].init.headers.Authorization,'Bearer '+'b'.repeat(64));assert.match(r.message.textContent,/서버에서 확인/);
+ assert.match(r.detail.textContent,/2026-10-07T00:00:00.000Z/);assert.match(r.detail.textContent,/2026-11-06T00:00:00.000Z/);
+ assert.equal(r.calls.some(call=>call.path.includes('b'.repeat(64))),false);
 });
-test('cancel or expired return script never automatically sends a capture request',async()=>{
- for(const nextAction of ['show_status_without_charge','refresh_status','show_status']){const r=await scriptRun({...view,nextAction});assert.equal(r.calls.length,0);}
+
+test('cancel and expired returns read state but never automatically capture',async()=>{
+ for(const changed of [{nextAction:'show_status_without_charge',browserOutcome:'cancelled'},
+   {nextAction:'refresh_status',reservationExpired:true},{nextAction:'show_status'}]){
+   const r=await scriptRun({...view,...changed});assert.equal(r.calls.length,1);assert.equal(r.calls[0].init.method,'GET');
+ }
 });
-test('lost return response prompts status recovery; the retry button reconciles instead of recapturing',async()=>{
- const r=await scriptRun(view,{fail:true});assert.match(r.message.textContent,/do not pay again/);
- await r.button.click();assert.equal(r.calls.length,2);assert.match(r.calls[1].path,/\/reconcile$/);
+
+test('late cancellation shows already verified state without reverting or posting',async()=>{
+ const r=await scriptRun({...view,browserOutcome:'cancelled',nextAction:'show_status'},{state:'active'});
+ assert.equal(r.calls.length,1);assert.match(r.message.textContent,/서버에서 확인/);
+});
+
+test('lost capture response retains an attempt marker and button reconciles without recapturing',async()=>{
+ const r=await scriptRun(view,{fail:true});assert.match(r.message.textContent,/다시 결제하지/);
+ await r.button.click();assert.deepEqual(r.calls.map(call=>call.init.method),['GET','POST','GET','POST']);
+ assert.match(r.calls[1].path,/\/capture$/);assert.match(r.calls[3].path,/\/reconcile$/);
+});
+
+test('refresh after an ambiguous capture only reads and reconciles the original order',async()=>{
+ const first=await scriptRun(view,{fail:true});
+ const refresh=await scriptRun(view,{storage:first.storage});
+ assert.equal(refresh.calls.length,2);assert.match(refresh.calls[1].path,/\/reconcile$/);
+ assert.equal(refresh.calls.some(call=>call.path.endsWith('/capture')),false);
+});
+
+test('owner lookup denial or unavailable attempt storage prevents capture',async()=>{
+ for(const options of [{deny:true},{storageFails:true}]){
+  const r=await scriptRun(view,options);assert.equal(r.calls.length,1);assert.equal(r.calls[0].init.method,'GET');
+ }
+});
+
+test('held and refunded states do not become capture requests after a stale valid redirect',async()=>{
+ for(const state of ['held','refunded','cancelled']){
+  const r=await scriptRun(view,{state});assert.equal(r.calls.length,1);assert.equal(r.calls[0].init.method,'GET');
+ }
+});
+
+test('capture in progress reconciles after return without creating another capture',async()=>{
+ const r=await scriptRun({...view,nextAction:'reconcile_existing_capture'},{state:'capturing'});
+ assert.equal(r.calls.length,2);assert.match(r.calls[1].path,/\/reconcile$/);
 });

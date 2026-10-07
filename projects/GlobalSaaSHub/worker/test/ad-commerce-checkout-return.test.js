@@ -56,3 +56,18 @@ test('only a stored verified active order gets an already-paid result',async()=>
  assert.equal(result.paymentVerified,true);assert.equal(result.nextAction,'show_status');
  const pending=await inspect(req,{...o,state:'active'});assert.equal(pending.paymentVerified,false);
 });
+
+test('HTTPS test origin gets signed return links without loosening local-only HTTP validation',async()=>{
+ const value=order(),origin='https://isolated-ad-test.example';
+ const urls=await sandboxReturnUrls(value,origin,now),url=new URL(urls.return_url);url.searchParams.set('token',value.provider_order);
+ const result=await inspectSandboxReturn(new Request(url),value,{origin,now});
+ assert.equal(result.nextAction,'confirm_with_authenticated_post');assert.equal(result.paymentVerified,false);
+});
+
+test('stale signed returns reconcile a started capture and never request a fresh capture from stopped states',async()=>{
+ const value=order(),req=await request(value);
+ assert.equal((await inspect(req,{...value,state:'capturing'})).nextAction,'reconcile_existing_capture');
+ for(const state of ['held','refunded','cancelled','rejected']){
+  assert.equal((await inspect(req,{...value,state})).nextAction,'show_status');
+ }
+});

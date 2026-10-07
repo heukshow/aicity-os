@@ -2,6 +2,7 @@
 // Verified events are durable before order changes; no refund or capture POST is issued here.
 import { AdError } from './ad-commerce-domain.js';
 import { verifyPayPalWebhook } from './paypal.js';
+import { SandboxWebhookInbox } from './ad-commerce-sandbox-webhook-inbox.js';
 
 const API = 'https://api-m.sandbox.paypal.com';
 const LIMIT = 65536;
@@ -72,7 +73,7 @@ function related(event) {
 }
 
 export class SandboxAdWebhooks {
-  constructor(store, payments, { env, fetchImpl } = {}) {
+  constructor(store, payments, { env, fetchImpl, durableInbox = false } = {}) {
     const keys = ['PAYPAL_CLIENT_ID', 'PAYPAL_CLIENT_SECRET', 'PAYPAL_MERCHANT_ID', 'PAYPAL_WEBHOOK_ID'];
     if (!store?.db?.batch || typeof store.q !== 'function' || payments?.store !== store ||
         typeof payments.reconcile !== 'function' || env?.PAYPAL_ENVIRONMENT !== 'sandbox' ||
@@ -84,6 +85,9 @@ export class SandboxAdWebhooks {
     }
     this.store = store; this.payments = payments;
     this.env = Object.freeze(Object.fromEntries(['PAYPAL_ENVIRONMENT', ...keys].map(key => [key, env[key]])));
+    this.inbox = durableInbox ? new SandboxWebhookInbox(store, {
+      ...(typeof durableInbox === 'object' ? durableInbox : {}), merchantId: env.PAYPAL_MERCHANT_ID, webhookId: env.PAYPAL_WEBHOOK_ID,
+    }) : null;
     this.fetch = async (input, options = {}) => {
       const url = new URL(input);
       if (url.origin !== API || url.username || url.password || url.hash) fail('Only the sandbox API is permitted.', 503);
@@ -132,7 +136,98 @@ export class SandboxAdWebhooks {
     return { retainedCapturing: 0, stopped: result[0].meta.changes };
   }
 
+  async ready() {
+    if (!this.inbox) fail('Durable sandbox inbox is not configured.', 503);
+    await this.inbox.ready();
+  }
+  async receipt(eventId) {
+    if (!this.inbox) fail('Durable sandbox inbox is not configured.', 503);
+    return this.inbox.receipt(eventId);
+  }
+  async recentRuns(limit = 10) {
+    if (!this.inbox) fail('Durable sandbox inbox is not configured.', 503);
+    return this.inbox.recentRuns(limit);
+  }
+  async processEvent(event, ids, actor) {
+    const actionable = event.event_type === 'PAYMENT.CAPTURE.COMPLETED' || isStop(event.event_type);
+    const orders = actionable ? await this.matching(ids) : [];
+    if (actionable && orders.length === 0) return { unmatched: true, matched: 0, stopped: 0, retainedCapturing: 0, orderIds: [] };
+    let stopped = 0, retainedCapturing = 0;
+    for (const order of orders) {
+      if (ids.providerOrder && ids.providerOrder !== order.provider_order) fail('Event order identity does not match.', 409);
+      if (isStop(event.event_type)) {
+        const result = await this.stop(order, event);
+        stopped += result.stopped; retainedCapturing += result.retainedCapturing;
+      } else {
+        if (!['checkout', 'capturing', 'active', 'ended'].includes(order.state) || ids.captureIds.length !== 1 ||
+            (event.resource.amount && (event.resource.amount.value !== order.amount || event.resource.amount.currency_code !== order.currency))) {
+          fail('Completed event requires matching order state, amount and capture identity.', 409);
+        }
+        const reconciled = await this.payments.reconcile(order.id, { expectedCaptureIds: ids.captureIds, actor });
+        if (!['active', 'ended'].includes(reconciled.state) || !ids.captureIds.includes(reconciled.capture_id)) {
+          fail('Completed event and reconciled sandbox capture do not match.', 503);
+        }
+      }
+    }
+    return { matched: orders.length, stopped, retainedCapturing, orderIds: orders.map(order => order.id) };
+  }
+  async processReceipt(eventId, actor = 'sandbox_webhook_retry') {
+    if (!this.inbox) fail('Durable sandbox inbox is not configured.', 503);
+    const row = await this.inbox.claim(eventId, actor);
+    if (!row) return { claimed: false, receipt: await this.inbox.receipt(eventId) };
+    try {
+      const event = JSON.parse(row.raw_event), ids = related(event);
+      const result = await this.processEvent(event, ids, actor);
+      if (result.unmatched) return { claimed: true, deferred: true,
+        receipt: await this.inbox.retry(row, 'unmatched_order') };
+      if (result.retainedCapturing) return { claimed: true, needsReview: true,
+        receipt: await this.inbox.retry(row, 'uncertain_capture_requires_review', { terminal: true }) };
+      return { claimed: true, receipt: await this.inbox.finish(row, result) };
+    } catch {
+      return { claimed: true, retryableFailure: true,
+        receipt: await this.inbox.retry(row, 'processing_unavailable') };
+    }
+  }
+  async drain({ limit = 10 } = {}) {
+    if (!this.inbox) fail('Durable sandbox inbox is not configured.', 503);
+    const runId = await this.inbox.startRun('sandbox_webhook_retry');
+    const counts = { claimed: 0, processed: 0, retry: 0, failed: 0 };
+    try {
+      const rows = await this.inbox.due(limit);
+      for (const { id } of rows) {
+        const result = await this.processReceipt(id);
+        if (!result.claimed) continue;
+        counts.claimed++;
+        if (result.receipt?.state === 'processed') counts.processed++;
+        else if (result.receipt?.state === 'failed') counts.failed++;
+        else counts.retry++;
+      }
+      await this.inbox.finishRun(runId, counts);
+      return { runId, ...counts };
+    } catch (error) {
+      await this.inbox.finishRun(runId, counts, 'drain_unavailable').catch(() => {});
+      throw error;
+    }
+  }
+  async handleDurable(event, raw, headers, timing) {
+    let received = false;
+    try {
+      const stored = await this.inbox.receive(event, raw, headers, related(event), timing);
+      received = true;
+      const result = stored.receipt.state === 'processed' ? { receipt: stored.receipt }
+        : await this.processReceipt(event.id, 'sandbox_webhook');
+      const receipt = result.receipt;
+      return reply({ received: true, verificationStatus: 'SUCCESS', processed: receipt?.state === 'processed',
+        duplicate: stored.duplicate, receipt }, result.retryableFailure ? 503 : receipt?.state === 'processed' ? 200 : 202);
+    } catch (error) {
+      return reply({ received, processed: false, verificationStatus: 'SUCCESS',
+        error: received ? 'Verified event is retained for retry; processing was unavailable.' : 'Verified event storage did not succeed.' },
+        error?.status === 409 ? 409 : 503);
+    }
+  }
+
   async handle(request) {
+    const receivedAt = this.inbox?.now();
     let durable = false;
     try {
       if (request.method !== 'POST') return reply({ error: 'Method not allowed.' }, 405);
@@ -152,6 +247,8 @@ export class SandboxAdWebhooks {
       try { signature = await verifyPayPalWebhook(this.env, request.headers, event, this.fetch, raw); }
       catch { fail('Sandbox signature verification is unavailable.', 503); }
       if (signature?.verification_status !== 'SUCCESS') fail('Webhook signature was not verified.', 401);
+      if (this.inbox) return await this.handleDurable(event, raw, request.headers,
+        { receivedAt, verifiedAt: this.inbox.now() });
       const ids = related(event), at = this.store.now(), capturesJson = JSON.stringify(ids.captureIds);
       const results = await this.store.db.batch([this.store.q(`INSERT INTO ad_sale_events
         (environment,id,event_type,provider_order,capture_ids_json,received_at)
@@ -164,29 +261,12 @@ export class SandboxAdWebhooks {
       }
       const duplicate = results[0].meta.changes === 0;
       if (saved.processed_at) return reply({ received: true, processed: true, duplicate: true });
-      const actionable = event.event_type === 'PAYMENT.CAPTURE.COMPLETED' || isStop(event.event_type);
-      const orders = actionable ? await this.matching(ids) : [];
-      if (actionable && orders.length === 0) {
-        // A stop event arriving before local provider attachment still guards later capture.
-        // Keep it unprocessed so a replay can reconcile a subsequently bound order.
-        return reply({ received: true, processed: false, duplicate, matched: 0 }, 202);
-      }
-      let stopped = 0, retainedCapturing = 0;
-      for (const order of orders) {
-        if (isStop(event.event_type)) {
-          const result = await this.stop(order, event);
-          stopped += result.stopped; retainedCapturing += result.retainedCapturing;
-        } else if (['checkout', 'capturing', 'active', 'ended'].includes(order.state)) {
-          const reconciled = await this.payments.reconcile(order.id);
-          if (!['active', 'ended'].includes(reconciled.state) ||
-              (ids.captureIds.length && !ids.captureIds.includes(reconciled.capture_id))) {
-            fail('Completed event and reconciled sandbox capture do not match.', 503);
-          }
-        }
-      }
+      const result = await this.processEvent(event, ids, 'sandbox_webhook');
+      if (result.unmatched) return reply({ received: true, processed: false, duplicate, matched: 0 }, 202);
+      const { matched, stopped, retainedCapturing } = result;
       await this.store.db.batch([this.store.q(`UPDATE ad_sale_events SET processed_at=?
         WHERE environment='sandbox' AND id=? AND processed_at IS NULL`, this.store.now(), event.id)]);
-      return reply({ received: true, processed: true, duplicate, matched: orders.length, stopped, retainedCapturing });
+      return reply({ received: true, processed: true, duplicate, matched, stopped, retainedCapturing });
     } catch (error) {
       if (durable) return reply({ received: true, processed: false,
         error: 'Verified event is saved; processing needs retry or sandbox review.' }, error?.status === 409 ? 409 : 503);

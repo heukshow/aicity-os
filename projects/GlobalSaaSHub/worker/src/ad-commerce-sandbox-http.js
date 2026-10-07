@@ -51,13 +51,39 @@ function ownerView(order) {
 }
 const bearer = request => /^Bearer ([A-Za-z0-9_-]+)$/.exec(request.headers.get('authorization') || '')?.[1];
 
-export function createAdSandboxHandler({ store, payments, webhooks, reviewKey, environment, origin }) {
+export function createAdSandboxHandler(options) {
+  const { reviewKey, environment, origin } = options;
   const base = new URL(origin);
   if (environment !== 'sandbox' || !['127.0.0.1', 'localhost', '[::1]'].includes(base.hostname) ||
       base.protocol !== 'http:' || base.origin !== origin || typeof reviewKey !== 'string' || reviewKey.length < 32) {
     throw new AdError('An isolated loopback sandbox and a separate reviewer key are required.', 503);
   }
+  return createHandler(options);
+}
+
+// Separate opt-in public TEST entry. The original loopback contract stays unchanged.
+export function createPublicAdSandboxHandler(options) {
+  const { environment, origin, reviewKey, operatorKey, isolation } = options;
+  let base; try { base = new URL(origin); } catch { throw new AdError('Invalid test origin.', 503); }
+  if (isolation !== 'coshuma-ads-sandbox' || environment !== 'sandbox' ||
+      base.protocol !== 'https:' || base.origin !== origin ||
+      !/^coshuma-ads-sandbox-[a-z0-9-]+\.[a-z0-9-]+\.workers\.dev$/.test(base.hostname) ||
+      typeof reviewKey !== 'string' || reviewKey.length < 32 ||
+      typeof operatorKey !== 'string' || operatorKey.length < 32 || operatorKey === reviewKey ||
+      typeof options.beforePaymentMutation !== 'function') {
+    throw new AdError('An isolated HTTPS test deployment and separate keys are required.', 503);
+  }
+  return createHandler(options);
+}
+function binary(value) {
+  if (value instanceof ArrayBuffer) return new Uint8Array(value);
+  if (ArrayBuffer.isView(value)) return new Uint8Array(value.buffer, value.byteOffset, value.byteLength);
+  if (Array.isArray(value) && value.every(n => Number.isInteger(n) && n >= 0 && n <= 255)) return Uint8Array.from(value);
+  throw new AdError('Stored image bytes are invalid.', 500);
+}
+function createHandler({ store, payments, webhooks, reviewKey, operatorKey, environment, origin, beforePaymentMutation }) {
   const reviewHash = digest(reviewKey);
+  const operatorHash = operatorKey ? digest(operatorKey) : null;
   async function owner(request, id) {
     const token = bearer(request), order = await store.get(id);
     if (!token || !order || await digest(token) !== order.access_hash) throw new AdError('Order access denied.', 403);
@@ -115,11 +141,13 @@ export function createAdSandboxHandler({ store, payments, webhooks, reviewKey, e
       const parts = url.pathname.split('/').filter(Boolean).map(decodeURIComponent);
       if (parts[0] !== 'sandbox') return json({ error: 'Not found.' }, 404);
       if (request.method === 'GET' && url.pathname === '/sandbox/catalog') {
-        await payments.expire();
         return json({ environment: 'sandbox', version: CATALOG_VERSION, availability: await store.availability(), slots: IMAGE_SLOTS,
           bundles: IMAGE_BUNDLES, assetSpecs: AD_ASSET_SPECS, supportedUploadMimes: ['image/png'] });
       }
       if (request.method === 'POST' && url.pathname === '/sandbox/orders') {
+        if (operatorHash && (!bearer(request) || await digest(bearer(request)) !== await operatorHash)) {
+          throw new AdError('Test operator access denied.', 403);
+        }
         const result = await store.createDraft(await bodyJson(request));
         return json({ order: ownerView(result.order), accessToken: result.accessToken }, 201);
       }
@@ -135,7 +163,7 @@ export function createAdSandboxHandler({ store, payments, webhooks, reviewKey, e
         if (parts.length === 6 && parts[4] === 'assets') {
           const file = await store.q('SELECT mime,data FROM ad_sale_files WHERE order_id=? AND role=?', order.id, parts[5]).first();
           if (!file) throw new AdError('File not found.', 404);
-          return new Response(file.data, { headers: { ...headers, 'Content-Type': file.mime } });
+          return new Response(binary(file.data), { headers: { ...headers, 'Content-Type': file.mime } });
         }
       }
       if (parts.length === 5 && parts[1] === 'admin' && parts[2] === 'orders' && parts[4] === 'review' && request.method === 'POST') {
@@ -165,6 +193,9 @@ export function createAdSandboxHandler({ store, payments, webhooks, reviewKey, e
           return json({ files: await store.files(id) });
         }
         if (parts.length === 4 && request.method === 'POST') {
+          if (['checkout', 'capture'].includes(parts[3]) && beforePaymentMutation) {
+            await beforePaymentMutation({ order, operation: parts[3] });
+          }
           let result;
           if (parts[3] === 'submit') result = { order: await store.submitDraft(id) };
           else if (parts[3] === 'reserve') { await payments.expire(); result = { order: await store.reserveReviewedOrder(id) }; }
@@ -183,7 +214,7 @@ export function createAdSandboxHandler({ store, payments, webhooks, reviewKey, e
         if (!order) return json({ error: 'No active advertisement.' }, 404);
         const file = await store.q('SELECT mime,data FROM ad_sale_files WHERE order_id=? AND role=?', parts[2], parts[3]).first();
         if (!file) return json({ error: 'File not found.' }, 404);
-        return new Response(file.data, { headers: { ...headers, 'Content-Type': file.mime } });
+        return new Response(binary(file.data), { headers: { ...headers, 'Content-Type': file.mime } });
       }
       if (parts.length === 3 && parts[1] === 'preview' && request.method === 'GET') {
         const rows = await placements(parts[2]);

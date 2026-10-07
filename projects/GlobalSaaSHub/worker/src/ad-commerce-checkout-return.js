@@ -42,5 +42,5 @@ export async function inspectSandboxReturn(request,order,{origin,now=Date.now()}
   const verified=['active','ended'].includes(order.state)&&Boolean(order.capture_id)&&Number.isFinite(Date.parse(order.payment_verified_at));
   return {orderId:order.id,browserOutcome:flow==='cancel'?'cancelled':'returned',
     storedState:order.state,paymentVerified:verified,reservationExpired:time<=now,
-    nextAction:verified?'show_status':flow==='cancel'?'show_status_without_charge':time<=now?'refresh_status':'confirm_with_authenticated_post'};
+    nextAction:verified?'show_status':flow==='cancel'?'show_status_without_charge':order.state==='capturing'?'reconcile_existing_capture':time<=now?'refresh_status':order.state==='checkout'?'confirm_with_authenticated_post':'show_status'};
 }
