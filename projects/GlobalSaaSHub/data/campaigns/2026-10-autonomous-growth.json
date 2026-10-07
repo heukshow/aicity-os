@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-07T01:07:00Z",
+  "updated_at": "2026-10-07T01:54:00Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -940,7 +940,7 @@
     "trend_rule": "Adapt non-video topics, length, layout and publication style to current official platform guidance and observed relevant audience discussion. Record sources and dates; do not invent trend demand, reach or performance."
   },
   "onsite_advertising": {
-    "status": "paid_path_paused_site_fail_closed_worker_disable_pending",
+    "status": "paid_path_paused_fail_closed",
     "authorized_at": "2026-10-04T07:31:56+09:00",
     "payment_verification_requested_at": "2026-10-04T07:33:53+09:00",
     "customer_material_language": "en",
@@ -961,7 +961,7 @@
     "new_paid_advertiser_milestone": "First real advertiser payment must be separately verified; mock and internal QA records are excluded.",
     "cash_receipt_forecast": "unknown; do not treat catalogue prices or technical readiness as received revenue",
     "additional_operating_spend_limit_usd": 0,
-    "updated_at": "2026-10-04T21:00:00Z",
+    "updated_at": "2026-10-07T01:54:00Z",
     "production_evidence": {
       "site_source_commit": "4706d69769559ec226060b7100d8392533462d9d",
       "site_build_run": 37162847558,
@@ -1031,14 +1031,14 @@
       "execution_evidence": "Configuration only; no future run or advertiser receipt claimed."
     },
     "remaining_gates": [
-      "Deploy the clean current-main Worker through the existing authorized environment without creating a new Worker, account, plan or secret.",
-      "Read-only verify the active Worker version/config and that payment create/capture remain unavailable without making a payment transaction.",
+      "Complete the existing draft advertising fulfilment work and its separate safety/release gates before any production merge or deployment.",
+      "Before any checkout re-enable, verify reviewed intake, inventory, completed-capture handling, publication and end-date handling against current main; do not create a real QA payment transaction.",
       "Keep external paid inventory and public paid rendering disabled; preserve any independently verified pre-existing paid obligation if later found."
     ],
     "production_evidence_scope": "Historical paid-checkout activation evidence before the 2026-10-05 stop fix. It is preserved for audit and must not be read as the current operating state.",
     "current_operating_state": {
-      "effective_at": "2026-10-05T03:34:00+09:00",
-      "evidence_comment_id": 5983120644,
+      "effective_at": "2026-10-06T19:01:55Z",
+      "evidence_comment_id": 6023444328,
       "implementation_pr": 1020,
       "merge_commit": "f2ab6d218c30507b0ebbc48260f13dd36fe47020",
       "pr_build_run": 37224429133,
@@ -1052,20 +1052,20 @@
       "paid_slots_status": "reserved_hidden",
       "deployed_public_paid_renderer_enabled": false,
       "gh_pages_renderer_blob": "b17d0c55e00375aa33bcb22912b59b8390c14569",
-      "active_worker_checkout_disabled": false,
-      "active_worker_state": "checkout_ready_after_stop_fix",
+      "active_worker_checkout_disabled": true,
+      "active_worker_state": "checkout_disabled_fail_closed",
       "real_advertiser_payment_confirmed": false,
       "public_paid_ad_activated": false,
       "house_promotion_scope": "COSHUMA first-party unpaid house promotion is separate and was not changed by PR #1020.",
       "additional_operating_spend_usd": 0,
       "user_action_required": false,
-      "active_worker_verification_checked_at": "2026-10-04T20:28:15Z",
+      "active_worker_verification_checked_at": "2026-10-06T19:01:55Z",
       "active_worker_config_http_status": 200,
       "active_worker_config_intake_ready": true,
-      "active_worker_config_payment_ready": true,
-      "active_worker_evidence_comment_id": 5984094974,
-      "active_worker_registry_sync_pr": 1025,
-      "active_worker_registry_sync_merge_commit": "87dcd512",
+      "active_worker_config_payment_ready": false,
+      "active_worker_evidence_comment_id": 6023444328,
+      "active_worker_registry_sync_pr": 1041,
+      "active_worker_registry_sync_merge_commit": "380bbb19baee66c416220e866cbd8733c7cc42df",
       "house_promotion_publication": {
         "implementation_pr": 1023,
         "merge_commit": "ed775c3a",
@@ -1113,6 +1113,17 @@
           "changed_scope": "Inquiry duration selector markup only; no price, payment, measurement or revenue claim changed.",
           "conversion_uplift_confirmed": false
         }
+      },
+      "active_worker_public_client_id_present": false,
+      "active_worker_deploy_version": "bd720a85-3272-4a1a-a0e1-4bdc8b433a8e",
+      "active_worker_deploy_source_commit": "991b324650f0661c04cb59da3c4b1f14e2cb4a25",
+      "campaign_ssot_sync": {
+        "found_by": "Security & Cost Control Team",
+        "fixed_by": "Security & Cost Control Team",
+        "canonical_owner": "Operations Governance Team",
+        "changed_scope": "Campaign ledger only: synchronized the current Worker checkout stop state from the already verified production evidence and registry completion. No checkout, payment, capture, refund, dispute, advertiser record, public renderer, database, credential, account, service, measurement definition or spend changed.",
+        "verification": "Issue #292 comments 6023444328 and 6027150573 plus operations_registry.json confirm HTTP 200 with intakeReady=true, paymentReady=false, no public client ID, Worker version bd720a85-3272-4a1a-a0e1-4bdc8b433a8e, and registry lifecycle production_verified.",
+        "handoff": "Operations Governance Team retains campaign-ledger ownership. Revenue Optimization retains the broader advertising implementation; PR #1039 remains draft and must not be treated as deployed or payment-ready."
       }
     }
   },
