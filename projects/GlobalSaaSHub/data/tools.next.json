@@ -5241,13 +5241,14 @@
     "official_verified_at": "2026-09-14T07:38:00+09:00",
     "official_evidence_url": "https://www.poptin.com/affiliate/",
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_account_registration",
+    "affiliate_status": "browser_required_legal_program_consent",
     "affiliate_source_url": "https://www.poptin.com/affiliate/",
     "affiliate_workflow_url": "https://app.popt.in/",
-    "affiliate_status_checked_at": "2026-09-14T07:38:00+09:00",
+    "affiliate_status_checked_at": "2026-10-07T11:22:00+09:00",
     "application_state": "not_submitted",
     "affiliate_evidence_markers": [
       "Official Poptin affiliate page states the program is open to all and registration is free.",
+      "Official Poptin terms require signup and Terms of Service acceptance before access to the affiliate control panel.",
       "Official program says the unique affiliate link is provided in the authenticated control panel.",
       "Official current program advertises a 90-day cookie window and lifetime 25% monthly commission for each new paying member recruited.",
       "Official pricing and affiliate pages advertise a Free Forever account for 1,000 visitors per month and no credit card required.",
@@ -5256,7 +5257,7 @@
       "Exact account-specific customer referral URL is unknown; app/dashboard/login/onboarding/homepage URLs must not be used as affiliate CTAs.",
       "GitHub issue #485 tracks the free account registration and exact control-panel referral URL recovery."
     ],
-    "affiliate_next_action": "Use the official Poptin free registration with the COSHUMA company account, avoid duplicate account creation, then recover and validate only the unique vendor-issued customer referral URL from the authenticated control panel. Stop for CAPTCHA, OTP, legal consent, forced identity verification or payment approval."
+    "affiliate_next_action": "Hold at legal consent. After the account holder accepts the official Terms of Service through a supported normal flow, check for an existing COSHUMA account before any registration, then recover and validate only the unique vendor-issued customer referral URL from the authenticated control panel. Stop for CAPTCHA, OTP, forced identity verification or payment approval."
   },
   {
     "id": "popupsmart",
