@@ -5194,12 +5194,13 @@
     "official_verified_at": "2026-09-14T11:32:00+09:00",
     "official_evidence_url": "https://www.plerdy.com/referral-program/",
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_account_registration",
+    "affiliate_status": "browser_required_legal_program_consent",
     "affiliate_source_url": "https://www.plerdy.com/referral-program/",
-    "affiliate_workflow_url": "https://www.plerdy.com/referral-program/",
-    "affiliate_status_checked_at": "2026-09-14T11:32:00+09:00",
+    "affiliate_workflow_url": "https://a.plerdy.com/auth/register?affiliate=1",
+    "affiliate_status_checked_at": "2026-10-07T13:25:50.355+09:00",
     "application_state": "not_submitted",
     "affiliate_evidence_markers": [
+      "Official affiliate registration requires accepting Plerdy Privacy Policy and Terms of Service.",
       "Official Plerdy pricing advertises a $0 / Forever plan.",
       "Official referral page advertises 50% commission for 12 months on qualifying new-customer subscription purchases.",
       "Official referral page states a 30-day cookie and unique affiliate link after registration.",
@@ -5209,7 +5210,7 @@
       "Exact account-issued customer referral URL is unknown; no revenue stage is inferred.",
       "GitHub issue #501 tracks registration and referral-link recovery."
     ],
-    "affiliate_next_action": "Use the official Plerdy registration/referral flow with support@coshuma.com, checking for an existing account first. If absent, create one free account and recover only the exact unique customer-facing referral URL actually issued. Stop for CAPTCHA, OTP, legal/program consent, forced identity verification or payment approval."
+    "affiliate_next_action": "Hold at the legal-consent gate. After the owner accepts the official Plerdy Privacy Policy and Terms of Service in the affiliate registration flow, recover only the exact unique customer-facing referral URL actually issued. Stop for CAPTCHA, OTP, forced identity verification or payment approval."
   },
   {
     "id": "poptin",
