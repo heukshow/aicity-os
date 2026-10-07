@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-07T01:54:00Z",
+  "updated_at": "2026-10-07T21:37:11Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -806,7 +806,245 @@
     "owner": "Revenue Intelligence Team",
     "current_campaign_outcomes": null,
     "baseline_is_not_campaign_outcome": true,
-    "append_only_observations": [],
+    "append_only_observations": [
+      {
+        "observed_at": "2026-10-07T12:03:53.019Z",
+        "source_url_or_record": "https://github.com/heukshow/aicity-os/actions/runs/37618343348",
+        "source_timezone": "Asia/Seoul",
+        "requested_window": {
+          "type": "fixed_matched_7d",
+          "baseline": {
+            "start": "2026-09-20",
+            "end": "2026-09-26"
+          },
+          "post": {
+            "start": "2026-09-28",
+            "end": "2026-10-04"
+          },
+          "post_available_on": "2026-10-07"
+        },
+        "available_window": {
+          "baseline": "current",
+          "post": "current",
+          "followup_30d": {
+            "start": "2026-09-28",
+            "end": "2026-10-27",
+            "available_on": "2026-10-30",
+            "status": "not_matured"
+          }
+        },
+        "qa_exclusion_coverage": "Explicit QA URL filter plus client-side session exclusion; historical unmarked visits remain ambiguous.",
+        "metric_definition": "GA4 event counts and users for the exact page/event scope; affiliate_click is a first-party site event, not a vendor referral, paid conversion, commission or payout.",
+        "availability_state": "partial",
+        "causal_claim": "none",
+        "value": {
+          "task_key": "GAMMA-DECISION-MEASUREMENT-20260927",
+          "page": "/compare/gamma-vs-canva.html",
+          "baseline": {
+            "page_view": {
+              "events": 33,
+              "users": 30,
+              "status": "current"
+            },
+            "affiliate_click": {
+              "events": 0,
+              "users": 0,
+              "status": "current"
+            }
+          },
+          "post": {
+            "page_view": {
+              "events": 20,
+              "users": 20,
+              "status": "current"
+            },
+            "affiliate_click": {
+              "events": 0,
+              "users": 0,
+              "status": "current"
+            },
+            "affiliate_cta_view": {
+              "events": 20,
+              "users": 20,
+              "status": "current"
+            },
+            "decision_tool_view": {
+              "events": 0,
+              "users": 0,
+              "status": "current"
+            },
+            "decision_tool_use": {
+              "events": 0,
+              "users": 0,
+              "status": "current"
+            },
+            "decision_brief_copy": {
+              "events": 0,
+              "users": 0,
+              "status": "current"
+            }
+          },
+          "downstream": {
+            "signup": "unavailable",
+            "trial": "unavailable",
+            "paid": "unavailable",
+            "commission": "unavailable",
+            "payout": "unavailable",
+            "bank_cash_receipt": "unknown"
+          }
+        }
+      },
+      {
+        "observed_at": "2026-10-07T12:03:53.019Z",
+        "source_url_or_record": "https://github.com/heukshow/aicity-os/actions/runs/37618343348",
+        "source_timezone": "Asia/Seoul",
+        "requested_window": {
+          "type": "fixed_matched_7d",
+          "baseline": {
+            "start": "2026-09-20",
+            "end": "2026-09-26"
+          },
+          "post": {
+            "start": "2026-09-28",
+            "end": "2026-10-04"
+          },
+          "post_available_on": "2026-10-07"
+        },
+        "available_window": {
+          "baseline": "current",
+          "post": "current",
+          "followup_30d": {
+            "start": "2026-09-28",
+            "end": "2026-10-27",
+            "available_on": "2026-10-30",
+            "status": "not_matured"
+          }
+        },
+        "qa_exclusion_coverage": "Explicit QA URL filter plus client-side session exclusion; historical unmarked visits remain ambiguous.",
+        "metric_definition": "GA4 event counts and users for the exact page/event scope; affiliate_click is a first-party site event, not a vendor referral, paid conversion, commission or payout.",
+        "availability_state": "partial",
+        "causal_claim": "none",
+        "value": {
+          "task_key": "REV-CHATBASE-DISCLOSURE-LAYOUT-20260927",
+          "page": "/tool/chatbase.html",
+          "baseline": {
+            "page_view": {
+              "events": 1,
+              "users": 1,
+              "status": "current"
+            },
+            "affiliate_click": {
+              "events": 0,
+              "users": 0,
+              "status": "current"
+            }
+          },
+          "post": {
+            "page_view": {
+              "events": 0,
+              "users": 0,
+              "status": "current"
+            },
+            "affiliate_click": {
+              "events": 0,
+              "users": 0,
+              "status": "current"
+            }
+          },
+          "downstream": {
+            "signup": "unavailable",
+            "trial": "unavailable",
+            "paid": "unavailable",
+            "commission": "unavailable",
+            "payout": "unavailable",
+            "bank_cash_receipt": "unknown"
+          }
+        }
+      },
+      {
+        "observed_at": "2026-10-07T12:03:53.019Z",
+        "source_url_or_record": "https://github.com/heukshow/aicity-os/actions/runs/37618343348",
+        "source_timezone": "Asia/Seoul",
+        "requested_window": {
+          "type": "fixed_matched_7d",
+          "baseline": {
+            "start": "2026-09-20",
+            "end": "2026-09-26"
+          },
+          "post": {
+            "start": "2026-09-28",
+            "end": "2026-10-04"
+          },
+          "post_available_on": "2026-10-07"
+        },
+        "available_window": {
+          "baseline": "current",
+          "post": "current",
+          "followup_30d": {
+            "start": "2026-09-28",
+            "end": "2026-10-27",
+            "available_on": "2026-10-30",
+            "status": "not_matured"
+          }
+        },
+        "qa_exclusion_coverage": "Explicit QA URL filter plus client-side session exclusion; historical unmarked visits remain ambiguous.",
+        "metric_definition": "GA4 event counts and users for the exact page/event scope; affiliate_click is a first-party site event, not a vendor referral, paid conversion, commission or payout.",
+        "availability_state": "partial",
+        "causal_claim": "none",
+        "value": {
+          "task_key": "REV-COMPARE-MEASUREMENT-20260927",
+          "page": "/",
+          "scope": "homepage comparison flow",
+          "baseline": {
+            "page_view": {
+              "events": 0,
+              "users": 0,
+              "status": "current"
+            },
+            "affiliate_click": {
+              "events": 0,
+              "users": 0,
+              "status": "current"
+            }
+          },
+          "post": {
+            "page_view": {
+              "events": 0,
+              "users": 0,
+              "status": "current"
+            },
+            "affiliate_click": {
+              "events": 0,
+              "users": 0,
+              "status": "current"
+            },
+            "compare_open": {
+              "events": 0,
+              "users": 0,
+              "status": "current"
+            },
+            "compare_tool_select": {
+              "events": 0,
+              "users": 0,
+              "status": "current"
+            },
+            "compare_cta_view": {
+              "events": 0,
+              "users": 0,
+              "status": "current"
+            }
+          },
+          "downstream": {
+            "signup": "unavailable",
+            "trial": "unavailable",
+            "paid": "unavailable",
+            "commission": "unavailable",
+            "payout": "unavailable",
+            "bank_cash_receipt": "unknown"
+          }
+        }
+      }
+    ],
     "required_observation_fields": [
       "observed_at",
       "source_url_or_record",
