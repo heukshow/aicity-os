@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
+<title>COSHUMA 로컬 합성 판매 시험</title>
+<link rel="stylesheet" href="/fixture-style.css"><script src="/fixture-page.js" defer></script>
+</head>
+<body><main class="shell">
+<header class="site-head"><strong class="brand">COSHUMA</strong><span class="proof-label">로컬 합성 시험</span></header>
+<section class="section">
+<h1>광고 판매 연결 시험</h1>
+<p class="status-note"><strong>로컬 합성 시험 / 실제 PayPal 결제 아님</strong><br>모든 주문·광고주·승인은 시험 데이터입니다. 실제 광고주 정보, 계정 비밀번호, 결제 정보는 입력하지 마세요. 접근 토큰은 이 페이지 메모리에만 유지되며 새로고침하면 사라집니다.</p>
+<p id="status" role="status" aria-live="polite">시험 상품을 불러오는 중…</p>
+<p id="order-status" class="note">생성된 시험 주문이 없습니다.</p>
+</section>
+<section class="section"><h2>1. 상품과 합성 자료 · 합성 기본값</h2>
+<form id="draft-form" class="form-card">
+<div class="row">
+<div class="field"><label for="product">광고 상품</label><select id="product" required></select></div>
+<div class="field"><label for="days">게시 기간</label><select id="days"><option value="7">7일</option><option value="30" selected>30일</option><option value="90">90일</option></select></div>
+</div>
+<div class="field" id="rotation-field" hidden><label for="rotation">P1 회전 자리</label><select id="rotation"></select></div>
+<p id="selection-detail" class="fine"></p>
+<div class="row">
+<div class="field"><label for="company">합성 광고주</label><input id="company" value="LOCAL SYNTHETIC TEST" required maxlength="120"></div>
+<div class="field"><label for="product-name">합성 제품명</label><input id="product-name" value="Sandbox sample software" required maxlength="120"></div>
+</div>
+<div class="field"><label for="email">시험 이메일</label><input id="email" type="email" value="test@example.com" required></div>
+<div class="field"><label for="claims">합성 자료 근거</label><textarea id="claims" required maxlength="1800">Synthetic local fixture only. No real customer claims or revenue evidence.</textarea></div>
+<div class="field"><label for="headline">광고 제목</label><input id="headline" value="Synthetic sandbox advertisement" required minlength="5" maxlength="80"></div>
+<div class="field"><label for="description">광고 설명</label><textarea id="description" required minlength="20" maxlength="240">Synthetic demonstration of the local advertising lifecycle, without any real purchase or external payment.</textarea></div>
+<div class="field"><label for="alt">이미지 대체 설명</label><input id="alt" value="Synthetic local advertisement test image" required minlength="10" maxlength="160"></div>
+<div class="row">
+<div class="field"><label for="destination">시험 목적지 (이 화면에서 열지 않음)</label><input id="destination" type="url" value="https://example.com/sandbox-product" required></div>
+<div class="field"><label for="button-text">광고 버튼 문구</label><input id="button-text" value="View test product" required maxlength="30"></div>
+</div>
+<p><label><input id="rights" type="checkbox" required> 합성 시험 자료와 사용 권한 확인 값을 제출합니다.</label></p>
+<button id="create-draft" class="btn" type="submit" disabled>합성 초안 생성</button>
+</form></section>
+<section id="uploads-section" class="section" hidden><h2>2. PNG 자료 업로드·제출</h2>
+<p class="section-intro">8-bit 비인터레이스 PNG만 지원합니다. 각 자리의 치수와 최대 크기를 확인하세요.</p>
+<div id="asset-inputs" class="form-card"></div>
+<div class="actions"><button id="upload-assets" class="btn" disabled>선택한 PNG 업로드</button><button id="submit-order" class="btn secondary" disabled>자료 검수 제출</button><button id="refresh-order" class="btn secondary" disabled>주문 상태 확인</button></div>
+<pre id="file-details"></pre></section>
+<section class="section"><h2>3. 별도 검수자 확인</h2>
+<div class="form-card">
+<div class="field"><label for="review-key">로컬 시험용 검수자 키 (실제 계정 비밀번호 입력 금지)</label><input id="review-key" type="password" autocomplete="off"></div>
+<button id="read-review" class="btn secondary" disabled>검수 자료와 이미지 확인</button>
+<pre id="review-details"></pre><div id="review-images" class="ad-position-grid"></div>
+<p><label><input id="destination-checked" type="checkbox"> 합성 목적지 확인 완료</label></p>
+<p><label><input id="claims-checked" type="checkbox"> 합성 주장·근거 확인 완료</label></p>
+<button id="approve-review" class="btn" disabled>합성 검수 승인</button>
+</div></section>
+<section class="section"><h2>4. 자리 확보·모의 결제·게시</h2>
+<p class="status-note">아래 결제 단계는 로컬 모의 응답만 사용합니다. PayPal 사이트·실제 결제 창은 열리지 않습니다.</p>
+<div class="actions"><button id="reserve" class="btn" disabled>검수된 자리 확보</button><button id="checkout" class="btn" disabled>모의 결제 주문 생성</button><button id="mock-approve" class="btn secondary" disabled>모의 구매자 승인</button><button id="capture" class="btn" disabled>모의 결제 확정</button></div>
+<div id="preview-links" class="actions"></div>
+<div class="actions"><button id="expire" class="btn secondary" disabled>시험 시간 30일 이동·종료</button></div>
+<p class="fine">실제 PayPal Sandbox 연동이나 운영 광고 게시 성공을 증명하는 화면이 아닙니다.</p>
+</section>
+</main></body></html>

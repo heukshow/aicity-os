@@ -1,0 +1,55 @@
+name: COSHUMA Ad Commerce Regression
+
+on:
+  pull_request:
+    paths:
+      - 'projects/GlobalSaaSHub/worker/**'
+      - '.github/workflows/coshuma-ad-commerce-checks.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'projects/GlobalSaaSHub/worker/**'
+      - '.github/workflows/coshuma-ad-commerce-checks.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONUTF8: '1'
+  PYTHONIOENCODING: utf-8
+
+concurrency:
+  group: ad-commerce-regression-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  isolated-regression:
+    name: Offline order safety / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 8
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    defaults:
+      run:
+        working-directory: projects/GlobalSaaSHub/worker
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22.15.0'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run all Worker regression tests with mocked payment providers
+        run: >-
+          node -e "const fs=require('node:fs'),cp=require('node:child_process');const files=fs.readdirSync('test').filter(n=>/\.test\.js$/.test(n)).sort().map(n=>'test/'+n);if(!files.length)process.exit(1);const r=cp.spawnSync(process.execPath,['--test',...files],{stdio:'inherit'});process.exit(r.status??1)"
+      - name: Run actual-Sandbox runner offline boundary checks
+        run: node test/ad-commerce-paypal-sandbox-runner.mjs --self-test
+      - name: Check SQLite migration protection rules in memory
+        run: python test/ad-commerce-schema.test.py
+      - name: Reject accidental production entrypoint changes in this draft
+        run: >-
+          node -e "const fs=require('node:fs');for(const file of ['src/index.js','wrangler.toml']){const s=fs.readFileSync(file,'utf8');if(/ad-commerce|ad-sale|ADS_CHECKOUT_ENABLED\s*=\s*\x22true\x22/.test(s))throw new Error('Explicit production-release review is required: '+file)}"
