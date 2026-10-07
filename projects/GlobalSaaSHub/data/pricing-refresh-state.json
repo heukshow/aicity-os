@@ -236,43 +236,43 @@
       "status": "evidence_validation_failed"
     },
     "helpdesk": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-07T07:18:21Z",
+      "status": "evidence_validation_failed"
     },
     "heygen": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-07T07:18:21Z",
+      "status": "evidence_validation_failed"
     },
     "hide-me": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-07T07:18:21Z",
+      "status": "error_HTTPError"
     },
     "hubspot": {
-      "checked_at": "2026-10-02T23:21:25Z",
+      "checked_at": "2026-10-07T07:18:21Z",
       "status": "no_official_pricing_result"
     },
     "inkfluence-ai": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-07T07:18:21Z",
+      "status": "evidence_validation_failed"
     },
     "jasper": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-07T07:18:21Z",
+      "status": "evidence_validation_failed"
     },
     "jobhire": {
-      "checked_at": "2026-10-02T23:21:25Z",
+      "checked_at": "2026-10-07T07:18:21Z",
       "status": "no_official_pricing_result"
     },
     "jotform": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-07T07:18:21Z",
+      "status": "evidence_validation_failed"
     },
     "kinsta": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-07T07:18:21Z",
+      "status": "evidence_validation_failed"
     },
     "kit": {
-      "checked_at": "2026-10-02T23:21:25Z",
+      "checked_at": "2026-10-07T07:18:21Z",
       "status": "no_official_pricing_result"
     },
     "kittl": {
@@ -532,10 +532,7 @@
       "status": "extract_retry_exhausted"
     }
   },
-  "last_run_at": "2026-10-06T07:37:35Z",
+  "last_run_at": "2026-10-07T07:18:21Z",
   "last_batch_size": 10,
-  "last_updated_tools": [
-    "getresponse",
-    "gohighlevel"
-  ]
+  "last_updated_tools": []
 }
