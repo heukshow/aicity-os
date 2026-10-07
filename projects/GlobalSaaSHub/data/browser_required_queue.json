@@ -1120,20 +1120,20 @@
     "github_issue": 516
   },
   {
-    "id": "engagebay-account-registration-2026-09-14",
+    "id": "engagebay-legal-program-consent-2026-10-07",
     "tool_id": "engagebay",
     "priority": "medium",
-    "status": "browser_required_account_registration",
-    "affiliate_status": "browser_required_account_registration",
+    "status": "browser_required_legal_program_consent",
+    "affiliate_status": "browser_required_legal_program_consent",
     "application_state": "not_submitted",
     "cost": 0,
     "exact_tracking_url": null,
     "user_action_required": true,
-    "blocker": "The official referral route requires creating an EngageBay account.",
-    "reason": "Duplicate checks are clear, but account creation is not completed and no customer tracking URL exists.",
-    "next_action": "Account owner uses the official signup route once; stop for CAPTCHA, OTP, legal consent or identity verification. Recover only a vendor-issued customer-facing referral URL.",
+    "blocker": "The official affiliate page publishes program Terms & Conditions and the join route creates an EngageBay account.",
+    "reason": "Legal program consent is not completed and no customer-facing tracking URL exists.",
+    "next_action": "Review and accept the official affiliate terms through the exact signup route; stop for CAPTCHA, OTP or identity verification. Recover only a vendor-issued customer-facing referral URL.",
     "do_not_reapply": true,
-    "verified_at": "2026-09-14T19:30:00+09:00",
+    "verified_at": "2026-10-07T19:19:30+09:00",
     "github_issue": 520
   },
   {
