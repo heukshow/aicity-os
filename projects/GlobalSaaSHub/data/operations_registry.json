@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-07T10:57:49Z",
+  "updated_at": "2026-10-07T11:04:30Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -3176,6 +3176,48 @@
       "verification_status": "pending",
       "verification": "Current source and deployed gh-pages blobs are identical and deployment ancestry contains PR #1051. The live direct-download response remains unknown, so production verification is intentionally open.",
       "handoff": "Release & Reliability Team should use a supported public HTTP verifier against the QA-marked download URL, confirm the actual response and content, then record production_verified or the exact failed boundary in issue #292. Do not alter payment, checkout, inventory, affiliate URLs or measurement events."
+    },
+    {
+      "record_id": "SECURITY:AFFILIATE-PRIMARY-GATE-BLOCKER-20261007",
+      "task_key": "affiliate-primary-gate-blocker-regression-20261007",
+      "incident_key": "affiliate-primary-gate-blocker-regression-20261007",
+      "target": "affiliate admin snapshot and private audit lifecycle blocker producers",
+      "owner_team": "Affiliate Partnerships Team",
+      "canonical_owner": "Affiliate Partnerships Team",
+      "found_by": "Security & Cost Control Team",
+      "fixed_by": "Security & Cost Control Team",
+      "changed_scope": "Reordered the existing admin-snapshot and private-audit blocker classification so active browser, legal-consent and vendor-waiting lifecycle gates remain primary; regenerated the private snapshot. No supplier URL, approval, CTA, customer copy, public page, payment, account, credential, measurement definition or spend changed.",
+      "lifecycle": "production_verified",
+      "next_owner": "Affiliate Partnerships Team",
+      "priority": "high",
+      "blocker": null,
+      "last_evidence_at": "2026-10-07T10:55:30Z",
+      "evidence": {
+        "regression_source_commit": "a041d0a3225a79fba14f7366a84a06d5ea7fa64b",
+        "implementation_pr": 1055,
+        "merge_commit": "243edff91a583c286c28bc36c2daf2741a39499e",
+        "pr_build_run": 37609847893,
+        "production_verification_comment_id": 6036416007,
+        "corrected_files": [
+          "projects/GlobalSaaSHub/scripts/generate_admin_snapshot.mjs",
+          "projects/GlobalSaaSHub/scripts/publish_affiliate_audit.mjs",
+          "projects/GlobalSaaSHub/worker/src/admin-snapshot.json"
+        ],
+        "open_legal_consent_records": 13,
+        "open_legal_consent_primary_blocker": "legal_program_consent_required",
+        "browser_or_watch_only_with_exact_url_primary_blocker": 0,
+        "exact_affiliate_url_missing": 75,
+        "engagebay_non_actionable": true,
+        "engagebay_do_not_reapply": true,
+        "engagebay_exact_url": null,
+        "additional_spend_usd": 0
+      },
+      "completion_gate": "current_main_producers_and_private_snapshot_preserve_primary_lifecycle_gates",
+      "completion_gate_satisfied": true,
+      "user_action_required": false,
+      "verification": "Current-main producer and generated snapshot readback show zero browser-required or watch-only records with the downstream exact-URL blocker, all 13 open legal-consent records use the legal-consent blocker, and EngageBay remains non-actionable with doNotReapply=true and no exact URL.",
+      "handoff": "Affiliate Partnerships Team should consume the corrected primary lifecycle gates and verify exact customer URLs only after each prerequisite is resolved. Revenue Optimization must not publish a revenue CTA from approval or lifecycle state alone.",
+      "completed_at": "2026-10-07T10:55:30Z"
     }
   ],
   "invariants": {
