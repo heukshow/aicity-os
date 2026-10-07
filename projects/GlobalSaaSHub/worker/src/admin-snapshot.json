@@ -2634,7 +2634,7 @@
         "name": "OptiMonk",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "waiting_vendor_eligibility_clarification",
+        "affiliateStatus": "application_available_account_required",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -2642,10 +2642,10 @@
         "revenueReady": false,
         "terminal": false,
         "doNotReapply": true,
-        "browserRequired": false,
+        "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "account_registration_required"
       },
       {
         "id": "pickaxe",
