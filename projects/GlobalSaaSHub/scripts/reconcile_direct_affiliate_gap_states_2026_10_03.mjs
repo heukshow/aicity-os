@@ -79,10 +79,10 @@ const states = {
   },
   'snov-io': {
     stale: [null, 'unclassified', 'application_available'],
-    status: 'browser_required_application_form',
+    status: 'browser_required_legal_program_consent',
     source: 'https://snov.io/affiliate-program',
     workflow: 'https://snov.io/affiliate-program',
-    next: 'Use the current official Snov.io affiliate application and reconcile the prior COSHUMA inquiry before any resubmission.',
+    next: 'Reconcile the prior COSHUMA inquiry before any resubmission. The official application requires Affiliate Program Terms and Conditions consent; do not submit or create a tracking URL until that legal-consent gate is completed through the normal supported process.',
   },
 };
 

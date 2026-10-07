@@ -6133,16 +6133,18 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://snov.io/",
     "affiliate_url": null,
-    "affiliate_status": "browser_required_application_form",
-    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
-    "affiliate_status_evidence_url": "https://snov.io/affiliate-program",
+    "affiliate_status": "browser_required_legal_program_consent",
+    "affiliate_status_checked_at": "2026-10-07T09:18:33+09:00",
+    "affiliate_status_evidence_url": "https://snov.io/knowledgebase/how-snov-io-affiliate-program-works/",
     "affiliate_verified": false,
     "affiliate_source_url": "https://snov.io/affiliate-program",
     "affiliate_workflow_url": "https://snov.io/affiliate-program",
-    "affiliate_next_action": "Use Snov.io's current official affiliate application and the existing COSHUMA identity. Reconcile against the prior 2026-09-07 inquiry before any resubmission; preserve only an issued personal affiliate link after approval.",
+    "affiliate_next_action": "Reconcile the prior COSHUMA inquiry before any resubmission. The current official affiliate application includes mandatory Affiliate Program Terms and Conditions consent; do not submit or create a tracking URL until that legal-consent gate is completed through the normal supported process.",
     "affiliate_evidence_markers": [
-      "Snov.io's current official affiliate program is live, open to applicants and advertises 40% lifetime commission on premium-plan purchases.",
-      "COSHUMA previously sent an application request on 2026-09-07; no approval or exact personal affiliate link has been received."
+      "Snov.io's current official affiliate program is live and advertises 40% commission on premium-plan purchases for as long as referred customers keep paying, plus 20% on eligible add-ons.",
+      "The official affiliate guide states that submitting the application means agreeing to Snov.io's Affiliate Program Terms and Conditions; approval is required before an issued personal affiliate link becomes eligible.",
+      "COSHUMA previously sent an enrollment inquiry on 2026-09-07, but no completed official application, approval, or exact personal affiliate link has been verified.",
+      "No customer-facing tracking URL, referral, commission, payout, or revenue is inferred."
     ]
   },
   {
