@@ -963,12 +963,12 @@
       "note": "Tidio PartnerStack welcome email to support@coshuma.com (Gmail 1a0ed995bd9fde81) explicitly welcomes COSHUMA to the affiliate program and identifies https://affiliate.tidio.com/7ow2khr31ti8 as 'Your affiliate link'. The email states 20% revenue share to start, scaling to 25%, a 30-day cookie window and a 7-day referral trial. Independent GET verification on 2026-09-30 followed HTTP 302 to the official tidio.com destination, observed PartnerStack attribution parameters/cookies, and ended at HTTP 200. No click, signup, paid customer, commission, payout, or revenue is inferred from approval/link validation."
     },
     "activepieces": {
-      "status": "browser_required_sales_inquiry",
+      "status": "browser_required_affiliate_application",
       "tracking_url": null,
-      "checked_at": "2026-10-03T03:05:00+09:00",
-      "official_program_url": null,
-      "next_action": "Use Activepieces' current official Talk to sales/contact route to ask whether a public affiliate or referral program exists. Do not infer a program or tracking URL from integrations/community references.",
-      "note": "2026-10-03 current official-site recheck found no public affiliate/referral enrollment route; product/sales routes remain live. No COSHUMA-specific tracking URL is verified."
+      "checked_at": "2026-10-07T12:22:00+09:00",
+      "official_program_url": "https://market.partnerstack.com/program/activepieces",
+      "next_action": "Reuse the existing COSHUMA-owned PartnerStack session to open the official Activepieces program application. Inspect the application questions and program terms first; submit once only if no CAPTCHA, OTP, legal-consent, payment, or forced-identity gate appears. Recover and validate only the exact vendor-issued customer referral URL after approval.",
+      "note": "2026-10-07 official PartnerStack marketplace recheck: the Activepieces program directory exposes an Apply to program action and PartnerStack sign-in. This verifies that a public application route exists; it does not prove COSHUMA application, approval, tracking URL, clicks, customers, commission, payout, or revenue. No application was submitted in this update and no COSHUMA-specific tracking URL is verified."
     },
     "agorapulse": {
       "status": "waiting_vendor_response",
