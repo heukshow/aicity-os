@@ -602,6 +602,27 @@
         "Choose a plan from your busiest month, not your average",
         "COSHUMA does not collect or store your answers"
       ]
+    },
+    "RELEASE:ADVERTISER-TEMPLATE-DIRECT-RESPONSE-20261007": {
+      "mode": "public_boundary",
+      "source_glob": "projects/GlobalSaaSHub/public/downloads/coshuma-advertiser-application-template-en.md",
+      "gh_pages_glob": "downloads/coshuma-advertiser-application-template-en.md",
+      "live_url": "https://coshuma.com/downloads/coshuma-advertiser-application-template-en.md?coshuma_qa=1",
+      "forbidden_regex": [
+        "globalsaashub-payments\\.qmfforfhem\\.workers\\.dev",
+        "/ops/ads",
+        "PAYPAL_[A-Z0-9_]+",
+        "operations_registry",
+        "browser_required_queue"
+      ],
+      "live_required_substrings": [
+        "# COSHUMA Advertiser Application Template",
+        "It does not place an order, reserve a position, submit an application or confirm a payment.",
+        "A price or quote does not confirm a reservation or prove payment.",
+        "All advertising is labeled Sponsored.",
+        "support@coshuma.com"
+      ],
+      "verify_deployed_ancestry": true
     }
   }
 }
