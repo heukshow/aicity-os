@@ -307,7 +307,7 @@ class RegistryTests(unittest.TestCase):
         row.update(completion_gate='direct_public_http_response_verified',
                    completion_gate_satisfied=False, execution_status='queued', verification_status='pending')
         comment = {'id': 100, 'user': {'login': 'github-actions[bot]'}, 'created_at': '2026-10-08T00:00:00Z',
-            'body': 'RELEASE_VERIFICATION\\n- record_id: `one`\\n- merge: `' + 'a' * 40 + '`\\n- result: `production_verified`\\n- verification_run: `124`'}
+            'body': 'RELEASE_VERIFICATION\n- record_id: `one`\n- merge: `' + 'a' * 40 + '`\n- result: `production_verified`\n- verification_run: `124`'}
         pr = lambda _: {'merged': True, 'merge_commit_sha': 'a' * 40}
         run = lambda _: {'name': 'COSHUMA Release Verification', 'head_branch': 'main', 'status': 'completed'}
         result, changed = registry.reconcile({'active_queue': [row]}, [comment], pr, run, lambda _: True)
