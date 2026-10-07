@@ -5316,22 +5316,20 @@
     "official_verified_at": "2026-09-14T07:31:00+09:00",
     "official_evidence_url": "https://popupsmart.com/affiliate-program",
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_account_registration",
+    "affiliate_status": "browser_required_legal_program_consent",
     "affiliate_source_url": "https://popupsmart.com/affiliate-program",
     "affiliate_workflow_url": "https://app.popupsmart.com/",
-    "affiliate_status_checked_at": "2026-09-14T07:31:00+09:00",
+    "affiliate_status_checked_at": "2026-10-07T17:15:00+09:00",
     "application_state": "not_submitted",
     "affiliate_evidence_markers": [
-      "Official Popupsmart affiliate page states no approval is required and a unique referral link is available after registering a Popupsmart account.",
-      "Official current affiliate terms advertise 30% recurring commission on eligible paid subscriptions, a 30-day cookie and 50% off for referred customers for their first 3 months.",
-      "Official Popupsmart pages advertise a forever-free plan and no credit card required to get started.",
-      "Official affiliate calculator currently shows monthly list prices Basic $39, Advanced $69, Pro $99 and Expert $159; annual billing can be lower.",
-      "GitHub search found no pre-existing COSHUMA Popupsmart record before this fast-lane cycle.",
-      "support@coshuma.com Gmail in:anywhere search found no prior Popupsmart application, approval, rejection, tracking-link, commission or payout message.",
-      "Exact account-specific customer tracking URL is unknown; app/dashboard/onboarding/homepage URLs must not be used as customer revenue links.",
-      "GitHub issue #482 tracks the free account registration and exact vendor-issued referral-link recovery step."
+      "Official Popupsmart affiliate page says registration is available to publishers and advertises 30% recurring commission, a 30-day cookie and 50% off for referred customers for their first three months.",
+      "Official Popupsmart help says the unique affiliate link is available only inside the authenticated affiliate section after product-account registration.",
+      "Popupsmart Terms of Use, last updated 2025-12-18, state that service use is governed by binding Terms and Privacy Policy; affiliate participation is subject to those Terms and any additional dashboard terms.",
+      "The binding terms require a valid account in good standing, allow supplier approval/revocation despite marketing copy saying no approval, and make the supplier dashboard the controlling source for payout details.",
+      "No COSHUMA Popupsmart account, legal/program consent, application, approval, exact customer referral URL, referral, paid customer, commission, payout or revenue is verified.",
+      "Generic signup, app, dashboard, onboarding and homepage URLs must not be used as affiliate tracking links."
     ],
-    "affiliate_next_action": "Use the official Popupsmart free registration flow with the COSHUMA company account, avoid duplicate account creation, then recover and validate only the exact vendor-issued customer referral URL. Stop for CAPTCHA, OTP, legal consent, forced identity verification or payment approval."
+    "affiliate_next_action": "Hold at legal consent. After the account holder accepts the current Popupsmart Terms of Use, Privacy Policy and any affiliate dashboard terms through the official flow, check for an existing COSHUMA account before registration and recover only the exact issued customer-facing referral URL. Stop for CAPTCHA, OTP, forced identity verification or payment approval."
   },
   {
     "id": "privy",
