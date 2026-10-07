@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T02:32:39.619Z",
+  "generatedAt": "2026-10-07T04:27:40.712Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -2688,7 +2688,7 @@
         "name": "Plerdy",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "browser_required_account_registration",
+        "affiliateStatus": "browser_required_legal_program_consent",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
