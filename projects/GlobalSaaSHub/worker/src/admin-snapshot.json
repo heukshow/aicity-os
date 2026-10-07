@@ -1914,7 +1914,7 @@
         "name": "Creatify",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "browser_required_affiliate_application",
+        "affiliateStatus": "application_available_account_required",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -1925,7 +1925,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "affiliate_status_browser_required_affiliate_application"
+        "blocker": "affiliate_status_application_available_account_required"
       },
       {
         "id": "docusign",
