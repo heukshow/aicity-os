@@ -1968,7 +1968,7 @@
         "name": "EngageBay",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "browser_required_account_registration",
+        "affiliateStatus": "browser_required_legal_program_consent",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -1979,7 +1979,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "expandi",
