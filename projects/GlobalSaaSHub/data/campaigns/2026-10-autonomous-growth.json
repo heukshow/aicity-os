@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-04T22:41:06Z",
+  "updated_at": "2026-10-07T01:07:00Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -709,11 +709,34 @@
     {
       "id": "C05",
       "owner": "Editorial Quality Team",
-      "status": "planned",
+      "status": "production_verified",
       "type": "new_supporting_decision_asset",
-      "target_urls": [],
-      "scope": "A distinct practical decision worksheet or comparison from the first four topics; choose using current evidence. Merge into an existing page if intent overlaps.",
-      "output_evidence": []
+      "target_urls": [
+        "https://coshuma.com/tool/pipedrive.html"
+      ],
+      "scope": "A distinct text-only 30-day Pipedrive trial decision worksheet on the existing buyer-intent page. Five evaluation rows cover pipeline fit, data quality, follow-up, plan fit and adoption cost, with continue/pause criteria and current official references. No hands-on-use claim.",
+      "output_evidence": [
+        {
+          "implementation_pr": 1043,
+          "final_head_commit": "215a695d69739e5f34563061b1bf5b56f7d95f2e",
+          "merge_commit": "9aa1d999b0abe86fbe8fb1ea8440e07385dd8765",
+          "pr_build_run": 37554826121,
+          "site_deploy_run": 37555222334,
+          "deployment_source_commit": "9aa1d999b0abe86fbe8fb1ea8440e07385dd8765",
+          "gh_pages_commit": "5ee1d86e50aa6da29d2e839bfb27e1850c9459f9",
+          "github_pages_run": 37555365241,
+          "production_verification_comment_id": 6028660879,
+          "evidence_url": "https://github.com/heukshow/aicity-os/issues/292#issuecomment-6028660879",
+          "verified_at": "2026-10-07T01:07:00Z",
+          "live_urls": [
+            "https://coshuma.com/tool/pipedrive.html?coshuma_qa=1#pipedrive-30-day-evaluation"
+          ],
+          "live_result": "Live page contains the five-row Pipedrive trial scorecard, continue/pause guidance and official references. Existing affiliate disclosure and all three exact Pipedrive CTA destinations remain intact. No hands-on use, traffic, conversion, signup, paid-customer, commission, payout or uplift outcome is claimed."
+        }
+      ],
+      "basis": "Current direct supplier evidence records 3 clicks, 0 signups and 0 paying customers, below the campaign decision threshold; the asset supports a better pre-purchase evaluation without declaring a conversion failure or changing measurement events.",
+      "evidence_url": "https://github.com/heukshow/aicity-os/issues/292#issuecomment-6028660879",
+      "completed_at": "2026-10-07T01:07:00Z"
     },
     {
       "id": "C06",
@@ -860,7 +883,7 @@
     ],
     "duplicate_prevention": "Record report delivery evidence only after a confirmed send, and reuse the existing report states. Schedule configuration alone is not delivery."
   },
-  "current_work_item": "C05",
+  "current_work_item": "C06",
   "verified_delivery_counts": {
     "substantive_content_assets": 4,
     "public_social_posts": 1,
