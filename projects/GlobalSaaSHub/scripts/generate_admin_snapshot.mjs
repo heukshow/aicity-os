@@ -103,6 +103,8 @@ const affiliateCoverage = tools
     let blocker = null;
     if (!ready && !terminal) {
       if (!tool.affiliate_status) blocker = 'affiliate_status_unclassified';
+      else if (status === 'browser_required_legal_program_consent') blocker = 'legal_program_consent_required';
+      else if (browserRequired || watchOnlyGap) blocker = `affiliate_status_${status}`;
       else if (!tool.affiliate_url) blocker = 'exact_customer_affiliate_url_missing';
       else if (tool.affiliate_verified !== true) blocker = 'affiliate_evidence_not_verified';
       else blocker = `affiliate_status_${status}`;
@@ -167,6 +169,12 @@ for (const item of affiliateCoverage) {
     item.directActionableGap
   ) {
     throw new Error(`Affiliate hold-state guard failed for ${item.id}: ${item.affiliateStatus}`);
+  }
+  if (
+    (item.browserRequired || item.watchOnlyGap) &&
+    item.blocker === 'exact_customer_affiliate_url_missing'
+  ) {
+    throw new Error(`Affiliate primary-gate blocker regressed for ${item.id}: ${item.affiliateStatus}`);
   }
 }
 
