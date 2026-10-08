@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T07:44:41.510Z",
+  "generatedAt": "2026-10-08T09:23:23.664Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -2400,7 +2400,7 @@
         "name": "Landingi",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "browser_required_portal_access",
+        "affiliateStatus": "browser_required_legal_program_consent",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -2411,7 +2411,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "affiliate_status_browser_required_portal_access"
+        "blocker": "affiliate_status_browser_required_legal_program_consent"
       },
       {
         "id": "leadpages",
