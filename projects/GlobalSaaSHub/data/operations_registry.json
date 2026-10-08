@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-08T05:10:00.841Z",
+  "updated_at": "2026-10-08T05:16:02.214115+00:00",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1175,7 +1175,7 @@
       "verification": "Prior deployment/source proof plus an actual owner-authenticated readback satisfied the gate. Unauthenticated access remained 401 with private/no-store controls, and no secret or private financial value was published.",
       "handoff": "Closed. Future public evidence must omit browser/profile identifiers, authentication mechanics, private endpoint paths, payload fingerprints or sizes, internal inventory counts, deployment identifiers, and private response contents.",
       "execution_status": "completed",
-      "next_executable_action": "No remaining recovery action for this gate. Use existing Revenue Intelligence checks; reopen only on a new directly observed failure.",
+      "next_executable_action": null,
       "blocker_detail": null,
       "verification_status": "production_verified",
       "completed_at": "2026-10-03T18:14:14.985921+00:00"
@@ -1243,7 +1243,7 @@
       "execution_status": "completed",
       "fixed_by": "Revenue Intelligence Team",
       "completed_at": "2026-09-27T08:40:00Z",
-      "next_executable_action": "Next Revenue Intelligence run reuses the authenticated Pictory custom portal, refreshes private commission/payout observation, and checks for new evidence; other programs retain their own unknown/auth states."
+      "next_executable_action": null
     },
     {
       "record_id": "PRODUCT:REAL-DEVICE-COMPARE-QA-20260927",
@@ -1397,7 +1397,7 @@
       "handoff": "Closed by actual private endpoint proof, not public Pages markers. Existing Analytics Snapshot now repeats exact projection and denial checks after successful uploads. Do not reopen or redeploy without a new measured failure.",
       "execution_status": "completed",
       "verification_status": "production_verified",
-      "next_executable_action": "Use existing analytics verification on subsequent snapshots; no further recovery action for this gate.",
+      "next_executable_action": null,
       "next_alternative_route": "A new failed live verification is a new incident; do not retry historical unavailable raw-browser observations.",
       "completed_at": "2026-10-03T17:33:18.130Z"
     },
@@ -2965,7 +2965,7 @@
       "verification": "Deterministic production verification succeeded in run 37182070060; trusted evidence comment 5977204489.",
       "handoff": "Release & Reliability Team must verify current-main source → generated page → gh-pages/Pages deployment → live page agreement with QA-marked URLs. Do not count verifier traffic as growth.",
       "execution_status": "completed",
-      "next_executable_action": "Run the deterministic release spec and record production_verified or the exact failed boundary in issue #292.",
+      "next_executable_action": null,
       "verification_status": "production_verified",
       "evidence": {
         "implementation_pr": 997,
@@ -3000,7 +3000,7 @@
       "verification": "Deterministic production verification succeeded in run 37182070060; trusted evidence comment 5977204810.",
       "handoff": "Release & Reliability Team must verify current-main source → generated page → gh-pages/Pages deployment → live page agreement with QA-marked URLs. Do not count verifier traffic as growth.",
       "execution_status": "completed",
-      "next_executable_action": "Run the deterministic release spec and record production_verified or the exact failed boundary in issue #292.",
+      "next_executable_action": null,
       "verification_status": "production_verified",
       "evidence": {
         "implementation_pr": 997,
@@ -3034,7 +3034,7 @@
       "user_action_required": false,
       "execution_status": "completed",
       "verification_status": "production_verified",
-      "next_executable_action": "Run the deterministic Jotform C04 release spec against current-main source, deployed gh-pages/Pages ancestry and the QA-marked live page; record production_verified or the exact failed boundary in issue #292.",
+      "next_executable_action": null,
       "evidence": {
         "implementation_pr": 1003,
         "merge_commit": "54c7da989dea53654c7ed478a21d1c0f491cb9cd",
