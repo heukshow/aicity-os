@@ -1,0 +1,7 @@
+name = "coshuma-ads-sandbox-gateway"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-08-09"
+
+[[services]]
+binding = "SANDBOX"
+service = "coshuma-ads-sandbox-20261008-a"

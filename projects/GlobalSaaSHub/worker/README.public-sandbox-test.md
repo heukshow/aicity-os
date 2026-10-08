@@ -15,6 +15,10 @@ Use `testconfig.example.toml` only as a template for a private, dedicated test c
 - Secrets: configure the Sandbox app credentials, merchant ID, expected webhook ID, and separate operator/reviewer keys only in the test worker's secret store. Keep them out of source, URLs, public logs, and PR descriptions.
 - The once-per-minute scheduled trigger is commented out by default. Enabling it is not proof that it ran; preserve actual scheduled execution records when external verification is performed.
 
+### Optional Pages gateway
+
+`pages-sandbox-gateway/` is a minimal Cloudflare Pages advanced-mode gateway that forwards requests to the isolated Sandbox Worker through a Service Binding. It contains no PayPal credentials. When this gateway is used, set the worker's primary Sandbox origin to the gateway's canonical HTTPS origin. During a webhook migration only, a separate legacy workers.dev origin may remain enabled for `/health` and `/sandbox/webhooks/paypal`; remove that legacy origin after the PayPal Sandbox webhook has been moved and verified.
+
 ## Authentication and payment flow
 
 | Surface | Required authorization and behavior |
