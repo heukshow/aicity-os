@@ -446,7 +446,29 @@ PATCHES = {
             '<p class="text-lg leading-relaxed text-slate-300 max-w-4xl">Jotform is strongest when you want one no-code stack for forms, payments, e-signatures and workflow capture. The free Starter plan is enough to validate a use case; paid plans mainly raise limits and remove branding. If your goal is automated customer service rather than form building alone, Jotform AI Agents is the more relevant path.</p>',
             '<p class="text-lg leading-relaxed text-slate-300 max-w-4xl"><strong class="text-white">Quick answer:</strong> use Starter for free if 5 forms and 100 monthly submissions are enough. Bronze raises capacity to 25 forms and 1,000 submissions, Silver to 50 forms and 2,500 submissions, and Gold to 100 forms and 10,000 submissions. Upgrade for real limit pressure, branding removal or HIPAA-enabled features—not just because a paid tier exists.</p>',
         ),
-    ],
+    ],,
+    "octo-browser.html": [
+        (
+            "<title>Octo Browser Pricing, Features & Review (2026) | COSHUMA</title>",
+            "<title>Octo Browser Pricing 2026: Plans, Features & Review | COSHUMA</title>",
+        ),
+        (
+            '<meta name="description" content="Octo Browser is an advanced antidetect browser designed for secure multi-accounting and digital fingerprint management across various online platforms... Discover features, pricing (See official pricing), and official links for Octo Browser on COSHUMA." />',
+            '<meta name="description" content="Octo Browser pricing and review for 2026: check current official plans, compare antidetect browser, multi-accounting and digital fingerprint features, and decide if it fits your workflow." />',
+        ),
+        (
+            '<meta property="og:title" content="Octo Browser Review & Pricing (2026) | COSHUMA" />',
+            '<meta property="og:title" content="Octo Browser Pricing & Review 2026: Plans and Features | COSHUMA" />',
+        ),
+        (
+            '<meta property="og:description" content="Octo Browser is an advanced antidetect browser designed for secure multi-accounting and digital fingerprint management across various online platforms... Check rating, pricing, and features." />',
+            '<meta property="og:description" content="Check current Octo Browser pricing, then compare its antidetect browser, multi-accounting and digital fingerprint features before choosing." />',
+        ),
+        (
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">Octo Browser</h1>',
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">Octo Browser Pricing &amp; Review 2026</h1>',
+        ),
+    ]
 }
 
 FORBIDDEN_PUBLIC_COPY = (
