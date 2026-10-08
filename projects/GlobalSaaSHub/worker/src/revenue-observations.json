@@ -520,27 +520,27 @@
       "account_id": "tagshop-ai",
       "connection": "verified_snapshot",
       "complete": false,
-      "checked_at": "2026-09-18T13:39:08Z",
-      "observed_window": "Tagshop dashboard screenshot supplied by partner manager",
-      "source": "vendor-human-email-attachment",
-      "period": "Current dashboard as of 2026-09-18; screenshot column labels cropped",
-      "currency": "USD",
+      "checked_at": "2026-10-07T20:03:25Z",
+      "observed_window": "Current unpaid balance stated in Tagshop first-month referral-program review email",
+      "source": "vendor-system-email",
+      "period": "Account unpaid balance as of 2026-10-08 05:03 KST; reporting window otherwise not stated",
+      "currency": null,
       "metrics": {
         "outbound_clicks": null,
         "signups_referrals": null,
         "trials": null,
         "paid_customers": null,
+        "gross_sales_revenue": null,
         "commission_earned": null,
+        "commission_approved": null,
         "commission_pending": null,
-        "reward_paid": null,
-        "available": null,
-        "withdrawn": null,
-        "declined": null,
+        "commission_paid": null,
         "payout_paid": null,
-        "network_reported_unlabeled_zero_summary": 0
+        "payout_pending": null,
+        "network_reported_unpaid_balance": 0
       },
       "portal_url": "https://tagshop.firstpromoter.com/login",
-      "action": "Vendor-supplied dashboard screenshot visibly shows 0 / 0 / 0 / $0 for COSHUMA, but the screenshot crop omits column headers. Treat this only as partial dashboard evidence; do not assign the zeros to clicks, signups, customers, commission, or payout fields.",
+      "action": "Tagshop email confirms network-reported unpaid balance 0 only. Do not infer clicks, referrals, customers, earned or pending commission, payout, currency, or bank receipt.",
       "evidence": [
         {
           "tool_id": "tagshop-ai",
@@ -560,6 +560,81 @@
             "commission_pending": null,
             "payout_paid": null,
             "network_reported_unlabeled_zero_summary": 0
+          }
+        },
+        {
+          "tool_id": "tagshop-ai",
+          "tool": "Tagshop AI",
+          "observed_window": "Current unpaid balance stated in Tagshop first-month referral-program review email",
+          "checked_at": "2026-10-07T20:03:25Z",
+          "period": "Account unpaid balance as of 2026-10-08 05:03 KST; reporting window otherwise not stated",
+          "source": "vendor-system-email",
+          "evidence_id": "gmail:1a117f6b32a223da",
+          "currency": null,
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": null,
+            "commission_earned": null,
+            "commission_approved": null,
+            "commission_pending": null,
+            "commission_paid": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_unpaid_balance": 0
+          }
+        }
+      ]
+    },
+    {
+      "account_id": "fillhq",
+      "connection": "verified_snapshot",
+      "complete": false,
+      "checked_at": "2026-10-07T16:33:44Z",
+      "observed_window": "Current unpaid balance stated in Fill affiliate-program first-month review email",
+      "source": "vendor-system-email",
+      "period": "Account unpaid balance as of 2026-10-08 01:33 KST; reporting window otherwise not stated",
+      "currency": null,
+      "metrics": {
+        "outbound_clicks": null,
+        "signups_referrals": null,
+        "trials": null,
+        "paid_customers": null,
+        "gross_sales_revenue": null,
+        "commission_earned": null,
+        "commission_approved": null,
+        "commission_pending": null,
+        "commission_paid": null,
+        "payout_paid": null,
+        "payout_pending": null,
+        "network_reported_unpaid_balance": 0
+      },
+      "portal_url": "https://promoters.fillhq.com/login",
+      "action": "Fill email confirms network-reported unpaid balance 0 only. FillHQ is not currently present in tools.json, so this remains account-level private revenue evidence; do not infer clicks, referrals, customers, earned or pending commission, payout, currency, or bank receipt.",
+      "evidence": [
+        {
+          "tool": "FillHQ",
+          "observed_window": "Current unpaid balance stated in Fill affiliate-program first-month review email",
+          "checked_at": "2026-10-07T16:33:44Z",
+          "period": "Account unpaid balance as of 2026-10-08 01:33 KST; reporting window otherwise not stated",
+          "source": "vendor-system-email",
+          "evidence_id": "gmail:1a11736bcc0a3511",
+          "currency": null,
+          "metrics": {
+            "outbound_clicks": null,
+            "signups_referrals": null,
+            "trials": null,
+            "paid_customers": null,
+            "gross_sales_revenue": null,
+            "commission_earned": null,
+            "commission_approved": null,
+            "commission_pending": null,
+            "commission_paid": null,
+            "payout_paid": null,
+            "payout_pending": null,
+            "network_reported_unpaid_balance": 0
           }
         }
       ]
