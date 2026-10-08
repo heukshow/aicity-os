@@ -3908,20 +3908,22 @@
     "official_verified_at": "2026-09-14T06:05:00+09:00",
     "official_evidence_url": "https://landingi.com/help/affiliate-program-faq/",
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_portal_access",
+    "affiliate_status": "browser_required_legal_program_consent",
     "affiliate_source_url": "https://landingi.com/help/affiliate-program-faq/",
     "affiliate_workflow_url": "https://landingi.partnerstack.com/",
-    "affiliate_status_checked_at": "2026-09-14T06:05:00+09:00",
+    "affiliate_status_checked_at": "2026-10-08T18:23:23.664+09:00",
     "application_state": "not_submitted",
     "affiliate_evidence_markers": [
       "Official Landingi Affiliate Program FAQ says enrollment uses Landingi PartnerStack.",
       "Official current commission is 20% during the first 12 months of the customer lifecycle with a 90-day cookie window.",
-      "GitHub search found no pre-existing COSHUMA Landingi record before this fast-lane cycle.",
-      "support@coshuma.com Gmail search for landingi found no prior application, approval, rejection, tracking-link, commission, or payout message.",
+      "Official Landingi Affiliate Program Terms state that the agreement is concluded only after the applicant completes the form, chooses a commission plan, and accepts the Regulations.",
+      "GitHub and support@coshuma.com Gmail duplicate checks found no prior application, approval, rejection, tracking link, commission, or payout evidence.",
+      "Application remains not submitted because accepting the program Regulations is a legal-consent gate requiring user action.",
       "Exact account-specific customer tracking URL is unknown; PartnerStack portal/application URLs must not be used as customer revenue links.",
-      "GitHub issue #474 tracks the authenticated PartnerStack duplicate check and one-time application/recovery step."
+      "GitHub issue #474 tracks the legal-consent gate, duplicate check, and later one-time application/link-recovery step."
     ],
-    "affiliate_next_action": "Reuse the existing COSHUMA PartnerStack identity in an authenticated browser/Work session, check for an existing Landingi relationship, then submit once only if absent or recover the exact issued customer tracking URL if already enrolled."
+    "affiliate_next_action": "Review and accept the official Landingi Affiliate Program Regulations, then reuse the existing COSHUMA PartnerStack identity, check for an existing Landingi relationship, and submit once only if absent. After approval, recover and verify the exact issued customer tracking URL; do not use the portal URL as a customer CTA.",
+    "affiliate_status_evidence_url": "https://affiliate-program.landingi.com/terms"
   },
   {
     "id": "leadpages",

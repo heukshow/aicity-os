@@ -1,6 +1,7 @@
 import fs from './affiliate_state_fs.mjs';
 
 const checkedAt = '2026-09-14T06:05:00+09:00';
+const affiliateCheckedAt = '2026-10-08T18:23:23.664+09:00';
 const landingi = {
   id: 'landingi',
   name: 'Landingi',
@@ -32,20 +33,22 @@ const landingi = {
   official_verified_at: checkedAt,
   official_evidence_url: 'https://landingi.com/help/affiliate-program-faq/',
   affiliate_verified: false,
-  affiliate_status: 'browser_required_portal_access',
+  affiliate_status: 'browser_required_legal_program_consent',
   affiliate_source_url: 'https://landingi.com/help/affiliate-program-faq/',
+  affiliate_status_evidence_url: 'https://affiliate-program.landingi.com/terms',
   affiliate_workflow_url: 'https://landingi.partnerstack.com/',
-  affiliate_status_checked_at: checkedAt,
+  affiliate_status_checked_at: affiliateCheckedAt,
   application_state: 'not_submitted',
   affiliate_evidence_markers: [
-    'Official Landingi Affiliate Program FAQ says enrollment uses Landingi PartnerStack.',
-    'Official current commission is 20% during the first 12 months of the customer lifecycle with a 90-day cookie window.',
-    'GitHub search found no pre-existing COSHUMA Landingi record before this fast-lane cycle.',
-    'support@coshuma.com Gmail search for landingi found no prior application, approval, rejection, tracking-link, commission, or payout message.',
-    'Exact account-specific customer tracking URL is unknown; PartnerStack portal/application URLs must not be used as customer revenue links.',
-    'GitHub issue #474 tracks the authenticated PartnerStack duplicate check and one-time application/recovery step.',
+      "Official Landingi Affiliate Program FAQ says enrollment uses Landingi PartnerStack.",
+      "Official current commission is 20% during the first 12 months of the customer lifecycle with a 90-day cookie window.",
+      "Official Landingi Affiliate Program Terms state that the agreement is concluded only after the applicant completes the form, chooses a commission plan, and accepts the Regulations.",
+      "GitHub and support@coshuma.com Gmail duplicate checks found no prior application, approval, rejection, tracking link, commission, or payout evidence.",
+      "Application remains not submitted because accepting the program Regulations is a legal-consent gate requiring user action.",
+      "Exact account-specific customer tracking URL is unknown; PartnerStack portal/application URLs must not be used as customer revenue links.",
+      "GitHub issue #474 tracks the legal-consent gate, duplicate check, and later one-time application/link-recovery step."
   ],
-  affiliate_next_action: 'Reuse the existing COSHUMA PartnerStack identity in an authenticated browser/Work session, check for an existing Landingi relationship, then submit once only if absent or recover the exact issued customer tracking URL if already enrolled.',
+  affiliate_next_action: 'Review and accept the official Landingi Affiliate Program Regulations, then reuse the existing COSHUMA PartnerStack identity, check for an existing Landingi relationship, and submit once only if absent. After approval, recover and verify the exact issued customer tracking URL; do not use the portal URL as a customer CTA.',
 };
 
 for (const file of ['data/tools.json', 'data/tools.next.json']) {
@@ -58,42 +61,45 @@ for (const file of ['data/tools.json', 'data/tools.next.json']) {
 
 const outreachPath = 'data/affiliate_outreach_state.json';
 const outreach = JSON.parse(fs.readFileSync(outreachPath, 'utf8'));
-outreach.updated_at = '2026-09-14';
+outreach.updated_at = '2026-10-08T18:23:23.664+09:00';
 outreach.programs ||= {};
 outreach.programs.landingi = {
-  status: 'browser_required_portal_access',
+  status: 'browser_required_legal_program_consent',
   tracking_url: null,
   application_state: 'not_submitted',
   account: 'support@coshuma.com',
   official_program_url: 'https://landingi.com/help/affiliate-program-faq/',
   workflow_url: 'https://landingi.partnerstack.com/',
   github_issue: 474,
-  checked_at: checkedAt,
-  note: 'Official program is confirmed, but no existing COSHUMA Landingi application or issued customer tracking URL was found in GitHub/Gmail. Authenticated PartnerStack access is required before a one-time application or exact-link recovery. Do not use the portal URL as a customer CTA.',
+  checked_at: affiliateCheckedAt,
+  terms_url: 'https://affiliate-program.landingi.com/terms',
+  user_action_required: true,
+  note: 'Official program is confirmed, but the Terms state that the agreement is concluded only after the applicant accepts the Regulations. Application remains not submitted and the exact customer tracking URL remains null until that legal-consent gate is completed and PartnerStack issues a link.',
 };
 fs.writeFileSync(outreachPath, `${JSON.stringify(outreach, null, 2)}\n`);
 
 const queuePath = 'data/browser_required_queue.json';
 const queue = JSON.parse(fs.readFileSync(queuePath, 'utf8'));
-if (!queue.some((item) => item.tool_id === 'landingi' || String(item.id || '').startsWith('landingi-'))) {
-  queue.push({
-    id: 'landingi-partnerstack-2026-09-14',
-    tool_id: 'landingi',
-    priority: 'medium',
-    status: 'browser_required_portal_access',
-    affiliate_status: 'browser_required_portal_access',
-    application_state: 'not_submitted',
-    cost: 0,
-    exact_tracking_url: null,
-    user_action_required: false,
-    blocker: 'The official Landingi application route is an authenticated PartnerStack portal. This automation run has no authenticated interactive PartnerStack session.',
-    reason: 'GitHub and Gmail duplicate checks were clear, but application submission has not occurred and no customer tracking URL is verified.',
-    next_action: 'Reuse the existing COSHUMA PartnerStack identity in browser/Work. If an existing Landingi relationship is present, recover the issued exact customer link; otherwise submit the free application once. Stop for CAPTCHA, OTP, legal agreement, forced identity verification, or payment approval.',
-    do_not_reapply: true,
-    verified_at: checkedAt,
-    github_issue: 474,
-  });
-}
+const landingiQueueItem = {
+  id: 'landingi-partnerstack-2026-09-14',
+  tool_id: 'landingi',
+  priority: 'medium',
+  status: 'browser_required_legal_program_consent',
+  affiliate_status: 'browser_required_legal_program_consent',
+  application_state: 'not_submitted',
+  cost: 0,
+  exact_tracking_url: null,
+  user_action_required: true,
+  blocker: 'Official Landingi Affiliate Program Terms require acceptance of the Regulations to conclude the agreement. That legal-consent step requires user action.',
+  reason: 'GitHub and Gmail duplicate checks were clear, but no application was submitted and no exact customer tracking URL is verified.',
+  next_action: 'Review and accept the official Landingi Affiliate Program Regulations, then reuse the existing COSHUMA PartnerStack identity, check for an existing Landingi relationship, and submit once only if absent. After approval, recover and verify the exact issued customer tracking URL; do not use the portal URL as a customer CTA.',
+  do_not_reapply: true,
+  verified_at: affiliateCheckedAt,
+  github_issue: 474,
+};
+const landingiQueueIndex = queue.findIndex((item) => item.tool_id === 'landingi' || String(item.id || '').startsWith('landingi-'));
+if (landingiQueueIndex >= 0) queue[landingiQueueIndex] = { ...queue[landingiQueueIndex], ...landingiQueueItem };
+else queue.push(landingiQueueItem);
 fs.writeFileSync(queuePath, `${JSON.stringify(queue, null, 2)}\n`);
 
 const urls = [
