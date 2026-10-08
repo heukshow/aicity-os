@@ -10,8 +10,10 @@ import { AdError, digest } from './ad-commerce-domain.js';
 const SCOPE='coshuma-ads-sandbox-v1';
 let instanceId;
 const API='https://api-m.sandbox.paypal.com';
-const CUSTOM_ORIGIN='https://ads-sandbox.coshuma.com';
-const publicOrigin=value=>value===CUSTOM_ORIGIN||/^https:\/\/coshuma-ads-sandbox-[a-z0-9-]+\.[a-z0-9-]+\.workers\.dev$/.test(value||'');
+const CUSTOM_ORIGINS=new Set(['https://ads-sandbox.coshuma.com','https://coshuma-ads-sandbox-gateway.pages.dev']);
+const WORKERS_ORIGIN=/^https:\/\/coshuma-ads-sandbox-[a-z0-9-]+\.[a-z0-9-]+\.workers\.dev$/;
+const publicOrigin=value=>CUSTOM_ORIGINS.has(value)||WORKERS_ORIGIN.test(value||'');
+const legacyOrigin=value=>WORKERS_ORIGIN.test(value||'');
 const reply=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:{
  'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','Referrer-Policy':'no-referrer',
  'X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'none'; frame-ancestors 'none'"}});
@@ -20,7 +22,7 @@ function boundary(env){
    !/^[A-Za-z0-9_-]{32,}$/.test(env.SANDBOX_REVIEW_KEY||'')||
    !/^[A-Za-z0-9_-]{32,}$/.test(env.SANDBOX_OPERATOR_KEY||'')||env.SANDBOX_OPERATOR_KEY===env.SANDBOX_REVIEW_KEY||
    !env.AD_SANDBOX_DB?.prepare||!/^coshuma-ads-sandbox-[a-z0-9-]+$/.test(env.SANDBOX_DATABASE_LABEL||'')||
-   !publicOrigin(env.SANDBOX_ORIGIN)) {
+   !publicOrigin(env.SANDBOX_ORIGIN)||(env.SANDBOX_LEGACY_ORIGIN&&!legacyOrigin(env.SANDBOX_LEGACY_ORIGIN))) {
   throw new AdError('Isolated test configuration is required.',503);
  }
 }
@@ -96,7 +98,9 @@ async function execute(request,env,ctx){
   boundary(env);
   instanceId ??= crypto.randomUUID();
   const url=new URL(request.url);
-  if(url.origin!==env.SANDBOX_ORIGIN)return reply({error:'Unexpected test origin.'},403);
+  const primaryOrigin=url.origin===env.SANDBOX_ORIGIN;
+  const legacyAllowed=url.origin===env.SANDBOX_LEGACY_ORIGIN&&(url.pathname==='/health'||url.pathname==='/sandbox/webhooks/paypal');
+  if(!primaryOrigin&&!legacyAllowed)return reply({error:'Unexpected test origin.'},403);
   if(request.headers.has('x-sandbox-clock-order'))return reply({error:'A request-wide test clock is not permitted.'},403);
   let canonical;
   try{canonical=url.pathname.split('/').map(part=>encodeURIComponent(decodeURIComponent(part))).join('/');}
@@ -166,7 +170,8 @@ async function execute(request,env,ctx){
     const result=await assertSandboxWebhookRegistration(env,rt.transport);
     await rt.record('registration_preflight',result);
    }});
-  const response=await handler(request);
+  const handlerRequest=legacyAllowed?new Request(env.SANDBOX_ORIGIN+url.pathname+url.search,request):request;
+  const response=await handler(handlerRequest);
   if(url.pathname==='/sandbox/webhooks/paypal'){
    await rt.record('webhook_http_result',{status:response.status});
   }

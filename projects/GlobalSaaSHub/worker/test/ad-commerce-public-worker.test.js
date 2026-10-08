@@ -7,7 +7,8 @@ import { createAdSandboxHandler, createPublicAdSandboxHandler } from '../src/ad-
 import { sandboxReturnUrls } from '../src/ad-commerce-checkout-return.js';
 import { memoryStore, syntheticInput, syntheticPayPal, png, TEST_ENV, TEST_REVIEW_KEY } from './helpers/ad-commerce-fixtures.js';
 import { AD_ASSET_SPECS } from '../src/ad-asset-specs.js';
-const origin='https://ads-sandbox.coshuma.com';
+const origin='https://coshuma-ads-sandbox-gateway.pages.dev';
+const legacyOrigin='https://coshuma-ads-sandbox-test.example.workers.dev';
 const operatorKey='synthetic-operator-key-public-entry-tests-only',webhookId='SYNTHETIC-ISOLATED-WEBHOOK';
 const response=value=>new Response(JSON.stringify(value),{headers:{'Content-Type':'application/json'}});
 function fixture(t,{arrayBlobs=false}={}){
@@ -23,7 +24,7 @@ function fixture(t,{arrayBlobs=false}={}){
  const provider=syntheticPayPal(),network=[];let wrongRegistration=false;
  const env={...TEST_ENV,AD_SANDBOX_DB:f.db,SANDBOX_ISOLATION:'coshuma-ads-sandbox-v1',
   SANDBOX_DATABASE_LABEL:'coshuma-ads-sandbox-tests',SANDBOX_ORIGIN:origin,SANDBOX_REVIEW_KEY:TEST_REVIEW_KEY,
-  SANDBOX_OPERATOR_KEY:operatorKey,PAYPAL_WEBHOOK_ID:webhookId,SANDBOX_BUILD:'synthetic-build'};
+  SANDBOX_OPERATOR_KEY:operatorKey,PAYPAL_WEBHOOK_ID:webhookId,SANDBOX_BUILD:'synthetic-build',SANDBOX_LEGACY_ORIGIN:legacyOrigin};
  t.mock.method(globalThis,'fetch',async(url,init={})=>{
   const target=new URL(url),method=init.method||'GET';
   if(target.origin!=='https://api-m.sandbox.paypal.com')throw new Error('External network forbidden');
@@ -70,6 +71,13 @@ test('public entry rejects live, production bindings, wrong isolation and non-te
   assert.equal((await f.call('/health',{environment:{...f.env,...changes}})).status,503);
  }
  assert.equal(f.network.length,0);assert.equal((await f.call('/health',{requestOrigin:'https://foreign.example'})).status,403);
+});
+test('legacy workers.dev transition origin is limited to health and PayPal webhook',async t=>{
+ const f=fixture(t);
+ assert.equal((await f.call('/health',{requestOrigin:legacyOrigin})).status,200);
+ assert.equal((await f.call('/sandbox/catalog',{requestOrigin:legacyOrigin})).status,403);
+ const unsigned=await f.call('/sandbox/webhooks/paypal',{method:'POST',requestOrigin:legacyOrigin,body:{id:'x'}});
+ assert.equal(unsigned.status,400);
 });
 test('dedicated DB marker is required beyond sandbox-looking binding names',async t=>{
  const f=fixture(t);f.native.prepare("UPDATE ad_sandbox_runtime SET value='wrong' WHERE key='scope'").run();

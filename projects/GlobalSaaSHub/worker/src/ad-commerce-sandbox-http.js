@@ -67,7 +67,7 @@ export function createPublicAdSandboxHandler(options) {
   let base; try { base = new URL(origin); } catch { throw new AdError('Invalid test origin.', 503); }
   if (isolation !== 'coshuma-ads-sandbox' || environment !== 'sandbox' ||
       base.protocol !== 'https:' || base.origin !== origin ||
-      !(base.hostname==='ads-sandbox.coshuma.com'||/^coshuma-ads-sandbox-[a-z0-9-]+\.[a-z0-9-]+\.workers\.dev$/.test(base.hostname)) ||
+      !(base.hostname==='ads-sandbox.coshuma.com'||base.hostname==='coshuma-ads-sandbox-gateway.pages.dev'||/^coshuma-ads-sandbox-[a-z0-9-]+\.[a-z0-9-]+\.workers\.dev$/.test(base.hostname)) ||
       typeof reviewKey !== 'string' || reviewKey.length < 32 ||
       typeof operatorKey !== 'string' || operatorKey.length < 32 || operatorKey === reviewKey ||
       typeof options.beforePaymentMutation !== 'function') {
