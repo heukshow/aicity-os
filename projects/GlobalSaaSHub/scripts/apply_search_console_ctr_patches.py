@@ -447,6 +447,36 @@ PATCHES = {
             '<p class="text-lg leading-relaxed text-slate-300 max-w-4xl"><strong class="text-white">Quick answer:</strong> use Starter for free if 5 forms and 100 monthly submissions are enough. Bronze raises capacity to 25 forms and 1,000 submissions, Silver to 50 forms and 2,500 submissions, and Gold to 100 forms and 10,000 submissions. Upgrade for real limit pressure, branding removal or HIPAA-enabled features—not just because a paid tier exists.</p>',
         ),
     ],
+    "octo-browser.html": [
+        (
+            "<title>Octo Browser Pricing, Features & Review (2026) | COSHUMA</title>",
+            "<title>Octo Browser Pricing 2026: Plans, Features & Review | COSHUMA</title>",
+        ),
+        (
+            '<meta name="description" content="Octo Browser is an advanced antidetect browser designed for secure multi-accounting and digital fingerprint management across various online platforms... Discover features, pricing (See official pricing), and official links for Octo Browser on COSHUMA." />',
+            '<meta name="description" content="Octo Browser pricing and review for 2026: check current official plans, compare antidetect browser, multi-accounting and digital fingerprint features, and decide if it fits your workflow." />',
+        ),
+        (
+            '<meta property="og:title" content="Octo Browser Review & Pricing (2026) | COSHUMA" />',
+            '<meta property="og:title" content="Octo Browser Pricing & Review 2026: Plans and Features | COSHUMA" />',
+        ),
+        (
+            '<meta property="og:description" content="Octo Browser is an advanced antidetect browser designed for secure multi-accounting and digital fingerprint management across various online platforms... Check rating, pricing, and features." />',
+            '<meta property="og:description" content="Check current Octo Browser pricing, then compare its antidetect browser, multi-accounting and digital fingerprint features before choosing." />',
+        ),
+        (
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">Octo Browser</h1>',
+            '<h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">Octo Browser Pricing &amp; Review 2026</h1>',
+        ),
+        (
+            '<p class="text-slate-300 text-base leading-relaxed">Octo Browser is an advanced antidetect browser designed for secure multi-accounting and digital fingerprint management across various online platforms.</p>',
+            '<p class="text-slate-300 text-base leading-relaxed"><strong class="text-white">Quick answer:</strong> Octo Browser is a paid profile-management browser for authorized multi-account workflows. Its official pricing page currently shows Lite at €10/month, Starter from €29, Base from €79, Team from €169 and Advanced from €329. Check the live billing term and limits before checkout; use the product only where your account and platform rules permit it.</p>',
+        ),
+        (
+            '<!-- Pricing & Action --> <div class="p-6 rounded-2xl bg-[#181a29] border border-[#222538] flex flex-col sm:flex-row sm:items-center justify-between gap-4"> <div> <div class="text-xs uppercase font-bold text-slate-400 tracking-wider">Pricing Plan</div> <div class="text-xl font-extrabold text-emerald-400 mt-0.5">See official pricing</div> </div> <a data-cta="official" href="https://octobrowser.net/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-slate-800 text-white text-center border border-slate-600 hover:bg-slate-700 transition-all flex items-center justify-center gap-2"><span>Visit Official Octo Browser Site</span><span>→</span></a> </div>',
+            '<section id="octo-two-day-evaluation" class="space-y-5 pt-4 border-t border-[#222538]"> <div class="space-y-2"> <div class="text-xs uppercase font-bold tracking-wider text-purple-300">Buyer checklist · official sources checked October 8, 2026</div> <h2 class="text-2xl font-black text-white">A 2-day evaluation checklist before you subscribe</h2> <p class="text-sm leading-relaxed text-slate-300">Octo offers new users a one-time 2-day Starter trial with promo code <strong class="text-white">TRIAL</strong>. COSHUMA has not completed a hands-on product test; this checklist translates Octo\'s current official pricing, download and terms pages into a reproducible buying decision.</p> </div> <ol class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-300"> <li class="p-4 rounded-xl bg-[#181a29] border border-[#222538]"><strong class="text-white">1. Confirm installation fit.</strong> The current download page lists Windows 10 or later, Windows Server 2016 or later, macOS Ventura 13 or later, plus supported Linux distributions including Ubuntu 22.04 or later. Install only on a supported test device.</li> <li class="p-4 rounded-xl bg-[#181a29] border border-[#222538]"><strong class="text-white">2. Match profile capacity.</strong> The official comparison currently lists 3 profiles on Lite, 10 on Starter, 100 on Base, 350 on Team and 1,200 on Advanced. Count the profiles you actually need before choosing a tier.</li> <li class="p-4 rounded-xl bg-[#181a29] border border-[#222538]"><strong class="text-white">3. Test the real workflow safely.</strong> Use non-sensitive test accounts in a workflow you are authorized to run. Check profile creation, organization and recovery without trying to evade a platform\'s rules or access controls.</li> <li class="p-4 rounded-xl bg-[#181a29] border border-[#222538]"><strong class="text-white">4. Check collaboration and API needs.</strong> API access starts at Base on the current comparison table; Lite and Starter do not include it. Team currently includes 3 team members and Advanced 8, so verify seats and request limits before paying.</li> <li class="p-4 rounded-xl bg-[#181a29] border border-[#222538] md:col-span-2"><strong class="text-white">5. Calculate the full commitment.</strong> Compare the live 1-, 3-, 6- and 12-month options. Octo\'s terms state that 1 Octo Token equals €1 for subscription payment and that a downgrade takes effect only after the current subscription expires; remove resources above the lower plan\'s limits first.</li> </ol> <div class="grid grid-cols-1 md:grid-cols-2 gap-3"> <div class="p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/20"><h3 class="font-bold text-emerald-300">Continue after the trial if</h3><p class="mt-2 text-sm text-slate-300">The supported device works, the chosen tier covers profiles, seats and API usage, and your intended workflow passes your platform-policy review.</p></div> <div class="p-4 rounded-xl bg-amber-500/5 border border-amber-500/20"><h3 class="font-bold text-amber-300">Pause before paying if</h3><p class="mt-2 text-sm text-slate-300">You need API access on Lite or Starter, expect to downgrade mid-term, cannot confirm the workflow is authorized, or still have unpriced operational dependencies.</p></div> </div> <div class="flex flex-wrap gap-3 text-sm font-bold"> <a href="https://octobrowser.net/pricing/" target="_blank" rel="noopener noreferrer" class="text-purple-300 hover:text-purple-200">Official pricing →</a> <a href="https://octobrowser.org/download/" target="_blank" rel="noopener noreferrer" class="text-purple-300 hover:text-purple-200">System requirements →</a> <a href="https://octobrowser.net/terms/" target="_blank" rel="noopener noreferrer" class="text-purple-300 hover:text-purple-200">Terms of use →</a> </div> </section> <!-- Pricing & Action --> <div class="p-6 rounded-2xl bg-[#181a29] border border-[#222538] flex flex-col sm:flex-row sm:items-center justify-between gap-4"> <div> <div class="text-xs uppercase font-bold text-slate-400 tracking-wider">Current headline monthly prices</div> <div class="text-xl font-extrabold text-emerald-400 mt-0.5">Lite €10 · Starter from €29 · Base from €79</div> <div class="text-xs text-slate-400 mt-1">Team from €169 · Advanced from €329 · verify live billing before checkout</div> </div> <a data-cta="official" href="https://octobrowser.net/pricing/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-extrabold text-sm bg-purple-600 text-white text-center border border-purple-500 hover:bg-purple-500 transition-all flex items-center justify-center gap-2"><span>Compare official Octo plans</span><span>→</span></a> </div>',
+        ),
+    ]
 }
 
 FORBIDDEN_PUBLIC_COPY = (
@@ -465,6 +495,8 @@ FORBIDDEN_PUBLIC_COPY = (
     "affiliate evidence",
     "monetized route",
     "affiliate team specifically recommends",
+    'data-campaign-asset="c07"',
+    "c07: evidence-backed decision asset",
 )
 
 changed = 0
