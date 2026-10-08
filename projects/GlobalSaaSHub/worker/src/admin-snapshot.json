@@ -2238,7 +2238,7 @@
         "name": "Instapage",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "browser_required_portal_access",
+        "affiliateStatus": "browser_required_legal_program_consent",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -2249,7 +2249,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "affiliate_status_browser_required_portal_access"
+        "blocker": "Legal program consent required before Instapage PartnerStack enrollment; exact tracking URL remains unknown."
       },
       {
         "id": "jasper",
