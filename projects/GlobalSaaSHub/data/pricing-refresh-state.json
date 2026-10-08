@@ -276,44 +276,45 @@
       "status": "no_official_pricing_result"
     },
     "kittl": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-08T07:29:34Z",
+      "status": "extract_ok"
     },
     "koala-ai": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "extract_retry_exhausted"
-    },
-    "liftmycv": {
-      "checked_at": "2026-10-02T23:21:25Z",
-      "status": "extract_retry_exhausted"
-    },
-    "loopcv": {
-      "checked_at": "2026-10-02T23:34:19Z",
-      "status": "extract_retry_exhausted"
-    },
-    "lovo": {
-      "checked_at": "2026-10-02T23:34:19Z",
+      "checked_at": "2026-10-08T07:29:34Z",
       "status": "no_official_pricing_result"
     },
+    "liftmycv": {
+      "checked_at": "2026-10-08T07:29:34Z",
+      "status": "verified",
+      "pricing_source_url": "https://www.liftmycv.com/compare/autoapplier"
+    },
+    "loopcv": {
+      "checked_at": "2026-10-08T07:29:34Z",
+      "status": "extract_ok"
+    },
+    "lovo": {
+      "checked_at": "2026-10-08T07:29:34Z",
+      "status": "extract_ok"
+    },
     "make-com": {
-      "checked_at": "2026-10-02T23:34:19Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-08T07:29:34Z",
+      "status": "error_HTTPError"
     },
     "manychat": {
-      "checked_at": "2026-10-02T23:34:19Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-08T07:29:34Z",
+      "status": "error_HTTPError"
     },
     "marblism": {
-      "checked_at": "2026-10-02T23:34:19Z",
+      "checked_at": "2026-10-08T07:29:34Z",
       "status": "no_official_pricing_result"
     },
     "marketingblocks": {
-      "checked_at": "2026-10-02T23:34:19Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-08T07:29:34Z",
+      "status": "error_HTTPError"
     },
     "merlin": {
-      "checked_at": "2026-10-02T23:34:19Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-08T07:29:34Z",
+      "status": "extract_ok"
     },
     "mindstudio": {
       "checked_at": "2026-10-02T23:34:19Z",
@@ -532,7 +533,9 @@
       "status": "extract_retry_exhausted"
     }
   },
-  "last_run_at": "2026-10-07T07:18:21Z",
+  "last_run_at": "2026-10-08T07:29:34Z",
   "last_batch_size": 10,
-  "last_updated_tools": []
+  "last_updated_tools": [
+    "liftmycv"
+  ]
 }
