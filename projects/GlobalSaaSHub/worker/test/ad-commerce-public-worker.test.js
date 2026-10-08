@@ -7,7 +7,7 @@ import { createAdSandboxHandler, createPublicAdSandboxHandler } from '../src/ad-
 import { sandboxReturnUrls } from '../src/ad-commerce-checkout-return.js';
 import { memoryStore, syntheticInput, syntheticPayPal, png, TEST_ENV, TEST_REVIEW_KEY } from './helpers/ad-commerce-fixtures.js';
 import { AD_ASSET_SPECS } from '../src/ad-asset-specs.js';
-const origin='https://coshuma-ads-sandbox-test.example.workers.dev';
+const origin='https://ads-sandbox.coshuma.com';
 const operatorKey='synthetic-operator-key-public-entry-tests-only',webhookId='SYNTHETIC-ISOLATED-WEBHOOK';
 const response=value=>new Response(JSON.stringify(value),{headers:{'Content-Type':'application/json'}});
 function fixture(t,{arrayBlobs=false}={}){
@@ -111,6 +111,14 @@ test('public provider transport uses Cloudflare-supported manual redirect mode',
  const f=fixture(t),{id,token}=await prepared(f);f.network.length=0;
  assert.equal((await f.call('/sandbox/orders/'+id+'/checkout',{method:'POST',key:token})).status,200);
  assert.ok(f.network.length>0);assert.ok(f.network.every(call=>call.redirect==='manual'));
+});
+test('operator provider probe reports OAuth status without returning credentials',async t=>{
+ const f=fixture(t);f.network.length=0;
+ assert.equal((await f.call('/sandbox/ops/provider-probe',{key:operatorKey})).status,200);
+ const result=await (await f.call('/sandbox/ops/provider-probe',{key:operatorKey})).json();
+ assert.equal(result.ok,true);assert.equal(result.status,200);
+ assert.equal(JSON.stringify(result).includes('SYNTHETIC-TOKEN'),false);
+ assert.ok(f.network.some(call=>call.path==='/v1/oauth2/token'&&call.method==='POST'));
 });
 test('wrong webhook registration blocks PayPal order creation and capture of an existing order',async t=>{
  const f=fixture(t),{id,token}=await prepared(f);f.setWrongRegistration(true);
