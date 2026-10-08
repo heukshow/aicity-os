@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-07T21:37:11Z",
+  "updated_at": "2026-10-08T02:40:08.033Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -741,11 +741,34 @@
     {
       "id": "C06",
       "owner": "Editorial Quality Team",
-      "status": "planned",
+      "status": "production_verified",
       "type": "new_supporting_decision_asset",
-      "target_urls": [],
-      "scope": "A second distinct decision asset; a copy-only rewrite or the same CSV does not count.",
-      "output_evidence": []
+      "target_urls": [
+        "https://coshuma.com/tool/unbounce.html"
+      ],
+      "scope": "A distinct text-only 14-day Unbounce evaluation plan on the existing buyer-intent page, covering one representative landing page, synthetic lead handoff, one pre-declared variant check, continue/pause criteria, and a no-uplift boundary for small or internal samples.",
+      "output_evidence": [
+        {
+          "implementation_pr": 1066,
+          "final_head_commit": "0efa06d9bf2c26e853bbcefaef72f030916b0ae2",
+          "merge_commit": "152ae4b559aa87d4382bc3eb7026417086a64875",
+          "pr_build_run": 37710928082,
+          "site_deploy_run": 37711314380,
+          "deployment_source_commit": "152ae4b559aa87d4382bc3eb7026417086a64875",
+          "gh_pages_commit": "92d0854dea00b72e3f229c257ffb9bedf7aa08de",
+          "github_pages_run": 37711476852,
+          "production_verification_comment_id": 6050108266,
+          "evidence_url": "https://github.com/heukshow/aicity-os/issues/292#issuecomment-6050108266",
+          "verified_at": "2026-10-08T01:11:30Z",
+          "live_urls": [
+            "https://coshuma.com/tool/unbounce.html?coshuma_qa=1#unbounce-14-day-evaluation"
+          ],
+          "live_result": "Live page contains all five C06 evaluation stages, continue/pause criteria, official references, the visible affiliate disclosure, and the existing exact approved Unbounce destination. No first-person use, conversion uplift, trial success, customer, commission, payout, or revenue outcome is claimed."
+        }
+      ],
+      "basis": "Campaign SSOT 90-day GSC baseline for /tool/unbounce.html: 168 impressions and 0 clicks; official Unbounce pricing/trial and product workflow sources checked 2026-10-08. This is search-demand evidence, not a conversion or revenue result.",
+      "evidence_url": "https://github.com/heukshow/aicity-os/issues/292#issuecomment-6050108266",
+      "completed_at": "2026-10-08T01:11:30Z"
     },
     {
       "id": "C07",
@@ -1121,7 +1144,7 @@
     ],
     "duplicate_prevention": "Record report delivery evidence only after a confirmed send, and reuse the existing report states. Schedule configuration alone is not delivery."
   },
-  "current_work_item": "C06",
+  "current_work_item": "C07",
   "verified_delivery_counts": {
     "substantive_content_assets": 4,
     "public_social_posts": 1,
