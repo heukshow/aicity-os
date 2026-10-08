@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T09:23:23.664Z",
+  "generatedAt": "2026-10-08T09:33:20.191Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -2411,7 +2411,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "affiliate_status_browser_required_legal_program_consent"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "leadpages",

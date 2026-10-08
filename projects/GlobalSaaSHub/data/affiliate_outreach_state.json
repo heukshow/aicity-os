@@ -695,9 +695,9 @@
       "workflow_url": "https://landingi.partnerstack.com/",
       "github_issue": 474,
       "checked_at": "2026-10-08T18:23:23.664+09:00",
-      "note": "Official program is confirmed, but the Terms state that the agreement is concluded only after the applicant accepts the Regulations. Application remains not submitted and the exact customer tracking URL remains null until that legal-consent gate is completed and PartnerStack issues a link.",
       "terms_url": "https://affiliate-program.landingi.com/terms",
-      "user_action_required": true
+      "user_action_required": true,
+      "note": "Official program is confirmed, but the Terms state that the agreement is concluded only after the applicant accepts the Regulations. Application remains not submitted and the exact customer tracking URL remains null until that legal-consent gate is completed and PartnerStack issues a link."
     },
     "leadpages": {
       "status": "browser_required_legal_program_consent",
