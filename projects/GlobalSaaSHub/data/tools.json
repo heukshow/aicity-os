@@ -3390,10 +3390,10 @@
     "official_verified_at": "2026-09-14T06:29:00+09:00",
     "official_evidence_url": "https://instapage.com/affiliate",
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_portal_access",
+    "affiliate_status": "browser_required_legal_program_consent",
     "affiliate_source_url": "https://instapage.com/affiliate",
     "affiliate_workflow_url": "https://instapage.partnerstack.com/?group=newaffiliateswebsite",
-    "affiliate_status_checked_at": "2026-09-14T06:29:00+09:00",
+    "affiliate_status_checked_at": "2026-10-08T13:18:55+09:00",
     "application_state": "not_submitted",
     "affiliate_evidence_markers": [
       "Official Instapage affiliate page confirms a current affiliate program and routes Sign up now to Instapage PartnerStack.",
@@ -3403,9 +3403,10 @@
       "GitHub search found no pre-existing COSHUMA Instapage record before this fast-lane cycle.",
       "support@coshuma.com Gmail in:anywhere search found no prior Instapage application, approval, rejection, tracking-link, commission, or payout message.",
       "Exact account-specific customer tracking URL is unknown; PartnerStack portal/application URLs must not be used as customer revenue links.",
-      "GitHub issue #480 tracks the authenticated PartnerStack duplicate check and one-time application/recovery step."
+      "GitHub issue #480 tracks the authenticated PartnerStack duplicate check and one-time application/recovery step.",
+      "The current official Instapage PartnerStack enrollment page presents “Review program Terms of Service” before Join now; enrollment therefore requires affirmative legal-program consent."
     ],
-    "affiliate_next_action": "Reuse the existing COSHUMA PartnerStack identity in an authenticated browser/Work session, check for an existing Instapage relationship, then submit once only if absent or recover the exact issued customer tracking URL if already enrolled."
+    "affiliate_next_action": "Hold at the legal-program-consent gate. After the owner reviews and accepts the Instapage PartnerStack program Terms of Service, reuse the existing COSHUMA PartnerStack identity, submit once only if no relationship exists, and recover only the exact vendor-issued customer tracking URL after approval."
   },
   {
     "id": "invideo-ai",
