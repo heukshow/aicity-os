@@ -495,7 +495,7 @@ FORBIDDEN_PUBLIC_COPY = (
     "affiliate evidence",
     "monetized route",
     "affiliate team specifically recommends",
-    "data-campaign-asset",
+    'data-campaign-asset="c07"',
     "c07: evidence-backed decision asset",
 )
 
