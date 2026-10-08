@@ -3380,14 +3380,14 @@
     "comparison_group": "landing_page_builder",
     "official_url": "https://instapage.com/",
     "pricing_source_url": "https://instapage.com/plans",
-    "pricing_verified_at": "2026-09-14T06:29:00+09:00",
+    "pricing_verified_at": "2026-10-08T13:18:55+09:00",
     "pricing_verified": true,
     "currency": "USD",
     "billing_period": "monthly or annual depending on plan",
     "evidence_source_type": "official_pricing_help_and_affiliate_pages",
     "is_manual_override": true,
     "official_verification_status": "verified",
-    "official_verified_at": "2026-09-14T06:29:00+09:00",
+    "official_verified_at": "2026-10-08T13:18:55+09:00",
     "official_evidence_url": "https://instapage.com/affiliate",
     "affiliate_verified": false,
     "affiliate_status": "browser_required_legal_program_consent",
@@ -3398,13 +3398,13 @@
     "affiliate_evidence_markers": [
       "Official Instapage affiliate page confirms a current affiliate program and routes Sign up now to Instapage PartnerStack.",
       "Official program says enrolled affiliates receive a unique promotion link and referral fees for customer signups.",
+      "The current Instapage PartnerStack enrollment page presents “Review program Terms of Service” before Join now; enrollment therefore requires affirmative legal-program consent.",
       "Official pricing page lists a 14-day trial for Create and Optimize, with current monthly prices of $99 and $199 respectively.",
       "Official pricing FAQ says a credit card is required for the trial and the selected plan is charged when the trial ends unless canceled.",
       "GitHub search found no pre-existing COSHUMA Instapage record before this fast-lane cycle.",
       "support@coshuma.com Gmail in:anywhere search found no prior Instapage application, approval, rejection, tracking-link, commission, or payout message.",
       "Exact account-specific customer tracking URL is unknown; PartnerStack portal/application URLs must not be used as customer revenue links.",
-      "GitHub issue #480 tracks the authenticated PartnerStack duplicate check and one-time application/recovery step.",
-      "The current official Instapage PartnerStack enrollment page presents “Review program Terms of Service” before Join now; enrollment therefore requires affirmative legal-program consent."
+      "GitHub issue #480 tracks the authenticated PartnerStack duplicate check and one-time application/recovery step."
     ],
     "affiliate_next_action": "Hold at the legal-program-consent gate. After the owner reviews and accepts the Instapage PartnerStack program Terms of Service, reuse the existing COSHUMA PartnerStack identity, submit once only if no relationship exists, and recover only the exact vendor-issued customer tracking URL after approval."
   },
