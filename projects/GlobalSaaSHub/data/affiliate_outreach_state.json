@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-08T14:17:20+09:00",
+  "updated_at": "2026-10-08T18:23:23.664+09:00",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -687,15 +687,17 @@
       "note": "Scribe Support agent Matt Sanz confirmed in Gmail 1a0a155a6b7de938 that Scribe was not accepting new affiliate applications while the program was being refreshed/restructured. No approval or customer tracking URL was issued."
     },
     "landingi": {
-      "status": "browser_required_portal_access",
+      "status": "browser_required_legal_program_consent",
       "tracking_url": null,
       "application_state": "not_submitted",
       "account": "support@coshuma.com",
       "official_program_url": "https://landingi.com/help/affiliate-program-faq/",
       "workflow_url": "https://landingi.partnerstack.com/",
       "github_issue": 474,
-      "checked_at": "2026-09-14T06:05:00+09:00",
-      "note": "Official program is confirmed, but no existing COSHUMA Landingi application or issued customer tracking URL was found in GitHub/Gmail. Authenticated PartnerStack access is required before a one-time application or exact-link recovery. Do not use the portal URL as a customer CTA."
+      "checked_at": "2026-10-08T18:23:23.664+09:00",
+      "note": "Official program is confirmed, but the Terms state that the agreement is concluded only after the applicant accepts the Regulations. Application remains not submitted and the exact customer tracking URL remains null until that legal-consent gate is completed and PartnerStack issues a link.",
+      "terms_url": "https://affiliate-program.landingi.com/terms",
+      "user_action_required": true
     },
     "leadpages": {
       "status": "browser_required_legal_program_consent",
