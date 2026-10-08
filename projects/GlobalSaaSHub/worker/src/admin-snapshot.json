@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T05:27:37.911Z",
+  "generatedAt": "2026-10-08T07:44:41.510Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -34,7 +34,7 @@
       "unclassifiedAffiliateStatus": 0,
       "exactAffiliateUrlMissing": 75,
       "officialUnverified": 0,
-      "pricingUnverified": 125
+      "pricingUnverified": 124
     },
     "records": [
       {
@@ -761,7 +761,7 @@
         "id": "liftmycv",
         "name": "LiftmyCV",
         "officialVerified": true,
-        "pricingVerified": false,
+        "pricingVerified": true,
         "affiliateStatus": "approved_tracking",
         "affiliateVerified": true,
         "hasAffiliateUrl": true,
