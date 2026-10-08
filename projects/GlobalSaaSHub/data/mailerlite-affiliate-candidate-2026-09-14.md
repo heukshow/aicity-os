@@ -1,24 +1,33 @@
-# MailerLite affiliate candidate — 2026-09-14
+# MailerLite affiliate candidate — 2026-10-08
 
-## Fresh evidence
+## Fresh official evidence
 
-- Official affiliate page: https://www.mailerlite.com/affiliate
-- Exact application route exposed by the official page: https://mailerlite.trackdesk.com/sign-up
+- Affiliate program: https://www.mailerlite.com/affiliate
+- Affiliate Program Terms: https://www.mailerlite.com/legal/affiliate-program-terms
+- Official application route: https://mailerlite.trackdesk.com/sign-up
 - Network/platform: Trackdesk
-- Commission: 30% recurring commission for paying referrals, described by MailerLite as lifetime commission while the referred customer remains active.
+- Commission: MailerLite currently advertises 30% recurring lifetime commission while a referred customer remains active.
 - Referral cookie: 45 days.
-- Payout gate: commissions become eligible after the open balance reaches $100 from at least 2 unique sales from 2 different referrals; settlements are processed weekly when billing/payment details are complete.
-- Official pricing: https://www.mailerlite.com/pricing
-- Current Free plan: $0/month, up to 250 subscribers and 2,500 monthly emails, no credit card required.
-- New accounts receive a 14-day premium-feature trial; current paid Comfort pricing starts at $12/month on the official Free-plan page.
+- Approval and link issuance: MailerLite says applications are reviewed in up to 10 business days and approved affiliates receive a unique referral link.
+- Payout gate: at least $100 in approved commissions from at least 2 different referred customers; eligible payouts are processed through Tipalti.
 
-## COSHUMA duplicate/status check
+## Legal-consent gate
 
-- GitHub repository search for `mailerlite`: no existing record found before this cycle.
-- support@coshuma.com Gmail `in:anywhere` search for MailerLite: no prior application, approval, rejection, tracking URL, or vendor thread found.
+MailerLite's current Affiliate Program Terms state that submitting an application constitutes acceptance of a legally binding agreement. The terms also require accurate identity, business and promotion-method information. No unattended submission or consent was performed.
+
+## Duplicate and state check
+
+- Current repository state contains no MailerLite application, approval, rejection, vendor-issued tracking URL, commission or payout evidence.
+- The exact customer-facing tracking URL remains unknown.
+- Application, dashboard, onboarding, generic vendor and Trackdesk URLs are not customer affiliate links.
 
 ## Current affiliate state
 
-`browser_required_trackdesk_application`
+`browser_required_legal_program_consent`
 
-The official Trackdesk sign-up route is verified, but this automation does not have an interactive form browser capable of safely completing the account/application flow. No application submission, approval, customer tracking URL, signup, paid customer, commission, or revenue is claimed.
+- `application_state=not_submitted_legal_consent_required`
+- `affiliate_url=null`
+- No application, approval, click, signup, paid customer, commission, payout or revenue is claimed.
+- Next action: The account holder must review and accept MailerLite's Affiliate Program Terms before submitting the official Trackdesk application. Submit once only if accepted, then recover and verify only the exact vendor-issued customer-facing referral URL. Stop for CAPTCHA, OTP, payment approval, forced identity verification, or any additional legal consent.
+
+Checked at: 2026-10-08T09:19:54+09:00
