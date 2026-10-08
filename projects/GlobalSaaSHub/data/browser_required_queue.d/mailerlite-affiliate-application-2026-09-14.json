@@ -1,23 +1,29 @@
 {
   "tool": "mailerlite",
   "task": "affiliate_application",
-  "status": "browser_required_trackdesk_application",
+  "status": "browser_required_legal_program_consent",
+  "application_state": "not_submitted_legal_consent_required",
   "application_url": "https://mailerlite.trackdesk.com/sign-up",
   "affiliate_program_url": "https://www.mailerlite.com/affiliate",
+  "affiliate_terms_url": "https://www.mailerlite.com/legal/affiliate-program-terms",
   "cost": 0,
   "duplicate_check": {
-    "github": "no_existing_mailerlite_record_found_before_cycle",
+    "github": "no_application_approval_rejection_or_tracking_record_found",
     "gmail": "no_prior_mailerlite_application_approval_rejection_or_tracking_record_found"
   },
-  "user_action_required": "Interactive Trackdesk account/application form completion; CAPTCHA, OTP, legal consent, or forced identity verification must be handed to the user if encountered.",
+  "blocker": "mailerlite_affiliate_program_terms_acceptance_required",
+  "user_action_required": true,
+  "next_action": "The account holder must review and accept MailerLite's Affiliate Program Terms before submitting the official Trackdesk application. Submit once only if accepted, then recover and verify only the exact vendor-issued customer-facing referral URL. Stop for CAPTCHA, OTP, payment approval, forced identity verification, or any additional legal consent.",
   "do_not_claim": [
     "application_submitted",
     "approved",
     "affiliate_tracking_url_verified",
+    "click",
     "signup",
     "paid_customer",
     "commission",
+    "payout",
     "revenue"
   ],
-  "checked_at": "2026-09-14T04:40:00+09:00"
+  "checked_at": "2026-10-08T09:19:54+09:00"
 }
