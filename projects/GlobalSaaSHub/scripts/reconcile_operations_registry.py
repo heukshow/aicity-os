@@ -16,17 +16,30 @@ PATH = "projects/GlobalSaaSHub/data/operations_registry.json"
 EARLY = {"discovered", "evidence_validated", "assigned_to_team", "in_progress", "implemented_and_merged"}
 
 
+def normalize_verified_row(row):
+    """Clear transient verification fields after a trusted terminal success."""
+    if row.get("lifecycle") != "production_verified" or not row.get("completion_gate_satisfied"):
+        return
+    if "execution_status" in row:
+        row["execution_status"] = "completed"
+    if "verification_status" in row:
+        row["verification_status"] = "production_verified"
+    if "production_verification_requested" in row:
+        row["production_verification_requested"] = False
+    if "next_executable_action" in row:
+        row["next_executable_action"] = None
+    evidence = row.get("evidence")
+    if isinstance(evidence, dict) and "direct_live_response_verified" in evidence:
+        evidence["direct_live_response_verified"] = True
+
+
 def reconcile(registry, comments, get_pr, get_run, has_spec):
     updated = copy.deepcopy(registry)
     changed = []
     for row in updated.get("active_queue", []):
         old = copy.deepcopy(row)
         if row.get("lifecycle") in {"production_verified", "measured", "rejected_with_evidence"}:
-            if row.get("lifecycle") == "production_verified" and row.get("completion_gate_satisfied"):
-                if "execution_status" in row:
-                    row["execution_status"] = "completed"
-                if "verification_status" in row:
-                    row["verification_status"] = "production_verified"
+            normalize_verified_row(row)
             if old != row:
                 changed.append(row["record_id"])
             continue
@@ -79,10 +92,7 @@ def reconcile(registry, comments, get_pr, get_run, has_spec):
                        last_evidence_at=comment["created_at"],
                        verification=(f"Deterministic production verification succeeded in run {run_id}; "
                                      f"trusted evidence comment {comment['id']}."))
-            if "execution_status" in row:
-                row["execution_status"] = "completed"
-            if "verification_status" in row:
-                row["verification_status"] = "production_verified"
+            normalize_verified_row(row)
             break
         if old != row:
             changed.append(row["record_id"])
