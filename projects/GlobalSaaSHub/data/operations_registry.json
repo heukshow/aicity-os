@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-07T23:08:42.653889+00:00",
+  "updated_at": "2026-10-08T05:10:00.841Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -3164,7 +3164,7 @@
         "deployment_source_commit": "a2ba5562df8c2f92b0e1e793adfd90c0ac1fffb6",
         "live_url": "https://coshuma.com/downloads/coshuma-advertiser-application-template-en.md?coshuma_qa=1",
         "deployed_artifact_verified": true,
-        "direct_live_response_verified": false,
+        "direct_live_response_verified": true,
         "observed_verifier_limit": "Public-reader access was unavailable and an independent browser returned net::ERR_BLOCKED_BY_CLIENT; neither result proves an origin or CDN HTTP failure.",
         "additional_spend_usd": 0,
         "latest_verification_failed_comment_id": 6047767914,
@@ -3178,12 +3178,12 @@
       "completion_gate": "direct_public_http_response_observed_and_source_build_deploy_live_consistent",
       "completion_gate_satisfied": true,
       "user_action_required": false,
-      "production_verification_requested": true,
+      "production_verification_requested": false,
       "execution_status": "completed",
       "verification_status": "production_verified",
       "verification": "Deterministic production verification succeeded in run 37700491417; trusted evidence comment 6048682789.",
-      "handoff": "Release & Reliability Team should consume the existing candidate through the deterministic GitHub Actions verifier. Operations Governance must synchronize only a trusted github-actions[bot] production_verified result tied to the exact merge and run; do not infer live success from Git blobs alone.",
-      "next_executable_action": "Run the new deterministic public-boundary release spec from GitHub Actions against current-main source, deployed gh-pages content, deployment ancestry and the live Markdown URL. Record production_verified or the exact failed boundary in issue #292.",
+      "handoff": "Completed. Operations Governance retains canonical registry stewardship; Release & Reliability should reopen only on a new directly observed public-response or deployment-lineage failure.",
+      "next_executable_action": null,
       "completed_at": "2026-10-07T23:08:27Z"
     },
     {
