@@ -305,7 +305,9 @@ class RegistryTests(unittest.TestCase):
     def test_custom_release_gate_consumes_trusted_success(self):
         row = candidate()
         row.update(completion_gate='direct_public_http_response_verified',
-                   completion_gate_satisfied=False, execution_status='queued', verification_status='pending')
+                   completion_gate_satisfied=False, execution_status='queued', verification_status='pending',
+                   production_verification_requested=True, next_executable_action='run verifier')
+        row['evidence']['direct_live_response_verified'] = False
         comment = {'id': 100, 'user': {'login': 'github-actions[bot]'}, 'created_at': '2026-10-08T00:00:00Z',
             'body': 'RELEASE_VERIFICATION\n- record_id: `one`\n- merge: `' + 'a' * 40 + '`\n- result: `production_verified`\n- verification_run: `124`'}
         pr = lambda _: {'merged': True, 'merge_commit_sha': 'a' * 40}
@@ -315,17 +317,25 @@ class RegistryTests(unittest.TestCase):
         self.assertEqual(actual['lifecycle'], 'production_verified')
         self.assertEqual(actual['execution_status'], 'completed')
         self.assertEqual(actual['verification_status'], 'production_verified')
+        self.assertFalse(actual['production_verification_requested'])
+        self.assertIsNone(actual['next_executable_action'])
+        self.assertTrue(actual['evidence']['direct_live_response_verified'])
         self.assertEqual(changed, ['one'])
 
     def test_terminal_auxiliary_statuses_are_normalized(self):
         row = candidate()
         row.update(lifecycle='production_verified', completion_gate_satisfied=True,
-                   execution_status='queued', verification_status='pending')
+                   execution_status='queued', verification_status='pending',
+                   production_verification_requested=True, next_executable_action='run verifier')
+        row['evidence']['direct_live_response_verified'] = False
         result, changed = registry.reconcile({'active_queue': [row]}, [],
             lambda _: {}, lambda _: {}, lambda _: True)
         actual = result['active_queue'][0]
         self.assertEqual(actual['execution_status'], 'completed')
         self.assertEqual(actual['verification_status'], 'production_verified')
+        self.assertFalse(actual['production_verification_requested'])
+        self.assertIsNone(actual['next_executable_action'])
+        self.assertTrue(actual['evidence']['direct_live_response_verified'])
         self.assertEqual(changed, ['one'])
 
 
