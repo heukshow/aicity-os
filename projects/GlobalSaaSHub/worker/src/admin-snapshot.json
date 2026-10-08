@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T04:28:37.965Z",
+  "generatedAt": "2026-10-08T05:27:37.911Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -2429,7 +2429,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "Legal program consent required before Leadpages PartnerStack application submission; exact tracking URL remains unknown."
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "lovo",
