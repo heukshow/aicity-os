@@ -509,6 +509,39 @@ for filename, replacements in PATCHES.items():
         if old in text:
             text = text.replace(old, new, 1)
 
+    # The deploy workflow polishes generic customer copy before `npm run build`.
+    # On Octo Browser that changes "Pricing Plan" to "Pricing" and shortens the
+    # official CTA label, so the historical exact-string replacement above can
+    # miss only the checklist while still applying the title and overview edits.
+    # Recover from that known producer ordering without matching an arbitrary
+    # page block, then fail closed if the decision asset is still absent.
+    if filename == "octo-browser.html" and 'id="octo-two-day-evaluation"' not in text:
+        anchor = "<!-- Pricing & Action -->"
+        cta_end = "<span>→</span></a> </div>"
+        start = text.find(anchor)
+        end = text.find(cta_end, start) if start != -1 else -1
+        if end != -1:
+            end += len(cta_end)
+            current_pricing = text[start:end]
+            expected_fragments = (
+                'data-cta="official"',
+                'href="https://octobrowser.net/"',
+                "See official pricing",
+            )
+            if all(fragment in current_pricing for fragment in expected_fragments):
+                text = text[:start] + PATCHES[filename][-1][1] + text[end:]
+
+    if filename == "octo-browser.html":
+        required = (
+            'id="octo-two-day-evaluation"',
+            "A 2-day evaluation checklist before you subscribe",
+            'href="https://octobrowser.net/pricing/"',
+            "COSHUMA has not completed a hands-on product test",
+        )
+        missing = [marker for marker in required if marker not in text]
+        if missing:
+            raise SystemExit(f"Octo Browser buyer-checklist patch incomplete: {missing}")
+
     lowered = text.lower()
     leftovers = [phrase for phrase in FORBIDDEN_PUBLIC_COPY if phrase in lowered]
     if leftovers:
