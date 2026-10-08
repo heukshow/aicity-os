@@ -4165,15 +4165,21 @@
     "official_verified_at": "2026-09-14T04:40:00+09:00",
     "official_evidence_url": "https://www.mailerlite.com/affiliate",
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_trackdesk_application",
+    "affiliate_status": "browser_required_legal_program_consent",
     "affiliate_source_url": "https://www.mailerlite.com/affiliate",
     "affiliate_verified_at": null,
     "affiliate_evidence_markers": [
-      "MailerLite official affiliate page advertises 30% recurring lifetime commission and a 45-day referral cookie through Trackdesk",
-      "Exact official application route verified as https://mailerlite.trackdesk.com/sign-up",
-      "No prior MailerLite application, approval, rejection, vendor thread, or customer tracking URL was found in support@coshuma.com Gmail on 2026-09-14",
-      "Application remains unsubmitted because the Trackdesk form requires an interactive browser flow; do not use generic MailerLite pages as referral URLs"
-    ]
+      "MailerLite's current official affiliate page advertises 30% recurring lifetime commission and a 45-day referral cookie.",
+      "MailerLite's current official affiliate page says approved affiliates receive a unique referral link; the application route is https://mailerlite.trackdesk.com/sign-up.",
+      "MailerLite's official Affiliate Program Terms state that submitting the application constitutes acceptance of a legally binding agreement and requires accurate identity, business, and promotion-method information.",
+      "Current official payout terms require at least $100 in approved commissions from at least two different referred customers; eligible payouts are processed through Tipalti.",
+      "No MailerLite legal terms were accepted, no application was submitted, and no account-specific customer tracking URL was observed.",
+      "Generic MailerLite, application, onboarding, dashboard, and Trackdesk URLs must not be used as customer affiliate links."
+    ],
+    "affiliate_workflow_url": "https://mailerlite.trackdesk.com/sign-up",
+    "affiliate_status_checked_at": "2026-10-08T09:19:54+09:00",
+    "application_state": "not_submitted_legal_consent_required",
+    "affiliate_next_action": "The account holder must review and accept MailerLite's Affiliate Program Terms before submitting the official Trackdesk application. Submit once only if accepted, then recover and verify only the exact vendor-issued customer-facing referral URL. Stop for CAPTCHA, OTP, payment approval, forced identity verification, or any additional legal consent."
   },
   {
     "id": "make-com",
