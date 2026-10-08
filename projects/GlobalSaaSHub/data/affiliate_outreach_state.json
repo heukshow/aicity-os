@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-08T13:18:55+09:00",
+  "updated_at": "2026-10-08T14:17:20+09:00",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -698,15 +698,15 @@
       "note": "Official program is confirmed, but no existing COSHUMA Landingi application or issued customer tracking URL was found in GitHub/Gmail. Authenticated PartnerStack access is required before a one-time application or exact-link recovery. Do not use the portal URL as a customer CTA."
     },
     "leadpages": {
-      "status": "browser_required_portal_access",
+      "status": "browser_required_legal_program_consent",
       "tracking_url": null,
       "application_state": "not_submitted",
       "account": "support@coshuma.com",
       "official_program_url": "https://leadpages.com/affiliates",
       "workflow_url": "https://dash.partnerstack.com/application?company=leadpages&group=affiliatewebsite",
       "github_issue": 477,
-      "checked_at": "2026-09-14T06:15:00+09:00",
-      "note": "Official affiliate program and exact PartnerStack application route are confirmed, but no existing COSHUMA Leadpages application or issued customer tracking URL was found in GitHub/Gmail. Authenticated PartnerStack access is required before one-time submission or exact-link recovery. Do not use the application URL as a customer CTA."
+      "checked_at": "2026-10-08T14:17:20+09:00",
+      "note": "Official affiliate program and exact PartnerStack application route are confirmed. The current application requires review of program Terms of Service and an explicit agreement to the branded-search restriction. No COSHUMA Leadpages application or issued customer tracking URL is evidenced. Keep the application on hold until owner legal-program consent; never use the PartnerStack application URL as a customer CTA."
     },
     "instapage": {
       "status": "browser_required_legal_program_consent",
