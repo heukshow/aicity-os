@@ -68,6 +68,17 @@ async function runtime(env,request){
    throw new AdError('Provider redirects are not accepted.',503);
   }
   const detail={method,path:target.pathname,status:response.status};
+  if(!response.ok){
+   const problem=await response.clone().json().catch(()=>({}));
+   if(typeof problem.name==='string')detail.errorName=problem.name.slice(0,80);
+   if(typeof problem.message==='string')detail.errorMessage=problem.message.slice(0,200);
+   if(typeof problem.debug_id==='string')detail.debugId=problem.debug_id.slice(0,80);
+   if(Array.isArray(problem.details))detail.issues=problem.details.slice(0,5).map(item=>({
+    issue:typeof item?.issue==='string'?item.issue.slice(0,120):undefined,
+    location:typeof item?.location==='string'?item.location.slice(0,160):undefined,
+    description:typeof item?.description==='string'?item.description.slice(0,240):undefined
+   })).filter(item=>item.issue||item.location||item.description);
+  }
   if(target.pathname==='/v1/notifications/verify-webhook-signature'){
    const result=await response.clone().json().catch(()=>({}));
    detail.verificationStatus=result.verification_status||'UNKNOWN';
