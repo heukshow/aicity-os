@@ -98,7 +98,7 @@ test('publish is unavailable for unpaid, unapproved, stale, contradictory or alr
   assert.match(buttonTag(html, 'reject'), /\sdisabled/);
 });
 
-test('review needs verified payment, both factual checks and a bounded note before posting approval', async () => {
+test('legacy review needs verified payment, both factual checks and a bounded note before posting approval', async () => {
   assert.match(render(), /data-field="notes" maxlength="1000"/);
   const state = browser(render(application({ approved: false, reviewStatus: 'pending', status: 'awaiting_ad_approval' })));
   const card = state.cards[0];
@@ -139,6 +139,44 @@ test('review needs verified payment, both factual checks and a bounded note befo
   control(unpaid.cards[0], 'claims-checked').checked = true;
   await action(unpaid.cards[0], 'approve').dispatch('click');
   assert.equal(unpaid.requests.length, 0);
+});
+
+
+test('image review is available after material submission and before payment', async () => {
+  const image = application({
+    creativeMode: 'image', submissionStatus: 'submitted', status: 'awaiting_review',
+    paymentVerified: false, paymentStatus: 'unpaid', approved: false, reviewStatus: 'pending',
+  });
+  const html = render(image);
+  assert.match(html, /결제 전에 소재를 승인할 수 있습니다/);
+  const state = browser(html);
+  const card = state.cards[0];
+  control(card, 'destination-checked').checked = true;
+  control(card, 'destination-checked').dispatch('change');
+  control(card, 'claims-checked').checked = true;
+  control(card, 'claims-checked').dispatch('change');
+  control(card, 'notes').value = 'Destination and claims checked before payment.';
+  control(card, 'notes').dispatch('input');
+  assert.equal(action(card, 'approve').disabled, false);
+  await action(card, 'approve').dispatch('click');
+  assert.equal(state.requests.length, 1);
+  assert.equal(state.requests[0].path, '/ops/ads/applications/ad-123/review');
+  assert.deepEqual(JSON.parse(state.requests[0].options.body), {
+    decision: 'approve', notes: 'Destination and claims checked before payment.',
+    destinationChecked: true, claimsChecked: true,
+  });
+
+  const incomplete = browser(render(application({
+    creativeMode: 'image', submissionStatus: 'draft', status: 'preparing_materials',
+    paymentVerified: false, paymentStatus: 'unpaid', approved: false, reviewStatus: 'pending',
+  })));
+  control(incomplete.cards[0], 'destination-checked').checked = true;
+  control(incomplete.cards[0], 'claims-checked').checked = true;
+  control(incomplete.cards[0], 'notes').value = 'Should remain blocked.';
+  control(incomplete.cards[0], 'notes').dispatch('input');
+  assert.equal(action(incomplete.cards[0], 'approve').disabled, true);
+  await action(incomplete.cards[0], 'approve').dispatch('click');
+  assert.equal(incomplete.requests.length, 0);
 });
 
 test('publication converts the explicitly labelled Korea time to UTC and refuses incomplete payment state', async () => {
