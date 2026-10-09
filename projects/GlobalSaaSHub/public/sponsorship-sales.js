@@ -62,23 +62,28 @@
     return /^mailto:/i.test(href) ? 'mailto:support@coshuma.com' : href;
   }
 
+  function approvalAccessFromHash(hashValue) {
+    const prefix = '#coshuma-ad=';
+    if (typeof hashValue !== 'string' || !hashValue.startsWith(prefix)) return null;
+    let decoded;
+    try { decoded = decodeURIComponent(hashValue.slice(prefix.length)); } catch (_) { return null; }
+    const match = /^([a-f0-9-]{36})\.([a-f0-9]{64})$/.exec(decoded);
+    return match ? { applicationId: match[1], accessToken: match[2] } : null;
+  }
+
   // Export only pure checks for local regression tests; no credentials or live calls.
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { validDestination, paymentAvailable, validQuote, emailDraft, safeAnalyticsLink, statusText };
+    module.exports = { validDestination, paymentAvailable, validQuote, emailDraft, safeAnalyticsLink, statusText, approvalAccessFromHash };
   }
   if (typeof document === 'undefined') return;
   // The page controls whether external bookings are open.
   if (!['booking','live'].includes(document.body?.dataset.advertisingMode || '')) return;
 
   function approvalAccessFromLocation() {
-    const prefix = '#coshuma-ad=';
-    if (!window.location.hash.startsWith(prefix)) return null;
-    let decoded;
-    try { decoded = decodeURIComponent(window.location.hash.slice(prefix.length)); } catch (_) { return null; }
-    const match = /^([a-f0-9-]{36})\.([a-f0-9]{64})$/.exec(decoded);
-    if (!match) return null;
+    const accessFromHash = approvalAccessFromHash(window.location.hash);
+    if (!accessFromHash) return null;
     try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (_) { /* Fragment still never reaches HTTP. */ }
-    return { applicationId: match[1], accessToken: match[2] };
+    return accessFromHash;
   }
   const approvalAccess = approvalAccessFromLocation();
 
