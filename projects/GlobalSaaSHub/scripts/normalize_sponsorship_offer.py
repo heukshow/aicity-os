@@ -84,7 +84,7 @@ def sync_advertise_catalog() -> None:
     rows = ''.join('<tr><th scope="row">' + escape(item['label']) + '</th>'
                    + ''.join('<td>$' + f'{float(item["prices"][str(days)]):g}' + '</td>' for days in (7, 30, 90))
                    + '</tr>' for item in catalog)
-    prices = '<div class="table-wrap"><table><caption>USD per placement. The agreed period starts when your card goes live, not when you submit or pay.</caption><thead><tr><th scope="col">Placement</th><th scope="col">7 days</th><th scope="col">30 days</th><th scope="col">90 days</th></tr></thead><tbody>' + rows + '</tbody></table></div>'
+    prices = '<div class="table-wrap"><table class="rate-table"><caption>Published F1–F3 image advertising rates in USD. Payment is requested only after material approval and position reservation.</caption><thead><tr><th scope="col">Placement</th><th scope="col">7 days</th><th scope="col">30 days</th><th scope="col">90 days</th></tr></thead><tbody>' + rows + '</tbody></table></div>'
     if 'data-advertising-mode="inquiry"' in page.read_text(encoding="utf-8"):
         prices = prices.replace('<table>', '<table class="rate-table">', 1)
         prices = prices.replace('USD per placement. The agreed period starts when your card goes live, not when you submit or pay.', 'Planning reference in USD, based on the existing text-ad catalogue. Image formats and final rates require confirmation; bookings are not open.')

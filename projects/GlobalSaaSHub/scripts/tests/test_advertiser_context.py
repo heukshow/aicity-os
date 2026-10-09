@@ -38,6 +38,6 @@ class ContextTests(unittest.TestCase):
     def test_producer_repeatability_and_paid_hold(self):
         self.assertEqual(self.html,producer.inventory_section(self.config))
         self.assertFalse(self.config['paid_bookings_open'])
-        self.assertFalse(json.loads((ROOT/'data/sponsorship-inventory.json').read_text(encoding='utf-8'))['enabled'])
+        self.assertTrue(json.loads((ROOT/'data/sponsorship-inventory.json').read_text(encoding='utf-8'))['enabled'])
 
 if __name__=='__main__':unittest.main()

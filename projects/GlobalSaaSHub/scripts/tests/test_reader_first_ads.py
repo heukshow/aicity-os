@@ -31,9 +31,11 @@ class ReaderFirstTests(unittest.TestCase):
   for bad in ['gtag','fetch(','localStorage','sessionStorage','innerHTML','setInterval']:
    self.assertNotIn(bad,js)
   self.assertIn('copy.remove()',js);self.assertIn('minHeight',js)
- def test_paid_hold_and_source_dimensions_remain(self):
+ def test_fixed_paid_inventory_and_source_dimensions_remain(self):
   d=json.loads((R/'data/sponsorship-inventory.json').read_text(encoding='utf-8'))
-  self.assertFalse(d['enabled']);self.assertFalse(d['applications_open'])
+  self.assertTrue(d['enabled']);self.assertTrue(d['applications_open'])
+  expansion=json.loads((R/'data/placement-expansion.json').read_text(encoding='utf-8'))
+  self.assertFalse(expansion['paid_bookings_open'])
   p=json.loads((R/'data/coshuma-promotions.json').read_text(encoding='utf-8'))['promotions']
   self.assertEqual([(r['width'],r['height'],r['max_bytes']) for r in p],[(600,600,300000),(1200,675,500000),(1200,400,400000)])
 if __name__=='__main__':unittest.main()

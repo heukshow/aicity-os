@@ -1,4 +1,4 @@
-"""Protect navigability without reopening advertising sales."""
+"""Protect advertising navigability while only F1-F3 fixed bookings are open."""
 from pathlib import Path
 from html.parser import HTMLParser
 from unittest.mock import patch
@@ -54,10 +54,11 @@ class NavigationTests(unittest.TestCase):
   self.assertLess(text.index('id="placement-formats"'),text.index('<section id="materials"'))
   self.assertEqual(text.count('data-ad-position='),8)
   self.assertIn('data-position-directory href="#placement-formats"',text)
-  self.assertIn('data-advertising-mode="inquiry"',text)
- def test_no_new_payment_activation(self):
-  self.assertIn('enabled: false',(ROOT/'public/sponsored-inventory.js').read_text(encoding='utf-8'))
+  self.assertIn('data-advertising-mode="booking"',text)
+ def test_fixed_inventory_is_open_but_expansion_stays_closed(self):
+  self.assertIn('enabled: true',(ROOT/'public/sponsored-inventory.js').read_text(encoding='utf-8'))
   data=json.loads((ROOT/'data/sponsorship-inventory.json').read_text(encoding='utf-8'))
-  self.assertFalse(data['enabled']);self.assertFalse(data['applications_open'])
+  self.assertTrue(data['enabled']);self.assertTrue(data['applications_open'])
+  self.assertFalse(expanded.load_config()['paid_bookings_open'])
 
 if __name__=='__main__':unittest.main()

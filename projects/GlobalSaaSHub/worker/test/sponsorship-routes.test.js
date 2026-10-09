@@ -24,6 +24,7 @@ const INPUT = {
 };
 const MIGRATION = [
   '0001_orders.sql', '0002_private_ops.sql', '0003_sponsored_campaigns.sql', '0004_sponsorship_sales.sql',
+  '0006_sponsorship_image_assets.sql',
 ].map((name) => readFileSync(new URL(`../migrations/${name}`, import.meta.url), 'utf8')).join('\n');
 
 // Python's bundled SQLite keeps these integration tests compatible with Node 20/22.
@@ -795,4 +796,67 @@ test('webhook subscription repair requires an authenticated same-origin owner an
   assert.deepEqual(calls, ['POST /v1/oauth2/token', 'GET /v1/notifications/webhooks', `GET /v1/notifications/webhooks/${candidate.id}`]);
   assert.equal(f.env.PAYPAL_WEBHOOK_ID, 'synthetic-webhook-id');
   assert.equal(f.env.CHECKOUT_ENABLED, 'false');
+});
+
+test('image advertising enforces upload-review-reserve-payment-publication order', async (t) => {
+  const f = fixture(t, { checkout: true });
+  const paypal = mockPayPal(f);
+  const created = await f.request('/v1/ads/applications', { method: 'POST', body: INPUT });
+  assert.equal(created.status, 201, JSON.stringify(created.json));
+  assert.equal(created.json.creativeMode, 'image');
+  assert.equal(created.json.status, 'preparing_materials');
+  const app = {
+    applicationId: created.json.applicationId,
+    accessToken: created.json.accessToken,
+  };
+  const headers = { authorization: `Bearer ${app.accessToken}` };
+  const base = `/v1/ads/applications/${app.applicationId}`;
+
+  const earlyOrder = await f.request(base + '/order', { method: 'POST', body: {}, headers });
+  assert.equal(earlyOrder.status, 409);
+  assert.equal(paypal.calls.length, 0);
+
+  f.db.exec(`INSERT INTO sponsorship_assets(id,application_id,role,mime,width,height,byte_size,sha256,data)
+    VALUES('synthetic-logo-${app.applicationId}','${app.applicationId}','logo','image/png',400,400,1,'synthetic-logo-sha',X'00');
+    INSERT INTO sponsorship_assets(id,application_id,role,mime,width,height,byte_size,sha256,data)
+    VALUES('synthetic-main-${app.applicationId}','${app.applicationId}','tool-primary','image/png',600,600,1,'synthetic-main-sha',X'00');`);
+
+  const submitted = await f.request(base + '/submit', { method: 'POST', body: {}, headers });
+  assert.equal(submitted.status, 200, JSON.stringify(submitted.json));
+  assert.equal(submitted.json.status, 'awaiting_review');
+
+  const beforeReview = await f.request(base + '/order', { method: 'POST', body: {}, headers });
+  assert.equal(beforeReview.status, 409);
+  assert.equal(paypal.calls.length, 0);
+
+  const reviewed = await f.ownerAction(app, 'review', {
+    decision: 'approve',
+    notes: 'Synthetic image materials, destination and claims reviewed.',
+    destinationChecked: true,
+    claimsChecked: true,
+  });
+  assert.equal(reviewed.status, 200, JSON.stringify(reviewed.json));
+  assert.equal(reviewed.json.status, 'awaiting_payment');
+  assert.equal(reviewed.json.reservationActive, true);
+
+  const order = await f.request(base + '/order', { method: 'POST', body: {}, headers });
+  assert.equal(order.status, 201, JSON.stringify(order.json));
+  assert.equal(paypal.created.length, 1);
+
+  const captured = await f.request(base + '/capture', {
+    method: 'POST', body: { orderId: order.json.orderId }, headers,
+  });
+  assert.equal(captured.status, 200, JSON.stringify(captured.json));
+  assert.equal(captured.json.paymentVerified, true);
+  assert.equal(captured.json.status, 'active');
+  assert.equal(captured.json.publicationStatus, 'published');
+
+  const placements = await f.request('/v1/sponsored/placements?path=%2Ftool%2Fpipedrive.html');
+  assert.equal(placements.status, 200);
+  assert.equal(placements.json.placements.length, 1);
+  assert.equal(placements.json.placements[0].creativeMode, 'image');
+  assert.match(placements.json.placements[0].imageUrl, /\/v1\/ads\/assets\//);
+  assert.match(placements.json.placements[0].logoUrl, /\/v1\/ads\/assets\//);
+
+  assert.equal((await f.db.prepare('SELECT COUNT(*) AS n FROM sponsorship_holds WHERE application_id=?').bind(app.applicationId).first()).n, 0);
 });

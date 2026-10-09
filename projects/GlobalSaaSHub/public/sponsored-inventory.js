@@ -1,6 +1,6 @@
 (() => {
   const API = 'https://globalsaashub-payments.qmfforfhem.workers.dev/v1/sponsored/placements';
-  const CONFIG = Object.freeze({ enabled: false });
+  const CONFIG = Object.freeze({ enabled: true });
   // These are the only pages opened for sponsored inventory. Never use wildcard placements.
   const ALLOWED_SLOTS = {
     '/tool/pipedrive.html': 'tool-primary',
@@ -27,6 +27,17 @@
     }
   }
 
+  function safeAssetUrl(value) {
+    try {
+      const url = new URL(value);
+      if (url.protocol !== 'https:' || url.hostname !== 'globalsaashub-payments.qmfforfhem.workers.dev' ||
+          url.username || url.password || url.port || !/^\/v1\/ads\/assets\/[a-f0-9-]{36}\/(?:logo|tool-primary|buyer-intent-top|compare-decision-premium)$/.test(url.pathname)) return null;
+      return url.href;
+    } catch (error) {
+      return null;
+    }
+  }
+
   function validCreative(creative) {
     if (creative.environment !== 'live' || creative.paymentVerified !== true ||
         creative.approved !== true || creative.status !== 'published') return null;
@@ -45,8 +56,14 @@
       return null;
     }
     // Only public creative fields are retained. Payment and applicant records never enter the DOM or analytics.
-    return { campaignId: creative.campaignId, title: creative.title, body: creative.body,
+    const result = { campaignId: creative.campaignId, title: creative.title, body: creative.body,
       button: creative.button, url: creative.url, start, end };
+    if (creative.creativeMode === 'image') {
+      const imageUrl = safeAssetUrl(creative.imageUrl), logoUrl = safeAssetUrl(creative.logoUrl);
+      if (!imageUrl || !logoUrl) return null;
+      Object.assign(result, { creativeMode: 'image', imageUrl, logoUrl });
+    }
+    return result;
   }
 
   function emit(eventName, creative, slot) {
@@ -73,10 +90,13 @@
     if (!slot || matchingSlots.length !== 1) return;
     const slotEl = matchingSlots[0];
     const label = slotEl.querySelector('[data-sponsored-label]');
+    const media = slotEl.querySelector('[data-sponsored-media]');
+    const logo = slotEl.querySelector('[data-sponsored-logo]');
+    const image = slotEl.querySelector('[data-sponsored-image]');
     const title = slotEl.querySelector('[data-sponsored-title]');
     const body = slotEl.querySelector('[data-sponsored-body]');
     const button = slotEl.querySelector('[data-sponsored-button]');
-    if (!label || !title || !body || !button) return;
+    if (!label || !media || !logo || !image || !title || !body || !button) return;
 
     let active = null;
     let expiryTimer = null;
@@ -137,6 +157,9 @@
       expiryTimer = null;
       button.removeAttribute('href');
       delete button.dataset.sponsorCampaignId;
+      media.hidden = true;
+      logo.removeAttribute('src');
+      image.removeAttribute('src');
     }
 
     function cancel() {
@@ -158,6 +181,15 @@
       if (!sameCampaign) stopMeasurement();
       active = creative;
       label.textContent = 'Sponsored';
+      if (creative.creativeMode === 'image') {
+        logo.src = creative.logoUrl;
+        image.src = creative.imageUrl;
+        media.hidden = false;
+      } else {
+        media.hidden = true;
+        logo.removeAttribute('src');
+        image.removeAttribute('src');
+      }
       title.textContent = creative.title;
       body.textContent = creative.body;
       button.textContent = creative.button;
