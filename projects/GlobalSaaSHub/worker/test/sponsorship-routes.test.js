@@ -6,6 +6,7 @@ import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import worker from '../src/index.js';
+import { retryPendingApprovalEmails } from '../src/sponsorship.js';
 
 // All identifiers, credentials and provider responses below are synthetic. Fetch is
 // replaced in every test; no test can fall through to a real provider or account.
@@ -859,4 +860,62 @@ test('image advertising enforces upload-review-reserve-payment-publication order
   assert.match(placements.json.placements[0].logoUrl, /\/v1\/ads\/assets\//);
 
   assert.equal((await f.db.prepare('SELECT COUNT(*) AS n FROM sponsorship_holds WHERE application_id=?').bind(app.applicationId).first()).n, 0);
+});
+
+
+test('approved image application emails a signed payment-resume link once and accepts it for checkout status', async (t) => {
+  const f = fixture(t, { checkout: true });
+  f.env.RESEND_API_KEY = 'synthetic-resend-key';
+  f.env.APPROVAL_LINK_SECRET = 'synthetic-approval-link-secret';
+  const sent = [];
+  f.fetchMock.mock.mockImplementation(async (url, options = {}) => {
+    assert.equal(String(url), 'https://api.resend.com/emails');
+    assert.equal(options.method, 'POST');
+    assert.equal(options.headers['idempotency-key'].startsWith('coshuma-approval/'), true);
+    sent.push(JSON.parse(options.body));
+    return new Response(JSON.stringify({ id: 'synthetic-resend-message' }), {
+      status: 200, headers: { 'content-type': 'application/json' },
+    });
+  });
+
+  const created = await f.request('/v1/ads/applications', { method: 'POST', body: INPUT });
+  assert.equal(created.status, 201, JSON.stringify(created.json));
+  const app = { applicationId: created.json.applicationId, accessToken: created.json.accessToken };
+  const headers = f.advertiser(app);
+  const base = '/v1/ads/applications/' + app.applicationId;
+  f.db.exec(`INSERT INTO sponsorship_assets(id,application_id,role,mime,width,height,byte_size,sha256,data)
+    VALUES('mail-logo-${app.applicationId}','${app.applicationId}','logo','image/png',400,400,1,'mail-logo-sha',X'00');
+    INSERT INTO sponsorship_assets(id,application_id,role,mime,width,height,byte_size,sha256,data)
+    VALUES('mail-main-${app.applicationId}','${app.applicationId}','tool-primary','image/png',600,600,1,'mail-main-sha',X'00');`);
+  assert.equal((await f.request(base + '/submit', { method: 'POST', body: {}, headers })).status, 200);
+
+  const reviewed = await f.ownerAction(app, 'review', {
+    decision: 'approve',
+    notes: 'Synthetic approval notification test.',
+    destinationChecked: true,
+    claimsChecked: true,
+  });
+  assert.equal(reviewed.status, 200, JSON.stringify(reviewed.json));
+  assert.equal(reviewed.json.status, 'awaiting_payment');
+  assert.equal(reviewed.json.approvalNotification.action, 'approval_email_sent');
+  assert.equal(sent.length, 1);
+  assert.deepEqual(sent[0].to, [INPUT.contactEmail]);
+  const returnUrl = sent[0].text.split('\n').find((line) => line.startsWith('https://coshuma.com/advertise.html#coshuma-ad='));
+  assert.ok(returnUrl);
+  const decoded = decodeURIComponent(new URL(returnUrl).hash.slice('#coshuma-ad='.length));
+  const [applicationId, resumeToken] = decoded.split('.');
+  assert.equal(applicationId, app.applicationId);
+  assert.match(resumeToken, /^[a-f0-9]{64}$/);
+
+  const resumed = await f.request(base, { headers: { authorization: 'Bearer ' + resumeToken } });
+  assert.equal(resumed.status, 200);
+  assert.equal(resumed.json.applicationId, app.applicationId);
+  assert.equal(resumed.json.status, 'awaiting_payment');
+
+  const retried = await retryPendingApprovalEmails(f.env);
+  assert.equal(retried.attempted, 1);
+  assert.equal(retried.sent, 0);
+  assert.equal(sent.length, 1, 'sent audit marker plus Resend idempotency prevent duplicate email');
+  assert.equal((await f.db.prepare("SELECT COUNT(*) AS n FROM sponsorship_audit_log WHERE application_id=? AND action='approval_email_sent'")
+    .bind(app.applicationId).first()).n, 1);
 });

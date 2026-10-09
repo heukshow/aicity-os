@@ -4,6 +4,9 @@ compatibility_date = "2026-08-09"
 workers_dev = true
 preview_urls = false
 
+[triggers]
+crons = ["*/5 * * * *"]
+
 [observability]
 enabled = true
 

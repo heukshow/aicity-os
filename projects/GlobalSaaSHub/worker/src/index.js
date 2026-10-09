@@ -1,5 +1,5 @@
 import { handlePrivateOps, handleSnapshotUpload } from './private-ops.js';
-import { handleSponsorshipRequest } from './sponsorship.js';
+import { handleSponsorshipRequest, retryPendingApprovalEmails } from './sponsorship.js';
 import { handleAdminRequest, isAdminPath } from './admin.js';
 
 const SECURITY_HEADERS = {
@@ -28,6 +28,9 @@ function isAllowedBrowserRequest(request, env) {
 }
 
 export default {
+  async scheduled(_controller, env, ctx) {
+    ctx.waitUntil(retryPendingApprovalEmails(env));
+  },
   async fetch(request, env) {
     const url = new URL(request.url);
     const sponsorship = await handleSponsorshipRequest(request, env);

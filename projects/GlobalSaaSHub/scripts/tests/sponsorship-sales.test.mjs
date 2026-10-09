@@ -7,7 +7,7 @@ import { publicStatus, CATALOG } from '../../worker/src/sponsorship-domain.js';
 const source = readFileSync(new URL('../../public/sponsorship-sales.js', import.meta.url), 'utf8');
 const context = { module: { exports: {} }, URL };
 vm.runInNewContext(source, context);
-const { paymentAvailable, validDestination, validQuote, emailDraft, safeAnalyticsLink, statusText } = context.module.exports;
+const { paymentAvailable, validDestination, validQuote, emailDraft, safeAnalyticsLink, statusText, approvalAccessFromHash } = context.module.exports;
 
 const ready = { intakeReady: true, paymentReady: true, publicClientId: 'public-test-client' };
 const unpaid = { status: 'awaiting_payment', paymentReady: true, paymentVerified: false };
@@ -80,6 +80,19 @@ test('email application drafts never become payment evidence or analytics payloa
   const href = 'mailto:support@coshuma.com?subject=Example&body=' + encodeURIComponent(draft);
   assert.equal(safeAnalyticsLink(href), 'mailto:support@coshuma.com');
   assert.equal(safeAnalyticsLink('https://coshuma.com/advertise.html'), 'https://coshuma.com/advertise.html');
+});
+
+test('approval email fragments restore only a bounded application id and signed token', () => {
+  const id = '12345678-1234-1234-1234-123456789abc';
+  const token = 'a'.repeat(64);
+  assert.deepEqual(approvalAccessFromHash('#coshuma-ad=' + encodeURIComponent(id + '.' + token)), {
+    applicationId: id, accessToken: token,
+  });
+  for (const value of [
+    '', '#coshuma-ad=', '#coshuma-ad=' + id, '#coshuma-ad=' + id + '.short',
+    '#coshuma-ad=' + id + '.' + 'z'.repeat(64), '#other=' + id + '.' + token,
+    '#coshuma-ad=' + encodeURIComponent('../' + id + '.' + token),
+  ]) assert.equal(approvalAccessFromHash(value), null, value);
 });
 
 test('destination checks reject credentials, plain HTTP and local network addresses', () => {
