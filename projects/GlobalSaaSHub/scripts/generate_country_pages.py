@@ -42,6 +42,17 @@ def safe_url(value: str) -> str:
     return value
 
 
+def flag_img(code: str, css_class: str = "h-4 w-6") -> str:
+    asset = PUBLIC / "flags" / f"{code.lower()}.svg"
+    if not asset.exists():
+        raise ValueError(f"Missing local flag asset for {code}: {asset}")
+    return (
+        f'<img src="/flags/{escape(code.lower(), quote=True)}.svg" alt="" aria-hidden="true" '
+        f'width="24" height="18" loading="lazy" decoding="async" '
+        f'class="inline-block shrink-0 rounded-[2px] object-cover {css_class}" />'
+    )
+
+
 def shell(title: str, description: str, canonical: str, body: str) -> str:
     return f"""<!doctype html>
 <html lang="en">
@@ -150,7 +161,7 @@ for tool_id, record in records.items():
         f'title="Source-backed company country or region" '
         f'class="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 '
         f'bg-cyan-400/10 px-3 py-1.5 text-xs font-bold text-cyan-200 hover:bg-cyan-400/15">'
-        f'{escape(record["flag"])} {escape(record["country_name"])} · company base'
+        f'{flag_img(record["country_code"], "h-3.5 w-5")}<span>{escape(record["country_name"])} · company base</span>'
         f'</a></div>{END}'
     )
     updated = raw[: h1.end()] + badge + raw[h1.end() :]
@@ -195,7 +206,7 @@ for row in rows:
         class="group grid grid-cols-[3.5rem_1fr_auto] items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.035] p-4 hover:border-cyan-400/30 hover:bg-cyan-400/[0.06]">
           <div class="text-center text-sm font-black text-slate-500">#{row["rank"]}</div>
           <div>
-            <div class="text-lg font-black text-white group-hover:text-cyan-100">{escape(row["flag"])} {escape(row["name"])}</div>
+            <div class="flex items-center gap-2 text-lg font-black text-white group-hover:text-cyan-100">{flag_img(row["code"], "h-4 w-6")}<span>{escape(row["name"])}</span></div>
             <div class="mt-1 text-xs text-slate-500">{row["count"]} source-backed COSHUMA tool{"s" if row["count"] != 1 else ""}</div>
           </div>
           <div class="text-sm font-bold text-cyan-300">View →</div>
@@ -271,7 +282,7 @@ for row in rows:
                   {primary_link}
                   <div class="mt-1 text-xs font-bold uppercase tracking-wider text-violet-300">{escape(tool.get("category_display", "AI & SaaS"))}</div>
                 </div>
-                <span class="text-2xl" aria-hidden="true">{escape(row["flag"])}</span>
+                {flag_img(row["code"], "h-5 w-7")}
               </div>
               <p class="mt-3 line-clamp-3 text-sm leading-6 text-slate-400">{escape(tool.get("description", ""))}</p>
               <div class="mt-4 flex flex-wrap gap-2">
@@ -284,7 +295,7 @@ for row in rows:
     body = f"""
 <nav class="text-xs font-bold text-slate-500"><a href="/countries/" class="hover:text-white">Countries & regions</a> / {escape(row["name"])}</nav>
 <section class="mt-6 max-w-4xl">
-  <div class="text-5xl" aria-hidden="true">{escape(row["flag"])}</div>
+  <div>{flag_img(row["code"], "h-10 w-14")}</div>
   <h1 class="mt-4 text-4xl font-black tracking-tight text-white md:text-6xl">{escape(row["name"])} AI & SaaS tools on COSHUMA</h1>
   <p class="mt-5 text-base leading-7 text-slate-400">
     {row["count"]} COSHUMA-listed tool{"s" if row["count"] != 1 else ""} currently have source-backed company-location data for {escape(row["name"])}.

@@ -8,8 +8,10 @@ TOOLS_PATH = ROOT / "data" / "tools.json"
 COUNTRY_PATH = ROOT / "data" / "tool_company_countries.json"
 PUBLIC = ROOT / "public"
 COUNTRIES_DIR = PUBLIC / "countries"
+FLAGS_DIR = PUBLIC / "flags"
 SITEMAP = PUBLIC / "sitemap.xml"
 PUBLIC_TOOLS = ROOT / "src" / "generated" / "public-tools.json"
+APP = ROOT / "src" / "App.jsx"
 
 tools = json.loads(TOOLS_PATH.read_text(encoding="utf-8"))
 doc = json.loads(COUNTRY_PATH.read_text(encoding="utf-8"))
@@ -30,6 +32,10 @@ for tool_id, record in records.items():
     assert public_tool.get("company_country_flag") == record["flag"], f"public country flag mismatch: {tool_id}"
     assert public_tool.get("company_country_slug"), f"public country slug missing: {tool_id}"
 
+app_text = APP.read_text(encoding="utf-8")
+assert "function CountryFlag" in app_text, "home country flag image component is missing"
+assert "/flags/${String(code).toLowerCase()}.svg" in app_text, "home country flag image source is missing"
+
 country_names = {}
 for tool_id, record in records.items():
     code = record.get("country_code")
@@ -38,7 +44,8 @@ for tool_id, record in records.items():
     source = record.get("source_url")
     assert isinstance(code, str) and re.fullmatch(r"[A-Z]{2}", code), f"invalid code: {tool_id}"
     assert isinstance(name, str) and name.strip(), f"missing country name: {tool_id}"
-    assert isinstance(flag, str) and flag.strip(), f"missing flag: {tool_id}"
+    assert isinstance(flag, str) and flag.strip(), f"missing flag metadata: {tool_id}"
+    assert (FLAGS_DIR / f"{code.lower()}.svg").exists(), f"missing local flag image: {code}"
     assert isinstance(source, str) and source.startswith(("https://", "http://")), f"invalid source: {tool_id}"
     if code in country_names:
         assert country_names[code] == name, f"inconsistent country name for {code}"
@@ -57,6 +64,9 @@ for code, name in country_names.items():
     page = COUNTRIES_DIR / f"{slug}.html"
     assert page.exists(), f"country page missing: {slug}"
     text = page.read_text(encoding="utf-8")
+    flag_src = f'/flags/{code.lower()}.svg'
+    assert flag_src in index_text, f"country ranking flag image missing: {code}"
+    assert flag_src in text, f"country detail flag image missing: {code}"
     assert "Company-location source" in text, f"source link label missing: {slug}"
 
 badgeable = 0
@@ -67,6 +77,7 @@ for tool_id, record in records.items():
     badgeable += 1
     text = page.read_text(encoding="utf-8")
     assert f'data-coshuma-country="{record["country_code"]}"' in text, f"country badge missing: {tool_id}"
+    assert f'/flags/{record["country_code"].lower()}.svg' in text, f"country badge flag image missing: {tool_id}"
     slug = re.sub(r"[^a-z0-9]+", "-", record["country_name"].lower()).strip("-")
     assert f'/countries/{slug}.html' in text, f"country link missing: {tool_id}"
 

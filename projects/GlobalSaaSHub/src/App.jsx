@@ -55,6 +55,22 @@ function ToolLogo({ tool }) {
   );
 }
 
+function CountryFlag({ code, className = 'h-4 w-6' }) {
+  if (!code) return null;
+  return (
+    <img
+      src={`/flags/${String(code).toLowerCase()}.svg`}
+      alt=""
+      aria-hidden="true"
+      width="24"
+      height="18"
+      loading="lazy"
+      decoding="async"
+      className={`inline-block shrink-0 rounded-[2px] object-cover ${className}`}
+    />
+  );
+}
+
 export default function App() {
   // Keep owner QA visits excluded while following these internal navigation links.
   const navigationHref = (path) => {
@@ -306,7 +322,10 @@ export default function App() {
                 {autocompleteSuggestions.map((tool) => (
                   <a key={tool.id} href={`/tool/${tool.id}.html`} className="flex items-center justify-between border-b border-white/5 px-4 py-3 last:border-0 hover:bg-white/5">
                     <span className="font-semibold text-white">{tool.name}</span>
-                    <span className="text-xs text-slate-500">{tool.company_country_flag ? `${tool.company_country_flag} ${tool.company_country_name} · ` : ''}{tool.category_display}</span>
+                    <span className="inline-flex items-center gap-1.5 text-xs text-slate-500">
+                      {tool.company_country_code && <CountryFlag code={tool.company_country_code} className="h-3 w-4" />}
+                      {tool.company_country_name ? `${tool.company_country_name} · ` : ''}{tool.category_display}
+                    </span>
                   </a>
                 ))}
               </div>
@@ -343,7 +362,13 @@ export default function App() {
             {featuredTools.map((tool) => (
               <a key={tool.id} href={`/tool/${tool.id}.html`} className="group flex min-w-0 items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition hover:-translate-y-0.5 hover:border-violet-400/30 hover:bg-white/[0.055]">
                 <div className="h-12 w-12 overflow-hidden rounded-xl border border-white/10"><ToolLogo tool={tool} /></div>
-                <div className="min-w-0 flex-1"><div className="font-bold text-white group-hover:text-violet-200">{tool.name}</div><div className="truncate text-xs text-slate-500">{tool.company_country_flag ? `${tool.company_country_flag} ${tool.company_country_name} · ` : ''}{tool.category_display} · {tool.pricing}</div></div>
+                <div className="min-w-0 flex-1">
+                  <div className="font-bold text-white group-hover:text-violet-200">{tool.name}</div>
+                  <div className="flex min-w-0 items-center gap-1.5 text-xs text-slate-500">
+                    {tool.company_country_code && <CountryFlag code={tool.company_country_code} className="h-3 w-4" />}
+                    <span className="truncate">{tool.company_country_name ? `${tool.company_country_name} · ` : ''}{tool.category_display} · {tool.pricing}</span>
+                  </div>
+                </div>
                 <ArrowUpRight className="h-4 w-4 text-slate-600 group-hover:text-violet-300" />
               </a>
             ))}
@@ -364,7 +389,7 @@ export default function App() {
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {countryStats.slice(0, 6).map((country) => (
               <a key={country.code} href={`/countries/${country.slug}.html`} className="rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition hover:-translate-y-0.5 hover:border-cyan-400/30 hover:bg-cyan-400/[0.05]">
-                <div className="text-2xl">{country.flag}</div>
+                <CountryFlag code={country.code} className="h-6 w-8" />
                 <div className="mt-2 truncate text-sm font-black text-white">{country.name}</div>
                 <div className="mt-1 text-xs text-slate-500">{country.count} tools</div>
               </a>
@@ -416,7 +441,7 @@ export default function App() {
                 className="w-full rounded-xl border border-white/10 bg-[#101218] px-3 py-2.5 text-sm font-semibold text-slate-200 outline-none focus:border-cyan-400/50"
               >
                 <option value="all">All countries and regions</option>
-                {countryStats.map((country) => <option key={country.code} value={country.code}>{country.flag} {country.name} ({country.count})</option>)}
+                {countryStats.map((country) => <option key={country.code} value={country.code}>{country.name} ({country.count})</option>)}
               </select>
             </label>
             <label className="min-w-0 lg:w-72">
@@ -476,7 +501,7 @@ export default function App() {
                       <div className="mt-1 text-[10px] font-bold uppercase tracking-widest text-violet-300">{tool.category_display}</div>
                       {tool.company_country_name && (
                         <a href={`/countries/${tool.company_country_slug}.html`} className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-cyan-400/20 bg-cyan-400/[0.06] px-2.5 py-1 text-[11px] font-bold text-cyan-200 hover:bg-cyan-400/10">
-                          <span>{tool.company_country_flag}</span><span>{tool.company_country_name}</span>
+                          <CountryFlag code={tool.company_country_code} className="h-3 w-4" /><span>{tool.company_country_name}</span>
                         </a>
                       )}
                     </div>
