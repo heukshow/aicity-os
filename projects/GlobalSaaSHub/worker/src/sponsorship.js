@@ -4,6 +4,7 @@ import { SponsorshipRepository } from './sponsorship-repository.js';
 import { createSponsorshipPayPalOrder, capturePayPalOrder, getPayPalOrder, getPayPalCapture, verifyPayPalWebhook, checkPayPalReadiness, repairPayPalWebhookEvents } from './paypal.js';
 import { renderSponsorshipOps } from './sponsorship-ops-view.js';
 import { handleLegacyPayPalEvent } from './sponsorship-legacy-webhook.js';
+import { validateAdAsset } from './ad-commerce-assets.js';
 
 const HEADERS = {
   'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store',
@@ -71,6 +72,24 @@ async function bodyJson(request, maxBytes = 16384, preserveRaw = false) {
   return preserveRaw ? { body, rawText } : body;
 }
 
+async function bodyBytes(request, maxBytes = 500000) {
+  const declared = Number(request.headers.get('content-length') || 0);
+  if (!Number.isFinite(declared) || declared < 0 || declared > maxBytes) throw new SponsorshipError('Image is too large', 413);
+  const reader = request.body?.getReader();
+  if (!reader) throw new SponsorshipError('Image body is required', 400);
+  const chunks = []; let size = 0;
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    size += value.byteLength;
+    if (size > maxBytes) { await reader.cancel(); throw new SponsorshipError('Image is too large', 413); }
+    chunks.push(value);
+  }
+  const bytes = new Uint8Array(size); let offset = 0;
+  for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
+  return bytes;
+}
+
 function publicWrite(request, env) {
   if (!env.ALLOWED_ORIGIN || request.headers.get('origin') !== env.ALLOWED_ORIGIN) throw new SponsorshipError('Forbidden', 403);
 }
@@ -98,6 +117,21 @@ async function statusView(application, repo, env, privateView = false) {
     startAt: application.starts_at, endAt: application.ends_at,
     paymentReady: configuration(env).paymentReady,
   };
+  if (application.creative_mode === 'image') {
+    const [assets, hold] = await Promise.all([repo.imageAssets(application.id), repo.imageHold(application.id)]);
+    const holdActive = Boolean(hold?.expires_at && Date.parse(hold.expires_at) > Date.now());
+    let imageStatus;
+    if (application.review_status === 'rejected') imageStatus = 'rejected';
+    else if (application.publication_status === 'published') imageStatus = publicStatus(application);
+    else if (application.payment_status === 'verified') imageStatus = 'ready_to_publish';
+    else if (application.review_status === 'approved') imageStatus = holdActive ? 'awaiting_payment' : 'reservation_expired';
+    else if (application.submission_status === 'submitted') imageStatus = 'awaiting_review';
+    else imageStatus = 'preparing_materials';
+    Object.assign(view, {
+      status: imageStatus, creativeMode: 'image', submissionStatus: application.submission_status,
+      assets, reservationUntil: hold?.expires_at || null, reservationActive: holdActive,
+    });
+  }
   if (privateView) Object.assign(view, {
     contactEmail: application.contact_email, reviewNotes: application.review_notes,
     destinationUrl: application.destination_url, headline: application.headline,
@@ -149,6 +183,21 @@ async function verifyExistingPayment(application, repo, env, actor) {
   return repo.markVerified(application, evidence, actor, now);
 }
 
+async function activateVerifiedImage(application, repo, actor) {
+  if (application.creative_mode !== 'image' || application.payment_status !== 'verified'
+      || application.review_status !== 'approved' || application.publication_status !== 'draft') return application;
+  const now = new Date();
+  const nowIso = now.toISOString();
+  await repo.requireImageHold(application, nowIso);
+  let requested = nowIso;
+  if (application.desired_start_date) {
+    const candidate = new Date(application.desired_start_date + 'T00:00:00.000Z');
+    if (Number.isFinite(candidate.getTime()) && candidate.getTime() > now.getTime()) requested = candidate.toISOString();
+  }
+  const period = publicationPeriod(application, requested, now);
+  return repo.publishImage(application, period.startsAt, period.endsAt, actor, nowIso);
+}
+
 async function publicPlacements(request, env, repo) {
   const path = new URL(request.url).searchParams.get('path');
   if (!CATALOG.some((item) => item.allowedPages.includes(path))) throw new SponsorshipError('This page has no available sponsored placement', 422);
@@ -166,9 +215,15 @@ async function publicPlacements(request, env, repo) {
       if (counts.get(row.slot) !== 1 || row.amount !== quote.amount || row.currency !== quote.currency
           || !Number.isFinite(start) || !Number.isFinite(end) || start > now.getTime() || end <= now.getTime()
           || end - start !== row.duration_days * 86400000) continue;
-      placements.push({ campaignId: row.id, slot: row.slot, targetPage: row.target_page,
+      const creative = { campaignId: row.id, slot: row.slot, targetPage: row.target_page,
         title: row.headline, body: row.description, button: row.cta_text, url: destinationUrl(row.destination_url),
-        startAt: row.starts_at, endAt: row.ends_at, environment: 'live', paymentVerified: true, approved: true, status: 'published', label: 'Sponsored' });
+        startAt: row.starts_at, endAt: row.ends_at, environment: 'live', paymentVerified: true, approved: true, status: 'published', label: 'Sponsored' };
+      if (row.creative_mode === 'image') Object.assign(creative, {
+        creativeMode: 'image',
+        imageUrl: new URL('/v1/ads/assets/' + encodeURIComponent(row.id) + '/' + encodeURIComponent(row.slot), request.url).href,
+        logoUrl: new URL('/v1/ads/assets/' + encodeURIComponent(row.id) + '/logo', request.url).href,
+      });
+      placements.push(creative);
     } catch { /* Invalid persisted material never becomes a public ad. */ }
   }
   return reply(request, env, { ready: true, placements });
@@ -216,6 +271,14 @@ async function ownerRequest(request, env, repo, base) {
       'content-security-policy': "default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'",
     } });
   }
+  const assetMatch = /^\/applications\/([a-f0-9-]{36})\/assets\/(logo|tool-primary|buyer-intent-top|compare-decision-premium)$/.exec(suffix);
+  if (assetMatch && request.method === 'GET') {
+    const app = await repo.getApplication(assetMatch[1]);
+    if (!app || app.creative_mode !== 'image' || !['logo', app.slot].includes(assetMatch[2])) throw new SponsorshipError('Image asset not found', 404);
+    const asset = await repo.getImageAsset(app.id, assetMatch[2]);
+    if (!asset) throw new SponsorshipError('Image asset not found', 404);
+    return new Response(asset.data, { headers: { ...HEADERS, 'content-type': asset.mime, 'cache-control': 'no-store, private' } });
+  }
   const match = /^\/applications\/([a-f0-9-]{36})(?:\/(verify-payment|review|publish|pause))?$/.exec(suffix);
   if (!match) throw new SponsorshipError('Not found', 404);
   let app = await repo.getApplication(match[1]);
@@ -224,13 +287,20 @@ async function ownerRequest(request, env, repo, base) {
   if (request.method !== 'POST' || !match[2]) throw new SponsorshipError('Method not allowed', 405);
   const body = await bodyJson(request);
   const now = new Date();
-  if (match[2] === 'verify-payment') app = await verifyExistingPayment(app, repo, env, actor);
+  if (match[2] === 'verify-payment') {
+    app = await verifyExistingPayment(app, repo, env, actor);
+    app = await activateVerifiedImage(app, repo, actor);
+  }
   if (match[2] === 'review') {
     if (!['approve', 'reject'].includes(body.decision) || typeof body.notes !== 'string' || !body.notes.trim() || body.notes.length > 1000) throw new SponsorshipError('A review decision and notes are required');
     if (body.decision === 'approve' && (body.destinationChecked !== true || body.claimsChecked !== true)) throw new SponsorshipError('Check the destination and claims before approving');
     quoteFor({ slot: app.slot, durationDays: app.duration_days, targetPage: app.target_page });
     destinationUrl(app.destination_url);
     app = await repo.review(app, body.decision === 'approve', body.notes.trim(), actor, now.toISOString());
+    if (body.decision === 'approve' && app.creative_mode === 'image') {
+      await repo.reserveImagePlacement(app, now.toISOString());
+      app = await repo.getApplication(app.id);
+    }
   }
   if (match[2] === 'publish') {
     // Refresh provider truth at the final gate; a stale local "paid" flag is insufficient.
@@ -279,7 +349,10 @@ async function webhook(request, env, repo) {
     } else if (event.event_type.startsWith('CUSTOMER.DISPUTE.')) {
       await repo.stopPayment(app.id, 'review', `hold:${event.event_type}`, 'verified-paypal-webhook', now);
     } else if (event.event_type === 'PAYMENT.CAPTURE.COMPLETED') {
-      if (payment.state !== 'refunded' && !payment.verification_reason?.startsWith('hold:')) await verifyExistingPayment(app, repo, env, 'verified-paypal-webhook');
+      if (payment.state !== 'refunded' && !payment.verification_reason?.startsWith('hold:')) {
+        const verified = await verifyExistingPayment(app, repo, env, 'verified-paypal-webhook');
+        await activateVerifiedImage(verified, repo, 'verified-paypal-webhook');
+      }
     } else if (['PAYMENT.CAPTURE.PENDING', 'PAYMENT.CAPTURE.DENIED', 'PAYMENT.CAPTURE.DECLINED'].includes(event.event_type)) {
       await repo.stopPayment(app.id, 'review', event.event_type, 'verified-paypal-webhook', now);
     }
@@ -296,26 +369,128 @@ async function webhook(request, env, repo) {
   return reply(request, env, { accepted: true, matched: payments.size > 0 || legacy.matched, legacy: legacy.matched });
 }
 
+async function paymentAction(request, env, repo, app, action) {
+  if (!configuration(env).paymentReady) throw new SponsorshipError('Payment is not available; your application is saved', 503);
+  const body = await bodyJson(request);
+  if (app.payment_status === 'refunded' || app.review_status === 'rejected') throw new SponsorshipError('This application cannot accept payment', 409);
+  if (app.creative_mode === 'image') {
+    if (app.submission_status !== 'submitted' || app.review_status !== 'approved') {
+      throw new SponsorshipError('Image materials must be approved before payment', 409);
+    }
+    await repo.requireImageHold(app, new Date().toISOString());
+  } else if (publicStatus(app) !== 'awaiting_payment') {
+    if (action === 'capture' && app.payment_status === 'verified') {
+      const saved = await repo.getPayment(app.id);
+      if (body.orderId !== saved?.provider_order_id) throw new SponsorshipError('The payment order does not match this application', 409);
+      return { orderId: saved.provider_order_id, ...await statusView(app, repo, env) };
+    }
+    throw new SponsorshipError('This application is not awaiting payment', 409);
+  }
+  if (action === 'order') {
+    const payment = await repo.reservePayment(app, env, new Date().toISOString());
+    if (payment.state === 'verified') return { orderId: payment.provider_order_id, ...await statusView(app, repo, env) };
+    if (payment.state === 'refunded' || payment.verification_reason?.startsWith('hold:')) throw new SponsorshipError('This payment requires owner review', 409);
+    if (payment.provider_order_id) return { orderId: payment.provider_order_id };
+    const order = await providerCall(() => createSponsorshipPayPalOrder(env, `${payment.id.replaceAll('-', '')}-c`, paypalPayload(app, env.PAYPAL_MERCHANT_ID)));
+    if (!order?.id || !['CREATED', 'APPROVED', 'PAYER_ACTION_REQUIRED'].includes(order.status)) throw new SponsorshipError('PayPal did not create a usable order', 502);
+    await repo.attachProviderOrder(app.id, order.id, new Date().toISOString());
+    return { orderId: order.id, created: true };
+  }
+  const payment = await repo.getPayment(app.id);
+  if (!payment?.provider_order_id || body.orderId !== payment.provider_order_id) throw new SponsorshipError('The payment order does not match this application', 409);
+  if (payment.state === 'refunded' || payment.verification_reason?.startsWith('hold:')) throw new SponsorshipError('This payment cannot be captured', 409);
+  const order = await providerCall(() => getPayPalOrder(env, payment.provider_order_id));
+  if (order.status !== 'COMPLETED') await providerCall(() => capturePayPalOrder(env, payment.provider_order_id, `${payment.id.replaceAll('-', '')}-p`));
+  app = await verifyExistingPayment(app, repo, env, 'advertiser-checkout');
+  app = await activateVerifiedImage(app, repo, 'advertiser-checkout');
+  return { orderId: payment.provider_order_id, ...await statusView(app, repo, env) };
+}
+
 export async function handleSponsorshipRequest(request, env) {
   const url = new URL(request.url);
   const base = ownerBase(url, env);
-  const ours = base || url.pathname.startsWith('/v1/sponsorship/') || url.pathname === '/v1/sponsored/placements'
+  const ours = base || url.pathname.startsWith('/v1/sponsorship/') || url.pathname.startsWith('/v1/ads/')
+    || url.pathname === '/v1/sponsored/placements'
     || url.pathname === '/v1/webhooks/paypal' || ['/v1/orders', '/v1/orders/capture'].includes(url.pathname);
   if (!ours) return null;
   if (request.method === 'OPTIONS') {
     if (base || request.headers.get('origin') !== env.ALLOWED_ORIGIN) return reply(request, env, { error: 'Forbidden' }, 403);
     return new Response(null, { status: 204, headers: { ...HEADERS, 'access-control-allow-origin': env.ALLOWED_ORIGIN,
-      'access-control-allow-methods': 'GET, POST, OPTIONS', 'access-control-allow-headers': 'content-type, authorization', vary: 'Origin' } });
+      'access-control-allow-methods': 'GET, POST, PUT, OPTIONS', 'access-control-allow-headers': 'content-type, authorization', vary: 'Origin' } });
   }
   try {
     // Authenticate financial reads before checking or disclosing storage readiness.
     if (base) await ownerAccess(request, env, base);
     const repo = new SponsorshipRepository(env.ORDERS);
     await repo.ready();
+    if (base || url.pathname.startsWith('/v1/ads/')) await repo.imageReady();
     if (base) return await ownerRequest(request, env, repo, base);
     if (url.pathname === '/v1/webhooks/paypal') return await webhook(request, env, repo);
     if (['/v1/orders', '/v1/orders/capture'].includes(url.pathname)) throw new SponsorshipError('Use a saved sponsorship application for checkout', 410);
     if (request.method === 'GET' && url.pathname === '/v1/sponsored/placements') return await publicPlacements(request, env, repo);
+
+    if (request.method === 'GET' && url.pathname === '/v1/ads/config') {
+      return reply(request, env, { ...configuration(env), creativeMode: 'image', assetMimeTypes: ['image/png'],
+        catalog: CATALOG,
+        placements: CATALOG.map((item) => ({ slot: item.slot, label: item.label, prices: item.prices, targetPage: item.allowedPages[0] })) });
+    }
+    const publicAsset = /^\/v1\/ads\/assets\/([a-f0-9-]{36})\/(logo|tool-primary|buyer-intent-top|compare-decision-premium)$/.exec(url.pathname);
+    if (request.method === 'GET' && publicAsset) {
+      const app = await repo.getApplication(publicAsset[1]);
+      const payment = app ? await repo.getPayment(app.id) : null;
+      const now = Date.now();
+      if (!app || app.creative_mode !== 'image' || !['logo', app.slot].includes(publicAsset[2])
+        || app.publication_status !== 'published' || app.review_status !== 'approved' || app.payment_status !== 'verified'
+        || !Number.isFinite(Date.parse(app.starts_at)) || !Number.isFinite(Date.parse(app.ends_at))
+        || Date.parse(app.starts_at) > now || Date.parse(app.ends_at) <= now
+        || payment?.state !== 'verified' || payment.environment !== 'live' || payment.merchant_id !== env.PAYPAL_MERCHANT_ID) {
+        throw new SponsorshipError('Image asset not found', 404);
+      }
+      const asset = await repo.getImageAsset(app.id, publicAsset[2]);
+      if (!asset) throw new SponsorshipError('Image asset not found', 404);
+      return new Response(asset.data, { headers: { ...HEADERS, 'content-type': asset.mime,
+        'access-control-allow-origin': env.ALLOWED_ORIGIN, vary: 'Origin' } });
+    }
+    if (request.method === 'POST' && url.pathname === '/v1/ads/applications') {
+      publicWrite(request, env);
+      if (!configuration(env).intakeReady) throw new SponsorshipError('Applications are not available', 503);
+      const input = validateApplication(await bodyJson(request));
+      const now = new Date().toISOString();
+      await repo.rateLimit(await hash(request.headers.get('cf-connecting-ip') || 'unavailable'), now);
+      const id = crypto.randomUUID(), accessToken = token();
+      const reference = `COSHUMA-AD-${now.slice(0,10).replaceAll('-','')}-${id}`;
+      const application = await repo.createImageApplication(id, reference, await hash(accessToken), input, now);
+      return reply(request, env, { ...await statusView(application, repo, env), accessToken }, 201);
+    }
+    const imageMatch = /^\/v1\/ads\/applications\/([a-f0-9-]{36})(?:\/(assets\/(logo|tool-primary|buyer-intent-top|compare-decision-premium)|submit|order|capture))?$/.exec(url.pathname);
+    if (imageMatch) {
+      let app = await applicationAccess(request, repo, imageMatch[1]);
+      if (app.creative_mode !== 'image') throw new SponsorshipError('Image application access is required', 404);
+      if (request.method === 'GET' && !imageMatch[2]) return reply(request, env, await statusView(app, repo, env));
+      if (request.method === 'PUT' && imageMatch[3]) {
+        publicWrite(request, env);
+        const mime = request.headers.get('content-type')?.split(';')[0].trim().toLowerCase();
+        if (mime !== 'image/png') throw new SponsorshipError('Only PNG image uploads are currently accepted', 415);
+        const bytes = await bodyBytes(request);
+        let file;
+        try { file = await validateAdAsset(imageMatch[3], mime, bytes); }
+        catch (error) { throw new SponsorshipError(String(error?.message || 'Invalid advertisement image'), 422); }
+        const assets = await repo.saveImageAsset(app, imageMatch[3], file, new Date().toISOString());
+        return reply(request, env, { applicationId: app.id, assets });
+      }
+      if (request.method === 'POST' && imageMatch[2] === 'submit') {
+        publicWrite(request, env);
+        await bodyJson(request);
+        app = await repo.submitImageApplication(app, new Date().toISOString());
+        return reply(request, env, await statusView(app, repo, env));
+      }
+      if (request.method === 'POST' && ['order','capture'].includes(imageMatch[2])) {
+        publicWrite(request, env);
+        const result = await paymentAction(request, env, repo, app, imageMatch[2]);
+        return reply(request, env, result, result.created ? 201 : 200);
+      }
+      throw new SponsorshipError('Method not allowed', 405);
+    }
     if (request.method === 'GET' && url.pathname === '/v1/sponsorship/config') return reply(request, env, configuration(env));
     if (request.method === 'GET' && url.pathname === '/v1/sponsorship/quote') return reply(request, env, { quote: quoteFor(Object.fromEntries(url.searchParams)), ...configuration(env) });
     if (request.method === 'POST') publicWrite(request, env);
