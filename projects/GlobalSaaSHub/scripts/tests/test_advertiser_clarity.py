@@ -34,7 +34,7 @@ class ClarityTests(unittest.TestCase):
   self.assertEqual(sum('data-position-preview' in a for t,a in self.p.tags),8)
   self.assertEqual(sum(a.get('class')=='ad-context-back' for t,a in self.p.tags),8)
   ids=[a['id'] for t,a in self.p.tags if 'id' in a];self.assertEqual(len(ids),len(set(ids)))
- def test_fresh_public_images_and_paid_stop(self):
+ def test_fresh_public_images_and_expansion_stays_preview_only(self):
   self.assertIn('Screenshots: 6 October 2026.',self.text)
   for t,a in self.p.tags:
    if t=='img' and a.get('src','').startswith('/'):self.assertTrue((R/'public'/a['src'].split('?')[0].lstrip('/')).is_file())
@@ -42,4 +42,6 @@ class ClarityTests(unittest.TestCase):
   self.assertFalse(inventory['enabled']);self.assertFalse(inventory['applications_open'])
   expansion=json.loads((R/'data/placement-expansion.json').read_text(encoding='utf-8'));self.assertFalse(expansion['paid_bookings_open'])
   self.assertTrue(all(s['rate_usd'] is None for s in expansion['slots']))
+  self.assertNotIn('Paid image bookings remain closed',self.text)
+  self.assertIn('F1–F3 fixed image bookings are open under the published catalogue',self.text)
 if __name__=='__main__':unittest.main()
