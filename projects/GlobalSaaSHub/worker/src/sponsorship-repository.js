@@ -54,7 +54,56 @@ export class SponsorshipRepository {
     return this.getApplication(id);
   }
 
+  async createImageRenewalApplication(parent, id, reference, tokenHash, quote, actor, now) {
+    if (parent.creative_mode !== 'image' || parent.publication_status !== 'published'
+      || parent.payment_status !== 'verified' || parent.review_status !== 'approved') {
+      throw new SponsorshipError('Only a verified published image campaign can be renewed', 409);
+    }
+    const existing = await this.renewalFor(parent.id);
+    if (existing) return existing;
+    const result = await this.db.batch([
+      this.db.prepare(`INSERT INTO sponsorship_applications
+        (id,reference,access_token_hash,company_name,tool_name,contact_email,slot,duration_days,target_page,destination_url,headline,description,cta_text,desired_start_date,seller_attestation,amount,currency,created_at,updated_at,creative_mode,submission_status,renewal_of_application_id)
+        VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,NULL,1,?,?,?,?,'image','draft',?)`).bind(
+        id, reference, tokenHash, parent.company_name, parent.tool_name, parent.contact_email,
+        parent.slot, quote.durationDays, parent.target_page, parent.destination_url,
+        parent.headline, parent.description, parent.cta_text,
+        quote.amount, quote.currency, now, now, parent.id,
+      ),
+      this.db.prepare(`INSERT INTO sponsorship_assets(id,application_id,role,mime,width,height,byte_size,sha256,data)
+        SELECT ?,?,role,mime,width,height,byte_size,sha256,data FROM sponsorship_assets
+        WHERE application_id=? AND role='logo'`).bind(crypto.randomUUID(), id, parent.id),
+      this.db.prepare(`INSERT INTO sponsorship_assets(id,application_id,role,mime,width,height,byte_size,sha256,data)
+        SELECT ?,?,role,mime,width,height,byte_size,sha256,data FROM sponsorship_assets
+        WHERE application_id=? AND role=?`).bind(crypto.randomUUID(), id, parent.id, parent.slot),
+      this.db.prepare("UPDATE sponsorship_applications SET submission_status='submitted',updated_at=? WHERE id=? AND submission_status='draft'")
+        .bind(now, id),
+      this.db.prepare(`UPDATE sponsorship_applications SET review_status='approved',review_notes=?,approved_at=?,approved_by=?,updated_at=?
+        WHERE id=? AND creative_mode='image' AND submission_status='submitted' AND review_status='pending'`)
+        .bind('Priority renewal of unchanged previously approved creative', now, actor, now, id),
+      this.audit(id, 'renewal_created', actor, JSON.stringify({ renewalOf: parent.id, startsAfter: parent.ends_at }), now),
+      this.audit(id, 'materials_approved', actor, 'Previously approved creative copied unchanged for priority renewal', now),
+    ]);
+    if (result[0].meta.changes !== 1 || result[1].meta.changes !== 1 || result[2].meta.changes !== 1
+      || result[3].meta.changes !== 1 || result[4].meta.changes !== 1) {
+      throw new SponsorshipError('The priority renewal could not be prepared', 409);
+    }
+    const saved = await this.getApplication(id);
+    if (!saved || saved.renewal_of_application_id !== parent.id || saved.review_status !== 'approved'
+      || saved.submission_status !== 'submitted') throw new SponsorshipError('The priority renewal could not be confirmed', 409);
+    return saved;
+  }
+
   getApplication(id) { return this.db.prepare('SELECT * FROM sponsorship_applications WHERE id=?').bind(id).first(); }
+  renewalFor(parentId) {
+    return this.db.prepare(`SELECT * FROM sponsorship_applications
+      WHERE renewal_of_application_id=? AND publication_status IN ('draft','published')
+      ORDER BY created_at DESC LIMIT 1`).bind(parentId).first();
+  }
+  renewalParent(application) {
+    if (!application?.renewal_of_application_id) return Promise.resolve(null);
+    return this.getApplication(application.renewal_of_application_id);
+  }
   getPayment(id) { return this.db.prepare('SELECT * FROM sponsorship_payments WHERE application_id=?').bind(id).first(); }
   getPaymentByOrder(id, environment) { return this.db.prepare('SELECT * FROM sponsorship_payments WHERE provider_order_id=? AND environment=?').bind(id, environment).first(); }
 
@@ -64,7 +113,7 @@ export class SponsorshipRepository {
       WHERE a.slot=? AND a.target_page=? AND a.publication_status='published'
         AND a.payment_status='verified' AND a.review_status='approved'
         AND a.ends_at>? AND p.state='verified' AND p.environment='live'
-      ORDER BY a.ends_at ASC LIMIT 1`).bind(slot, targetPage, now).first();
+      ORDER BY a.ends_at DESC LIMIT 1`).bind(slot, targetPage, now).first();
     if (published) return { available: false, reason: 'booked', availableAfter: published.ends_at };
 
     const hold = await this.db.prepare(`SELECT h.expires_at FROM sponsorship_holds h
