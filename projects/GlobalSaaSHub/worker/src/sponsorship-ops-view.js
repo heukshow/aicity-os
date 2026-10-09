@@ -9,6 +9,7 @@ const STATUS_LABELS = {
 };
 const PAYMENT_LABELS = { unpaid: '미결제', created: '결제 준비', pending: '결제 확인 대기', verified: '입금 검증 완료', review: '결제 재확인 필요', refunded: '환불·결제 취소' };
 const REVIEW_LABELS = { pending: '검토 대기', approved: '소재 승인', rejected: '소재 반려' };
+const NOTIFICATION_LABELS = { queued: '발송 대기', sent: '발송 완료', failed: '재시도 필요' };
 const PUBLICATION_LABELS = { draft: '집행 전', published: '집행 중 또는 예약', paused: '집행 중지', ended: '집행 종료' };
 const SLOT_LABELS = { 'tool-primary': '도구 페이지 광고', 'buyer-intent-top': '구매 가이드 광고', 'compare-decision-premium': '비교 페이지 광고' };
 const CHECK_LABELS = {
@@ -118,6 +119,9 @@ function renderApplication(application, index, config) {
       ${description('상품 · 기간', `${escapeHtml(SLOT_LABELS[application.quote?.slot] || '광고 위치 확인 필요')} · ${escapeHtml([7, 30, 90].includes(application.quote?.durationDays) ? `${application.quote.durationDays}일` : '기간 확인 필요')}`)}
       ${description('입금 상태', `<strong>${escapeHtml(state.paymentVerified ? '입금 검증 완료' : application.paymentStatus === 'verified' ? '입금 검증 기록 확인 필요' : PAYMENT_LABELS[application.paymentStatus] || '결제 상태 확인 필요')}</strong>`)}
       ${description('소재 상태', escapeHtml(REVIEW_LABELS[application.reviewStatus] || '검토 상태 확인 필요'))}
+      ${description('승인 메일', application.approvalNotification
+        ? `<strong>${escapeHtml(NOTIFICATION_LABELS[application.approvalNotification.status] || '상태 확인 필요')}</strong><small>시도 ${escapeHtml(Number.isInteger(application.approvalNotification.attempts) ? application.approvalNotification.attempts : 0)}회${application.approvalNotification.sentAt ? ` · ${timestamp(application.approvalNotification.sentAt)}` : ''}</small>`
+        : '<span>아직 발송 대상 아님</span>')}
       ${description('입금 검증 시각', timestamp(application.paymentVerifiedAt))}
       ${description('최근 결제 조회', timestamp(application.lastCheckedAt))}
       ${description('집행 시작', timestamp(application.startAt))}

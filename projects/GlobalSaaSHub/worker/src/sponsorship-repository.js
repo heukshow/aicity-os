@@ -15,7 +15,7 @@ export class SponsorshipRepository {
   }
 
   async imageReady() {
-    await this.db.batch(['sponsorship_assets','sponsorship_holds'].map((name) =>
+    await this.db.batch(['sponsorship_assets','sponsorship_holds','sponsorship_notifications'].map((name) =>
       this.db.prepare(`SELECT 1 FROM ${name} LIMIT 1`)));
     const guards = await this.db.prepare("SELECT name FROM sqlite_master WHERE type='trigger' AND name IN ('sponsorship_asset_insert_guard','sponsorship_asset_update_guard','sponsorship_asset_delete_guard','sponsorship_image_review_guard','sponsorship_image_publish_guard','sponsorship_hold_insert_guard')").all();
     if (guards.results?.length !== 6) throw new SponsorshipError('Image advertising storage migration is incomplete', 503);
@@ -60,6 +60,50 @@ export class SponsorshipRepository {
 
   async listApplications() {
     return (await this.db.prepare('SELECT * FROM sponsorship_applications ORDER BY created_at DESC LIMIT 100').all()).results || [];
+  }
+
+  getNotification(applicationId, template = 'approval_payment') {
+    return this.db.prepare('SELECT id,application_id,template,recipient_email,provider,provider_message_id,status,attempts,last_error,created_at,updated_at,sent_at FROM sponsorship_notifications WHERE application_id=? AND template=?')
+      .bind(applicationId, template).first();
+  }
+
+  async queueApprovalNotification(application, now) {
+    await this.db.prepare(`INSERT INTO sponsorship_notifications
+      (id,application_id,template,recipient_email,provider,status,attempts,created_at,updated_at)
+      VALUES(?,?,'approval_payment',?,'resend','queued',0,?,?)
+      ON CONFLICT(application_id,template) DO UPDATE SET
+        recipient_email=excluded.recipient_email,
+        status=CASE WHEN sponsorship_notifications.status='sent' THEN 'sent' ELSE 'queued' END,
+        last_error=CASE WHEN sponsorship_notifications.status='sent' THEN sponsorship_notifications.last_error ELSE NULL END,
+        updated_at=excluded.updated_at`)
+      .bind(crypto.randomUUID(), application.id, application.contact_email, now, now).run();
+    return this.getNotification(application.id);
+  }
+
+  async listPendingApprovalNotifications(limit = 20) {
+    if (!Number.isInteger(limit) || limit < 1 || limit > 100) throw new SponsorshipError('Invalid notification batch size', 500);
+    return (await this.db.prepare(`SELECT n.id,n.application_id,n.status,n.attempts,n.created_at
+      FROM sponsorship_notifications n JOIN sponsorship_applications a ON a.id=n.application_id
+      WHERE n.template='approval_payment' AND n.status IN('queued','failed') AND n.attempts<6
+        AND a.creative_mode='image' AND a.review_status='approved' AND a.publication_status='draft'
+        AND a.payment_status IN('unpaid','pending')
+      ORDER BY n.created_at LIMIT ?`).bind(limit).all()).results || [];
+  }
+
+  async markNotificationSent(applicationId, providerMessageId, now) {
+    await this.db.prepare(`UPDATE sponsorship_notifications SET status='sent',provider_message_id=?,attempts=attempts+1,
+      last_error=NULL,sent_at=?,updated_at=? WHERE application_id=? AND template='approval_payment' AND status!='sent'`)
+      .bind(providerMessageId, now, now, applicationId).run();
+    await this.audit(applicationId, 'approval_email_sent', 'notification-service', 'Approval and payment-return email accepted by provider', now).run();
+    return this.getNotification(applicationId);
+  }
+
+  async markNotificationFailed(applicationId, reason, now) {
+    await this.db.prepare(`UPDATE sponsorship_notifications SET status='failed',attempts=attempts+1,last_error=?,updated_at=?
+      WHERE application_id=? AND template='approval_payment' AND status!='sent'`)
+      .bind(String(reason || 'delivery_failed').slice(0, 120), now, applicationId).run();
+    await this.audit(applicationId, 'approval_email_failed', 'notification-service', String(reason || 'delivery_failed').slice(0, 120), now).run();
+    return this.getNotification(applicationId);
   }
 
   audit(applicationId, action, actor, detail, now) {
@@ -115,7 +159,7 @@ export class SponsorshipRepository {
       .bind(applicationId).first();
   }
 
-  async reserveImagePlacement(application, now, ttlMinutes = 30) {
+  async reserveImagePlacement(application, now, ttlMinutes = 1440) {
     if (application.creative_mode !== 'image' || application.submission_status !== 'submitted'
       || application.review_status !== 'approved' || application.publication_status !== 'draft'
       || !['unpaid','pending'].includes(application.payment_status)) {

@@ -452,6 +452,34 @@
   field('durationDays').addEventListener('change', refreshQuote);
   field('targetPage').addEventListener('change', refreshQuote);
 
+  async function resumeFromEmailLink() {
+    if (!window.location.hash.startsWith('#resume=')) return false;
+    let resumeToken = '';
+    try { resumeToken = decodeURIComponent(window.location.hash.slice('#resume='.length)); } catch (_) { /* handled below */ }
+    window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    if (!/^r1\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(resumeToken) || resumeToken.length >= 300) {
+      setMessage(message, 'This payment return link is invalid. Contact support with your order reference.', true);
+      return true;
+    }
+    try {
+      const result = await api('/v1/ads/resume', { method: 'POST', body: JSON.stringify({ token: resumeToken }) });
+      if (typeof result.applicationId !== 'string' || !result.applicationId) throw new Error('Application not confirmed');
+      access = { applicationId: result.applicationId, accessToken: resumeToken };
+      application = result;
+      saveAccess();
+      showApplication();
+      setMessage(message, result.status === 'awaiting_payment'
+        ? 'Your approved advertising order is ready. Review the total below and continue to PayPal.'
+        : 'Your advertising order was restored. Review its current status below.');
+      byId('application-receipt').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } catch (_) {
+      access = null;
+      application = null;
+      setMessage(message, 'This payment return link could not restore the order. Contact support with your order reference.', true);
+    }
+    return true;
+  }
+
   async function start() {
     updateTargetPages();
     updateSubmit();
@@ -477,14 +505,17 @@
     }
     updateSubmit();
     await refreshQuote();
-    try {
-      const saved = JSON.parse(sessionStorage.getItem(SESSION_KEY) || 'null');
-      if (saved && typeof saved.applicationId === 'string' && saved.applicationId.length < 150
-        && typeof saved.accessToken === 'string' && saved.accessToken.length >= 24 && saved.accessToken.length < 300) {
-        access = saved;
-        await refreshApplication();
-      }
-    } catch (_) { /* A fresh application remains available if local storage is inaccessible. */ }
+    const resumed = await resumeFromEmailLink();
+    if (!resumed) {
+      try {
+        const saved = JSON.parse(sessionStorage.getItem(SESSION_KEY) || 'null');
+        if (saved && typeof saved.applicationId === 'string' && saved.applicationId.length < 150
+          && typeof saved.accessToken === 'string' && saved.accessToken.length >= 24 && saved.accessToken.length < 300) {
+          access = saved;
+          await refreshApplication();
+        }
+      } catch (_) { /* A fresh application remains available if session storage is inaccessible. */ }
+    }
   }
   start();
 })();

@@ -6,6 +6,7 @@ import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import worker from '../src/index.js';
+import { issueResumeToken } from '../src/sponsorship-email.js';
 
 // All identifiers, credentials and provider responses below are synthetic. Fetch is
 // replaced in every test; no test can fall through to a real provider or account.
@@ -24,7 +25,7 @@ const INPUT = {
 };
 const MIGRATION = [
   '0001_orders.sql', '0002_private_ops.sql', '0003_sponsored_campaigns.sql', '0004_sponsorship_sales.sql',
-  '0006_sponsorship_image_assets.sql',
+  '0006_sponsorship_image_assets.sql', '0007_sponsorship_notifications.sql',
 ].map((name) => readFileSync(new URL(`../migrations/${name}`, import.meta.url), 'utf8')).join('\n');
 
 // Python's bundled SQLite keeps these integration tests compatible with Node 20/22.
@@ -838,6 +839,9 @@ test('image advertising enforces upload-review-reserve-payment-publication order
   assert.equal(reviewed.status, 200, JSON.stringify(reviewed.json));
   assert.equal(reviewed.json.status, 'awaiting_payment');
   assert.equal(reviewed.json.reservationActive, true);
+  assert.equal(reviewed.json.approvalNotification.status, 'queued');
+  assert.equal(reviewed.json.approvalNotification.attempts, 0);
+  assert.ok(Date.parse(reviewed.json.reservationUntil) - Date.now() > 23 * 3600000);
 
   const order = await f.request(base + '/order', { method: 'POST', body: {}, headers });
   assert.equal(order.status, 201, JSON.stringify(order.json));
@@ -859,4 +863,44 @@ test('image advertising enforces upload-review-reserve-payment-publication order
   assert.match(placements.json.placements[0].logoUrl, /\/v1\/ads\/assets\//);
 
   assert.equal((await f.db.prepare('SELECT COUNT(*) AS n FROM sponsorship_holds WHERE application_id=?').bind(app.applicationId).first()).n, 0);
+});
+
+test('signed approval link restores the existing order and renews an expired image reservation', async (t) => {
+  const f = fixture(t, { checkout: true });
+  const created = await f.request('/v1/ads/applications', { method: 'POST', body: INPUT });
+  assert.equal(created.status, 201, JSON.stringify(created.json));
+  const app = { applicationId: created.json.applicationId, accessToken: created.json.accessToken };
+  const headers = { authorization: `Bearer ${app.accessToken}` };
+  const base = `/v1/ads/applications/${app.applicationId}`;
+  f.db.exec(`INSERT INTO sponsorship_assets(id,application_id,role,mime,width,height,byte_size,sha256,data)
+    VALUES('resume-logo-${app.applicationId}','${app.applicationId}','logo','image/png',400,400,1,'resume-logo-sha',X'00');
+    INSERT INTO sponsorship_assets(id,application_id,role,mime,width,height,byte_size,sha256,data)
+    VALUES('resume-main-${app.applicationId}','${app.applicationId}','tool-primary','image/png',600,600,1,'resume-main-sha',X'00');`);
+  assert.equal((await f.request(base + '/submit', { method: 'POST', body: {}, headers })).status, 200);
+  const reviewed = await f.ownerAction(app, 'review', {
+    decision: 'approve', notes: 'Approved before payment for resume-link test.',
+    destinationChecked: true, claimsChecked: true,
+  });
+  assert.equal(reviewed.status, 200, JSON.stringify(reviewed.json));
+  f.env.AD_RESUME_LINK_SECRET = 'synthetic-resume-secret-0123456789-abcdefghijklmnopqrstuvwxyz';
+  const stored = await f.db.prepare('SELECT * FROM sponsorship_applications WHERE id=?').bind(app.applicationId).first();
+  const resumeToken = await issueResumeToken(stored, f.env, Date.now());
+  const expired = new Date(Date.now() - 60000).toISOString();
+  await f.db.prepare('UPDATE sponsorship_holds SET expires_at=? WHERE application_id=?').bind(expired, app.applicationId).run();
+  const beforeCount = (await f.db.prepare('SELECT COUNT(*) AS n FROM sponsorship_applications').first()).n;
+
+  const restored = await f.request('/v1/ads/resume', { method: 'POST', body: { token: resumeToken } });
+  assert.equal(restored.status, 200, JSON.stringify(restored.json));
+  assert.equal(restored.json.applicationId, app.applicationId);
+  assert.equal(restored.json.status, 'awaiting_payment');
+  assert.equal(restored.json.reservationActive, true);
+  assert.ok(Date.parse(restored.json.reservationUntil) - Date.now() > 23 * 3600000);
+  assert.equal((await f.db.prepare('SELECT COUNT(*) AS n FROM sponsorship_applications').first()).n, beforeCount);
+
+  const bearerStatus = await f.request(base, { headers: { authorization: `Bearer ${resumeToken}` } });
+  assert.equal(bearerStatus.status, 200);
+  assert.equal(bearerStatus.json.applicationId, app.applicationId);
+
+  const tampered = await f.request('/v1/ads/resume', { method: 'POST', body: { token: resumeToken + 'x' } });
+  assert.equal(tampered.status, 401);
 });

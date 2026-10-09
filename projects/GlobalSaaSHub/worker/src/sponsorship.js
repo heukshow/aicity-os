@@ -5,6 +5,7 @@ import { createSponsorshipPayPalOrder, capturePayPalOrder, getPayPalOrder, getPa
 import { renderSponsorshipOps } from './sponsorship-ops-view.js';
 import { handleLegacyPayPalEvent } from './sponsorship-legacy-webhook.js';
 import { validateAdAsset } from './ad-commerce-assets.js';
+import { approvalEmailConfigured, issueResumeToken, sendApprovalEmail, verifyResumeToken } from './sponsorship-email.js';
 
 const HEADERS = {
   'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store',
@@ -94,15 +95,27 @@ function publicWrite(request, env) {
   if (!env.ALLOWED_ORIGIN || request.headers.get('origin') !== env.ALLOWED_ORIGIN) throw new SponsorshipError('Forbidden', 403);
 }
 
-async function applicationAccess(request, repo, id) {
+async function applicationAccess(request, repo, id, env) {
   const app = await repo.getApplication(id);
   const bearer = request.headers.get('authorization') || '';
-  if (!app || !/^Bearer [a-f0-9]{64}$/.test(bearer) || !same(await hash(bearer.slice(7)), app.access_token_hash)) throw new SponsorshipError('Application access is required', 401);
+  if (!app || !bearer.startsWith('Bearer ')) throw new SponsorshipError('Application access is required', 401);
+  const credential = bearer.slice(7);
+  let allowed = false;
+  if (/^[a-f0-9]{64}$/.test(credential)) {
+    allowed = same(await hash(credential), app.access_token_hash);
+  } else if (credential.startsWith('r1.')) {
+    const resumed = await verifyResumeToken(credential, env);
+    allowed = resumed.applicationId === id;
+  }
+  if (!allowed) throw new SponsorshipError('Application access is required', 401);
   return app;
 }
 
 async function statusView(application, repo, env, privateView = false) {
-  const payment = await repo.getPayment(application.id);
+  const [payment, notification] = await Promise.all([
+    repo.getPayment(application.id),
+    privateView ? repo.getNotification(application.id) : Promise.resolve(null),
+  ]);
   const view = {
     applicationId: application.id, reference: application.reference,
     companyName: application.company_name, toolName: application.tool_name,
@@ -138,6 +151,10 @@ async function statusView(application, repo, env, privateView = false) {
     description: application.description, ctaText: application.cta_text,
     desiredStartDate: application.desired_start_date,
     paymentEvidence: payment ? { environment: payment.environment, providerOrderId: payment.provider_order_id, captureId: payment.capture_id, verificationReason: payment.verification_reason } : null,
+    approvalNotification: notification ? {
+      status: notification.status, attempts: notification.attempts, sentAt: notification.sent_at,
+      lastError: notification.last_error || null,
+    } : null,
   });
   return view;
 }
@@ -229,6 +246,52 @@ async function publicPlacements(request, env, repo) {
   return reply(request, env, { ready: true, placements });
 }
 
+async function ensureApprovalHold(repo, application, nowIso) {
+  if (application.creative_mode !== 'image' || application.review_status !== 'approved'
+      || application.publication_status !== 'draft' || !['unpaid','pending'].includes(application.payment_status)) return null;
+  let hold = await repo.imageHold(application.id);
+  if (hold?.slot === application.slot && Date.parse(hold.expires_at) > Date.parse(nowIso)) return hold;
+  try {
+    await repo.reserveImagePlacement(application, nowIso);
+  } catch (error) {
+    if (error instanceof SponsorshipError && error.status === 409) return null;
+    throw error;
+  }
+  hold = await repo.imageHold(application.id);
+  return hold?.slot === application.slot && Date.parse(hold.expires_at) > Date.parse(nowIso) ? hold : null;
+}
+
+async function deliverApprovalNotification(repo, env, application, nowIso = new Date().toISOString()) {
+  let notification = await repo.queueApprovalNotification(application, nowIso);
+  if (notification?.status === 'sent' || !approvalEmailConfigured(env)) return notification;
+  const hold = await ensureApprovalHold(repo, application, nowIso);
+  if (!hold) return repo.markNotificationFailed(application.id, 'reservation_unavailable', nowIso);
+  try {
+    const resumeToken = await issueResumeToken(application, env, Date.parse(nowIso));
+    const resumeUrl = `https://coshuma.com/advertise.html#resume=${encodeURIComponent(resumeToken)}`;
+    const delivery = await sendApprovalEmail(env, application, resumeUrl, hold.expires_at);
+    return repo.markNotificationSent(application.id, delivery.messageId, new Date().toISOString());
+  } catch {
+    return repo.markNotificationFailed(application.id, 'delivery_failed', new Date().toISOString());
+  }
+}
+
+export async function handleSponsorshipScheduled(env) {
+  if (!approvalEmailConfigured(env) || !env.ORDERS) return { processed: 0, sent: 0 };
+  const repo = new SponsorshipRepository(env.ORDERS);
+  await repo.ready();
+  await repo.imageReady();
+  const pending = await repo.listPendingApprovalNotifications(20);
+  let sent = 0;
+  for (const row of pending) {
+    const application = await repo.getApplication(row.application_id);
+    if (!application) continue;
+    const result = await deliverApprovalNotification(repo, env, application);
+    if (result?.status === 'sent') sent += 1;
+  }
+  return { processed: pending.length, sent };
+}
+
 function ownerBase(url, env) {
   if (url.pathname === '/ops/ads' || url.pathname.startsWith('/ops/ads/')) return '/ops/ads';
   const privateBase = String(env.ADMIN_PATH || '').replace(/\/$/, '');
@@ -300,6 +363,7 @@ async function ownerRequest(request, env, repo, base) {
     if (body.decision === 'approve' && app.creative_mode === 'image') {
       await repo.reserveImagePlacement(app, now.toISOString());
       app = await repo.getApplication(app.id);
+      await deliverApprovalNotification(repo, env, app, now.toISOString());
     }
   }
   if (match[2] === 'publish') {
@@ -434,6 +498,19 @@ export async function handleSponsorshipRequest(request, env) {
         catalog: CATALOG,
         placements: CATALOG.map((item) => ({ slot: item.slot, label: item.label, prices: item.prices, targetPage: item.allowedPages[0] })) });
     }
+    if (request.method === 'POST' && url.pathname === '/v1/ads/resume') {
+      publicWrite(request, env);
+      const body = await bodyJson(request, 2048);
+      if (Object.keys(body).length !== 1 || typeof body.token !== 'string') throw new SponsorshipError('A valid application return link is required', 401);
+      const resumed = await verifyResumeToken(body.token, env);
+      let app = await repo.getApplication(resumed.applicationId);
+      if (!app || app.creative_mode !== 'image') throw new SponsorshipError('Advertising application not found', 404);
+      if (app.review_status === 'approved' && app.publication_status === 'draft' && ['unpaid','pending'].includes(app.payment_status)) {
+        await ensureApprovalHold(repo, app, new Date().toISOString());
+        app = await repo.getApplication(app.id);
+      }
+      return reply(request, env, await statusView(app, repo, env));
+    }
     const publicAsset = /^\/v1\/ads\/assets\/([a-f0-9-]{36})\/(logo|tool-primary|buyer-intent-top|compare-decision-premium)$/.exec(url.pathname);
     if (request.method === 'GET' && publicAsset) {
       const app = await repo.getApplication(publicAsset[1]);
@@ -464,7 +541,7 @@ export async function handleSponsorshipRequest(request, env) {
     }
     const imageMatch = /^\/v1\/ads\/applications\/([a-f0-9-]{36})(?:\/(assets\/(logo|tool-primary|buyer-intent-top|compare-decision-premium)|submit|order|capture))?$/.exec(url.pathname);
     if (imageMatch) {
-      let app = await applicationAccess(request, repo, imageMatch[1]);
+      let app = await applicationAccess(request, repo, imageMatch[1], env);
       if (app.creative_mode !== 'image') throw new SponsorshipError('Image application access is required', 404);
       if (request.method === 'GET' && !imageMatch[2]) return reply(request, env, await statusView(app, repo, env));
       if (request.method === 'PUT' && imageMatch[3]) {
@@ -506,7 +583,7 @@ export async function handleSponsorshipRequest(request, env) {
     }
     const match = /^\/v1\/sponsorship\/applications\/([a-f0-9-]{36})(?:\/(order|capture))?$/.exec(url.pathname);
     if (!match) throw new SponsorshipError('Not found', 404);
-    let app = await applicationAccess(request, repo, match[1]);
+    let app = await applicationAccess(request, repo, match[1], env);
     if (request.method === 'GET' && !match[2]) return reply(request, env, await statusView(app, repo, env));
     if (request.method !== 'POST' || !match[2]) throw new SponsorshipError('Method not allowed', 405);
     if (!configuration(env).paymentReady) throw new SponsorshipError('Payment is not available; your application is saved', 503);

@@ -46,3 +46,13 @@ The application may be stored while PayPal checkout is unavailable. Direct the a
 Live configuration checks must cover the existing app's authentication, the registered callback and its capture/refund/dispute events, the merchant identity, the additive database migration and owner access. Record these separately from a first real advertiser capture. A mock test or a successful read-only connection probe does not establish actual paid revenue.
 
 After verified deployment, the existing Revenue Intelligence schedule owns receipt review and fulfilment checks. Reuse it without adding duplicate jobs or changing unrelated team cadences. A configured recurring schedule is a future execution mechanism, not proof that any future run has completed. Preserve the one-month campaign boundaries and existing fixed measurement windows.
+
+## Approval email and payment return
+
+For image advertising, material approval and payment are intentionally separate. After an image application is approved, reserve the selected position for 24 hours and enqueue one `approval_payment` notification keyed by application ID. Delivery uses the configured transactional-email provider with `support@coshuma.com` as the reply address. Provider API keys and the return-link signing secret are Worker secrets and must never appear in Git, public pages, analytics or screenshots.
+
+The approval email states the saved COSHUMA order reference, company/product, placement, purchased duration, exact USD total and current reservation expiry. Its payment button returns to `https://coshuma.com/advertise.html#resume=...` with a short-lived HMAC-signed token scoped to that application. The browser removes the token from the visible URL before restoring the saved application session. The token does not prove payment and cannot change the saved price, currency, product or duration.
+
+If the 24-hour reservation has expired when the advertiser returns, the server may reserve the same placement again only if inventory is still available. It never creates a duplicate advertising application merely because the advertiser followed the email link. PayPal order/capture verification remains the financial gate.
+
+Notification delivery is idempotent in both D1 and the provider request. A failed email does not roll back material approval or corrupt the application; the Worker scheduled handler retries queued/failed approval notifications every 15 minutes, up to six delivery attempts. Paid, rejected, refunded or non-draft applications are not retried. Owner operations show only delivery status, attempt count and sent time, not provider credentials or private message payloads.
