@@ -70,9 +70,16 @@ function applicationState(application, config) {
   const paymentVerified = application.paymentVerified === true && application.paymentStatus === 'verified';
   const approved = application.approved === true && application.reviewStatus === 'approved';
   const published = application.publicationStatus === 'published';
+  const imageReviewReady = application.creativeMode === 'image'
+    && application.submissionStatus === 'submitted'
+    && application.reviewStatus === 'pending'
+    && application.publicationStatus === 'draft';
+  const legacyReviewReady = application.creativeMode !== 'image'
+    && paymentVerified && application.reviewStatus === 'pending'
+    && ['draft', 'paused', 'ended'].includes(application.publicationStatus);
   return {
     validId, paymentVerified, approved,
-    canApprove: validId && paymentVerified && ['draft', 'paused', 'ended'].includes(application.publicationStatus) && !!safeDestination(application.destinationUrl),
+    canApprove: validId && (imageReviewReady || legacyReviewReady) && !!safeDestination(application.destinationUrl),
     canReject: validId && ['draft', 'paused', 'ended'].includes(application.publicationStatus),
     canPublish: validId && paymentVerified && approved && application.status === 'ready_to_publish' && application.publicationStatus === 'draft' && fulfilmentReady(config),
     canPause: validId && published && application.status !== 'ended',
@@ -87,6 +94,18 @@ function renderApplication(application, index, config) {
   const description = (label, content) => `<div><dt>${label}</dt><dd>${content}</dd></div>`;
   const disabled = (allowed) => allowed ? '' : ' disabled';
   const publication = STATUS_LABELS[application.status] || PUBLICATION_LABELS[application.publicationStatus] || '상태 확인 필요';
+  const imageFlow = application.creativeMode === 'image';
+  const reviewGuidance = imageFlow
+    ? application.submissionStatus !== 'submitted'
+      ? '로고와 광고 이미지를 모두 제출한 뒤 소재를 검토할 수 있습니다.'
+      : application.reviewStatus === 'approved'
+        ? '소재 승인 완료. 예약 유효 시간 안에 광고주가 결제할 수 있습니다.'
+        : state.canApprove
+          ? '연결 주소와 광고 표현을 확인하고 검토 메모를 입력하면 결제 전에 소재를 승인할 수 있습니다.'
+          : '제출된 소재와 현재 광고 상태를 확인하세요.'
+    : state.canApprove
+      ? '두 확인 항목을 모두 선택하고 검토 메모를 입력하면 승인할 수 있습니다.'
+      : '입금 확인 및 현재 광고 상태를 확인한 뒤 소재를 승인할 수 있습니다.';
   let publishReason = '결제 검증과 소재 승인 후 집행할 수 있습니다.';
   if (state.canPublish) publishReason = '시작일을 비워 두면 지금 시작합니다. 저장된 상품 기간이 적용됩니다.';
   else if (application.publicationStatus === 'paused') publishReason = '중지한 광고입니다. 이 화면에서는 다시 집행하지 않습니다.';
@@ -112,12 +131,12 @@ function renderApplication(application, index, config) {
       ${application.reviewNotes ? `<p class="review-notes"><b>최근 검토 기록</b> ${escapeHtml(application.reviewNotes)}</p>` : ''}
     </section>
     <div class="workflow">
-      <section aria-labelledby="${key}-payment"><h4 id="${key}-payment">1. 입금 확인</h4><p>저장된 PayPal 주문과 실제 결제 상태를 다시 조회합니다.</p><button type="button" data-action="verify-payment"${disabled(state.validId)}>입금 다시 확인</button></section>
-      <section aria-labelledby="${key}-review"><h4 id="${key}-review">2. 소재 검토</h4><label class="check"><input type="checkbox" data-field="destination-checked"${disabled(state.canApprove)}> 연결 주소와 광고 내용을 직접 확인했습니다.</label><label class="check"><input type="checkbox" data-field="claims-checked"${disabled(state.canApprove)}> 광고의 표현과 주장을 확인했습니다.</label>
+      <section aria-labelledby="${key}-payment"><h4 id="${key}-payment">입금 확인</h4><p>${imageFlow ? '소재 승인 후 발급된 PayPal 주문과 실제 결제 상태를 조회합니다.' : '저장된 PayPal 주문과 실제 결제 상태를 다시 조회합니다.'}</p><button type="button" data-action="verify-payment"${disabled(state.validId)}>입금 다시 확인</button></section>
+      <section aria-labelledby="${key}-review"><h4 id="${key}-review">소재 검토</h4><label class="check"><input type="checkbox" data-field="destination-checked"${disabled(state.canApprove)}> 연결 주소와 광고 내용을 직접 확인했습니다.</label><label class="check"><input type="checkbox" data-field="claims-checked"${disabled(state.canApprove)}> 광고의 표현과 주장을 확인했습니다.</label>
         <label for="${key}-notes">검토 메모 <span>(승인·반려 모두 필수 · 최대 1,000자)</span></label><textarea id="${key}-notes" data-field="notes" maxlength="1000" rows="3" placeholder="확인한 내용 또는 수정이 필요한 부분"${disabled(state.canReject)}></textarea>
-        <div class="buttons"><button type="button" data-action="approve" disabled>소재 승인</button><button type="button" data-action="reject"${disabled(state.canReject)}>소재 반려</button></div><small>${state.canApprove ? '두 확인 항목을 모두 선택하고 검토 메모를 입력하면 승인할 수 있습니다.' : '입금 확인 및 현재 광고 상태를 확인한 뒤 소재를 승인할 수 있습니다.'}</small>
+        <div class="buttons"><button type="button" data-action="approve" disabled>소재 승인</button><button type="button" data-action="reject"${disabled(state.canReject)}>소재 반려</button></div><small>${reviewGuidance}</small>
       </section>
-      <section aria-labelledby="${key}-publish"><h4 id="${key}-publish">3. 광고 집행</h4><label for="${key}-start">시작일시 <span>(한국 시간 · 선택)</span></label><input id="${key}-start" type="datetime-local" data-field="starts-at"${disabled(state.canPublish)}><p id="${key}-publish-reason">${escapeHtml(publishReason)}</p><div class="buttons"><button type="button" data-action="publish" aria-describedby="${key}-publish-reason"${disabled(state.canPublish)}>광고 집행·예약</button><button type="button" data-action="pause"${disabled(state.canPause)}>광고 중지</button></div></section>
+      <section aria-labelledby="${key}-publish"><h4 id="${key}-publish">광고 집행</h4><label for="${key}-start">시작일시 <span>(한국 시간 · 선택)</span></label><input id="${key}-start" type="datetime-local" data-field="starts-at"${disabled(state.canPublish)}><p id="${key}-publish-reason">${escapeHtml(publishReason)}</p><div class="buttons"><button type="button" data-action="publish" aria-describedby="${key}-publish-reason"${disabled(state.canPublish)}>광고 집행·예약</button><button type="button" data-action="pause"${disabled(state.canPause)}>광고 중지</button></div></section>
     </div><p class="action-result" role="status" aria-live="polite" data-result></p>
   </article>`;
 }
@@ -313,7 +332,8 @@ export function renderSponsorshipOps({ applications = [], config = {}, basePath 
   const rows = Array.isArray(applications) ? applications.filter((application) => application && typeof application === 'object' && !Array.isArray(application)) : [];
   const settings = config && typeof config === 'object' ? config : {};
   const verified = rows.filter((application) => applicationState(application, settings).paymentVerified).length;
-  const awaitingReview = rows.filter((application) => applicationState(application, settings).paymentVerified && application.reviewStatus === 'pending').length;
+  const awaitingReview = rows.filter((application) => application.reviewStatus === 'pending'
+    && (application.creativeMode === 'image' ? application.submissionStatus === 'submitted' : applicationState(application, settings).paymentVerified)).length;
   const onSite = rows.filter((application) => ['active', 'scheduled'].includes(application.status) && application.publicationStatus === 'published').length;
   const checks = Object.entries(CHECK_LABELS).filter(([key]) => typeof settings.checks?.[key] === 'boolean')
     .map(([key, label]) => `<li><span>${label}</span><strong class="${settings.checks[key] ? 'good' : 'warning'}">${settings.checks[key] ? '확인' : '확인 필요'}</strong></li>`).join('');
@@ -322,7 +342,7 @@ export function renderSponsorshipOps({ applications = [], config = {}, basePath 
   return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>COSHUMA 광고 운영 · 결제 확인</title><style>
   *{box-sizing:border-box}body{margin:0;background:#f3f5f9;color:#18273e;font:15px/1.6 system-ui,-apple-system,sans-serif}main{max-width:1320px;margin:auto;padding:30px}h1{font-size:30px;line-height:1.3;margin:6px 0 10px}h2{font-size:22px;margin:0 0 8px}h3{font-size:21px;margin:3px 0;overflow-wrap:anywhere}h3 span{color:#96a3b6;font-weight:400}h4{font-size:16px;margin:0 0 12px}p{margin:6px 0}a{color:#285ac2;overflow-wrap:anywhere}.top,.application-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}.eyebrow{font-size:12px;letter-spacing:.14em;font-weight:700;color:#4265ba}nav,.buttons{display:flex;gap:10px;flex-wrap:wrap}button,nav a{font:inherit;padding:10px 14px;border:1px solid #cbd5e4;border-radius:8px;background:#fff;color:#263b59;text-decoration:none}button{cursor:pointer}button:disabled{color:#748093;background:#f2f4f7;cursor:not-allowed;opacity:.75}button[data-action=publish]:not(:disabled),button[data-action=approve]:not(:disabled){background:#315dde;color:#fff;border-color:#315dde}button[data-action=pause]:not(:disabled){color:#983328;border-color:#d6a5a0}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #9bb5fd;outline-offset:3px}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0 8px}.summary article,.connection,.application{background:#fff;border:1px solid #dde4ef;border-radius:14px;padding:22px}.summary span{color:#566882;font-size:13px}.summary strong{font-size:32px;display:block;margin-top:8px;font-variant-numeric:tabular-nums}.scope,small,.muted{color:#65738a;font-size:12px}small{display:block;margin-top:5px}.connection{margin:22px 0}.connection-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:14px}.checks{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:9px 22px}.checks li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #e9edf4;padding:8px 0;font-size:13px}.good{color:#096442}.warning,.error{color:#9a3b1a}.applications{margin-top:28px}.application{margin-top:18px}.reference{font-size:12px;color:#58708e;overflow-wrap:anywhere}.pill{display:inline-block;white-space:nowrap;background:#fff1d6;color:#795400;padding:5px 10px;border-radius:16px;font-size:12px}.pill.verified{background:#e0f4ed;color:#096442}.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 24px;margin:22px 0}.facts dt{font-size:12px;color:#65738a;margin-bottom:5px}.facts dd{margin:0;overflow-wrap:anywhere;font-size:14px}.facts dd strong{font-size:17px}.facts time{font-size:13px}.materials{border-top:1px solid #e5eaf2;border-bottom:1px solid #e5eaf2;padding:20px 0;overflow-wrap:anywhere}.materials p{font-size:14px}.materials b{display:inline-block;color:#566882;min-width:100px}.material-copy,.review-notes{white-space:pre-wrap}.workflow{display:grid;grid-template-columns:.85fr 1.4fr 1.1fr;gap:24px;margin-top:22px}.workflow section+section{border-left:1px solid #e5eaf2;padding-left:24px}.workflow p{font-size:13px;color:#65738a;margin:9px 0 14px}.workflow label{display:block;font-size:13px;margin:8px 0}.workflow label span{color:#65738a}.workflow .check{display:flex;gap:8px;align-items:flex-start;line-height:1.5}.check input{width:18px;height:18px;margin:2px 0 0;flex:none}textarea,input[type=datetime-local]{display:block;box-sizing:border-box;width:100%;font:inherit;font-size:14px;border:1px solid #cbd5e4;border-radius:8px;padding:10px;background:#fff;color:#18273e}textarea{resize:vertical;margin:6px 0 12px}textarea:disabled,input:disabled{background:#f3f5f9}.action-result{min-height:1.5em;font-size:13px;margin-top:16px}#ops-result,#connection-result{font-size:14px}.empty{background:#fff;border:1px solid #dde4ef;padding:30px;border-radius:14px}footer{margin-top:28px;color:#65738a;font-size:12px}@media(max-width:1000px){.facts{grid-template-columns:repeat(2,1fr)}.checks{grid-template-columns:repeat(2,1fr)}.workflow{grid-template-columns:1fr}.workflow section+section{border-left:0;border-top:1px solid #e5eaf2;padding:18px 0 0}}@media(max-width:700px){main{padding:16px}.top,.application-heading{display:block}.top nav{margin-top:18px}.summary{grid-template-columns:repeat(2,1fr)}.application,.connection{padding:18px}.pill{margin-top:10px}.facts{gap:16px}.checks{grid-template-columns:1fr}h1{font-size:26px}}
   </style></head><body><main id="sponsorship-ops" data-base-path="${escapeHtml(base)}"><header class="top"><div><div class="eyebrow">COSHUMA / ADS</div><h1>광고 운영 · 결제 확인</h1><p>주문별 입금 근거와 소재를 확인하고 광고를 집행합니다.</p></div><nav aria-label="운영 화면 이동"><a href="/ops/revenue.html">전체 수익</a><button type="button" id="refresh-ops">상태 새로고침</button></nav></header>
-  <section class="summary" aria-label="조회된 광고 신청 현황">${summary('조회된 신청', rows.length)}${summary('입금 검증 완료', verified)}${summary('입금 확인 후 소재 검토 대기', awaitingReview)}${summary('집행 중 · 예약', onSite)}</section><p class="scope">현재 조회 목록 기준입니다. 입금 검증 건수는 은행 출금액이나 광고 성과를 뜻하지 않습니다.</p>
+  <section class="summary" aria-label="조회된 광고 신청 현황">${summary('조회된 신청', rows.length)}${summary('입금 검증 완료', verified)}${summary('소재 검토 대기', awaitingReview)}${summary('집행 중 · 예약', onSite)}</section><p class="scope">현재 조회 목록 기준입니다. 입금 검증 건수는 은행 출금액이나 광고 성과를 뜻하지 않습니다.</p>
   <section class="connection" aria-labelledby="connection-title"><h2 id="connection-title">결제 연결 상태</h2><p><strong>${escapeHtml(connectionLabel)}</strong> · 광고 접수 ${settings.intakeReady === true ? '준비됨' : '확인 필요'}</p><p class="muted">연결 준비와 개별 광고의 실제 입금 확인은 각각 확인합니다.</p>${checks ? `<ul class="checks">${checks}</ul>` : '<p class="muted">세부 연결 확인 결과가 아직 없습니다.</p>'}<div class="connection-actions"><button type="button" id="verify-readiness" data-action="verify-readiness">PayPal 연결 조회</button><span class="muted">인증과 알림 등록 상태를 읽습니다.</span><button type="button" id="repair-webhook-events" data-action="repair-webhook-events" aria-describedby="repair-webhook-help" disabled>필수 알림 구독 보완</button><span class="muted" id="repair-webhook-help">결제 접수 중지 상태에서 조회한 단일 후보의 부족한 필수 알림만 보완합니다. 연결 ID 설정은 별도로 필요합니다.</span></div><p id="connection-result" role="status" aria-live="polite"></p><p id="ops-result" role="status" aria-live="polite"></p></section>
   <section class="applications" aria-labelledby="applications-title"><h2 id="applications-title">광고 신청 및 집행</h2><p class="muted">시간은 한국 시간(KST)입니다. 기록이 없는 날짜는 확인 기록 없음으로 표시합니다.</p>${rows.length ? rows.map((application, index) => renderApplication(application, index, settings)).join('') : '<p class="empty">현재 조회된 광고 신청이 없습니다.</p>'}</section><noscript><p role="alert">운영 작업에는 JavaScript가 필요합니다. 위 상태는 페이지를 불러온 시점의 기록입니다.</p></noscript><footer>소유자 전용 운영 화면 · 마지막 확인 시점을 기준으로 읽으세요.</footer></main><script>const __name=fn=>fn;(${sponsorshipOpsClient.toString()})();</script></body></html>`;
 }
