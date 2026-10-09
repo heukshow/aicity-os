@@ -20,7 +20,11 @@ class NavigationTests(unittest.TestCase):
   for place in ['home-header','home-mobile','home-footer']:
    self.assertEqual(text.count('data-advertising-entry="'+place+'"'),1)
   self.assertIn('data-site-menu',text)
-  self.assertLess(text.index('data-advertising-entry="home-header"'),text.index('{paymentConfig.checkoutEnabled'))
+  self.assertNotIn('>Countries</a>',text)
+  self.assertNotIn('Sponsor a listing',text)
+  self.assertLess(text.index('>Explore tools</a>'),text.index('>Buyer guides</a>'))
+  self.assertLess(text.index('>Buyer guides</a>'),text.index('>Comparisons</a>'))
+  self.assertLess(text.index('>Comparisons</a>'),text.index('data-advertising-entry="home-header"'))
   self.assertIn("new URLSearchParams(window.location.search).get('coshuma_qa') === '1'",text)
  def test_cleanup_preserves_navigation_and_removes_inline_purchase(self):
   with tempfile.TemporaryDirectory() as tmp:
