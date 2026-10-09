@@ -113,11 +113,12 @@ async function applicationAccess(request, repo, id, env) {
 
 async function statusView(application, repo, env, privateView = false) {
   const payment = await repo.getPayment(application.id);
+  const state = publicStatus(application);
   const view = {
     applicationId: application.id, reference: application.reference,
     companyName: application.company_name, toolName: application.tool_name,
     quote: { amount: application.amount, currency: application.currency, durationDays: application.duration_days, slot: application.slot, targetPage: application.target_page },
-    status: publicStatus(application), paymentStatus: application.payment_status,
+    status: state, paymentStatus: application.payment_status,
     reviewStatus: application.review_status, publicationStatus: application.publication_status,
     paymentVerified: application.payment_status === 'verified' && payment?.state === 'verified' && payment.environment === 'live'
       && Boolean(payment.capture_id && payment.provider_order_id && Number.isFinite(Date.parse(payment.verified_at)))
@@ -128,18 +129,29 @@ async function statusView(application, repo, env, privateView = false) {
     paymentReady: configuration(env).paymentReady,
   };
   if (application.creative_mode === 'image') {
-    const [assets, hold] = await Promise.all([repo.imageAssets(application.id), repo.imageHold(application.id)]);
+    const [assets, hold, renewal] = await Promise.all([
+      repo.imageAssets(application.id), repo.imageHold(application.id), repo.renewalFor(application.id),
+    ]);
     const holdActive = Boolean(hold?.expires_at && Date.parse(hold.expires_at) > Date.now());
     let imageStatus;
     if (application.review_status === 'rejected') imageStatus = 'rejected';
-    else if (application.publication_status === 'published') imageStatus = publicStatus(application);
+    else if (application.publication_status === 'published') imageStatus = state;
     else if (application.payment_status === 'verified') imageStatus = 'ready_to_publish';
     else if (application.review_status === 'approved') imageStatus = holdActive ? 'awaiting_payment' : 'reservation_expired';
     else if (application.submission_status === 'submitted') imageStatus = 'awaiting_review';
     else imageStatus = 'preparing_materials';
+    const renewalEligible = state === 'active' && application.payment_status === 'verified'
+      && application.review_status === 'approved' && Number.isFinite(Date.parse(application.ends_at))
+      && Date.parse(application.ends_at) > Date.now();
     Object.assign(view, {
       status: imageStatus, creativeMode: 'image', submissionStatus: application.submission_status,
       assets, reservationUntil: hold?.expires_at || null, reservationActive: holdActive,
+      renewalOf: application.renewal_of_application_id || null,
+      renewalEligible, renewalPriorityUntil: renewalEligible ? application.ends_at : null,
+      renewalPrepared: renewal ? {
+        applicationId: renewal.id, status: publicStatus(renewal), durationDays: renewal.duration_days,
+        amount: renewal.amount, currency: renewal.currency, startAt: renewal.starts_at, endAt: renewal.ends_at,
+      } : null,
     });
   }
   if (privateView) {
@@ -236,7 +248,16 @@ async function activateVerifiedImage(application, repo, actor) {
   const nowIso = now.toISOString();
   await repo.requireImageHold(application, nowIso);
   let requested = nowIso;
-  if (application.desired_start_date) {
+  if (application.renewal_of_application_id) {
+    const parent = await repo.renewalParent(application);
+    if (!parent || parent.creative_mode !== 'image' || parent.slot !== application.slot
+      || parent.target_page !== application.target_page || parent.payment_status !== 'verified'
+      || parent.review_status !== 'approved' || parent.publication_status !== 'published'
+      || !Number.isFinite(Date.parse(parent.ends_at))) {
+      throw new SponsorshipError('The priority renewal no longer has a valid preceding campaign', 409);
+    }
+    requested = Date.parse(parent.ends_at) > now.getTime() ? parent.ends_at : nowIso;
+  } else if (application.desired_start_date) {
     const candidate = new Date(application.desired_start_date + 'T00:00:00.000Z');
     if (Number.isFinite(candidate.getTime()) && candidate.getTime() > now.getTime()) requested = candidate.toISOString();
   }
@@ -416,6 +437,47 @@ async function webhook(request, env, repo) {
   return reply(request, env, { accepted: true, matched: payments.size > 0 || legacy.matched, legacy: legacy.matched });
 }
 
+async function renewImageApplication(request, env, repo, parent) {
+  publicWrite(request, env);
+  const body = await bodyJson(request);
+  if (Object.keys(body).some((key) => key !== 'durationDays')) throw new SponsorshipError('Only a renewal duration may be changed', 422);
+  if (parent.creative_mode !== 'image' || publicStatus(parent) !== 'active'
+      || parent.payment_status !== 'verified' || parent.review_status !== 'approved'
+      || parent.publication_status !== 'published' || !Number.isFinite(Date.parse(parent.ends_at))
+      || Date.parse(parent.ends_at) <= Date.now()) {
+    throw new SponsorshipError('Priority renewal is available only while the current paid placement is active', 409);
+  }
+  const quote = quoteFor({ slot: parent.slot, durationDays: body.durationDays, targetPage: parent.target_page });
+  let renewal = await repo.renewalFor(parent.id);
+  const now = new Date().toISOString();
+  if (renewal) {
+    if (renewal.duration_days !== quote.durationDays || renewal.amount !== quote.amount || renewal.currency !== quote.currency) {
+      throw new SponsorshipError('A priority renewal is already prepared for a different period', 409);
+    }
+    if (renewal.publication_status === 'draft' && ['unpaid','pending'].includes(renewal.payment_status)) {
+      await repo.reserveImagePlacement(renewal, now);
+      renewal = await repo.getApplication(renewal.id);
+      await notifyApprovedApplication(repo, renewal, env, 'priority-renewal');
+    }
+    const accessToken = await approvalResumeToken(renewal, env);
+    if (!accessToken) throw new SponsorshipError('Priority renewal access is unavailable', 503);
+    return { ...await statusView(renewal, repo, env), accessToken, renewedFrom: parent.id, created: false };
+  }
+
+  const id = crypto.randomUUID();
+  const reference = `COSHUMA-RENEW-${now.slice(0,10).replaceAll('-','')}-${id}`;
+  const unusedAccess = token();
+  renewal = await repo.createImageRenewalApplication(
+    parent, id, reference, await hash(unusedAccess), quote, 'priority-renewal', now,
+  );
+  await repo.reserveImagePlacement(renewal, now);
+  renewal = await repo.getApplication(renewal.id);
+  await notifyApprovedApplication(repo, renewal, env, 'priority-renewal');
+  const accessToken = await approvalResumeToken(renewal, env);
+  if (!accessToken) throw new SponsorshipError('Priority renewal access is unavailable', 503);
+  return { ...await statusView(renewal, repo, env), accessToken, renewedFrom: parent.id, created: true };
+}
+
 async function paymentAction(request, env, repo, app, action) {
   if (!configuration(env).paymentReady) throw new SponsorshipError('Payment is not available; your application is saved', 503);
   const body = await bodyJson(request);
@@ -423,6 +485,14 @@ async function paymentAction(request, env, repo, app, action) {
   if (app.creative_mode === 'image') {
     if (app.submission_status !== 'submitted' || app.review_status !== 'approved') {
       throw new SponsorshipError('Image materials must be approved before payment', 409);
+    }
+    if (app.renewal_of_application_id) {
+      const parent = await repo.renewalParent(app);
+      if (!parent || parent.slot !== app.slot || parent.target_page !== app.target_page
+        || parent.payment_status !== 'verified' || parent.review_status !== 'approved'
+        || parent.publication_status !== 'published') {
+        throw new SponsorshipError('The priority renewal is no longer valid', 409);
+      }
     }
     await repo.requireImageHold(app, new Date().toISOString());
   } else if (publicStatus(app) !== 'awaiting_payment') {
@@ -519,7 +589,7 @@ export async function handleSponsorshipRequest(request, env) {
       const application = await repo.createImageApplication(id, reference, await hash(accessToken), input, now);
       return reply(request, env, { ...await statusView(application, repo, env), accessToken }, 201);
     }
-    const imageMatch = /^\/v1\/ads\/applications\/([a-f0-9-]{36})(?:\/(assets\/(logo|tool-primary|buyer-intent-top|compare-decision-premium)|submit|order|capture))?$/.exec(url.pathname);
+    const imageMatch = /^\/v1\/ads\/applications\/([a-f0-9-]{36})(?:\/(assets\/(logo|tool-primary|buyer-intent-top|compare-decision-premium)|submit|order|capture|renew))?$/.exec(url.pathname);
     if (imageMatch) {
       let app = await applicationAccess(request, repo, imageMatch[1], env);
       if (app.creative_mode !== 'image') throw new SponsorshipError('Image application access is required', 404);
@@ -540,6 +610,10 @@ export async function handleSponsorshipRequest(request, env) {
         await bodyJson(request);
         app = await repo.submitImageApplication(app, new Date().toISOString());
         return reply(request, env, await statusView(app, repo, env));
+      }
+      if (request.method === 'POST' && imageMatch[2] === 'renew') {
+        const result = await renewImageApplication(request, env, repo, app);
+        return reply(request, env, result, result.created ? 201 : 200);
       }
       if (request.method === 'POST' && ['order','capture'].includes(imageMatch[2])) {
         publicWrite(request, env);
