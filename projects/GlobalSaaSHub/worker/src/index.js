@@ -1,5 +1,5 @@
 import { handlePrivateOps, handleSnapshotUpload } from './private-ops.js';
-import { handleSponsorshipRequest } from './sponsorship.js';
+import { handleSponsorshipRequest, handleSponsorshipScheduled } from './sponsorship.js';
 import { handleAdminRequest, isAdminPath } from './admin.js';
 
 const SECURITY_HEADERS = {
@@ -53,5 +53,8 @@ export default {
     }
     if (url.pathname === '/health') return json({ ok: true });
     return json({ error: 'Not found' }, env.CHECKOUT_ENABLED === 'true' ? 404 : 503, corsHeaders(request, env));
+  },
+  async scheduled(_controller, env, ctx) {
+    ctx.waitUntil(handleSponsorshipScheduled(env));
   },
 };

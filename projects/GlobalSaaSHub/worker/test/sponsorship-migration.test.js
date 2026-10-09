@@ -17,7 +17,7 @@ def database(include_new=True):
     db = sqlite3.connect(':memory:')
     db.execute('PRAGMA foreign_keys = ON')
     for path in sorted(migrations.glob('*.sql')):
-        if not include_new and path.name.startswith(('0004_', '0006_')):
+        if not include_new and path.name.startswith(('0004_', '0006_', '0007_')):
             continue
         db.executescript(path.read_text())
     return db

@@ -10,12 +10,16 @@ enabled = true
 [observability.logs]
 enabled = true
 
+[triggers]
+crons = ["*/15 * * * *"]
+
 [vars]
 PAYPAL_ENVIRONMENT = "live"
 ALLOWED_ORIGIN = "https://coshuma.com"
 CHECKOUT_ENABLED = "true"
 GA_PROPERTY_ID = "552233666"
 GSC_SITE_URL = "https://coshuma.com/"
+AD_EMAIL_FROM = "COSHUMA Ads <support@coshuma.com>"
 
 # Create the D1 database before deployment, then add its non-secret database_id here.
 [[d1_databases]]
@@ -31,4 +35,4 @@ database_id = "d791d3d4-1ade-462e-bf8d-e33ebf4e2e38"
 # Private operations dashboard requires ADMIN_PATH, ADMIN_USERNAME and
 # ADMIN_PASSWORD_SHA256 as Worker secrets. Do not add them to this file.
 # There is intentionally no fixed public admin-login route.
-# GOOGLE_SERVICE_ACCOUNT_JSON is also a Worker secret and must never be committed.
+# GOOGLE_SERVICE_ACCOUNT_JSON, RESEND_API_KEY and AD_RESUME_LINK_SECRET are Worker secrets and must never be committed.

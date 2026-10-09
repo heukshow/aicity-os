@@ -63,6 +63,7 @@ test('a quote for a different page, duration or currency cannot submit the curre
 test('public fallback price choices are synchronized with the real backend catalog', () => {
   const html = readFileSync(new URL('../../public/advertise.html', import.meta.url), 'utf8');
   const published = JSON.parse(html.match(/<script id="sponsorship-public-catalog" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+  assert.match(html, /sponsorship-sales\.js\?v=approval-email-20261009/);
   assert.equal(published.currency, 'USD');
   const items = (catalog) => catalog.map(({ slot, prices, allowedPages }) => ({ slot, prices, allowedPages }));
   assert.deepEqual(items(published.catalog), items(CATALOG));
@@ -89,4 +90,12 @@ test('destination checks reject credentials, plain HTTP and local network addres
     'https://172.16.0.2', 'https://169.254.0.1', 'https://host.local', 'https://[::1]/']) {
     assert.equal(validDestination(value), false, value);
   }
+});
+
+test('approval-email return tokens use the URL fragment and are removed before restoring the saved order', () => {
+  assert.match(source, /location\.hash\.startsWith\('#resume='\)/);
+  assert.match(source, /history\.replaceState\(null, '', window\.location\.pathname \+ window\.location\.search\)/);
+  assert.match(source, /api\('\/v1\/ads\/resume'/);
+  assert.match(source, /access = \{ applicationId: result\.applicationId, accessToken: resumeToken \}/);
+  assert.doesNotMatch(source, /searchParams\.get\(['"]resume['"]\)/);
 });
