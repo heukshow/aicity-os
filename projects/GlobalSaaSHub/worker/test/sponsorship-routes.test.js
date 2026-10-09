@@ -57,7 +57,7 @@ function sqliteD1(t, migrated = true) {
   const database = join(directory, 'synthetic.sqlite');
   t.after(() => rmSync(directory, { recursive: true, force: true }));
   const execute = (request) => {
-    const result = JSON.parse(execFileSync('python3', ['-c', SQLITE, database], {
+    const result = JSON.parse(execFileSync(process.platform === 'win32' ? 'python' : 'python3', ['-c', SQLITE, database], {
       input: JSON.stringify(request), encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'], timeout: 10000,
     }));
     if (result.error) throw new Error(result.error);

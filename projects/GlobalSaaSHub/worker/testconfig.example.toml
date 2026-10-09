@@ -1,0 +1,33 @@
+# EXAMPLE ONLY. Replace placeholders in a private test configuration before use.
+# This file does not modify the production wrangler.toml and is not a deployment record.
+# The worker name must be a unique lowercase coshuma-ads-sandbox-* name.
+name = "REPLACE_WITH_ISOLATED_TEST_WORKER_NAME"
+main = "src/ad-commerce-public-sandbox-worker.js"
+account_id = "REPLACE_WITH_TEST_RESOURCE_ACCOUNT_ID"
+compatibility_date = "2026-08-09"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+[vars]
+PAYPAL_ENVIRONMENT = "sandbox"
+SANDBOX_ISOLATION = "coshuma-ads-sandbox-v1"
+# Must exactly match the dedicated HTTPS workers.dev origin, without a trailing slash.
+SANDBOX_ORIGIN = "https://REPLACE_TEST_WORKER.REPLACE_TEST_SUBDOMAIN.workers.dev"
+SANDBOX_DATABASE_LABEL = "coshuma-ads-sandbox-REPLACE_TEST_LABEL"
+SANDBOX_BUILD = "REPLACE_WITH_REVIEWED_COMMIT_SHA"
+
+[[d1_databases]]
+binding = "AD_SANDBOX_DB"
+database_name = "REPLACE_WITH_ISOLATED_TEST_DATABASE_NAME"
+database_id = "REPLACE_WITH_ISOLATED_TEST_DATABASE_ID"
+# Base schemas 0004 and 0005 must already exist in this NEW TEST DB; see the README.
+migrations_dir = "sandbox-migrations"
+
+# Configure these only in the dedicated test worker's secret store, never in this file:
+# PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, PAYPAL_MERCHANT_ID, PAYPAL_WEBHOOK_ID
+# SANDBOX_OPERATOR_KEY, SANDBOX_REVIEW_KEY (different values, each at least 32 characters)
+# Never bind production ORDERS, use Live credentials, or copy production resource IDs.
+
+# Disabled by default. Enable only for the isolated test deployment after its checks pass.
+# [triggers]
+# crons = ["* * * * *"]
