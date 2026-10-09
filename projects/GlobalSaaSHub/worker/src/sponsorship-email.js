@@ -12,12 +12,16 @@ const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (character) => ({
 
 const toHex = (bytes) => Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('');
 
+export function approvalResumeConfigured(env) {
+  return Boolean(env?.APPROVAL_LINK_SECRET && env?.ALLOWED_ORIGIN === 'https://coshuma.com');
+}
+
 export function approvalEmailConfigured(env) {
-  return Boolean(env?.RESEND_API_KEY && env?.APPROVAL_LINK_SECRET && env?.ALLOWED_ORIGIN === 'https://coshuma.com');
+  return Boolean(env?.RESEND_API_KEY && approvalResumeConfigured(env));
 }
 
 export async function approvalResumeToken(application, env) {
-  if (!approvalEmailConfigured(env) || application?.creative_mode !== 'image'
+  if (!approvalResumeConfigured(env) || application?.creative_mode !== 'image'
       || application?.review_status !== 'approved' || !application?.approved_at) return null;
   const material = `${application.id}:${application.approved_at}`;
   const key = await crypto.subtle.importKey(
@@ -40,7 +44,7 @@ function paymentReturnUrl(application, token) {
 function emailText(application, hold, returnUrl) {
   const slot = SLOT_LABELS[application.slot] || application.slot;
   return [
-    `Your COSHUMA advertising application ${application.reference} has been approved.`,
+    application.renewal_of_application_id ? `Your COSHUMA advertising renewal ${application.reference} is ready.` : `Your COSHUMA advertising application ${application.reference} has been approved.`,
     '',
     `Product: ${application.tool_name}`,
     `Placement: ${slot}`,
@@ -73,7 +77,7 @@ function emailHtml(application, hold, returnUrl) {
   <div style="max-width:640px;margin:0 auto;padding:32px 20px">
     <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:28px">
       <p style="margin:0 0 8px;color:#6d28d9;font-weight:700">COSHUMA Advertising</p>
-      <h1 style="font-size:24px;line-height:1.25;margin:0 0 16px">Your placement is approved</h1>
+      <h1 style="font-size:24px;line-height:1.25;margin:0 0 16px">${application.renewal_of_application_id ? 'Your priority renewal is ready' : 'Your placement is approved'}</h1>
       <p style="line-height:1.6;margin:0 0 18px">Your submitted advertising materials were approved and the selected position is temporarily reserved. Continue to your saved COSHUMA application to review the total and pay with PayPal.</p>
       <table style="border-collapse:collapse;width:100%;font-size:14px;margin:0 0 22px">${rows}</table>
       <p style="margin:0 0 24px"><a href="${esc(returnUrl)}" style="display:inline-block;background:#111827;color:#fff;text-decoration:none;padding:12px 18px;border-radius:8px;font-weight:700">Continue to payment</a></p>
@@ -100,7 +104,7 @@ export async function sendApprovalEmail(application, hold, env, fetchImpl = fetc
     from: 'COSHUMA Advertising <support@coshuma.com>',
     to: [application.contact_email],
     reply_to: 'support@coshuma.com',
-    subject: `Your COSHUMA ad placement is approved — ${application.reference}`,
+    subject: application.renewal_of_application_id ? `Your COSHUMA priority renewal is ready — ${application.reference}` : `Your COSHUMA ad placement is approved — ${application.reference}`,
     text: emailText(application, hold, returnUrl),
     html: emailHtml(application, hold, returnUrl),
   };

@@ -76,3 +76,24 @@ test('approval email refuses stale holds and ineligible application states befor
   ]) await assert.rejects(() => sendApprovalEmail(row, hold, env, fakeFetch));
   assert.equal(calls, 0);
 });
+
+
+test('priority renewal email is explicitly labeled and signed access does not require the mail provider key', async () => {
+  const parentId = 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa';
+  const app = application({ renewal_of_application_id: parentId });
+  const token = await approvalResumeToken(app, { ...env, RESEND_API_KEY: '' });
+  assert.match(token, /^[a-f0-9]{64}$/);
+  let payload;
+  const sent = await sendApprovalEmail(app, {
+    application_id: app.id, slot: app.slot, expires_at: '2099-10-10T00:30:00.000Z'
+  }, env, async (_url, options) => {
+    payload = JSON.parse(options.body);
+    return new Response(JSON.stringify({ id: 'synthetic-renewal-message' }), {
+      status: 200, headers: { 'content-type': 'application/json' },
+    });
+  });
+  assert.equal(sent.providerMessageId, 'synthetic-renewal-message');
+  assert.match(payload.subject, /priority renewal/i);
+  assert.match(payload.text, /advertising renewal/i);
+  assert.match(payload.html, /priority renewal/i);
+});

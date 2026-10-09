@@ -144,6 +144,7 @@
   let busy = false;
   let paypalApplicationId = null;
   let paypalScript = null;
+  let renewalBusy = false;
 
   try {
     catalog = JSON.parse(byId('sponsorship-public-catalog').textContent).catalog || [];
@@ -332,6 +333,110 @@
     byId('receipt-summary').append(dt, dd);
   }
 
+  function renewalPrice(durationDays) {
+    const product = config?.catalog?.find((item) => item.slot === application?.quote?.slot);
+    const amount = product?.prices?.[durationDays];
+    return amount && /^\d+\.\d{2}$/.test(String(amount)) ? String(amount) : null;
+  }
+
+  function ensureRenewalArea() {
+    let area = byId('renewal-area');
+    if (area) return area;
+    area = document.createElement('div');
+    area.id = 'renewal-area';
+    area.className = 'wide-gap';
+    area.hidden = true;
+    const heading = document.createElement('h3');
+    heading.textContent = 'Priority renewal';
+    const help = document.createElement('p');
+    help.id = 'renewal-help';
+    help.className = 'help';
+    const label = document.createElement('label');
+    label.htmlFor = 'renewal-duration';
+    label.className = 'help';
+    label.textContent = 'Add another paid period';
+    const select = document.createElement('select');
+    select.id = 'renewal-duration';
+    for (const days of [7, 30, 90]) {
+      const option = document.createElement('option');
+      option.value = String(days);
+      option.textContent = days + ' days';
+      select.append(option);
+    }
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+    const button = document.createElement('button');
+    button.id = 'renew-placement';
+    button.className = 'button';
+    button.type = 'button';
+    button.textContent = 'Renew this placement';
+    const status = document.createElement('p');
+    status.id = 'renewal-message';
+    status.className = 'small';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    actions.append(button);
+    area.append(heading, help, label, select, actions, status);
+    byId('refresh-application').after(area);
+
+    select.addEventListener('change', () => {
+      const amount = renewalPrice(Number(select.value));
+      if (amount) setMessage(status, 'Renewal total: $' + amount + ' USD. The next period begins when the current paid period ends.');
+    });
+    button.addEventListener('click', async () => {
+      if (renewalBusy || application?.renewalEligible !== true) return;
+      renewalBusy = true;
+      button.disabled = true;
+      const durationDays = Number(select.value);
+      setMessage(status, 'Reserving your next period…');
+      try {
+        const result = await api(applicationPath('/renew'), {
+          method: 'POST', headers: auth(), body: JSON.stringify({ durationDays })
+        });
+        if (!result.applicationId || typeof result.accessToken !== 'string') throw new Error('Renewal access was not confirmed');
+        access = { applicationId: result.applicationId, accessToken: result.accessToken };
+        application = result;
+        saveAccess();
+        showApplication();
+        setMessage(byId('receipt-message'), result.status === 'awaiting_payment'
+          ? 'Your priority renewal is reserved. Complete PayPal checkout before the reservation expires.'
+          : 'Your priority renewal is already confirmed for the next period.');
+      } catch (_) {
+        setMessage(status, 'The priority renewal could not be confirmed. Refresh the current application and try again.', true);
+      } finally {
+        renewalBusy = false;
+        button.disabled = false;
+      }
+    });
+    return area;
+  }
+
+  function renderRenewal() {
+    const area = ensureRenewalArea();
+    area.hidden = application?.renewalEligible !== true;
+    if (area.hidden) return;
+    const until = application.renewalPriorityUntil && Number.isFinite(Date.parse(application.renewalPriorityUntil))
+      ? new Date(application.renewalPriorityUntil).toLocaleString()
+      : 'the current campaign end';
+    byId('renewal-help').textContent = application.renewalPrepared
+      ? 'You already have a renewal prepared for this placement. Continue it before ' + until + '.'
+      : 'Because this placement is currently yours, you can reserve the next paid period before ' + until + '. New advertisers cannot take this position while your current campaign is active.';
+    const select = byId('renewal-duration');
+    const preparedDays = Number(application.renewalPrepared?.durationDays);
+    const prepared = [7, 30, 90].includes(preparedDays);
+    if (prepared) select.value = String(preparedDays);
+    select.disabled = prepared;
+    byId('renew-placement').textContent = prepared ? 'Continue prepared renewal' : 'Renew this placement';
+    for (const option of select.options) {
+      const days = Number(option.value);
+      const amount = renewalPrice(days);
+      option.textContent = amount ? days + ' days — $' + amount + ' USD' : days + ' days';
+    }
+    const amount = renewalPrice(Number(select.value));
+    setMessage(byId('renewal-message'), amount
+      ? 'Renewal total: $' + amount + ' USD. The next period begins when the current paid period ends.'
+      : 'Choose a listed renewal period.');
+  }
   function showApplication() {
     byId('application-receipt').hidden = false;
     byId('receipt-summary').replaceChildren();
@@ -345,6 +450,8 @@
     if (application.companyName) summaryRow('Company', application.companyName);
     if (application.toolName) summaryRow('Tool', application.toolName);
     if (application.startAt && application.endAt) summaryRow('Confirmed dates', application.startAt + ' to ' + application.endAt);
+    if (application.renewalOf) summaryRow('Renewal of', application.renewalOf, 'reference');
+    renderRenewal();
     const ready = paymentAvailable(config, application);
     byId('payment-area').hidden = !ready;
     if (!ready) {

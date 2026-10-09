@@ -25,7 +25,7 @@ const INPUT = {
 };
 const MIGRATION = [
   '0001_orders.sql', '0002_private_ops.sql', '0003_sponsored_campaigns.sql', '0004_sponsorship_sales.sql',
-  '0006_sponsorship_image_assets.sql',
+  '0006_sponsorship_image_assets.sql', '0007_sponsorship_renewal_priority.sql',
 ].map((name) => readFileSync(new URL(`../migrations/${name}`, import.meta.url), 'utf8')).join('\n');
 
 // Python's bundled SQLite keeps these integration tests compatible with Node 20/22.
@@ -977,4 +977,85 @@ test('image intake closes while a placement is reserved or paid and published', 
   assert.equal(blockedWhileBooked.status, 409);
   assert.match(blockedWhileBooked.json.error, /currently booked/i);
   assert.equal(paypal.created.length, 1, 'blocked intake cannot create another PayPal order');
+});
+
+
+test('active advertiser gets first right to renew the same placement before public inventory reopens', async (t) => {
+  const f = fixture(t, { checkout: true });
+  f.env.APPROVAL_LINK_SECRET = 'synthetic-renewal-link-secret';
+  const paypal = mockPayPal(f);
+
+  const created = await f.request('/v1/ads/applications', { method: 'POST', body: INPUT });
+  assert.equal(created.status, 201, JSON.stringify(created.json));
+  const parent = { applicationId: created.json.applicationId, accessToken: created.json.accessToken };
+  const parentHeaders = f.advertiser(parent);
+  const parentBase = '/v1/ads/applications/' + parent.applicationId;
+  f.db.exec(`INSERT INTO sponsorship_assets(id,application_id,role,mime,width,height,byte_size,sha256,data)
+    VALUES('renew-logo-${parent.applicationId}','${parent.applicationId}','logo','image/png',400,400,1,'renew-logo-sha',X'00');
+    INSERT INTO sponsorship_assets(id,application_id,role,mime,width,height,byte_size,sha256,data)
+    VALUES('renew-main-${parent.applicationId}','${parent.applicationId}','tool-primary','image/png',600,600,1,'renew-main-sha',X'00');`);
+  assert.equal((await f.request(parentBase + '/submit', { method: 'POST', body: {}, headers: parentHeaders })).status, 200);
+  assert.equal((await f.ownerAction(parent, 'review', {
+    decision: 'approve', notes: 'Synthetic current campaign approval.',
+    destinationChecked: true, claimsChecked: true,
+  })).status, 200);
+  const firstOrder = await f.request(parentBase + '/order', { method: 'POST', body: {}, headers: parentHeaders });
+  const parentPaid = await f.request(parentBase + '/capture', {
+    method: 'POST', body: { orderId: firstOrder.json.orderId }, headers: parentHeaders,
+  });
+  assert.equal(parentPaid.status, 200, JSON.stringify(parentPaid.json));
+  assert.equal(parentPaid.json.status, 'active');
+  assert.equal(parentPaid.json.renewalEligible, true);
+
+  const publicBlocked = await f.request('/v1/ads/applications', { method: 'POST', body: INPUT });
+  assert.equal(publicBlocked.status, 409);
+  assert.match(publicBlocked.json.error, /currently booked/i);
+
+  const renewal = await f.request(parentBase + '/renew', {
+    method: 'POST', body: { durationDays: 30 }, headers: parentHeaders,
+  });
+  assert.equal(renewal.status, 201, JSON.stringify(renewal.json));
+  assert.equal(renewal.json.status, 'awaiting_payment');
+  assert.equal(renewal.json.renewalOf, parent.applicationId);
+  assert.equal(renewal.json.quote.durationDays, 30);
+  assert.equal(renewal.json.quote.amount, '49.00');
+  assert.match(renewal.json.accessToken, /^[a-f0-9]{64}$/);
+  assert.equal(renewal.json.reservationActive, true);
+
+  const sameRenewal = await f.request(parentBase + '/renew', {
+    method: 'POST', body: { durationDays: 30 }, headers: parentHeaders,
+  });
+  assert.equal(sameRenewal.status, 200);
+  assert.equal(sameRenewal.json.applicationId, renewal.json.applicationId);
+  assert.equal((await f.db.prepare('SELECT COUNT(*) AS n FROM sponsorship_applications WHERE renewal_of_application_id=?')
+    .bind(parent.applicationId).first()).n, 1);
+
+  const renewalHeaders = { authorization: 'Bearer ' + renewal.json.accessToken };
+  const renewalBase = '/v1/ads/applications/' + renewal.json.applicationId;
+  const renewalOrder = await f.request(renewalBase + '/order', { method: 'POST', body: {}, headers: renewalHeaders });
+  assert.equal(renewalOrder.status, 201, JSON.stringify(renewalOrder.json));
+  const renewedPaid = await f.request(renewalBase + '/capture', {
+    method: 'POST', body: { orderId: renewalOrder.json.orderId }, headers: renewalHeaders,
+  });
+  assert.equal(renewedPaid.status, 200, JSON.stringify(renewedPaid.json));
+  assert.equal(renewedPaid.json.status, 'scheduled');
+  assert.equal(renewedPaid.json.startAt, parentPaid.json.endAt);
+  assert.equal(Date.parse(renewedPaid.json.endAt) - Date.parse(renewedPaid.json.startAt), 30 * 86400000);
+
+  const config = await f.request('/v1/ads/config');
+  const slot = config.json.placements.find((item) => item.slot === 'tool-primary');
+  assert.equal(slot.available, false);
+  assert.equal(slot.reason, 'booked');
+  assert.equal(slot.availableAfter, renewedPaid.json.endAt);
+
+  const stillBlocked = await f.request('/v1/ads/applications', { method: 'POST', body: INPUT });
+  assert.equal(stillBlocked.status, 409);
+  assert.match(stillBlocked.json.error, /currently booked/i);
+
+  const secondPeriod = await f.request(renewalBase + '/renew', {
+    method: 'POST', body: { durationDays: 7 }, headers: renewalHeaders,
+  });
+  assert.equal(secondPeriod.status, 409);
+  assert.match(secondPeriod.json.error, /only while the current paid placement is active/i);
+  assert.equal(paypal.created.length, 2, 'priority renewal creates exactly one additional PayPal order');
 });
