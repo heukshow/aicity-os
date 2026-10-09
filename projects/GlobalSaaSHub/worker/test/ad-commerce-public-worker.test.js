@@ -120,6 +120,23 @@ test('public provider transport uses Cloudflare-supported manual redirect mode',
  assert.equal((await f.call('/sandbox/orders/'+id+'/checkout',{method:'POST',key:token})).status,200);
  assert.ok(f.network.length>0);assert.ok(f.network.every(call=>call.redirect==='manual'));
 });
+test('approved checkout can renew an expired reservation without creating a new provider order',async t=>{
+ const f=fixture(t),{id,token}=await prepared(f);
+ assert.equal((await f.call('/sandbox/orders/'+id+'/checkout',{method:'POST',key:token})).status,200);
+ const order=await f.store.get(id);f.provider.approve(order.provider_order);
+ const expired=new Date(Date.now()-1000).toISOString();
+ f.native.prepare('UPDATE ad_sale_holds SET expires_at=? WHERE order_id=?').run(expired,id);
+ f.native.prepare('UPDATE ad_sale_orders SET hold_until=? WHERE id=?').run(expired,id);
+ f.network.length=0;
+ const renewed=await f.call('/sandbox/ops/renew-hold',{method:'POST',key:operatorKey,body:{orderId:id}});
+ assert.equal(renewed.status,200);
+ const body=await renewed.json();assert.equal(body.renewed,true);assert.equal(body.state,'checkout');
+ assert.ok(Date.parse(body.holdUntil)>Date.now());
+ assert.equal(f.provider.records.size,1);
+ assert.equal(paymentPosts(f.network).length,0);
+ assert.equal((await f.call('/sandbox/orders/'+id+'/capture',{method:'POST',key:token})).status,200);
+ assert.equal((await f.store.get(id)).state,'active');
+});
 test('operator provider probe reports OAuth status without returning credentials',async t=>{
  const f=fixture(t);f.network.length=0;
  assert.equal((await f.call('/sandbox/ops/provider-probe',{key:operatorKey})).status,200);

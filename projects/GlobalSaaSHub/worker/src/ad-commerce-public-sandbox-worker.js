@@ -146,6 +146,12 @@ async function execute(request,env,ctx){
      order.id,data.kind,new Date().toISOString()).run();
     return reply({armed:true,orderId:order.id});
    }
+   if(url.pathname==='/sandbox/ops/renew-hold'&&request.method==='POST'){
+    const data=await input(request);
+    const order=await rt.payments.renewApprovedCheckout(data.orderId);
+    await rt.record('checkout_reservation_renewed',{orderId:order.id,holdUntil:order.hold_until});
+    return reply({orderId:order.id,state:order.state,holdUntil:order.hold_until,renewed:true});
+   }
    if(url.pathname==='/sandbox/ops/expire-order'&&request.method==='POST'){
     const data=await input(request);const order=await rt.base.get(data.orderId);
     if(!order||order.state!=='active'||order.payment_environment!=='sandbox')return reply({error:'An active test order is required.'},409);

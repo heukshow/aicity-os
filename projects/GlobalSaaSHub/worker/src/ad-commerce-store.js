@@ -124,4 +124,33 @@ export class AdStore {
     }
     return this.get(id);
   }
+
+  async renewCheckoutReservation(id,ttlMinutes=30) {
+    if (!Number.isInteger(ttlMinutes) || ttlMinutes < 1 || ttlMinutes > 60) throw new AdError('Invalid reservation period.');
+    const order = await this.requireState(id,['checkout']);
+    const at = this.now(), until = new Date(Date.parse(at)+ttlMinutes*60000).toISOString(), slots = JSON.parse(order.quote_json).slots;
+    const statements = [this.q(`DELETE FROM ad_sale_holds WHERE expires_at<=?
+      AND order_id IN(SELECT id FROM ad_sale_orders WHERE state NOT IN('capturing','active'))`,at)];
+    for (const slotId of slots) {
+      const slot = IMAGE_SLOTS.find(item => item.id === slotId);
+      if (!slot) throw new AdError('Unknown reserved position.',409);
+      const occupied = (await this.q(`SELECT h.lane FROM ad_sale_holds h JOIN ad_sale_orders o ON o.id=h.order_id
+        WHERE h.slot=? AND h.order_id<>? AND (h.expires_at>? OR o.state IN('capturing','active'))`,slotId,id,at).all()).results;
+      const lane = Array.from({length:slot.capacity},(_,i)=>i+1).find(candidate => !occupied.some(item=>item.lane===candidate));
+      if (!lane) throw new AdError('A selected position is unavailable; the approved payment was not captured.',409);
+      statements.push(this.q(`INSERT INTO ad_sale_holds(slot,lane,order_id,expires_at) VALUES(?,?,?,?)`,
+        slotId,lane,id,until));
+    }
+    statements.push(this.q("UPDATE ad_sale_orders SET hold_until=?,updated_at=? WHERE id=? AND state='checkout'",until,at,id));
+    statements.push(this.q(`INSERT INTO ad_sale_audit(id,order_id,action,actor,detail,created_at)
+      SELECT ?,?,'checkout_reservation_renewed','sandbox_service',?,? WHERE changes()=1`,
+      crypto.randomUUID(),id,JSON.stringify({slots,expiresAt:until}),at));
+    try {
+      const results=await this.db.batch(statements);
+      if (results[results.length-2].meta.changes !== 1) throw new AdError('The checkout changed before reservation recovery.',409);
+    } catch (error) {
+      throw error;
+    }
+    return this.get(id);
+  }
 }

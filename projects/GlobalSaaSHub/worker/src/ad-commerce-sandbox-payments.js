@@ -145,6 +145,20 @@ export class SandboxAdPayments {
 
   checkout(id) { return this.serial(id, () => this.beginCheckout(id)); }
 
+  renewApprovedCheckout(id) { return this.serial(id, () => this.renewCheckoutReservation(id)); }
+
+  async renewCheckoutReservation(id) {
+    const order = await this.store.requireState(id, ['checkout']);
+    this.localPayment(order);
+    await this.noStopEvent(order);
+    const providerOrder = await this.provider(() => getPayPalOrder(this.env, order.provider_order, this.fetch));
+    const unit = this.binding(providerOrder, order);
+    if (providerOrder.status !== 'APPROVED' || (unit.payments?.captures?.length || 0) > 0) {
+      fail('Only an approved uncaptured Sandbox checkout can renew its reservation.');
+    }
+    return this.store.renewCheckoutReservation(id);
+  }
+
   async beginCheckout(id) {
     let order = await this.store.requireState(id, ['approved', 'checkout']);
     await this.holds(order);
