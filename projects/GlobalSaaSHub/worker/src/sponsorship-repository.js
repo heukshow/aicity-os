@@ -57,6 +57,26 @@ export class SponsorshipRepository {
   getApplication(id) { return this.db.prepare('SELECT * FROM sponsorship_applications WHERE id=?').bind(id).first(); }
   getPayment(id) { return this.db.prepare('SELECT * FROM sponsorship_payments WHERE application_id=?').bind(id).first(); }
   getPaymentByOrder(id, environment) { return this.db.prepare('SELECT * FROM sponsorship_payments WHERE provider_order_id=? AND environment=?').bind(id, environment).first(); }
+
+  async placementAvailability(slot, targetPage, now) {
+    const published = await this.db.prepare(`SELECT a.id,a.ends_at FROM sponsorship_applications a
+      JOIN sponsorship_payments p ON p.application_id=a.id
+      WHERE a.slot=? AND a.target_page=? AND a.publication_status='published'
+        AND a.payment_status='verified' AND a.review_status='approved'
+        AND a.ends_at>? AND p.state='verified' AND p.environment='live'
+      ORDER BY a.ends_at ASC LIMIT 1`).bind(slot, targetPage, now).first();
+    if (published) return { available: false, reason: 'booked', availableAfter: published.ends_at };
+
+    const hold = await this.db.prepare(`SELECT h.expires_at FROM sponsorship_holds h
+      JOIN sponsorship_applications a ON a.id=h.application_id
+      WHERE h.slot=? AND a.target_page=? AND h.expires_at>?
+        AND a.review_status='approved' AND a.publication_status='draft'
+        AND a.payment_status IN ('unpaid','pending')
+      ORDER BY h.expires_at ASC LIMIT 1`).bind(slot, targetPage, now).first();
+    if (hold) return { available: false, reason: 'reserved', availableAfter: hold.expires_at };
+
+    return { available: true, reason: 'open', availableAfter: null };
+  }
   getPaymentByCapture(id, environment) { return this.db.prepare('SELECT * FROM sponsorship_payments WHERE capture_id=? AND environment=?').bind(id, environment).first(); }
 
   async listApplications() {
