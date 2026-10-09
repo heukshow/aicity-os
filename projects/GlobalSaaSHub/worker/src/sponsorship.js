@@ -190,7 +190,7 @@ export async function retryPendingApprovalEmails(env) {
   let sent = 0;
   for (const application of rows) {
     const result = await notifyApprovedApplication(repo, application, env, 'approval-email-scheduler');
-    if (result.sent) sent += 1;
+    if (result.sent && !result.duplicate) sent += 1;
   }
   return { attempted: rows.length, sent };
 }
