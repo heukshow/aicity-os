@@ -67,8 +67,8 @@
     module.exports = { validDestination, paymentAvailable, validQuote, emailDraft, safeAnalyticsLink, statusText };
   }
   if (typeof document === 'undefined') return;
-  // Inquiry mode must never initialize the dormant payment/application flow.
-  if (document.body?.dataset.advertisingMode === 'inquiry') return;
+  // The page controls whether external bookings are open.
+  if (!['booking','live'].includes(document.body?.dataset.advertisingMode || '')) return;
 
   function emit(eventName, link) {
     if (!['coshuma.com', 'www.coshuma.com'].includes(window.location.hostname)) return;
@@ -88,11 +88,36 @@
     if (link) emit(link.dataset.cta === 'sponsorship-checkout' ? 'sponsorship_checkout_click' : 'sponsorship_inquiry_click', link);
   }, true);
 
-  const form = document.getElementById('sponsorship-application');
+  let form = document.getElementById('sponsorship-application');
+  if (!form) {
+    const template = document.getElementById('image-ad-application');
+    if (template?.content) {
+      template.before(template.content.cloneNode(true));
+      form = document.getElementById('sponsorship-application');
+    }
+  }
   if (!form) return;
   const byId = (id) => document.getElementById(id);
   const field = (name) => form.elements.namedItem(name);
   const message = byId('application-message');
+  const fieldsRoot = form.querySelector('.fields');
+  function addFileField(name, id, labelText, helpText) {
+    if (!fieldsRoot || form.elements.namedItem(name)) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'field full';
+    const label = document.createElement('label');
+    label.htmlFor = id;
+    label.textContent = labelText;
+    const input = document.createElement('input');
+    input.id = id; input.name = name; input.type = 'file'; input.accept = 'image/png,.png'; input.required = true;
+    const help = document.createElement('span');
+    help.className = 'help'; help.textContent = helpText;
+    wrap.append(label, input, help); fieldsRoot.append(wrap);
+  }
+  addFileField('logoFile', 'ad-logo-file', 'Transparent PNG logo — 400 × 400, max 100 KB',
+    'The logo must contain real transparency.');
+  addFileField('mainImageFile', 'ad-main-file', 'Placement image — PNG only',
+    'F1: 600 × 600. F2: 1200 × 675. F3: 1200 × 400.');
   let config = null;
   let catalog = [];
   let application = null;
@@ -216,7 +241,24 @@
   }
 
   function applicationPath(suffix = '') {
-    return '/v1/sponsorship/applications/' + encodeURIComponent(access.applicationId) + suffix;
+    return '/v1/ads/applications/' + encodeURIComponent(access.applicationId) + suffix;
+  }
+
+  async function uploadAsset(role, file) {
+    if (!(file instanceof File) || file.type !== 'image/png') throw new Error('A PNG file is required');
+    const limits = { logo: 100000, 'tool-primary': 300000, 'buyer-intent-top': 500000, 'compare-decision-premium': 400000 };
+    if (!limits[role] || file.size < 1 || file.size > limits[role]) throw new Error('The PNG file exceeds the position limit');
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 20000);
+    try {
+      const response = await fetch(API_BASE + applicationPath('/assets/' + encodeURIComponent(role)), {
+        method: 'PUT', headers: { ...auth(), 'content-type': 'image/png' }, body: file,
+        signal: controller.signal, cache: 'no-store', credentials: 'omit'
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.error || 'Image upload was not confirmed');
+      return result;
+    } finally { clearTimeout(timer); }
   }
 
   function statusText(record) {
@@ -227,7 +269,10 @@
       ended: 'Placement period ended',
       scheduled: 'Payment and copy confirmed — placement scheduled',
       active: 'Placement active',
-      awaiting_payment: 'Application received — payment has not been confirmed',
+      preparing_materials: 'Application saved — upload and submit the required PNG materials',
+      awaiting_review: 'Materials submitted — awaiting COSHUMA review',
+      reservation_expired: 'Approved placement reservation expired — refresh or contact support',
+      awaiting_payment: 'Materials approved and position reserved — awaiting payment',
       payment_review: 'Payment requires review — checkout is unavailable',
       ready_to_publish: 'Payment and copy confirmed — awaiting activation',
       awaiting_ad_approval: 'Payment confirmed — your ad copy is awaiting approval'
@@ -367,13 +412,24 @@
     updateSubmit();
     setMessage(message, 'Saving your application…');
     try {
-      const result = await api('/v1/sponsorship/applications', { method: 'POST', body: JSON.stringify(fields) });
-      if (!result.applicationId || typeof result.accessToken !== 'string' || !validQuote(result.quote, fields)) throw new Error('Application was not confirmed');
-      access = { applicationId: result.applicationId, accessToken: result.accessToken };
-      application = result;
-      saveAccess();
+      const logoFile = field('logoFile')?.files?.[0];
+      const mainFile = field('mainImageFile')?.files?.[0];
+      if (!logoFile || !mainFile) throw new Error('Select both required PNG files');
+      if (!(access && application?.status === 'preparing_materials')) {
+        const result = await api('/v1/ads/applications', { method: 'POST', body: JSON.stringify(fields) });
+        if (!result.applicationId || typeof result.accessToken !== 'string' || !validQuote(result.quote, fields)) throw new Error('Application was not confirmed');
+        access = { applicationId: result.applicationId, accessToken: result.accessToken };
+        application = result;
+        saveAccess();
+      }
+      setMessage(message, 'Uploading the logo and placement image…');
+      await uploadAsset('logo', logoFile);
+      await uploadAsset(fields.slot, mainFile);
+      setMessage(message, 'Submitting materials for review…');
+      const submitted = await api(applicationPath('/submit'), { method: 'POST', headers: auth(), body: '{}' });
+      application = submitted.application || submitted;
       showApplication();
-      setMessage(message, 'Your application has been saved. Keep the order reference below. No payment was taken by this form.');
+      setMessage(message, 'Your materials were submitted for review. No payment is requested until the position is approved and reserved.');
       byId('application-receipt').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     } catch (_) {
       setMessage(message, 'Submission was not confirmed. Please check for an existing order reference before retrying, or prepare an email application for support.', true);
@@ -401,7 +457,7 @@
     updateSubmit();
     refreshQuote();
     try {
-      const result = await api('/v1/sponsorship/config');
+      const result = await api('/v1/ads/config');
       if (!Array.isArray(result.catalog) || result.currency !== 'USD') throw new Error('Configuration unavailable');
       config = result;
       catalog = result.catalog.filter((item) => SLOTS.includes(item.slot));
@@ -412,7 +468,7 @@
       const detail = document.createElement('p');
       detail.className = 'small';
       detail.textContent = config.intakeReady === true
-        ? (config.paymentReady === true ? 'Online applications are available. PayPal checkout appears after a saved application and a confirmed quote.' : 'Online applications are available. PayPal checkout is currently unavailable; do not send payment until an order is ready.')
+        ? (config.paymentReady === true ? 'Online applications are available. PayPal checkout appears only after COSHUMA approves the submitted PNG materials and reserves the selected position.' : 'Online applications are available. PayPal checkout is currently unavailable; do not send payment until an order is ready.')
         : 'Online submission is not available yet. Use this form to prepare an email application. Do not send payment with your inquiry.';
       byId('application-availability').append(heading, detail);
     } catch (_) {

@@ -43,6 +43,8 @@ class Element extends Events {
   set innerHTML(value) { throw new Error(`Unsafe HTML assignment: ${value}`); }
   set href(value) { this.attributes.href = value; }
   get href() { return this.attributes.href; }
+  set src(value) { this.attributes.src = value; }
+  get src() { return this.attributes.src; }
   setAttribute(name, value) { this.attributes[name] = value; }
   removeAttribute(name) { delete this.attributes[name]; }
   querySelector(selector) { return this.children[selector] || null; }
@@ -51,7 +53,8 @@ class Element extends Events {
 function slotElement(slot) {
   const element = new Element();
   element.dataset.sponsoredSlot = slot;
-  for (const field of ['label', 'title', 'body', 'button']) element.children[`[data-sponsored-${field}]`] = new Element();
+  for (const field of ['label', 'media', 'logo', 'image', 'title', 'body', 'button']) element.children[`[data-sponsored-${field}]`] = new Element();
+  element.children['[data-sponsored-media]'].hidden = true;
   return element;
 }
 
@@ -152,6 +155,36 @@ test('only the three exact route/slot pairs fetch and display verified public cr
       page_location: `https://coshuma.com${path}?utm_source=fixture`, transport_type: 'beacon',
     });
     assert.doesNotMatch(JSON.stringify(app.events), /private@example|payerEmail|paymentVerified/);
+  }
+});
+
+test('verified image creative renders only exact COSHUMA worker assets and clears them when revoked', async () => {
+  const image = creative({
+    creativeMode: 'image',
+    imageUrl: 'https://globalsaashub-payments.qmfforfhem.workers.dev/v1/ads/assets/11111111-1111-4111-8111-111111111111/tool-primary',
+    logoUrl: 'https://globalsaashub-payments.qmfforfhem.workers.dev/v1/ads/assets/11111111-1111-4111-8111-111111111111/logo',
+  });
+  const app = browser({ payload: available(image) });
+  await flush();
+  assert.equal(app.elements[0].hidden, false);
+  assert.equal(app.field('media').hidden, false);
+  assert.equal(app.field('logo').src, image.logoUrl);
+  assert.equal(app.field('image').src, image.imageUrl);
+  app.queue(available());
+  await app.advance(60000);
+  assert.equal(app.elements[0].hidden, true);
+  assert.equal(app.field('media').hidden, true);
+  assert.equal(app.field('logo').src, undefined);
+  assert.equal(app.field('image').src, undefined);
+
+  for (const patch of [
+    { imageUrl: 'https://evil.example/v1/ads/assets/11111111-1111-4111-8111-111111111111/tool-primary' },
+    { logoUrl: 'https://globalsaashub-payments.qmfforfhem.workers.dev/v1/ads/assets/11111111-1111-4111-8111-111111111111/not-logo' },
+    { imageUrl: 'http://globalsaashub-payments.qmfforfhem.workers.dev/v1/ads/assets/11111111-1111-4111-8111-111111111111/tool-primary' },
+  ]) {
+    const rejected = browser({ payload: available({ ...image, ...patch }) });
+    await flush();
+    assert.equal(rejected.elements[0].hidden, true, JSON.stringify(patch));
   }
 });
 

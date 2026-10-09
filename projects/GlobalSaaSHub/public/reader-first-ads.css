@@ -62,3 +62,10 @@ body [data-coshuma-decision-dock="1"][data-reader-inline="true"]{position:static
 body [data-coshuma-decision-dock="1"][data-reader-inline="true"][data-visible="false"]{display:none}
 body[data-coshuma-reader-inline="true"][data-coshuma-conversion-dock-visible="true"]{padding-bottom:0}
 @media(max-width:360px){body .coshuma-promotion .coshuma-promotion__label{max-width:106px;font-size:9px;letter-spacing:0}}
+
+/* Verified paid image creatives. Media stays hidden until the live API returns one exact verified campaign. */
+body [data-sponsored-slot] .sponsored-paid-media{display:grid;grid-template-columns:160px minmax(0,1fr);gap:14px;align-items:center;padding:4px 0 8px}
+body [data-sponsored-slot] .sponsored-paid-media[hidden]{display:none!important}
+body [data-sponsored-slot] .sponsored-paid-logo{display:block;width:158px;height:48px;max-width:100%;object-fit:contain;object-position:left center;background:transparent}
+body [data-sponsored-slot] .sponsored-paid-image{display:block;width:100%;max-height:260px;object-fit:contain;object-position:center;border-radius:8px;background:#10131c}
+@media(max-width:640px){body [data-sponsored-slot] .sponsored-paid-media{grid-template-columns:1fr;gap:10px}body [data-sponsored-slot] .sponsored-paid-logo{width:144px;height:auto;max-height:48px}body [data-sponsored-slot] .sponsored-paid-image{max-height:220px}}

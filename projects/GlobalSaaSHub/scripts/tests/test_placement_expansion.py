@@ -70,8 +70,9 @@ class PlacementExpansionTests(unittest.TestCase):
    self.assertNotIn(forbidden,src)
   for required in ['prefers-reduced-motion','visibilitychange','focusin','mouseenter','mouseleave','seen.has','intersectionRatio >= 0.5','8000','1000','coshuma_qa','house_placement_impression']:
    self.assertIn(required,src)
- def test_original_sales_still_closed(self):
-  self.assertIn('enabled: false',(ROOT/'public/sponsored-inventory.js').read_text(encoding='utf-8'))
+ def test_fixed_f1_f3_sales_open_without_opening_expansion_slots(self):
+  self.assertIn('enabled: true',(ROOT/'public/sponsored-inventory.js').read_text(encoding='utf-8'))
   data=json.loads((ROOT/'data/sponsorship-inventory.json').read_text(encoding='utf-8'))
-  self.assertIs(data['enabled'],False);self.assertIs(data['applications_open'],False)
+  self.assertIs(data['enabled'],True);self.assertIs(data['applications_open'],True)
+  self.assertIs(self.data['paid_bookings_open'],False)
 if __name__=='__main__':unittest.main()

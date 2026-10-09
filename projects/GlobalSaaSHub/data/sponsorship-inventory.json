@@ -72,6 +72,6 @@
     "Tracked impressions and outbound clicks are measurement signals, not guarantees of leads, signups, sales or revenue.",
     "Homepage, Gamma, Chatbase and the active Privy versus Omnisend comparison experiment are excluded. Wildcard placement targets are not permitted."
   ],
-  "applications_open": false,
-  "enabled": false
+  "applications_open": true,
+  "enabled": true
 }
