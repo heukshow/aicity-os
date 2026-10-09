@@ -173,6 +173,22 @@
     return { slot: field('slot').value, durationDays: Number(field('durationDays').value), targetPage: field('targetPage').value };
   }
 
+  function selectedAvailability() {
+    if (!config?.placements || !Array.isArray(config.placements)) return null;
+    const choice = selected();
+    return config.placements.find((item) => item.slot === choice.slot && item.targetPage === choice.targetPage) || null;
+  }
+
+  function availabilityMessage(item) {
+    if (!item || item.available !== false) return '';
+    const until = item.availableAfter && Number.isFinite(Date.parse(item.availableAfter))
+      ? ' until ' + new Date(item.availableAfter).toLocaleString()
+      : '';
+    return item.reason === 'reserved'
+      ? 'This position is temporarily reserved' + until + '. Choose another position.'
+      : 'This position is already booked' + until + '. Choose another position.';
+  }
+
   function updateTargetPages() {
     const item = catalog.find((entry) => entry.slot === field('slot').value);
     const previous = field('targetPage').value;
@@ -189,8 +205,10 @@
 
   function updateSubmit() {
     const online = config?.intakeReady === true;
-    byId('submit-application').textContent = online ? 'Submit application' : 'Prepare email application';
-    byId('submit-application').disabled = busy || (online && !quote);
+    const availability = selectedAvailability();
+    const unavailable = availability?.available === false;
+    byId('submit-application').textContent = online ? (unavailable ? 'Position unavailable' : 'Submit application') : 'Prepare email application';
+    byId('submit-application').disabled = busy || (online && (!quote || unavailable));
     byId('prepare-email').disabled = busy;
   }
 
@@ -199,6 +217,12 @@
     quote = null;
     updateSubmit();
     const choice = selected();
+    const availability = selectedAvailability();
+    if (availability?.available === false) {
+      setMessage(byId('application-quote'), availabilityMessage(availability), true);
+      updateSubmit();
+      return;
+    }
     const item = catalog.find((entry) => entry.slot === choice.slot);
     const listed = item?.prices?.[choice.durationDays];
     setMessage(byId('application-quote'), listed
@@ -478,6 +502,17 @@
       if (!Array.isArray(result.catalog) || result.currency !== 'USD') throw new Error('Configuration unavailable');
       config = result;
       catalog = result.catalog.filter((item) => SLOTS.includes(item.slot));
+      for (const option of field('slot').options) {
+        const placement = result.placements?.find((item) => item.slot === option.value);
+        if (placement?.available === false) {
+          option.disabled = true;
+          if (!option.textContent.includes('— booked')) option.textContent += ' — booked';
+        }
+      }
+      if (field('slot').selectedOptions[0]?.disabled) {
+        const next = Array.from(field('slot').options).find((option) => !option.disabled);
+        if (next) field('slot').value = next.value;
+      }
       updateTargetPages();
       byId('application-availability').replaceChildren();
       const heading = document.createElement('strong');

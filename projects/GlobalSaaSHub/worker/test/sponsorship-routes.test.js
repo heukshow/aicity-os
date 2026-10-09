@@ -919,3 +919,62 @@ test('approved image application emails a signed payment-resume link once and ac
   assert.equal((await f.db.prepare("SELECT COUNT(*) AS n FROM sponsorship_audit_log WHERE application_id=? AND action='approval_email_sent'")
     .bind(app.applicationId).first()).n, 1);
 });
+
+
+test('image intake closes while a placement is reserved or paid and published', async (t) => {
+  const f = fixture(t, { checkout: true });
+  const paypal = mockPayPal(f);
+
+  const openConfig = await f.request('/v1/ads/config');
+  assert.equal(openConfig.status, 200);
+  assert.equal(openConfig.json.placements.find((item) => item.slot === 'tool-primary').available, true);
+
+  const created = await f.request('/v1/ads/applications', { method: 'POST', body: INPUT });
+  assert.equal(created.status, 201, JSON.stringify(created.json));
+  const app = { applicationId: created.json.applicationId, accessToken: created.json.accessToken };
+  const headers = f.advertiser(app);
+  const base = '/v1/ads/applications/' + app.applicationId;
+  f.db.exec(`INSERT INTO sponsorship_assets(id,application_id,role,mime,width,height,byte_size,sha256,data)
+    VALUES('capacity-logo-${app.applicationId}','${app.applicationId}','logo','image/png',400,400,1,'capacity-logo-sha',X'00');
+    INSERT INTO sponsorship_assets(id,application_id,role,mime,width,height,byte_size,sha256,data)
+    VALUES('capacity-main-${app.applicationId}','${app.applicationId}','tool-primary','image/png',600,600,1,'capacity-main-sha',X'00');`);
+  assert.equal((await f.request(base + '/submit', { method: 'POST', body: {}, headers })).status, 200);
+
+  const reviewed = await f.ownerAction(app, 'review', {
+    decision: 'approve',
+    notes: 'Synthetic capacity gate review.',
+    destinationChecked: true,
+    claimsChecked: true,
+  });
+  assert.equal(reviewed.status, 200);
+  assert.equal(reviewed.json.status, 'awaiting_payment');
+
+  const reservedConfig = await f.request('/v1/ads/config');
+  const reserved = reservedConfig.json.placements.find((item) => item.slot === 'tool-primary');
+  assert.equal(reserved.available, false);
+  assert.equal(reserved.reason, 'reserved');
+  assert.ok(Date.parse(reserved.availableAfter) > Date.now());
+
+  const blockedWhileReserved = await f.request('/v1/ads/applications', { method: 'POST', body: INPUT });
+  assert.equal(blockedWhileReserved.status, 409);
+  assert.match(blockedWhileReserved.json.error, /currently reserved/i);
+
+  const order = await f.request(base + '/order', { method: 'POST', body: {}, headers });
+  assert.equal(order.status, 201);
+  const captured = await f.request(base + '/capture', {
+    method: 'POST', body: { orderId: order.json.orderId }, headers,
+  });
+  assert.equal(captured.status, 200);
+  assert.equal(captured.json.status, 'active');
+
+  const bookedConfig = await f.request('/v1/ads/config');
+  const booked = bookedConfig.json.placements.find((item) => item.slot === 'tool-primary');
+  assert.equal(booked.available, false);
+  assert.equal(booked.reason, 'booked');
+  assert.equal(booked.availableAfter, captured.json.endAt);
+
+  const blockedWhileBooked = await f.request('/v1/ads/applications', { method: 'POST', body: INPUT });
+  assert.equal(blockedWhileBooked.status, 409);
+  assert.match(blockedWhileBooked.json.error, /currently booked/i);
+  assert.equal(paypal.created.length, 1, 'blocked intake cannot create another PayPal order');
+});
