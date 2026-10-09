@@ -30,7 +30,9 @@ class ClarityTests(unittest.TestCase):
   self.assertIn('F4–F5 and R1–R3 remain preview-only',self.text)
   self.assertIn('No payment is collected with the application',self.text)
  def test_requirements_and_return_paths(self):
-  for phrase in ['400 × 400','600 × 600','1200 × 675','1200 × 400','5–80','20–240','2–30','10–160']:self.assertIn(phrase,self.text)
+  for phrase in ['400 × 400','600 × 600','1200 × 675','1200 × 400','5–80','20–240','2–30']:self.assertIn(phrase,self.text)
+  self.assertNotIn('Static JPG, PNG or WebP',self.text);self.assertNotIn('contact and billing details',self.text)
+  self.assertIn('Static PNG only',self.text);self.assertIn('contact email',self.text)
   self.assertEqual(sum('data-position-preview' in a for t,a in self.p.tags),8)
   self.assertEqual(sum(a.get('class')=='ad-context-back' for t,a in self.p.tags),8)
   ids=[a['id'] for t,a in self.p.tags if 'id' in a];self.assertEqual(len(ids),len(set(ids)))
