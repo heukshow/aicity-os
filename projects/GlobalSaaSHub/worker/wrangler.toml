@@ -13,7 +13,7 @@ enabled = true
 [vars]
 PAYPAL_ENVIRONMENT = "live"
 ALLOWED_ORIGIN = "https://coshuma.com"
-CHECKOUT_ENABLED = "false"
+CHECKOUT_ENABLED = "true"
 GA_PROPERTY_ID = "552233666"
 GSC_SITE_URL = "https://coshuma.com/"
 
@@ -25,9 +25,9 @@ database_id = "d791d3d4-1ade-462e-bf8d-e33ebf4e2e38"
 
 # Store PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET and PAYPAL_WEBHOOK_ID with
 # `wrangler secret put`. Never commit their values.
-# CHECKOUT_ENABLED must remain "false" until payment readiness is explicitly verified.
-# Re-enabling checkout requires a deliberate Worker configuration change; the public site
-# alone cannot activate payment creation or capture endpoints.
+# CHECKOUT_ENABLED is enabled after verified PayPal Live authentication, webhook readiness, merchant identity, and production D1 readiness.
+# To pause new payment creation and capture, set this back to "false" and redeploy the Worker.
+# The public site alone cannot activate payment creation or capture endpoints.
 # Private operations dashboard requires ADMIN_PATH, ADMIN_USERNAME and
 # ADMIN_PASSWORD_SHA256 as Worker secrets. Do not add them to this file.
 # There is intentionally no fixed public admin-login route.

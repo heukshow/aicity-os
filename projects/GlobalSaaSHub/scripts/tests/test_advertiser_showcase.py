@@ -67,8 +67,9 @@ class AdvertiserShowcaseTests(unittest.TestCase):
         self.assertIn('not a paid client campaign',self.active)
         self.assertIn('simulated viewport',self.active)
         self.assertNotIn('Copyedited_20261005.pdf',self.html)
-    def test_price_regeneration_is_idempotent_and_preserves_pause(self):
+    def test_price_regeneration_is_idempotent_and_preserves_checkout_state(self):
         first=(ROOT/'public/advertise.html').read_bytes()
+        checkout_before=(ROOT/'worker/wrangler.toml').read_text(encoding='utf-8')
         normalizer.sync_advertise_catalog()
         second=(ROOT/'public/advertise.html').read_bytes()
         normalizer.sync_advertise_catalog()
@@ -76,11 +77,14 @@ class AdvertiserShowcaseTests(unittest.TestCase):
         self.assertIn(b'USD per placement. The agreed period starts when your card goes live, not when you submit or pay.',second)
         inventory=json.loads((ROOT/'data/sponsorship-inventory.json').read_text(encoding='utf-8'))
         # Legacy paid-inventory switches stay paused; F1-F3 image intake is a
-        # separate server-gated flow and checkout remains independently disabled.
+        # separate server-gated flow. Catalog regeneration must not change the
+        # independently controlled production checkout switch.
         self.assertIs(inventory['enabled'],False)
         self.assertIs(inventory['applications_open'],False)
         self.assertIn('enabled: false',(ROOT/'public/sponsored-inventory.js').read_text(encoding='utf-8'))
-        self.assertIn('CHECKOUT_ENABLED = "false"',(ROOT/'worker/wrangler.toml').read_text(encoding='utf-8'))
+        checkout_after=(ROOT/'worker/wrangler.toml').read_text(encoding='utf-8')
+        self.assertEqual(checkout_before,checkout_after)
+        self.assertIn('CHECKOUT_ENABLED = "true"',checkout_after)
     def test_house_invitation_and_existing_primary_destination_are_separate(self):
         producer=(ROOT/'scripts/prepare_coshuma_promotions.py').read_text(encoding='utf-8')
         self.assertIn('data-advertiser-interest',producer)
