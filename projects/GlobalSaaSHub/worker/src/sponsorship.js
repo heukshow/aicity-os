@@ -477,9 +477,14 @@ export async function handleSponsorshipRequest(request, env) {
     if (request.method === 'GET' && url.pathname === '/v1/sponsored/placements') return await publicPlacements(request, env, repo);
 
     if (request.method === 'GET' && url.pathname === '/v1/ads/config') {
+      const now = new Date().toISOString();
+      const placements = await Promise.all(CATALOG.map(async (item) => {
+        const targetPage = item.allowedPages[0];
+        const availability = await repo.placementAvailability(item.slot, targetPage, now);
+        return { slot: item.slot, label: item.label, prices: item.prices, targetPage, ...availability };
+      }));
       return reply(request, env, { ...configuration(env), creativeMode: 'image', assetMimeTypes: ['image/png'],
-        catalog: CATALOG,
-        placements: CATALOG.map((item) => ({ slot: item.slot, label: item.label, prices: item.prices, targetPage: item.allowedPages[0] })) });
+        catalog: CATALOG, placements });
     }
     const publicAsset = /^\/v1\/ads\/assets\/([a-f0-9-]{36})\/(logo|tool-primary|buyer-intent-top|compare-decision-premium)$/.exec(url.pathname);
     if (request.method === 'GET' && publicAsset) {
@@ -503,6 +508,11 @@ export async function handleSponsorshipRequest(request, env) {
       if (!configuration(env).intakeReady) throw new SponsorshipError('Applications are not available', 503);
       const input = validateApplication(await bodyJson(request));
       const now = new Date().toISOString();
+      const availability = await repo.placementAvailability(input.slot, input.targetPage, now);
+      if (!availability.available) {
+        const until = availability.availableAfter ? ` until ${availability.availableAfter}` : '';
+        throw new SponsorshipError(`This placement is currently ${availability.reason === 'reserved' ? 'reserved' : 'booked'}${until}. Choose another position or return after it becomes available.`, 409);
+      }
       await repo.rateLimit(await hash(request.headers.get('cf-connecting-ip') || 'unavailable'), now);
       const id = crypto.randomUUID(), accessToken = token();
       const reference = `COSHUMA-AD-${now.slice(0,10).replaceAll('-','')}-${id}`;
