@@ -90,8 +90,12 @@ export class SponsorshipRepository {
 
   recordApprovalEmailFailed(application, reason, actor, now) {
     const safe = String(reason || 'approval email delivery failed').replace(/[\r\n]+/g, ' ').slice(0, 240);
-    return this.audit(application.id, 'approval_email_failed', actor,
-      JSON.stringify({ approvedAt: application.approved_at, reason: safe }), now).run();
+    const id = `approval-email-failed:${application.id}:${application.approved_at || 'unknown'}`;
+    const detail = JSON.stringify({ approvedAt: application.approved_at, reason: safe });
+    return this.db.prepare(`INSERT INTO sponsorship_audit_log(id,application_id,action,actor,detail,created_at)
+      VALUES(?,?,'approval_email_failed',?,?,?)
+      ON CONFLICT(id) DO UPDATE SET actor=excluded.actor,detail=excluded.detail,created_at=excluded.created_at`)
+      .bind(id, application.id, actor, detail, now).run();
   }
 
   async pendingApprovalEmailApplications(now) {
