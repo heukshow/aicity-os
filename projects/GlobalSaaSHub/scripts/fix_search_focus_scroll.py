@@ -35,14 +35,38 @@ autocomplete_new_country = '''                  <a key={tool.id} href={`/tool/${
                     <span className="shrink-0 rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-1 text-xs font-semibold text-slate-300">{tool.pricing || 'Check pricing'}</span>
                   </a>'''
 
+autocomplete_old_country_image = '''                  <a key={tool.id} href={`/tool/${tool.id}.html`} className="flex items-center justify-between border-b border-white/5 px-4 py-3 last:border-0 hover:bg-white/5">
+                    <span className="font-semibold text-white">{tool.name}</span>
+                    <span className="inline-flex items-center gap-1.5 text-xs text-slate-500">
+                      {tool.company_country_code && <CountryFlag code={tool.company_country_code} className="h-3 w-4" />}
+                      {tool.company_country_name ? `${tool.company_country_name} · ` : ''}{tool.category_display}
+                    </span>
+                  </a>'''
+
+autocomplete_new_country_image = '''                  <a key={tool.id} href={`/tool/${tool.id}.html`} className="flex items-center justify-between gap-4 border-b border-white/5 px-4 py-3 last:border-0 hover:bg-white/5">
+                    <span className="min-w-0 text-left">
+                      <span className="block truncate font-semibold text-white">{tool.name}</span>
+                      <span className="mt-0.5 flex min-w-0 items-center gap-1.5 text-xs text-slate-500">
+                        {tool.company_country_code && <CountryFlag code={tool.company_country_code} className="h-3 w-4" />}
+                        <span className="truncate">{tool.company_country_name ? `${tool.company_country_name} · ` : ''}{tool.category_display}</span>
+                      </span>
+                    </span>
+                    <span className="shrink-0 rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-1 text-xs font-semibold text-slate-300">{tool.pricing || 'Check pricing'}</span>
+                  </a>'''
+
 autocomplete_with_detail_route = autocomplete_new.replace(
     'href={`/tool/${tool.id}.html`}', 'href={tool.detail_url || `/tool/${tool.id}.html`}')
 autocomplete_country_with_detail_route = autocomplete_new_country.replace(
     'href={`/tool/${tool.id}.html`}', 'href={tool.detail_url || `/tool/${tool.id}.html`}')
+autocomplete_country_image_with_detail_route = autocomplete_new_country_image.replace(
+    'href={`/tool/${tool.id}.html`}', 'href={tool.detail_url || `/tool/${tool.id}.html`}')
 
 if (autocomplete_new not in text and autocomplete_with_detail_route not in text
-        and autocomplete_new_country not in text and autocomplete_country_with_detail_route not in text):
-    if autocomplete_old_country in text:
+        and autocomplete_new_country not in text and autocomplete_country_with_detail_route not in text
+        and autocomplete_new_country_image not in text and autocomplete_country_image_with_detail_route not in text):
+    if autocomplete_old_country_image in text:
+        text = text.replace(autocomplete_old_country_image, autocomplete_new_country_image, 1)
+    elif autocomplete_old_country in text:
         text = text.replace(autocomplete_old_country, autocomplete_new_country, 1)
     elif autocomplete_old in text:
         text = text.replace(autocomplete_old, autocomplete_new, 1)
