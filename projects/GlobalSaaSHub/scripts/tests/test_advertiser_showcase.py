@@ -23,23 +23,38 @@ class AdvertiserShowcaseTests(unittest.TestCase):
         self.parser=ActiveElements();self.parser.feed(self.html)
         self.active=' '.join(self.parser.text)
         self.js=(ROOT/'public/advertiser-showcase.js').read_text(encoding='utf-8')
-    def test_active_page_is_inquiry_only_and_payment_form_is_inert(self):
-        self.assertIn('data-advertising-mode="inquiry"',self.html)
+    def test_active_page_opens_only_review_gated_image_booking(self):
+        self.assertIn('data-advertising-mode="booking"',self.html)
+        self.assertIn('data-advertising-status="f1-f3-open"',self.html)
         ids=[attrs.get('id') for _,attrs in self.parser.tags if attrs.get('id')]
         self.assertEqual(len(ids),len(set(ids)))
         for name in ['about-coshuma','materials','materials-title']:
             self.assertIn(name,ids)
+        # Customer fields and PayPal controls remain inside the inert template until
+        # the dedicated sales runtime activates them on the booking page.
         for name in ['sponsorship-application','paypal-buttons','payment-area','advertiser-brief']:
             self.assertNotIn(name,ids)
-        old=(ROOT/'public/sponsorship-sales.js').read_text(encoding='utf-8')
-        self.assertIn("if (document.body?.dataset.advertisingMode === 'inquiry') return;",old)
-        self.assertIn('not open for booking',self.active)
-    def test_inquiry_has_no_server_send_or_storage(self):
+        sales=(ROOT/'public/sponsorship-sales.js').read_text(encoding='utf-8')
+        self.assertIn("if (!['booking','live'].includes(document.body?.dataset.advertisingMode || '')) return;",sales)
+        self.assertIn("application?.status === 'awaiting_payment'",sales)
+        self.assertIn("application?.paymentReady === true",sales)
+        self.assertIn('F1–F3 fixed image bookings are open',self.active)
+        self.assertIn('Payment is offered only after COSHUMA approves the materials and reserves the position',self.active)
+    def test_preview_runtime_stays_nontransactional_and_sales_access_is_ephemeral(self):
+        # The showcase/preview runtime itself must remain unable to send or persist
+        # advertiser data; transactional behavior lives only in sponsorship-sales.js.
         for token in ['fetch(', 'XMLHttpRequest', 'sendBeacon', 'localStorage', 'sessionStorage', 'innerHTML']:
             self.assertNotIn(token,self.js)
-        self.assertIn('No personal or product information is collected here',self.active)
         self.assertNotIn('clipboard.writeText',self.js)
         self.assertIn("params.get('coshuma_qa') === '1'",self.js)
+        sales=(ROOT/'public/sponsorship-sales.js').read_text(encoding='utf-8')
+        self.assertIn("const SESSION_KEY = 'coshuma-ad-application'",sales)
+        self.assertIn('sessionStorage.setItem(SESSION_KEY',sales)
+        self.assertNotIn('localStorage',sales)
+        self.assertIn("credentials: 'omit'",sales)
+        self.assertIn("authorization: 'Bearer ' + access.accessToken",sales)
+        self.assertIn('No COSHUMA account is required',self.html)
+        self.assertIn('No payment is collected with the application',self.active)
         for tag,attrs in self.parser.tags:
             if tag=='a' and attrs.get('href','').startswith('mailto:'):
                 self.assertEqual(attrs['href'],'mailto:support@coshuma.com?subject=COSHUMA%20technical%20support')
@@ -58,8 +73,10 @@ class AdvertiserShowcaseTests(unittest.TestCase):
         second=(ROOT/'public/advertise.html').read_bytes()
         normalizer.sync_advertise_catalog()
         self.assertEqual(second,(ROOT/'public/advertise.html').read_bytes())
-        self.assertIn(b'Planning reference in USD',second)
+        self.assertIn(b'USD per placement. The agreed period starts when your card goes live, not when you submit or pay.',second)
         inventory=json.loads((ROOT/'data/sponsorship-inventory.json').read_text(encoding='utf-8'))
+        # Legacy paid-inventory switches stay paused; F1-F3 image intake is a
+        # separate server-gated flow and checkout remains independently disabled.
         self.assertIs(inventory['enabled'],False)
         self.assertIs(inventory['applications_open'],False)
         self.assertIn('enabled: false',(ROOT/'public/sponsored-inventory.js').read_text(encoding='utf-8'))

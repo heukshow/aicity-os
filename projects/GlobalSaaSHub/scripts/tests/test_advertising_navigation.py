@@ -1,4 +1,4 @@
-"""Protect navigability without reopening advertising sales."""
+"""Protect advertising navigation while keeping payment activation server-gated."""
 from pathlib import Path
 from html.parser import HTMLParser
 from unittest.mock import patch
@@ -54,7 +54,8 @@ class NavigationTests(unittest.TestCase):
   self.assertLess(text.index('id="placement-formats"'),text.index('<section id="materials"'))
   self.assertEqual(text.count('data-ad-position='),8)
   self.assertIn('data-position-directory href="#placement-formats"',text)
-  self.assertIn('data-advertising-mode="inquiry"',text)
+  self.assertIn('data-advertising-mode="booking"',text)
+  self.assertIn('data-advertising-status="f1-f3-open"',text)
  def test_no_new_payment_activation(self):
   self.assertIn('enabled: false',(ROOT/'public/sponsored-inventory.js').read_text(encoding='utf-8'))
   data=json.loads((ROOT/'data/sponsorship-inventory.json').read_text(encoding='utf-8'))
