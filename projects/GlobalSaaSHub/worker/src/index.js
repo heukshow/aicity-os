@@ -1,4 +1,4 @@
-import { handlePrivateOps, handleSnapshotUpload } from './private-ops.js';
+import { handlePayPalLiveReadiness, handlePrivateOps, handleSnapshotUpload } from './private-ops.js';
 import { handleSponsorshipRequest } from './sponsorship.js';
 import { handleAdminRequest, isAdminPath } from './admin.js';
 
@@ -30,6 +30,7 @@ function isAllowedBrowserRequest(request, env) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === '/internal/paypal-live-readiness') return handlePayPalLiveReadiness(request, env);
     const sponsorship = await handleSponsorshipRequest(request, env);
     if (sponsorship) return sponsorship;
     if (url.pathname === '/internal/analytics-snapshot') return handleSnapshotUpload(request, env);

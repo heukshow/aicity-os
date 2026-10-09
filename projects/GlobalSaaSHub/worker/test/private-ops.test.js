@@ -69,6 +69,7 @@ test('publisher verifies signature, audience, exact workflow, repository IDs, br
     return `${text}.${Buffer.from(await crypto.subtle.sign('RSASSA-PKCS1-v1_5', keys.privateKey, new TextEncoder().encode(text))).toString('base64url')}`;
   }
   assert.equal(await verifyPublisher(await token(), fetcher), true);
+  assert.equal(await verifyPublisher(await token({ workflow_ref: 'heukshow/aicity-os/.github/workflows/coshuma-paypal-live-readiness.yml@refs/heads/main', event_name: 'workflow_dispatch' }), fetcher), true);
   for (const change of [{ aud: 'wrong' }, { repository_id: 'fork' }, { workflow_ref: 'other' }, { ref: 'refs/heads/feature' }, { exp: now-1 }, { event_name: 'pull_request' }])
     assert.equal(await verifyPublisher(await token(change), fetcher), false);
   const signed = await token();

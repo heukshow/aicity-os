@@ -1,0 +1,22 @@
+name: COSHUMA PayPal Live Readiness
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Verify production PayPal configuration without charging
+        working-directory: projects/GlobalSaaSHub
+        run: node scripts/verify_paypal_live_readiness.mjs

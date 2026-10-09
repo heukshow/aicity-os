@@ -3,10 +3,14 @@ import { decorateOpsHtml } from './ops-dashboard-view.js';
 import { fetchPartnerStackMetrics } from './partnerstack.js';
 import { getRevenueSummary } from './revenue-summary.js';
 import { revenuePage } from './revenue-view.js';
+import { checkPayPalReadiness } from './paypal.js';
 
 const ISSUER = 'https://token.actions.githubusercontent.com';
 const AUDIENCE = 'coshuma-private-analytics';
-const WORKFLOW = 'heukshow/aicity-os/.github/workflows/coshuma-analytics-snapshot.yml@refs/heads/main';
+const TRUSTED_WORKFLOWS = new Set([
+  'heukshow/aicity-os/.github/workflows/coshuma-analytics-snapshot.yml@refs/heads/main',
+  'heukshow/aicity-os/.github/workflows/coshuma-paypal-live-readiness.yml@refs/heads/main',
+]);
 let cachedKeys;
 const decode = (s) => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0));
 const parse = (s) => JSON.parse(new TextDecoder().decode(decode(s)));
@@ -21,7 +25,7 @@ export async function verifyPublisher(token, fetcher = fetch) {
     if (head.alg !== 'RS256' || typeof head.kid !== 'string' || claim.iss !== ISSUER || claim.aud !== AUDIENCE
       || claim.sub !== 'repo:heukshow/aicity-os:ref:refs/heads/main'
       || claim.repository_id !== '1158871708' || claim.repository_owner_id !== '209299838'
-      || claim.workflow_ref !== WORKFLOW || claim.ref !== 'refs/heads/main'
+      || !TRUSTED_WORKFLOWS.has(claim.workflow_ref) || claim.ref !== 'refs/heads/main'
       || !['push', 'schedule', 'workflow_dispatch'].includes(claim.event_name)
       || !Number.isFinite(claim.exp) || claim.exp <= now || !Number.isFinite(claim.nbf) || claim.nbf > now + 30
       || !Number.isFinite(claim.iat) || claim.iat > now + 30 || now - claim.iat > 600) return false;
@@ -87,6 +91,24 @@ async function validCsrf(request, env) {
     return nonce === form.get('csrf') && Number(expires) > now && Number(expires) <= now+600
       && signature === await csrfSignature(`${nonce}.${expires}`, env.OPS_PASSWORD_SHA256);
   } catch { return false; }
+}
+
+export async function handlePayPalLiveReadiness(request, env) {
+  if (request.method !== 'GET') return response('{"error":"Method not allowed"}', 405);
+  const token = request.headers.get('authorization')?.replace(/^Bearer /, '');
+  if (!await verifyPublisher(token)) return response('{"error":"Unauthorized"}', 401);
+  if (env.CHECKOUT_ENABLED !== 'false' || env.PAYPAL_ENVIRONMENT !== 'live')
+    return response('{"error":"Readiness probe requires paused Live checkout"}', 409);
+  const expectedWebhookUrl = new URL('/v1/webhooks/paypal', request.url).href;
+  const result = await checkPayPalReadiness(env, expectedWebhookUrl);
+  return response(JSON.stringify({
+    providerAuthenticationVerified: result.providerAuthenticationVerified === true,
+    webhookUrlVerified: result.webhookUrlVerified === true,
+    requiredEventsVerified: result.requiredEventsVerified === true,
+    merchantIdentityVerified: result.merchantIdentityVerified === true,
+    configurationOnly: result.configurationOnly === true,
+    diagnostic: result.diagnostic || null,
+  }), 200);
 }
 
 export async function handleSnapshotUpload(request, env) {
