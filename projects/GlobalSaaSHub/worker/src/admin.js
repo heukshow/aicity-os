@@ -151,7 +151,14 @@ export async function handleAdminRequest(request, env) {
 
 export async function privateLogin(request, env, destination, csrfValidated = false) {
     const origin = request.headers.get('origin');
-    if (!csrfValidated && origin && origin !== new URL(request.url).origin) return new Response('Forbidden', { status: 403, headers: PRIVATE_HEADERS });
+    const expectedOrigin = new URL(request.url).origin;
+    const browserSameOriginNavigation = origin === 'null'
+      && request.headers.get('sec-fetch-site') === 'same-origin'
+      && request.headers.get('sec-fetch-mode') === 'navigate'
+      && request.headers.get('sec-fetch-dest') === 'document';
+    if (!csrfValidated && origin && origin !== expectedOrigin && !browserSameOriginNavigation) {
+      return new Response('Forbidden', { status: 403, headers: PRIVATE_HEADERS });
+    }
     const form = await request.formData().catch(() => new FormData());
     const username = String(form.get('username') || '');
     const passwordHash = await sha256(String(form.get('password') || ''));
