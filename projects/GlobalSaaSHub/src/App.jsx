@@ -3,7 +3,6 @@ import allToolsData from './generated/public-tools.json';
 const toolsData = allToolsData.filter(tool => !['convertkit', 'merlin-ai'].includes(tool.id));
 import CompareModal from './components/CompareModal';
 import SponsorshipCheckout from './components/SponsorshipCheckout';
-import { paymentConfig } from './config/payment.js';
 import { getValidExternalUrl } from './utils/url';
 import { matchesPricingFilter } from './utils/pricingFilter.mjs';
 import {
@@ -262,25 +261,19 @@ export default function App() {
                 <Heart className="h-3.5 w-3.5 fill-current" /> Saved ({bookmarkedIds.length})
               </button>
             )}
+            <a href="#directory" className="hidden min-h-11 items-center rounded-full px-3 text-sm font-semibold text-slate-300 hover:bg-white/5 sm:inline-flex">Explore tools</a>
             <a href={navigationHref('/best/index.html')} className="hidden min-h-11 items-center rounded-full px-3 text-sm font-semibold text-slate-300 hover:bg-white/5 lg:inline-flex">Buyer guides</a>
             <a href={navigationHref('/compare/')} className="hidden min-h-11 items-center rounded-full px-3 text-sm font-semibold text-slate-300 hover:bg-white/5 lg:inline-flex">Comparisons</a>
             <details data-site-menu className="relative lg:hidden">
               <summary className="flex min-h-11 cursor-pointer list-none items-center rounded-full border border-white/10 px-3 text-xs font-bold text-slate-200">Menu <span aria-hidden="true" className="ml-1">▾</span></summary>
               <div className="absolute left-0 top-full z-50 mt-2 w-56 max-w-[80vw] rounded-xl border border-white/10 bg-[#11131a] p-2 shadow-xl">
+                <a href="#directory" className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5">Explore tools</a>
                 <a href={navigationHref('/best/index.html')} className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5">Buyer guides</a>
                 <a href={navigationHref('/compare/')} className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5">Comparisons</a>
-                <a href={navigationHref('/countries/')} className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5">Countries</a>
                 <a data-advertising-entry="home-mobile" href={navigationHref('/advertise.html')} className="flex min-h-11 items-center rounded-lg px-3 text-sm font-bold text-amber-200 hover:bg-white/5">Advertise</a>
               </div>
             </details>
             <a data-advertising-entry="home-header" href={navigationHref('/advertise.html')} className="inline-flex min-h-11 items-center rounded-full border border-amber-300/40 bg-amber-300/10 px-3 text-xs font-bold text-amber-100 hover:bg-amber-300/20 sm:text-sm">Advertise</a>
-            <a href="/countries/" className="hidden rounded-full px-4 py-2 text-sm font-semibold text-slate-300 hover:bg-white/5 md:inline-flex">Countries</a>
-            <a href="#directory" className="hidden rounded-full px-4 py-2 text-sm font-semibold text-slate-300 hover:bg-white/5 sm:inline-flex">Explore tools</a>
-            {paymentConfig.checkoutEnabled && (
-              <a href="#submit" className="rounded-full border border-violet-400/30 bg-violet-500/10 px-4 py-2 text-xs font-bold text-violet-200 hover:bg-violet-500/20 sm:text-sm">
-                Sponsor a listing
-              </a>
-            )}
           </div>
         </div>
       </nav>
