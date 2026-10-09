@@ -21,10 +21,11 @@ def test_worker_security_contract():
     assert "PRIMARY KEY" in migration
     assert "UNIQUE" in migration
 
-    # Security posture: checkout must fail closed server-side and admin access must
-    # depend on the secret ADMIN_PATH rather than a fixed public login route.
+    # Security posture: checkout remains explicitly server-gated and admin access
+    # depends on the secret ADMIN_PATH rather than a fixed public login route.
+    # Production checkout is enabled only after the verified go-live readiness gate.
     assert "env.CHECKOUT_ENABLED === 'true'" in sponsorship
-    assert 'CHECKOUT_ENABLED = "false"' in wrangler
+    assert 'CHECKOUT_ENABLED = "true"' in wrangler
     assert "PUBLIC_ADMIN_PATH" not in worker
     assert "'/ops-login'" not in worker
     assert "isAllowedBrowserRequest(request, env)" in worker
