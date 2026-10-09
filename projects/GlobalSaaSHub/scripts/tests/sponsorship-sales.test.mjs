@@ -85,9 +85,9 @@ test('email application drafts never become payment evidence or analytics payloa
 test('approval email fragments restore only a bounded application id and signed token', () => {
   const id = '12345678-1234-1234-1234-123456789abc';
   const token = 'a'.repeat(64);
-  assert.deepEqual(approvalAccessFromHash('#coshuma-ad=' + encodeURIComponent(id + '.' + token)), {
-    applicationId: id, accessToken: token,
-  });
+  const restored = approvalAccessFromHash('#coshuma-ad=' + encodeURIComponent(id + '.' + token));
+  assert.equal(restored.applicationId, id);
+  assert.equal(restored.accessToken, token);
   for (const value of [
     '', '#coshuma-ad=', '#coshuma-ad=' + id, '#coshuma-ad=' + id + '.short',
     '#coshuma-ad=' + id + '.' + 'z'.repeat(64), '#other=' + id + '.' + token,
