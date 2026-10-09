@@ -70,6 +70,18 @@
   // The page controls whether external bookings are open.
   if (!['booking','live'].includes(document.body?.dataset.advertisingMode || '')) return;
 
+  function approvalAccessFromLocation() {
+    const prefix = '#coshuma-ad=';
+    if (!window.location.hash.startsWith(prefix)) return null;
+    let decoded;
+    try { decoded = decodeURIComponent(window.location.hash.slice(prefix.length)); } catch (_) { return null; }
+    const match = /^([a-f0-9-]{36})\.([a-f0-9]{64})$/.exec(decoded);
+    if (!match) return null;
+    try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (_) { /* Fragment still never reaches HTTP. */ }
+    return { applicationId: match[1], accessToken: match[2] };
+  }
+  const approvalAccess = approvalAccessFromLocation();
+
   function emit(eventName, link) {
     if (!['coshuma.com', 'www.coshuma.com'].includes(window.location.hostname)) return;
     if (typeof window.gtag !== 'function') return;
@@ -477,6 +489,12 @@
     }
     updateSubmit();
     await refreshQuote();
+    if (approvalAccess) {
+      access = approvalAccess;
+      saveAccess();
+      await refreshApplication();
+      return;
+    }
     try {
       const saved = JSON.parse(sessionStorage.getItem(SESSION_KEY) || 'null');
       if (saved && typeof saved.applicationId === 'string' && saved.applicationId.length < 150
