@@ -1,4 +1,5 @@
 import { SponsorshipError } from './sponsorship-domain.js';
+import { approvalEmailMarkerId } from './sponsorship-email.js';
 
 export class SponsorshipRepository {
   constructor(db) {
@@ -65,6 +66,42 @@ export class SponsorshipRepository {
   audit(applicationId, action, actor, detail, now) {
     return this.db.prepare('INSERT INTO sponsorship_audit_log(id,application_id,action,actor,detail,created_at) VALUES(?,?,?,?,?,?)')
       .bind(crypto.randomUUID(), applicationId, action, actor, detail, now);
+  }
+
+  approvalEmailSent(application) {
+    if (!application?.approved_at) return Promise.resolve(null);
+    return this.db.prepare("SELECT id,detail,created_at FROM sponsorship_audit_log WHERE id=? AND action='approval_email_sent'")
+      .bind(approvalEmailMarkerId(application)).first();
+  }
+
+  approvalEmailStatus(applicationId) {
+    return this.db.prepare(`SELECT action,detail,created_at FROM sponsorship_audit_log
+      WHERE application_id=? AND action IN ('approval_email_sent','approval_email_failed')
+      ORDER BY created_at DESC LIMIT 1`).bind(applicationId).first();
+  }
+
+  async recordApprovalEmailSent(application, providerMessageId, actor, now) {
+    const detail = JSON.stringify({ approvedAt: application.approved_at, providerMessageId });
+    await this.db.prepare(`INSERT INTO sponsorship_audit_log(id,application_id,action,actor,detail,created_at)
+      VALUES(?,?,'approval_email_sent',?,?,?) ON CONFLICT(id) DO NOTHING`)
+      .bind(approvalEmailMarkerId(application), application.id, actor, detail, now).run();
+    return this.approvalEmailSent(application);
+  }
+
+  recordApprovalEmailFailed(application, reason, actor, now) {
+    const safe = String(reason || 'approval email delivery failed').replace(/[\r\n]+/g, ' ').slice(0, 240);
+    return this.audit(application.id, 'approval_email_failed', actor,
+      JSON.stringify({ approvedAt: application.approved_at, reason: safe }), now).run();
+  }
+
+  async pendingApprovalEmailApplications(now) {
+    const result = await this.db.prepare(`SELECT a.* FROM sponsorship_applications a
+      JOIN sponsorship_holds h ON h.application_id=a.id AND h.slot=a.slot
+      WHERE a.creative_mode='image' AND a.submission_status='submitted'
+        AND a.review_status='approved' AND a.publication_status='draft'
+        AND a.payment_status IN ('unpaid','pending') AND h.expires_at>?
+      ORDER BY a.approved_at ASC LIMIT 25`).bind(now).all();
+    return result.results || [];
   }
 
   async imageAssets(applicationId) {
