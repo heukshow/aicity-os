@@ -70,9 +70,16 @@ function applicationState(application, config) {
   const paymentVerified = application.paymentVerified === true && application.paymentStatus === 'verified';
   const approved = application.approved === true && application.reviewStatus === 'approved';
   const published = application.publicationStatus === 'published';
+  const imageReviewReady = application.creativeMode === 'image'
+    && application.submissionStatus === 'submitted'
+    && application.reviewStatus === 'pending'
+    && application.publicationStatus === 'draft';
+  const legacyReviewReady = application.creativeMode !== 'image'
+    && paymentVerified && application.reviewStatus === 'pending'
+    && ['draft', 'paused', 'ended'].includes(application.publicationStatus);
   return {
     validId, paymentVerified, approved,
-    canApprove: validId && paymentVerified && ['draft', 'paused', 'ended'].includes(application.publicationStatus) && !!safeDestination(application.destinationUrl),
+    canApprove: validId && (imageReviewReady || legacyReviewReady) && !!safeDestination(application.destinationUrl),
     canReject: validId && ['draft', 'paused', 'ended'].includes(application.publicationStatus),
     canPublish: validId && paymentVerified && approved && application.status === 'ready_to_publish' && application.publicationStatus === 'draft' && fulfilmentReady(config),
     canPause: validId && published && application.status !== 'ended',
@@ -87,6 +94,18 @@ function renderApplication(application, index, config) {
   const description = (label, content) => `<div><dt>${label}</dt><dd>${content}</dd></div>`;
   const disabled = (allowed) => allowed ? '' : ' disabled';
   const publication = STATUS_LABELS[application.status] || PUBLICATION_LABELS[application.publicationStatus] || '상태 확인 필요';
+  const imageFlow = application.creativeMode === 'image';
+  const reviewGuidance = imageFlow
+    ? application.submissionStatus !== 'submitted'
+      ? '로고와 광고 이미지를 모두 제출한 뒤 소재를 검토할 수 있습니다.'
+      : application.reviewStatus === 'approved'
+        ? '소재 승인 완료. 예약 유효 시간 안에 광고주가 결제할 수 있습니다.'
+        : state.canApprove
+          ? '연결 주소와 광고 표현을 확인하고 검토 메모를 입력하면 결제 전에 소재를 승인할 수 있습니다.'
+          : '제출된 소재와 현재 광고 상태를 확인하세요.'
+    : state.canApprove
+      ? '두 확인 항목을 모두 선택하고 검토 메모를 입력하면 승인할 수 있습니다.'
+      : '입금 확인 및 현재 광고 상태를 확인한 뒤 소재를 승인할 수 있습니다.';
   let publishReason = '결제 검증과 소재 승인 후 집행할 수 있습니다.';
   if (state.canPublish) publishReason = '시작일을 비워 두면 지금 시작합니다. 저장된 상품 기간이 적용됩니다.';
   else if (application.publicationStatus === 'paused') publishReason = '중지한 광고입니다. 이 화면에서는 다시 집행하지 않습니다.';
@@ -112,12 +131,12 @@ function renderApplication(application, index, config) {
       ${application.reviewNotes ? `<p class="review-notes"><b>최근 검토 기록</b> ${escapeHtml(application.reviewNotes)}</p>` : ''}
     </section>
     <div class="workflow">
-      <section aria-labelledby="${key}-payment"><h4 id="${key}-payment">1. 입금 확인</h4><p>저장된 PayPal 주문과 실제 결제 상태를 다시 조회합니다.</p><button type="button" data-action="verify-payment"${disabled(state.validId)}>입금 다시 확인</button></section>
-      <section aria-labelledby="${key}-review"><h4 id="${key}-review">2. 소재 검토</h4><label class="check"><input type="checkbox" data-field="destination-checked"${disabled(state.canApprove)}> 연결 주소와 광고 내용을 직접 확인했습니다.</label><label class="check"><input type="checkbox" data-field="claims-checked"${disabled(state.canApprove)}> 광고의 표현과 주장을 확인했습니다.</label>
+      <section aria-labelledby="${key}-payment"><h4 id="${key}-payment">입금 확인</h4><p>${imageFlow ? '소재 승인 후 발급된 PayPal 주문과 실제 결제 상태를 조회합니다.' : '저장된 PayPal 주문과 실제 결제 상태를 다시 조회합니다.'}</p><button type="button" data-action="verify-payment"${disabled(state.validId)}>입금 다시 확인</button></section>
+      <section aria-labelledby="${key}-review"><h4 id="${key}-review">소재 검토</h4><label class="check"><input type="checkbox" data-field="destination-checked"${disabled(state.canApprove)}> 연결 주소와 광고 내용을 직접 확인했습니다.</label><label class="check"><input type="checkbox" data-field="claims-checked"${disabled(state.canApprove)}> 광고의 표현과 주장을 확인했습니다.</label>
         <label for="${key}-notes">검토 메모 <span>(승인·반려 모두 필수 · 최대 1,000자)</span></label><textarea id="${key}-notes" data-field="notes" maxlength="1000" rows="3" placeholder="확인한 내용 또는 수정이 필요한 부분"${disabled(state.canReject)}></textarea>
-        <div class="buttons"><button type="button" data-action="approve" disabled>소재 승인</button><button type="button" data-action="reject"${disabled(state.canReject)}>소재 반려</button></div><small>${state.canApprove ? '두 확인 항목을 모두 선택하고 검토 메모를 입력하면 승인할 수 있습니다.' : '입금 확인 및 현재 광고 상태를 확인한 뒤 소재를 승인할 수 있습니다.'}</small>
+        <div class="buttons"><button type="button" data-action="approve" disabled>소재 승인</button><button type="button" data-action="reject"${disabled(state.canReject)}>소재 반려</button></div><small>${reviewGuidance}</small>
       </section>
-      <section aria-labelledby="${key}-publish"><h4 id="${key}-publish">3. 광고 집행</h4><label for="${key}-start">시작일시 <span>(한국 시간 · 선택)</span></label><input id="${key}-start" type="datetime-local" data-field="starts-at"${disabled(state.canPublish)}><p id="${key}-publish-reason">${escapeHtml(publishReason)}</p><div class="buttons"><button type="button" data-action="publish" aria-describedby="${key}-publish-reason"${disabled(state.canPublish)}>광고 집행·예약</button><button type="button" data-action="pause"${disabled(state.canPause)}>광고 중지</button></div></section>
+      <section aria-labelledby="${key}-publish"><h4 id="${key}-publish">광고 집행</h4><label for="${key}-start">시작일시 <span>(한국 시간 · 선택)</span></label><input id="${key}-start" type="datetime-local" data-field="starts-at"${disabled(state.canPublish)}><p id="${key}-publish-reason">${escapeHtml(publishReason)}</p><div class="buttons"><button type="button" data-action="publish" aria-describedby="${key}-publish-reason"${disabled(state.canPublish)}>광고 집행·예약</button><button type="button" data-action="pause"${disabled(state.canPause)}>광고 중지</button></div></section>
     </div><p class="action-result" role="status" aria-live="polite" data-result></p>
   </article>`;
 }
