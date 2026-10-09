@@ -20,11 +20,15 @@ class ClarityTests(unittest.TestCase):
   self.assertIn('not the developer',self.text);self.assertIn('do not buy a better rating',self.text)
   hrefs=[a.get('href') for t,a in self.p.tags if t=='a']
   for href in ['/best/index.html','/compare/','/methodology.html','/affiliate-disclosure.html']:self.assertIn(href,hrefs)
- def test_no_active_form_or_sales_consultation(self):
+ def test_review_gated_booking_has_no_inline_sales_consultation(self):
+  # Customer fields stay in the inert template until the dedicated booking runtime
+  # activates them; the static showcase itself remains free of inline collection.
   self.assertFalse(any(t in ['form','input','textarea'] for t,a in self.p.tags))
   for phrase in ['Discuss this placement','Help me choose','Prepare my inquiry','separate quote','start a conversation']:self.assertNotIn(phrase,self.text)
-  self.assertIn('not open for booking',self.text)
-  self.assertIn('Do not send materials or payment',self.text)
+  self.assertIn('F1–F3 fixed image bookings are open',self.text)
+  self.assertIn('Payment is offered only after COSHUMA approves the materials and reserves the position',self.text)
+  self.assertIn('F4–F5 and R1–R3 remain preview-only',self.text)
+  self.assertIn('No payment is collected with the application',self.text)
  def test_requirements_and_return_paths(self):
   for phrase in ['400 × 400','600 × 600','1200 × 675','1200 × 400','5–80','20–240','2–30','10–160']:self.assertIn(phrase,self.text)
   self.assertEqual(sum('data-position-preview' in a for t,a in self.p.tags),8)

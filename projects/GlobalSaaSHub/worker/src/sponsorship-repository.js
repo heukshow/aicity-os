@@ -14,6 +14,13 @@ export class SponsorshipRepository {
     if (guards.results?.length !== 5) throw new SponsorshipError('Application storage migration is incomplete', 503);
   }
 
+  async imageReady() {
+    await this.db.batch(['sponsorship_assets','sponsorship_holds'].map((name) =>
+      this.db.prepare(`SELECT 1 FROM ${name} LIMIT 1`)));
+    const guards = await this.db.prepare("SELECT name FROM sqlite_master WHERE type='trigger' AND name IN ('sponsorship_asset_insert_guard','sponsorship_asset_update_guard','sponsorship_asset_delete_guard','sponsorship_image_review_guard','sponsorship_image_publish_guard','sponsorship_hold_insert_guard')").all();
+    if (guards.results?.length !== 6) throw new SponsorshipError('Image advertising storage migration is incomplete', 503);
+  }
+
   async rateLimit(clientHash, now) {
     const bucket = Math.floor(Date.parse(now) / 3600000);
     const row = await this.db.prepare(`INSERT INTO sponsorship_intake_limits(client_hash,bucket,attempts) VALUES(?,?,1)
@@ -34,6 +41,18 @@ export class SponsorshipRepository {
     return this.getApplication(id);
   }
 
+  async createImageApplication(id, reference, tokenHash, fields, now) {
+    await this.db.prepare(`INSERT INTO sponsorship_applications
+      (id,reference,access_token_hash,company_name,tool_name,contact_email,slot,duration_days,target_page,destination_url,headline,description,cta_text,desired_start_date,seller_attestation,amount,currency,created_at,updated_at,creative_mode,submission_status)
+      VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,1,?,?,?,?,'image','draft')`).bind(
+      id, reference, tokenHash, fields.companyName, fields.toolName, fields.contactEmail,
+      fields.slot, fields.durationDays, fields.targetPage, fields.destinationUrl,
+      fields.headline, fields.description, fields.ctaText, fields.desiredStartDate,
+      fields.amount, fields.currency, now, now,
+    ).run();
+    return this.getApplication(id);
+  }
+
   getApplication(id) { return this.db.prepare('SELECT * FROM sponsorship_applications WHERE id=?').bind(id).first(); }
   getPayment(id) { return this.db.prepare('SELECT * FROM sponsorship_payments WHERE application_id=?').bind(id).first(); }
   getPaymentByOrder(id, environment) { return this.db.prepare('SELECT * FROM sponsorship_payments WHERE provider_order_id=? AND environment=?').bind(id, environment).first(); }
@@ -46,6 +65,90 @@ export class SponsorshipRepository {
   audit(applicationId, action, actor, detail, now) {
     return this.db.prepare('INSERT INTO sponsorship_audit_log(id,application_id,action,actor,detail,created_at) VALUES(?,?,?,?,?,?)')
       .bind(crypto.randomUUID(), applicationId, action, actor, detail, now);
+  }
+
+  async imageAssets(applicationId) {
+    return (await this.db.prepare('SELECT id,role,mime,width,height,byte_size,sha256 FROM sponsorship_assets WHERE application_id=? ORDER BY role')
+      .bind(applicationId).all()).results || [];
+  }
+
+  async saveImageAsset(application, role, file, now) {
+    if (application.creative_mode !== 'image' || application.submission_status !== 'draft'
+      || application.review_status !== 'pending' || application.publication_status !== 'draft') {
+      throw new SponsorshipError('Image assets are locked after submission', 409);
+    }
+    if (!['logo', application.slot].includes(role)) throw new SponsorshipError('This asset role is not part of the application', 422);
+    await this.db.prepare(`INSERT INTO sponsorship_assets
+      (id,application_id,role,mime,width,height,byte_size,sha256,data)
+      VALUES(?,?,?,?,?,?,?,?,?)
+      ON CONFLICT(application_id,role) DO UPDATE SET
+        mime=excluded.mime,width=excluded.width,height=excluded.height,byte_size=excluded.byte_size,
+        sha256=excluded.sha256,data=excluded.data`).bind(
+      crypto.randomUUID(), application.id, role, file.mime, file.width, file.height,
+      file.byte_size, file.sha256, file.data,
+    ).run();
+    await this.audit(application.id, 'image_asset_saved', 'advertiser', role, now).run();
+    return this.imageAssets(application.id);
+  }
+
+  async submitImageApplication(application, now) {
+    if (application.creative_mode !== 'image' || application.submission_status !== 'draft'
+      || application.review_status !== 'pending' || application.publication_status !== 'draft') {
+      throw new SponsorshipError('This image application cannot be submitted now', 409);
+    }
+    const assets = await this.imageAssets(application.id);
+    if (assets.length !== 2 || !assets.some((item) => item.role === 'logo')
+      || !assets.some((item) => item.role === application.slot)) {
+      throw new SponsorshipError('Upload the required logo and placement image before submitting', 409);
+    }
+    const result = await this.db.batch([
+      this.db.prepare("UPDATE sponsorship_applications SET submission_status='submitted',updated_at=? WHERE id=? AND creative_mode='image' AND submission_status='draft'")
+        .bind(now, application.id),
+      this.audit(application.id, 'image_application_submitted', 'advertiser', 'Complete image materials submitted for review', now),
+    ]);
+    if (result[0].meta.changes !== 1) throw new SponsorshipError('The application changed before submission', 409);
+    return this.getApplication(application.id);
+  }
+
+  imageHold(applicationId) {
+    return this.db.prepare('SELECT slot,application_id,expires_at FROM sponsorship_holds WHERE application_id=?')
+      .bind(applicationId).first();
+  }
+
+  async reserveImagePlacement(application, now, ttlMinutes = 30) {
+    if (application.creative_mode !== 'image' || application.submission_status !== 'submitted'
+      || application.review_status !== 'approved' || application.publication_status !== 'draft'
+      || !['unpaid','pending'].includes(application.payment_status)) {
+      throw new SponsorshipError('Approved submitted image materials are required before reservation', 409);
+    }
+    const until = new Date(Date.parse(now) + ttlMinutes * 60000).toISOString();
+    const existing = await this.imageHold(application.id);
+    if (existing && existing.expires_at > now && existing.slot === application.slot) return existing;
+    await this.db.prepare('DELETE FROM sponsorship_holds WHERE expires_at<=?').bind(now).run();
+    try {
+      await this.db.batch([
+        this.db.prepare('INSERT INTO sponsorship_holds(slot,application_id,expires_at) VALUES(?,?,?)')
+          .bind(application.slot, application.id, until),
+        this.audit(application.id, 'image_position_reserved', 'owner-review', JSON.stringify({ slot: application.slot, expiresAt: until }), now),
+      ]);
+    } catch {
+      throw new SponsorshipError('This placement is not currently available', 409);
+    }
+    const saved = await this.imageHold(application.id);
+    if (!saved || saved.expires_at !== until) throw new SponsorshipError('The placement reservation could not be saved', 409);
+    return saved;
+  }
+
+  async requireImageHold(application, now) {
+    const hold = await this.imageHold(application.id);
+    if (!hold || hold.slot !== application.slot || hold.expires_at <= now) {
+      throw new SponsorshipError('The reviewed placement reservation has expired', 409);
+    }
+    return hold;
+  }
+
+  async releaseImageHold(applicationId) {
+    await this.db.prepare('DELETE FROM sponsorship_holds WHERE application_id=?').bind(applicationId).run();
   }
 
   async reservePayment(application, env, now) {
@@ -121,16 +224,63 @@ export class SponsorshipRepository {
   }
 
   async review(application, approved, notes, actor, now) {
-    if (approved && application.payment_status !== 'verified') throw new SponsorshipError('Verify the payment before approving this application', 409);
+    if (approved && application.creative_mode === 'image') {
+      if (application.submission_status !== 'submitted') throw new SponsorshipError('Submit complete image materials before approval', 409);
+      const assets = await this.imageAssets(application.id);
+      if (assets.length !== 2 || !assets.some((item) => item.role === 'logo')
+        || !assets.some((item) => item.role === application.slot)) {
+        throw new SponsorshipError('Complete image assets are required before approval', 409);
+      }
+    } else if (approved && application.payment_status !== 'verified') {
+      throw new SponsorshipError('Verify the payment before approving this application', 409);
+    }
     if (application.publication_status === 'published') throw new SponsorshipError('Pause a published campaign before changing its review', 409);
+    const condition = approved && application.creative_mode !== 'image' ? "AND payment_status='verified'" : '';
     await this.db.batch([
       this.db.prepare(`UPDATE sponsorship_applications SET review_status=?,review_notes=?,approved_at=?,approved_by=?,updated_at=?
-        WHERE id=? AND publication_status!='published' ${approved ? "AND payment_status='verified'" : ''}`)
+        WHERE id=? AND publication_status!='published' ${condition}`)
         .bind(approved ? 'approved' : 'rejected', notes, approved ? now : null, approved ? actor : null, now, application.id),
       this.audit(application.id, approved ? 'materials_approved' : 'materials_rejected', actor, notes, now),
     ]);
     const saved = await this.getApplication(application.id);
     if (saved.review_status !== (approved ? 'approved' : 'rejected')) throw new SponsorshipError('Review could not be saved', 409);
+    return saved;
+  }
+
+  getImageAsset(applicationId, role) {
+    return this.db.prepare('SELECT mime,width,height,byte_size,sha256,data FROM sponsorship_assets WHERE application_id=? AND role=?')
+      .bind(applicationId, role).first();
+  }
+
+  async publishImage(application, startsAt, endsAt, actor, now) {
+    if (application.creative_mode !== 'image') throw new SponsorshipError('This is not an image application', 409);
+    await this.requireImageHold(application, now);
+    try {
+      const results = await this.db.batch([
+        this.db.prepare(`UPDATE sponsorship_applications
+          SET publication_status='published',starts_at=?,ends_at=?,updated_at=?
+          WHERE id=? AND creative_mode='image' AND submission_status='submitted'
+            AND review_status='approved' AND payment_status='verified' AND publication_status='draft'
+            AND EXISTS(SELECT 1 FROM sponsorship_holds h WHERE h.application_id=? AND h.slot=sponsorship_applications.slot AND h.expires_at>?)`)
+          .bind(startsAt, endsAt, now, application.id, application.id, now),
+        this.db.prepare(`INSERT INTO sponsorship_audit_log(id,application_id,action,actor,detail,created_at)
+          SELECT ?,?,'published',?,?,? WHERE changes()=1`)
+          .bind(crypto.randomUUID(), application.id, actor, `${startsAt} / ${endsAt}`, now),
+        this.db.prepare(`DELETE FROM sponsorship_holds WHERE application_id=?
+          AND EXISTS(SELECT 1 FROM sponsorship_applications WHERE id=? AND publication_status='published')`)
+          .bind(application.id, application.id),
+      ]);
+      if (results[0].meta.changes !== 1) throw new SponsorshipError('Image publication conditions changed before commit', 409);
+    } catch (error) {
+      if (/inventory conflicts|Verified payment|approved materials|image assets|reservation/i.test(error?.message || '')) {
+        throw new SponsorshipError('Payment, approval, image assets or placement inventory prevented publication', 409);
+      }
+      throw error;
+    }
+    const saved = await this.getApplication(application.id);
+    if (saved.publication_status !== 'published' || saved.starts_at !== startsAt || saved.ends_at !== endsAt) {
+      throw new SponsorshipError('Image publication could not be saved', 409);
+    }
     return saved;
   }
 
