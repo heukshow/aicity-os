@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="refresh" content="0;url=https://coshuma.com/tool/synthflow-ai.html" />
+    <link rel="canonical" href="https://coshuma.com/tool/synthflow-ai.html" />
+    <title>Page moved | COSHUMA</title>
+    <script>window.location.replace('https://coshuma.com/tool/synthflow-ai.html' + window.location.search + window.location.hash);</script>
+  <meta name="copyright" content="© 2026 COSHUMA. All rights reserved.">
+<meta name="author" content="COSHUMA">
+<script data-coshuma-origin-guard="1">
+(function () {
+  var host = (window.location.hostname || '').toLowerCase();
+  var canonicalHosts = new Set(['coshuma.com', 'www.coshuma.com', 'heukshow.github.io']);
+  var localHost =
+    !host ||
+    host === 'localhost' ||
+    host === '127.0.0.1' ||
+    host === '[::1]' ||
+    /^10\./.test(host) ||
+    /^192\.168\./.test(host) ||
+    /^172\.(1[6-9]|2\d|3[01])\./.test(host);
+
+  var webProtocol = window.location.protocol === 'http:' || window.location.protocol === 'https:';
+  var foreignHost = webProtocol && !canonicalHosts.has(host) && !localHost;
+  var framed = window.top !== window.self;
+  if (!foreignHost && !framed) return;
+
+  var canonicalUrl = 'https://coshuma.com' + window.location.pathname + window.location.search + window.location.hash;
+
+  function showCanonicalNotice() {
+    if (!document.body) return;
+    document.title = 'COSHUMA — Canonical Site';
+
+    while (document.body.firstChild) {
+      document.body.removeChild(document.body.firstChild);
+    }
+    document.body.setAttribute(
+      'style',
+      'margin:0;background:#07080c;color:#e2e8f0;font:16px/1.6 system-ui,sans-serif;display:grid;min-height:100vh;place-items:center'
+    );
+
+    var main = document.createElement('main');
+    main.setAttribute('style', 'max-width:680px;padding:32px');
+
+    var heading = document.createElement('h1');
+    heading.setAttribute('style', 'color:white');
+    heading.textContent = 'COSHUMA';
+
+    var message = document.createElement('p');
+    message.textContent = foreignHost
+      ? 'This copy is not being served from COSHUMA\'s canonical public domain.'
+      : 'COSHUMA pages are not intended to be embedded inside another site.';
+
+    var linkRow = document.createElement('p');
+    var link = document.createElement('a');
+    link.href = canonicalUrl;
+    link.target = '_top';
+    link.rel = 'noopener';
+    link.setAttribute('style', 'color:#93c5fd');
+    link.textContent = 'Open the official COSHUMA page';
+
+    linkRow.appendChild(link);
+    main.appendChild(heading);
+    main.appendChild(message);
+    main.appendChild(linkRow);
+    document.body.appendChild(main);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', showCanonicalNotice, { once: true });
+  } else {
+    showCanonicalNotice();
+  }
+
+  if (framed && !foreignHost) {
+    try { window.top.location.replace(canonicalUrl); } catch (_) {}
+  }
+})();
+</script>
+</head>
+  <body>
+    <main>
+      <h1>This COSHUMA page has moved</h1>
+      <p><a href="https://coshuma.com/tool/synthflow-ai.html">Continue to the current page</a>.</p>
+    </main>
+  </body>
+</html>
