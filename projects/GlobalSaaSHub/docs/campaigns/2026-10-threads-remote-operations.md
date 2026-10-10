@@ -11,6 +11,17 @@
 - 공개 답글은 월간 독립 게시 목표에 중복 집계하지 않는다.
 - 이 활동만으로 노출, 사이트 유입, 전환 또는 수익을 주장하지 않는다.
 
+## 2026-10-10 KST — 추가 공개 대화 확인
+
+- 원문: [첫 SaaS 고객 확보 질문](https://www.threads.com/@haseebsagheer2/post/DeGyCCCCExI)
+- 공개 답글: https://www.threads.com/@showm_ic/post/DeT7DFdk8Sw
+  - "Too many ideas can be a trap. Pick one specific buyer and one problem they already complain about, then ask five of them for a quick demo call. Their reactions will tell you more than another round of brainstorming. Who is the product for?"
+- 원문: [SaaS 이탈·가격 문제에 앞서 사용 흐름 측정](https://www.threads.com/@norabuildsoffers/post/DeTIPwcmSR1)
+- 공개 답글: https://www.threads.com/@showm_ic/post/DeT7w-kk9Wh
+  - "The 'before fixing pricing' part matters. I'd separate customers who never got to their first win from customers who got value but stopped coming back. Same churn number, very different fixes. Are you tracking time to first value too?"
+- 계정 프로필의 답글 목록에서 작성자·본문·원문·각 공개 게시물 고유 URL을 다시 확인했다. 이 날짜에 확인된 신규 공개 답글은 2건이며 독립 게시물에 더하지 않는다. 별도의 좋아요 조작은 공개 상태 확인 전까지 완료로 집계하지 않는다.
+- 조회·전환·수익 또는 하루 60분 운영 완료는 이 증거로 주장하지 않는다.
+
 ## 공개 활동 경계
 
 - 관련 글과 필요한 이어진 글·공개 답글을 읽고, 구체적인 내용에 연결되는 유용한 공개 반응만 남긴다.
