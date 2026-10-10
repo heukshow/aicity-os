@@ -54,18 +54,20 @@ replace_once(
     "pricing verification date",
 )
 
-# Refresh the visible plan cards to the current first-party pricing structure.
+# Refresh stale visible plan cards to the current first-party pricing structure.
 current_replacements = {
-    '<div class="text-xs font-bold text-purple-300 uppercase tracking-wider">Analyst</div> <div class="text-2xl font-black text-white mt-1">$71/mo</div> <div class="text-xs text-slate-400 mt-2">Billed annually · 1 user · 5 data sources · 150 AI credits/month · hourly max sync.</div>':
+    '<div class="text-xs font-bold text-purple-300 uppercase tracking-wider">Analyst</div> <div class="text-2xl font-black text-white mt-1">$64/mo</div> <div class="text-xs text-slate-400 mt-2">Billed annually · 1 user · 5 data sources · 500 AI credits/month · hourly max sync.</div>':
         '<div class="text-xs font-bold text-purple-300 uppercase tracking-wider">Analyst</div> <div class="text-2xl font-black text-white mt-1">$71/mo</div> <div class="text-xs text-slate-400 mt-2">Billed annually · 1 user · 5 data sources · 150 AI credits/month · hourly max sync.</div>',
-    '<div class="text-xs font-bold text-purple-300 uppercase tracking-wider">Team Core</div> <div class="text-2xl font-black text-white mt-1">$199/mo</div> <div class="text-xs text-slate-400 mt-2">Billed annually · 3 users · 10 data sources · 500 AI credits/month.</div>':
-        '<div class="text-xs font-bold text-purple-300 uppercase tracking-wider">Pro</div> <div class="text-2xl font-black text-white mt-1">$159/mo</div> <div class="text-xs text-slate-400 mt-2">Billed annually · unlimited users · 3 included data sources · 1,150 AI credits/month · hourly max sync.</div>',
-    '<div class="text-xs font-bold text-purple-300 uppercase tracking-wider">Team Scale</div> <div class="text-2xl font-black text-white mt-1">$319/mo</div> <div class="text-xs text-slate-400 mt-2">Billed annually · 10 users · 30 data sources · 1,000 AI credits/month · sub-accounts.</div>':
+    '<div class="text-xs font-bold text-purple-300 uppercase tracking-wider">Pro</div> <div class="text-2xl font-black text-white mt-1">$159/mo</div> <div class="text-xs text-slate-400 mt-2">Billed annually · unlimited users · 3 included data sources · 1,150 AI credits/month · hourly max sync.</div>':
+        '<div class="text-xs font-bold text-purple-300 uppercase tracking-wider">Team Core</div> <div class="text-2xl font-black text-white mt-1">$199/mo</div> <div class="text-xs text-slate-400 mt-2">Billed annually · 3 users · 10 data sources · 500 AI credits/month.</div>',
+    '<div class="text-xs font-bold text-purple-300 uppercase tracking-wider">Growth</div> <div class="text-2xl font-black text-white mt-1">$399/mo</div> <div class="text-xs text-slate-400 mt-2">Billed annually · unlimited users · 3 included data sources · 4,000 AI credits/month · 15-minute sync on supported sources · sub-accounts.</div>':
         '<div class="text-xs font-bold text-purple-300 uppercase tracking-wider">Team Scale</div> <div class="text-2xl font-black text-white mt-1">$319/mo</div> <div class="text-xs text-slate-400 mt-2">Billed annually · 10 users · 30 data sources · 1,000 AI credits/month · sub-accounts.</div>',
-    '<div class="font-bold text-emerald-300">Agency: starts at $79 with annual billing</div> <div class="text-xs text-slate-300 mt-2">Agency pricing adds client packs as you grow and currently includes unlimited users, bulk actions, custom templates and cross-client reporting. Custom is sales-assisted for larger requirements.</div>':
-        '<div class="font-bold text-emerald-300">Custom: tailored pricing for larger requirements</div> <div class="text-xs text-slate-300 mt-2">Custom includes flexible AI credits, unlimited users, white-labeling, advanced security, account setup and priority support. Agency-specific pricing is available on Databox\'s separate agency plans.</div>',
+    '<div class="font-bold text-emerald-300">Custom: tailored pricing for larger requirements</div> <div class="text-xs text-slate-300 mt-2">Custom includes flexible AI credits, unlimited users, white-labeling, advanced security, account setup and priority support. Agency-specific pricing is available on Databox\'s separate agency plans.</div>':
+        '<div class="font-bold text-emerald-300">Agency: starts at $79 with annual billing</div> <div class="text-xs text-slate-300 mt-2">Agency pricing adds client packs as you grow and currently includes unlimited users, bulk actions, custom templates and cross-client reporting. Custom is sales-assisted for larger requirements.</div>',
     'These values are from Databox\'s live pricing page on September 9, 2026. SaaS pricing and limits can change, so verify checkout before purchase.':
-        'These values were rechecked on Databox\'s official pricing page on September 19, 2026. Pricing and limits can change, so verify the live plan before purchase.'
+        'These values were rechecked on Databox\'s official pricing page on October 10, 2026. Pricing and limits can change, so verify the live plan before purchase.',
+    'These values were rechecked on Databox\'s official pricing page on September 19, 2026. Pricing and limits can change, so verify the live plan before purchase.':
+        'These values were rechecked on Databox\'s official pricing page on October 10, 2026. Pricing and limits can change, so verify the live plan before purchase.'
 }
 for old, new in current_replacements.items():
     if old in text:
