@@ -357,44 +357,46 @@
       "status": "error_HTTPError"
     },
     "panda-video": {
-      "checked_at": "2026-10-02T23:34:19Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-10T07:14:44Z",
+      "status": "evidence_validation_failed"
     },
     "pickaxe": {
-      "checked_at": "2026-10-02T23:34:19Z",
+      "checked_at": "2026-10-10T07:14:44Z",
       "status": "no_official_pricing_result"
     },
     "pictory": {
-      "checked_at": "2026-10-02T23:34:19Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-10T07:14:44Z",
+      "status": "evidence_validation_failed"
     },
     "pipedrive": {
-      "checked_at": "2026-10-02T23:34:19Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-10T07:14:44Z",
+      "status": "error_HTTPError"
     },
     "questmate": {
-      "checked_at": "2026-10-02T23:34:19Z",
+      "checked_at": "2026-10-10T07:14:44Z",
       "status": "no_official_pricing_result"
     },
     "quillbot": {
-      "checked_at": "2026-10-02T23:34:19Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-10T07:14:44Z",
+      "status": "error_HTTPError"
     },
     "reactin": {
-      "checked_at": "2026-10-02T23:34:19Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-10T07:14:44Z",
+      "status": "evidence_validation_failed"
     },
     "reclaim-ai": {
-      "checked_at": "2026-10-02T23:34:19Z",
+      "checked_at": "2026-10-10T07:14:44Z",
       "status": "no_official_pricing_result"
     },
     "reply-io": {
-      "checked_at": "2026-10-02T23:46:08Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-10T07:14:44Z",
+      "status": "verified",
+      "pricing_source_url": "https://reply.io/pricing"
     },
     "rytr": {
-      "checked_at": "2026-10-02T23:46:08Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-10T07:14:44Z",
+      "status": "verified",
+      "pricing_source_url": "https://rytr.me/pricing"
     },
     "sanebox": {
       "checked_at": "2026-10-02T23:46:08Z",
@@ -533,7 +535,10 @@
       "status": "extract_retry_exhausted"
     }
   },
-  "last_run_at": "2026-10-09T07:28:29Z",
+  "last_run_at": "2026-10-10T07:14:44Z",
   "last_batch_size": 10,
-  "last_updated_tools": []
+  "last_updated_tools": [
+    "reply-io",
+    "rytr"
+  ]
 }
