@@ -1376,24 +1376,6 @@
     "user_action_required": true
   },
   {
-    "id": "hide-me-affiliate-reconcile-20261003",
-    "tool_id": "hide-me",
-    "priority": "high",
-    "status": "browser_required_application_form",
-    "cost": "0",
-    "verified_at": "2026-10-03T03:05:00+09:00",
-    "reason": "hide.me's current official affiliate page is live, advertises commissions from 30%, lifetime revenue share and an affiliate dashboard. COSHUMA previously sent an affiliate application inquiry from the personal mailbox on 2026-09-07; exact account/link status remains unverified.",
-    "next_action": "Use hide.me's current official Post Affiliate Pro enrollment route and reconcile it with the prior COSHUMA inquiry. Do not create a second partner identity if an existing enrollment is found.",
-    "exact_tracking_url": null,
-    "affiliate_status": "browser_required_application_form",
-    "blocker": "browser_required_application_form",
-    "do_not": [
-      "Do not create a duplicate affiliate/partner identity if an existing account is found.",
-      "Do not invent or construct a customer tracking URL.",
-      "Do not infer clicks, signups, customers, commissions, payouts, or revenue from application access."
-    ]
-  },
-  {
     "id": "snov-io-affiliate-reconcile-20261003",
     "tool_id": "snov-io",
     "priority": "high",

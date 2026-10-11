@@ -11,7 +11,7 @@ const expected = new Map([
   ['featureshark','waiting_vendor_response'],
   ['flowgent-ai','program_inactive'],
   ['google-workspace','browser_required_legal_program_consent'],
-  ['hide-me','browser_required_application_form'],
+  ['hide-me','waiting_vendor_response'],
   ['scribe','program_closed_to_new_applicants'],
   ['snov-io','browser_required_legal_program_consent'],
 ]);
