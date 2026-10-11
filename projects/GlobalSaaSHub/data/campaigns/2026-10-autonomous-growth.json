@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-11T12:08:19Z",
+  "updated_at": "2026-10-11T13:50:58Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -1227,7 +1227,7 @@
     "trend_rule": "Adapt non-video topics, length, layout and publication style to current official platform guidance and observed relevant audience discussion. Record sources and dates; do not invent trend demand, reach or performance."
   },
   "onsite_advertising": {
-    "status": "partial_go_live_checkout_ready_renderer_disabled_production_verification_failed",
+    "status": "paid_image_renderer_deployed_independent_production_verification_pending",
     "authorized_at": "2026-10-04T07:31:56+09:00",
     "payment_verification_requested_at": "2026-10-04T07:33:53+09:00",
     "customer_material_language": "en",
@@ -1308,14 +1308,21 @@
       "checkout_deployment_evidence_comment_id": 5975512465,
       "proposal_page_and_pdf_publication_authorized": false,
       "proposal_owner_hold_comment_id": 5975326594,
-      "current_verified_pages_source_commit": "b484beb8f7b32905165388e89ea254ec3be48a12",
-      "current_verified_gh_pages_commit": "918ba53f3a3b17051d826a3079175b4c6b6f38c3",
-      "current_site_deploy_run": 38135888613,
-      "current_pages_run": 38135994617,
-      "current_main_paid_renderer_source_enabled": false,
-      "deployed_public_paid_renderer_enabled": false,
+      "current_verified_pages_source_commit": "02b003b81cef50a005a4b22c08b82b85cdc83865",
+      "current_verified_gh_pages_commit": "5a5c5544ee617f874f0b8277ff0ced3cdfac7232",
+      "current_site_deploy_run": 38142542936,
+      "current_pages_run": 38142701059,
+      "current_main_paid_renderer_source_enabled": true,
+      "deployed_public_paid_renderer_enabled": true,
       "current_release_verification_run": 38137770957,
-      "current_release_verification_result": "verification_failed_no_eligible_candidate"
+      "current_release_verification_result": "independent_reverification_pending_after_pr_1103",
+      "current_main_paid_image_renderer_enabled": true,
+      "deployed_public_paid_image_renderer_enabled": true,
+      "current_main_legacy_text_renderer_enabled": false,
+      "deployed_public_legacy_text_renderer_enabled": false,
+      "renderer_fix_pr": 1103,
+      "renderer_fix_merge_commit": "02b003b81cef50a005a4b22c08b82b85cdc83865",
+      "renderer_fix_pr_build_run": 38142168188
     },
     "recurring_operations": {
       "owner": "Revenue Intelligence Team",
@@ -1334,10 +1341,10 @@
     "production_evidence_scope": "Current-main ancestry and deployed public assets were matched. The F1-F3 advertiser page is live and shows checkout-after-quote copy, but the current-main and deployed public paid renderer both have CONFIG.enabled=false. The active Worker config was not directly readable, and the release verifier reported eligible=0; therefore this is partial live evidence, not production_verified.",
     "current_operating_state": {
       "effective_at": "2026-10-09T08:21:43Z",
-      "checked_at": "2026-10-11T12:08:19Z",
-      "source_state": "partial_go_live_checkout_enabled_renderer_disabled",
-      "production_state": "verification_failed_partial_live",
-      "current_main": "dad34a9db8fdb05ec6475545dcd817a6d608b1ea",
+      "checked_at": "2026-10-11T13:50:58Z",
+      "source_state": "go_live_checkout_enabled_paid_image_renderer_enabled_legacy_text_disabled",
+      "production_state": "pages_ancestry_verified_independent_live_route_verification_pending",
+      "current_main": "02b003b81cef50a005a4b22c08b82b85cdc83865",
       "implementation_pr": 1082,
       "merge_commit": "55a151c73983a5d3acebff4ac9e6c80311927490",
       "pr_build_run": 37904122572,
@@ -1346,10 +1353,10 @@
       "paid_sponsorship_inventory_enabled": true,
       "applications_open": true,
       "paid_slots_status": "f1_f3_live_application_open",
-      "public_paid_renderer_source_enabled": false,
-      "deployed_public_paid_renderer_enabled": false,
+      "public_paid_renderer_source_enabled": true,
+      "deployed_public_paid_renderer_enabled": true,
       "active_worker_checkout_disabled": null,
-      "active_worker_state": "payment_ready_ui_signal_direct_config_readback_unavailable",
+      "active_worker_state": "owner_readback_intake_and_payment_ready_security_independent_readback_pending",
       "real_advertiser_payment_confirmed": null,
       "public_paid_ad_activated": false,
       "additional_operating_spend_usd": 0,
@@ -1379,27 +1386,34 @@
         "superseded_by_source_go_live_pr": 1082
       },
       "reconciliation": {
-        "found_by": "COSHUMA 통합 운영·감시·배포검증팀",
-        "fixed_by": "COSHUMA 통합 운영·감시·배포검증팀 (canonical-state reconciliation only)",
-        "canonical_owner": "Revenue Optimization Team / Operations Governance Team",
-        "changed_scope": "Campaign advertising ledger only; no checkout, payment, capture, refund, advertiser data, public page, Worker deployment, credential, account, service, measurement definition or spend changed.",
-        "verification": "Current main and deployed gh-pages use the same sponsored-inventory.js blob with CONFIG.enabled=false. The advertiser page and three exact allowed QA routes loaded without internal-state exposure, but the active Worker config was not directly read. Release verification run 38137770957 had eligible=0 and therefore did not verify this candidate.",
-        "handoff": "Revenue Optimization Team must resolve the renderer source state. Operations Governance must make the current record eligible for release verification. Release & Reliability Team then repeats independent read-only verification before production_verified."
+        "found_by": "Security & Cost Control Team",
+        "fixed_by": "Security & Cost Control Team (canonical-state reconciliation only)",
+        "canonical_owner": "COSHUMA 수익·전환·제품경험 통합팀",
+        "changed_scope": "Campaign advertising ledger only; no checkout, Worker, payment, capture, refund, advertiser data, public renderer code, credential, account, service, measurement definition or spend changed.",
+        "verification": "PR #1103 merged after Build Check success. The deployed gh-pages sponsored-inventory.js blob matches main and enables only the image path while legacy text remains disabled. The client requires exact F1-F3 routes and slots, live environment, verified payment, approval/publication, valid dates, a UUID campaign and exact same-Worker-origin assets. Security did not independently repeat direct Worker or live-route checks, so production_verified is not claimed.",
+        "handoff": "COSHUMA 통합 운영·감시·배포검증팀 performs independent read-only Worker, Pages ancestry and live-route verification and routes an eligible Release Verification candidate. Keep real advertiser payment, publication, refund/dispute, commission and revenue unknown until direct evidence exists."
       },
       "pages_ancestry": {
-        "deployed_source_commit": "b484beb8f7b32905165388e89ea254ec3be48a12",
-        "gh_pages_commit": "918ba53f3a3b17051d826a3079175b4c6b6f38c3",
-        "site_deploy_run": 38135888613,
-        "pages_run": 38135994617,
-        "sponsored_inventory_blob_sha": "b17d0c55e00375aa33bcb22912b59b8390c14569",
+        "deployed_source_commit": "02b003b81cef50a005a4b22c08b82b85cdc83865",
+        "gh_pages_commit": "5a5c5544ee617f874f0b8277ff0ced3cdfac7232",
+        "site_deploy_run": 38142542936,
+        "pages_run": 38142701059,
+        "sponsored_inventory_blob_sha": "5c8ac5ccf8f8a46897cfd57143110a2f44a20865",
         "live_asset_matches_current_main": true
       },
       "release_verification": {
         "run": 38137770957,
         "workflow_result": "success",
-        "candidate_result": "verification_failed_no_eligible_candidate",
+        "candidate_result": "prior_no_eligible_candidate_superseded_reverification_pending_after_pr_1103",
         "eligible_candidates": 0
-      }
+      },
+      "public_paid_image_renderer_source_enabled": true,
+      "deployed_public_paid_image_renderer_enabled": true,
+      "public_legacy_text_renderer_source_enabled": false,
+      "deployed_public_legacy_text_renderer_enabled": false,
+      "active_worker_owner_readback_intake_ready": true,
+      "active_worker_owner_readback_payment_ready": true,
+      "active_worker_owner_readback_paid_campaigns": 0
     }
   },
   "public_content_language": {
