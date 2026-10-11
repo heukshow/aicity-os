@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T09:32:21.991Z",
+  "generatedAt": "2026-10-11T10:26:24.671Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -1662,7 +1662,7 @@
         "name": "beehiiv",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "application_available_account_required",
+        "affiliateStatus": "browser_required_legal_program_consent",
         "affiliateVerified": true,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -1673,7 +1673,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "affiliate_status_application_available_account_required"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "benchmark-email",
@@ -3918,10 +3918,10 @@
     {
       "id": "beehiiv",
       "name": "beehiiv",
-      "status": "application_available_account_required",
+      "status": "browser_required_legal_program_consent",
       "verified": true,
       "url": null,
-      "verifiedAt": "2026-09-14T00:00:00+09:00"
+      "verifiedAt": "2026-10-11T19:14:07+09:00"
     },
     {
       "id": "bidx",
