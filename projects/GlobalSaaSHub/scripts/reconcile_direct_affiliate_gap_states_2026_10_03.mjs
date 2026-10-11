@@ -84,11 +84,17 @@ const states = {
     ],
   },
   'hide-me': {
-    stale: [null, 'unclassified', 'application_available'],
-    status: 'browser_required_application_form',
+    stale: [null, 'unclassified', 'application_available', 'browser_required_application_form'],
+    status: 'waiting_vendor_response',
     source: 'https://hide.me/en/affiliates',
-    workflow: 'https://hide.me/en/affiliates',
-    next: 'Use the current official hide.me enrollment route and reconcile it with the prior COSHUMA inquiry before creating any new partner identity.',
+    workflow: 'https://affiliates.hide.me/affiliates/signup.php',
+    next: 'Wait for the official affiliate team response to Gmail follow-up 1a12a460802a7bfc. Do not send duplicate outreach or create a second partner identity. If the vendor directs COSHUMA to the public Post Affiliate Pro form, submit once through the supported route and preserve only the issued customer-facing referral URL.',
+    evidence: [
+      'The current official hide.me affiliate page is live and routes prospective partners to a Post Affiliate Pro signup.',
+      'COSHUMA sent the original enrollment inquiry from the personal mailbox on 2026-09-07 in Gmail 1a07b04c92ac440b.',
+      'After confirming no supplier reply or issued referral URL, COSHUMA sent one follow-up to the official affiliate contact listed by hide.me on 2026-10-11 in Gmail 1a12a460802a7bfc.',
+      'No approval, customer-facing tracking URL, click, signup, paid customer, commission, payout, or revenue is inferred from outreach.',
+    ],
   },
   'snov-io': {
     stale: [null, 'unclassified', 'application_available'],
