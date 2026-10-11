@@ -3277,16 +3277,18 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://hide.me/",
-    "affiliate_status": "browser_required_application_form",
-    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_status": "waiting_vendor_response",
+    "affiliate_status_checked_at": "2026-10-11T18:23:42+09:00",
     "affiliate_status_evidence_url": "https://hide.me/en/affiliates",
     "affiliate_verified": false,
     "affiliate_source_url": "https://hide.me/en/affiliates",
-    "affiliate_workflow_url": "https://hide.me/en/affiliates",
-    "affiliate_next_action": "Use hide.me's current official Post Affiliate Pro enrollment route and reconcile it with the prior COSHUMA inquiry. Do not create a second partner identity if an existing enrollment is found.",
+    "affiliate_workflow_url": "https://affiliates.hide.me/affiliates/signup.php",
+    "affiliate_next_action": "Wait for the official affiliate team response to Gmail follow-up 1a12a460802a7bfc. Do not send duplicate outreach or create a second partner identity. If the vendor directs COSHUMA to the public Post Affiliate Pro form, submit once through the supported route and preserve only the issued customer-facing referral URL.",
     "affiliate_evidence_markers": [
-      "hide.me's current official affiliate page is live, advertises commissions from 30%, lifetime revenue share and an affiliate dashboard.",
-      "COSHUMA previously sent an affiliate application inquiry from the personal mailbox on 2026-09-07; exact account/link status remains unverified."
+      "The current official hide.me affiliate page is live and routes prospective partners to a Post Affiliate Pro signup.",
+      "COSHUMA sent the original enrollment inquiry from the personal mailbox on 2026-09-07 in Gmail 1a07b04c92ac440b.",
+      "After confirming no supplier reply or issued referral URL, COSHUMA sent one follow-up to the official affiliate contact listed by hide.me on 2026-10-11 in Gmail 1a12a460802a7bfc.",
+      "No approval, customer-facing tracking URL, click, signup, paid customer, commission, payout, or revenue is inferred from outreach."
     ]
   },
   {
