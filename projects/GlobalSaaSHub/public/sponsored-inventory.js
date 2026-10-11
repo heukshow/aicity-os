@@ -1,6 +1,6 @@
 (() => {
   const API = 'https://globalsaashub-payments.qmfforfhem.workers.dev/v1/sponsored/placements';
-  const CONFIG = Object.freeze({ enabled: false });
+  const CONFIG = Object.freeze({ enabled: false, imageEnabled: true });
   // These are the only pages opened for sponsored inventory. Never use wildcard placements.
   const ALLOWED_SLOTS = {
     '/tool/pipedrive.html': 'tool-primary',
@@ -28,6 +28,9 @@
   }
 
   function validCreative(creative) {
+    // The legacy text-ad switch stays closed. Only the approved image-ad flow can render.
+    const imageMode = creative.creativeMode === 'image';
+    if (imageMode ? !CONFIG.imageEnabled : !CONFIG.enabled || creative.creativeMode !== undefined) return null;
     if (creative.environment !== 'live' || creative.paymentVerified !== true ||
         creative.approved !== true || creative.status !== 'published') return null;
     for (const key of ['campaignId', 'title', 'body', 'button', 'url']) {
@@ -44,13 +47,21 @@
     } catch (error) {
       return null;
     }
+    let media = null;
+    if (imageMode) {
+      // No arbitrary image hosts or signed URL query parameters are accepted.
+      if (!/^[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/.test(creative.campaignId)) return null;
+      const base = 'https://globalsaashub-payments.qmfforfhem.workers.dev/v1/ads/assets/' + creative.campaignId + '/';
+      if (creative.imageUrl !== base + creative.slot || creative.logoUrl !== base + 'logo') return null;
+      media = { imageUrl: creative.imageUrl, logoUrl: creative.logoUrl };
+    }
     // Only public creative fields are retained. Payment and applicant records never enter the DOM or analytics.
     return { campaignId: creative.campaignId, title: creative.title, body: creative.body,
-      button: creative.button, url: creative.url, start, end };
+      button: creative.button, url: creative.url, start, end, ...(media || {}) };
   }
 
   function emit(eventName, creative, slot) {
-    if (typeof window.gtag !== 'function') return;
+    if (typeof window.gtag !== 'function' || new URL(window.location.href).searchParams.get('coshuma_qa') === '1') return;
     window.gtag('event', eventName, {
       sponsor_campaign_id: creative.campaignId || 'unspecified',
       sponsored_slot: slot || 'unspecified',
@@ -66,7 +77,7 @@
   function init() {
     const slots = Array.from(document.querySelectorAll('[data-sponsored-slot]'));
     slots.forEach((slotEl) => { slotEl.hidden = true; });
-    if (!CONFIG.enabled) return;
+    if (!CONFIG.enabled && !CONFIG.imageEnabled) return;
     const path = window.location.pathname;
     const slot = ALLOWED_SLOTS[path];
     const matchingSlots = slots.filter((slotEl) => slotEl.dataset.sponsoredSlot === slot);
@@ -87,6 +98,9 @@
     let observer = null;
     let observationGeneration = 0;
     let inView = false;
+    let media = null;
+    let mainImage = null;
+    let logoImage = null;
 
     function stopMeasurement() {
       observationGeneration += 1;
@@ -99,7 +113,9 @@
 
     function measurable() {
       return active && !slotEl.hidden && inView && document.visibilityState === 'visible' &&
-        window.location.pathname === path && Date.now() >= active.start && Date.now() < active.end;
+        window.location.pathname === path && Date.now() >= active.start && Date.now() < active.end &&
+        (!active.imageUrl || (mainImage?.complete && mainImage.naturalWidth > 0 &&
+          logoImage?.complete && logoImage.naturalWidth > 0));
     }
 
     function observeImpression() {
@@ -137,6 +153,9 @@
       expiryTimer = null;
       button.removeAttribute('href');
       delete button.dataset.sponsorCampaignId;
+      if (media) media.hidden = true;
+      if (mainImage) mainImage.removeAttribute('src');
+      if (logoImage) logoImage.removeAttribute('src');
     }
 
     function cancel() {
@@ -153,6 +172,50 @@
       expiryTimer = window.setTimeout(scheduleExpiry, Math.min(active.end - Date.now(), REFRESH_MS));
     }
 
+    function prepareImageMedia() {
+      if (media) return true;
+      if (typeof document.createElement !== 'function' || typeof slotEl.insertBefore !== 'function') return false;
+      media = document.createElement('div');
+      media.setAttribute('data-sponsored-image-media', '');
+      media.style.display = 'grid';
+      media.style.gap = '12px';
+      media.style.maxWidth = '100%';
+      logoImage = document.createElement('img');
+      logoImage.alt = 'Advertiser logo';
+      logoImage.width = 160;
+      logoImage.height = 48;
+      logoImage.style.maxWidth = '100%';
+      logoImage.style.maxHeight = '48px';
+      logoImage.style.objectFit = 'contain';
+      logoImage.style.objectPosition = 'left center';
+      mainImage = document.createElement('img');
+      mainImage.alt = 'Advertiser-provided sponsored image';
+      const dimensions = { 'tool-primary': [600, 600], 'buyer-intent-top': [1200, 675],
+        'compare-decision-premium': [1200, 400] }[slot];
+      mainImage.width = dimensions[0];
+      mainImage.height = dimensions[1];
+      mainImage.style.width = '100%';
+      mainImage.style.height = 'auto';
+      mainImage.style.objectFit = 'contain';
+      mainImage.style.borderRadius = '12px';
+      for (const element of [logoImage, mainImage]) {
+        element.referrerPolicy = 'no-referrer';
+        element.decoding = 'async';
+        element.addEventListener('error', () => {
+          if (active && (active.logoUrl === logoImage.src || active.imageUrl === mainImage.src)) hide();
+        });
+        element.addEventListener('load', () => {
+          if (active?.imageUrl === mainImage.src && active.logoUrl === logoImage.src && !slotEl.hidden) {
+            stopMeasurement();
+            observeImpression();
+          }
+        });
+        media.appendChild(element);
+      }
+      slotEl.insertBefore(media, title);
+      return true;
+    }
+
     function render(creative) {
       const sameCampaign = active?.campaignId === creative.campaignId && !slotEl.hidden;
       if (!sameCampaign) stopMeasurement();
@@ -165,6 +228,19 @@
       button.setAttribute('rel', 'sponsored noopener noreferrer');
       button.setAttribute('target', '_blank');
       button.dataset.sponsorCampaignId = creative.campaignId;
+      if (creative.imageUrl) {
+        if (!prepareImageMedia()) { hide(); return; }
+        if (!sameCampaign || mainImage.src !== creative.imageUrl || logoImage.src !== creative.logoUrl) {
+          media.hidden = true;
+          logoImage.src = creative.logoUrl;
+          mainImage.src = creative.imageUrl;
+        }
+        media.hidden = false;
+      } else if (media) {
+        media.hidden = true;
+        mainImage.removeAttribute('src');
+        logoImage.removeAttribute('src');
+      }
       slotEl.hidden = false;
       scheduleExpiry();
       if (active && !sameCampaign) observeImpression();
