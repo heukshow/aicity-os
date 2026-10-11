@@ -399,44 +399,44 @@
       "pricing_source_url": "https://rytr.me/pricing"
     },
     "sanebox": {
-      "checked_at": "2026-10-02T23:46:08Z",
+      "checked_at": "2026-10-11T07:17:07Z",
       "status": "no_official_pricing_result"
     },
     "scalenut": {
-      "checked_at": "2026-10-02T23:46:08Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-11T07:17:07Z",
+      "status": "no_official_pricing_result"
     },
     "seamless": {
-      "checked_at": "2026-10-02T23:46:08Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-11T07:17:07Z",
+      "status": "extract_ok"
     },
     "semrush": {
-      "checked_at": "2026-10-02T23:46:08Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-11T07:17:07Z",
+      "status": "evidence_validation_failed"
     },
     "sendcloud": {
-      "checked_at": "2026-10-02T23:46:08Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-11T07:17:07Z",
+      "status": "error_HTTPError"
     },
     "shopify": {
-      "checked_at": "2026-10-02T23:46:08Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-11T07:17:07Z",
+      "status": "evidence_validation_failed"
     },
     "snov-io": {
-      "checked_at": "2026-10-02T23:46:08Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-11T07:17:07Z",
+      "status": "evidence_validation_failed"
     },
     "speechify": {
-      "checked_at": "2026-10-02T23:46:08Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-11T07:17:07Z",
+      "status": "error_HTTPError"
     },
     "sudowrite": {
-      "checked_at": "2026-10-02T23:46:08Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-11T07:17:07Z",
+      "status": "evidence_validation_failed"
     },
     "supademo": {
-      "checked_at": "2026-10-02T23:46:08Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-11T07:17:07Z",
+      "status": "evidence_validation_failed"
     },
     "surfeo": {
       "checked_at": "2026-10-02T23:46:08Z",
@@ -535,10 +535,7 @@
       "status": "extract_retry_exhausted"
     }
   },
-  "last_run_at": "2026-10-10T07:14:44Z",
+  "last_run_at": "2026-10-11T07:17:07Z",
   "last_batch_size": 10,
-  "last_updated_tools": [
-    "reply-io",
-    "rytr"
-  ]
+  "last_updated_tools": []
 }
