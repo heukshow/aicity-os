@@ -670,7 +670,6 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "A newsletter platform for creators and publishers with website hosting, unlimited email sends, audience growth tools, monetization features and paid subscriptions.",
-    "affiliate_url": "https://www.beehiiv.com/?via=sangkwon-an",
     "pricing": "Launch $0/month for up to 2,500 subscribers; paid plans vary by subscriber tier and billing cadence",
     "key_features": [
       "Newsletter publishing and website hosting",
@@ -693,6 +692,7 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-09-14T00:00:00+09:00",
     "official_evidence_url": "https://www.beehiiv.com/pricing",
+    "affiliate_url": "https://www.beehiiv.com/?via=sangkwon-an",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
     "affiliate_source_url": "https://www.beehiiv.com/partners",
