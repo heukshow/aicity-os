@@ -292,13 +292,14 @@
       "The vendor states 10% commission on Agent Teams plans and 30% on other eligible paid products.",
       "The vendor terms state a $10 minimum payout, NET-15, via PayPal.",
       "No existing COSHUMA AI Agent Store/Tolt affiliate account, submitted enrollment, approval, or vendor-issued exact customer referral URL is evidenced.",
-      "The historical aiagentstore.com/affiliate SSL error is obsolete and must not overwrite the current .ai program path."
+      "The historical aiagentstore.com/affiliate SSL error is obsolete and must not overwrite the current .ai program path.",
+      "AI Agent Store's current Terms of Service contain Affiliate Program Terms covering payout threshold, payout timing, payout method and participation risk; enrollment therefore requires legal-program consent before submission."
     ],
     "affiliate_verified_at": null,
-    "affiliate_status": "application_available_account_required",
-    "affiliate_status_checked_at": "2026-10-07T22:23:38+09:00",
+    "affiliate_status": "browser_required_legal_program_consent",
+    "affiliate_status_checked_at": "2026-10-11T17:23:01+09:00",
     "application_state": "not_submitted",
-    "affiliate_next_action": "Confirm an existing COSHUMA-owned AI Agent Store/Tolt affiliate account before enrollment. If none is evidenced, keep enrollment on hold and do not create a new vendor account. After vendor approval, recover and validate only the vendor-issued customer-facing referral URL."
+    "affiliate_next_action": "Review and accept AI Agent Store's current Affiliate Program Terms through the official Tolt enrollment flow before submission. After valid enrollment and approval, recover and verify only the vendor-issued customer-facing referral URL. Stop for CAPTCHA, OTP, payment approval or forced identity verification."
   },
   {
     "id": "ai-video-cut",
