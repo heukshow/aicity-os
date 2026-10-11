@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-11T13:50:58Z",
+  "updated_at": "2026-10-11T14:40:17Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -1334,7 +1334,7 @@
     },
     "remaining_gates": [
       "Read the active production Worker config directly and verify paymentReady plus the absence of unintended private fields; the current live UI is only an indirect signal.",
-      "Resolve the current-main and deployed paid renderer CONFIG.enabled=false state through the Revenue Optimization owner while preserving the approved exact-route and paid/approved/date-valid fail-closed gates.",
+      "Preserve the current-main and deployed paid image renderer enabled state plus legacy text fail-closed state; do not reopen renderer implementation work unless new direct source or live evidence shows a regression.",
       "Route this current record into an eligible release-verification spec, then repeat independent read-only Worker, Pages ancestry and live-route verification.",
       "Preserve real advertiser payment, material approval, inventory, publication, end-date, refund and dispute evidence as separate gates; do not create a real QA payment."
     ],
