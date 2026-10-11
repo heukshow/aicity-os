@@ -3735,14 +3735,24 @@
     "currency": null,
     "billing_period": null,
     "evidence_source_type": null,
-    "is_manual_override": false,
+    "is_manual_override": true,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://kit.com/affiliate",
     "affiliate_url": null,
-    "affiliate_verified": false,
-    "affiliate_status": "application_page_unavailable",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_verified": true,
+    "affiliate_status": "rejected",
+    "affiliate_verified_at": "2026-08-24T14:39:35Z",
+    "affiliate_status_checked_at": "2026-10-11T20:27:00+09:00",
+    "affiliate_source_url": "https://kit.com/affiliate",
+    "application_state": "rejected",
+    "affiliate_evidence_markers": [
+      "PartnerStack receipt emails 1a033dd7487c74e9 and 1a034354017747c2 confirm that COSHUMA submitted the Kit (formerly ConvertKit) affiliate application on 2026-08-24.",
+      "Kit decision emails 1a033e0604cdac6e and 1a034367d5620b6f state that Kit reviewed the application and decided not to move forward at that time.",
+      "Kit's official affiliate page was live on 2026-10-11 and linked to its PartnerStack application, but current public availability does not supersede COSHUMA's vendor-issued rejection.",
+      "No Kit customer-facing tracking URL, referral, paid customer, commission, payout or revenue is verified."
+    ],
+    "affiliate_next_action": "Preserve the vendor-issued rejection and do not reapply unless Kit provides new direct eligibility or invitation evidence. Continue using only official non-affiliate customer URLs; do not infer a tracking URL or revenue."
   },
   {
     "id": "kittl",

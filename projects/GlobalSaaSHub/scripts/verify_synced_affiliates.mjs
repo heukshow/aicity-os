@@ -28,6 +28,7 @@ export function verifySyncedAffiliates(tools) {
     ['gravity-forms', approvedTracking.has('gravity-forms') ? 'approved_tracking' : 'approved'],
     ['sendcloud', 'approved_tracking'],
     ['apollo', 'rejected'],
+    ['kit', 'rejected'],
     ['ai-video-cut', 'application_submitted'],
     ['fillout', 'approved_tracking'],
     ['beefree', 'approved_tracking'],
