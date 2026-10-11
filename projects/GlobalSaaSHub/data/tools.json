@@ -694,16 +694,16 @@
     "official_verified_at": "2026-09-14T00:00:00+09:00",
     "official_evidence_url": "https://www.beehiiv.com/pricing",
     "affiliate_verified": true,
-    "affiliate_status": "application_available_account_required",
+    "affiliate_status": "browser_required_legal_program_consent",
     "affiliate_source_url": "https://www.beehiiv.com/partners",
-    "affiliate_verified_at": "2026-09-14T00:00:00+09:00",
+    "affiliate_verified_at": "2026-10-11T19:14:07+09:00",
     "affiliate_evidence_markers": [
-      "Official beehiiv partner page states partners can earn up to 60% commission every month for each paying customer for one year",
-      "Official partner page says applicants create a beehiiv account to unlock the partner dashboard and custom tracking link",
-      "COSHUMA support@coshuma.com Gmail in:anywhere search returned no beehiiv messages before this registration cycle",
-      "No COSHUMA-specific beehiiv customer tracking URL is verified yet; official non-affiliate customer URLs must remain in use until an issued tracking URL is observed"
+      "Official beehiiv help updated 2026-05-05 says active-plan users can open Partner Dashboard and that first-time enrollment requires reviewing and accepting the Partner Program Terms",
+      "Official help says a private custom partner link appears only after joining; no COSHUMA-specific link is verified",
+      "support@coshuma.com Gmail messages 1a09ba80f91097c0 and 1a09bd155da3084f prove an existing signup/account path; do not create a duplicate account, but these messages do not prove partner enrollment",
+      "Dub Partner Network marketplace rejection message 1a0515e930b9704b does not invalidate existing direct program relationships; beehiiv enrollment, customer link, referrals and revenue remain unverified"
     ],
-    "affiliate_next_action": "Use the official beehiiv partner application/account flow once account-holder consent steps can be completed. Do not invent a tracking parameter or publish the partner application URL as a customer CTA."
+    "affiliate_next_action": "Use the existing beehiiv account to open Partner Dashboard. Hold at Partner Program Terms acceptance because no legal-consent approval is recorded. After approved acceptance and enrollment, verify the issued customer-facing link; do not create a duplicate account or infer revenue."
   },
   {
     "id": "benchmark-email",
