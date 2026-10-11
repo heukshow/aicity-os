@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T08:34:26.316Z",
+  "generatedAt": "2026-10-11T09:32:21.991Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -8,8 +8,8 @@
     "targetedRevenueReadyAffiliates": 4,
     "openMonetizationGaps": 75,
     "directActionableGaps": 0,
-    "browserRequiredGaps": 28,
-    "watchOnlyGaps": 47,
+    "browserRequiredGaps": 27,
+    "watchOnlyGaps": 48,
     "doNotReapply": 179,
     "toolPages": 180,
     "comparePages": 280,
@@ -28,8 +28,8 @@
       "terminal": 27,
       "openMonetizationGaps": 75,
       "directActionableGaps": 0,
-      "browserRequiredGaps": 28,
-      "watchOnlyGaps": 47,
+      "browserRequiredGaps": 27,
+      "watchOnlyGaps": 48,
       "doNotReapply": 179,
       "unclassifiedAffiliateStatus": 0,
       "exactAffiliateUrlMissing": 75,
@@ -2220,7 +2220,7 @@
         "name": "hide.me",
         "officialVerified": true,
         "pricingVerified": false,
-        "affiliateStatus": "browser_required_application_form",
+        "affiliateStatus": "waiting_vendor_response",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -2228,10 +2228,10 @@
         "revenueReady": false,
         "terminal": false,
         "doNotReapply": true,
-        "browserRequired": true,
+        "browserRequired": false,
         "directActionableGap": false,
-        "watchOnlyGap": false,
-        "blocker": "affiliate_status_browser_required_application_form"
+        "watchOnlyGap": true,
+        "blocker": "affiliate_status_waiting_vendor_response"
       },
       {
         "id": "instapage",
