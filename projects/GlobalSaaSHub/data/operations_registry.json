@@ -1417,7 +1417,7 @@
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": "native_schedule_fidelity_observation_only",
-      "last_evidence_at": "2026-10-11T16:03:06Z",
+      "last_evidence_at": "2026-10-11T18:06:15Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "7,22,37,52 * * * *",
@@ -1979,68 +1979,71 @@
           "additional_spend_usd": 0
         },
         "latest_security_cost_recovery": {
-          "observed_at": "2026-10-02T22:58:58Z",
-          "observation": "four_native_schedules_overdue_two_current",
+          "observed_at": "2026-10-11T18:06:15Z",
+          "observation": "three_native_schedules_overdue_and_new_sentinel_has_no_native_schedule_execution",
+          "sentinel": {
+            "workflow": "COSHUMA Native Scheduler Sentinel",
+            "current_cron": "14,44 * * * *",
+            "native_schedule_run_observed": false,
+            "latest_manual_run_id": 38153821606,
+            "latest_manual_run_at": "2026-10-11T16:02:56Z",
+            "latest_manual_conclusion": "success",
+            "boundary": "The sentinel manual success proves its logic can execute but does not prove its own native schedule. Its schedule depends on the same GitHub best-effort scheduler and cannot independently establish permanent recovery."
+          },
           "overdue_native_schedule_runs": {
             "COSHUMA Cloud Control Plane": {
-              "run_id": 37057358716,
-              "scheduled_at": "2026-10-02T19:56:00Z",
-              "recovery_status": "availability_restored_by_owner_gated_fallback"
+              "run_id": 38148969465,
+              "scheduled_at": "2026-10-11T14:52:48Z",
+              "age_minutes_at_detection": 191,
+              "max_age_minutes": 95,
+              "recovery_status": "availability_restored_by_single_target_fallback"
             },
             "COSHUMA Growth Loop": {
-              "run_id": 37048628770,
-              "scheduled_at": "2026-10-02T18:36:00Z",
-              "recovery_status": "overdue_awaiting_single_target_continuation"
-            },
-            "COSHUMA Registry Reconciliation": {
-              "run_id": 37049107816,
-              "scheduled_at": "2026-10-02T18:41:00Z",
-              "recovery_status": "overdue_awaiting_single_target_continuation"
+              "run_id": 38142667049,
+              "scheduled_at": "2026-10-11T13:18:45Z",
+              "age_minutes_at_detection": 285,
+              "max_age_minutes": 180,
+              "recovery_status": "availability_restored_by_single_target_fallback"
             },
             "Royal Queue Reconcile Status": {
-              "run_id": 37048010062,
-              "scheduled_at": "2026-10-02T18:31:00Z",
-              "recovery_status": "new_native_schedule_success_observed_after_fallback_window"
-            }
-          },
-          "current_native_schedule_runs": {
-            "COSHUMA Analytics Snapshot": {
-              "run_id": 37066028583,
-              "scheduled_at": "2026-10-02T21:18:00Z",
-              "conclusion": "success"
-            },
-            "COSHUMA Release Verification": {
-              "run_id": 37073426349,
-              "scheduled_at": "2026-10-02T22:36:00Z",
-              "conclusion": "success"
+              "run_id": 38141763116,
+              "scheduled_at": "2026-10-11T13:05:01Z",
+              "age_minutes_at_detection": 299,
+              "max_age_minutes": 180,
+              "recovery_status": "availability_restored_by_single_target_fallback"
             }
           },
           "recovery": {
-            "target": "coshuma-cloud-control-plane.yml",
-            "marker_comment_id": 5962774731,
-            "fallback_workflow_run_id": 37075200875,
-            "target_workflow_run_id": 37075206971,
-            "fallback_conclusion": "success",
-            "target_event": "workflow_dispatch",
-            "target_conclusion": "success"
+            "coshuma-cloud-control-plane.yml": {
+              "marker_comment_id": 6112036044,
+              "fallback_workflow_run_id": 38162304217,
+              "target_workflow_run_id": 38162309752,
+              "target_event": "workflow_dispatch",
+              "fallback_conclusion": "success",
+              "target_conclusion": "success"
+            },
+            "coshuma-growth-loop.yml": {
+              "marker_comment_id": 6112040658,
+              "fallback_workflow_run_id": 38162338824,
+              "target_workflow_run_id": 38162343623,
+              "target_event": "workflow_dispatch",
+              "fallback_conclusion": "success",
+              "target_conclusion": "success"
+            },
+            "royal-queue-reconcile.yml": {
+              "marker_comment_id": 6112046271,
+              "fallback_workflow_run_id": 38162379929,
+              "target_workflow_run_id": 38162385496,
+              "target_event": "workflow_dispatch",
+              "fallback_conclusion": "success",
+              "target_conclusion": "success"
+            }
           },
-          "evidence_comment_id": 5962782397,
-          "availability_status": "cloud_control_plane_restored_three_overdue_targets_isolated",
+          "availability_status": "three_overdue_targets_restored_by_verified_owner_gated_one_shot_fallback",
           "native_schedule_permanent_recovery_claimed": false,
+          "completion_gate_satisfied": false,
           "user_action_required": false,
-          "post_merge_native_observation": {
-            "observed_at": "2026-10-02T23:07:06Z",
-            "workflow": "Royal Queue Reconcile Status",
-            "run_id": 37075694809,
-            "scheduled_at": "2026-10-02T23:03:00Z",
-            "conclusion": "success",
-            "remaining_overdue_targets": [
-              "COSHUMA Cloud Control Plane",
-              "COSHUMA Growth Loop",
-              "COSHUMA Registry Reconciliation"
-            ],
-            "completion_boundary": "One fresh Royal Queue native schedule success reduces the current overdue set but does not satisfy the incident completion gate for all affected workflows."
-          }
+          "additional_spend_usd": 0
         },
         "latest_governance_observation": {
           "observed_at": "2026-10-08T23:04:09Z",
@@ -2169,8 +2172,8 @@
       "completion_gate_satisfied": false,
       "availability_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "GitHub issues #1108 and #1109 were closed by the sentinel only after fresh native event=schedule successes: Registry Reconciliation run 38153441754 and Release Verification run 38153522328. Their fallback-only runs were not counted as recovery. The broader all-workflow two-consecutive-run gate remains unsatisfied, so lifecycle stays in_progress and no permanent scheduler recovery is claimed.",
-      "handoff": "Operations Governance Team continues this same incident and counts only fresh native event=schedule successes. Verify a second timely native success for every monitored workflow before completing the gate; do not count workflow_dispatch, revive obsolete ChatGPT cadences, or change payment, measurement, account, credential, service or spend state.",
+      "verification": "At 2026-10-11T18:04:10Z, Cloud Control Plane, Growth Loop and Royal Queue native schedule runs exceeded their configured age contracts. Each existing owner-gated allowlisted fallback and its target workflow completed successfully. The Native Scheduler Sentinel still has no event=schedule run, and workflow_dispatch is not counted as native recovery. Keep lifecycle in_progress and completion_gate_satisfied=false.",
+      "handoff": "Operations Governance Team continues the same incident. Confirm fresh native event=schedule runs for the sentinel and all monitored workflows, then require two consecutive timely native successes before completing the gate. Do not count workflow_dispatch, workflow_run or push runs as native recovery.",
       "completed_at": null
     },
     {
