@@ -51,6 +51,6 @@ test('alert never confuses dispatch with native recovery', () => {
   const body = issueBody(WATCHED[0], state, run(300), 'GitHub accepted one workflow_dispatch request');
   assert.match(body, /manually dispatched/);
   assert.match(body, /Only a fresh successful native scheduled run closes/);
-  assert.match(body, /one-shot/);
+  assert.match(body, /A single workflow_dispatch/);
   assert.doesNotMatch(body, /confirmed successful revenue/);
 });
