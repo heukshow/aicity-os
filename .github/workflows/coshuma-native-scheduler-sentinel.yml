@@ -1,0 +1,38 @@
+name: COSHUMA Native Scheduler Sentinel
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '14,44 * * * *'
+
+permissions:
+  actions: write
+  issues: write
+  contents: read
+
+concurrency:
+  group: coshuma-native-scheduler-sentinel
+  cancel-in-progress: false
+
+jobs:
+  inspect-and-recover:
+    if: github.repository == 'heukshow/aicity-os' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Verify deterministic native schedule health logic
+        working-directory: projects/GlobalSaaSHub
+        run: node --test scripts/tests/watch-github-schedules.test.cjs
+      - name: Detect native schedule stalls and issue one bounded fallback per incident
+        working-directory: projects/GlobalSaaSHub
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF: ${{ github.ref }}
+        run: node scripts/watch_github_schedules.cjs
