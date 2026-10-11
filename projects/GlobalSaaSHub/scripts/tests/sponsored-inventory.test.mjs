@@ -3,7 +3,9 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 
-const source = readFileSync(new URL('../../public/sponsored-inventory.js', import.meta.url), 'utf8');
+const productionSource = readFileSync(new URL('../../public/sponsored-inventory.js', import.meta.url), 'utf8');
+// Exercise the separately closed legacy path in memory; never change the deployed legacy switch.
+const source = productionSource.replace('enabled: false', 'enabled: true').replace('imageEnabled: true', 'imageEnabled: false');
 const NOW = Date.parse('2026-10-04T12:00:00.000Z');
 const routes = {
   '/tool/pipedrive.html': 'tool-primary',
@@ -45,6 +47,12 @@ class Element extends Events {
   get href() { return this.attributes.href; }
   setAttribute(name, value) { this.attributes[name] = value; }
   removeAttribute(name) { delete this.attributes[name]; }
+  get src() { return this.attributes.src; }
+  set src(value) { this.attributes.src = value; }
+  style = {};
+  appended = [];
+  appendChild(child) { this.appended.push(child); return child; }
+  insertBefore(child) { this.appended.push(child); return child; }
   querySelector(selector) { return this.children[selector] || null; }
 }
 
@@ -55,12 +63,13 @@ function slotElement(slot) {
   return element;
 }
 
-function browser({ path = '/tool/pipedrive.html', slots = [routes[path] || 'tool-primary'], payload = available(creative()), visibility = 'visible', readyState = 'complete', intersection = 1, observerSupported = true } = {}) {
+function browser({ path = '/tool/pipedrive.html', slots = [routes[path] || 'tool-primary'], payload = available(creative()), visibility = 'visible', readyState = 'complete', intersection = 1, observerSupported = true, productionImage = false } = {}) {
   const elements = slots.map(slotElement);
   const document = new Events();
   document.readyState = readyState;
   document.visibilityState = visibility;
   document.querySelectorAll = () => elements;
+  document.createElement = (tag) => { const el = new Element(); el.tagName = tag; if (tag === 'img') { el.complete = true; el.naturalWidth = 600; } return el; };
   const window = new Events();
   window.location = new URL(`https://coshuma.com${path}?utm_source=fixture`);
   const requests = [];
@@ -95,7 +104,7 @@ function browser({ path = '/tool/pipedrive.html', slots = [routes[path] || 'tool
     if (typeof next === 'function') return next(options);
     return { ok: true, json: async () => next };
   };
-  vm.runInNewContext(source, { window, document, URL, Date: Clock, AbortController }, { filename: 'sponsored-inventory.js' });
+  vm.runInNewContext(productionImage ? productionSource : source, { window, document, URL, Date: Clock, AbortController }, { filename: 'sponsored-inventory.js' });
   return {
     elements, document, window, requests, events, observers,
     intersection(ratio) {
@@ -391,5 +400,81 @@ test('same-campaign refresh preserves viewing time while revocation, expiry and 
       await app.advance(1);
       assert.equal(app.events.filter((event) => event[1] === 'sponsored_impression').length, 1);
     }
+  }
+});
+
+
+const IMAGE_ID = '12345678-1234-4123-8123-123456789abc';
+const IMAGE_BASE = 'https://globalsaashub-payments.qmfforfhem.workers.dev/v1/ads/assets/';
+const imageCreative = (overrides = {}) => creative({
+  campaignId: IMAGE_ID, creativeMode: 'image',
+  imageUrl: IMAGE_BASE + IMAGE_ID + '/tool-primary',
+  logoUrl: IMAGE_BASE + IMAGE_ID + '/logo', ...overrides,
+});
+
+test('production opens only exact live, verified, approved image ads and renders both PNG assets', async () => {
+  const app = browser({ productionImage: true, payload: available(imageCreative()) });
+  await flush();
+  assert.equal(app.requests.length, 1);
+  assert.equal(app.elements[0].hidden, false);
+  const media = app.elements[0].appended[0];
+  assert.equal(media.attributes['data-sponsored-image-media'], '');
+  assert.equal(media.appended.length, 2);
+  assert.equal(media.appended[0].src, IMAGE_BASE + IMAGE_ID + '/logo');
+  assert.equal(media.appended[1].src, IMAGE_BASE + IMAGE_ID + '/tool-primary');
+  assert.equal(media.appended[1].referrerPolicy, 'no-referrer');
+  assert.equal(app.field('label').textContent, 'Sponsored');
+  assert.equal(app.events.length, 0);
+  await app.advance(1000);
+  assert.equal(app.events[0][1], 'sponsored_impression');
+  assert.equal(app.events[0][2].sponsor_campaign_id, IMAGE_ID);
+  assert.doesNotMatch(JSON.stringify(app.events), /accessToken|payerEmail|paymentReference/);
+});
+
+test('production keeps legacy text ads and forged/unpaid image records hidden', async () => {
+  const invalid = [
+    creative(),
+    imageCreative({ paymentVerified: false }),
+    imageCreative({ approved: false }),
+    imageCreative({ status: 'review' }),
+    imageCreative({ environment: 'sandbox' }),
+    imageCreative({ campaignId: 'not-a-uuid' }),
+    imageCreative({ imageUrl: 'https://evil.example/banner.png' }),
+    imageCreative({ logoUrl: IMAGE_BASE + IMAGE_ID + '/tool-primary' }),
+    imageCreative({ imageUrl: IMAGE_BASE + IMAGE_ID + '/tool-primary?secret=x' }),
+    imageCreative({ imageUrl: IMAGE_BASE + IMAGE_ID + '/buyer-intent-top' }),
+  ];
+  for (const item of invalid) {
+    const app = browser({ productionImage: true, payload: available(item) });
+    await flush();
+    assert.equal(app.elements[0].hidden, true, JSON.stringify(item).slice(0, 140));
+    assert.equal(app.events.length, 0);
+  }
+});
+
+test('production image ads disappear on cancellation/refund and expiry without reactivation', async () => {
+  const app = browser({ productionImage: true, payload: available(imageCreative()) });
+  await flush();
+  assert.equal(app.elements[0].hidden, false);
+  app.queue(available(imageCreative({ paymentVerified: false })));
+  await app.advance(60000);
+  assert.equal(app.elements[0].hidden, true);
+  assert.equal(app.elements[0].appended[0].appended[1].src, undefined);
+  assert.equal(app.click().defaultPrevented, true);
+  app.queue(available(imageCreative({ endAt: iso(1500) })));
+  await app.advance(60000);
+  assert.equal(app.elements[0].hidden, true);
+});
+
+test('every permitted F1-F3 route renders its exact server-controlled image role', async () => {
+  for (const [path, slot] of Object.entries(routes)) {
+    const app = browser({ path, slots: [slot], productionImage: true, payload: available(imageCreative({
+      targetPage: path, slot, imageUrl: IMAGE_BASE + IMAGE_ID + '/' + slot,
+    })) });
+    await flush();
+    assert.equal(app.elements[0].hidden, false, path);
+    assert.equal(app.elements[0].appended[0].appended[1].src, IMAGE_BASE + IMAGE_ID + '/' + slot);
+    await app.advance(1000);
+    assert.equal(app.events[0][2].sponsored_slot, slot);
   }
 });
