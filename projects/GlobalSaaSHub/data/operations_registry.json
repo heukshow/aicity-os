@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-11T18:06:15Z",
+  "updated_at": "2026-10-11T20:38:09Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1409,15 +1409,15 @@
       "owner_team": "Operations Governance Team",
       "canonical_owner": "Operations Governance Team",
       "found_by": "COSHUMA Team Watchdog",
-      "fixed_by": "Operations Governance Team; Security & Cost Control Team (latest evidence reconciliation)",
-      "changed_scope": "Reconciled the existing scheduler incident with two fresh native event=schedule successes confirmed by the repository sentinel for Registry Reconciliation and Release Verification. No cron, workflow logic, public UI, measurement definition, affiliate state, advertising/payment configuration, credential, service, account or spend was changed.",
+      "fixed_by": "Operations Governance Team; Security & Cost Control Team (native scheduler evidence reconciliation)",
+      "changed_scope": "Reconciled the existing scheduler incident with the first real native schedule success for the Native Scheduler Sentinel and the bounded Analytics Snapshot incident's fresh native schedule recovery. No cron, workflow logic, public UI, measurement definition, affiliate state, advertising/payment configuration, credential, service, account or spend was changed.",
       "lifecycle": "in_progress",
       "operational_status": "mitigated",
       "root_cause": "github_schedule_best_effort",
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": "native_schedule_fidelity_observation_only",
-      "last_evidence_at": "2026-10-11T18:06:15Z",
+      "last_evidence_at": "2026-10-11T20:38:09Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "7,22,37,52 * * * *",
@@ -2166,14 +2166,55 @@
           "completion_boundary": "These fresh native successes close their bounded sentinel incidents but do not prove two consecutive timely native successes for every monitored workflow. Keep the canonical incident in_progress and continue native-only observation.",
           "user_action_required": false,
           "additional_spend_usd": 0
+        },
+        "native_scheduler_sentinel_recovery_20261012_current": {
+          "observed_at": "2026-10-11T20:38:09Z",
+          "sentinel_native_schedule": {
+            "run_id": 38171231135,
+            "event": "schedule",
+            "scheduled_at": "2026-10-11T20:12:34Z",
+            "conclusion": "success",
+            "source_commit": "08739e07ebe63ba83f12038ad39dbeb917bc5f0f"
+          },
+          "bounded_incident_recovery": {
+            "workflow": "COSHUMA Analytics Snapshot",
+            "incident_issue": 1113,
+            "incident_opened_at": "2026-10-11T20:12:41Z",
+            "automatic_dispatch_run_id": 38171240785,
+            "automatic_dispatch_conclusion": "cancelled",
+            "native_schedule_run_id": 38171270750,
+            "native_schedule_started_at": "2026-10-11T20:13:10Z",
+            "native_schedule_conclusion": "success",
+            "reconciliation_status": "fresh_native_success_confirmed_issue_close_pending"
+          },
+          "additional_fresh_native_schedule_runs": {
+            "COSHUMA Registry Reconciliation": {
+              "run_id": 38172754144,
+              "event": "schedule",
+              "scheduled_at": "2026-10-11T20:34:06Z",
+              "conclusion": "success"
+            },
+            "COSHUMA Release Verification": {
+              "run_id": 38173004049,
+              "event": "schedule",
+              "scheduled_at": "2026-10-11T20:37:41Z",
+              "conclusion": "success"
+            }
+          },
+          "availability_status": "sentinel_native_execution_confirmed_and_analytics_bounded_incident_recovered_by_native_schedule",
+          "permanent_native_recovery_claimed": false,
+          "completion_gate_satisfied": false,
+          "completion_boundary": "These fresh native schedule successes close the bounded Analytics Snapshot sentinel incident and prove the sentinel itself can run natively. They do not establish two consecutive timely native successes for every monitored workflow; keep the canonical incident in_progress.",
+          "user_action_required": false,
+          "additional_spend_usd": 0
         }
       },
       "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
       "completion_gate_satisfied": false,
       "availability_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "At 2026-10-11T18:04:10Z, Cloud Control Plane, Growth Loop and Royal Queue native schedule runs exceeded their configured age contracts. Each existing owner-gated allowlisted fallback and its target workflow completed successfully. The Native Scheduler Sentinel still has no event=schedule run, and workflow_dispatch is not counted as native recovery. Keep lifecycle in_progress and completion_gate_satisfied=false.",
-      "handoff": "Operations Governance Team continues the same incident. Confirm fresh native event=schedule runs for the sentinel and all monitored workflows, then require two consecutive timely native successes before completing the gate. Do not count workflow_dispatch, workflow_run or push runs as native recovery.",
+      "verification": "Native Scheduler Sentinel run 38171231135 completed successfully with event=schedule. It opened bounded Analytics issue #1113 for an overdue prior run; Analytics then completed fresh native schedule run 38171270750 successfully. Registry Reconciliation 38172754144 and Release Verification 38173004049 also completed with event=schedule. The all-workflow two-consecutive-native-success gate remains false.",
+      "handoff": "Operations Governance Team closes bounded issue #1113 against native run 38171270750 and continues the canonical incident. Require two consecutive timely event=schedule successes for every monitored workflow; do not count workflow_dispatch, workflow_run or push.",
       "completed_at": null
     },
     {
