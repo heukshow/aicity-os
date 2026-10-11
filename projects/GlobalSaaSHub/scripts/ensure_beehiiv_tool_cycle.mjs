@@ -45,9 +45,9 @@ const beehiiv = {
     'The same dashboard displayed the customer offer as a 14-day trial plus 20% off for 3 months and the current Launch partner tier as 50% commission for 12 months.',
     'Current official partner terms state a 60-day tracking cookie, monthly commission calculation, payment around the 15th after a 30-day provisioning window, and that the portal tier controls the actual commission rate.',
     'At verification the vendor dashboard showed Visitors 0, Leads 0, Conversions 0, Paid Commissions $0.00, Pending $0.00 and Due $0.00; these are vendor-confirmed zeros for that dashboard snapshot only.',
-    'Dub payout onboarding and bank details were not submitted. No signup, paid customer, commission, payout or cash receipt is inferred.'
+    'At 2026-10-12 08:03 KST, Dub rejected a payout-method connection because that method was already associated with another Dub partner account. No payout method was successfully attached; masked financial identifiers are intentionally withheld. No signup, paid customer, commission, payout or cash receipt is inferred.'
   ],
-  affiliate_next_action: 'Revenue Optimization continuation: keep the exact issued URL, sponsored disclosure and rel=sponsored on customer CTAs; validate live destination without self-referral and keep QA traffic separate. Affiliate Partnerships must not re-enroll. Complete Dub payout onboarding only through a separately authorized legal/bank-information workflow.'
+  affiliate_next_action: 'Revenue Optimization continuation: keep the exact issued URL, sponsored disclosure and rel=sponsored on customer CTAs; validate live destination without self-referral and keep QA traffic separate. Affiliate Partnerships must not re-enroll. Before any payout setup, consolidate the existing Dub partner identity through Dub\'s official account-merge or support workflow; do not create another account or attach another payout method.'
 };
 
 for (const rel of ['data/tools.json', 'data/tools.next.json']) {
