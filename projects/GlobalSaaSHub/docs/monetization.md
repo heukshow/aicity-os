@@ -54,7 +54,7 @@ The verified webhook handler also continues updating historical fixed-price orde
 
 ## Activation gate
 
-`CHECKOUT_ENABLED` remains `false` in the committed Worker configuration. Enabling it is a separate production decision after the existing merchant/app, expected merchant ID, webhook registration, secrets, additive migration, owner authentication and operational refund/contact process are checked. Secrets must never use a `VITE_` variable.
+`CHECKOUT_ENABLED` is `true` in the committed Worker configuration under the approved go-live source change. This source state does not prove that the currently deployed Worker matches `main`, that `intakeReady` or `paymentReady` is true in production, or that any customer payment or sponsored placement exists. Production remains verification-requested until the deployed ancestry, merchant/app, expected merchant ID, webhook registration, secrets, additive migration, owner authentication and operational refund/contact process are checked. To pause new payment creation and capture, set `CHECKOUT_ENABLED` back to `false` and redeploy the Worker. Secrets must never use a `VITE_` variable.
 
 The protected readiness probe authenticates with the existing PayPal app and reads the registered webhook URL and required event subscriptions. It does not create an app, order, capture, charge or refund. A successful OAuth/webhook read does not independently prove merchant identity or a completed customer payment. Local mock tests, migration rehearsals and a bundle dry run likewise do not establish live readiness. Record live configuration verification separately from the first real advertiser payment and its verified publication.
 
