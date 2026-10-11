@@ -1076,15 +1076,15 @@
       "note": "Snov.io's current official affiliate program is live, open to applicants and advertises 40% lifetime commission on premium-plan purchases. COSHUMA previously sent an application request on 2026-09-07; no approval or exact personal affiliate link has been received."
     },
     "ai-agent-store": {
-      "status": "application_available_account_required",
+      "status": "browser_required_legal_program_consent",
       "tracking_url": null,
       "application_state": "not_submitted",
       "official_program_url": "https://aiagentstore.ai/affiliate-program",
       "workflow_url": "https://aiagentstore.tolt.io/",
-      "checked_at": "2026-10-07T22:23:38+09:00",
+      "checked_at": "2026-10-11T17:23:01+09:00",
       "commission_terms": "Vendor states 10% commission on Agent Teams plans and 30% on other eligible paid products.",
       "payout_terms": "Vendor terms state a $10 minimum payout, NET-15, via PayPal.",
-      "note": "The current official .ai affiliate page routes enrollment to the hosted Tolt program. No existing COSHUMA AI Agent Store/Tolt affiliate account, submitted enrollment, approval, or vendor-issued customer referral URL is evidenced. Keep customer CTAs on the official non-affiliate site and do not reuse the obsolete .com affiliate URL or its historical TLS error."
+      "note": "The current official .ai affiliate page routes enrollment to the hosted Tolt program. AI Agent Store's current Terms of Service include Affiliate Program Terms (minimum payout, payout timing, payout method, risk/no-earnings guarantee), so enrollment must remain on hold until those binding terms are reviewed and accepted through the normal supported flow. No existing COSHUMA AI Agent Store/Tolt affiliate account, submitted enrollment, approval, or vendor-issued customer referral URL is evidenced. Keep customer CTAs on the official non-affiliate site and do not reuse the obsolete .com affiliate URL or its historical TLS error."
     }
   }
 }
