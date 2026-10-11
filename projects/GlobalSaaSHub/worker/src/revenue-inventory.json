@@ -105,6 +105,18 @@
       "evidence": []
     },
     {
+      "id": "beehiiv",
+      "name": "beehiiv",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.beehiiv.com/?via=sangkwon-an",
+      "verified_at": "2026-10-12T07:18:56+09:00",
+      "account_id": "beehiiv",
+      "evidence": []
+    },
+    {
       "id": "bolddesk",
       "name": "BoldDesk",
       "network": "개별 제휴 포털",

@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-10-11T11:33:16.186Z",
+  "generatedAt": "2026-10-11T22:27:09.162Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 118,
-    "revenueReadyAffiliates": 78,
-    "genericRevenueReadyAffiliates": 74,
+    "revenueReadyAffiliates": 79,
+    "genericRevenueReadyAffiliates": 75,
     "targetedRevenueReadyAffiliates": 4,
-    "openMonetizationGaps": 74,
+    "openMonetizationGaps": 73,
     "directActionableGaps": 0,
-    "browserRequiredGaps": 27,
+    "browserRequiredGaps": 26,
     "watchOnlyGaps": 47,
     "doNotReapply": 179,
     "toolPages": 180,
@@ -22,17 +22,17 @@
   },
   "affiliateCoverage": {
     "counts": {
-      "revenueReady": 78,
-      "genericRevenueReady": 74,
+      "revenueReady": 79,
+      "genericRevenueReady": 75,
       "targetedRevenueReady": 4,
       "terminal": 28,
-      "openMonetizationGaps": 74,
+      "openMonetizationGaps": 73,
       "directActionableGaps": 0,
-      "browserRequiredGaps": 27,
+      "browserRequiredGaps": 26,
       "watchOnlyGaps": 47,
       "doNotReapply": 179,
       "unclassifiedAffiliateStatus": 0,
-      "exactAffiliateUrlMissing": 74,
+      "exactAffiliateUrlMissing": 73,
       "officialUnverified": 0,
       "pricingUnverified": 122
     },
@@ -94,6 +94,24 @@
       {
         "id": "beefree",
         "name": "Beefree",
+        "officialVerified": true,
+        "pricingVerified": true,
+        "affiliateStatus": "approved_tracking",
+        "affiliateVerified": true,
+        "hasAffiliateUrl": true,
+        "genericRevenueReady": true,
+        "targetedRevenueReady": true,
+        "revenueReady": true,
+        "terminal": false,
+        "doNotReapply": true,
+        "browserRequired": false,
+        "directActionableGap": false,
+        "watchOnlyGap": false,
+        "blocker": null
+      },
+      {
+        "id": "beehiiv",
+        "name": "beehiiv",
         "officialVerified": true,
         "pricingVerified": true,
         "affiliateStatus": "approved_tracking",
@@ -1656,24 +1674,6 @@
         "directActionableGap": false,
         "watchOnlyGap": false,
         "blocker": "affiliate_status_application_blocked_existing_reditus_onboarding"
-      },
-      {
-        "id": "beehiiv",
-        "name": "beehiiv",
-        "officialVerified": true,
-        "pricingVerified": true,
-        "affiliateStatus": "browser_required_legal_program_consent",
-        "affiliateVerified": true,
-        "hasAffiliateUrl": false,
-        "genericRevenueReady": false,
-        "targetedRevenueReady": false,
-        "revenueReady": false,
-        "terminal": false,
-        "doNotReapply": true,
-        "browserRequired": true,
-        "directActionableGap": false,
-        "watchOnlyGap": false,
-        "blocker": "legal_program_consent_required"
       },
       {
         "id": "benchmark-email",
@@ -3332,6 +3332,14 @@
       "verifiedAt": "2026-09-10T08:26:43+09:00"
     },
     {
+      "id": "beehiiv",
+      "name": "beehiiv",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://www.beehiiv.com/?via=sangkwon-an",
+      "verifiedAt": "2026-10-12T07:18:56+09:00"
+    },
+    {
       "id": "bolddesk",
       "name": "BoldDesk",
       "status": "approved_tracking",
@@ -3914,14 +3922,6 @@
       "verified": true,
       "url": null,
       "verifiedAt": "2026-09-08T03:27:00+09:00"
-    },
-    {
-      "id": "beehiiv",
-      "name": "beehiiv",
-      "status": "browser_required_legal_program_consent",
-      "verified": true,
-      "url": null,
-      "verifiedAt": "2026-10-11T19:14:07+09:00"
     },
     {
       "id": "bidx",
