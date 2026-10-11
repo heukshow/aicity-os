@@ -114,6 +114,19 @@ jobs:
           node scripts/tests/browser-followup.test.mjs
           node scripts/tests/tagshop-consent.test.mjs
 
+      - name: Verify local identity state is not tracked
+        run: |
+          set -e
+          python -m py_compile AI_City_Project/execution/ghost_manager.py
+          if git ls-files --error-unmatch AI_City_Project/directives/ghost_identities.json >/dev/null 2>&1; then
+            echo "::error::Local identity state must not be committed"
+            exit 1
+          fi
+          if git grep -n -E '"(verification_code|email_alias)"[[:space:]]*:' -- 'AI_City_Project/directives/*.json'; then
+            echo "::error::Authentication-like identity fields must not be committed"
+            exit 1
+          fi
+
       - name: Verify public bundle safety
         run: |
           set -e

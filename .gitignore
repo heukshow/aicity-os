@@ -34,3 +34,6 @@ projects/GlobalSaaSHub/data/manual_candidates_verified.json
 projects/GlobalSaaSHub/.private-ops/
 projects/GlobalSaaSHub/data/revenue-leakage-audit.json
 projects/GlobalSaaSHub/data/revenue-reconciliation-queue.json
+# Local-only AI City simulation state (may contain generated identifiers).
+AI_City_Project/.private/
+AI_City_Project/directives/ghost_identities.json
