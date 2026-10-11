@@ -21,13 +21,22 @@
 - Self-referrals and branded Google/Bing search ads are prohibited by the public partner FAQ.
 
 ## COSHUMA state
-- `affiliate_status`: `application_available_account_required`
-- Signup progress: **email verification / OTP required from the user**.
+- `affiliate_status`: `browser_required_legal_program_consent`
+- Existing signup/account path: **confirmed by support Gmail messages `1a09ba80f91097c0` and `1a09bd155da3084f`; do not create a duplicate account**.
+- Partner enrollment: **not submitted / not verified**. The current join form requires reviewing and accepting the Partner Program Terms.
 - `affiliate_url`: null
 - Exact account-specific customer tracking URL: **not issued / not verified**.
 - Application submission: **not claimed**. No authenticated evidence yet shows that the partner enrollment itself was submitted.
 - Customer signups, paid customers, commission and revenue: **unknown / not verified**.
-- Browser/application blocker is tracked in GitHub issue #465.
+- Legal-consent blocker and exact-link recovery remain tracked in GitHub issue #465.
+
+## 2026-10-11 evidence reconciliation
+- Official beehiiv help, updated 2026-05-05: https://www.beehiiv.com/support/article/13091611134103
+- It states that active-plan users, including free-trial users, can enter the Partner Dashboard; first-time enrollment presents a join form that requires reviewing and accepting the Partner Program Terms.
+- A private custom partner link becomes available only after joining. No COSHUMA-specific beehiiv customer link is currently verified.
+- Personal Gmail message `1a0268a7b8777e9e` proves that a Dub Partner Network marketplace application was submitted on 2026-08-21; message `1a0515e930b9704b` proves that marketplace application was rejected on 2026-08-30.
+- Dub's rejection explicitly says it does not affect existing direct program partnerships or payouts. It therefore neither approves nor rejects beehiiv enrollment and must not be used as beehiiv approval, link, conversion, commission, payout or revenue evidence.
+- Safe next action: reuse the existing beehiiv account, stop at the Partner Program Terms acceptance gate until legal consent is explicitly authorized, then verify the issued customer-facing link after enrollment.
 
 ## Live deployment verification
 Verified after the merged deployment on 2026-09-14 KST from an external client:
