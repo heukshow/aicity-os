@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-08T23:04:09Z",
+  "updated_at": "2026-10-11T04:34:02Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -3189,6 +3189,55 @@
       "verification": "Current-main producer and generated snapshot readback show zero browser-required or watch-only records with the downstream exact-URL blocker, all 13 open legal-consent records use the legal-consent blocker, and EngageBay remains non-actionable with doNotReapply=true and no exact URL.",
       "handoff": "Affiliate Partnerships Team should consume the corrected primary lifecycle gates and verify exact customer URLs only after each prerequisite is resolved. Revenue Optimization must not publish a revenue CTA from approval or lifecycle state alone.",
       "completed_at": "2026-10-07T10:55:30Z"
+    },
+    {
+      "record_id": "SECURITY:PAID-SPONSORSHIP-GO-LIVE-DRIFT-20261011",
+      "incident_key": "paid-sponsorship-go-live-ssot-drift-20261011",
+      "task_key": "paid-sponsorship-go-live-production-verification-20261011",
+      "target": "GlobalSaaSHub F1-F3 advertising checkout + approval email + priority renewal",
+      "owner_team": "Revenue Optimization Team",
+      "lifecycle": "production_verification_requested",
+      "next_owner": "Release & Reliability Team",
+      "priority": "high",
+      "blocker": "current_production_live_state_not_directly_verified",
+      "last_evidence_at": "2026-10-11T04:34:02Z",
+      "evidence": {
+        "observed_main": "886347309d522f0da30730309b50573798c72180",
+        "go_live_pr": 1082,
+        "go_live_merge_commit": "55a151c73983a5d3acebff4ac9e6c80311927490",
+        "go_live_pr_build_run": 37904122572,
+        "go_live_ad_commerce_regression_run": 37904122571,
+        "current_main_checkout_source_enabled": true,
+        "current_main_f1_f3_application_source_open": true,
+        "current_main_paid_renderer_source_enabled": true,
+        "approval_email_pr": 1089,
+        "approval_email_merge_commit": "36f9a6626d4af4c90aada8f8817e4425be5d2346",
+        "approval_email_pr_build_run": 37968089126,
+        "approval_email_ad_commerce_regression_run": 37968089127,
+        "priority_renewal_pr": 1091,
+        "priority_renewal_merge_commit": "81dd1355911d9d713cc9b4549d07d34c1863f085",
+        "priority_renewal_pr_build_run": 37976653079,
+        "priority_renewal_ad_commerce_regression_run": 37976653066,
+        "prior_fail_closed_evidence_comment_id": 6023444328,
+        "prior_fail_closed_worker_source_commit": "991b324650f0661c04cb59da3c4b1f14e2cb4a25",
+        "real_advertiser_payment_confirmed": null,
+        "public_paid_ad_activated": null,
+        "active_worker_payment_ready": null,
+        "active_worker_source_commit": null,
+        "deployed_pages_source_commit": null,
+        "additional_spend_usd": 0,
+        "automatic_renewal": false,
+        "found_by": "Security & Cost Control Team",
+        "fixed_by": "Security & Cost Control Team",
+        "canonical_owner": "Operations Governance Team / Revenue Optimization Team",
+        "changed_scope": "Campaign and registry state only; no checkout, payment, capture, refund, dispute, advertiser data, public page, Worker deployment, credential, account, service, measurement definition or spend changed.",
+        "verification": "Current main and merged PR evidence prove a deliberate source-state transition after the prior fail-closed record, but no current direct Worker config or Pages/live ancestry evidence is present in the canonical #292/registry record.",
+        "handoff": "Release & Reliability Team must verify exact current-main Worker/Pages/live behavior. Operations Governance then reconciles production state without treating source merge or CI as live proof."
+      },
+      "completion_gate": "current-main source plus direct Worker config, Pages ancestry and live F1-F3 routes verified without private-data exposure or unintended payment/email behavior",
+      "completion_gate_satisfied": false,
+      "user_action_required": false,
+      "handoff": "Perform read-only production verification first. Do not run a real QA payment, resend approval email, create advertiser data, or redeploy an already current production target."
     }
   ],
   "invariants": {
