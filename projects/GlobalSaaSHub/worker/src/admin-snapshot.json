@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T09:33:20.191Z",
+  "generatedAt": "2026-10-11T05:24:24.286Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -8,8 +8,8 @@
     "targetedRevenueReadyAffiliates": 4,
     "openMonetizationGaps": 75,
     "directActionableGaps": 0,
-    "browserRequiredGaps": 29,
-    "watchOnlyGaps": 46,
+    "browserRequiredGaps": 28,
+    "watchOnlyGaps": 47,
     "doNotReapply": 179,
     "toolPages": 180,
     "comparePages": 280,
@@ -28,13 +28,13 @@
       "terminal": 27,
       "openMonetizationGaps": 75,
       "directActionableGaps": 0,
-      "browserRequiredGaps": 29,
-      "watchOnlyGaps": 46,
+      "browserRequiredGaps": 28,
+      "watchOnlyGaps": 47,
       "doNotReapply": 179,
       "unclassifiedAffiliateStatus": 0,
       "exactAffiliateUrlMissing": 75,
       "officialUnverified": 0,
-      "pricingUnverified": 124
+      "pricingUnverified": 122
     },
     "records": [
       {
@@ -1049,7 +1049,7 @@
         "id": "rytr",
         "name": "Rytr",
         "officialVerified": true,
-        "pricingVerified": false,
+        "pricingVerified": true,
         "affiliateStatus": "approved_tracking",
         "affiliateVerified": true,
         "hasAffiliateUrl": true,
@@ -2634,7 +2634,7 @@
         "name": "OptiMonk",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "application_available_account_required",
+        "affiliateStatus": "enrollment_requested",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -2642,10 +2642,10 @@
         "revenueReady": false,
         "terminal": false,
         "doNotReapply": true,
-        "browserRequired": true,
+        "browserRequired": false,
         "directActionableGap": false,
-        "watchOnlyGap": false,
-        "blocker": "affiliate_status_application_available_account_required"
+        "watchOnlyGap": true,
+        "blocker": "affiliate_status_enrollment_requested"
       },
       {
         "id": "pickaxe",
@@ -2849,7 +2849,7 @@
         "id": "reply-io",
         "name": "Reply.io",
         "officialVerified": true,
-        "pricingVerified": false,
+        "pricingVerified": true,
         "affiliateStatus": "enrollment_requested",
         "affiliateVerified": true,
         "hasAffiliateUrl": false,
