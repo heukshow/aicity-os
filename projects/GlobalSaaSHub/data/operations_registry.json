@@ -3237,7 +3237,7 @@
         "site_deploy_run": 38142542936,
         "pages_deploy_run": 38142701059,
         "release_verification_run": 38137770957,
-        "release_verification_result": "verification_failed_no_eligible_candidate",
+        "release_verification_result": "prior_verification_failed_no_eligible_candidate_superseded_by_pr_1103_reverification_pending",
         "release_verification_eligible_candidates": 0,
         "verification_status": "source_and_pages_ancestry_verified_independent_live_behavior_pending",
         "deployed_public_paid_renderer_enabled": true,
@@ -3249,7 +3249,7 @@
           "https://coshuma.com/best/claap-sales-follow-up-ai.html?coshuma_qa=1",
           "https://coshuma.com/compare/semrush-vs-frase.html?coshuma_qa=1"
         ],
-        "live_qa_result": "Advertiser page and three allowed routes loaded; paid renderer asset matched current main/gh-pages but CONFIG.enabled=false, so no paid sponsored record can render. No internal-state terms or paid card were observed.",
+        "live_qa_result": "The prior pre-#1103 QA observed no card while the renderer was disabled. PR #1103 and the matching gh-pages asset now enable only the fail-closed image path; Security has not independently repeated live-route behavior after deployment. Owner readback reported zero paid campaigns, so no sponsored card is expected and no public activation is claimed.",
         "current_main_paid_image_renderer_enabled": true,
         "current_main_legacy_text_renderer_enabled": false,
         "renderer_fix_pr": 1103,
