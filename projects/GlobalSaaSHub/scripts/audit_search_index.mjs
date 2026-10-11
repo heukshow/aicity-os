@@ -36,5 +36,6 @@ const inspected=[];
 for(const url of historicalRemoved){
   inspected.push(await inspect(access,url));
 }
-const badHttp=http.filter(x=>x.status!==200 && x.status!==301 && x.status!==302 && x.status!==307 && x.status!==308);
+// Expected removals remain visible in historical_http, but only current sitemap URLs can trigger bad_http.
+const badHttp=http.filter(x=>!historicalRemoved.includes(x.url) && x.status!==200 && x.status!==301 && x.status!==302 && x.status!==307 && x.status!==308);
 console.log('COSHUMA_INDEX_AUDIT '+JSON.stringify({checked_at:new Date().toISOString(),sitemap_count:sitemapUrls.length,bad_http:badHttp,historical_http:http.filter(x=>historicalRemoved.includes(x.url)),historical_inspection:inspected}));
