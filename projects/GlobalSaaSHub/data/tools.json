@@ -670,7 +670,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "A newsletter platform for creators and publishers with website hosting, unlimited email sends, audience growth tools, monetization features and paid subscriptions.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.beehiiv.com/?via=sangkwon-an",
     "pricing": "Launch $0/month for up to 2,500 subscribers; paid plans vary by subscriber tier and billing cadence",
     "key_features": [
       "Newsletter publishing and website hosting",
@@ -688,22 +688,26 @@
     "pricing_verified": true,
     "currency": "USD",
     "billing_period": "monthly or annual depending on plan",
-    "evidence_source_type": "official_pricing_page",
+    "evidence_source_type": "official_pricing_page_and_authenticated_partner_dashboard",
     "is_manual_override": true,
     "official_verification_status": "verified",
     "official_verified_at": "2026-09-14T00:00:00+09:00",
     "official_evidence_url": "https://www.beehiiv.com/pricing",
     "affiliate_verified": true,
-    "affiliate_status": "browser_required_legal_program_consent",
+    "affiliate_status": "approved_tracking",
     "affiliate_source_url": "https://www.beehiiv.com/partners",
-    "affiliate_verified_at": "2026-10-11T19:14:07+09:00",
+    "affiliate_verified_at": "2026-10-12T07:18:56+09:00",
     "affiliate_evidence_markers": [
-      "Official beehiiv help updated 2026-05-05 says active-plan users can open Partner Dashboard and that first-time enrollment requires reviewing and accepting the Partner Program Terms",
-      "Official help says a private custom partner link appears only after joining; no COSHUMA-specific link is verified",
-      "support@coshuma.com Gmail messages 1a09ba80f91097c0 and 1a09bd155da3084f prove an existing signup/account path; do not create a duplicate account, but these messages do not prove partner enrollment",
-      "Dub Partner Network marketplace rejection message 1a0515e930b9704b does not invalidate existing direct program relationships; beehiiv enrollment, customer link, referrals and revenue remain unverified"
+      "Authenticated beehiiv Partner Program dashboard confirmed enrollment with the vendor-issued customer-facing link https://www.beehiiv.com/?via=sangkwon-an.",
+      "The same dashboard displayed the customer offer as a 14-day trial plus 20% off for 3 months and the current Launch partner tier as 50% commission for 12 months.",
+      "Current official partner terms state a 60-day tracking cookie, monthly commission calculation, payment around the 15th after a 30-day provisioning window, and that the portal tier controls the actual commission rate.",
+      "At verification the vendor dashboard showed Visitors 0, Leads 0, Conversions 0, Paid Commissions $0.00, Pending $0.00 and Due $0.00; these are vendor-confirmed zeros for that dashboard snapshot only.",
+      "Dub payout onboarding and bank details were not submitted. No signup, paid customer, commission, payout or cash receipt is inferred."
     ],
-    "affiliate_next_action": "Use the existing beehiiv account to open Partner Dashboard. Hold at Partner Program Terms acceptance because no legal-consent approval is recorded. After approved acceptance and enrollment, verify the issued customer-facing link; do not create a duplicate account or infer revenue."
+    "affiliate_next_action": "Revenue Optimization continuation: keep the exact issued URL, sponsored disclosure and rel=sponsored on customer CTAs; validate live destination without self-referral and keep QA traffic separate. Affiliate Partnerships must not re-enroll. Complete Dub payout onboarding only through a separately authorized legal/bank-information workflow.",
+    "affiliate_terms_url": "https://www.beehiiv.partners/tos",
+    "affiliate_status_checked_at": "2026-10-12T07:18:56+09:00",
+    "application_state": "enrolled"
   },
   {
     "id": "benchmark-email",
