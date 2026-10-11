@@ -1338,7 +1338,7 @@
       "Route this current record into an eligible release-verification spec, then repeat independent read-only Worker, Pages ancestry and live-route verification.",
       "Preserve real advertiser payment, material approval, inventory, publication, end-date, refund and dispute evidence as separate gates; do not create a real QA payment."
     ],
-    "production_evidence_scope": "Current-main ancestry and deployed public assets were matched. The F1-F3 advertiser page is live and shows checkout-after-quote copy, but the current-main and deployed public paid renderer both have CONFIG.enabled=false. The active Worker config was not directly readable, and the release verifier reported eligible=0; therefore this is partial live evidence, not production_verified.",
+    "production_evidence_scope": "Current-main ancestry and deployed public assets were matched. The F1-F3 advertiser page is live and shows checkout-after-quote copy, and the current-main and deployed public paid image renderer both have CONFIG.enabled=true while the legacy text renderer remains disabled. The active Worker config was not directly readable, and the release verifier reported eligible=0; therefore this is partial live evidence, not production_verified.",
     "current_operating_state": {
       "effective_at": "2026-10-09T08:21:43Z",
       "checked_at": "2026-10-11T13:50:58Z",
