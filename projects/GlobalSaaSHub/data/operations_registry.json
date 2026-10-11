@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-11T20:38:09Z",
+  "updated_at": "2026-10-11T20:52:42Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1417,7 +1417,7 @@
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": "native_schedule_fidelity_observation_only",
-      "last_evidence_at": "2026-10-11T20:38:09Z",
+      "last_evidence_at": "2026-10-11T20:52:42Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "7,22,37,52 * * * *",
@@ -2168,7 +2168,7 @@
           "additional_spend_usd": 0
         },
         "native_scheduler_sentinel_recovery_20261012_current": {
-          "observed_at": "2026-10-11T20:38:09Z",
+          "observed_at": "2026-10-11T20:52:42Z",
           "sentinel_native_schedule": {
             "run_id": 38171231135,
             "event": "schedule",
@@ -2185,7 +2185,9 @@
             "native_schedule_run_id": 38171270750,
             "native_schedule_started_at": "2026-10-11T20:13:10Z",
             "native_schedule_conclusion": "success",
-            "reconciliation_status": "fresh_native_success_confirmed_issue_close_pending"
+            "reconciliation_status": "fresh_native_success_confirmed_issue_closed",
+            "incident_closed_at": "2026-10-11T20:52:42Z",
+            "recovery_comment_id": 6113629760
           },
           "additional_fresh_native_schedule_runs": {
             "COSHUMA Registry Reconciliation": {
