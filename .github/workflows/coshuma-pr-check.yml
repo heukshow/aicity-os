@@ -66,6 +66,7 @@ jobs:
           python scripts/next_operations_task.py
           python scripts/verify_release_queue.py --validate-only
           python scripts/tests/test_operations_stability.py
+          node --test scripts/tests/watch-github-schedules.test.cjs
           python scripts/tests/test_affiliate_producers.py
           node scripts/tests/google-fetch-retry.test.mjs
           node scripts/tests/decision-support.test.mjs
