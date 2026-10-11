@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T05:24:24.286Z",
+  "generatedAt": "2026-10-11T08:34:26.316Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 117,
@@ -1554,7 +1554,7 @@
         "name": "AI Agent Store",
         "officialVerified": true,
         "pricingVerified": false,
-        "affiliateStatus": "application_available_account_required",
+        "affiliateStatus": "browser_required_legal_program_consent",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -1565,7 +1565,7 @@
         "browserRequired": true,
         "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "affiliate_status_application_available_account_required"
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "airia",

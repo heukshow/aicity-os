@@ -1412,6 +1412,24 @@
     ]
   },
   {
+    "id": "ai-agent-store-affiliate-2026-10-11",
+    "tool_id": "ai-agent-store",
+    "priority": "high",
+    "status": "browser_required_legal_program_consent",
+    "affiliate_status": "browser_required_legal_program_consent",
+    "application_state": "not_submitted",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "user_action_required": true,
+    "blocker": "AI Agent Store's current Terms of Service include binding Affiliate Program Terms that must be reviewed and accepted before enrollment.",
+    "reason": "The official affiliate page routes to Tolt, but no COSHUMA enrollment or issued tracking URL exists and the vendor terms govern payout and participation risk.",
+    "next_action": "Owner reviews and accepts the current Affiliate Program Terms through the official Tolt flow; then submit once and recover only the exact vendor-issued customer referral URL. Stop for CAPTCHA, OTP, payment approval or forced identity verification.",
+    "do_not_reapply": true,
+    "verified_at": "2026-10-11T17:23:01+09:00",
+    "official_program_url": "https://aiagentstore.ai/affiliate-program",
+    "workflow_url": "https://aiagentstore.tolt.io/"
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",
@@ -1509,23 +1527,5 @@
     "resolved_at": "2026-09-09T12:45:09Z",
     "resolution_evidence": "Gmail message 1a08633651c79db9 from Claap affiliate manager Lamia Karmaly supplied both exact URLs; the first is the authoritative default CTA pending destination-label mapping for the second.",
     "blocker": null
-  },
-  {
-    "id": "ai-agent-store-affiliate-2026-10-11",
-    "tool_id": "ai-agent-store",
-    "priority": "high",
-    "status": "browser_required_legal_program_consent",
-    "affiliate_status": "browser_required_legal_program_consent",
-    "application_state": "not_submitted",
-    "cost": 0,
-    "exact_tracking_url": null,
-    "user_action_required": true,
-    "blocker": "AI Agent Store's current Terms of Service include binding Affiliate Program Terms that must be reviewed and accepted before enrollment.",
-    "reason": "The official affiliate page routes to Tolt, but no COSHUMA enrollment or issued tracking URL exists and the vendor terms govern payout and participation risk.",
-    "next_action": "Owner reviews and accepts the current Affiliate Program Terms through the official Tolt flow; then submit once and recover only the exact vendor-issued customer referral URL. Stop for CAPTCHA, OTP, payment approval or forced identity verification.",
-    "do_not_reapply": true,
-    "verified_at": "2026-10-11T17:23:01+09:00",
-    "official_program_url": "https://aiagentstore.ai/affiliate-program",
-    "workflow_url": "https://aiagentstore.tolt.io/"
   }
 ]
