@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-11T13:50:58Z",
+  "updated_at": "2026-10-11T16:37:06Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1409,15 +1409,15 @@
       "owner_team": "Operations Governance Team",
       "canonical_owner": "Operations Governance Team",
       "found_by": "COSHUMA Team Watchdog",
-      "fixed_by": "Operations Governance Team",
-      "changed_scope": "Synchronized the existing scheduler incident with a direct GitHub Actions event=schedule readback after the prior connector capability gap cleared. Four workflows were within two expected periods; Cloud Control Plane and Release Verification were isolated as overdue. No cron, workflow logic, public UI, measurement definition, affiliate state, advertising/payment configuration, credential, service, account or spend was changed.",
+      "fixed_by": "Operations Governance Team; Security & Cost Control Team (latest evidence reconciliation)",
+      "changed_scope": "Reconciled the existing scheduler incident with two fresh native event=schedule successes confirmed by the repository sentinel for Registry Reconciliation and Release Verification. No cron, workflow logic, public UI, measurement definition, affiliate state, advertising/payment configuration, credential, service, account or spend was changed.",
       "lifecycle": "in_progress",
       "operational_status": "mitigated",
       "root_cause": "github_schedule_best_effort",
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": "native_schedule_fidelity_observation_only",
-      "last_evidence_at": "2026-10-08T23:04:09Z",
+      "last_evidence_at": "2026-10-11T16:03:06Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "7,22,37,52 * * * *",
@@ -2134,14 +2134,43 @@
           "native_scheduler_permanent_recovery_claimed": false,
           "completion_gate_note": "Keep open until two consecutive actual schedule-triggered successes meet the registry gate; workflow_dispatch does not satisfy it."
         },
-        "latest_governance_evidence_comment_id": 6070808544
+        "latest_governance_evidence_comment_id": 6070808544,
+        "native_scheduler_sentinel_recovery_20261012": {
+          "observed_at": "2026-10-11T16:03:06Z",
+          "sentinel_merge_sha": "151f56117a3ab8a1e9a62ef7a0f1199c2d6bb558",
+          "sentinel_first_successful_run_id": 38152979876,
+          "recovered_native_schedule_runs": {
+            "COSHUMA Registry Reconciliation": {
+              "incident_issue": 1108,
+              "recovery_comment_id": 6110913126,
+              "run_id": 38153441754,
+              "event": "schedule",
+              "conclusion": "success",
+              "incident_state": "closed"
+            },
+            "COSHUMA Release Verification": {
+              "incident_issue": 1109,
+              "recovery_comment_id": 6110913464,
+              "run_id": 38153522328,
+              "event": "schedule",
+              "conclusion": "success",
+              "incident_state": "closed"
+            }
+          },
+          "availability_status": "two_sentinel_incidents_closed_by_fresh_native_schedule_successes",
+          "permanent_native_recovery_claimed": false,
+          "completion_gate_satisfied": false,
+          "completion_boundary": "These fresh native successes close their bounded sentinel incidents but do not prove two consecutive timely native successes for every monitored workflow. Keep the canonical incident in_progress and continue native-only observation.",
+          "user_action_required": false,
+          "additional_spend_usd": 0
+        }
       },
       "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
       "completion_gate_satisfied": false,
       "availability_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "Issue #292 comment 6070808544 records a direct GitHub Actions readback at 2026-10-08T23:04:09Z. Registry Reconciliation, Growth Loop, Analytics Snapshot and Royal Queue had current native event=schedule successes within two expected periods. Cloud Control Plane latest native run 37832661529 at 2026-10-08T19:32:02Z and Release Verification latest native run 37837904548 at 2026-10-08T20:14:07Z were beyond two expected periods. Availability mitigation remains separate; the all-workflow native completion gate remains false.",
-      "handoff": "Continue this same incident. Re-read current Actions before any target-specific recovery, use the established single-target dedupe guard, and count only actual event=schedule successes toward completion. Do not revive obsolete ChatGPT hourly cadences or change GitHub cron, payment, measurement, account, credential, service or spend state.",
+      "verification": "GitHub issues #1108 and #1109 were closed by the sentinel only after fresh native event=schedule successes: Registry Reconciliation run 38153441754 and Release Verification run 38153522328. Their fallback-only runs were not counted as recovery. The broader all-workflow two-consecutive-run gate remains unsatisfied, so lifecycle stays in_progress and no permanent scheduler recovery is claimed.",
+      "handoff": "Operations Governance Team continues this same incident and counts only fresh native event=schedule successes. Verify a second timely native success for every monitored workflow before completing the gate; do not count workflow_dispatch, revive obsolete ChatGPT cadences, or change payment, measurement, account, credential, service or spend state.",
       "completed_at": null
     },
     {
