@@ -42,7 +42,7 @@ def test_rejects_public_html_and_attribute_injection():
     for payload in [
         'From $19/month<img src=x onerror=alert(1)>',
         'From $19/month\" onmouseover=\"alert(1)',
-        'From $19/month\\nInjected copy',
+        'From $19/month\nInjected copy',
     ]:
         q=proposal(); q["pricing"]=payload
         assert m.validate_proposal(tool(),q,{"https://example.com/pricing"},raw,"https://example.com/pricing","2026-10-03T00:00:00Z") is None
