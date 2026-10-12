@@ -510,6 +510,14 @@ for filename, replacements in PATCHES.items():
     original = text
 
     for old, new in replacements:
+        # C08 is now canonical source content. Do not let the historical CTR
+        # backfill insert a second scorecard during a production build.
+        if (
+            filename == "brand24.html"
+            and 'id="brand24-14-day-evaluation"' in text
+            and 'id="brand24-14-day-evaluation"' in new
+        ):
+            continue
         if old in text:
             text = text.replace(old, new, 1)
 
@@ -547,6 +555,12 @@ for filename, replacements in PATCHES.items():
         missing = [marker for marker in required if marker not in text]
         if missing:
             raise SystemExit(f"Brand24 buyer-scorecard patch incomplete: {missing}")
+        scorecard_count = text.count('id="brand24-14-day-evaluation"')
+        if scorecard_count != 1:
+            raise SystemExit(
+                "Brand24 buyer-scorecard must render exactly once; "
+                f"found {scorecard_count}"
+            )
 
     if filename == "octo-browser.html":
         required = (
