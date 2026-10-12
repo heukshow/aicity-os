@@ -1,7 +1,7 @@
 # Stripo affiliate candidate — 2026-09-12
 
 ## Duplicate-risk check
-- Both connected Gmail accounts (`qmfforfhem@gmail.com` and `support@coshuma.com`) were checked across inbox, sent mail, spam, and matching Stripo threads.
+- Both connected Gmail accounts (`redacted-private-mailbox@example.invalid` and `support@coshuma.com`) were checked across inbox, sent mail, spam, and matching Stripo threads.
 - No Stripo history exists in the personal account.
 - The support account contains one company inquiry and one human reply in the same thread; there is no application, approval, rejection, or issued referral URL.
 - Repository search found no verified Stripo tracking URL.
