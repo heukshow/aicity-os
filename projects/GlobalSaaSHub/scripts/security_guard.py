@@ -32,6 +32,10 @@ SECRET_ASSIGNMENT = re.compile(
     r"(?i)(client_secret|api_secret|refresh_token|private_key|access_token|password)"
     r"\s*[:=]\s*['\"][^'\"]{8,}['\"]"
 )
+GOOGLE_API_KEY_LITERAL = re.compile(r"\bAI" r"za[0-9A-Za-z_-]{35}\b")
+MCP_INLINE_CREDENTIAL = re.compile(
+    r"""(?i)['\"](?:X-Goog-Api-Key|NOTEBOOKLM_SESSION_ID)['\"]\s*:\s*['\"][^'\"]{8,}['\"]"""
+)
 
 
 def walk_files(base: Path):
@@ -74,6 +78,10 @@ def main() -> None:
             errors.append(f"repository text exposes structured personal-mailbox routing: {rel}")
         if path.suffix.lower() in CLIENT_CODE_SUFFIXES and CLIENT_EMAIL_PRIVILEGE_BYPASS.search(text):
             errors.append(f"client code contains a hard-coded email privilege bypass: {rel}")
+        if GOOGLE_API_KEY_LITERAL.search(text):
+            errors.append(f"repository text contains a Google API key literal: {rel}")
+        if MCP_INLINE_CREDENTIAL.search(text):
+            errors.append(f"repository text contains an inline MCP credential: {rel}")
 
     # Public output receives stricter content checks. Environment-variable names
     # are allowed in server/source code, but values/assignments and private account
