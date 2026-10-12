@@ -4,16 +4,16 @@ const checkedAt = '2026-10-03T03:05:00+09:00';
 
 const states = {
   activepieces: {
-    stale: [null, 'unclassified', 'browser_required_sales_inquiry', 'browser_required_affiliate_application'],
-    status: 'waiting_partnerstack_network_review',
-    checkedAt: '2026-10-12T10:04:00+09:00',
+    stale: [null, 'unclassified', 'browser_required_sales_inquiry', 'browser_required_affiliate_application', 'waiting_partnerstack_network_review'],
+    status: 'blocked_partnerstack_network_marketplace_limited',
+    checkedAt: '2026-10-12T22:08:37+09:00',
     source: 'https://www.activepieces.com/',
     workflow: 'https://market.partnerstack.com/program/activepieces',
     applicationState: 'not_submitted_program_not_found',
-    next: 'Wait for the pending PartnerStack Network Profile review, then recheck the authenticated marketplace and an independently verified official Activepieces partner route. Do not submit a PartnerStack request-a-program form or infer a tracking URL from the historical marketplace URL.',
+    next: 'Do not apply to or request Activepieces through the PartnerStack Marketplace while the COSHUMA Network Profile is limited. Reapply to the PartnerStack Network only after materially new or corrected profile evidence exists; an independently verified direct-vendor route may be handled separately. Do not infer a tracking URL from the historical marketplace URL.',
     evidence: [
       '2026-10-12 authenticated PartnerStack marketplace exact search returned no programs matching Activepieces and exposed only Request a program.',
-      'The historical PartnerStack program URL is not current proof that COSHUMA can apply; the PartnerStack Network Profile reapplication is pending review.',
+      'PartnerStack message 1a1303ac0be8e537 says the COSHUMA Network Profile was not approved and access to new Marketplace programs is limited; existing PartnerStack partnerships are unaffected.',
       'No Activepieces application, approval, customer-facing tracking URL, click, signup, customer, commission, payout, or revenue is verified.',
     ],
   },
@@ -173,6 +173,7 @@ for (const file of ['data/tools.json','data/tools.next.json']) {
 }
 
 const currentEvidenceAt = '2026-10-12T10:04:00+09:00';
+const partnerStackDecisionAt = '2026-10-12T22:08:37+09:00';
 const hideMeEvidenceAt = '2026-10-12T17:27:44+09:00';
 const chatbotEvidenceAt = '2026-10-12T18:50:00+09:00';
 
@@ -181,13 +182,15 @@ const outreach = JSON.parse(fs.readFileSync(outreachPath, 'utf8'));
 outreach.updated_at = currentEvidenceAt;
 outreach.programs ||= {};
 outreach.programs.activepieces = {
-  status: 'waiting_partnerstack_network_review',
+  status: 'blocked_partnerstack_network_marketplace_limited',
   tracking_url: null,
   application_state: 'not_submitted_program_not_found',
   account: 'support@coshuma.com',
-  checked_at: currentEvidenceAt,
+  checked_at: partnerStackDecisionAt,
   official_program_url: null,
   historical_marketplace_url: 'https://market.partnerstack.com/program/activepieces',
+  inbound_message_id: '1a1303ac0be8e537',
+  do_not_reapply: true,
   next_action: states.activepieces.next,
   note: states.activepieces.evidence.join(' '),
   user_action_required: false,
@@ -234,7 +237,7 @@ outreach.programs['hide-me'] = {
   note: states['hide-me'].evidence.join(' '),
   user_action_required: true,
 };
-outreach.updated_at = chatbotEvidenceAt;
+outreach.updated_at = partnerStackDecisionAt;
 fs.writeFileSync(outreachPath, `${JSON.stringify(outreach, null, 2)}\n`);
 
 const queuePath = 'data/browser_required_queue.json';
@@ -246,16 +249,18 @@ const upsertQueue = (id, toolId, patch) => {
 };
 upsertQueue('activepieces-affiliate-reconcile-20261003', 'activepieces', {
   priority: 'high',
-  status: 'waiting_partnerstack_network_review',
-  affiliate_status: 'waiting_partnerstack_network_review',
+  status: 'blocked_partnerstack_network_marketplace_limited',
+  affiliate_status: 'blocked_partnerstack_network_marketplace_limited',
   application_state: 'not_submitted_program_not_found',
   cost: 0,
   exact_tracking_url: null,
   user_action_required: false,
-  blocker: 'The authenticated marketplace does not currently expose an Activepieces program, and the PartnerStack Network Profile is pending review.',
+  blocker: 'The authenticated marketplace does not expose an Activepieces program, and PartnerStack has limited this Network Profile from joining new Marketplace programs.',
   reason: states.activepieces.evidence.join(' '),
   next_action: states.activepieces.next,
-  verified_at: currentEvidenceAt,
+  verified_at: partnerStackDecisionAt,
+  inbound_message_id: '1a1303ac0be8e537',
+  do_not_reapply: true,
 });
 upsertQueue('colossyan-impact-access-20261012', 'colossyan', {
   priority: 'high',
@@ -275,16 +280,17 @@ upsertQueue('colossyan-impact-access-20261012', 'colossyan', {
 });
 upsertQueue('partnerstack-network-profile-reapplication-20261012', 'partnerstack-network-profile', {
   priority: 'high',
-  status: 'application_submitted_pending_review',
-  affiliate_status: 'application_submitted_pending_review',
-  application_state: 'submitted',
+  status: 'reviewed_not_approved_marketplace_limited',
+  affiliate_status: 'reviewed_not_approved_marketplace_limited',
+  application_state: 'reviewed_not_approved',
   cost: 0,
   exact_tracking_url: null,
   user_action_required: false,
-  blocker: 'PartnerStack Network Profile review is pending.',
-  reason: 'The authenticated existing COSHUMA account confirmed that the Network Profile reapplication was sent for review on 2026-10-12. This is not program approval and does not issue a customer-facing tracking URL.',
-  next_action: 'Wait for the PartnerStack Network Profile decision. Do not reapply. After a decision, reconcile each vendor program separately and use only vendor-issued customer-facing tracking URLs.',
-  verified_at: currentEvidenceAt,
+  blocker: 'PartnerStack limited this Network Profile from joining new programs through the Marketplace.',
+  reason: 'PartnerStack message 1a1303ac0be8e537 says the COSHUMA Network Profile was not approved at this time. New Marketplace programs are unavailable, existing PartnerStack partnerships are unaffected, and no customer-facing tracking URL, commission, payout, or revenue was issued.',
+  next_action: 'Do not immediately reapply. Reapply only after materially new or corrected Network Profile information exists, preserve existing partnerships, and continue reconciling each vendor program separately using only vendor-issued customer-facing tracking URLs.',
+  verified_at: partnerStackDecisionAt,
+  inbound_message_id: '1a1303ac0be8e537',
   github_issue: 292,
   github_comment_id: 6115935512,
   do_not_reapply: true,
