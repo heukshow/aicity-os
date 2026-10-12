@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-11T14:40:17Z",
+  "updated_at": "2026-10-12T15:46:47.000Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -1092,6 +1092,55 @@
             "bank_cash_receipt": "unknown"
           }
         }
+      },
+      {
+        "observed_at": "2026-10-12T15:43:35.651Z",
+        "source_url_or_record": "https://github.com/heukshow/aicity-os/actions/runs/38272306204",
+        "source_timezone": "Asia/Seoul",
+        "observation_kind": "rolling_operational_snapshot_not_fixed_matched_campaign_outcome",
+        "gsc_latest_observed_date": "2026-10-10",
+        "qa_exclusion_coverage": "Explicit QA URL filter plus client-side session exclusion; historical unmarked visits remain ambiguous.",
+        "metric_definition": "GA4 users, sessions, views and affiliate_click event counts plus Search Console impressions/clicks. Site affiliate_click is outbound-click evidence only; it is not signup, paid customer, commission, payout or cash receipt.",
+        "availability_state": "partial",
+        "causal_claim": "none",
+        "value": {
+          "rolling_7d": {
+            "ga_active_users": 100,
+            "ga_sessions": 102,
+            "ga_page_views": 111,
+            "affiliate_click_events": 0,
+            "gsc_impressions": 245,
+            "gsc_clicks": 1,
+            "verified_revenue": null
+          },
+          "rolling_30d": {
+            "ga_active_users": 342,
+            "ga_sessions": 385,
+            "ga_page_views": 460,
+            "affiliate_click_events": 4,
+            "gsc_impressions": 1625,
+            "gsc_clicks": 3,
+            "verified_revenue": null
+          },
+          "rolling_90d": {
+            "ga_active_users": 414,
+            "ga_sessions": 529,
+            "ga_page_views": 712,
+            "affiliate_click_events": 11,
+            "gsc_impressions": 3788,
+            "gsc_clicks": 5,
+            "verified_revenue": null
+          },
+          "downstream": {
+            "signup": "unknown",
+            "trial": "unknown",
+            "paid": "unknown",
+            "commission": "unknown",
+            "payout": "unknown",
+            "bank_cash_receipt": "unknown"
+          }
+        },
+        "interpretation": "Rolling windows are current operational evidence and must not be mixed with the protected fixed 7/30-day experiment windows. The 30-day fixed post window remains immature until 2026-10-30."
       }
     ],
     "required_observation_fields": [
@@ -1248,7 +1297,7 @@
     "new_paid_advertiser_milestone": "First real advertiser payment must be separately verified; mock and internal QA records are excluded.",
     "cash_receipt_forecast": "unknown; do not treat catalogue prices or technical readiness as received revenue",
     "additional_operating_spend_limit_usd": 0,
-    "updated_at": "2026-10-11T12:08:19Z",
+    "updated_at": "2026-10-12T15:43:58.282591Z",
     "production_evidence": {
       "site_source_commit": "4706d69769559ec226060b7100d8392533462d9d",
       "site_build_run": 37162847558,
@@ -1322,7 +1371,15 @@
       "deployed_public_legacy_text_renderer_enabled": false,
       "renderer_fix_pr": 1103,
       "renderer_fix_merge_commit": "02b003b81cef50a005a4b22c08b82b85cdc83865",
-      "renderer_fix_pr_build_run": 38142168188
+      "renderer_fix_pr_build_run": 38142168188,
+      "active_worker_public_config_checked_at": "2026-10-12T15:43:58.282591Z",
+      "active_worker_config_http_status": 200,
+      "active_worker_config_intake_ready": true,
+      "active_worker_config_payment_ready": true,
+      "active_worker_config_public_client_configured": true,
+      "active_worker_config_catalogue_slots": 3,
+      "public_active_placement_result": "ready=false; placements=[]; no eligible active sponsored placement returned",
+      "direct_readback_boundary": "Public production readiness and public placement state only. No protected advertiser application, PayPal order/capture, payout or bank-receipt ledger was read."
     },
     "recurring_operations": {
       "owner": "Revenue Intelligence Team",
@@ -1333,18 +1390,18 @@
       "execution_evidence": "Configuration only; no future run or advertiser receipt claimed."
     },
     "remaining_gates": [
-      "Read the active production Worker config directly and verify paymentReady plus the absence of unintended private fields; the current live UI is only an indirect signal.",
+      "Map the active Worker deployment/source ancestry and reconcile the protected advertiser and PayPal ledger through the existing owner-authenticated path. Public paymentReady=true is readiness only, not a completed capture or revenue record.",
       "Preserve the current-main and deployed paid image renderer enabled state plus legacy text fail-closed state; do not reopen renderer implementation work unless new direct source or live evidence shows a regression.",
       "Route this current record into an eligible release-verification spec, then repeat independent read-only Worker, Pages ancestry and live-route verification.",
       "Preserve real advertiser payment, material approval, inventory, publication, end-date, refund and dispute evidence as separate gates; do not create a real QA payment."
     ],
-    "production_evidence_scope": "Current-main ancestry and deployed public assets were matched. The F1-F3 advertiser page is live and shows checkout-after-quote copy, and the current-main and deployed public paid image renderer both have CONFIG.enabled=true while the legacy text renderer remains disabled. The active Worker config was not directly readable, and the release verifier reported eligible=0; therefore this is partial live evidence, not production_verified.",
+    "production_evidence_scope": "Current-main source and deployed paid-image renderer evidence remain recorded. Fresh direct public Worker config readback returned HTTP 200 with intakeReady=true and paymentReady=true, and the public placements route plus all three exact QA routes failed closed with no active paid campaign rendered. Active Worker source ancestry and the protected advertiser/PayPal ledger remain unverified; real payment, capture, payout and cash receipt remain unknown.",
     "current_operating_state": {
       "effective_at": "2026-10-09T08:21:43Z",
-      "checked_at": "2026-10-11T13:50:58Z",
+      "checked_at": "2026-10-12T15:43:58.282591Z",
       "source_state": "go_live_checkout_enabled_paid_image_renderer_enabled_legacy_text_disabled",
-      "production_state": "pages_ancestry_verified_independent_live_route_verification_pending",
-      "current_main": "02b003b81cef50a005a4b22c08b82b85cdc83865",
+      "production_state": "direct_public_worker_config_and_live_routes_verified_protected_ledger_and_worker_ancestry_pending",
+      "current_main": "0ed53c4dbfaca114dfcc991bf4c2b5f37502e82f",
       "implementation_pr": 1082,
       "merge_commit": "55a151c73983a5d3acebff4ac9e6c80311927490",
       "pr_build_run": 37904122572,
@@ -1356,15 +1413,15 @@
       "public_paid_renderer_source_enabled": true,
       "deployed_public_paid_renderer_enabled": true,
       "active_worker_checkout_disabled": null,
-      "active_worker_state": "owner_readback_intake_and_payment_ready_security_independent_readback_pending",
+      "active_worker_state": "direct_public_config_readback_intake_and_payment_ready; protected ledger and Worker source ancestry pending",
       "real_advertiser_payment_confirmed": null,
       "public_paid_ad_activated": false,
       "additional_operating_spend_usd": 0,
       "user_action_required": false,
-      "active_worker_verification_checked_at": "2026-10-11T12:08:19Z",
-      "active_worker_config_http_status": null,
-      "active_worker_config_intake_ready": null,
-      "active_worker_config_payment_ready": null,
+      "active_worker_verification_checked_at": "2026-10-12T15:43:58.282591Z",
+      "active_worker_config_http_status": 200,
+      "active_worker_config_intake_ready": true,
+      "active_worker_config_payment_ready": true,
       "continuation": {
         "approval_email_pr": 1089,
         "approval_email_merge_commit": "36f9a6626d4af4c90aada8f8817e4425be5d2346",
@@ -1413,7 +1470,49 @@
       "deployed_public_legacy_text_renderer_enabled": false,
       "active_worker_owner_readback_intake_ready": true,
       "active_worker_owner_readback_payment_ready": true,
-      "active_worker_owner_readback_paid_campaigns": 0
+      "active_worker_owner_readback_paid_campaigns": 0,
+      "latest_public_readback": {
+        "checked_at": "2026-10-12T15:43:58.282591Z",
+        "worker_config": {
+          "http_status": 200,
+          "intake_ready": true,
+          "payment_ready": true,
+          "currency": "USD",
+          "public_client_configured": true,
+          "catalogue_slots": 3
+        },
+        "public_placements": {
+          "ready": false,
+          "placements": [],
+          "interpretation": "no eligible active sponsored placement; not protected-ledger zero"
+        },
+        "qa_routes": [
+          {
+            "url": "https://coshuma.com/tool/pipedrive.html?coshuma_qa=1",
+            "slot": "tool-primary",
+            "hidden": true,
+            "campaign_id": null
+          },
+          {
+            "url": "https://coshuma.com/best/claap-sales-follow-up-ai.html?coshuma_qa=1",
+            "slot": "buyer-intent-top",
+            "hidden": true,
+            "campaign_id": null
+          },
+          {
+            "url": "https://coshuma.com/compare/semrush-vs-frase.html?coshuma_qa=1",
+            "slot": "compare-decision-premium",
+            "hidden": true,
+            "campaign_id": null
+          }
+        ],
+        "revenue_truth": {
+          "completed_capture": "unknown",
+          "protected_paid_campaign_count": "unknown",
+          "payout": "unknown",
+          "bank_receipt": "unknown"
+        }
+      }
     }
   },
   "public_content_language": {
