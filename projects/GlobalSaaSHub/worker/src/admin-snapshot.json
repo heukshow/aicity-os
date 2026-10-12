@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-10-11T22:27:09.162Z",
+  "generatedAt": "2026-10-12T00:22:25.063Z",
   "counts": {
     "totalTools": 179,
-    "verifiedAffiliates": 118,
-    "revenueReadyAffiliates": 79,
-    "genericRevenueReadyAffiliates": 75,
+    "verifiedAffiliates": 119,
+    "revenueReadyAffiliates": 80,
+    "genericRevenueReadyAffiliates": 76,
     "targetedRevenueReadyAffiliates": 4,
-    "openMonetizationGaps": 73,
+    "openMonetizationGaps": 72,
     "directActionableGaps": 0,
-    "browserRequiredGaps": 26,
+    "browserRequiredGaps": 25,
     "watchOnlyGaps": 47,
     "doNotReapply": 179,
     "toolPages": 180,
@@ -22,21 +22,39 @@
   },
   "affiliateCoverage": {
     "counts": {
-      "revenueReady": 79,
-      "genericRevenueReady": 75,
+      "revenueReady": 80,
+      "genericRevenueReady": 76,
       "targetedRevenueReady": 4,
       "terminal": 28,
-      "openMonetizationGaps": 73,
+      "openMonetizationGaps": 72,
       "directActionableGaps": 0,
-      "browserRequiredGaps": 26,
+      "browserRequiredGaps": 25,
       "watchOnlyGaps": 47,
       "doNotReapply": 179,
       "unclassifiedAffiliateStatus": 0,
-      "exactAffiliateUrlMissing": 73,
+      "exactAffiliateUrlMissing": 72,
       "officialUnverified": 0,
       "pricingUnverified": 122
     },
     "records": [
+      {
+        "id": "ai-agent-store",
+        "name": "AI Agent Store",
+        "officialVerified": true,
+        "pricingVerified": false,
+        "affiliateStatus": "approved_tracking",
+        "affiliateVerified": true,
+        "hasAffiliateUrl": true,
+        "genericRevenueReady": true,
+        "targetedRevenueReady": true,
+        "revenueReady": true,
+        "terminal": false,
+        "doNotReapply": true,
+        "browserRequired": false,
+        "directActionableGap": false,
+        "watchOnlyGap": false,
+        "blocker": null
+      },
       {
         "id": "ai-video-cut",
         "name": "AI Video Cut",
@@ -1566,24 +1584,6 @@
         "directActionableGap": false,
         "watchOnlyGap": true,
         "blocker": "affiliate_status_waiting_vendor_response"
-      },
-      {
-        "id": "ai-agent-store",
-        "name": "AI Agent Store",
-        "officialVerified": true,
-        "pricingVerified": false,
-        "affiliateStatus": "browser_required_legal_program_consent",
-        "affiliateVerified": false,
-        "hasAffiliateUrl": false,
-        "genericRevenueReady": false,
-        "targetedRevenueReady": false,
-        "revenueReady": false,
-        "terminal": false,
-        "doNotReapply": true,
-        "browserRequired": true,
-        "directActionableGap": false,
-        "watchOnlyGap": false,
-        "blocker": "legal_program_consent_required"
       },
       {
         "id": "airia",
@@ -3307,6 +3307,14 @@
     "koreanLeakCount": 0
   },
   "affiliates": [
+    {
+      "id": "ai-agent-store",
+      "name": "AI Agent Store",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://aiagentstore.ai/?ref=sangkwon",
+      "verifiedAt": "2026-10-12T08:47:00+09:00"
+    },
     {
       "id": "aiassistworks",
       "name": "AiAssistWorks",

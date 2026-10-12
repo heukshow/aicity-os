@@ -2,6 +2,18 @@
   "scope": "현재 검증된 제휴 경로 + 기존 수익 근거 + 검증된 보충 수익 근거",
   "programs": [
     {
+      "id": "ai-agent-store",
+      "name": "AI Agent Store",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://aiagentstore.ai/?ref=sangkwon",
+      "verified_at": "2026-10-12T08:47:00+09:00",
+      "account_id": "ai-agent-store",
+      "evidence": []
+    },
+    {
       "id": "aiassistworks",
       "name": "AiAssistWorks",
       "network": "Affonso",
