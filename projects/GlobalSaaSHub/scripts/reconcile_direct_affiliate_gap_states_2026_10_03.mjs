@@ -201,7 +201,6 @@ outreach.programs['hide-me'] = {
   status: 'browser_required_legal_program_consent',
   tracking_url: null,
   application_state: 'not_submitted_legal_terms_unaccepted',
-  account: 'personal Gmail thread 1a07b04c92ac440b',
   checked_at: hideMeEvidenceAt,
   official_program_url: 'https://hide.me/en/affiliates',
   workflow_url: 'https://affiliates.hide.me/affiliates/signup.php#SignupForm',
