@@ -78,7 +78,7 @@ try {
 } finally {
   paths.forEach((p, i) => fs.writeFileSync(p, originals[i]));
 }
-assert.equal(state.typedesk.sender, 'qmfforfhem@gmail.com');
+assert.equal(state.typedesk.sender, 'redacted-private-mailbox@example.invalid');
 assert.equal(state.typedesk.portal_enrollment_confirmed, false);
 assert.equal(state.n8n.application_state, 'submitted');
 
