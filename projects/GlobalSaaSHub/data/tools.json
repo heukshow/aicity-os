@@ -257,7 +257,7 @@
     "category_display": "Workflow Automation",
     "description": "Discover and deploy a diverse array of AI agents, access agency listings, and leverage hosted AI solutions with premium subscriptions designed for businesses seeking advanced automation.",
     "official_url": "https://aiagentstore.ai/",
-    "affiliate_url": null,
+    "affiliate_url": "https://aiagentstore.ai/?ref=sangkwon",
     "pricing_source_url": null,
     "pricing": "See official pricing",
     "key_features": [
@@ -278,28 +278,30 @@
     "evidence_source_type": null,
     "is_manual_override": true,
     "http_verification_status": null,
-    "affiliate_verified": false,
+    "affiliate_verified": true,
     "affiliate_source_url": "https://aiagentstore.ai/affiliate-program",
-    "affiliate_final_url": "https://aiagentstore.tolt.io/",
+    "affiliate_final_url": "https://aiagentstore.ai/?ref=sangkwon",
     "affiliate_http_status": 200,
     "affiliate_evidence_markers": [
       "The current official AI Agent Store affiliate page routes enrollment to the hosted Tolt program.",
       "The vendor states 10% commission on Agent Teams plans and 30% on other eligible paid products.",
       "The vendor terms state a $10 minimum payout, NET-15, via PayPal.",
-      "No existing COSHUMA AI Agent Store/Tolt affiliate account, submitted enrollment, approval, or vendor-issued exact customer referral URL is evidenced.",
+      "Authenticated Tolt onboarding completed with the existing COSHUMA identity after the current partner agreement was reviewed and accepted.",
+      "The authenticated dashboard issued and confirmed the exact customer-facing referral URL https://aiagentstore.ai/?ref=sangkwon.",
+      "At verification, earnings, clicks, leads and referred customers were all vendor-confirmed zero. A PayPal payout destination was saved, but no payout or cash receipt is evidenced.",
       "The historical aiagentstore.com/affiliate SSL error is obsolete and must not overwrite the current .ai program path.",
-      "AI Agent Store's current Terms of Service contain Affiliate Program Terms covering payout threshold, payout timing, payout method and participation risk; enrollment therefore requires legal-program consent before submission."
+      "Commission varies by product category; do not describe every eligible product as paying 30%."
     ],
-    "affiliate_verified_at": null,
+    "affiliate_verified_at": "2026-10-12T08:47:00+09:00",
     "primary_category": "automation",
     "comparison_group": "automation",
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-09T00:00:00Z",
     "official_evidence_url": "https://aiagentstore.ai/affiliate-program",
-    "affiliate_status": "browser_required_legal_program_consent",
-    "affiliate_status_checked_at": "2026-10-11T17:23:01+09:00",
-    "affiliate_next_action": "Review and accept AI Agent Store's current Affiliate Program Terms through the official Tolt enrollment flow before submission. After valid enrollment and approval, recover and verify only the vendor-issued customer-facing referral URL. Stop for CAPTCHA, OTP, payment approval or forced identity verification.",
-    "application_state": "not_submitted"
+    "affiliate_status": "approved_tracking",
+    "affiliate_status_checked_at": "2026-10-12T08:47:00+09:00",
+    "affiliate_next_action": "Do not re-enroll. Preserve the exact issued URL and tiered commission wording. Revenue Optimization may add disclosed rel=sponsored customer CTAs and validate the live destination without self-referral; keep verification traffic separate from customer performance.",
+    "application_state": "enrolled_tracking_link_verified"
   },
   {
     "id": "ai-video-cut",
