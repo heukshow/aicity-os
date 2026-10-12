@@ -16,6 +16,7 @@ const terminalStatuses = new Set([
   'application_blocked_region',
   'application_blocked_vendor_site_paused',
   'blocked_partnerstack_marketplace_limited',
+  'blocked_partnerstack_network_marketplace_limited',
   'excluded_user_request',
   'vendor-paused',
   'vendor_paused',
@@ -145,6 +146,12 @@ const counts = records.reduce((acc, item) => {
 });
 
 for (const item of records) {
+  if (
+    item.affiliateStatus.startsWith('blocked_partnerstack_') &&
+    (!item.terminal || !item.doNotReapply || item.directActionableGap)
+  ) {
+    throw new Error(`PartnerStack blocked-state guard failed for ${item.id}: ${item.affiliateStatus}`);
+  }
   if ((item.browserRequired || item.watchOnlyGap) && item.directActionableGap) {
     throw new Error(`Duplicate-application guard failed for ${item.id}: ${item.affiliateStatus}`);
   }
