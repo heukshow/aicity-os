@@ -23,6 +23,7 @@ PRICE_RE = re.compile(r"(?:[$€£]\s*\d+(?:[.,]\d{1,2})?|\d+(?:[.,]\d{1,2})?\s*
 PERIOD_RE = re.compile(r"\b(month|monthly|mo|year|yearly|annual|annually|yr|user|seat|usage|credit|request)\b", re.I)
 TAG_RE = re.compile(r"<[^>]+>")
 SPACE_RE = re.compile(r"\s+")
+PUBLIC_TEXT_FORBIDDEN_RE = re.compile(r'[<>"\\x00-\\x1f\\x7f]')
 
 def norm(value):
     return SPACE_RE.sub(" ", html.unescape(str(value or ""))).strip().casefold()
@@ -61,7 +62,11 @@ def validate_proposal(tool, proposal, source_urls, raw_html, final_url, checked_
     markers = proposal.get("pricing_evidence_markers")
     if source not in source_urls or not same_domain(source, tool["official_url"]) or not same_domain(final_url, tool["official_url"]):
         return None
-    if not isinstance(pricing, str) or not re.search(r"\d", pricing):
+    if (
+        not isinstance(pricing, str)
+        or not re.search(r"\d", pricing)
+        or PUBLIC_TEXT_FORBIDDEN_RE.search(pricing)
+    ):
         return None
     if currency not in ALLOWED_CURRENCIES or billing not in ALLOWED_BILLING:
         return None
