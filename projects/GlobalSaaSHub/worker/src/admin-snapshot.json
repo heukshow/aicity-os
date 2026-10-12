@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T01:35:05.753Z",
+  "generatedAt": "2026-10-12T08:37:59.141Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 119,
@@ -8,8 +8,8 @@
     "targetedRevenueReadyAffiliates": 4,
     "openMonetizationGaps": 73,
     "directActionableGaps": 0,
-    "browserRequiredGaps": 24,
-    "watchOnlyGaps": 49,
+    "browserRequiredGaps": 25,
+    "watchOnlyGaps": 48,
     "doNotReapply": 179,
     "toolPages": 180,
     "comparePages": 280,
@@ -28,13 +28,13 @@
       "terminal": 27,
       "openMonetizationGaps": 73,
       "directActionableGaps": 0,
-      "browserRequiredGaps": 24,
-      "watchOnlyGaps": 49,
+      "browserRequiredGaps": 25,
+      "watchOnlyGaps": 48,
       "doNotReapply": 179,
       "unclassifiedAffiliateStatus": 0,
       "exactAffiliateUrlMissing": 73,
       "officialUnverified": 0,
-      "pricingUnverified": 122
+      "pricingUnverified": 121
     },
     "records": [
       {
@@ -2220,7 +2220,7 @@
         "name": "hide.me",
         "officialVerified": true,
         "pricingVerified": false,
-        "affiliateStatus": "waiting_vendor_response",
+        "affiliateStatus": "browser_required_legal_program_consent",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -2228,10 +2228,10 @@
         "revenueReady": false,
         "terminal": false,
         "doNotReapply": true,
-        "browserRequired": false,
+        "browserRequired": true,
         "directActionableGap": false,
-        "watchOnlyGap": true,
-        "blocker": "affiliate_status_waiting_vendor_response"
+        "watchOnlyGap": false,
+        "blocker": "legal_program_consent_required"
       },
       {
         "id": "instapage",
@@ -3101,7 +3101,7 @@
         "id": "synder",
         "name": "Synder",
         "officialVerified": true,
-        "pricingVerified": false,
+        "pricingVerified": true,
         "affiliateStatus": "outreach_sent",
         "affiliateVerified": true,
         "hasAffiliateUrl": false,
