@@ -15,7 +15,7 @@
 ## Browser follow-up correction — 2026-09-08
 
 - Latest source: `affiliate-browser-followup-wave3-2026-09-08.json`.
-- Sent-message sender confirmed as `qmfforfhem@gmail.com`, not `support@coshuma.com`.
+- Sent-message sender confirmed as `redacted-private-mailbox@example.invalid`, not `support@coshuma.com`.
 - Existing email request remains `application_submitted` / `pending_response`; no Rewardful portal enrollment or approval is confirmed.
 - Official signup route: https://typedesk.getrewardful.com/signup; this is an enrollment route, never a customer tracking CTA.
 - Do not reapply. Resolve the existing request/account before any new registration.
