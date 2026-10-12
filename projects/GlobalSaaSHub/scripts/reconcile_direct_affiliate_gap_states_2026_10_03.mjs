@@ -4,7 +4,7 @@ const checkedAt = '2026-10-03T03:05:00+09:00';
 
 const states = {
   activepieces: {
-    stale: [null, 'unclassified', 'browser_required_sales_inquiry', 'browser_required_affiliate_application'],
+    stale: [null, 'unclassified', 'browser_required_sales_inquiry', 'browser_required_affiliate_application', 'waiting_partnerstack_network_review'],
     status: 'blocked_partnerstack_network_marketplace_limited',
     checkedAt: '2026-10-12T22:08:37+09:00',
     source: 'https://www.activepieces.com/',
