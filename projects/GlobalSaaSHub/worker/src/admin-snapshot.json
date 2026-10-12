@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-10-12T14:06:25.622Z",
+  "generatedAt": "2026-10-12T14:38:29.240Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 119,
     "revenueReadyAffiliates": 80,
     "genericRevenueReadyAffiliates": 76,
     "targetedRevenueReadyAffiliates": 4,
-    "openMonetizationGaps": 73,
-    "directActionableGaps": 2,
+    "openMonetizationGaps": 72,
+    "directActionableGaps": 1,
     "browserRequiredGaps": 25,
     "watchOnlyGaps": 46,
-    "doNotReapply": 177,
+    "doNotReapply": 178,
     "toolPages": 180,
     "comparePages": 280,
     "sitemapUrls": 563
@@ -18,21 +18,21 @@
   "revenueFocus": {
     "policy": "prioritize_direct_existing_gaps_without_reapplying_waiting_states",
     "allowNewTools": false,
-    "reason": "2 existing tools still have directly actionable affiliate gaps; 46 are watch-only and 25 require browser work."
+    "reason": "1 existing tools still have directly actionable affiliate gaps; 46 are watch-only and 25 require browser work."
   },
   "affiliateCoverage": {
     "counts": {
       "revenueReady": 80,
       "genericRevenueReady": 76,
       "targetedRevenueReady": 4,
-      "terminal": 27,
-      "openMonetizationGaps": 73,
-      "directActionableGaps": 2,
+      "terminal": 28,
+      "openMonetizationGaps": 72,
+      "directActionableGaps": 1,
       "browserRequiredGaps": 25,
       "watchOnlyGaps": 46,
-      "doNotReapply": 177,
+      "doNotReapply": 178,
       "unclassifiedAffiliateStatus": 0,
-      "exactAffiliateUrlMissing": 73,
+      "exactAffiliateUrlMissing": 72,
       "officialUnverified": 0,
       "pricingUnverified": 121
     },
@@ -1524,12 +1524,12 @@
         "genericRevenueReady": false,
         "targetedRevenueReady": false,
         "revenueReady": false,
-        "terminal": false,
-        "doNotReapply": false,
+        "terminal": true,
+        "doNotReapply": true,
         "browserRequired": false,
-        "directActionableGap": true,
+        "directActionableGap": false,
         "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
+        "blocker": null
       },
       {
         "id": "adoric",
