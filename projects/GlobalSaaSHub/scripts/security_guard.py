@@ -22,6 +22,9 @@ PUBLIC_PRIVATE_MARKERS = [
     "YOUTUBE_REFRESH_TOKEN=",
 ]
 PRIVATE_PERSONAL_MAILBOX = re.compile(r"(?i)\b[a-z0-9._%+-]+@gmail\.com\b")
+STRUCTURED_PERSONAL_MAILBOX_ROUTING = re.compile(
+    r"""(?is)\b(?:account|mailbox)\b\s*[:=]\s*['\"]personal\s+(?:gmail|mailbox)(?:\s+thread)?\b"""
+)
 CLIENT_EMAIL_PRIVILEGE_BYPASS = re.compile(
     r"""(?is)\b(?:isMaster|isAdmin|isOwner|isSuperuser)\b\s*=\s*[^;\n]{0,240}\.email\s*={2,3}\s*[\'"][^\'"]+@[^\'"]+[\'"]"""
 )
@@ -67,6 +70,8 @@ def main() -> None:
             continue
         if PRIVATE_PERSONAL_MAILBOX.search(text):
             errors.append(f"repository text contains a private Gmail address: {rel}")
+        if STRUCTURED_PERSONAL_MAILBOX_ROUTING.search(text):
+            errors.append(f"repository text exposes structured personal-mailbox routing: {rel}")
         if path.suffix.lower() in CLIENT_CODE_SUFFIXES and CLIENT_EMAIL_PRIVILEGE_BYPASS.search(text):
             errors.append(f"client code contains a hard-coded email privilege bypass: {rel}")
 
@@ -86,6 +91,8 @@ def main() -> None:
                     errors.append(f"public bundle contains forbidden marker {marker!r}: {path.relative_to(ROOT)}")
             if PRIVATE_PERSONAL_MAILBOX.search(text):
                 errors.append(f"public bundle contains a private Gmail address: {path.relative_to(ROOT)}")
+            if STRUCTURED_PERSONAL_MAILBOX_ROUTING.search(text):
+                errors.append(f"public bundle exposes structured personal-mailbox routing: {path.relative_to(ROOT)}")
             if SECRET_ASSIGNMENT.search(text):
                 errors.append(f"public bundle contains secret-like literal assignment: {path.relative_to(ROOT)}")
 
@@ -95,7 +102,7 @@ def main() -> None:
             print(f" - {error}")
         raise SystemExit(1)
 
-    print("SECURITY GUARD: PASS — no private Gmail addresses, client email privilege bypasses, tracked credential-shaped files, or public secret markers")
+    print("SECURITY GUARD: PASS — no private Gmail addresses, structured personal-mailbox routing, client email privilege bypasses, tracked credential-shaped files, or public secret markers")
 
 
 if __name__ == "__main__":
