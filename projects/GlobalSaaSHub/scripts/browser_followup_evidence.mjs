@@ -73,8 +73,8 @@ const operationalApprovals = [
     status: 'approved_tracking',
     affiliate_url: 'https://your.omnisend.com/4aA5k9',
     checked_at: '2026-09-09T17:50:34+09:00',
-    evidence: 'Omnisend Senior Affiliate Marketing Manager Deimantė Vaitkevičiūtė replied to support@coshuma.com in Gmail message 1a0855caf8f6dee2 and explicitly instructed COSHUMA to use https://your.omnisend.com/4aA5k9 for tracking, confirming the tracking link is in Impact Assets. No click, signup, commission, payout, or revenue is inferred.',
-    next_action: 'Preserve and publish the exact Omnisend-issued customer tracking URL on buyer-facing COSHUMA pages; do not reapply and do not substitute a generic Omnisend or Impact operational URL. Measure actual downstream events separately.',
+    evidence: 'Omnisend Senior Affiliate Marketing Manager Deimantė Vaitkevičiūtė replied to support@coshuma.com in Gmail message 1a0855caf8f6dee2 and explicitly instructed COSHUMA to use https://your.omnisend.com/4aA5k9 for general tracking. In follow-up Gmail message 1a085d0074ddb3a0, she issued https://your.omnisend.com/VOKyAj specifically for the Omnisend pricing page. Both are customer-facing vendor-issued links; no click, signup, commission, payout, or revenue is inferred.',
+    next_action: 'Preserve the vendor-issued general URL as the canonical Omnisend affiliate_url. Use the separate vendor-issued https://your.omnisend.com/VOKyAj only for pricing-intent Omnisend CTAs. Do not synthesize deep links or substitute the homepage, Impact dashboard, onboarding URL, or email redirect. Track real clicks/signups/commissions separately; no revenue is inferred from approval or link issuance.',
     application_state: 'submitted',
   },
   {
