@@ -180,7 +180,7 @@
     "status": "resolved",
     "cost": "0",
     "verified_at": "2026-09-08T14:00:00+09:00",
-    "reason": "User explicitly authorized acceptance of the prepared Fillout Program Terms. Existing form preserved, checkbox selected and Continue clicked once. Step 2 of 2 shows Application submitted / submitted for review. Notification address shown by existing Dub account is qmfforfhem@gmail.com. Application ID pga_1M1YE0ANQP8BPWPGEW2BENNGR. Promotional dashboard illustration is not actual earnings or a personal referral link. Follow-up: authenticated Dub partner dashboard at partners.dub.co/programs/fillout now shows Approved/Enrolled with issued exact customer-facing tracking link try.fillout.com/sang-kwon-an-hxwn.",
+    "reason": "User explicitly authorized acceptance of the prepared Fillout Program Terms. Existing form preserved, checkbox selected and Continue clicked once. Step 2 of 2 shows Application submitted / submitted for review. Notification address shown by existing Dub account is redacted-private-mailbox@example.invalid. Application ID pga_1M1YE0ANQP8BPWPGEW2BENNGR. Promotional dashboard illustration is not actual earnings or a personal referral link. Follow-up: authenticated Dub partner dashboard at partners.dub.co/programs/fillout now shows Approved/Enrolled with issued exact customer-facing tracking link try.fillout.com/sang-kwon-an-hxwn.",
     "next_action": "Preserve the issued exact customer-facing link; do not reapply. Add a public catalog entry separately before treating this as a site CTA.",
     "exact_tracking_url": "https://try.fillout.com/sang-kwon-an-hxwn",
     "blocker": null,
