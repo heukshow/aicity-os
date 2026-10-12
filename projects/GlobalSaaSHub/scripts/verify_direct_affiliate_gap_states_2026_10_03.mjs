@@ -44,6 +44,9 @@ for (const [id, status] of [['activepieces', 'waiting_partnerstack_network_revie
 }
 const hideMe = outreach['hide-me'];
 const hideMeQueue = queue.find((row) => row.tool_id === 'hide-me');
+if (Object.hasOwn(hideMe ?? {}, 'account')) {
+  throw new Error('hide.me outreach must not expose an internal mailbox routing label');
+}
 if (hideMe?.application_state !== 'not_submitted_legal_terms_unaccepted' || hideMe?.user_action_required !== true) {
   throw new Error('hide.me legal consent outreach gate regression');
 }
