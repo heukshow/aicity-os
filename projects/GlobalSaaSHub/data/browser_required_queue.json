@@ -790,7 +790,7 @@
     "cost": 0,
     "exact_tracking_url": "https://your.omnisend.com/4aA5k9",
     "blocker": null,
-    "next_action": "Preserve and publish the exact Omnisend-issued customer tracking URL on buyer-facing COSHUMA pages; do not reapply and do not substitute a generic Omnisend or Impact operational URL. Measure actual downstream events separately.",
+    "next_action": "Preserve the vendor-issued general URL as the canonical Omnisend affiliate_url. Use the separate vendor-issued https://your.omnisend.com/VOKyAj only for pricing-intent Omnisend CTAs. Do not synthesize deep links or substitute the homepage, Impact dashboard, onboarding URL, or email redirect. Track real clicks/signups/commissions separately; no revenue is inferred from approval or link issuance.",
     "do_not_reapply": true,
     "browser_required": false
   },
@@ -1266,20 +1266,22 @@
     "id": "activepieces-affiliate-reconcile-20261003",
     "tool_id": "activepieces",
     "priority": "high",
-    "status": "browser_required_affiliate_application",
-    "cost": "0",
-    "verified_at": "2026-10-07T12:22:00+09:00",
-    "reason": "2026-10-07 official PartnerStack marketplace recheck: the Activepieces program directory exposes an Apply to program action and PartnerStack sign-in. This verifies that a public application route exists; it does not prove COSHUMA application, approval, tracking URL, clicks, customers, commission, payout, or revenue. No application was submitted in this update and no COSHUMA-specific tracking URL is verified.",
-    "next_action": "Reuse the existing COSHUMA-owned PartnerStack session to open the official Activepieces program application. Inspect the application questions and program terms first; submit once only if no CAPTCHA, OTP, legal-consent, payment, or forced-identity gate appears. Recover and validate only the exact vendor-issued customer referral URL after approval.",
+    "status": "waiting_partnerstack_network_review",
+    "cost": 0,
+    "verified_at": "2026-10-12T10:04:00+09:00",
+    "reason": "2026-10-12 authenticated PartnerStack marketplace exact search returned no programs matching Activepieces and exposed only Request a program. The historical PartnerStack program URL is not current proof that COSHUMA can apply; the PartnerStack Network Profile reapplication is pending review. No Activepieces application, approval, customer-facing tracking URL, click, signup, customer, commission, payout, or revenue is verified.",
+    "next_action": "Wait for the pending PartnerStack Network Profile review, then recheck the authenticated marketplace and an independently verified official Activepieces partner route. Do not submit a PartnerStack request-a-program form or infer a tracking URL from the historical marketplace URL.",
     "exact_tracking_url": null,
-    "affiliate_status": "browser_required_affiliate_application",
-    "blocker": "browser_required_affiliate_application",
+    "affiliate_status": "waiting_partnerstack_network_review",
+    "blocker": "The authenticated marketplace does not currently expose an Activepieces program, and the PartnerStack Network Profile is pending review.",
     "do_not": [
       "Do not create a duplicate partner identity if the existing COSHUMA PartnerStack account can be reused.",
       "Do not accept new program terms, solve CAPTCHA/OTP, authorize payment, or complete forced identity verification without the required normal approval path.",
       "Do not treat the application or dashboard URL as a customer tracking URL.",
       "Do not infer clicks, signups, customers, commissions, payouts, or revenue from application access."
-    ]
+    ],
+    "application_state": "not_submitted_program_not_found",
+    "user_action_required": false
   },
   {
     "id": "carv-affiliate-reconcile-20261003",
@@ -1412,6 +1414,42 @@
     "workflow_url": "https://aiagentstore.tolt.io/"
   },
   {
+    "id": "colossyan-impact-access-20261012",
+    "tool_id": "colossyan",
+    "priority": "high",
+    "status": "waiting_vendor_response",
+    "affiliate_status": "waiting_vendor_response",
+    "application_state": "not_submitted_existing_impact_access_loop",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "user_action_required": false,
+    "blocker": "The existing COSHUMA Impact identity is caught in the vendor signup/sign-in loop; Colossyan routing guidance is pending.",
+    "reason": "2026-10-12 existing Impact sign-in and Google SSO both returned to the Colossyan already-signed-up/sign-in loop; the direct Impact dashboard also returned to sign-in. One routing inquiry was sent to marketing@colossyan.com in Gmail message 1a12d6fc6dcddca9 and no supplier reply was present at the latest mailbox check. No Colossyan application, approval, customer-facing tracking URL, click, signup, customer, commission, payout, or revenue is verified.",
+    "official_program_url": "https://www.colossyan.com/affiliate-program/",
+    "next_action": "Wait for Colossyan to reply to Gmail message 1a12d6fc6dcddca9 with an invitation or supported route for the existing COSHUMA Impact identity. Do not create another Impact account, repeat the application loop, resend the inquiry, or infer a customer tracking URL.",
+    "verified_at": "2026-10-12T10:04:00+09:00",
+    "outbound_message_id": "1a12d6fc6dcddca9",
+    "do_not_reapply": true
+  },
+  {
+    "id": "partnerstack-network-profile-reapplication-20261012",
+    "tool_id": "partnerstack-network-profile",
+    "priority": "high",
+    "status": "application_submitted_pending_review",
+    "affiliate_status": "application_submitted_pending_review",
+    "application_state": "submitted",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "user_action_required": false,
+    "blocker": "PartnerStack Network Profile review is pending.",
+    "reason": "The authenticated existing COSHUMA account confirmed that the Network Profile reapplication was sent for review on 2026-10-12. This is not program approval and does not issue a customer-facing tracking URL.",
+    "next_action": "Wait for the PartnerStack Network Profile decision. Do not reapply. After a decision, reconcile each vendor program separately and use only vendor-issued customer-facing tracking URLs.",
+    "verified_at": "2026-10-12T10:04:00+09:00",
+    "github_issue": 292,
+    "github_comment_id": 6115935512,
+    "do_not_reapply": true
+  },
+  {
     "id": "gravity-forms-approved-link-recovery-2026-09-09",
     "tool_id": "gravity-forms",
     "priority": "high",
@@ -1459,7 +1497,7 @@
     "cost": 0,
     "blocker": null,
     "user_action_required": false,
-    "next_action": "Preserve the first exact vendor-issued Claap URL as the default buyer-facing tracking CTA and do not reapply. Await Lamia's destination/custom-label mapping before using the second verified URL for destination-specific routing. Measure actual downstream events separately.",
+    "next_action": "Use the first exact vendor-issued Claap URL as the default tracked CTA; await destination/custom-label mapping before destination-specific use of the second URL. Do not reapply.",
     "evidence": "Gmail 1a08633651c79db9: Lamia Karmaly copied both URLs from COSHUMA's PartnerStack dashboard."
   },
   {
@@ -1500,14 +1538,13 @@
     "exact_tracking_url": "https://get.claap.io/rc9nqme16a9q-gfvrqk",
     "alternate_verified_url": "https://get.claap.io/ssb7dex1109s",
     "reason": "Claap affiliate manager Lamia Karmaly copied both exact customer-facing PartnerStack URLs from COSHUMA's existing dashboard into Gmail message 1a08633651c79db9.",
-    "next_action": "Preserve the first exact vendor-issued Claap URL as the default buyer-facing tracking CTA and do not reapply. Await Lamia's destination/custom-label mapping before using the second verified URL for destination-specific routing. Measure actual downstream events separately.",
+    "next_action": "No browser recovery is needed. Keep the first vendor-issued URL as the default Claap revenue CTA and retain the second as a verified alternate until Lamia confirms each destination/custom label.",
     "do_not": [
       "Do not reapply to Claap.",
       "Do not replace the verified URLs with PartnerStack dashboard/login, a generic Claap homepage, prototype URL, email redirect, or guessed parameter.",
       "Do not infer clicks, signups, commissions, or revenue from link issuance or CTA publication."
     ],
     "resolved_at": "2026-09-09T12:45:09Z",
-    "resolution_evidence": "Gmail message 1a08633651c79db9 from Claap affiliate manager Lamia Karmaly supplied both exact URLs; the first is the authoritative default CTA pending destination-label mapping for the second.",
-    "blocker": null
+    "resolution_evidence": "Gmail message 1a08633651c79db9 from Claap affiliate manager Lamia Karmaly supplied both exact URLs; the first is the authoritative default CTA pending destination-label mapping for the second."
   }
 ]
