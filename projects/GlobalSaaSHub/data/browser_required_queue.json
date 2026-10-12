@@ -790,7 +790,7 @@
     "cost": 0,
     "exact_tracking_url": "https://your.omnisend.com/4aA5k9",
     "blocker": null,
-    "next_action": "Preserve and publish the exact Omnisend-issued customer tracking URL on buyer-facing COSHUMA pages; do not reapply and do not substitute a generic Omnisend or Impact operational URL. Measure actual downstream events separately.",
+    "next_action": "Preserve the vendor-issued general URL as the canonical Omnisend affiliate_url. Use the separate vendor-issued https://your.omnisend.com/VOKyAj only for pricing-intent Omnisend CTAs. Do not synthesize deep links or substitute the homepage, Impact dashboard, onboarding URL, or email redirect. Track real clicks/signups/commissions separately; no revenue is inferred from approval or link issuance.",
     "do_not_reapply": true,
     "browser_required": false
   },
