@@ -105,17 +105,25 @@ const states = {
     ],
   },
   'hide-me': {
-    stale: [null, 'unclassified', 'application_available', 'browser_required_application_form'],
-    status: 'waiting_vendor_response',
+    stale: [null, 'unclassified', 'application_available', 'browser_required_application_form', 'waiting_vendor_response'],
+    status: 'browser_required_legal_program_consent',
+    checkedAt: '2026-10-12T17:27:44+09:00',
     source: 'https://hide.me/en/affiliates',
-    workflow: 'https://affiliates.hide.me/affiliates/signup.php',
-    next: 'Wait for the official affiliate team response to Gmail follow-up 1a12a460802a7bfc. Do not send duplicate outreach or create a second partner identity. If the vendor directs COSHUMA to the public Post Affiliate Pro form, submit once through the supported route and preserve only the issued customer-facing referral URL.',
+    workflow: 'https://affiliates.hide.me/affiliates/signup.php#SignupForm',
+    applicationState: 'not_submitted_legal_terms_unaccepted',
+    next: "The account holder must review and explicitly approve the required hide.me affiliate agreement before submission. The form requires acceptance of material indemnification, Malaysian-law/Kuala Lumpur arbitration, prevailing-party attorney-fee and cost reimbursement, class-action waiver, and jury-trial waiver terms. If approved, reuse the existing COSHUMA identity, submit once only, and recover only the exact vendor-issued customer-facing tracking URL. Stop for CAPTCHA, OTP, payment approval, or forced identity verification.",
     evidence: [
-      'The current official hide.me affiliate page is live and routes prospective partners to a Post Affiliate Pro signup.',
-      'COSHUMA sent the original enrollment inquiry from the personal mailbox on 2026-09-07 in Gmail 1a07b04c92ac440b.',
-      'After confirming no supplier reply or issued referral URL, COSHUMA sent one follow-up to the official affiliate contact listed by hide.me on 2026-10-11 in Gmail 1a12a460802a7bfc.',
-      'No approval, customer-facing tracking URL, click, signup, paid customer, commission, payout, or revenue is inferred from outreach.',
+          "Gmail message 1a12f13773e18e88 in thread 1a07b04c92ac440b from affiliate@eventure.my (cc affiliate@hide.me), received 2026-10-12T16:46:04+09:00, directs COSHUMA to the official Post Affiliate Pro signup form and says the application will be reviewed after submission.",
+          "The official signup form was opened through the supported browser route and requires affirmative acceptance of the affiliate agreement; no application was submitted and no terms were accepted.",
+          "The required agreement includes affiliate indemnification and defense obligations, Malaysian law and Kuala Lumpur arbitration, reimbursement of the prevailing party's attorney fees and costs, a class-action waiver, and a jury-trial waiver.",
+          "No approval, customer-facing tracking URL, click, signup, paid customer, commission, payout, or revenue is verified."
     ],
+    lifecycleOverride: {
+      source_type: 'vendor_email_and_official_program_form',
+      source_ref: 'gmail:1a12f13773e18e88',
+      observed_at: '2026-10-12T17:27:44+09:00',
+      reason: 'Fresh vendor direction and the required legal agreement supersede the waiting-for-response state; the application remains unsubmitted pending explicit legal consent.',
+    },
   },
   'snov-io': {
     stale: [null, 'unclassified', 'application_available'],
@@ -157,6 +165,7 @@ for (const file of ['data/tools.json','data/tools.next.json']) {
 }
 
 const currentEvidenceAt = '2026-10-12T10:04:00+09:00';
+const hideMeEvidenceAt = '2026-10-12T17:27:44+09:00';
 
 const outreachPath = 'data/affiliate_outreach_state.json';
 const outreach = JSON.parse(fs.readFileSync(outreachPath, 'utf8'));
@@ -188,6 +197,23 @@ outreach.programs.colossyan = {
   note: states.colossyan.evidence.join(' '),
   user_action_required: false,
 };
+outreach.programs['hide-me'] = {
+  status: 'browser_required_legal_program_consent',
+  tracking_url: null,
+  application_state: 'not_submitted_legal_terms_unaccepted',
+  account: 'personal Gmail thread 1a07b04c92ac440b',
+  checked_at: hideMeEvidenceAt,
+  official_program_url: 'https://hide.me/en/affiliates',
+  workflow_url: 'https://affiliates.hide.me/affiliates/signup.php#SignupForm',
+  inbound_message_id: '1a12f13773e18e88',
+  thread_id: '1a07b04c92ac440b',
+  sent_message_id: '1a12a460802a7bfc',
+  do_not_repeat_outreach: true,
+  next_action: states['hide-me'].next,
+  note: states['hide-me'].evidence.join(' '),
+  user_action_required: true,
+};
+outreach.updated_at = hideMeEvidenceAt;
 fs.writeFileSync(outreachPath, `${JSON.stringify(outreach, null, 2)}\n`);
 
 const queuePath = 'data/browser_required_queue.json';
@@ -240,6 +266,25 @@ upsertQueue('partnerstack-network-profile-reapplication-20261012', 'partnerstack
   verified_at: currentEvidenceAt,
   github_issue: 292,
   github_comment_id: 6115935512,
+  do_not_reapply: true,
+});
+upsertQueue('hide-me-affiliate-legal-consent-20261012', 'hide-me', {
+  priority: 'high',
+  status: 'browser_required_legal_program_consent',
+  affiliate_status: 'browser_required_legal_program_consent',
+  application_state: 'not_submitted_legal_terms_unaccepted',
+  cost: 0,
+  exact_tracking_url: null,
+  user_action_required: true,
+  blocker: 'The required affiliate agreement contains material indemnity, arbitration, attorney-fee/cost, class-action-waiver, and jury-waiver provisions that need explicit account-holder legal review and consent.',
+  reason: states['hide-me'].evidence.join(' '),
+  official_program_url: 'https://hide.me/en/affiliates',
+  application_url: 'https://affiliates.hide.me/affiliates/signup.php#SignupForm',
+  next_action: states['hide-me'].next,
+  verified_at: hideMeEvidenceAt,
+  inbound_message_id: '1a12f13773e18e88',
+  thread_id: '1a07b04c92ac440b',
+  sent_message_id: '1a12a460802a7bfc',
   do_not_reapply: true,
 });
 fs.writeFileSync(queuePath, `${JSON.stringify(queue, null, 2)}\n`);

@@ -12,7 +12,7 @@ const expected = new Map([
   ['featureshark','waiting_vendor_response'],
   ['flowgent-ai','program_inactive'],
   ['google-workspace','browser_required_legal_program_consent'],
-  ['hide-me','waiting_vendor_response'],
+  ['hide-me','browser_required_legal_program_consent'],
   ['scribe','program_closed_to_new_applicants'],
   ['snov-io','browser_required_legal_program_consent'],
 ]);
@@ -33,7 +33,7 @@ for (const file of ['data/tools.json','data/tools.next.json']) {
 
 const outreach = JSON.parse(fs.readFileSync(new URL('../data/affiliate_outreach_state.json', import.meta.url), 'utf8')).programs;
 const queue = JSON.parse(fs.readFileSync(new URL('../data/browser_required_queue.json', import.meta.url), 'utf8'));
-for (const [id, status] of [['activepieces', 'waiting_partnerstack_network_review'], ['colossyan', 'waiting_vendor_response']]) {
+for (const [id, status] of [['activepieces', 'waiting_partnerstack_network_review'], ['colossyan', 'waiting_vendor_response'], ['hide-me', 'browser_required_legal_program_consent']]) {
   if (outreach[id]?.status !== status || outreach[id]?.tracking_url !== null) {
     throw new Error(`Outreach state regression for ${id}`);
   }
@@ -42,6 +42,15 @@ for (const [id, status] of [['activepieces', 'waiting_partnerstack_network_revie
     throw new Error(`Browser queue state regression for ${id}`);
   }
 }
+const hideMe = outreach['hide-me'];
+const hideMeQueue = queue.find((row) => row.tool_id === 'hide-me');
+if (hideMe?.application_state !== 'not_submitted_legal_terms_unaccepted' || hideMe?.user_action_required !== true) {
+  throw new Error('hide.me legal consent outreach gate regression');
+}
+if (hideMeQueue?.application_state !== 'not_submitted_legal_terms_unaccepted' || hideMeQueue?.user_action_required !== true) {
+  throw new Error('hide.me legal consent queue gate regression');
+}
+
 const networkProfile = queue.find((row) => row.id === 'partnerstack-network-profile-reapplication-20261012');
 if (networkProfile?.status !== 'application_submitted_pending_review' || networkProfile?.exact_tracking_url !== null) {
   throw new Error('PartnerStack Network Profile reapplication evidence regression');

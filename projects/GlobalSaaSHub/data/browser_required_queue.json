@@ -1547,5 +1547,26 @@
     "resolved_at": "2026-09-09T12:45:09Z",
     "resolution_evidence": "Gmail message 1a08633651c79db9 from Claap affiliate manager Lamia Karmaly supplied both exact URLs; the first is the authoritative default CTA pending destination-label mapping for the second.",
     "blocker": null
+  },
+  {
+    "id": "hide-me-affiliate-legal-consent-20261012",
+    "tool_id": "hide-me",
+    "priority": "high",
+    "status": "browser_required_legal_program_consent",
+    "affiliate_status": "browser_required_legal_program_consent",
+    "application_state": "not_submitted_legal_terms_unaccepted",
+    "cost": 0,
+    "exact_tracking_url": null,
+    "user_action_required": true,
+    "blocker": "The required affiliate agreement contains material indemnity, arbitration, attorney-fee/cost, class-action-waiver, and jury-waiver provisions that need explicit account-holder legal review and consent.",
+    "reason": "Gmail message 1a12f13773e18e88 in thread 1a07b04c92ac440b from affiliate@eventure.my (cc affiliate@hide.me), received 2026-10-12T16:46:04+09:00, directs COSHUMA to the official Post Affiliate Pro signup form and says the application will be reviewed after submission. The official signup form was opened through the supported browser route and requires affirmative acceptance of the affiliate agreement; no application was submitted and no terms were accepted. The required agreement includes affiliate indemnification and defense obligations, Malaysian law and Kuala Lumpur arbitration, reimbursement of the prevailing party's attorney fees and costs, a class-action waiver, and a jury-trial waiver. No approval, customer-facing tracking URL, click, signup, paid customer, commission, payout, or revenue is verified.",
+    "official_program_url": "https://hide.me/en/affiliates",
+    "application_url": "https://affiliates.hide.me/affiliates/signup.php#SignupForm",
+    "next_action": "The account holder must review and explicitly approve the required hide.me affiliate agreement before submission. The form requires acceptance of material indemnification, Malaysian-law/Kuala Lumpur arbitration, prevailing-party attorney-fee and cost reimbursement, class-action waiver, and jury-trial waiver terms. If approved, reuse the existing COSHUMA identity, submit once only, and recover only the exact vendor-issued customer-facing tracking URL. Stop for CAPTCHA, OTP, payment approval, or forced identity verification.",
+    "verified_at": "2026-10-12T17:27:44+09:00",
+    "inbound_message_id": "1a12f13773e18e88",
+    "thread_id": "1a07b04c92ac440b",
+    "sent_message_id": "1a12a460802a7bfc",
+    "do_not_reapply": true
   }
 ]
