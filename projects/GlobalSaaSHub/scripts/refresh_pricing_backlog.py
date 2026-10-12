@@ -23,7 +23,7 @@ PRICE_RE = re.compile(r"(?:[$€£]\s*\d+(?:[.,]\d{1,2})?|\d+(?:[.,]\d{1,2})?\s*
 PERIOD_RE = re.compile(r"\b(month|monthly|mo|year|yearly|annual|annually|yr|user|seat|usage|credit|request)\b", re.I)
 TAG_RE = re.compile(r"<[^>]+>")
 SPACE_RE = re.compile(r"\s+")
-PUBLIC_TEXT_FORBIDDEN_RE = re.compile(r'[<>"\\x00-\\x1f\\x7f]')
+PUBLIC_TEXT_FORBIDDEN_RE = re.compile(r'[<>"\x00-\x1f\x7f]')
 
 def norm(value):
     return SPACE_RE.sub(" ", html.unescape(str(value or ""))).strip().casefold()
