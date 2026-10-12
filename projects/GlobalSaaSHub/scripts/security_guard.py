@@ -12,6 +12,7 @@ FORBIDDEN_FILENAMES = {
 }
 FORBIDDEN_SUFFIXES = {".pem", ".p12", ".pfx", ".key"}
 TEXT_SUFFIXES = {".py", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".json", ".md", ".html", ".yml", ".yaml", ".toml", ".txt"}
+CLIENT_CODE_SUFFIXES = {".js", ".mjs", ".cjs", ".ts", ".tsx", ".html"}
 SCAN_EXCLUDED_DIRS = {".git", "node_modules", ".venv", "venv", "dist", "__pycache__"}
 PUBLIC_PRIVATE_MARKERS = [
     "BEGIN PRIVATE KEY",
@@ -21,6 +22,9 @@ PUBLIC_PRIVATE_MARKERS = [
     "YOUTUBE_REFRESH_TOKEN=",
 ]
 PRIVATE_PERSONAL_MAILBOX = re.compile(r"(?i)\b[a-z0-9._%+-]+@gmail\.com\b")
+CLIENT_EMAIL_PRIVILEGE_BYPASS = re.compile(
+    r"""(?is)\b(?:isMaster|isAdmin|isOwner|isSuperuser)\b\s*=\s*[^;\n]{0,240}\.email\s*={2,3}\s*[\'"][^\'"]+@[^\'"]+[\'"]"""
+)
 SECRET_ASSIGNMENT = re.compile(
     r"(?i)(client_secret|api_secret|refresh_token|private_key|access_token|password)"
     r"\s*[:=]\s*['\"][^'\"]{8,}['\"]"
@@ -63,6 +67,8 @@ def main() -> None:
             continue
         if PRIVATE_PERSONAL_MAILBOX.search(text):
             errors.append(f"repository text contains a private Gmail address: {rel}")
+        if path.suffix.lower() in CLIENT_CODE_SUFFIXES and CLIENT_EMAIL_PRIVILEGE_BYPASS.search(text):
+            errors.append(f"client code contains a hard-coded email privilege bypass: {rel}")
 
     # Public output receives stricter content checks. Environment-variable names
     # are allowed in server/source code, but values/assignments and private account
@@ -89,7 +95,7 @@ def main() -> None:
             print(f" - {error}")
         raise SystemExit(1)
 
-    print("SECURITY GUARD: PASS — no private Gmail addresses, tracked credential-shaped files, or public secret markers")
+    print("SECURITY GUARD: PASS — no private Gmail addresses, client email privilege bypasses, tracked credential-shaped files, or public secret markers")
 
 
 if __name__ == "__main__":

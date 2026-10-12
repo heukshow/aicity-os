@@ -869,8 +869,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             const toolId = card.getAttribute('data-tool');
                             const toolName = card.getAttribute('data-toolname');
 
-                            const isMaster = window.currentUser && window.currentUser.email === 'oskyoo@naver.com';
-                            if (isMaster || (typeof window.purchasedTools !== 'undefined' && window.purchasedTools.has(toolId))) {
+                            if (typeof window.purchasedTools !== 'undefined' && window.purchasedTools.has(toolId)) {
                                 let q = "General deep analysis please.";
                                 if (toolId && toolId.endsWith('_custom')) {
                                     const userQ = prompt(`[${toolName}]\n상담하실 구체적인 질문 내용을 작성해 주세요:\n(분석이 시작됩니다.)`);
@@ -999,8 +998,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const toolId = card.getAttribute('data-tool');
                         const toolName = card.getAttribute('data-toolname');
 
-                        const isMaster = window.currentUser && window.currentUser.email === 'oskyoo@naver.com';
-                        if (isMaster || (typeof window.purchasedTools !== 'undefined' && window.purchasedTools.has(toolId))) {
+                        if (typeof window.purchasedTools !== 'undefined' && window.purchasedTools.has(toolId)) {
                             let q = "General deep analysis please.";
                             if (toolId && toolId.endsWith('_custom')) {
                                 const userQ = prompt(`[${toolName}]\n상담하실 구체적인 질문 내용을 작성해 주세요:\n(분석이 시작됩니다.)`);
@@ -1176,8 +1174,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             const toolId = card.getAttribute('data-tool');
                             const toolName = card.getAttribute('data-toolname');
 
-                            const isMaster = window.currentUser && window.currentUser.email === 'oskyoo@naver.com';
-                            if (isMaster || (typeof window.purchasedTools !== 'undefined' && window.purchasedTools.has(toolId))) {
+                            if (typeof window.purchasedTools !== 'undefined' && window.purchasedTools.has(toolId)) {
                                 let q = "General deep analysis please.";
                                 if (toolId && toolId.endsWith('_custom')) {
                                     const userQ = prompt(`[${toolName}]\n상담하실 구체적인 질문 내용을 작성해 주세요:\n(분석이 시작됩니다.)`);
@@ -1263,8 +1260,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         tiers.forEach(tool => {
-            const isMaster = window.currentUser && window.currentUser.email === 'oskyoo@naver.com';
-            const owned = isMaster || window.purchasedTools.has(tool.id);
+            const owned = window.purchasedTools.has(tool.id);
             const mPrice = tool.price;        // member price
             const gPrice = guestPrice(mPrice); // guest price (~2x)
             const card = document.createElement('div');
