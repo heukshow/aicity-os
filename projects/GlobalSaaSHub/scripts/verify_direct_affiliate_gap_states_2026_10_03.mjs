@@ -1,10 +1,11 @@
 import fs from 'node:fs';
 
 const expected = new Map([
-  ['activepieces','browser_required_affiliate_application'],
+  ['activepieces','waiting_partnerstack_network_review'],
   ['agorapulse','waiting_vendor_response'],
   ['carv','waiting_vendor_eligibility_clarification'],
   ['chatbot','referral_link_requested'],
+  ['colossyan','waiting_vendor_response'],
   ['docusign','browser_required_captcha_program_form'],
   ['dub','browser_required_legal_program_consent'],
   ['expandi','waiting_vendor_requirement'],
@@ -30,4 +31,20 @@ for (const file of ['data/tools.json','data/tools.next.json']) {
   }
 }
 
-console.log('PASS: 13 reconciled affiliate gaps remain in evidence-backed hold/browser/terminal states');
+const outreach = JSON.parse(fs.readFileSync(new URL('../data/affiliate_outreach_state.json', import.meta.url), 'utf8')).programs;
+const queue = JSON.parse(fs.readFileSync(new URL('../data/browser_required_queue.json', import.meta.url), 'utf8'));
+for (const [id, status] of [['activepieces', 'waiting_partnerstack_network_review'], ['colossyan', 'waiting_vendor_response']]) {
+  if (outreach[id]?.status !== status || outreach[id]?.tracking_url !== null) {
+    throw new Error(`Outreach state regression for ${id}`);
+  }
+  const item = queue.find((row) => row.tool_id === id);
+  if (item?.status !== status || item?.exact_tracking_url !== null) {
+    throw new Error(`Browser queue state regression for ${id}`);
+  }
+}
+const networkProfile = queue.find((row) => row.id === 'partnerstack-network-profile-reapplication-20261012');
+if (networkProfile?.status !== 'application_submitted_pending_review' || networkProfile?.exact_tracking_url !== null) {
+  throw new Error('PartnerStack Network Profile reapplication evidence regression');
+}
+
+console.log('PASS: 14 reconciled affiliate gaps and current PartnerStack review evidence remain fail-closed');
