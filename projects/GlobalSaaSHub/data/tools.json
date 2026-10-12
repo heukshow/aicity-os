@@ -1270,15 +1270,17 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://chatbot.com/",
     "affiliate_verified": false,
-    "affiliate_status": "referral_link_requested",
-    "affiliate_status_checked_at": "2026-10-03T03:05:00+09:00",
+    "affiliate_status": "waiting_vendor_response",
+    "affiliate_status_checked_at": "2026-10-12T18:50:00+09:00",
     "affiliate_source_url": "https://partners.livechat.com/app/affiliate",
-    "affiliate_next_action": "Wait for Text Partner Team to supply or identify COSHUMA's exact ChatBot customer-facing affiliate URL in the existing Text Partner account. Do not construct a link.",
+    "affiliate_next_action": "Wait for Text Partner Support to reply in Gmail thread 1a0fdcf2e220b96e with the exact customer-facing ChatBot affiliate URL or its precise dashboard location. Do not resend, construct a link, or infer approval, attribution, commission, payout, or revenue.",
     "affiliate_evidence_markers": [
       "COSHUMA already has an existing Text Partner account for other Text products.",
       "Text's current partner material includes ChatBot as an affiliate-promotable product.",
-      "COSHUMA requested the exact ChatBot affiliate URL from Text Support on 2026-10-03 in Gmail 1a0fdcf2e220b96e."
-    ]
+      "COSHUMA requested the exact ChatBot affiliate URL from Text Support on 2026-10-03 in Gmail 1a0fdcf2e220b96e.",
+      "A single follow-up requesting the exact customer-facing ChatBot link was sent from support@coshuma.com on 2026-10-12 in Gmail message 1a12f8625bffdd95; SENT presence was confirmed and no vendor reply has been received yet."
+    ],
+    "application_state": "follow_up_sent_waiting_exact_customer_link"
   },
   {
     "id": "claap",
