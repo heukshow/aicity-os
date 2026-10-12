@@ -20,7 +20,7 @@ PUBLIC_PRIVATE_MARKERS = [
     "YOUTUBE_CLIENT_SECRET=",
     "YOUTUBE_REFRESH_TOKEN=",
 ]
-PRIVATE_PERSONAL_MAILBOX = re.compile(r"(?i)\\b[a-z0-9._%+-]+@gmail\\.com\\b")
+PRIVATE_PERSONAL_MAILBOX = re.compile(r"(?i)\b[a-z0-9._%+-]+@gmail\.com\b")
 SECRET_ASSIGNMENT = re.compile(
     r"(?i)(client_secret|api_secret|refresh_token|private_key|access_token|password)"
     r"\s*[:=]\s*['\"][^'\"]{8,}['\"]"
