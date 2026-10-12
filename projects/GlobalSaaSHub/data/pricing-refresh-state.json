@@ -2,35 +2,35 @@
   "schema_version": 1,
   "tools": {
     "10web": {
-      "checked_at": "2026-10-02T23:59:50Z",
+      "checked_at": "2026-10-12T08:07:00Z",
       "status": "no_official_pricing_result"
     },
     "activecampaign": {
-      "checked_at": "2026-10-02T23:59:50Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-12T08:07:00Z",
+      "status": "evidence_validation_failed"
     },
     "activepieces": {
       "checked_at": "2026-10-02T20:30:38Z",
       "status": "evidence_validation_failed"
     },
     "agentworks": {
-      "checked_at": "2026-10-02T23:59:50Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-12T08:07:00Z",
+      "status": "evidence_validation_failed"
     },
     "ai-agent-store": {
-      "checked_at": "2026-10-02T23:59:50Z",
-      "status": "no_official_pricing_result"
+      "checked_at": "2026-10-12T08:07:00Z",
+      "status": "evidence_validation_failed"
     },
     "ai-video-cut": {
-      "checked_at": "2026-10-02T23:59:50Z",
+      "checked_at": "2026-10-12T08:07:00Z",
       "status": "no_official_pricing_result"
     },
     "aiassistworks": {
-      "checked_at": "2026-10-02T23:59:50Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-12T08:07:00Z",
+      "status": "extract_ok"
     },
     "airia": {
-      "checked_at": "2026-10-02T23:59:50Z",
+      "checked_at": "2026-10-12T08:07:00Z",
       "status": "no_official_pricing_result"
     },
     "aitable-ai": {
@@ -480,16 +480,16 @@
       "status": "no_official_pricing_result"
     },
     "text": {
-      "checked_at": "2026-10-02T23:46:08Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-12T08:07:00Z",
+      "status": "evidence_validation_failed"
     },
     "text-cortex": {
-      "checked_at": "2026-10-02T23:46:08Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-12T08:07:00Z",
+      "status": "evidence_validation_failed"
     },
     "tidio": {
-      "checked_at": "2026-10-02T23:46:08Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-12T08:07:00Z",
+      "status": "error_HTTPError"
     },
     "time2book": {
       "checked_at": "2026-10-02T23:59:50Z",
@@ -536,9 +536,7 @@
       "status": "extract_retry_exhausted"
     }
   },
-  "last_run_at": "2026-10-12T07:26:40Z",
+  "last_run_at": "2026-10-12T08:07:00Z",
   "last_batch_size": 10,
-  "last_updated_tools": [
-    "synder"
-  ]
+  "last_updated_tools": []
 }
