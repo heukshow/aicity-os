@@ -25,10 +25,18 @@ const states = {
     next: 'Wait for Carv to confirm whether COSHUMA qualifies for the Referral Partner track; do not submit the application first.',
   },
   chatbot: {
-    stale: [null, 'unclassified'],
-    status: 'referral_link_requested',
+    stale: [null, 'unclassified', 'referral_link_requested'],
+    status: 'waiting_vendor_response',
+    checkedAt: '2026-10-12T18:50:00+09:00',
     source: 'https://partners.livechat.com/app/affiliate',
-    next: 'Wait for Text Partner Team to supply or identify the exact ChatBot customer-facing affiliate URL requested in Gmail 1a0fdcf2e220b96e.',
+    applicationState: 'follow_up_sent_waiting_exact_customer_link',
+    next: 'Wait for Text Partner Support to reply in Gmail thread 1a0fdcf2e220b96e with the exact customer-facing ChatBot affiliate URL or its precise dashboard location. Do not resend, construct a link, or infer approval, attribution, commission, payout, or revenue.',
+    evidence: [
+      'COSHUMA already has an existing Text Partner account for other Text products.',
+      'Text\'s current partner material includes ChatBot as an affiliate-promotable product.',
+      'COSHUMA requested the exact ChatBot affiliate URL from Text Support on 2026-10-03 in Gmail 1a0fdcf2e220b96e.',
+      'A single follow-up requesting the exact customer-facing ChatBot link was sent from support@coshuma.com on 2026-10-12 in Gmail message 1a12f8625bffdd95; SENT presence was confirmed and no vendor reply has been received yet.',
+    ],
   },
   colossyan: {
     stale: [null, 'unclassified', 'program_inactive', 'browser_required_application'],
@@ -166,6 +174,7 @@ for (const file of ['data/tools.json','data/tools.next.json']) {
 
 const currentEvidenceAt = '2026-10-12T10:04:00+09:00';
 const hideMeEvidenceAt = '2026-10-12T17:27:44+09:00';
+const chatbotEvidenceAt = '2026-10-12T18:50:00+09:00';
 
 const outreachPath = 'data/affiliate_outreach_state.json';
 const outreach = JSON.parse(fs.readFileSync(outreachPath, 'utf8'));
@@ -181,6 +190,19 @@ outreach.programs.activepieces = {
   historical_marketplace_url: 'https://market.partnerstack.com/program/activepieces',
   next_action: states.activepieces.next,
   note: states.activepieces.evidence.join(' '),
+  user_action_required: false,
+};
+outreach.programs.chatbot = {
+  status: 'waiting_vendor_response',
+  tracking_url: null,
+  application_state: 'follow_up_sent_waiting_exact_customer_link',
+  checked_at: chatbotEvidenceAt,
+  official_program_url: 'https://partners.livechat.com/app/affiliate',
+  thread_id: '1a0fdcf2e220b96e',
+  outbound_message_id: '1a12f8625bffdd95',
+  do_not_repeat_outreach: true,
+  next_action: states.chatbot.next,
+  note: states.chatbot.evidence.join(' '),
   user_action_required: false,
 };
 outreach.programs.colossyan = {
@@ -212,7 +234,7 @@ outreach.programs['hide-me'] = {
   note: states['hide-me'].evidence.join(' '),
   user_action_required: true,
 };
-outreach.updated_at = hideMeEvidenceAt;
+outreach.updated_at = chatbotEvidenceAt;
 fs.writeFileSync(outreachPath, `${JSON.stringify(outreach, null, 2)}\n`);
 
 const queuePath = 'data/browser_required_queue.json';

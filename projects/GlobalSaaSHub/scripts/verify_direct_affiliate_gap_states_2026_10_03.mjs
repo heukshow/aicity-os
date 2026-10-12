@@ -4,7 +4,7 @@ const expected = new Map([
   ['activepieces','waiting_partnerstack_network_review'],
   ['agorapulse','waiting_vendor_response'],
   ['carv','waiting_vendor_eligibility_clarification'],
-  ['chatbot','referral_link_requested'],
+  ['chatbot','waiting_vendor_response'],
   ['colossyan','waiting_vendor_response'],
   ['docusign','browser_required_captcha_program_form'],
   ['dub','browser_required_legal_program_consent'],
@@ -42,6 +42,14 @@ for (const [id, status] of [['activepieces', 'waiting_partnerstack_network_revie
     throw new Error(`Browser queue state regression for ${id}`);
   }
 }
+const chatbot = outreach.chatbot;
+if (chatbot?.status !== 'waiting_vendor_response' || chatbot?.tracking_url !== null
+    || chatbot?.application_state !== 'follow_up_sent_waiting_exact_customer_link'
+    || chatbot?.outbound_message_id !== '1a12f8625bffdd95'
+    || chatbot?.do_not_repeat_outreach !== true) {
+  throw new Error('ChatBot exact-link follow-up evidence regression');
+}
+
 const hideMe = outreach['hide-me'];
 const hideMeQueue = queue.find((row) => row.tool_id === 'hide-me');
 if (Object.hasOwn(hideMe ?? {}, 'account')) {
