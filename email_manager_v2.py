@@ -7,7 +7,7 @@ import os
 from email_queue import queue_email
 from typing import Dict
 
-FROM_EMAIL = os.getenv('FROM_EMAIL', 'qmfforfhem@gmail.com')
+FROM_EMAIL = os.getenv('FROM_EMAIL', 'redacted-private-mailbox@example.invalid')
 FROM_NAME = "Cauchemar Crew"
 
 def send_email(to_email: str, subject: str, body_html: str, body_text: str = None) -> bool:
