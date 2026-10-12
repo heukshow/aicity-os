@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 
 const expected = new Map([
-  ['activepieces','waiting_partnerstack_network_review'],
+  ['activepieces','blocked_partnerstack_network_marketplace_limited'],
   ['agorapulse','waiting_vendor_response'],
   ['carv','waiting_vendor_eligibility_clarification'],
   ['chatbot','waiting_vendor_response'],
@@ -33,7 +33,7 @@ for (const file of ['data/tools.json','data/tools.next.json']) {
 
 const outreach = JSON.parse(fs.readFileSync(new URL('../data/affiliate_outreach_state.json', import.meta.url), 'utf8')).programs;
 const queue = JSON.parse(fs.readFileSync(new URL('../data/browser_required_queue.json', import.meta.url), 'utf8'));
-for (const [id, status] of [['activepieces', 'waiting_partnerstack_network_review'], ['colossyan', 'waiting_vendor_response'], ['hide-me', 'browser_required_legal_program_consent']]) {
+for (const [id, status] of [['activepieces', 'blocked_partnerstack_network_marketplace_limited'], ['colossyan', 'waiting_vendor_response'], ['hide-me', 'browser_required_legal_program_consent']]) {
   if (outreach[id]?.status !== status || outreach[id]?.tracking_url !== null) {
     throw new Error(`Outreach state regression for ${id}`);
   }
@@ -62,9 +62,24 @@ if (hideMeQueue?.application_state !== 'not_submitted_legal_terms_unaccepted' ||
   throw new Error('hide.me legal consent queue gate regression');
 }
 
-const networkProfile = queue.find((row) => row.id === 'partnerstack-network-profile-reapplication-20261012');
-if (networkProfile?.status !== 'application_submitted_pending_review' || networkProfile?.exact_tracking_url !== null) {
-  throw new Error('PartnerStack Network Profile reapplication evidence regression');
+const activepieces = outreach.activepieces;
+const activepiecesQueue = queue.find((row) => row.tool_id === 'activepieces');
+if (activepieces?.application_state !== 'not_submitted_program_not_found'
+    || activepieces?.inbound_message_id !== '1a1303ac0be8e537'
+    || activepieces?.do_not_reapply !== true
+    || activepiecesQueue?.inbound_message_id !== '1a1303ac0be8e537'
+    || activepiecesQueue?.do_not_reapply !== true) {
+  throw new Error('Activepieces PartnerStack limitation evidence regression');
 }
 
-console.log('PASS: 14 reconciled affiliate gaps and current PartnerStack review evidence remain fail-closed');
+const networkProfile = queue.find((row) => row.id === 'partnerstack-network-profile-reapplication-20261012');
+if (networkProfile?.status !== 'reviewed_not_approved_marketplace_limited'
+    || networkProfile?.application_state !== 'reviewed_not_approved'
+    || networkProfile?.inbound_message_id !== '1a1303ac0be8e537'
+    || networkProfile?.do_not_reapply !== true
+    || networkProfile?.exact_tracking_url !== null
+    || !networkProfile?.reason?.includes('existing PartnerStack partnerships are unaffected')) {
+  throw new Error('PartnerStack Network Profile decision evidence regression');
+}
+
+console.log('PASS: 14 reconciled affiliate gaps and the PartnerStack Marketplace limitation remain fail-closed while existing partnerships are preserved');
