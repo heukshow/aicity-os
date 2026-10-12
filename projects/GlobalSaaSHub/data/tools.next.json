@@ -6494,7 +6494,7 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "AI-driven accounting automation software tailored for retail, eCommerce, and SaaS businesses, simplifying financial operations by automatically categorizing transactions and syncing data.",
-    "pricing": "Check website for details",
+    "pricing": "52",
     "key_features": [
       "AI-driven accounting automation",
       "Tailored for retail businesses",
@@ -6506,12 +6506,12 @@
     "primary_category": "workflow_auto",
     "comparison_group": "workflow_auto",
     "official_url": "https://synder.com/",
-    "pricing_source_url": null,
-    "pricing_verified_at": null,
-    "pricing_verified": false,
-    "currency": null,
-    "billing_period": null,
-    "evidence_source_type": null,
+    "pricing_source_url": "https://synder.com/pricing-accountants",
+    "pricing_verified_at": "2026-10-12T07:26:40Z",
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "annual/monthly",
+    "evidence_source_type": "official_pricing_page",
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
@@ -6524,6 +6524,14 @@
       "COSHUMA sent a Synder affiliate enrollment request from support@coshuma.com",
       "Gmail message 1a07d1eb47ed18d2 records the outreach",
       "Do not send duplicate outreach while awaiting Synder response"
+    ],
+    "pricing_source_http_status": 200,
+    "pricing_source_final_url": "https://synder.com/pricing-accountants",
+    "pricing_evidence_markers": [
+      "$52",
+      "/mo",
+      "billed yearly",
+      "Basic"
     ]
   },
   {
