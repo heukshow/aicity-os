@@ -1,6 +1,6 @@
 # Complete System Test
 import os
-os.environ['FROM_EMAIL'] = 'qmfforfhem@gmail.com'
+os.environ['FROM_EMAIL'] = 'redacted-private-mailbox@example.invalid'
 
 print("="*50)
 print("COMPLETE SYSTEM TEST")

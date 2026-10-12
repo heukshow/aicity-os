@@ -2,6 +2,7 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[3]
 PUBLIC = ROOT / "public"
 DIST = ROOT / "dist"
 
@@ -10,6 +11,8 @@ FORBIDDEN_FILENAMES = {
     "token.json", "token.pickle", "google_token.pickle", "id_rsa", "id_ed25519",
 }
 FORBIDDEN_SUFFIXES = {".pem", ".p12", ".pfx", ".key"}
+TEXT_SUFFIXES = {".py", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".json", ".md", ".html", ".yml", ".yaml", ".toml", ".txt"}
+SCAN_EXCLUDED_DIRS = {".git", "node_modules", ".venv", "venv", "dist", "__pycache__"}
 PUBLIC_PRIVATE_MARKERS = [
     "BEGIN PRIVATE KEY",
     "BEGIN RSA PRIVATE KEY",
@@ -17,7 +20,7 @@ PUBLIC_PRIVATE_MARKERS = [
     "YOUTUBE_CLIENT_SECRET=",
     "YOUTUBE_REFRESH_TOKEN=",
 ]
-PRIVATE_PERSONAL_MAILBOX = re.compile(r"(?i)\\b[a-z0-9._%+-]+@gmail\\.com\\b")
+PRIVATE_PERSONAL_MAILBOX = re.compile(r"(?i)\b[a-z0-9._%+-]+@gmail\.com\b")
 SECRET_ASSIGNMENT = re.compile(
     r"(?i)(client_secret|api_secret|refresh_token|private_key|access_token|password)"
     r"\s*[:=]\s*['\"][^'\"]{8,}['\"]"
@@ -45,6 +48,22 @@ def main() -> None:
         if path.name in FORBIDDEN_FILENAMES or path.suffix.lower() in FORBIDDEN_SUFFIXES:
             errors.append(f"credential-shaped file must not be tracked in COSHUMA: {rel}")
 
+    # A personal mailbox identifier is private operational data regardless of
+    # which project or historical evidence file contains it. Scan repository text
+    # fail-closed so old datasets, fixtures, scripts, and queues cannot reintroduce it.
+    for path in walk_files(REPO_ROOT):
+        rel = path.relative_to(REPO_ROOT)
+        if any(part in SCAN_EXCLUDED_DIRS for part in rel.parts):
+            continue
+        if path.suffix.lower() not in TEXT_SUFFIXES:
+            continue
+        try:
+            text = path.read_text(encoding="utf-8", errors="ignore")
+        except OSError:
+            continue
+        if PRIVATE_PERSONAL_MAILBOX.search(text):
+            errors.append(f"repository text contains a private Gmail address: {rel}")
+
     # Public output receives stricter content checks. Environment-variable names
     # are allowed in server/source code, but values/assignments and private account
     # addresses must never reach public/ or the built production bundle.
@@ -70,7 +89,7 @@ def main() -> None:
             print(f" - {error}")
         raise SystemExit(1)
 
-    print("SECURITY GUARD: PASS — COSHUMA contains no tracked credential-shaped files or public secret markers")
+    print("SECURITY GUARD: PASS — no private Gmail addresses, tracked credential-shaped files, or public secret markers")
 
 
 if __name__ == "__main__":

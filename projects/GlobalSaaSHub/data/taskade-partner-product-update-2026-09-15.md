@@ -1,7 +1,7 @@
 # Taskade partner product update — 2026-09-15
 
 ## First-party source
-- Gmail account: `qmfforfhem@gmail.com`
+- Gmail account: `redacted-private-mailbox@example.invalid`
 - Message ID: `1a0a34ae963fcf1a`
 - From: `Earn with Taskade <promoter@firstpromoter.com>`
 - Subject: `🚀 Grow with AI Workflow Generator & Custom Agents (GPT-4 Turbo)`

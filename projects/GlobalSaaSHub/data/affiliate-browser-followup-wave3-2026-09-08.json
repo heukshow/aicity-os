@@ -11,7 +11,7 @@
   "duplicate_checks": {
     "browser": "Reused existing Chrome profile and Gmail tab 499335039. Company mailbox /u/1 and legacy mailbox /u/0 searched with in:anywhere, including spam and trash. Restored company inbox afterward.",
     "repository": "Fetched heukshow/aicity-os origin/main at 95b5cadea5a36beaab574a6b6a502a7fede00ac3. Read tools.json and existing typedesk application evidence. Existing Gojiberry and Followr approved_tracking records found.",
-    "important_correction": "Legacy mailbox contains company-addressed Gojiberry and Followr welcome emails. Typedesk enrollment request was actually sent from qmfforfhem@gmail.com, not support@coshuma.com. Company mailbox has Novita outreach and a bounced Followr outreach message; outreach is not portal enrollment."
+    "important_correction": "Legacy mailbox contains company-addressed Gojiberry and Followr welcome emails. Typedesk enrollment request was actually sent from redacted-private-mailbox@example.invalid, not support@coshuma.com. Company mailbox has Novita outreach and a bounced Followr outreach message; outreach is not portal enrollment."
   },
   "new_applications_submitted": 1,
   "new_tracking_links_issued": 0,
@@ -77,7 +77,7 @@
       "id": "typedesk",
       "status": "application_submitted",
       "application_channel": "prior_email_enrollment_request",
-      "application_sender": "qmfforfhem@gmail.com",
+      "application_sender": "redacted-private-mailbox@example.invalid",
       "application_date": "2026-09-07",
       "application_state": "pending_response",
       "portal_enrollment_confirmed": false,
