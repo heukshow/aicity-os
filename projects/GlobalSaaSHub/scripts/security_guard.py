@@ -11,13 +11,13 @@ FORBIDDEN_FILENAMES = {
 }
 FORBIDDEN_SUFFIXES = {".pem", ".p12", ".pfx", ".key"}
 PUBLIC_PRIVATE_MARKERS = [
-    "websilonsg@gmail.com",
     "BEGIN PRIVATE KEY",
     "BEGIN RSA PRIVATE KEY",
     "PAYPAL_CLIENT_SECRET=",
     "YOUTUBE_CLIENT_SECRET=",
     "YOUTUBE_REFRESH_TOKEN=",
 ]
+PRIVATE_PERSONAL_MAILBOX = re.compile(r"(?i)\\b[a-z0-9._%+-]+@gmail\\.com\\b")
 SECRET_ASSIGNMENT = re.compile(
     r"(?i)(client_secret|api_secret|refresh_token|private_key|access_token|password)"
     r"\s*[:=]\s*['\"][^'\"]{8,}['\"]"
@@ -59,6 +59,8 @@ def main() -> None:
             for marker in PUBLIC_PRIVATE_MARKERS:
                 if marker.lower() in text.lower():
                     errors.append(f"public bundle contains forbidden marker {marker!r}: {path.relative_to(ROOT)}")
+            if PRIVATE_PERSONAL_MAILBOX.search(text):
+                errors.append(f"public bundle contains a private Gmail address: {path.relative_to(ROOT)}")
             if SECRET_ASSIGNMENT.search(text):
                 errors.append(f"public bundle contains secret-like literal assignment: {path.relative_to(ROOT)}")
 
