@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-11T20:52:42Z",
+  "updated_at": "2026-10-12T09:39:46.887Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -3274,8 +3274,8 @@
       "lifecycle": "production_verification_requested",
       "next_owner": "COSHUMA 통합 운영·감시·배포검증팀",
       "priority": "high",
-      "blocker": "independent_live_route_and_direct_worker_config_verification_pending",
-      "last_evidence_at": "2026-10-11T13:50:58Z",
+      "blocker": "independent_direct_worker_config_and_payment_ledger_readback_unavailable_in_current_runtime",
+      "last_evidence_at": "2026-10-12T09:39:46.887Z",
       "evidence": {
         "observed_main": "02b003b81cef50a005a4b22c08b82b85cdc83865",
         "go_live_pr": 1082,
@@ -3334,12 +3334,53 @@
         "deployed_public_legacy_text_renderer_enabled": false,
         "active_worker_payment_ready_owner_readback": true,
         "active_worker_intake_ready_owner_readback": true,
-        "paid_campaign_count_owner_readback": 0
+        "paid_campaign_count_owner_readback": 0,
+        "latest_integrated_team_verification": {
+          "checked_at": "2026-10-12T09:39:46.887Z",
+          "current_main": "a2009830a55467d6d28421237fe45379c65852a2",
+          "live_routes": [
+            {
+              "url": "https://coshuma.com/tool/pipedrive.html?coshuma_qa=1",
+              "slot": "tool-primary",
+              "paid_slot_hidden": true,
+              "paid_campaign_id": null,
+              "paid_destination_links": 0
+            },
+            {
+              "url": "https://coshuma.com/best/claap-sales-follow-up-ai.html?coshuma_qa=1",
+              "slot": "buyer-intent-top",
+              "paid_slot_hidden": true,
+              "paid_campaign_id": null,
+              "paid_destination_links": 0
+            },
+            {
+              "url": "https://coshuma.com/compare/semrush-vs-frase.html?coshuma_qa=1",
+              "slot": "compare-decision-premium",
+              "paid_slot_hidden": true,
+              "paid_campaign_id": null,
+              "paid_destination_links": 0
+            }
+          ],
+          "live_route_result": "All three exact F1-F3 QA routes loaded the deployed sponsored-inventory.js and kept the paid slot display:none/hidden with no paid campaign ID, paid image media or paid destination link. Existing clearly labelled COSHUMA house placements remained separate.",
+          "advertiser_entry_result": "https://coshuma.com/advertise.html?coshuma_qa=1 loaded F1-F3 catalogue, prices and the application form. In this cloud runtime the button fell back to Prepare email application; the Worker config origin was blocked by the browser client, so intakeReady/paymentReady were not independently inferred.",
+          "paypal_ledger_result": "unavailable",
+          "paypal_ledger_blocker": "PayPal returned a DataDome device-check interstitial in the cloud browser. No OTP, credential, payment, refund or financial action was attempted.",
+          "support_mail_check": "For 2026-10-01 onward, no advertiser application, PayPal transaction or payment-confirmation message was found in the support mailbox. Two PayPal authentication-code messages were excluded from revenue evidence.",
+          "revenue_truth": {
+            "real_advertiser_payment": "unknown",
+            "completed_capture": "unknown",
+            "public_paid_ad_activated": false,
+            "paid_campaign_count": "not_independently_read_back",
+            "bank_receipt": "unknown",
+            "additional_spend_usd": 0
+          }
+        }
       },
       "completion_gate": "current-main source plus direct Worker config, Pages ancestry and live F1-F3 routes verified without private-data exposure or unintended payment/email behavior",
       "completion_gate_satisfied": false,
       "user_action_required": false,
-      "handoff": "COSHUMA 통합 운영·감시·배포검증팀 must perform independent read-only Worker/Pages/live-route verification and make this record eligible for Release Verification. Preserve real advertiser payment, publication, refund/dispute and revenue as separate unknown gates; do not create a real QA payment."
+      "handoff": "Next authorized runtime should read the active Worker config and protected advertiser/payment ledger through the existing official owner-authenticated path, then reconcile it with these live-route results. Do not create a QA payment or infer zero revenue from mailbox absence.",
+      "verification": "Current-main source and prior Pages ancestry remain recorded. Fresh read-only live QA confirmed fail-closed behavior on the exact F1-F3 routes with no paid campaign rendered. Direct Worker config and PayPal ledger could not be independently read in this runtime, so the production gate remains open and no payment, revenue, capture or payout is claimed."
     }
   ],
   "invariants": {
