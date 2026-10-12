@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T09:41:21.923Z",
+  "generatedAt": "2026-10-12T10:06:11.323Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 119,
@@ -1770,7 +1770,7 @@
         "name": "ChatBot",
         "officialVerified": true,
         "pricingVerified": false,
-        "affiliateStatus": "referral_link_requested",
+        "affiliateStatus": "waiting_vendor_response",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -1781,7 +1781,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "affiliate_status_referral_link_requested"
+        "blocker": "affiliate_status_waiting_vendor_response"
       },
       {
         "id": "claspo",

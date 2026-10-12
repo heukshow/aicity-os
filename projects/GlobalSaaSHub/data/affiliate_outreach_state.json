@@ -1011,7 +1011,7 @@
       "outbound_message_id": "1a12f8625bffdd95",
       "do_not_repeat_outreach": true,
       "next_action": "Wait for Text Partner Support to reply in Gmail thread 1a0fdcf2e220b96e with the exact customer-facing ChatBot affiliate URL or its precise dashboard location. Do not resend, construct a link, or infer approval, attribution, commission, payout, or revenue.",
-      "note": "COSHUMA already has an existing Text Partner account for other Text products. Text's current partner material includes ChatBot as an affiliate-promotable product. COSHUMA requested the exact ChatBot affiliate URL on 2026-10-03 in Gmail message 1a0fdcf2e220b96e. A single follow-up was sent from support@coshuma.com on 2026-10-12 in Gmail message 1a12f8625bffdd95; SENT presence was confirmed and no vendor reply has been received yet.",
+      "note": "COSHUMA already has an existing Text Partner account for other Text products. Text's current partner material includes ChatBot as an affiliate-promotable product. COSHUMA requested the exact ChatBot affiliate URL from Text Support on 2026-10-03 in Gmail 1a0fdcf2e220b96e. A single follow-up requesting the exact customer-facing ChatBot link was sent from support@coshuma.com on 2026-10-12 in Gmail message 1a12f8625bffdd95; SENT presence was confirmed and no vendor reply has been received yet.",
       "user_action_required": false
     },
     "docusign": {
