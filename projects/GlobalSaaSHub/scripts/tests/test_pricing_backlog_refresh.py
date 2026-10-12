@@ -37,6 +37,16 @@ def test_rejects_price_not_backed_by_markers():
     raw="<html><body>Starter $19 / month Billed monthly</body></html>"
     assert m.validate_proposal(tool(),q,{"https://example.com/pricing"},raw,"https://example.com/pricing","2026-10-03T00:00:00Z") is None
 
+def test_rejects_public_html_and_attribute_injection():
+    raw="<html><body>Starter $19 / month Billed monthly</body></html>"
+    for payload in [
+        'From $19/month<img src=x onerror=alert(1)>',
+        'From $19/month\" onmouseover=\"alert(1)',
+        'From $19/month\\nInjected copy',
+    ]:
+        q=proposal(); q["pricing"]=payload
+        assert m.validate_proposal(tool(),q,{"https://example.com/pricing"},raw,"https://example.com/pricing","2026-10-03T00:00:00Z") is None
+
 def test_cooldown_blocks_recent_and_allows_old_or_missing_attempts():
     now=datetime(2026,10,3,tzinfo=timezone.utc)
     assert m.cooldown_elapsed({"checked_at":"2026-10-02T23:30:00Z"},now,24) is False
@@ -44,6 +54,6 @@ def test_cooldown_blocks_recent_and_allows_old_or_missing_attempts():
     assert m.cooldown_elapsed({},now,24) is True
 
 if __name__=="__main__":
-    for fn in [test_accepts_exact_official_evidence,test_rejects_missing_marker,test_rejects_cross_domain_source,test_rejects_price_not_backed_by_markers,test_cooldown_blocks_recent_and_allows_old_or_missing_attempts]:
+    for fn in [test_accepts_exact_official_evidence,test_rejects_missing_marker,test_rejects_cross_domain_source,test_rejects_price_not_backed_by_markers,test_rejects_public_html_and_attribute_injection,test_cooldown_blocks_recent_and_allows_old_or_missing_attempts]:
         fn()
     print("PASS pricing backlog verifier tests")
