@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-12T18:50:00+09:00",
+  "updated_at": "2026-10-12T20:18:46+09:00",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -756,18 +756,19 @@
       "note": "Official program is free and advertises 25% recurring commission. The current official application form requires a Creatify account and verified applicant/channel/reach details. No existing COSHUMA Creatify account, application, approval or account-specific referral URL is proven; customer CTAs remain official non-affiliate URLs."
     },
     "optimonk": {
-      "status": "enrollment_requested",
+      "status": "approved_exact_link_pending",
       "tracking_url": null,
-      "application_state": "submitted",
+      "application_state": "affiliate_account_upgraded_link_pending",
       "account": "support@coshuma.com",
       "official_program_url": "https://www.optimonk.com/partners",
       "workflow_url": "mailto:partnership@optimonk.com",
       "github_issue": 491,
-      "checked_at": "2026-10-10T10:14:53+09:00",
+      "checked_at": "2026-10-12T20:18:46+09:00",
       "outreach_message_id": "1a0fee78f87e9e57",
-      "vendor_reply_message_id": "1a115654c5759cfa",
+      "vendor_reply_message_id": "1a12fb274a4164fa",
       "enrollment_request_message_id": "1a12360906d07c20",
-      "note": "COSHUMA created the required free OptiMonk account and sent the supplier upgrade request in Gmail message 1a12360906d07c20. Enrollment is requested and waiting for supplier confirmation. No exact customer tracking URL, approval, commission, payout or revenue is verified; do not send a duplicate request."
+      "exact_link_request_message_id": "1a12fd9500fb9488",
+      "note": "OptiMonk confirmed that support@coshuma.com was upgraded to an affiliate account. The approval email did not include the exact personalized customer URL, so one same-thread request asked the vendor to paste it for verification. Tracking URL, click, signup, paid customer, commission, payout and revenue remain unverified; affiliate URL stays null."
     },
     "justuno": {
       "status": "application_submitted",
