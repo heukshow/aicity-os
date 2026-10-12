@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-11T18:23:42+09:00",
+  "updated_at": "2026-10-12T10:04:00+09:00",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -872,13 +872,13 @@
       "note": "Existing support@coshuma.com Tolt identity was reused. Authenticated EmailOctopus onboarding completed and issued the exact customer-facing referral URL. Do not re-enroll or create another Tolt account. Link issuance is not evidence of clicks, signups, customers, commission, payout or revenue."
     },
     "sender-net": {
-      "status": "rejected",
-      "tracking_url": null,
-      "application_state": "submitted_then_declined",
       "account": "support@coshuma.com",
       "official_program_url": "https://www.sender.net/affiliate-program/",
       "workflow_url": "https://dash.partnerstack.com/application?company=sendernet&gref=page",
       "github_issue": 513,
+      "status": "rejected",
+      "tracking_url": null,
+      "application_state": "submitted_then_declined",
       "checked_at": "2026-09-16T00:57:42Z",
       "do_not_reapply": true,
       "note": "PartnerStack explicitly declined the Sender.net application on 2026-09-16. Preserve the existing PartnerStack identity, do not reapply or send rejection follow-up unless Sender explicitly invites a new application, and keep the exact customer tracking URL/KPIs unknown."
@@ -967,12 +967,16 @@
       "note": "Tidio PartnerStack welcome email to support@coshuma.com (Gmail 1a0ed995bd9fde81) explicitly welcomes COSHUMA to the affiliate program and identifies https://affiliate.tidio.com/7ow2khr31ti8 as 'Your affiliate link'. The email states 20% revenue share to start, scaling to 25%, a 30-day cookie window and a 7-day referral trial. Independent GET verification on 2026-09-30 followed HTTP 302 to the official tidio.com destination, observed PartnerStack attribution parameters/cookies, and ended at HTTP 200. No click, signup, paid customer, commission, payout, or revenue is inferred from approval/link validation."
     },
     "activepieces": {
-      "status": "browser_required_affiliate_application",
+      "status": "waiting_partnerstack_network_review",
       "tracking_url": null,
-      "checked_at": "2026-10-07T12:22:00+09:00",
-      "official_program_url": "https://market.partnerstack.com/program/activepieces",
-      "next_action": "Reuse the existing COSHUMA-owned PartnerStack session to open the official Activepieces program application. Inspect the application questions and program terms first; submit once only if no CAPTCHA, OTP, legal-consent, payment, or forced-identity gate appears. Recover and validate only the exact vendor-issued customer referral URL after approval.",
-      "note": "2026-10-07 official PartnerStack marketplace recheck: the Activepieces program directory exposes an Apply to program action and PartnerStack sign-in. This verifies that a public application route exists; it does not prove COSHUMA application, approval, tracking URL, clicks, customers, commission, payout, or revenue. No application was submitted in this update and no COSHUMA-specific tracking URL is verified."
+      "application_state": "not_submitted_program_not_found",
+      "account": "support@coshuma.com",
+      "checked_at": "2026-10-12T10:04:00+09:00",
+      "official_program_url": null,
+      "historical_marketplace_url": "https://market.partnerstack.com/program/activepieces",
+      "next_action": "Wait for the pending PartnerStack Network Profile review, then recheck the authenticated marketplace and an independently verified official Activepieces partner route. Do not submit a PartnerStack request-a-program form or infer a tracking URL from the historical marketplace URL.",
+      "note": "2026-10-12 authenticated PartnerStack marketplace exact search returned no programs matching Activepieces and exposed only Request a program. The historical PartnerStack program URL is not current proof that COSHUMA can apply; the PartnerStack Network Profile reapplication is pending review. No Activepieces application, approval, customer-facing tracking URL, click, signup, customer, commission, payout, or revenue is verified.",
+      "user_action_required": false
     },
     "agorapulse": {
       "status": "waiting_vendor_response",
@@ -1089,6 +1093,20 @@
       "affiliate_verified": true,
       "payout_method_status": "registered_paypal_destination_payout_unverified",
       "next_action": "Do not re-enroll. Preserve the exact vendor-issued customer URL and tiered commission wording. Revenue Optimization may add disclosed rel=sponsored customer CTAs and validate the live destination without self-referral; keep verification traffic separate from customer performance."
+    },
+    "colossyan": {
+      "status": "waiting_vendor_response",
+      "tracking_url": null,
+      "application_state": "not_submitted_existing_impact_access_loop",
+      "account": "support@coshuma.com",
+      "checked_at": "2026-10-12T10:04:00+09:00",
+      "official_program_url": "https://www.colossyan.com/affiliate-program/",
+      "workflow_url": "https://app.impact.com/campaign-promo-signup/Colossyan.brand",
+      "outbound_message_id": "1a12d6fc6dcddca9",
+      "do_not_repeat_outreach": true,
+      "next_action": "Wait for Colossyan to reply to Gmail message 1a12d6fc6dcddca9 with an invitation or supported route for the existing COSHUMA Impact identity. Do not create another Impact account, repeat the application loop, resend the inquiry, or infer a customer tracking URL.",
+      "note": "2026-10-12 existing Impact sign-in and Google SSO both returned to the Colossyan already-signed-up/sign-in loop; the direct Impact dashboard also returned to sign-in. One routing inquiry was sent to marketing@colossyan.com in Gmail message 1a12d6fc6dcddca9 and no supplier reply was present at the latest mailbox check. No Colossyan application, approval, customer-facing tracking URL, click, signup, customer, commission, payout, or revenue is verified.",
+      "user_action_required": false
     }
   }
 }

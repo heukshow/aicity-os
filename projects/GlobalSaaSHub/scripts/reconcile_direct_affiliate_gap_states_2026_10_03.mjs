@@ -4,16 +4,17 @@ const checkedAt = '2026-10-03T03:05:00+09:00';
 
 const states = {
   activepieces: {
-    stale: [null, 'unclassified', 'browser_required_sales_inquiry'],
-    status: 'browser_required_affiliate_application',
-    checkedAt: '2026-10-07T12:22:00+09:00',
-    source: 'https://market.partnerstack.com/program/activepieces',
+    stale: [null, 'unclassified', 'browser_required_sales_inquiry', 'browser_required_affiliate_application'],
+    status: 'waiting_partnerstack_network_review',
+    checkedAt: '2026-10-12T10:04:00+09:00',
+    source: 'https://www.activepieces.com/',
     workflow: 'https://market.partnerstack.com/program/activepieces',
-    next: 'Reuse the existing COSHUMA-owned PartnerStack session to open the official Activepieces program application. Inspect the application questions and program terms first; submit once only if no CAPTCHA, OTP, legal-consent, payment, or forced-identity gate appears. Recover and validate only the exact vendor-issued customer referral URL after approval.',
+    applicationState: 'not_submitted_program_not_found',
+    next: 'Wait for the pending PartnerStack Network Profile review, then recheck the authenticated marketplace and an independently verified official Activepieces partner route. Do not submit a PartnerStack request-a-program form or infer a tracking URL from the historical marketplace URL.',
     evidence: [
-      '2026-10-07 official PartnerStack marketplace recheck: the Activepieces program directory exposes an Apply to program action and PartnerStack sign-in.',
-      'This verifies that a public application route exists; it does not prove COSHUMA application, approval, tracking URL, clicks, customers, commission, payout, or revenue.',
-      'No application was submitted in this update and no COSHUMA-specific tracking URL is verified.',
+      '2026-10-12 authenticated PartnerStack marketplace exact search returned no programs matching Activepieces and exposed only Request a program.',
+      'The historical PartnerStack program URL is not current proof that COSHUMA can apply; the PartnerStack Network Profile reapplication is pending review.',
+      'No Activepieces application, approval, customer-facing tracking URL, click, signup, customer, commission, payout, or revenue is verified.',
     ],
   },
   carv: {
@@ -28,6 +29,26 @@ const states = {
     status: 'referral_link_requested',
     source: 'https://partners.livechat.com/app/affiliate',
     next: 'Wait for Text Partner Team to supply or identify the exact ChatBot customer-facing affiliate URL requested in Gmail 1a0fdcf2e220b96e.',
+  },
+  colossyan: {
+    stale: [null, 'unclassified', 'program_inactive', 'browser_required_application'],
+    status: 'waiting_vendor_response',
+    checkedAt: '2026-10-12T10:04:00+09:00',
+    source: 'https://www.colossyan.com/affiliate-program/',
+    workflow: 'https://app.impact.com/campaign-promo-signup/Colossyan.brand',
+    applicationState: 'not_submitted_existing_impact_access_loop',
+    next: 'Wait for Colossyan to reply to Gmail message 1a12d6fc6dcddca9 with an invitation or supported route for the existing COSHUMA Impact identity. Do not create another Impact account, repeat the application loop, resend the inquiry, or infer a customer tracking URL.',
+    evidence: [
+      '2026-10-12 existing Impact sign-in and Google SSO both returned to the Colossyan already-signed-up/sign-in loop; the direct Impact dashboard also returned to sign-in.',
+      'One routing inquiry was sent to marketing@colossyan.com in Gmail message 1a12d6fc6dcddca9 and no supplier reply was present at the latest mailbox check.',
+      'No Colossyan application, approval, customer-facing tracking URL, click, signup, customer, commission, payout, or revenue is verified.',
+    ],
+    lifecycleOverride: {
+      source_type: 'authenticated_vendor_dashboard',
+      source_ref: 'github:#292-comment-6115935512',
+      observed_at: '2026-10-12T10:04:00+09:00',
+      reason: 'Fresh authenticated Impact UI evidence supersedes the stale 2026-09-01 program_inactive record and shows a current access loop awaiting vendor routing guidance.',
+    },
   },
   docusign: {
     stale: [null, 'unclassified', 'unverified'],
@@ -116,6 +137,9 @@ function reconcileTool(tool, rule) {
   tool.affiliate_status_checked_at = rule.checkedAt ?? checkedAt;
   tool.affiliate_source_url = rule.source;
   if (rule.workflow) tool.affiliate_workflow_url = rule.workflow;
+  if (rule.applicationState) tool.application_state = rule.applicationState;
+  if (rule.lifecycleOverride) tool.affiliate_lifecycle_override = rule.lifecycleOverride;
+  if (tool.affiliate_verified_at && !tool.affiliate_verified) delete tool.affiliate_verified_at;
   tool.affiliate_next_action = rule.next;
   if (rule.evidence) tool.affiliate_evidence_markers = rule.evidence;
   return true;
@@ -131,5 +155,93 @@ for (const file of ['data/tools.json','data/tools.next.json']) {
   }
   fs.writeFileSync(file, `${JSON.stringify(tools, null, 2)}\n`);
 }
+
+const currentEvidenceAt = '2026-10-12T10:04:00+09:00';
+
+const outreachPath = 'data/affiliate_outreach_state.json';
+const outreach = JSON.parse(fs.readFileSync(outreachPath, 'utf8'));
+outreach.updated_at = currentEvidenceAt;
+outreach.programs ||= {};
+outreach.programs.activepieces = {
+  status: 'waiting_partnerstack_network_review',
+  tracking_url: null,
+  application_state: 'not_submitted_program_not_found',
+  account: 'support@coshuma.com',
+  checked_at: currentEvidenceAt,
+  official_program_url: null,
+  historical_marketplace_url: 'https://market.partnerstack.com/program/activepieces',
+  next_action: states.activepieces.next,
+  note: states.activepieces.evidence.join(' '),
+  user_action_required: false,
+};
+outreach.programs.colossyan = {
+  status: 'waiting_vendor_response',
+  tracking_url: null,
+  application_state: 'not_submitted_existing_impact_access_loop',
+  account: 'support@coshuma.com',
+  checked_at: currentEvidenceAt,
+  official_program_url: 'https://www.colossyan.com/affiliate-program/',
+  workflow_url: 'https://app.impact.com/campaign-promo-signup/Colossyan.brand',
+  outbound_message_id: '1a12d6fc6dcddca9',
+  do_not_repeat_outreach: true,
+  next_action: states.colossyan.next,
+  note: states.colossyan.evidence.join(' '),
+  user_action_required: false,
+};
+fs.writeFileSync(outreachPath, `${JSON.stringify(outreach, null, 2)}\n`);
+
+const queuePath = 'data/browser_required_queue.json';
+const queue = JSON.parse(fs.readFileSync(queuePath, 'utf8'));
+const upsertQueue = (id, toolId, patch) => {
+  const existing = queue.find((item) => item.id === id || item.tool_id === toolId);
+  if (existing) Object.assign(existing, patch);
+  else queue.push({ id, tool_id: toolId, ...patch });
+};
+upsertQueue('activepieces-affiliate-reconcile-20261003', 'activepieces', {
+  priority: 'high',
+  status: 'waiting_partnerstack_network_review',
+  affiliate_status: 'waiting_partnerstack_network_review',
+  application_state: 'not_submitted_program_not_found',
+  cost: 0,
+  exact_tracking_url: null,
+  user_action_required: false,
+  blocker: 'The authenticated marketplace does not currently expose an Activepieces program, and the PartnerStack Network Profile is pending review.',
+  reason: states.activepieces.evidence.join(' '),
+  next_action: states.activepieces.next,
+  verified_at: currentEvidenceAt,
+});
+upsertQueue('colossyan-impact-access-20261012', 'colossyan', {
+  priority: 'high',
+  status: 'waiting_vendor_response',
+  affiliate_status: 'waiting_vendor_response',
+  application_state: 'not_submitted_existing_impact_access_loop',
+  cost: 0,
+  exact_tracking_url: null,
+  user_action_required: false,
+  blocker: 'The existing COSHUMA Impact identity is caught in the vendor signup/sign-in loop; Colossyan routing guidance is pending.',
+  reason: states.colossyan.evidence.join(' '),
+  official_program_url: 'https://www.colossyan.com/affiliate-program/',
+  next_action: states.colossyan.next,
+  verified_at: currentEvidenceAt,
+  outbound_message_id: '1a12d6fc6dcddca9',
+  do_not_reapply: true,
+});
+upsertQueue('partnerstack-network-profile-reapplication-20261012', 'partnerstack-network-profile', {
+  priority: 'high',
+  status: 'application_submitted_pending_review',
+  affiliate_status: 'application_submitted_pending_review',
+  application_state: 'submitted',
+  cost: 0,
+  exact_tracking_url: null,
+  user_action_required: false,
+  blocker: 'PartnerStack Network Profile review is pending.',
+  reason: 'The authenticated existing COSHUMA account confirmed that the Network Profile reapplication was sent for review on 2026-10-12. This is not program approval and does not issue a customer-facing tracking URL.',
+  next_action: 'Wait for the PartnerStack Network Profile decision. Do not reapply. After a decision, reconcile each vendor program separately and use only vendor-issued customer-facing tracking URLs.',
+  verified_at: currentEvidenceAt,
+  github_issue: 292,
+  github_comment_id: 6115935512,
+  do_not_reapply: true,
+});
+fs.writeFileSync(queuePath, `${JSON.stringify(queue, null, 2)}\n`);
 
 console.log(`Direct affiliate gap reconciliation complete; conditional tool updates=${changes}`);

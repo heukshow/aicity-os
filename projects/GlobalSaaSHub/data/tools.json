@@ -95,15 +95,15 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.activepieces.com/",
     "affiliate_verified": false,
-    "affiliate_status": "browser_required_affiliate_application",
-    "affiliate_status_checked_at": "2026-10-07T12:22:00+09:00",
-    "affiliate_source_url": "https://market.partnerstack.com/program/activepieces",
+    "affiliate_status": "waiting_partnerstack_network_review",
+    "affiliate_status_checked_at": "2026-10-12T10:04:00+09:00",
+    "affiliate_source_url": "https://www.activepieces.com/",
     "affiliate_workflow_url": "https://market.partnerstack.com/program/activepieces",
-    "affiliate_next_action": "Reuse the existing COSHUMA-owned PartnerStack session to open the official Activepieces program application. Inspect the application questions and program terms first; submit once only if no CAPTCHA, OTP, legal-consent, payment, or forced-identity gate appears. Recover and validate only the exact vendor-issued customer referral URL after approval.",
+    "affiliate_next_action": "Wait for the pending PartnerStack Network Profile review, then recheck the authenticated marketplace and an independently verified official Activepieces partner route. Do not submit a PartnerStack request-a-program form or infer a tracking URL from the historical marketplace URL.",
     "affiliate_evidence_markers": [
-      "2026-10-07 official PartnerStack marketplace recheck: the Activepieces program directory exposes an Apply to program action and PartnerStack sign-in.",
-      "This verifies that a public application route exists; it does not prove COSHUMA application, approval, tracking URL, clicks, customers, commission, payout, or revenue.",
-      "No application was submitted in this update and no COSHUMA-specific tracking URL is verified."
+      "2026-10-12 authenticated PartnerStack marketplace exact search returned no programs matching Activepieces and exposed only Request a program.",
+      "The historical PartnerStack program URL is not current proof that COSHUMA can apply; the PartnerStack Network Profile reapplication is pending review.",
+      "No Activepieces application, approval, customer-facing tracking URL, click, signup, customer, commission, payout, or revenue is verified."
     ],
     "pricing_source_http_status": 200,
     "pricing_source_final_url": "https://www.activepieces.com/pricing",
@@ -113,7 +113,8 @@
       "Plus $16/mo billed annually",
       "Team $200 flat per month",
       "Team $166/mo billed annually"
-    ]
+    ],
+    "application_state": "not_submitted_program_not_found"
   },
   {
     "id": "adoric",
@@ -1546,7 +1547,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "Colossyan is an AI video platform that enables users to create engaging videos with AI presenters and multilingual support for diverse content needs, simplifying complex video production.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "AI video creation",
@@ -1570,9 +1570,25 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://colossyan.com/affiliate-program/",
+    "affiliate_url": null,
     "affiliate_verified": false,
-    "affiliate_status": "program_inactive",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_status": "waiting_vendor_response",
+    "affiliate_status_checked_at": "2026-10-12T10:04:00+09:00",
+    "affiliate_source_url": "https://www.colossyan.com/affiliate-program/",
+    "affiliate_workflow_url": "https://app.impact.com/campaign-promo-signup/Colossyan.brand",
+    "application_state": "not_submitted_existing_impact_access_loop",
+    "affiliate_lifecycle_override": {
+      "source_type": "authenticated_vendor_dashboard",
+      "source_ref": "github:#292-comment-6115935512",
+      "observed_at": "2026-10-12T10:04:00+09:00",
+      "reason": "Fresh authenticated Impact UI evidence supersedes the stale 2026-09-01 program_inactive record and shows a current access loop awaiting vendor routing guidance."
+    },
+    "affiliate_next_action": "Wait for Colossyan to reply to Gmail message 1a12d6fc6dcddca9 with an invitation or supported route for the existing COSHUMA Impact identity. Do not create another Impact account, repeat the application loop, resend the inquiry, or infer a customer tracking URL.",
+    "affiliate_evidence_markers": [
+      "2026-10-12 existing Impact sign-in and Google SSO both returned to the Colossyan already-signed-up/sign-in loop; the direct Impact dashboard also returned to sign-in.",
+      "One routing inquiry was sent to marketing@colossyan.com in Gmail message 1a12d6fc6dcddca9 and no supplier reply was present at the latest mailbox check.",
+      "No Colossyan application, approval, customer-facing tracking URL, click, signup, customer, commission, payout, or revenue is verified."
+    ]
   },
   {
     "id": "constant-contact",
