@@ -5247,11 +5247,13 @@
       "Pipedrive Affiliate Team welcome email 1a0f3abacb8d1edb independently confirms approval and the extended 30-day trial / 20% first-12-month revenue-share program terms.",
       "Pipedrive Affiliate Team reply 1a0f9b12d43f26ed directly confirms COSHUMA's exact customer-facing referral URL https://aff.trypipedrive.com/sv587bilh4w7.",
       "The same Pipedrive reply 1a0f9b12d43f26ed confirms the extended 30-day trial is automatically offered through the exact link and that upgrades/add-ons within the first 12 months are included in revenue share.",
-      "No click, signup, paying customer, commission, payout, or revenue is inferred from approval or publication."
+      "No click, signup, paying customer, commission, payout, or revenue is inferred from approval or publication.",
+      "Pipedrive Affiliate Team reply 1a131090efa2e5dc confirms that COSHUMA must not use its own affiliate link for COSHUMA purchases; self-referrals and affiliate-associated-email signups are ineligible for commission or referral credit.",
+      "The same reply confirms the supported third-party route: start the trial through the exact referral link, then subscribe from Billing within that same Pipedrive account; billing begins after the trial ends."
     ],
-    "affiliate_status_checked_at": "2026-10-02T07:58:36+09:00",
+    "affiliate_status_checked_at": "2026-10-13T01:53:42+09:00",
     "affiliate_status_evidence_url": "data/pipedrive-approved-tracking-2026-10-02.md",
-    "affiliate_next_action": "Keep the exact vendor-confirmed Pipedrive referral URL on eligible customer CTAs and measure downstream conversion. Preserve a separate official pricing verification link. Do not reapply and do not infer revenue without partner-side evidence.",
+    "affiliate_next_action": "Keep the exact vendor-confirmed Pipedrive referral URL only on eligible third-party customer CTAs. Never use it for COSHUMA's own purchase or any affiliate-associated account. Eligible customers should start the trial through the referral link and subscribe from Billing in that same account. Measure downstream conversion; do not reapply or infer revenue without partner-side evidence.",
     "affiliate_final_url": "https://aff.trypipedrive.com/sv587bilh4w7",
     "affiliate_tracking_url_verified": true,
     "affiliate_tracking_url_verification_method": "vendor_direct_confirmation",
