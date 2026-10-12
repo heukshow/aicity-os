@@ -95,14 +95,14 @@
     "official_evidence_url": "https://www.activepieces.com/",
     "affiliate_url": null,
     "affiliate_verified": false,
-    "affiliate_status": "waiting_partnerstack_network_review",
-    "affiliate_status_checked_at": "2026-10-12T10:04:00+09:00",
+    "affiliate_status": "blocked_partnerstack_network_marketplace_limited",
+    "affiliate_status_checked_at": "2026-10-12T22:08:37+09:00",
     "affiliate_source_url": "https://www.activepieces.com/",
     "affiliate_workflow_url": "https://market.partnerstack.com/program/activepieces",
-    "affiliate_next_action": "Wait for the pending PartnerStack Network Profile review, then recheck the authenticated marketplace and an independently verified official Activepieces partner route. Do not submit a PartnerStack request-a-program form or infer a tracking URL from the historical marketplace URL.",
+    "affiliate_next_action": "Do not apply to or request Activepieces through the PartnerStack Marketplace while the COSHUMA Network Profile is limited. Reapply to the PartnerStack Network only after materially new or corrected profile evidence exists; an independently verified direct-vendor route may be handled separately. Do not infer a tracking URL from the historical marketplace URL.",
     "affiliate_evidence_markers": [
       "2026-10-12 authenticated PartnerStack marketplace exact search returned no programs matching Activepieces and exposed only Request a program.",
-      "The historical PartnerStack program URL is not current proof that COSHUMA can apply; the PartnerStack Network Profile reapplication is pending review.",
+      "PartnerStack message 1a1303ac0be8e537 says the COSHUMA Network Profile was not approved and access to new Marketplace programs is limited; existing PartnerStack partnerships are unaffected.",
       "No Activepieces application, approval, customer-facing tracking URL, click, signup, customer, commission, payout, or revenue is verified."
     ],
     "pricing_source_http_status": 200,
