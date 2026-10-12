@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-12T17:27:44+09:00",
+  "updated_at": "2026-10-12T18:50:00+09:00",
   "rules": {
     "do_not_duplicate_statuses": [
       "outreach_sent",
@@ -1002,14 +1002,17 @@
       "outbound_message_id": "1a0fe84e15a6a09d"
     },
     "chatbot": {
-      "status": "referral_link_requested",
+      "status": "waiting_vendor_response",
       "tracking_url": null,
-      "checked_at": "2026-10-03T03:05:00+09:00",
+      "application_state": "follow_up_sent_waiting_exact_customer_link",
+      "checked_at": "2026-10-12T18:50:00+09:00",
       "official_program_url": "https://partners.livechat.com/app/affiliate",
-      "outbound_message_id": "1a0fdcf2e220b96e",
-      "do_not_reapply": true,
-      "next_action": "Wait for Text Partner Team to supply or identify COSHUMA's exact ChatBot customer-facing affiliate URL in the existing Text Partner account. Do not construct a link.",
-      "note": "COSHUMA already has an existing Text Partner account for other Text products. Text's current partner material includes ChatBot as an affiliate-promotable product. COSHUMA requested the exact ChatBot affiliate URL from Text Support on 2026-10-03 in Gmail 1a0fdcf2e220b96e."
+      "thread_id": "1a0fdcf2e220b96e",
+      "outbound_message_id": "1a12f8625bffdd95",
+      "do_not_repeat_outreach": true,
+      "next_action": "Wait for Text Partner Support to reply in Gmail thread 1a0fdcf2e220b96e with the exact customer-facing ChatBot affiliate URL or its precise dashboard location. Do not resend, construct a link, or infer approval, attribution, commission, payout, or revenue.",
+      "note": "COSHUMA already has an existing Text Partner account for other Text products. Text's current partner material includes ChatBot as an affiliate-promotable product. COSHUMA requested the exact ChatBot affiliate URL on 2026-10-03 in Gmail message 1a0fdcf2e220b96e. A single follow-up was sent from support@coshuma.com on 2026-10-12 in Gmail message 1a12f8625bffdd95; SENT presence was confirmed and no vendor reply has been received yet.",
+      "user_action_required": false
     },
     "docusign": {
       "status": "browser_required_captcha_program_form",
