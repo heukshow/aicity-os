@@ -6001,15 +6001,17 @@
     "official_evidence_url": "https://sendcloud.com/",
     "affiliate_url": "https://sendcloud.getsc.eu/bdwc8vxceqtt",
     "affiliate_status": "approved_tracking",
-    "affiliate_status_checked_at": "2026-09-21T08:41:58Z",
+    "affiliate_status_checked_at": "2026-10-12T14:30:03Z",
     "affiliate_status_evidence_url": "https://www.sendcloud.com/en-uk/partnerships/affiliate-program/",
     "affiliate_verified": true,
     "affiliate_verified_at": "2026-09-21T08:41:58Z",
     "affiliate_evidence_markers": [
       "Sendcloud welcome email to support@coshuma.com confirms COSHUMA joined the partner program",
       "Gmail message 1a0c32113e2984a7 explicitly supplies the customer-facing referral link https://sendcloud.getsc.eu/bdwc8vxceqtt",
-      "Vendor states standard-plan commission is 100% of the referred customer first month and Enterprise/custom referrals pay EUR 200 one-off, with a 60-day sales verification period before payout",
-      "No click, signup, paid customer, commission, or payout is inferred from approval or link issuance"
+      "Gmail message 1a130854a26027ab confirms a 90-day attribution cookie; eligible subscription plans pay 100% of the referred customer's first month, while Enterprise/custom plans pay EUR 200 one-off; shipping invoices and other customer transactions are excluded",
+      "The same vendor message states commissions are reviewed between the 1st and 15th monthly after a 60-day sales verification period; only approved amounts become due in PartnerStack",
+      "The same vendor message prohibits paid ads directly to the referral link and Sendcloud brand or misspelling targeting, and lists availability for online retailers in the Netherlands, Belgium, United Kingdom, France, Germany, Austria, Italy, and Spain",
+      "No click, signup, paid customer, commission, or payout is inferred from approval, link issuance, or the program FAQ"
     ]
   },
   {
