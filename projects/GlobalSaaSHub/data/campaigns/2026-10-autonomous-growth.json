@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-12T15:43:58.282591Z",
+  "updated_at": "2026-10-12T15:46:47.000Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -1092,6 +1092,55 @@
             "bank_cash_receipt": "unknown"
           }
         }
+      },
+      {
+        "observed_at": "2026-10-12T15:43:35.651Z",
+        "source_url_or_record": "https://github.com/heukshow/aicity-os/actions/runs/38272306204",
+        "source_timezone": "Asia/Seoul",
+        "observation_kind": "rolling_operational_snapshot_not_fixed_matched_campaign_outcome",
+        "gsc_latest_observed_date": "2026-10-10",
+        "qa_exclusion_coverage": "Explicit QA URL filter plus client-side session exclusion; historical unmarked visits remain ambiguous.",
+        "metric_definition": "GA4 users, sessions, views and affiliate_click event counts plus Search Console impressions/clicks. Site affiliate_click is outbound-click evidence only; it is not signup, paid customer, commission, payout or cash receipt.",
+        "availability_state": "partial",
+        "causal_claim": "none",
+        "value": {
+          "rolling_7d": {
+            "ga_active_users": 100,
+            "ga_sessions": 102,
+            "ga_page_views": 111,
+            "affiliate_click_events": 0,
+            "gsc_impressions": 245,
+            "gsc_clicks": 1,
+            "verified_revenue": null
+          },
+          "rolling_30d": {
+            "ga_active_users": 342,
+            "ga_sessions": 385,
+            "ga_page_views": 460,
+            "affiliate_click_events": 4,
+            "gsc_impressions": 1625,
+            "gsc_clicks": 3,
+            "verified_revenue": null
+          },
+          "rolling_90d": {
+            "ga_active_users": 414,
+            "ga_sessions": 529,
+            "ga_page_views": 712,
+            "affiliate_click_events": 11,
+            "gsc_impressions": 3788,
+            "gsc_clicks": 5,
+            "verified_revenue": null
+          },
+          "downstream": {
+            "signup": "unknown",
+            "trial": "unknown",
+            "paid": "unknown",
+            "commission": "unknown",
+            "payout": "unknown",
+            "bank_cash_receipt": "unknown"
+          }
+        },
+        "interpretation": "Rolling windows are current operational evidence and must not be mixed with the protected fixed 7/30-day experiment windows. The 30-day fixed post window remains immature until 2026-10-30."
       }
     ],
     "required_observation_fields": [
