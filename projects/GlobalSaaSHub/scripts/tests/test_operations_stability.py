@@ -434,5 +434,51 @@ class RegistryTests(unittest.TestCase):
         self.assertEqual(changed, ['one'])
 
 
+class GrowthLoopTests(unittest.TestCase):
+    def test_completed_supademo_is_not_reassigned_before_active_campaign(self):
+        # Selection-relevant fields from main 262ef61d. Growth run 38602508994
+        # incorrectly selected the older completed application over this campaign.
+        completed = {
+            'record_id': 'AFFILIATE:SUPADEMO-FORMAL-APPLICATION',
+            'task_key': 'affiliate-supademo-application-attempt-20260924',
+            'incident_key': 'affiliate-supademo-form-submit-capability-20260924',
+            'target': 'Supademo affiliate formal application',
+            'owner_team': 'Affiliate Partnerships Team',
+            'next_owner': 'Affiliate Partnerships Team',
+            'lifecycle': 'completed_with_evidence', 'completion_gate_satisfied': True,
+            'priority': 'high', 'blocker': None,
+            'last_evidence_at': '2026-09-26T16:55:42.591125+00:00',
+        }
+        active = {
+            'record_id': 'CAMPAIGN:COSHUMA-20261004-ONE-MONTH',
+            'task_key': 'coshuma-one-month-organic-growth-20261004',
+            'incident_key': None,
+            'target': 'COSHUMA 2026-10-04 to 2026-11-04 autonomous organic growth campaign',
+            'owner_team': 'Operations Governance Team',
+            'next_owner': 'Operations Governance Team',
+            'lifecycle': 'in_progress', 'completion_gate_satisfied': False,
+            'priority': 'high', 'blocker': None,
+            'last_evidence_at': '2026-10-14T16:32:29.966Z',
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'data').mkdir()
+            (root / 'scripts').mkdir()
+            (root / 'data/operations_registry.json').write_text(json.dumps({
+                'schema_version': 1, 'active_queue': [completed, active],
+            }))
+            outputs = {}
+            for name in ('growth_loop_dispatch.py', 'next_operations_task.py'):
+                target = root / 'scripts' / name
+                shutil.copy(SCRIPTS / name, target)
+                outputs[name] = json.loads(subprocess.check_output(
+                    [sys.executable, str(target)], text=True))
+        selected = outputs['growth_loop_dispatch.py']['next_executable_task']
+        canonical = outputs['next_operations_task.py']
+        self.assertEqual(selected, active)
+        self.assertEqual(selected['record_id'], canonical['record_id'])
+        self.assertEqual(selected['next_owner'], canonical['next_owner'])
+
+
 if __name__ == '__main__':
     unittest.main()
