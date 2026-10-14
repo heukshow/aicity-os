@@ -7322,16 +7322,17 @@
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.veed.io/",
     "affiliate_url": null,
-    "affiliate_status": "application_submitted",
+    "affiliate_status": "outreach_sent",
     "affiliate_status_checked_at": "2026-10-14T22:22:43+09:00",
     "affiliate_status_evidence_url": "https://www.veed.io/affiliate",
     "affiliate_verified": true,
     "affiliate_verified_at": "2026-09-07T00:00:00+09:00",
     "affiliate_evidence_markers": [
       "VEED official affiliate page currently advertises recurring affiliate commission",
-      "Repository application route is Impact and no COSHUMA customer tracking URL is verified yet",
-      "COSHUMA direct enrollment request sent to official hello@veed.io support address",
-      "Gmail message id 1a07aa4c0c4a2a6d",
+      "VEED support replied on 2026-10-14 and directed COSHUMA to the official affiliate page and its Impact application path",
+      "Official application route resolves to the VEED Impact campaign page; the earlier support inquiry was not a completed program application",
+      "Impact enrollment is held fail-closed under GitHub issue #1146 until the authoritative COSHUMA account relationship is verified",
+      "Gmail message id 1a13a58fbe1851e8",
       "Exact customer-facing tracking URL not yet issued or verified"
     ]
   },
