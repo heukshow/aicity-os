@@ -356,7 +356,7 @@ compare_template = """<!doctype html>
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://coshuma.com/compare/{slug_a}-vs-{slug_b}.html" />
     <meta property="og:title" content="{toolA_name} vs {toolB_name} Comparison (2026) | COSHUMA" />
-    <meta property="og:description" content="Compare {toolA_name} and {toolB_name} by pricing, features, and verified public information." />
+    <meta property="og:description" content="Compare cataloged features, pricing information and practical fit for {toolA_name} and {toolB_name}. Check vendor terms." />
 
     <script type="application/ld+json">
     {{
@@ -590,7 +590,7 @@ for tool_a in tools_data:
             toolB_cta_html=cta_b_html,
             comparison_name_json=json.dumps(f'{tool_a.get("name")} vs {tool_b.get("name")} Comparison', ensure_ascii=False),
             comparison_description_json=json.dumps(
-                f'Compare {tool_a.get("name")} and {tool_b.get("name")} by pricing, features, and verified public information.',
+                f'Compare cataloged features, pricing information and practical fit for {tool_a.get("name")} and {tool_b.get("name")}. Check vendor terms.',
                 ensure_ascii=False,
             ),
             toolA_name_json=json.dumps(tool_a.get("name"), ensure_ascii=False),
