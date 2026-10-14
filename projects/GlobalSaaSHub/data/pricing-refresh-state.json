@@ -67,12 +67,12 @@
       "status": "no_official_pricing_result"
     },
     "bookyourdata": {
-      "checked_at": "2026-10-03T06:36:36Z",
+      "checked_at": "2026-10-14T06:12:42Z",
       "status": "evidence_validation_failed"
     },
     "brand24": {
-      "checked_at": "2026-10-03T06:36:36Z",
-      "status": "evidence_validation_failed"
+      "checked_at": "2026-10-14T06:12:42Z",
+      "status": "extract_ok"
     },
     "cartstack": {
       "checked_at": "2026-10-03T06:36:36Z",
@@ -504,39 +504,39 @@
       "status": "no_official_pricing_result"
     },
     "unbounce": {
-      "checked_at": "2026-10-02T23:59:50Z",
-      "status": "no_official_pricing_result"
+      "checked_at": "2026-10-14T06:12:42Z",
+      "status": "evidence_validation_failed"
     },
     "veed": {
-      "checked_at": "2026-10-02T23:59:50Z",
+      "checked_at": "2026-10-14T06:12:42Z",
       "status": "no_official_pricing_result"
     },
     "vidiq": {
-      "checked_at": "2026-10-02T23:59:50Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-14T06:12:42Z",
+      "status": "error_HTTPError"
     },
     "vista-social": {
-      "checked_at": "2026-10-02T23:59:50Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-14T06:12:42Z",
+      "status": "evidence_validation_failed"
     },
     "voibe": {
-      "checked_at": "2026-10-02T23:59:50Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-14T06:12:42Z",
+      "status": "evidence_validation_failed"
     },
     "webflow": {
-      "checked_at": "2026-10-02T23:59:50Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-14T06:12:42Z",
+      "status": "extract_ok"
     },
     "writesonic": {
-      "checked_at": "2026-10-02T23:59:50Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-14T06:12:42Z",
+      "status": "no_official_pricing_result"
     },
     "zenrows": {
-      "checked_at": "2026-10-02T23:59:50Z",
-      "status": "extract_retry_exhausted"
+      "checked_at": "2026-10-14T06:12:42Z",
+      "status": "no_official_pricing_result"
     }
   },
-  "last_run_at": "2026-10-13T07:47:47Z",
+  "last_run_at": "2026-10-14T06:12:42Z",
   "last_batch_size": 10,
   "last_updated_tools": []
 }
