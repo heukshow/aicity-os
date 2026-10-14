@@ -35,6 +35,8 @@ def rank(row):
     if status in {"application_submitted", "application_pending", "pending"} or (not status and application in {
         "submitted", "submitted_then_declined", "interest_form_submitted"}):
         return 2
+    if status == "outreach_sent":
+        return 1
     return 0
 
 
@@ -58,8 +60,11 @@ def preserve(old, new):
         and timestamp({"checked_at": evidence.get("observed_at")}) > timestamp(old))
     lower = rank(new) < rank(old)
     status_changed = (new.get("affiliate_status") or new.get("status")) != (old.get("affiliate_status") or old.get("status"))
+    # Outreach is evidence of contact, not a submitted application. A legacy
+    # producer retaining its timestamp cannot silently promote that correction.
     stale = timestamp(old) > timestamp(new) or (
-        status_changed and rank(new) <= rank(old) and timestamp(new) <= timestamp(old))
+        status_changed and (rank(new) <= rank(old) or rank(old) == 1)
+        and timestamp(new) <= timestamp(old))
     lost_url = rank(old) == 5 and any(old.get(k) and new.get(k) != old[k]
         for k in ("affiliate_url", "tracking_url", "exact_tracking_url"))
     # An unchanged status must not hide older timestamps or erase evidence.
