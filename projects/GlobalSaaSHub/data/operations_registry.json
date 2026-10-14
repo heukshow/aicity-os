@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T20:05:00.000000Z",
+  "updated_at": "2026-10-14T16:32:29.966Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -2493,10 +2493,10 @@
       "canonical_owner": "Operations Governance Team",
       "found_by": "Operations Governance Team",
       "lifecycle": "in_progress",
-      "next_owner": "Editorial Quality Team",
+      "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-10-08T07:46:04Z",
+      "last_evidence_at": "2026-10-14T16:32:29.966Z",
       "evidence": {
         "campaign_source": "projects/GlobalSaaSHub/data/campaigns/2026-10-autonomous-growth.json",
         "plan_source": "projects/GlobalSaaSHub/docs/2026-10-autonomous-growth-plan.md",
@@ -2791,8 +2791,8 @@
           "live_url": "https://coshuma.com/tool/pictory.html?coshuma_qa=1&deploy=e6a52483e17c",
           "result": "production_verified"
         },
-        "current_work_item": "C08",
-        "verified_substantive_content_assets": 7,
+        "current_work_item": "campaign_measurement_and_distribution",
+        "verified_substantive_content_assets": 8,
         "routing_sync": {
           "found_by": "Security & Cost Control Team",
           "fixed_by": "Security & Cost Control Team",
@@ -2818,13 +2818,46 @@
           "verified_at": "2026-10-08T07:46:04Z",
           "live_url": "https://coshuma.com/tool/octo-browser.html?coshuma_qa=1#octo-two-day-evaluation",
           "result": "production_verified"
+        },
+        "c08_asset": {
+          "implementation_pr": 1079,
+          "implementation_merge_commit": "12634e5a0cd923ae4b3aedcc8d87c6fbba3c7f72",
+          "idempotency_fix_pr": 1124,
+          "idempotency_fix_merge_commit": "40382244e32e4ab2f05a78c5002695bcc9313821",
+          "verified_main_commit": "cc36694317c42aaa014687e0b492ecbe3784ce40",
+          "site_deploy_run": 38587738044,
+          "deployment_source_commit": "b2a532cb2a86b5af129eac3a6560f130b34cd2f9",
+          "gh_pages_commit": "9c1d8aecbbaac9241bee54a32ca129100ec581d5",
+          "github_pages_run": 38588058897,
+          "source_blob": "1d1be59068c5df1ab3f326b5a8c2ad4dfa5f1943",
+          "deployed_blob": "332f096580248db2448f8a77baf9ee5709091749",
+          "source_and_deployed_scorecard_equal": true,
+          "verified_at": "2026-10-14T16:32:29.966Z",
+          "live_url": "https://coshuma.com/tool/brand24.html?coshuma_qa=1",
+          "live_result": "Exactly one Brand24 14-day scorecard with five checkpoints, continue/pause criteria, three official source links and an explicit no-hands-on-test disclosure. The consumer affiliate disclosure precedes the first affiliate CTA; all six affiliate links retain sponsored noopener noreferrer. QA was enabled on first entry. No vendor click, public post, payment, conversion or revenue was observed or claimed.",
+          "result": "production_verified"
+        },
+        "retained_editorial_candidate": {
+          "target_url": "https://coshuma.com/tool/kit.html",
+          "source_packet_url": "https://docs.google.com/document/d/1_jaKgIK0Ktflp8B2iuLnMiT055JTt_Chs98CpRCHgkE",
+          "source_evidence_url": "https://github.com/heukshow/aicity-os/issues/292#issuecomment-6161968194",
+          "status": "source_packet_prepared_unpublished",
+          "counted_as_campaign_asset": false,
+          "disposition": "Preserve the Kit worksheet source packet for separate editorial prioritization. The later candidate packet does not reference Brand24 or establish a replacement of the merged C08; do not recreate or count a second C08 from the stale planned row."
+        },
+        "c08_routing_reconciliation": {
+          "verified_at": "2026-10-14T16:32:29.966Z",
+          "reason": "The campaign and registry retained C08 planned after final C08 Brand24 PR #1079 and its idempotency fix #1124 merged. Native Cloud Control Plane run 38589550256 still selected this stale editorial handoff. The later Kit source packet was a new candidate, not evidenced replacement approval.",
+          "changed_scope": "Two canonical JSON records only; reconcile the existing eight content assets and route ongoing campaign measurement/distribution. Preserve the Kit packet, all other delivery counts, experiment windows, campaign end date and unknown revenue.",
+          "found_by": "Operations Governance Team",
+          "fixed_by": "Operations Governance Team"
         }
       },
       "completion_gate": "campaign_period_ended_and_source_evidenced_outcomes_and_closeout_report",
       "completion_gate_satisfied": false,
       "user_action_required": false,
-      "verification": "C01-C07 each retain source/build/deploy/live evidence and are production_verified in the campaign SSOT. Seven substantive content assets are verified and current_work_item=C08. The overall campaign remains in_progress and completion_gate_satisfied=false; no traffic, conversion, customer, commission, payout, revenue or uplift result is claimed.",
-      "handoff": "Editorial Quality Team owns planned C08, the final distinct text/static buyer asset. Operations Governance Team must preserve the campaign completion gate and count C08 only after source/build/deploy/live evidence. Other teams continue their existing measurement, affiliate, advertising and revenue duties without recreating C05-C07."
+      "verification": "C01-C08 each retain source/build/deploy/live evidence; Brand24 is the eighth distinct asset. PR #1124 is a repair of C08, not a ninth asset. The Kit source packet remains unpublished and uncounted for separate prioritization. The overall campaign remains in_progress with completion_gate_satisfied=false; no traffic, conversion, customer, commission, payout, revenue or uplift result is claimed.",
+      "handoff": "Operations Governance Team should coordinate existing campaign measurement and authorized Aside distribution through the campaign end and source-evidenced closeout. Do not recreate C08 or implement Kit merely because an older record said C08 planned. Preserve the Kit candidate for separate editorial prioritization, fixed measurement windows and all unverified business outcomes; PC execution remains subject to actual available access."
     },
     {
       "record_id": "REVENUE:SPONSORSHIP-SALES-REOPEN-20261004",
