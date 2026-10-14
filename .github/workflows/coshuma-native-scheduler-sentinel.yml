@@ -4,6 +4,15 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '14,44 * * * *'
+  workflow_run:
+    workflows:
+      - COSHUMA Cloud Control Plane
+      - COSHUMA Analytics Snapshot
+      - COSHUMA Registry Reconciliation
+      - COSHUMA Growth Loop
+      - COSHUMA Release Verification
+      - Royal Queue Reconcile Status
+    types: [completed]
 
 permissions:
   actions: write
@@ -16,7 +25,13 @@ concurrency:
 
 jobs:
   inspect-and-recover:
-    if: github.repository == 'heukshow/aicity-os' && github.ref == 'refs/heads/main'
+    if: >-
+      github.repository == 'heukshow/aicity-os' &&
+      github.ref == 'refs/heads/main' &&
+      (github.event_name != 'workflow_run' ||
+       (github.event.workflow_run.event == 'schedule' &&
+        github.event.workflow_run.head_branch == 'main' &&
+        github.event.workflow_run.head_repository.full_name == github.repository))
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
