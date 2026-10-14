@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign_id": "COSHUMA-20261004-ONE-MONTH",
   "title": "COSHUMA 2026년 10월 한 달 운영·유기적 마케팅",
-  "updated_at": "2026-10-12T15:46:47.000Z",
+  "updated_at": "2026-10-14T16:32:29.966Z",
   "execution_status": "in_progress",
   "authorization": {
     "source": "User explicitly requested one month of autonomous COSHUMA operation, aggressive marketing, goals and revenue expectations reported first, then immediate execution.",
@@ -808,11 +808,42 @@
     {
       "id": "C08",
       "owner": "Editorial Quality Team",
-      "status": "planned",
+      "status": "production_verified",
       "type": "new_supporting_decision_asset",
-      "target_urls": [],
-      "scope": "Final distinct useful buyer asset, with live proof before counting as published.",
-      "output_evidence": []
+      "target_urls": [
+        "https://coshuma.com/tool/brand24.html"
+      ],
+      "scope": "A distinct text-only 14-day Brand24 signal-quality scorecard on the existing buyer guide. Five checkpoints cover the monitoring brief, relevance, source coverage, alert ownership and plan fit, with continue/pause criteria, official references and an explicit no-hands-on-test boundary. PR #1124 repairs regeneration of this same asset and is not an additional asset.",
+      "output_evidence": [
+        {
+          "implementation_pr": 1079,
+          "implementation_merge_commit": "12634e5a0cd923ae4b3aedcc8d87c6fbba3c7f72",
+          "idempotency_fix_pr": 1124,
+          "idempotency_fix_merge_commit": "40382244e32e4ab2f05a78c5002695bcc9313821",
+          "verified_main_commit": "cc36694317c42aaa014687e0b492ecbe3784ce40",
+          "site_deploy_run": 38587738044,
+          "deployment_source_commit": "b2a532cb2a86b5af129eac3a6560f130b34cd2f9",
+          "gh_pages_commit": "9c1d8aecbbaac9241bee54a32ca129100ec581d5",
+          "github_pages_run": 38588058897,
+          "source_blob": "1d1be59068c5df1ab3f326b5a8c2ad4dfa5f1943",
+          "deployed_blob": "332f096580248db2448f8a77baf9ee5709091749",
+          "source_and_deployed_scorecard_equal": true,
+          "verified_at": "2026-10-14T16:32:29.966Z",
+          "live_url": "https://coshuma.com/tool/brand24.html?coshuma_qa=1",
+          "live_result": "Exactly one Brand24 14-day scorecard with five checkpoints, continue/pause criteria, three official source links and an explicit no-hands-on-test disclosure. The consumer affiliate disclosure precedes the first affiliate CTA; all six affiliate links retain sponsored noopener noreferrer. QA was enabled on first entry. No vendor click, public post, payment, conversion or revenue was observed or claimed.",
+          "result": "production_verified"
+        }
+      ],
+      "basis": "PR #1079 explicitly implements the final C08 buyer asset selected from historical first-party evidence. PR #1124 preserves one canonical scorecard. Current source, successful deployment ancestry and direct live QA verify the existing asset; no performance or revenue outcome is inferred.",
+      "completed_at": "2026-10-14T16:32:29.966Z",
+      "retained_editorial_candidate": {
+        "target_url": "https://coshuma.com/tool/kit.html",
+        "source_packet_url": "https://docs.google.com/document/d/1_jaKgIK0Ktflp8B2iuLnMiT055JTt_Chs98CpRCHgkE",
+        "source_evidence_url": "https://github.com/heukshow/aicity-os/issues/292#issuecomment-6161968194",
+        "status": "source_packet_prepared_unpublished",
+        "counted_as_campaign_asset": false,
+        "disposition": "Preserve the Kit worksheet source packet for separate editorial prioritization. The later candidate packet does not reference Brand24 or establish a replacement of the merged C08; do not recreate or count a second C08 from the stale planned row."
+      }
     }
   ],
   "content_quality_gate": [
@@ -1219,16 +1250,17 @@
     ],
     "duplicate_prevention": "Record report delivery evidence only after a confirmed send, and reuse the existing report states. Schedule configuration alone is not delivery."
   },
-  "current_work_item": "C08",
+  "current_work_item": "campaign_measurement_and_distribution",
   "verified_delivery_counts": {
-    "substantive_content_assets": 7,
+    "substantive_content_assets": 8,
     "public_social_posts": 1,
     "prepared_social_drafts": 1,
     "as_of": "2026-10-08T07:46:04Z",
     "total_social_drafts_produced": 2,
     "public_community_comments": 1,
     "new_community_likes": 1,
-    "distinct_community_conversations_read": 1
+    "distinct_community_conversations_read": 1,
+    "substantive_content_assets_as_of": "2026-10-14T16:32:29.966Z"
   },
   "content_format_policy": {
     "source": "User correction in this conversation at 2026-10-04T06:29:11+09:00: video content cannot be relied on and YouTube-style video uploads must be excluded.",
