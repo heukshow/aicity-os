@@ -1,5 +1,6 @@
 import copy
 import importlib.util
+import json
 import os
 import shutil
 import subprocess
@@ -17,6 +18,55 @@ import reconcile_operations_registry as registry
 
 
 class LifecycleTests(unittest.TestCase):
+    def test_outreach_cannot_be_promoted_by_stale_or_same_time_producer(self):
+        old = {'id': 'veed', 'affiliate_status': 'outreach_sent', 'affiliate_url': None,
+               'affiliate_status_checked_at': '2026-10-14T22:22:43+09:00',
+               'affiliate_evidence_markers': ['Support contact is not a completed application']}
+        for checked_at in ['2026-09-01T00:00:00Z', old['affiliate_status_checked_at']]:
+            new = dict(old, affiliate_status='application_submitted',
+                       affiliate_status_checked_at=checked_at, pricing='updated product fact')
+            actual, changed = lifecycle.preserve(old, new)
+            self.assertTrue(changed)
+            self.assertEqual(actual, dict(old, pricing='updated product fact'))
+
+    def test_newer_direct_evidence_can_correct_or_advance_outreach(self):
+        submitted = {'affiliate_status': 'application_submitted',
+                     'affiliate_status_checked_at': '2026-09-01T00:00:00Z'}
+        corrected = {'affiliate_status': 'outreach_sent', 'affiliate_url': None,
+                     'affiliate_status_checked_at': '2026-10-14T13:22:43Z',
+                     'affiliate_lifecycle_override': {
+                         'source_type': 'vendor_email', 'source_ref': 'fixture-correction',
+                         'reason': 'Support inquiry was not an application',
+                         'observed_at': '2026-10-14T13:22:43Z'}}
+        self.assertEqual(lifecycle.preserve(submitted, corrected), (corrected, False))
+        replayed = dict(corrected, affiliate_status='application_submitted')
+        self.assertEqual(lifecycle.preserve(corrected, replayed), (corrected, True))
+        confirmed = dict(corrected, affiliate_status='application_submitted',
+                         affiliate_status_checked_at='2026-10-15T00:00:00Z',
+                         affiliate_lifecycle_override={
+                             'source_type': 'authenticated_vendor_dashboard',
+                             'source_ref': 'fixture-submission', 'reason': 'Application confirmed',
+                             'observed_at': '2026-10-15T00:00:00Z'})
+        self.assertEqual(lifecycle.preserve(corrected, confirmed), (confirmed, False))
+
+    def test_sync_next_preserves_corrected_outreach_and_product_changes(self):
+        canonical = {'id': 'veed', 'affiliate_status': 'outreach_sent', 'affiliate_url': None,
+                     'affiliate_status_checked_at': '2026-10-14T22:22:43+09:00',
+                     'affiliate_evidence_markers': ['Support contact is not a completed application']}
+        stale = dict(canonical, affiliate_status='application_submitted',
+                     affiliate_evidence_markers=['Old enrollment request'], pricing='new product fact')
+        other = {'id': 'other', 'pricing': 'unchanged'}
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); (root / 'data').mkdir()
+            (root / 'data/tools.json').write_text(json.dumps([canonical, other]))
+            path = root / 'data/tools.next.json'
+            path.write_text(json.dumps([stale, other]))
+            with patch.object(lifecycle, 'ROOT', root):
+                self.assertEqual(lifecycle.sync_next(), 1)
+                self.assertEqual(lifecycle.sync_next(), 0)
+            self.assertEqual(json.loads(path.read_text()),
+                             [dict(canonical, pricing='new product fact'), other])
+
     def test_unchanged_status_cannot_erase_newer_evidence(self):
         old = {'affiliate_status': 'approved_tracking', 'affiliate_status_checked_at': '2026-09-26',
                'affiliate_verified_at': '2026-09-25', 'affiliate_evidence_markers': ['vendor-issued link']}
@@ -77,6 +127,51 @@ def candidate(name='one'):
 
 
 class PublicProducerTests(unittest.TestCase):
+    def test_verified_affiliate_sync_preserves_veed_correction_and_future_approval(self):
+        sources = ['sync_verified_affiliates.mjs', 'affiliate_state_fs.mjs',
+                   'affiliate_lifecycle_guard.py', 'browser_followup_evidence.mjs',
+                   'approved_tracking_evidence.mjs']
+        evidence_files = ['approved-tracking-2026-09-08.json',
+                          'browser_required_queue.d/gravity-forms-approved-link-recovery-2026-09-09.json',
+                          'affiliate-browser-followup-wave3-2026-09-08.json',
+                          'affiliate-submission-batch-2026-09-08.json',
+                          'affiliate-status-hotfix-2026-09-08.json',
+                          'affiliate_outreach_state.json', 'browser_required_queue.json']
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); (root / 'scripts').mkdir(); (root / 'data').mkdir()
+            for name in sources:
+                shutil.copy(SCRIPTS / name, root / 'scripts' / name)
+            for name in evidence_files:
+                target = root / 'data' / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy(SCRIPTS.parent / 'data' / name, target)
+            for name in ['tools.json', 'tools.next.json']:
+                row = next(row for row in json.loads((SCRIPTS.parent / 'data' / name).read_text())
+                           if row['id'] == 'veed')
+                self.assertEqual(row['affiliate_status'], 'outreach_sent')
+                self.assertEqual(row['affiliate_status_checked_at'], '2026-10-14T22:22:43+09:00')
+                self.assertIsNone(row['affiliate_url'])
+                self.assertIn('Gmail message id 1a13a58fbe1851e8', row['affiliate_evidence_markers'])
+                (root / 'data' / name).write_text(json.dumps([row, {'id': 'other', 'pricing': 'unchanged'}]))
+            for future_approval in [False, True]:
+                for name in ['tools.json', 'tools.next.json']:
+                    path = root / 'data' / name
+                    data = json.loads(path.read_text())
+                    if future_approval:
+                        data[0].update(affiliate_status='approved_tracking',
+                                       affiliate_url='https://vendor.test/verified-fixture',
+                                       affiliate_status_checked_at='2099-01-01T00:00:00Z',
+                                       affiliate_evidence_markers=['Synthetic future approval'])
+                    path.write_text(json.dumps(data))
+                expected = {name: json.loads((root / 'data' / name).read_text())
+                            for name in ['tools.json', 'tools.next.json']}
+                for _ in range(2):
+                    result = subprocess.run(['node', 'scripts/sync_verified_affiliates.mjs'], cwd=root,
+                                            capture_output=True, text=True)
+                    self.assertEqual(result.returncode, 0, result.stderr)
+                    for name, rows in expected.items():
+                        self.assertEqual(json.loads((root / 'data' / name).read_text()), rows)
+
     def test_final_dist_polish_preserves_source_disclosure_outside_cta_row(self):
         import self_heal_source_affiliate_disclosures as source
         import guard_built_customer_copy as built
