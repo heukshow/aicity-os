@@ -9,6 +9,7 @@ import os
 import json
 import re
 import argparse
+from html import escape
 from guard_public_copy import clean, identity
 from datetime import datetime
 
@@ -348,8 +349,8 @@ compare_template = """<!doctype html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{toolA_name} vs {toolB_name} Comparison, Pricing & Winner (2026) | COSHUMA</title>
-    <meta name="description" content="In-depth side-by-side comparison of {toolA_name} vs {toolB_name}. Compare pricing, features, ratings ({toolA_rating_badge} vs {toolB_rating_badge}), and find out which AI tool is best for your workflow." />
+    <title>{toolA_name} vs {toolB_name}: Pricing, Features & Fit (2026) | COSHUMA</title>
+    <meta name="description" content="Compare {toolA_name} and {toolB_name} on cataloged features, available pricing and practical fit. Check current terms with each vendor." />
 
     <link rel="canonical" href="https://coshuma.com/compare/{slug_a}-vs-{slug_b}.html" />
     <meta property="og:type" content="article" />
@@ -405,7 +406,7 @@ compare_template = """<!doctype html>
         </div>
         <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight">{toolA_name} vs {toolB_name}</h1>
         <p class="text-slate-400 text-sm max-w-2xl mx-auto">
-          Detailed breakdown of pricing, ratings, core capabilities, and decision recommendations to help you choose the best {category_display} tool.
+          Review cataloged features, available pricing information and each vendor's official offer before deciding which fits your workflow.
         </p>
       </div>
 
@@ -416,26 +417,26 @@ compare_template = """<!doctype html>
             <span>🧠 Decision Summary & Evidence</span>
           </h2>
           <span class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-md">
-            ✓ Publicly Available Data (Last updated: {last_updated_date})
+            Catalog snapshot generated: {last_updated_date}. Verify current vendor terms.
           </span>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
           <div class="p-4 rounded-2xl bg-[#181a29] border border-purple-500/20 space-y-2">
-            <div class="font-bold text-purple-300">Choose {toolA_name} if:</div>
+            <div class="font-bold text-purple-300">Consider {toolA_name} if:</div>
             <p class="text-slate-300 leading-relaxed">
-              Choose this option if its documented features match the workflow you need.
+              {toolA_decision}
             </p>
             <div class="text-[10px] text-slate-400 font-mono pt-1 border-t border-[#222538]">
-              Source: Official Documentation & Public Pricing Specs ({last_updated_date})
+              Source: COSHUMA product catalog. Verify features with the vendor.
             </div>
           </div>
           <div class="p-4 rounded-2xl bg-[#181a29] border border-blue-500/20 space-y-2">
-            <div class="font-bold text-blue-300">Choose {toolB_name} if:</div>
+            <div class="font-bold text-blue-300">Consider {toolB_name} if:</div>
             <p class="text-slate-300 leading-relaxed">
-              Compare its current pricing and features with your requirements.
+              {toolB_decision}
             </p>
             <div class="text-[10px] text-slate-400 font-mono pt-1 border-t border-[#222538]">
-              Source: Official Vendor Specifications & Benchmark Data ({last_updated_date})
+              Source: COSHUMA product catalog. Verify features with the vendor.
             </div>
           </div>
         </div>
@@ -511,6 +512,20 @@ compare_template = """<!doctype html>
 </html>
 """
 
+def comparison_decision(tool):
+    """Use explicitly listed capabilities without inventing a winner or feature availability."""
+    raw_features = tool.get("key_features", [])
+    features = [
+        item.strip()
+        for item in raw_features
+        if isinstance(item, str) and item.strip()
+    ] if isinstance(raw_features, list) else []
+    if not features:
+        return "Check the vendor's published features and plan limitations before deciding."
+    sample = escape("; ".join(features[:2]))
+    return f"Listed capabilities to evaluate: {sample}. Confirm availability and plan limits on the vendor's site."
+
+
 # Generate static /compare/ pages for same comparison_group competitors (Unordered Pair Deduplicated)
 compare_generated_count = 0
 generated_compare_pairs = set()
@@ -569,6 +584,8 @@ for tool_a in tools_data:
             toolB_pricing=tool_b.get("pricing", "Free Trial / Paid"),
             toolA_features=feat_a,
             toolB_features=feat_b,
+            toolA_decision=comparison_decision(tool_a),
+            toolB_decision=comparison_decision(tool_b),
             toolA_cta_html=cta_a_html,
             toolB_cta_html=cta_b_html,
             comparison_name_json=json.dumps(f'{tool_a.get("name")} vs {tool_b.get("name")} Comparison', ensure_ascii=False),
