@@ -4,7 +4,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 REG=ROOT/"data"/"operations_registry.json"
 data=json.loads(REG.read_text(encoding="utf-8"))
-terminal={"production_verified","measured","rejected_with_evidence"}
+terminal={"production_verified","measured","rejected_with_evidence","completed_with_evidence"}
 rank={"critical":0,"high":1,"normal":2,"low":3}
 # Never let a known external blocker monopolize productive dispatch.
 items=[x for x in data.get("active_queue",[]) if x.get("lifecycle") not in terminal and not x.get("blocker")]
