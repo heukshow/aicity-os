@@ -1220,6 +1220,18 @@
       ]
     },
     {
+      "id": "optimonk",
+      "name": "OptiMonk",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.optimonk.com/?p_id=122696307",
+      "verified_at": "2026-09-01T00:00:00+09:00",
+      "account_id": "optimonk",
+      "evidence": []
+    },
+    {
       "id": "outlierkit",
       "name": "OutlierKit",
       "network": "개별 제휴 포털",

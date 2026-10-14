@@ -4995,7 +4995,8 @@
       "source_ref": "gmail:1a13933cc9a94f70",
       "observed_at": "2026-10-14T15:57:25+09:00",
       "reason": "The supplier issued the exact customer referral URL in message 1a1354b2b9538b16 and confirmed the correct affiliate parameter in message 1a13933cc9a94f70; issue #292 comment 6146569646 records destination and parameter verification."
-    }
+    },
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
   },
   {
     "id": "outlierkit",

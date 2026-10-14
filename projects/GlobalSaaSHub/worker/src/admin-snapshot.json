@@ -1,38 +1,38 @@
 {
-  "generatedAt": "2026-10-12T14:38:29.240Z",
+  "generatedAt": "2026-10-14T15:17:34.563Z",
   "counts": {
     "totalTools": 179,
-    "verifiedAffiliates": 119,
-    "revenueReadyAffiliates": 80,
-    "genericRevenueReadyAffiliates": 76,
+    "verifiedAffiliates": 120,
+    "revenueReadyAffiliates": 81,
+    "genericRevenueReadyAffiliates": 77,
     "targetedRevenueReadyAffiliates": 4,
-    "openMonetizationGaps": 72,
-    "directActionableGaps": 1,
+    "openMonetizationGaps": 71,
+    "directActionableGaps": 0,
     "browserRequiredGaps": 25,
     "watchOnlyGaps": 46,
-    "doNotReapply": 178,
+    "doNotReapply": 179,
     "toolPages": 180,
     "comparePages": 280,
     "sitemapUrls": 563
   },
   "revenueFocus": {
     "policy": "prioritize_direct_existing_gaps_without_reapplying_waiting_states",
-    "allowNewTools": false,
-    "reason": "1 existing tools still have directly actionable affiliate gaps; 46 are watch-only and 25 require browser work."
+    "allowNewTools": true,
+    "reason": "No directly actionable existing affiliate gap remains; waiting and browser-only states are protected from duplicate enrollment."
   },
   "affiliateCoverage": {
     "counts": {
-      "revenueReady": 80,
-      "genericRevenueReady": 76,
+      "revenueReady": 81,
+      "genericRevenueReady": 77,
       "targetedRevenueReady": 4,
       "terminal": 28,
-      "openMonetizationGaps": 72,
-      "directActionableGaps": 1,
+      "openMonetizationGaps": 71,
+      "directActionableGaps": 0,
       "browserRequiredGaps": 25,
       "watchOnlyGaps": 46,
-      "doNotReapply": 178,
+      "doNotReapply": 179,
       "unclassifiedAffiliateStatus": 0,
-      "exactAffiliateUrlMissing": 72,
+      "exactAffiliateUrlMissing": 71,
       "officialUnverified": 0,
       "pricingUnverified": 121
     },
@@ -976,6 +976,24 @@
       {
         "id": "omnisend",
         "name": "Omnisend",
+        "officialVerified": true,
+        "pricingVerified": true,
+        "affiliateStatus": "approved_tracking",
+        "affiliateVerified": true,
+        "hasAffiliateUrl": true,
+        "genericRevenueReady": true,
+        "targetedRevenueReady": true,
+        "revenueReady": true,
+        "terminal": false,
+        "doNotReapply": true,
+        "browserRequired": false,
+        "directActionableGap": false,
+        "watchOnlyGap": false,
+        "blocker": null
+      },
+      {
+        "id": "optimonk",
+        "name": "OptiMonk",
         "officialVerified": true,
         "pricingVerified": true,
         "affiliateStatus": "approved_tracking",
@@ -2630,24 +2648,6 @@
         "blocker": "affiliate_status_outreach_sent"
       },
       {
-        "id": "optimonk",
-        "name": "OptiMonk",
-        "officialVerified": true,
-        "pricingVerified": true,
-        "affiliateStatus": "approved_exact_link_pending",
-        "affiliateVerified": false,
-        "hasAffiliateUrl": false,
-        "genericRevenueReady": false,
-        "targetedRevenueReady": false,
-        "revenueReady": false,
-        "terminal": false,
-        "doNotReapply": false,
-        "browserRequired": false,
-        "directActionableGap": true,
-        "watchOnlyGap": false,
-        "blocker": "exact_customer_affiliate_url_missing"
-      },
-      {
         "id": "pickaxe",
         "name": "Pickaxe",
         "officialVerified": true,
@@ -3698,6 +3698,14 @@
       "verified": true,
       "url": "https://your.omnisend.com/4aA5k9",
       "verifiedAt": "2026-09-09T19:56:33+09:00"
+    },
+    {
+      "id": "optimonk",
+      "name": "OptiMonk",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://www.optimonk.com/?p_id=122696307",
+      "verifiedAt": "2026-09-01T00:00:00+09:00"
     },
     {
       "id": "outlierkit",
