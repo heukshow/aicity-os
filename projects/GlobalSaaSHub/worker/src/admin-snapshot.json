@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-14T15:17:34.563Z",
+  "generatedAt": "2026-10-14T16:50:39.546Z",
   "counts": {
     "totalTools": 179,
-    "verifiedAffiliates": 120,
+    "verifiedAffiliates": 121,
     "revenueReadyAffiliates": 81,
     "genericRevenueReadyAffiliates": 77,
     "targetedRevenueReadyAffiliates": 4,
     "openMonetizationGaps": 71,
     "directActionableGaps": 0,
-    "browserRequiredGaps": 25,
-    "watchOnlyGaps": 46,
+    "browserRequiredGaps": 24,
+    "watchOnlyGaps": 47,
     "doNotReapply": 179,
     "toolPages": 180,
     "comparePages": 280,
@@ -28,8 +28,8 @@
       "terminal": 28,
       "openMonetizationGaps": 71,
       "directActionableGaps": 0,
-      "browserRequiredGaps": 25,
-      "watchOnlyGaps": 46,
+      "browserRequiredGaps": 24,
+      "watchOnlyGaps": 47,
       "doNotReapply": 179,
       "unclassifiedAffiliateStatus": 0,
       "exactAffiliateUrlMissing": 71,
@@ -2742,18 +2742,18 @@
         "name": "Privy",
         "officialVerified": true,
         "pricingVerified": true,
-        "affiliateStatus": "browser_required_legal_program_consent",
-        "affiliateVerified": false,
+        "affiliateStatus": "outreach_sent",
+        "affiliateVerified": true,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
         "targetedRevenueReady": false,
         "revenueReady": false,
         "terminal": false,
         "doNotReapply": true,
-        "browserRequired": true,
+        "browserRequired": false,
         "directActionableGap": false,
-        "watchOnlyGap": false,
-        "blocker": "legal_program_consent_required"
+        "watchOnlyGap": true,
+        "blocker": "affiliate_status_outreach_sent"
       },
       {
         "id": "questmate",
@@ -3210,7 +3210,7 @@
         "name": "VEED",
         "officialVerified": true,
         "pricingVerified": false,
-        "affiliateStatus": "application_submitted",
+        "affiliateStatus": "outreach_sent",
         "affiliateVerified": true,
         "hasAffiliateUrl": false,
         "genericRevenueReady": false,
@@ -3221,7 +3221,7 @@
         "browserRequired": false,
         "directActionableGap": false,
         "watchOnlyGap": true,
-        "blocker": "affiliate_status_application_submitted"
+        "blocker": "affiliate_status_outreach_sent"
       },
       {
         "id": "webflow",
@@ -4132,6 +4132,14 @@
       "verifiedAt": "2026-09-07T19:50:46+09:00"
     },
     {
+      "id": "privy",
+      "name": "Privy",
+      "status": "outreach_sent",
+      "verified": true,
+      "url": null,
+      "verifiedAt": "2026-09-08T03:27:00+09:00"
+    },
+    {
       "id": "questmate",
       "name": "Questmate",
       "status": "outreach_sent",
@@ -4254,7 +4262,7 @@
     {
       "id": "veed",
       "name": "VEED",
-      "status": "application_submitted",
+      "status": "outreach_sent",
       "verified": true,
       "url": null,
       "verifiedAt": "2026-09-07T00:00:00+09:00"

@@ -5417,7 +5417,6 @@
     "category": "sales_crm",
     "category_display": "Ecommerce Email & Conversion",
     "description": "Ecommerce email, SMS, popups and onsite conversion platform with a 15-day no-card trial on the current Email plan.",
-    "affiliate_url": null,
     "pricing": "Email starts at $30/month with a 15-day free trial and no credit card required; Pop-ups & Displays only starts at $24/month",
     "key_features": [
       "Ecommerce email marketing",
@@ -5441,17 +5440,14 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-09-14T13:32:00+09:00",
     "official_evidence_url": "https://www.privy.com/partnerships/sign-up",
-    "affiliate_verified": false,
-    "affiliate_status": "browser_required_legal_program_consent",
+    "affiliate_url": null,
+    "affiliate_verified": true,
+    "affiliate_status": "outreach_sent",
     "affiliate_verified_at": "2026-09-08T03:27:00+09:00",
     "affiliate_evidence_markers": [
-      "Existing support@coshuma.com outreach to partners@privy.com is Gmail message 1a07d1178d900425 from 2026-09-07; the thread has no vendor reply as of 2026-09-14, so duplicate outreach is prohibited.",
-      "Privy currently exposes a public partner signup page with Affiliate, Technology and Co-Marketing partnership types.",
-      "Privy current pricing shows Email from $30/month with a 15-day free trial and no credit card required; Pop-ups & Displays only starts at $24/month.",
-      "Privy Partner Program Agreement states participation/acceptance is a binding agreement. Unattended submission is therefore blocked on account-holder legal/program consent.",
-      "Privy current agreement uses tier-based Partner Share; COSHUMA must not market a guaranteed 20% starting commission.",
-      "No account-issued Privy customer referral URL is verified. Homepage, pricing, partner signup and partner dashboard URLs are not affiliate tracking URLs.",
-      "Clicks, signups, paid customers, commission, payout and revenue remain unknown."
+      "COSHUMA sent a Privy Partner Affiliate enrollment request from support@coshuma.com",
+      "Gmail message 1a07d1178d900425 records the outreach",
+      "Do not duplicate enrollment outreach while Privy clarifies the applicable publisher path"
     ],
     "affiliate_source_url": "https://www.privy.com/partnerships/sign-up",
     "affiliate_workflow_url": "https://www.privy.com/partnerships/sign-up",
