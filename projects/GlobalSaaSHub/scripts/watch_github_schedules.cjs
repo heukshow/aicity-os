@@ -85,6 +85,27 @@ function issueBody(target, result, run, dispatch) {
   ].join('\n');
 }
 
+function refreshIncidentObservation(body, result, run, checkedAt) {
+  const url = run && Number.isInteger(run.id) ?
+    'https://github.com/' + REPO + '/actions/runs/' + run.id : 'none';
+  // Preserve the original dispatch outcome and any manually added notes. An open
+  // incident must not keep presenting its first observation as the latest run.
+  let updated = String(body || '')
+    .replace(/^\*\*Problem:\*\* .*$/m, '**Problem:** ' + result.reason)
+    .replace(/^\*\*Latest native scheduled run age:\*\* .*$/m,
+      '**Latest native scheduled run age:** ' +
+      (result.ageMinutes === null ? 'unknown' : result.ageMinutes + ' minutes'))
+    .replace(/^\*\*Latest native scheduled run:\*\* .*$/m,
+      '**Latest native scheduled run:** ' + url);
+  const checkedLine = '**Last checked at:** ' + checkedAt;
+  if (/^\*\*Last checked at:\*\* .*$/m.test(updated)) {
+    updated = updated.replace(/^\*\*Last checked at:\*\* .*$/m, checkedLine);
+  } else {
+    updated = updated.replace(/^(\*\*Problem:\*\* .*\n)/m, '$1' + checkedLine + '\n');
+  }
+  return updated;
+}
+
 async function ensureLabel(api, root) {
   try {
     await api('GET', root + '/labels/' + encodeURIComponent(LABEL));
@@ -126,8 +147,10 @@ async function main() {
         '/runs?event=schedule&per_page=5';
       const results = await api('GET', path);
       const runs = Array.isArray(results.workflow_runs) ? results.workflow_runs : [];
-      const latest = runs.find(item => item.head_branch === 'main') || null;
-      const state = assessNativeSchedule(latest, Date.now(), target.maxAgeMinutes);
+      const latest = runs.filter(item => item.head_branch === 'main' && item.event === 'schedule')
+        .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))[0] || null;
+      const checkedAt = new Date().toISOString();
+      const state = assessNativeSchedule(latest, Date.parse(checkedAt), target.maxAgeMinutes);
       const issue = known.get(title);
 
       if (state.healthy) {
@@ -146,7 +169,13 @@ async function main() {
       }
 
       if (issue && issue.state === 'open') {
+        const body = refreshIncidentObservation(issue.body, state, latest, checkedAt);
+        if (body !== issue.body) {
+          await api('PATCH', root + '/issues/' + issue.number, { body });
+        }
         summary.push('- STILL UNHEALTHY: ' + target.name + ' (#' + issue.number +
+          '; ' + state.reason + '; latest native run ' + (latest ? latest.id : 'none') +
+          '; age ' + (state.ageMinutes === null ? 'unknown' : state.ageMinutes + ' minutes') +
           '; one-shot retry already recorded)');
         continue;
       }
@@ -199,4 +228,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { REPO, WATCHED, PREFIX, assessNativeSchedule, issueBody };
+module.exports = { REPO, WATCHED, PREFIX, assessNativeSchedule, issueBody, refreshIncidentObservation, main };
