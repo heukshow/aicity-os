@@ -4948,7 +4948,7 @@
     "category": "dev_coding",
     "category_display": "Coding & Dev Tools",
     "description": "Conversion-rate optimization platform for popups, embedded campaigns, targeting, personalization and experimentation.",
-    "affiliate_url": null,
+    "affiliate_url": "https://www.optimonk.com/?p_id=122696307",
     "pricing": "Free plan at $0 for up to 10,000 pageviews/month on one domain with unlimited campaigns and all features; paid tiers scale by traffic and billing period",
     "key_features": [
       "Popup and embedded campaigns",
@@ -4972,12 +4972,12 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-10-12T20:18:46+09:00",
     "official_evidence_url": "https://www.optimonk.com/partners",
-    "affiliate_verified": false,
-    "affiliate_status": "approved_exact_link_pending",
+    "affiliate_verified": true,
+    "affiliate_status": "approved_tracking",
     "affiliate_source_url": "https://www.optimonk.com/partners",
     "affiliate_workflow_url": "mailto:partnership@optimonk.com",
-    "affiliate_status_checked_at": "2026-10-12T20:18:46+09:00",
-    "application_state": "affiliate_account_upgraded_link_pending",
+    "affiliate_status_checked_at": "2026-10-14T15:57:25+09:00",
+    "application_state": "enrolled_tracking_link_verified",
     "affiliate_evidence_markers": [
       "OptiMonk Partnership Manager confirmed by Gmail message 1a10b67cafbf349f that independent publishers can use a classic affiliate model with 20% commission for two years on referred paying customers.",
       "OptiMonk Partnership Manager confirmed by Gmail message 1a115654c5759cfa that enrollment requires creating a free OptiMonk product account, then sending the registered email so the supplier can upgrade it to an affiliate account.",
@@ -4986,9 +4986,16 @@
       "COSHUMA created the required free product account for support@coshuma.com and sent the supplier upgrade request in Gmail message 1a12360906d07c20 on 2026-10-10.",
       "OptiMonk Partnership Manager confirmed in Gmail message 1a12fb274a4164fa on 2026-10-12 that support@coshuma.com was upgraded to an affiliate account and that the personalized affiliate URL is available in the account Affiliate menu.",
       "The approval email did not include the exact customer-facing URL. COSHUMA requested the exact issued URL in the same thread once, in SENT message 1a12fd9500fb9488, to avoid transcription or destination errors.",
-      "No account-specific customer tracking URL, click, signup, paid customer, commission, payout or revenue is verified. Affiliate URL remains null and customer CTAs must remain official non-affiliate destinations."
+      "OptiMonk Partnership Manager issued https://www.optimonk.com?p_id=122696307 in Gmail message 1a1354b2b9538b16. Issue #292 comment 6146569646 records that the official homepage loaded and retained p_id=122696307; the normalized customer URL is https://www.optimonk.com/?p_id=122696307.",
+      "Gmail message 1a13933cc9a94f70 confirms use of the correct affiliate parameter and acknowledges the disclosure. Clicks, signups, paid customers, commissions, payouts and revenue remain unverified."
     ],
-    "affiliate_next_action": "Await the exact personalized customer-facing affiliate URL requested in Gmail message 1a12fd9500fb9488, or recover it from the authenticated Affiliate menu. Verify destination and attribution before setting approved_tracking or changing any customer CTA. Do not send another follow-up."
+    "affiliate_next_action": "Preserve the exact issued customer URL and sponsored disclosure; independently verify the deployed homepage CTA. Keep pricing links on the official pricing page because pricing deeplinks are not authorized. No re-enrollment or duplicate follow-up; revenue outcomes remain unknown.",
+    "affiliate_lifecycle_override": {
+      "source_type": "vendor_email",
+      "source_ref": "gmail:1a13933cc9a94f70",
+      "observed_at": "2026-10-14T15:57:25+09:00",
+      "reason": "The supplier issued the exact customer referral URL in message 1a1354b2b9538b16 and confirmed the correct affiliate parameter in message 1a13933cc9a94f70; issue #292 comment 6146569646 records destination and parameter verification."
+    }
   },
   {
     "id": "outlierkit",
