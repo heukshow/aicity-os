@@ -52,7 +52,7 @@ class LifecycleTests(unittest.TestCase):
 
     def test_outreach_cannot_be_promoted_by_stale_or_same_time_producer(self):
         old = {'id': 'veed', 'affiliate_status': 'outreach_sent', 'affiliate_url': None,
-               'affiliate_status_checked_at': '2026-10-14T22:22:43+09:00',
+               'affiliate_status_checked_at': '2026-10-15T23:16:00+09:00',
                'affiliate_evidence_markers': ['Support contact is not a completed application']}
         for checked_at in ['2026-09-01T00:00:00Z', old['affiliate_status_checked_at']]:
             new = dict(old, affiliate_status='application_submitted',
@@ -83,7 +83,7 @@ class LifecycleTests(unittest.TestCase):
 
     def test_sync_next_preserves_corrected_outreach_and_product_changes(self):
         canonical = {'id': 'veed', 'affiliate_status': 'outreach_sent', 'affiliate_url': None,
-                     'affiliate_status_checked_at': '2026-10-14T22:22:43+09:00',
+                     'affiliate_status_checked_at': '2026-10-15T23:16:00+09:00',
                      'affiliate_evidence_markers': ['Support contact is not a completed application']}
         stale = dict(canonical, affiliate_status='application_submitted',
                      affiliate_evidence_markers=['Old enrollment request'], pricing='new product fact')
@@ -181,9 +181,15 @@ class PublicProducerTests(unittest.TestCase):
                 row = next(row for row in json.loads((SCRIPTS.parent / 'data' / name).read_text())
                            if row['id'] == 'veed')
                 self.assertEqual(row['affiliate_status'], 'outreach_sent')
-                self.assertEqual(row['affiliate_status_checked_at'], '2026-10-14T22:22:43+09:00')
+                self.assertEqual(row['affiliate_status_checked_at'], '2026-10-15T23:16:00+09:00')
                 self.assertIsNone(row['affiliate_url'])
-                self.assertIn('Gmail message id 1a13a58fbe1851e8', row['affiliate_evidence_markers'])
+                self.assertIn(
+                    'VEED support confirmed in Gmail message 1a13fb71718f2e0d that the public '
+                    'affiliate page at https://www.veed.io/affiliate is the official enrollment path',
+                    row['affiliate_evidence_markers'])
+                self.assertEqual(
+                    row['application_state'],
+                    'official_route_confirmed_duplicate_account_relationship_unverified')
                 (root / 'data' / name).write_text(json.dumps([row, {'id': 'other', 'pricing': 'unchanged'}]))
             for future_approval in [False, True]:
                 for name in ['tools.json', 'tools.next.json']:
