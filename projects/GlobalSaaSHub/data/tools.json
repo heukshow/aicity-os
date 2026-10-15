@@ -7328,7 +7328,6 @@
     "category": "video_gen",
     "category_display": "Video & Shorts Gen",
     "description": "VEED is an intuitive online video editing platform packed with AI-powered tools designed for creators and businesses alike. Easily edit, subtitle, and enhance your videos directly in your browser, streamlining your content production workflow.",
-    "affiliate_url": null,
     "pricing": "See official pricing",
     "key_features": [
       "Online video editor",
@@ -7352,6 +7351,7 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://www.veed.io/",
+    "affiliate_url": null,
     "affiliate_status": "outreach_sent",
     "affiliate_status_checked_at": "2026-10-15T23:16:00+09:00",
     "affiliate_status_evidence_url": "https://www.veed.io/affiliate",
