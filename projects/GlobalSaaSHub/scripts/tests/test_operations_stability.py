@@ -18,6 +18,38 @@ import reconcile_operations_registry as registry
 
 
 class LifecycleTests(unittest.TestCase):
+    def test_newer_non_ranked_vendor_state_cannot_rollback(self):
+        old = {
+            'affiliate_status': 'waiting_vendor_response',
+            'application_state': 'follow_up_sent_waiting_vendor_referral_setup',
+            'affiliate_status_checked_at': '2026-10-12T18:21:03+09:00',
+            'affiliate_evidence_markers': ['authenticated vendor acceptance email'],
+        }
+        stale = {
+            'affiliate_status': 'referral_link_requested',
+            'affiliate_status_checked_at': '2026-09-01T00:00:00Z',
+            'affiliate_evidence_markers': [],
+            'pricing': 'preserve product edit',
+        }
+        actual, changed = lifecycle.preserve(old, stale)
+        self.assertTrue(changed)
+        self.assertEqual(actual['affiliate_status'], old['affiliate_status'])
+        self.assertEqual(actual['application_state'], old['application_state'])
+        self.assertEqual(actual['affiliate_status_checked_at'], old['affiliate_status_checked_at'])
+        self.assertEqual(actual['affiliate_evidence_markers'], old['affiliate_evidence_markers'])
+        self.assertEqual(actual['pricing'], stale['pricing'])
+
+    def test_newer_non_ranked_vendor_state_is_allowed(self):
+        old = {
+            'affiliate_status': 'referral_link_requested',
+            'affiliate_status_checked_at': '2026-09-01T00:00:00Z',
+        }
+        new = {
+            'affiliate_status': 'waiting_vendor_response',
+            'affiliate_status_checked_at': '2026-10-12T18:21:03+09:00',
+        }
+        self.assertEqual(lifecycle.preserve(old, new), (new, False))
+
     def test_outreach_cannot_be_promoted_by_stale_or_same_time_producer(self):
         old = {'id': 'veed', 'affiliate_status': 'outreach_sent', 'affiliate_url': None,
                'affiliate_status_checked_at': '2026-10-14T22:22:43+09:00',

@@ -197,13 +197,18 @@
     "official_verified_at": "2026-08-09T00:00:00Z",
     "official_evidence_url": "https://agent-works.ai/",
     "affiliate_url": null,
-    "affiliate_status": "referral_link_requested",
-    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://agent-works.ai/contact",
+    "affiliate_status": "waiting_vendor_response",
+    "affiliate_status_checked_at": "2026-10-12T18:21:03+09:00",
+    "affiliate_status_evidence_url": "https://agent-works.ai/affiliates",
     "affiliate_evidence_markers": [
-      "Message sent",
-      "Thanks for reaching out. We typically respond within 1 business day."
-    ]
+      "AgentWorks' current official affiliate page states that reviewers and creators can earn 15% of referred subscription payments for the customer's first 12 months and that the vendor will set up a referral link after contact.",
+      "The original 2026-09-01 contact-form acknowledgement is preserved in Gmail message 1a05cfae132edf38; it did not issue a customer-facing referral URL.",
+      "One follow-up was sent from support@coshuma.com to the vendor's official contact address on 2026-10-12 in Gmail message 1a12f6a63bb8d388; SENT presence was verified.",
+      "No approval, exact customer-facing tracking URL, click, signup, paid customer, commission, payout, or revenue is verified."
+    ],
+    "affiliate_source_url": "https://agent-works.ai/affiliates",
+    "application_state": "follow_up_sent_waiting_vendor_referral_setup",
+    "affiliate_next_action": "Wait for AgentWorks to reply to Gmail message 1a12f6a63bb8d388 with enrollment confirmation or the exact customer-facing referral URL. Do not send another follow-up, create a duplicate account, publish a guessed URL, or infer revenue."
   },
   {
     "id": "agorapulse",
@@ -4310,9 +4315,9 @@
     "official_verified_at": "2026-08-09T00:00:00Z",
     "official_evidence_url": "https://manychat.com/",
     "affiliate_url": null,
-    "affiliate_status": "application_available_partnerstack",
-    "affiliate_status_checked_at": "2026-09-01T00:00:00Z",
-    "affiliate_status_evidence_url": "https://manychat.com/affiliate/"
+    "affiliate_status": "browser_required_legal_program_consent",
+    "affiliate_status_checked_at": "2026-10-03T07:14:26+09:00",
+    "affiliate_status_evidence_url": "https://dash.partnerstack.com/application?company=manychat&gref=page"
   },
   {
     "id": "marblism",

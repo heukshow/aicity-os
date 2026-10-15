@@ -51,7 +51,7 @@ def timestamp(row):
 
 def preserve(old, new):
     """Return merged row and whether an unproven regression was prevented."""
-    if not old or rank(old) == 0:
+    if not old:
         return new, False
     evidence = new.get("affiliate_lifecycle_override", {})
     direct_override = (isinstance(evidence, dict) and evidence.get("source_type") in {
