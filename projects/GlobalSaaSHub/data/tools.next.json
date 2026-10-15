@@ -1238,7 +1238,7 @@
     "category": "chatbots_support",
     "category_display": "Chatbots & Support",
     "description": "Create powerful AI-powered conversational agents to automate customer service, streamline lead generation, and boost sales processes without any coding.",
-    "pricing": "See official pricing",
+    "pricing": "19",
     "key_features": [
       "Create AI chatbots",
       "Automate customer service",
@@ -1250,12 +1250,12 @@
     "primary_category": "chatbots_support",
     "comparison_group": "chatbots_support",
     "official_url": "https://chatbot.com/",
-    "pricing_source_url": null,
-    "pricing_verified_at": null,
-    "pricing_verified": false,
-    "currency": null,
-    "billing_period": null,
-    "evidence_source_type": null,
+    "pricing_source_url": "https://www.chatbot.com/pricing",
+    "pricing_verified_at": "2026-10-15T05:56:30Z",
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "annual/monthly",
+    "evidence_source_type": "official_pricing_page",
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
@@ -1272,7 +1272,15 @@
       "COSHUMA requested the exact ChatBot affiliate URL from Text Support on 2026-10-03 in Gmail 1a0fdcf2e220b96e.",
       "A single follow-up requesting the exact customer-facing ChatBot link was sent from support@coshuma.com on 2026-10-12 in Gmail message 1a12f8625bffdd95; SENT presence was confirmed and no vendor reply has been received yet."
     ],
-    "application_state": "follow_up_sent_waiting_exact_customer_link"
+    "application_state": "follow_up_sent_waiting_exact_customer_link",
+    "pricing_source_http_status": 200,
+    "pricing_source_final_url": "https://www.chatbot.com/pricing/",
+    "pricing_evidence_markers": [
+      "starts at $19 per user/month",
+      "(billed annually)",
+      "for the Essential plan",
+      "Annual billing gives you a significant discount"
+    ]
   },
   {
     "id": "claap",
