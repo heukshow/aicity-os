@@ -7332,18 +7332,26 @@
     "official_evidence_url": "https://www.veed.io/",
     "affiliate_url": null,
     "affiliate_status": "outreach_sent",
-    "affiliate_status_checked_at": "2026-10-14T22:22:43+09:00",
+    "affiliate_status_checked_at": "2026-10-15T23:16:00+09:00",
     "affiliate_status_evidence_url": "https://www.veed.io/affiliate",
     "affiliate_verified": true,
     "affiliate_verified_at": "2026-09-07T00:00:00+09:00",
     "affiliate_evidence_markers": [
       "VEED official affiliate page currently advertises recurring affiliate commission",
-      "VEED support replied on 2026-10-14 and directed COSHUMA to the official affiliate page and its Impact application path",
-      "Official application route resolves to the VEED Impact campaign page; the earlier support inquiry was not a completed program application",
-      "Impact enrollment is held fail-closed under GitHub issue #1146 until the authoritative COSHUMA account relationship is verified",
-      "Gmail message id 1a13a58fbe1851e8",
+      "VEED support confirmed in Gmail message 1a13fb71718f2e0d that the public affiliate page at https://www.veed.io/affiliate is the official enrollment path",
+      "VEED support could not provide a direct Impact invitation or confirm whether a specific email already has an associated application in Gmail message 1a13f81958bffe23",
+      "The relationship between the existing COSHUMA Impact identity and the separate personal-email application remains unverified; GitHub issue #1146 holds any new application fail-closed to prevent duplication",
+      "The full Gmail thread was verified through COSHUMA outbound message 1a13fb660e591ddc; no duplicate enrollment was submitted",
       "Exact customer-facing tracking URL not yet issued or verified"
-    ]
+    ],
+    "application_state": "official_route_confirmed_duplicate_account_relationship_unverified",
+    "affiliate_next_action": "Do not reapply while the authoritative COSHUMA Impact account relationship is unresolved. Reuse the existing application if it can be verified through a supported authenticated session; otherwise keep affiliate_url null and wait for direct vendor or Impact evidence. Publish only a vendor-issued customer-facing tracking URL.",
+    "affiliate_lifecycle_override": {
+      "source_type": "vendor_email",
+      "source_ref": "gmail:1a13fb71718f2e0d",
+      "observed_at": "2026-10-15T23:16:00+09:00",
+      "reason": "VEED support confirmed the official public enrollment route, but could not verify the email-to-application relationship or issue a customer-facing tracking URL; duplicate enrollment remains fail-closed."
+    }
   },
   {
     "id": "vidiq",
