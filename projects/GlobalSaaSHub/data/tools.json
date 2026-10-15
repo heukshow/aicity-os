@@ -2019,7 +2019,6 @@
     "category": "workflow_auto",
     "category_display": "Workflow Automation",
     "description": "Electronic-signature software for sending, signing, storing, and managing agreements, with reusable templates, audit trails, integrations, and paid team plans.",
-    "affiliate_url": null,
     "pricing": "Personal $10/month; Standard $25/user/month; Business Pro $40/user/month on the annual-billing US view",
     "key_features": [
       "Electronic signatures & agreement sending",
@@ -2042,6 +2041,7 @@
     "official_verification_status": "verified",
     "official_verified_at": "2026-09-11T04:00:00+09:00",
     "official_evidence_url": "https://www.docusign.com/products/electronic-signature",
+    "affiliate_url": null,
     "affiliate_verified": false,
     "affiliate_status": "browser_required_captcha_program_form",
     "affiliate_source_url": "https://partners.docusign.com/s/partner-program-support-form",
