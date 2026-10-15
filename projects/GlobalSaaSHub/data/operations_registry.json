@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-15T06:55:37.051Z",
+  "updated_at": "2026-10-15T17:44:00Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1409,15 +1409,15 @@
       "owner_team": "Operations Governance Team",
       "canonical_owner": "Operations Governance Team",
       "found_by": "COSHUMA Team Watchdog",
-      "fixed_by": "Operations Governance Team; Security & Cost Control Team (native scheduler evidence reconciliation)",
-      "changed_scope": "Synchronized the canonical scheduler incident record to the already-verified native recovery evidence only; no workflow, cron, code, public UI, deployment, measurement definition, affiliate state, secret, billing, paid resource, or account changed.",
+      "fixed_by": "GitHub native scheduler; Security & Cost Control Team (evidence reconciliation)",
+      "changed_scope": "Synchronized the canonical scheduler record with the bounded Cloud → Registry/Release recurrence and fresh native-schedule recoveries only; no workflow, cron, code, public UI, deployment, measurement definition, affiliate state, secret, billing, paid resource, or account changed.",
       "lifecycle": "production_verified",
       "operational_status": "recovered",
       "root_cause": "github_schedule_best_effort",
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-10-15T06:55:37.051Z",
+      "last_evidence_at": "2026-10-15T17:44:00Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "7,22,37,52 * * * *",
@@ -2285,15 +2285,61 @@
           "additional_spend_usd": 0,
           "user_action_required": false
         },
-        "production_verification_comment_id": 6182501239
+        "production_verification_comment_id": 6182501239,
+        "native_scheduler_bounded_recovery_20261016": {
+          "observed_at": "2026-10-15T17:44:00Z",
+          "current_main": "e5e46349ef678542d5d70ed312ffa5ee30de2caa",
+          "evidence_comment_id": 6198498385,
+          "verification_rule": "Only event=schedule plus conclusion=success closes each bounded incident; workflow_dispatch fallbacks remain excluded.",
+          "sequence": {
+            "COSHUMA Cloud Control Plane": {
+              "incident_issue": 1139,
+              "prior_fallback_run_id": 38742696737,
+              "prior_fallback_event": "workflow_dispatch",
+              "native_recovery_run_id": 38759506591,
+              "native_recovery_event": "schedule",
+              "native_recovery_conclusion": "success",
+              "incident_state": "closed",
+              "recovery_comment_id": 6195635876
+            },
+            "COSHUMA Registry Reconciliation": {
+              "incident_issue": 1108,
+              "prior_fallback_run_id": 38759568659,
+              "prior_fallback_event": "workflow_dispatch",
+              "native_recovery_run_id": 38776578872,
+              "native_recovery_event": "schedule",
+              "native_recovery_conclusion": "success",
+              "native_recovery_started_at": "2026-10-15T17:20:57Z",
+              "native_recovery_head_sha": "e5e46349ef678542d5d70ed312ffa5ee30de2caa",
+              "incident_state": "closed",
+              "recovery_comment_id": 6198055449
+            },
+            "COSHUMA Release Verification": {
+              "incident_issue": 1109,
+              "prior_fallback_run_id": 38759579342,
+              "prior_fallback_event": "workflow_dispatch",
+              "native_recovery_run_id": 38777004021,
+              "native_recovery_event": "schedule",
+              "native_recovery_conclusion": "success",
+              "native_recovery_started_at": "2026-10-15T17:23:59Z",
+              "native_recovery_head_sha": "e5e46349ef678542d5d70ed312ffa5ee30de2caa",
+              "incident_state": "closed",
+              "recovery_comment_id": 6198108981
+            }
+          },
+          "availability_status": "three_bounded_recurrences_closed_by_fresh_native_schedule_successes",
+          "permanent_native_recovery_claimed": false,
+          "user_action_required": false,
+          "additional_spend_usd": 0
+        }
       },
       "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
       "completion_gate_satisfied": true,
       "availability_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "GitHub Actions evidence verifies two consecutive event=schedule, conclusion=success runs for all seven monitored workflows. Manual dispatch, workflow_run, push, skipped, and cancelled runs were excluded. Incident #1154 is resolved; registry drift evidence is #292 comment 6184993775.",
-      "handoff": "Completed. Operations Governance Team resumes routine native schedule monitoring. Reopen only for a new overdue or failed native schedule window; do not count workflow_dispatch as native recovery.",
-      "completed_at": "2026-10-15T06:55:37.051Z"
+      "verification": "Direct GitHub Actions and live issue-state evidence verify fresh native schedule success for the bounded Cloud, Registry, and Release recurrences. workflow_dispatch fallbacks remain excluded. This does not claim permanent scheduler reliability or supersede a future sentinel incident.",
+      "handoff": "Bounded incidents are reconciled. Operations Governance resumes routine native-only monitoring and reopens only on a new overdue or failed native window; do not count workflow_dispatch as native recovery.",
+      "completed_at": "2026-10-15T17:44:00Z"
     },
     {
       "record_id": "EDITORIAL:EDITORIAL-BODY-008",
