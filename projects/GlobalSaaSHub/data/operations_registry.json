@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-14T16:32:29.966Z",
+  "updated_at": "2026-10-15T06:55:37.051Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1410,14 +1410,14 @@
       "canonical_owner": "Operations Governance Team",
       "found_by": "COSHUMA Team Watchdog",
       "fixed_by": "Operations Governance Team; Security & Cost Control Team (native scheduler evidence reconciliation)",
-      "changed_scope": "Reconciled the existing scheduler incident with the first real native schedule success for the Native Scheduler Sentinel and the bounded Analytics Snapshot incident's fresh native schedule recovery. No cron, workflow logic, public UI, measurement definition, affiliate state, advertising/payment configuration, credential, service, account or spend was changed.",
-      "lifecycle": "in_progress",
-      "operational_status": "mitigated",
+      "changed_scope": "Synchronized the canonical scheduler incident record to the already-verified native recovery evidence only; no workflow, cron, code, public UI, deployment, measurement definition, affiliate state, secret, billing, paid resource, or account changed.",
+      "lifecycle": "production_verified",
+      "operational_status": "recovered",
       "root_cause": "github_schedule_best_effort",
       "next_owner": "Operations Governance Team",
       "priority": "high",
-      "blocker": "native_schedule_fidelity_observation_only",
-      "last_evidence_at": "2026-10-12T19:19:32Z",
+      "blocker": null,
+      "last_evidence_at": "2026-10-15T06:55:37.051Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "7,22,37,52 * * * *",
@@ -2243,15 +2243,57 @@
           "canonical_owner": "Operations Governance Team",
           "changed_scope": "operations registry scheduler evidence only; no workflow, deployment, payment, account, secret, analytics definition, or paid resource changed.",
           "handoff": "Operations Governance Team continues the existing scheduler-stall incident and reconciles fresh schedule-event runs. Do not count workflow_dispatch as native recovery."
-        }
+        },
+        "native_scheduler_full_recovery_20261015": {
+          "observed_at": "2026-10-15T06:55:37.051Z",
+          "incident_issue": 1154,
+          "incident_resolution_comment_id": 6182501239,
+          "registry_drift_comment_id": 6184993775,
+          "verification_rule": "two consecutive event=schedule, conclusion=success runs for every monitored workflow; workflow_dispatch, workflow_run, push, skipped, and cancelled runs excluded",
+          "runs": {
+            "COSHUMA Analytics Snapshot": [
+              38646411413,
+              38665585764
+            ],
+            "Royal Queue Reconcile Status": [
+              38647190598,
+              38666313700
+            ],
+            "COSHUMA Growth Loop": [
+              38648203390,
+              38667068474
+            ],
+            "COSHUMA Registry Reconciliation": [
+              38648882620,
+              38662575608
+            ],
+            "COSHUMA Release Verification": [
+              38649455376,
+              38663028720
+            ],
+            "COSHUMA Cloud Control Plane": [
+              38649543835,
+              38663074531
+            ],
+            "COSHUMA Native Scheduler Sentinel": [
+              38648780375,
+              38662214821
+            ]
+          },
+          "availability_status": "all_seven_workflows_two_consecutive_native_schedule_successes_verified",
+          "completion_gate_satisfied": true,
+          "additional_spend_usd": 0,
+          "user_action_required": false
+        },
+        "production_verification_comment_id": 6182501239
       },
       "completion_gate": "two_consecutive_actual_scheduled_runs_within_two_expected_periods",
-      "completion_gate_satisfied": false,
+      "completion_gate_satisfied": true,
       "availability_gate_satisfied": true,
       "user_action_required": false,
-      "verification": "Native Scheduler Sentinel run 38171231135 completed successfully with event=schedule. It opened bounded Analytics issue #1113 for an overdue prior run; Analytics then completed fresh native schedule run 38171270750 successfully. Registry Reconciliation 38172754144 and Release Verification 38173004049 also completed with event=schedule. The all-workflow two-consecutive-native-success gate remains false.",
-      "handoff": "Operations Governance Team closes bounded issue #1113 against native run 38171270750 and continues the canonical incident. Require two consecutive timely event=schedule successes for every monitored workflow; do not count workflow_dispatch, workflow_run or push.",
-      "completed_at": null
+      "verification": "GitHub Actions evidence verifies two consecutive event=schedule, conclusion=success runs for all seven monitored workflows. Manual dispatch, workflow_run, push, skipped, and cancelled runs were excluded. Incident #1154 is resolved; registry drift evidence is #292 comment 6184993775.",
+      "handoff": "Completed. Operations Governance Team resumes routine native schedule monitoring. Reopen only for a new overdue or failed native schedule window; do not count workflow_dispatch as native recovery.",
+      "completed_at": "2026-10-15T06:55:37.051Z"
     },
     {
       "record_id": "EDITORIAL:EDITORIAL-BODY-008",
