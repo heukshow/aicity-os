@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>COSHUMA Document Template</title><style>@page{size:A4;margin:20mm}body{font-family:Inter,Arial,sans-serif;color:#0f172a;margin:0;background:#f1f5f9}.page{width:210mm;min-height:297mm;margin:20px auto;background:white;box-sizing:border-box;padding:18mm 20mm;box-shadow:0 12px 40px rgba(15,23,42,.12)}header{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid #e2e8f0}header img{width:240px}.meta{text-align:right;color:#64748b;font-size:12px}h1{font-size:34px;line-height:1.1;margin:44px 0 12px}h2{font-size:22px;margin-top:30px}.lead{font-size:17px;color:#475569}.accent{color:#2563eb}.rule{width:42px;height:3px;background:#2563eb;margin:20px 0}footer{margin-top:80px;padding-top:12px;border-top:1px solid #e2e8f0;font-size:11px;color:#94a3b8;display:flex;justify-content:space-between}@media print{body{background:white}.page{margin:0;box-shadow:none;width:auto;min-height:auto}}</style>  <link rel="icon" href="/brand/coshuma-favicon.svg" type="image/svg+xml" />
+  <script defer src="/brand/brand-runtime.js"></script>
+<meta name="copyright" content="© 2026 COSHUMA. All rights reserved.">
+<meta name="author" content="COSHUMA">
+<script data-coshuma-origin-guard="1">
+(function () {
+  var host = (window.location.hostname || '').toLowerCase();
+  var canonicalHosts = new Set(['coshuma.com', 'www.coshuma.com', 'heukshow.github.io']);
+  var localHost =
+    !host ||
+    host === 'localhost' ||
+    host === '127.0.0.1' ||
+    host === '[::1]' ||
+    /^10\./.test(host) ||
+    /^192\.168\./.test(host) ||
+    /^172\.(1[6-9]|2\d|3[01])\./.test(host);
+
+  var webProtocol = window.location.protocol === 'http:' || window.location.protocol === 'https:';
+  var foreignHost = webProtocol && !canonicalHosts.has(host) && !localHost;
+  var framed = window.top !== window.self;
+  if (!foreignHost && !framed) return;
+
+  var canonicalUrl = 'https://coshuma.com' + window.location.pathname + window.location.search + window.location.hash;
+
+  function showCanonicalNotice() {
+    if (!document.body) return;
+    document.title = 'COSHUMA — Canonical Site';
+
+    while (document.body.firstChild) {
+      document.body.removeChild(document.body.firstChild);
+    }
+    document.body.setAttribute(
+      'style',
+      'margin:0;background:#07080c;color:#e2e8f0;font:16px/1.6 system-ui,sans-serif;display:grid;min-height:100vh;place-items:center'
+    );
+
+    var main = document.createElement('main');
+    main.setAttribute('style', 'max-width:680px;padding:32px');
+
+    var heading = document.createElement('h1');
+    heading.setAttribute('style', 'color:white');
+    heading.textContent = 'COSHUMA';
+
+    var message = document.createElement('p');
+    message.textContent = foreignHost
+      ? 'This copy is not being served from COSHUMA\'s canonical public domain.'
+      : 'COSHUMA pages are not intended to be embedded inside another site.';
+
+    var linkRow = document.createElement('p');
+    var link = document.createElement('a');
+    link.href = canonicalUrl;
+    link.target = '_top';
+    link.rel = 'noopener';
+    link.setAttribute('style', 'color:#93c5fd');
+    link.textContent = 'Open the official COSHUMA page';
+
+    linkRow.appendChild(link);
+    main.appendChild(heading);
+    main.appendChild(message);
+    main.appendChild(linkRow);
+    document.body.appendChild(main);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', showCanonicalNotice, { once: true });
+  } else {
+    showCanonicalNotice();
+  }
+
+  if (framed && !foreignHost) {
+    try { window.top.location.replace(canonicalUrl); } catch (_) {}
+  }
+})();
+</script>
+</head><body><article class="page"><header><img src="/brand/coshuma-lockup-dark.svg" alt="COSHUMA"><div class="meta">coshuma.com<br>support@coshuma.com</div></header><h1>Document title <span class="accent">goes here.</span></h1><div class="rule"></div><p class="lead">Use this template for proposals, partner briefs, reports, internal documents and other COSHUMA business materials.</p><h2>Section heading</h2><p>Replace this text with the document content. Keep language clear, specific and evidence-based. Prefer short paragraphs, direct headings and verifiable claims.</p><h2>Brand writing principles</h2><p><strong>Useful over decorative.</strong> Give the reader what they need to decide or act. <strong>Clear over clever.</strong> Avoid vague marketing language. <strong>Evidence over assumption.</strong> Distinguish verified facts from estimates and unknowns.</p><footer><span>COSHUMA · Better Tools. A Brighter Tomorrow.</span><span>Official document template</span></footer></article></body></html>
