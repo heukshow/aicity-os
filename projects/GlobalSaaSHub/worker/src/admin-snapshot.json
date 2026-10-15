@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T16:50:39.546Z",
+  "generatedAt": "2026-10-15T06:17:43.856Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 121,
@@ -34,7 +34,7 @@
       "unclassifiedAffiliateStatus": 0,
       "exactAffiliateUrlMissing": 71,
       "officialUnverified": 0,
-      "pricingUnverified": 121
+      "pricingUnverified": 120
     },
     "records": [
       {
@@ -1787,7 +1787,7 @@
         "id": "chatbot",
         "name": "ChatBot",
         "officialVerified": true,
-        "pricingVerified": false,
+        "pricingVerified": true,
         "affiliateStatus": "waiting_vendor_response",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
