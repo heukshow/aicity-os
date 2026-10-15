@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-15T06:51:29.200Z",
+  "updated_at": "2026-10-15T06:53:27.974Z",
   "authority": {
     "canonical_state_file": "projects/GlobalSaaSHub/data/operations_registry.json",
     "evidence_channels": [
@@ -1411,13 +1411,13 @@
       "found_by": "COSHUMA Team Watchdog",
       "fixed_by": "Operations Governance Team; Security & Cost Control Team (native scheduler evidence reconciliation)",
       "changed_scope": "Synchronized the canonical scheduler incident record to the already-verified native recovery evidence only; no workflow, cron, code, public UI, deployment, measurement definition, affiliate state, secret, billing, paid resource, or account changed.",
-      "lifecycle": "completed_with_evidence",
+      "lifecycle": "production_verified",
       "operational_status": "recovered",
       "root_cause": "github_schedule_best_effort",
       "next_owner": "Operations Governance Team",
       "priority": "high",
       "blocker": null,
-      "last_evidence_at": "2026-10-15T06:51:29.200Z",
+      "last_evidence_at": "2026-10-15T06:53:27.974Z",
       "evidence": {
         "watchdog_comment_id": 5852244585,
         "expected_schedule": "7,22,37,52 * * * *",
@@ -2245,7 +2245,7 @@
           "handoff": "Operations Governance Team continues the existing scheduler-stall incident and reconciles fresh schedule-event runs. Do not count workflow_dispatch as native recovery."
         },
         "native_scheduler_full_recovery_20261015": {
-          "observed_at": "2026-10-15T06:51:29.200Z",
+          "observed_at": "2026-10-15T06:53:27.974Z",
           "incident_issue": 1154,
           "incident_resolution_comment_id": 6182501239,
           "registry_drift_comment_id": 6184993775,
@@ -2292,7 +2292,7 @@
       "user_action_required": false,
       "verification": "GitHub Actions evidence verifies two consecutive event=schedule, conclusion=success runs for all seven monitored workflows. Manual dispatch, workflow_run, push, skipped, and cancelled runs were excluded. Incident #1154 is resolved; registry drift evidence is #292 comment 6184993775.",
       "handoff": "Completed. Operations Governance Team resumes routine native schedule monitoring. Reopen only for a new overdue or failed native schedule window; do not count workflow_dispatch as native recovery.",
-      "completed_at": "2026-10-15T06:51:29.200Z"
+      "completed_at": "2026-10-15T06:53:27.974Z"
     },
     {
       "record_id": "EDITORIAL:EDITORIAL-BODY-008",
