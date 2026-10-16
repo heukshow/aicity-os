@@ -1987,7 +1987,7 @@
     "category_display": "Autonomous AI Agents",
     "description": "Deploy custom AI agents trained on your unique business knowledge for superior automated support and enhanced team productivity.",
     "affiliate_url": "https://docsbot.ai?via=31kq9q",
-    "pricing": "See official pricing",
+    "pricing": "149",
     "key_features": [
       "Custom AI agent creation",
       "Train on business knowledge",
@@ -1999,19 +1999,27 @@
     "primary_category": "ai_agents",
     "comparison_group": "ai_agents",
     "official_url": "https://docsbot.ai/",
-    "pricing_source_url": null,
-    "pricing_verified_at": null,
-    "pricing_verified": false,
-    "currency": null,
-    "billing_period": null,
-    "evidence_source_type": null,
+    "pricing_source_url": "https://docsbot.ai/pricing",
+    "pricing_verified_at": "2026-10-16T05:55:11Z",
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": "official_pricing_page",
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
     "official_evidence_url": "https://docsbot.ai/affiliates",
     "affiliate_verified": true,
     "affiliate_status": "approved_tracking",
-    "affiliate_verified_at": "2026-09-01T00:00:00+09:00"
+    "affiliate_verified_at": "2026-09-01T00:00:00+09:00",
+    "pricing_source_http_status": 200,
+    "pricing_source_final_url": "https://docsbot.ai/pricing",
+    "pricing_evidence_markers": [
+      "$149",
+      "/month",
+      "$ USD",
+      "Monthly"
+    ]
   },
   {
     "id": "docusign",

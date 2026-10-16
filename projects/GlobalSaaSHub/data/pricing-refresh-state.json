@@ -116,36 +116,37 @@
       "status": "evidence_validation_failed"
     },
     "colossyan": {
-      "checked_at": "2026-10-04T07:00:21Z",
+      "checked_at": "2026-10-16T05:55:11Z",
       "status": "error_HTTPError"
     },
     "copy-ai": {
-      "checked_at": "2026-10-04T07:00:21Z",
+      "checked_at": "2026-10-16T05:55:11Z",
       "status": "evidence_validation_failed"
     },
     "customgpt-ai": {
-      "checked_at": "2026-10-04T07:00:21Z",
+      "checked_at": "2026-10-16T05:55:11Z",
       "status": "evidence_validation_failed"
     },
     "databox": {
-      "checked_at": "2026-10-04T07:00:21Z",
+      "checked_at": "2026-10-16T05:55:11Z",
       "status": "no_official_pricing_result"
     },
     "decktopus": {
-      "checked_at": "2026-10-04T07:00:21Z",
+      "checked_at": "2026-10-16T05:55:11Z",
       "status": "evidence_validation_failed"
     },
     "docsbot": {
-      "checked_at": "2026-10-04T07:00:21Z",
-      "status": "evidence_validation_failed"
+      "checked_at": "2026-10-16T05:55:11Z",
+      "status": "verified",
+      "pricing_source_url": "https://docsbot.ai/pricing"
     },
     "dorik": {
-      "checked_at": "2026-10-04T07:00:21Z",
+      "checked_at": "2026-10-16T05:55:11Z",
       "status": "evidence_validation_failed"
     },
     "dub": {
-      "checked_at": "2026-10-04T07:00:21Z",
-      "status": "evidence_validation_failed"
+      "checked_at": "2026-10-16T05:55:11Z",
+      "status": "extract_ok"
     },
     "elevenlabs": {
       "checked_at": "2026-10-05T07:09:53Z",
@@ -153,11 +154,11 @@
       "pricing_source_url": "https://elevenlabs.io/docs/reception-ai/billing/plans-and-pricing"
     },
     "eprofessor": {
-      "checked_at": "2026-10-05T07:09:53Z",
-      "status": "evidence_validation_failed"
+      "checked_at": "2026-10-16T05:55:11Z",
+      "status": "extract_ok"
     },
     "expandi": {
-      "checked_at": "2026-10-05T07:09:53Z",
+      "checked_at": "2026-10-16T05:55:11Z",
       "status": "evidence_validation_failed"
     },
     "featureshark": {
@@ -537,9 +538,9 @@
       "status": "no_official_pricing_result"
     }
   },
-  "last_run_at": "2026-10-15T05:56:30Z",
+  "last_run_at": "2026-10-16T05:55:11Z",
   "last_batch_size": 10,
   "last_updated_tools": [
-    "chatbot"
+    "docsbot"
   ]
 }
