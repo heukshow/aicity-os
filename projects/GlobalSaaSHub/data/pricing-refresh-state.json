@@ -162,16 +162,16 @@
       "status": "evidence_validation_failed"
     },
     "featureshark": {
-      "checked_at": "2026-10-05T07:09:53Z",
-      "status": "no_official_pricing_result"
+      "checked_at": "2026-10-17T05:39:24Z",
+      "status": "extract_ok"
     },
     "fireflies-ai": {
-      "checked_at": "2026-10-05T07:09:53Z",
+      "checked_at": "2026-10-17T05:39:24Z",
       "status": "evidence_validation_failed"
     },
     "fliki": {
-      "checked_at": "2026-10-05T07:09:53Z",
-      "status": "no_official_pricing_result"
+      "checked_at": "2026-10-17T05:39:24Z",
+      "status": "evidence_validation_failed"
     },
     "flowgent-ai": {
       "checked_at": "2026-10-05T07:09:53Z",
@@ -179,19 +179,20 @@
       "pricing_source_url": "https://flowgent.ai/pricing"
     },
     "followr": {
-      "checked_at": "2026-10-05T07:09:53Z",
+      "checked_at": "2026-10-17T05:39:24Z",
       "status": "no_official_pricing_result"
     },
     "framer": {
-      "checked_at": "2026-10-05T07:09:53Z",
-      "status": "extract_ok"
+      "checked_at": "2026-10-17T05:39:24Z",
+      "status": "verified",
+      "pricing_source_url": "https://www.framer.com/pricing"
     },
     "frase": {
-      "checked_at": "2026-10-05T07:09:53Z",
+      "checked_at": "2026-10-17T05:39:24Z",
       "status": "evidence_validation_failed"
     },
     "gallabox": {
-      "checked_at": "2026-10-06T07:37:35Z",
+      "checked_at": "2026-10-17T05:39:24Z",
       "status": "evidence_validation_failed"
     },
     "getgabs": {
@@ -200,8 +201,8 @@
       "pricing_source_url": "https://getgabs.com/pricing"
     },
     "getgenie": {
-      "checked_at": "2026-10-06T07:37:35Z",
-      "status": "extract_network_error"
+      "checked_at": "2026-10-17T05:39:24Z",
+      "status": "evidence_validation_failed"
     },
     "getresponse": {
       "checked_at": "2026-10-06T07:37:35Z",
@@ -209,7 +210,7 @@
       "pricing_source_url": "https://www.getresponse.com/pricing"
     },
     "gobii": {
-      "checked_at": "2026-10-06T07:37:35Z",
+      "checked_at": "2026-10-17T05:39:24Z",
       "status": "no_official_pricing_result"
     },
     "gohighlevel": {
@@ -218,8 +219,8 @@
       "pricing_source_url": "https://www.gohighlevel.com/pricing-plan"
     },
     "gojiberry": {
-      "checked_at": "2026-10-06T07:37:35Z",
-      "status": "no_official_pricing_result"
+      "checked_at": "2026-10-17T05:39:24Z",
+      "status": "extract_ok"
     },
     "google-workspace": {
       "checked_at": "2026-10-06T07:37:35Z",
@@ -538,9 +539,9 @@
       "status": "no_official_pricing_result"
     }
   },
-  "last_run_at": "2026-10-16T05:55:11Z",
+  "last_run_at": "2026-10-17T05:39:24Z",
   "last_batch_size": 10,
   "last_updated_tools": [
-    "docsbot"
+    "framer"
   ]
 }
