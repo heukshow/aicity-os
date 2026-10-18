@@ -6,9 +6,7 @@ on:
     - cron: "29 * * * *"
   workflow_run:
     workflows:
-      - "COSHUMA Analytics Snapshot"
       - "COSHUMA Site Build & Deploy"
-      - "COSHUMA Cloud Control Plane"
     types: [completed]
 
 permissions:

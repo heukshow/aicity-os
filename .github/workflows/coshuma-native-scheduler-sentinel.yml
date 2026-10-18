@@ -4,15 +4,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '14,44 * * * *'
-  workflow_run:
-    workflows:
-      - COSHUMA Cloud Control Plane
-      - COSHUMA Analytics Snapshot
-      - COSHUMA Registry Reconciliation
-      - COSHUMA Growth Loop
-      - COSHUMA Release Verification
-      - Royal Queue Reconcile Status
-    types: [completed]
 
 permissions:
   actions: write
