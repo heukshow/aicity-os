@@ -8,12 +8,12 @@ const REPO = 'heukshow/aicity-os';
 const LABEL = 'coshuma-scheduler-sentinel';
 const PREFIX = '[COSHUMA Scheduler Sentinel] ';
 const WATCHED = Object.freeze([
-  { file: 'coshuma-cloud-control-plane.yml', name: 'COSHUMA Cloud Control Plane', maxAgeMinutes: 95 },
-  { file: 'coshuma-analytics-snapshot.yml', name: 'COSHUMA Analytics Snapshot', maxAgeMinutes: 180 },
-  { file: 'coshuma-registry-reconciliation.yml', name: 'COSHUMA Registry Reconciliation', maxAgeMinutes: 180 },
-  { file: 'coshuma-growth-loop.yml', name: 'COSHUMA Growth Loop', maxAgeMinutes: 180 },
-  { file: 'coshuma-release-verification.yml', name: 'COSHUMA Release Verification', maxAgeMinutes: 180 },
-  { file: 'royal-queue-reconcile.yml', name: 'Royal Queue Reconcile Status', maxAgeMinutes: 180 },
+  { file: 'coshuma-cloud-control-plane.yml', name: 'COSHUMA Cloud Control Plane', maxAgeMinutes: 45 },
+  { file: 'coshuma-analytics-snapshot.yml', name: 'COSHUMA Analytics Snapshot', maxAgeMinutes: 135 },
+  { file: 'coshuma-registry-reconciliation.yml', name: 'COSHUMA Registry Reconciliation', maxAgeMinutes: 135 },
+  { file: 'coshuma-growth-loop.yml', name: 'COSHUMA Growth Loop', maxAgeMinutes: 135 },
+  { file: 'coshuma-release-verification.yml', name: 'COSHUMA Release Verification', maxAgeMinutes: 135 },
+  { file: 'royal-queue-reconcile.yml', name: 'Royal Queue Reconcile Status', maxAgeMinutes: 135 },
 ]);
 
 function assessNativeSchedule(run, nowMs, maxAgeMinutes) {

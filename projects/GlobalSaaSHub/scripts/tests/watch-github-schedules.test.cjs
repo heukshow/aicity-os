@@ -14,7 +14,7 @@ test('explicit approved dispatch allowlist has unique workflow files', () => {
   assert.equal(new Set(WATCHED.map(item => item.file)).size, 6);
   for (const target of WATCHED) {
     assert.match(target.file, /^[a-z0-9-]+\.yml$/);
-    assert.ok(target.maxAgeMinutes >= 90);
+    assert.equal(target.maxAgeMinutes, target.file === 'coshuma-cloud-control-plane.yml' ? 45 : 135);
   }
 });
 
@@ -140,4 +140,13 @@ test('a native completion closes the incident using the actual native run', asyn
     assert.deepEqual(writes[1].body, { state: 'closed' });
     assert.equal(writes.some(item => item.path.endsWith('/dispatches')), false);
   });
+});
+
+
+test('two-cycle contract catches stale native schedules at strict boundary', () => {
+  for (const target of WATCHED) {
+    const guard = target.maxAgeMinutes;
+    assert.equal(assessNativeSchedule(run(guard), NOW, guard).healthy, true);
+    assert.equal(assessNativeSchedule(run(guard + 1), NOW, guard).reason, 'native_schedule_overdue');
+  }
 });
