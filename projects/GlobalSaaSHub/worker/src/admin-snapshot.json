@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T06:17:43.856Z",
+  "generatedAt": "2026-10-18T15:55:25.123Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 121,
@@ -34,7 +34,7 @@
       "unclassifiedAffiliateStatus": 0,
       "exactAffiliateUrlMissing": 71,
       "officialUnverified": 0,
-      "pricingUnverified": 120
+      "pricingUnverified": 118
     },
     "records": [
       {
@@ -419,7 +419,7 @@
         "id": "docsbot",
         "name": "DocsBot",
         "officialVerified": true,
-        "pricingVerified": false,
+        "pricingVerified": true,
         "affiliateStatus": "approved_tracking",
         "affiliateVerified": true,
         "hasAffiliateUrl": true,
@@ -2075,7 +2075,7 @@
         "id": "framer",
         "name": "Framer",
         "officialVerified": true,
-        "pricingVerified": false,
+        "pricingVerified": true,
         "affiliateStatus": "outreach_sent",
         "affiliateVerified": false,
         "hasAffiliateUrl": false,
