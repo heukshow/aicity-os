@@ -223,43 +223,43 @@
       "status": "extract_ok"
     },
     "google-workspace": {
-      "checked_at": "2026-10-06T07:37:35Z",
+      "checked_at": "2026-10-18T06:00:38Z",
       "status": "evidence_validation_failed"
     },
     "gravity-forms": {
-      "checked_at": "2026-10-06T07:37:35Z",
+      "checked_at": "2026-10-18T06:00:38Z",
       "status": "no_official_pricing_result"
     },
     "gumloop": {
-      "checked_at": "2026-10-06T07:37:35Z",
-      "status": "evidence_validation_failed"
+      "checked_at": "2026-10-18T06:00:38Z",
+      "status": "extract_retry_exhausted"
     },
     "happyscribe": {
-      "checked_at": "2026-10-06T07:37:35Z",
+      "checked_at": "2026-10-18T06:00:38Z",
       "status": "evidence_validation_failed"
     },
     "helpdesk": {
-      "checked_at": "2026-10-07T07:18:21Z",
+      "checked_at": "2026-10-18T06:00:38Z",
       "status": "evidence_validation_failed"
     },
     "heygen": {
-      "checked_at": "2026-10-07T07:18:21Z",
+      "checked_at": "2026-10-18T06:00:38Z",
       "status": "evidence_validation_failed"
     },
     "hide-me": {
-      "checked_at": "2026-10-07T07:18:21Z",
-      "status": "error_HTTPError"
+      "checked_at": "2026-10-18T06:00:38Z",
+      "status": "evidence_validation_failed"
     },
     "hubspot": {
-      "checked_at": "2026-10-07T07:18:21Z",
+      "checked_at": "2026-10-18T06:00:38Z",
       "status": "no_official_pricing_result"
     },
     "inkfluence-ai": {
-      "checked_at": "2026-10-07T07:18:21Z",
+      "checked_at": "2026-10-18T06:00:38Z",
       "status": "evidence_validation_failed"
     },
     "jasper": {
-      "checked_at": "2026-10-07T07:18:21Z",
+      "checked_at": "2026-10-18T06:00:38Z",
       "status": "evidence_validation_failed"
     },
     "jobhire": {
@@ -539,9 +539,7 @@
       "status": "no_official_pricing_result"
     }
   },
-  "last_run_at": "2026-10-17T05:39:24Z",
+  "last_run_at": "2026-10-18T06:00:38Z",
   "last_batch_size": 10,
-  "last_updated_tools": [
-    "framer"
-  ]
+  "last_updated_tools": []
 }
