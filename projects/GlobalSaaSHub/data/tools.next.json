@@ -4139,7 +4139,7 @@
     "category": "email_outreach",
     "category_display": "Email & Outreach",
     "description": "LoopCV leverages AI to automate the laborious job application process, finding matching roles across multiple boards and applying on the user's behalf. It significantly streamlines the job search, saving users valuable time and effort.",
-    "pricing": "See official pricing",
+    "pricing": "19.99",
     "key_features": [
       "AI-powered job application automation",
       "Finds matching roles across 30+ job boards",
@@ -4151,12 +4151,12 @@
     "primary_category": "email_outreach",
     "comparison_group": "email_outreach",
     "official_url": "https://loopcv.pro/",
-    "pricing_source_url": null,
-    "pricing_verified_at": null,
-    "pricing_verified": false,
-    "currency": null,
-    "billing_period": null,
-    "evidence_source_type": null,
+    "pricing_source_url": "https://www.loopcv.pro/jobcopilot-alternative",
+    "pricing_verified_at": "2026-10-19T06:17:40Z",
+    "pricing_verified": true,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "evidence_source_type": "official_pricing_page",
     "is_manual_override": false,
     "official_verification_status": "verified",
     "official_verified_at": "2026-08-04T03:23:28.664870+00:00",
@@ -4171,6 +4171,13 @@
       "active affiliate dashboard",
       "25% commission on all payments",
       "PayPal payout email confirmed"
+    ],
+    "pricing_source_http_status": 200,
+    "pricing_source_final_url": "https://www.loopcv.pro/jobcopilot-alternative/",
+    "pricing_evidence_markers": [
+      "Standard is $19.99 a month",
+      "Premium is $59.99",
+      "Done For You is $89.99"
     ]
   },
   {
