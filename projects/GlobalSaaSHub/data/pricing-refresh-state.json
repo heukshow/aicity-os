@@ -389,7 +389,7 @@
       "status": "no_official_pricing_result"
     },
     "reclaim-ai": {
-      "checked_at": "2026-10-10T07:14:44Z",
+      "checked_at": "2026-10-22T06:09:32Z",
       "status": "no_official_pricing_result"
     },
     "reply-io": {
@@ -403,40 +403,40 @@
       "pricing_source_url": "https://rytr.me/pricing"
     },
     "sanebox": {
-      "checked_at": "2026-10-11T07:17:07Z",
+      "checked_at": "2026-10-22T06:09:32Z",
       "status": "no_official_pricing_result"
     },
     "scalenut": {
-      "checked_at": "2026-10-11T07:17:07Z",
-      "status": "no_official_pricing_result"
+      "checked_at": "2026-10-22T06:09:32Z",
+      "status": "evidence_validation_failed"
     },
     "seamless": {
-      "checked_at": "2026-10-11T07:17:07Z",
-      "status": "extract_ok"
+      "checked_at": "2026-10-22T06:09:32Z",
+      "status": "no_official_pricing_result"
     },
     "semrush": {
-      "checked_at": "2026-10-11T07:17:07Z",
+      "checked_at": "2026-10-22T06:09:32Z",
       "status": "evidence_validation_failed"
     },
     "sendcloud": {
-      "checked_at": "2026-10-11T07:17:07Z",
+      "checked_at": "2026-10-22T06:09:32Z",
       "status": "error_HTTPError"
     },
     "shopify": {
-      "checked_at": "2026-10-11T07:17:07Z",
+      "checked_at": "2026-10-22T06:09:32Z",
       "status": "evidence_validation_failed"
     },
     "snov-io": {
-      "checked_at": "2026-10-11T07:17:07Z",
+      "checked_at": "2026-10-22T06:09:32Z",
       "status": "evidence_validation_failed"
     },
     "speechify": {
-      "checked_at": "2026-10-11T07:17:07Z",
+      "checked_at": "2026-10-22T06:09:32Z",
       "status": "error_HTTPError"
     },
     "sudowrite": {
-      "checked_at": "2026-10-11T07:17:07Z",
-      "status": "evidence_validation_failed"
+      "checked_at": "2026-10-22T06:09:32Z",
+      "status": "no_official_pricing_result"
     },
     "supademo": {
       "checked_at": "2026-10-11T07:17:07Z",
@@ -540,7 +540,7 @@
       "status": "no_official_pricing_result"
     }
   },
-  "last_run_at": "2026-10-21T06:06:10Z",
+  "last_run_at": "2026-10-22T06:09:32Z",
   "last_batch_size": 10,
   "last_updated_tools": []
 }
