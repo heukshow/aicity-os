@@ -278,7 +278,8 @@ jobs:
         run: |
           set -e
           git fetch origin main
-          if ! git diff --quiet "$COSHUMA_SOURCE_SHA" origin/main -- projects/GlobalSaaSHub .github/workflows/coshuma-site-deploy.yml ':!projects/GlobalSaaSHub/data/operations_registry.json' ':!projects/GlobalSaaSHub/data/revenue-leakage-audit.json' ':!projects/GlobalSaaSHub/data/revenue-reconciliation-queue.json'; then
+          # Ignore only bookkeeping cursor changes; customer-facing data/CI changes still block a stale release.
+          if ! git diff --quiet "$COSHUMA_SOURCE_SHA" origin/main -- projects/GlobalSaaSHub .github/workflows/coshuma-site-deploy.yml ':!projects/GlobalSaaSHub/data/operations_registry.json' ':!projects/GlobalSaaSHub/data/revenue-leakage-audit.json' ':!projects/GlobalSaaSHub/data/revenue-reconciliation-queue.json' ':!projects/GlobalSaaSHub/data/pricing-refresh-state.json'; then
             echo 'Main changed during build; refuse stale state persistence and publication.'
             exit 1
           fi
@@ -315,7 +316,8 @@ jobs:
         id: freshness
         run: |
           git fetch origin main
-          if git diff --quiet HEAD origin/main -- projects/GlobalSaaSHub .github/workflows/coshuma-site-deploy.yml ':!projects/GlobalSaaSHub/data/operations_registry.json' ':!projects/GlobalSaaSHub/data/revenue-leakage-audit.json' ':!projects/GlobalSaaSHub/data/revenue-reconciliation-queue.json'; then
+          # Rotation-only pricing cursor updates do not invalidate a guarded public build.
+          if git diff --quiet HEAD origin/main -- projects/GlobalSaaSHub .github/workflows/coshuma-site-deploy.yml ':!projects/GlobalSaaSHub/data/operations_registry.json' ':!projects/GlobalSaaSHub/data/revenue-leakage-audit.json' ':!projects/GlobalSaaSHub/data/revenue-reconciliation-queue.json' ':!projects/GlobalSaaSHub/data/pricing-refresh-state.json'; then
             echo 'current=true' >> "$GITHUB_OUTPUT"
           else
             echo 'current=false' >> "$GITHUB_OUTPUT"
