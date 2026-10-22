@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T15:55:25.123Z",
+  "generatedAt": "2026-10-22T23:06:55.138Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 121,
@@ -34,7 +34,7 @@
       "unclassifiedAffiliateStatus": 0,
       "exactAffiliateUrlMissing": 71,
       "officialUnverified": 0,
-      "pricingUnverified": 118
+      "pricingUnverified": 117
     },
     "records": [
       {
@@ -833,7 +833,7 @@
         "id": "loopcv",
         "name": "LoopCV",
         "officialVerified": true,
-        "pricingVerified": false,
+        "pricingVerified": true,
         "affiliateStatus": "approved_tracking",
         "affiliateVerified": true,
         "hasAffiliateUrl": true,
