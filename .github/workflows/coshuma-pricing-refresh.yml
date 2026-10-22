@@ -88,7 +88,16 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add "${files[@]}"
-          git commit -m 'data: refresh verified COSHUMA pricing evidence [skip ci]'
+          # Publish newly verified customer-facing pricing only when the dataset
+          # itself changed. Rotation-only housekeeping keeps [skip ci].
+          if git diff --cached --quiet -- \
+            projects/GlobalSaaSHub/data/tools.json \
+            projects/GlobalSaaSHub/data/tools.next.json; then
+            message='data: rotate verified COSHUMA pricing backlog [skip ci]'
+          else
+            message='data: refresh verified COSHUMA pricing evidence'
+          fi
+          git commit -m "$message"
           for attempt in 1 2 3; do
             git fetch origin main
             git rebase --autostash origin/main
