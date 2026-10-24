@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-22T23:06:55.138Z",
+  "generatedAt": "2026-10-24T17:01:33.189Z",
   "counts": {
     "totalTools": 179,
     "verifiedAffiliates": 121,
-    "revenueReadyAffiliates": 81,
-    "genericRevenueReadyAffiliates": 77,
+    "revenueReadyAffiliates": 82,
+    "genericRevenueReadyAffiliates": 78,
     "targetedRevenueReadyAffiliates": 4,
-    "openMonetizationGaps": 71,
+    "openMonetizationGaps": 70,
     "directActionableGaps": 0,
     "browserRequiredGaps": 24,
-    "watchOnlyGaps": 47,
+    "watchOnlyGaps": 46,
     "doNotReapply": 179,
     "toolPages": 180,
     "comparePages": 280,
@@ -22,17 +22,17 @@
   },
   "affiliateCoverage": {
     "counts": {
-      "revenueReady": 81,
-      "genericRevenueReady": 77,
+      "revenueReady": 82,
+      "genericRevenueReady": 78,
       "targetedRevenueReady": 4,
       "terminal": 28,
-      "openMonetizationGaps": 71,
+      "openMonetizationGaps": 70,
       "directActionableGaps": 0,
       "browserRequiredGaps": 24,
-      "watchOnlyGaps": 47,
+      "watchOnlyGaps": 46,
       "doNotReapply": 179,
       "unclassifiedAffiliateStatus": 0,
-      "exactAffiliateUrlMissing": 71,
+      "exactAffiliateUrlMissing": 70,
       "officialUnverified": 0,
       "pricingUnverified": 117
     },
@@ -1066,6 +1066,24 @@
       {
         "id": "pipedrive",
         "name": "Pipedrive",
+        "officialVerified": true,
+        "pricingVerified": false,
+        "affiliateStatus": "approved_tracking",
+        "affiliateVerified": true,
+        "hasAffiliateUrl": true,
+        "genericRevenueReady": true,
+        "targetedRevenueReady": true,
+        "revenueReady": true,
+        "terminal": false,
+        "doNotReapply": true,
+        "browserRequired": false,
+        "directActionableGap": false,
+        "watchOnlyGap": false,
+        "blocker": null
+      },
+      {
+        "id": "questmate",
+        "name": "Questmate",
         "officialVerified": true,
         "pricingVerified": false,
         "affiliateStatus": "approved_tracking",
@@ -2756,24 +2774,6 @@
         "blocker": "affiliate_status_outreach_sent"
       },
       {
-        "id": "questmate",
-        "name": "Questmate",
-        "officialVerified": true,
-        "pricingVerified": false,
-        "affiliateStatus": "outreach_sent",
-        "affiliateVerified": true,
-        "hasAffiliateUrl": false,
-        "genericRevenueReady": false,
-        "targetedRevenueReady": false,
-        "revenueReady": false,
-        "terminal": false,
-        "doNotReapply": true,
-        "browserRequired": false,
-        "directActionableGap": false,
-        "watchOnlyGap": true,
-        "blocker": "affiliate_status_outreach_sent"
-      },
-      {
         "id": "quillbot",
         "name": "QuillBot",
         "officialVerified": true,
@@ -3740,6 +3740,14 @@
       "verifiedAt": "2026-10-02T07:58:36+09:00"
     },
     {
+      "id": "questmate",
+      "name": "Questmate",
+      "status": "approved_tracking",
+      "verified": true,
+      "url": "https://www.questmate.com?via=sangkwon",
+      "verifiedAt": "2026-10-23T12:32:04+11:00"
+    },
+    {
       "id": "relevance-ai",
       "name": "Relevance AI",
       "status": "approved_tracking",
@@ -4134,14 +4142,6 @@
     {
       "id": "privy",
       "name": "Privy",
-      "status": "outreach_sent",
-      "verified": true,
-      "url": null,
-      "verifiedAt": "2026-09-08T03:27:00+09:00"
-    },
-    {
-      "id": "questmate",
-      "name": "Questmate",
       "status": "outreach_sent",
       "verified": true,
       "url": null,
