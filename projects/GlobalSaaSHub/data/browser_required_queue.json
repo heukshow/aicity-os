@@ -1600,20 +1600,5 @@
       "Do not use a Rewardful dashboard or login URL as a customer CTA.",
       "Do not infer clicks, signups, paid conversions, commission, payout or revenue from approval or link issuance."
     ]
-  },
-  {
-    "id": "questmate-vendor-approved-referral-20261023",
-    "priority": "high",
-    "status": "approved_tracking",
-    "cost": "0",
-    "verified_at": "2026-10-23T12:32:04+11:00",
-    "reason": "Questmate Partner Team confirmed active COSHUMA account and exact referral link in Gmail 1a1666331611ec8b; no new application or payment required.",
-    "next_action": "Deploy vendor-issued URL with disclosure and verify live CTA. Paid conversion, commission, payout and receipt remain unverified.",
-    "affiliate_status": "approved_tracking",
-    "exact_tracking_url": "https://www.questmate.com?via=sangkwon",
-    "execution_evidence": "Gmail 1a1666331611ec8b",
-    "blocker": null,
-    "resolved_at": "2026-10-23T12:32:04+11:00",
-    "resolution_evidence": "Partner Team reply confirmed link and active account in Gmail 1a1666331611ec8b"
   }
 ]
