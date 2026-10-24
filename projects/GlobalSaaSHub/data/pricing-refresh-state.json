@@ -7,8 +7,9 @@
     },
     "activecampaign": {
       "checked_at": "2026-10-23T06:05:01Z",
-      "status": "verified",
-      "pricing_source_url": "https://www.activecampaign.com/compare/hubspot"
+      "status": "invalidated_wrong_product_evidence",
+      "pricing_source_url": "https://www.activecampaign.com/compare/hubspot",
+      "note": "ActiveCampaign compare/hubspot shows competitor HubSpot plan"
     },
     "activepieces": {
       "checked_at": "2026-10-02T20:30:38Z",
@@ -20,8 +21,9 @@
     },
     "ai-agent-store": {
       "checked_at": "2026-10-23T06:05:01Z",
-      "status": "verified",
-      "pricing_source_url": "https://aiagentstore.ai/ai-agent/wren-ai"
+      "status": "invalidated_wrong_product_evidence",
+      "pricing_source_url": "https://aiagentstore.ai/ai-agent/wren-ai",
+      "note": "AI Agent Store /ai-agent/wren-ai is one product listing, not marketplace pricing"
     },
     "ai-video-cut": {
       "checked_at": "2026-10-23T06:05:01Z",

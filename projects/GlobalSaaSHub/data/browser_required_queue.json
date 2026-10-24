@@ -1579,5 +1579,41 @@
     "resolved_at": "2026-09-09T12:45:09Z",
     "resolution_evidence": "Gmail message 1a08633651c79db9 from Claap affiliate manager Lamia Karmaly supplied both exact URLs; the first is the authoritative default CTA pending destination-label mapping for the second.",
     "blocker": null
+  },
+  {
+    "id": "questmate-approved-tracking-2026-10-23",
+    "tool_id": "questmate",
+    "program_name": "Questmate Affiliate Program",
+    "priority": "resolved",
+    "status": "resolved",
+    "affiliate_status": "approved_tracking",
+    "application_state": "enrolled_tracking_link_verified",
+    "cost": 0,
+    "verified_at": "2026-10-23T12:32:04+11:00",
+    "gmail_message_id": "1a1666331611ec8b",
+    "exact_tracking_url": "https://www.questmate.com?via=sangkwon",
+    "reason": "Questmate Partner Team confirmed COSHUMA's active account and exact customer-facing referral URL.",
+    "next_action": "Preserve the issued URL and disclosed rel=sponsored customer CTA. Do not reapply. Measure actual downstream events separately.",
+    "do_not_reapply": true,
+    "user_action_required": false,
+    "constraints": [
+      "Do not use a Rewardful dashboard or login URL as a customer CTA.",
+      "Do not infer clicks, signups, paid conversions, commission, payout or revenue from approval or link issuance."
+    ]
+  },
+  {
+    "id": "questmate-vendor-approved-referral-20261023",
+    "priority": "high",
+    "status": "approved_tracking",
+    "cost": "0",
+    "verified_at": "2026-10-23T12:32:04+11:00",
+    "reason": "Questmate Partner Team confirmed active COSHUMA account and exact referral link in Gmail 1a1666331611ec8b; no new application or payment required.",
+    "next_action": "Deploy vendor-issued URL with disclosure and verify live CTA. Paid conversion, commission, payout and receipt remain unverified.",
+    "affiliate_status": "approved_tracking",
+    "exact_tracking_url": "https://www.questmate.com?via=sangkwon",
+    "execution_evidence": "Gmail 1a1666331611ec8b",
+    "blocker": null,
+    "resolved_at": "2026-10-23T12:32:04+11:00",
+    "resolution_evidence": "Partner Team reply confirmed link and active account in Gmail 1a1666331611ec8b"
   }
 ]
