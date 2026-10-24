@@ -5,10 +5,11 @@ const MEASUREMENT_ID_PATTERN = /^G-[A-Z0-9]{8,14}$/
 export function configureGA4() {
   if (isQaTraffic()) return false
   if (!['coshuma.com', 'www.coshuma.com'].includes(window.location.hostname)) return false
-  // A GA4 measurement ID is a public site identifier, not a credential.
-  // Keep the measurement ID deployment-controlled so local/dev builds never
-  // fall back to a different analytics property and contaminate attribution.
-  const measurementId = import.meta.env.VITE_GA4_MEASUREMENT_ID
+  // Match the public ID already used by /affiliate-attribution.js.
+  // The hostname and QA guards above prevent local or test traffic from loading it.
+  // A missing build-time variable must not silently disable analytics in production.
+  const knownProductionId = 'G-J7E0J89VCV'
+  const measurementId = import.meta.env.VITE_GA4_MEASUREMENT_ID || knownProductionId
   if (!MEASUREMENT_ID_PATTERN.test(measurementId || '')) return false
 
   window.dataLayer = window.dataLayer || []
