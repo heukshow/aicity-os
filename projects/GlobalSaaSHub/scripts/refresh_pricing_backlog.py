@@ -52,6 +52,18 @@ def billing_present(period, markers):
     }
     return re.search(rules[period], joined, re.I) is not None
 
+def source_is_for_target_product(tool, url):
+    """Reject known cross-product source pages even when the hostname matches."""
+    path = urllib.parse.urlsplit(url).path.lower().rstrip("/")
+    tool_id = str(tool.get("id") or "").lower()
+    # ActiveCampaign /compare/hubspot quotes HubSpot, not ActiveCampaign.
+    if tool_id == "activecampaign" and path.startswith("/compare/"):
+        return False
+    # AI Agent Store /ai-agent/<name> quotes one listed vendor's plan.
+    if tool_id == "ai-agent-store" and path.startswith("/ai-agent/"):
+        return False
+    return True
+
 def validate_proposal(tool, proposal, source_urls, raw_html, final_url, checked_at):
     if not isinstance(proposal, dict):
         return None
@@ -60,7 +72,10 @@ def validate_proposal(tool, proposal, source_urls, raw_html, final_url, checked_
     currency = proposal.get("currency")
     billing = proposal.get("billing_period")
     markers = proposal.get("pricing_evidence_markers")
-    if source not in source_urls or not same_domain(source, tool["official_url"]) or not same_domain(final_url, tool["official_url"]):
+    if (source not in source_urls or not same_domain(source, tool["official_url"])
+            or not same_domain(final_url, tool["official_url"])
+            or not source_is_for_target_product(tool, source)
+            or not source_is_for_target_product(tool, final_url)):
         return None
     if (
         not isinstance(pricing, str)
