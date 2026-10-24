@@ -1127,6 +1127,18 @@
       "next_action": "Wait for Colossyan to reply to Gmail message 1a12d6fc6dcddca9 with an invitation or supported route for the existing COSHUMA Impact identity. Do not create another Impact account, repeat the application loop, resend the inquiry, or infer a customer tracking URL.",
       "note": "2026-10-12 existing Impact sign-in and Google SSO both returned to the Colossyan already-signed-up/sign-in loop; the direct Impact dashboard also returned to sign-in. One routing inquiry was sent to marketing@colossyan.com in Gmail message 1a12d6fc6dcddca9 and no supplier reply was present at the latest mailbox check. No Colossyan application, approval, customer-facing tracking URL, click, signup, customer, commission, payout, or revenue is verified.",
       "user_action_required": false
+    },
+    "questmate": {
+      "status": "approved_tracking",
+      "tracking_url": "https://www.questmate.com?via=sangkwon",
+      "application_state": "enrolled_tracking_link_verified",
+      "account": "support@coshuma.com",
+      "official_program_url": "https://www.questmate.com/",
+      "checked_at": "2026-10-23T12:32:04+11:00",
+      "gmail_message_id": "1a1666331611ec8b",
+      "do_not_reapply": true,
+      "note": "Questmate Partner Team confirmed the active COSHUMA account and exact customer-facing referral URL. Link issuance does not verify clicks, signups, paid conversion, commission, payout or cash receipt.",
+      "user_action_required": false
     }
   }
 }
