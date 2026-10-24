@@ -91,14 +91,13 @@ const states = {
     ],
   },
   questmate: {
-    affiliate_url: null,
+    affiliate_url: 'https://www.questmate.com?via=sangkwon',
     affiliate_verified: true,
-    affiliate_status: 'outreach_sent',
-    affiliate_verified_at: observedAt,
+    affiliate_status: 'approved_tracking',
+    affiliate_verified_at: '2026-10-23T12:32:04+11:00',
     affiliate_evidence_markers: [
-      'COSHUMA sent a Questmate partner and affiliate enrollment request from support@coshuma.com',
-      'Gmail message 1a07d155181b14b5 records the outreach',
-      'Do not duplicate outreach while awaiting a response or exact referral link',
+      'Questmate Partner Team confirmed the account and exact referral link in Gmail 1a1666331611ec8b',
+      'Issuance is not evidence of signups, paid conversions, commission, payout, or revenue',
     ],
   },
   reactin: {
