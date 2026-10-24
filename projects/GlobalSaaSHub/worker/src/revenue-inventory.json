@@ -1323,6 +1323,18 @@
       "evidence": []
     },
     {
+      "id": "questmate",
+      "name": "Questmate",
+      "network": "개별 제휴 포털",
+      "portal_url": null,
+      "inventory_source": "data/tools.json",
+      "status": "approved_tracking",
+      "exact_tracking_url": "https://www.questmate.com?via=sangkwon",
+      "verified_at": "2026-10-23T12:32:04+11:00",
+      "account_id": "questmate",
+      "evidence": []
+    },
+    {
       "id": "relevance-ai",
       "name": "Relevance AI",
       "network": "개별 제휴 포털",
