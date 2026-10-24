@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>COSHUMA Email Signature</title><style>body{font-family:Arial,sans-serif;background:#f8fafc;color:#0f172a;padding:32px}.box{max-width:680px;background:white;border:1px solid #e2e8f0;border-radius:18px;padding:28px}.tip{font-size:13px;color:#64748b;margin-bottom:24px}.sig{font-size:14px;line-height:1.45;color:#334155}.sig img{display:block;width:340px;height:auto;max-width:100%;margin-bottom:12px}.name{font-weight:700;color:#0f172a;font-size:15px}.muted{color:#64748b}.links a{color:#2563eb;text-decoration:none}</style>  <link rel="icon" href="/brand/coshuma-favicon.svg" type="image/svg+xml" />
+  <script defer src="/brand/brand-runtime.js"></script>
+<meta name="copyright" content="© 2026 COSHUMA. All rights reserved.">
+<meta name="author" content="COSHUMA">
+<script data-coshuma-origin-guard="1">
+(function () {
+  var host = (window.location.hostname || '').toLowerCase();
+  var canonicalHosts = new Set(['coshuma.com', 'www.coshuma.com', 'heukshow.github.io']);
+  var localHost =
+    !host ||
+    host === 'localhost' ||
+    host === '127.0.0.1' ||
+    host === '[::1]' ||
+    /^10\./.test(host) ||
+    /^192\.168\./.test(host) ||
+    /^172\.(1[6-9]|2\d|3[01])\./.test(host);
+
+  var webProtocol = window.location.protocol === 'http:' || window.location.protocol === 'https:';
+  var foreignHost = webProtocol && !canonicalHosts.has(host) && !localHost;
+  var framed = window.top !== window.self;
+  if (!foreignHost && !framed) return;
+
+  var canonicalUrl = 'https://coshuma.com' + window.location.pathname + window.location.search + window.location.hash;
+
+  function showCanonicalNotice() {
+    if (!document.body) return;
+    document.title = 'COSHUMA — Canonical Site';
+
+    while (document.body.firstChild) {
+      document.body.removeChild(document.body.firstChild);
+    }
+    document.body.setAttribute(
+      'style',
+      'margin:0;background:#07080c;color:#e2e8f0;font:16px/1.6 system-ui,sans-serif;display:grid;min-height:100vh;place-items:center'
+    );
+
+    var main = document.createElement('main');
+    main.setAttribute('style', 'max-width:680px;padding:32px');
+
+    var heading = document.createElement('h1');
+    heading.setAttribute('style', 'color:white');
+    heading.textContent = 'COSHUMA';
+
+    var message = document.createElement('p');
+    message.textContent = foreignHost
+      ? 'This copy is not being served from COSHUMA\'s canonical public domain.'
+      : 'COSHUMA pages are not intended to be embedded inside another site.';
+
+    var linkRow = document.createElement('p');
+    var link = document.createElement('a');
+    link.href = canonicalUrl;
+    link.target = '_top';
+    link.rel = 'noopener';
+    link.setAttribute('style', 'color:#93c5fd');
+    link.textContent = 'Open the official COSHUMA page';
+
+    linkRow.appendChild(link);
+    main.appendChild(heading);
+    main.appendChild(message);
+    main.appendChild(linkRow);
+    document.body.appendChild(main);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', showCanonicalNotice, { once: true });
+  } else {
+    showCanonicalNotice();
+  }
+
+  if (framed && !foreignHost) {
+    try { window.top.location.replace(canonicalUrl); } catch (_) {}
+  }
+})();
+</script>
+</head><body><div class="box"><p class="tip">Copy the signature block below into your email client's signature editor. For Gmail, copy the signature block below or insert the recommended PNG using its hosted image URL. The dark wordmark has a solid white background for clear contrast. Keep the image proportions when resizing.</p><div class="sig"><img src="https://coshuma.com/brand/coshuma-email-signature@2x.png" alt="COSHUMA" width="340" height="75" style="display:block;width:340px;max-width:100%;height:auto;border:0"><div class="name">COSHUMA</div><div class="muted">AI & SaaS discovery and buyer guides</div><div class="links"><a href="https://coshuma.com">coshuma.com</a> · <a href="mailto:support@coshuma.com">support@coshuma.com</a></div><div class="muted" style="margin-top:7px">Better Tools. A Brighter Tomorrow.</div></div></div></body></html>

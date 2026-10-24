@@ -1,0 +1,64 @@
+/* Reader-first house ads: compact, in normal flow, no clipped copy or hidden identity. */
+body .coshuma-promotion.coshuma-promotion,body .house-slot.house-slot{position:static;box-sizing:border-box;width:100%;margin:20px 0;padding:16px;border-width:1px;border-radius:12px;overflow:visible;height:auto;max-height:none}
+body .coshuma-promotion.coshuma-promotion{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;row-gap:10px}
+body .coshuma-promotion.coshuma-promotion[hidden]{display:none!important}
+body .coshuma-promotion .coshuma-promotion__label{grid-column:2;grid-row:1;align-self:center;max-width:150px;margin:0;font-size:10px;line-height:1.4;letter-spacing:.035em}
+body .coshuma-promotion .house-ad-identity{grid-column:1;grid-row:1;margin:0;min-width:0}
+body .coshuma-promotion .house-ad-identity img[data-advertiser-logo],body .house-slot .house-ad-identity img[data-advertiser-logo]{width:158px;height:auto;min-height:0;max-width:100%;aspect-ratio:520/96;object-fit:contain;object-position:left center}
+body .coshuma-promotion .coshuma-promotion__layout{grid-column:1/-1;display:grid;grid-template-columns:128px minmax(0,1fr);gap:16px;align-items:center}
+body .coshuma-promotion--landscape .coshuma-promotion__layout{grid-template-columns:200px minmax(0,1fr)}
+body .coshuma-promotion--wide .coshuma-promotion__layout{grid-template-columns:240px minmax(0,1fr)}
+body .coshuma-promotion .coshuma-promotion__image{width:100%;height:auto;object-fit:contain;object-position:center;margin:0;border-radius:7px}
+body .coshuma-promotion .coshuma-promotion__copy h2,body .house-slot .house-slot__copy h2{font-size:18px;line-height:1.35;font-weight:700;margin:0 0 7px;min-height:0;max-height:none;overflow:visible;overflow-wrap:anywhere}
+body .coshuma-promotion .coshuma-promotion__copy p,body .house-slot .house-slot__copy p,body .house-slot[data-house-mode="rotating"] .house-slot__copy p{font-size:14px;line-height:1.5;margin:0 0 10px;min-height:0;max-height:none;overflow:visible;overflow-wrap:anywhere}
+body .coshuma-promotion .coshuma-promotion__button,body .house-slot .house-slot__button{font-size:13px;line-height:1.4;min-height:44px;padding:10px 14px;white-space:normal;overflow-wrap:anywhere;max-width:100%}
+body .coshuma-promotion .coshuma-promotion__advertiser{grid-column:1/-1;margin:0;padding:0;border-top:1px solid #514335;gap:0;justify-content:flex-end;font-size:12px}
+body .coshuma-promotion .coshuma-promotion__advertiser a,body .house-slot .house-slot__interest a{min-height:44px;line-height:1.4;font-size:12px}
+body .house-slot .house-slot__top{margin-bottom:8px;font-size:10px;line-height:1.4;gap:8px}
+body .house-slot .house-slot__type{font-size:10px;padding:2px 5px}
+body .house-slot .house-slot__slides{position:relative}
+body .house-slot .house-slot__slide,body .house-slot[data-house-mode="rotating"] .house-slot__slide{display:grid;grid-template-columns:240px minmax(0,1fr);gap:10px 16px;align-items:center}
+body .house-slot .house-ad-identity{grid-column:1/-1;margin:0}
+body .house-slot .house-slot__slide img[data-house-image]{width:100%;height:auto;object-fit:contain;aspect-ratio:3/1;border-radius:7px}
+body .house-slot .house-slot__controls{margin:10px 0 0;gap:8px;flex-wrap:wrap}
+body .house-slot .house-slot__controls button{min-height:44px;min-width:44px;padding:8px 10px;font-size:12px}
+body .house-slot .house-slot__interest{margin:4px 0 0;padding:0;gap:8px;border-top:1px solid #514335;font-size:11px;line-height:1.4}
+/* Advertising and publisher labels remain distinct; supplemental selling copy is not repeated. */
+@media(max-width:640px){
+body .coshuma-promotion.coshuma-promotion,body .house-slot.house-slot{padding:12px;margin:18px 0;row-gap:8px}
+body .coshuma-promotion .house-ad-identity img[data-advertiser-logo],body .house-slot .house-ad-identity img[data-advertiser-logo]{width:144px;min-height:0;height:auto}
+body .coshuma-promotion .coshuma-promotion__label{max-width:128px;font-size:9px}
+body .coshuma-promotion .coshuma-promotion__layout,body .coshuma-promotion--landscape .coshuma-promotion__layout,body .coshuma-promotion--wide .coshuma-promotion__layout{grid-template-columns:96px minmax(0,1fr);grid-template-areas:"image title" "description description" "button button";gap:8px 12px;align-items:center}
+body .coshuma-promotion .coshuma-promotion__copy,body .house-slot .house-slot__copy{display:contents}
+body .coshuma-promotion .coshuma-promotion__image,body .house-slot .house-slot__slide img[data-house-image]{grid-area:image;width:96px;max-width:100%;height:auto;object-fit:contain}
+body .coshuma-promotion .coshuma-promotion__copy h2,body .house-slot .house-slot__copy h2{grid-area:title;font-size:17px;line-height:1.35;margin:0;min-height:0}
+body .coshuma-promotion .coshuma-promotion__copy p,body .house-slot .house-slot__copy p,body .house-slot[data-house-mode="rotating"] .house-slot__copy p{grid-area:description;min-height:0;margin:0;font-size:14px;line-height:1.5}
+body .coshuma-promotion .coshuma-promotion__button,body .house-slot .house-slot__button{grid-area:button;justify-self:start}
+body .house-slot .house-slot__slide,body .house-slot[data-house-mode="rotating"] .house-slot__slide{grid-template-columns:96px minmax(0,1fr);grid-template-areas:"identity identity" "image title" "description description" "button button";gap:8px 12px}
+body .house-slot .house-ad-identity{grid-area:identity}
+body .house-slot .house-slot__controls{gap:6px;margin-top:8px}.house-slot .house-slot__controls button{padding:8px;font-size:11px}
+body .house-slot .house-slot__interest{gap:0 6px}.house-slot .house-slot__interest span{font-size:10px}
+}
+/* Match the compact in-article hierarchy in ad-only previews; preview copy is not clipped. */
+body .ad-context-preview .ad-context-creative{padding:16px;border-width:1px;max-width:880px;margin:10px 0 12px}
+body .ad-context-preview .ad-context-label{font-size:10px;margin-bottom:8px}
+body .ad-context-preview .ad-context-creative .house-ad-identity{margin:0 0 8px}
+body .ad-context-preview .ad-context-creative img[data-advertiser-logo]{width:158px;height:auto;max-width:100%}
+body .ad-context-preview .ad-context-layout{grid-template-columns:200px minmax(0,1fr);gap:16px}
+body .ad-context-preview .ad-context-image{width:100%;height:auto;max-height:160px;object-fit:contain}
+body .ad-context-preview .ad-context-layout h3{font-size:18px;line-height:1.35;margin:0 0 7px}
+body .ad-context-preview .ad-context-layout p{font-size:14px;line-height:1.5;margin:0 0 10px}
+body .ad-context-preview .ad-context-cta{min-height:44px;display:inline-flex;align-items:center;font-size:13px}
+body .ad-context-preview .ad-context-controls{gap:8px;margin:8px 0}.ad-context-preview .ad-context-controls button{font-size:12px;padding:8px 10px}
+@media(max-width:640px){
+body .ad-context-preview .ad-context-creative{padding:12px}.ad-context-preview .ad-context-creative img[data-advertiser-logo]{width:144px}
+body .ad-context-preview .ad-context-layout{grid-template-columns:96px minmax(0,1fr);grid-template-areas:"image title" "description description" "button button";gap:8px 12px}
+body .ad-context-preview .ad-context-layout>div{display:contents}.ad-context-preview .ad-context-image{grid-area:image;width:96px;height:auto;max-height:none}
+body .ad-context-preview .ad-context-layout h3{grid-area:title;font-size:17px;margin:0}.ad-context-preview .ad-context-layout p{grid-area:description;margin:0}
+body .ad-context-preview .ad-context-cta{grid-area:button;justify-self:start}
+}
+/* On ad-bearing tool pages, optional save/vendor actions sit after the article, never over it. */
+body [data-coshuma-decision-dock="1"][data-reader-inline="true"]{position:static;inset:auto;z-index:auto;width:100%;max-width:100%;margin:24px 0 0;transform:none;opacity:1;pointer-events:auto;box-shadow:none;backdrop-filter:none;transition:none}
+body [data-coshuma-decision-dock="1"][data-reader-inline="true"][data-visible="false"]{display:none}
+body[data-coshuma-reader-inline="true"][data-coshuma-conversion-dock-visible="true"]{padding-bottom:0}
+@media(max-width:360px){body .coshuma-promotion .coshuma-promotion__label{max-width:106px;font-size:9px;letter-spacing:0}}
