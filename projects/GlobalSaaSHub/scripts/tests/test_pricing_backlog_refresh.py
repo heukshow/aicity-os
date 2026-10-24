@@ -53,7 +53,20 @@ def test_cooldown_blocks_recent_and_allows_old_or_missing_attempts():
     assert m.cooldown_elapsed({"checked_at":"2026-10-01T23:00:00Z"},now,24) is True
     assert m.cooldown_elapsed({},now,24) is True
 
+
+def test_rejects_competitor_pricing_with_matching_vendor_hostname():
+    t = {"id":"activecampaign","official_url":"https://activecampaign.com/","pricing_verified":False}
+    q = proposal(); q["pricing_source_url"] = "https://www.activecampaign.com/compare/hubspot"
+    raw = "<html><body>Starter $19 / month Billed monthly</body></html>"
+    assert m.validate_proposal(t,q,{q["pricing_source_url"]},raw,q["pricing_source_url"],"2026-10-25T00:00:00Z") is None
+
+def test_rejects_marketplace_listing_as_marketplace_price():
+    t = {"id":"ai-agent-store","official_url":"https://aiagentstore.ai/","pricing_verified":False}
+    q = proposal(); q["pricing_source_url"] = "https://aiagentstore.ai/ai-agent/wren-ai"
+    raw = "<html><body>Starter $19 / month Billed monthly</body></html>"
+    assert m.validate_proposal(t,q,{q["pricing_source_url"]},raw,q["pricing_source_url"],"2026-10-25T00:00:00Z") is None
+
 if __name__=="__main__":
-    for fn in [test_accepts_exact_official_evidence,test_rejects_missing_marker,test_rejects_cross_domain_source,test_rejects_price_not_backed_by_markers,test_rejects_public_html_and_attribute_injection,test_cooldown_blocks_recent_and_allows_old_or_missing_attempts]:
+    for fn in [test_accepts_exact_official_evidence,test_rejects_missing_marker,test_rejects_cross_domain_source,test_rejects_price_not_backed_by_markers,test_rejects_public_html_and_attribute_injection,test_cooldown_blocks_recent_and_allows_old_or_missing_attempts,test_rejects_competitor_pricing_with_matching_vendor_hostname,test_rejects_marketplace_listing_as_marketplace_price]:
         fn()
     print("PASS pricing backlog verifier tests")
