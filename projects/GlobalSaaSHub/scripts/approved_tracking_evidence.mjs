@@ -165,6 +165,21 @@ approvedTracking.set('tidio', {
   evidence_file: 'data/tidio-approved-tracking-2026-09-30.md',
 });
 
+// Questmate Partner Team confirmed the active account and its exact Rewardful referral link.
+ // Vendor confirmation is not evidence of any click, customer conversion, commission or payout.
+approvedTracking.set('questmate', {
+  id: 'questmate',
+  status: 'approved_tracking',
+  exact_tracking_url: 'https://www.questmate.com?via=sangkwon',
+  destination: 'https://www.questmate.com?via=sangkwon',
+  allowed_cta_urls: ['https://www.questmate.com?via=sangkwon'],
+  company_mailbox: 'support@coshuma.com',
+  vendor_reply_message_id: '1a1666331611ec8b',
+  evidence: 'Questmate Partner Team reply to the existing COSHUMA thread confirms the partner account and affiliate link are active and supplies the exact customer-facing referral URL https://www.questmate.com?via=sangkwon. This is issued-link evidence only; paid conversion, commission and payout remain unverified.',
+  checked_at: '2026-10-23T12:32:04+11:00',
+  evidence_file: 'Gmail 1a1666331611ec8b',
+});
+
 export function applyApprovedTracking(tool) {
   const item = approvedTracking.get(tool.id);
   if (!item) return false;
